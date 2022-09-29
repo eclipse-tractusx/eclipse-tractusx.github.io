@@ -65,9 +65,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'introduction',
             position: 'left',
-            label: 'Products',
+            label: 'Documentation',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'kits',
+            label: 'KITs',
           },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
@@ -81,15 +87,6 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Products',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
             title: 'Community',
             items: [
               {
@@ -97,7 +94,7 @@ const config = {
                 href: "https://projects.eclipse.org/projects/automotive.tractusx",
               },
               {
-                label: "GitHub",
+                label: "GitHub Organization",
                 href: "https://github.com/eclipse-tractusx",
               },
               {
