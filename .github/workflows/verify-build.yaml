@@ -18,7 +18,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #*******************************************************************************/
 
-name: Build and deploy gh-pages
+name: Verify website build
 
 on:
   pull_request:
