@@ -17,32 +17,9 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #*******************************************************************************/
-
-name: Verify website build
-
-on:
-  pull_request:
-    branches:
-      - main
-
-# This job will try to build the website to find potential issues
-# before actually merging and deploying the page.
-# There are cases, where for example broken links will break the build, but
-# checking it on the local development server (npm start) will work smoothely.
-jobs:
-  build:
-    name: Build static website
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build website
-        run: npm run build
+"default": true
+# Do not restrict line length: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD013
+"MD013": false
+# Allow same content on headlines on siblings: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD024
+"MD024":
+  "siblings_only": true
