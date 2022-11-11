@@ -21,7 +21,7 @@ There are two different version properties for a Helm chart:
 
 It is located in the `Chart.yaml` under the `version` property.
 It requires __semantic versioning__ format.
-The __Chart version have to be incresed__ every time one of the following file is changed:
+The __Chart version has to be increased__ every time one of the following file is changed:
 
 - `Chart.yaml`
 - `values.yaml`
@@ -32,4 +32,4 @@ The __Chart version have to be incresed__ every time one of the following file i
 The default app version value is located in the `Chart.yaml` file under the __appVersion__ property. Any format can be
 used, but the appVersion and the image tag of your docker images should be aligned. This means, the appVersion should be
 used in the templates as the __default image tag__ for the deployment/pod. Every time the appVersion property is
-upgraded the __chart version__ number have to be increased as well.
+upgraded the __chart version__ number has to be increased as well.

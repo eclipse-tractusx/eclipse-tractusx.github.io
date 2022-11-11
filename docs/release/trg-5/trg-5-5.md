@@ -20,7 +20,7 @@ image:
   repository: bitnami/postgresql
   tag: 14.5.0-debian-11-r19
   digest: ""
-  ## Specify a imagePullPolicy
+  ## Specify an imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
   ##
