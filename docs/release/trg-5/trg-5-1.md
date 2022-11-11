@@ -15,11 +15,11 @@ chart **has to meet** all of these criteria!
 - Appropriate versioning for `version` and `appVersion` has to be used in `Chart.yaml`.
 - The released Helm chart **must not contain any environment specific** `values-xyz.yaml` files.
 - Helm chart `values.yaml` file **must contain proper default values/placeholders**.
-    - No hostname provided for ingress
-    - Ingress is disabled
-    - No references to any secret engine service (e.g.: Hashicorp Vault)
-    - Dependencies should be prefixed with the `nameOverride` and/or `fullnameOverride` properties
-    - Image tag is set to the **Chart.yaml** `appVersion` property
+  - No hostname provided for ingress
+  - Ingress is disabled
+  - No references to any secret engine service (e.g.: Hashicorp Vault)
+  - Dependencies should be prefixed with the `nameOverride` and/or `fullnameOverride` properties
+  - Image tag is set to the **Chart.yaml** `appVersion` property
 - Helm chart **must be deployable to any environment without overwriting default values** with a simple `helm install`
   command.
 - If there is an **Ingress** resource present, it can be turned off, and it is disabled by default.

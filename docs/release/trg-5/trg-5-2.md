@@ -25,7 +25,7 @@ similar structure for every Helm chart enables easy implementation of testing an
 
 Helm charts **must** be located for standardization reasons inside the `/charts` directory of the Git repository.
 
-```
+```text
 charts/
   chartNameA/
     Chart.yaml
@@ -56,7 +56,7 @@ ready_](https://github.com/catenax-ng/foss-example#how-to-make-your-catenax-prod
 
 For Tractus-X Helm charts we expect the following charts structure as a minimal set (except of optional parts):
 
-```
+```text
 chartName/
   Chart.yaml           # mandatory
   LICENCE              # mandatory
@@ -144,7 +144,7 @@ file with all possibilities of templating.
 
 The `.helmignore` file should contain as a minimal set the following entries:
 
-```
+```gitignore
 # Accept only values.yaml
 values*.yaml
 values*.yml
