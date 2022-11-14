@@ -8,7 +8,8 @@ title: TRG 4.01 - Image tagging
 
 ## Description
 
-After building a new container image, the image must be tagged at least with `:SemVer` and `:latest`.
+After building a new container image, the image must be tagged at least with [SemVer](https://semver.org/) and `:latest`
+.
 
 ## Why
 
