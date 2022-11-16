@@ -24,3 +24,4 @@ Specific rules are configured via [.markdownlint.yaml](./.markdownlint.yaml).
 Additionally, there is a npm script `lint-doc`, that will lint all the markdown files inside [docs](./docs).
 This script is also run as a pre-commit hook, set up via [husky](https://www.npmjs.com/package/husky).
 You can also run the linting step manually by running `npm run lint-doc`.
+test
