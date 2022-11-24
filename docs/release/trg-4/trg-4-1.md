@@ -44,7 +44,7 @@ steps:
    :::caution
 
    Git CLI will create tag on the latest (local) commit. Ensure to be up-to-date with the remote after,
-   otherwize [use commit ID](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_tagging_later) while creating the
+   otherwise [use commit ID](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_tagging_later) while creating the
    tag.
 
    :::
