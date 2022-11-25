@@ -10,7 +10,7 @@ import HowSubmitCard from "../components/HowSubmitCard";
 import StayTunedCard from "../components/StayTunedCard";
 import SurveyCard from "../components/SurveyCard";
 
-import styles from "./styles.module.css";
+import styles from "./index.module.css";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
