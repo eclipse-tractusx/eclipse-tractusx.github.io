@@ -2,10 +2,11 @@
 title: TRG 2.03 - Repo structure
 ---
 
-| Author                | Status | Created     | Post-History                         |
-|-----------------------|--------|-------------|--------------------------------------|
-| Catena-X System Team  |        | 10-Nov-2022 | Initial release                      |
-| Catena-X System Team  | Active | 24-Nov-2022 | add FOSS/Eclipse related basic files |
+| Author                | Status | Created     | Post-History                               |
+|-----------------------|--------|-------------|--------------------------------------------|
+| Catena-X System Team  |        | 10-Nov-2022 | Initial release                            |
+| Catena-X System Team  |        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
+| Catena-X System Team  | Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
 
 ## Description
 
@@ -25,7 +26,7 @@ AUTHORS.txt
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 DEPENDENCIES
-LICENSE.txt
+LICENSE
 NOTICE.md
 README.md
 INSTALL.md
@@ -69,17 +70,27 @@ this [example](assets/CONTRIBUTING.txt).
 #### DEPENDENCIES
 
 Add a `DEPENDENCIES` file at root level to your GitHub repository. The file contains a list of all 3rd party libraries
-used with your code. Create the content for this file using the Eclipse Dash
+used with your code.
+
+:::info
+
+Create the content for this file using the Eclipse Dash
 Tool: [Example](https://github.com/eclipse-tractusx/sldt-semantic-hub/blob/main/DEPENDENCIES), created
 with [Eclipse Dash Tool](https://github.com/eclipse/dash-licenses#readme).
 
+This content needs frequent updates to reflect your code changes.
+
+:::
+
 #### LICENSE
 
-Add a `LICENSE` file at root level to your GitHub repository with content of [Apache-2.0 license](assets/LICENSE.txt).
+Add a `LICENSE` file at root level to your GitHub repository with content
+of [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 #### NOTICE.md
 
-Add a `NOTICE.md` file at root level to your GitHub repository with content of this [example](assets/NOTICE.txt).
+Add a `NOTICE.md` file at root level to your GitHub repository with content of this [example](assets/NOTICE.txt). Add
+your repositories to the section _Source Code_.
 
 #### README.md
 
