@@ -1,0 +1,73 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.news_ticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.container {
+  border-top: 2px solid #707277;
+  border-bottom: 2px solid #707277;
+  width: 70vw;
+  height: 3rem;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  padding: 0.3rem 1.4rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
+}
+
+.date {
+  color: #dcdee4;
+  margin: 0 1rem;
+}
+
+.introduction {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 996px) {
+  .container {
+    height: 2rem;
+    padding: 0.5rem 0;
+  }
+
+  .button {
+    padding: 0.3rem 0.8rem;
+    font-size: x-small;
+    font-size: 1vw;
+  }
+
+  .date {
+    font-size: smaller;
+  }
+
+  .introduction {
+    padding: 0 1rem;
+    font-size: smaller;
+  }
+}

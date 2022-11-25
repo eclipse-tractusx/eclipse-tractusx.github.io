@@ -1,0 +1,101 @@
+.survey_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  background-color: #0a0909;
+}
+
+.container {
+  width: 60vw;
+  height: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.img_container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 70%;
+}
+
+.information_container {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title,
+.subtitle {
+  font-family: "Manrope", sans-serif;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2vw;
+  line-height: 138%;
+  margin: 0;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 1vw;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.button {
+  padding: 0.6rem 2rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .title {
+    font-size: 4vw;
+  }
+
+  .subtitle {
+    font-size: 2vw;
+  }
+  .container {
+    width: 40vw;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .information_container {
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 25vw;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.3vw;
+  }
+}

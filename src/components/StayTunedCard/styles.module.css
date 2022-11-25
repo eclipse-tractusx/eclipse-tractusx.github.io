@@ -1,0 +1,102 @@
+.stay_tuned {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 5rem 8rem;
+}
+
+.left {
+  background-color: #111111;
+}
+
+.right {
+  background-color: #161616;
+}
+
+input {
+  width: 60%;
+  padding: 1rem 0;
+  margin: 0.5rem 0 1.5rem;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  color: #fff;
+  background-color: transparent;
+  font-size: 0.9vw;
+}
+
+.img_container {
+  padding-bottom: 1rem;
+}
+
+.title,
+.subtitle {
+  font-family: "Manrope", sans-serif;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 3vw;
+  font-style: bold;
+  line-height: 146%;
+}
+
+.subtitle {
+  font-size: 1vw;
+}
+
+.button {
+  padding: 0.6rem 2rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1vw;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .card {
+    min-height: 48vw;
+  }
+
+  .title {
+    font-size: 4vw;
+  }
+
+  .subtitle {
+    font-size: 2vw;
+  }
+
+  input {
+    font-size: 2vw;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8vw;
+  }
+}
