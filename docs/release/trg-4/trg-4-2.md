@@ -23,7 +23,7 @@ It has to be clearly understandable, which image is used, and where the original
 The section headline should be either _"Container image"_ or _"Docker image"_.
 An example section could look like the following, but contents may vary depending on your chosen base image:
 
-```
+```markdown
 # Container image
 
 This application provides container images for demonstration purposes.
@@ -42,11 +42,11 @@ Source:
 
 The following sections define mandatory base images for Tractus-X products.
 If your application is written in one of these languages, you __must__ use the specified
-base image. The images are chosen, because they provide well documented 
-dependency annotations and follow general best-practices. 
+base image. The images are chosen, because they provide well documented
+dependency annotations and follow general best-practices.
 
 ### JVM based languages (Java, Kotlin, ...)
 
 For JVM based Tracuts-X products, you must use [Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin) as container base image.
-For more information on Temurin, check out the [temurin build](https://github.com/adoptium/temurin-build) repository and 
+For more information on Temurin, check out the [temurin build](https://github.com/adoptium/temurin-build) repository and
 the official [docker image package-info](https://github.com/docker-library/repo-info/tree/master/repos/eclipse-temurin)
