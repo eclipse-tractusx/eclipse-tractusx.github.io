@@ -18,17 +18,19 @@ GitHub Chart Releaser Action.
 
 ### Process description
 
-If you follow our recommendation to use GitHub Chart Releaser Action to provide a released Helm Chart for your Tractus-X
+If you follow this recommendation to use GitHub Chart Releaser Action to provide a released Helm Chart for your
+Tractus-X
 sub-product, the process will provide the following for you:
 
 1. A GiHub Release is created with
-    - Release name _Chartname-Semver_ (e.g. _productABC-0.1.1_)
-    - A Git tag _Chartname-Semver_
+    - a GitHub release, named _Chartname-Semver_ (e.g. _productABC-0.1.1_)
+    - a Git tag _Chartname-Semver_
+    - a release asset, containing the Helm chart files
 2. A local Helm repository is created (file `index.yaml` in branch _gh-pages_)
 
 :::caution
 
-Only if your follow this TRG to publish your Helm Chart, your released Helm chart will be automatically added to
+Only if you follow this TRG to release a Helm Chart, the released Helm chart will be automatically added to
 the [central Tractus-X Helm repository](https://eclipse-tractusx.github.io/charts/).
 
 :::
@@ -37,15 +39,15 @@ the [central Tractus-X Helm repository](https://eclipse-tractusx.github.io/chart
 
 To get the GitHub Chart Releaser Action working, the following prerequisites must be met:
 
-- GitHub Pages must be enabled for the GitHub repository
+- A branch named `gh-pages` in your repository (requires GH Pages to be enabled)
 - Helm charts must be located in folder `/charts`
-- An appropriate GitHub Actions Workflow (see next section)
+- A GitHub Actions Workflow (see section [Implementaion](#implementation))
 
 :::info
 
 In Eclipse-Tractusx GitHub organization GitHub Pages are not enabled by default. To enable GH Pages, you have to open a
 support request in the [Eclipse Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues). GH Pages setup
-should point to branch _gh-pages_.
+shall point to branch _gh-pages_.
 
 ![GH Pages Setup](assets/trg-6-1_gh_pages_setup.png)
 :::
@@ -112,7 +114,7 @@ Each time a changed Helm Chart is pushed (e.g. merge a PR) to _main_ branch, the
 
 :::
 
-If you increase the `appVersion` you have to increase also the `version` in `Chart.yaml`, otherwise the workflow will
+If the `appVersion` is increased, also the `version` in `Chart.yaml` must be increased, otherwise the workflow will
 fail:
 
 ![Chart Releaser Action - Tag error](assets/trg-6-1_chart_release_action_tag-error.png)
