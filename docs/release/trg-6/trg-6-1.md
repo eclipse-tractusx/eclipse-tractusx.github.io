@@ -102,3 +102,20 @@ jobs:
 ```
 
 Each time a changed Helm Chart is pushed (e.g. merge a PR) to _main_ branch, the workflow will be triggered.
+
+### Don'ts
+
+:::caution
+
+- Changing the `appVersion` requires also changing the `version` in `Chart.yaml`
+- Chart `version` itself can be increased without changing the `appVersion`
+
+:::
+
+If you increase the `appVersion` you have to increase also the `version` in `Chart.yaml`, otherwise the workflow will
+fail:
+
+![Chart Releaser Action - Tag error](assets/trg-6-1_chart_release_action_tag-error.png)
+
+The Helm chart name and version is used for creating the Git Tag. As the Helm chart version did not increase, the
+workflow tries to create a Git tag which already exists.
