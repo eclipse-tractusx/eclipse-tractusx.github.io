@@ -8,11 +8,11 @@ title: TRG 5.06 - Application Configuration
 
 ## Description
 
-Every configuration aspect of your application has to be configurable for your Helm Chart.
+Every configuration aspect of your application has to be configurable through your Helm chart.
 
 ## Why
 
-The application will be deployed in different environments and application operation must be able to adjust the
+The application will be deployed in different environments and application operators must be able to adjust the
 deployment to environmental needs.
 
 Examples for configurable items:
@@ -22,7 +22,7 @@ Examples for configurable items:
 - Signing keys
 - Database connection strings
 - Secrets (with empty values!)
-- Persistent Storage Claims
+- Persistent storage configuration
 - Environment variables (e.g. for application configuration)
 - ...
 
