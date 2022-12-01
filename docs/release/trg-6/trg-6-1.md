@@ -4,7 +4,7 @@ title: TRG 6.01 - Released Helm Chart
 
 | Author                | Status | Created     | Post-History    |
 |-----------------------|--------|-------------|-----------------|
-| Catena-X System Team  | Active | 30-Nov-2022 | Initial release |
+| Catena-X System Team  | Active | 01-Dec-2022 | Initial release |
 
 ## Description
 
@@ -14,13 +14,12 @@ A released Helm chart for each Tractus-X sub-product is expected to be available
 
 Tractus-X components can only be used and bundled with other components of Tractus-X if there is a version of the
 component with reliable content. This can only be achieved by creating a release of your Helm chart. We recommend to use
-GitHub Chart Releaser Action.
+[GitHub Chart Releaser Action](https://github.com/marketplace/actions/helm-chart-releaser).
 
 ### Process description
 
 If you follow this recommendation to use GitHub Chart Releaser Action to provide a released Helm Chart for your
-Tractus-X
-sub-product, the process will provide the following for you:
+Tractus-X sub-product, the process will provide the following for you:
 
 1. A GiHub Release is created with
     - a GitHub release, named _Chartname-Semver_ (e.g. _productABC-0.1.1_)
@@ -28,7 +27,7 @@ sub-product, the process will provide the following for you:
     - a release asset, containing the Helm chart files
 2. A local Helm repository is created (file `index.yaml` in branch _gh-pages_)
 
-:::caution
+:::info
 
 Only if you follow this TRG to release a Helm Chart, the released Helm chart will be automatically added to
 the [central Tractus-X Helm repository](https://eclipse-tractusx.github.io/charts/).
@@ -39,25 +38,9 @@ the [central Tractus-X Helm repository](https://eclipse-tractusx.github.io/chart
 
 To get the GitHub Chart Releaser Action working, the following prerequisites must be met:
 
-- A branch named `gh-pages` in your repository (requires GH Pages to be enabled)
+- A branch named `gh-pages` in your repository
 - Helm charts must be located in folder `/charts`
 - A GitHub Actions Workflow (see section [Implementaion](#implementation))
-
-:::info
-
-In Eclipse-Tractusx GitHub organization GitHub Pages are not enabled by default. To enable GH Pages, you have to open a
-support request in the [Eclipse Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues). GH Pages setup
-shall point to branch _gh-pages_.
-
-![GH Pages Setup](assets/trg-6-1_gh_pages_setup.png)
-:::
-
-:::tip
-
-If you do not have an Eclipse Committer yet in your Dev-Team, mention a Committer in your Ticket to give a Thumbs up
-for legitimation, or ask System-Team for help.
-
-:::
 
 ### Implementation
 
