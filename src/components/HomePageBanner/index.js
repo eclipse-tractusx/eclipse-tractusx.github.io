@@ -11,11 +11,12 @@ function HomePageBanner() {
           Welcome <br />
           to Tractus-x
         </h1>
-        <p className={styles.subtitle}>
-          We support service and app provider in developing applications for the
-          Catena-X ecosystem.
-          <br /> Find documentation, APIs, SDKs and more.
-        </p>
+        <div className={styles.subtitle_box}>
+          <p className={styles.subtitle}>
+            We support service and app provider in developing applications for
+            the Catena-X ecosystem. Find documentation, APIs, SDKs and more.
+          </p>
+        </div>
         <div>
           <Link className={styles.button} to="/docs/kits">
             OUR DEV KITS
