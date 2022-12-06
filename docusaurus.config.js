@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo_catena.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -60,7 +60,7 @@ const config = {
         title: 'Eclipse Tractus-X',
         logo: {
           alt: 'Eclipse Tractus-X logo',
-          src: 'img/logo.svg',
+          src: 'img/logo_catena.svg',
         },
         items: [
           {
