@@ -1,0 +1,78 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  height: 94vh;
+}
+    
+.container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/static/img/original_bg.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title,
+.subtitle {
+  font-family: "Manrope", sans-serif;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 125px;
+}
+
+.subtitle_box {
+  width: 60vw;
+  margin: 0 auto 2rem;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 47px;
+  letter-spacing: -0.7px;
+}
+
+.button {
+  padding: 0.6rem 2rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .title {
+    font-size: 10vw;
+    line-height: 10vw;
+  }
+
+  .subtitle {
+    font-size: 2vw;
+    line-height: 3vw;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8vw;
+  }
+}
