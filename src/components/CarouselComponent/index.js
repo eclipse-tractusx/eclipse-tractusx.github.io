@@ -13,17 +13,16 @@ import DataChain_Kit from "@site/static/img/datachain_kit.png";
 
 import styles from "./styles.module.css";
 
-// function NextArrow(props) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", border: "1px solid orange", borderRadius: "50%" }}
-//       onClick={onClick}
-//     />
-//   );
-// }
-
+// function Arrow(props) {
+//       let className = props.type === "next" ? "nextArrow" : "prevArrow";
+//       className += " arrow";
+//       const char = props.type === "next" ? "siguiente" : "previa";
+//       return (
+//         <span className={className} onClick={props.onClick}>
+//           {char}
+//         </span>
+//       );
+//     }
 
 export default function CarouselComponent() {
     var settings = {
@@ -32,9 +31,8 @@ export default function CarouselComponent() {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
-      // nextArrow: <NextArrow />,
-      // nextArrow: <ArrowCircleRightOutlinedIcon sx={{color: "#FAA023", fontSize: "2vw"}}/>,
-      // prevArrow: <ArrowCircleLeftOutlinedIcon sx={{color: "#FAA023", fontSize: "2vw"}}/>
+      // nextArrow: <Arrow type='next'/>,
+      // prevArrow: <Arrow type='prev'/>
     };
 
     const kits = [
@@ -76,7 +74,7 @@ export default function CarouselComponent() {
             <Link className={styles.button} /* to="/aboutus" */>
               All cx-kits
             </Link>
-          </div>
+        </div>
           <Slider {...settings} className={styles.slider}>
             {
               kits.map((kit)=> {
