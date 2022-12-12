@@ -45,7 +45,17 @@ letter-spacing: -0.7px;
 .carousel_box {
 width: 75%;
 margin-top: 1rem;
+
+/* border-bottom: 1px solid red; */
+
+/* position: relative;
+border: 1px solid red; */
 }
+
+/* .slider {
+      display: flex;
+      align-items: center;
+} */
 
 .carousel_item {
       /* border: 1px solid red; */
