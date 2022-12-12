@@ -3,6 +3,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import HomePageHeader from "../components/HomePageHeader/index";
+import FAQsComponent from "../components/FAQsComponent";
 
 import styles from "./index.module.css";
 
@@ -14,7 +15,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <HomePageHeader />
-      <main></main>
+      <main>
+        <FAQsComponent />
+      </main>
     </Layout>
   );
 }
