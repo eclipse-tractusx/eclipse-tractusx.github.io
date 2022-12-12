@@ -4,88 +4,84 @@
  */
 
 .faqs {
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 2rem 0;
-background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: #000;
 }
 
 .container {
-width: 70vw;
-padding-bottom: 6rem;
-/* height: 25vw; */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border-bottom: 1px solid #fff;
+  width: 70vw;
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10rem;
+  border-bottom: 1px solid #fff;
 }
 
 .title_container {
-width: 100%;
-text-align: left;
+  width: 100%;
+  text-align: left;
 }
 
 .title {
-font-family: "Manrope", sans-serif;
-font-style: bold;
-font-size: 4rem;
-line-height: 78%;
-letter-spacing: -1px;
+  font-family: "Manrope", sans-serif;
+  font-style: bold;
+  font-size: 4rem;
+  line-height: 78%;
+  letter-spacing: -1px;
 }
 
 .accordion_box {
-width: 100%;
-margin-top: 3rem;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .accordion {
-margin: 1rem 0;    
-border-bottom: 1px solid rgba(108, 100, 100, 0.2);
+  margin: 1rem 0;    
+  border-bottom: 1px solid rgba(108, 100, 100, 0.2);
 }
 
 .btn_container {
-margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .button {
-padding: 0.6rem 2rem;
-background-color: #faa023;
-color: #fff;
-border-radius: 5px;
-font-size: 1vw;
+  padding: 0.6rem 2rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1vw;
 }
       
 .button:hover {
-background-color: #1e1e1e;
-color: #faa023;
-text-decoration: none;
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 996px) {
-.title {
-font-size: 4vw;
-}
+  .title {
+    font-size: 4vw;
+  }
 
-/* .subtitle {
-font-size: 1vw;
-} */
+  .container {
+    width: 80vw;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.container {
-width: 70vw;
-height: auto;
-justify-content: space-between;
-align-items: center;
-gap: 1rem;
-}
+  .accordion_box {
+    margin-top: 0rem;
+  }
 
-.accordion_box {
-margin-top: 0rem;
-}
-
-.button {
-padding: 0.5rem 1rem;
-font-size: 1.8vw;
-}
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8vw;
+  }
 }
