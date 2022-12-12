@@ -4,7 +4,6 @@ import NewsTicker from "../NewsTicker";
 
 import styles from "./styles.module.css";
 
-
 function HomePageHeader() {
   return (
     <header className={styles.heroBanner}>
