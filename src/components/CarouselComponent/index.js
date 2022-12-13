@@ -8,8 +8,8 @@ import Business_Kit from "@site/static/img/business_kit.png";
 import Conector_Kit from "@site/static/img/conector_kit.png";
 import DataChain_Kit from "@site/static/img/datachain_kit.png";
 
-// import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
-// import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 
 import styles from "./styles.module.css";
 
@@ -33,6 +33,8 @@ export default function CarouselComponent() {
       slidesToScroll: 1,
       // nextArrow: <Arrow type='next'/>,
       // prevArrow: <Arrow type='prev'/>
+      nextArrow: <ArrowCircleRightOutlinedIcon sx={{color: '#FAA023'}}/>,
+      prevArrow: <ArrowCircleLeftOutlinedIcon sx={{color: '#faa023'}}/>
     };
 
     const kits = [
