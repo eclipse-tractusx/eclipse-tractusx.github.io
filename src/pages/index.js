@@ -4,6 +4,7 @@ import Layout from "@theme/Layout";
 
 import HomePageHeader from "../components/HomePageHeader/index";
 import AboutUsCard from "../components/AboutUsCard";
+import FAQsComponent from "../components/FAQsComponent";
 
 import styles from "./index.module.css";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard />
+        <FAQsComponent />
       </main>
     </Layout>
   );
