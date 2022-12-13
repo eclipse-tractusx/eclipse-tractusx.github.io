@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import NewsTicker from "../NewsTicker";
 
 import styles from "./styles.module.css";
 
@@ -23,6 +24,7 @@ function HomePageHeader() {
           </Link>
         </div>
       </div>
+      <NewsTicker />
     </header>
   );
 }
