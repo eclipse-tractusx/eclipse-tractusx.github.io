@@ -33,8 +33,8 @@ export default function CarouselComponent() {
       slidesToScroll: 1,
       // nextArrow: <Arrow type='next'/>,
       // prevArrow: <Arrow type='prev'/>
-      nextArrow: <ArrowCircleRightOutlinedIcon sx={{color: '#FAA023'}}/>,
-      prevArrow: <ArrowCircleLeftOutlinedIcon sx={{color: '#faa023'}}/>
+      nextArrow: <ArrowCircleRightOutlinedIcon sx={{color: '#FAA023', fontSize: '2vw', '&:hover': {color: '#fff'}}}/>,
+      prevArrow: <ArrowCircleLeftOutlinedIcon sx={{color: '#faa023', fontSize: '2vw', '&:hover': {color: '#fff'}}}/>
     };
 
     const kits = [
