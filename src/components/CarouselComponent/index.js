@@ -13,17 +13,6 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 
 import styles from "./styles.module.css";
 
-// function Arrow(props) {
-//       let className = props.type === "next" ? "nextArrow" : "prevArrow";
-//       className += " arrow";
-//       const char = props.type === "next" ? "siguiente" : "previa";
-//       return (
-//         <span className={className} onClick={props.onClick}>
-//           {char}
-//         </span>
-//       );
-//     }
-
 export default function CarouselComponent() {
     var settings = {
       dots: true,
@@ -31,11 +20,10 @@ export default function CarouselComponent() {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
-      // nextArrow: <Arrow type='next'/>,
-      // prevArrow: <Arrow type='prev'/>
-      nextArrow: <ArrowCircleRightOutlinedIcon sx={{color: '#fff', fontSize: '1.8vw', '&:hover': {color: '#faa023'}}}/>,
-      prevArrow: <ArrowCircleLeftOutlinedIcon sx={{color: '#fff', fontSize: '1.8vw', '&:hover': {color: '#faa023'}}}/>
+      arrows: false,
     };
+
+    const slider = React.useRef(null);
 
     const kits = [
       {
@@ -71,19 +59,23 @@ export default function CarouselComponent() {
         </div>
         
 
-        <div className={styles.carousel_box}>
-        <div className={styles.btn_container}>
+        <div className={styles.slider_box}>
+          <div className={styles.btn_container}>
             <Link className={styles.button} /* to="/aboutus" */>
               All cx-kits
             </Link>
-        </div>
-          <Slider {...settings} className={styles.slider}>
+            <div className={styles.btn_slider_container}>
+              <ArrowCircleLeftOutlinedIcon sx={{fontSize: '2.3vw'}} className={styles.btn_slider} onClick={() => slider?.current?.slickPrev()}/>
+              <ArrowCircleRightOutlinedIcon sx={{fontSize: '2.3vw'}} className={styles.btn_slider} onClick={() => slider?.current?.slickNext()}/>
+            </div>
+          </div>
+          <Slider ref={slider} {...settings} className={styles.slider}>
             {
               kits.map((kit)=> {
                 return (
-                  <div key={kit.id} className={styles.carousel_item}>
-                    <Link className={styles.carousel_content} to='docs/kits'>
-                    <img src={kit.img} className={styles.carousel_img}/>
+                  <div key={kit.id} className={styles.slider_item}>
+                    <Link className={styles.slider_content} to='docs/kits'>
+                    <img src={kit.img} className={styles.slider_img}/>
                     </Link>
                   </div>
                 )
