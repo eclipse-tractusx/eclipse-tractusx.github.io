@@ -18,6 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #fff;
 }
 
 .title_container {
@@ -40,13 +41,14 @@
   letter-spacing: -0.7px;
 }
 
-.slider_box {
+.slider_container {
   width: 75%;
   margin-top: 1rem;
 }
 
 .slider_content {
   width: 90%;
+  height: 22vw;
   margin: 0 auto;
   display: block;
 }
@@ -63,8 +65,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 115%;
-  margin-bottom: 2rem;
+  width: 90%;
+  margin-bottom: 1rem;
 }
 
 .button {
@@ -102,20 +104,38 @@
 }
 
 @media screen and (max-width: 996px) {
+  .container {
+    width: 75vw;
+    height: auto;
+  }
+
   .title {
     font-size: 4vw;
   }
 
-  .container {
-    width: 80vw;
-    height: auto;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+  .subtitle {
+    font-size: 2.1vw;
+  }
+
+  .slider_container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider_content {
+    height: 30vw;
+  }
+
+  .slider {
+    width: 115%;
+  }
+
+  .btn_container {
+    width: 100%;
   }
 
   .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
+    padding: 0.15rem 1.8rem;
+    font-size: 1.6vw;
   }
 }
