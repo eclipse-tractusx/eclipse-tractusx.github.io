@@ -1,5 +1,5 @@
 import React from "react";
-import KitsCoreSvg from '../../../static/img/kits&core.svg'
+import KitsCoreSvg from '@site/static/img/kits&core.svg'
 
 import styles from "./styles.module.css";
 
