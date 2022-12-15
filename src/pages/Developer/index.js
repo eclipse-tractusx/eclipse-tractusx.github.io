@@ -8,7 +8,7 @@ export default function DeveloperPage() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={'Developer'}
       description="Description will go into a meta tag in <head />"
     >
       <main></main>
