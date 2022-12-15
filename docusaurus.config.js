@@ -85,6 +85,8 @@ const config = {
             position: 'left',
             docId: 'release',
             label: 'Release',
+            rootItem: 'trg-0.md',
+            include: ['*.md', '*.mdx'],
           },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
