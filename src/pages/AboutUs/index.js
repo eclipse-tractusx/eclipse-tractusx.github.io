@@ -9,7 +9,7 @@ export default function AboutUsPage() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={'About Us'}
       description="Description will go into a meta tag in <head />"
     >
       <AboutUsHeader />
