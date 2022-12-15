@@ -14,10 +14,6 @@ Welcome to Tractus-X Release Guidelines, known as TRGs. TRG numbers are assigned
 editors, and once assigned never changed. The version control history of the TRG texts represent their historical
 record. The TRGs are indexed by topic for specialist subjects.
 
-:::caution
-TRGs are not yet released and currently in state of draft. Available content is for illustrative purposes.
-:::
-
 ## Index by Category
 
 ```mdx-code-block
