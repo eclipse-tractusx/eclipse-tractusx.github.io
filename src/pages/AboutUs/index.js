@@ -2,8 +2,10 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import AboutUsHeader from "../../components/AboutUsHeader";
+import AboutUsContent from "../../components/AboutUsContent";
 
 import styles from "./styles.module.css";
+
 
 export default function AboutUsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -13,7 +15,9 @@ export default function AboutUsPage() {
       description="Description will go into a meta tag in <head />"
     >
       <AboutUsHeader />
-      <main></main>
+      <main>
+        <AboutUsContent />
+      </main>
     </Layout>
   );
 }
