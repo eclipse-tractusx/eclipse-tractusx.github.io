@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10rem 0;
+  padding: 6rem 0;
   overflow: hidden;
   background-color: #000;
 }
@@ -27,6 +27,7 @@
 .title_container {
   width: 100%;
   height: auto;
+  margin-top: 3rem;
 }
 
 .title {
@@ -46,12 +47,6 @@
   width: 100%;
 }
 
-/* .information_container {
-width: 100%;
-height: auto;
-}
-*/
-
 .description {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
@@ -60,26 +55,27 @@ height: auto;
 }
 
 @media screen and (max-width: 996px) {
+  .developer_content {
+    padding: 4rem 0;
+  }
+
+  .title_container {
+    margin-top: 2rem;
+  }
+
   .title {
     font-size: 4vw;
   }
 
   .description {
-    font-size: 2vw;
+    font-size: 1.8vw;
   }
 
   .container {
-    width: 60vw;
+    width: 80vw;
     height: auto;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
   }
-
-/* .information_container {
-height: 20vw;
-justify-content: space-around;
-align-items: center;
-text-align: center;
-} */
 }
