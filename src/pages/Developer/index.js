@@ -1,8 +1,10 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import DeveloperHeader from "../../components/DeveloperHeader";
 
 import styles from "./styles.module.css";
+
 
 export default function DeveloperPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -11,6 +13,7 @@ export default function DeveloperPage() {
       title={'Developer'}
       description="Description will go into a meta tag in <head />"
     >
+      <DeveloperHeader />
       <main></main>
     </Layout>
   );
