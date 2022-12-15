@@ -1,0 +1,88 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.news_ticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.container {
+  border-top: 2px solid #707277;
+  border-bottom: 2px solid #707277;
+  width: 70vw;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 0rem 1.3rem;
+  background-color: #faa023;
+  color: #fff;
+  border-radius: 5px;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: #faa023;
+  text-decoration: none;
+}
+
+.date {
+  color: #dcdee4;
+  margin: 0 1rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+}
+
+.introduction {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Manrope", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 122%;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 996px) {
+  .container {
+    height: 2rem;
+    padding: 0.5rem 0;
+  }
+
+  .button {
+    padding: 0.2rem 0.8rem;
+    font-size: x-small;
+    font-size: 1vw;
+  }
+
+  .date {
+    font-size: smaller;
+  }
+
+  .introduction {
+    padding: 0 1rem;
+    font-size: smaller;
+  }
+}
+    
