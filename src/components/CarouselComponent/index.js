@@ -40,10 +40,14 @@ export default function CarouselComponent() {
       },
       {
         id: 4,
-        img: Conector_Kit
+        img: Business_Kit
       },
       {
         id: 5,
+        img: Conector_Kit
+      },
+      {
+        id: 6,
         img: DataChain_Kit
       },
     ]
