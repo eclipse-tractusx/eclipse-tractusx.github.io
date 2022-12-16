@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/img/original_bg.png");
+  background-image: url("/static/img/main_bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
