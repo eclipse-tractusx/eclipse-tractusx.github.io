@@ -15,4 +15,4 @@ Repositories must contain a appropriate `CHANGELOG.md` file.
 To track changes of releases a `CHANGELOG.md` must be added to repositories. The versioning itself
 follows [semantic versioning](https://semver.org/). For easy changelog creation [conventional committing](https://www.conventionalcommits.org/en/v1.0.0/#summary) is strongly recommended.
 
-Recommendations for changelog format will follow.
+Recommendations for changelog format can be found [here](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md).
