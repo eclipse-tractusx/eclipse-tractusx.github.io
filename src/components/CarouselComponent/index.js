@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Business_Kit from "@site/static/img/business_kit.png";
-import Conector_Kit from "@site/static/img/conector_kit.png";
-import DataChain_Kit from "@site/static/img/datachain_kit.png";
+import Business_Kit from "@site/static/img/business_kit-min.png";
+import Conector_Kit from "@site/static/img/conector_kit-min.png";
+import DataChain_Kit from "@site/static/img/datachain_kit-min.png";
 
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
