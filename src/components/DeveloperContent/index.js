@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-import EcosystemImg from "@site/static/img/ecosystem.png";
-import ThreeViewsImg from "@site/static/img/three_views.png";
+import EcosystemImg from "@site/static/img/ecosystem-min.png";
+import ThreeViewsImg from "@site/static/img/three_views-min.png";
 
 export default function DeveloperContent() {
   return (
