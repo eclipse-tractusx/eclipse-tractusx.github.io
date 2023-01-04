@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-import TractusXBackground from "@site/static/img/tractus-x_background.png";
-import LicensesImg from "@site/static/img/licenses.png";
+import TractusXBackground from "@site/static/img/tractus-x_background-minified.png";
+import LicensesImg from "@site/static/img/licenses-minified.png";
 
 
 export default function AboutUsContent() {
