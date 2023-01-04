@@ -4,7 +4,7 @@ title: TRG 4.01 - Image tagging
 
 | Author               | Status | Created     | Post-History                     |
 |----------------------|--------|-------------|----------------------------------|
-| Catena-X System Team |        | 10-Nov-2022 | Initital release                 |
+| Catena-X System Team |        | 10-Nov-2022 | Initial release                  |
 | Catena-X System Team | Active | 24-Nov-2022 | more precise process description |
 
 ## Description
