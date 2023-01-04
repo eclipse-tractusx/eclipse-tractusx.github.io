@@ -9,8 +9,7 @@ title: TRG 4.04 - Image signing
 
 ## Description
 
-Image signing is a process where the publisher use the digital signatures where push images,and it allows verification from image consumers.The publisher can manually sign the image or have the signing process a 
-part of their software release process. Check [here](https://docs.docker.com/engine/security/trust/#signing-images-with-docker-content-trust) to learn how it works.
+Image signing is a process where the publisher use the digital signatures where push images,and it allows verification from image consumers.The publisher can manually sign the image or have the signing process a part of their software release process. Check [here](https://docs.docker.com/engine/security/trust/#signing-images-with-docker-content-trust) to learn how it works.
 
 At the moment the image signing is not supported yet but please do expect an update here.
 
