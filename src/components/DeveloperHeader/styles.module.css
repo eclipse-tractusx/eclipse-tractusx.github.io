@@ -1,0 +1,91 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.developer_header {
+  position: relative;
+  overflow: hidden;
+  height: 45vh;
+}
+      
+.container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/static/img/main_bg-min.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+      
+.svg_container {
+  width: 25vw;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+      
+.svg {
+  width: 100%;
+  height: 110%;
+}
+      
+.information_container {
+  width: 54vw;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+      
+.title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 4.5vw;
+  line-height: 73%;
+}
+      
+.subtitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 1.25vw;
+  line-height: 117%;
+  margin-top: 1.5rem;
+}
+      
+@media screen and (max-width: 996px) {
+  .developer_header {
+    height: auto;
+  }
+
+  .title {
+    font-size: 4vw;
+    margin-bottom: 2rem;
+  }
+
+  .subtitle {
+    font-size: 2vw;
+    margin-top: -1rem;
+  }
+
+  .container {
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+
+  .information_container {
+    width: 75vw;
+    height: 20vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+  }
+}
