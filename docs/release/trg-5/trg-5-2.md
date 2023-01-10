@@ -104,8 +104,17 @@ The file **must** contain the [_Apache 2.0 Licence_](https://github.com/catenax-
 The README.md file **must** contain:
 
 - a brief explanation of what the Helm chart will install
-- a section of "Prerequisites" includes the required kubernetes version, helm version and other necessary prerequisites and their versions. See an example [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#prerequisites).
-- a section of "TL;DR" that includes the helm commands to add and install the helm chart, see example [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#tldr)
+- a section of "Prerequisites" includes the required kubernetes version, helm version and other necessary prerequisites and their versions. Example:
+  ```markdown
+  - Kubernetes 1.19+
+  - Helm 3.2.0+
+  - PV provisioner support in the underlying infrastructure
+  ```
+- a section of "TL;DR" that includes the helm commands to add and install the helm chart, Example:
+  ```shell
+  helm repo add my-repo https://charts.bitnami.com/bitnami
+  helm install my-release my-repo/postgresql
+  ```
 - documentation of default values for this Helm chart ([_helm-docs_](https://github.com/norwoodj/helm-docs#helm-docs)
   may help).
 
