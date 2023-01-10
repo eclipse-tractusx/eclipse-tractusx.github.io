@@ -2,7 +2,7 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-import EclipseFoundation from "@site/static/img/eclipse_foundation_logo.png";
+import EclipseFoundation from "@site/static/img/eclipse_foundation_logo-minified.png";
 
 export default function AboutUsCard() {
   return (
