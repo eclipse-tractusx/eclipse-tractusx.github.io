@@ -21,6 +21,8 @@ For Tractus-X Helm charts the following requirements **must** be met:
 Following best practices when creating the chart helps everyone better understand, deploy and test the product. Having
 similar structure for every Helm chart enables easy implementation of testing and deployment workflows.
 
+
+
 ### Chart Location
 
 Helm charts **must** be located for standardization reasons inside the `/charts` directory of the Git repository.
