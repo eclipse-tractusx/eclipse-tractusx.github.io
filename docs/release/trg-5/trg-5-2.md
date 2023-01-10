@@ -105,7 +105,7 @@ The README.md file **must** contain:
 
 - a brief explanation of what the Helm chart will install
 - a section of "Prerequisites" includes the required kubernetes version, helm version and other necessary prerequisites and their versions. See an example [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#prerequisites).
-- a section of "TL;DR" that includes the helm commands to add anf install the helm chart, see example [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#tldr)
+- a section of "TL;DR" that includes the helm commands to add and install the helm chart, see example [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#tldr)
 - documentation of default values for this Helm chart ([_helm-docs_](https://github.com/norwoodj/helm-docs#helm-docs)
   may help).
 
