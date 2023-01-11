@@ -29,6 +29,9 @@ const sidebars = {
                 },
             ],
         },
+    ],
+    developer: [
+        'developer',
         {
             type: 'category',
             label: 'Release Guidelines',
