@@ -1,0 +1,101 @@
+/**
+* CSS files with the .module.css suffix will be treated as CSS modules
+* and scoped locally.
+*/
+
+
+.kits_gallery {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000;
+	padding-bottom: 8rem;
+}
+
+.container {
+	width: 80vw;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2.5rem; 
+	padding-bottom: 8rem;
+}
+
+.title_container {
+	width: 100%;
+	height: auto;
+	margin-top: 0;
+}
+
+.title {
+	font-family: "Manrope", sans-serif;
+	font-weight: 700;
+	font-size: 3.5vw;
+}
+
+.description {
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+	font-size: 1.1rem;
+	line-height: 1.5rem;
+}
+
+.gallery_container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+
+.gallery_item {
+	width: 25%;
+}
+
+/* .gallery_link {
+} */
+
+.item_img {
+	border-radius: 10px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.gallery_item:hover {
+	opacity: 0.5;
+}
+
+.item_img:hover {
+	border: 1px solid #faa023;
+}
+
+
+@media screen and (max-width: 996px) {
+	.developer_kits {
+		padding: 0;
+	}
+
+	.title_container {
+		margin-top: 2rem;
+	}
+
+	.title {
+		font-size: 4vw;
+	}
+
+	.description {
+		font-size: 1.8vw;
+	}
+
+	.container {
+ 		width: 80vw;
+		height: auto;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+}
