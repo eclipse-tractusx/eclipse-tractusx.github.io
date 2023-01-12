@@ -38,7 +38,7 @@ export default function KitsHeader({title, subtitle, SVG}) {
           </div>
 
           <div className={styles.link}>
-            <Link className={splitLocation[2] == "softwaredevelopmentview" ? styles.selected : styles.button} to={`/${splitLocation[1]}/softwaredevelopmentview`}>
+            <Link className={splitLocation[2] == "softwaredevelopmentview" ? styles.selected : styles.button} /* to={`/${splitLocation[1]}/softwaredevelopmentview`} */>
               SOFTWARE DEVELOPMENT VIEW
             </Link>
           </div>
