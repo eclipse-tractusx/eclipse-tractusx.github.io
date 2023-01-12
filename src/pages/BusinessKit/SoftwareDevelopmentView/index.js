@@ -24,7 +24,7 @@ export default function SoftwareDevelopmentView() {
           <div className={styles.info_container}>
             <h2 className={styles.title}>Specification</h2> 
             <p className={styles.subtitle}>The Business Partner Pool API offers access to business partner data with for other Catena-X
-services. <br /> Swagger: <span style={{color: '#faa023'}}>https://partners-pool.int.demo.catena-x.net/ui/swagger-ui/index.html</span></p>
+services. <br /> Swagger: <a href="https://partners-pool.int.demo.catena-x.net/ui/swagger-ui/index.html">https://partners-pool.int.demo.catena-x.net/ui/swagger-ui/index.html</a></p>
           </div>
         </div>
      
