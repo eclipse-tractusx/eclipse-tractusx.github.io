@@ -57,7 +57,7 @@ main {
 .title {
 	font-family: "Manrope", sans-serif;
 	font-style: bold;
-	font-size: 2vw;
+	font-size: 2.2vw;
 	line-height: 78%;
 	letter-spacing: -1px;
 }
@@ -65,7 +65,7 @@ main {
 .subtitle {
 	font-family: "Manrope", sans-serif;
 	font-weight: 400;
-	font-size: 1vw;
+	font-size: 20px;
 	letter-spacing: -0.7px;
 }
 
