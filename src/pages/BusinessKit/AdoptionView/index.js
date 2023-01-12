@@ -7,8 +7,8 @@ import KitsCard from "@site/src/components/KitsCard";
 import Adoption from "@site/docs/kits/Business-Kit/_adoption-view.md";
 
 import KitBusinessSvg from '@site/static/img/kit_business_logo.svg'
-import Benefits from "@site/static/img/benefits.png"
-import BPDM from "@site/static/img/bpdm-card.png";
+import Benefits from "@site/static/img/benefits-min.png"
+import BPDM from "@site/static/img/bpdm-card-min.png";
 
 import styles from "./styles.module.css";
 
