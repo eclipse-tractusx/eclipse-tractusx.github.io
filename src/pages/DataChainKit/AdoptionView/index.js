@@ -7,9 +7,9 @@ import KitsCard from "@site/src/components/KitsCard";
 import Adoption from "@site/docs/kits/DataChain-Kit/_adoption-view.md";
 
 import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
-import WhyDataChain from "@site/static/img/why_data_chain.png"
-import IRS from "@site/static/img/irs.png"
-import IRSCard from "@site/static/img/irs-card.png"
+import WhyDataChain from "@site/static/img/why_data_chain-minified.png"
+import IRS from "@site/static/img/irs-minified.png"
+import IRSCard from "@site/static/img/irs-card-minified.png"
 
 import styles from "./styles.module.css";
 
