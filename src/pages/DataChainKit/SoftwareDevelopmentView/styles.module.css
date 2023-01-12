@@ -75,7 +75,7 @@ main {
 }
 
 @media screen and (max-width: 996px) {
-  .version_container {
+	.version_container {
 		width: 70vw;
 	}
 
