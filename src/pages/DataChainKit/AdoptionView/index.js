@@ -4,7 +4,7 @@ import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
 import KitsCard from "@site/src/components/KitsCard";
-import Adoption from "@site/docs/kits/DataChain-Kit/_adoption-view.md";
+import Adoption from "@site/docs/kits/DataChain-Kit/adoption-view.md";
 
 import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
 import WhyDataChain from "@site/static/img/why_data_chain-minified.png"
