@@ -33,7 +33,7 @@ export default function SoftwareOperationView() {
             </div>
 
             <p className={styles.subtitle}>Detailed description on how to run this service can be found here:
-            <br /><span style={{color: '#faa023'}}>https://github.com/eclipse-tractusx/bpdm/blob/main/README.adoc</span></p>
+            <br /><a href="https://github.com/eclipse-tractusx/bpdm/blob/main/README.adoc">https://github.com/eclipse-tractusx/bpdm/blob/main/README.adoc</a></p>
           </div>
         </div>
       </main>
