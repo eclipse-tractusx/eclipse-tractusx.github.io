@@ -50,7 +50,7 @@ export default function KitsHeader({title, subtitle, SVG}) {
           </div>
 
           <div className={styles.link}>
-            <Link className={splitLocation[2] == "documentation" ? styles.selected : styles.button} /* to={`/${splitLocation[1]}/documentation`} */>
+            <Link className={splitLocation[2] == "documentation" ? styles.selected : styles.button} to={`/${splitLocation[1]}/documentation`}>
               DOCUMENTATION
             </Link>
           </div>
