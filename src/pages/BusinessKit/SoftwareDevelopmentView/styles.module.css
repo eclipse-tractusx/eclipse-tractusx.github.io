@@ -1,0 +1,62 @@
+/**
+* CSS files with the .module.css suffix will be treated as CSS modules
+* and scoped locally.
+*/
+
+.container {
+  width: 100vw;
+  padding: 6rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.info_container {
+  width: 60vw;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: "Manrope", sans-serif;
+  font-style: bold;
+  font-size: 4rem;
+  line-height: 78%;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: -0.7px;
+}
+
+.specification {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 996px) {
+  .info_container {
+    width: 70vw;
+  }
+
+  .title {
+    font-size: 4vw;
+  }
+
+  .subtitle {
+    font-size: 2vw;
+  }
+
+  .container {
+    width: 80vw;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+}
