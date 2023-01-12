@@ -55,7 +55,7 @@ export default function SoftwareDevelopmentView() {
             </h2> 
             <p className={styles.subtitle}>
               The IRS REST API is standardized through the Catena-X e.V. and can be found here: <br />
-              <a href="#">
+              <a href="/datachainkit/softwaredevelopmentview">
               &rarr; DC-001 Item Relationship Service
               </a>
             </p>
@@ -67,7 +67,7 @@ export default function SoftwareDevelopmentView() {
             </h2> 
             <p className={styles.subtitle}>
               The IRS REST API provides several functions via different endpoints. There is a Swagger-documentation available:<br />
-              <a href="#">
+              <a href="/datachainkit/softwaredevelopmentview">
               &rarr; Swagger Documentation
               </a>
             </p>
