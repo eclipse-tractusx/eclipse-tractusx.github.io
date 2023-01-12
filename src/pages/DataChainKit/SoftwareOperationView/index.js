@@ -4,8 +4,8 @@ import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
 import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
-import HelmChart from "@site/static/img/helm_chart.png";
-import TestingChart from "@site/static/img/testing_service.png";
+import HelmChart from "@site/static/img/helm_chart-minified.png";
+import TestingChart from "@site/static/img/testing_service-minified.png";
 
 import styles from "./styles.module.css";
 import clsx from "clsx";
