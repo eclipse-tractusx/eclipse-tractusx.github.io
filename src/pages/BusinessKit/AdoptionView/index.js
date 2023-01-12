@@ -4,7 +4,7 @@ import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
 import KitsCard from "@site/src/components/KitsCard";
-import Adoption from "@site/docs/kits/Business-Kit/_adoption-view.md";
+import Adoption from "@site/docs/kits/Business-Kit/adoption-view.md";
 
 import KitBusinessSvg from '@site/static/img/kit_business_logo.svg'
 import Benefits from "@site/static/img/benefits-min.png"
