@@ -31,7 +31,7 @@ export default function AdoptionView() {
           <div className={styles.paragraph}>
             <Adoption />
           </div>
-          <div className={styles.video}>
+          {/* <div className={styles.video}>
             <h2 className={styles.title}>Get inspired by using this KIT</h2>
             <p className={styles.subtitle}>
               The Video below shows you the easy access to distributed Data of Catena-X members; all based on the ConnectorKit. 
@@ -44,7 +44,7 @@ export default function AdoptionView() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen>
             </iframe>
-          </div>
+          </div> */}
           <div className={styles.benefits}>
             <h2 className={styles.title}>Why Data Chain Kit</h2>
             <p className={styles.subtitle}>What is in for you to use the Data Chain Kit. On what is it built on. </p>
