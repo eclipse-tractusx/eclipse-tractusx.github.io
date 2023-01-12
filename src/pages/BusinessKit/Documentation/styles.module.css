@@ -4,69 +4,69 @@
 */
 
 .main {
-overflow: hidden;
-height: auto;
+	overflow: hidden;
+	height: auto;
 }
 
 .documentation_card {
-width: 100vw;
-height: 25vw;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2rem 0;
-background-color: #1b1b1b;
+	width: 100vw;
+	height: 25vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 0;
+	background-color: #1b1b1b;
 }
 
 .info_container {
-width: 46vw;
+	width: 46vw;
 }
 
 .title {
-font-family: "Manrope", sans-serif;
-font-style: bold;
-font-size: 4rem;
-line-height: 78%;
-letter-spacing: -1px;
-margin-bottom: 2rem;
+	font-family: "Manrope", sans-serif;
+	font-style: bold;
+	font-size: 4rem;
+	line-height: 78%;
+	letter-spacing: -1px;
+	margin-bottom: 2rem;
 }
 
 .subtitle {
-font-family: "Manrope", sans-serif;
-font-weight: 400;
-font-size: 1vw;
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+	font-size: 1vw;
 }
 
 .document_section {
-width: 100vw;
-background-color: #000;
-margin-bottom: -1.4rem;
-padding: 5rem 0;
+	width: 100vw;
+	background-color: #000;
+	margin-bottom: -1.4rem;
+	padding: 5rem 0;
 }
 
 .document_container {
-width: 45vw;
-margin: 0 auto;
+	width: 45vw;
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 996px) {
-.documentation_card {
-height: 35vw;
-}
+	.documentation_card {
+		height: 35vw;
+	}
 
-.info_container {
-width: 70vw;
-}
+	.info_container {
+		width: 70vw;
+	}
 
-.title {
-font-size: 6vw;
-}
+	.title {
+		font-size: 6vw;
+	}
 
-.subtitle {
-font-size: 1.6vw;
-}
+	.subtitle {
+		font-size: 1.6vw;
+	}
 
-.document_container {
-width: 70vw;
-}
+	.document_container {
+		width: 70vw;
+	}
 }
