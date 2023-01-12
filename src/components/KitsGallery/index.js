@@ -2,9 +2,9 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-import Business_Kit from "@site/static/img/business_kit-minified.png";
-import Conector_Kit from "@site/static/img/conector_kit-minified.png";
-import DataChain_Kit from "@site/static/img/datachain_kit-minified.png";
+import Business_Kit from "@site/static/img/gallery-business_kit-minified.png";
+import Conector_Kit from "@site/static/img/gallery-more_coming-minified.png";
+import DataChain_Kit from "@site/static/img/gallery-datachain_kit-minified.png";
 
 
 export default function KitsGallery() {
