@@ -21,6 +21,25 @@ export default function SoftwareDevelopmentView() {
       />
       <main>
         <div className={styles.container}>
+          <div className={styles.version_container}>
+            <div className={styles.version_item}>
+              <p className={styles.version_title}>Version <br/>
+                <span className={styles.version_subtitle}>1.5.</span>
+              </p>
+            </div>
+            <div className={styles.version_item}>
+              <p className={styles.version_title}>Release Date <br/>
+                <span className={styles.version_subtitle}>19/06/2022</span>
+              </p>
+            </div>
+            <div className={styles.version_item}>
+              <p className={styles.version_title}>Status <br/>
+                <span className={styles.version_subtitle}>RELEASED</span>
+              </p>
+            </div>
+
+            
+          </div>
           <div className={styles.info_container}>
             <h2 className={styles.title}>
               IRS REST API
