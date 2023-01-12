@@ -2,7 +2,6 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 
-
 import styles from "./styles.module.css";
 
 
