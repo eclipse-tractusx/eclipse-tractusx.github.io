@@ -1,0 +1,109 @@
+/**
+* CSS files with the .module.css suffix will be treated as CSS modules
+* and scoped locally.
+*/
+
+
+main {
+	background-color: #000;
+}
+
+.container {
+	width: 100%;
+	padding: 6rem 0 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.version_container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 60vw;
+	border-bottom: 1px solid #faa023;
+	margin: 2rem 0 4rem;
+	padding-bottom: 1rem;
+}
+
+.version_item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-right: 4rem;
+	padding: 0 1rem;
+}
+
+.version_title {
+	color: #fff;
+	font-weight: bold;
+}
+
+.version_subtitle {
+	color: #faa023;
+	font-weight: bold;
+}
+
+.info_container {
+	width: 60vw;
+	text-align: left;
+	margin: 1rem auto;
+}
+
+.title {
+	font-family: "Manrope", sans-serif;
+	font-style: bold;
+	font-size: 2.2vw;
+	line-height: 78%;
+	letter-spacing: -1px;
+}
+
+.subtitle {
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: -0.7px;
+}
+
+.specification {
+	width: 60vw;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 996px) {
+	.version_container {
+		width: 70vw;
+	}
+
+	.version_item {
+		margin-right: 1.5rem;
+	}
+
+	.version_title {
+		font-size: 0.8rem;
+	}
+
+	.info_container {
+		width: 70vw;
+	}
+
+	.title {
+		font-size: 4vw;
+	}
+
+	.subtitle {
+		font-size: 2vw;
+	}
+
+	.container {
+		width: 80vw;
+		height: auto;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+}
