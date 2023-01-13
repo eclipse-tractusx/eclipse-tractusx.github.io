@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 0;
+  padding: 3rem 0;
   overflow: hidden;
   background-color: #000;
 }
@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 2.5rem; 
-  padding-bottom: 8rem;
+  padding-bottom: 4rem;
 }
 
 .title_container {
@@ -56,7 +56,7 @@
 
 @media screen and (max-width: 996px) {
   .developer_content {
-    padding: 4rem 0;
+    padding: 4rem 0 2rem;
   }
 
   .title_container {
@@ -76,6 +76,7 @@
     height: auto;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 2rem;
     gap: 3rem;
   }
 }

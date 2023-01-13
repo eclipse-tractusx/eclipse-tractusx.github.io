@@ -3,6 +3,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import DeveloperHeader from "../../components/DeveloperHeader";
 import DeveloperContent from "../../components/DeveloperContent";
+import KitsGallery from "../../components/KitsGallery";
 
 import styles from "./styles.module.css";
 
@@ -17,6 +18,7 @@ export default function DeveloperPage() {
       <DeveloperHeader />
       <main>
         <DeveloperContent />
+        <KitsGallery />
       </main>
     </Layout>
   );
