@@ -46,6 +46,7 @@ const sidebars = {
                 },
             ],
         },
+        'github-checks'
     ],
     kits: [
         'kits',
