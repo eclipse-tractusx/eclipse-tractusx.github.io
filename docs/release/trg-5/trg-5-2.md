@@ -5,6 +5,7 @@ title: TRG 5.02 - Chart structure
 | Author               | Status | Created     | Post-History    |
 |----------------------|--------|-------------|-----------------|
 | Catena-X System Team | Active | 10-Nov-2022 | Initial release |
+| Catena-X System Team | Active | 10-Jan-2023 | Content updated |
 
 ## Description
 
