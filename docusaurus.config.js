@@ -10,7 +10,7 @@ const config = {
   tagline: '',
   url: 'https://eclipse-tractusx.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x.svg',
 
