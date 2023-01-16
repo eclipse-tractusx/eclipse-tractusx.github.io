@@ -72,36 +72,36 @@ const config = {
             to: "/",
             exact: true,
             position: "left",
-            label: "HOME",
+            label: "Home",
           },
           {
             to: "/aboutus",
             position: "left",
-            label: "ABOUT US",
+            label: "About Us",
           },
           {
             to: "/developer",
             position: "left",
-            label: "KITs",
+            label: "Developer",
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'introduction',
-          //   position: 'left',
-          //   label: 'Documentation',
-          // },
-          // {
-          //   type: 'doc',
-          //   docId: 'developer',
-          //   position: 'left',
-          //   label: 'Developer Hub',
-          // },
-          // {
-          //   type: 'doc',
-          //   position: 'left',
-          //   docId: 'kits',
-          //   label: 'KITs',
-          // },
+          {
+            type: 'doc',
+            docId: 'introduction',
+            position: 'left',
+            label: 'Documentation',
+          },
+          {
+            type: 'doc',
+            docId: 'developer',
+            position: 'left',
+            label: 'Developer Hub',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'kits',
+            label: 'KITs',
+          },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
