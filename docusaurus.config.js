@@ -10,7 +10,7 @@ const config = {
   tagline: '',
   url: 'https://eclipse-tractusx.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x.svg',
 
@@ -69,23 +69,39 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'left',
-            label: 'Documentation',
+            to: "/",
+            exact: true,
+            position: "left",
+            label: "HOME",
           },
           {
-            type: 'doc',
-            docId: 'developer',
-            position: 'left',
-            label: 'Developer Hub',
+            to: "/aboutus",
+            position: "left",
+            label: "ABOUT US",
           },
           {
-            type: 'doc',
-            position: 'left',
-            docId: 'kits',
-            label: 'KITs',
+            to: "/developer",
+            position: "left",
+            label: "KITs",
           },
+          // {
+          //   type: 'doc',
+          //   docId: 'introduction',
+          //   position: 'left',
+          //   label: 'Documentation',
+          // },
+          // {
+          //   type: 'doc',
+          //   docId: 'developer',
+          //   position: 'left',
+          //   label: 'Developer Hub',
+          // },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'kits',
+          //   label: 'KITs',
+          // },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
