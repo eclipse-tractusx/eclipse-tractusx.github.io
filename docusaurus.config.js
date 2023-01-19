@@ -70,12 +70,12 @@ const config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "test1",
-        docsPluginId: "test",
+        id: "bpdm-pool",
+        docsPluginId: "bpdm-pool",
         config: {
           siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-            specPath: "./petstore.yaml", // Path to designated spec file
-            outputDir: "./docs/kits/Business Partner Kit/Software Development View/pet", // Output directory for generated .mdx docs
+            specPath: "./openApi/bpdm/pool.yaml", // Path to designated spec file
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
