@@ -14,21 +14,24 @@
 }
 
 .container {
-  width: 70vw;
+  width: 60vw;
   height: 25vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem; 
+  gap: 2rem; 
 }
 
 .img_container {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img {
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 .information_container {
@@ -36,29 +39,32 @@
   height: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .title {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 4vw;
+  font-size: 40px;
+  line-height: 46px;
   margin-top: -0.8rem;
 }
 
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 18px;
+  line-height: 26px;
   letter-spacing: -0.7px;
 }
 
 .button {
   padding: 0.6rem 2rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
-  font-size: 1vw;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .button:hover {
