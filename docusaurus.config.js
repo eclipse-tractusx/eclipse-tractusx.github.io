@@ -38,6 +38,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
         },
         blog: {
           showReadingTime: true,
@@ -65,8 +67,25 @@ const config = {
         noRuntimeDownloads: true
       },
     ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "test1",
+        docsPluginId: "test",
+        config: {
+          siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+            specPath: "./petstore.yaml", // Path to designated spec file
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/pet", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          }
+        },
+      }
+    ]
   ],
 
+  themes: ["docusaurus-theme-openapi-docs"], // Allows use of @theme/ApiItem and other components
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
