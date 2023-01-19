@@ -1,7 +1,7 @@
 ---
 id: documentation
 title: Documentation
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ![Business partner kit banner](../../../static/img/doc-business_partner_header-minified.png)
