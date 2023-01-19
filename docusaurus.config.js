@@ -82,25 +82,19 @@ const config = {
           {
             to: "/developer",
             position: "left",
-            label: "Developer",
+            label: "KITs",
           },
-          {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'left',
-            label: 'Documentation',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'introduction',
+          //   position: 'left',
+          //   label: 'Documentation',
+          // },
           {
             type: 'doc',
             docId: 'developer',
             position: 'left',
             label: 'Developer Hub',
-          },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'kits',
-            label: 'KITs',
           },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
