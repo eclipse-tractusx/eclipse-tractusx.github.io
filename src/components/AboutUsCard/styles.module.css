@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
+  padding: 4rem 0;
   overflow: hidden;
   background-color: #000;
 }
@@ -36,7 +36,7 @@
 
 .information_container {
   width: 100%;
-  height: 75%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,13 +73,13 @@
 }
 
 @media screen and (max-width: 996px) {
-  .title {
+  /* .title {
     font-size: 4vw;
   }
 
   .subtitle {
     font-size: 2vw;
-  }
+  } */
 
   .container {
     width: 40vw;
@@ -91,8 +91,8 @@
   }
 
   .information_container {
-    height: 20vw;
-    justify-content: space-around;
+    height: 25vw;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
   }
