@@ -7,13 +7,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 5rem 0;
   background-color: #000;
 }
 
 .container {
   width: 70vw;
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,15 +29,16 @@
 .title {
   font-family: "Manrope", sans-serif;
   font-style: bold;
-  font-size: 4rem;
-  line-height: 78%;
+  font-size: 40px;
+  line-height: 46px;
   letter-spacing: -1px;
 }
 
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 18px;
+  line-height: 26px;
   letter-spacing: -0.7px;
 }
 
@@ -70,11 +71,11 @@
 }
 
 .button {
-  padding: 0.3rem 2.5rem;
+  padding: 0.3rem 2rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
-  font-size: 0.9vw;
+  font-size: 14px;
   margin-right: 1.5rem;
 }
 
@@ -82,6 +83,7 @@
   background-color: #1e1e1e;
   color: #faa023;
   text-decoration: none;
+  cursor: pointer;
 }  
 
 .btn_slider_container {
@@ -109,13 +111,13 @@
     height: auto;
   }
 
-  .title {
+  /* .title {
     font-size: 4vw;
   }
 
   .subtitle {
     font-size: 2.1vw;
-  }
+  } */
 
   .slider_container {
     display: flex;
