@@ -41,6 +41,10 @@
   width: 100%;
 }
 
+.img_container:last-of-type {
+  justify-content: flex-start;
+}
+
 .img {
   width: 70%;
 }
