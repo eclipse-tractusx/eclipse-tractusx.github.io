@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 5rem 0;
   background-color: #000;
 }
 
@@ -30,8 +30,8 @@
 .title {
   font-family: "Manrope", sans-serif;
   font-style: bold;
-  font-size: 4rem;
-  line-height: 78%;
+  font-size: 40px;
+  line-height: 46px;
   letter-spacing: -1px;
 }
 
@@ -52,9 +52,9 @@
 .button {
   padding: 0.6rem 2rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
-  font-size: 1vw;
+  font-size: 14px;
 }
       
 .button:hover {
@@ -64,9 +64,9 @@
 }
 
 @media screen and (max-width: 996px) {
-  .title {
+  /* .title {
     font-size: 4vw;
-  }
+  } */
 
   .container {
     width: 80vw;
