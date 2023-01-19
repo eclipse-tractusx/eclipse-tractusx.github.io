@@ -53,6 +53,21 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "bpdm", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/bpdm/main/docs/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "openApi/bpdm", // the base directory to output to.
+        documents: ["pool.yaml"], // the file names to download
+        noRuntimeDownloads: true
+      },
+    ],
+  ],
+
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
