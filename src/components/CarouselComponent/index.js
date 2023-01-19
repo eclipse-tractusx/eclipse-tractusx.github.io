@@ -28,7 +28,8 @@ export default function CarouselComponent() {
     const kits = [
       {
         id: 1,
-        img: Business_Kit
+        img: Business_Kit,
+        pageRoute: "docs/kits/Business Partner Kit/Adoption View"
       },
       {
         id: 2,
@@ -40,7 +41,8 @@ export default function CarouselComponent() {
       },
       {
         id: 4,
-        img: Business_Kit
+        img: Business_Kit,
+        pageRoute: "docs/kits/Business Partner Kit/Adoption View"
       },
       {
         id: 5,
@@ -79,7 +81,7 @@ export default function CarouselComponent() {
               kits.map((kit)=> {
                 return (
                   <div key={kit.id} className={styles.slider_item}>
-                    <Link className={styles.slider_content} to='docs/kits'>
+                    <Link className={styles.slider_content} to={kit.pageRoute}>
                     <img src={kit.img} className={styles.slider_img}/>
                     </Link>
                   </div>
