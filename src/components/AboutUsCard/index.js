@@ -18,7 +18,7 @@ export default function AboutUsCard() {
           </p>
           <div>
             <Link className={styles.button} to="/aboutus">
-              ABOUT TRACTUS X
+              About Tractus-X
             </Link>
           </div>
         </div>
