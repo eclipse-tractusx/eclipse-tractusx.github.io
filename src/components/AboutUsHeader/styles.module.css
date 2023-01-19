@@ -7,7 +7,7 @@
 .about_header {
   position: relative;
   overflow: hidden;
-  height: 45vh;
+  height: 30vh;
 }
       
 .container {
@@ -20,20 +20,20 @@
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  gap: 2rem;
+  gap: 1rem;
 }
       
 .svg_container {
   width: 20vw;
   height: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
       
 .svg {
-  width: 75%;
-  height: 75%;
+  width: 80%;
+  height: 80%;
 }
       
 .information_container {
@@ -47,16 +47,16 @@
 .title {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 4.5vw;
-  line-height: 73%;
+  font-size: 40px;
+  line-height: 46px;
 }
       
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.25vw;
-  line-height: 117%;
-  margin-top: 1.5rem;
+  font-size: 18px;
+  line-height: 26px;
+  /* margin-top: 1rem; */
 }
       
 @media screen and (max-width: 996px) {
@@ -64,12 +64,12 @@
     height: auto;
   }
 
-  .title {
+  /* .title {
     font-size: 4vw;
-  }
+  } */
 
   .subtitle {
-    font-size: 2vw;
+    /* font-size: 2vw; */
     margin-top: -1rem;
   }
 
@@ -80,6 +80,15 @@
     align-items: center;
     gap: 1rem;
     padding: 2rem 0;
+  }
+
+  .svg_container {
+    justify-content: center;
+  }
+
+  .svg {
+    width: 70%;
+    height: 70%;
   }
 
   .information_container {
