@@ -8,7 +8,7 @@ export default function NewsTicker() {
       <div className={styles.container}>
         <div className={styles.button_container}>
           <Link className={styles.button} /*to="/news"*/>
-            NEWS
+            News
           </Link>
         </div>
 

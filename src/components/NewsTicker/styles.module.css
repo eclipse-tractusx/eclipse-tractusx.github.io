@@ -19,7 +19,7 @@
   border-top: 2px solid #707277;
   border-bottom: 2px solid #707277;
   width: 70vw;
-  height: 3.5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -34,7 +34,7 @@
 .button {
   padding: 0rem 1.3rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
   font-family: "Manrope", sans-serif;
   font-size: 18px;
@@ -50,7 +50,7 @@
   color: #dcdee4;
   margin: 0 1rem;
   font-family: "Manrope", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .introduction {
@@ -59,7 +59,7 @@
   text-overflow: ellipsis;
   font-family: "Manrope", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 122%;
   opacity: 0.8;
 }
