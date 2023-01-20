@@ -9,8 +9,8 @@ function HomePageHeader() {
     <header className={styles.heroBanner}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          Welcome <br />
-          to Tractus-x
+          Welcome to <br />
+          Eclipse Tractus-X
         </h1>
         <div className={styles.subtitle_box}>
           <p className={styles.subtitle}>
