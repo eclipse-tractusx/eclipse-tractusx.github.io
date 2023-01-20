@@ -1,7 +1,5 @@
----
-id: documentation
-title: Documentation
----
+# Documentation
+
 ## Authentication
 
 You will need to get a technical user and authenticate via OAuth 2.0. You can find the getting
