@@ -3,7 +3,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
-import DocumentationFile from "@site/docs/kits/Business-Kit/documentation.md";
+// import DocumentationFile from "@site/docs/kits/Business-Kit/_documentation.md";
 import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
 
 import styles from "./styles.module.css";

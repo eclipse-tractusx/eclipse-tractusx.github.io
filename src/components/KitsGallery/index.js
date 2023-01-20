@@ -12,7 +12,7 @@ export default function KitsGallery() {
     {
       id: 1,
       img: Business_Kit,
-      pageRoute: "businesskit/adoptionview"
+      pageRoute: "docs/kits/Business Partner Kit/Adoption View"
     },
     {
       id: 2,

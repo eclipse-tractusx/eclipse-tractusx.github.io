@@ -1,7 +1,11 @@
 ---
 id: documentation
 title: Documentation
+sidebar_position: 3
 ---
+
+![Business partner kit banner](../../../static/img/doc-business_partner_header-minified.png)
+
 ## Authentication
 
 You will need to get a technical user and authenticate via OAuth 2.0. You can find the getting
@@ -227,4 +231,93 @@ context, e.g. a country or region.",
 }
 ]
 }
+```
+
+### Example request (2.)
+
+```bash
+curl -X 'POST' \
+'https://partners-pool.dev.demo.catena-x.net/api/catena/legal-entities/legaladdresses/
+search' \
+-H 'accept: */*' \
+-H 'Content-Type: application/json' \
+-d '[
+"BPNL0000000002XY"
+]'
+```
+
+### Example response (2.)
+
+```bash
+[
+{
+"legalEntity": "BPNL0000000002XY",
+"legalAddress": {
+"version": {
+"characterSet": {
+"technicalKey": "LATIN",
+"name": "Latin"
+},
+"language": {
+"technicalKey": "en",
+"name": "English"
+}
+},
+"careOf": null,
+"contexts": [],
+"country": {
+"technicalKey": "DE",
+"name": "Germany"
+},
+"administrativeAreas": [],
+"postCodes": [
+{
+"value": "48465",
+"type": {
+"technicalKey": "OTHER",
+"name": "Other type",
+"url": ""
+}
+}
+],
+"localities": [
+{
+"value": "Schüttorf",
+"shortName": null,
+"type": {
+"technicalKey": "OTHER",
+"name": "Other",
+"url": ""
+},
+"language": {
+"technicalKey": "en",
+"name": "English"
+}
+}
+],
+"thoroughfares": [
+{
+"value": "Nordring",
+"name": null,
+"shortName": null,
+"number": "59 A",
+"direction": null,
+"type": {
+"technicalKey": "OTHER",
+"name": "Other type",
+"url": ""
+},
+"language": {
+"technicalKey": "en",
+"name": "English"
+}
+}
+],
+"premises": [],
+"postalDeliveryPoints": [],
+"geographicCoordinates": null,
+"types": []
+}
+}
+]   
 ```

@@ -1,0 +1,6775 @@
+openapi: 3.0.1
+info:
+  title: Business Partner Data Management Pool
+  description: Service that manages and shares business partner data with other CatenaX services
+  version: 3.0.0
+servers:
+  - url: http://127.0.0.1:8080
+    description: Generated server url
+paths:
+  /api/catena/sites:
+    put:
+      tags:
+        - site-controller
+      summary: Update existing site business partners
+      description: Update existing business partner records of type site referenced via BPNS. The endpoint expects to receive the full updated record, including values that didn't change.
+      operationId: updateSite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SitePartnerUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: The successfully updated records
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SitePartnerCreateResponse'
+        '400':
+          description: On malformed requests
+    post:
+      tags:
+        - site-controller
+      summary: Create new site business partners
+      description: Create new business partners of type site by specifying the BPNL of the legal entity each site belongs to. If the legal entitiy cannot be found, the record is ignored.For matching purposes, on each record you can specify your own index value which will reappear in the corresponding record of the response.
+      operationId: createSite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SitePartnerCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: New business partner record successfully created
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SitePartnerCreateResponse'
+        '400':
+          description: On malformed requests
+  /api/catena/legal-entities:
+    get:
+      tags:
+        - legal-entity-controller
+      summary: Get page of legal entity business partners matching the search criteria
+      description: This endpoint tries to find matches among all existing business partners of type legal entity, filtering out partners which entirely do not match and ranking the remaining partners according to the accuracy of the match. The match of a partner is better the higher its relevancy score.
+      operationId: getLegalEntities
+      parameters:
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of business partners matching the search criteria, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseLegalEntityMatchResponse'
+        '400':
+          description: On malformed search or pagination request
+    put:
+      tags:
+        - legal-entity-controller
+      summary: Update existing legal entity business partners
+      description: Update existing business partner records of type legal entity referenced via BPNL. The endpoint expects to receive the full updated record, including values that didn't change.
+      operationId: updateBusinessPartners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LegalEntityUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: The successfully updated records
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegalEntityPartnerCreateResponse'
+        '400':
+          description: On malformed requests
+        '404':
+          description: Metadata referenced by technical key not found
+    post:
+      tags:
+        - legal-entity-controller
+      summary: Create new legal entity business partners
+      description: Create new business partners of type legal entity. The given additional identifiers of a record need to be unique, otherwise they are ignored. For matching purposes, on each record you can specify your own index value which will reappear in the corresponding record of the response.
+      operationId: createBusinessPartners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LegalEntityPartnerCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: New business partner record successfully created
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegalEntityPartnerCreateResponse'
+        '400':
+          description: On malformed requests
+        '404':
+          description: Metadata referenced by technical key not found
+  /api/catena/addresses:
+    get:
+      tags:
+        - address-controller
+      summary: Get page of addresses matching the search criteria
+      description: This endpoint tries to find matches among all existing business partners of type address, filtering out partners which entirely do not match and ranking the remaining partners according to the accuracy of the match. The match of a partner is better the higher its relevancy score.
+      operationId: getAddresses_1
+      parameters:
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: countryCode
+          in: query
+          description: Filter business partners by ISO 3166-1 alpha-2 country code
+          required: false
+          schema:
+            type: string
+            enum:
+              - UNDEFINED
+              - AC
+              - AD
+              - AE
+              - AF
+              - AG
+              - AI
+              - AL
+              - AM
+              - AN
+              - AO
+              - AQ
+              - AR
+              - AS
+              - AT
+              - AU
+              - AW
+              - AX
+              - AZ
+              - BA
+              - BB
+              - BD
+              - BE
+              - BF
+              - BG
+              - BH
+              - BI
+              - BJ
+              - BL
+              - BM
+              - BN
+              - BO
+              - BQ
+              - BR
+              - BS
+              - BT
+              - BU
+              - BV
+              - BW
+              - BY
+              - BZ
+              - CA
+              - CC
+              - CD
+              - CF
+              - CG
+              - CH
+              - CI
+              - CK
+              - CL
+              - CM
+              - CN
+              - CO
+              - CP
+              - CR
+              - CS
+              - CU
+              - CV
+              - CW
+              - CX
+              - CY
+              - CZ
+              - DE
+              - DG
+              - DJ
+              - DK
+              - DM
+              - DO
+              - DZ
+              - EA
+              - EC
+              - EE
+              - EG
+              - EH
+              - ER
+              - ES
+              - ET
+              - EU
+              - EZ
+              - FI
+              - FJ
+              - FK
+              - FM
+              - FO
+              - FR
+              - FX
+              - GA
+              - GB
+              - GD
+              - GE
+              - GF
+              - GG
+              - GH
+              - GI
+              - GL
+              - GM
+              - GN
+              - GP
+              - GQ
+              - GR
+              - GS
+              - GT
+              - GU
+              - GW
+              - GY
+              - HK
+              - HM
+              - HN
+              - HR
+              - HT
+              - HU
+              - IC
+              - ID
+              - IE
+              - IL
+              - IM
+              - IN
+              - IO
+              - IQ
+              - IR
+              - IS
+              - IT
+              - JE
+              - JM
+              - JO
+              - JP
+              - KE
+              - KG
+              - KH
+              - KI
+              - KM
+              - KN
+              - KP
+              - KR
+              - KW
+              - KY
+              - KZ
+              - LA
+              - LB
+              - LC
+              - LI
+              - LK
+              - LR
+              - LS
+              - LT
+              - LU
+              - LV
+              - LY
+              - MA
+              - MC
+              - MD
+              - ME
+              - MF
+              - MG
+              - MH
+              - MK
+              - ML
+              - MM
+              - MN
+              - MO
+              - MP
+              - MQ
+              - MR
+              - MS
+              - MT
+              - MU
+              - MV
+              - MW
+              - MX
+              - MY
+              - MZ
+              - NA
+              - NC
+              - NE
+              - NF
+              - NG
+              - NI
+              - NL
+              - 'NO'
+              - NP
+              - NR
+              - NT
+              - NU
+              - NZ
+              - OM
+              - PA
+              - PE
+              - PF
+              - PG
+              - PH
+              - PK
+              - PL
+              - PM
+              - PN
+              - PR
+              - PS
+              - PT
+              - PW
+              - PY
+              - QA
+              - RE
+              - RO
+              - RS
+              - RU
+              - RW
+              - SA
+              - SB
+              - SC
+              - SD
+              - SE
+              - SF
+              - SG
+              - SH
+              - SI
+              - SJ
+              - SK
+              - SL
+              - SM
+              - SN
+              - SO
+              - SR
+              - SS
+              - ST
+              - SU
+              - SV
+              - SX
+              - SY
+              - SZ
+              - TA
+              - TC
+              - TD
+              - TF
+              - TG
+              - TH
+              - TJ
+              - TK
+              - TL
+              - TM
+              - TN
+              - TO
+              - TP
+              - TR
+              - TT
+              - TV
+              - TW
+              - TZ
+              - UA
+              - UG
+              - UK
+              - UM
+              - US
+              - UY
+              - UZ
+              - VA
+              - VC
+              - VE
+              - VG
+              - VI
+              - VN
+              - VU
+              - WF
+              - WS
+              - XI
+              - XU
+              - XK
+              - YE
+              - YT
+              - YU
+              - ZA
+              - ZM
+              - ZR
+              - ZW
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of addresses matching the search criteria, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseAddressMatchResponse'
+        '400':
+          description: On malformed search or pagination request
+    put:
+      tags:
+        - address-controller
+      summary: Update existing address business partners
+      description: Update existing business partner records of type address referenced via BPNA. The endpoint expects to receive the full updated record, including values that didn't change.
+      operationId: updateAddresses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AddressPartnerUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: The successfully updated records
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AddressPartnerResponse'
+        '400':
+          description: On malformed requests
+    post:
+      tags:
+        - address-controller
+      summary: Create new address business partners
+      description: Create new business partners of type address by specifying the BPN of the parent each address belongs to. A parent can be either a site or legal entity business partner. If the parent cannot be found, the record is ignored.For matching purposes, on each record you can specify your own index value which will reappear in the corresponding record of the response.
+      operationId: createAddresses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AddressPartnerCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: New business partner record successfully created
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AddressPartnerCreateResponse'
+        '400':
+          description: On malformed requests
+  /api/opensearch/business-partner:
+    get:
+      tags:
+        - open-search-controller
+      summary: Fetch information about the latest OpenSearch export
+      description: Fetch information about the latest export (either ongoing or already finished)
+      operationId: getBusinessPartners
+      responses:
+        '200':
+          description: Export information found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SyncResponse'
+        '500':
+          description: Fetching failed (no connection to database)
+    post:
+      tags:
+        - open-search-controller
+      summary: Index new business partner records on OpenSearch
+      description: 'Triggers an asynchronous export of business partner records from BPDM to OpenSearch. Only exports records which have been updated since the last export. '
+      operationId: export
+      responses:
+        '200':
+          description: Export of records successfully
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SyncResponse'
+        '500':
+          description: Export failed (no connection to OpenSearch or database)
+    delete:
+      tags:
+        - open-search-controller
+      summary: Clear business partner index on OpenSearch
+      description: Deletes all business partner records in the OpenSearch index. Also resets the timestamp from the last export.
+      operationId: clear
+      responses:
+        '200':
+          description: Index successfully cleared
+        '500':
+          description: Clearing failed (no connection to OpenSearch or database)
+  /api/catena/sites/search:
+    post:
+      tags:
+        - site-controller
+      summary: Search site partners by BPNs and/or parent BPNs
+      description: Search business partners of type site by their BPNSs or by the BPNLs of their parent legal entities
+      operationId: searchSites
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteBpnSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Found sites that belong to specified legal entites
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSitePartnerSearchResponse'
+        '400':
+          description: On malformed request parameters
+  /api/catena/sites/main-addresses/search:
+    post:
+      tags:
+        - site-controller
+      summary: Search Main Addresses
+      description: Search main addresses of site business partners by BPNS
+      operationId: searchMainAddresses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: The found main addresses
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MainAddressSearchResponse'
+        '400':
+          description: On malformed request parameters
+  /api/catena/legal-forms:
+    get:
+      tags:
+        - metadata-controller
+      summary: Get page of legal forms
+      description: Lists all currently known legal forms in a paginated result
+      operationId: getLegalForms
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of existing legal forms, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseLegalFormResponse'
+        '400':
+          description: On malformed request parameters
+    post:
+      tags:
+        - metadata-controller
+      summary: Create new legal form
+      description: 'Create a new legal form which can be referenced by business partner records. The actual name of the legal form is free to choose and doesn''t need to be unique. The technical key can be freely chosen but needs to be unique as it is used as reference by the business partner records. A recommendation for technical keys: They should be short, descriptive and use a restricted common character set in order to ensure compatibility with older systems.'
+      operationId: createLegalForm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LegalFormRequest'
+        required: true
+      responses:
+        '200':
+          description: New legal form successfully created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LegalFormResponse'
+        '400':
+          description: On malformed request parameters
+        '409':
+          description: Legal form with specified technical key already exists
+  /api/catena/legal-entities/{bpn}/confirm-up-to-date:
+    post:
+      tags:
+        - legal-entity-controller
+      summary: Confirms that the data of a legal entity business partner is still up to date.
+      description: Confirms that the data of a business partner is still up to date by saving the current timestamp at the time this POST-request is made as this business partner's "currentness". Ignores case of bpn.
+      operationId: setLegalEntityCurrentness
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Business partner's "currentness" successfully updated
+        '400':
+          description: On malformed request parameters
+        '404':
+          description: No business partner found for specified bpn
+  /api/catena/legal-entities/search:
+    post:
+      tags:
+        - legal-entity-controller
+      summary: Search legal entity partners by BPNLs
+      description: Search legal entity partners by their BPNLs. The response can contain less results than the number of BPNLs that were requested, if some of the BPNLs did not exist. For a single request, the maximum number of BPNLs to search for is limited to 5000 entries.
+      operationId: searchSites_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: Found legal entites
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegalEntityPartnerResponse'
+        '400':
+          description: On malformed request parameters or if number of requested bpns exceeds limit
+  /api/catena/legal-entities/legal-addresses/search:
+    post:
+      tags:
+        - legal-entity-controller
+      summary: Search Legal Addresses
+      description: Search legal addresses of legal entities by BPNL
+      operationId: searchLegalAddresses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: The found legal addresses
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegalAddressSearchResponse'
+        '400':
+          description: On malformed request parameters
+  /api/catena/issuing-bodies:
+    get:
+      tags:
+        - metadata-controller
+      summary: Get page of issuing bodies
+      description: Lists all currently known issuing bodies in a paginated result
+      operationId: getIssuingBodies
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of existing issuing bodies, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTypeKeyNameUrlDtoString'
+        '400':
+          description: On malformed request parameters
+    post:
+      tags:
+        - metadata-controller
+      summary: Create new issuing body
+      description: 'Create a new issuing body which can be referenced by business partner records. An issuing body should be an entity which the Catena organisation trusts to issue identifiers.The actual name of the issuing body is free to choose and doesn''t need to be unique. The technical key can be freely chosen but needs to be unique as it is used as reference by the business partner records. A recommendation for technical keys: They should be short, descriptive and use a restricted common character set in order to ensure compatibility with older systems.'
+      operationId: createIssuingBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        required: true
+      responses:
+        '200':
+          description: New issuing body successfully created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        '400':
+          description: On malformed request parameters
+        '409':
+          description: Issuing body with specified technical key already exists
+  /api/catena/identifier-types:
+    get:
+      tags:
+        - metadata-controller
+      summary: Get page of identifier types
+      description: Lists all currently known identifier types in a paginated result
+      operationId: getIdentifierTypes
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of existing identifier types, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTypeKeyNameUrlDtoString'
+        '400':
+          description: On malformed request parameters
+    post:
+      tags:
+        - metadata-controller
+      summary: Create new identifier type
+      description: 'Create a new identifier type which can be referenced by business partner records. Identifier types such as BPN or VAT determine with which kind of values a business partner can be identified with. The actual name of the identifier type is free to choose and doesn''t need to be unique. The technical key can be freely chosen but needs to be unique as it is used as reference by the business partner records. A recommendation for technical keys: They should be short, descriptive and use a restricted common character set in order to ensure compatibility with older systems.'
+      operationId: createIdentifierType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        required: true
+      responses:
+        '200':
+          description: New identifier type successfully created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        '400':
+          description: On malformed request parameters
+        '409':
+          description: Identifier type with specified technical key already exists
+  /api/catena/identifier-status:
+    get:
+      tags:
+        - metadata-controller
+      summary: Get page of identifier statuses
+      description: Lists all currently known identifier statuses in a paginated result
+      operationId: getIdentifierStati
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of existing identifier statuses, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTypeKeyNameDtoString'
+        '400':
+          description: On malformed request parameters
+    post:
+      tags:
+        - metadata-controller
+      summary: Create new identifier status
+      description: 'Create a new identifier status which can be referenced by business partner records. A status further distinguishes an identifier by adding current status information such as active or revoked.The actual name of the identifier status is free to choose and doesn''t need to be unique. The technical key can be freely chosen but needs to be unique as it is used as reference by the business partner records. A recommendation for technical keys: They should be short, descriptive and use a restricted common character set in order to ensure compatibility with older systems.'
+      operationId: createIdentifierStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TypeKeyNameDtoString'
+        required: true
+      responses:
+        '200':
+          description: New identifier status successfully created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TypeKeyNameDtoString'
+        '400':
+          description: On malformed request parameters
+        '409':
+          description: Identifier status with specified technical key already exists
+  /api/catena/bpn/search:
+    post:
+      tags:
+        - bpn-controller
+      summary: Find business partner numbers by identifiers
+      description: Find business partner numbers by identifiers. The response can contain less results than the number of identifier values that were requested, if some of the identifiers did not exist. For a single request, the maximum number of identifier values to search for is limited to 5000 entries.
+      operationId: findBpnsByIdentifiers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentifiersSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Found bpn to identifier value mappings
+          content:
+            '*/*':
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  $ref: '#/components/schemas/BpnIdentifierMappingResponse'
+        '400':
+          description: On malformed request parameters or if number of requested bpns exceeds limit
+        '404':
+          description: Specified identifier type not found
+  /api/catena/addresses/search:
+    post:
+      tags:
+        - address-controller
+      summary: Search address partners by BPNs and/or parent BPNs
+      description: Search business partners of type address by their BPN or their parent partners BPN (BPNLs or BPNS).
+      operationId: searchAddresses
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressPartnerBpnSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: Found sites for the specified sites and legal entities
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseAddressPartnerSearchResponse'
+        '400':
+          description: On malformed pagination request
+  /api/catena/suggestions/sites/names:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in business partner sites
+      description: Performs search on site names in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible site names in the search set.
+      operationId: getSiteSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show site names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/legal-entities/statuses:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in business statuses
+      description: Performs search on business status denotations in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible business status denotations in the search set.
+      operationId: getStatusSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show business status denotations best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/legal-entities/names:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in business partner names
+      description: Performs search on business partner names in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible names in the search set.
+      operationId: getNameSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/legal-entities/legal-forms:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in business partner legal forms
+      description: Performs search on legal form names in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible legal form names in the search set.
+      operationId: getLegalFormSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show legal form names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/legal-entities/classifications:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in business partner classifications
+      description: Performs search on business partner classifications in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible business partner classifications in the search set.
+      operationId: getClassificationSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show business partner classifications best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/thoroughfares:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in thoroughfares
+      description: Performs search on thoroughfare denotations in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible thoroughfare names in the search set.
+      operationId: getThoroughfareSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show thoroughfare names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/premises:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in premises
+      description: Performs search on premise denotations in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible premise names in the search set.
+      operationId: getPremiseSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show premise names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/postcodes:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in postcodes
+      description: Performs search on postcode values in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible postcode values in the search set.
+      operationId: getPostcodeSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show postcodes best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/postal-delivery-points:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in postal delivery points
+      description: Performs search on postal delivery point denotations in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible postal delivery point names in the search set.
+      operationId: getPostalDeliverPointSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show postal delivery point names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/localities:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in localities
+      description: Performs search on locality denotations in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible locality names in the search set.
+      operationId: getLocalitySuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show locality names this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/suggestions/addresses/administrative-areas:
+    get:
+      tags:
+        - suggestion-controller
+      summary: Find best matches for given text in administrative areas
+      description: Performs search on administrative area names in order to find the best matches for the given text. By specifying further request parameters the set of business partners to search in can be restricted. If no text is given, the endpoint lists possible administrative area names in the search set.
+      operationId: getAdminAreaSuggestion
+      parameters:
+        - name: text
+          in: query
+          description: Show administrative area names best matching this text
+          required: false
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Best matches found, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSuggestionResponse'
+  /api/catena/sites/{bpn}:
+    get:
+      tags:
+        - site-controller
+      summary: Get site partners by bpn
+      description: Get business partners of type site by bpn-s ignoring case.
+      operationId: getSite
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Found site with specified bpn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SitePartnerSearchResponse'
+        '400':
+          description: On malformed request parameters
+        '404':
+          description: No site found under specified bpn
+  /api/catena/legal-entities/{idValue}:
+    get:
+      tags:
+        - legal-entity-controller
+      summary: Get legal entity business partner by identifier
+      description: This endpoint tries to find a business partner by the specified identifier. The identifier value is case insensitively compared but needs to be given exactly. By default the value given is interpreted as a BPN. By specifying the technical key of another identifier typethe value is matched against the identifiers of that given type.
+      operationId: getLegalEntity
+      parameters:
+        - name: idValue
+          in: path
+          description: Identifier value
+          required: true
+          schema:
+            type: string
+        - name: idType
+          in: query
+          description: Type of identifier to use, defaults to BPN when omitted
+          required: false
+          schema:
+            type: string
+            default: BPN
+      responses:
+        '200':
+          description: Found business partner with specified identifier
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LegalEntityPartnerResponse'
+        '400':
+          description: On malformed request parameters
+        '404':
+          description: No business partner found under specified identifier or specified identifier type not found
+  /api/catena/legal-entities/{bpn}/sites:
+    get:
+      tags:
+        - legal-entity-controller
+      summary: Get site partners of a legal entity
+      description: Get business partners of type site belonging to a business partner of type legal entity, identified by the business partner's bpn ignoring case.
+      operationId: getSites
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: The sites for the specified bpn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseSitePartnerResponse'
+        '400':
+          description: On malformed pagination request
+        '404':
+          description: No business partner found for specified bpn
+  /api/catena/legal-entities/{bpn}/addresses:
+    get:
+      tags:
+        - legal-entity-controller
+      summary: Get address partners of a legal entity
+      description: Get business partners of type address belonging to a business partner of type legal entity, identified by the business partner's bpn ignoring case.
+      operationId: getAddresses
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: The addresses for the specified bpn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseAddressPartnerResponse'
+        '400':
+          description: On malformed pagination request
+        '404':
+          description: No business partner found for specified bpn
+  /api/catena/identifier-types/for-country:
+    get:
+      tags:
+        - metadata-controller
+      summary: Get valid identifier types for a country
+      description: Returns which identifier types are valid and which ones are mandatory for a country specified by its ISO 3166-1 alpha-2 country code.
+      operationId: getValidIdentifierTypesForCountry
+      parameters:
+        - name: country
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - UNDEFINED
+              - AC
+              - AD
+              - AE
+              - AF
+              - AG
+              - AI
+              - AL
+              - AM
+              - AN
+              - AO
+              - AQ
+              - AR
+              - AS
+              - AT
+              - AU
+              - AW
+              - AX
+              - AZ
+              - BA
+              - BB
+              - BD
+              - BE
+              - BF
+              - BG
+              - BH
+              - BI
+              - BJ
+              - BL
+              - BM
+              - BN
+              - BO
+              - BQ
+              - BR
+              - BS
+              - BT
+              - BU
+              - BV
+              - BW
+              - BY
+              - BZ
+              - CA
+              - CC
+              - CD
+              - CF
+              - CG
+              - CH
+              - CI
+              - CK
+              - CL
+              - CM
+              - CN
+              - CO
+              - CP
+              - CR
+              - CS
+              - CU
+              - CV
+              - CW
+              - CX
+              - CY
+              - CZ
+              - DE
+              - DG
+              - DJ
+              - DK
+              - DM
+              - DO
+              - DZ
+              - EA
+              - EC
+              - EE
+              - EG
+              - EH
+              - ER
+              - ES
+              - ET
+              - EU
+              - EZ
+              - FI
+              - FJ
+              - FK
+              - FM
+              - FO
+              - FR
+              - FX
+              - GA
+              - GB
+              - GD
+              - GE
+              - GF
+              - GG
+              - GH
+              - GI
+              - GL
+              - GM
+              - GN
+              - GP
+              - GQ
+              - GR
+              - GS
+              - GT
+              - GU
+              - GW
+              - GY
+              - HK
+              - HM
+              - HN
+              - HR
+              - HT
+              - HU
+              - IC
+              - ID
+              - IE
+              - IL
+              - IM
+              - IN
+              - IO
+              - IQ
+              - IR
+              - IS
+              - IT
+              - JE
+              - JM
+              - JO
+              - JP
+              - KE
+              - KG
+              - KH
+              - KI
+              - KM
+              - KN
+              - KP
+              - KR
+              - KW
+              - KY
+              - KZ
+              - LA
+              - LB
+              - LC
+              - LI
+              - LK
+              - LR
+              - LS
+              - LT
+              - LU
+              - LV
+              - LY
+              - MA
+              - MC
+              - MD
+              - ME
+              - MF
+              - MG
+              - MH
+              - MK
+              - ML
+              - MM
+              - MN
+              - MO
+              - MP
+              - MQ
+              - MR
+              - MS
+              - MT
+              - MU
+              - MV
+              - MW
+              - MX
+              - MY
+              - MZ
+              - NA
+              - NC
+              - NE
+              - NF
+              - NG
+              - NI
+              - NL
+              - 'NO'
+              - NP
+              - NR
+              - NT
+              - NU
+              - NZ
+              - OM
+              - PA
+              - PE
+              - PF
+              - PG
+              - PH
+              - PK
+              - PL
+              - PM
+              - PN
+              - PR
+              - PS
+              - PT
+              - PW
+              - PY
+              - QA
+              - RE
+              - RO
+              - RS
+              - RU
+              - RW
+              - SA
+              - SB
+              - SC
+              - SD
+              - SE
+              - SF
+              - SG
+              - SH
+              - SI
+              - SJ
+              - SK
+              - SL
+              - SM
+              - SN
+              - SO
+              - SR
+              - SS
+              - ST
+              - SU
+              - SV
+              - SX
+              - SY
+              - SZ
+              - TA
+              - TC
+              - TD
+              - TF
+              - TG
+              - TH
+              - TJ
+              - TK
+              - TL
+              - TM
+              - TN
+              - TO
+              - TP
+              - TR
+              - TT
+              - TV
+              - TW
+              - TZ
+              - UA
+              - UG
+              - UK
+              - UM
+              - US
+              - UY
+              - UZ
+              - VA
+              - VC
+              - VE
+              - VG
+              - VI
+              - VN
+              - VU
+              - WF
+              - WS
+              - XI
+              - XU
+              - XK
+              - YE
+              - YT
+              - YU
+              - ZA
+              - ZM
+              - ZR
+              - ZW
+      responses:
+        '200':
+          description: The identifier types
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CountryIdentifierTypeResponse'
+        '400':
+          description: On malformed request parameters
+  /api/catena/business-partners/{bpn}/changelog:
+    get:
+      tags:
+        - business-partner-controller
+      summary: Get business partner changelog entries by bpn
+      description: Get business partner changelog entries by bpn ignoring case.
+      operationId: getChangelogEntries
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: The changelog entries for the specified bpn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseChangelogEntryResponse'
+        '400':
+          description: On malformed pagination request
+        '404':
+          description: No business partner found for specified bpn
+  /api/catena/business-partner:
+    get:
+      tags:
+        - business-partner-legacy-controller
+      summary: Get page of business partners matching the search criteria
+      description: This endpoint tries to find matches among all existing business partners, filtering out partners which entirely do not match and ranking the remaining partners according to the accuracy of the match. The match of a partner is better the higher its relevancy score.
+      operationId: searchBusinessPartners
+      parameters:
+        - name: name
+          in: query
+          description: Filter legal entities by name
+          required: false
+          schema:
+            type: string
+        - name: legalForm
+          in: query
+          description: Filter legal entities by legal form name
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter legal entities by status official denotation
+          required: false
+          schema:
+            type: string
+        - name: classification
+          in: query
+          description: Filter legal entities by classification denotation
+          required: false
+          schema:
+            type: string
+        - name: administrativeArea
+          in: query
+          description: Filter business partners by administrative area name
+          required: false
+          schema:
+            type: string
+        - name: postCode
+          in: query
+          description: Filter business partners by postcode or postcodes
+          required: false
+          schema:
+            type: string
+        - name: locality
+          in: query
+          description: Filter business partners by locality full denotation
+          required: false
+          schema:
+            type: string
+        - name: thoroughfare
+          in: query
+          description: Filter business partners by thoroughfare full denotation
+          required: false
+          schema:
+            type: string
+        - name: premise
+          in: query
+          description: Filter business partners by premise full denotation
+          required: false
+          schema:
+            type: string
+        - name: postalDeliveryPoint
+          in: query
+          description: Filter business partners by postal delivery point full denotation
+          required: false
+          schema:
+            type: string
+        - name: siteName
+          in: query
+          description: Filter sites by name
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      responses:
+        '200':
+          description: Page of business partners matching the search criteria, may be empty
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseBusinessPartnerMatchResponse'
+        '400':
+          description: On malformed search or pagination request
+      deprecated: true
+  /api/catena/business-partner/{idValue}:
+    get:
+      tags:
+        - business-partner-legacy-controller
+      summary: Get business partner by identifier
+      description: This endpoint tries to find a business partner by the specified identifier. The identifier value is case insensitively compared but needs to be given exactly. By default the value given is interpreted as a BPN. By specifying the technical key of another identifier typethe value is matched against the identifiers of that given type.
+      operationId: getLegalEntity_1
+      parameters:
+        - name: idValue
+          in: path
+          description: Identifier value
+          required: true
+          schema:
+            type: string
+        - name: idType
+          in: query
+          description: Type of identifier to use, defaults to BPN when omitted
+          required: false
+          schema:
+            type: string
+            default: BPN
+      responses:
+        '200':
+          description: Found business partner with specified identifier
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BusinessPartnerResponse'
+        '400':
+          description: On malformed request parameters
+        '404':
+          description: No business partner found under specified identifier or specified identifier type not found
+      deprecated: true
+  /api/catena/addresses/{bpn}:
+    get:
+      tags:
+        - address-controller
+      summary: Get address partners by bpn
+      description: Get business partners of type address by bpn-a ignoring case.
+      operationId: getAddress
+      parameters:
+        - name: bpn
+          in: path
+          description: Bpn value
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Found address with specified bpn
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AddressPartnerSearchResponse'
+        '400':
+          description: On malformed request parameters
+        '404':
+          description: No address found under specified bpn
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/AddressVersion'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          type: string
+          enum:
+            - UNDEFINED
+            - AC
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AN
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BU
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CP
+            - CR
+            - CS
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DG
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EA
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - EU
+            - EZ
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - FX
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - IC
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - 'NO'
+            - NP
+            - NR
+            - NT
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PS
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SF
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SU
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TA
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TP
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UK
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - XI
+            - XU
+            - XK
+            - YE
+            - YT
+            - YU
+            - ZA
+            - ZM
+            - ZR
+            - ZW
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeArea'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Postcode'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Locality'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thoroughfare'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/Premise'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPoint'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - BRANCH_OFFICE
+              - CARE_OF
+              - HEADQUARTER
+              - LEGAL_ALTERNATIVE
+              - PO_BOX
+              - REGISTERED
+              - REGISTERED_AGENT_MAIL
+              - REGISTERED_AGENT_PHYSICAL
+              - VAT_REGISTERED
+              - UNSPECIFIC
+      description: Localized address record for a business partner
+    AddressMatchResponse:
+      type: object
+      properties:
+        score:
+          type: number
+          format: float
+        address:
+          $ref: '#/components/schemas/AddressPartnerSearchResponse'
+      description: Match with score for a business partner record of type address
+    AddressPartnerBpnSearchRequest:
+      type: object
+      properties:
+        legalEntities:
+          type: array
+          items:
+            type: string
+        sites:
+          type: array
+          items:
+            type: string
+        addresses:
+          type: array
+          items:
+            type: string
+      description: Request for searching business partners of type address by parent BPNs
+    AddressPartnerCreateRequest:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/AddressVersion'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          type: string
+          enum:
+            - UNDEFINED
+            - AC
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AN
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BU
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CP
+            - CR
+            - CS
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DG
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EA
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - EU
+            - EZ
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - FX
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - IC
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - 'NO'
+            - NP
+            - NR
+            - NT
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PS
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SF
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SU
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TA
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TP
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UK
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - XI
+            - XU
+            - XK
+            - YE
+            - YT
+            - YU
+            - ZA
+            - ZM
+            - ZR
+            - ZW
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeArea'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Postcode'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Locality'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thoroughfare'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/Premise'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPoint'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - BRANCH_OFFICE
+              - CARE_OF
+              - HEADQUARTER
+              - LEGAL_ALTERNATIVE
+              - PO_BOX
+              - REGISTERED
+              - REGISTERED_AGENT_MAIL
+              - REGISTERED_AGENT_PHYSICAL
+              - VAT_REGISTERED
+              - UNSPECIFIC
+        parent:
+          type: string
+        index:
+          type: string
+      description: Request for creating new business partner record of type address
+    AddressPartnerCreateResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        version:
+          $ref: '#/components/schemas/AddressVersionResponse'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          $ref: '#/components/schemas/TypeKeyNameDtoCountryCode'
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeAreaResponse'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostcodeResponse'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalityResponse'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThoroughfareResponse'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/PremiseResponse'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPointResponse'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoAddressType'
+        index:
+          type: string
+      description: Created business partners of type address
+    AddressPartnerResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        version:
+          $ref: '#/components/schemas/AddressVersionResponse'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          $ref: '#/components/schemas/TypeKeyNameDtoCountryCode'
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeAreaResponse'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostcodeResponse'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalityResponse'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThoroughfareResponse'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/PremiseResponse'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPointResponse'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoAddressType'
+      description: Business partner of type address
+    AddressPartnerSearchResponse:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressPartnerResponse'
+        bpnLegalEntity:
+          type: string
+        bpnSite:
+          type: string
+      description: Business partner of type address with parent reference
+    AddressPartnerUpdateRequest:
+      type: object
+      properties:
+        bpn:
+          type: string
+        version:
+          $ref: '#/components/schemas/AddressVersion'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          type: string
+          enum:
+            - UNDEFINED
+            - AC
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AN
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BU
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CP
+            - CR
+            - CS
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DG
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EA
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - EU
+            - EZ
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - FX
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - IC
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - 'NO'
+            - NP
+            - NR
+            - NT
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PS
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SF
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SU
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TA
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TP
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UK
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - XI
+            - XU
+            - XK
+            - YE
+            - YT
+            - YU
+            - ZA
+            - ZM
+            - ZR
+            - ZW
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeArea'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Postcode'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Locality'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/Thoroughfare'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/Premise'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPoint'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - BRANCH_OFFICE
+              - CARE_OF
+              - HEADQUARTER
+              - LEGAL_ALTERNATIVE
+              - PO_BOX
+              - REGISTERED
+              - REGISTERED_AGENT_MAIL
+              - REGISTERED_AGENT_PHYSICAL
+              - VAT_REGISTERED
+              - UNSPECIFIC
+      description: Request for updating a business partner record of type address
+    AddressResponse:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/AddressVersionResponse'
+        careOf:
+          type: string
+        contexts:
+          type: array
+          items:
+            type: string
+        country:
+          $ref: '#/components/schemas/TypeKeyNameDtoCountryCode'
+        administrativeAreas:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdministrativeAreaResponse'
+        postCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostcodeResponse'
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalityResponse'
+        thoroughfares:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThoroughfareResponse'
+        premises:
+          type: array
+          items:
+            $ref: '#/components/schemas/PremiseResponse'
+        postalDeliveryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostalDeliveryPointResponse'
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoAddressType'
+      description: Localized address record of a business partner
+    AddressVersion:
+      type: object
+      properties:
+        characterSet:
+          type: string
+          enum:
+            - ARABIC
+            - CHINESE
+            - CHINESE_TRADITIONAL
+            - CYRILLIC
+            - GREEK
+            - HANGUL_KOREAN
+            - HEBREW
+            - HIRAGANA
+            - KANJI
+            - KATAKANA
+            - LATIN
+            - THAI
+            - WESTERN_LATIN_STANDARD
+            - UNDEFINED
+        language:
+          type: string
+          enum:
+            - undefined
+            - aa
+            - ab
+            - ae
+            - af
+            - ak
+            - am
+            - an
+            - ar
+            - as
+            - av
+            - ay
+            - az
+            - ba
+            - be
+            - bg
+            - bh
+            - bi
+            - bm
+            - bn
+            - bo
+            - br
+            - bs
+            - ca
+            - ce
+            - ch
+            - co
+            - cr
+            - cs
+            - cu
+            - cv
+            - cy
+            - da
+            - de
+            - dv
+            - dz
+            - ee
+            - el
+            - en
+            - eo
+            - es
+            - et
+            - eu
+            - fa
+            - ff
+            - fi
+            - fj
+            - fo
+            - fr
+            - fy
+            - ga
+            - gd
+            - gl
+            - gn
+            - gu
+            - gv
+            - ha
+            - he
+            - hi
+            - ho
+            - hr
+            - ht
+            - hu
+            - hy
+            - hz
+            - ia
+            - id
+            - ie
+            - ig
+            - ii
+            - ik
+            - io
+            - is
+            - it
+            - iu
+            - ja
+            - jv
+            - ka
+            - kg
+            - ki
+            - kj
+            - kk
+            - kl
+            - km
+            - kn
+            - ko
+            - kr
+            - ks
+            - ku
+            - kv
+            - kw
+            - ky
+            - la
+            - lb
+            - lg
+            - li
+            - ln
+            - lo
+            - lt
+            - lu
+            - lv
+            - mg
+            - mh
+            - mi
+            - mk
+            - ml
+            - mn
+            - mr
+            - ms
+            - mt
+            - my
+            - na
+            - nb
+            - nd
+            - ne
+            - ng
+            - nl
+            - nn
+            - 'no'
+            - nr
+            - nv
+            - ny
+            - oc
+            - oj
+            - om
+            - or
+            - os
+            - pa
+            - pi
+            - pl
+            - ps
+            - pt
+            - qu
+            - rm
+            - rn
+            - ro
+            - ru
+            - rw
+            - sa
+            - sc
+            - sd
+            - se
+            - sg
+            - si
+            - sk
+            - sl
+            - sm
+            - sn
+            - so
+            - sq
+            - sr
+            - ss
+            - st
+            - su
+            - sv
+            - sw
+            - ta
+            - te
+            - tg
+            - th
+            - ti
+            - tk
+            - tl
+            - tn
+            - to
+            - tr
+            - ts
+            - tt
+            - tw
+            - ty
+            - ug
+            - uk
+            - ur
+            - uz
+            - ve
+            - vi
+            - vo
+            - wa
+            - wo
+            - xh
+            - yi
+            - yo
+            - za
+            - zh
+            - zu
+      description: Localization record for an address
+    AddressVersionResponse:
+      type: object
+      properties:
+        characterSet:
+          $ref: '#/components/schemas/TypeKeyNameDtoCharacterSet'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Localization record of an address
+    AdministrativeArea:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        fipsCode:
+          type: string
+        type:
+          type: string
+          enum:
+            - COUNTY
+            - REGION
+            - OTHER
+      description: Areas such as country regions or counties
+    AdministrativeAreaResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        fipsCode:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoAdministrativeAreaType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Area of an address such as country region or county
+    BankAccount:
+      type: object
+      properties:
+        trustScores:
+          type: array
+          items:
+            type: number
+            format: float
+        currency:
+          type: string
+          enum:
+            - UNDEFINED
+            - AED
+            - AFN
+            - ALL
+            - AMD
+            - ANG
+            - AOA
+            - ARS
+            - AUD
+            - AWG
+            - AZN
+            - BAM
+            - BBD
+            - BDT
+            - BGN
+            - BHD
+            - BIF
+            - BMD
+            - BND
+            - BOB
+            - BOV
+            - BRL
+            - BSD
+            - BTN
+            - BWP
+            - BYN
+            - BYR
+            - BZD
+            - CAD
+            - CDF
+            - CHE
+            - CHF
+            - CHW
+            - CLF
+            - CLP
+            - CNY
+            - COP
+            - COU
+            - CRC
+            - CUC
+            - CUP
+            - CVE
+            - CZK
+            - DJF
+            - DKK
+            - DOP
+            - DZD
+            - EGP
+            - ERN
+            - ETB
+            - EUR
+            - FJD
+            - FKP
+            - GBP
+            - GEL
+            - GHS
+            - GIP
+            - GMD
+            - GNF
+            - GTQ
+            - GYD
+            - HKD
+            - HNL
+            - HRK
+            - HTG
+            - HUF
+            - IDR
+            - ILS
+            - INR
+            - IQD
+            - IRR
+            - ISK
+            - JMD
+            - JOD
+            - JPY
+            - KES
+            - KGS
+            - KHR
+            - KMF
+            - KPW
+            - KRW
+            - KWD
+            - KYD
+            - KZT
+            - LAK
+            - LBP
+            - LKR
+            - LRD
+            - LSL
+            - LTL
+            - LYD
+            - MAD
+            - MDL
+            - MGA
+            - MKD
+            - MMK
+            - MNT
+            - MOP
+            - MRO
+            - MRU
+            - MUR
+            - MVR
+            - MWK
+            - MXN
+            - MXV
+            - MYR
+            - MZN
+            - NAD
+            - NGN
+            - NIO
+            - NOK
+            - NPR
+            - NZD
+            - OMR
+            - PAB
+            - PEN
+            - PGK
+            - PHP
+            - PKR
+            - PLN
+            - PYG
+            - QAR
+            - RON
+            - RSD
+            - RUB
+            - RUR
+            - RWF
+            - SAR
+            - SBD
+            - SCR
+            - SDG
+            - SEK
+            - SGD
+            - SHP
+            - SLL
+            - SOS
+            - SRD
+            - SSP
+            - STD
+            - STN
+            - SVC
+            - SYP
+            - SZL
+            - THB
+            - TJS
+            - TMT
+            - TND
+            - TOP
+            - TRY
+            - TTD
+            - TWD
+            - TZS
+            - UAH
+            - UGX
+            - USD
+            - USN
+            - USS
+            - UYI
+            - UYU
+            - UZS
+            - VEF
+            - VES
+            - VND
+            - VUV
+            - WST
+            - XAF
+            - XAG
+            - XAU
+            - XBA
+            - XBB
+            - XBC
+            - XBD
+            - XCD
+            - XDR
+            - XOF
+            - XPD
+            - XPF
+            - XPT
+            - XSU
+            - XTS
+            - XUA
+            - XXX
+            - YER
+            - ZAR
+            - ZMW
+            - ZWL
+        internationalBankAccountIdentifier:
+          type: string
+        internationalBankIdentifier:
+          type: string
+        nationalBankAccountIdentifier:
+          type: string
+        nationalBankIdentifier:
+          type: string
+      description: Bank account record of a business partner
+    BankAccountResponse:
+      type: object
+      properties:
+        trustScores:
+          type: array
+          items:
+            type: number
+            format: float
+        currency:
+          $ref: '#/components/schemas/TypeKeyNameDtoCurrencyCode'
+        internationalBankAccountIdentifier:
+          type: string
+        internationalBankIdentifier:
+          type: string
+        nationalBankAccountIdentifier:
+          type: string
+        nationalBankIdentifier:
+          type: string
+      description: Bank account record for a business partner
+    BpnIdentifierMappingResponse:
+      type: object
+      properties:
+        idValue:
+          type: string
+        bpn:
+          type: string
+      description: Mapping of Business Partner Number to identifier value
+    BusinessPartnerMatchResponse:
+      type: object
+      properties:
+        score:
+          type: number
+          format: float
+        businessPartner:
+          $ref: '#/components/schemas/BusinessPartnerResponse'
+      description: Match with score for a business partner of type legal entity in legacy format
+      deprecated: true
+    BusinessPartnerResponse:
+      type: object
+      properties:
+        uuid:
+          type: string
+        bpn:
+          type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierResponse'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameResponse'
+        legalForm:
+          $ref: '#/components/schemas/LegalFormResponse'
+        status:
+          $ref: '#/components/schemas/BusinessStatusResponse'
+        profileClassifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationResponse'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessPartnerType'
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountResponse'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameDtoString'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelationResponse'
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressPartnerResponse'
+        sites:
+          type: array
+          items:
+            $ref: '#/components/schemas/SitePartnerResponse'
+        currentness:
+          type: string
+          format: date-time
+      description: Business Partner of type legal entity in deprecated response format
+      deprecated: true
+    BusinessStatus:
+      type: object
+      properties:
+        officialDenotation:
+          type: string
+        validFrom:
+          type: string
+          format: date-time
+        validUntil:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum:
+            - ACTIVE
+            - DISSOLVED
+            - IN_LIQUIDATION
+            - INACTIVE
+            - INSOLVENCY
+            - UNKNOWN
+      description: Status record for a business partner
+    BusinessStatusResponse:
+      type: object
+      properties:
+        officialDenotation:
+          type: string
+        validFrom:
+          type: string
+          format: date-time
+        validUntil:
+          type: string
+          format: date-time
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessStatusType'
+      description: Status of a business partner
+    ChangelogEntryResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        changelogType:
+          type: string
+          enum:
+            - CREATE
+            - UPDATE
+        timestamp:
+          type: string
+          format: date-time
+      description: Changelog entry for a business partner
+    Classification:
+      type: object
+      properties:
+        value:
+          type: string
+        code:
+          type: string
+        type:
+          type: string
+          enum:
+            - NACE
+            - NAF
+            - NAICS
+            - SIC
+      description: Classification record for a business partner
+    ClassificationResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        code:
+          type: string
+        type:
+          $ref: '#/components/schemas/NamedTypeWithLink'
+      description: Classification record of a business partner
+    CountryIdentifierTypeResponse:
+      type: object
+      properties:
+        identifierType:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        mandatory:
+          type: boolean
+      description: Valid identifiers for a country
+    GeoCoordinates:
+      type: object
+      properties:
+        longitude:
+          type: number
+          format: float
+        latitude:
+          type: number
+          format: float
+        altitude:
+          type: number
+          format: float
+      description: Geo coordinates record for an address
+    Identifier:
+      type: object
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+        issuingBody:
+          type: string
+        status:
+          type: string
+      description: Identifier record for a business partner
+    IdentifierResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        issuingBody:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+        status:
+          $ref: '#/components/schemas/TypeKeyNameDtoString'
+      description: Identifier record of a business partner
+    IdentifiersSearchRequest:
+      type: object
+      properties:
+        idType:
+          type: string
+        idValues:
+          type: array
+          items:
+            type: string
+      description: Contains identifiers to search legal entities by
+    LegalAddressSearchResponse:
+      type: object
+      properties:
+        legalEntity:
+          type: string
+        legalAddress:
+          $ref: '#/components/schemas/AddressResponse'
+      description: Legal address record with parent BPN
+    LegalEntityMatchResponse:
+      type: object
+      properties:
+        score:
+          type: number
+          format: float
+        legalEntity:
+          $ref: '#/components/schemas/LegalEntityPartnerResponse'
+      description: Match with score for a business partner record of type legal entity
+    LegalEntityPartnerCreateRequest:
+      type: object
+      properties:
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        legalForm:
+          type: string
+        status:
+          $ref: '#/components/schemas/BusinessStatus'
+        profileClassifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - BRAND
+              - LEGAL_ENTITY
+              - ORGANIZATIONAL_UNIT
+              - SITE
+              - UNKNOWN
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccount'
+        legalAddress:
+          $ref: '#/components/schemas/Address'
+        index:
+          type: string
+      description: Request for creating new business partner record of type legal entity
+    LegalEntityPartnerCreateResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierResponse'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameResponse'
+        legalForm:
+          $ref: '#/components/schemas/LegalFormResponse'
+        status:
+          $ref: '#/components/schemas/BusinessStatusResponse'
+        profileClassifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationResponse'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessPartnerType'
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountResponse'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameDtoString'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelationResponse'
+        currentness:
+          type: string
+          format: date-time
+        legalAddress:
+          $ref: '#/components/schemas/AddressResponse'
+        index:
+          type: string
+      description: Created business partner of type legal entity
+    LegalEntityPartnerResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierResponse'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameResponse'
+        legalForm:
+          $ref: '#/components/schemas/LegalFormResponse'
+        status:
+          $ref: '#/components/schemas/BusinessStatusResponse'
+        profileClassifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationResponse'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessPartnerType'
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccountResponse'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameDtoString'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelationResponse'
+        currentness:
+          type: string
+          format: date-time
+      description: Business partner of type legal entity with currentness
+    LegalEntityUpdateRequest:
+      type: object
+      properties:
+        bpn:
+          type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        legalForm:
+          type: string
+        status:
+          $ref: '#/components/schemas/BusinessStatus'
+        profileClassifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - BRAND
+              - LEGAL_ENTITY
+              - ORGANIZATIONAL_UNIT
+              - SITE
+              - UNKNOWN
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccount'
+        legalAddress:
+          $ref: '#/components/schemas/Address'
+      description: Request for updating a business partner record of type legal entity
+    LegalFormRequest:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        mainAbbreviation:
+          type: string
+        language:
+          type: string
+          enum:
+            - undefined
+            - aa
+            - ab
+            - ae
+            - af
+            - ak
+            - am
+            - an
+            - ar
+            - as
+            - av
+            - ay
+            - az
+            - ba
+            - be
+            - bg
+            - bh
+            - bi
+            - bm
+            - bn
+            - bo
+            - br
+            - bs
+            - ca
+            - ce
+            - ch
+            - co
+            - cr
+            - cs
+            - cu
+            - cv
+            - cy
+            - da
+            - de
+            - dv
+            - dz
+            - ee
+            - el
+            - en
+            - eo
+            - es
+            - et
+            - eu
+            - fa
+            - ff
+            - fi
+            - fj
+            - fo
+            - fr
+            - fy
+            - ga
+            - gd
+            - gl
+            - gn
+            - gu
+            - gv
+            - ha
+            - he
+            - hi
+            - ho
+            - hr
+            - ht
+            - hu
+            - hy
+            - hz
+            - ia
+            - id
+            - ie
+            - ig
+            - ii
+            - ik
+            - io
+            - is
+            - it
+            - iu
+            - ja
+            - jv
+            - ka
+            - kg
+            - ki
+            - kj
+            - kk
+            - kl
+            - km
+            - kn
+            - ko
+            - kr
+            - ks
+            - ku
+            - kv
+            - kw
+            - ky
+            - la
+            - lb
+            - lg
+            - li
+            - ln
+            - lo
+            - lt
+            - lu
+            - lv
+            - mg
+            - mh
+            - mi
+            - mk
+            - ml
+            - mn
+            - mr
+            - ms
+            - mt
+            - my
+            - na
+            - nb
+            - nd
+            - ne
+            - ng
+            - nl
+            - nn
+            - 'no'
+            - nr
+            - nv
+            - ny
+            - oc
+            - oj
+            - om
+            - or
+            - os
+            - pa
+            - pi
+            - pl
+            - ps
+            - pt
+            - qu
+            - rm
+            - rn
+            - ro
+            - ru
+            - rw
+            - sa
+            - sc
+            - sd
+            - se
+            - sg
+            - si
+            - sk
+            - sl
+            - sm
+            - sn
+            - so
+            - sq
+            - sr
+            - ss
+            - st
+            - su
+            - sv
+            - sw
+            - ta
+            - te
+            - tg
+            - th
+            - ti
+            - tk
+            - tl
+            - tn
+            - to
+            - tr
+            - ts
+            - tt
+            - tw
+            - ty
+            - ug
+            - uk
+            - ur
+            - uz
+            - ve
+            - vi
+            - vo
+            - wa
+            - wo
+            - xh
+            - yi
+            - yo
+            - za
+            - zh
+            - zu
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedTypeWithLink'
+      description: New legal form record to be referenced by business partners
+    LegalFormResponse:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        mainAbbreviation:
+          type: string
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedTypeWithLink'
+      description: Legal form a business partner can have
+    Locality:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        type:
+          type: string
+          enum:
+            - BLOCK
+            - CITY
+            - DISTRICT
+            - OTHER
+            - POST_OFFICE_CITY
+            - QUARTER
+      description: Locality record for an address such as city, block or district
+    LocalityResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoLocalityType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Locality record of an address such as city, block or district
+    MainAddressSearchResponse:
+      type: object
+      properties:
+        site:
+          type: string
+        mainAddress:
+          $ref: '#/components/schemas/AddressResponse'
+      description: Main address record with parent BPN
+    Name:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        type:
+          type: string
+          enum:
+            - ACRONYM
+            - DOING_BUSINESS_AS
+            - ESTABLISHMENT
+            - INTERNATIONAL
+            - LOCAL
+            - OTHER
+            - REGISTERED
+            - TRANSLITERATED
+            - VAT_REGISTERED
+        language:
+          type: string
+          enum:
+            - undefined
+            - aa
+            - ab
+            - ae
+            - af
+            - ak
+            - am
+            - an
+            - ar
+            - as
+            - av
+            - ay
+            - az
+            - ba
+            - be
+            - bg
+            - bh
+            - bi
+            - bm
+            - bn
+            - bo
+            - br
+            - bs
+            - ca
+            - ce
+            - ch
+            - co
+            - cr
+            - cs
+            - cu
+            - cv
+            - cy
+            - da
+            - de
+            - dv
+            - dz
+            - ee
+            - el
+            - en
+            - eo
+            - es
+            - et
+            - eu
+            - fa
+            - ff
+            - fi
+            - fj
+            - fo
+            - fr
+            - fy
+            - ga
+            - gd
+            - gl
+            - gn
+            - gu
+            - gv
+            - ha
+            - he
+            - hi
+            - ho
+            - hr
+            - ht
+            - hu
+            - hy
+            - hz
+            - ia
+            - id
+            - ie
+            - ig
+            - ii
+            - ik
+            - io
+            - is
+            - it
+            - iu
+            - ja
+            - jv
+            - ka
+            - kg
+            - ki
+            - kj
+            - kk
+            - kl
+            - km
+            - kn
+            - ko
+            - kr
+            - ks
+            - ku
+            - kv
+            - kw
+            - ky
+            - la
+            - lb
+            - lg
+            - li
+            - ln
+            - lo
+            - lt
+            - lu
+            - lv
+            - mg
+            - mh
+            - mi
+            - mk
+            - ml
+            - mn
+            - mr
+            - ms
+            - mt
+            - my
+            - na
+            - nb
+            - nd
+            - ne
+            - ng
+            - nl
+            - nn
+            - 'no'
+            - nr
+            - nv
+            - ny
+            - oc
+            - oj
+            - om
+            - or
+            - os
+            - pa
+            - pi
+            - pl
+            - ps
+            - pt
+            - qu
+            - rm
+            - rn
+            - ro
+            - ru
+            - rw
+            - sa
+            - sc
+            - sd
+            - se
+            - sg
+            - si
+            - sk
+            - sl
+            - sm
+            - sn
+            - so
+            - sq
+            - sr
+            - ss
+            - st
+            - su
+            - sv
+            - sw
+            - ta
+            - te
+            - tg
+            - th
+            - ti
+            - tk
+            - tl
+            - tn
+            - to
+            - tr
+            - ts
+            - tt
+            - tw
+            - ty
+            - ug
+            - uk
+            - ur
+            - uz
+            - ve
+            - vi
+            - vo
+            - wa
+            - wo
+            - xh
+            - yi
+            - yo
+            - za
+            - zh
+            - zu
+      description: Name record for a business partner
+    NameResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoNameType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Name record of a business partner
+    NamedTypeWithLink:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+      description: General type with name and URL link for further information
+    PageResponseAddressMatchResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressMatchResponse'
+      description: Paginated collection of results
+    PageResponseAddressPartnerResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressPartnerResponse'
+      description: Paginated collection of results
+    PageResponseAddressPartnerSearchResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressPartnerSearchResponse'
+      description: Paginated collection of results
+    PageResponseBusinessPartnerMatchResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessPartnerMatchResponse'
+      description: Paginated collection of results
+    PageResponseChangelogEntryResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChangelogEntryResponse'
+      description: Paginated collection of results
+    PageResponseLegalEntityMatchResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalEntityMatchResponse'
+      description: Paginated collection of results
+    PageResponseLegalFormResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalFormResponse'
+      description: Paginated collection of results
+    PageResponseSitePartnerResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/SitePartnerResponse'
+      description: Paginated collection of results
+    PageResponseSitePartnerSearchResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/SitePartnerSearchResponse'
+      description: Paginated collection of results
+    PageResponseSuggestionResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/SuggestionResponse'
+      description: Paginated collection of results
+    PageResponseTypeKeyNameDtoString:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameDtoString'
+      description: Paginated collection of results
+    PageResponseTypeKeyNameUrlDtoString:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
+      description: Paginated collection of results
+    PostalDeliveryPoint:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        type:
+          type: string
+          enum:
+            - INTERURBAN_DELIVERY_POINT
+            - MAIL_STATION
+            - MAILBOX
+            - OTHER
+            - POST_OFFICE_BOX
+      description: Postal delivery point record for an address
+    PostalDeliveryPointResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoPostalDeliveryPointType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Postal delivery point record of an address
+    Postcode:
+      type: object
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+          enum:
+            - CEDEX
+            - LARGE_MAIL_USER
+            - OTHER
+            - POST_BOX
+            - REGULAR
+      description: Postcode record for an address
+    PostcodeResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoPostCodeType'
+      description: Postcode record of an address
+    Premise:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        type:
+          type: string
+          enum:
+            - BUILDING
+            - OTHER
+            - LEVEL
+            - HARBOUR
+            - ROOM
+            - SUITE
+            - UNIT
+            - WAREHOUSE
+      description: Premise record for an address such as building, room or floor
+    PremiseResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoPremiseType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Premise record of an address such as building, room or floor
+    RelationResponse:
+      type: object
+      properties:
+        relationClass:
+          $ref: '#/components/schemas/TypeKeyNameDtoRelationClass'
+        type:
+          $ref: '#/components/schemas/TypeKeyNameDtoRelationType'
+        startNode:
+          type: string
+        endNode:
+          type: string
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+      description: Directed relation between two business partners
+    SiteBpnSearchRequest:
+      type: object
+      properties:
+        legalEntities:
+          type: array
+          items:
+            type: string
+        sites:
+          type: array
+          items:
+            type: string
+    SitePartnerCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        mainAddress:
+          $ref: '#/components/schemas/Address'
+        legalEntity:
+          type: string
+        index:
+          type: string
+      description: Request for creating new business partner record of type site
+    SitePartnerCreateResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        name:
+          type: string
+        mainAddress:
+          $ref: '#/components/schemas/AddressResponse'
+        index:
+          type: string
+      description: Created business partner record of type site
+    SitePartnerResponse:
+      type: object
+      properties:
+        bpn:
+          type: string
+        name:
+          type: string
+      description: Business partner of type site
+    SitePartnerSearchResponse:
+      type: object
+      properties:
+        site:
+          $ref: '#/components/schemas/SitePartnerResponse'
+        bpnLegalEntity:
+          type: string
+      description: Business partner of type site with parent BPN
+    SitePartnerUpdateRequest:
+      type: object
+      properties:
+        bpn:
+          type: string
+        name:
+          type: string
+        mainAddress:
+          $ref: '#/components/schemas/Address'
+      description: Request for updating a business partner record of type site
+    SuggestionResponse:
+      type: object
+      properties:
+        suggestion:
+          type: string
+        relevancy:
+          type: number
+          format: float
+      description: Shows a ranked suggestion based on a given search text
+    SyncResponse:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - OPENSEARCH
+            - CDQ_IMPORT
+        status:
+          type: string
+          enum:
+            - NOT_SYNCED
+            - RUNNING
+            - SUCCESS
+            - ERROR
+        count:
+          type: integer
+          format: int32
+        progress:
+          type: number
+          format: float
+        errorDetails:
+          type: string
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+    Thoroughfare:
+      type: object
+      properties:
+        value:
+          type: string
+        name:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        direction:
+          type: string
+        type:
+          type: string
+          enum:
+            - INDUSTRIAL_ZONE
+            - OTHER
+            - RIVER
+            - SQUARE
+            - STREET
+      description: Thoroughfare record for an address such as street, square or industrial zone
+    ThoroughfareResponse:
+      type: object
+      properties:
+        value:
+          type: string
+        name:
+          type: string
+        shortName:
+          type: string
+        number:
+          type: string
+        direction:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKeyNameUrlDtoThoroughfareType'
+        language:
+          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
+      description: Thoroughfare record of an address such as street, square or industrial zone
+    TypeKeyNameDtoCharacterSet:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - ARABIC
+            - CHINESE
+            - CHINESE_TRADITIONAL
+            - CYRILLIC
+            - GREEK
+            - HANGUL_KOREAN
+            - HEBREW
+            - HIRAGANA
+            - KANJI
+            - KATAKANA
+            - LATIN
+            - THAI
+            - WESTERN_LATIN_STANDARD
+            - UNDEFINED
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoCountryCode:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - UNDEFINED
+            - AC
+            - AD
+            - AE
+            - AF
+            - AG
+            - AI
+            - AL
+            - AM
+            - AN
+            - AO
+            - AQ
+            - AR
+            - AS
+            - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BA
+            - BB
+            - BD
+            - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BR
+            - BS
+            - BT
+            - BU
+            - BV
+            - BW
+            - BY
+            - BZ
+            - CA
+            - CC
+            - CD
+            - CF
+            - CG
+            - CH
+            - CI
+            - CK
+            - CL
+            - CM
+            - CN
+            - CO
+            - CP
+            - CR
+            - CS
+            - CU
+            - CV
+            - CW
+            - CX
+            - CY
+            - CZ
+            - DE
+            - DG
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EA
+            - EC
+            - EE
+            - EG
+            - EH
+            - ER
+            - ES
+            - ET
+            - EU
+            - EZ
+            - FI
+            - FJ
+            - FK
+            - FM
+            - FO
+            - FR
+            - FX
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
+            - GR
+            - GS
+            - GT
+            - GU
+            - GW
+            - GY
+            - HK
+            - HM
+            - HN
+            - HR
+            - HT
+            - HU
+            - IC
+            - ID
+            - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IQ
+            - IR
+            - IS
+            - IT
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KP
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LA
+            - LB
+            - LC
+            - LI
+            - LK
+            - LR
+            - LS
+            - LT
+            - LU
+            - LV
+            - LY
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - MK
+            - ML
+            - MM
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
+            - MT
+            - MU
+            - MV
+            - MW
+            - MX
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NG
+            - NI
+            - NL
+            - 'NO'
+            - NP
+            - NR
+            - NT
+            - NU
+            - NZ
+            - OM
+            - PA
+            - PE
+            - PF
+            - PG
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PS
+            - PT
+            - PW
+            - PY
+            - QA
+            - RE
+            - RO
+            - RS
+            - RU
+            - RW
+            - SA
+            - SB
+            - SC
+            - SD
+            - SE
+            - SF
+            - SG
+            - SH
+            - SI
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SO
+            - SR
+            - SS
+            - ST
+            - SU
+            - SV
+            - SX
+            - SY
+            - SZ
+            - TA
+            - TC
+            - TD
+            - TF
+            - TG
+            - TH
+            - TJ
+            - TK
+            - TL
+            - TM
+            - TN
+            - TO
+            - TP
+            - TR
+            - TT
+            - TV
+            - TW
+            - TZ
+            - UA
+            - UG
+            - UK
+            - UM
+            - US
+            - UY
+            - UZ
+            - VA
+            - VC
+            - VE
+            - VG
+            - VI
+            - VN
+            - VU
+            - WF
+            - WS
+            - XI
+            - XU
+            - XK
+            - YE
+            - YT
+            - YU
+            - ZA
+            - ZM
+            - ZR
+            - ZW
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoCurrencyCode:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - UNDEFINED
+            - AED
+            - AFN
+            - ALL
+            - AMD
+            - ANG
+            - AOA
+            - ARS
+            - AUD
+            - AWG
+            - AZN
+            - BAM
+            - BBD
+            - BDT
+            - BGN
+            - BHD
+            - BIF
+            - BMD
+            - BND
+            - BOB
+            - BOV
+            - BRL
+            - BSD
+            - BTN
+            - BWP
+            - BYN
+            - BYR
+            - BZD
+            - CAD
+            - CDF
+            - CHE
+            - CHF
+            - CHW
+            - CLF
+            - CLP
+            - CNY
+            - COP
+            - COU
+            - CRC
+            - CUC
+            - CUP
+            - CVE
+            - CZK
+            - DJF
+            - DKK
+            - DOP
+            - DZD
+            - EGP
+            - ERN
+            - ETB
+            - EUR
+            - FJD
+            - FKP
+            - GBP
+            - GEL
+            - GHS
+            - GIP
+            - GMD
+            - GNF
+            - GTQ
+            - GYD
+            - HKD
+            - HNL
+            - HRK
+            - HTG
+            - HUF
+            - IDR
+            - ILS
+            - INR
+            - IQD
+            - IRR
+            - ISK
+            - JMD
+            - JOD
+            - JPY
+            - KES
+            - KGS
+            - KHR
+            - KMF
+            - KPW
+            - KRW
+            - KWD
+            - KYD
+            - KZT
+            - LAK
+            - LBP
+            - LKR
+            - LRD
+            - LSL
+            - LTL
+            - LYD
+            - MAD
+            - MDL
+            - MGA
+            - MKD
+            - MMK
+            - MNT
+            - MOP
+            - MRO
+            - MRU
+            - MUR
+            - MVR
+            - MWK
+            - MXN
+            - MXV
+            - MYR
+            - MZN
+            - NAD
+            - NGN
+            - NIO
+            - NOK
+            - NPR
+            - NZD
+            - OMR
+            - PAB
+            - PEN
+            - PGK
+            - PHP
+            - PKR
+            - PLN
+            - PYG
+            - QAR
+            - RON
+            - RSD
+            - RUB
+            - RUR
+            - RWF
+            - SAR
+            - SBD
+            - SCR
+            - SDG
+            - SEK
+            - SGD
+            - SHP
+            - SLL
+            - SOS
+            - SRD
+            - SSP
+            - STD
+            - STN
+            - SVC
+            - SYP
+            - SZL
+            - THB
+            - TJS
+            - TMT
+            - TND
+            - TOP
+            - TRY
+            - TTD
+            - TWD
+            - TZS
+            - UAH
+            - UGX
+            - USD
+            - USN
+            - USS
+            - UYI
+            - UYU
+            - UZS
+            - VEF
+            - VES
+            - VND
+            - VUV
+            - WST
+            - XAF
+            - XAG
+            - XAU
+            - XBA
+            - XBB
+            - XBC
+            - XBD
+            - XCD
+            - XDR
+            - XOF
+            - XPD
+            - XPF
+            - XPT
+            - XSU
+            - XTS
+            - XUA
+            - XXX
+            - YER
+            - ZAR
+            - ZMW
+            - ZWL
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoLanguageCode:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - undefined
+            - aa
+            - ab
+            - ae
+            - af
+            - ak
+            - am
+            - an
+            - ar
+            - as
+            - av
+            - ay
+            - az
+            - ba
+            - be
+            - bg
+            - bh
+            - bi
+            - bm
+            - bn
+            - bo
+            - br
+            - bs
+            - ca
+            - ce
+            - ch
+            - co
+            - cr
+            - cs
+            - cu
+            - cv
+            - cy
+            - da
+            - de
+            - dv
+            - dz
+            - ee
+            - el
+            - en
+            - eo
+            - es
+            - et
+            - eu
+            - fa
+            - ff
+            - fi
+            - fj
+            - fo
+            - fr
+            - fy
+            - ga
+            - gd
+            - gl
+            - gn
+            - gu
+            - gv
+            - ha
+            - he
+            - hi
+            - ho
+            - hr
+            - ht
+            - hu
+            - hy
+            - hz
+            - ia
+            - id
+            - ie
+            - ig
+            - ii
+            - ik
+            - io
+            - is
+            - it
+            - iu
+            - ja
+            - jv
+            - ka
+            - kg
+            - ki
+            - kj
+            - kk
+            - kl
+            - km
+            - kn
+            - ko
+            - kr
+            - ks
+            - ku
+            - kv
+            - kw
+            - ky
+            - la
+            - lb
+            - lg
+            - li
+            - ln
+            - lo
+            - lt
+            - lu
+            - lv
+            - mg
+            - mh
+            - mi
+            - mk
+            - ml
+            - mn
+            - mr
+            - ms
+            - mt
+            - my
+            - na
+            - nb
+            - nd
+            - ne
+            - ng
+            - nl
+            - nn
+            - 'no'
+            - nr
+            - nv
+            - ny
+            - oc
+            - oj
+            - om
+            - or
+            - os
+            - pa
+            - pi
+            - pl
+            - ps
+            - pt
+            - qu
+            - rm
+            - rn
+            - ro
+            - ru
+            - rw
+            - sa
+            - sc
+            - sd
+            - se
+            - sg
+            - si
+            - sk
+            - sl
+            - sm
+            - sn
+            - so
+            - sq
+            - sr
+            - ss
+            - st
+            - su
+            - sv
+            - sw
+            - ta
+            - te
+            - tg
+            - th
+            - ti
+            - tk
+            - tl
+            - tn
+            - to
+            - tr
+            - ts
+            - tt
+            - tw
+            - ty
+            - ug
+            - uk
+            - ur
+            - uz
+            - ve
+            - vi
+            - vo
+            - wa
+            - wo
+            - xh
+            - yi
+            - yo
+            - za
+            - zh
+            - zu
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoRelationClass:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - CDQ_HIERARCHY
+            - CDQ_TRANSITION
+            - CX_HIERARCHY
+            - DNB_HIERARCHY
+            - LEI_HIERARCHY
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoRelationType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - CX_LEGAL_SUCCESSOR_OF
+            - CX_LEGAL_PREDECESSOR_OF
+            - CX_ADDRESS_OF
+            - CX_SITE_OF
+            - CX_OWNED_BY
+            - DIRECT_LEGAL_RELATION
+            - COMMERCIAL_ULTIMATE
+            - DOMESTIC_BRANCH_RELATION
+            - INTERNATIONAL_BRANCH_RELATION
+            - DOMESTIC_LEGAL_ULTIMATE_RELATION
+            - GLOBAL_LEGAL_ULTIMATE_RELATION
+            - LEGAL_PREDECESSOR
+            - LEGAL_SUCCESSOR
+            - DNB_PARENT
+            - DNB_HEADQUARTER
+            - DNB_DOMESTIC_ULTIMATE
+            - DNB_GLOBAL_ULTIMATE
+            - LEI_DIRECT_PARENT
+            - LEI_INTERNATIONAL_BRANCH
+            - LEI_ULTIMATE_PARENT
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameDtoString:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+        name:
+          type: string
+      description: Named type uniquely identified by its technical key
+    TypeKeyNameUrlDtoAddressType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - BRANCH_OFFICE
+            - CARE_OF
+            - HEADQUARTER
+            - LEGAL_ALTERNATIVE
+            - PO_BOX
+            - REGISTERED
+            - REGISTERED_AGENT_MAIL
+            - REGISTERED_AGENT_PHYSICAL
+            - VAT_REGISTERED
+            - UNSPECIFIC
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoAdministrativeAreaType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - COUNTY
+            - REGION
+            - OTHER
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoBusinessPartnerType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - BRAND
+            - LEGAL_ENTITY
+            - ORGANIZATIONAL_UNIT
+            - SITE
+            - UNKNOWN
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoBusinessStatusType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - ACTIVE
+            - DISSOLVED
+            - IN_LIQUIDATION
+            - INACTIVE
+            - INSOLVENCY
+            - UNKNOWN
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoLocalityType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - BLOCK
+            - CITY
+            - DISTRICT
+            - OTHER
+            - POST_OFFICE_CITY
+            - QUARTER
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoNameType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - ACRONYM
+            - DOING_BUSINESS_AS
+            - ESTABLISHMENT
+            - INTERNATIONAL
+            - LOCAL
+            - OTHER
+            - REGISTERED
+            - TRANSLITERATED
+            - VAT_REGISTERED
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoPostCodeType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - CEDEX
+            - LARGE_MAIL_USER
+            - OTHER
+            - POST_BOX
+            - REGULAR
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoPostalDeliveryPointType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - INTERURBAN_DELIVERY_POINT
+            - MAIL_STATION
+            - MAILBOX
+            - OTHER
+            - POST_OFFICE_BOX
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoPremiseType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - BUILDING
+            - OTHER
+            - LEVEL
+            - HARBOUR
+            - ROOM
+            - SUITE
+            - UNIT
+            - WAREHOUSE
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoString:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+    TypeKeyNameUrlDtoThoroughfareType:
+      type: object
+      properties:
+        technicalKey:
+          type: string
+          enum:
+            - INDUSTRIAL_ZONE
+            - OTHER
+            - RIVER
+            - SQUARE
+            - STREET
+        name:
+          type: string
+        url:
+          type: string
