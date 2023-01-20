@@ -4,7 +4,6 @@ import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
 import KitsCard from "@site/src/components/KitsCard";
-import Adoption from "@site/docs/kits/DataChain-Kit/adoption-view.md";
 
 import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
 import WhyDataChain from "@site/static/img/why_data_chain-minified.png"
@@ -29,7 +28,13 @@ export default function AdoptionView() {
       <main>
         <div className={styles.info_container}>
           <div className={styles.paragraph}>
-            <Adoption />
+            <p>
+            DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help Business Owner and Catena-X participants to be up to date and prepared. It's easy to use the DataChainKit with an Open Source Software package, which can easily deployed via HELM or docker-compose.
+            The DataChainKit enables to apply business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy, Traceability, Quality and the European supply chain act. 
+            </p>
+            <p>
+            #GreenIT #DataSovereignty #Interoperability #ConnectedData
+            </p>
           </div>
           {/* <div className={styles.video}>
             <h2 className={styles.title}>Get inspired by using this KIT</h2>

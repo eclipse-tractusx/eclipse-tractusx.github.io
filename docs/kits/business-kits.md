@@ -1,3 +1,0 @@
-# Business KITs
-
-Test
