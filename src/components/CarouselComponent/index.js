@@ -67,7 +67,7 @@ export default function CarouselComponent() {
 
         <div className={styles.btn_container}>
           <Link className={styles.button} /* to="/aboutus" */>
-            All cx-kits
+            All CX-Kits
           </Link>
           <div className={styles.btn_slider_container}>
             <ArrowCircleLeftOutlinedIcon sx={{fontSize: '2.3vw', '@media (max-width: 996px)': {fontSize: '3.5vw'}}} className={styles.btn_slider} onClick={() => slider?.current?.slickPrev()}/>

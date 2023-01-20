@@ -20,7 +20,7 @@ function HomePageHeader() {
         </div>
         <div>
           <Link className={styles.button} to="/developer">
-            OUR DEV KITS
+            Our Dev Kits
           </Link>
         </div>
       </div>

@@ -29,6 +29,9 @@
   --ifm-background-color: #1e1e1e;
   --ifm-navbar-background-color: #000;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-heading-color: #fff;
+  --ifm-font-color-base: #fff;
+  --ifm-navbar-link-color: #fff;
 }
 
 .footer--dark {

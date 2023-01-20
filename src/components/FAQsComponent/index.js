@@ -29,9 +29,9 @@ export default function FAQsComponent() {
               <Typography
                 sx={{
                   fontFamily: 'Manrope, sans-serif',
-                  fontSize: '1.3rem',
+                  fontSize: '18px',
                   fontWeight: 'bold',
-                  lineHeight: '138%',
+                  lineHeight: '26px',
                   letterSpacing: '0.6px',
                 }}
               >
@@ -44,8 +44,8 @@ export default function FAQsComponent() {
               <Typography
                 sx={{
                   fontFamily: 'Manrope, sans-serif',
-                  fontSize: '1rem',
-                  lineHeight: '136%',
+                  fontSize: '14px',
+                  lineHeight: '22px',
                   letterSpacing: '-0.4px'  
                 }}
               >
@@ -64,9 +64,9 @@ export default function FAQsComponent() {
               <Typography
                  sx={{
                     fontFamily: 'Manrope, sans-serif',
-                    fontSize: '1.3rem',
+                    fontSize: '18px',
                     fontWeight: 'bold',
-                    lineHeight: '138%',
+                    lineHeight: '26px',
                     letterSpacing: '0.6px'
                   }}
               >
@@ -76,7 +76,14 @@ export default function FAQsComponent() {
             <AccordionDetails
               sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
             >
-              <Typography>
+              <Typography
+                sx={{
+                  fontFamily: 'Manrope, sans-serif',
+                  fontSize: '14px',
+                  lineHeight: '22px',
+                  letterSpacing: '-0.4px'  
+                }}
+              >
                 There are the first three lighthouse KITs available. More and more KITs will come from different domains. 
               </Typography>
             </AccordionDetails>
@@ -92,9 +99,9 @@ export default function FAQsComponent() {
               <Typography
                  sx={{
                     fontFamily: 'Manrope, sans-serif',
-                    fontSize: '1.3rem',
+                    fontSize: '18px',
                     fontWeight: 'bold',
-                    lineHeight: '138%',
+                    lineHeight: '26px',
                     letterSpacing: '0.6px'
                   }}
               >
@@ -104,7 +111,14 @@ export default function FAQsComponent() {
             <AccordionDetails
               sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
             >
-              <Typography>
+              <Typography
+                sx={{
+                  fontFamily: 'Manrope, sans-serif',
+                  fontSize: '14px',
+                  lineHeight: '22px',
+                  letterSpacing: '-0.4px'  
+                }}
+              >
                 KITs are guided with three different views (adoption, develop and operation) but not every KIT will provide the same objectives. Some will be more focused on the adoption view with a vision & mission, semantic model .. and other KITs will have a different target-group like developers - so there will be more focus on the technical specification.
               </Typography>
             </AccordionDetails>
@@ -113,7 +127,7 @@ export default function FAQsComponent() {
 
         <div className={styles.btn_container}>
           <Link className={styles.button} /* to="/faqs" */>
-            OPEN ALL
+            Open All
           </Link>
         </div>
       </div>

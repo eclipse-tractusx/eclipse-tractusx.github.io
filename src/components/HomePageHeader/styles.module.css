@@ -7,7 +7,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  color: #fff;
+  /* color: #fff; */
   height: 94vh;
 }
     
@@ -31,8 +31,8 @@
 
 .title {
   font-weight: 400;
-  font-size: 120px;
-  line-height: 125px;
+  font-size: 80px;
+  line-height: 90px;
 }
 
 .subtitle_box {
@@ -42,15 +42,16 @@
 
 .subtitle {
   font-weight: 400;
-  font-size: 29px;
-  line-height: 47px;
+  font-size: 25px;
+  line-height: 38px;
   letter-spacing: -0.7px;
 }
 
 .button {
   padding: 0.6rem 2rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
+  font-weight: bold;
   border-radius: 5px;
 }
 
