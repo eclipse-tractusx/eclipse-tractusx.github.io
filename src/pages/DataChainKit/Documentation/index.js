@@ -4,7 +4,7 @@ import Layout from "@theme/Layout";
 
 import KitsHeader from "@site/src/components/KitsHeader";
 // import DocumentationFile from "@site/docs/kits/Business-Kit/_documentation.md";
-import KitBusinessSvg from '@site/static/img/kit_business_logo.svg'
+import KitDataChainSvg from '@site/static/img/kit_data_chain_logo.svg'
 
 import styles from "./styles.module.css";
 
@@ -15,10 +15,10 @@ export default function Documentation() {
       title={'Documentation'}
       description="Description will go into a meta tag in <head />"
     >
-      <KitsHeader
-        title="Business Partner Kit" 
-        subtitle="Use BusinessParterKit in your app or service to get a high-quality data record including a unique identifier of business partners or to connect as a sharing member."
-        SVG={KitBusinessSvg}
+      <KitsHeader 
+        title="Data Chain Kit" 
+        subtitle="Use DataChainKit in your app / service to access connected data distributed  between organizations."
+        SVG={KitDataChainSvg}
       />
       <main className={styles.main}>
         <div className={styles.documentation_card}>
