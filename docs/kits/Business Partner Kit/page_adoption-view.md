@@ -14,6 +14,6 @@ The BusinessPartnerKit provides high-quality data records of business partners i
 
 **Standards**
 
-[Business Partner Number](https://www.example.com](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/5_PC_BPDM_v.2.1/BPM_-_001_BUSINESS_PARTNER_NUMBER_PlatformCapabilityBPDM_v2.1.pdf)
+[Business Partner Number](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/5_PC_BPDM_v.2.1/BPM_-_001_BUSINESS_PARTNER_NUMBER_PlatformCapabilityBPDM_v2.1.pdf)
 
 ![Benefits of using the business partner kit diagram](../../../static/img/benefits-min.png)
