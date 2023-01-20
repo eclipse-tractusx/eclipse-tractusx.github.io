@@ -114,6 +114,31 @@ const config = {
         style: 'dark',
         links: [
           {
+            title: 'Eclipse Foundation',
+            items: [
+              {
+                label: "Main Eclipse Foundation website",
+                href: "http://www.eclipse.org",
+              },
+              {
+                label: "Privacy policy",
+                href: "http://www.eclipse.org/legal/privacy.php",
+              },
+              {
+                label: "Website terms of use",
+                href: "http://www.eclipse.org/legal/termsofuse.php",
+              },
+              {
+                label: "Copyright agent",
+                href: "http://www.eclipse.org/legal/copyright.php",
+              },
+              {
+                label: "Legal",
+                href: "http://www.eclipse.org/legal",
+              },
+            ],
+          },
+          {
             title: 'Community',
             items: [
               {
