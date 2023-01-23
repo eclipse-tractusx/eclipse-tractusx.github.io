@@ -37,6 +37,8 @@ This project leverages the following third party content.
 
 See DEPENDENCIES file.
 
+In addtion, we use 'Manrope' as font. Copyright (c) Mikhail Sharanda (https://github.com/sharanda/manrope), with Reserved Font Name 'Manrope' under the SIL Open Font License 1.1 (OFL-1.1) see https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+
 ## Cryptography
 
 Content may contain encryption software. The country in which you are currently
