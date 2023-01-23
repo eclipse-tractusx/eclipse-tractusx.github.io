@@ -37,7 +37,8 @@ export default function CarouselComponent() {
       },
       {
         id: 3,
-        img: DataChain_Kit
+        img: DataChain_Kit,
+        pageRoute: "docs/kits/Data Chain Kit/Adoption View"
       },
       {
         id: 4,
@@ -50,7 +51,8 @@ export default function CarouselComponent() {
       },
       {
         id: 6,
-        img: DataChain_Kit
+        img: DataChain_Kit,
+        pageRoute: "docs/kits/Data Chain Kit/Adoption View"
       },
     ]
 

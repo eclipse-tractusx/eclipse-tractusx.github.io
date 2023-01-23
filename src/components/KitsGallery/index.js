@@ -3,7 +3,7 @@ import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
 import Business_Kit from "@site/static/img/gallery-business_kit-minified.png";
-import Conector_Kit from "@site/static/img/gallery-more_coming-minified.png";
+import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 import DataChain_Kit from "@site/static/img/gallery-datachain_kit-minified.png";
 
 
@@ -17,11 +17,11 @@ export default function KitsGallery() {
     {
       id: 2,
       img: DataChain_Kit,
-      pageRoute: "datachainkit/adoptionview"
+      pageRoute: "docs/kits/Data Chain Kit/Adoption View"
     },
     {
       id: 3,
-      img: Conector_Kit
+      img: MoreToCome
     },
   ]
 
