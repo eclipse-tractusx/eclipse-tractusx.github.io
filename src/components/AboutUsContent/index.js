@@ -38,6 +38,10 @@ export default function AboutUsContent() {
           <p className={styles.description}>
           (3) In the <strong>operating environment</strong>, the open-source reference implementations can be freely used, modified, and operated by providers. Providers include core service provider (e.g., marketplaces), enablement service provider (e.g., connector), and business application provider (e.g., traceability applications). 
           </p>
+
+          <p className={styles.description}>
+          <a href="https://bugs.eclipse.org/bugs/">Report a Bug</a>
+          </p>
         </div>
 
         <div className={styles.img_container}>
