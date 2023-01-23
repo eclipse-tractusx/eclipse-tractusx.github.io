@@ -6,8 +6,6 @@ sidebar_position: 1
 
 ![Business partner kit banner](../../../static/img/doc-business_partner_header-minified.png)
 
-## Adoption View
-
 The BusinessPartnerKit provides high-quality data records of business partners including a unique identifier, the business partner number (BPN). The BPN provides a standardized and unique identifier on legal entity, site and address level. The connected backend service removes duplicate data, adds missing information, and improves data quality from different data sources so-called sharing member.
 
 - **Legal Entity Level (BPN L)**: Search for a legal entity and get the high-quality data set.
