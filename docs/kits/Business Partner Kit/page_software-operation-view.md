@@ -11,8 +11,6 @@ sidebar_position: 2
 
 BPDM is a SpringBoot Kotlin software project managed by Maven.
 
-<!-- ![how to run the business partner kit diagram](../../../static/img/how-to-run-min.png) -->
-
 | Step                                                                             | Action                                     | Description                                                                       |
 |----------------------------------------------------------------------------------|--------------------------------------------|-----------------------------------------------------------------------------------|
 |![how to run the business partner kit diagram](../../../static/img/arrow_down.png)| **1. Get familiar with the prerequisites** |**Maven, JDK11, PostgreSQL 14.2, Keycloak.**                                       |
