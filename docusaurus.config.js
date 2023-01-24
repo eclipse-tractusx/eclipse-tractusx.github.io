@@ -187,6 +187,31 @@ const config = {
               },
             ],
           },
+          {
+            title: 'Useful Links',
+            items: [
+              {
+                label: "Report a Bug",
+                href: "https://bugs.eclipse.org/bugs",
+              },
+              {
+                label: "Documentation",
+                href: "https://help.eclipse.org/latest/index.jsp",
+              },
+              {
+                label: "How to Contribute",
+                href: "https://www.eclipse.org/contribute/",
+              },
+              {
+                label: "Mailing Lists",
+                href: "https://accounts.eclipse.org/mailing-list",
+              },
+              {
+                label: "Forums",
+                href: "https://www.eclipse.org/forums/",
+              },
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
       },
