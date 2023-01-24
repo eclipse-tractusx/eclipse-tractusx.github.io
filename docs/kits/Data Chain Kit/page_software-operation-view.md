@@ -10,8 +10,6 @@ sidebar_position: 2
 
 Run a demo of the IRS with al the dependencies necessary.
 
-<!-- ![Helm chart diagram](../../../static/img/helm_chart-minified.png) -->
-
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
 |![how to run the business partner kit diagram](../../../static/img/arrow_down.png)| **1. Installed required components**|Install rancher, helm and kubectl.                                       |
@@ -21,8 +19,6 @@ Run a demo of the IRS with al the dependencies necessary.
 ## Testing the Service
 
 Retrieve Data from the API endpoint
-
-<!-- ![Testing services diagram](../../../static/img/testing_service-minified.png) -->
 
 | Step                                                                             | Action                          | Description                                                              |
 |----------------------------------------------------------------------------------|---------------------------------|--------------------------------------------------------------------------|
