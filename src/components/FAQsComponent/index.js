@@ -1,5 +1,4 @@
-import React from "react";
-import Link from "@docusaurus/Link";
+import React, {useState} from "react";
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -11,6 +10,8 @@ import styles from "./styles.module.css";
 
 
 export default function FAQsComponent() {
+  const [openAll, setOpenAll] = useState(false);
+
   return (
     <section className={styles.faqs}>
       <div className={styles.container}>
@@ -19,7 +20,10 @@ export default function FAQsComponent() {
         </div>
 
         <div className={styles.accordion_box}>
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion}
+            expanded={openAll}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel1a-content"
@@ -54,7 +58,10 @@ export default function FAQsComponent() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion}
+            expanded={openAll}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel2a-content"
@@ -89,7 +96,10 @@ export default function FAQsComponent() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion} 
+            expanded={openAll}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel3a-content"
@@ -126,9 +136,12 @@ export default function FAQsComponent() {
         </div> 
 
         <div className={styles.btn_container}>
-          <Link className={styles.button} /* to="/faqs" */>
-            Open All
-          </Link>
+          <button 
+            className={styles.button}
+            onClick={() => setOpenAll(prevState => !prevState)}
+          >
+            {openAll == true ? 'Close All' : 'Open All'}
+          </button>
         </div>
       </div>
     </section>
