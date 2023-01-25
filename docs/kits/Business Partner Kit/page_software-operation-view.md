@@ -1,6 +1,7 @@
 ---
 id: Software Operation View
 title: Software Operation View
+description: 'Business Partner Kit'
 sidebar_position: 2
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: Specification
 title: Specification
+description: ''
 sidebar_position: 1
 ---
 
