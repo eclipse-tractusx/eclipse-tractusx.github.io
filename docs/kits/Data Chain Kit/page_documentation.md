@@ -1,6 +1,7 @@
 ---
 id: documentation
 title: Documentation
+description: 'Data Chain Kit'
 sidebar_position: 3
 ---
 
