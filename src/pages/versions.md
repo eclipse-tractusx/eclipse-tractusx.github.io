@@ -4,6 +4,17 @@ title: Versions
 
 # Versions
 
+## Release History
+
+### 2.1.0
+
+Latest Release: 2.1.0 (released: 2022-12-21)
+[Changelog](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md)
+
+### 2.0.0
+Latest Release: 2.0.0 (released: 2022-12-14)
+[Changelog](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md)
+
 ## Releases
 
 To realize an active open-source community the Catena-X association will support the coordination of the Eclipse Tractus-X project in 2023, which was initiated by the companies of the Catena-X consortia. In addition, a release roadmap will be published in a reasonable amount of time.
