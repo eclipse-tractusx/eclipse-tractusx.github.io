@@ -6,8 +6,6 @@ sidebar_position: 2
 
 ![Datachain kit banner](../../../../static/img/doc-datachain_header-minified.png)
 
-![Datachain kit version stepper](../../../../static/img/doc-datachain_version-minified.png)
-
 ## IRS REST API
 
 The IRS Rest API provides an easy to use Interface for applications to access cross company data chains.
