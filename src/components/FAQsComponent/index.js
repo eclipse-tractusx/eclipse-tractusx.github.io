@@ -10,7 +10,22 @@ import styles from "./styles.module.css";
 
 
 export default function FAQsComponent() {
-  const [openAll, setOpenAll] = useState(false);
+  const [toggleFirst, setToggleFirst] = useState(false)
+  const [toggleSecond, setToggleSecond] = useState(false)
+  const [toggleThird, setToggleThird] = useState(false)
+
+  const openAllHandler = () => {
+    if(toggleFirst === false || toggleSecond === false || toggleThird === false) {
+      setToggleFirst(true)
+      setToggleSecond(true)
+      setToggleThird(true)
+    }
+    if(toggleFirst === true && toggleSecond === true && toggleThird === true) {
+      setToggleFirst(false)
+      setToggleSecond(false)
+      setToggleThird(false)
+    }
+  }
 
   return (
     <section className={styles.faqs}>
@@ -22,7 +37,10 @@ export default function FAQsComponent() {
         <div className={styles.accordion_box}>
           <Accordion 
             className={styles.accordion}
-            expanded={openAll}
+            expanded={toggleFirst}
+            onClick={()=>{
+              toggleFirst == false ? setToggleFirst(true) : setToggleFirst(false)
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
@@ -60,7 +78,10 @@ export default function FAQsComponent() {
 
           <Accordion 
             className={styles.accordion}
-            expanded={openAll}
+            expanded={toggleSecond}
+            onClick={()=>{
+              toggleSecond == false ? setToggleSecond(true) : setToggleSecond(false)
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
@@ -98,7 +119,10 @@ export default function FAQsComponent() {
 
           <Accordion 
             className={styles.accordion} 
-            expanded={openAll}
+            expanded={toggleThird}
+            onClick={()=>{
+              toggleThird == false ? setToggleThird(true) : setToggleThird(false)
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
@@ -138,9 +162,11 @@ export default function FAQsComponent() {
         <div className={styles.btn_container}>
           <button 
             className={styles.button}
-            onClick={() => setOpenAll(prevState => !prevState)}
+            onClick={openAllHandler}
           >
-            {openAll == true ? 'Close All' : 'Open All'}
+            {toggleFirst === false || toggleSecond === false || toggleThird === false ? 'Open All' :
+            toggleFirst === true && toggleSecond === true && toggleThird === true ? 'Close All' : 'Open All'
+            }
           </button>
         </div>
       </div>
