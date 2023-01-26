@@ -1,6 +1,7 @@
 ---
 id: documentation
 title: Documentation
+description: 'Business Partner Kit'
 sidebar_position: 3
 ---
 
