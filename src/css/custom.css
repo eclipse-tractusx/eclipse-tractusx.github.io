@@ -46,6 +46,31 @@
   --ifm-navbar-link-color: #fff;
 }
 
+.navbar {
+  height: 74px;
+}
+
+.navbar__items {
+  margin: 0 20px;
+}
+
+.navbar__brand {
+  font-family: "Manrope", sans-serif;
+  margin-right: 32px;
+}
+
+.navbar__title {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.navbar__link {
+  margin: 0 16px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .footer--dark {
   --ifm-footer-background-color: #000;
 }
