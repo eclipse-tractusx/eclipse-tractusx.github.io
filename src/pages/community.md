@@ -6,4 +6,6 @@ title: Community
 
 ## How can I contribute to Tractus-X?
 
-Anyone can become a contributor or committer to the Eclipse Tractus-X project as part of the Eclipse development process. To build an active open-source community, all ecosystem participants are encouraged to report and fix bugs / patches and implement enhancements according to the Tractus-X timeline and backlog. More coming soon.
+Anyone can become a contributor or committer to the Eclipse Tractus-X project as part of the Eclipse development process. To build an active open-source community, all ecosystem participants are encouraged to report and fix bugs / patches and implement enhancements according to the Tractus-X timeline and backlog.\
+
+More coming soon...
