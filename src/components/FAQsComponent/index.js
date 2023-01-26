@@ -19,8 +19,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
-import Link from "@docusaurus/Link";
+import React, {useState} from "react";
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -32,6 +31,23 @@ import styles from "./styles.module.css";
 
 
 export default function FAQsComponent() {
+  const [toggleFirst, setToggleFirst] = useState(false)
+  const [toggleSecond, setToggleSecond] = useState(false)
+  const [toggleThird, setToggleThird] = useState(false)
+
+  const openAllHandler = () => {
+    if(toggleFirst === false || toggleSecond === false || toggleThird === false) {
+      setToggleFirst(true)
+      setToggleSecond(true)
+      setToggleThird(true)
+    }
+    if(toggleFirst === true && toggleSecond === true && toggleThird === true) {
+      setToggleFirst(false)
+      setToggleSecond(false)
+      setToggleThird(false)
+    }
+  }
+
   return (
     <section className={styles.faqs}>
       <div className={styles.container}>
@@ -40,7 +56,13 @@ export default function FAQsComponent() {
         </div>
 
         <div className={styles.accordion_box}>
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion}
+            expanded={toggleFirst}
+            onClick={()=>{
+              toggleFirst == false ? setToggleFirst(true) : setToggleFirst(false)
+            }}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel1a-content"
@@ -75,7 +97,13 @@ export default function FAQsComponent() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion}
+            expanded={toggleSecond}
+            onClick={()=>{
+              toggleSecond == false ? setToggleSecond(true) : setToggleSecond(false)
+            }}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel2a-content"
@@ -110,7 +138,13 @@ export default function FAQsComponent() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion className={styles.accordion}>
+          <Accordion 
+            className={styles.accordion} 
+            expanded={toggleThird}
+            onClick={()=>{
+              toggleThird == false ? setToggleThird(true) : setToggleThird(false)
+            }}
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
               aria-controls="panel3a-content"
@@ -147,9 +181,14 @@ export default function FAQsComponent() {
         </div> 
 
         <div className={styles.btn_container}>
-          <Link className={styles.button} /* to="/faqs" */>
-            Open All
-          </Link>
+          <button 
+            className={styles.button}
+            onClick={openAllHandler}
+          >
+            {toggleFirst === false || toggleSecond === false || toggleThird === false ? 'Open All' :
+            toggleFirst === true && toggleSecond === true && toggleThird === true ? 'Close All' : 'Open All'
+            }
+          </button>
         </div>
       </div>
     </section>
