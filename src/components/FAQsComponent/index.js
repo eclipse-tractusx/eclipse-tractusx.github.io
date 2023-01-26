@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from "react";
-=======
 /********************************************************************************* 
  * Copyright (c) 2023 BMW Group AG
  * Copyright (c) 2023 Mercedes Benz AG 
@@ -22,9 +19,7 @@ import React, {useState} from "react";
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
-import Link from "@docusaurus/Link";
->>>>>>> main
+import React, {useState} from "react";
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
