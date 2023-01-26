@@ -130,6 +130,16 @@ const config = {
             position: 'left',
             label: 'Developer Hub',
           },
+          {
+            to: "/community",
+            position: "left",
+            label: "Community",
+          },
+          {
+            to: "/versions",
+            position: "left",
+            label: "Versions",
+          },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
