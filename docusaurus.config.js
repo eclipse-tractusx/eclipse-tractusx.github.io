@@ -68,14 +68,63 @@ const config = {
       },
     ],
     [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "irs", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "openApi/irs", // the base directory to output to.
+        documents: ["irs-v1.0.yaml"], // the file names to download
+        noRuntimeDownloads: true
+      },
+    ],
+    // [
+    //   "docusaurus-plugin-remote-content",
+    //   {
+    //     // options here
+    //     name: "irs-admin-documentation", // used by CLI, must be path safe
+    //     sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+    //     outDir: "docs/kits/Data Chain Kit/Documentation", // the base directory to output to.
+    //     documents: ["administration-guide.md"], // the file names to download
+    //     noRuntimeDownloads: true
+    //   },
+    // ],
+    // [
+    //   "docusaurus-plugin-remote-content",
+    //   {
+    //     // options here
+    //     name: "irs-arc-documentation", // used by CLI, must be path safe
+    //     sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/arc42/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+    //     outDir: "docs/kits/Data Chain Kit/Documentation", // the base directory to output to.
+    //     documents: ["full.md"], // the file names to download
+    //     noRuntimeDownloads: true
+    //   },
+    // ],
+    [
       'docusaurus-plugin-openapi-docs',
       {
         id: "bpdm-pool",
-        docsPluginId: "bpdm-pool",
+        docsPluginId: "classic",
         config: {
           siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
             specPath: "./openApi/bpdm/pool.yaml", // Path to designated spec file
             outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          }
+        },
+      }
+    ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "irs-pool",
+        docsPluginId: "classic",
+        config: {
+          siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+            specPath: "./openApi/irs/irs-v1.0.yaml", // Path to designated spec file
+            outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
