@@ -22,7 +22,7 @@ All repositories must contain the following files and folders:
 ```shell
 /docs
 /charts
-AUTHORS.txt
+AUTHORS.md
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 DEPENDENCIES
