@@ -31,6 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Update Product_edc
+        run: cd docs/kits/product-edc && git checkout -b origin/snba/docusaurus-kits && git pull
 
       - uses: actions/setup-node@v3
         with:
