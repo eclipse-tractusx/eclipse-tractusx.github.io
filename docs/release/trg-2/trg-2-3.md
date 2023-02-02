@@ -22,7 +22,7 @@ All repositories must contain the following files and folders:
 ```shell
 /docs
 /charts
-AUTHORS.txt
+AUTHORS.md
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 DEPENDENCIES
@@ -55,7 +55,7 @@ Chart structure, refer to [TRG 5.01 ff](../trg-5/trg-5-1).
 #### AUTHORS.md (optional)
 
 Add a `AUTHORS.md` file at root level to your GitHub repository if you want to mention the authors of the code. Example
-content can be found [here](assets/AUTHORS.txt).
+content can be found [here](assets/AUTHORS.md).
 
 #### CODE_OF_CONDUCT.md
 
