@@ -32,6 +32,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Update submodules
+        run: git submodule update --init --checkout
+      
       - uses: actions/setup-node@v3
         with:
           node-version: 16
