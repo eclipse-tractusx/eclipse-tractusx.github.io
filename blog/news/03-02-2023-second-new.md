@@ -2,6 +2,7 @@
 title: My Second News
 description: This is my second post on Docusaurus 2.
 slug: my-second-new
+date: 2023-02-01T17:00
 authors:
   - name: Joel Marcey
     title: Co-creator of Docusaurus 1
