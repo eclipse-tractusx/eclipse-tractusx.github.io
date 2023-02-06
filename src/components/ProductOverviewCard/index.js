@@ -25,17 +25,56 @@ import styles from "./styles.module.css";
 export default function ProductOverviewCard({productName, productDescription, githubRepo, committers,mailTo}) {
   return (
     <div className={styles.card}>
-			<h3>{productName}</h3>
-			<p>{productDescription}</p>
-			<p>{githubRepo}</p>		
-			{
-				committers?.map((committer, index)=> {
-					return (
-					<p key={index}>{committer}</p>
-					)
-				})
-			}		
-			<p>{mailTo}</p>
+			<div className={styles.title}>
+				<h3>{productName}</h3>
+			</div>
+
+			<div className={styles.card_description}>
+				<p>{productDescription}</p>
+			</div>
+
+			<div className={styles.subtitle}>
+				<h4>GitHub</h4>
+			</div>
+
+			<hr/>
+			
+			<div className={styles.card_github}>
+				<p>
+					<strong>
+						<a href={githubRepo}>
+							To Repository &gt;
+						</a>
+					</strong>
+				</p>
+				<p>
+					<strong>Committers:</strong> <br/>
+					<ul>
+						{
+							committers?.map((committer, index)=> {
+								return (
+									<li key={index}>{committer}</li>
+								)
+							})
+						}
+					</ul>
+				</p>			
+			</div>
+
+			<div className={styles.subtitle}>
+				<h4>Contact</h4>
+			</div>
+
+			<hr/>
+
+			<div className={styles.card_contact}>
+				<h4>Email:</h4>
+				<p>{mailTo}</p>
+			</div>
+
+			<div className={styles.version}>
+		    <h3>Version: 1.0.0</h3>
+			</div>	
     </div>
   );
 }

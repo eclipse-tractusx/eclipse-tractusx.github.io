@@ -27,18 +27,20 @@ import styles from "./styles.module.css";
 export default function ProductOverview() {
 	const products = [
     {
-        productName: "first",
-        productDescription: "bla",
+        productName: "First Product Name",
+        productDescription: "Lorem kfrk spofsfsm sifsif ilrfrfm oslwd holla Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
         githubRepo:  "leading-product-repo-link-one",
         committers: [
             "@githubhandle",
-            "@anothergithubhandle,"
+            "@anothergithubhandle,",
+            "@anothergithubhandle,",
+
         ],
         mailTo: "mailto:dev-mailing?subject=abc"
     },
 		{
-			productName: "second",
-			productDescription: "bla bla",
+			productName: "Second Product Name",
+			productDescription: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, Lorem kfrk spofsfsm sifsif ilrfrfm oslwd holla coca cola kilo espantised diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et bla bla",
 			githubRepo:  "leading-product-repo-link-two",
 			committers: [
 					"@githubhandle",
@@ -47,9 +49,19 @@ export default function ProductOverview() {
 			mailTo: "mailto:dev-mailing?subject=abc"
 		},
 		{
-			productName: "third",
-			productDescription: "bla bla bla",
+			productName: "Third Product Name",
+			productDescription: "bla bla bla Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
 			githubRepo:  "leading-product-repo-link-third",
+			committers: [
+					"@githubhandle",
+					"@anothergithubhandle,"
+			],
+			mailTo: "mailto:dev-mailing?subject=abc"
+		},
+		{
+			productName: "Fourth Product Name",
+			productDescription: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et bla bla bla bla",
+			githubRepo:  "leading-product-repo-link-fourth",
 			committers: [
 					"@githubhandle",
 					"@anothergithubhandle,"
@@ -60,7 +72,6 @@ export default function ProductOverview() {
 
   return (
   	<section className={styles.product_overview}>
-    	<h1>Product Overview</h1>
     	<div className={styles.container}>
 				{products.map((product, index) => {
 					return(

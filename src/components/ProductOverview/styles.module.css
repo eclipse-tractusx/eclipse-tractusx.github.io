@@ -3,7 +3,23 @@
 * and scoped locally.
 */
 
+.product_overview {
+	width: 100%;
+	height: fit-content;
+	padding: 5rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.container {
+	width: 50vw;
+	height: fit-content;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1.5rem;
+	row-gap: 2rem;
+}
 
 @media screen and (max-width: 996px) {
 	
