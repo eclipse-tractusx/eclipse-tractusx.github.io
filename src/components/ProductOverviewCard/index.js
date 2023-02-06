@@ -47,7 +47,6 @@ export default function ProductOverviewCard({productName, productDescription, gi
 						</a>
 					</strong>
 				</p>
-				<p>
 					<strong>Committers:</strong> <br/>
 					<ul>
 						{
@@ -57,8 +56,7 @@ export default function ProductOverviewCard({productName, productDescription, gi
 								)
 							})
 						}
-					</ul>
-				</p>			
+					</ul>		
 			</div>
 
 			<div className={styles.subtitle}>

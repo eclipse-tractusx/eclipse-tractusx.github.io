@@ -5,7 +5,7 @@
 
 .product_overview {
 	width: 100%;
-	height: fit-content;
+	height: auto;
 	padding: 5rem 0;
 	display: flex;
 	justify-content: center;
@@ -13,14 +13,36 @@
 }
 
 .container {
-	width: 50vw;
+	width: 70vw;
 	height: fit-content;
+	padding: 0 7vw;
+}
+
+.product_box {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 32%);
 	column-gap: 1.5rem;
 	row-gap: 2rem;
 }
 
-@media screen and (max-width: 996px) {
-	
+@media screen and (max-width: 1230px) {
+	.container {
+		width: 80vw;
+		padding: 0 5vw;
+	}
+
+	.product_box {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 730px) {
+	.container {
+		width: 70vw;
+		padding: 0;
+	}
+
+	.product_box {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
