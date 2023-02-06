@@ -70,20 +70,23 @@
   font-weight: bold;
 }
 
-/* .footer {
-  border-top: 1px solid #fff;
-  padding-top: 1rem;
-} */
-
 .footer__links {
-  border-top: 1px solid #fff;
-  padding-top: 1rem;
+  border-top: 0.5px solid #aaa;
+  padding-top: 2rem;
+}
+
+.footer__title,
+.footer__items {
+  text-align: center;
+}
+
+.footer .container .footer__bottom {
+  margin-top: 60px;
 }
 
 .footer--dark {
   --ifm-footer-background-color: #000;
 }
-
 
 /* API Menu Items */
 .api-method > .menu__link {
