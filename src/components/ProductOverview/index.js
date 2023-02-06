@@ -73,11 +73,13 @@ export default function ProductOverview() {
   return (
   	<section className={styles.product_overview}>
     	<div className={styles.container}>
-				{products.map((product, index) => {
-					return(
-					<ProductOverviewCard key={index} {...product} />
-					)
-				})}
+				<div className={styles.product_box}>
+					{products.map((product, index) => {
+						return(
+						<ProductOverviewCard key={index} {...product} />
+						)
+					})}
+				</div>
     	</div>
    </section>
   );
