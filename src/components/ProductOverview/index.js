@@ -19,30 +19,13 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import DeveloperHeader from "../../components/DeveloperHeader";
-import DeveloperContent from "../../components/DeveloperContent";
-import KitsGallery from "../../components/KitsGallery";
-import ProductOverview from "../../components/ProductOverview";
-
-import styles from "./styles.module.css";
-
-
-export default function DeveloperPage() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <Layout
-      title={'Developer'}
-      description="Description will go into a meta tag in <head />"
-    >
-      <DeveloperHeader />
-      <main>
-        <DeveloperContent />
-        <KitsGallery />
-        <ProductOverview />
-      </main>
-    </Layout>
-  );
-}
+ import React from "react";
+ import styles from "./styles.module.css";
+ 
+ export default function ProductOverview() {
+   return (
+     <section className={styles.about_us}>
+       <h1>Product Overview</h1>
+     </section>
+   );
+ }
