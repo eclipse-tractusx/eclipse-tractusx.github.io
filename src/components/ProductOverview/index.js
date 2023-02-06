@@ -19,13 +19,55 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
- import React from "react";
- import styles from "./styles.module.css";
+import React from "react";
+import ProductOverviewCard from "../ProductOverviewCard";
+
+import styles from "./styles.module.css";
  
- export default function ProductOverview() {
-   return (
-     <section className={styles.about_us}>
-       <h1>Product Overview</h1>
-     </section>
-   );
- }
+export default function ProductOverview() {
+	const products = [
+    {
+        productName: "first",
+        productDescription: "bla",
+        githubRepo:  "leading-product-repo-link-one",
+        committers: [
+            "@githubhandle",
+            "@anothergithubhandle,"
+        ],
+        mailTo: "mailto:dev-mailing?subject=abc"
+    },
+		{
+			productName: "second",
+			productDescription: "bla bla",
+			githubRepo:  "leading-product-repo-link-two",
+			committers: [
+					"@githubhandle",
+					"@anothergithubhandle,"
+			],
+			mailTo: "mailto:dev-mailing?subject=abc"
+		},
+		{
+			productName: "third",
+			productDescription: "bla bla bla",
+			githubRepo:  "leading-product-repo-link-third",
+			committers: [
+					"@githubhandle",
+					"@anothergithubhandle,"
+			],
+			mailTo: "mailto:dev-mailing?subject=abc"
+		},
+	]
+
+  return (
+  	<section className={styles.product_overview}>
+    	<h1>Product Overview</h1>
+    	<div className={styles.container}>
+				{products.map((product, index) => {
+					return(
+					<ProductOverviewCard key={index} {...product} />
+					)
+				})}
+    	</div>
+   </section>
+  );
+}
