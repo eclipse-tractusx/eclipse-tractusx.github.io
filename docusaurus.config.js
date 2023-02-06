@@ -271,6 +271,15 @@ const config = {
               },
             ],
           },
+          {
+            items: [
+              {
+                html: `
+                  <img src='/img/EF_registered_wht_png.png'/>
+                `
+              }
+            ]
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
       },
