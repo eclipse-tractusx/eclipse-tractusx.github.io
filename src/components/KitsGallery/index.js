@@ -60,9 +60,9 @@ export default function KitsGallery() {
 
         <div className={styles.gallery_container}>
           {
-            kits.map((kit)=> {
+            kits.map((kit, index)=> {
               return(
-                <div className={styles.gallery_item}>
+                <div key={index} className={styles.gallery_item}>
                   <Link to={kit.pageRoute} className={styles.gallery_link}>
                     <img src={kit.img} className={styles.item_img}/>
                   </Link>
