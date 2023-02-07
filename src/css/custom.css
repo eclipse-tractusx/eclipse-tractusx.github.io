@@ -74,6 +74,24 @@
   --ifm-footer-background-color: #000;
 }
 
+@media screen and (max-width: 1160px) {
+  .navbar__items {
+    margin: 0 10px;
+  }
+  
+  .navbar__brand {
+    margin-right: 16px;
+  }
+  
+  .navbar__title {
+    font-size: 14px;
+  }
+  
+  .navbar__link {
+    margin: 0 12px;
+    font-size: 12px;
+  }
+}
 
 /* API Menu Items */
 .api-method > .menu__link {
