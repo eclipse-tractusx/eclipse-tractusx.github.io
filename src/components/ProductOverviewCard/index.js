@@ -51,9 +51,9 @@ export default function ProductOverviewCard({productName, productDescription, gi
 				</strong>
 					<ul>
 						{
-							githubRepo?.map((committer, index)=> {
+							githubRepo?.map((repository, index)=> {
 								return (
-									<li key={index}><a href={committer}>{committer}</a></li>
+									<li key={index}><a href={repository}>{repository.substring(19, (repository.length))}</a></li>
 								)
 							})
 						}
@@ -66,7 +66,7 @@ export default function ProductOverviewCard({productName, productDescription, gi
 						{
 							committers?.map((committer, index)=> {
 								return (
-									<li key={index}><a href={committer}>{committer}</a></li>
+									<li key={index}><a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a></li>
 								)
 							})
 						}
