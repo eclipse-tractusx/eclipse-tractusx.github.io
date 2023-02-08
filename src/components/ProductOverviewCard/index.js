@@ -40,19 +40,27 @@ export default function ProductOverviewCard({productName, productDescription, gi
 			<hr/>
 			
 			<div className={styles.card_github}>
-				<p>
-					<strong>
-						<a href={githubRepo}>
-							To Repository &gt;
-						</a>
-					</strong>
-				</p>
-					<strong>Committers:</strong> <br/>
+				<strong>
+					<h5>Repository:</h5>
+				</strong>
+					<ul>
+						{
+							githubRepo?.map((committer, index)=> {
+								return (
+									<li key={index}><a href={committer}>{committer}</a></li>
+								)
+							})
+						}
+					</ul>	
+				
+				<strong>
+					<h5>Committers:</h5>
+				</strong>
 					<ul>
 						{
 							committers?.map((committer, index)=> {
 								return (
-									<li key={index}>{committer}</li>
+									<li key={index}><a href={committer}>{committer}</a></li>
 								)
 							})
 						}
@@ -66,7 +74,7 @@ export default function ProductOverviewCard({productName, productDescription, gi
 			<hr/>
 
 			<div className={styles.card_contact}>
-				<h4>Email:</h4>
+				<h5>Email:</h5>
 				<p>{mailTo}</p>
 			</div>
 
