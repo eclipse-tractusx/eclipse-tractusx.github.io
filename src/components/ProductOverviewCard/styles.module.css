@@ -9,8 +9,9 @@
 	padding: 2rem 0;
 	display: flex;
 	flex-direction: column;
-	background-color: #fff;
-	color: #1c1c1c;
+	background-color: #000;
+	border: 1px solid #ed8c05;
+	color: #fff;
 	position: relative;
 	-webkit-box-shadow: 7px 7px 10px 0px rgba(74,74,74,1);
 	-moz-box-shadow: 7px 7px 10px 0px rgba(74,74,74,1);
@@ -70,10 +71,6 @@ hr {
 .card_contact {
 	padding: 0.5rem 1.2rem;
 	margin: 1rem 0;
-}
-
-.card_contact h4 {
-	color: #1c1c1c;
 }
 
 .card_contact p {
