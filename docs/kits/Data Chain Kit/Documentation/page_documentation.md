@@ -9,7 +9,6 @@ sidebar_position: 3
 
 ## INCLUDE
 
-* [https://eclipse-tractusx.github.io/item-relationship-service/docs/arc42/full.md](https://eclipse-tractusx.github.io/item-relationship-service/docs/arc42/full.md)
-* [https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/](https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/)
+* [https://eclipse-tractusx.github.io/item-relationship-service/docs/](https://eclipse-tractusx.github.io/item-relationship-service/docs)
 
 Under the following you will find the documentation from the IRS
