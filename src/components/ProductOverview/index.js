@@ -26,47 +26,20 @@ import styles from "./styles.module.css";
  
 export default function ProductOverview() {
 	const products = [
-    {
-        productName: "First Product Name",
-        productDescription: "Lorem kfrk spofsfsm sifsif ilrfrfm oslwd holla Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
-        githubRepo:  "leading-product-repo-link-one",
-        committers: [
-            "@githubhandle",
-            "@anothergithubhandle,",
-            "@anothergithubhandle,",
-
-        ],
-        mailTo: "mailto:dev-mailing?subject=abc"
-    },
 		{
-			productName: "Second Product Name",
-			productDescription: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, Lorem kfrk spofsfsm sifsif ilrfrfm oslwd holla coca cola kilo espantised diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et bla bla",
-			githubRepo:  "leading-product-repo-link-two",
+			productName: "Portal & Marketplaces",
+			productDescription: "The Portal & Marketplaces product offers the entry point into the Catena-X data room for registration, (technical) onboarding and beyond that for all participants. In addition, marketplaces enable solution providers to offer various solutions (e.g., business applications, services). to end customers.", 
+			githubRepo: [
+				"https://github.com/eclipse-tractusx/portal-backend",
+			  "https://github.com/eclipse-tractusx/portal-frontend"
+			], 
 			committers: [
-					"@githubhandle",
-					"@anothergithubhandle,"
+				"https://github.com/evegufy", 
+				"https://github.com/ntruchsess",
+				"https://github.com/oyo"
 			],
-			mailTo: "mailto:dev-mailing?subject=abc"
-		},
-		{
-			productName: "Third Product Name",
-			productDescription: "bla bla bla Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et",
-			githubRepo:  "leading-product-repo-link-third",
-			committers: [
-					"@githubhandle",
-					"@anothergithubhandle,"
-			],
-			mailTo: "mailto:dev-mailing?subject=abc"
-		},
-		{
-			productName: "Fourth Product Name",
-			productDescription: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et bla bla bla bla",
-			githubRepo:  "leading-product-repo-link-fourth",
-			committers: [
-					"@githubhandle",
-					"@anothergithubhandle,"
-			],
-			mailTo: "mailto:dev-mailing?subject=abc"
+			// mailTo:"<a href="tractusx-dev@eclipse.org?subject= Request Portal & Marketplace Team">Contact Us</a>"
+			mailTo: "tractusx-dev@eclipse.org"
 		},
 	]
 
