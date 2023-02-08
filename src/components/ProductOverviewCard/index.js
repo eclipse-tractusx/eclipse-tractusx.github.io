@@ -23,14 +23,20 @@ import React from "react";
 import styles from "./styles.module.css";
  
 export default function ProductOverviewCard({productName, productDescription, githubRepo, committers,mailTo}) {
-  return (
+  const MAX_LENGTH = 160;
+
+	return (
     <div className={styles.card}>
 			<div className={styles.title}>
 				<h3>{productName}</h3>
 			</div>
 
 			<div className={styles.card_description}>
-				<p>{productDescription}</p>
+				{
+					productDescription.length > MAX_LENGTH ? 
+						<p>{productDescription.substring(0, MAX_LENGTH)}...</p> :
+						<p>{productDescription}</p>
+				}
 			</div>
 
 			<div className={styles.subtitle}>
