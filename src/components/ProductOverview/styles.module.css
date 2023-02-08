@@ -6,16 +6,15 @@
 .product_overview {
 	width: 100%;
 	height: auto;
-	padding: 5rem 0;
+	padding: 1rem 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .container {
-	width: 80vw;
+	width: 100%;
 	height: fit-content;
-	padding: 0 7vw;
 }
 
 .product_box {
@@ -25,10 +24,9 @@
 	row-gap: 2rem;
 }
 
-@media screen and (max-width: 996px) {
+@media screen and (max-width: 1280px) {
 	.container {
-		width: 70vw;
-		padding: 0 5vw;
+		width: 90vw;
 	}
 
 	.product_box {
@@ -38,8 +36,7 @@
 
 @media screen and (max-width: 720px) {
 	.container {
-		width: 70vw;
-		padding: 0;
+		width: 80vw;
 	}
 
 	.product_box {
