@@ -38,8 +38,7 @@ export default function ProductOverview() {
 				"https://github.com/ntruchsess",
 				"https://github.com/oyo"
 			],
-			// mailTo:"<a href="tractusx-dev@eclipse.org?subject= Request Portal & Marketplace Team">Contact Us</a>"
-			mailTo: "tractusx-dev@eclipse.org"
+			mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplace Team"
 		},
 	]
 

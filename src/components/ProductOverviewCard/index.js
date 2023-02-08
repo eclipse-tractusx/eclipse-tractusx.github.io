@@ -81,11 +81,13 @@ export default function ProductOverviewCard({productName, productDescription, gi
 
 			<div className={styles.card_contact}>
 				<h5>Email:</h5>
-				<p>{mailTo}</p>
+				<a href={`mailto:${mailTo}`}>
+					{mailTo}
+				</a>
 			</div>
 
 			<div className={styles.version}>
-		    <h3>Version: 1.0.0</h3>
+		    {/* <h3>Version: 1.0.0</h3> */}
 			</div>	
     </div>
   );
