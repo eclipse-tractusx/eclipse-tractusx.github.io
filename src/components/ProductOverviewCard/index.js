@@ -26,6 +26,8 @@ export default function ProductOverviewCard({productName, productDescription, gi
   const [release, setRelease] = useState()
   let owner = githubRepo[0].split('/')[3]
   let repo = githubRepo[0].split('/')[4]
+  
+  let emailAddress = mailTo.split('?')[0];
 
   const MAX_LENGTH = 160;
 
@@ -107,7 +109,7 @@ export default function ProductOverviewCard({productName, productDescription, gi
       <div className={styles.card_contact}>
         <h5>Email:</h5>
         <a href={`mailto:${mailTo}`}>
-          {mailTo}
+          {emailAddress}
         </a>
       </div>
       
