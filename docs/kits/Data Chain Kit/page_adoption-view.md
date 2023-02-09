@@ -17,6 +17,14 @@ What is in for you to use the Data Chain Kit. On what is it built on.
 
 ![Why use Datachain Kit](../../../static/img/why_data_chain-minified.png)
 
+* Application and Service provider can reduce integrate or migrate due to one API specification
+* The IRS Iterative API enables an easy interface for complex network tasks
+* Potential to scale and optimize network traffic
+* The IRS Iterative API is providing one Endpoint to access and collect widely distributed data
+* The Data Chain Kit enables interoperability for Data Chains along the value chain to extend
+
+Read our Successstories to get a climps on what the IRS Iterative is beeing used for.
+
 ## IRS Iterative
 
 The IRS iterative iterates through the different digital twin aspects, which are representing a relationship. For Release 1 this is the AssemblyPartRelationship aspect, which connects serialized parts. This service can access the digital twins for which a EDC policy and and data contract exists. In this case the consumer needs a contract which each participant of the data chain.
