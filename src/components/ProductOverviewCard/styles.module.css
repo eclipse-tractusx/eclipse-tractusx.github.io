@@ -90,6 +90,7 @@ hr {
 	margin: auto 0;
 }
 
-@media screen and (max-width: 996px) {
-	
+.empty {
+	background-color: #000;
 }
+

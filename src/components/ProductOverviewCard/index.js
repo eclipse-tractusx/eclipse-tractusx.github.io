@@ -19,11 +19,36 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./styles.module.css";
  
 export default function ProductOverviewCard({productName, productDescription, githubRepo, committers,mailTo}) {
+	const [release, setRelease] = useState()
+	let owner = githubRepo[0].split('/')[3]
+	let repo = githubRepo[0].split('/')[4]
+
   const MAX_LENGTH = 160;
+
+	useEffect(() => {
+    fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`,{
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/vnd.github.html+json'
+			}
+		}).then((res) => res.json())
+			.then((data) => {
+				setRelease(data.name)
+			})
+			.catch(err => console.log(err))
+  }, []);
+
+	const handleVersionString = (string) => {
+		let str = string.toLowerCase()
+		if (str.startsWith('v')) {
+			return str.slice(1)
+		} return str
+	}
 
 	return (
     <div className={styles.card}>
@@ -85,10 +110,12 @@ export default function ProductOverviewCard({productName, productDescription, gi
 					{mailTo}
 				</a>
 			</div>
-
-			<div className={styles.version}>
-		    {/* <h3>Version: 1.0.0</h3> */}
-			</div>	
+			
+			{
+				release != undefined ? 
+				<div className={styles.version}>Version:{handleVersionString(release)}</div> : 
+				<div className={styles.empty}></div>
+			}
     </div>
   );
 }
