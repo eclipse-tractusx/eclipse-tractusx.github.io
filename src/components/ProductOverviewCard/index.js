@@ -23,99 +23,99 @@ import React, {useState, useEffect} from "react";
 import styles from "./styles.module.css";
  
 export default function ProductOverviewCard({productName, productDescription, githubRepo, committers,mailTo}) {
-	const [release, setRelease] = useState()
-	let owner = githubRepo[0].split('/')[3]
-	let repo = githubRepo[0].split('/')[4]
+  const [release, setRelease] = useState()
+  let owner = githubRepo[0].split('/')[3]
+  let repo = githubRepo[0].split('/')[4]
 
   const MAX_LENGTH = 160;
 
-	useEffect(() => {
-    fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`,{
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/vnd.github.html+json'
-			}
-		}).then((res) => res.json())
-			.then((data) => {
-				setRelease(data.name)
-			})
-			.catch(err => console.log(err))
+  useEffect(() => {
+  fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.github.html+json'
+    }
+    }).then((res) => res.json())
+      .then((data) => {
+        setRelease(data.name)
+      })
+      .catch(err => console.log(err))
   }, []);
 
-	const handleVersionString = (string) => {
-		let str = string.toLowerCase()
-		if (str.startsWith('v')) {
-			return str.slice(1)
-		} return str
-	}
+  const handleVersionString = (string) => {
+    let str = string.toLowerCase()
+    if (str.startsWith('v')) {
+      return str.slice(1)
+    } return str
+  }
 
-	return (
+  return (
     <div className={styles.card}>
-			<div className={styles.title}>
-				<h3>{productName}</h3>
-			</div>
+      <div className={styles.title}>
+        <h3>{productName}</h3>
+      </div>
 
-			<div className={styles.card_description}>
-				{
-					productDescription.length > MAX_LENGTH ? 
-						<p>{productDescription.substring(0, MAX_LENGTH)}...</p> :
-						<p>{productDescription}</p>
-				}
-			</div>
+      <div className={styles.card_description}>
+        {
+          productDescription.length > MAX_LENGTH ? 
+            <p>{productDescription.substring(0, MAX_LENGTH)}...</p> :
+            <p>{productDescription}</p>
+        }
+      </div>
 
-			<div className={styles.subtitle}>
-				<h4>GitHub</h4>
-			</div>
+      <div className={styles.subtitle}>
+        <h4>GitHub</h4>
+      </div>
 
-			<hr/>
-			
-			<div className={styles.card_github}>
-				<strong>
-					<h5>Repository:</h5>
-				</strong>
-					<ul>
-						{
-							githubRepo?.map((repository, index)=> {
-								return (
-									<li key={index}><a href={repository}>{repository.substring(19, (repository.length))}</a></li>
-								)
-							})
-						}
-					</ul>	
-				
-				<strong>
-					<h5>Committers:</h5>
-				</strong>
-					<ul>
-						{
-							committers?.map((committer, index)=> {
-								return (
-									<li key={index}><a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a></li>
-								)
-							})
-						}
-					</ul>		
-			</div>
+      <hr/>
+      
+      <div className={styles.card_github}>
+        <strong>
+          <h5>Repository:</h5>
+        </strong>
+          <ul>
+            {
+              githubRepo?.map((repository, index)=> {
+                return (
+                  <li key={index}><a href={repository}>{repository.substring(19, (repository.length))}</a></li>
+                )
+              })
+            }
+          </ul>	
+        
+        <strong>
+          <h5>Committers:</h5>
+        </strong>
+        <ul>
+          {
+            committers?.map((committer, index)=> {
+              return (
+                <li key={index}><a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a></li>
+              )
+            })
+          }
+        </ul>		
+      </div>
 
-			<div className={styles.subtitle}>
-				<h4>Contact</h4>
-			</div>
+      <div className={styles.subtitle}>
+        <h4>Contact</h4>
+      </div>
 
-			<hr/>
+      <hr/>
 
-			<div className={styles.card_contact}>
-				<h5>Email:</h5>
-				<a href={`mailto:${mailTo}`}>
-					{mailTo}
-				</a>
-			</div>
-			
-			{
-				release != undefined ? 
-				<div className={styles.version}>Version:{handleVersionString(release)}</div> : 
-				<div className={styles.empty}></div>
-			}
+      <div className={styles.card_contact}>
+        <h5>Email:</h5>
+        <a href={`mailto:${mailTo}`}>
+          {mailTo}
+        </a>
+      </div>
+      
+      {
+        release != undefined ? 
+        <div className={styles.version}>Version:{handleVersionString(release)}</div> : 
+        <div className={styles.empty}></div>
+      }
     </div>
   );
 }
