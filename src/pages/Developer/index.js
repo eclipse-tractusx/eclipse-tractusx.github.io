@@ -25,7 +25,6 @@ import Layout from "@theme/Layout";
 import DeveloperHeader from "../../components/DeveloperHeader";
 import DeveloperContent from "../../components/DeveloperContent";
 import KitsGallery from "../../components/KitsGallery";
-import ProductOverview from "../../components/ProductOverview";
 
 import styles from "./styles.module.css";
 
@@ -41,7 +40,6 @@ export default function DeveloperPage() {
       <main>
         <DeveloperContent />
         <KitsGallery />
-        <ProductOverview />
       </main>
     </Layout>
   );
