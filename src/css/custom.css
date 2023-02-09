@@ -75,11 +75,6 @@
   padding-top: 2rem;
 }
 
-.footer__title,
-.footer__items {
-  text-align: center;
-}
-
 .footer .container .footer__bottom {
   margin-top: 60px;
 }
@@ -89,6 +84,11 @@
 }
 
 @media screen and (max-width: 996px) {
+  .footer__title,
+  .footer__items {
+    text-align: center;
+}
+
   .footer__col .footer__items .footer__item img {
     width: 50%;
   }
