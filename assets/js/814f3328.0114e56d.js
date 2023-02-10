@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([[2535],{45641:e=>{e.exports=JSON.parse('{"title":"Eclipse Tractus-X News","items":[{"title":"Eclipse Tractus-X Developer Portal is LIVE!","permalink":"/blog/portal-is-live"}]}')}}]);

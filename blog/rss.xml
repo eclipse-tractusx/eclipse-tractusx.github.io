@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Eclipse Tractus-X Blog</title>
+        <link>https://eclipse-tractusx.github.io/blog</link>
+        <description>Eclipse Tractus-X Blog</description>
+        <lastBuildDate>Fri, 10 Feb 2023 11:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Eclipse Tractus-X Developer Portal is LIVE!]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/portal-is-live</link>
+            <guid>portal-is-live</guid>
+            <pubDate>Fri, 10 Feb 2023 11:00:00 GMT</pubDate>
+            <description><![CDATA[Official launch announcement]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="eclipse tractus x logo" src="/assets/images/logo-blog-e7eb77d0248c3698817726c33a196d8b.png" width="660" height="426" class="img_ev3q"></p><p>We are thrilled to announce the launch of the Developer Portal for the Eclipse Tractus-X project! This portal is designed to provide developers with an easy way to access all of our resources and documentation.&nbsp;With this new portal, we aim to make it easier than ever before for developers around the world to get started building amazing projects on top of the Catena-X network. We have included our initial KITs and developer guides that will help you develop your solution. Step by step we will also provide a comprehensive overview of useful reference material.&nbsp;The best part? All these resources are free and open-source! So what’s stopping you from taking advantage right now? Let’s get coding together and build something amazing with Tractus-X today!</p>]]></content:encoded>
+            <author>daniel.miehle@bmw.de (Daniel Miehle)</author>
+        </item>
+    </channel>
+</rss>
