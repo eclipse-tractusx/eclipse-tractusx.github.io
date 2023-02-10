@@ -43,6 +43,8 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarTitle: 'Eclipse Tractus-X News',
+          blogSidebarCount: 'ALL',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -157,6 +159,7 @@ const config = {
             position: "left",
             label: "Home",
           },
+          {to: 'blog', label: 'News', position: 'left'},
           {
             to: "/aboutus",
             position: "left",
