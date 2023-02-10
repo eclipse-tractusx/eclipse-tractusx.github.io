@@ -28,18 +28,23 @@ export default function NewsTicker() {
     <section className={styles.news_ticker}>
       <div className={styles.container}>
         <div className={styles.button_container}>
-          <Link className={styles.button} /*to="/news"*/>
+          <Link className={styles.button} to="/blog">
             News
           </Link>
         </div>
 
-        <div className={styles.date}>06.12.2022</div>
+        <div className={styles.date}>10.02.2023</div>
 
         <div className={styles.introduction}>
-          This is the launch of the Tractus-X Developer Website - more infos to come.
+          <strong>Eclipse Tractus-X Developer Portal is LIVE!</strong>
         </div>
 
-        <div>&gt;</div>
+        <div className={styles.link_to_blog}>
+          <Link to="/blog/portal-is-live">
+            Read more &gt;
+          </Link>
+        </div>
+        
       </div>
     </section>
   );
