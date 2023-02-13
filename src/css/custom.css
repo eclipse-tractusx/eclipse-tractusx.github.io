@@ -70,10 +70,29 @@
   font-weight: bold;
 }
 
+.footer__links {
+  border-top: 0.5px solid #aaa;
+  padding-top: 2rem;
+}
+
+.footer .container .footer__bottom {
+  margin-top: 60px;
+}
+
 .footer--dark {
   --ifm-footer-background-color: #000;
 }
 
+@media screen and (max-width: 996px) {
+  .footer__title,
+  .footer__items {
+    text-align: center;
+}
+
+  .footer__col .footer__items .footer__item img {
+    width: 50%;
+  }
+}
 
 /* API Menu Items */
 .api-method > .menu__link {
