@@ -83,9 +83,9 @@
   --ifm-footer-background-color: #000;
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1250px) {
   .navbar__items {
-    margin: 0 10px;
+    margin: 0 8px;
   }
   
   .navbar__brand {
@@ -97,7 +97,7 @@
   }
   
   .navbar__link {
-    margin: 0 12px;
+    margin: 0 10px;
     font-size: 12px;
   }
 }
