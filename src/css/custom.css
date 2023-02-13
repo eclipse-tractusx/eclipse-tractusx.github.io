@@ -83,11 +83,30 @@
   --ifm-footer-background-color: #000;
 }
 
+@media screen and (max-width: 1250px) {
+  .navbar__items {
+    margin: 0 8px;
+  }
+  
+  .navbar__brand {
+    margin-right: 16px;
+  }
+  
+  .navbar__title {
+    font-size: 14px;
+  }
+  
+  .navbar__link {
+    margin: 0 10px;
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 996px) {
   .footer__title,
   .footer__items {
     text-align: center;
-}
+  }
 
   .footer__col .footer__items .footer__item img {
     width: 50%;
