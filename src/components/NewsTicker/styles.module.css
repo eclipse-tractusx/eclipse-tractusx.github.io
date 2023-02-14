@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 10vw;
 }
 
 .button {
@@ -44,6 +45,24 @@
   background-color: #1e1e1e;
   color: #faa023;
   text-decoration: none;
+}
+
+.carousel_container {
+  width: 60vw;
+  /* height: 100%; */
+  border: 1px solid red;
+}
+
+.slider {
+  border: 1px solid white;
+}
+
+.slider_item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border: 1px solid blue;
 }
 
 .date {
