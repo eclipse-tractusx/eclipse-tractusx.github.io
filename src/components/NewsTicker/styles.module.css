@@ -49,20 +49,12 @@
 
 .carousel_container {
   width: 60vw;
-  /* height: 100%; */
-  border: 1px solid red;
-}
-
-.slider {
-  border: 1px solid white;
 }
 
 .slider_item {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  border: 1px solid blue;
 }
 
 .date {
@@ -90,9 +82,8 @@
   }
 
   .button {
-    padding: 0.2rem 0.8rem;
-    font-size: x-small;
-    font-size: 1vw;
+    padding: 0 0.8rem;
+    font-size: 1.3vw;
   }
 
   .date {

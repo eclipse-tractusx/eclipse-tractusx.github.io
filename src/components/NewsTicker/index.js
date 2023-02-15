@@ -21,6 +21,7 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
+import { newsTitles } from "../../../utils/newsTitles";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -36,29 +37,11 @@ export default function NewsTicker() {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    speed: 4000,
+    speed: 3000,
     autoplaySpeed: 6000,
   };
 
-  const news = [
-    {
-      date: "10.02.2023",
-      title: "Eclipse Tractus-X Developer Portal is LIVE!",
-      blogLink: "/blog/portal-is-live"
-    },
-    {
-      date: "00.00.0000",
-      title: "TESTING SECOND ITEM",
-      blogLink: "/blog/portal-is-live"
-    },
-    {
-      date: "01.001.00001",
-      title: "TESTING THE THIRD ITEM",
-      blogLink: "/blog/portal-is-live"
-    },
-  ]
-
-  const NewsCard = ({date, title, blogLink}) => {
+  const NewsTickerCard = ({date, title, blogLink}) => {
     return (
       <div className={styles.slider_item}>
         <div className={styles.date}>
@@ -91,9 +74,9 @@ export default function NewsTicker() {
         <div className={styles.carousel_container}>
           <Slider {...settings} className={styles.slider}>
             {
-              news.map((newPost, index)=> {
+              newsTitles.map((newPost, index)=> {
                 return (
-                  <NewsCard key={index} {...newPost}/>
+                  <NewsTickerCard key={index} {...newPost}/>
                 )
               })
             }
