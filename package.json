@@ -34,7 +34,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.2.0",
+    "@docusaurus/module-type-aliases": "2.3.1",
     "husky": "^8.0.2",
     "markdownlint-cli2": "^0.5.1"
   },
