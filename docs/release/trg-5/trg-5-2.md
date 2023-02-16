@@ -162,6 +162,6 @@ The `.helmignore` file should contain as a minimal set the following entries:
 
 ```gitignore
 # Accept only values.yaml
-values*.yaml
-values*.yml
+values?*.yaml
+values?*.yml
 ```
