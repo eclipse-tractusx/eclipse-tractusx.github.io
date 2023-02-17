@@ -8,7 +8,7 @@ See the AUTHORS file(s) distributed with this work for additional information re
 
 ## Trademarks
 
-Eclipse Tractus-X is a trademark of the Eclipse Foundation.
+Eclipse Tractus-X is a trademark of the Eclipse Foundation. Eclipse, and the Eclipse Logo are registered trademarks of the Eclipse Foundation.
 
 ## Copyright
 
