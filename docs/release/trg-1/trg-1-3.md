@@ -9,15 +9,17 @@ title: TRG 1.03 - CHANGELOG.md
 
 ## Description
 
-Repositories must contain a `CHANGELOG.md` file and content must
+Repositories must contain a `CHANGELOG.md` file and content should
 follow [Keep A Changelog](https://keepachangelog.com/en/1.0.0/) format.
 
 ## Why
 
-To track changes of releases a `CHANGELOG.md` must be added to repositories. The format must follow the format explained at [Keep A Changelog](https://keepachangelog.com/en/1.0.0/).
+To track changes of releases a `CHANGELOG.md` must be added to repositories. The format should follow the format
+explained at [Keep A Changelog](https://keepachangelog.com/en/1.0.0/).
 
 The versioning of releases must
 follows [semantic versioning](https://semver.org/). For easy changelog
 creation [conventional committing](https://www.conventionalcommits.org/en/v1.0.0/#summary) is strongly recommended.
 
-An example of a `CHANGELOG.md` file following _Keep A Changelog_ can be found [here](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md).
+An example of a `CHANGELOG.md` file following _Keep A Changelog_ can be
+found [here](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md).
