@@ -7,13 +7,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 5rem 0;
   background-color: #000;
 }
 
 .container {
   width: 70vw;
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,32 +29,33 @@
 .title {
   font-family: "Manrope", sans-serif;
   font-style: bold;
-  font-size: 4rem;
-  line-height: 78%;
+  font-size: 32px;
+  line-height: 40px;
   letter-spacing: -1px;
 }
 
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 18px;
+  line-height: 26px;
   letter-spacing: -0.7px;
 }
 
 .slider_container {
-  width: 75%;
+  width: 70%;
   margin-top: 1rem;
 }
 
 .slider_content {
-  width: 90%;
-  height: 22vw;
+  width: 95%;
+  height: 20vw;
   margin: 0 auto;
   display: block;
 }
 
 .slider_img {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 10px;
   height: 100%;
@@ -65,17 +66,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 90%;
+  width: 75%;
   margin-bottom: 1rem;
 }
 
 .button {
-  padding: 0.3rem 2.5rem;
+  padding: 0.3rem 2rem;
   background-color: #faa023;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
-  font-size: 0.9vw;
-  margin-right: 1.5rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  margin-right: 1rem;
 }
 
 .button:hover {
@@ -109,13 +111,13 @@
     height: auto;
   }
 
-  .title {
+  /* .title {
     font-size: 4vw;
   }
 
   .subtitle {
     font-size: 2.1vw;
-  }
+  } */
 
   .slider_container {
     display: flex;

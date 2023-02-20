@@ -1,3 +1,24 @@
+/********************************************************************************* 
+ * Copyright (c) 2023 BMW Group AG
+ * Copyright (c) 2023 Mercedes Benz AG 
+ * Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
 import React from "react";
 import Link from "@docusaurus/Link";
 import Slider from "react-slick";
@@ -28,7 +49,8 @@ export default function CarouselComponent() {
     const kits = [
       {
         id: 1,
-        img: Business_Kit
+        img: Business_Kit,
+        pageRoute: "docs/kits/Business Partner Kit/Adoption View"
       },
       {
         id: 2,
@@ -36,11 +58,13 @@ export default function CarouselComponent() {
       },
       {
         id: 3,
-        img: DataChain_Kit
+        img: DataChain_Kit,
+        pageRoute: "docs/kits/Data Chain Kit/Adoption View"
       },
       {
         id: 4,
-        img: Business_Kit
+        img: Business_Kit,
+        pageRoute: "docs/kits/Business Partner Kit/Adoption View"
       },
       {
         id: 5,
@@ -48,7 +72,8 @@ export default function CarouselComponent() {
       },
       {
         id: 6,
-        img: DataChain_Kit
+        img: DataChain_Kit,
+        pageRoute: "docs/kits/Data Chain Kit/Adoption View"
       },
     ]
 
@@ -65,7 +90,7 @@ export default function CarouselComponent() {
 
         <div className={styles.btn_container}>
           <Link className={styles.button} /* to="/aboutus" */>
-            All cx-kits
+            All CX-Kits
           </Link>
           <div className={styles.btn_slider_container}>
             <ArrowCircleLeftOutlinedIcon sx={{fontSize: '2.3vw', '@media (max-width: 996px)': {fontSize: '3.5vw'}}} className={styles.btn_slider} onClick={() => slider?.current?.slickPrev()}/>
@@ -79,7 +104,7 @@ export default function CarouselComponent() {
               kits.map((kit)=> {
                 return (
                   <div key={kit.id} className={styles.slider_item}>
-                    <Link className={styles.slider_content} to='docs/kits'>
+                    <Link className={styles.slider_content} to={kit.pageRoute}>
                     <img src={kit.img} className={styles.slider_img}/>
                     </Link>
                   </div>
