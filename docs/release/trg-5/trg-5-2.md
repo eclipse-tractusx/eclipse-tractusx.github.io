@@ -2,9 +2,10 @@
 title: TRG 5.02 - Chart structure
 ---
 
-| Author               | Status | Created     | Post-History    |
-|----------------------|--------|-------------|-----------------|
-| Catena-X System Team | Active | 10-Nov-2022 | Initial release |
+| Author               | Status | Created     | Post-History                                           |
+|----------------------|--------|-------------|--------------------------------------------------------|
+| Catena-X System Team | Active | 10-Nov-2022 | Initial release                                        |
+| Catena-X System Team | Active | 10-Jan-2023 | add prerequisite and TL;DR as requirement in README.md |
 
 ## Description
 
@@ -161,6 +162,6 @@ The `.helmignore` file should contain as a minimal set the following entries:
 
 ```gitignore
 # Accept only values.yaml
-values*.yaml
-values*.yml
+values?*.yaml
+values?*.yml
 ```

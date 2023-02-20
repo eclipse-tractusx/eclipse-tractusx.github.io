@@ -3,11 +3,10 @@
  * and scoped locally.
  */
 
-
 .about_header {
   position: relative;
   overflow: hidden;
-  height: 45vh;
+  height: 30vh;
 }
       
 .container {
@@ -20,24 +19,27 @@
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  gap: 2rem;
+  gap: 1rem;
 }
       
 .svg_container {
-  width: 20vw;
+  width: 25vw;
   height: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
       
 .svg {
-  width: 75%;
-  height: 75%;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  right: -2rem;
 }
       
 .information_container {
-  width: 40vw;
+  width: 60vw;
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -47,16 +49,15 @@
 .title {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 4.5vw;
-  line-height: 73%;
+  font-size: 40px;
+  line-height: 46px;
 }
       
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.25vw;
-  line-height: 117%;
-  margin-top: 1.5rem;
+  font-size: 18px;
+  line-height: 26px;
 }
       
 @media screen and (max-width: 996px) {
@@ -82,7 +83,18 @@
     padding: 2rem 0;
   }
 
+  .svg_container {
+    justify-content: center;
+  }
+
+  .svg {
+    width: 60%;
+    height: 60%;
+    position: initial;
+  }
+
   .information_container {
+    width: 75vw;
     height: 20vw;
     justify-content: space-evenly;
     align-items: center;
