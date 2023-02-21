@@ -21,6 +21,7 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
+
 import { newsTitles } from "../../../utils/newsTitles";
 
 import Slider from "react-slick";
@@ -61,7 +62,6 @@ export default function NewsTicker() {
     )
   }
 
-
   return (
     <section className={styles.news_ticker}>
       <div className={styles.container}>
@@ -82,7 +82,6 @@ export default function NewsTicker() {
             }
           </Slider>
         </div>
-        
       </div>
     </section>
   );
