@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://stephanbcbauer.github.io/eclipse-tractusx.github.io/',
+  url: 'https://stephanbcbauer.github.io/',
   baseUrl: '/eclipse-tractusx.github.io/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
