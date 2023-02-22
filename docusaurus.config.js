@@ -8,15 +8,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: 'https://stephanbcbauer.github.io/eclipse-tractusx.github.io/',
+  baseUrl: '/eclipse-tractusx.github.io/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'eclipse-tractusx', // Usually your GitHub org/user name.
+  organizationName: 'stephanbcbauer', // Usually your GitHub org/user name.
   projectName: 'eclipse-tractusx.github.io', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
