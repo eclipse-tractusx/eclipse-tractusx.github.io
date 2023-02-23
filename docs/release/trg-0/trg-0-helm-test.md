@@ -4,7 +4,7 @@ title: TRG 0.0 - DRAFT Helm test
 
 | Author               | Status | Created     | Post-History  |
 |----------------------|--------|-------------|---------------|
-| Catena-X System Team | Draft  | 22-Feb-2023 | Draft release |
+| Catena-X System Team | Draft  | 23-Feb-2023 | Draft release |
 
 ## Description
 
