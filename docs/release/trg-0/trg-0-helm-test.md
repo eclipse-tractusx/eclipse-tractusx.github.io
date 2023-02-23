@@ -2,6 +2,10 @@
 title: TRG 0.0 - DRAFT Helm test
 ---
 
+:::caution
+Proposed release date: "mandatory after": 19th of May 2023
+:::
+
 | Author               | Status | Created     | Post-History  |
 |----------------------|--------|-------------|---------------|
 | Catena-X System Team | Draft  | 23-Feb-2023 | Draft release |
