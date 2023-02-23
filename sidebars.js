@@ -36,7 +36,8 @@ const sidebars = {
             type: 'category',
             label: 'Release Guidelines',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'release'
             },
             collapsed: true,
             items: [
