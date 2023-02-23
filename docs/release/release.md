@@ -10,12 +10,12 @@ You find the overarching Changelog [here](trg-0/trg-0) to see when new TRGs have
 
 ## Process
 
-This TRG process is open for all and has the mail goal of providing reasonable defaults for workflows and requirements on being able to easily contribute, maintain and run products/components across Eclipse Tractus-X.
+This TRG process is open for all and has the main goal of providing reasonable defaults for workflows and requirements on being able to easily contribute, maintain and run products/components across Eclipse Tractus-X.
 
 - Create a draft version under release/trg-0
 - Create a pull request for merging the draft version (IF it helps to visualize / present the draft on the website) and get an approval
 - Create new Pull Request for moving the draft version to its final location
 - Communicate the PR on the mailing list
-- Address all issues from Eclipse Tractus-X committers
+- Address all issues in the PR discussion
 - Merge the new TRG with a defined 'active on date'
 - Announce new TRG on the mailing list
