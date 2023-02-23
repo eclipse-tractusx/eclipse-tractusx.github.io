@@ -9,10 +9,14 @@ sidebar_position: 3
 Development View of the Kit.
 -->
 
+<!-- !Mandatory! -->
 ## API Specifications
 
-## Protocols
-
+<!-- Recommended -->
 ## Sample Data
 
+<!-- Recommended -->
 ## Reference Implementation
+
+<!-- Recommended -->
+## Documentation in the Context of Development
