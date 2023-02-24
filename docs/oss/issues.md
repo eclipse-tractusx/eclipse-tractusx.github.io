@@ -24,4 +24,6 @@ Here all requests for Eclipse infrastructure  go in.
 - Code Contributions
 - 3rd party content checks
 
-## Contact EMO (Eclipse Management Organisation
+## Contact EMO (Eclipse Management Organisation)
+
+See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)
