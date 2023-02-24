@@ -3,7 +3,7 @@ title: TRG 0.0 - DRAFT tractusx metafile
 ---
 
 :::caution
-Proposed release date: "mandatory after": 19th of May 2023
+Proposed release date: "mandatory after": 31st of March 2023
 :::
 
 | Author               | Status | Created     | Post-History  |
