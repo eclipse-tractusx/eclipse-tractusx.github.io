@@ -1,6 +1,6 @@
 ---
 title: Code reviews
-sidebar_position: 3
+sidebar_position: 30
 ---
 
 This page will contain guidelines, good practices and mandatory steps, that have to be performed, when doing a review
@@ -10,7 +10,7 @@ Generally all code contributions have to be done via pull requests (PRs) in the 
 
 We propose a 2-step approach for reviews of PRs.
 
-General procdure for a PR:
+## General procdure for a PR
 
 - Create the PR
 - Step 1: Content Review
@@ -23,7 +23,7 @@ General procdure for a PR:
   - ask for re-reviewing if necessary
 - PR is merged by the committer who has made the review
 
-Step 1 - Content review (made by a contributor of he product team):
+## Step 1 - Content review (made by a contributor of he product team)
 
 - Content checks are defined by the product teams
 - Check for meaningful and descriptive commit messages (amend / sqash committs for a PR)
@@ -31,11 +31,10 @@ Step 1 - Content review (made by a contributor of he product team):
 - Check if new third-party libraries are used:
   - are they also been added to the DEPENDENCIES file,
   - all libraries should have the status approved,
-  - if there are any with status restricted look if issue numbers are listed in the DEPENDENCIES file.
-  - Libraries with the status "rejected" cannot be accepted.
+  - if there are any with status restricted look if issue numbers are listed in the DEPENDENCIES file.    - Libraries with the status "rejected" cannot be accepted.
 - Check if IP issues are opened
 
-Step 2 - OSS governance review (made by a committer)
+## Step 2 - final review (made by a committer)
 
 - Check if the Content Review was succesfull and adequately documented. If not, you have the right to give back the review request.
 - Double Check for meaningful and descriptive commit messages
@@ -43,4 +42,3 @@ Step 2 - OSS governance review (made by a committer)
 - Double Check if new third-party libraries used have also been added to the DEPENDENCIES file. All libraries should be approved, if there are any with restricted status look for issue numbers. Libraries with the status "rejected" cannot be accepted.
 - Double Check if IP issues are opened
 - If the contribution is larger (e.g. > 1000 loc) you are free to request an IP check from the EF. Open an code contribution ticket at the Eclipse IP GitLab.
-- to be continued
