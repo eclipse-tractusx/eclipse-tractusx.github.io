@@ -20,32 +20,23 @@
  ********************************************************************************/
 
 import React from "react";
-import Link from "@docusaurus/Link";
+import ProductOverviewCard from "../ProductOverviewCard";
+import { products } from "../../../utils/products";
+
 import styles from "./styles.module.css";
-
-export default function NewsTicker() {
+ 
+export default function ProductOverview() {
   return (
-    <section className={styles.news_ticker}>
+    <section className={styles.product_overview}>
       <div className={styles.container}>
-        <div className={styles.button_container}>
-          <Link className={styles.button} to="/blog">
-            News
-          </Link>
+        <div className={styles.product_box}>
+          {products.map((product, index) => {
+            return(
+            <ProductOverviewCard key={index} {...product} />
+            )
+          })}
         </div>
-
-        <div className={styles.date}>10.02.2023</div>
-
-        <div className={styles.introduction}>
-          <strong>Eclipse Tractus-X Developer Portal is LIVE!</strong>
-        </div>
-
-        <div className={styles.link_to_blog}>
-          <Link to="/blog/portal-is-live">
-            Read more &gt;
-          </Link>
-        </div>
-        
       </div>
-    </section>
+   </section>
   );
 }

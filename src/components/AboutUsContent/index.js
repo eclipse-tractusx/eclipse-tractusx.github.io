@@ -80,20 +80,6 @@ export default function AboutUsContent() {
           </p>
         </div>
 
-        <div className={styles.title_container}>
-          <h2 className={styles.title}>KITs</h2>
-        </div>
-  
-        <div className={styles.information_container}>
-          <p className={styles.description}>
-          Application and service providers can utilize the KITs to create an interoperable, innovative, and scalable multi-vendor solution portfolio. Data provider and consumer can utilize KITs to boost adoption and easy deployment.
-          </p>
-
-          <p className={styles.description}>
-          KITs include jointly developed standards and artifacts to foster trust and collaboration governed by the Catena-X association. KITs can be used across domains and are open for use of any application, service and even other KITs. KITs are breeding ground for innovation, efficient development, and interoperability.
-          </p>
-         </div>
-
         <div className={styles.img_container}>
           <img className={styles.licenses} src={LicensesImg} /> 
         </div>

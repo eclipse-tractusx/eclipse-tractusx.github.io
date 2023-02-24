@@ -1,6 +1,6 @@
 ---
-id: Software Operation View
-title: Software Operation View
+id: Operation View
+title: Operation View
 description: 'Data Chain Kit'
 sidebar_position: 2
 ---
