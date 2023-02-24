@@ -23,7 +23,7 @@ We propose a 2-step approach for reviews of PRs.
   - ask for re-reviewing if necessary
 - PR is merged by the committer who has made the review
 
-## Step 1 - Content review (made by a contributor of he product team)
+## Step 1 - Content review (the responsibility lies with the product team)
 
 - Content checks are defined by the product teams
 - Check for meaningful and descriptive commit messages (amend / sqash committs for a PR)
@@ -31,10 +31,11 @@ We propose a 2-step approach for reviews of PRs.
 - Check if new third-party libraries are used:
   - are they also been added to the DEPENDENCIES file,
   - all libraries should have the status approved,
-  - if there are any with status restricted look if issue numbers are listed in the DEPENDENCIES file.    - Libraries with the status "rejected" cannot be accepted.
+  - if there are any with status restricted look if issue numbers are listed in the DEPENDENCIES file,
+  - libraries with the status "rejected" cannot be accepted.
 - Check if IP issues are opened
 
-## Step 2 - final review (made by a committer)
+## Step 2 - Final review (made by a committer)
 
 - Check if the Content Review was succesfull and adequately documented. If not, you have the right to give back the review request.
 - Double Check for meaningful and descriptive commit messages
