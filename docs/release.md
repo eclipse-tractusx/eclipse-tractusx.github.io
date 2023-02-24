@@ -6,7 +6,7 @@ Welcome to Tractus-X Release Guidelines, known as TRGs. TRG numbers are assigned
 editors, and once assigned never changed. The version control history of the TRG texts represent their historical
 record. The TRGs are indexed by topic for specialist subjects.
 
-You find the overarching Changelog [here](trg-0/trg-0) to see when new TRGs have been added.
+You find the overarching Changelog [here](release/trg-0) to see when new TRGs have been added.
 
 ## Process
 
