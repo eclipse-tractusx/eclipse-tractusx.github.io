@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -83,6 +83,14 @@
   .introduction {
     padding: 0 1rem;
     font-size: smaller;
+  }
+
+  .link_to_blog {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: smaller;
+    color: #faa023;
   }
 }
     
