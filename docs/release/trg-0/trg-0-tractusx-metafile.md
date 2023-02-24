@@ -28,7 +28,7 @@ repositories:
     url: "REPOSITORY_2_URL"
 ```
 
-In the root of a sub/not leading repository create a file called `.tractusx`:
+In the root of a sub/non-leading repository create a file called `.tractusx`:
 
 ```yaml
 leadingRepository: "LEADING_PRODUCT_REPOSITORY_URL"
@@ -36,4 +36,4 @@ leadingRepository: "LEADING_PRODUCT_REPOSITORY_URL"
 
 ## Why
 
-Having a `.tractusx` metafile helps individuals (or release management/test management/other teams) determine basic information about a repository in the scope of __Eclipse TractusX__. The `yaml` format enables the opportunity to programatically combine repositories to a single product, determine leading product repository, read data that can be processed for different cases and even more functionality as more fields will be introduced in the future.
+Having a `.tractusx` metafile helps individuals (or release management/test management/other teams) to determine basic information about a repository in the scope of __Eclipse TractusX__. The `yaml` format enables the opportunity to programatically combine repositories to a single product, determine leading product repository, read data that can be processed for different cases and even more functionality as more fields will be introduced in the future.
