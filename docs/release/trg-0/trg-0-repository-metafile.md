@@ -1,5 +1,5 @@
 ---
-title: TRG 0.0 - DRAFT tractusx metafile
+title: TRG 0.0 - DRAFT Repository metafile
 ---
 
 :::caution
@@ -36,4 +36,4 @@ leadingRepository: "LEADING_PRODUCT_REPOSITORY_URL"
 
 ## Why
 
-Having a `.tractusx` metafile helps individuals (or release management/test management/other teams) to determine basic information about a repository in the scope of __Eclipse TractusX__. The `yaml` format enables the opportunity to programatically combine repositories to a single product, determine leading product repository, read data that can be processed for different cases and even more functionality as more fields will be introduced in the future.
+Having a `.tractusx` metafile helps individuals, release amanagement, test management and others to determine basic information about a repository in the scope of __Eclipse TractusX__. The `yaml` format enables the opportunity to programatically combine repositories to a single product, determine leading product repository, read data that can be processed for different cases.
