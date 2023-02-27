@@ -18,7 +18,7 @@ To track changes of releases a `CHANGELOG.md` must be added to repositories. The
 explained at [Keep A Changelog](https://keepachangelog.com/en/1.0.0/).
 
 The versioning of releases must
-follows [semantic versioning](https://semver.org/). For easy changelog
+follow [semantic versioning](https://semver.org/). For easy changelog
 creation [conventional committing](https://www.conventionalcommits.org/en/v1.0.0/#summary) is strongly recommended.
 
 An example of a `CHANGELOG.md` file following _Keep A Changelog_ can be
