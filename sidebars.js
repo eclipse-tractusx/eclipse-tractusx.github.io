@@ -36,7 +36,8 @@ const sidebars = {
             type: 'category',
             label: 'Release Guidelines',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'release'
             },
             collapsed: true,
             items: [
@@ -113,7 +114,8 @@ const sidebars = {
                     type: 'category',
                     label: 'Success Stories',
                     items:[
-                        'kits/Data Chain Kit/Success Stories/Trace-X Sucess Story'
+                        'kits/Data Chain Kit/Success Stories/Trace-X Sucess Story',
+                        'kits/Data Chain Kit/Success Stories/Circularity Dashboard Sucess Story'
                     ]
                 }
                 // {
