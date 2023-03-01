@@ -26,6 +26,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { faqsContent } from "@site/utils/faqsContent";
 
 import styles from "./styles.module.css";
 
