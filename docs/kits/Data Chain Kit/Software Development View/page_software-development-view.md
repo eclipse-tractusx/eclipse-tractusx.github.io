@@ -14,4 +14,8 @@ The IRS Rest API provides an easy to use Interface for applications to access cr
 
 The IRS REST API is standardized through the Catena-X e.V. and can be found here:
 
-[> DC-001 Item Relationship Service](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/7_PC_Data_Chains_v2.1/DC_-_001_ITEM_RELATIONSHIP_SERVICE_PlatformCapabilityDataChains_v2.1.pdf)
+- [> CX-0005 Item Relationship Service API](https://catena-x.net/de/standard-library)
+
+Comming Soon:
+
+- CX-0045 Data Chain Template

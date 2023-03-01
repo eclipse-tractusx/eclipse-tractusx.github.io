@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 10vw;
 }
 
 .button {
@@ -44,6 +45,16 @@
   background-color: #1e1e1e;
   color: #faa023;
   text-decoration: none;
+}
+
+.carousel_container {
+  width: 60vw;
+}
+
+.slider_item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .date {
@@ -71,9 +82,8 @@
   }
 
   .button {
-    padding: 0.2rem 0.8rem;
-    font-size: x-small;
-    font-size: 1vw;
+    padding: 0 0.8rem;
+    font-size: 1.3vw;
   }
 
   .date {
