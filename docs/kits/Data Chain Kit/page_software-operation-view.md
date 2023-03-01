@@ -46,10 +46,10 @@ This local deployment is an easy installation with helm. This setup is built to 
    minikube addons enable metrics-server
    ```
 
-4. kubectl is installed
-5. Python3 is installed
-6. Ruby is installed
-7. psql client is installed
+4. [kubectl](https://kubernetes.io/docs/tasks/tools/) is installed
+5. [Python3](https://www.python.org/downloads/) is installed
+6. [Ruby](https://www.ruby-lang.org/de/documentation/installation/) is installed
+7. [psql](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/) client is installed
 8. **CURRENTLY STILL NECESSARY:** Fill the digital twin secret in file:
 
    ```bash
