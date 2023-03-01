@@ -18,4 +18,4 @@ BPDM is a SpringBoot Kotlin software project managed by Maven.
 |![how to run the business partner kit diagram](../../../static/img/vector.png)    | **2. Start with the profiles**             |The project offer a variety of different Spring profiles for configuration purposes|
 
 Detailed description on how to run this service can be found here:
-[https://github.com/eclipse-tractusx/bpdm/blob/main/README.adoc](https://github.com/eclipse-tractusx/bpdm/blob/main/README.adoc)
+[https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md)
