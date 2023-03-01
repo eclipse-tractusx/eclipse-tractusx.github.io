@@ -1,4 +1,0 @@
-[submodule "docs/kits/product-edc"]
-	path = docs/kits/product-edc
-	url = https://github.com/catenax-ng/product-edc.git
-	branch = snba/docusaurus-kits
