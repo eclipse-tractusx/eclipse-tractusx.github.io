@@ -35,7 +35,7 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 import styles from "./styles.module.css";
 
 export default function CarouselComponent() {
-    var settings = {
+    let settings = {
       dots: true,
       infinite: true,
       speed: 500,

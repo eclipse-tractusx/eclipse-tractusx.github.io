@@ -23,29 +23,9 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-import Business_Kit from "@site/static/img/gallery-business_kit-minified.png";
-import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
-import DataChain_Kit from "@site/static/img/gallery-datachain_kit-minified.png";
-
+import { galleryKits } from "@site/utils/galleryKits";
 
 export default function KitsGallery() {
-  const kits = [
-    {
-      id: 1,
-      img: Business_Kit,
-      pageRoute: "docs/kits/Business Partner Kit/Adoption View"
-    },
-    {
-      id: 2,
-      img: DataChain_Kit,
-      pageRoute: "docs/kits/Data Chain Kit/Adoption View"
-    },
-    {
-      id: 3,
-      img: MoreToCome
-    },
-  ]
-
   return (
     <section className={styles.kits_gallery}>
       <div className={styles.container}>
@@ -60,7 +40,7 @@ export default function KitsGallery() {
 
         <div className={styles.gallery_container}>
           {
-            kits.map((kit, index)=> {
+            galleryKits.map((kit, index)=> {
               return(
                 <div key={index} className={styles.gallery_item}>
                   <Link to={kit.pageRoute} className={styles.gallery_link}>
