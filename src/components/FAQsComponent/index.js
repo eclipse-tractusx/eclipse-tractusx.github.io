@@ -26,28 +26,29 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import { faqsContent } from "@site/utils/faqsContent";
 
 import styles from "./styles.module.css";
 
 
 export default function FAQsComponent() {
-  const [toggleFirst, setToggleFirst] = useState(false)
-  const [toggleSecond, setToggleSecond] = useState(false)
-  const [toggleThird, setToggleThird] = useState(false)
+  // const [toggleFirst, setToggleFirst] = useState(false)
+  // const [toggleSecond, setToggleSecond] = useState(false)
+  // const [toggleThird, setToggleThird] = useState(false)
 
-  const openAllHandler = () => {
-    if(toggleFirst === false || toggleSecond === false || toggleThird === false) {
-      setToggleFirst(true)
-      setToggleSecond(true)
-      setToggleThird(true)
-    }
-    if(toggleFirst === true && toggleSecond === true && toggleThird === true) {
-      setToggleFirst(false)
-      setToggleSecond(false)
-      setToggleThird(false)
-    }
-  }
+  // const openAllHandler = () => {
+  //   if(toggleFirst === false || toggleSecond === false || toggleThird === false) {
+  //     setToggleFirst(true)
+  //     setToggleSecond(true)
+  //     setToggleThird(true)
+  //   }
+  //   if(toggleFirst === true && toggleSecond === true && toggleThird === true) {
+  //     setToggleFirst(false)
+  //     setToggleSecond(false)
+  //     setToggleThird(false)
+  //   }
+  // }
 
   return (
     <section className={styles.faqs}>
@@ -57,48 +58,54 @@ export default function FAQsComponent() {
         </div>
 
         <div className={styles.accordion_box}>
-          <Accordion 
-            className={styles.accordion}
-            expanded={toggleFirst}
-            onClick={()=>{
-              toggleFirst == false ? setToggleFirst(true) : setToggleFirst(false)
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '1rem'}}
-            >
-              <Typography
-                sx={{
-                  fontFamily: 'Manrope, sans-serif',
-                  fontSize: '18px',
-                  fontWeight: 'bold',
-                  lineHeight: '26px',
-                  letterSpacing: '0.6px',
-                }}
-              >
-                Why are there KITs and where does this naming comes from?
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails
-              sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
-            >
-              <Typography
-                sx={{
-                  fontFamily: 'Manrope, sans-serif',
-                  fontSize: '14px',
-                  lineHeight: '22px',
-                  letterSpacing: '-0.4px'  
-                }}
-              >
-                KIT means “Keep It Together” - Catena-X KITs aim to accelerate the development of Catena-X applications and services and contribute significantly to the rapid scaling of the Catena-X ecosystem.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion 
+          {
+            faqsContent.map((faq) => {
+              return(
+                <Accordion 
+                  className={styles.accordion}
+                  // expanded={false}
+                  // onClick={()=>{
+                  //   toggleFirst == false ? setToggleFirst(true) : setToggleFirst(false)
+                  // }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '1rem'}}
+                  >
+                    <Typography
+                      sx={{
+                        fontFamily: 'Manrope, sans-serif',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        lineHeight: '26px',
+                        letterSpacing: '0.6px',
+                      }}
+                    >
+                      {faq.question}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails
+                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
+                  >
+                    <Typography
+                      sx={{
+                        fontFamily: 'Manrope, sans-serif',
+                        fontSize: '14px',
+                        lineHeight: '22px',
+                        letterSpacing: '-0.4px'  
+                      }}
+                    >
+                      {faq.answer}    
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              )
+            })
+          }
+          
+          {/* <Accordion 
             className={styles.accordion}
             expanded={toggleSecond}
             onClick={()=>{
@@ -178,17 +185,17 @@ export default function FAQsComponent() {
                 KITs are guided with three different views (adoption, develop and operation) but not every KIT will provide the same objectives. Some will be more focused on the adoption view with a vision & mission, semantic model .. and other KITs will have a different target-group like developers - so there will be more focus on the technical specification.
               </Typography>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
         </div> 
 
         <div className={styles.btn_container}>
           <button 
             className={styles.button}
-            onClick={openAllHandler}
+            // onClick={openAllHandler}
           >
-            {toggleFirst === false || toggleSecond === false || toggleThird === false ? 'Open All' :
+            {/* {toggleFirst === false || toggleSecond === false || toggleThird === false ? 'Open All' :
             toggleFirst === true && toggleSecond === true && toggleThird === true ? 'Close All' : 'Open All'
-            }
+            } */}
           </button>
         </div>
       </div>
