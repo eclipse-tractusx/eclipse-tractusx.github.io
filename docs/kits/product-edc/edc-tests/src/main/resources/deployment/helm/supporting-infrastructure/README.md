@@ -74,13 +74,13 @@ Install on your machine:
 
 ## Start Demo Environment
 
-**Update Helm Dependencies**
+### Update Helm Dependencies
 
 ```bash
 helm dependency update
 ```
 
-**Install Demo Chart**
+### Install Demo Chart
 
 ```bash
 helm install tx-infrastructure --namespace tx --create-namespace .
@@ -88,7 +88,7 @@ helm install tx-infrastructure --namespace tx --create-namespace .
 
 ## Stop Demo Environment
 
-**Uninstall Demo Chart**
+### Uninstall Demo Chart
 
 ```bash
 helm uninstall tx-infrastructure --namespace tx

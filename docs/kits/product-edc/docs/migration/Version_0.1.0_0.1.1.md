@@ -25,11 +25,7 @@ important changes in endpoints and payloads.
 
 The id field of the PolicyDefinition was renamed from `uid` to `id`.
 
-<details>
-
-<summary>Example</summary>
-
-Old Call
+#### Old Call
 
 ```json
 {
@@ -50,7 +46,7 @@ Old Call
 }
 ```
 
-New call
+#### New Call
 
 ```json
 {
@@ -71,8 +67,6 @@ New call
 }
 ```
 
-</details>
-
 ## 2. Connector Configuration
 
 ### 2.1. CX OAuth Extension
@@ -81,12 +75,6 @@ All connectors are now shipped with a new OAuth extension. This extension has an
 
 [Documentation](../../edc-extensions/cx-oauth2/README.md)
 
-<details>
-
-<summary>Example</summary>
-
-```
+```conf
 edc.ids.endpoint.audience=http://plato-edc-controlplane:8282/api/v1/ids/data
 ```
-
-</details>

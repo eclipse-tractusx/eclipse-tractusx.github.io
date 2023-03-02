@@ -43,7 +43,7 @@ The four supported setups are.
 
 ## Recommended Documentation
 
-**This Repository**
+### This Repository
 
 - [Update EDC Version from 0.0.x - 0.1.x](migration/Version_0.0.x_0.1.x.md)
 - [Application: Control Plane](../edc-controlplane)
@@ -53,13 +53,13 @@ The four supported setups are.
 - [Example: Local TXDC Setup](samples/Local%20TXDC%20Setup.md)
 - [Example: Data Transfer](samples/Transfer%20Data.md)
 
-**Eclipse Dataspace Connector**
+### Eclipse Dataspace Connector
 
 - [EDC Domain Model](https://github.com/eclipse-edc/Connector/blob/main/docs/developer/architecture/domain-model.md)
 - [EDC Open API Spec](https://github.com/eclipse-edc/Connector/blob/main/resources/openapi/openapi.yaml)
 - [HTTP Receiver Extension](https://github.com/eclipse-edc/Connector/tree/main/extensions/control-plane/http-receiver)
 
-**Catena-X**
+### Catena-X
 
 _Only accessible for Catena-X Members._
 

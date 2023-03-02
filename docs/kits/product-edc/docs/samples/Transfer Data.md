@@ -6,18 +6,18 @@ For this transfer connector **Bob** will act as data provider, and connector **A
 consumer. But the roles could be inverse as well.
 
 > Please note: Before running the examples the corresponding environment variables must be set.
-> How such an environment can be setup locally is documented in [chapter 0](#0--optional--local-setup).
+> How such an environment can be setup locally is documented in [chapter 1](#0-optional-local-setup).
 
-**Contents**
+## Contents
 
-0. [(optional) Local Setup](#0--optional--local-setup)
+0. [(optional) Local Setup](#0-optional-local-setup)
 1. [Setup Data Offer](#1-setup-data-offer)
 2. [Request Contract Offers](#2-request-contract-offer-catalog)
 3. [Negotiate Contract](#3-negotiate-contract)
 4. [Transfer Data](#4-transfer-data)
 5. [Verify Data Transfer](#5-verify-data-transfer)
 
-## 0. (optional) Local Setup
+## 0. Optional Local Setup
 
 To create a local setup with two connectors have a look at
 the [Local TXDC Setup Documentation](Local%20TXDC%20Setup.md).
@@ -163,7 +163,7 @@ official open source documentation ([link](https://github.com/eclipse-edc/Connec
 
 ![Sequence 1](diagrams/transfer_sequence_1.png)
 
-**Run**
+### Run
 
 The following commands will create an Asset, a Policy and a Contract Definition.
 For simplicity `https://jsonplaceholder.typicode.com/todos/1` is used as data source of the asset, but could be any
@@ -240,7 +240,7 @@ connectors, that intent to send messages to each other, have the same DAPS insta
 
 ![Sequence 1](diagrams/transfer_sequence_2.png)
 
-**Run**
+### Run
 
 ```bash
 curl -G -X GET "${ALICE_DATAMGMT_URL}/data/catalog" \
@@ -263,7 +263,7 @@ and checking whether the `contractAgreementId` is set. This might take a few sec
 
 ![Sequence 1](diagrams/transfer_sequence_3.png)
 
-**Run**
+### Run
 
 ```bash
 export NEGOTIATION_ID=$( \
@@ -308,7 +308,7 @@ the transfer process is `COMPLETED`.
 
 ![Sequence 1](diagrams/transfer_sequence_4.png)
 
-**Run**
+### Run
 
 ```bash
 export CONTRACT_AGREEMENT_ID=$( \
@@ -356,7 +356,7 @@ curl -X GET "${ALICE_BACKEND_URL}/${TRANSFER_PROCESS_ID}" \
     -s | jq
 ```
 
-# Delete All Data
+## 6. Delete All Data
 
 ```bash
 minikube kubectl -- delete pvc -n edc-all-in-one --all
