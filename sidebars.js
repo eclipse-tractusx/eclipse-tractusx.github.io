@@ -133,6 +133,7 @@ const sidebars = {
             },
             collapsed: true,
             items: [
+                'kits/product-edc/CHANGELOG',
                 'kits/product-edc/docs/kit/adoption-view/Adoption View',
                 {
                     type: 'category',
@@ -239,10 +240,6 @@ const sidebars = {
                 {
                     type: 'category',
                     label: 'Documentation',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/product-edc/CHANGELOG',
-                    },
                     collapsed: true,
                     items: [
                         'kits/product-edc/docs/kit/development-view/page02_repository_structure',
