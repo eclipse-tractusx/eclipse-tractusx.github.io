@@ -13,5 +13,5 @@ export const faqsContent = [
     id: 3,
     question: "Does every KIT contain the same things and follow the same structure?",
     answer: "KITs are guided with three different views (adoption, develop and operation) but not every KIT will provide the same objectives. Some will be more focused on the adoption view with a vision & mission, semantic model .. and other KITs will have a different target-group like developers - so there will be more focus on the technical specification."
-  }
+  },
 ]
