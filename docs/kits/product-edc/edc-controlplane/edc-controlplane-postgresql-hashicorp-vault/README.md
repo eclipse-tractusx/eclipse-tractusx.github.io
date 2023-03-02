@@ -11,8 +11,8 @@
 Listed below are configuration keys needed to get the `edc-controlplane-postgresql-hashicorp-vault` up and running.
 Details regarding each configuration property can be found at the [documentary section of the EDC](https://github.com/eclipse-edc/Connector/tree/main/docs).
 
-| Key  	                                                | Required  | Example | Description |
-|---	                                                |---	    |---	  |---          |
+| Key                                                   | Required  | Example | Description |
+|---                                                 |---     |---   |---          |
 | edc.api.auth.key                                      |           | password | default value: random UUID |
 | web.http.default.port                                 | X         | 8080    | |
 | web.http.default.path                                 | X         | /api    | |
@@ -24,22 +24,22 @@ Details regarding each configuration property can be found at the [documentary s
 | web.http.control.path                                 | X         | /api/controlplane/control | |
 | web.http.ids.port                                     | X         | 8282 | |
 | web.http.ids.path                                     | X         | /api/v1/ids | |
-| edc.receiver.http.endpoint                            | X         | http://backend-service | |
+| edc.receiver.http.endpoint                            | X         | <http://backend-service> | |
 | edc.ids.title                                         |           | Eclipse Dataspace Connector | |
 | edc.ids.description                                   |           | Eclipse Dataspace Connector | |
 | edc.ids.id                                            |           | urn:connector:edc | |
 | edc.ids.security.profile                              |           | base | |
-| edc.ids.endpoint                                      |           | http://localhost:8282/api/v1/ids | |
-| edc.ids.maintainer                                    |           | http://localhost | |
-| edc.ids.curator                                       |           | http://localhost | |
+| edc.ids.endpoint                                      |           | <http://localhost:8282/api/v1/ids> | |
+| edc.ids.maintainer                                    |           | <http://localhost> | |
+| edc.ids.curator                                       |           | <http://localhost> | |
 | edc.ids.catalog.id                                    |           | urn:catalog:default | |
-| ids.webhook.address                                   |           | http://localhost:8282/api/v1/ids | |
+| ids.webhook.address                                   |           | <http://localhost:8282/api/v1/ids> | |
 | edc.hostname                                          |           | localhost | |
-| edc.oauth.token.url                                   | X         | https://daps.catena-x.net | |
+| edc.oauth.token.url                                   | X         | <https://daps.catena-x.net> | |
 | edc.oauth.public.key.alias                            | X         | key-to-daps-certificate-in-keyvault | |
 | edc.oauth.private.key.alias                           | X         | key-to-private-key-in-keyvault | |
 | edc.oauth.client.id                                   | X         | daps-oauth-client-id | |
-| edc.vault.hashicorp.url                               | X         | http://vault | |
+| edc.vault.hashicorp.url                               | X         | <http://vault> | |
 | edc.vault.hashicorp.token                             | X         | 55555555-6666-7777-8888-999999999999 | |
 | edc.vault.hashicorp.timeout.seconds                   |           | 30 | |
 | edc.datasource.asset.name                             | X         | asset | |
@@ -62,7 +62,7 @@ Details regarding each configuration property can be found at the [documentary s
 | edc.datasource.transferprocess.url                    | X         | jdbc:postgresql://postgres.svc.cluster.local:5432/edc_transferprocess_db | |
 | edc.datasource.transferprocess.user                   | X         | username | |
 | edc.datasource.transferprocess.password               | X         | password | |
-| edc.transfer.proxy.endpoint                           | X         | http://proxy | |
+| edc.transfer.proxy.endpoint                           | X         | <http://proxy> | |
 | edc.transfer.proxy.token.signer.privatekey.alias      | X         | | |
 
 #### Example configuration.properties
@@ -141,6 +141,7 @@ EOF
 ```
 
 #### Example logging.properties
+
 ```shell
 # Create logging.properties
 export LOGGING_PROPERTIES_FILE=$(mktemp /tmp/logging.properties.XXXXXX)
@@ -155,6 +156,7 @@ EOF
 ```
 
 #### Example opentelemetry.properties
+
 ```shell
 # Create opentelemetry.properties
 export OPENTELEMETRY_PROPERTIES_FILE=$(mktemp /tmp/opentelemetry.properties.XXXXXX)

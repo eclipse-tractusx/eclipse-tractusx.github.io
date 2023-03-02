@@ -26,13 +26,14 @@ creating secrets the EDC should consume.
 
 ## Health Check
 
-The HashiCorp Vault Extension is able to run health checks. A health check is successful when the vault is _initialized_, _active_ and _unsealed_. Successful health checks are logged with level _FINE_. Unsuccessful health checks will be logged 
+The HashiCorp Vault Extension is able to run health checks. A health check is successful when the vault is _initialized_, _active_ and _unsealed_. Successful health checks are logged with level _FINE_. Unsuccessful health checks will be logged
 with level _WARNING_.
 
 ---
 **Health Checks in Catena-X**
 
 If your project uses the Catena-X HashiCorp Vault please set `edc.vault.hashicorp.health.check.standby.ok` to _true_. Otherwise the health check would fail if the Vault is in standby.
+
 ```bash
   # Logs of successful check with standby vault
   [2022-08-01 14:48:37] [FINE   ] HashiCorp Vault HealthCheck successful. HashicorpVaultHealthResponsePayload(isInitialized=true, isSealed=false, isStandby=true, isPerformanceStandby=false, replicationPerformanceMode=disabled,replicationDrMode=disabled, serverTimeUtc=1659365317, version=1.9.2, clusterName=vault-cluster-4b193c26, clusterId=83fabd45-685d-7f8d-9495-18fab6f50d5e)
@@ -90,7 +91,6 @@ edc.oauth.private.key.alias=my-daps-key
 ```
 
 ## Example: Catena-X Argo CD Vault Configuration
-
 
 ```
 

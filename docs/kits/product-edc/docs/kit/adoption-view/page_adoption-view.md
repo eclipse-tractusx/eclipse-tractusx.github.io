@@ -7,7 +7,6 @@ sidebar_position: 1
 
 The ConnectorKit provides a connector framework, based on the Eclipse Dataspace Connector (EDC) for sovereign, cross-enterprise data exchange.
 
-
 ![EDC Overview](../adoption-view/images/edc_overview.png)
 
 Trust, interoperability and data sovereignty, these are the objectives and values for secure and sustainable peer-to-peer data exchange between organizations and companies. The claim is data sovereignty: Whoever makes data available retains control and decides individually who is involved in the data exchange, how, when, where and under what conditions.

@@ -16,7 +16,6 @@ Due to a change in the DAPS authentication mechanism this version cannot exchang
 2. Connector Configuration
    1. CX OAuth Extension
 
-
 ## 1. Data Management API
 
 It might be necessary to update applications and scripts that use the Data Management API. This section covers the most
@@ -31,6 +30,7 @@ The id field of the PolicyDefinition was renamed from `uid` to `id`.
 <summary>Example</summary>
 
 Old Call
+
 ```json
 {
     "uid": "1",
@@ -51,6 +51,7 @@ Old Call
 ```
 
 New call
+
 ```json
 {
     "id": "1",
@@ -73,12 +74,12 @@ New call
 </details>
 
 ## 2. Connector Configuration
+
 ### 2.1. CX OAuth Extension
 
 All connectors are now shipped with a new OAuth extension. This extension has an additional mandatory setting called `edc.ids.endpoint.audience`, that must be set to the IDS path.
 
 [Documentation](../../edc-extensions/cx-oauth2/README.md)
-
 
 <details>
 

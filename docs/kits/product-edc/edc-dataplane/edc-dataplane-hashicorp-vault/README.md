@@ -19,13 +19,13 @@ Details regarding each configuration property can be found at the [documentary s
 | web.http.public.path                                  | X         |         | |
 | web.http.control.port                                 | X         | 9999 | |
 | web.http.control.path                                 | X         | /api/controlplane/control | |
-| edc.receiver.http.endpoint                            | X         | http://backend-service | |
+| edc.receiver.http.endpoint                            | X         | <http://backend-service> | |
 | edc.hostname                                          |           | localhost | |
 | edc.oauth.client.id                                   | X         | daps-oauth-client-id | |
-| edc.vault.hashicorp.url                               | X         | http://vault | |
+| edc.vault.hashicorp.url                               | X         | <http://vault> | |
 | edc.vault.hashicorp.token                             | X         | 55555555-6666-7777-8888-999999999999 | |
 | edc.vault.hashicorp.timeout.seconds                   |           | 30 | |
-| edc.dataplane.token.validation.endpoint                  | X         | http://controlplane:8182/validation/token | |
+| edc.dataplane.token.validation.endpoint                  | X         | <http://controlplane:8182/validation/token> | |
 
 #### Example configuration.properties
 
@@ -57,6 +57,7 @@ EOF
 ```
 
 #### Example logging.properties
+
 ```shell
 # Create logging.properties
 export LOGGING_PROPERTIES_FILE=$(mktemp /tmp/logging.properties.XXXXXX)
@@ -71,6 +72,7 @@ EOF
 ```
 
 #### Example opentelemetry.properties
+
 ```shell
 # Create opentelemetry.properties
 export OPENTELEMETRY_PROPERTIES_FILE=$(mktemp /tmp/opentelemetry.properties.XXXXXX)

@@ -32,7 +32,7 @@ must contain the Business Partner Number.
 ## Single BusinessPartnerNumber example
 
 The most simple BPN policy would allow the usage of certain data to a single Business Partner. An example `Policy` is
-shown below. 
+shown below.
 In this example the `edctype` properties are added, so that this policy may even be sent to the Management API.
 
 ```json
@@ -66,6 +66,7 @@ In this example the `edctype` properties are added, so that this policy may even
 
 To define multiple BPN and allow multiple participants to use the data the `orconstraint` should be used.
 It will permit the constraints contained to be evaluated using the `OR` operator.
+
 ```json
 {
   "permissions": [
@@ -122,6 +123,7 @@ Please be aware that the EDC ignores all Rules and Constraint it does not unders
 ---
 
 **Example 1 for accidentially public:**
+
 ```json
 {
   "uid": "1",

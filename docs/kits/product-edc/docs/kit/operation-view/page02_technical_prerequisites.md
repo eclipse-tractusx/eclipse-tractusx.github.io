@@ -1,6 +1,7 @@
 # Technical Prerequisites
 
 ## Obtaining Releases
+
 The most recent release of TractusX EDC can be obtained under `https://github.com/eclipse-tractusx/tractusx-edc/releases`.
 To create your own build, you can clone the repository at `https://github.com/eclipse-tractusx/tractusx-edc` and consult the provided README.md.
 This can be useful if you want to use non-standard extensions or configuration.
@@ -21,10 +22,12 @@ Seeing as these are standard tools, TractusX EDC will run on any cloud environme
 The EDC requires backend services for persistence of data and secrets. The following backends are currently supported.
 
 **Data Storage**
+
 - PostgreSQL database
 - In memory database
 
 **Secret Storage**
+
 - Hashicorp Vault
 - Azure Vault
 

@@ -5,7 +5,7 @@
 The API spec of the EDC is constantly evolving.
 The full API documentation for each release can be viewed on [management-api](../../kit/development-view/openAPI/management-api/management-api.info.mdx).
 The following are some example API calls for common use cases.
-They assume the default parameters from the previous local setup. 
+They assume the default parameters from the previous local setup.
 
 ## Create an Asset
 
@@ -14,11 +14,13 @@ Since most EDC objects are rather openly defined, most of the properties provide
 Assets are no exception here.
 
 URL
+
 ```http request
 POST http://localhost:8080/api/v1/assets/
 ```
 
 Body
+
 ```json
 {
   "asset": {
@@ -40,11 +42,13 @@ Body
 To inspect the assets available to an EDC connector, we request its catalog.
 
 URL
+
 ```http request
 POST http://localhost:8080/api/v1/catalog/request
 ```
 
 Body
+
 ```json
 {
   "providerUrl": "www.example.provider",
@@ -58,6 +62,6 @@ Body
 }
 ```
 
-
 ## Data Transfer
+
 !!!REFERENCE S3 DATA TRANSFER HERE, ONCE IT IS DOCUMENTED!!!

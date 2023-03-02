@@ -10,7 +10,7 @@
     - Business Partner Extension
     - HashiCorp Vault Extension
     - OAuth2 Extension
-3. Bug Fixes 
+3. Bug Fixes
     - S3 Data Transfer
 
 # 1. Container Images
@@ -26,7 +26,7 @@ The EDC now releases a fourth image with a combination of HashiCorp Vault and In
 **Removed support for Constraint with multiple BPNs**
 The possibility to use multiple Business Partner Numbers inside of a single constraint has been removed. It looks like
 this was only possible due to a missing feature and may lead to unexpected side
-effects (https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/issues/2026)
+effects (<https://github.com/eclipse-dataspaceconnector/DataSpaceConnector/issues/2026>)
 
 Hence, this kind of policy is no longer supported!
 
