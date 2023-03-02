@@ -6,9 +6,9 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- dokumentation of the management-api
-- dokumentation of adoption view
-- dokumentation of software development view
+- documentation of the management-api
+- documentation of adoption view
+- documentation of software development view
 
 ### Changed
 
