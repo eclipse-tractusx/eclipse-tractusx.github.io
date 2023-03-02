@@ -1,12 +1,12 @@
 # EDC Data-Plane [Hashicorp Vault](https://www.vaultproject.io/)
 
-### Building
+## Building
 
 ```shell
 ./mvnw -pl .,edc-dataplane/edc-dataplane-hashicorp-vault -am package -Pwith-docker-image
 ```
 
-### Configuration
+## Configuration
 
 Listed below are configuration keys needed to get the `edc-dataplane-hashicorp-vault` up and running.
 Details regarding each configuration property can be found at the [documentary section of the EDC](https://github.com/eclipse-edc/Connector/tree/main/docs).
@@ -27,7 +27,7 @@ Details regarding each configuration property can be found at the [documentary s
 | edc.vault.hashicorp.timeout.seconds                   |           | 30 | |
 | edc.dataplane.token.validation.endpoint                  | X         | <http://controlplane:8182/validation/token> | |
 
-#### Example configuration.properties
+### Example configuration.properties
 
 JDK properties-style configuration of the EDC Control-Plane is expected to be mounted to `/app/configuration.properties` within the container.
 
@@ -56,7 +56,7 @@ edc.vault.hashicorp.timeout.seconds=30
 EOF
 ```
 
-#### Example logging.properties
+### Example logging.properties
 
 ```shell
 # Create logging.properties
@@ -71,7 +71,7 @@ java.util.logging.SimpleFormatter.format=[%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS] [
 EOF
 ```
 
-#### Example opentelemetry.properties
+### Example opentelemetry.properties
 
 ```shell
 # Create opentelemetry.properties
@@ -82,7 +82,7 @@ otel.javaagent.debug=false
 EOF
 ```
 
-### Running
+## Running
 
 ```shell
 docker run \

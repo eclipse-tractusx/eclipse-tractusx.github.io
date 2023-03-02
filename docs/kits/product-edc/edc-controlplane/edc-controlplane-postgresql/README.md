@@ -1,12 +1,12 @@
 # EDC Control-Plane backed by [Postgresql](https://www.postgresql.org/)
 
-### Building
+## Building
 
 ```shell
 ./mvnw -pl .,edc-controlplane/edc-controlplane-postgresql -am package -Pwith-docker-image
 ```
 
-### Configuration
+## Configuration
 
 Listed below are configuration keys needed to get the `edc-controlplane-postgresql` up and running.
 Details regarding each configuration property can be found at the [documentary section of the EDC](https://github.com/eclipse-edc/Connector/tree/main/docs).
@@ -66,7 +66,7 @@ Details regarding each configuration property can be found at the [documentary s
 | edc.transfer.proxy.endpoint                  | X         | | |
 | edc.transfer.proxy.token.signer.privatekey.alias  | X         | | |
 
-#### Example configuration.properties
+### Example configuration.properties
 
 JDK properties-style configuration of the EDC Control-Plane is expected to be mounted to `/app/configuration.properties` within the container.
 
@@ -143,7 +143,7 @@ edc.datasource.transferprocess.password=pass
 EOF
 ```
 
-#### Example logging.properties
+### Example logging.properties
 
 ```shell
 # Create logging.properties
@@ -158,7 +158,7 @@ java.util.logging.SimpleFormatter.format=[%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS] [
 EOF
 ```
 
-#### Example opentelemetry.properties
+### Example opentelemetry.properties
 
 ```shell
 # Create opentelemetry.properties
@@ -169,7 +169,7 @@ otel.javaagent.debug=false
 EOF
 ```
 
-### Running
+## Running
 
 ```shell
 docker run \

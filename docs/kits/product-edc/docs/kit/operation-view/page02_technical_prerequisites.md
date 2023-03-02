@@ -21,12 +21,12 @@ Seeing as these are standard tools, TractusX EDC will run on any cloud environme
 
 The EDC requires backend services for persistence of data and secrets. The following backends are currently supported.
 
-**Data Storage**
+### Data Storage
 
 - PostgreSQL database
 - In memory database
 
-**Secret Storage**
+### Secret Storage
 
 - Hashicorp Vault
 - Azure Vault
