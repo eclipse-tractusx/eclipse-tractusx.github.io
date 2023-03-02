@@ -1,6 +1,6 @@
 # EDC Control-Plane backed by In-Memory Stores
 
-### Building
+## Building
 
 ```shell
 ./mvnw -pl .,edc-controlplane/edc-controlplane-memory -am package -Pwith-docker-image

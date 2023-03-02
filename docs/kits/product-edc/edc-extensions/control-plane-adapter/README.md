@@ -21,6 +21,7 @@ Additional requirements, that affects the architecture of the extension:
 | edc.cp.adapter.catalog.request.limit             | Maximum number of items taken from Catalog within single request. Requests are repeated until all offers of the query are retrieved                                                             | no   | 100     |
 
 By default, the extension works in "IN MEMORY" mode. This setup has some limitations:
+
 - It can work only within single EDC instance. If CP-adapter requests are handled by more than one EDC, data flow may be broken.
 - If the EDC instance is restarted, all running processes are lost.
 
@@ -37,13 +38,13 @@ To run CP-Adapter in "PERSISTENT" mode, You need to create a proper tables with 
 
 1. Client sends a GET request with two parameters: assetId and the url of the provider control-plane:
 
-   ```
+   ```text
    /adapter/asset/sync/{assetId}?providerUrl={providerUrl}
    ```
 
    The example ULR could be:
 
-   ```
+   ```text
    http://localhost:9193/api/v1/data/adapter/asset/sync/123?providerUrl=http://localhost:8182/api/v1/ids/data
    ```
 
@@ -52,8 +53,8 @@ To run CP-Adapter in "PERSISTENT" mode, You need to create a proper tables with 
    | Name | Description                                                                                                                                                                                                               |
    |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--- |
    | contractAgreementId    | Defines the ID of existing contract agreement, that should be reused for retrieving the asset. If parameter is specified, but contract is not found, 404 error will be returned.                                          |
-   | contractAgreementReuse | Similar to <i>edc.cp.adapter.reuse.contract.agreement</i> option allows to turn off reusing of existing contracts, but on a request level. Set the parameter value to 'false' and new contract agrement will be negotiated. |
-   | timeout                | Similar to <i>edc.cp.adapter.default.sync.request.timeout</i>, defines the maximum time of the request. If data is not ready, time out error will be returned.                                                            |
+   | contractAgreementReuse | Similar to `edc.cp.adapter.reuse.contract.agreement` option allows to turn off reusing of existing contracts, but on a request level. Set the parameter value to 'false' and new contract agrement will be negotiated. |
+   | timeout                | Similar to `edc.cp.adapter.default.sync.request.timeout`, defines the maximum time of the request. If data is not ready, time out error will be returned.                                                            |
 
    The controller is registered under the context alias of DataManagement API. The authentication depends on the DataManagement configuration.
    To find out more please visit:
@@ -80,7 +81,7 @@ To run CP-Adapter in "PERSISTENT" mode, You need to create a proper tables with 
 
    Example of the data-plane GET request, to retrieve Asset, with DataReference information:
 
-   ```
+   ```text
    url:          http://consumer-dataplane:9192/publicsubmodel?provider-connector-url=...                {endpoint}
    header:       Authorization:eyJhbGciOiJSUzI1NiJ9.eyJkYWQiOi...                                        {authKey:authCode}
    ```
