@@ -2,7 +2,7 @@
 id: Operation View
 title: Operation View
 description: 'Business Partner Kit'
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 ![Business partner kit banner](../../../static/img/doc-business_partner_header-minified.png)
