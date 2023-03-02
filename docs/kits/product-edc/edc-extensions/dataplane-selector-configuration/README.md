@@ -16,7 +16,7 @@ Per data plane instance the following settings must be configured. As `<data-pla
 
 The property `publicApiUrl` is mandatory for Data Plane Instances with destination type `HttpProxy`.
 
-**Helm Example Configuration using environment variables**
+### Helm Example Configuration using environment variables
 
 ```yaml
 EDC_DATAPLANE_SELECTOR_PLATOPLANE_URL: http://plato-edc-dataplane:9999/api/dataplane/control

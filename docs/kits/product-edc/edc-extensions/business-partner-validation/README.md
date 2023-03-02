@@ -116,13 +116,13 @@ It will permit the constraints contained to be evaluated using the `OR` operator
 }
 ```
 
-# Important: EDC Policies are input sensitive
+## Important: EDC Policies are input sensitive
 
 Please be aware that the EDC ignores all Rules and Constraint it does not understand. This could cause your constrained policies to be public.
 
 ---
 
-**Example 1 for accidentially public:**
+### Example 1 for accidentially public
 
 ```json
 {
@@ -158,7 +158,7 @@ This policy is public available, even though the constraint is described correct
 
 ---
 
-**Example 2 for accidentally public:**
+### Example 2 for accidentally public
 
 ```json
 {

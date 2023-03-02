@@ -1,12 +1,12 @@
 # EDC Data-Plane with [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview)
 
-### Building
+## Building
 
 ```shell
 ./mvnw -pl .,edc-dataplane/edc-dataplane-azure-vault -am package -Pwith-docker-image
 ```
 
-### Configuration
+## Configuration
 
 Listed below are configuration keys needed to get the `edc-dataplane-azure-vault` up and running.
 Details regarding each configuration property can be found at the [documentary section of the EDC](https://github.com/eclipse-edc/Connector/tree/main/docs).
@@ -28,7 +28,7 @@ Details regarding each configuration property can be found at the [documentary s
 | edc.vault.clientsecret                                | X         | 34-chars-secret | |
 | edc.dataplane.token.validation.endpoint                  | X         | <http://controlplane:8182/validation/token> | |
 
-#### Example configuration.properties
+### Example configuration.properties
 
 JDK properties-style configuration of the EDC Control-Plane is expected to be mounted to `/app/configuration.properties` within the container.
 
@@ -58,7 +58,7 @@ edc.vault.clientsecret=34-chars-secret
 EOF
 ```
 
-#### Example logging.properties
+### Example logging.properties
 
 ```shell
 # Create logging.properties
@@ -73,7 +73,7 @@ java.util.logging.SimpleFormatter.format=[%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS] [
 EOF
 ```
 
-#### Example opentelemetry.properties
+### Example opentelemetry.properties
 
 ```shell
 # Create opentelemetry.properties
@@ -84,7 +84,7 @@ otel.javaagent.debug=false
 EOF
 ```
 
-### Running
+## Running
 
 ```shell
 docker run \

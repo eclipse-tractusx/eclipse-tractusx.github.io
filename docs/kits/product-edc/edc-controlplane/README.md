@@ -30,7 +30,7 @@ Some of these confidential settings are
 
 As it is possible to configure EDC settings via environment variables, one way to do it would be via Kubernetes Secrets. For other deployment scenarios than Kubernetes equivalent measures should be taken.
 
-# Known Control Plane Issues
+## Known Control Plane Issues
 
 Please have a look at the open issues in the open source repository. The list below might not be maintained well and
 only contains the most important issues.
@@ -43,11 +43,11 @@ EDC commit the Product-EDC uses.
 
 ---
 
-**Persistence**
+### Persistence
 
 - ContractDefinition-AssetSelector of InMemory Connector selects 50 Asset max.([issue](https://github.com/eclipse-edc/Connector/issues/1779))
 
-**Other**
+### Other
 
 - Non-IDS-Transformable-ContractDefinition causes connector to be unable to send out self-descriptions/catalogs([issue](https://github.com/eclipse-edc/Connector/issues/1265))
   - **Workaround:** Delete non-transformable ContractDefinition or Policy.

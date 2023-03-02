@@ -29,8 +29,7 @@ SPDX-License-Identifier: Apache-2.0
 The project maintains the following source code repositories
 in the GitHub organization <https://github.com/eclipse-tractusx>:
 
-* <https://github.com/eclipse-tractusx/<my_product_repo1>>
-* <https://github.com/eclipse-tractusx/<my_product_repo2>>
+* <https://github.com/eclipse-tractusx/tractusx-edc>
 
 ## Third-party Content
 
