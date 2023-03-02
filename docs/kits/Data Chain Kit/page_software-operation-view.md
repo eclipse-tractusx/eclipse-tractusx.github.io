@@ -159,11 +159,12 @@ You can use several different approaches to interact with the IRS. One is throug
 ### Valid Global Asset Ids for Testing
 
 use these globalAssetId's for testing
-|globalAssetId|type|
-|---|---|
-|urn:uuid:d3c0bf85-d44f-47c5-990d-fec8a36065c6|vehicle combustion engine|
-|urn:uuid:61a22b1c-5725-41fb-8e1e-dccaaba83838|vehicle combustion engine|
-|urn:uuid:513d7be8-e7e4-49f4-a22b-8cd31317e454|vehicle combustion engine|
+
+| globalAssetId | type |
+|---------------|------|
+| urn:uuid:d3c0bf85-d44f-47c5-990d-fec8a36065c6 | vehicle combustion engine |
+| urn:uuid:61a22b1c-5725-41fb-8e1e-dccaaba83838 | vehicle combustion engine |
+| urn:uuid:513d7be8-e7e4-49f4-a22b-8cd31317e454 | vehicle combustion engine |
 
 ### Valid test requests for testing
 
