@@ -5,6 +5,7 @@
 The EDC is split into control and data plane.
 The data plane handles the actual data transfer between parties.
 The control plane manages the following:
+
 - Resource Management (e.g. Assets, Policies & Contract Definitions CRUD)
 - Contract Offering & Contract Negotiation
 - Data Transfer Coordination / Management

@@ -6,7 +6,7 @@ This document contains a list of breaking changes that are introduced in version
 
 1. PostgreSQL Database
    1. Criteria in Policy & Contract Definitions Table
-   2. Delete Contract Agreements 
+   2. Delete Contract Agreements
 2. Data Management API
    1. Policy Path
    2. Policy Payload
@@ -26,8 +26,6 @@ be done by the user itself.
 
 Criteria in Policies and Contract Definitions are serialized as JSON and put into the database. The Criteria schema
 changed and already existing database entries will cause _NullPointerExceptions_.
-
-
 
 <details>
   <summary>Example Exception</summary>
@@ -265,11 +263,13 @@ Please note that there is no input validation, that detects errors when the old 
 <summary>Criterion Format Change</summary>
 
 **Old Criterion Format**
+
 ```
 { "left": "asset:prop:id", "op": "=", "right": "1" }
 ```
 
 **New Criterion Format**
+
 ```
 { "operandLeft": "asset:prop:id", "operator": "=", "operandRight": "1" }
 ```
@@ -287,12 +287,12 @@ curl -X POST "${DATA_MGMT_ENDPOINT}/data/contractdefinitions" --header "X-Api-Ke
 When using a Data Address of type `HttpData` please notice that the property `endpoint` changed to `baseUrl`. This
 property is mostly used when creating assets.
 
-
 <details>
 
 <summary>DataAddress Comparison</summary>
 
 **Old Asset format**:
+
 ```json
 {
   "asset": {
@@ -308,6 +308,7 @@ property is mostly used when creating assets.
 ```
 
 **New Asset format**:
+
 ```json
 {
   "asset": {
@@ -321,6 +322,7 @@ property is mostly used when creating assets.
   }
 }
 ```
+
 </details>
 
 <details>

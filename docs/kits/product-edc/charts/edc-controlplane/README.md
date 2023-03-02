@@ -9,9 +9,10 @@ EDC Control-Plane - The Eclipse DataSpaceConnector administration layer with res
 **Homepage:** <https://github.com/catenax-ng/product-edc/charts/edc-controlplane>
 
 ## TL;DR
+
 ```shell
-$ helm repo add catenax-ng-product-edc https://catenax-ng.github.io/product-edc
-$ helm install my-release catenax-ng-product-edc/edc-controlplane --version 0.3.0
+helm repo add catenax-ng-product-edc https://catenax-ng.github.io/product-edc
+helm install my-release catenax-ng-product-edc/edc-controlplane --version 0.3.0
 ```
 
 ## Values

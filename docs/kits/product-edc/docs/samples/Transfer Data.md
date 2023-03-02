@@ -138,6 +138,7 @@ required. Where to get the IP may vary depending on how Kubernetes is deployed.
 ### Set Environment Variables, used by this example
 
 Environment Variables, containing a URL, used by this example are
+
 - BOB_DATAMGMT_URL
 - ALICE_DATAMGMT_URL
 - BOB_IDS_URL

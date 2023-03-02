@@ -1,7 +1,7 @@
 # EDC Extensions
 
 The following extensions provide additional functionality to the core EDC.
-They are currently only available in TractusX EDC. 
+They are currently only available in TractusX EDC.
 
 ### Business Partner Validation
 

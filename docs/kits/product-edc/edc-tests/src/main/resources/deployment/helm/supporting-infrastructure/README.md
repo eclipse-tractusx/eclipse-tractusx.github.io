@@ -68,9 +68,9 @@ Follow these steps to get a fully functional EDC demo environment out of the box
 Install on your machine:
 
 - Minikube
-    - Documentation https://minikube.sigs.k8s.io/docs/start/
+  - Documentation <https://minikube.sigs.k8s.io/docs/start/>
 - Helm
-    - Documentation https://helm.sh/docs/intro/install/
+  - Documentation <https://helm.sh/docs/intro/install/>
 
 ## Start Demo Environment
 
