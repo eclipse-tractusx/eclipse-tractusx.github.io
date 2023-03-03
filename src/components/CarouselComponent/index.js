@@ -55,7 +55,7 @@ export default function CarouselComponent() {
       {
         id: 2,
         img: Conector_Kit,
-        pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
+        pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
       },
       {
         id: 3,
@@ -70,7 +70,7 @@ export default function CarouselComponent() {
       {
         id: 5,
         img: Conector_Kit,
-        pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
+        pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
       },
       {
         id: 6,
