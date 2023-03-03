@@ -12,27 +12,14 @@ This page provides information and links to relevant resources before you start 
   - Add your GitHub id to your Eclipse profile (Section: Social Media Links)
 - Subscribe to the [Eclipse Tractus-X Developer Mailinglist](https://accounts.eclipse.org/mailing-list/tractusx-dev)
 - Get familiar with the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/), we will reference the dedicated chapters for the different topics.
-- See the [documentation](#eclipse-foundation-documentation)
+- See the [documentation](links#eclipse-foundation-documentation)
 
-## Links
+## Meet the Eclipse Foundation Team at the Eclipse Office Hours
 
-### Tractus-X Project
+Text from the EF:
 
-- [Eclipse Tractus-X Projekt](https://projects.eclipse.org/projects/automotive.tractusx)
-- [eclipse-tractusx GitHub Organisation](https://github.com/eclipse-tractusx)
-- [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev)
-- [OSS Templates für catenax-ng Projekte](https://github.com/catenax-ng/foss-example)
+"The EMO hosts a monthly call to discuss the Eclipse Foundation Development Process, changes to the Eclipse IP Policy and Due Diligence Process, and other related topics. All Eclipse open source project committers are invited to join. The format is flexible: we generally start with a very short presentation followed by a question and answer session. Bring your questions and the Eclipse Management Organization team will try to provide answers."
 
-### Eclipse Foundation Issue Tracker
+Next call: see [calendar](https://www.eclipse.org/projects/calendar/)
 
-- [Helpdesk (e.g. request a new repository)](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)
-- [Helpdesk for IP Checks - open issues for Tractus-X](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20)
-
-### Eclipse Foundation Documentation
-
-- [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/)
-- [Eclipse Foundation Development Process](https://www.eclipse.org/projects/dev_process/)
-- [Eclipse Foundation Governance Documents](https://www.eclipse.org/org/documents/)
-- [Legal resource page for the Eclipse Foundation](https://www.eclipse.org/legal/)
-- [Trainings Videos: Eclipse Foundation Training](https://www.eclipse.org/projects/training/)
-- [Dash License Tool](https://github.com/eclipse/dash-licenses)
+Note: the time in the calendar is GMT
