@@ -1,28 +1,4 @@
-## Eclipse Foundation Helpdesks
 
-
-### [Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?search=tractus&sort=created_date&state=opened&first_page_size=100) 
-- Start the summary with "tractus-x" prefix 
-- If you are not a committer, create the ticket and add a committer to request a "thumbs up" for approval
-- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2273) for requesting a new repository
-
-
-### [IP Helpdesk](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=100)
-
-**IMPORTANT:** only a committer can create a valid IP Ticket!
-
-- [Template for a Code Contribution](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project)
-- [Template for a third party content](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party)
-
-**Notes:**
-  - use the templates, follow the INSTRUCTIONs in the templates  
-  - project name: Eclipse Tractus-X
-  - project id: automotive.tractusx 
-  - SPDX License Identfier: Apache-2.0
-  - Format the source reference as Markdown in the description as follows: "\[Source\](Link to the repository with the sources to be checked)"
-   - add: "/cc @awittek"
-   - do not forget to add the last line of the tempalates, for setting the labels
-   - TODO-AWI: add valid example issue
    
 ## Committer User Infos (Eclipse / GitHub / GitLab)
 
