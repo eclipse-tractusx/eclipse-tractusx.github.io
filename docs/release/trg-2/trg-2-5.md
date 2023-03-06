@@ -6,10 +6,10 @@ title: TRG 2.05 - Repository metafile PRERELEASE
 Proposed release date: "mandatory after": 31st of March 2023
 :::
 
-| Author               | Status     | Created     | Post-History       |
-|----------------------|------------|-------------|--------------------|
-| Catena-X System Team | Prerelease | 7-Mar-2023  | Moved out of draft |
-| Catena-X System Team | Draft      | 24-Feb-2023 | Draft release      |
+| Status     | Created     | Post-History       |
+|------------|-------------|--------------------|
+| Prerelease | 7-Mar-2023  | Moved out of draft |
+| Draft      | 24-Feb-2023 | Draft release      |
 
 ## Description
 

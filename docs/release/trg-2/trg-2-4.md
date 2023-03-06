@@ -2,9 +2,9 @@
 title: TRG 2.04 - Leading product repository
 ---
 
-| Author                | Status | Created     | Post-History                               |
-|-----------------------|--------|-------------|--------------------------------------------|
-| Catena-X System Team  |        | 10-Jan-2023 | Initial release                            |
+ | Status | Created     | Post-History                               |
+|--------|-------------|--------------------------------------------|
+|        | 10-Jan-2023 | Initial release                            |
 
 ## Description
 
