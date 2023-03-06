@@ -2,10 +2,10 @@
 title: TRG 3.01 - Supported Versions
 ---
 
-| Author               | Status | Created      | Post-History  |
-|----------------------|--------|--------------|---------------|
-| Catena-X System Team | Draft  | 13-Sept-2022 | n/a           |
-| Catena-X System Team | Moved  | 02-Jan-2023  | content moved |
+| Status | Created      | Post-History  |
+|--------|--------------|---------------|
+| Draft  | 13-Sept-2022 | n/a           |
+| Moved  | 02-Jan-2023  | content moved |
 
 ## Description
 

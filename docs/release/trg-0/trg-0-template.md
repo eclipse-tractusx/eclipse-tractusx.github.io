@@ -7,14 +7,14 @@ sidebar_position: 1
 Proposed release date: "mandatory after": 19th of May 2023
 :::
 
-| Author               | Status | Created     | Post-History  |
-|----------------------|--------|-------------|---------------|
-| Catena-X System Team | Draft  | 24-Feb-2022 | n/a           |
+| Status | Created     | Post-History  |
+|--------|-------------|---------------|
+| Draft  | 24-Feb-2022 | n/a           |
 
 ## Why
 
-**must**
-**shall**
-**should**
+Describe in this section why the .
 
 ## Description
+
+Describe the TRG on how.

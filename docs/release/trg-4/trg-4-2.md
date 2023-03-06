@@ -2,9 +2,9 @@
 title: TRG 4.02 - Base images
 ---
 
-| Author               | Status | Created     | Post-History                     |
-|----------------------|--------|-------------|----------------------------------|
-| Catena-X System Team | Active | 25-Nov-2022 | Initital release                 |
+| Status | Created     | Post-History                     |
+|--------|-------------|----------------------------------|
+| Active | 25-Nov-2022 | Initital release                 |
 
 ## Description
 

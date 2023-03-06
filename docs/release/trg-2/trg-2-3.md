@@ -2,11 +2,11 @@
 title: TRG 2.03 - Repo structure
 ---
 
-| Author                | Status | Created     | Post-History                               |
-|-----------------------|--------|-------------|--------------------------------------------|
-| Catena-X System Team  |        | 10-Nov-2022 | Initial release                            |
-| Catena-X System Team  |        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
-| Catena-X System Team  | Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
+ | Status | Created     | Post-History                               |
+|--------|-------------|--------------------------------------------|
+|        | 10-Nov-2022 | Initial release                            |
+|        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
+| Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
 
 ## Description
 

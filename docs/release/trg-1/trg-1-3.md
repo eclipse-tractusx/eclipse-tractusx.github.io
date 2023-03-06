@@ -2,10 +2,10 @@
 title: TRG 1.03 - CHANGELOG.md
 ---
 
-| Author               | Status | Created      | Post-History                         |
-|----------------------|--------|--------------|--------------------------------------|
-| Catena-X System Team | Draft  | 14-Sept-2022 | n/a                                  |
-| Catena-X System Team | Active | 20-Feb-2023  | reference keep a changelog as format |
+| Status | Created      | Post-History                         |
+|--------|--------------|--------------------------------------|
+| Draft  | 14-Sept-2022 | n/a                                  |
+| Active | 20-Feb-2023  | reference keep a changelog as format |
 
 ## Description
 
