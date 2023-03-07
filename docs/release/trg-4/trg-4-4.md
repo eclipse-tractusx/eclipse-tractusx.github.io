@@ -4,8 +4,8 @@ title: TRG 4.04 - Image signing
 
 | Status | Created      | Post-History    |
 |--------|--------------|-----------------|
-| Draft  | 13-Sept-2022 | n/a             |
 | Active | 04-Jan-2023  | Initial release |
+| Draft  | 13-Sept-2022 | n/a             |
 
 ## Why
 

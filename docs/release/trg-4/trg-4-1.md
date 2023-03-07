@@ -4,8 +4,8 @@ title: TRG 4.01 - Image tagging
 
 | Status | Created     | Post-History                     |
 |--------|-------------|----------------------------------|
-|        | 10-Nov-2022 | Initial release                  |
 | Active | 24-Nov-2022 | more precise process description |
+|        | 10-Nov-2022 | Initial release                  |
 
 ## Why
 
