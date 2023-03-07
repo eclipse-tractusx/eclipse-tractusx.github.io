@@ -2,9 +2,10 @@
 title: TRG 2.04 - Leading product repository
 ---
 
- | Status | Created     | Post-History                               |
-|--------|-------------|--------------------------------------------|
-|        | 10-Jan-2023 | Initial release                            |
+| Status | Created     | Post-History    |
+|--------|-------------|-----------------|
+| Active | 07-Mar-2023 |                 |
+|        | 10-Jan-2023 | Initial release |
 
 ## Why
 
