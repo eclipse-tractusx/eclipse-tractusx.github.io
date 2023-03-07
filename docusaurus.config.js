@@ -146,6 +146,11 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
+      algolia: {
+        apiKey: 'a97c5de3a563a32884153d3a84568be1',
+        indexName: 'eclipse-tractusxio',
+        appId: '5EEK7E23IM',
+      },
       navbar: {
         title: 'Eclipse Tractus-X',
         logo: {
