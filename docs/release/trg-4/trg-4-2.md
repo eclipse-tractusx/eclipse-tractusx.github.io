@@ -6,21 +6,24 @@ title: TRG 4.02 - Base images
 |--------|-------------|----------------------------------|
 | Active | 25-Nov-2022 | Initital release                 |
 
+## Why
+
+Due to legal constrains we need to annotate the released container images to make it clear that we do our best to provide good images for demo purposes but we do not provide any legal guarantee.
+
 ## Description
 
-The container base images used by Tractus-X products need to be well annotated.
-It has to be clear for any user of the images, that it is only provided for demonstration purposes.
-Also the original source of the base image needs to be linked.
-For specific programming languages, a specific base image as runtime environment might be mandatory.
+The original source of the base image **must** be linked.
+
+For specific programming languages you **must** use the provided/mentioned base images.
 
 ## How and where to annotate the base image
 
 In case your product is offering a container image, no matter if it is publicly available, or
-your repository just contains a Dockerfile, you __must__ add a section to your top level `README.md` file,
+your repository just contains a Dockerfile, you **must** add a section to your top level `README.md` file,
 that contains information about the used base image.
 
 It has to be clearly understandable, which image is used, and where the original source can be found.
-The section headline should be either _"Container image"_ or _"Docker image"_.
+The section headline should be either *"Container image"* or *"Docker image"*.
 An example section could look like the following, but contents may vary depending on your chosen base image:
 
 ```markdown
@@ -41,7 +44,7 @@ Source:
 ## Mandatory base images by programming language
 
 The following sections define mandatory base images for Tractus-X products.
-If your application is written in one of these languages, you __must__ use the specified
+If your application is written in one of these languages, you **must** use the specified
 base image. The images are chosen, because they provide well documented
 dependency annotations and follow general best-practices.
 
