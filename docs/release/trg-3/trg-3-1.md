@@ -4,9 +4,9 @@ title: TRG 3.01 Superseded Supported Versions
 
 | Status     | Created      | Post-History         |
 |------------|--------------|----------------------|
-| Draft      | 13-Sept-2022 | n/a                  |
-| Moved      | 02-Jan-2023  | content moved        |
 | Superseded | 08-Mar-2023  | Marked as superseded |
+| Moved      | 02-Jan-2023  | content moved        |
+| Draft      | 13-Sept-2022 | n/a                  |
 
 ## Superseded by TRG 5.09 - Helm test
 

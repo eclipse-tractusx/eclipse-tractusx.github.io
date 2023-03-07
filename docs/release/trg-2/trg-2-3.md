@@ -4,9 +4,9 @@ title: TRG 2.03 - Repo structure
 
  | Status | Created     | Post-History                               |
 |--------|-------------|--------------------------------------------|
+ | Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
+ |        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
 |        | 10-Nov-2022 | Initial release                            |
-|        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
-| Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
 
 ## Why
 

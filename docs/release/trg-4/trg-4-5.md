@@ -4,8 +4,8 @@ title: TRG 4.05 - Container registries
 
 | Status | Created      | Post-History    |
 |--------|--------------|-----------------|
-| Draft  | 14-Sept-2022 | n/a             |
 | Active | 05-Jan-2023  | Initial release |
+| Draft  | 14-Sept-2022 | n/a             |
 
 ## Why
 
