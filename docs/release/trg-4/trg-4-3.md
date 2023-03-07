@@ -5,7 +5,7 @@ title: TRG 4.03 - Non-root container
 | Status | Created      | Post-History                     |
 |--------|--------------|----------------------------------|
 | Active | 29-Dec-2022  | Initial Release                  |
-|        | 14-Sept-2022 | Draft                            |
+| Draft  | 14-Sept-2022 | Draft                            |
 
 ## Why
 

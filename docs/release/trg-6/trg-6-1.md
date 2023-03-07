@@ -2,8 +2,8 @@
 title: TRG 6.01 - Released Helm Chart
 ---
 
- | Status | Created     | Post-History    |
-|-----------------------|--------|-------------|-----------------|
+| Status | Created     | Post-History    |
+|--------|-------------|-----------------|
 | Active | 01-Dec-2022 | Initial release |
 
 ## Description
