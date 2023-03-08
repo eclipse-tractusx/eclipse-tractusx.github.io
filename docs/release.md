@@ -21,7 +21,7 @@ This TRG process is open for all and has the main goal of providing reasonable d
 
 #### Release fast or slow
 
-If you now have a small change, like a typo or updating description  you do a fast release. If you create a new and big TRG (which takes time to do) you do a slow release.
+If you now have a small change, like a typo or updating description you do a fast release. If you create a new and big TRG (which takes time to do) you do a slow release.
 
 - **Fast**
   - Create new Pull Request for moving the draft version to its final location
