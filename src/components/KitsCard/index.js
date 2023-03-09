@@ -22,7 +22,6 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-
 export default function KitsCard({title, subtitle, img}) {
   return (
     <section className={styles.kits_card}>
