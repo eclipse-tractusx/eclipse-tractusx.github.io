@@ -14,7 +14,7 @@ In cases where data has to be persisted (database, uploaded files etc.), Kuberne
 
 ## Description
 
-Using stateful data requiresTherefore when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
+Using stateful data requires additional caution to not loos data by accident. Therefore, when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
 
 ## How
 

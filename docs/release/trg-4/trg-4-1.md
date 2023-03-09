@@ -11,7 +11,7 @@ title: TRG 4.01 - Image tagging
 
 Using non-specific image tags like `:latest` would require everyone to find and check long hashes instead of a version number.
 
-This also break control of selecting specific versions and upgrading as `:latest` would pull in new images on restart of a pod.
+This also breaks control of selecting specific versions and upgrading as `:latest` would pull in new images on restart of a pod.
 
 Container image tagging also helps you to match [TRG 5.05 - Chart Values](../trg-5/trg-5-5.md#container-images).
 

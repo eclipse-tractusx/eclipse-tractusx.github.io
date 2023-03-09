@@ -9,7 +9,7 @@ title: TRG 1.01 - README.md
 
 ## Why
 
-A good `README.md` file is the starting point for everyone opening a Repository. It should help them find all critical information in an easy way.
+A good `README.md` file is the starting point for everyone opening a repository. It should help them find all critical information in an easy way.
 
 ## Description
 

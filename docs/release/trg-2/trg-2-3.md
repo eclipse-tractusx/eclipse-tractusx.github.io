@@ -2,26 +2,19 @@
 title: TRG 2.03 - Repo structure
 ---
 
- | Status | Created     | Post-History                               |
+| Status | Created     | Post-History                               |
 |--------|-------------|--------------------------------------------|
- | Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
- |        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
+| Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
+|        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
 |        | 10-Nov-2022 | Initial release                            |
 
 ## Why
 
-We are part of the Eclipse Foundation which requires complaince to the Eclipse Foundation rules. This also includes open and collaborative Open Source working model.
+We are part of the Eclipse Foundation which requires compliance to the Eclipse Foundation rules. This also includes open and collaborative Open Source working model.
 
 Therefore, we need to follow the Eclipse Foundation and Open Source standards.
 
 ## Description
-
-:::info
-
-This TRG applies only to Eclipse-Tractusx GitHub repositories. For Catenax-ng
-please [read this](https://github.com/catenax-ng/foss-example#readme) for OSS related files.
-
-:::
 
 All repositories **must** contain the following files and folders:
 
