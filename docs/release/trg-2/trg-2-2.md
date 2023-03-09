@@ -2,9 +2,9 @@
 title: TRG 2.02 - Repo permissions
 ---
 
-| Author               | Status | Created      | Post-History    |
-|----------------------|--------|--------------|-----------------|
-| Catena-X System Team | Active | 10-Nov-2022  | Initial release |
+| Status | Created      | Post-History    |
+|--------|--------------|-----------------|
+| Active | 10-Nov-2022  | Initial release |
 
 ## Description
 
