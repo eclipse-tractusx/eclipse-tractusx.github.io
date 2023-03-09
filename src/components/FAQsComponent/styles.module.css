@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 0;
-  background-color: #000;
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -50,8 +50,8 @@
 
 .button {
   padding: 0.6rem 2rem;
-  background-color: #faa023;
-  color: #000;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   border: none;
   border-radius: 5px;
   font-family: "Manrope", sans-serif;
@@ -61,15 +61,11 @@
       
 .button:hover {
   background-color: #1e1e1e;
-  color: #faa023;
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 
 @media screen and (max-width: 996px) {
-  /* .title {
-    font-size: 4vw;
-  } */
-
   .container {
     width: 80vw;
     height: auto;
