@@ -9,14 +9,14 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
-| Deprecated | 05-Mai-2023  | Deprecated it because no longer needed |
+| Deprecated | 05-May-2023  | Deprecated it because no longer needed |
 | Active     | 27-Feb-2023  | Mark active without limitations        |
 | Prerelease | 23-Feb-2023  | Prereleasing it                        |
 | Draft      | 13-Sept-2022 | Initial contribution                   |
 
 ## Why
 
-Describe in this section why the TRG exist. For example because its a legal requirement or it makes it much easier for others to use or its an industry standard.
+Describe in this section why the TRG exist. For example because it's a legal requirement or it makes it much easier for others to use or it's an industry standard.
 
 ## Description
 
