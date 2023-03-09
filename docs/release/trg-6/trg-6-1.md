@@ -2,9 +2,9 @@
 title: TRG 6.01 - Released Helm Chart
 ---
 
-| Author                | Status | Created     | Post-History    |
-|-----------------------|--------|-------------|-----------------|
-| Catena-X System Team  | Active | 01-Dec-2022 | Initial release |
+| Status | Created     | Post-History    |
+|--------|-------------|-----------------|
+| Active | 01-Dec-2022 | Initial release |
 
 ## Description
 
