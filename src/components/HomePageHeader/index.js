@@ -25,7 +25,7 @@ import NewsTicker from "../NewsTicker";
 
 import styles from "./styles.module.css";
 
-function HomePageHeader() {
+export default function HomePageHeader() {
   return (
     <header className={styles.heroBanner}>
       <div className={styles.container}>
@@ -49,5 +49,3 @@ function HomePageHeader() {
     </header>
   );
 }
-
-export default HomePageHeader;

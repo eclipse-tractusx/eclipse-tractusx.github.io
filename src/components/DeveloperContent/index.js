@@ -20,10 +20,10 @@
  ********************************************************************************/
 
 import React from "react";
-import styles from "./styles.module.css";
-
 import EcosystemImg from "@site/static/img/ecosystem-minified.png";
 import ThreeViewsImg from "@site/static/img/three_views-minified.png";
+
+import styles from "./styles.module.css";
 
 export default function DeveloperContent() {
   return (
