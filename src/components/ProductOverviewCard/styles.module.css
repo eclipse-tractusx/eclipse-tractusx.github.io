@@ -9,17 +9,17 @@
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  background-color: #000;
-  border: 1px solid #ed8c05;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-primary-darker);
   border-radius: 15px;
-  color: #fff;
+  color: var(--ifm-heading-color);
   position: relative;
 }
 
 .title {
   width: 90%;
   height: auto;
-  background-color: #ed8c05;
+  background-color: var(--ifm-color-primary-darker);
   padding-left: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -31,7 +31,7 @@
 
 .subtitle {
   width: 40%;
-  background-color: #ed8c05;
+  background-color: var(--ifm-color-primary-darker);
   padding-left: 0.5rem;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
@@ -44,7 +44,7 @@
 hr {
   width: 90%;
   margin: 0;
-  background-color: #faa023;
+  background-color: var(--ifm-color-primary);
 }
 
 .card_description {
@@ -72,13 +72,13 @@ hr {
 }
 
 .card_contact p {
-  color: #ed8c05;
+  color: var(--ifm-color-primary-darker);
 }
 
 .version {
   position: absolute;
   bottom: 0;
-  background-color: #ed8c05;
+  background-color: var(--ifm-color-primary-darker);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -91,6 +91,5 @@ hr {
 }
 
 .empty {
-  background-color: #000;
+  background-color: var(--ifm-background-color);
 }
-
