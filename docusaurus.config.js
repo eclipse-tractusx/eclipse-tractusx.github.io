@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo_tractus-x.svg',
+  favicon: 'img/logo_tractus-x-min.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -145,6 +145,11 @@ const config = {
         defaultMode: 'dark',
         disableSwitch: true,
         respectPrefersColorScheme: false,
+      },
+      algolia: {
+        apiKey: 'a97c5de3a563a32884153d3a84568be1',
+        indexName: 'eclipse-tractusxio',
+        appId: '5EEK7E23IM',
       },
       navbar: {
         title: 'Eclipse Tractus-X',
