@@ -37,11 +37,15 @@ Implementing the DCM standards will add the following core capabilities to busin
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
 
+![Power of standards icon](../../../static/img/power-of-standard.png)
+
 ## DATA SOVEREIGNTY in FOCUS
 
 DCM KIT keeps up with Catena X commitment to data sovereignty. This KIT has the goal to always comply with the data sovereignty principle set through implemented by the Eclipse Dataspace Connector. That enables all participants (customer, supplier and application provider) to always stay in full control of their own data.
 
 This is how sharing data is fun.
+
+![Data Souvereignity icon](../../../static/img/data-souvereignity.png)
 
 ## INTEROPERABILITY at its BEST
 
@@ -49,8 +53,12 @@ Application and Service Provider can reduce investments to integrate DCM data mo
 
 The Kit enables the offering of value-add services and innovation based on process description of the core business logic and how a collaborative approach is a win-win-situation for customer and supplier.
 
+![Interoperability as its best icon](../../../static/img/interoperability-as-best.png)
+
 ## COLLABORATION is KEY
 
 The DCM KIT enables better and faster issue resolution. We believe that collaboration is the key to creating and maintaining strong partnerships between customers and suppliers and, at the same time, enhancing problem solving to reach a more balanced and efficient supply and demand management.
 
 Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
+
+![Collaboration is key icon](../../../static/img/collaboration-is-key.png)
