@@ -33,13 +33,13 @@ Implementing the DCM standards will add the following core capabilities to busin
 - **APIs** –to make sure that data are transmitted and collected properly.
 - **Data model** –to structure the sharing of **aligned** data and enable the adoption of the core business logic without misinterpretation.
 
-![Power of standards icon](../../../static/img/power-of-standard.png)
+![Power of standards icon](../../../static/icons/Icon_Licence_V3.svg)
 
 ## POWER of STANDARD
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
 
-![Data Souvereignity icon](../../../static/img/data-souvereignity.png)
+![Data Souvereignity icon](../../../static/icons/Icon_Easy_to_use_V3.svg)
 
 ## DATA SOVEREIGNTY in FOCUS
 
@@ -47,7 +47,7 @@ DCM KIT keeps up with Catena X commitment to data sovereignty. This KIT has the 
 
 This is how sharing data is fun.
 
-![Interoperability at its best icon](../../../static/img/interoperability-as-best.png)
+![Interoperability at its best icon](../../../static/icons/Icon_Open_Source_V3.svg)
 
 ## INTEROPERABILITY at its BEST
 
@@ -55,7 +55,7 @@ Application and Service Provider can reduce investments to integrate DCM data mo
 
 The Kit enables the offering of value-add services and innovation based on process description of the core business logic and how a collaborative approach is a win-win-situation for customer and supplier.
 
-![Collaboration is key icon](../../../static/img/collaboration-is-key.png)
+![Collaboration is key icon](../../../static/icons/Icon_Adoption_V2.svg)
 
 ## COLLABORATION is KEY
 
