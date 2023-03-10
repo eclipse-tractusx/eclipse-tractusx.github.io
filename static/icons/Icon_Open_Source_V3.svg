@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<g>
+		<g>
+			<g>
+				<g>
+					<polygon class="st0" points="55.6,15.7 55.6,37.9 74.7,48.9 93.9,37.9 93.9,15.7 74.7,4.6 					"/>
+					<line class="st0" x1="74.7" y1="48" x2="74.7" y2="26.1"/>
+					<line class="st0" x1="93.5" y1="15.2" x2="74.5" y2="26.2"/>
+					<line class="st0" x1="55.7" y1="15.4" x2="74.7" y2="26.3"/>
+				</g>
+				<g>
+					<polygon class="st0" points="55.6,110.9 55.6,133 74.7,144.1 93.9,133 93.9,110.9 74.7,99.8 					"/>
+					<line class="st0" x1="74.7" y1="143.2" x2="74.7" y2="121.2"/>
+					<line class="st0" x1="93.5" y1="110.4" x2="74.5" y2="121.3"/>
+					<line class="st0" x1="55.7" y1="110.5" x2="74.7" y2="121.5"/>
+				</g>
+			</g>
+			<g>
+				<g>
+					<polygon class="st0" points="5.7,63.3 5.7,85.4 24.9,96.5 44.1,85.4 44.1,63.3 24.9,52.2 					"/>
+					<line class="st0" x1="24.9" y1="95.6" x2="24.9" y2="73.7"/>
+					<line class="st0" x1="43.7" y1="62.8" x2="24.7" y2="73.7"/>
+					<line class="st0" x1="5.9" y1="62.9" x2="24.9" y2="73.9"/>
+				</g>
+				<g>
+					<polygon class="st0" points="105.4,63.3 105.4,85.4 124.6,96.5 143.7,85.4 143.7,63.3 124.6,52.2 					"/>
+					<line class="st0" x1="124.6" y1="95.6" x2="124.6" y2="73.7"/>
+					<line class="st0" x1="143.3" y1="62.8" x2="124.3" y2="73.7"/>
+					<line class="st0" x1="105.5" y1="62.9" x2="124.5" y2="73.9"/>
+				</g>
+			</g>
+		</g>
+		<line class="st0" x1="74.7" y1="47.3" x2="74.7" y2="101.4"/>
+		<line class="st0" x1="43.7" y1="74.4" x2="103.8" y2="74.4"/>
+	</g>
+	<path class="st0" d="M16.9,43c6.2-11.4,15.6-20.7,27-26.8"/>
+	<path class="st0" d="M43.2,131.8c-11.4-6.2-20.7-15.6-26.8-27"/>
+	<path class="st0" d="M132,105.5c-6.2,11.4-15.6,20.7-27,26.8"/>
+	<path class="st0" d="M105.7,16.7c11.4,6.2,20.7,15.6,26.8,27"/>
+</g>
+</svg>
