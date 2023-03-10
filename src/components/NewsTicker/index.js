@@ -21,12 +21,11 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
-
-import { newsTitles } from "../../../utils/newsTitles";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { newsTitles } from "../../../utils/newsTitles";
 
 import styles from "./styles.module.css";
 

@@ -3,7 +3,6 @@
 * and scoped locally.
 */
 
-
 .kits_card {
   display: flex;
   align-items: center;
@@ -31,7 +30,7 @@
 .img {
   border-radius: 10px;
   width: 100%;
-  border: 1px solid #faa023;
+  border: 1px solid var(--ifm-color-primary);
 }
 
 .information_container {

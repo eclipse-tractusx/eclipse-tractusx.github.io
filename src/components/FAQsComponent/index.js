@@ -20,7 +20,6 @@
  ********************************************************************************/
 
 import React, {useState} from "react";
-
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -30,7 +29,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { faqsContent } from "@site/utils/faqsContent";
 
 import styles from "./styles.module.css";
-
 
 export default function FAQsComponent() {
   const [expanded, setExpanded] = useState([]);

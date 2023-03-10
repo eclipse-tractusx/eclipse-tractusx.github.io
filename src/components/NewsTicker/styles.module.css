@@ -34,8 +34,8 @@
 
 .button {
   padding: 0rem 1.3rem;
-  background-color: #faa023;
-  color: #000;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   border-radius: 5px;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
@@ -43,7 +43,7 @@
 
 .button:hover {
   background-color: #1e1e1e;
-  color: #faa023;
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 
@@ -100,7 +100,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: smaller;
-    color: #faa023;
+    color: var(--ifm-color-primary);
   }
 }
     
