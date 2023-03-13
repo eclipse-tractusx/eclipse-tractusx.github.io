@@ -133,6 +133,22 @@ const config = {
           }
         },
       }
+    ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "notification-api",
+        docsPluginId: "classic",
+        config: {
+          siteController: {
+            specPath: "./openApi/notifications/notifications.yaml", // Path to designated spec file
+            outputDir: "./docs/kits/Template Kit/Software Development View/Notification API", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          }
+        },
+      }
     ]
   ],
 
