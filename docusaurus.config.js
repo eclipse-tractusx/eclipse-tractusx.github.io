@@ -80,6 +80,17 @@ const config = {
         noRuntimeDownloads: true
       },
     ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "changelog", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/tractus-x-release/main/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "src/pages", // the base directory to output to.
+        documents: ["CHANGELOG.md"], // the file names to download
+        noRuntimeDownloads: true
+      },
+    ],
     // [
     //   "docusaurus-plugin-remote-content",
     //   {
@@ -193,7 +204,7 @@ const config = {
             label: "Community",
           },
           {
-            to: "/versions",
+            to: "/CHANGELOG",
             position: "left",
             label: "Versions",
           },
