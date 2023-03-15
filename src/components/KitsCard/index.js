@@ -20,11 +20,13 @@
  ********************************************************************************/
 
 import React from "react";
+import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
 export default function KitsCard({title, subtitle, img}) {
   return (
     <section className={styles.kits_card}>
+      <Link className={styles.link} to="/">
       <div className={styles.container}>
         <div className={styles.information_container}>
           <h2 className={styles.title}>
@@ -39,6 +41,7 @@ export default function KitsCard({title, subtitle, img}) {
           <img className={styles.img} src={img}/>
         </div>
       </div>
+      </Link>
     </section>
   );
 }

@@ -25,6 +25,9 @@ import Layout from "@theme/Layout";
 import DeveloperHeader from "../../components/DeveloperHeader";
 import DeveloperContent from "../../components/DeveloperContent";
 import KitsGallery from "../../components/KitsGallery";
+import KitsCard from "../../components/KitsCard";
+
+import IconsCard from "@site/static/img/icons-card-min.png"
 
 export default function DeveloperPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -37,6 +40,11 @@ export default function DeveloperPage() {
       <main>
         <DeveloperContent />
         <KitsGallery />
+        <KitsCard 
+          title={"Design Resources"} 
+          subtitle={"These open source compliant design assets should help when you build and release a KIT in Tractus-X."}
+          img={IconsCard}
+        />
       </main>
     </Layout>
   );
