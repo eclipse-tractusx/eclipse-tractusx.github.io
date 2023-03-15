@@ -21,6 +21,11 @@
   text-decoration: none;
 }
 
+.link:hover .card_container,
+.link:hover .information_container {
+  opacity: 0.5;
+}
+
 .container {
   width: 800px;
   height: fit-content;
