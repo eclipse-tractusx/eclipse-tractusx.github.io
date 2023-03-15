@@ -9,16 +9,25 @@
   justify-content: center;
   padding: 8rem 0;
   overflow: hidden;
-  background-color: #161616;
+  background-color: var(--ifm-background-color)
+}
+
+.link {
+  color: var(--ifm-heading-color);
+}
+
+.link:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
 }
 
 .container {
   width: 55vw;
-  height: 25vw;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem; 
+  gap: 3rem;
 }
 
 .img_container {
@@ -30,11 +39,11 @@
 .img {
   border-radius: 10px;
   width: 100%;
-  border: 1px solid var(--ifm-color-primary);
+  border: 2px solid #979797;
 }
 
 .information_container {
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -43,25 +52,30 @@
 
 .title {
   font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 3.5vw;
-  margin-top: -0.8rem;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 72px;
 }
 
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 20px;
+  line-height: 32px;
   letter-spacing: -0.7px;
 }
 
 @media screen and (max-width: 996px) {
+  .kits_card {
+    padding: 4rem 0 8rem;
+  }
+
   .title {
-    font-size: 4vw;
+    font-size: 50px;
   }
 
   .subtitle {
-    font-size: 2vw;
+    font-size: 18px;
   }
 
   .container {
@@ -70,12 +84,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+  }
+
+  .img_container {
+    width: 110%;
   }
 
   .information_container {
     width: 85%;
-    height: 20vw;
+    height: fit-content;
     justify-content: space-around;
     align-items: center;
     text-align: center;
