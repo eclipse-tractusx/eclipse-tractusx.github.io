@@ -32,7 +32,19 @@ export default function DeveloperContent() {
 
         <div className={styles.title_container}>
           <h2 className={styles.title}>Ecosystem</h2>
-          <p className={styles.description}>A Kit deliverable are one or more outcomes within a business domain. A KIT can be used across the borders of a business domain and may refer to a business domain (e.g., PCF rulebook) or network services (e.g., EDC) that are required by more than one solution space / use case.</p>
+          <p className={styles.description}>
+          <b>The Catena-X vision is to connect the automotive industry via one global data space to solve industry problems, together.</b><br></br><br></br>
+          
+          To establish this one global data space and enable collaboration and interoperability, Catena-X releases and updates standards and developer resources as one of its key offerings. Standards including whitepapers are published on the Catena-X Association website (Standard Library) and developer resources including KITs, compatible implementations, and release guidelines are published on the Tractus-X Website. <br></br>
+          <br></br>Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. 
+          The initial offering of the Catena-X ecosystem is structured along the following four domains – one network domain and three business domains:<br></br><br></br>
+
+<ul>- Network Domain for Shared Services</ul>
+<ul>- Business Domain PLM and Quality</ul>  
+<ul>- Business Domain Resiliency</ul>
+<ul>- Business Domain Sustainability Domain</ul> 
+
+          </p>
         </div>
 
         <div className={styles.img_container}>
