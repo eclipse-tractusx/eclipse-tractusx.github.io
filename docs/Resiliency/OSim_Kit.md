@@ -1,6 +1,8 @@
 ---
 id: OSIM
 title: OSim Kit
+description: 'Online Simulation Kit'
+sidebar_position: 4
 ---
 
 <!--VISION of the Kit-->
