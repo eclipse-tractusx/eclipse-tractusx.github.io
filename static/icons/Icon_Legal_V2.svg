@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<path class="st2" d="M140.1,145.8H9.8v-5c0-7.3,5.9-13.2,13.2-13.2h103.8c7.3,0,13.2,5.9,13.2,13.2V145.8z"/>
+<path class="st2" d="M136.2,55H13.8v3.9c0,7.3,5.9,13.2,13.2,13.2h96c7.3,0,13.2-5.9,13.2-13.2V55z"/>
+<g>
+	<g>
+		<line class="st2" x1="29" y1="127" x2="29" y2="72.7"/>
+		<line class="st2" x1="45.8" y1="72.7" x2="45.8" y2="127"/>
+	</g>
+	<g>
+		<line class="st2" x1="66.5" y1="127" x2="66.5" y2="72.7"/>
+		<line class="st2" x1="83.4" y1="72.7" x2="83.4" y2="127"/>
+	</g>
+	<g>
+		<line class="st2" x1="104.1" y1="127" x2="104.1" y2="72.7"/>
+		<line class="st2" x1="121" y1="72.7" x2="121" y2="127"/>
+	</g>
+</g>
+<polygon class="st2" points="145,55.1 5,55.1 75,5.7 "/>
+</svg>
