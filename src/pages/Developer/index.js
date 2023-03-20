@@ -25,6 +25,7 @@ import Layout from "@theme/Layout";
 import DeveloperHeader from "../../components/DeveloperHeader";
 import DeveloperContent from "../../components/DeveloperContent";
 import KitsGallery from "../../components/KitsGallery";
+import { galleryKits } from "@site/utils/galleryKits";
 
 export default function DeveloperPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -36,7 +37,7 @@ export default function DeveloperPage() {
       <DeveloperHeader />
       <main>
         <DeveloperContent />
-        <KitsGallery />
+        <KitsGallery itemsArray={galleryKits}/>
       </main>
     </Layout>
   );
