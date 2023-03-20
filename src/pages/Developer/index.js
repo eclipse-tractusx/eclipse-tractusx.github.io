@@ -40,7 +40,11 @@ export default function DeveloperPage() {
       <DeveloperHeader />
       <main>
         <DeveloperContent />
-        <KitsGallery itemsArray={galleryKits}/>
+        <KitsGallery 
+          itemsArray={galleryKits}
+          title={"Our Kits"}
+          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
+        />
         <KitsCard 
           title={"Design Resources"} 
           subtitle={"These open source compliant design assets should help when you build and release a KIT in Tractus-X."}
