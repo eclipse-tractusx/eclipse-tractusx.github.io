@@ -21,18 +21,15 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
-
-import { galleryKits } from "@site/utils/galleryKits";
-
 import styles from "./styles.module.css";
 
-export default function KitsGallery() {
+export default function KitsGallery({itemsArray}) {
   return (
     <section className={styles.kits_gallery}>
       <div className={styles.container}>
 
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Our Kits</h2>
+          <h2 className={styles.title}>Preview of our Kits</h2>
           <p className={styles.description}>
           Unlock the power of kits. Browse the latest kits, their documentation, <br/>
           including tutorials,sample code, articles, and API reference.
@@ -41,7 +38,7 @@ export default function KitsGallery() {
 
         <div className={styles.gallery_container}>
           {
-            galleryKits.map((kit, index)=> {
+            itemsArray.map((kit, index)=> {
               return(
                 <div key={index} className={styles.gallery_item}>
                   <Link to={kit.pageRoute} className={styles.gallery_link}>
