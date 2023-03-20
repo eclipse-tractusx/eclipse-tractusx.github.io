@@ -29,7 +29,7 @@ Read our Successstories to get a climps on what the IRS Iterative is beeing used
 
 The IRS iterative iterates through the different digital twin aspects, which are representing a relationship. For Release 1 this is the AssemblyPartRelationship aspect, which connects serialized parts. This service can access the digital twins for which a EDC policy and and data contract exists. In this case the consumer needs a contract which each participant of the data chain.
 
-![IRS iterative diagram](../../../static/img/irs-minified.png)
+![IRS iterative diagram](../../../static/img/irs-minified.svg)
 
 The following general conditions apply:
 -access control through policies and contracts is done by the EDC

@@ -3,14 +3,13 @@
  * and scoped locally.
  */
 
-
 .developer_content {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5rem 0;
   overflow: hidden;
-  background-color: #000;
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -63,14 +62,6 @@
   .title_container {
     margin-top: 2rem;
   }
-
-  /* .title {
-    font-size: 4vw;
-  } */
-
-  /* .description {
-    font-size: 1.8vw;
-  } */
 
   .container {
     width: 80vw;

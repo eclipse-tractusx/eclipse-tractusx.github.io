@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo_tractus-x.svg',
+  favicon: 'img/logo_tractus-x-min.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -77,6 +77,17 @@ const config = {
         sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/irs", // the base directory to output to.
         documents: ["irs-v1.0.yaml"], // the file names to download
+        noRuntimeDownloads: true
+      },
+    ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        name: "changelog", // used by CLI, must be path safe
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/tractus-x-release/main/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "src/pages", // the base directory to output to.
+        documents: ["CHANGELOG.md"], // the file names to download
         noRuntimeDownloads: true
       },
     ],
@@ -146,6 +157,11 @@ const config = {
         disableSwitch: true,
         respectPrefersColorScheme: false,
       },
+      algolia: {
+        apiKey: 'a97c5de3a563a32884153d3a84568be1',
+        indexName: 'eclipse-tractusxio',
+        appId: '5EEK7E23IM',
+      },
       navbar: {
         title: 'Eclipse Tractus-X',
         logo: {
@@ -188,7 +204,7 @@ const config = {
             label: "Community",
           },
           {
-            to: "/versions",
+            to: "/CHANGELOG",
             position: "left",
             label: "Versions",
           },

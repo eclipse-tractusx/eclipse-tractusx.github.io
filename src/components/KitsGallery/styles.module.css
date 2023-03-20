@@ -3,13 +3,12 @@
 * and scoped locally.
 */
 
-
 .kits_gallery {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #000;
+  background-color: var(--ifm-background-color);
   padding-bottom: 8rem;
 }
 
@@ -54,9 +53,6 @@
 .gallery_item {
   width: 20%;
 }
-
-/* .gallery_link {
-} */
 
 .item_img {
   border-radius: 10px;

@@ -3,39 +3,40 @@
 * and scoped locally.
 */
 
-
 .kits_card {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8rem 0;
   overflow: hidden;
-  background-color: #161616;
+  background-color: var(--ifm-background-color)
+}
+
+.link {
+  color: var(--ifm-heading-color);
+}
+
+.link:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+}
+
+.link:hover .card_container,
+.link:hover .information_container {
+  opacity: 0.5;
 }
 
 .container {
-  width: 55vw;
-  height: 25vw;
+  width: 800px;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem; 
-}
-
-.img_container {
-  width: 85%;
-  display: flex;
-  justify-content: center;
-}
-
-.img {
-  border-radius: 10px;
-  width: 100%;
-  border: 1px solid #faa023;
+  gap: 3rem;
 }
 
 .information_container {
-  width: 75%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -44,25 +45,71 @@
 
 .title {
   font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 3.5vw;
-  margin-top: -0.8rem;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 72px;
 }
 
 .subtitle {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 20px;
+  line-height: 32px;
   letter-spacing: -0.7px;
 }
 
+.card_container {
+  width: 50%;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #979797;
+  border-radius: 10px;
+  padding: 3rem 2rem 1rem;
+}
+
+.description_container h3 {
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 41px;
+}
+
+.description_container h3:first-child {
+  color:#979797;
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 47px;
+}
+
+.img {
+  width: 100%;
+  border: 7px solid #fff;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 60vw;
+  }
+
+  .card_container {
+    height: 390px;
+    padding: 3rem 1rem 2rem;
+  }
+}
+
 @media screen and (max-width: 996px) {
+  .kits_card {
+    padding: 4rem 0 8rem;
+  }
+
   .title {
-    font-size: 4vw;
+    font-size: 50px;
   }
 
   .subtitle {
-    font-size: 2vw;
+    font-size: 18px;
   }
 
   .container {
@@ -71,15 +118,20 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .information_container {
     width: 85%;
-    height: 20vw;
+    height: fit-content;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card_container {
+    width: 80%;
+    height: 370px;
   }
 }
