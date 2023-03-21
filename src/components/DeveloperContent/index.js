@@ -22,8 +22,10 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 
-import EcosystemImg from "@site/static/img/ecosystem-minified.png";
-import ThreeViewsImg from "@site/static/img/three_views-minified.png";
+import EcosystemSVG from "@site/static/img/ecosystem.svg";
+import ThreeViewsSVG from "@site/static/img/three_views.svg";
+
+// import EcosystemImg from "@site/static/img/ecosystem-minified.png";
 
 import styles from "./styles.module.css";
 
@@ -56,7 +58,8 @@ export default function DeveloperContent() {
         </div>
 
         <div className={styles.img_container}>
-          <img className={styles.img} src={EcosystemImg} /> 
+          {/* <img className={styles.img} src={EcosystemImg} />  */}
+          <EcosystemSVG className={styles.img} />
         </div>
 
         <div className={styles.title_container}>
@@ -65,7 +68,7 @@ export default function DeveloperContent() {
         </div>
 
         <div className={styles.img_container}>
-          <img className={styles.img} src={ThreeViewsImg} /> 
+          <ThreeViewsSVG className={styles.img} />
         </div> 
       </div>
     </section>
