@@ -32,7 +32,7 @@ export const previewKits = [
 		pageRoute: "/docs/Resiliency/mp%20kit"
 	},
   {
-    id: 4,
+    id: 6,
     img: MoreToCome
   },
 ]
