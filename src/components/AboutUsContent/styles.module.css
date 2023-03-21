@@ -47,6 +47,7 @@
 
 .img {
   width: 70%;
+  height: max-content;
 }
 
 .licenses {
@@ -89,4 +90,3 @@
     width: 80%;
   }
 }
-    
