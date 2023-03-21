@@ -27,6 +27,7 @@ import DeveloperContent from "../../components/DeveloperContent";
 import KitsGallery from "../../components/KitsGallery";
 import KitsCard from "../../components/KitsCard";
 import { galleryKits } from "@site/utils/galleryKits";
+import {previewKits} from '@site/utils/previewKits.js'
 
 import IconsCard from "@site/static/img/icons-card.png"
 
@@ -44,6 +45,11 @@ export default function DeveloperPage() {
           itemsArray={galleryKits}
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
+        />
+        <KitsGallery 
+          itemsArray={previewKits} 
+          title={"Preview of our Kits"} 
+          description={"Unlock the power of Kits. Browse the latest preview on the Kits from the Resiliency Domain."}
         />
         <KitsCard 
           title={"Design Resources"} 
