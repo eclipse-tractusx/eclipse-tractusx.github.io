@@ -1,6 +1,7 @@
 ---
 id: maas
 title: MaaS Kit
+sidebar_position: 3
 ---
 
 <!--VISION of the Kit-->

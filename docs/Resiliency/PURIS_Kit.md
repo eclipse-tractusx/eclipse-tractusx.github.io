@@ -1,6 +1,7 @@
 ---
 id: PURIS
 title: PURIS Kit
+sidebar_position: 5
 ---
 
 <!--VISION of the Kit-->
