@@ -1,6 +1,7 @@
 ---
 id: mp kit
 title: MP Kit
+sidebar_position: 6
 ---
 
 <!--VISION of the Kit-->

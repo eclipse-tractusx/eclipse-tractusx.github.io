@@ -20,7 +20,7 @@ export const galleryKits = [
     pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
-    id: 4,
+    id: 5,
     img: MoreToCome
   },
 ]
