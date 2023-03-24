@@ -27,7 +27,7 @@ The time to develop integrations of additional solutions or stakeholders (e.g. c
 
 ### Low threshold entry to marketplace
 
-Existing examples of implemented services (is this the MAAS Portal?! but that is not really part of the Kit, is it?) enable quick entry for consumers and suppliers of on-demand manufacturing to the marketplace that facilitates the intermediation of manufacturing supply as a service and manufacturing demand.
+Existing examples of implemented services enable quick entry for consumers and suppliers of on-demand manufacturing to the marketplace that facilitates the intermediation of manufacturing supply as a service and manufacturing demand.
 
 ### Cut leadtime for manufacturing transactions
 
