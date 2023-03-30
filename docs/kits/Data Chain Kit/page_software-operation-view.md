@@ -9,19 +9,19 @@ sidebar_position: 2
 
 ## Local Deployment
 
-Run a working demo scenario of the Item Relationship Service with a mocked Catena-X network to retrieve data chains:
+Run a working demo scenario of the Item Relationship Service with a mocked Catena-X network to retrieve data chains with the following components:
 
 * Item Relationship Service
 * Eclipse Dataspace Connector for accessing data
 * Eclipse Dataspace Connector for data provisioning
-* a Submodelserver and Testdata for provisioning test digital twins
-* Authentication Mock
+* a submodel server and testdata for provisioning test digital twins
+* an OIDC authentication provider mock
 * Registry Service to register test digital twins
-* Item Relationship Service Debugging View to visualize the Results of the Item Relationship Service
+* Item Relationship Service Debugging View to visualize the results of the Item Relationship Service
 
-This emulates the communication over EDC, retrieving assets via a registry and building one continous data chain with data from different companies.
+This emulates the communication over EDC, retrieving assets via a registry and building one continuous data chain with data from different companies.
 
-This local deployment is an easy installation with helm. This setup is built to run on a kuberneetes cluster.
+This local deployment is an easy installation with helm. This setup is built to run on a kubernetes cluster.
 
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
@@ -31,10 +31,10 @@ This local deployment is an easy installation with helm. This setup is built to 
 
 ### Step 1: Prerequisites
 
-1. [Docker](https://docs.docker.com/get-docker/) is installed and docker deamon is running with minimum 8GB ram storage
+1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
 2. [helm](https://helm.sh/docs/intro/install/) is installed
-
-3. [Minikube](https://kubernetes.io/de/docs/tasks/tools/install-minikube/#minikube-installieren) is installed and running
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+   You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
    ```bash
    minikube start --memory 8192 --cpus 2 
@@ -56,13 +56,12 @@ This local deployment is an easy installation with helm. This setup is built to 
    ./template/digital-twin-registry-docker-secret.yaml
    ```
 
-   Get the **digital twin secret**  via issue in the following [Digital Twin Repository](https://github.com/eclipse-tractusx/sldt-digital-twin-registry) request the image secret for the private digital twin registry image.
+   Get the **digital twin dockerpullsecret**  via an issue in the [Digital Twin Repository](https://github.com/eclipse-tractusx/sldt-digital-twin-registry). Request the image secret for the private Digital Twin Registry image.
 
 ### Step 2: Check out the code
 
 Check out the project [Item Relationship Service](https://github.com/eclipse-tractusx/item-relationship-service) or download a [released version](https://github.com/eclipse-tractusx/item-relationship-service/releases) of the Item Relationship Service
 
-> currently in the [Pull Request](https://github.com/catenax-ng/tx-item-relationship-service/pull/143)
 
 ### Step 3: Installing the services
 
@@ -71,6 +70,7 @@ Check out the project [Item Relationship Service](https://github.com/eclipse-tra
 To deploy the services on kubernetes, run
 
 ```bash
+cd local/full-irs
 ./start.sh true true
 ```
 
@@ -105,7 +105,7 @@ Also in total 17 Pods are up and running.
 error: timed out waiting for the condition on deployments/irs-frontend
 ```
 
-##### 1.1 Get the Status of the deployment
+##### 1.1 Get the status of the deployment
 
 The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
@@ -113,13 +113,13 @@ The minikube dashboard will give you feedback on how the status of the deploymen
   minikube dashboard 
 ```
 
-make sure you select the namespace irs
+Make sure you select the namespace __irs__:
 
 ![expected status](../../../static/img/minikube-dashboard-overview.png)
 
-#### 2. Forwarding Ports
+#### 2. Forward ports
 
-When the deployment has been finished please use the script to forward the ports:
+When the deployment has been finished, please use the script to forward the ports:
 
 ```bash
 ./forwardingPorts.sh
@@ -134,7 +134,7 @@ After that you can access the:
 
 > Only if Step 2 has been applied and the ports are forwarded.
 
-To provision Testdate to the provider EDC and register the testdata to the digital twin registry use the following script:
+To provision testdata to the provider EDC and register the testdata with the Digital Twin Registry, use the following script:
 
 ```bash
 ./upload-testdata.sh
@@ -146,19 +146,19 @@ If you like, you can remove the test data with:
 ./deleteIRSTestData.sh
 ```
 
-### Step4: access Debuggin View
+### Step 4: Access the Debugging View
 
-open [http://localhost:3000/](http://localhost:3000/) and you should see the Item Relationship Service login screen. **Just press Login**
+Open [http://localhost:3000/](http://localhost:3000/) and you should see the Item Relationship Service login screen. **Just press Login.**
 
 ![irs-login](../../../static/img/irs-login.png)
 
 ## Testing the Item Relationship Service
 
-You can use several different approaches to interact with the IRS. One is through the **IRS API** and another way is through the **IRS API Frontend**.
+You can use several approaches to interact with the IRS. One is through the **IRS API** and another way is through the **IRS API Frontend**.
 
-### Valid Global Asset Ids for Testing
+### Valid Global Asset IDs for testing
 
-use these globalAssetId's for testing
+Use these globalAssetId's for testing:
 
 | globalAssetId | type |
 |---------------|------|
@@ -168,7 +168,7 @@ use these globalAssetId's for testing
 
 ### Valid test requests for testing
 
-use these snippets for testing purposes.
+Use these snippets for testing purposes.
 
 ```json
 {
@@ -200,35 +200,35 @@ use these snippets for testing purposes.
 2. Connect to the database: ``` export PGPASSWORD=digital-twin-registry-pass; psql -h localhost -p 5432 -d digital-twin-registry -U digital-twin-registry-user ```
 3. Execute query to get the global asset id: ``` select id_external from shell where id_short = 'VehicleCombustion' limit 1; ``` -->
 
-### Testing the IRS API Endpoints
+### Testing the IRS API endpoints
 
 #### Precondition
 
 * Visual Studio extension: [REST Client by Huachao Mao](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-* All Installation-Steps have been successfully conducted
-* A valid Global Asset Id
+* All installation steps have been conducted successfully
+* A valid Global Asset ID
 
 #### Test-steps
 
-1. to interact with the API Endpoints, you need a valid token. You can generate an access token with using the ``` ./test/keycloack-service.rest ```.
+1.To interact with the API Endpoints, you need a valid token. You can generate an access token by using the ``` ./test/keycloack-service.rest ```.
 
-2. **copy & past** the to valid token into line 8 of ``` ./test/irs-backend-service.rest ```
-3. **copy & past** a valid globalAssetId into the request body
+2. **copy & paste** the valid token into line 8 of ``` ./test/irs-backend-service.rest ```
+3. **copy & paste** a valid globalAssetId into the request body
 4. **execute the request** ```./test/irs-backend-service.rest```
 
 ### Testing with the IRS frontend
 
 #### Precondition
 
-* All Installation-Steps have been successfully conducted
+* All installation steps have been conducted successfully
 
 #### Test-steps
 
 1. **open** [http://localhost:3000](http://localhost:3000) and click 'Login'
-2. **copy & past** a valid globalAssetId into the request body
+2. **copy & paste** a valid globalAssetId into the request body
    ![irs-new-job](../../../static/img/irs-new-job.png)
 3. **click** 'Build Data Chain' to start a new IRS job
-4. **click** visualization to see result of the job
+4. **click** 'Visualization' to see the result of the job
    ![irs-job-list](../../../static/img/irs-job-list.png)
 
 ### Step 2: Verify Results
@@ -237,22 +237,31 @@ The following example shows a visual overview of all retrieved data assets and d
 ![irs-login](../../../static/img/irs-vis-overview.png)
 _Item Relationship Service visualization overview_
 
-With the following snippet all clickable objects will be explained:
+With the following snippet, all clickable objects will be explained:
 
 * **Digital Twin:** the box itself is clickable and will open an overlay to show more information on this object.
 * **Aspect:** the green button is clickable and represents an Aspect or Submodel of the twin.
 * **Relationship Aspect:** the line between Digital Twins is clickable and will give detailed Information about the relationship between the twins.
 
 ![irs-login](../../../static/img/irs-vis-clickable.png)
-_Item Relationship Service clicable objects_
+_Item Relationship Service clickable objects_
 
-## Stopping the Cluster
+## Stopping the cluster
 
-1. Stop minikube
+1. stop minikube
 
     ```bash
     minikube stop
     ```
 
 2. stop the processes used for port forwarding and minikube dashboard
-3. shut down the docker deamon
+3. shut down the Docker daemon
+
+## How to debug an application in the cluster
+
+If you want to connect your IDE to one of the applications in the cluster, you need to enable debug mode for that application by overriding the entrypoint (using the `command` and `args` fields in the deployment resource). How to do this depends on the application. For the IRS, as it is based on Spring Boot and Java, you would need to add this flag to the start command:
+```
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+```
+
+Then you can forward the port 8000 for the IRS deployment to your host machine and connect your IDE to that port.
