@@ -62,7 +62,6 @@ This local deployment is an easy installation with helm. This setup is built to 
 
 Check out the project [Item Relationship Service](https://github.com/eclipse-tractusx/item-relationship-service) or download a [released version](https://github.com/eclipse-tractusx/item-relationship-service/releases) of the Item Relationship Service
 
-
 ### Step 3: Installing the services
 
 #### 1. Start the cluster
@@ -113,7 +112,7 @@ The minikube dashboard will give you feedback on how the status of the deploymen
   minikube dashboard 
 ```
 
-Make sure you select the namespace __irs__:
+Make sure you select the namespace **irs**:
 
 ![expected status](../../../static/img/minikube-dashboard-overview.png)
 
@@ -210,8 +209,7 @@ Use these snippets for testing purposes.
 
 #### Test-steps
 
-1.To interact with the API Endpoints, you need a valid token. You can generate an access token by using the ``` ./test/keycloack-service.rest ```.
-
+1. To interact with the API Endpoints, you need a valid token. You can generate an access token by using the ``` ./test/keycloack-service.rest ```.
 2. **copy & paste** the valid token into line 8 of ``` ./test/irs-backend-service.rest ```
 3. **copy & paste** a valid globalAssetId into the request body
 4. **execute the request** ```./test/irs-backend-service.rest```
@@ -260,7 +258,8 @@ _Item Relationship Service clickable objects_
 ## How to debug an application in the cluster
 
 If you want to connect your IDE to one of the applications in the cluster, you need to enable debug mode for that application by overriding the entrypoint (using the `command` and `args` fields in the deployment resource). How to do this depends on the application. For the IRS, as it is based on Spring Boot and Java, you would need to add this flag to the start command:
-```
+
+```bash
 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
 ```
 
