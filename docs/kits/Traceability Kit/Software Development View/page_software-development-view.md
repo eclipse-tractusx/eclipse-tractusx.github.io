@@ -1,9 +1,11 @@
 ---
-id: Development View Traceability Kit
-title: Development View
+id: Specification Traceability Kit
+title: Specification
 description: 'Traceability Kit'
-sidebar_position: 3
+sidebar_position: 4
 ---
+
+![Traceability kit banner](../../../../static/img/doc-traceability_header-minified.png)
 
 <!--
 Development View of the Kit.
