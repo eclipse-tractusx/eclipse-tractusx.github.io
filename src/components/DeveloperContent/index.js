@@ -22,7 +22,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 
-// import EcosystemSVG1 from "@site/static/img/ecosystem1.svg";
+import EcosystemSVG from "@site/static/img/ecosystem_diagram.svg";
 import ThreeViewsSVG from "@site/static/img/three_views.svg";
 
 import styles from "./styles.module.css";
@@ -56,7 +56,7 @@ export default function DeveloperContent() {
         </div>
 
         <div className={styles.img_container}>
-          {/* <EcosystemSVG1 className={styles.img} /> */}
+          <EcosystemSVG className={styles.img} />
         </div>
 
         <div className={styles.title_container}>
