@@ -23,44 +23,19 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
-import Business_Kit from "@site/static/img/gallery-business_kit-minified.png";
-import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
-import DataChain_Kit from "@site/static/img/gallery-datachain_kit-minified.png";
-
-
-export default function KitsGallery() {
-  const kits = [
-    {
-      id: 1,
-      img: Business_Kit,
-      pageRoute: "docs/kits/Business Partner Kit/Adoption View"
-    },
-    {
-      id: 2,
-      img: DataChain_Kit,
-      pageRoute: "docs/kits/Data Chain Kit/Adoption View"
-    },
-    {
-      id: 3,
-      img: MoreToCome
-    },
-  ]
-
+export default function KitsGallery({itemsArray, title, description}) {
   return (
     <section className={styles.kits_gallery}>
       <div className={styles.container}>
 
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Our Kits</h2>
-          <p className={styles.description}>
-          Unlock the power of kits. Browse the latest kits, their documentation, <br/>
-          including tutorials,sample code, articles, and API reference.
-          </p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
         </div>
 
         <div className={styles.gallery_container}>
           {
-            kits.map((kit, index)=> {
+            itemsArray.map((kit, index)=> {
               return(
                 <div key={index} className={styles.gallery_item}>
                   <Link to={kit.pageRoute} className={styles.gallery_link}>

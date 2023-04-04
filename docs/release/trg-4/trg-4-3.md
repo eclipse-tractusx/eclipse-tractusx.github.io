@@ -2,22 +2,22 @@
 title: TRG 4.03 - Non-root container
 ---
 
-| Author               | Status | Created      | Post-History                     |
-|----------------------|--------|--------------|----------------------------------|
-| Catena-X System Team |        | 14-Sept-2022 | Draft                            |
-| Catena-X System Team | Active | 29-Dec-2022  | Initial Release                  |
-
-## Description
-
-For security reasons a container is not allowed to run with root privileges.
+| Status | Created      | Post-History                     |
+|--------|--------------|----------------------------------|
+| Active | 29-Dec-2022  | Initial Release                  |
+| Draft  | 14-Sept-2022 | Draft                            |
 
 ## Why
 
-To make sure that a compromised container doesn't have root permissions on the underlying infrastructure and has limited ways of manipulating the compromised container itself. A non-root user might be able to break out of the application code but then is still bound by the user permimssions.
+Normally containers do not need root permission but if a container image runs as root, a compromised container has potentially root permissions on the underlying node.
 
-## Implementation
+For security reasons this is **must** be followed.
 
-The container's __Dockerfile__ and the __Pod resouce file (yaml)__ has to be modified to be able to run as a non-root user.
+## Description
+
+### Implementation
+
+The container's **Dockerfile** and the **Pod resource file (yaml)** has to be modified to be able to run as a non-root user.
 
 - Modify the image's Dockerfile with a `RUN` command that adds a non-root user and a `USER` command that specifies which user runs the container on startup. The example below can be modified for specific needs/requirements.
 

@@ -2,22 +2,21 @@
 title: TRG 2.03 - Repo structure
 ---
 
-| Author                | Status | Created     | Post-History                               |
-|-----------------------|--------|-------------|--------------------------------------------|
-| Catena-X System Team  |        | 10-Nov-2022 | Initial release                            |
-| Catena-X System Team  |        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
-| Catena-X System Team  | Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
+| Status | Created     | Post-History                               |
+|--------|-------------|--------------------------------------------|
+| Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
+|        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
+|        | 10-Nov-2022 | Initial release                            |
+
+## Why
+
+We are part of the Eclipse Foundation which requires compliance to the Eclipse Foundation rules. This also includes open and collaborative Open Source working model.
+
+Therefore, we need to follow the Eclipse Foundation and Open Source standards.
 
 ## Description
 
-:::info
-
-This TRG applies only to Eclipse-Tractusx GitHub repositories, not to Catenax-NG GitHub repositories. For Catenax-NG
-please [read this](https://github.com/catenax-ng/foss-example#readme) for OSS related files.
-
-:::
-
-All repositories must contain the following files and folders:
+All repositories **must** contain the following files and folders:
 
 ```shell
 /docs
@@ -33,22 +32,17 @@ INSTALL.md
 SECURITY.md
 ```
 
-## Why
-
-To make your repository Open Source ready and apply to Eclipse standards as well as to Eclipse-TractusX TRGs the
-given repository structure must be met.
-
 ### Directories
 
 #### /docs
 
-The `/docs` directory should contain detailed product related documentation for the Tractus-X product. Folder structure
+The `/docs` directory **must** contain detailed product related documentation for the Tractus-X product. Folder structure
 inside this directory is the responsibility of the repository owner/product team.
 
 #### /charts
 
-The `/charts` directory must contain the Helm chart files for the Tractus-X product. For more information about Helm
-Chart structure, refer to [TRG 5.01 ff](../trg-5/trg-5-1).
+The `/charts` directory **must** contain the Helm chart for the Tractus-X product IF available. For more information about Helm
+Chart structure, refer to [TRG 5.01 - Helm Chart requirements](../trg-5/trg-5-1).
 
 ### Files
 
@@ -59,17 +53,15 @@ content can be found [here](assets/AUTHORS.txt).
 
 #### CODE_OF_CONDUCT.md
 
-Add a `CODE_OF_CONDUCT.md` file at root level to your GitHub repository with content of
-this [example](assets/CODE_OF_CONDUCT.txt).
+Add a `CODE_OF_CONDUCT.md` file at root level to your GitHub repository with content of this [example](assets/CODE_OF_CONDUCT.txt).
 
 #### CONTRIBUTING.md
 
-Add a `CONTRIBUTING.md` file at root level to your GitHub repository with content of
-this [example](assets/CONTRIBUTING.txt).
+Add a `CONTRIBUTING.md` file at root level to your GitHub repository with content of this [example](assets/CONTRIBUTING.txt).
 
 #### DEPENDENCIES
 
-Add a `DEPENDENCIES` file at root level to your GitHub repository. The file contains a list of all 3rd party libraries
+Add a `DEPENDENCIES` file at root level to your GitHub repository. The file **must** contain a list of all 3rd party libraries
 used with your code.
 
 :::info
@@ -94,12 +86,11 @@ your repositories to the section _Source Code_.
 
 #### README.md
 
-The `README.md` file shall contain a basic product description and installation instructions (and/or reference
-to `INSTALL.md`).
+Your repository **must** contain a `README.md` file. See [TRG 1.01 - README.md](../trg-1/trg-1-1).
 
 #### INSTALL.md
 
-The `INSTALL.md` shall contain a detailed installation instruction for the Tractus-X product.
+Your repository **should** contain a `INSTALL.md` file. See[TRG 1.02 - INSTALL.md](../trg-1/trg-1-2).
 
 #### SECURITY.md
 

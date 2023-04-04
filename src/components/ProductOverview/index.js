@@ -21,6 +21,7 @@
 
 import React from "react";
 import ProductOverviewCard from "../ProductOverviewCard";
+
 import { products } from "../../../utils/products";
 
 import styles from "./styles.module.css";
