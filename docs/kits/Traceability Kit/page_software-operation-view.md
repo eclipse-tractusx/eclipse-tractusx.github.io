@@ -2,8 +2,10 @@
 id: Operation View Traceability Kit
 title: Operation View
 description: 'Traceability Kit'
-sidebar_position: 2
+sidebar_position: 3
 ---
+
+![Traceability kit banner](../../../static/img/doc-traceability_header-minified.png)
 
 <!--
 Documentation of the Kit.
