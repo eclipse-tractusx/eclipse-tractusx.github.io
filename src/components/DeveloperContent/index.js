@@ -20,10 +20,12 @@
  ********************************************************************************/
 
 import React from "react";
-import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 import EcosystemImg from "@site/static/img/ecosystem-minified.png";
 import ThreeViewsImg from "@site/static/img/three_views-minified.png";
+
+import styles from "./styles.module.css";
 
 export default function DeveloperContent() {
   return (
@@ -32,7 +34,25 @@ export default function DeveloperContent() {
 
         <div className={styles.title_container}>
           <h2 className={styles.title}>Ecosystem</h2>
-          <p className={styles.description}>A Kit deliverable are one or more outcomes within a business domain. A KIT can be used across the borders of a business domain and may refer to a business domain (e.g., PCF rulebook) or network services (e.g., EDC) that are required by more than one solution space / use case.</p>
+          
+          <p className={styles.description}>
+            <b>The Catena-X vision is to connect the automotive industry via one global data space to solve industry problems, together.</b>
+          </p>
+
+          <p className={styles.description}>
+            To establish this one global data space and enable collaboration and interoperability, Catena-X releases and updates standards and developer resources as one of its key offerings. Standards including whitepapers are published on the Catena-X Association website (Standard Library) and developer resources including KITs, compatible implementations, and release guidelines are published on the Tractus-X Website. 
+          </p>
+
+          <p className={styles.description}>
+            Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
+          </p>
+
+          <ul>
+            <li>Network Domain for Shared Services</li>
+            <li>Business Domain PLM and Quality</li>  
+            <li><Link to="docs/Resiliency">Business Domain Resiliency</Link></li>
+            <li>Business Domain Sustainability Domain</li> 
+          </ul>
         </div>
 
         <div className={styles.img_container}>
