@@ -349,10 +349,10 @@ The following conventions for specificAssetIds apply to all digital twins:
     <td> Optional </td>
     <td> The ID of the type/catalog part from the _customer_.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is _recommended_ to always add the customerPartId for easier lookup.<br/>
     If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
-    Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.  
+    Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
+    Access to customerPartId only for BPNL1234:
 
 ```json
-// Access to customerPartId only for BPNL1234
 {
   "key": "customerPartId",
   "value": "39192",
@@ -361,10 +361,9 @@ The following conventions for specificAssetIds apply to all digital twins:
 ```
 
 In case multiple companies shall have access, each company must be provided in a triple consisting of key, value and externalSubjectId.
-If no access control shall be applied, externalSubjectId must be omitted:
+If no access control shall be applied, externalSubjectId must be omitted (no access control for `customerPartId`):
 
 ```json
-// no access control for customerPartId
 {
   "key": "customerPartId",
   "value": "39192"
@@ -594,7 +593,7 @@ Here is a short overview what the receiver has to do when they want to support U
 
 The EDC asset can be created using the EDC Data Management API. The following conventions apply for the properties of this asset:
 
-```json
+```apacheconf
 "asset:prop:id": "uniqueidpushnnotification-receipt"
 "asset:prop:type": "notification.trace.uniqueidpush"
 "asset:prop:notificationtype": "uniqueidpush"
@@ -646,33 +645,31 @@ The creation of the submodel AssemblyPartRelationship is more complicated. This 
 
 ```json
 {
-  "catenaXId" : "urn:uuid:d261e0fa-36f5-4128-875e-0f5735f5a535",
-  "childParts" : [ {
-    "quantity" : {
-      "quantityNumber" : 1,
-      "measurementUnit" : {
-        "lexicalValue": "unit:piece",
-        "datatypeURI": "urn:bamm:io.openmanufacturing:meta-model:1.0.0#curie"       }
+  "catenaXId": "urn:uuid:d261e0fa-36f5-4128-875e-0f5735f5a535",
+  "childParts": [
+    {
+      "quantity": {
+        "quantityNumber": 1,
+        "measurementUnit": "unit:piece"
+      },
+      "lifecycleContext": "AsBuilt",
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
+      "childCatenaXId": "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2"
     },
-    "lifecycleContext" : "AsBuilt",
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z",
-    "childCatenaXId" : "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2"
-  },
-  {
-    "quantity" : {
-      "quantityNumber" : 1,
-      "measurementUnit" : {
-         "lexicalValue": "unit:piece",
-        "datatypeURI": "urn:bamm:io.openmanufacturing:meta-model:1.0.0#curie"       }
-       }
-    },
-    "lifecycleContext" : "AsBuilt",
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z",
-    "childCatenaXId" : "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098"
-  } ]
+    {
+      "quantity": {
+        "quantityNumber": 1,
+        "measurementUnit": "unit:piece"
+      },
+      "lifecycleContext": "AsBuilt",
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
+      "childCatenaXId": "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098"
+    }
+  ]
 }
+
 ```
 
 For the build-in parts (child parts), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the follwoing:
