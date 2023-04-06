@@ -12,9 +12,12 @@ Documentation of the Kit.
 -->
 
 Based on the information provided in this KIT, it is possible to create and operate an own, custom
-Traceability app. One open-source example is the **Trace-X app**. For further information regarding
+Traceability app. One open-source example is the **Trace-X app** in conjunction with the **Simple
+Data Exchanger (SDE)** for data provisioning. For further information regarding
 their usage, configuration and deployment, follow these resources:
 
-- [Frontend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss)
-- [Backend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss-backend)
-- [User Guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/docs/user-guide.md)
+- [Trace-X Frontend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss)
+- [Trace-X Backend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss-backend)
+- [Trace-X User Guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/docs/user-guide.md)
+- [SDE Frontend GitHub Repository](https://github.com/eclipse-tractusx/dft-frontend)
+- [SDE Backend GitHub Repository](https://github.com/eclipse-tractusx/dft-backend)
