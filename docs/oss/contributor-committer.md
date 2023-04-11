@@ -1,20 +1,90 @@
 ---
 title: Eclipse project roles
-sidebar_position: 35
+sidebar_position: 39
 ---
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#roles)
+See the [Handbook](https://www.eclipse.org/projects/handbook/#roles), there is also a [training video](https://youtu.be/Yna8V2sOqws) on the Eclipse YouTube Channel.
 
 ## Contributor
 
+Everybody who has an Eclipse account and a signed ECA is a Eclipse contributor.
+Contributors have read access. On [GitHub](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) repositories they have the read role.
+
 ## Official project contributor
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors)
+[Eclipse Tractus-X Contributor List](https://projects.eclipse.org/projects/automotive.tractusx/who)
+
+On [GitHub](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) repositories they have the triage role, that means they have some more rights:
+
+- Apply/dismiss labels
+- Close, reopen, and assign all issues and pull requests
+- Apply milestones
+- Mark duplicate issues and pull requests
+- Request pull request reviews
+- Access to the security tab
+
+Committer can add contributors to the TractusX Project,
+see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors).
+
+Note: This is the [PMI](https://projects.eclipse.org/projects/automotive.tractusx) (Project Management Interface).
 
 ## Committer
 
+[Eclipse Tractus-X Committer List](https://projects.eclipse.org/projects/automotive.tractusx/who)
+
+From the [Handbook](https://www.eclipse.org/projects/handbook/#roles-cm):
+
+For Eclipse projects (and the open source world in general), committers are the ones who hold the keys. Committers decide what code goes into the code base, they decide how a project builds, and they ultimately decide what gets delivered to the adopter community. With awesome power, comes awesome responsibility, and so the Open Source Rules of Engagement described by the Eclipse Foundation Development Process, puts meritocracy on equal footing with transparency and openness: becoming a committer isn’t necessarily hard, but it does require a demonstration of merit.
+
+Committers:
+
+- Operate in an open, transparent, and meritocratic manner;
+- Write code (and other project content) and can push it directly into the project’s source code repository;
+- Review contributions (merge and pull requests) from contributors;
+- Engage in the Intellectual Property Due Diligence Process;
+- Nominate new committer;
+- Vote in committer and project lead elections;
+- Engage in the project planning process; and
+- Otherwise represent the interests of the open source project.
+
+On [GitHub](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) repositories committer have the write role.
+
 ## Project Lead
 
-## Automotive PMC (project management committee)
+[Eclipse Tractus-X Project Leads](https://projects.eclipse.org/projects/automotive.tractusx/who)
 
-## EMO
+An Eclipse Project Lead is not necessary a technical lead.
+
+Tasks:
+
+- Project leads are responsible for ensuring that project committers are following the rules.
+- Project leads have the ability to retire committers.
+- Project leads have to approve e.g. infrastructure request, reviews.
+- Project leads are elected by the project committers.
+- Every project can have more then one project lead.
+
+See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-pl)
+
+## Automotive Project Management Committee (PMC)
+
+The automotive project management committee (PMC) is responsible for the operation of the [automotive top-level project](https://projects.eclipse.org/projects/automotive). The top-level projects sit at the top of the open source project hierarchy. For more information see the [webpage](https://www.eclipse.org/automotive/).
+
+The PMC consists of experienced committers and are appointed by the EMO or elected from the [PMC members](https://projects.eclipse.org/projects/automotive/who).
+
+Tasks:
+
+- The PMC reviews and approves (or vetos) committer and project lead elections, first validating that candidates have demonstrated sufficient merit.
+- The PMC is tasked with approving progress, release, and graduation reviews.
+- The PMC supports the Eclipse IP Team with knowledge and experience with their community and technology .
+
+Contact the PMC: automotive-pmc@eclipse.org
+
+Note: You have to be subscribed to the [automotive-pmc mailinglist](https://accounts.eclipse.org/mailing-list/automotive-pmc) to write to the list.
+
+See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-pmc)
+
+## Eclipse Management Organization (EMO)
+
+If you have a question that cannot be answered by project lead, mentor, or PMC, ask the EMO.
+
+See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)

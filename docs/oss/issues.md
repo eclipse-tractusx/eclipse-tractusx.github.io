@@ -39,4 +39,6 @@ Here all requests for Eclipse infrastructure  go in.
 
 ## Contact EMO (Eclipse Management Organisation)
 
+If you have a question that cannot be answered by project lead, mentor, or PMC, ask the EMO.
+
 See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)

@@ -12,6 +12,8 @@ sidebar_position: 98
 
 ### Eclipse Foundation Issue Tracker
 
+See a more [detailed description](issues).
+
 - [Helpdesk (e.g. request a new repository)](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)
 - [Helpdesk for IP Checks - open issues for Tractus-X](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20)
 
