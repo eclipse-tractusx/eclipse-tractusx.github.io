@@ -7,7 +7,6 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  /* color: #fff; */
   height: 94vh;
 }
     
@@ -49,8 +48,8 @@
 
 .button {
   padding: 0.6rem 2rem;
-  background-color: #faa023;
-  color: #000;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   font-family: "Manrope", sans-serif;
   font-weight: bold;
   border-radius: 5px;
@@ -58,7 +57,7 @@
 
 .button:hover {
   background-color: #1e1e1e;
-  color: #faa023;
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 

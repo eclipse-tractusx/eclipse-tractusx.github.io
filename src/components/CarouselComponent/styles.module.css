@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 0;
-  background-color: #000;
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--ifm-font-color-base);
 }
 
 .title_container {
@@ -72,8 +72,8 @@
 
 .button {
   padding: 0.3rem 2rem;
-  background-color: #faa023;
-  color: #000;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   border-radius: 5px;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
@@ -82,8 +82,9 @@
 
 .button:hover {
   background-color: #1e1e1e;
-  color: #faa023;
+  color: var(--ifm-color-primary);
   text-decoration: none;
+  cursor: pointer;
 }  
 
 .btn_slider_container {
@@ -94,11 +95,11 @@
 
 .btn_slider {
   cursor: pointer;
-  color: #faa023;
+  color: var(--ifm-color-primary);
 }
 
 .btn_slider:hover {
-  color: #fff;
+  color: var(--ifm-font-color-base);
 }
 
 .btn_slider:active {
@@ -110,14 +111,6 @@
     width: 75vw;
     height: auto;
   }
-
-  /* .title {
-    font-size: 4vw;
-  }
-
-  .subtitle {
-    font-size: 2.1vw;
-  } */
 
   .slider_container {
     display: flex;
