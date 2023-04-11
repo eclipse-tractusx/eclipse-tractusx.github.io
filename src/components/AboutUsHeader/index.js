@@ -20,7 +20,6 @@
  ********************************************************************************/
 
 import React from "react";
-import Link from "@docusaurus/Link";
 import TractusXSvg from '../../../static/img/logo_tractus-x.svg'
 
 import styles from "./styles.module.css";

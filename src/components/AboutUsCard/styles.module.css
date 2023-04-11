@@ -3,14 +3,13 @@
  * and scoped locally.
  */
 
-
 .about_us {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4rem 0;
   overflow: hidden;
-  background-color: #000;
+  background-color: var(--ifm-background-color)
 }
 
 .container {
@@ -48,7 +47,7 @@
   font-size: 32px;
   line-height: 40px;
   margin-top: -0.8rem;
-  color: #fff;
+  color: var(--ifm-heading-color);
 }
 
 .subtitle {
@@ -61,8 +60,8 @@
 
 .button {
   padding: 0.6rem 2rem;
-  background-color: #faa023;
-  color: #000;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
   border-radius: 5px;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
@@ -70,19 +69,11 @@
 
 .button:hover {
   background-color: #1e1e1e;
-  color: #faa023;
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 
 @media screen and (max-width: 996px) {
-  /* .title {
-    font-size: 4vw;
-  }
-
-  .subtitle {
-    font-size: 2vw;
-  } */
-
   .container {
     width: 40vw;
     height: auto;

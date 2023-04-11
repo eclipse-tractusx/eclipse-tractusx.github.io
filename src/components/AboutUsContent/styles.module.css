@@ -10,7 +10,7 @@
   justify-content: center;
   padding: 5rem 0;
   overflow: hidden;
-  background-color: #000;
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -66,14 +66,6 @@
 }
 
 @media screen and (max-width: 996px) {
-  /* .title {
-    font-size: 4vw;
-  } */
-
-  /* .description {
-    font-size: 2vw;
-  } */
-
   .container {
     width: 60vw;
     height: auto;

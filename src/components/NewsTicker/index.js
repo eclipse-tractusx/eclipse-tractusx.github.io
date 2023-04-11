@@ -21,9 +21,46 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import { newsTitles } from "../../../utils/newsTitles";
+
 import styles from "./styles.module.css";
 
 export default function NewsTicker() {
+  let settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 6000,
+  };
+
+  const NewsTickerCard = ({date, title, blogLink}) => {
+    return (
+      <div className={styles.slider_item}>
+        <div className={styles.date}>
+          {date}
+        </div>
+
+        <div className={styles.introduction}>
+          <strong>{title}</strong>
+        </div>
+
+        <div className={styles.link_to_blog}>
+          <Link to={blogLink}>
+            Read more &gt;
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <section className={styles.news_ticker}>
       <div className={styles.container}>
@@ -33,18 +70,17 @@ export default function NewsTicker() {
           </Link>
         </div>
 
-        <div className={styles.date}>10.02.2023</div>
-
-        <div className={styles.introduction}>
-          <strong>Eclipse Tractus-X Developer Portal is LIVE!</strong>
+        <div className={styles.carousel_container}>
+          <Slider {...settings} className={styles.slider}>
+            {
+              newsTitles.map((newPost, index)=> {
+                return (
+                  <NewsTickerCard key={index} {...newPost}/>
+                )
+              })
+            }
+          </Slider>
         </div>
-
-        <div className={styles.link_to_blog}>
-          <Link to="/blog/portal-is-live">
-            Read more &gt;
-          </Link>
-        </div>
-        
       </div>
     </section>
   );
