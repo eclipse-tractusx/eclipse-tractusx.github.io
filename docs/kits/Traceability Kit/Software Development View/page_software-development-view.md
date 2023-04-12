@@ -317,7 +317,7 @@ Once a digital twin was created, optionally a Unique ID Push notification can be
 
 The following general conventions apply for all these digital twins:
 
-- identification: The AAS ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
+- identification: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`
 - globalAssetId: The Unique ID of the real-world part for which a digital twin is created.
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
@@ -347,7 +347,7 @@ The following conventions for specificAssetIds apply to all digital twins:
   <tr>
     <td> customerPartId </td>
     <td> Optional </td>
-    <td> The ID of the type/catalog part from the _customer_.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is _recommended_ to always add the customerPartId for easier lookup.<br/>
+    <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is <em>recommended</em> to always add the customerPartId for easier lookup.<br/>
     If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
     Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
     Access to customerPartId only for BPNL1234:
@@ -401,8 +401,8 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
 |:-------------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
 | parentOrderNumber  | Optional     | A number identifying the just-in-sequence- part's destination parent part. The parent part is typically known upfront to the supplier for just-in-sequence parts.                                                           | String |
 | jisNumber          | Mandatory    | A number that is used to identify the call-off that can be assumed unique within the specific just-in-sequence process. This is typically not the sequence number, but the call-off number.                                 | String |
-| jisCallDate        | Optional     | The date of the just-in-sequence call-off as stated on the call-off document itself. <br/>The value must be compliant to ISO 8601: "YYYY-MM-DD" or "YYYY-MM-DDThh:mm:ss" or "YYYY-MM-DDThh:mm:ss±hh:mm"                     | Date   |
-| partInstanceId     | Mandatory    | A composition of jisNumber, parentOrderNumber (if available), jisCallDate (ifavailable). This information is typically known upfront to the supplier jisNumber, partOrderNumber and jisCallDate for just-in-sequence parts. | String |
+| jisCallDate        | Optional     | The date of the just-in-sequence call-off as stated on the call-off document itself. <br/>The value must be compliant to ISO 8601: `YYYY-MM-DD` or `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DDThh:mm:ss±hh:mm`                      | Date   |
+| partInstanceId     | Mandatory    | A composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (ifavailable). This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
 
 > :raised_hand: **Lookup of Digital Twins**
 The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
@@ -526,6 +526,8 @@ In the end this enables the customer to integrate the child parts into the Assem
 ![Unique ID Push Process](../assets/unique_id_push_process.png)
 
 <!--
+The following PlantUML code is used to generate the image shown:
+
 @startuml
 autonumber
 
