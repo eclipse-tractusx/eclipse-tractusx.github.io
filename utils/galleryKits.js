@@ -1,6 +1,7 @@
 import Business_Kit from "@site/static/img/gallery-business-partner-kit-minified.png";
 import DataChain_Kit from "@site/static/img/gallery-data-chain-kit-minified.png";
 import Connector_Kit from "@site/static/img/gallery-conector-kit-minified.png";
+import Traceability_Kit from "@site/static/img/gallery-traceability-kit-minified.png";
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 export const galleryKits = [
@@ -19,6 +20,11 @@ export const galleryKits = [
     img: Connector_Kit,
     pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
   },
+  {
+    id: 4,
+    img: Traceability_Kit,
+    pageRoute: "docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit"
+  }
   // {
   //   id: 4,
   //   img: MoreToCome

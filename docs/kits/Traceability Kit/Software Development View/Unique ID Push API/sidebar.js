@@ -1,0 +1,5 @@
+// ------------------------------------------------------------------------------------------------
+//    WARNING: THIS FILE IS AUTO-GENERATED!
+//    Don't edit this page manually. Use docusaurus gen-api-docs to generate it.
+// ------------------------------------------------------------------------------------------------
+module.exports = [{"type":"doc","id":"kits/Traceability Kit/Software Development View/Unique ID Push API/catena-x-traceability-unique-id-push-notification"},{"type":"category","label":"Unique ID Push Notification","link":{"type":"generated-index","title":"Unique ID Push Notification","slug":"/category/kits/Traceability Kit/Software Development View/Unique ID Push API/unique-id-push-notification"},"items":[{"type":"doc","id":"kits/Traceability Kit/Software Development View/Unique ID Push API/receive-unique-id-push-notification","label":"receiveUniqueIdPushNotification","className":"api-method post"}]}];
