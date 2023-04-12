@@ -82,8 +82,6 @@ At Catena-X Traceability we consider more than one single BoM. The BoM changes d
 
 #### BoM Representations
 
-![BoM Representations](assets/BomRepresentation.png)
-
 ##### Single-Level BOM
 
 A single-level BOM represents one level of an assembly and does not include any lower-level subassemblies.
@@ -124,8 +122,6 @@ The BoM AsPlanned is the generic list of all possible catalogue parts & material
 The BoM AsPlanned also includes all versions of parts like changed parts. It has to enable parts/materials provided from multiple manufacturers or the same manufacturer at different production sites. Additionally it must be possible to map relations of the same part/material to different customers.
 
 The complexity of generic is much higher than BoM AsBuilt. It is used for technical topics, e.g., Supply Chain Act, DCM.
-
-![BoM AsPlanned](assets/BomAsPlanned.jpg)
 
 #### Definition Status of the BoM AsPlanned
 
@@ -175,8 +171,6 @@ A BoM AsBuilt resembles a single vehicle, which means that each vehicle built ha
 Also, the BoM is called 100%, as there are no alternative parts included but only built parts. Therefore, it will be set up when a part is produced and can be connected to its parent and child parts.
 
 In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery Passport (CE).
-
-![BoM AsBuilt](assets/BomAsBuilt.jpg)
 
 #### Definition Status of the BoM AsBuilt
 
@@ -376,4 +370,10 @@ In the current implementation of the EDC only the `in` and `= operators are supp
 <!-- !Mandatory! -->
 ## Standards
 
-Our standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library).
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+- [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
+- [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
