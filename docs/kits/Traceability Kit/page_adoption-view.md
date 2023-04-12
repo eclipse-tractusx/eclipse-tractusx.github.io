@@ -367,7 +367,7 @@ In the EDC, every policy is associated with a contract. The `POST` `/api/v1/data
 
 The properties in this JSON have the following values:
 
-- `acccessPolicyId is the UUID of the basic policy
+- `acccessPolicyId` is the UUID of the basic policy
 - `contractPolicyId` is the UUID of the basic policy
 - `criteria` is a list of simple expressions to express, which assets are used in this ContractDefinition.
 
