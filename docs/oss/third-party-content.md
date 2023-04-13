@@ -5,32 +5,7 @@ sidebar_position: 37
 
 ## Project content
 
-See the whole explanation for project content in the [Handbook](https://www.eclipse.org/projects/handbook/#ip-project-content):
-
-_Project content is content that is managed by the project team. This includes content that is produced by project committers, along with content that is contributed to the project by outside contributors. Essentially, all content that is contained in a source code repository that is owned and managed by the Eclipse Foundation on behalf of an Eclipse open source project team is considered project content. We use "content" in a general sense, independent of any particular technology or means of delivery; code, scripts, documentation, and configuration files are all (non-exhaustive) examples of content. ..._
-
-It is recommended to do a content review from time to time, escpecially if there were massiv code changes / extensions.
-
-It is absolutely necessary if all of these conditions have **not** been met for a contribution from a (project) contributor:
-
-- Was developed from scratch; written 100% by submitting contributor;
-- Was submitted under the terms of the project license;- Contains no cryptography; and
-- It contains fewer than 1,000 lines of code, configuration files, and other forms of source code.
-
-A project committer must engage with the IP Team to request review by the IP Team before the contribution is pushed/merged.
-
-### Requesting an IP check for your project content (code contribution)
-
-You can request an IP check via [this template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project).
-
-**Notes:**
-
-- use the template, follow the INSTRUCTIONs in the template
-- project name: Eclipse Tractus-X
-- project id: automotive.tractusx
-- SPDX License Identfier: Apache-2.0
-- Format the source reference as Markdown in the description as follows: `[Source](<link to the code>)`
-- do not forget to add the last line of the templates, for setting the labels
+Moved to TRG 7.03
 
 ## Third-party content
 
