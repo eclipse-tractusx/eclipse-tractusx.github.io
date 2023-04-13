@@ -23,9 +23,9 @@ Here all requests for Eclipse infrastructure  go in.
 
 **IMPORTANT:** only a committer can create a valid IP Ticket!
 
-- Checks for Code Contributions: [New Issue](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new#), choose template "vet-project"
+- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project"
 - Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses)
-- Checks for 3rd party content: [New Issue](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new#), choose template "vet-third party"
+- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party"
 
 **Notes:**
 
@@ -35,8 +35,6 @@ Here all requests for Eclipse infrastructure  go in.
 - SPDX License Identfier: Apache-2.0
 - Format the source reference as Markdown in the description as follows: `[Source](<link to the code>)`
 - do not forget to add the last line of the templates, for setting the labels
-- [Template: code contribution](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project)
-- [Template: third party content](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party)
 
 ## Contact EMO (Eclipse Management Organisation)
 

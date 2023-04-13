@@ -42,4 +42,4 @@ We propose a 2-step approach for reviews of PRs.
 - Double Check if copyright headers have been added to new files
 - Double Check if new third-party libraries used have also been added to the DEPENDENCIES file. All libraries should be approved, if there are any with restricted status look for issue numbers. Libraries with the status "rejected" cannot be accepted.
 - Double Check if IP issues are opened
-- If the contribution is larger (e.g. > 1000 loc) you are free to request an IP check from the EF. Open an code contribution ticket at the Eclipse IP GitLab.
+- If the contribution is larger (e.g. > 1000 loc) you have to [request an IP check]((/docs/oss/issues#eclipse-gitlab-ip-issue-tracker)) from the EF. (TODO AWI: link to TRG 7.03)
