@@ -62,7 +62,9 @@ export default function DeveloperContent() {
         <div className={styles.title_container}>
           <h2 className={styles.title}>Three different views</h2>
           <p className={styles.description}>KITs provide a set of standards, documentation, reference implementations, quick setup guides, etc., that enable participants to build and operate interoperable and certified applications / services easier and faster. Mandatory and optional deliverables depend on the type of KIT. Developers (e.g., application and service provider) can use and integrate KITs into their products to create a multi-vendor, interoperable, innovative, and scalable ecosystem. Furthermore, data provider and consumer can use KITs to connect to the Catena-X data space.</p>
+          <a href="docs/artefacts">Read more about the deliverables.</a>
         </div>
+        <br></br>
 
         <div className={styles.img_container}>
           <ThreeViewsSVG className={styles.img} />
