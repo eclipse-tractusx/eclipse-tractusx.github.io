@@ -1,0 +1,90 @@
+---
+title: TRG 7.02 - License and Copyright header
+sidebar_position: 1
+---
+
+:::caution
+Proposed release date: "mandatory after": 19th of May 2023
+:::
+
+| Status | Created     | Post-History  |
+|--------|-------------|---------------|
+| Draft  | 13-Apr-2023 | Moved from OSS Development           |
+
+## Why
+
+Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
+
+This page contains information about legal documentation requirements in your files. The reference is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-copyright-headers).
+
+:::info
+
+The requirements described here must be met for each contribution.
+
+:::
+
+## Description
+
+From the [Handbook:]((https://www.eclipse.org/projects/handbook/#ip-copyright-headers))
+
+*Where possible, all source code, property files, and metadata files (including application, test, and generated source code as well as other types of files such as XML, HTML, etc.) should contain appropriate copyright and license notices as well as information on each contribution.*
+
+:::caution
+
+Update the year in the copyright header at the start of each new year!
+
+Example:
+Copyright (c) 202x, __`<new year>`__ Contributors to the Eclipse Foundation
+
+:::
+
+### Copyright and License Header
+
+Example (Java):
+
+```md
+/********************************************************************************
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ ```
+
+:::tip
+
+Use your IDE's template mechanism to add the text automatically when you create new files.
+
+:::
+
+#### Copyright Header
+
+You can also __add__ the following line (one or more times) to identify the specific copyright owner(s):
+
+Copyright (c) 202x,20yy {owner}[ and others]
+
+Examples:
+
+1. Copyright (c) 2021,2023 MyCompany GmbH
+    - 2021, 2023 means from 2021 to 2023
+    - Copyright: MyCompany GmbH
+1. Copyright (c) 2021,2023 MyCompany GmbH and others
+    - others: somebody has made minor changes (e.g. fixed typos)
+
+Do __not__ remove the general line "Copyright (c) 202x,20yy Contributors to the Eclipse Foundation".
+
+#### License Header
+
+In no case do not change the license section, except for the formatting characters for the appropriate language.
