@@ -100,32 +100,23 @@ const config = {
         id: "bpdm-pool",
         docsPluginId: "classic",
         config: {
-          siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-            specPath: "./openApi/bpdm/pool.yaml", // Path to designated spec file
-            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api", // Output directory for generated .mdx docs
+          bpdm: {
+            specPath: "./openApi/bpdm/pool.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-          }
+          },
+          irs: {
+            specPath: "./openApi/irs/irs-v1.0.yaml",
+            outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
-      }
+      },
     ],
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: "irs-pool",
-        docsPluginId: "classic",
-        config: {
-          siteController: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-            specPath: "./openApi/irs/irs-v1.0.yaml", // Path to designated spec file
-            outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          }
-        },
-      }
-    ]
   ],
 
   themes: ["docusaurus-theme-openapi-docs"], // Allows use of @theme/ApiItem and other components
