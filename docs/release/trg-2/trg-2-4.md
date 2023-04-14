@@ -22,7 +22,7 @@ A good example when a product has a separate repository for frontend and backend
 - productname: leading product repository
   - README.md: contains the urls for the backend and frontend applications
   - contains the release of the product
-  - contains the [product helm chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-8)
+  - contains the [product helm chart](../trg-5/trg-5-08)
 - productname-A-frontend: the repository for the frontend application
 - productname-A-backend: the repository for the backend application
 
