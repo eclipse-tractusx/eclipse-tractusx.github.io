@@ -28,6 +28,12 @@ Furthermore, APIs and data models enable partners to send quality notifications 
 
 In the current version, the KIT supports the creation of data chains for the life cycle contexts “as built” and “as planned”. Further lifecycle contexts, e.g., as maintained will be supported in the future. Overall, the KIT represents the backbone to build data chains for use cases based on vehicles and parts. It empowers app providers to develop a Catena-X Traceability application and data provider to implement their digital twins and the connection to their subcomponents themselves.
 
+### Customer Journey
+
+With the Traceability KIT, we support the Catena-X customer journey for our adopters and solutions providers.
+
+![Customer Journey](assets/traceability_customer-journey.png)
+
 <!-- !Mandatory! -->
 ## Business Value
 
@@ -67,7 +73,13 @@ The KIT enables business to start Quality Investigations and send Quality Alerts
 Through the introduction of unique Catena-X IDs, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify them within the whole Catena-X ecosystem. Building on that, it is possible to interconnect the registered digital twins of different companies to create a coherent automotive data chain from end-to-end. Furthermore, those twins can easily be complemented with further data like material information to enable further use cases like Circular Economy.
 
 <!-- Recommended -->
-<!-- ## Tutorials -->
+## Tutorials
+
+The following video gives an overview of the presented Traceability Use Case.
+
+<video controls style={{width:'100%'}} controlsList="nodownload">
+  <source src="/video/traceability-video-9min-UT.mp4"/>
+</video>
 
 <!-- Optional -->
 <!-- ## Whitepaper -->
