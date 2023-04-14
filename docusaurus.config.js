@@ -62,6 +62,7 @@ const config = {
       "docusaurus-plugin-remote-content",
       {
         // options here
+        id: "remoteBpdm",
         name: "bpdm", // used by CLI, must be path safe
         sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/bpdm/main/docs/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/bpdm", // the base directory to output to.
@@ -73,6 +74,7 @@ const config = {
       "docusaurus-plugin-remote-content",
       {
         // options here
+        id: "remoteIrs",
         name: "irs", // used by CLI, must be path safe
         sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/irs", // the base directory to output to.
@@ -84,6 +86,7 @@ const config = {
       "docusaurus-plugin-remote-content",
       {
         // options here
+        id: "remoteChangelog",
         name: "changelog", // used by CLI, must be path safe
         sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/tractus-x-release/main/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "src/pages", // the base directory to output to.
