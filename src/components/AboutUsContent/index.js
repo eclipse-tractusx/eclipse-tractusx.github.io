@@ -20,7 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
-import TractusXBackground from "@site/static/img/tractus-x_background-minified.png";
+import TractusXBG from "@site/static/img/tractus-x_bg.svg";
 import LicensesImg from "@site/static/img/licenses-minified.png";
 
 import styles from "./styles.module.css";
@@ -41,7 +41,7 @@ export default function AboutUsContent() {
         </div>
 
         <div className={styles.img_container}>
-          <img className={styles.img} src={TractusXBackground} /> 
+          <TractusXBG className={styles.img}/>
         </div>
 
         <div className={styles.information_container}>

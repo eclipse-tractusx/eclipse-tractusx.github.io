@@ -114,6 +114,13 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          notifications: {
+            specPath: "./openApi/notifications/notifications.yaml", // Path to designated spec file
+            outputDir: "./docs/kits/Template Kit/Software Development View/Notification API", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
