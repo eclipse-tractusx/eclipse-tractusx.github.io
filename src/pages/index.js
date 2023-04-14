@@ -19,6 +19,8 @@ import HomePageHeader from "../components/HomePageHeader/index";
 import CarouselComponent from "../components/CarouselComponent";
 import AboutUsCard from "../components/AboutUsCard";
 import FAQsComponent from "../components/FAQsComponent";
+import KitsGallery from "../components/KitsGallery";
+import { galleryKits } from "@site/utils/galleryKits";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -30,7 +32,12 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard />
-        <CarouselComponent />
+        <br></br>
+        <KitsGallery 
+          itemsArray={galleryKits}
+          title={"Our Kits"}
+          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
+        />
         <FAQsComponent />
       </main>
     </Layout>
