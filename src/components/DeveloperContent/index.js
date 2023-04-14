@@ -24,6 +24,7 @@ import Link from "@docusaurus/Link";
 
 import EcosystemSVG from "@site/static/img/ecosystem_diagram.svg";
 import ThreeViewsSVG from "@site/static/img/three_views.svg";
+import Ecosystem1 from "@site/static/img/cj.png";
 
 import styles from "./styles.module.css";
 
@@ -43,7 +44,17 @@ export default function DeveloperContent() {
             To establish this one global data space and enable collaboration and interoperability, Catena-X releases and updates standards and developer resources as one of its key offerings. Standards including whitepapers are published on the Catena-X Association website (Standard Library) and developer resources including KITs, compatible implementations, and release guidelines are published on the Tractus-X Website. 
           </p>
 
-          <p className={styles.description}>
+        <p className={styles.description}>
+        With KITs, the Catena-X customer journey comes to life - consisting of the following 5 steps to participate in Catena-X data space: (1) Inform, (2) Connect, (3) Boost, (4) Adopt, and (5) Utilize. KITs offer a dedicated set of tools to empower and stimulate solution providers to create interoperable solutions for each step of the customer journey. These solutions can be offered on different marketplaces in the Catena-X data space. Adopters such as OEMs, suppliers, or recyclers can either use KITs or solutions from the marketplaces to support their customer journey.  
+          </p>
+          <br></br>
+
+        <div className={styles.img_container}>
+          <img className={styles.licenses} src={Ecosystem1} /> 
+        </div>
+
+        <p className={styles.description}>
+            <br></br>The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
             Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
           </p>
 
@@ -53,10 +64,6 @@ export default function DeveloperContent() {
             <li><Link to="docs/Resiliency">Business Domain Resiliency</Link></li>
             <li>Business Domain Sustainability Domain</li> 
           </ul>
-        </div>
-
-        <div className={styles.img_container}>
-          <EcosystemSVG className={styles.img} />
         </div>
 
         <div className={styles.title_container}>
