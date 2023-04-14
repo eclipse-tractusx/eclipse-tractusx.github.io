@@ -94,28 +94,6 @@ const config = {
         noRuntimeDownloads: true
       },
     ],
-    // [
-    //   "docusaurus-plugin-remote-content",
-    //   {
-    //     // options here
-    //     name: "irs-admin-documentation", // used by CLI, must be path safe
-    //     sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-    //     outDir: "docs/kits/Data Chain Kit/Documentation", // the base directory to output to.
-    //     documents: ["administration-guide.md"], // the file names to download
-    //     noRuntimeDownloads: true
-    //   },
-    // ],
-    // [
-    //   "docusaurus-plugin-remote-content",
-    //   {
-    //     // options here
-    //     name: "irs-arc-documentation", // used by CLI, must be path safe
-    //     sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/gh-pages/docs/administration/arc42/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-    //     outDir: "docs/kits/Data Chain Kit/Documentation", // the base directory to output to.
-    //     documents: ["full.md"], // the file names to download
-    //     noRuntimeDownloads: true
-    //   },
-    // ],
     [
       'docusaurus-plugin-openapi-docs',
       {
