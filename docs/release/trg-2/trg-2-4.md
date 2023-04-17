@@ -17,12 +17,12 @@ They need to be able to understand complicated product structures in an intuitiv
 Each product **must** have a leading product repository that can point the users to all the parts/components/charts/releases of that product.
 This can be achieved by having a single repository for a product or creating references to the other repositories.
 
-A good example when a product has a separate repository for frontend and backend. Then the product team **must** must have a leading repository where they reference the components/repositories of the product:
+A good example when a product has a separate repository for frontend and backend. Then the product team **must** have a leading repository where they reference the components/repositories of the product:
 
 - productname: leading product repository
   - README.md: contains the urls for the backend and frontend applications
   - contains the release of the product
-  - contains the [product helm chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-8)
+  - contains the [product helm chart](../trg-5/trg-5-08)
 - productname-A-frontend: the repository for the frontend application
 - productname-A-backend: the repository for the backend application
 
