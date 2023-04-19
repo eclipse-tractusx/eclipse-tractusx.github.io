@@ -1,0 +1,61 @@
+---
+title: TRG 7.06 - Legal information for end user content
+sidebar_position: 1
+---
+
+:::caution
+Proposed release date: "mandatory after": 19th of May 2023
+:::
+
+| Status | Created     | Post-History  |
+|--------|-------------|---------------|
+| Draft  | 13-Apr-2023 | New           |
+
+## Why
+
+Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
+
+All products delivered by the project—including executables, websites, documentation, and help must include certain notices. An executable might, for example, provide this information in an About Dialog; documentation might include a notice in either the pre- or post-amble, or a website might provide this information in a common footer, or a dedicated page.
+
+(From: [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-end-user))
+
+## Description
+
+### Frontend Components
+
+Add an About Dialog (or similar) with the following informations:
+
+- Copyright statements
+- License
+- Trademarks owned by the Eclipse Foundation on behalf of the project
+- The source code repositories
+- Used 3rd party libraries
+- When applicable — a cryptography notice
+
+As all of this information is already present in your repository, you can add the links.
+
+:::info
+
+The links to your repostitory have to reference the tagged version (*) the component delivery has been created / build from!
+
+:::
+
+Example:
+
+    [Your product name](URL to the YOUR repository)
+    * License: Apache-2.0
+    * Licence Path: <URL to the Apache License in your repository (*)>
+    * NOTICE: <URL to the NOTICE file in your repository (*)>
+    * Source URL: <URL to the your repository (*)>
+    * Commit ID: <the commit id the component delivery has been created / build from>
+
+### Documentation
+
+Documentation should include a notice in either the pre- or post-amble, with the following information:
+
+    * License (SPDX-License-Identifier)
+    * Licence Path: <URL>
+    * Copyright statements
+    * Source URL: <URL to the your repository>
+
+__NOTE:__ This information has to be readable IN the document, so e.g. adding a standard Copyright / License header in an md file as comments in NOT sufficient.
