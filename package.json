@@ -24,6 +24,7 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
     "clsx": "^1.2.1",
+    "docusaurus": "^1.14.7",
     "docusaurus-plugin-openapi-docs": "^1.5.1",
     "docusaurus-plugin-remote-content": "^3.1.0",
     "docusaurus-theme-openapi-docs": "^1.5.1",
