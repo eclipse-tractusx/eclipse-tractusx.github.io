@@ -25,3 +25,7 @@ See a more [detailed description](issues).
 - [Legal resource page for the Eclipse Foundation](https://www.eclipse.org/legal/)
 - [Trainings Videos: Eclipse Foundation Training](https://www.eclipse.org/projects/training/)
 - [Dash License Tool](https://github.com/eclipse/dash-licenses)
+
+### Eclipse Foundation channels
+
+- [Community Chat](https://chat.eclipse.org/#/home)

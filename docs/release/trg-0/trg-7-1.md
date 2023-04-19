@@ -51,27 +51,8 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-license).
 - Add the link(s) to your SBOM, e.g. the DEPENDENCY file (one or more)
 - Add information for third party content checks, if not covered by the Dash Tool (e.g. IP checks for icons, fonts, ...)
 
-**Example for third party icons:**
-
-```shell
-feather (4.29)
-    * License: MIT License
-    * Licence Path: https://github.com/feathericons/feather/blob/master/LICENSE
-    * Project URL: https://feathericons.com/
-    * Source URL: https://github.com/feathericons/feather
-```
-
-**Example for a third party library:**
-
-```shell
-jcl-over-slf4j-1.7.25.jar (1.7.25)
-    * License: MIT License
-    * Licence Path: https://www.slf4j.org/license.html
-    * Project URL:  https://www.slf4j.org
-    * Source URL:   https://github.com/qos-ch/slf4j
-```
-
 See the [Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-notice).
+(TODO AWI: Add link to TRG 7.04)
 
 ### DEPENDENCY FILE
 
@@ -127,3 +108,4 @@ and here in [md format](https://raw.githubusercontent.com/eclipse/.github/master
 |--------|-------------|---------------|
 | TRG 2.03  | remove / change links to legal doc files | duplicate description           |
 | static files  | delete example files (e.g. notice.md, ...) | use links to EF instead           |
+| this  | add / change links to other TRG 7.x pages | page location will change          |

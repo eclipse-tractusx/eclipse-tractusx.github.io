@@ -24,8 +24,8 @@ Here all requests for Eclipse infrastructure  go in.
 **IMPORTANT:** only a committer can create a valid IP Ticket!
 
 - IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project"
-- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses)
 - IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party"
+- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses)
 
 **Notes:**
 
