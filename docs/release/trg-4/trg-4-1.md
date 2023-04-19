@@ -13,7 +13,7 @@ Using non-specific image tags like `:latest` would require everyone to find and 
 
 This also breaks control of selecting specific versions and upgrading as `:latest` would pull in new images on restart of a pod.
 
-Container image tagging also helps you to match [TRG 5.05 - Chart Values](../trg-5/trg-5-5.md#container-images).
+Container image tagging also helps you to match [TRG 5.05 - Chart Values](../trg-5/trg-5-05.md#container-images).
 
 ## Description
 
