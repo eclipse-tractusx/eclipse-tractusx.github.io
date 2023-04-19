@@ -11,8 +11,8 @@ If you want to start directly in Eclipse Tractus-X, follow these steps TODO-AWI
 
 ## Prepare the code to move to the eclipse-tractusx GitHub Organisation
 
-- [ ] request the repository / repositories: create an  Eclipse Helpdesk issue (TODO-AWI link) 
-- [ ] prepare your code 
+- [ ] request the repository / repositories: create an  Eclipse Helpdesk issue (TODO-AWI link)
+- [ ] prepare your code
 - [ ] add legal documentation (Templates and examples)
 - [ ] check your 3rd party dependencies
 - [ ] submit your Code Contribution

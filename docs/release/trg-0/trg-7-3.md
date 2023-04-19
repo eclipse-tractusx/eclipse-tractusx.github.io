@@ -34,14 +34,20 @@ See the exact explanation for __project content__ in the [Handbook](https://www.
 
 Contributions by Eclipse contributors (signed [ECA](https://www.eclipse.org/projects/handbook/#contributing-eca)) must be received via an Eclipse Foundation channel (e.g., GitHub pull request, attachment on an issue).
 
-A Tractus-X committer can accept the contribution without further investigation if all of the following conditions are met:
+A Tractus-X committer __can__ accept the contribution without further investigation if all of the following conditions are met:
 
-- Was developed from scratch; written 100% by submitting contributor;
-- Was submitted under the terms of the project license
+- Was developed from scratch; written 100% by Eclipse contributors (no copied code, e.g. from StackOverflow or generated AI code e.g. from ChatGPT)
+- Was submitted under the terms of the project license (e.g. legal doc, copyright & license header)
 - Contains no cryptography; and
 - It contains fewer than 1,000 lines of code, configuration files, and other forms of source code.
 
-If not, a project committer __must__ engage with the IP Team to [request an IP review](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) by the IP Team before the contribution is pushed/merged.
+If not, a project committer __must__ engage with the IP Team to request an [IP review for Code Contributions](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) by the IP Team before the contribution is pushed/merged.
+
+Additionally check if the DEPENDENCY file is up-to-date:
+
+- Check for changes of the used libraries (e.g. pom files, package-lock.json, ...)
+- Check for libraries with status "rejected", if present, the contribution must be rejected
+- Check for libraries with status "restricted" __AND__ no IP issues have been created (no issue number is present in the source column), if so a project committer __must__ create the [IP reviews for 3rd party libraries](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) (TODO AWI: Link to 3rd party checks / Dash Tool)
 
 ### Contributions by a Tractus-X committer
 
