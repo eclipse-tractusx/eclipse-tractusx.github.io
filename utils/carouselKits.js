@@ -1,6 +1,7 @@
 import Business_Kit from "@site/static/img/business_kit-minified.png";
-import Conector_Kit from "@site/static/img/conector_kit-minified.png";
+import Conector_Kit from "@site/static/img/connector_kit-minified.png";
 import DataChain_Kit from "@site/static/img/datachain_kit-minified.png";
+import Traceability_Kit from "@site/static/img/traceability_kit-minified.png";
 
 export const carouselKits = [
   {
@@ -20,8 +21,8 @@ export const carouselKits = [
   },
   {
     id: 4,
-    img: Business_Kit,
-    pageRoute: "docs/kits/Business Partner Kit/Adoption View"
+    img: Traceability_Kit,
+    pageRoute: "docs/kits/traceability%20Kit/Adoption%20View%20Traceability%20Kit"
   },
   {
     id: 5,
