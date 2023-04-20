@@ -1,11 +1,6 @@
 ---
 title: TRG 7.02 - License and Copyright header
-sidebar_position: 1
 ---
-
-:::caution
-Proposed release date: "mandatory after": 19th of May 2023
-:::
 
 | Status | Created     | Post-History  |
 |--------|-------------|---------------|
@@ -15,26 +10,24 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
 
-This page contains information about legal documentation requirements in your files. The reference is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-copyright-headers).
+This page contains information about legal documentation requirements in your files. The source of truth is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-copyright-headers).
 
 :::info
 
-The requirements described here must be met for each contribution.
+The requirements described here **must** be met for each contribution.
 
 :::
 
 ## Description
 
-From the [Handbook:]((https://www.eclipse.org/projects/handbook/#ip-copyright-headers))
-
-*Where possible, all source code, property files, and metadata files (including application, test, and generated source code as well as other types of files such as XML, HTML, etc.) should contain appropriate copyright and license notices as well as information on each contribution.*
+*Where possible, all source code, property files, and metadata files (including application, test, and generated source code as well as other types of files such as XML, HTML, etc.) should contain appropriate copyright and license notices as well as information on each contribution.* (From the [Handbook#ip-copyright-headers](https://www.eclipse.org/projects/handbook/#ip-copyright-headers))
 
 :::caution
 
 Update the year in the copyright header at the start of each new year!
 
 Example:
-Copyright (c) 202x, __`<new year>`__ Contributors to the Eclipse Foundation
+Copyright (c) 202x, **`<new year>`** Contributors to the Eclipse Foundation
 
 :::
 
@@ -71,7 +64,7 @@ Use your IDE's template mechanism to add the text automatically when you create 
 
 #### Copyright Header
 
-You can also __add__ the following line (one or more times) to identify the specific copyright owner(s):
+You can also **add** the following line (one or more times) to identify the specific copyright owner(s):
 
 Copyright (c) 202x,20yy {owner}[ and others]
 
@@ -83,8 +76,8 @@ Examples:
 1. Copyright (c) 2021,2023 MyCompany GmbH and others
     - others: somebody has made minor changes (e.g. fixed typos)
 
-Do __not__ remove the general line "Copyright (c) 202x,20yy Contributors to the Eclipse Foundation".
+Do **not** remove the general line "Copyright (c) 202x,20yy Contributors to the Eclipse Foundation".
 
 #### License Header
 
-In no case do not change the license section, except for the formatting characters for the appropriate language.
+Never change the license section, except for the formatting characters for the appropriate language.

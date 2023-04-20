@@ -1,11 +1,6 @@
 ---
 title: TRG 7.01 - Legal Documentation
-sidebar_position: 1
 ---
-
-:::caution
-Proposed release date: "mandatory after": 19th of May 2023
-:::
 
 | Status | Created     | Post-History  |
 |--------|-------------|---------------|
@@ -15,17 +10,17 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
 
-This page contains information about legal documentation requirements in your repositories. The reference is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#legaldoc).
+This page contains information about legal documentation requirements in your repositories. The source of truth is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#legaldoc).
 
 :::info
 
-The requirements described here must be met for each contribution.
+The requirements described here **must** be met for each contribution.
 
 :::
 
 ## Description
 
-The following files have to be added at root level of your Eclipse Tractus-X repository:
+The following files must be part of your repository root folder:
 
 - LICENSE
 - NOTICE.md
@@ -38,20 +33,26 @@ For examples look to the [Eclipse Tractus-X GitHub Organisation](https://github.
 
 ### LICENSE FILE
 
-In Eclipse Tractus-X the outbound license is Apache-2.0 for all code.
+In Eclipse Tractus-X the outbound license is Apache-2.0.
 
 - SPDX-License-Identifier: Apache-2.0
 - [License Text](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-license).
+See the [Handbook#legaldoc-license](https://www.eclipse.org/projects/handbook/#legaldoc-license).
+
+<!--- TODO AWI CC BY as license for documentation
+For documentation the Creative Commons Attribution 4.0 International (CC BY 4.0) is recommended:
+- SPDX-License-Identifier: CC-BY-4.0
+- Link: https://creativecommons.org/licenses/by/4.0/legalcode
+--->
 
 ### NOTICE FILE
 
-- Add the link(s) to your repositories
+- Add the link to your repository
 - Add the link(s) to your SBOM, e.g. the DEPENDENCY file (one or more)
 - Add information for third party content checks, if not covered by the Dash Tool (e.g. IP checks for icons, fonts, ...)
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-notice).
+See the [Handbook#legaldoc-notice](https://www.eclipse.org/projects/handbook/#legaldoc-notice).
 (TODO AWI: Add link to TRG 7.04)
 
 ### DEPENDENCY FILE
@@ -64,21 +65,21 @@ Third-party dependencies need to be checked regularly to reflect your code chang
 
 - Create it with the [Eclipse Dash License Tool](https://www.eclipse.org/projects/handbook/#ip-license-tool)
 
-If different technologies / package managers (e.g. npm and maven) are used you are free to have several dependeny files. Use the naming convention DEPENDENCY_XYZ, e.g. DEPENDENCY_FRONTEND and DEPENDENCY_BACKEND.
+If different technologies / package managers (e.g. npm and maven) are used you are free to have several dependency files. Use the naming convention DEPENDENCY_XYZ, e.g. DEPENDENCY_FRONTEND and DEPENDENCY_BACKEND.
 
 Further information: (TODO AWI: add link to TRG 7.04)
 
 ### SECURITY FILE
 
-- The security file should at least contain information, where/how to report a vulneriability issue.
+- The security file should at least contain information, where/how to report a vulneriability issue
 - Add this [link](https://www.eclipse.org/security/)
 - [Example](https://github.com/eclipse-tractusx/app-dashboard/blob/main/SECURITY.md)
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#vulnerability).
+See the [Handbook#vulnerability](https://www.eclipse.org/projects/handbook/#vulnerability).
 
 ### CONTRIBUTOR GUIDE
 
-See the [Handbook](https://www.eclipse.org/projects/handbook/#legaldoc-contributor)
+See the [Handbook#legaldoc-contributor](https://www.eclipse.org/projects/handbook/#legaldoc-contributor)
 
 ### CODE OF CONDUCT
 
@@ -97,7 +98,7 @@ and here in [md format](https://raw.githubusercontent.com/eclipse/.github/master
 - Add the authors and further contact information
 - [Example](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/blob/main/AUTHORS.md)
 
-## How to check
+## Existing checks for the legal documentation
 
 - [EF - Legal Documentation Generator](https://www.eclipse.org/projects/tools/documentation.php?id=automotive.tractusx)
 - [TractusX - Central Github Checks](https://eclipse-tractusx.github.io/docs/github-checks)

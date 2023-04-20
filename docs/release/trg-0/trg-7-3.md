@@ -1,11 +1,6 @@
 ---
 title: TRG 7.03 - IP checks for project content
-sidebar_position: 1
 ---
-
-:::caution
-Proposed release date: "mandatory after": 19th of May 2023
-:::
 
 | Status | Created     | Post-History  |
 |--------|-------------|---------------|
@@ -15,39 +10,39 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
 
-This page contains information about legal obligations and checks of your project content. The reference is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-project-content).
+This page contains information about legal obligations and checks of your project content. The source of truth is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-project-content).
 
 :::info
 
-The requirements described here must be met for each contribution.
+The requirements described here **must** be met for each contribution.
 
-The checks and reviews described here are all about __IP issues__ , it does not cover content reviews in the sense of meeting the specification, completeness of features, etc. [More about the Tractus-X review process.](/docs/oss/code-reviews)
+The checks and reviews described here are all about **IP issues** , it does not cover content reviews in the sense of meeting the specification, completeness of features, etc. [More about the Tractus-X review process.](/docs/oss/code-reviews)
 
 :::
 
 ## Description
 
-Project content is sloppy said, all content you created, e.g. code, scripts, documentation and configuration files.
-See the exact explanation for __project content__ in the [Handbook](https://www.eclipse.org/projects/handbook/#ip-project-content).
+Project content is roughly said, all content you created, e.g. code, scripts, documentation and configuration files.
+See the exact explanation for **project content** in the [Handbook](https://www.eclipse.org/projects/handbook/#ip-project-content).
 
 ### Checking contributions by a Eclipse contributor
 
 Contributions by Eclipse contributors (signed [ECA](https://www.eclipse.org/projects/handbook/#contributing-eca)) must be received via an Eclipse Foundation channel (e.g., GitHub pull request, attachment on an issue).
 
-A Tractus-X committer __can__ accept the contribution without further investigation if all of the following conditions are met:
+A Tractus-X committer **can** accept the contribution without further investigation if all of the following conditions are met:
 
 - Was developed from scratch; written 100% by Eclipse contributors (no copied code, e.g. from StackOverflow or generated AI code e.g. from ChatGPT)
 - Was submitted under the terms of the project license (e.g. legal doc, copyright & license header)
 - Contains no cryptography; and
 - It contains fewer than 1,000 lines of code, configuration files, and other forms of source code.
 
-If not, a project committer __must__ engage with the IP Team to request an [IP review for Code Contributions](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) by the IP Team before the contribution is pushed/merged.
+If not, a project committer **must** engage with the IP Team to request an [IP review for Code Contributions](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) by the IP Team before the contribution is pushed/merged.
 
 Additionally check if the DEPENDENCY file is up-to-date:
 
 - Check for changes of the used libraries (e.g. pom files, package-lock.json, ...)
 - Check for libraries with status "rejected", if present, the contribution must be rejected
-- Check for libraries with status "restricted" __AND__ no IP issues have been created (no issue number is present in the source column), if so a project committer __must__ create the [IP reviews for 3rd party libraries](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) (TODO AWI: Link to 3rd party checks / Dash Tool)
+- Check for libraries with status "restricted" **AND** no IP issues have been created (no issue number is present in the source column), if so a project committer **must** create the [IP reviews for 3rd party libraries](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) (TODO AWI: Link to 3rd party checks / Dash Tool)
 
 ### Contributions by a Tractus-X committer
 

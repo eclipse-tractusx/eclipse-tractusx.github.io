@@ -1,6 +1,5 @@
 ---
-title: TRG 7.06 - Legal information for end user content
-sidebar_position: 1
+title: TRG 7.06 - Legal notice for end user content
 ---
 
 :::caution
@@ -32,7 +31,7 @@ Add an About Dialog (or similar) with the following informations:
 - Used 3rd party libraries
 - When applicable — a cryptography notice
 
-As all of this information is already present in your repository, you can add the links.
+The information can be provided in a static way or you can link directly to the source repository as they already contain your legal information.
 
 :::info
 
@@ -51,11 +50,18 @@ Example:
 
 ### Documentation
 
+For documentation the Creative Commons Attribution 4.0 International (CC BY 4.0) is recommended:
+
+- SPDX-License-Identifier: CC-BY-4.0
+- [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
 Documentation should include a notice in either the pre- or post-amble, with the following information:
 
     * License (SPDX-License-Identifier)
     * Licence Path: <URL>
     * Copyright statements
-    * Source URL: <URL to the your repository>
+    * Source URL: <URL to the your repository> **OR** Download URL:
 
-__NOTE:__ This information has to be readable IN the document, so e.g. adding a standard Copyright / License header in an md file as comments in NOT sufficient.
+**NOTE:** This information has to be readable IN the document, so e.g. adding a standard Copyright / License header in an md file as comments in NOT sufficient.
+
+<!--- TODO AWI: to be clarified: storage of the license in the repo --->

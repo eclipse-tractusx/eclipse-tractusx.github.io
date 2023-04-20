@@ -7,25 +7,27 @@ In the Eclipse infrastructure there are different issue trackers for different p
 
 ## GitHub Issues related to a repository
 
-Put there all issues related to your code, development. You are free to define your own rules, e.g. naming conventions.
+Create all issues related to your code and development here. You are free to define your own rules, e.g. naming conventions.
 E.g. [issues for this webpage](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues)
 
 ## [Eclipse Foundation Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?search=tractus&sort=created_date&state=opened&first_page_size=100)
 
-Here all requests for Eclipse infrastructure  go in.
+Here all requests for Eclipse infrastructure go in.
 
-- Start the summary with "tractus-x" prefix
+- Start the summary with "tractus-x:" prefix
 - If you are not a committer, create the ticket and add a committer to request a "thumbs up" for approval
-- [Example new Repository](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2273) for requesting a new repository
-- [Example new Sonar Project](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2843) for requesting a sonar project for a repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2273) for requesting a new repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2843) for requesting a sonar project for a repository
 
 ## [Eclipse GitLab IP Issue Tracker](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20)
 
 **IMPORTANT:** only a committer can create a valid IP Ticket!
 
-- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project"
-- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party"
-- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses)
+- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project" ([more information](/docs/release/trg-0/trg-7-3#description))
+- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party" ([more information](/docs/release/trg-0/trg-7-4#checking-other-content-fonts-images-))
+- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses) ([more information](/docs/release/trg-0/trg-7-4#checking-libraries-using-the-eclipse-dash-license-tool))
+
+<!--- TODO AWI: change links from draft to final --->
 
 **Notes:**
 
