@@ -45,6 +45,7 @@
 
 .img {
   width: 75%;
+  height: fit-content;
 }
 
 .description {

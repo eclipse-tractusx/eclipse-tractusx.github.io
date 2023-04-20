@@ -42,7 +42,7 @@ inside this directory is the responsibility of the repository owner/product team
 #### /charts
 
 The `/charts` directory **must** contain the Helm chart for the Tractus-X product IF available. For more information about Helm
-Chart structure, refer to [TRG 5.01 - Helm Chart requirements](../trg-5/trg-5-1).
+Chart structure, refer to [TRG 5.01 - Helm Chart requirements](../trg-5/trg-5-01).
 
 ### Files
 
