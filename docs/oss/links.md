@@ -8,7 +8,6 @@ sidebar_position: 98
 - [Eclipse Tractus-X Projekt](https://projects.eclipse.org/projects/automotive.tractusx)
 - [eclipse-tractusx GitHub Organisation](https://github.com/eclipse-tractusx)
 - [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev)
-- [OSS Templates für catenax-ng Projekte](https://github.com/catenax-ng/foss-example)
 
 ### Eclipse Foundation Issue Tracker
 

@@ -1,11 +1,6 @@
 ---
 title: TRG 7.04 - IP checks for 3rd party content
-sidebar_position: 1
 ---
-
-:::caution
-Proposed release date: "mandatory after": 19th of May 2023
-:::
 
 | Status | Created     | Post-History  |
 |--------|-------------|---------------|
@@ -15,11 +10,11 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 Eclipse Tractus-X is an open source project hosted by the Eclipse Foundation licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0). The legal obligations of the content must be observed in all forms of which the content is available.
 
-This page contains information about legal obligations and checks of your 3rd party content. The reference is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-third-party).
+This page contains information about legal obligations and checks of your 3rd party content. The source of truth is always the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#ip-third-party).
 
 :::info
 
-The requirements described here must be met for each contribution.
+The requirements described here **must** be met for each contribution.
 
 :::
 
@@ -29,14 +24,14 @@ The term third-party content refers to any content that is leveraged by the Ecli
 
 All third-party content has to be checked and approved by the Eclipse Foundation IP Team. There are two ways:
 
-- Creating an IP issue manually (e.g. fonts, images, ...);
-- Using the Eclipse Dash License Tool to creat IP issues in an automated way (libraries).
+- Creating an IP issue manually (e.g. fonts, images, ...)
+- Using the Eclipse Dash License Tool to creat IP issues in an automated way (libraries)
 
-All third party content used has to be documented in the NOTICE file or the DEPENDENCY file. (TODO AWI: add link to TRG 7.01)
+All third party content used has to be documented in the NOTICE file or in the DEPENDENCY file. (TODO AWI: add link to TRG 7.01)
 
 :::info
 
-Only project committers can request IP issues, manually or via the Dash Tool!
+Only project committers can open IP issues, manually or via the Dash Tool!
 
 :::
 
@@ -64,10 +59,10 @@ You can request the status of your used libraries via the [Dash Licence Tool](ht
 
 - Get your API Token (see README of the Dash Tool), note that only committers can get an API Token
 - Do **NOT** share your API Token!
-- DO **NOT** integrate into automatic builds the "Automatic IP Team Review Requests" (creation of ip tickets: " -review option") via your personal API Token
-To integrate in your automatic builds: request a dash-bot via the EF Helpdesk.
+- DO **NOT** integrate into automatic builds the "Automatic IP Team Review Requests" (creation of ip tickets: " -review option") via your **personal** API Token
+- To integrate in your automatic builds: request a dash-bot via the EF Helpdesk.
 
-### Other content (fonts, images, ...)
+### Checking other content (fonts, images, ...)
 
 Other 3rd party content, e.g. fonts, icons, images has also to be approved by the Eclipse Foundation IP Team. See [here](/docs/oss/issues#eclipse-gitlab-ip-issue-tracker) for more information to create a IP issue manually.
 
