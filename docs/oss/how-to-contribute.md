@@ -26,11 +26,10 @@ The more welcome you make your community feel, the more likely it is that your p
 
 Mail adress: tractusx-dev@eclipse.org
 
-Every contributor should be subscribed to the [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev). Committers have to be subscripbed to the list and are added automatcally when gaining the committer status.
+Every contributor should be subscribed to the [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev). Committers have to be subscribed to the list and are added automatically when gaining the committer status.
 
 ## Reporting Issues
 
-Reporting issues a an important part of doing development in an open and transparent way.
-It is also used for documentation.
+If you find a bug or you have a request or proposal for e.g. a new feature, open an issue. This is an important part of doing development in an open and transparent way and is also used for documentation. More [information about the different issue tracker](/docs/oss/issues).
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#community-issues)
