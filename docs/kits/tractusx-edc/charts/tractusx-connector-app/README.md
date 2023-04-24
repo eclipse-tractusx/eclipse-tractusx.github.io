@@ -18,8 +18,8 @@ This chart is intended to be used as self-contained deployment, which only requi
 | Repository | Name | Version |
 |------------|------|---------|
 | file://../tractusx-connector | runtime(tractusx-connector) | 0.3.2 |
-| https://charts.bitnami.com/bitnami | postgresql(postgresql) | 12.1.6 |
-| https://helm.releases.hashicorp.com | vault(vault) | 0.20.0 |
+| <https://charts.bitnami.com/bitnami> | postgresql(postgresql) | 12.1.6 |
+| <https://helm.releases.hashicorp.com> | vault(vault) | 0.20.0 |
 
 ## Values
 
