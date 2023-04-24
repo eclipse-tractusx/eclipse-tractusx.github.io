@@ -4,7 +4,6 @@
 
 - [Hashicorp Vault](https://www.vaultproject.io/)
 
-
 ---
 
 **Please note:**
