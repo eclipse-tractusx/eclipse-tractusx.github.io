@@ -1,9 +1,9 @@
 ---
-title: First Steps
+title: Setup the Wallet-EDC Connection
 sidebar_position: 2
 ---
 
-# First Steps
+# Setup the Wallet to EDC Connection to enable SSI
 
 ---
 **NOTE:**

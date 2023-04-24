@@ -1,9 +1,9 @@
 ---
-title: First Steps
-sidebar_position: 2
+title: Connect an EDC UI
+sidebar_position: 1
 ---
 
-# First Steps
+# Connect your EDC to a UI
 
 ---
 **NOTE:**

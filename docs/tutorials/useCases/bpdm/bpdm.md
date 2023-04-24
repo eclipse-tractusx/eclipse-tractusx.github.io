@@ -1,9 +1,9 @@
 ---
-title: First Steps
+title: "Business Partner Data Management"
 sidebar_position: 2
 ---
 
-# First Steps
+# Business Partner Data Management
 
 ---
 **NOTE:**

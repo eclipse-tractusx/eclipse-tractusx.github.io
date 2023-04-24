@@ -1,9 +1,9 @@
 ---
-title: First Steps
-sidebar_position: 2
+title: Prerequisites
+sidebar_position: 1
 ---
 
-# First Steps
+# Prerequisites
 
 ---
 **NOTE:**
