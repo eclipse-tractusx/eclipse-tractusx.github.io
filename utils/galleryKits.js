@@ -18,7 +18,7 @@ export const galleryKits = [
   {
     id: 3,
     img: Connector_Kit,
-    pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
     id: 4,
