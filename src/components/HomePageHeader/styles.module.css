@@ -72,8 +72,32 @@
     line-height: 3vw;
   }
 
+  .btn_container {
+    margin-top: -2rem;
+  }
+
   .button {
     padding: 0.5rem 1rem;
     font-size: 1.8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 44px;
+    line-height: 40px;
+  }
+  .subtitle_box {
+    width: 75vw;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .button {
+    padding: 0.3rem 1rem;
+    font-size: 12px;
   }
 }
