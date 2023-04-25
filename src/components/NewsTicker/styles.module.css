@@ -83,7 +83,7 @@
 
   .button {
     padding: 0 0.8rem;
-    font-size: 1.3vw;
+    font-size: 12px;
   }
 
   .date {
@@ -101,6 +101,29 @@
     text-overflow: ellipsis;
     font-size: smaller;
     color: var(--ifm-color-primary);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 98vw;
+  }
+
+  .button {
+    padding: 0rem 0.6rem;
+    font-size: 10px;
+  }
+
+  .carousel_container {
+    width: 80vw;
+  }
+
+  .slider_item {
+    justify-content: center;
+  }
+
+  .date {
+    margin: 0;
   }
 }
     

@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
+  padding: 4rem 0;
   background-color: var(--ifm-background-color);
 }
 
@@ -66,6 +66,10 @@
 }
 
 @media screen and (max-width: 996px) {
+  .faqs {
+    padding: 2rem 0;
+  }
+
   .container {
     width: 80vw;
     height: auto;
@@ -78,8 +82,26 @@
     margin-top: 0rem;
   }
 
+  .btn_container {
+    margin-top: 1rem;
+  }
+
   .button {
     padding: 0.5rem 1rem;
     font-size: 1.8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .faqs {
+    padding: 0;
+  }
+
+  .container {
+    width: 90vw;
+  }
+
+  .button {
+    font-size: 12px;
   }
 }
