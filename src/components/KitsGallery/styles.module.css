@@ -100,3 +100,18 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .gallery_container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2.5rem; 
+  gap: 2rem; 
   padding-bottom: 2rem;
 }
 
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: center;
   width: 110%;
-  margin-top: -2rem;
+  margin: 1rem 0;
 }
 
 .img {
@@ -71,5 +71,17 @@
     align-items: center;
     padding-bottom: 2rem;
     gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 70vw;
+    gap: 1rem;
+    padding-bottom: 0;
+  }
+
+  .img {
+    width: 100%;
   }
 }

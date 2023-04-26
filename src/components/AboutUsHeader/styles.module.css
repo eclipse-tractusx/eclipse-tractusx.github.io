@@ -101,3 +101,31 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .about_header {
+    height: fit-content;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .svg_container {
+    height: fit-content;
+  }
+
+  .svg {
+    width: 80%;
+    height: 80%;
+  }
+
+  .information_container {
+    width: 80vw;
+    height: fit-content;
+  }
+}

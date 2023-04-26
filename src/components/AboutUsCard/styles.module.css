@@ -95,3 +95,18 @@
     font-size: 1.8vw;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 70vw;
+    height: fit-content;
+  }
+
+  .information_container {
+    height: fit-content;
+  }
+
+  .button {
+    font-size: 12px;
+  }
+}
