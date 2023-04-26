@@ -1,5 +1,6 @@
 ---
 title: Graduation Process
+sidebar_position: 1
 ---
 
 At this point we describe the development process of a KIT. Since the KITs are to be developed in opensource we have decided to use the Graduation Process of the [cncf](https://www.cncf.io) in a slightly modified version. The goal is to track the progress of each kit and to achieve a certain level of quality.
