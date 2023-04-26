@@ -49,7 +49,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Kit - Processes',
+            label: 'Kit - General Workflow',
             link: {
                 type: 'doc',
                 id: 'release'
