@@ -22,8 +22,7 @@ In the final stage, the Graduated stage, the KIT is production ready, published 
 
 ## Promotion Process
 
-As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be delivered. A distinction is made between necessary, optional and recommended deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level.
-To achieve graduated status, a case study must also be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner only tries to solve the problem to be solved with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
+As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be delivered. A distinction is made between necessary, optional and recommended deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level. As soon as this criteria is met a promotion has to be requested. To achieve graduated status, a case study must also be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner only tries to solve the problem to be solved with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
 
 ## Artfacts & Deliverables
 
