@@ -2,7 +2,11 @@
 title: Versioning scheme
 ---
 
-To achieve some uniformity, we prescribe a versioning scheme for KITs. Here we use a modified semantic versioning. With semantic versioning, the version is composed of three parts as follows: MAJOR.MINOR.PATCH. An increment in Major component marks a change that makes the current version incompatible with the previous versions. A minor increment, on the other hand, indicates the addition of a new feature or component. An increment in the Patch component marks an unimportant change.
+To achieve some uniformity, we prescribe a versioning scheme for KITs. Here we use a modified semantic versioning. With semantic versioning, the version is composed of three parts as follows:
+
+`MAJOR.MINOR.PATCH`
+
+An increment in Major component marks a change that makes the current version incompatible with the previous versions. A minor increment, on the other hand, indicates the addition of a new feature or component. An increment in the Patch component marks an unimportant change.
 
 For a kit we distinguish between two phases developing and graduated.
 
