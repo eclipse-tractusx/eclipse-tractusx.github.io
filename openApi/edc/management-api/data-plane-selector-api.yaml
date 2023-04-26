@@ -1,4 +1,11 @@
 openapi: 3.0.1
+info:
+  title: EDC Data Plane Selector API
+  description:
+  license:
+    name: Apache License v2.0
+    url: http://apache.org/v2
+  version: 0.0.1-SNAPSHOT
 paths:
   /instances:
     get:
@@ -24,8 +31,6 @@ paths:
               $ref: '#/components/schemas/DataPlaneInstance'
       responses:
         default:
-          content:
-            application/json: {}
           description: default response
       tags:
       - Dataplane Selector

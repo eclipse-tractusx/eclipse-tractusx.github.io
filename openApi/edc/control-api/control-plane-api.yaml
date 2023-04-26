@@ -1,4 +1,8 @@
 openapi: 3.0.1
+info:
+  title: "EDC Control Plane API"
+  description: 
+  version: 0.0.1-SNAPSHOT
 paths:
   /transferprocess/{processId}/complete:
     post:

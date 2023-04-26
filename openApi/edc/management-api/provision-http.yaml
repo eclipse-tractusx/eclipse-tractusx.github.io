@@ -1,4 +1,11 @@
 openapi: 3.0.1
+info:
+  title: EDC Provision HTTP
+  description:
+  license:
+    name: Apache License v2.0
+    url: http://apache.org/v2
+  version: 0.0.1-SNAPSHOT
 paths:
   /callback/{processId}/deprovision:
     post:
@@ -17,8 +24,6 @@ paths:
               $ref: '#/components/schemas/DeprovisionedResource'
       responses:
         default:
-          content:
-            application/json: {}
           description: default response
       tags:
       - HTTP Provisioner Webhook
@@ -39,8 +44,6 @@ paths:
               $ref: '#/components/schemas/ProvisionerWebhookRequest'
       responses:
         default:
-          content:
-            application/json: {}
           description: default response
       tags:
       - HTTP Provisioner Webhook

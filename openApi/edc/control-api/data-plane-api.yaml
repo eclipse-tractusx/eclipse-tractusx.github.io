@@ -1,4 +1,8 @@
 openapi: 3.0.1
+info:
+  title: "EDC Data Plane API"
+  description: 
+  version: 0.0.1-SNAPSHOT
 tags:
 - description: 'Api targeted by the Control Plane to delegate a data transfer (Provider
     Push or Streaming) to the Data Plane after the contract has been successfully
