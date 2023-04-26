@@ -79,7 +79,6 @@
     height: auto;
     justify-content: space-around;
     align-items: center;
-    text-align: center;
   }
 
   .img {
@@ -88,5 +87,15 @@
 
   .licenses {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 70vw;
+  }
+
+  .licenses {
+    width: 100%;
   }
 }
