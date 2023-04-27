@@ -22,7 +22,6 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 
-import EcosystemSVG from "@site/static/img/ecosystem_diagram.svg";
 import ThreeViewsSVG from "@site/static/img/three_views.svg";
 import Ecosystem1 from "@site/static/img/cj.png";
 
@@ -47,15 +46,14 @@ export default function DeveloperContent() {
         <p className={styles.description}>
         With KITs, the Catena-X customer journey comes to life - consisting of the following 5 steps to participate in Catena-X data space: (1) Inform, (2) Connect, (3) Boost, (4) Adopt, and (5) Utilize. KITs offer a dedicated set of tools to empower and stimulate solution providers to create interoperable solutions for each step of the customer journey. These solutions can be offered on different marketplaces in the Catena-X data space. Adopters such as OEMs, suppliers, or recyclers can either use KITs or solutions from the marketplaces to support their customer journey.  
           </p>
-          <br></br>
 
         <div className={styles.img_container}>
-          <img className={styles.licenses} src={Ecosystem1} /> 
+          <img className={styles.img} src={Ecosystem1} /> 
         </div>
 
         <p className={styles.description}>
-            <br></br>The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
-            Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
+          The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
+          Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
           </p>
 
           <ul>
@@ -71,7 +69,6 @@ export default function DeveloperContent() {
           <p className={styles.description}>KITs provide a set of standards, documentation, reference implementations, quick setup guides, etc., that enable participants to build and operate interoperable and certified applications / services easier and faster. Mandatory and optional deliverables depend on the type of KIT. Developers (e.g., application and service provider) can use and integrate KITs into their products to create a multi-vendor, interoperable, innovative, and scalable ecosystem. Furthermore, data provider and consumer can use KITs to connect to the Catena-X data space.</p>
           <a href="docs/artefacts">Read more about the deliverables.</a>
         </div>
-        <br></br>
 
         <div className={styles.img_container}>
           <ThreeViewsSVG className={styles.img} />
