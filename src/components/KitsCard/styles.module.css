@@ -113,7 +113,7 @@
   }
 
   .container {
-    width: 40vw;
+    width: 50vw;
     height: auto;
     flex-direction: column;
     justify-content: space-between;
@@ -132,6 +132,12 @@
 
   .card_container {
     width: 80%;
-    height: 370px;
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 85vw;
   }
 }
