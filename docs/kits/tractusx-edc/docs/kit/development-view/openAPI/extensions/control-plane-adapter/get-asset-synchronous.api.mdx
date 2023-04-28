@@ -1,0 +1,34 @@
+---
+id: get-asset-synchronous
+title: "getAssetSynchronous"
+description: "getAssetSynchronous"
+sidebar_label: "getAssetSynchronous"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"getAssetSynchronous","parameters":[{"in":"path","name":"assetId","required":true,"schema":{"type":"string","example":null}},{"in":"query","name":"providerUrl","schema":{"type":"string","example":null}},{"in":"query","name":"contractAgreementId","schema":{"type":"string","example":null}},{"in":"query","name":"contractAgreementReuse","schema":{"type":"boolean","default":true,"example":null}},{"in":"query","name":"timeout","schema":{"type":"string","example":null}}],"responses":{"default":{"content":{"application/json":{}},"description":"default response"}},"tags":["Control Plane Adapter"],"description":"getAssetSynchronous","method":"get","path":"/adapter/asset/sync/{assetId}","info":{"title":"EDC Extension Control Plane Adapter","description":null,"version":"0.0.1-SNAPSHOT"},"postman":{"name":"get Asset Synchronous","description":{"type":"text/plain"},"url":{"path":["adapter","asset","sync",":assetId"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"providerUrl","value":""},{"disabled":false,"key":"contractAgreementId","value":""},{"disabled":false,"key":"contractAgreementReuse","value":""},{"disabled":false,"key":"timeout","value":""}],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"assetId"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: ./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/extensions/control-plane-adapter/edc-extension-control-plane-adapter
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## getAssetSynchronous
+
+
+
+getAssetSynchronous
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","name":"assetId","required":true,"schema":{"type":"string","example":null}}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"query","name":"providerUrl","schema":{"type":"string","example":null}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"query","name":"contractAgreementId","schema":{"type":"string","example":null}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"query","name":"contractAgreementReuse","schema":{"type":"boolean","default":true,"example":null}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"in":"query","name":"timeout","schema":{"type":"string","example":null}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"default"} value={"default"}><div>
+
+default response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      
