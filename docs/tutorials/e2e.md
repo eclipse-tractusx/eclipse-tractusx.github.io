@@ -1,6 +1,6 @@
 ---
 title: End-to-End Adopter Journey
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # End-to-End Adopter Journey
@@ -8,21 +8,23 @@ sidebar_position: 2
 @Felix
 
 This set of tutorials describes the end to end journey of the IT department that operates the Catena-X stack for a company.
-For this initial setup, no need to connect to an external provider is required. This tutorial can be done in isolation as it is a local deployment only. 
+For this initial setup, no need to connect to an external provider is required. This tutorial can be done in isolation as it is a local deployment only.
 
-Completing this tutorial is a prerequisite to participate in Catena-X use-cases as the IT department needs to understand all the technical concepts and their relation before they can begin to provide or consume data within a use-case. 
+Completing this tutorial is a prerequisite to participate in Catena-X use-cases as the IT department needs to understand all the technical concepts and their relation before they can begin to provide or consume data within a use-case.
+
+Eigentlich ist es eine E2E Operations View Journey und keine Adopter Journey (Adopter wird bereits beim Adopter View verwendet, das ist verwirrend)
 
 ## Target Audience
 
 - Mehr Klarheit: Es geht um die **IT Abteilung/Betreiber der Adopter**. Diese sollen die Komponenten betreiben (nicht weiterentwickeln!)
 - Designed for developers / IT Department of adopters: Those who want to actively participate in the network (provide/consume data) directly (without the use of business apps)
-- It is not designed for App Providers or Service Providers or for adopters who want to buy a business application 
+- It is not designed for App Providers or Service Providers or for adopters who want to buy a business application.
 
 ## Target of this tutorial
 
-Enable IT department of an adopter (data provider/consumer) to operate the minimal Catena-X stack that is required to provide or consume data without business apps by understanding and implementing 
+Enable IT department of an adopter (data provider/consumer) to operate the minimal Catena-X stack that is required to provide or consume data without business apps by understanding and implementing
 
-1. The separate technical components
+(1. The separate technical components)
 2. Interfaces between components run at the adopter
 3. Connection into the wider data space
 
