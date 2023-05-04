@@ -5,7 +5,7 @@ description: 'Business Partner Kit'
 sidebar_position: 4
 ---
 
-![Business partner kit banner](../../../static/img/doc-business_partner_header-minified.png)
+![Business partner kit banner](@site/static/img/doc-business_partner_header-minified.png)
 
 ## Authentication
 

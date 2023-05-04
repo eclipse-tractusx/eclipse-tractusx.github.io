@@ -5,7 +5,7 @@ description: 'Traceability Kit'
 sidebar_position: 2
 ---
 
-![Traceability kit banner](../../../static/img/doc-traceability_header-minified.png)
+![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
 <!--
 Adoption View of the Kit.
