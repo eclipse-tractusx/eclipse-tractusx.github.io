@@ -92,4 +92,5 @@ The following examples are shown as reference, to see already existing and compl
 They **can not** be used for your product without modifications.
 
 Good example for notice integrated in toplevel `README.md`: [IRS](https://github.com/eclipse-tractusx/item-relationship-service#notice-for-docker-image)
+
 Good example for a dedicated notice file: [edc-controlplane-memory-hashicorp-vault](https://github.com/eclipse-tractusx/tractusx-edc/edit/main/edc-controlplane/edc-controlplane-memory-hashicorp-vault/notice.md)
