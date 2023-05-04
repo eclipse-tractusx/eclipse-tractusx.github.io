@@ -298,11 +298,14 @@ const config = {
             position: "left",
             label: "Community",
           },
-          {
-            to: "/CHANGELOG",
-            position: "left",
-            label: "Versions",
-          },
+          // {
+          //   to: "/CHANGELOG",
+          //   position: "left",
+          //   label: "Versions",
+          // },
+          // {
+          //   type: 'docsVersionDropdown',
+          // },
           /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
