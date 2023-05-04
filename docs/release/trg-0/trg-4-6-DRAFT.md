@@ -94,3 +94,38 @@ They **can not** be used for your product without modifications.
 Good example for notice integrated in toplevel `README.md`: [IRS](https://github.com/eclipse-tractusx/item-relationship-service#notice-for-docker-image)
 
 Good example for a dedicated notice file: [edc-controlplane-memory-hashicorp-vault](https://github.com/eclipse-tractusx/tractusx-edc/edit/main/edc-controlplane/edc-controlplane-memory-hashicorp-vault/notice.md)
+
+## Already collected base image information
+
+The following sections contain information, that already has been collected on base images, that are used in Eclipse Tractus-X.
+You can use that information for your own notice. **Be careful**, when it comes to version, like JRE versions for example.
+You have to adapt some of the provided links to match your used version.
+
+### Eclipse Temurin (JRE)
+
+- Base image reference (example) `eclipse-temurin:20-jre-alpine`
+- [GitHub repo](https://github.com/adoptium/containers)
+- [Official Eclipse Temurin DockerHub page](https://hub.docker.com/_/eclipse-temurin)
+- [Eclipse Temurin Project](https://projects.eclipse.org/projects/adoptium.temurin)
+- [Additional information about the Eclipse Temurin images](https://github.com/docker-library/repo-info/tree/master/repos/eclipse-temurin)
+
+### Nginx-unprivileged (serve static HTML and JS bundles)
+
+- Base image reference (example) `nginxinc/nginx-unprivileged:alpine`
+- [Dockerfile (alpine)](https://github.com/nginxinc/docker-nginx-unprivileged/blob/main/Dockerfile-alpine.template)
+- GitHub project: [https://github.com/nginxinc/docker-nginx-unprivileged](https://github.com/nginxinc/docker-nginx-unprivileged)
+- DockerHub: [https://hub.docker.com/r/nginxinc/nginx-unprivileged](https://hub.docker.com/r/nginxinc/nginx-unprivileged)
+
+### .NET runtime
+
+- Base image reference (example): `mcr.microsoft.com/dotnet/runtime:6.0-alpine`
+- Dockerfile (:6-alpine): [mcr.microsoft.com/dotnet/runtime:6.0-alpine](https://github.com/dotnet/dotnet-docker/blob/e1984aaea51a796b68f6672749d280525c30e063/src/runtime/6.0/alpine3.17/amd64/Dockerfile)
+- GitHub project: [https://github.com/dotnet/dotnet-docker](https://github.com/dotnet/dotnet-docker)
+- DockerHub: [https://hub.docker.com/_/microsoft-dotnet-runtime](https://hub.docker.com/_/microsoft-dotnet-runtime)
+
+### ASP.NET core runtime
+
+- Base image reference (example): `mcr.microsoft.com/dotnet/aspnet:6.0-alpine`
+- Dockerfile (:6-alpine): [mcr.microsoft.com/dotnet/aspnet:6.0-alpine](https://github.com/dotnet/dotnet-docker/blob/e1984aaea51a796b68f6672749d280525c30e063/src/aspnet/6.0/alpine3.17/amd64/Dockerfile)
+- GitHub project: [https://github.com/dotnet/dotnet-docker](https://github.com/dotnet/dotnet-docker)
+- DockerHub: [https://hub.docker.com/_/microsoft-dotnet-aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet)
