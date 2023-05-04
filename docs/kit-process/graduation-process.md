@@ -27,7 +27,7 @@ As described, a KIT passes through different stages. In order to be promoted fro
 
 ## Artfacts & Deliverables
 
-At this point we list the individual artifacts for each level. [here](link to artefacts) you will find the more detailed descriptions.
+At this point we list the individual artifacts for each level. [here](artefacts) you will find the more detailed descriptions.
 
 ### Sandbox
 
