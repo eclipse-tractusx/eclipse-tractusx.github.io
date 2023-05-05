@@ -25,9 +25,9 @@ The following table lists container base images, that are already agreed on.
 
 | Language / Runtime        | Container base image                                                       | Notes                                                    |
 |---------------------------|----------------------------------------------------------------------------|----------------------------------------------------------|
-| Java / Kotlin / JRE based | [Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin)                | prefer JRE over JDK and alpine tags for your JRE version |
+| Java / Kotlin / JVM based | [Eclipse Temurin](https://hub.docker.com/_/eclipse-temurin)                | prefer JRE over JDK and alpine tags for your JRE version |
 | JS frontends              | [nginx-unprivileged](https://hub.docker.com/r/nginxinc/nginx-unprivileged) | prefer :stable-alpine tag                                |
-| .NET runtime              | [.NET runtime](https://hub.docker.com/_/microsoft-dotnet-runtime)          | prefer :alpine tag                                       |                                                          |
+| .NET runtime              | [.NET runtime](https://hub.docker.com/_/microsoft-dotnet-runtime)          | prefer :alpine tag                                       |
 | ASP.NET runtime           | [ASP.NET core runtime](https://hub.docker.com/_/microsoft-dotnet-aspnet)   | prefer :alpine tag                                       |
 
 If the language or runtime environment of your product is not listed above, feel free to [start a discussion](https://github.com/eclipse-tractusx/sig-infra/discussions)
