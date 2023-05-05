@@ -33,17 +33,17 @@ export default function DeveloperContent() {
       <div className={styles.container}>
 
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Ecosystem</h2>
+          <h2 className="title">Ecosystem</h2>
           
-          <p className={styles.description}>
+          <p className="description">
             <b>The Catena-X vision is to connect the automotive industry via one global data space to solve industry problems, together.</b>
           </p>
 
-          <p className={styles.description}>
+          <p className="description">
             To establish this one global data space and enable collaboration and interoperability, Catena-X releases and updates standards and developer resources as one of its key offerings. Standards including whitepapers are published on the Catena-X Association website (Standard Library) and developer resources including KITs, compatible implementations, and release guidelines are published on the Tractus-X Website. 
           </p>
 
-        <p className={styles.description}>
+          <p className="description">
         With KITs, the Catena-X customer journey comes to life - consisting of the following 5 steps to participate in Catena-X data space: (1) Inform, (2) Connect, (3) Boost, (4) Adopt, and (5) Utilize. KITs offer a dedicated set of tools to empower and stimulate solution providers to create interoperable solutions for each step of the customer journey. These solutions can be offered on different marketplaces in the Catena-X data space. Adopters such as OEMs, suppliers, or recyclers can either use KITs or solutions from the marketplaces to support their customer journey.  
           </p>
 
@@ -51,12 +51,12 @@ export default function DeveloperContent() {
           <img className={styles.img} src={Ecosystem1} /> 
         </div>
 
-        <p className={styles.description}>
+        <p className="description">
           The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
           Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
-          </p>
+        </p>
 
-          <ul>
+          <ul className="description">
             <li>Network Domain for Shared Services</li>
             <li>Business Domain PLM and Quality</li>  
             <li><Link to="docs/Resiliency">Business Domain Resiliency</Link></li>
@@ -65,9 +65,9 @@ export default function DeveloperContent() {
         </div>
 
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Three different views</h2>
-          <p className={styles.description}>KITs provide a set of standards, documentation, reference implementations, quick setup guides, etc., that enable participants to build and operate interoperable and certified applications / services easier and faster. Mandatory and optional deliverables depend on the type of KIT. Developers (e.g., application and service provider) can use and integrate KITs into their products to create a multi-vendor, interoperable, innovative, and scalable ecosystem. Furthermore, data provider and consumer can use KITs to connect to the Catena-X data space.</p>
-          <a href="docs/artefacts">Read more about the deliverables.</a>
+          <h2 className="title">Three different views</h2>
+          <p className="description">KITs provide a set of standards, documentation, reference implementations, quick setup guides, etc., that enable participants to build and operate interoperable and certified applications / services easier and faster. Mandatory and optional deliverables depend on the type of KIT. Developers (e.g., application and service provider) can use and integrate KITs into their products to create a multi-vendor, interoperable, innovative, and scalable ecosystem. Furthermore, data provider and consumer can use KITs to connect to the Catena-X data space.</p>
+          <a className="description" href="docs/artefacts">Read more about the deliverables.</a>
         </div>
 
         <div className={styles.img_container}>

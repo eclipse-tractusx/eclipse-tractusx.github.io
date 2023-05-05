@@ -28,13 +28,6 @@
   width: 100%;
 }
 
-.title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-}
-
 .img_container {
   display: flex;
   justify-content: center;
@@ -57,13 +50,6 @@
 .information_container {
   width: 100%;
   height: auto;
-}
-
-.description {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
 }
 
 @media screen and (max-width: 996px) {

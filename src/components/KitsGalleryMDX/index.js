@@ -30,7 +30,7 @@
  
          <div className={styles.title_container}>
            <h2 className={styles.title}>{title}</h2>
-           <p className={styles.description}>{description}</p>
+           <p className="description">{description}</p>
          </div>
  
          <div className={styles.gallery_container}>
