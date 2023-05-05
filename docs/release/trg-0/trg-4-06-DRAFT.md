@@ -25,7 +25,7 @@ The minimum set of information is:
 - Link to your product image on `DockerHub`
 - Link to your repository on GitHub
 - Direct link to the Dockerfile used to build your image
-- Link to `LICENCE` file in your repo as 'Project License' (careful: we do not provide our image under any license, since they are only experimental demo images)
+- Link to `LICENCE` file in your repo as 'Project License' (make clear, that this is the PROJECT licence, not an image license)
 
 ## How and where to annotate the base image
 
