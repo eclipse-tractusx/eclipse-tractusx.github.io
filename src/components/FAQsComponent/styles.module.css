@@ -26,14 +26,6 @@
   text-align: left;
 }
 
-.title {
-  font-family: "Manrope", sans-serif;
-  font-style: bold;
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: -1px;
-}
-
 .accordion_box {
   width: 100%;
   margin-top: 3rem;

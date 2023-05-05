@@ -33,8 +33,8 @@ export default function AboutUsCard() {
           <img className={styles.img} src={AboutUsTeaser} />
         </div>
         <div className={styles.information_container}>
-          <h2 className={styles.title}>About Eclipse Tractus-X</h2>
-          <p className={styles.subtitle}>
+          <h2 className="title">About Eclipse Tractus-X</h2>
+          <p className="subtitle">
             Background about Eclipse Tractus-X, license and legal information.
           </p>
           <div>
