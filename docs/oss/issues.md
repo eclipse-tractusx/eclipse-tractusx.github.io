@@ -23,11 +23,9 @@ Here all requests for Eclipse infrastructure go in.
 
 **IMPORTANT:** only a committer can create a valid IP Ticket!
 
-- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project" ([more information](/docs/release/trg-0/trg-7-03#description))
-- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party" ([more information](/docs/release/trg-0/trg-7-04#checking-other-content-fonts-images-))
-- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses) ([more information](/docs/release/trg-0/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool))
-
-<!--- TODO AWI: change links from draft to final --->
+- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project" ([more information](/docs/release/trg-7/trg-7-03))
+- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party" ([more information](/docs/release/trg-7/trg-7-04#checking-other-content-fonts-images-))
+- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses) ([more information](/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool))
 
 **Notes:**
 
