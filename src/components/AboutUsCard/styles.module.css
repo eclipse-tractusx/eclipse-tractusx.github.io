@@ -41,21 +41,6 @@
   justify-content: center;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
-  border-radius: 5px;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-}
-
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 996px) {
   .container {
     width: 40vw;
@@ -72,11 +57,6 @@
     align-items: center;
     text-align: center;
   }
-
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -87,9 +67,5 @@
 
   .information_container {
     height: fit-content;
-  }
-
-  .button {
-    font-size: 12px;
   }
 }

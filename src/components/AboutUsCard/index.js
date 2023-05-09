@@ -38,7 +38,7 @@ export default function AboutUsCard() {
             Background about Eclipse Tractus-X, license and legal information.
           </p>
           <div>
-            <Link className={styles.button} to="/aboutus">
+            <Link className="button" to="/aboutus">
               About Tractus-X
             </Link>
           </div>

@@ -117,6 +117,21 @@
   line-height: var(--ifm-line-height-base);
 }
 
+.button {
+  padding: 0.6rem 2rem;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  border-radius: 5px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
 
 /* Docusaurus NavBar */
 .navbar {
@@ -192,6 +207,17 @@
 
   .subtitle {
     font-size: 16px;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .button {
+    font-size: 12px;
   }
 }
 

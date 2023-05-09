@@ -40,23 +40,6 @@
   margin-top: 4rem;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
-  border: none;
-  border-radius: 5px;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-}
-      
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 996px) {
   .faqs {
     padding: 2rem 0;
@@ -77,11 +60,6 @@
   .btn_container {
     margin-top: 1rem;
   }
-
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -91,9 +69,5 @@
 
   .container {
     width: 90vw;
-  }
-
-  .button {
-    font-size: 12px;
   }
 }
