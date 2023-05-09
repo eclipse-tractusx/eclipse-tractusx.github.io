@@ -1,0 +1,40 @@
+name: KIT-Proposal
+description: Suggest a new KIT
+title: "[NEW KIT]: "
+labels: ["kit-proposal"]
+assignees:
+  - octocat
+body:
+  - type: input
+    id: KIT-contact-person
+    attributes:
+      label: Contact person
+      description: "Enter the GitHub Profile with @<Username>"
+    validations:
+      required: true  
+  - type: input
+    id: KIT-Name
+    attributes:
+      label: Name
+      description: "Name of your KIT"
+    validations:
+      required: true
+  - type: textarea
+    id: KIT-description
+    attributes:
+      label: detailed KIT description
+      description: "Describe your KIT"
+    validations:
+      required: true
+  - type: textarea
+    id: KIT-purpose
+    attributes:
+      label: Purpose of the KIT
+      description: "What is the goal/benefit of the KIT?"
+      value: |
+        1. Which Problem schould it solve?
+        2. How do you want to solve it?
+        3. etc.
+        ...
+    validations:
+      required: true
