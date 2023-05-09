@@ -44,17 +44,17 @@ export default function DeveloperContent() {
           </p>
 
           <p className="description">
-        With KITs, the Catena-X customer journey comes to life - consisting of the following 5 steps to participate in Catena-X data space: (1) Inform, (2) Connect, (3) Boost, (4) Adopt, and (5) Utilize. KITs offer a dedicated set of tools to empower and stimulate solution providers to create interoperable solutions for each step of the customer journey. These solutions can be offered on different marketplaces in the Catena-X data space. Adopters such as OEMs, suppliers, or recyclers can either use KITs or solutions from the marketplaces to support their customer journey.  
+            With KITs, the Catena-X customer journey comes to life - consisting of the following 5 steps to participate in Catena-X data space: (1) Inform, (2) Connect, (3) Boost, (4) Adopt, and (5) Utilize. KITs offer a dedicated set of tools to empower and stimulate solution providers to create interoperable solutions for each step of the customer journey. These solutions can be offered on different marketplaces in the Catena-X data space. Adopters such as OEMs, suppliers, or recyclers can either use KITs or solutions from the marketplaces to support their customer journey.  
           </p>
 
-        <div className={styles.img_container}>
-          <img className={styles.img} src={Ecosystem1} /> 
-        </div>
+          <div className={styles.img_container}>
+            <img className={styles.img} src={Ecosystem1} /> 
+          </div>
 
-        <p className="description">
-          The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
-          Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
-        </p>
+          <p className="description">
+            The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
+            Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
+          </p>
 
           <ul className="description">
             <li>Network Domain for Shared Services</li>

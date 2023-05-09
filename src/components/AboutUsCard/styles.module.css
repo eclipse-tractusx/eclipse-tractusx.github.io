@@ -9,7 +9,7 @@
   justify-content: center;
   padding: 4rem 0;
   overflow: hidden;
-  background-color: var(--ifm-background-color)
+  background-color: var(--ifm-background-color);
 }
 
 .container {
@@ -42,6 +42,9 @@
 }
 
 @media screen and (max-width: 996px) {
+  .about_us {
+    padding: 4rem 0 0;
+  }
   .container {
     width: 40vw;
     height: auto;

@@ -13,7 +13,7 @@
 }
 
 .container {
-  width: 60vw;
+  width: 50vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -46,10 +46,6 @@
     padding: 4rem 0 2rem;
   }
 
-  .title_container {
-    margin-top: 2rem;
-  }
-
   .container {
     width: 80vw;
     height: auto;
@@ -57,6 +53,14 @@
     align-items: center;
     padding-bottom: 2rem;
     gap: 3rem;
+  }
+
+  .title_container {
+    margin-top: 2rem;
+  }
+
+  .img {
+    width: 100%;
   }
 }
 
