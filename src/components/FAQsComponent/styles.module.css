@@ -42,7 +42,7 @@
 
 @media screen and (max-width: 996px) {
   .faqs {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 
   .container {
@@ -63,10 +63,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .faqs {
-    padding: 0;
-  }
-
   .container {
     width: 90vw;
   }
