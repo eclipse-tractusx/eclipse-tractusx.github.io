@@ -4,7 +4,9 @@ title: Specification
 sidebar_position: 2
 ---
 
-![Datachain kit banner](../../../../static/img/doc-datachain_header-minified.png)
+![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+
+### Data Chain Kit
 
 ## IRS REST API
 
