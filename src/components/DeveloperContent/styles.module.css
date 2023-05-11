@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
   overflow: hidden;
   background-color: var(--ifm-background-color);
 }
@@ -26,14 +25,14 @@
 .title_container {
   width: 100%;
   height: auto;
-  margin-top: 3rem;
+  padding-top: 4rem;
 }
 
 .img_container {
   display: flex;
   justify-content: center;
   width: 110%;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .img {
@@ -42,10 +41,6 @@
 }
 
 @media screen and (max-width: 996px) {
-  .developer_content {
-    padding: 4rem 0 2rem;
-  }
-
   .container {
     width: 80vw;
     height: auto;
@@ -56,7 +51,7 @@
   }
 
   .title_container {
-    margin-top: 2rem;
+    padding-top: 3rem;
   }
 
   .img {

@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
   overflow: hidden;
   background-color: var(--ifm-background-color);
 }
@@ -27,7 +26,7 @@
 .title_container {
   width: 100%;
   height: auto;
-  margin-top: 3rem;
+  padding-top: 4rem;
 }
 
 .img_container {
@@ -58,6 +57,10 @@
     align-items: center;
     padding-bottom: 2rem;
     gap: 3rem;
+  }
+
+  .title_container {
+    padding-top: 3rem;
   }
 
   .img {

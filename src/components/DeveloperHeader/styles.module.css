@@ -65,12 +65,12 @@
   }
 
   .title {
-    font-size: 4vw;
-    margin-bottom: 2rem;
+    font-size: 32px;
   }
 
   .subtitle {
-    font-size: 2vw;
+    font-size: 16px;
+    line-height: 20px;
     margin-top: -1rem;
   }
 
@@ -106,11 +106,12 @@
   }
 
   .title {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .subtitle {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 16px;
   }
 
   .svg_container {
