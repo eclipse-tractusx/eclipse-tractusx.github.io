@@ -18,6 +18,8 @@ Here all requests for Eclipse infrastructure go in.
 - If you are not a committer, create the ticket and add a committer to request a "thumbs up" for approval
 - [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2273) for requesting a new repository
 - [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2843) for requesting a sonar project for a repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2186) for requesting secrets in repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1697) for requesting changes for a repository
 
 ## [Eclipse GitLab IP Issue Tracker](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20)
 
