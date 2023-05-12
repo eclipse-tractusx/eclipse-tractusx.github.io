@@ -20,7 +20,8 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 
 - List of existing [project contributors](https://projects.eclipse.org/projects/automotive.tractusx/who)
 - A TractusX committer can add a contributor, see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors)
-- For more information about roles, see [GitHub repository roles](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- More information about [GitHub repository roles](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- More information about [Eclipse roles](https://eclipse-tractusx.github.io/docs/oss/contributor-committer#official-project-contributor)
 
 #### How do I figure out the user name in Eclipse (= GitLab) ?
 
