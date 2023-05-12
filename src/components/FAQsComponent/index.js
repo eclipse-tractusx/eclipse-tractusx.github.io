@@ -52,7 +52,7 @@ export default function FAQsComponent() {
     <section className={styles.faqs}>
       <div className={styles.container}>
         <div className={styles.title_container}>
-          <h2 className="title">FAQs</h2> 
+          <h2 className="title-h2">FAQs</h2> 
         </div>
 
         <div className={styles.accordion_box}>
