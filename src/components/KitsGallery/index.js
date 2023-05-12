@@ -29,8 +29,8 @@ export default function KitsGallery({itemsArray, title, description}) {
       <div className={styles.container}>
 
         <div className={styles.title_container}>
-          <h2 className="title">{title}</h2>
-          <p className="subtitle">{description}</p>
+          <h2 className="title-h2">{title}</h2>
+          <p className="subtitle-h3">{description}</p>
         </div>
 
         <div className={styles.gallery_container}>

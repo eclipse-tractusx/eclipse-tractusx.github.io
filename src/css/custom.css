@@ -94,20 +94,32 @@
 }
 
 /* Global Classes */
-.title {
+.headers-title-h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.headers-subtitle-p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.title-h2 {
   font-weight: 500;
   font-size: 32px;
   line-height: 40px;
 }
 
-.subtitle {
+.subtitle-h3 {
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
   letter-spacing: -0.7px;
 }
 
-.description {
+.description-p {
   font-weight: 400;
   font-size: var(--ifm-font-size-base);
   line-height: var(--ifm-line-height-base);
@@ -197,11 +209,21 @@
     width: 50%;
   }
 
-  .title {
+  .headers-title-h1 {
+    font-size: 32px;
+  }
+
+  .headers-subtitle-p {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: -1rem;
+  }
+
+  .title-h2 {
     font-size: 26px;
   }
 
-  .subtitle {
+  .subtitle-h3 {
     font-size: 16px;
   }
 
@@ -212,6 +234,15 @@
 }
 
 @media screen and (max-width: 600px) {
+  .headers-title-h1 {
+    font-size: 30px;
+  }
+
+  .headers-subtitle-p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
   .button {
     font-size: 12px;
   }

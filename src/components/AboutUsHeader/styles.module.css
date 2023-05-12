@@ -46,33 +46,9 @@
   justify-content: center;
 }
       
-.title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 46px;
-}
-      
-.subtitle {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-}
-      
 @media screen and (max-width: 996px) {
   .about_header {
     height: auto;
-  }
-
-  .title {
-    font-size: 32px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-    line-height: 20px;
-    margin-top: -1rem;
   }
 
   .container {
@@ -106,15 +82,6 @@
 @media screen and (max-width: 600px) {
   .about_header {
     height: fit-content;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-    line-height: 16px;
   }
 
   .svg_container {
