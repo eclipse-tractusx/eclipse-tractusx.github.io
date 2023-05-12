@@ -12,7 +12,7 @@ This page provides information and links to relevant resources before you start 
   - Add your GitHub id to your Eclipse profile (Section: Social Media Links)
 - Subscribe to the [Eclipse Tractus-X Developer Mailinglist](https://accounts.eclipse.org/mailing-list/tractusx-dev)
 - Get familiar with the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/), we will reference the dedicated chapters for the different topics.
-- See the [documentation](links#eclipse-foundation-documentation)
+- See the [documentation](/docs/dev_links#eclipse-foundation-documentation)
 
 ## Meet the Eclipse Foundation Team at the Eclipse Office Hours
 
