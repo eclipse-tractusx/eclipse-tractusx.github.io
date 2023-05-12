@@ -82,5 +82,6 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-pmc)
 ## Eclipse Management Organization (EMO)
 
 If you have a question that cannot be answered by project lead, mentor, or PMC, ask the EMO.
+The best method of contact with the EMO is by email (emo@eclipse-foundation.org).
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)
