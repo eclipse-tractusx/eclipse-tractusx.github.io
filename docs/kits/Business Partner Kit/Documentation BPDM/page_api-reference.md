@@ -10,6 +10,101 @@ The BPDM is comprised of two primary services: BPDM Pool and BPDM Gate. The Swag
 The Business Partner Data Management includes the services that manages and shares business partner data with other Catena-X services. In the following sections, the available methods and different controllers of the API are explained.
 More Information to the open-source repository can be found on [GitHub](https://github.com/eclipse-tractusx/bpdm)
 
+## BPDM Pool Api reference
+
+The Business Partner Data Management Pool includes the services that manages and shares business partner data with other Catena-X services. In the following sections, the available methods and different controllers of the API are explained.
+
+### Available Methods
+
+| Request Method | Request Description|
+| :----------- | :------------: |
+| PUT | Update. The endpoint expects to receive the full updated record, including values that didn't change.|
+| POST| Search |
+| GET | Search for the best match |
+| DELETE | Deletes all the records in the controller, resets the timestamp|
+
+### 1. Site Controller
+
+The Site Controller is the controller that creates, updates, or retrieves business partners of type site (referenced via BPNS). There are PUT, POST and GET requests possible and api those are availble under site controller are clustered in table below. Hyperlink in each record gives you more information about api endpoint.
+
+| Site Controller Apis|  
+| :----------- |  
+| [Update existing site business partners](../Software%20Development%20View/Pool%20Api/update-site.api.mdx) |
+| [Create new site business partners](../Software%20Development%20View/Pool%20Api/create-site.api.mdx) |
+| [Search site partners by BPNs and/or parent BPNs](../Software%20Development%20View/Pool%20Api/search-sites.api.mdx) |
+| [Search Main Addresses](../Software%20Development%20View/Pool%20Api/search-main-addresses.api.mdx) |
+| [Get site partners by bpn](../Software%20Development%20View/Pool%20Api/get-site.api.mdx) |
+
+### 2. Legal Entity Controller
+
+The Legal Entity Controller calls, searches, creates or updates existing business partners of type legal entity (referenced via BPNL). There are PUT, POST and GET requests possible. The endpoint expects a perfect match or looks for the highest relevancy, depending on the request made. Some of the requests need a obligatory parameter, like business partner number or id value. Hyperlink in each record gives you more information about api endpoint.
+
+| Legal Entity Controller Apis|  
+| :----------- |
+| [Get page of legal entity business partners matching the search criteria](../Software%20Development%20View/Pool%20Api/get-legal-entities.api.mdx) |
+| [Update existing legal entity business partners](../Software%20Development%20View/Pool%20Api/update-business-partners.api.mdx) |
+| [Create new legal entity business partners](../Software%20Development%20View/Pool%20Api/create-business-partners.api.mdx)|
+| [Confirms that the data of a legal entity business partner is still up to date.](../Software%20Development%20View/Pool%20Api/set-legal-entity-currentness.api.mdx)|
+| [Search legal entity partners by BPNLs.](../Software%20Development%20View/Pool%20Api/search-sites-1.api.mdx) |
+| [Search Legal Addresses.](../Software%20Development%20View/Pool%20Api/search-legal-addresses.api.mdx)|
+| [Get legal entity business partner by identifier.](../Software%20Development%20View/Pool%20Api/get-legal-entity.api.mdx) |
+| [Get site partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-sites.api.mdx) |
+| [Get address partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-addresses.api.mdx.api.mdx) |
+
+### 3. Address Controller
+
+The Address Controller is the controller that updates, creates, or retrieves business partner records of type address via BPNA. There are PUT, POST and GET requests possible. Hyperlink in each record gives you more information about api endpoint.
+
+| Address Controller Apis|
+| :----------- |
+| [Get page of addresses matching the search criteria](../Software%20Development%20View/Pool%20Api/get-addresses-1.api.mdx) |
+| [Update existing address business partners](../Software%20Development%20View/Pool%20Api/update-addresses.api.mdx) |
+| [Create new address business partners](../Software%20Development%20View/Pool%20Api/create-addresses.api.mdx) |
+| [Search address partners by BPNs and/or parent BPNs](../Software%20Development%20View/Pool%20Api/search-addresses.api.mdx) |
+| [Get address partners by bpn](../Software%20Development%20View/Pool%20Api/get-address.api.mdx) |
+
+### 4. Open Search Controller
+
+The Open Search Controller is only used by the developers on the backend of the API. They are not relevant for the API end-users. Hyperlink in each record gives you more information about api endpoint.
+
+| Open Search Controller Apis|
+| :----------- |
+| [Fetch information about the latest OpenSearch export](../Software%20Development%20View/Pool%20Api/get-business-partners.api.mdx) |
+| [Index new business partner records on OpenSearch](../Software%20Development%20View/Pool%20Api/export.api.mdx) |
+| [Clear business partner index on OpenSearch](../Software%20Development%20View/Pool%20Api/clear.api.mdx) |
+
+### 5. Metadata Controller
+
+The Metadata Controller can retrieve and create legal forms, new issuing bodies, identifier types and identifier statuses. There are POST and GET requests possible. Hyperlink in each record gives you more information about api endpoint.
+
+| Metadata Controller |
+| :----------- |
+| [Get page of legal forms](../Software%20Development%20View/Pool%20Api/get-legal-forms.api.mdx) |
+| [Create new legal form](../Software%20Development%20View/Pool%20Api/create-legal-form.api.mdx) |
+| [Get page of issuing bodies](../Software%20Development%20View/Pool%20Api/get-issuing-bodies.api.mdx) |
+| [Create new issuing body](../Software%20Development%20View/Pool%20Api/create-issuing-body.api.mdx) |
+| [Get page of identifier types](../Software%20Development%20View/Pool%20Api/get-identifier-types.api.mdx) |
+| [Create new identifier type](../Software%20Development%20View/Pool%20Api/create-identifier-type.api.mdx) |
+| [Get page of identifier statuses](../Software%20Development%20View/Pool%20Api/get-identifier-stati.api.mdx) |
+| [Create new identifier status](../Software%20Development%20View/Pool%20Api/create-identifier-status.api.mdx) |
+| [Get valid identifier types for a country](../Software%20Development%20View/Pool%20Api/get-valid-identifier-types-for-country.api.mdx) |
+
+### 6. BPN Controller
+
+The BPN Controller can retrieve business partner numbers by identifiers. The request is limited to 5000 entries. The hyperlink in below record gives you more information about api endpoint.
+
+| BPN Controller Api|
+| :----------- |
+| [Find business partner numbers by identifiers](../Software%20Development%20View/Pool%20Api/find-bpns-by-identifiers.api.mdx) |
+
+### 7. Business Partner Controller
+
+The Business Partner Controller retrieves the change log entries per business partner number. The business partner number is a required field to execute the search. The hyperlink in below record gives you more information about api endpoint.
+
+| Business Partner Controller Api|
+| :----------- |
+| [Get business partner changelog entries by bpn](../Software%20Development%20View/Pool%20Api/get-changelog-entries.api.mdx) |
+
 ## BPDM Gate Api reference
 
 The Business Partner Data Management Gate includes the services that managesto share business partner data with Catena-X.In the following sections, the available methods and different controllers of the API are explained.
@@ -49,6 +144,8 @@ The Legal Entity Controller calls, searches, creates or updates existing busines
 | POST /api/catena/input/legal-entities/validation | Determines errors in a legal entities record which keep it from entering the sharing process |
 | GET /api/catena/input/legal-entities/{externalId} | Search legal enitity by external identifier. |
 
+[clear bussiness partner](../Software%20Development%20View/Pool%20Api/clear.api.mdx)
+
 ### 3. Address Controller
 
 The Address Controller is the controller that updates, creates, or retrieves business partner records of type address via BPNA. There are PUT, POST and GET requests possible.
@@ -79,98 +176,3 @@ Only two POST api's available for search of business partner changelog details.
 | :----------- | :------------: |
 | POST /api/catena/business-partners/changelog/search | Retrive business partner changelog entries by list external id, from timestamp |
 | POST /api/catena/business-partners/changelog/filter | RGet business partner changelog entries by from timestamp or Legal Entity, Site or Address type |
-
-## BPDM Pool Api reference
-
-The Business Partner Data Management Pool includes the services that manages and shares business partner data with other Catena-X services. In the following sections, the available methods and different controllers of the API are explained.
-
-### Available Methods
-
-| Request Method | Request Description|
-| :----------- | :------------: |
-| PUT | Update. The endpoint expects to receive the full updated record, including values that didn't change.|
-| POST| Search |
-| GET | Search for the best match |
-| DELETE | Deletes all the records in the controller, resets the timestamp|
-
-### 1. Site Controller
-
-The Site Controller is the controller that creates, updates, or retrieves business partners of type site (referenced via BPNS). There are PUT, POST and GET requestspossible.
-
-| Site Controller | Description |
-| :----------- | :------------: |
-| PUT/api/catena/sites | Update site referenced by BPNs |
-| POST/api/catena/sites | Create new site Business Partners (BP) |
-| POST/api/catena/sites/search | Search sites by BPN or parent BPN |
-| POST/api/catena/sites/mainaddresses/search | Search main address |
-| GET/api/catena/sites/{bpn} | Site partners by BPN |
-
-### 2. Legal Entity Controller
-
-The Legal Entity Controller calls, searches, creates or updates existing business partners of type legal entity (referenced via BPNL). There are PUT, POST and GET requests possible. The endpoint expects a perfect match or looks for the highest relevancy, depending on the request made. Some of the requests need a obligatory parameter, like business partner number or id value.
-
-| Legal Entity Controller | Description |
-| :----------- | :------------: |
-| GET/api/catena/legal-entities | Get page of legal entity business partners matching search criteria |
-| PUT/api/catena/legal-entities | Update existing legal entity Business Partners (BP)
-| POST/api/catena/legal-entities | Create new legal entity BP |
-| POST/api/catena/legalentities/{bpn}/confirm-up-to-date | Confirm data is up to date |
-| POST/api/catena/legalentities/search | Search legal entity partners by BPNL |
-| POST/api/catena/legal-entities/legaladdresses/search | Search legal addresses |
-| GET/api/catena/legalentities/{idValue} | Search legal entity |
-| GET/api/catena/legalentities/{bpn}/sites | Legal entity BP by identifier |
-| GET/api/catena/legalentities/{bpn}/addresses | Site partners of legal entity |
-
-### 3. Address Controller
-
-The Address Controller is the controller that updates, creates, or retrieves business partner records of type address via BPNA. There are PUT, POST and GET requests possible.
-
-| Address Controller | Description |
-| :----------- | :------------: |
-| GET/api/catena/addresses | Get page of addresses matching search criteria |
-| PUT/api/catena/addresses | Update Existing address |
-| POST /api/catena/addresses | Create new address BP |
-| POST/api/catena/addresses/search | Search address BP by BPN or parent BPNs |
-| GET/api/catena/addresses/{bpn} | Get address partner by BPN |
-
-### 4. Open Search Controller
-
-The Open Search Controller is only used by the developers on the backend of the API. They are not relevant for the API end-users.
-
-| Open Search Controller | Description |
-| :----------- | :------------: |
-| DELETE/api/opensearch/businesspartner | Clear BP index |
-| POST/api/opensearch/businesspartner | Index new BP records on OpenSearch |
-| GET/api/opensearch/businesspartner | Fetch info about the latest OpenSearch export |
-
-### 5. Metadata Controller
-
-The Metadata Controller can retrieve and create legal forms, new issuing bodies, identifier types and identifier statuses. There are POST and GET requests possible.
-
-| Metadata Controller | Description |
-| :----------- | :------------: |
-| POST/api/catena/legalform | Create new legal form |
-| POST/api/catena/issuing-body | New issuing body |
-| POST/api/catena/identifier-type | New identifier type |
-| POST/api/catena/identifier-status | New identifier status |
-| GET/api/catena/legalform | Get page of legal forms |
-| GET/api/catena/issuing-body | Issuing bodies |
-| GET/api/catena/identifier-type | Identifier types |
-| GET/api/catena/identifier-status | Identifier statuses |
-| GET/api/catena/identifier-types/forcountry | Returns which identifier types are valid and which ones are mandatory for a country specified by its ISO 3166-1 alpha-2 country code.
-
-### 6. BPN Controller
-
-The BPN Controller can retrieve business partner numbers by identifiers. The request is limited to 5000 entries.
-
-| BPN Controller | Description |
-| :----------- | :------------: |
-| POST/api/catena/bpn/search | Find BPN by identifiers |
-
-### 7. Business Partner Controller
-
-The Business Partner Controller retrieves the change log entries per business partner number. The business partner number is a required field to execute the search.
-
-| Business Partner Controller | Description |
-| :----------- | :------------: |
-| GET/api/catena/bpn/search | Get BP changelog entries by BPN |
