@@ -11,11 +11,164 @@ Here we have provided detailed examples of how the BPDM services can be used. Th
 
 Description: The Legal Entity Controller is a module within a larger system that facilitates the retrieval of information about a legal entity using their identifier number. In this use case, we are providing examples by starting services on local machine.
 
-The examples taken below are generic and depending on use cases, we have mentioned snippet of particular api request and response for better understanding.  
+The examples taken below are generic and depending on use cases, we have mentioned snippet of particular api request and response for better understanding. In this use case, consider you being user you have identifier and you want to get legal entity for same.
 
 ### Example request call
 
-Request to the Catena-X API for legal entities with a filter on legal entity identifier i.e. 123456789 and with idType as CUSTOM_ID_TYPE. The response you received is a JSON object that contains information about the legal entity that match your query.
+The request should be made first to check Catenea-X api for checking the identifier first. This request will be handled by metadate controller and will provide all available identifier type in particular enviroment.
+
+Request:
+
+```bash
+curl --location 'http://localhost:8080/api/catena/identifier-types?page=0&size=100'
+```
+
+Response:
+
+```bash
+{
+    "totalElements": 26,
+    "totalPages": 1,
+    "page": 0,
+    "contentSize": 26,
+    "content": [
+        {
+            "technicalKey": "EU_VAT_ID_DE",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_FR",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_AT",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_BE",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_CH",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_CZ",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_DK",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_ES",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_GB",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_NO",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "EU_VAT_ID_PL",
+            "name": "Value added tax identification number",
+            "url": null
+        },
+        {
+            "technicalKey": "GS1_GLN",
+            "name": "Global Location Number",
+            "url": null
+        },
+        {
+            "technicalKey": "LEI_ID",
+            "name": "Legal Entity Identifier",
+            "url": null
+        },
+        {
+            "technicalKey": "DUNS_ID",
+            "name": "Data Universal Numbering System",
+            "url": null
+        },
+        {
+            "technicalKey": "DE_BNUM",
+            "name": "Handelsregister (HRB)",
+            "url": null
+        },
+        {
+            "technicalKey": "FR_SIREN",
+            "name": "Siren/Siret",
+            "url": null
+        },
+        {
+            "technicalKey": "BR_ID_AT",
+            "name": "Firmenbuchnummer",
+            "url": null
+        },
+        {
+            "technicalKey": "BE_ENT_NO",
+            "name": "Organisation number",
+            "url": null
+        },
+        {
+            "technicalKey": "CH_UID",
+            "name": "Company Identification Number CH",
+            "url": null
+        },
+        {
+            "technicalKey": "CZ_ICO",
+            "name": "Company Identification Number CZ",
+            "url": null
+        },
+        {
+            "technicalKey": "CVR_DK",
+            "name": "Business Registration Number DK",
+            "url": null
+        },
+        {
+            "technicalKey": "CIF_ES",
+            "name": "Certificado de Identificación Fiscal",
+            "url": null
+        },
+        {
+            "technicalKey": "ID_CRN",
+            "name": "Company Registration Number",
+            "url": null
+        },
+        {
+            "technicalKey": "NO_ORGID",
+            "name": "Organization Number",
+            "url": null
+        },
+        {
+            "technicalKey": "PL_REG",
+            "name": "REGON",
+            "url": null
+        },
+        {
+            "technicalKey": "CUSTOM_ID_TYPE",
+            "name": "Custom Identifier Type for Testing",
+            "url": null
+        }
+    ]
+}
+```
+
+The response here showing technical key for identifier type with it's name. For better understanding of this use case, we are considering identifier type i.e. CUSTOM_ID_TYPE for future examples.
+
+Now as per the above response, you can check your desired technical identifier which is nothing but kind of VAT number for particular legal entity. Request to the Catena-X API for legal entities with a filter on legal entity identifier i.e. 123456789 and with idType as CUSTOM_ID_TYPE. The response you received is a JSON object that contains information about the legal entity that match your query.
 
 Request:
 
@@ -31,7 +184,7 @@ Flow:
 
 * The user inputs a valid identification number i.e. 123456789 and idType as CUSTOM_ID_TYPE to api request.
 * The Legal Entity Controller displays the information about the legal entity as a response to the request.
-* Once you have leagal enity shown then direct response you can get using idType as BPN value as shown in below request and response.
+* Once you have legal enity shown then direct response you can get using idType as BPN value as shown in below request and response.
 
 Response:
 
@@ -377,6 +530,7 @@ Flow:
 * The Legal Entity Controller determines that all both two legal entities matching same filter.
 * The Legal Entity Controller displays the information about both legal entities in response as shown in below.
 * Here both legal entities i.e. BPNL000000000001 and BPNL0000000001YN are having same score which is 11.198933.
+* Consider if user haven't applied any filter for attribute for this GET reuest then all legal enities will return as response and their score will be 0.0
 
 Request:
 
