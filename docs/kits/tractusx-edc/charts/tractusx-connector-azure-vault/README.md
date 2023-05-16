@@ -1,15 +1,15 @@
-# tractusx-connector
+# tractusx-connector-azure-vault
 
 ![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.3](https://img.shields.io/badge/AppVersion-0.3.3-informational?style=flat-square)
 
 A Helm chart for Tractus-X Eclipse Data Space Connector. The connector deployment consists of two runtime consists of a
-Control Plane and a Data Plane. Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp Vault are included.
+Control Plane and a Data Plane. Note that _no_ external dependencies such as a PostgreSQL database and Azure KeyVault are included.
 
-This chart is intended for use with an _existing_ PostgreSQL database and an _existing_ HashiCorp Vault.
+This chart is intended for use with an _existing_ PostgreSQL database and an _existing_ Azure KeyVault.
 
 **Homepage:** <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
 
-This chart uses Hashicorp Vault, which is expected to contain the following secrets on application start:
+This chart uses Azure KeyVault, which is expected to contain the following secrets on application start:
 
 - `daps-cert`: contains the x509 certificate of the connector.
 - `daps-key`: the private key of the x509 certificate
@@ -28,18 +28,25 @@ export DAPS_CERT="$(cat daps.cert)"
 
 The following requirements must be met before launching the application:
 
-- Write access to a HashiCorp Vault instance is required to run this chart
+- Write access to an Azure KeyVault instance is required to run this chart
 - Secrets are seeded in advance
+- The vault's client id, client secret, tenant id and vault name (not the url!) are known
 
-Please also consider using [this example configuration](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/edc-tests/deployment/src/main/resources/helm/tractusx-connector-test.yaml)
+Please also consider using [this example configuration](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/edc-tests/deployment/src/main/resources/helm/tractusx-connector-azure-vault-test.yaml)
 to launch the application.
 Combined, run this shell command to start the in-memory Tractus-X EDC runtime:
 
 ```shell
 helm repo add tractusx-edc https://eclipse-tractusx.github.io/charts/dev
 helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.3.3 \
-     -f <path-to>/tractusx-connector-test.yaml
+     -f <path-to>/tractusx-connector-azure-vault-test.yaml \
+     --set vault.azure.name=$AZURE_VAULT_NAME \
+     --set vault.azure.client=$AZURE_CLIENT_ID \
+     --set vault.azure.secret=$AZURE_CLIENT_SECRET \
+     --set vault.azure.tenant=$AZURE_TENANT_ID
 ```
+
+Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the private key.
 
 ## Source Code
 
@@ -244,13 +251,11 @@ helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.imagePullSecrets | list | `[]` | Existing image pull secret bound to the service account to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
 | serviceAccount.name | string | `""` |  |
-| vault.hashicorp.healthCheck.enabled | bool | `true` |  |
-| vault.hashicorp.healthCheck.standbyOk | bool | `true` |  |
-| vault.hashicorp.paths.health | string | `"/v1/sys/health"` |  |
-| vault.hashicorp.paths.secret | string | `"/v1/secret"` |  |
-| vault.hashicorp.timeout | int | `30` |  |
-| vault.hashicorp.token | string | `""` |  |
-| vault.hashicorp.url | string | `""` |  |
+| vault.azure.certificate | string | `nil` |  |
+| vault.azure.client | string | `""` |  |
+| vault.azure.name | string | `""` |  |
+| vault.azure.secret | string | `nil` |  |
+| vault.azure.tenant | string | `""` |  |
 | vault.secretNames.dapsPrivateKey | string | `"daps-private-key"` |  |
 | vault.secretNames.dapsPublicKey | string | `"daps-public-key"` |  |
 | vault.secretNames.transferProxyTokenEncryptionAesKey | string | `"transfer-proxy-token-encryption-aes-key"` |  |
