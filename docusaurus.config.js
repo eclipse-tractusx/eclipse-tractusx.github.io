@@ -97,26 +97,19 @@ const config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "bpdm-pool",
+        id: "api-docs",
         docsPluginId: "classic",
         config: {
-          bpdm: {
-            specPath: "./openApi/bpdm/pool.yaml",
-            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api",
+          traceability_notifications: {
+            specPath: "./openApi/traceability/notifications.yaml",
+            outputDir: "./docs/kits/Traceability Kit/Software Development View/Notification API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
-          irs: {
-            specPath: "./openApi/irs/irs-v1.0.yaml",
-            outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          notifications: {
-            specPath: "./openApi/notifications/notifications.yaml", // Path to designated spec file
-            outputDir: "./docs/kits/Template Kit/Software Development View/Notification API", // Output directory for generated .mdx docs
+          traceability_unique_id_push: {
+            specPath: "./openApi/traceability/unique-id-push.yaml",
+            outputDir: "./docs/kits/Traceability Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -389,7 +382,7 @@ const config = {
             items: [
               {
                 html: `
-                  <img src='/img/EF_registered_wht_png.png'/>
+                  <img alt='' src='/img/EF_registered_wht_png.png'/>
                 `
               }
             ]
