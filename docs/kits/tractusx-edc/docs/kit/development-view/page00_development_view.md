@@ -1,5 +1,9 @@
 # Development View
 
+![Business partner kit banner](@site/static/img/ConnectorKitIcon.png)
+
+## Connector Kit
+
 ## Project Overview
 
 TractusX is an initiative of companies under the umbrella of the Eclipse Foundation.

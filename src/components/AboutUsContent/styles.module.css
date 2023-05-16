@@ -1,4 +1,3 @@
-
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
@@ -8,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0;
   overflow: hidden;
   background-color: var(--ifm-background-color);
 }
@@ -20,25 +18,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem; 
+  gap: 2rem; 
   padding-bottom: 6rem;
 }
 
 .title_container {
   width: 100%;
-}
-
-.title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
+  height: auto;
+  padding-top: 4rem;
 }
 
 .img_container {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 2rem 0;
 }
 
 .img_container:last-of-type {
@@ -46,43 +40,30 @@
 }
 
 .img {
-  width: 70%;
-  height: max-content;
+  width: 75%;
+  height: auto;
 }
 
 .licenses {
   width: 65%;
 }
 
-.information_container {
-  width: 100%;
-  height: auto;
-}
-
-.description {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-}
-
 @media screen and (max-width: 996px) {
   .container {
-    width: 60vw;
+    width: 80vw;
     height: auto;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    padding-bottom: 2rem;
+    gap: 3rem;
   }
 
-  .information_container {
-    height: auto;
-    justify-content: space-around;
-    align-items: center;
+  .title_container {
+    padding-top: 3rem;
   }
 
   .img {
-    width: 100%;
+    width: 80%;
   }
 
   .licenses {
@@ -93,6 +74,10 @@
 @media screen and (max-width: 600px) {
   .container {
     width: 70vw;
+  }
+
+  .img {
+    width: 100%;
   }
 
   .licenses {

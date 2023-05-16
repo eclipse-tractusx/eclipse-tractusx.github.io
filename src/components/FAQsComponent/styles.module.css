@@ -26,17 +26,9 @@
   text-align: left;
 }
 
-.title {
-  font-family: "Manrope", sans-serif;
-  font-style: bold;
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: -1px;
-}
-
 .accordion_box {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .accordion {
@@ -48,26 +40,9 @@
   margin-top: 4rem;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
-  border: none;
-  border-radius: 5px;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-}
-      
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 996px) {
   .faqs {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 
   .container {
@@ -85,23 +60,10 @@
   .btn_container {
     margin-top: 1rem;
   }
-
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
-  }
 }
 
 @media screen and (max-width: 600px) {
-  .faqs {
-    padding: 0;
-  }
-
   .container {
     width: 90vw;
-  }
-
-  .button {
-    font-size: 12px;
   }
 }
