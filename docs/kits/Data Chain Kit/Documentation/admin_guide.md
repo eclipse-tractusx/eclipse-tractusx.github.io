@@ -5,6 +5,10 @@ description: 'Administration Guide'
 sidebar_position: 3
 ---
 
+![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+
+### Data Chain Kit
+
 ## System Overview
 
 The deployment contains the components required to connect the IRS to an existing Catena-X network. This includes:

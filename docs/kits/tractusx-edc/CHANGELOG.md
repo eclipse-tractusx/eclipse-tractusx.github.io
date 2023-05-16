@@ -1,5 +1,9 @@
 # Changelog
 
+![Business partner kit banner](@site/static/img/ConnectorKitIcon.png)
+
+## Connector Kit
+
 All notable changes to this Kit will be documented in this file.
 
 ## [1.1.0] - 2023-04-28

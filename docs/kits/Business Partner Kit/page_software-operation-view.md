@@ -5,7 +5,9 @@ description: 'Business Partner Kit'
 sidebar_position: 3
 ---
 
-![Business partner kit banner](../../../static/img/doc-business_partner_header_alt-minified.png)
+![Business partner kit banner](@site/static/img/BPKitIcon.png)
+
+### Business Partner Kit
 
 ## Installation Instructions
 

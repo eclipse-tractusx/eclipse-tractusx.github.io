@@ -9,7 +9,7 @@
   justify-content: center;
   overflow: hidden;
   background-color: var(--ifm-background-color);
-  padding-bottom: 8rem;
+  padding: 4rem 0;
 }
 
 .container {
@@ -26,20 +26,6 @@
   width: 100%;
   height: auto;
   margin-top: 0;
-}
-
-.title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-}
-
-.description {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
 }
 
 .gallery_container {
@@ -72,20 +58,12 @@
 }
 
 @media screen and (max-width: 996px) {
-  .developer_kits {
-    padding: 0;
+  .kits_gallery {
+    padding: 2rem 0 2rem;
   }
 
   .title_container {
     margin-top: 2rem;
-  }
-
-  .title {
-    font-size: 4vw;
-  }
-
-  .description {
-    font-size: 1.8vw;
   }
 
   .container {
@@ -102,15 +80,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .title {
-    font-size: 32px;
-  }
-
-  .description {
-    font-size: 14px;
-    line-height: 22px;
-  }
-
   .gallery_container {
     grid-template-columns: 1fr;
   }

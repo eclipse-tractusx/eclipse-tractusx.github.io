@@ -5,7 +5,9 @@ description: ''
 sidebar_position: 1
 ---
 
-![Business partner kit banner](../../../../static/img/doc-business_partner_header-minified.png)
+![Business partner kit banner](@site/static/img/BPKitIcon.png)
+
+### Business Partner Kit
 
 ## Specification
 

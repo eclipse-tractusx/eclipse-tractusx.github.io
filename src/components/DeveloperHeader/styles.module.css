@@ -45,33 +45,9 @@
   justify-content: center;
 }
       
-.title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 46px;
-}
-      
-.subtitle {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-}
-      
 @media screen and (max-width: 996px) {
   .developer_header {
     height: auto;
-  }
-
-  .title {
-    font-size: 4vw;
-    margin-bottom: 2rem;
-  }
-
-  .subtitle {
-    font-size: 2vw;
-    margin-top: -1rem;
   }
 
   .container {
@@ -103,14 +79,6 @@
 @media screen and (max-width: 600px) {
   .developer_header {
     height: fit-content;
-  }
-
-  .title {
-    font-size: 20px;
-  }
-
-  .subtitle {
-    font-size: 12px;
   }
 
   .svg_container {
