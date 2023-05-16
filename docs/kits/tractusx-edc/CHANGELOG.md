@@ -2,7 +2,7 @@
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - 2023-05-15
+## [1.1.0] - 2023-04-28
 
 ### Added
 
