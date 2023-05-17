@@ -1,0 +1,63 @@
+name: KIT-Promotion-Graduated
+description: Request to promote your KIT
+title: "[Promote KIT To Graduated]: "
+labels: ["kit-promotion"]
+assignees:
+  - octocat
+body:
+  - type: input
+    id: kit_name
+    attributes:
+      label: Name of the KIT
+      description: The name of your KIT
+    validations:
+      required: true
+  - type: input
+    id: kit_repo
+    attributes:
+      label: KIT Repo
+      description: Link to your KIT-Repo
+    validations:
+      required: true
+  - type: checkboxes
+    id: artefacts_and_Deliverables
+    attributes:
+      label: "Artefacts & Deliverables"
+      description: "Tick the provided artefacts and deliverables"
+      options:
+        - label: Standarts
+        - label: API-Specification/Protocols
+        - label: FOSS
+        - label: Quick Setup Guide
+        - label: Documentation
+        - label: Release Managment
+        - label: Tutorials/Videos
+        - label: Semantic Models
+        - label: Business Models
+        - label: Sample Data
+        - label: Reference Implementation
+        - label: Architecture
+        - label: Logic/Schema 
+    validations:
+      required: true
+  - type: input
+    id: casestudy-partner
+    attributes:
+      label: Case Study Partner
+      description: Provide Contact Information for your case study partner.
+    validations:
+      required: true
+  - type: input
+    id: casestudy-results
+    attributes:
+      label: Case Study Results
+      description: Provide a link to the Case Study Results
+    validations:
+      required: true
+  - type: textarea
+    id: comments
+    attributes:
+      label: comments
+      description: "Leave a comment or additional information!"
+
+  
