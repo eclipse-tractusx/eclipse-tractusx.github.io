@@ -7,7 +7,86 @@ sidebar_position: 3
 
 Here we have provided detailed examples of how the BPDM services can be used. This includes step-by-step instructions for each use case and code snippets showing how to make the API calls for better performance.
 
-## Use Case 1. Request Legal Entity by identifier number
+## Use case 1. Create/setup test data on local system for Pool api
+
+Description: This use case provides step-by-step instructions for setting up the local environment and starting the Pool API service for the BPDM (Business Partner Data Management) system. By following these instructions, users can easily clone the repository, configure the necessary services using Docker, and run the Pool API service on their local system.
+
+This use case aims to provide users with clear and concise instructions, ensuring a smooth setup process for working with the BPDM Pool API on their local systems.
+
+### 1.1 Start BPDM Pool Api service
+
+1. Clone the repository:
+    - Go to the following GitHub repository: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
+    - Clone the repository to your local system using Git. You can use the following command:
+
+    ```bash
+    git clone https://github.com/eclipse-tractusx/bpdm
+    ```
+
+    - Choose an IDE:You can use any IDE of your preference to view the code. One recommended IDE is IntelliJ IDEA as it is Kotlin springBoot application.
+
+2. Configure local service:
+    - Open the docker-compose.yml file in the project.
+    - This file contains the configuration for running a local instance of PostgreSQL and OpenSearch.
+    - Make sure you have Docker installed on your system.
+    - If you don't have your own database, you can use Docker to create a local instance of PostgreSQL and OpenSearch.
+    - Run the following command from the command prompt or from the IDE's terminal to start the Docker containers:
+
+    ```bash
+    docker-compose up
+    ```
+
+3. Start the Pool API service:
+    - Open your IDE and navigate to the following directory within the cloned repository: bpdm-pool/src/main/kotlin/org/eclipse/tractusx/bpdm/pool.
+    - Navigate to Application.kt file.
+    - Run the main class Application.kt to start the Pool API service.
+    - The service should start and listen on the specified port for local setup it will be on <http://localhost:8080/>.
+
+### 1.2 Test data setup
+
+1. Download the Postman collection JSON file:
+   - Go to the following GitHub repository path: [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman)
+   - Locate the JSON file named "BPDM Pool.postman_collection.json" and click on it to view its contents.
+   - Click the "Raw" button to download the file.
+
+2. Open Postman:
+   - If you don't have Postman installed, you can download it from the official website: [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
+   - Open Postman on your local system.
+
+3. Import the collection:
+   - In the Postman application, click on the "Import" button located in the top left corner of the window.
+   - Select the "File" tab.
+   - Click on the "Choose Files" button and browse to the location where you downloaded the "BPDM Pool.postman_collection.json" file.
+   - Select the JSON file and click "Open" to import it.
+
+4. Verify the imported collection:
+   - After importing, you should see the "BPDM Pool" collection listed in the left sidebar of the Postman application.
+   - Click on the imported collection to expand it and view the available requests and folders.
+
+5. Set up environment variables:
+   - In Postman, click on the "Manage Environments" button located in the top right corner of the window (it looks like an eye icon).
+   - Click on the "Add" button to create a new environment.
+   - Provide a name for the environment (e.g., "BPDM Pool Local").
+   - Add the following variables:
+     - Name: `Pool-Host`, Initial Value: `http://localhost:YOUR_PORT_NUMBER`
+       (Replace `YOUR_PORT_NUMBER` with the actual port number on which your Pool API service is running.)
+
+6. Check if metadata is available:
+   - Expand the "BPDM Pool" collection in the left sidebar.
+   - Click on the "GET identifier-types" request.
+   - In the request URL, replace `{{Pool-Host}}` with the appropriate Pool API host URL (e.g., `http://localhost:YOUR_PORT_NUMBER`).
+   - Click the "Send" button to make the request.
+   - Verify if the response contains the identifier types.
+
+   - Similarly, repeat the above steps for the following requests:
+     - "GET issuing-bodies"
+     - "GET identifier-status"
+
+   - If any of the metadata (identifier types, issuing bodies, identifier status) is not available in the response, you can create them using the respective "POST" requests provided in the Postman collection.
+
+Now you have imported the Postman collection and checked if the metadata is available using the provided endpoints. If any metadata is missing, you can create it using the corresponding requests in the collection.
+
+## Use Case 2. Request Legal Entity by identifier number
 
 Description: The Legal Entity Controller is a module within a larger system that facilitates the retrieval of information about a legal entity using their identifier number. In this use case, we are providing examples by starting services on local machine.
 
@@ -15,7 +94,7 @@ The examples taken below are generic and depending on use cases, we have mention
 
 ### Example request call
 
-The request should be made first to check Catenea-X api for checking the identifier first. This request will be handled by metadate controller and will provide all available identifier type in particular enviroment.
+The request should be made first to check Catenea-X api for checking the identifier first. This request will be handled by metadata controller and will provide all available identifier type in particular enviroment.
 
 Request:
 
@@ -176,15 +255,15 @@ Request:
 curl --location 'http://localhost:8080/api/catena/legal-entities/123456789?idType=CUSTOM_ID_TYPE'
 ```
 
-### 1.1 Direct response
+### 2.1 Direct response
 
 Scenario: The user enters a valid identifier number woth idType CUSTOM_ID_TYPE and the API returns information about only one legal entity.
 
 Flow:
 
-* The user inputs a valid identification number i.e. 123456789 and idType as CUSTOM_ID_TYPE to api request.
-* The Legal Entity Controller displays the information about the legal entity as a response to the request.
-* Once you have legal enity shown then direct response you can get using idType as BPN value as shown in below request and response.
+- The user inputs a valid identification number i.e. 123456789 and idType as CUSTOM_ID_TYPE to api request.
+- The Legal Entity Controller displays the information about the legal entity as a response to the request.
+- Once you have legal enity shown then direct response you can get using idType as BPN value as shown in below request and response.
 
 Response:
 
@@ -281,7 +360,7 @@ Response:
 }
 ```
 
-* If user putted wrong identifier number like below which is not available in DB then response will be as below.
+- If user putted wrong identifier number like below which is not available in DB then response will be as below.
 
 Bad request:
 
@@ -300,20 +379,20 @@ Response:
 }
 ```
 
-### 1.2 Match Response
+### 2.2 Match Response
 
 Scenario: To get matched response, you can use multiple key and value pair. Multiple attributes like name, legalForm, status, classification etc can be used with desired known values for them.
 
-#### 1.2.1 Trade Scoring with Score -> take highest ranking
+#### 2.2.1 Trade Scoring with Score -> take highest ranking
 
 Flow:
 
-* The user inputs a valid name key as Name of Company to the legal entity api request.
-* The Legal Entity Controller provides response with multple legal entities.
-* The Legal Entity Controller uses trade scoring to determine the highest ranking legal entity.
-* The legal entity that matches values getting more score ranking.
-* The Legal Entity Controller displays the information about the highest ranking legal entity to the user as response.
-* Those legal entities having more scroe will take precedence like BPNL000000000001 got higher precedence with score 11.198933.
+- The user inputs a valid name key as Name of Company to the legal entity api request.
+- The Legal Entity Controller provides response with multple legal entities.
+- The Legal Entity Controller uses trade scoring to determine the highest ranking legal entity.
+- The legal entity that matches values getting more score ranking.
+- The Legal Entity Controller displays the information about the highest ranking legal entity to the user as response.
+- Those legal entities having more scroe will take precedence like BPNL000000000001 got higher precedence with score 11.198933.
 
 Request:
 
@@ -520,17 +599,17 @@ Response:
 }
 ```
 
-#### 1.2.2 All scores are Equal or 0.0 -> no automatic match possible
+#### 2.2.2 All scores are Equal or 0.0 -> no automatic match possible
 
 Flow:
 
-* The user inputs a valid key and vale to the legal entity api request.
-* Consider use has enter key - legalForm and value - Custom Legal Form for Testing under api request shown below while quering.  
-* The Legal Entity Controlle API returns information about multiple legal entities.
-* The Legal Entity Controller determines that all both two legal entities matching same filter.
-* The Legal Entity Controller displays the information about both legal entities in response as shown in below.
-* Here both legal entities i.e. BPNL000000000001 and BPNL0000000001YN are having same score which is 11.198933.
-* Consider if user haven't applied any filter for attribute for this GET reuest then all legal enities will return as response and their score will be 0.0
+- The user inputs a valid key and vale to the legal entity api request.
+- Consider use has enter key - legalForm and value - Custom Legal Form for Testing under api request shown below while quering.  
+- The Legal Entity Controlle API returns information about multiple legal entities.
+- The Legal Entity Controller determines that all both two legal entities matching same filter.
+- The Legal Entity Controller displays the information about both legal entities in response as shown in below.
+- Here both legal entities i.e. BPNL000000000001 and BPNL0000000001YN are having same score which is 11.198933.
+- Consider if user haven't applied any filter for attribute for this GET reuest then all legal enities will return as response and their score will be 0.0
 
 Request:
 
@@ -739,21 +818,21 @@ Response:
 
 The response contains a few key fields that you can use to understand the information returned.
 
-* `totalElements` tells you the total number of legal entities that match your query. In this case, there are 10,978.
-* `totalPages` tells you the total number of pages of legal entities. Since contentSize is set to 10, there are 1,098 pages in total.page tells you which page you are currently on. In this case, you are on the first page (page 0).
-* `contentSize` tells you how many legal entities are included in the current page of results. In this case, there are 10 legal entities returned in the response.
-* `content` is an array of legal entities that match your query. Each legal entity contains information about its identifiers, names, legal form, types, bank accounts, roles, and relations.
+- `totalElements` tells you the total number of legal entities that match your query. In this case, there are 10,978.
+- `totalPages` tells you the total number of pages of legal entities. Since contentSize is set to 10, there are 1,098 pages in total.page tells you which page you are currently on. In this case, you are on the first page (page 0).
+- `contentSize` tells you how many legal entities are included in the current page of results. In this case, there are 10 legal entities returned in the response.
+- `content` is an array of legal entities that match your query. Each legal entity contains information about its identifiers, names, legal form, types, bank accounts, roles, and relations.
 
-### 1.3 Search particular legal entity  
+### 2.3 Search particular legal entity  
 
 Scenario: The user enters a valid BPN under request body and API returns information about legal entities in response.
 
 Flow:
 
-* The user inputs string in request body for api POST request call.
-* If user entered value is correct i.e. if provided BPN is correct. Example in this request body provided "BPNL000000000001".
-* Then Legal Entity Controller provide search result with one legal entity details.
-* The Legal Entity Controller reads the BPNL (Business Partner Number List) from the API request and displays response as below.
+- The user inputs string in request body for api POST request call.
+- If user entered value is correct i.e. if provided BPN is correct. Example in this request body provided "BPNL000000000001".
+- Then Legal Entity Controller provide search result with one legal entity details.
+- The Legal Entity Controller reads the BPNL (Business Partner Number List) from the API request and displays response as below.
 
 Request:
 
@@ -862,16 +941,16 @@ Response:
 ]
 ```
 
-### 1.4 Fetch sites for legal entity
+### 2.4 Fetch sites for legal entity
 
 Scenario: The user enters a valid BPNL under pathparam and the API returns information about site legal entities.
 
 Flow:
 
-* The user inputs a valid BPNL in pathparam as shown in below GET api request.
-* The Legal Entity Controller information about the legal entity sites as shown in response.
-* The BPN in response are nothing but BPNS along with name of the site.
-* The Legal Entity Controller provide details array of BPNS and name if more than one site is present.
+- The user inputs a valid BPNL in pathparam as shown in below GET api request.
+- The Legal Entity Controller information about the legal entity sites as shown in response.
+- The BPN in response are nothing but BPNS along with name of the site.
+- The Legal Entity Controller provide details array of BPNS and name if more than one site is present.
 
 Request:
 
@@ -900,16 +979,16 @@ Response:
 }
 ```
 
-### 1.5 Fetch addresses for legal entity  
+### 2.5 Fetch addresses for legal entity  
 
 Scenario: The user enters a valid BPNL under pathparam and the API returns information about address partners legal entities.
 
 Flow:
 
-* The user inputs a valid BPNL in pathparam as shown in below GET api request.
-* The Legal Entity Controller information about the legal entity address as shown in response.
-* The BPN in response are nothing but BPNA along with number of other fields like version, careOf, contexts, country etc.
-* The Legal Entity Controller provide details array of BPNA.
+- The user inputs a valid BPNL in pathparam as shown in below GET api request.
+- The Legal Entity Controller information about the legal entity address as shown in response.
+- The BPN in response are nothing but BPNA along with number of other fields like version, careOf, contexts, country etc.
+- The Legal Entity Controller provide details array of BPNA.
 
 Request:
 
@@ -1018,23 +1097,23 @@ Response:
 }
 ```
 
-## Use Case 2. Update data from Legal Entity and check changelog
+## Use Case 3. Update data from Legal Entity and check changelog
 
 Description: This use case involves a user updating record for a legal entity business partner associated with a Business Partner Number (BPNL). Changelogs can be identified using business partner controller, it have one GET api request explained in below use case to show up the changelog details for provided BPN.
 
 The user can use an API call for the business partner controller, which retrieves the changelog for reuested BPNL. The business-partner-controller checks if there are any updates since the last update and fetches array of the updated data for the BPNL via the business partner controller if there are updates in provided date and time frame. The Legal Entity Controller can be use to update the legal entity. Similarly site controller and address controller can be used to update sites and address type business partners respectively.
 
-### 2.1 Get Changelog for BPNL via business-partner-controller
+### 3.1 Get Changelog for BPNL via business-partner-controller
 
 Scenario: The user enters a valid BPN under query param and business partner controller api returns information about changelogs for legal entities and also filteration should be their to fetch changelog only after particular dates.
 
 Flow:
 
-* The user initiates a request to search for changelogs for a specific BPNL by providing BPN in api request.
-* Here in example request, user has putted two query params named as bpn with value BPNL0000000001YN and modifiedAfter with value 2023-03-21T09:00:25.298594Z.
-* The business-partner-controller returns the changelog for the BPNL entered.
-* Also user can be filter data based on date named as Modified after paramter, The business-partner-controller checks if there are any updates since the last update.
-* If there are updates, the business partner controller fetches the updated data for the BPNL.
+- The user initiates a request to search for changelogs for a specific BPNL by providing BPN in api request.
+- Here in example request, user has putted two query params named as bpn with value BPNL0000000001YN and modifiedAfter with value 2023-03-21T09:00:25.298594Z.
+- The business-partner-controller returns the changelog for the BPNL entered.
+- Also user can be filter data based on date named as Modified after paramter, The business-partner-controller checks if there are any updates since the last update.
+- If there are updates, the business partner controller fetches the updated data for the BPNL.
 
 Request:
 
@@ -1065,17 +1144,17 @@ Response:
 }
 ```
 
-### 2.2 Changelog for update on business partner
+### 3.2 Changelog for update on business partner
 
 Scenario: Apply the changes or update on business partner of type legal entity, site and address through api request. Check changelog for each business partner.
 
-#### 2.2.1 Update Legal Entity
+#### 3.2.1 Update Legal Entity
 
 Flow:
 
-* The user updates legal entity by hiting PUT api call as shown in request below.
-* The legal entity controller updates business partner of type legal entity as per the provided request body.  
-* The Respone will be displayed to user with updated details for  a message to the user that the legal entity data has been updated.
+- The user updates legal entity by hiting PUT api call as shown in request below.
+- The legal entity controller updates business partner of type legal entity as per the provided request body.  
+- The Respone will be displayed to user with updated details for  a message to the user that the legal entity data has been updated.
 
 Request:
 
@@ -1288,13 +1367,13 @@ curl --location --request PUT 'http://localhost:8080/api/catena/legal-entities' 
 ]'
 ```
 
-#### 2.2.2 Update Site
+#### 3.2.2 Update Site
 
 Flow:
 
-* The user updates site by hiting PUT api call as shown in request below.
-* The site controller updates business partner of type site as per the provided request body.  
-* The Respone will be displayed to user with updated details for a message to the user that the site data has been updated.  
+- The user updates site by hiting PUT api call as shown in request below.
+- The site controller updates business partner of type site as per the provided request body.  
+- The Respone will be displayed to user with updated details for a message to the user that the site data has been updated.  
 
 Request:
 
@@ -1409,13 +1488,13 @@ curl --location --request PUT 'http://localhost:8080/api/catena/sites' \
 ]'
 ```
 
-#### 2.2.3 Update Addresses
+#### 3.2.3 Update Addresses
 
 Flow:
 
-* The user updates address by hiting PUT api call as shown in request below.
-* The address controller updates business partner of type address as per the provided request body.  
-* The Respone will be displayed to user with updated details for a message to the user that the address data has been updated.  
+- The user updates address by hiting PUT api call as shown in request below.
+- The address controller updates business partner of type address as per the provided request body.  
+- The Respone will be displayed to user with updated details for a message to the user that the address data has been updated.  
 
 Request:
 

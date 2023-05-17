@@ -107,6 +107,13 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          bpdm_gate: {
+            specPath: "./openApi/bpdm/gate.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Gate Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
           irs: {
             specPath: "./openApi/irs/irs-v1.0.yaml",
             outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api",
