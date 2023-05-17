@@ -49,7 +49,7 @@ The Legal Entity Controller calls, searches, creates or updates existing busines
 | [Search Legal Addresses.](../Software%20Development%20View/Pool%20Api/search-legal-addresses.api.mdx)|
 | [Get legal entity business partner by identifier.](../Software%20Development%20View/Pool%20Api/get-legal-entity.api.mdx) |
 | [Get site partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-sites.api.mdx) |
-| [Get address partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-addresses.api.mdx.api.mdx) |
+| [Get address partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-addresses.api.mdx) |
 
 ### 3. Address Controller
 
@@ -124,48 +124,46 @@ Gate service consist of five major controllers which are listed below.
 
 The Site Controller is the controller that creates, updates, or retrieves business partners of type site (referenced via BPNS). There are PUT, POST and GET requests possible.
 
-| Site Controller | Description |
-| :----------- | :------------: |
-| GET /api/catena/input/sites | Retrive page of sites |
-| PUT /api/catena/input/sites | Create or update sites. Updates instead of creating a new site if an already existing external id is used |
-| POST /api/catena/output/sites/search | Search sites. Can optionally be filtered by external ids. |
-| POST /api/catena/input/sites/validation | Determines errors in a site record which keep it from entering the sharing process |
-| GET /api/catena/input/sites/{externalId} | Search site by external identifier. |
+| Site Controller Api|
+| :----------- |
+| [Get page of sites](../Software%20Development%20View/Gate%20Api/get-sites.api.mdx) |
+| [Create or update sites](../Software%20Development%20View/Gate%20Api/upsert-sites.api.mdx) |
+| [Get page of sites. Can optionally be filtered by external ids](../Software%20Development%20View/Gate%20Api/get-sites-output.api.mdx) |
+| [Validate a site](../Software%20Development%20View/Gate%20Api/validate-site.api.mdx) |
+| [Get site by external identifier](../Software%20Development%20View/Gate%20Api/get-site-by-external-id.api.mdx) |
 
 ### 2. legal Entity Controller
 
 The Legal Entity Controller calls, searches, creates or updates existing business partners of type legal entity (referenced via BPNL). There are PUT, POST and GET requests possible. Some of the requests need a obligatory parameter, like external id.
 
-| legal Entity Controller | Description |
-| :----------- | :------------: |
-| GET /api/catena/input/legal-entities | Retrive page of legal entities |
-| PUT /api/catena/input/legal-entities | Create or update legal entities. Updates instead of creating a new legal enitity if an already existing external id is used |
-| POST /api/catena/output/legal-entities/search | Search legal entities. Can optionally be filtered by external ids. |
-| POST /api/catena/input/legal-entities/validation | Determines errors in a legal entities record which keep it from entering the sharing process |
-| GET /api/catena/input/legal-entities/{externalId} | Search legal enitity by external identifier. |
-
-[clear bussiness partner](../Software%20Development%20View/Pool%20Api/clear.api.mdx)
+| legal Entity Controller |
+| :----------- |
+| [Get page of legal entities](../Software%20Development%20View/Gate%20Api/get-legal-entities.api.mdx) |
+| [Create or update legal entities.](../Software%20Development%20View/Gate%20Api/upsert-legal-entities.api.mdx) |
+| [Get page of legal entities. Can optionally be filtered by external ids](../Software%20Development%20View/Gate%20Api/get-legal-entities-output.api.mdx) |
+| [Validate a legal entity](../Software%20Development%20View/Gate%20Api/validate-legal-entity.api.mdx) |
+| [Get legal entity by external identifier](../Software%20Development%20View/Gate%20Api/get-legal-entity-by-external-id.api.mdx) |
 
 ### 3. Address Controller
 
 The Address Controller is the controller that updates, creates, or retrieves business partner records of type address via BPNA. There are PUT, POST and GET requests possible.
 
-| Address Controller | Description |
-| :----------- | :------------: |
-| GET /api/catena/input/addresses| Retrive page of addresses |
-| PUT /api/catena/input/addresses | Create or update addresses. Updates instead of creating a new address if an already existing external id is used |
-| POST /api/catena/output/addresses/search | Search addresses. Can optionally be filtered by external ids. |
-| POST /api/catena/input/addresses/validation | Determines errors in a address record which keep it from entering the sharing process |
-| GET /api/catena/input/addresses/{externalId} | Search address by external identifier. |
+| Address Controller |
+| :----------- |
+| [Get page of addresses](../Software%20Development%20View/Gate%20Api/get-addresses.api.mdx) |
+| [Create or update addresses](../Software%20Development%20View/Gate%20Api/upsert-addresses.api.mdx) |
+| [Get page of addresses. Can optionally be filtered by external ids.](../Software%20Development%20View/Gate%20Api/get-addresses-output.api.mdx) |
+| [Validate an address partner](../Software%20Development%20View/Gate%20Api/validate-site-1.api.mdx) |
+| [Get address by external identifier](../Software%20Development%20View/Gate%20Api/get-address-by-external-id.api.mdx) |
 
 ### 4. Business Partner Controller
 
 The business partner controller is controller that determines its likely type of either legal entity, site or address. It is possible that no type could be determined.
 The candidate needs to contain either a name or an identifier as a minimum requirement.
 
-| Business Partner Controller | Description |
-| :----------- | :------------: |
-| POST /api/catena/business-partners/type-match | Search legal enitity, site or address type of business partner candidate |
+| Business Partner Controller |
+| :----------- |
+| [Determine the LSA type of a business partner candidate](../Software%20Development%20View/Gate%20Api/determine-lsa-type.api.mdx) |
 
 ### 5. Changelog controller
 
@@ -173,6 +171,6 @@ The changelog controller is controller that gets business partner changelog entr
 Only two POST api's available for search of business partner changelog details.
 
 | Changelog Controller | Description |
-| :----------- | :------------: |
+| :----------- | :----------- |
 | POST /api/catena/business-partners/changelog/search | Retrive business partner changelog entries by list external id, from timestamp |
 | POST /api/catena/business-partners/changelog/filter | RGet business partner changelog entries by from timestamp or Legal Entity, Site or Address type |
