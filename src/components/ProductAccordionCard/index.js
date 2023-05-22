@@ -86,7 +86,7 @@ export default function ProductAccordionCard({productName, productDescription, g
               {
                 release != undefined ? 
                 <p className={styles.version}>Version:{handleVersionString(release)}</p> : 
-                <p className={styles.version}>no release provided</p>
+                <p className={styles.version}>No version provided</p>
               }
             </div>
 
@@ -114,33 +114,29 @@ export default function ProductAccordionCard({productName, productDescription, g
         >
           <section className={styles.details_container}>
             <div className={styles.repo_details_container}>
-              {
-                githubRepo.length > 1 ?
-                <ul className={styles.repo_contact_item}>
-                  <li className={styles.item_title}>Further Repositories:</li>
-                  {
-                    furtherRepos.map((repository, index)=> {
-                      return (
-                        <li 
-                          key={index}
-                          className={styles.item_link}
-                        >
-                          <a href={repository}>{repository.substring(19, (repository.length))}</a>
-                        </li>
-                      )
-                    })
-                  }
-                </ul> :
-                <ul className={styles.repo_contact_item}>
-                  <li className={styles.item_title}>Further Repositories:</li>
-                  <li className={styles.no_more_repos}>No more repositories</li>
-                </ul>
-              }
+              <ul className={styles.repo_contact_item}>
+                <li className={styles.item_title}>Further Repositories:</li>
+                {
+                  furtherRepos.length > 0 ?
+                  furtherRepos.map((repository, index)=> {
+                    return (
+                      <li 
+                        key={index}
+                        className={styles.item_link}
+                      >
+                        <a href={repository}>{repository.substring(19, (repository.length))}</a>
+                      </li>
+                    )
+                  }) :
+                  <li className={styles.no_more_content}>No more repositories</li>
+                }
+              </ul>
 
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Committers:</li>
                 {
-                  committers?.map((committer, index)=> {
+                  committers.length > 0 ?
+                  committers.map((committer, index)=> {
                     return (
                       <li 
                         key={index}
@@ -149,7 +145,8 @@ export default function ProductAccordionCard({productName, productDescription, g
                         <a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a>
                       </li>
                     )
-                  })
+                  }) :
+                  <li className={styles.no_more_content}>No committers provided</li>
                 }
               </ul>
 
