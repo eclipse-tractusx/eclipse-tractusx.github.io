@@ -56,15 +56,25 @@ export default function ProductAccordionCard({productName, productDescription, g
       return str.slice(1)
     } return str
   }
+
+  const [accordionOpen, setAccordionOpen] = useState(false);
+
   return (
     <>
     <div className={styles.product_accordion_card}>
       <Accordion
+        expanded={accordionOpen}
         className={styles.accordion}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{color: '#FAA023', fontSize: '2rem'}}/>}
-          sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '0.5rem'}}
+          expandIcon={
+            <ExpandMoreIcon
+              style={{cursor: 'pointer'}} 
+              sx={{color: '#FAA023', fontSize: '2rem'}}
+              onClick={()=> setAccordionOpen(!accordionOpen)}
+            />
+          }
+          sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '0.5rem', cursor: 'unset !important'}}
         >
           <section className={styles.summary_container}>
             <div className={styles.product_title_container}>
