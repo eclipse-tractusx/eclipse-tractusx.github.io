@@ -31,14 +31,14 @@
 }
 
 .version,
-.no_more_repos {
+.no_more_content {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   color: #a5a5a5;
 }
 
-.no_more_repos {
+.no_more_content {
   list-style: none;
 }
 
