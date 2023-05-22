@@ -100,7 +100,7 @@ export const products = [
       "https://github.com/eclipse-tractusx/traceability-foss-frontend"
     ],
     committers: [
-      "ds-mkanal"
+      "https://github.com/ds-mkanal"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team"
   },

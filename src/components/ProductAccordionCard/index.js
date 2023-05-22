@@ -29,8 +29,12 @@ import styles from "./styles.module.css";
 
 export default function ProductAccordionCard({productName, productDescription, githubRepo, committers, mailTo}) {
   const [release, setRelease] = useState()
-  let owner = githubRepo[0].split('/')[3]
-  let repo = githubRepo[0].split('/')[4]
+  
+  let furtherRepos = [...githubRepo]
+  let leadingRepo = furtherRepos.splice(0 ,1).toString()
+  
+  let owner = leadingRepo.split('/')[3]
+  let repo = leadingRepo.split('/')[4]
   
   let emailAddress = mailTo.split('?')[0];
 
@@ -82,14 +86,16 @@ export default function ProductAccordionCard({productName, productDescription, g
               {
                 release != undefined ? 
                 <p className={styles.version}>Version:{handleVersionString(release)}</p> : 
-                <p className={styles.empty}></p>
+                <p className={styles.version}>no release provided</p>
               }
             </div>
 
             <div className={styles.repo_contact_container}>
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Leading Repository:</li>
-                <li className={styles.item_link}>eclipse-tractusx/bpdm</li>
+                <li className={styles.item_link}>
+                  <a href={leadingRepo}>{leadingRepo.substring(19, (leadingRepo.length))}</a>
+                </li>
               </ul>
 
               <ul className={styles.repo_contact_item}>
@@ -108,21 +114,28 @@ export default function ProductAccordionCard({productName, productDescription, g
         >
           <section className={styles.details_container}>
             <div className={styles.repo_details_container}>
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Further Repositories:</li>
-                {
-                  githubRepo?.map((repository, index)=> {
-                    return (
-                      <li 
-                        key={index}
-                        className={styles.item_link}
-                      >
-                        <a href={repository}>{repository.substring(19, (repository.length))}</a>
-                      </li>
-                    )
-                  })
-                }
-              </ul>
+              {
+                githubRepo.length > 1 ?
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Further Repositories:</li>
+                  {
+                    furtherRepos.map((repository, index)=> {
+                      return (
+                        <li 
+                          key={index}
+                          className={styles.item_link}
+                        >
+                          <a href={repository}>{repository.substring(19, (repository.length))}</a>
+                        </li>
+                      )
+                    })
+                  }
+                </ul> :
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Further Repositories:</li>
+                  <li className={styles.no_more_repos}>No more repositories</li>
+                </ul>
+              }
 
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Committers:</li>
@@ -146,13 +159,11 @@ export default function ProductAccordionCard({productName, productDescription, g
               </ul>
 
               <div className={styles.description_container}>
-                <p className={styles.description}>
-                  {
-                    productDescription.length > MAX_LENGTH ? 
-                    <p>{productDescription.substring(0, MAX_LENGTH)}...</p> :
-                    <p>{productDescription}</p>
-                  }
-                </p>
+                {
+                  productDescription.length > MAX_LENGTH ? 
+                  <p className={styles.description}>{productDescription.substring(0, MAX_LENGTH)}...</p> :
+                  <p className={styles.description}>{productDescription}</p>
+                }
               </div>
             </div>
           </section>
