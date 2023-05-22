@@ -30,11 +30,16 @@
   line-height: 25px;
 }
 
-.version {
+.version,
+.no_more_repos {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   color: #a5a5a5;
+}
+
+.no_more_repos {
+  list-style: none;
 }
 
 .repo_contact_container,
