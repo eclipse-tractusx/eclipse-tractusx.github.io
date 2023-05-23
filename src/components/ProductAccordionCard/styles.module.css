@@ -80,3 +80,54 @@
   font-size: 16px;
   line-height: 27px;
 }
+
+@media screen and (max-width: 996px) {
+  .product_title_container {
+    width: 35%;
+    padding: 2rem 0.5rem 0.5rem 0;
+  }
+
+  .repo_contact_container,
+  .repo_details_container {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product_title_container {
+    width: 40%;
+  }
+
+  .repo_contact_container,
+  .repo_details_container {
+    width: 60%;
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .summary_container {
+    flex-direction: column;
+  }
+
+  .product_title_container {
+    width: 80%;
+    border-right: none;
+    border-bottom: 2px solid var(--ifm-color-primary);
+    padding: 0;
+  }
+
+  .repo_contact_container {
+    width: 90%;
+    padding: 1rem 0 0;
+  }
+
+  .details_container {
+    justify-content: flex-start;
+  }
+
+  .repo_details_container {
+    width: 90%;
+    padding: 0;
+  }
+}
