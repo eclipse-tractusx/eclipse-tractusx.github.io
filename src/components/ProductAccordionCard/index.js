@@ -27,7 +27,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import styles from "./styles.module.css";
 
-export default function ProductAccordionCard({productName, productDescription, githubRepo, committers, mailTo}) {
+export default function ProductAccordionCard({productName, productDescription, githubRepo, committers, mailTo, hasBoard}) {
   const [release, setRelease] = useState()
   
   let furtherRepos = [...githubRepo]
@@ -86,7 +86,7 @@ export default function ProductAccordionCard({productName, productDescription, g
               {
                 release != undefined ? 
                 <p className={styles.version}>Version:{handleVersionString(release)}</p> : 
-                <p className={styles.version}>No version provided</p>
+                <p className={styles.no_display}></p>
               }
             </div>
 
@@ -150,10 +150,16 @@ export default function ProductAccordionCard({productName, productDescription, g
                 }
               </ul>
 
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Board:</li>
-                <li className={styles.item_link}>?</li>
-              </ul>
+              {
+                hasBoard ? 
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Board:</li>
+                  <li className={styles.item_link}>
+                    <a href={`${leadingRepo}/discussions`}>{`${leadingRepo.substring(19, (leadingRepo.length))}/discussions`}</a>
+                  </li>
+                </ul> :
+                <ul className={styles.no_display}></ul>
+              }
 
               <div className={styles.description_container}>
                 {

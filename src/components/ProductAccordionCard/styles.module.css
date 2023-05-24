@@ -81,6 +81,10 @@
   line-height: 27px;
 }
 
+.no_display {
+  display: none;
+}
+
 @media screen and (max-width: 996px) {
   .product_title_container {
     width: 35%;
