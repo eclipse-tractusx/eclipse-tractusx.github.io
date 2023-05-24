@@ -24,8 +24,8 @@ during `gradle build` or `gradle check`. That will cause the build to fail if an
 usability and on-the-fly reporting, Checkstyle is also available as IDE plugins for many modern IDEs, and it can run
 either on-demand or continuously in the background:
 
-- [IntelliJ IDEA plugin [recommended]](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea)
-- [Eclipse IDE [recommended]](https://checkstyle.org/eclipse-cs/#!/)
+- [IntelliJ IDEA plugin [recommended]](<https://plugins.jetbrains.com/plugin/1065-checkstyle-idea>)
+- [Eclipse IDE [recommended]](<https://checkstyle.org/eclipse-cs/#!/>)
 
 ### Checkstyle as PR validation
 
