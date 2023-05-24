@@ -1,8 +1,27 @@
 # Changelog
 
+![Business partner kit banner](@site/static/img/ConnectorKitIcon.png)
+
+## Connector Kit
+
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - 2023-05-15
+## [1.2.0] - 2023-05-16
+
+### Added
+
+- chart documentation for tractusx-connector-azure-vault
+
+### Changed
+
+- helm chart documentation -> added needed properties and information about self-signed certificates for testing
+
+### Removed
+
+- chart documentation for tractusx-connector-app
+- unused files like charts, values.yaml
+
+## [1.1.0] - 2023-04-28
 
 ### Added
 

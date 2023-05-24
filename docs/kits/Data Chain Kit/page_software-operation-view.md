@@ -5,7 +5,9 @@ description: 'Data Chain Kit'
 sidebar_position: 2
 ---
 
-![Datachain kit banner](../../../static/img/doc-datachain_header-minified.png)
+![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+
+### Data Chain Kit
 
 ## Local Deployment
 
@@ -50,13 +52,6 @@ This local deployment is an easy installation with helm. This setup is built to 
 5. [Python3](https://www.python.org/downloads/) is installed
 6. [Ruby](https://www.ruby-lang.org/de/documentation/installation/) is installed
 7. [psql](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/) client is installed
-8. **CURRENTLY STILL NECESSARY:** Fill the digital twin secret in file:
-
-   ```bash
-   ./template/digital-twin-registry-docker-secret.yaml
-   ```
-
-   Get the **digital twin dockerpullsecret**  via an issue in the [Digital Twin Repository](https://github.com/eclipse-tractusx/sldt-digital-twin-registry). Request the image secret for the private Digital Twin Registry image.
 
 ### Step 2: Check out the code
 
@@ -69,7 +64,7 @@ Check out the project [Item Relationship Service](https://github.com/eclipse-tra
 To deploy the services on kubernetes, run
 
 ```bash
-cd local/full-irs
+cd local/deployment/full-irs
 ./start.sh true true
 ```
 
