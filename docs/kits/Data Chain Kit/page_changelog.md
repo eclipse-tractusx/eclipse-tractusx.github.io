@@ -5,7 +5,9 @@ description: 'Data Chain Kit Changelog'
 sidebar_position: 10
 ---
 
-![Datachain kit banner](../../../static/img/doc-datachain_header-minified.png)
+![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+
+### Data Chain Kit
 
 All notable changes to this Kit will be documented in this file.
 

@@ -40,7 +40,7 @@ export default function HomePageHeader() {
           </p>
         </div>
         <div className={styles.btn_container}>
-          <Link className={styles.button} to="/developer">
+          <Link className="button" to="/developer">
             Our Dev Kits
           </Link>
         </div>

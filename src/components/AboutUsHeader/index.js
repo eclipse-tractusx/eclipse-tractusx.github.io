@@ -32,8 +32,8 @@ export default function AboutUsHeader() {
           <TractusXSvg className={styles.svg}/>
         </div>
         <div className={styles.information_container}>
-          <h2 className={styles.title}>About Tractus X</h2>
-          <p className={styles.subtitle}>
+          <h1 className="headers-title-h1">About Tractus X</h1>
+          <p className="headers-subtitle-p">
             Eclipse Tractus-X™  is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation.
           </p>
         </div>

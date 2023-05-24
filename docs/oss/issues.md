@@ -18,16 +18,22 @@ Here all requests for Eclipse infrastructure go in.
 - If you are not a committer, create the ticket and add a committer to request a "thumbs up" for approval
 - [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2273) for requesting a new repository
 - [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2843) for requesting a sonar project for a repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2186) for requesting secrets in repository
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/1697) for requesting changes for a repository
 
 ## [Eclipse GitLab IP Issue Tracker](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20)
 
 **IMPORTANT:** only a committer can create a valid IP Ticket!
 
-- IP issue for Code Contributions: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-project), choose template "vet-project" ([more information](/docs/release/trg-0/trg-7-03#description))
-- IP issue for 3rd party content: [Template](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new?issuable_template=vet-third-party), choose template "vet-third party" ([more information](/docs/release/trg-0/trg-7-04#checking-other-content-fonts-images-))
-- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses) ([more information](/docs/release/trg-0/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool))
-
-<!--- TODO AWI: change links from draft to final --->
+- IP issue for [Code Contributions](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new), choose template "vet-project"
+  - [more information](/docs/release/trg-7/trg-7-03)
+  - title pattern: `project/<project id>/-/<name>/0.0`,
+  - [Example](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/8097)
+  - For PRs: use the link to the PR as source reference!
+- IP issue for [3rd party content](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/new), choose template "vet-third party":
+  - [more information](/docs/release/trg-7/trg-7-04#checking-other-content-fonts-images-)
+  - [Example](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/5875)
+- Automatic IP Team Review Requests via the [Dash Tool](https://github.com/eclipse/dash-licenses) ([more information](/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool))
 
 **Notes:**
 

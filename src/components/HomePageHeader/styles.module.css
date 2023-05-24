@@ -46,21 +46,6 @@
   letter-spacing: -0.7px;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 996px) {
   .title {
     font-size: 10vw;
@@ -74,11 +59,6 @@
 
   .btn_container {
     margin-top: -2rem;
-  }
-
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
   }
 }
 
@@ -94,10 +74,5 @@
   .subtitle {
     font-size: 14px;
     line-height: 16px;
-  }
-
-  .button {
-    padding: 0.3rem 1rem;
-    font-size: 12px;
   }
 }

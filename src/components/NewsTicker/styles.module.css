@@ -77,7 +77,8 @@
 
 @media screen and (max-width: 996px) {
   .container {
-    height: 2rem;
+    width: 80vw;
+    height: 3rem;
     padding: 0.5rem 0;
   }
 
@@ -106,12 +107,18 @@
 
 @media screen and (max-width: 600px) {
   .container {
-    width: 98vw;
+    flex-direction: column-reverse;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .slider_item {
+    flex-direction: column;
   }
 
   .button {
     padding: 0rem 0.6rem;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .carousel_container {

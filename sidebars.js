@@ -61,7 +61,9 @@ const sidebars = {
                 },
             ],
         },
-        'github-checks'
+        'github-checks',
+        'dev_links',
+        'dev_faq'
     ],
     kits: [
         {
