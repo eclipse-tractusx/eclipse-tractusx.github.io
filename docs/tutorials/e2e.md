@@ -30,6 +30,8 @@ This tutorial shall enable the IT department of an adopter (data provider/consum
 
 During this tutorial you will get to know the perspective of a data provider as well as a data consumer and deploy the typical setup that is required for data provisioning and data consumption without the help of business applications.
 
+> **_NOTE:_** In most use-cases and participation scenarios you will later use a business app for data consumption. This tutorial will nevertheless show you how the basic principles of data discovery and exchange behind the applications work.
+
 ## Skills Required
 
 No preliminary knowledge about Catena-X is required.
@@ -55,7 +57,7 @@ In Chapter 3: Boost you will configure and register your components so that they
 
 ### Chapter 4: Adopt
 
-Coming Soon(?): Chapter 4: Adopt dives into some advanced concepts that you will need if your company wants to participate in Catena-X in a larger scale. It explains how you can deploy a UI for the EDC or configure an SSI wallet to work with the EDC.
+Coming Soon: Chapter 4: Adopt dives into some advanced concepts that you will need if your company wants to participate in Catena-X in a larger scale. It explains how you can deploy a UI for the EDC or configure an SSI wallet to work with the EDC.
 
 ### Chapter 5: Inform
 
