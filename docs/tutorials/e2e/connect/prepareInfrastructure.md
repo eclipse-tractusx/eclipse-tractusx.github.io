@@ -7,6 +7,6 @@ sidebar_position: 1
 
 ---
 **NOTE:**
-This chapter is still work in progress. Check back layer!
+This chapter is still work in progress. Check back later!
 
 ---
