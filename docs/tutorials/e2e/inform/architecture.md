@@ -26,7 +26,7 @@ The next component to share data to another participant is the [Eclipse Data Spa
 
 Now the minimal Setup for data exchange is in place. Now you are able to setup data offers and exchange data.
 
-[//]: <> (Felix: Noch wurde im Rahmen des Tutorials ja nichts gemacht. Ich würde vielleicht sowas sagen wie "In principle, an EDC and an Identity - das ist es ja was die BPN wiedergibt - are enough to share data in the Catena-X data space. However, for an interoperable and scalable data space we also need technologies for data description/semantic as well as data discovery and access)
+[//]: # (Felix: Noch wurde im Rahmen des Tutorials ja nichts gemacht. Ich würde vielleicht sowas sagen wie "In principle, an EDC and an Identity - das ist es ja was die BPN wiedergibt - are enough to share data in the Catena-X data space. However, for an interoperable and scalable data space we also need technologies for data description/semantic as well as data discovery and access)
 
 **What language does Catena-X speak? / Asset Administration Shell with Aspect Models define the language in Catena-X**
 
@@ -48,7 +48,6 @@ To enable this, the Data Offers of a Catena-X participants shall be registered i
 The [Item Relationship Service](https://eclipse-tractusx.github.io) (IRS) is one tool which can be used, to very easy access distributed linked Data within the Network. To enable Business Logic along the Data Chain. If you want to be the rocket within the network, the IRS is your Service to use!
 
 [//]: # (Felix: Fehlen hier nicht noch der EDC Discovery Service und die beiden Registry Discovery Services für ein vollständiges Bild? Ich habe im Kopf, dass wir einmal alle Komponenten erklären, mit denen ein adopter interagieren muss - da fehlt dann noch das registrieren von EDCs, der Registry und eine Erklärung der Rolle des Backends)
-
 
 [//]: # (Felix: @Johannes: Hast du dir schon überlegt, wie/wo wir den IRS plazieren wollen? Eher als "Advanced Concept" unter Chapter 4, oder als "Basic Concept" in Chapter 3? )
 
