@@ -50,6 +50,9 @@ The [Item Relationship Service](https://eclipse-tractusx.github.io) (IRS) is one
 [//]: # (Felix: Fehlen hier nicht noch der EDC Discovery Service und die beiden Registry Discovery Services für ein vollständiges Bild? Ich habe im Kopf, dass wir einmal alle Komponenten erklären, mit denen ein adopter interagieren muss - da fehlt dann noch das registrieren von EDCs, der Registry und eine Erklärung der Rolle des Backends)
 
 
+[//]: # (Felix: @Johannes: Hast du dir schon überlegt, wie/wo wir den IRS plazieren wollen? Eher als "Advanced Concept" unter Chapter 4, oder als "Basic Concept" in Chapter 3? )
+
+
 @Jens
 
 ```mermaid
