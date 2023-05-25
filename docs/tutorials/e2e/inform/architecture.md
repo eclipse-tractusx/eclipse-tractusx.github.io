@@ -9,6 +9,10 @@ This chapter is still work in progress. Check back layer!
 
 ---
 
+If you are interested more in buying services, please get in contact with a operating company.
+This section is for the makerr, which are intereste in deploying the services in their own it landscape.
+
+
 **Where does the journey begin? / It Starts all with the BPN**
 
 The first thing you need is a BPN because this is used within the Network to identify yourself against another paricipant. This tells the network in a trusted mannor who are you. [How to get your BPN?](https://eclipse-tractusx.github.io)
