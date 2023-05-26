@@ -2,6 +2,15 @@
 title: Create KIT website
 ---
 
+
+```md
+    **********************************************
+    ** DISCLAIMER                               **
+    ** THIS PROCESS IS STILL UNDER DEVELOPMENT  **
+    ** FEEDBACK IS APPRECIATED                  **
+    **********************************************
+```
+
 ## Project Structure
 
 Following our project structure, the collection of our KITs documentation is developed in the `./docs/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs/kits/Data Chain Kit`.
