@@ -284,16 +284,29 @@ const config = {
             label: "About Us",
           },
           {
-            to: "/developer",
-            position: "left",
-            label: "KITs",
+            type: 'dropdown',
+            label: 'KITs',
+            position: 'left',
+            to: '/developer',
+            items: [
+              {
+                to: '/docs/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
+              },
+              {
+                to: '/docs/kits/Data%20Chain%20Kit/Adoption%20View',
+                label: 'Data Chain',
+              },
+              {
+                to: '/docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                label: 'Connector',
+              },
+              {
+                to: '/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
+              },
+            ],
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'introduction',
-          //   position: 'left',
-          //   label: 'Documentation',
-          // },
           {
             type: 'doc',
             docId: 'developer',
@@ -310,7 +323,6 @@ const config = {
             position: "left",
             label: "Versions",
           },
-          /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
             label: 'GitHub',
