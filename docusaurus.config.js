@@ -100,6 +100,20 @@ const config = {
         id: "api-docs",
         docsPluginId: "classic",
         config: {
+          bpdm_gate: {
+            specPath: "./openApi/bpdm/gate.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Gate Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          bpdm_pool: {
+            specPath: "./openApi/bpdm/pool.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
           traceability_notifications: {
             specPath: "./openApi/traceability/notifications.yaml",
             outputDir: "./docs/kits/Traceability Kit/Software Development View/Notification API",
