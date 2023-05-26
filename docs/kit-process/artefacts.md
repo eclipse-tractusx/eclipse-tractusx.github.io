@@ -8,7 +8,7 @@ title: Artefacts
 
 ## ADOPTION VIEW
 
-### Vision & Mission [mandatory]
+### Vision & Mission
 
 The vision describes the strategic objectives of a KIT and how it aims to inspire solution providers.
 
@@ -35,7 +35,7 @@ The mission explains why we are providing the KIT describing a concrete industry
 The BusinessPartner Kit provides high-quality data records of business partners called golden record, including a unique identifier, the business partner number (BPN).
 …
 
-### Business Value [mandatory]
+### Business Value
 
 The business value describes the benefits for an service provider by using a KIT in order to create a commercial or non-profit solution for the Catena-X marketplaces.
 
@@ -50,7 +50,7 @@ Access to new market potentials: Potential to scale customer group and access ne
 
 The unique identifier: BPN is the unique number to identify and find partners in the Catena-X network. It will also provide high quality data sets from business partners, their legal unit, sites and addresses.
 
-### Use Case / Domain explanation [mandatory]
+### Use Case / Domain explanation
 
 This gives more insights into the use case or domain itself.
 
@@ -83,7 +83,7 @@ Solution Provider:
 - The Kit enables the offering of value-add services and innovation based on golden record and collective wisdom.
 - Potential to scale customer group and access new market potentials via marketplace and shared service network.
 
-### Tutorials [recommended]
+### Tutorials
 
 A tutorial provides educational resources that provides step-by-step guidance on how to use a KIT. Tutorials can be delivered in various formats, such as videos or written text. It may also provide additional resources for further exploration of the topic.
 
@@ -92,7 +92,7 @@ Deliverables:
 - Description
 - Tutorial video or screenshot documentation
 
-### Whitepaper [optional]
+### Whitepaper
 
 A whitepaper outlines the overall objectives of a KIT regarding a specific business problem. It provides readers with background information on the topic, identifies key challenges and solutions to those challenges, evaluates alternative approaches to solving the business problem at hand, and offers recommendations for action.
 
@@ -101,7 +101,7 @@ Deliverable:
 - Description
 - Link to the whitepaper
 
-### Semantic Models [recommended]
+### Semantic Models
 
 The semantic data models are a method of structuring data that includes semantic information that adds a basic meaning to the data and the relationships that lie between them to enable interoperability.
 
@@ -110,18 +110,18 @@ Deliverables:
 - Description
 - Link to the semantic data models (GitHub)
 
-### Logic / Schema [optional]
+### Logic / Schema
 
 Logic / schemas provides a definition of the minimum viable business process that must be implemented to enable interoperability.
 
 Deliverables: Description
 
-### Business Process [recommended]
+### Business Process
 
 - Business Architecture
 - Access & Usage Policies
 
-### Standards: [mandatory]
+### Standards
 
 Links to the relevant standards (Association Library)
 
@@ -129,7 +129,7 @@ Links to the relevant standards (Association Library)
 
 ... provides developers with resources to accelerate the development of apps and services.
 
-### API Specifications [mandatory]
+### API Specifications
 
 Deliverable:
 
@@ -141,21 +141,21 @@ Deliverable:
 
 [`Example for OpenAPI integration:`](https://eclipse-tractusx.github.io/docs/kits/Business%20Partner%20Kit/Software%20Development%20View/Pool%20Api/business-partner-data-management-pool)
 
-### Sample Data [recommended]
+### Sample Data
 
 Deliverable:
 
 - Description on how to use the sample data
 - File with sample data
 
-### Reference Implementation [recommended]
+### Reference Implementation
 
 Deliverable:
 
 - Description
 - Link to repository
 
-### Documentation in the context of development [recommended]
+### Documentation in the context of development
 
 Deliverable:
 
