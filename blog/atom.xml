@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2023-02-10T11:00:00.000Z</updated>
+    <updated>2023-05-26T11:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Tractus-X 3.1 available now]]></title>
+        <id>new-release-3-1-0</id>
+        <link href="https://eclipse-tractusx.github.io/blog/new-release-3-1-0"/>
+        <updated>2023-05-26T11:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Release Tractus-X 3.1.0 announcement]]></summary>
+        <content type="html"><![CDATA[<p>We are pleased to announce the release of <a href="https://eclipse-tractusx.github.io/CHANGELOG/#310---2023-05-17" target="_blank" rel="noopener noreferrer">Tractus-X 3.1!</a> This release brings important improvements to the robustness, quality, and overall user experience of the Catena-X data space. In addition, we introduce exciting new offerings for our solution providers such as the Traceability KIT and the Country Risk Service.</p><p>With version 3.1, the Catena-X Association also introduces significant advancements in data sovereignty by providing the first version of the <a href="https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations" target="_blank" rel="noopener noreferrer">Governance Framework</a> as well as <a href="https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Framework_Use_Case_Traceability/Catena-X_Use_Case_Policies_Trace_3.0_EN.pdf" target="_blank" rel="noopener noreferrer">Policies for our use case Traceability</a>.</p><p>Let's explore the highlights of this release!</p>]]></content>
+        <author>
+            <name>Daniel Miehle</name>
+            <email>daniel.miehle@bmw.de</email>
+            <uri>https://github.com/danielmiehle</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Tractus-X Developer Portal is LIVE!]]></title>
         <id>portal-is-live</id>
