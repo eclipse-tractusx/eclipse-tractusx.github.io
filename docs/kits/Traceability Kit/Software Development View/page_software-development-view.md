@@ -416,7 +416,7 @@ Data for digital twins is made available via EDC in Catena-X. Therefore, submode
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
 - `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPartTypization: "serialPartTypization".
 
-The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor. 
+The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor.
 
 ```json
 {
@@ -438,14 +438,14 @@ The following conventions apply:
   - `/submodel`: This is currently the only API method that must be supported for Traceability
   - `/$value`: For release 3.2, data providers only need to support "value" as serialization modifier.
 - `subprotocol` must be set to "IDS/AAS"
-- `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer. 
+- `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
   - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property form the EDC catalog ("asset:prop:*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
   - `idsEndpoint`: server and port of the EDC control plane used for contract negotiation
 
 With this approach, the EDC asset structure is independent of the digital twin registry information in the endpoint property. Therefore, data providers can decide on their own what structure suits them best based on how they use the filter criteria in `subprotocolBody`.
 
 - Option 1: Digital twins, i.e., their submodels, are registered in the EDC the same way as for release 3.1, i.e., one EDC asset is created for every submodel of a digital twin. In the example above, the asset:prop:id would have the value "urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:34b73238-4dc2-424a-985d-4afa01d7203e" with this option.
-- Option 2: A data provider can also link several submodel endpoints to the same EDC asset. This allows to, e.g., create only one EDC asset (per aspect model) for a catalog part (referenced by the asset:prop:id) and link all submodels (of the same aspect model) of serialized parts of the catalog part to the same EDC asset. The data provider would (in most cases) still needs to create separate EDC assets per aspect model as different usage policies are used for aspect models most of the time. 
+- Option 2: A data provider can also link several submodel endpoints to the same EDC asset. This allows to, e.g., create only one EDC asset (per aspect model) for a catalog part (referenced by the asset:prop:id) and link all submodels (of the same aspect model) of serialized parts of the catalog part to the same EDC asset. The data provider would (in most cases) still needs to create separate EDC assets per aspect model as different usage policies are used for aspect models most of the time.
 
   As a result, data providers can decide on their own which EDC asset structure is best for them.
   
@@ -479,7 +479,8 @@ Here's an example of a valid submodel descriptor for Catena-X Traceability:
 
 **Data Consumption with AAS Submodel Descriptor Endpoints****
 
-The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X. 
+The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
+
 - A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS/AAS"
 - Then, the data consumer must use the information in the `subprotocol` to perform a contract negotiation for the EDC asset referenced by the filter criteria (in the above example, this is the EDC asset with id "urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7"). The contract negotiation must be performed with the EDC control plane of the data provider specified by the parameter idsEndpoint.
 - Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. In this data transfer, the actual AAS API call (the path part of the `href`URL) is passed to the from the data consumer to the data provider contral plane as a parameter for the backend data service that actually executes the request and returns the submodel (via the data provider EDC data plane).
