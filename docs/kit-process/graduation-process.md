@@ -23,7 +23,7 @@ In the final stage, the Graduated stage, the KIT is production ready, published 
 
 ## Promotion Process
 
-As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be delivered. A distinction is made between necessary, optional and recommended deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level. As soon as this criteria is met a promotion has to be requested. To achieve graduated status, a case study must also be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner only tries to solve the problem to be solved with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
+As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be delivered. A distinction is made between necessary, ❔ and ❓ deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level. As soon as this criteria is met a promotion has to be requested. To achieve graduated status, a case study must also be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner only tries to solve the problem to be solved with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
 
 ## Artfacts & Deliverables
 
@@ -31,28 +31,30 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 
 ### Sandbox
 
-| Artefact/Deliverable         | urgency     |
-| ---------------------------- | ----------- |
-| Vision/Mission               | mandatory   |
-| Business Value(s)            | mandatory   |
-| Use Case/ Domain explanation | mandatory   |
-| Development Roadmap          | recommended |
-| Whitepaper                   | optional    |
+| Artefact/Stage                                                           | Sandbox | Incubating                               |
+| ------------------------------------------------------------------------ | ------- | ---------------------------------------- |
+| [Vision/Mission](artefacts/#vision--mission)                             | ❗️     |                                          |
+| [Business Value(s)](artefacts/#business-value)                           | ❗️     |                                          |
+| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  | ❗️     |                                          |
+| [Whitepaper](artefacts/#whitepaper)                                      |         | ❔                                       |
+| [Standarts](artefacts/#standards)                                        |         | ❗️                                      |
+| [API-Specification/Protocols](artefacts/#api-specifications)             |         | ❗️                                      |
+| FOSS                                                                     |         | ❗️                                      |
+| Quick Setup Guide                                                        |         | ❗️ (if reference implementation exists) |
+| [Documentation](artefacts/#documentation-in-the-context-of-development)  |         | ❗️                                      |
+| Release Managment                                                        |         | ❗️                                      |
+| [Tutorials/Videos](artefacts/#tutorials)                                 |         | ❓                                       |
+| [Semantic Models](artefacts/#semantic-models)                            |         | ❓                                       |
+| [Buisiness Processes](artefacts/#business-process)                       |         | ❓                                       |
+| [Sample Data](artefacts/#sample-data)                                    |         | ❓                                       |
+| [Reference Implementation](artefacts/#reference-implementation)          |         | ❓                                       |
+| Architecture                                                             |         | ❓                                       |
+| [Logic/Schema](artefacts/#logic--schema)                                 | ❔      | ❔                                       |
 
-### Incubating
+#### Legend
 
-| Artefact/Deliverable        | urgency                                        |
-| --------------------------- | ---------------------------------------------- |
-| Standarts                   | mandatory                                      |
-| API-Specification/Protocols | mandatory                                      |
-| FOSS                        | mandatory                                      |
-| Quick Setup Guide           | mandatory (if reference implementation exists) |
-| Documentation               | mandatory                                      |
-| Release Managment           | mandatory                                      |
-| Tutorials/Videos            | recommended                                    |
-| Semantic Models             | recommended                                    |
-| Buisiness Processes         | recommended                                    |
-| Sample Data                 | recommended                                    |
-| Reference Implementation    | recommended                                    |
-| Architecture                | recommended                                    |
-| Logic/Schema                | optional                                       |
+| Symbol | Meaning     |
+| ------ | ----------- |
+| ❗️    | mandatory   |
+| ❓     | recommended |
+| ❔     | optional    |
