@@ -3,6 +3,14 @@ title: Versioning scheme
 sidebar_position: 2
 ---
 
+```md
+    **********************************************
+    ** DISCLAIMER                               **
+    ** THIS PROCESS IS STILL UNDER DEVELOPMENT  **
+    ** FEEDBACK IS APPRECIATED                  **
+    **********************************************
+```
+
 To achieve some uniformity, we prescribe a versioning scheme for KITs. Here we use a modified semantic versioning. With semantic versioning, the version is composed of three parts as follows:
 
 `MAJOR.MINOR.PATCH`

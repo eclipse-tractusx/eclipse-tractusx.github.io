@@ -2,6 +2,14 @@
 title: Update Documentation
 ---
 
+```md
+    **********************************************
+    ** DISCLAIMER                               **
+    ** THIS PROCESS IS STILL UNDER DEVELOPMENT  **
+    ** FEEDBACK IS APPRECIATED                  **
+    **********************************************
+```
+
 On this page you find a description on how to create/update your KITs documentation.
 
 ## Process
