@@ -43,7 +43,7 @@ export default function NewsTicker() {
 
   const NewsTickerCard = ({date, title, blogLink}) => {
     return (
-      <div className={styles.slider_item}>
+      <Link className={styles.slider_item} to={blogLink}>
         <div className={styles.date}>
           {date}
         </div>
@@ -52,12 +52,12 @@ export default function NewsTicker() {
           <strong>{title}</strong>
         </div>
 
-        <div className={styles.link_to_blog}>
-          <Link to={blogLink}>
-            Read more &gt;
-          </Link>
+        <div className={styles.arrow_container}>
+          <div className={styles.arrow}>
+            -&gt;
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 
