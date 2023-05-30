@@ -33,6 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: 'docs',
+          path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -58,6 +60,24 @@ const config = {
   ],
 
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-kits',
+        path: 'docs-kits',
+        routeBasePath: 'docs-kits',
+        sidebarPath: require.resolve('./sidebarsDocsKits.js'),
+      }, 
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-products',
+        path: 'docs-products',
+        routeBasePath: 'docs-products',
+        sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
+      }, 
+    ],
     [
       "docusaurus-plugin-remote-content",
       {
@@ -290,19 +310,19 @@ const config = {
             to: '/developer',
             items: [
               {
-                to: '/docs/kits/Business%20Partner%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
                 label: 'Business Partner',
               },
               {
-                to: '/docs/kits/Data%20Chain%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
                 label: 'Data Chain',
               },
               {
-                to: '/docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
               {
-                to: '/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
               },
             ],
@@ -323,6 +343,11 @@ const config = {
             position: "left",
             label: "Versions",
           },
+          // {
+          //   to: "/docs-products/category/products",
+          //   position: "left",
+          //   label: "Products",
+          // },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
             label: 'GitHub',
