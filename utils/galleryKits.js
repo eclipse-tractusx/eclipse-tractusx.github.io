@@ -8,22 +8,22 @@ export const galleryKits = [
   {
     id: 1,
     img: Business_Kit,
-    pageRoute: "docs/kits/Business Partner Kit/Adoption View"
+    pageRoute: "docs-kits/kits/Business Partner Kit/Adoption View"
   },
   {
     id: 2,
     img: DataChain_Kit,
-    pageRoute: "docs/kits/Data Chain Kit/Adoption View"
+    pageRoute: "docs-kits/kits/Data Chain Kit/Adoption View"
   },
   {
     id: 3,
     img: Connector_Kit,
-    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
     id: 4,
     img: Traceability_Kit,
-    pageRoute: "docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit"
+    pageRoute: "docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit"
   }
   // {
   //   id: 4,
