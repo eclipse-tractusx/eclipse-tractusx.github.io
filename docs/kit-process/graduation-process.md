@@ -40,30 +40,30 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 ### Artefacts
 
 | Artefact/Stage                                                           | Sandbox | Incubating |
-| ------------------------------------------------------------------------ | ------- | ---------- |
-| [Vision/Mission](artefacts/#vision--mission)                             |  ✓      |            |
-| [Business Value(s)](artefacts/#business-value)                           | ✓       |            |
-| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  | ✓       |            |
-| [Whitepaper](artefacts/#whitepaper)                                      |         | ?         |
-| [Standarts](artefacts/#standards)                                        |         | ✓          |
-| [API-Specification/Protocols](artefacts/#api-specifications)             |         | ✓          |
-| FOSS                                                                     |         | ✓          |
-| Quick Setup Guide                                                        |         | ✓ \*       |
-| [Documentation](artefacts/#documentation-in-the-context-of-development)  |         | ✓          |
-| Release Managment                                                        |         | ✓          |
-| [Tutorials/Videos](artefacts/#tutorials)                                 |         | (✓)        |
-| [Semantic Models](artefacts/#semantic-models)                            |         | (✓)        |
-| [Buisiness Processes](artefacts/#business-process)                       |         | (✓)        |
-| [Sample Data](artefacts/#sample-data)                                    |         | (✓)        |
-| [Reference Implementation](artefacts/#reference-implementation)          |         | (✓)        |
-| Architecture                                                             |         | (✓)        |
-| [Logic/Schema](artefacts/#logic--schema)                                 | ?      | ?         |
+| :------------------------------------------------------------------------ | :-----: | :--------: |
+| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |            |
+| [Business Value(s)](artefacts/#business-value)                           |    ✓    |            |
+| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |            |
+| [Whitepaper](artefacts/#whitepaper)                                      |         |     ?      |
+| [Standarts](artefacts/#standards)                                        |         |     ✓      |
+| [API-Specification/Protocols](artefacts/#api-specifications)             |         |     ✓      |
+| FOSS                                                                     |         |     ✓      |
+| Quick Setup Guide                                                        |         |    ✓ \*    |
+| [Documentation](artefacts/#documentation-in-the-context-of-development)  |         |     ✓      |
+| Release Managment                                                        |         |     ✓      |
+| [Tutorials/Videos](artefacts/#tutorials)                                 |         |    (✓)     |
+| [Semantic Models](artefacts/#semantic-models)                            |         |    (✓)     |
+| [Buisiness Processes](artefacts/#business-process)                       |         |    (✓)     |
+| [Sample Data](artefacts/#sample-data)                                    |         |    (✓)     |
+| [Reference Implementation](artefacts/#reference-implementation)          |         |    (✓)     |
+| Architecture                                                             |         |    (✓)     |
+| [Logic/Schema](artefacts/#logic--schema)                                 |    ?    |     ?      |
 
 #### Legend
 
 | Symbol | Meaning                              |
-| ------ | ------------------------------------ |
+| :------: | :------------------------------------: |
 | ✓      | mandatory                            |
 | (✓)    | recommended                          |
-| ?     | optional                             |
+| ?      | optional                             |
 | \*     | if a reference implementation exists |
