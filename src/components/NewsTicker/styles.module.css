@@ -55,10 +55,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #dcdee4;
+}
+
+.slider_item:hover {
+  text-decoration: none;
+  color: #dcdee4; 
 }
 
 .date {
-  color: #dcdee4;
   margin: 0 1rem;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
@@ -73,6 +78,10 @@
   font-size: 14px;
   line-height: 122%;
   opacity: 0.8;
+}
+
+.arrow {
+  font-size: 18px;
 }
 
 @media screen and (max-width: 996px) {
@@ -96,12 +105,11 @@
     font-size: smaller;
   }
 
-  .link_to_blog {
+  .arrow_container {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: smaller;
-    color: var(--ifm-color-primary);
+    font-size: 12px;
   }
 }
 
