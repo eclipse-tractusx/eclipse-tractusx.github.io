@@ -41,7 +41,7 @@ const config = {
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
           docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
+          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
         },
         blog: {
           showReadingTime: true,
@@ -60,6 +60,7 @@ const config = {
   ],
 
   plugins: [
+    // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -67,6 +68,8 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
+        docLayoutComponent: "@theme/DocPage",
+        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
       }, 
     ],
     [
@@ -78,6 +81,7 @@ const config = {
         sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
       }, 
     ],
+    // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
     [
       "docusaurus-plugin-remote-content",
       {
@@ -96,7 +100,7 @@ const config = {
         // options here
         id: "remoteIrs",
         name: "irs", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/catenax-ng/tx-item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/irs", // the base directory to output to.
         documents: ["irs-v1.0.yaml"], // the file names to download
         noRuntimeDownloads: true
@@ -114,36 +118,44 @@ const config = {
         noRuntimeDownloads: true
       },
     ],
+    // ------------DOCUSAURUS PLUGIN OPEN API DOCS---------------------
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "api-docs",
-        docsPluginId: "classic",
+        id: "docs-kits",
+        docsPluginId: "docs-kits",
         config: {
           bpdm_gate: {
             specPath: "./openApi/bpdm/gate.yaml",
-            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Gate Api",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
           bpdm_pool: {
             specPath: "./openApi/bpdm/pool.yaml",
-            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          irs: {
+            specPath: "./openApi/irs/irs-v1.0.yaml",
+            outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
           traceability_notifications: {
             specPath: "./openApi/traceability/notifications.yaml",
-            outputDir: "./docs/kits/Traceability Kit/Software Development View/Notification API",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
           traceability_unique_id_push: {
             specPath: "./openApi/traceability/unique-id-push.yaml",
-            outputDir: "./docs/kits/Traceability Kit/Software Development View/Unique ID Push API",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -151,7 +163,7 @@ const config = {
           edc_control_api_control_plane_api: {
             specPath: "./openApi/edc/control-api/control-plane-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/control-plane-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/control-plane-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -159,7 +171,7 @@ const config = {
           edc_control_api_transfer_data_plane: {
             specPath: "./openApi/edc/control-api/transfer-data-plane.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/transfer-data-plane", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/transfer-data-plane", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -167,7 +179,7 @@ const config = {
           edc_control_api_data_plane_api: {
             specPath: "./openApi/edc/control-api/data-plane-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/data-plane-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/data-plane-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -175,7 +187,7 @@ const config = {
           edc_management_api_api_observability: {
             specPath: "./openApi/edc/management-api/api-observability.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/api-observability", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/api-observability", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -183,7 +195,7 @@ const config = {
           edc_management_api_asset_api: {
             specPath: "./openApi/edc/management-api/asset-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/asset-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/asset-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -191,7 +203,7 @@ const config = {
           edc_management_api_catalog_api: {
             specPath: "./openApi/edc/management-api/catalog-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/catalog-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/catalog-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -200,7 +212,7 @@ const config = {
             specPath:
               "./openApi/edc/management-api/contract-agreement-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-agreement-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-agreement-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -209,7 +221,7 @@ const config = {
             specPath:
               "./openApi/edc/management-api/contract-definition-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -218,7 +230,7 @@ const config = {
             specPath:
               "./openApi/edc/management-api/contract-negotiation-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-negotiation-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-negotiation-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -227,7 +239,7 @@ const config = {
             specPath:
               "./openApi/edc/management-api/data-plane-selector-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/data-plane-selector-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/data-plane-selector-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -235,7 +247,7 @@ const config = {
           edc_management_api_policy_definition_api: {
             specPath: "./openApi/edc/management-api/policy-definition-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -243,7 +255,7 @@ const config = {
           edc_management_api_provision_http: {
             specPath: "./openApi/edc/management-api/provision-http.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/provision-http", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api/provision-http", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -251,7 +263,7 @@ const config = {
           edc_management_transfer_process_api: {
             specPath: "./openApi/edc/management-api/transfer-process-api.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/transfer-process-api", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/transfer-process-api", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -259,7 +271,7 @@ const config = {
           edc_extensions_control_plane_adapter: {
             specPath: "./openApi/edc/extensions/control-plane-adapter.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/extensions/control-plane-adapter", // Output directory for generated .mdx docs
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/extensions/control-plane-adapter", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
