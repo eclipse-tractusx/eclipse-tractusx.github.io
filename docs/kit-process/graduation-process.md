@@ -31,7 +31,7 @@ In the final stage, the Graduated stage, the KIT is production ready, published 
 
 ## Promotion Process
 
-As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be completed. A distinction is made between optional (?), recommended ((✓)) and mandatory (✓) deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level. As soon as this criteria is met a promotion has to be requested. To achieve graduated status, additionaly a case study must be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner tries to solve the problem only with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
+As described, a KIT passes through different stages. In order to be promoted from one level to the next, the developers must fulfill various criteria. For each stage, different artifacts and deliverables are defined that have to be completed. A distinction is made between mandatory (✓) and recommended ((✓)) deliverables. In order to be promoted to the next level, a kit must have completed all necessary items of the lower level and at least one necessary item of the following level. As soon as this criteria is met a promotion has to be requested. To achieve graduated status, additionaly a case study must be completed with a partner from the community. The aim of this case study is to verify the content of the KIT. The performing partner tries to solve the problem only with the help of the KIT and, if necessary, to make suggestions for improvement that have to be implemented.
 
 ## Artfacts & Deliverables
 
@@ -41,23 +41,21 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 
 | Artefact/Stage                                                           | Sandbox | Incubating |
 | :------------------------------------------------------------------------ | :-----: | :--------: |
-| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |            |
-| [Business Value(s)](artefacts/#business-value)                           |    ✓    |            |
-| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |            |
-| [Whitepaper](artefacts/#whitepaper)                                      |         |     ?      |
+| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |     ✓      |
+| [Business Value(s)](artefacts/#business-value)                           |    ✓    |     ✓      |
+| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |     ✓      |
 | [Standarts](artefacts/#standards)                                        |         |     ✓      |
 | [API-Specification/Protocols](artefacts/#api-specifications)             |         |     ✓      |
-| FOSS                                                                     |         |     ✓      |
-| Quick Setup Guide                                                        |         |    ✓ \*    |
+| [Logic/Schema](artefacts/#logic--schema)                                 |         |     ✓      |
 | [Documentation](artefacts/#documentation-in-the-context-of-development)  |         |     ✓      |
-| Release Managment                                                        |         |     ✓      |
 | [Tutorials/Videos](artefacts/#tutorials)                                 |         |    (✓)     |
 | [Semantic Models](artefacts/#semantic-models)                            |         |    (✓)     |
 | [Buisiness Processes](artefacts/#business-process)                       |         |    (✓)     |
 | [Sample Data](artefacts/#sample-data)                                    |         |    (✓)     |
 | [Reference Implementation](artefacts/#reference-implementation)          |         |    (✓)     |
+| Quick Setup Guide                                                        |         |    ✓ \*    |
 | Architecture                                                             |         |    (✓)     |
-| [Logic/Schema](artefacts/#logic--schema)                                 |    ?    |     ?      |
+| [Whitepaper](artefacts/#whitepaper)                                      |         |    (✓)     |
 
 #### Legend
 
@@ -65,5 +63,4 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 | :------: | :------------------------------------: |
 | ✓      | mandatory                            |
 | (✓)    | recommended                          |
-| ?      | optional                             |
 | \*     | if a reference implementation exists |
