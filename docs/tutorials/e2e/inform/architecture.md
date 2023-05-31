@@ -51,13 +51,92 @@ The [Item Relationship Service](https://eclipse-tractusx.github.io) (IRS) is one
 
 [//]: # (Felix: @Johannes: Hast du dir schon überlegt, wie/wo wir den IRS plazieren wollen? Eher als "Advanced Concept" unter Chapter 4, oder als "Basic Concept" in Chapter 3? )
 
-
 @Jens
 
 ```mermaid
-erDiagram
-    BPN ||--|{ EDC : assinged
-    REGISTRY ||--|| EDC: rel
+C4Context
+
+title System Context diagram for Catena-X Environment
+
+Boundary(b0, "Catena-X Environment") {
+
+Person(customerCXAssociation, "Catena-X Association", "Association
+ for certification and standardization of Catena-X")
+
+Person(customerTX, "Tractus-X", "Open-Source Community that
+ maintains FOSS Components compliant to Catena-X Standards")
+
+
+
+Enterprise_Boundary(b1, "Catena-X Partner Consumer") {
+
+Enterprise_Boundary(b2, "Catena-X SaaS Provider (optional)")
+ {
+
+System(SystemBAAaaS, "Business Application aaS")
+
+System(SystemEDCAaaS, "EDCaaS")
+
+}
+
+System(SystemEDCA, "EDC")
+
+System(SystemBAA, "Business Application")
+
+}
+
+
+
+Enterprise_Boundary(b3, "Catena-X Partner Provider") {
+
+Enterprise_Boundary(b4, "Catena-X SaaS Provider (optional)")
+ {
+
+System(SystemBABaaS, "Asset Administration Shell Registry / Digital Twin Registry as a Service")
+
+System(SystemEDCBaaS, "Asset Administration Shell Server or Repository as a Service")
+
+}
+
+System(SystemEDCB, "EDC")
+
+System(SystemDTR, "Asset Administration Shell Registry / Digital Twin Registry")
+
+System(SystemAAS, "Asset Administration Shell Server or Repository")
+
+System(SystemDS, "Any Source System for Data")
+
+}
+
+
+
+Enterprise_Boundary(b5, "Catena-X Operating company") {
+
+System(SystemPortal, "Portal")
+
+System(SystemBPDM, "BPDM")
+
+System(SystemDAPS, "DAPS")
+
+}
+
+}
+
+
+
+BiRel(SystemEDCA, SystemEDCB, "Uses")
+
+BiRel(SystemBAA, SystemDTR, "Uses")
+
+BiRel(SystemBAA, SystemEDCA, "Uses")
+
+BiRel(SystemBAA, SystemAAS, "Uses")
+
+BiRel(SystemAAS, SystemDS, "Uses")
+
+BiRel(SystemPortal, SystemBPDM, "get BPN")
+
+Rel(SystemPortal, SystemEDCA, "configure BPN")
 
 ```
 
