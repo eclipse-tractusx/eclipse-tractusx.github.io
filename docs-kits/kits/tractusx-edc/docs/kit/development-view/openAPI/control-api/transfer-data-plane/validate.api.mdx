@@ -7,7 +7,7 @@ hide_title: true
 hide_table_of_contents: true
 api: {"description":"Checks that the provided token has been signed by the present entity and asserts its validity. If token is valid, then the data address contained in its claims is decrypted and returned back to the caller.","operationId":"validate","parameters":[{"in":"header","name":"Authorization","required":true,"schema":{"type":"string","example":null}}],"responses":{"200":{"description":"Token is valid"},"400":{"description":"Request was malformed"},"403":{"description":"Token is invalid"}},"tags":["Consumer Pull Token Validation"],"method":"get","path":"/token","info":{"title":"EDC Transfer Data Plane API","description":null,"version":"0.0.1-SNAPSHOT"},"postman":{"name":"validate","description":{"content":"Checks that the provided token has been signed by the present entity and asserts its validity. If token is valid, then the data address contained in its claims is decrypted and returned back to the caller.","type":"text/plain"},"url":{"path":["token"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"GET"}}
 sidebar_class_name: "get api-method"
-info_path: ./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/transfer-data-plane/edc-transfer-data-plane-api
+info_path: docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api/transfer-data-plane/edc-transfer-data-plane-api
 custom_edit_url: null
 ---
 
