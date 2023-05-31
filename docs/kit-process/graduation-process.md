@@ -41,23 +41,22 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 
 | Artefact/Stage                                                           | Sandbox | Incubating |
 | :------------------------------------------------------------------------ | :-----: | :--------: |
-| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |            |
-| [Business Value(s)](artefacts/#business-value)                           |    ✓    |            |
-| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |            |
-| [Whitepaper](artefacts/#whitepaper)                                      |         |     ?      |
+| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |     ✓      |
+| [Business Value(s)](artefacts/#business-value)                           |    ✓    |     ✓      |
+| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |     ✓      |
 | [Standarts](artefacts/#standards)                                        |         |     ✓      |
 | [API-Specification/Protocols](artefacts/#api-specifications)             |         |     ✓      |
-| FOSS                                                                     |         |     ✓      |
-| Quick Setup Guide                                                        |         |    ✓ \*    |
+| [Logic/Schema](artefacts/#logic--schema)                                 |         |     ✓      |
 | [Documentation](artefacts/#documentation-in-the-context-of-development)  |         |     ✓      |
-| Release Managment                                                        |         |     ✓      |
 | [Tutorials/Videos](artefacts/#tutorials)                                 |         |    (✓)     |
 | [Semantic Models](artefacts/#semantic-models)                            |         |    (✓)     |
 | [Buisiness Processes](artefacts/#business-process)                       |         |    (✓)     |
 | [Sample Data](artefacts/#sample-data)                                    |         |    (✓)     |
 | [Reference Implementation](artefacts/#reference-implementation)          |         |    (✓)     |
+| Quick Setup Guide                                                        |         |    ✓ \*    |
 | Architecture                                                             |         |    (✓)     |
-| [Logic/Schema](artefacts/#logic--schema)                                 |    ?    |     ?      |
+| [Whitepaper](artefacts/#whitepaper)                                      |         |    (✓)     |
+
 
 #### Legend
 
@@ -65,5 +64,4 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 | :------: | :------------------------------------: |
 | ✓      | mandatory                            |
 | (✓)    | recommended                          |
-| ?      | optional                             |
 | \*     | if a reference implementation exists |
