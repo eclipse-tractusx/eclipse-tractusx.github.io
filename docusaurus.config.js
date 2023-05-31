@@ -361,6 +361,11 @@ const config = {
           //   label: "Products",
           // },
           {
+            type: 'docsVersionDropdown',
+            docsPluginId: 'docs-kits',
+            position: 'right'
+          },
+          {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
             label: 'GitHub',
             position: 'right',
