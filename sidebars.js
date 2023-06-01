@@ -52,7 +52,7 @@ const sidebars = {
             label: 'Kit - General Workflow',
             link: {
                 type: 'doc',
-                id: 'release'
+                id: 'kit-process/graduation-process'
             },
             collapsed: true,
             items: [

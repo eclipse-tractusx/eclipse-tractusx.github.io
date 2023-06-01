@@ -40,7 +40,7 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 ### Artefacts
 
 | Artefact/Stage                                                           | Sandbox | Incubating |
-| :------------------------------------------------------------------------ | :-----: | :--------: |
+| :----------------------------------------------------------------------- | :-----: | :--------: |
 | [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |     ✓      |
 | [Business Value(s)](artefacts/#business-value)                           |    ✓    |     ✓      |
 | [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |     ✓      |
@@ -57,11 +57,10 @@ At this point we list the individual artifacts for each level. [here](artefacts)
 | Architecture                                                             |         |    (✓)     |
 | [Whitepaper](artefacts/#whitepaper)                                      |         |    (✓)     |
 
-
 #### Legend
 
-| Symbol | Meaning                              |
-| :------: | :------------------------------------: |
-| ✓      | mandatory                            |
-| (✓)    | recommended                          |
-| \*     | if a reference implementation exists |
+| Symbol |               Meaning                |
+| :----: | :----------------------------------: |
+|   ✓    |              mandatory               |
+|  (✓)   |             recommended              |
+|   \*   | if a reference implementation exists |
