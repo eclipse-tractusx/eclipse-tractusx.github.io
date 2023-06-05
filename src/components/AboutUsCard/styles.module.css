@@ -7,18 +7,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 0;
+  padding: 10rem 0 6rem;
   overflow: hidden;
   background-color: var(--ifm-background-color);
 }
 
 .container {
   width: 60vw;
-  height: 25vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .img_container {
@@ -43,8 +42,9 @@
 
 @media screen and (max-width: 996px) {
   .about_us {
-    padding: 4rem 0 0;
+    padding: 6rem 0 0;
   }
+
   .container {
     width: 40vw;
     height: auto;
@@ -55,7 +55,6 @@
   }
 
   .information_container {
-    height: 25vw;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
