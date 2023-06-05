@@ -32,7 +32,6 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard />
-        <br></br>
         <KitsGallery 
           itemsArray={galleryKits}
           title={"Our Kits"}
