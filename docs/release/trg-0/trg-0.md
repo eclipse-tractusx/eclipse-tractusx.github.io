@@ -6,7 +6,7 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                 |
 |--------------|----------------------------------------------------------------------------------------------|
-| 2-June-2023   | Add recommendation for implementing legal notice in frontend apps (7.06)                    |
+| 2-June-2023  | Add recommendation for implementing legal notice in frontend apps (7.06)                     |
 | 9-May-2023   | Make DockerHub registry mandatory (4.05), Describe mandatory notice for Docker images (4.06) |
 | 8-May-2023   | Move TRG 7.00-7.07 out of Draft to Final                                                     |
 | 7-Mar-2023   | Remove author column, reorder post-history latest first, cleanup formatting across all TRGs  |
