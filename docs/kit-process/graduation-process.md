@@ -35,32 +35,30 @@ As described, a KIT passes through different stages. In order to be promoted fro
 
 ## Artfacts & Deliverables
 
-At this point we list the individual artifacts for each level. [here](artefacts) you will find the more detailed descriptions.
+In the table below shows which artefacts must be completed to progress to the next stage . [here](artefacts) you will find the more detailed descriptions.
 
-### Artefacts
+| Artefact/Stage                                                           | Sandbox → Incubating | Incubating → Graduated |
+| :----------------------------------------------------------------------- | :------------------: | :--------------------: |
+| [Vision/Mission](artefacts/#vision--mission)                             |          ✓           |           ✓            |
+| [Business Value(s)](artefacts/#business-value)                           |          ✓           |           ✓            |
+| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |          ✓           |           ✓            |
+| [Standarts](artefacts/#standards)                                        |                      |           ✓            |
+| [API-Specification/Protocols](artefacts/#api-specifications)             |                      |           ✓            |
+| [Logic/Schema](artefacts/#logic--schema)                                 |                      |           ✓            |
+| [Documentation](artefacts/#documentation-in-the-context-of-development)  |                      |           ✓            |
+| [Tutorials/Videos](artefacts/#tutorials)                                 |                      |          (✓)           |
+| [Semantic Models](artefacts/#semantic-models)                            |                      |          (✓)           |
+| [Buisiness Processes](artefacts/#business-process)                       |                      |          (✓)           |
+| [Sample Data](artefacts/#sample-data)                                    |                      |          (✓)           |
+| [Reference Implementation](artefacts/#reference-implementation)          |                      |          (✓)           |
+| Quick Setup Guide                                                        |                      |          ✓ \*          |
+| Architecture                                                             |                      |          (✓)           |
+| [Whitepaper](artefacts/#whitepaper)                                      |                      |          (✓)           |
 
-| Artefact/Stage                                                           | Sandbox | Incubating |
-| :----------------------------------------------------------------------- | :-----: | :--------: |
-| [Vision/Mission](artefacts/#vision--mission)                             |    ✓    |     ✓      |
-| [Business Value(s)](artefacts/#business-value)                           |    ✓    |     ✓      |
-| [Use Case/ Domain explanation](artefacts/#use-case--domain-explanation)  |    ✓    |     ✓      |
-| [Standarts](artefacts/#standards)                                        |         |     ✓      |
-| [API-Specification/Protocols](artefacts/#api-specifications)             |         |     ✓      |
-| [Logic/Schema](artefacts/#logic--schema)                                 |         |     ✓      |
-| [Documentation](artefacts/#documentation-in-the-context-of-development)  |         |     ✓      |
-| [Tutorials/Videos](artefacts/#tutorials)                                 |         |    (✓)     |
-| [Semantic Models](artefacts/#semantic-models)                            |         |    (✓)     |
-| [Buisiness Processes](artefacts/#business-process)                       |         |    (✓)     |
-| [Sample Data](artefacts/#sample-data)                                    |         |    (✓)     |
-| [Reference Implementation](artefacts/#reference-implementation)          |         |    (✓)     |
-| Quick Setup Guide                                                        |         |    ✓ \*    |
-| Architecture                                                             |         |    (✓)     |
-| [Whitepaper](artefacts/#whitepaper)                                      |         |    (✓)     |
+### Legend
 
-#### Legend
-
-| Symbol |               Meaning                |
-| :----: | :----------------------------------: |
-|   ✓    |              mandatory               |
-|  (✓)   |             recommended              |
-|   \*   | if a reference implementation exists |
+| Symbol |                 Meaning                 |
+| :----: | :-------------------------------------: |
+|   ✓    | mandatory to progress to the next stage |
+|  (✓)   |               recommended               |
+|   \*   |  if a reference implementation exists   |
