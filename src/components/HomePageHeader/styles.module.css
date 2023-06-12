@@ -17,8 +17,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/img/main_bg-min.png");
-  background-position: bottom;
+  background-image: url("/static/img/main-bg-new.png");
+  /* background-position: bottom; */
   background-repeat: no-repeat;
   background-size: cover;
 }

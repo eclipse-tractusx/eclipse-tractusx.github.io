@@ -9,7 +9,7 @@
   justify-content: center;
   overflow: hidden;
   background-color: var(--ifm-background-color);
-  padding: 4rem 0;
+  padding: 6rem 0 8rem;
 }
 
 .container {
@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .title_container {
@@ -59,7 +59,7 @@
 
 @media screen and (max-width: 996px) {
   .kits_gallery {
-    padding: 2rem 0 2rem;
+    padding: 6rem 0;
   }
 
   .title_container {

@@ -64,12 +64,18 @@ export default function FAQsComponent() {
                   className={styles.accordion}
                   expanded={expanded.includes(faq.id)}
                   onChange={handleChange(faq.id)}
+                  sx={{
+                    '&:before': {
+                      display: 'none'
+                    },
+                    backgroundColor: 'transparent'}}
+                  elevation={0}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
                     aria-controls={`panel${faq.id}-content`}
                     id={`panel${faq.id}-header`}
-                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '1rem'}}
+                    sx={{color: '#fff', paddingBottom: '1rem'}}
                   >
                     <Typography
                       sx={{
@@ -84,14 +90,14 @@ export default function FAQsComponent() {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails
-                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
+                    sx={{color: '#fff', paddingBottom: '2rem'}}
                   >
                     <Typography
                       sx={{
                         fontFamily: 'Manrope, sans-serif',
                         fontSize: '14px',
                         lineHeight: '22px',
-                        letterSpacing: '-0.4px'  
+                        letterSpacing: '-0.4px',
                       }}
                     >
                       {faq.answer}    

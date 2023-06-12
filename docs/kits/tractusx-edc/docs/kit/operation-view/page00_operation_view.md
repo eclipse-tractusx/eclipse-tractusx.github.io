@@ -1,6 +1,6 @@
 # Software Operation View
 
-![Business partner kit banner](@site/static/img/ConnectorKitIcon.png)
+![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 
 ## Connector Kit
 
