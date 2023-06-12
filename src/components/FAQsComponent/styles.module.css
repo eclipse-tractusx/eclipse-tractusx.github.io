@@ -7,18 +7,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 0;
-  background-color: var(--ifm-background-color);
+  padding: 8rem 0;
+  /* background-color: var(--ifm-background-color); */
+  background-image: url("/static/img/main_bg-min.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
   width: 70vw;
-  padding-bottom: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10rem;
 }
 
 .title_container {
@@ -33,7 +35,8 @@
 
 .accordion {
   margin: 1rem 0;    
-  border-bottom: 1px solid rgba(108, 100, 100, 0.2);
+  /* border-bottom: 1px solid #33373c; */
+  border-bottom: 1px solid #555;
 }
 
 .btn_container {
@@ -42,7 +45,7 @@
 
 @media screen and (max-width: 996px) {
   .faqs {
-    padding: 4rem 0;
+    padding: 6rem 0;
   }
 
   .container {

@@ -5,7 +5,7 @@ description: 'Connector Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/ConnectorKitIcon.png)
+![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 
 ## Connector Kit
 

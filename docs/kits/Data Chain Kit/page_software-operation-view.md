@@ -27,9 +27,9 @@ This local deployment is an easy installation with helm. This setup is built to 
 
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
-|![arrow down](../../../static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
-|![vector](../../../static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
-|![check](../../../static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with the Item Relationship Service|
+|![arrow down](@site/static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
+|![vector](@site/static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
+|![check](@site/static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with the Item Relationship Service|
 
 ### Step 1: Prerequisites
 
@@ -109,7 +109,7 @@ The minikube dashboard will give you feedback on how the status of the deploymen
 
 Make sure you select the namespace **irs**:
 
-![expected status](../../../static/img/minikube-dashboard-overview.png)
+![expected status](@site/static/img/minikube-dashboard-overview.png)
 
 #### 2. Forward ports
 
@@ -144,7 +144,7 @@ If you like, you can remove the test data with:
 
 Open [http://localhost:3000/](http://localhost:3000/) and you should see the Item Relationship Service login screen. **Just press Login.**
 
-![irs-login](../../../static/img/irs-login.png)
+![irs-login](@site/static/img/irs-login.png)
 
 ## Testing the Item Relationship Service
 
@@ -219,15 +219,15 @@ Use these snippets for testing purposes.
 
 1. **open** [http://localhost:3000](http://localhost:3000) and click 'Login'
 2. **copy & paste** a valid globalAssetId into the request body
-   ![irs-new-job](../../../static/img/irs-new-job.png)
+   ![irs-new-job](@site/static/img/irs-new-job.png)
 3. **click** 'Build Data Chain' to start a new IRS job
 4. **click** 'Visualization' to see the result of the job
-   ![irs-job-list](../../../static/img/irs-job-list.png)
+   ![irs-job-list](@site/static/img/irs-job-list.png)
 
 ### Step 2: Verify Results
 
 The following example shows a visual overview of all retrieved data assets and digital twins of a data chain.
-![irs-login](../../../static/img/irs-vis-overview.png)
+![irs-login](@site/static/img/irs-vis-overview.png)
 _Item Relationship Service visualization overview_
 
 With the following snippet, all clickable objects will be explained:
@@ -236,7 +236,7 @@ With the following snippet, all clickable objects will be explained:
 * **Aspect:** the green button is clickable and represents an Aspect or Submodel of the twin.
 * **Relationship Aspect:** the line between Digital Twins is clickable and will give detailed Information about the relationship between the twins.
 
-![irs-login](../../../static/img/irs-vis-clickable.png)
+![irs-login](@site/static/img/irs-vis-clickable.png)
 _Item Relationship Service clickable objects_
 
 ## Stopping the cluster
