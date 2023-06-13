@@ -349,7 +349,7 @@ The following conventions for specificAssetIds apply to all digital twins:
   <tr>
     <td> customerPartId </td>
     <td> Optional </td>
-    <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is <em>recommended</em> to always add the customerPartId for easier lookup.<br/>
+    <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is <em>required</em> to always add the customerPartId for lookup and to enable further processes.<br/>
     If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
     Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
     Access to customerPartId only for BPNL1234:
