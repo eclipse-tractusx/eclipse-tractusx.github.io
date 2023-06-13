@@ -319,16 +319,16 @@ Once a digital twin was created, optionally a Unique ID Push notification can be
 
 The following general conventions apply for all these digital twins:
 
-- identification: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`
+- id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`
 - globalAssetId: The Unique ID of the real-world part for which a digital twin is created.
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
 
-##### Property specificAssetIds
+##### Property specificAssetId
 
-For Traceability, we define some specificAssetIds as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
+For Traceability, we define some specificAssetId as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
-The following conventions for specificAssetIds apply to all digital twins:
+The following conventions for specificAssetId apply to all digital twins:
 
 <table>
   <tr>
@@ -502,7 +502,7 @@ For a data consumer, there are currently the following steps where they have to 
 
 ##### Lookup up a Digital Twin with Local IDs
 
-The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specificAssetIds in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
+The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specificAssetId in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
 All Asset identifier key-value-pairs used as parameter to this lookup function are combined using AND. An example query would look like this: `https://URL/registry/lookup/shells?assetIds=%5B%7B%22key%22%3A%20%22manufacturerId%22,%22value%22%3A%20%22BPNL7588787849VQ%22%7D,%7B%22key%22%3A%20%22manufacturerPartId%22,%22value%22%3A%20%2295657362-83%22%7D,%7B%22key%22%3A%20%22partInstanceId%22,%22value%22%3A%20%22NO-574868639429552535768526%22%7D%5D`
 
@@ -752,7 +752,7 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
   - Note that the query parameters differ depending on what type of digital twin is looked up.
     - For Release 3.0 though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
     - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 2, you cannot rely on this key being available when looking for Batch digital twins.
-  - To understand why, take a look at how these digital twins are created, especially their specificAssetIds: (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels
+  - To understand why, take a look at how these digital twins are created, especially their specificAssetId: (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPartTypization or Batch (depending on the digital twin type).
 - Fetch the submodel SerialPartTypization or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
