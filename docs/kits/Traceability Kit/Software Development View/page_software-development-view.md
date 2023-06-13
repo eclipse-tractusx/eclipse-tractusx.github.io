@@ -411,24 +411,81 @@ The lookup for parts can use the customerPartId or the manufacturerPartId. Both,
 
 ##### Submodel Descriptors
 
-The following general conventions apply for all submodel descriptors:
+Data for digital twins is made available via EDC in Catena-X. Therefore, submodel descriptors of digital twins MUST be compliant to the following conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
 - `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPartTypization: "serialPartTypization".
-- `endpoints`: For access of submodels via EDC and AAS a new interface type EDC-AAS must be defined.
-  - `interface`: The value must be "EDC"
-  - `endpointAddress`: The endpoint address must have the following format: `http://provider.controlplane:port/<EDC Asset ID>/submodel?content=value&extent=WithBLOBValue`
-    - `provider.controlplane:port`: server and port of the EDC that is providing the submodel
-    - `EDC Asset ID`: The EDC asset id under which the submodel was registered in the EDC. It must have the following format `<AAS ID>-<Submodel ID>`
-      - `AAS ID`: The id of the digital twin (`id` property in the AAS descriptor)
-      - `Submodel`: The id of the submodel  (`id` property in the submodel descriptor)
-    - `/submodel`: This method from the AAS Shell Interface that is invoked via the EDC.
-    - `content=value&extent=WithBLOBValue`: This are currently required parameters when requesting payload via the AAS standard from an EDC
-  - `endpointProtocol`: The value must be `IDS/ECLIPSE DATASPACE CONNECTOR`
-  - `endpointProtocolVersion`: The value must be `0.0.1-SNAPSHOT`
 
-> :raised_hand: **AAS Submodel Descriptor Endpoints**
-The endpoint (endpointAddress) in the submodel descriptor cannot be used directly to contact the EDC and access the data. The endpoint has to be re-written as it combines EDC and AAS information. The AAS API Wrapper does that automatically when using it, i.e., it fetches the endpoint from the AAS Registry and re-writes it in a way to a Catena-X EDC with an AAS server in the background can process the query.
+The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor.
+
+```json
+{
+    "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
+    "protocolInformation": {
+        "href": "https://provider-edc.data.plane:port/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel",
+        "subprotocol": "IDS/AAS",
+        "subprotocolBody": "asset:prop:id=123;idsEndpoint=http://edc.control.plane/",
+    }
+}
+```
+
+The following conventions apply:
+
+- `interface` must be set to "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003"
+- `href`: The endpoint address must have the following format:
+  - `provider-edc.data.plane:port`: server and port of the EDC data plane that is providing the submodel
+  - `/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel/$value`: A valid API call according to the AAS Submodel Service Specification with {aasIdentifier} the id of the digital twin and {submodelIdentifier} the id of the submodel.
+  - `/submodel`: This is currently the only API method that must be supported for Traceability
+  - `/$value`: For release 3.2, data providers only need to support "value" as serialization modifier.
+- `subprotocol` must be set to "IDS/AAS"
+- `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
+  - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property form the EDC catalog ("asset:prop:*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
+  - `idsEndpoint`: server and port of the EDC control plane used for contract negotiation
+
+With this approach, the EDC asset structure is independent of the digital twin registry information in the endpoint property. Therefore, data providers can decide on their own what structure suits them best based on how they use the filter criteria in `subprotocolBody`.
+
+- Option 1: Digital twins, i.e., their submodels, are registered in the EDC the same way as for release 3.1, i.e., one EDC asset is created for every submodel of a digital twin. In the example above, the asset:prop:id would have the value "urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:34b73238-4dc2-424a-985d-4afa01d7203e" with this option.
+- Option 2: A data provider can also link several submodel endpoints to the same EDC asset. This allows to, e.g., create only one EDC asset (per aspect model) for a catalog part (referenced by the asset:prop:id) and link all submodels (of the same aspect model) of serialized parts of the catalog part to the same EDC asset. The data provider would (in most cases) still needs to create separate EDC assets per aspect model as different usage policies are used for aspect models most of the time.
+
+  As a result, data providers can decide on their own which EDC asset structure is best for them.
+  
+  If a data provider no longer creates EDC assets on the level of submodels (Option 1), the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
+
+Here's an example of a valid submodel descriptor for Catena-X Traceability:
+
+```json
+"submodelDescriptors": [
+  {
+    "idShort": "serialPart",
+    "id": "urn:uuid:34b73238-4dc2-424a-985d-4afa01d7203e",
+    "semanticId": {
+      "value": [
+        "urn:samm:io.catenax.serial_part:1.0.0#SerialPart"
+      ]
+    },
+    "endpoints": [
+      {
+        "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
+        "protocolInformation": {
+          "href": "https://data-plane.edc.catena-x.net/shells/urn:uuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe/submodels/urn%3Auuid%3A34b73238-4dc2-424a-985d-4afa01d7203e/submodel/$value",
+          "subprotocol": "IDS/AAS",
+          "subprotocolBody": "asset:prop:id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/"
+        }
+      }
+    ]
+  }
+]
+```
+
+**Data Consumption with AAS Submodel Descriptor Endpoints****
+
+The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
+
+- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS/AAS"
+- Then, the data consumer must use the information in the `subprotocol` to perform a contract negotiation for the EDC asset referenced by the filter criteria (in the above example, this is the EDC asset with id "urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7"). The contract negotiation must be performed with the EDC control plane of the data provider specified by the parameter idsEndpoint.
+- Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. In this data transfer, the actual AAS API call (the path part of the `href`URL) is passed to the from the data consumer to the data provider contral plane as a parameter for the backend data service that actually executes the request and returns the submodel (via the data provider EDC data plane).
+
+All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
 
 #### Lookup for Digital Twins in the Digital Twin Registry
 
