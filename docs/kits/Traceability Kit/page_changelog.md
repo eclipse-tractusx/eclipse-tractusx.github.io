@@ -11,6 +11,20 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [2.0.0] - 2023-xx-xx
+
+### Added
+
+- ./.
+
+### Changed
+
+- Development View: Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
+
+### Removed
+
+- ./.
+
 ## [1.0.1] - 2023-04-14
 
 ### Added
