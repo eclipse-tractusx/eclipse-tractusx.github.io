@@ -114,6 +114,13 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          bpdm_bridge: {
+            specPath: "./openApi/bpdm/bridge-dummy.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Bridge Dummy Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
           traceability_notifications: {
             specPath: "./openApi/traceability/notifications.yaml",
             outputDir: "./docs/kits/Traceability Kit/Software Development View/Notification API",
