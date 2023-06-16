@@ -428,7 +428,7 @@ The actual access information for the EDC is part of the endpoint attribute in t
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],         
         "subprotocol": "IDS",
-        "subprotocolBody": "asset:prop:id=123;idsEndpoint=http://edc.control.plane/",
+        "subprotocolBody": "id=123;idsEndpoint=http://edc.control.plane/",
         "subprotocolBodyEncoding": "plain",
         "securityAttributes": [ 
           { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -440,24 +440,24 @@ The actual access information for the EDC is part of the endpoint attribute in t
 The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
-- `href`: The endpoint address must have the following format:
+- `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
   - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel
-  - `{path}`: The path part of the endpoint is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. For more details, see below. 
+  - `{path}`: This part of `href` is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below. 
 - `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
-  - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property from the EDC catalog ("asset:prop:*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
+  - `id=123`: The id of the asset for which a contract negitiation should be intiated.
   - `idsEndpoint`: Server and port of the EDC control plane used for contract negotiation
 
 > :raised_hand: **Backend Data Service for Submodels** 
-Note that according to CX-0002 the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification. This is specifed by setting `interface` to "SUBMODEL-3.0".
+Note that according to CX-0002 the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification.
 
-With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `path` the filter criteria in `subprotocolBody`.
+With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
 **Option 1: Same EDC Asset Structure as in Release 3.1**
 
 Submodels of digital twins are registered in the EDC the same way as for release 3.1: one EDC asset is created for every submodel of a digital twin.
 
 - `href` must have the following format: `http://edc.data.plane/{edcAssetId}`
-- `subprotocolBody` must have the following format: `asset:prop:id={edcAssetId};idsEndpoint=http://edc.control.plane`
+- `subprotocolBody` must have the following format: `id={edcAssetId};idsEndpoint=http://edc.control.plane`
 - edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
   - aasIdentifier: The id of the digital twin (id property in the AAS descriptor)
   - submodelIdentifier: The id of the submodel (id property in the submodel descriptor)
@@ -486,7 +486,7 @@ Here's an example how such a submodel descriptor could look like:
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],         
           "subprotocol": "IDS",
-          "subprotocolBody": "asset:prop:id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/"
+          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/"
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -502,7 +502,7 @@ Strictly speaking, the path part in the `href` is not really necessary here as t
 
 **Option 2: EDC Asset Structure on Catalog Part Level**
 
- A data provider can link several submodel endpoints to the same EDC asset (referenced by asset:prop:id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
+ A data provider can link several submodel endpoints to the same EDC asset (referenced by its id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
   
 If a data provider no longer creates EDC assets on the level of submodels, the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
 
@@ -530,7 +530,7 @@ Here's an example how such a submodel descriptor could look like:
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],         
           "subprotocol": "IDS",
-          "subprotocolBody": "asset:prop:id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/"
+          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/"
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -542,7 +542,7 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the `asset:prop:id` is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses. 
+The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the EDC asset id is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses. 
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other EDC asset structure.
 
@@ -551,8 +551,8 @@ The above options are only two examples how a submodel's endpoint can be created
 The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
 
 - A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS"
-- Second, the data consumer must call the local operation GetSubmodel (as described in the standard CX-0002) based on `href`. The actual URL path for the call depends on the profile supported by the backend data service. If SSP-003 of the Submodel Service Specification is supported (as required by CX-0002), the operation must be called with "/submodel/$value`" (with additional query parameters as needed).
-- Then, the data consumer must use the information in the `subprotocol` to perform a contract negotiation for the EDC asset referenced by the filter criteria. The contract negotiation must be performed with the EDC control plane of the data provider specified by `idsEndpoint`.
+- With `href`, the data consumer calls the local operation GetSubmodel (as described in the standard CX-0002). The actual URL path for the call depends on the profile supported by the backend data service. As specified in CX-0002, only the logical parameter "Content" must be supported currently by the backend data service. Therefore, "/$value" must be appended to `href` by the data consumer.
+- Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `idsEndpoint`.
 - Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
 
 All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
@@ -833,8 +833,6 @@ These steps have to be repeated for all built-in parts by the manufacturer. Afte
 #### Publish Traceability Data Offers at EDC
 
 With the changes of Release 3.2 regarding the submodel endpoints in the DTR, the actual EDC asset structure for submodels is no longer restricted by use case conventions and can be decided by the data provider. 
-
-Only one requirement remains: the filter criteria used in `subprotocolBody` of the submodel descriptor endpoints (used for filtering the EDC catalog) must only return exactly one EDC asset. If `asset:prop:id` is used as filter criteria, this is already ensured as values of this property must be unique anyway.
 
 ##### Data Provider Tasks
 
