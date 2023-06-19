@@ -486,7 +486,7 @@ Here's an example how such a submodel descriptor could look like:
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],         
           "subprotocol": "IDS",
-          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/"
+          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/",
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -530,7 +530,7 @@ Here's an example how such a submodel descriptor could look like:
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],         
           "subprotocol": "IDS",
-          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/"
+          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/",
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
