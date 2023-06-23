@@ -425,12 +425,12 @@ The actual access information for the EDC is part of the endpoint attribute in t
     "interface": "SUBMODEL-3.0",
     "protocolInformation": {
         "href": "https://edc.data.plane/{path}",
-        "endpointProtocol": "HTTP",
-        "endpointProtocolVersion": ["1.1"],         
+        "endpointProtocol": "HTTP",
+        "endpointProtocolVersion": ["1.1"],
         "subprotocol": "IDS",
         "subprotocolBody": "id=123;idsEndpoint=http://edc.control.plane/",
-        "subprotocolBodyEncoding": "plain",
-        "securityAttributes": [ 
+        "subprotocolBodyEncoding": "plain",
+        "securityAttributes": [ 
           { "type": "NONE", "key": "NONE", "value": "NONE" }
         ]
     }
@@ -483,12 +483,12 @@ Here's an example how such a submodel descriptor could look like:
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
           "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],         
+        "endpointProtocol": "HTTP",
+        "endpointProtocolVersion": ["1.1"],
           "subprotocol": "IDS",
           "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [ 
+          "subprotocolBodyEncoding": "plain",
+          "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
           ]
         }
@@ -527,12 +527,12 @@ Here's an example how such a submodel descriptor could look like:
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
           "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],         
+          "endpointProtocol": "HTTP",
+          "endpointProtocolVersion": ["1.1"],
           "subprotocol": "IDS",
           "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [ 
+          "subprotocolBodyEncoding": "plain",
+          "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
           ]
         }
