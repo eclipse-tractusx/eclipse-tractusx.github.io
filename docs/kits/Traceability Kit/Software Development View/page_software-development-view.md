@@ -1,7 +1,7 @@
 ---
 id: Specification Traceability Kit
 title: Specification
-description: 'Traceability Kit'
+description: "Traceability Kit"
 sidebar_position: 4
 ---
 
@@ -14,6 +14,7 @@ Development View of the Kit.
 -->
 
 <!-- !Mandatory! -->
+
 ## API Specifications
 
 ### Unique ID Push Notifications
@@ -27,6 +28,7 @@ All endpoints as well as the schema of the notification below are described in d
 [Publish Traceability Data Offers at EDC](#publish-traceability-data-offers-at-edc)
 
 <!-- Recommended -->
+
 ## Sample Data
 
 In the following, example data for submodels are provided.
@@ -200,7 +202,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner" : ""
+      "businessPartner": ""
     }
   ]
 }
@@ -296,12 +298,86 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 > Please note that if a just-in-sequence part is also a serialized part SerialPart should be used instead.
 
+#### Submodel TractionBatteryCode
+
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
+
+##### Submodel "TractionBatteryCode" for a Battery Cell
+
+```json
+{
+  "productType": "cell",
+  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+}
+```
+
+##### Submodel "TractionBatteryCode" for a Battery Module
+
+```json
+{
+  "productType": "module",
+  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+  "subcomponents": [
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+    },
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+    }
+  ]
+}
+```
+
+##### Submodel "TractionBatteryCode" for a Battery Pack
+
+```json
+{
+  "productType": "pack",
+  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+  "subcomponents": [
+    {
+      "productType": "module",
+      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+        }
+      ]
+    },
+    {
+      "productType": "module",
+      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+        }
+      ]
+    }
+  ]
+}
+
+```
+
 <!-- Recommended -->
+
 ## Reference Implementation
 
 For a reference implementation, take a look at the open-source Trace-X app. More information are provided in the [Operation View](../page_software-operation-view.md) section.
 
 <!-- Recommended -->
+
 ## Documentation in the Context of Development
 
 ### Data Provisioning
@@ -315,7 +391,7 @@ The following diagram shows a basic data processing flow how a comany's internal
 In Traceability, digital twins for different types of parts are registered at the digital twin registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX - 0002 Digital Twins in Catena - X](https://catena-x.net/de/standard-library).
 
 > :raised_hand: **Unique ID Push**
-Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
+> Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
 
 The following general conventions apply for all these digital twins:
 
@@ -386,28 +462,28 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
 **For serialized parts, additionally the following conventions apply:**
 
 | Key            | Availability | Description                                                                                  | Type   |
-|:---------------|:-------------|:---------------------------------------------------------------------------------------------|:-------|
+| :------------- | :----------- | :------------------------------------------------------------------------------------------- | :----- |
 | partInstanceId | Mandatory    | The serial number of the part from the manufacturer.                                         | String |
 | van            | Optional     | **Only for vehicles:** The pseudonymized vehicle identification number (VIN) of the vehicle. | String |
 
 **For batches, additionally the following conventions apply:**
 
 | Key            | Availability | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type   |
-|:---------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
+| :------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | batchId        | Optional     | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
 | partInstanceId | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>For **Release 3.0**, we also use the batch number as partInstanceId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the partInstanceId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
 
 **For just-in-sequence (JIS) parts, additionally the following conventions apply:**
 
-| Key                | Availability | Description                                                                                                                                                                                                                 | Type   |
-|:-------------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
-| parentOrderNumber  | Optional     | A number identifying the just-in-sequence- part's destination parent part. The parent part is typically known upfront to the supplier for just-in-sequence parts.                                                           | String |
-| jisNumber          | Mandatory    | A number that is used to identify the call-off that can be assumed unique within the specific just-in-sequence process. This is typically not the sequence number, but the call-off number.                                 | String |
-| jisCallDate        | Optional     | The date of the just-in-sequence call-off as stated on the call-off document itself. <br/>The value must be compliant to ISO 8601: `YYYY-MM-DD` or `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DDThh:mm:ss±hh:mm`                      | Date   |
-| partInstanceId     | Mandatory    | A composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (ifavailable). This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
+| Key               | Availability | Description                                                                                                                                                                                                                             | Type   |
+| :---------------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
+| parentOrderNumber | Optional     | A number identifying the just-in-sequence- part's destination parent part. The parent part is typically known upfront to the supplier for just-in-sequence parts.                                                                       | String |
+| jisNumber         | Mandatory    | A number that is used to identify the call-off that can be assumed unique within the specific just-in-sequence process. This is typically not the sequence number, but the call-off number.                                             | String |
+| jisCallDate       | Optional     | The date of the just-in-sequence call-off as stated on the call-off document itself. <br/>The value must be compliant to ISO 8601: `YYYY-MM-DD` or `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DDThh:mm:ss±hh:mm`                                 | Date   |
+| partInstanceId    | Mandatory    | A composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (ifavailable). This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
 
 > :raised_hand: **Lookup of Digital Twins**
-The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
+> The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
 
 ##### Submodel Descriptors
 
@@ -420,12 +496,12 @@ The actual access information for the EDC is part of the endpoint attribute in t
 
 ```json
 {
-    "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
-    "protocolInformation": {
-        "href": "https://provider-edc.data.plane:port/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel",
-        "subprotocol": "IDS/AAS",
-        "subprotocolBody": "asset:prop:id=123;idsEndpoint=http://edc.control.plane/",
-    }
+  "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
+  "protocolInformation": {
+    "href": "https://provider-edc.data.plane:port/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel",
+    "subprotocol": "IDS/AAS",
+    "subprotocolBody": "asset:prop:id=123;idsEndpoint=http://edc.control.plane/"
+  }
 }
 ```
 
@@ -439,7 +515,7 @@ The following conventions apply:
   - `/$value`: For release 3.2, data providers only need to support "value" as serialization modifier.
 - `subprotocol` must be set to "IDS/AAS"
 - `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
-  - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property form the EDC catalog ("asset:prop:*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
+  - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property form the EDC catalog ("asset:prop:\*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
   - `idsEndpoint`: server and port of the EDC control plane used for contract negotiation
 
 With this approach, the EDC asset structure is independent of the digital twin registry information in the endpoint property. Therefore, data providers can decide on their own what structure suits them best based on how they use the filter criteria in `subprotocolBody`.
@@ -448,7 +524,7 @@ With this approach, the EDC asset structure is independent of the digital twin r
 - Option 2: A data provider can also link several submodel endpoints to the same EDC asset. This allows to, e.g., create only one EDC asset (per aspect model) for a catalog part (referenced by the asset:prop:id) and link all submodels (of the same aspect model) of serialized parts of the catalog part to the same EDC asset. The data provider would (in most cases) still needs to create separate EDC assets per aspect model as different usage policies are used for aspect models most of the time.
 
   As a result, data providers can decide on their own which EDC asset structure is best for them.
-  
+
   If a data provider no longer creates EDC assets on the level of submodels (Option 1), the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
 
 Here's an example of a valid submodel descriptor for Catena-X Traceability:
@@ -477,7 +553,7 @@ Here's an example of a valid submodel descriptor for Catena-X Traceability:
 ]
 ```
 
-**Data Consumption with AAS Submodel Descriptor Endpoints****
+**Data Consumption with AAS Submodel Descriptor Endpoints\*\***
 
 The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
 
@@ -537,10 +613,8 @@ As a result, the AAS ID of the digital twin with this local IDs is returned. The
 **Example result for looking up a digital twin with local IDs:**
 
 ```json
-[
-  "urn:uuid:c227a880-b82b-40f7-846c-3942ddf26c29"
-]
-````
+["urn:uuid:c227a880-b82b-40f7-846c-3942ddf26c29"]
+```
 
 Note that this query can return more than one AAS ID depending on the local IDs uniquely identifying a digital twin or not.
 
@@ -599,7 +673,7 @@ participant "BPDM API" as BPM order 4
 end box
 
 box "Customer Landscape" #lightyellow
-participant "EDC Customer" as EDCCust order 5 
+participant "EDC Customer" as EDCCust order 5
 participant "Data Provisioning Customer" as TraceCust order 6
 end box
 
@@ -672,7 +746,7 @@ In general, a data provider is free to decide which usage policies to define for
 Keep in mind that usage policies currently aren't technically enforced by the EDC or other components.
 
 > :raised_hand: **Usage Policy for Unique ID Push**
-The Unique ID push notification endpoints are protected with a purpose-based usage policy and "R3-1_UniqueIDPush" as purpose.
+> The Unique ID push notification endpoints are protected with a purpose-based usage policy and "R3-1_UniqueIDPush" as purpose.
 
 ###### Backend Data Service to Process Unique ID Push Notifications
 
@@ -728,7 +802,6 @@ The creation of the submodel SingleLevelBomAsBuilt is more complicated. This sub
     }
   ]
 }
-
 ```
 
 For the build-in parts (child parts), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
