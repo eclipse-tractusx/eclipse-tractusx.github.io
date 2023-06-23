@@ -306,13 +306,13 @@ For a reference implementation, take a look at the open-source Trace-X app. More
 
 ### Data Provisioning
 
-The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital TWin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
+The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital Twin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
 
 ![Basic Data FLow](../assets/data_provisioning_data_flow.png)
 
 #### Register Digital Twins for Traceability
 
-In Traceability, digital twins for different types of parts are registered at the digital twin registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library).
+In Traceability, digital twins for different types of parts are registered at a Digital Twin Registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library).
 
 > :raised_hand: **Unique ID Push**
 Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
@@ -597,7 +597,7 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specificAssetId property is optional (see (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels). The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
   - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specificAssetId property. This is decision that a customer must agree upon with each of their suppliers individually.
@@ -709,14 +709,14 @@ All endpoints as well as the schema of the notification below are described in d
 
 Here is a short overview what the receiver has to do when they want to support Unique Id Push notifications. This is an optional feature.
 
-- The Receiver in this scenario is the customer of a part.
-- The Receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
+- The receiver in this scenario is the customer of a part.
+- The receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
 - The EDC in which the notification EDC asset was created must be registered at the Discovery Service (so that the sender can find the partner's EDC which should receive notifications)
 - When the Receiver receives a Unique Id Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
 - How the Receiver processes the notification is up to them, but the following steps are recommended:
   - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
   - Store the notification data for later.
-  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to the digital twin registry.
+  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to a supplier's Digital Twin Registry.
 
 ###### EDC Asset
 
@@ -808,7 +808,7 @@ For the build-in parts (child parts), their Unique ID is not known to the manufa
   - manufacturer (BPN), manufacturer part id and batch number for batches
 - The next step is about getting the Unique ID of all built-in parts. There are two ways:
   - Unique IDs might for built-in parts might already be available locally if Unique ID Push is supported by the data provider and the suppliers of the built-in parts.
-  - Query the Digital Twin Registry to find the digital twin for this built-in part
+  - Query a supplier's Digital Twin Registry to find the digital twin for this built-in part
 
 ###### Unique ID Push
 
@@ -816,13 +816,13 @@ Once the digital twin was created, optionally a Unique ID Push notification can 
 
 For more information, see [Unique ID Push Notifications](#unique-id-push-notifications)
 
-###### Query the Digital Twin Registry to find the digital twin for this built-in part
+###### Query a Digital Twin Registry to find the digital twin for this built-in part
 
-- Querying digital twins is described in (TRS) Lookup for Digital Twins at the Digital Twin Registry
+- Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
-    - For Release 3.0 though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
-    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 2, you cannot rely on this key being available when looking for Batch digital twins.
-  - To understand why, take a look at how these digital twins are created, especially their specificAssetId: (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels
+    - For Release 3.2 though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
+    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 3.2, you cannot rely on this key being available when looking for Batch digital twins.
+  - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPartTypization or Batch (depending on the digital twin type).
 - Fetch the submodel SerialPartTypization or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
