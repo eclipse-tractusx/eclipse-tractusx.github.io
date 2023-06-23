@@ -52,14 +52,14 @@ export default function DeveloperContent() {
           </div>
 
           <p className="description-p">
-            The first Kit that follows this journey is the <Link to="/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
+            The first Kit that follows this journey is the <Link to="/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br></br><br></br>
             Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
           </p>
 
           <ul className="description-p">
             <li>Network Domain for Shared Services</li>
             <li>Business Domain PLM and Quality</li>  
-            <li><Link to="docs/Resiliency">Business Domain Resiliency</Link></li>
+            <li><Link to="docs-kits/Resiliency">Business Domain Resiliency</Link></li>
             <li>Business Domain Sustainability Domain</li> 
           </ul>
         </div>
