@@ -307,7 +307,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 ```json
 {
   "productType": "cell",
-  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+  "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
 }
 ```
 
@@ -316,15 +316,15 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 ```json
 {
   "productType": "module",
-  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+  "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
   "subcomponents": [
     {
       "productType": "cell",
-      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
     },
     {
       "productType": "cell",
-      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
     }
   ]
 }
@@ -335,33 +335,33 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 ```json
 {
   "productType": "pack",
-  "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+  "tractionBatteryCode": "4A6PCPM27KLPCLE742946319",
   "subcomponents": [
     {
       "productType": "module",
-      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
       "subcomponents": [
         {
           "productType": "cell",
-          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
         },
         {
           "productType": "cell",
-          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
         }
       ]
     },
     {
       "productType": "module",
-      "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519858",
       "subcomponents": [
         {
           "productType": "cell",
-          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382322"
         },
         {
           "productType": "cell",
-          "tractionBatteryCode": "X12MCPM27KLPCLX2M2382320"
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382323"
         }
       ]
     }
