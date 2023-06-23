@@ -182,45 +182,45 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel AssemblyPartRelationship
+#### Submodel SingleLevelBomAsBuilt
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0)
 
-##### Submodel "AssemblyPartRelationship" for a Serialized Part
+##### Submodel "SingleLevelBomAsBuilt" for a Serialized Part
 
 ```json
 {
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childParts": [
+  "childItems": [
     {
-      "lifecycleContext": "AsBuilt",
       "quantity": {
         "quantityNumber": 1.0,
         "measurementUnit": "unit:piece"
       },
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04"
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
+      "businessPartner" : ""
     }
   ]
 }
 ```
 
-##### Submodel "AssemblyPartRelationship" for a Batch
+##### Submodel "SingleLevelBomAsBuilt" for a Batch
 
 ```json
 {
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childParts": [
+  "childItems": [
     {
-      "lifecycleContext": "AsBuilt",
       "quantity": {
         "quantityNumber": 25.0,
         "measurementUnit": "unit:kilogram"
       },
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04"
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
+      "businessPartner": "BPNL50096894aNXY"
     }
   ]
 }
@@ -491,7 +491,7 @@ All these steps must be handled by the data consumer that want to retrieve the s
 
 For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
 
-- The data provider must use the local IDs for a serialized part or batch (manufacturer, part number, serial or batch number) and for a just-in-sequence part (manufacturer, parentOrderNumber, jisNumber, jisCallDate) to lookup the AAS ID of the digital twin of this serialized part, batch or just-in-sequence part. The AAS descriptor with this ID contains the Unique ID of the serialized part, batch or just-in-sequence (as globalAssetId) that is used to create the AssembyPartRelationship submodel.
+- The data provider must use the local IDs for a serialized part or batch (manufacturer, part number, serial or batch number) and for a just-in-sequence part (manufacturer, parentOrderNumber, jisNumber, jisCallDate) to lookup the AAS ID of the digital twin of this serialized part, batch or just-in-sequence part. The AAS descriptor with this ID contains the Unique ID of the serialized part, batch or just-in-sequence (as globalAssetId) that is used to create SingleLevelBomAsBuilt submodel.
 
 - The data provider must use the local IDs for a catalog part (manufacturer, part number) to lookup the AAS ID of the digital twin of this catalog part. The AAS descriptor with this ID contains the Unique ID of the catalog part (as globalAssetId) that is used to create the SingleLevelBoMAsPlanned submodel.
 
@@ -576,9 +576,9 @@ Upon receipt of the message, the customer needs to match the local identifiers w
 
 - If there is an object for incoming deliveries, this event could be updated.
   Alternatively, if only production events are tracked, the data could be integrated at this point into the data provisioning pipeline's data structure for consumed materials.
-- In the end this enables the customer to integrate the child parts into the AssemblyPartRelationship aspect.
+- In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
 
-In the end this enables the customer to integrate the child parts into the AssemblyPartRelationship aspect.
+In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
 
 ![Unique ID Push Process](../assets/unique_id_push_process.png)
 
@@ -698,40 +698,40 @@ Submodels for Traceability are mostly easy to create by transforming a company's
 
 The only special step in creating these two submodels is the initial creation of the Unique ID for the corresponding serialized parts or batches.
 
-##### Creation of Submodel AssemblyPartRelationship
+##### Creation of Submodel SingleLevelBomAsBuilt
 
-The creation of the submodel AssemblyPartRelationship is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childParts.childCatenaXId), as shown in the following example:
+The creation of the submodel SingleLevelBomAsBuilt is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childParts.childCatenaXId), as shown in the following example:
 
 ```json
 {
   "catenaXId": "urn:uuid:d261e0fa-36f5-4128-875e-0f5735f5a535",
-  "childParts": [
+  "childItems": [
     {
       "quantity": {
         "quantityNumber": 1,
         "measurementUnit": "unit:piece"
       },
-      "lifecycleContext": "AsBuilt",
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2"
+      "catenaXId": "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2",
+      "businessPartner": "SingleLevelBomAsBuilt"
     },
     {
       "quantity": {
         "quantityNumber": 1,
         "measurementUnit": "unit:piece"
       },
-      "lifecycleContext": "AsBuilt",
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098"
+      "catenaXId": "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098",
+      "businessPartner": "SingleLevelBomAsBuilt"
     }
   ]
 }
 
 ```
 
-For the build-in parts (child parts), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the follwoing:
+For the build-in parts (child parts), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
 
 - Get all necessary local ids for the built-in part:
   - manufacturer (BPN), manufacturer part id and serial number for serialized parts
@@ -758,7 +758,7 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 - Fetch the submodel SerialPart or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
 - The submodel then contains the Unique ID of the built-in part in its catenaXId attribute.
 
-These steps have to be repeated for all built-in parts by the manufacturer. After that, the manufacturer has all information to create the AssemblyPartRelationship.
+These steps have to be repeated for all built-in parts by the manufacturer. After that, the manufacturer has all information to create the SingleLevelBomAsBuilt.
 
 #### Publish Traceability Data Offers at EDC
 
