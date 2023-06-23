@@ -194,18 +194,18 @@ Defined
   - Digital Twin Batch
   - Digital Twin Vehicle
 - Build up the basic chain
-  - Aspect model "SerialPartTypization"
+  - Aspect model "SerialPart"
   - Aspect model "AssemblyPartRelation"
   - Aspect model "Batch"
   - Aspect model "JustInSequencePart"
 
 ### AsBuilt Aspect Models
 
-#### 1. SerialPartTypization
+#### 1. SerialPart
 
 A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.0)
 
 #### 2. AssemblyPartRelationship
 
@@ -316,7 +316,7 @@ In the following, the purpose value, their detailed description and the aspects 
 
 | Purpose Value            | Relevant for                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| R2_Traceability          | SerialPartTypization 1.1.0  Batch 1.0.2 | The data can only be used for the Catena-X Use Case Traceability. This means that the data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply.                                                                                                               |
+| R2_Traceability          | SerialPart 1.0.0  Batch 1.0.2 | The data can only be used for the Catena-X Use Case Traceability. This means that the data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply.                                                                                                               |
 | R2_Traceability          | AssemblyPartRelationship 1.1.1          | The data can only be used for the Catena-X Use Case Traceability. This means that t he data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply. <br />_"Assumption: only used by own data provider. No usage of other use cases like dismantling, ESS etc."_ |
 | R2_QualityAlert          | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that t he data exchange via the Quality Alert Notification endpoint can   only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations . The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                              |
 | R2_QualityInvestigation  | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that the data exchange via the Quality Alert Notification endpoint can only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations. The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                                  |

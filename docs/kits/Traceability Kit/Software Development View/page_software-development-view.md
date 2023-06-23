@@ -114,11 +114,11 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 ### As Built Submodels Sample Data
 
-#### Submodel SerialPartTypization
+#### Submodel SerialPart
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.0)
 
-##### Submodel "SerialPartTypization" for a Vehicle
+##### Submodel "SerialPart" for a Vehicle
 
 ```json
 {
@@ -149,7 +149,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-##### Submodel "SerialPartTypization" for a Serialized Part (Non-Vehicle)
+##### Submodel "SerialPart" for a Serialized Part (Non-Vehicle)
 
 ```json
 {
@@ -294,7 +294,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-> Please note that if a just-in-sequence part is also a serialized part SerialPartTypization should be used instead.
+> Please note that if a just-in-sequence part is also a serialized part SerialPart should be used instead.
 
 <!-- Recommended -->
 ## Reference Implementation
@@ -414,7 +414,7 @@ The lookup for parts can use the customerPartId or the manufacturerPartId. Both,
 Data for digital twins is made available via EDC in Catena-X. Therefore, submodel descriptors of digital twins MUST be compliant to the following conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
-- `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPartTypization: "serialPartTypization".
+- `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
 
 The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor.
 
@@ -694,13 +694,13 @@ There should only be one EDC which provides the notification EDC asset for Uniqu
 
 #### Creating Submodels for Digital Twins
 
-Submodels for Traceability are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPartTypization or Batch. Transformations are mostly straightforward in these cases.
+Submodels for Traceability are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPart or Batch. Transformations are mostly straightforward in these cases.
 
 The only special step in creating these two submodels is the initial creation of the Unique ID for the corresponding serialized parts or batches.
 
 ##### Creation of Submodel AssemblyPartRelationship
 
-The creation of the submodel AssemblyPartRelationship is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPartTypization or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childParts.childCatenaXId), as shown in the following example:
+The creation of the submodel AssemblyPartRelationship is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childParts.childCatenaXId), as shown in the following example:
 
 ```json
 {
@@ -754,8 +754,8 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
     - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 2, you cannot rely on this key being available when looking for Batch digital twins.
   - To understand why, take a look at how these digital twins are created, especially their specificAssetId: (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels
   - The result of this query will be the AAS ID of the digital twin.
-- Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPartTypization or Batch (depending on the digital twin type).
-- Fetch the submodel SerialPartTypization or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
+- Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPart or Batch (depending on the digital twin type).
+- Fetch the submodel SerialPart or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
 - The submodel then contains the Unique ID of the built-in part in its catenaXId attribute.
 
 These steps have to be repeated for all built-in parts by the manufacturer. After that, the manufacturer has all information to create the AssemblyPartRelationship.
