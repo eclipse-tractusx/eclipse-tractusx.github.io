@@ -1,25 +1,26 @@
 ---
-id: Operation View Traceability Kit
+id: Operation View Digital Twin Kit
 title: Operation View
-description: 'Traceability Kit'
+description: 'Digital Twin Kit'
 sidebar_position: 3
 ---
 
-![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
-
-### Traceability Kit
+### Digital Twin Kit
 
 <!--
 Documentation of the Kit.
 -->
 
-Based on the information provided in this KIT, it is possible to create and operate an own, custom
-Traceability app. One open-source example is the **Trace-X app** in conjunction with the **Simple
-Data Exchanger (SDE)** for data provisioning. For further information regarding
-their usage, configuration and deployment, follow these resources:
+Based on the information provided in this KIT, it is possible to run and program against an infrastructure of
+Digital Twins the Catena-X-way. This infrastructure empowers Data Consumers to consume the network's data as agreed with
+each Data Provider and facilitated by an Operating company. They run central and decentral services that allow them to
+discover each other, exchange information and contextualize it according to a standardized semantics.
 
-- [Trace-X Frontend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss)
-- [Trace-X Backend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss-backend)
-- [Trace-X Installation Guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/frontend/INSTALL.md)
-- [SDE Frontend GitHub Repository](https://github.com/eclipse-tractusx/dft-frontend)
-- [SDE Backend GitHub Repository](https://github.com/eclipse-tractusx/dft-backend)
+| Service Name          | Description                                                                                                | Reference Implementation                                                                                                                                                                            | [Standardized in](https://catena-x.net/de/standard-library) |
+|-----------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| Discovery Finder      | A microservice resolving a type of identifiers against a set of BPN-Discovery Servers.                     | [Tractus-X Discovery Finder](https://github.com/eclipse-tractusx/sldt-discovery-finder)                                                                                                             | CX - 0084                                                   |
+| BPN Discovery         | A microservice resolving a particular assetId against the registered BPN of its owner.                     | [Tractus-X BPN Discovery](https://github.com/eclipse-tractusx/sldt-bpn-discovery)                                                                                                                   | CX - 0084                                                   |
+| EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint.                                                | [Tractus-X Portal including EDC Discovoery API](https://github.com/eclipse-tractusx/portal-backend)                                                                                                 | CX - 0001                                                   |
+| Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Repository API. | [Tractus-X Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                   | CX - 0002                                                   |
+| Submodel Server       | The data source adhering to a subset of the Submodel API as defined in DotAAS-2 3.0.                       | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server) | CX - 0002                                                   |
+
