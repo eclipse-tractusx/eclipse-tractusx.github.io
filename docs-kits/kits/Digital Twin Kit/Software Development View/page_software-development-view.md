@@ -1,13 +1,11 @@
 ---
-id: Specification Traceability Kit
+id: Specification Digital Twin Kit
 title: Specification
-description: 'Traceability Kit'
+description: 'Digital Twin Kit'
 sidebar_position: 4
 ---
 
-![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
-
-### Traceability Kit
+### Digital Twin Kit
 
 <!--
 Development View of the Kit.
@@ -16,303 +14,108 @@ Development View of the Kit.
 <!-- !Mandatory! -->
 ## API Specifications
 
-### Unique ID Push Notifications
+All openAPI-specifications for the Digital Twin KIT services are rendered in the section [of these docs](openAPI)
 
-Unique ID Push notifications are a way for a manufacturer to notify a customer as soon as possible when a new digital twin for a part is available. The solution is based on notification assets in the EDC (which is the same approach that is used for quality alerts & investigations). The customer creates a notification asset in the EDC and the customer's suppliers send their notifications (with the Unique Id) to this notification asset. Details can be found in section [Unique ID Push Notifications](#unique-id-push-notifications-1).
+### Asset Administration Shell
 
-All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push API documentation](Unique%20ID%20Push%20API/unique-id-push-notification-api).
+The Asset Administration Shell is a specification that is released by the IDTA with a perspective to be adopted bei the IEC. 
+Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a value
+creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an extensive
+suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X standard 
+CX - 0002.
 
-### Traceability Data Offers at EDC
+#### Submodels
 
-[Publish Traceability Data Offers at EDC](#publish-traceability-data-offers-at-edc)
+An Asset Administration Shell is organized in Submodels. Each Submodel represents a self-contained aspect of an asset - 
+typical examples are the Nameplate or AssemblyPartRelationship (which denotes the hierarchical composition of parts into
+a whole). As different aspect of an Asset may be known to different parties on the value-chain, submodels for a single asset
+must be capable to run independently of each other. The specification explicitly allows this. Catena-X demands that data-
+providers offer only a subset of the SubmodelServiceSpecification while it is advisable to expose submodels with help of 
+a full-fletched AAS-server SDK that provides the content-modifiers and API-endpoints out-of-the box.
+
+#### Digital Twin Registry
+
+What Catena-X calls the "Digital Twin Registry" (DTR) is actually the union of two different services that the AAS specification
+has specified. For simplicity's sake, they are both defined in a single service. The Registry serves a similar function as the
+index in a book: When trying to discover information, it's convenient to have an overview WHAT one will find and HOW to
+access it. The Registry caters exactly that information: For every asset it knows, it holds a number of "submodel-descriptors" and in 
+these, a consumer app will find information WHAT it will find (via the semanticId) and how to access the information (endpoint,
+security setup etcetc). As the information contained in the DTR may be sensitive and not be trusted with a central entity,
+every data provider must offer his own DTR as an EDC Data Asset.
+
+[AASR](https://app.swaggerhub.com/apis/Plattform_i40/AssetAdministrationShellRegistryServiceSpecification/V3.0_SSP-002)
+[Discovery](https://app.swaggerhub.com/apis/Plattform_i40/DiscoveryServiceSpecification/V3.0_SSP-001)
+
+### Catena-X specific Services
+
+Due to the requirement that the DTR must run decentrally, there is a more elaborate mechanism to discover information on assets
+that is more protective of data participants' information. For this, a three-step discovery pattern was specified according
+wo which consumers communicate with the central microservices Discovery Finder, BPN Discovery (or several of them) and finally
+the EDC discovery that is part of the CX-Portal.
 
 <!-- Recommended -->
 ## Sample Data
 
-In the following, example data for submodels are provided.
+Please find the Sample Data for relevant data objects in the openAPI-specs of the respective services. This chapter only
+contains data structures that are specifically designed for use in the Digital Twin KIT and go beyond what is allowed/given
+as example.  
 
-### As Planned Submodels Sample Data
+### Data Offers at EDC
 
-#### Submodel "PartAsPlanned" for a Catalog Part
+While the exact integration with the EDC is still at the discretion of each KIT and use-case, there are best-practices
+that are likely to be standardized in the future. An example is HOW the EDC-protected parts of this KIT should register
+with the EDC Management API. The current recommendation is:
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1)
+#### Digital Twin Registry
+
+````json
+{
+  "asset": {
+    "properties": {
+        "asset:prop:id": "<EDC_ASSET_ID>", #DTR-EDC-instance-unique-ID
+        "asset:prop:type": "data.core.digitalTwinRegistry",
+        "asset:prop:name": "Digital Twin Registry Endpoint of provider XYZ",
+        "asset:prop:contenttype": "application/json",
+        "asset:prop:policy-id": "use-eu"
+    }
+  },
+  "dataAddress": {
+    "properties": {
+        "type": "HttpData"
+        "baseUrl": "https://<YOUR_DIGITAL_TWIN_REGISTRY_URL>",
+        "proxyPath": true,
+        "proxyBody": true,
+        "proxyMethod": true,
+        "proxyQueryParams": true 
+    }
+  }
+}
+````
+
+#### Submodel
 
 ```json
-{
-  "partTypeInformation": {
-    "classification": "component",
-    "manufacturerPartId": "123-0.740-3434-A",
-    "nameAtManufacturer": "Mirror left"
-  },
-  "validityPeriod": {
-    "validFrom": "2021-06-14T06:55:29.935Z",
-    "validTo": "2022-06-14T06:55:29.935Z"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
-}
+
 ```
 
-#### Submodel "SingleLevelBomAsPlanned" for a Catalog Part
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0)
+### Catena-X Submodel Descriptors
 
 ```json
-{
-  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "childParts": [
-    {
-      "quantity": {
-        "quantityNumber": 2.5,
-        "measurementUnit": "unit:litre"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:5daB938E-Cafa-92B3-7ca1-9aD7885e9dC8"
-    }
-  ]
-}
+
 ```
-
-#### Submodel SingleLevelUsageAsPlanned for a Catalog Part
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0)
-
-```json
-{
-  "parentParts": [
-    {
-      "parentCatenaXId": "urn:uuid:c8B01D5A-ce0B-6Dd4-5bA0-A3e3fcE9cA93",
-      "quantity": {
-        "quantityNumber": 2.5,
-        "measurementUnit": "unit:litre"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
-    }
-  ],
-  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d"
-}
-```
-
-#### Submodel "PartSiteInformationAsPlanned" for a component that is produced at the given site
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0)
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites": [
-    {
-      "catenaXSiteId": "BPNS1234567890ZZ",
-      "functionValidUntil": "2025-11-21T11:14:30.825+01:00",
-      "function": "production",
-      "functionValidFrom": "2022-11-21T11:14:30.825+01:00"
-    }
-  ]
-}
-```
-
-### As Built Submodels Sample Data
-
-#### Submodel SerialPartTypization
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1)
-
-##### Submodel "SerialPartTypization" for a Vehicle
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "van",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartID": "QX-39",
-    "classification": "product",
-    "nameAtManufacturer": "Vehicle Model A"
-  }
-}
-```
-
-##### Submodel "SerialPartTypization" for a Serialized Part (Non-Vehicle)
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "manufacturerPartId",
-      "value": "95657362-83"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "NO-574868639429552535768526"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-  "partTypeInformation": {
-    "manufacturerPartID": "95657362-83",
-    "customerPartId": "798-515297795-A",
-    "classification": "component",
-    "nameAtManufacturer": "High Voltage Battery",
-    "nameAtCustomer": "High Voltage Battery"
-  }
-}
-```
-
-#### Submodel AssemblyPartRelationship
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1)
-
-##### Submodel "AssemblyPartRelationship" for a Serialized Part
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childParts": [
-    {
-      "lifecycleContext": "AsBuilt",
-      "quantity": {
-        "quantityNumber": 1.0,
-        "measurementUnit": "unit:piece"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04"
-    }
-  ]
-}
-```
-
-##### Submodel "AssemblyPartRelationship" for a Batch
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childParts": [
-    {
-      "lifecycleContext": "AsBuilt",
-      "quantity": {
-        "quantityNumber": 25.0,
-        "measurementUnit": "unit:kilogram"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04"
-    }
-  ]
-}
-```
-
-#### Submodel Batch
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2)
-
-##### Submodel "Batch" for a Batch of Raw Material
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "value": "BID12345678",
-      "key": "batchId"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "HUR"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartId": "123-0.740-3434-A",
-    "customerPartId": "PRT-12345",
-    "classification": "product",
-    "nameAtManufacturer": "PA66-GF30",
-    "nameAtCustomer": "Polyamide"
-  }
-}
-```
-
-#### Submodel JustInSequencePart
-
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0)
-
-##### Submodel "JustInSequencePart" for a non-serialized component
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "jisNumber",
-      "value": "894651684"
-    },
-    {
-      "key": "parentOrderNumber",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "jisCallDate",
-      "value": "2022-01-24T09:13:34"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartID": "84816168424",
-    "classification": "product",
-    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B"
-  }
-}
-```
-
-> Please note that if a just-in-sequence part is also a serialized part SerialPartTypization should be used instead.
-
-<!-- Recommended -->
-## Reference Implementation
-
-For a reference implementation, take a look at the open-source Trace-X app. More information are provided in the [Operation View](../page_software-operation-view.md) section.
 
 <!-- Recommended -->
 ## Documentation in the Context of Development
 
 ### Data Provisioning
 
-The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital TWin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
+The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Digital Twin-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital TWin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
 
 ![Basic Data FLow](../assets/data_provisioning_data_flow.png)
 
-#### Register Digital Twins for Traceability
+#### Register Digital Twins for Digital Twin
 
-In Traceability, digital twins for different types of parts are registered at the digital twin registry, e. g. serialized parts, batches, JIS parts or catalog parts.
+In Digital Twin, digital twins for different types of parts are registered at the digital twin registry, e. g. serialized parts, batches, JIS parts or catalog parts.
 
 > :raised_hand: **Unique ID Push**
 Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
@@ -326,7 +129,7 @@ The following general conventions apply for all these digital twins:
 
 ##### Property specificAssetIds
 
-For Traceability, we define some specificAssetIds as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
+For Digital Twin, we define some specificAssetIds as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
 The following conventions for specificAssetIds apply to all digital twins:
 
@@ -440,7 +243,7 @@ For a data provider, there are currently the following steps where they have to 
 
 For a data consumer, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
 
-- The data consumer in the Traceability use case in most cases will use the Unique ID of a part to lookup the digital twin (more precisely, its AAS ID) of this part.
+- The data consumer in the Digital Twin use case in most cases will use the Unique ID of a part to lookup the digital twin (more precisely, its AAS ID) of this part.
 - The data consumer from another use case (e.g., Circular Economy), might either use the Unique ID of a part (if known) or the local IDs of a part to lookup the part's digital twin (AAS ID) depending on what is available in the use case.
 
 ##### Lookup up a Digital Twin with Local IDs
@@ -513,9 +316,9 @@ Secondly, EDCs are being used for the exchange and it is currently required to o
 
 How the actual process is triggered is application specific. It is recommended to to trigger the push of Unique IDs towards the customer after the Goods Issue has been booked, since commonly at that point the serial numbers/batch numbers of the parts being delivered are fixed in the logistics process and shall be contained in delivery documents, EDI Messages and/or any internal representation of the received items (non-Catena-X communication).
 
-The Unique ID push is initiated by the supplier (acting as sender) towards their customer (acting as receiver). Since the Unique ID of the asset (i.e., serial unit / batch) is unknown in the logistics process, the message needs to include local identifiers to be matched towards the information from the delivery documents and furthermore the internal data of the recipient's traceability solution.
+The Unique ID push is initiated by the supplier (acting as sender) towards their customer (acting as receiver). Since the Unique ID of the asset (i.e., serial unit / batch) is unknown in the logistics process, the message needs to include local identifiers to be matched towards the information from the delivery documents and furthermore the internal data of the recipient's Digital Twin solution.
 
-Upon receipt of the message, the customer needs to match the local identifiers with its internal traceability records and attach each Unique ID to the respective data set. How this is done is depending on the customer's internal systems:
+Upon receipt of the message, the customer needs to match the local identifiers with its internal Digital Twin records and attach each Unique ID to the respective data set. How this is done is depending on the customer's internal systems:
 
 - If there is an object for incoming deliveries, this event could be updated.
   Alternatively, if only production events are tracked, the data could be integrated at this point into the data provisioning pipeline's data structure for consumed materials.
@@ -565,7 +368,7 @@ end
 
 EDCSup -> EDCCust: Send Unique ID Push notification and Token
 EDCCust -> TraceCust: Forward Unique ID
-TraceCust -> TraceCust: link UUID to Traceability events/material
+TraceCust -> TraceCust: link UUID to Digital Twin events/material
 
 @enduml
 -->
@@ -637,7 +440,7 @@ There should only be one EDC which provides the notification EDC asset for Uniqu
 
 #### Creating Submodels for Digital Twins
 
-Submodels for Traceability are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPartTypization or Batch. Transformations are mostly straightforward in these cases.
+Submodels for Digital Twin are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPartTypization or Batch. Transformations are mostly straightforward in these cases.
 
 The only special step in creating these two submodels is the initial creation of the Unique ID for the corresponding serialized parts or batches.
 
@@ -703,7 +506,7 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 
 These steps have to be repeated for all built-in parts by the manufacturer. After that, the manufacturer has all information to create the AssemblyPartRelationship.
 
-#### Publish Traceability Data Offers at EDC
+#### Publish Digital Twin Data Offers at EDC
 
 Currently, only the format and content of the `asset:prop:id` attribute is mandatory. All other attributes can be used optionally by data providers.
 
