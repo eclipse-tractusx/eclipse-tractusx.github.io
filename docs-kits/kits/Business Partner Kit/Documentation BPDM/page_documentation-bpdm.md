@@ -38,7 +38,7 @@ The BDPM is a SpringBoot Kotlin software project managed by Maven. The core info
     4. The project requires a Postgresql database and an Opensearch instance to be available to connect to.
     5. Default configuration: postgres to run on localhost on port 5432, Opensearch to run on localhost on port 9200.
     6. Configuration files: application.properties, application-auth.properties, and application-saas.properties.
-    7. REST API documentation: <http://localhost:8080/api/swagger-ui>.
+    7. REST API documentation: <http://localhost:8080/ui/swagger-ui/index.html>.
     8. Profiles: default, auth, and saas.
 
 * BPDM Gate
@@ -47,10 +47,20 @@ The BDPM is a SpringBoot Kotlin software project managed by Maven. The core info
     2. The project can be run with the following command: mvn clean spring-boot:run
     3. Prerequisites: Maven, JDK17, Connection to an SaaS, Connection to BPDM Pool API, Keycloak 17.0.0.
     4. The Gate requires a remote SaaS storage and datasource to exchange data with.
-    5. Default configuration: BPDM Pool instance expected at localhost with port 8080.
+    5. Default configuration: BPDM Gate instance expected at localhost with port 8081.
     6. Configuration files: application.properties, application-auth.properties, and application-pool-auth.properties.
-    7. REST API documentation: <http://localhost:8081/api/swagger-ui>.
+    7. REST API documentation: <http://localhost:8081/ui/swagger-ui/index.html>.
     8. Profiles: default, auth, and auth-pool.
+
+* BPDM Bridge Dummy
+
+    1. BPDM Bridge Dummy is a SpringBoot Kotlin software project managed by Maven.
+    2. The project can be run with the following command: mvn clean spring-boot:run
+    3. Prerequisites: Maven, JDK17, Connection to BPDM Pool API, Connection to BPDM Gate API, Keycloak 17.0.0.
+    4. Default configuration: BPDM Bridge Dummy instance expected at localhost with port 8083.
+    5. Configuration files: application.properties, application-auth.properties.
+    6. REST API documentation: <http://localhost:8083/ui/swagger-ui/index.html>.
+    7. Profiles: default, auth.
 
 It is important to follow the instructions mentioned in the [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) and [README.md](https://github.com/eclipse-tractusx/bpdm/blob/main/README.md) files to ensure successful installation and configuration.
 
