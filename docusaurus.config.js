@@ -315,7 +315,31 @@ const config = {
             sidebarOptions: {
                groupPathsBy: "tag",
             },
-          }
+          },
+          submodel: {
+            specPath: "./openApi/dt/submodel-service-ssp003-openapi.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits_versioned_docs/version-3.1.0/kits/Digital Twin Kit/Software Development View/API Specs/Submodel/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+               groupPathsBy: "tag",
+            },
+          },
+          registry: {
+            specPath: "./openApi/dt/registry-service-ssp002-openapi.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits_versioned_docs/version-3.1.0/kits/Digital Twin Kit/Software Development View/API Specs/AAS Registry/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          discovery: {
+            specPath: "./openApi/dt/discovery-service-ssp001-openapi.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits_versioned_docs/version-3.1.0/kits/Digital Twin Kit/Software Development View/API Specs/AAS Discovery/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+            }
         },
       },
     ],
@@ -378,7 +402,7 @@ const config = {
                 label: 'Traceability',
               },
               {
-                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View',
+                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
                  label: 'Digital Twin',
               },
             ],

@@ -298,7 +298,6 @@ const sidebars = {
             },
           ],
         },
-
   ],
   Resiliency: [
     {
