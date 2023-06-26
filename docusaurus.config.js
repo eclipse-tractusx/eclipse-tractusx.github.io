@@ -276,6 +276,22 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          dt_discovery_finder: {
+            specPath: "./openApi/dt/discovery-finder.yaml", // Path to designated spec file
+            outputDir:
+              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/discovery-finder", // Output directory for generated .mdx docs
+              sidebarOptions: {
+                groupPathsBy: "tag",
+              },
+          },
+          dt_bpn_discovery: {
+            specPath: "./openApi/dt/bpn-discovery.yaml", // Path to designated spec file
+            outputDir:
+              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/bpn-discovery", // Output directory for generated .mdx docs
+            sidebarOptions: {
+               groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
