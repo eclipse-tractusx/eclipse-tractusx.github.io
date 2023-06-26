@@ -17,6 +17,8 @@ If you and your team want to contribute to an existing KIT or even suggest and w
 
 ## How to obtain a tractus-x repository
 
+ToDO
+
 - raise issue at eclipse foundation gitlab
 - assing project leads
 
@@ -46,3 +48,5 @@ View the tractus-x [versioning scheme](/docs/kit-process/versioning.md). On this
 Usually a new version is assigned when a new release is created. So a the version and release are closely releated. Below you find the github documentation to manage your [releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 
 ## What to do with an project external KIT repository
+
+toDo
