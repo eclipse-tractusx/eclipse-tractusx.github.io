@@ -422,7 +422,7 @@ The actual access information for the EDC is part of the endpoint attribute in t
 
 ```json
 {
-    "interface": "CX-SUBMODEL-3.0",
+    "interface": "SUBMODEL-3.0",
     "protocolInformation": {
         "href": "https://edc.data.plane/{path}/submodel",
         "endpointProtocol": "HTTP",
@@ -481,7 +481,7 @@ Here's an example how such a submodel descriptor could look like:
     },
     "endpoints": [
       {
-        "interface": "CX-SUBMODEL-3.0",
+        "interface": "SUBMODEL-3.0",
         "protocolInformation": {
           "href": "https://edc.data.plane/submodel",
         "endpointProtocol": "HTTP",
@@ -525,7 +525,7 @@ Here's an example how such a submodel descriptor could look like:
     },
     "endpoints": [
       {
-        "interface": "CX-SUBMODEL-3.0",
+        "interface": "SUBMODEL-3.0",
         "protocolInformation": {
           "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
@@ -553,6 +553,7 @@ The endpoint `href` in the submodel descriptor cannot be used directly to contac
 
 - A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS"
 - With `href`, the data consumer calls the local operation GetSubmodel as specified by the suffix "/submodel". As only the logical parameter "Content" must be supported in release 3.2, "/$value" must be appended to `href` by the data consumer.
+ If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to CX-0002.
 - Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `idsEndpoint`.
 - Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
 
