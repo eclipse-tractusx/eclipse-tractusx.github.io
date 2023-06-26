@@ -12,13 +12,11 @@ Depending on usage, we have categorized trobleshooting for two types of user.
 
 2. Make sure that the Postgresql database and Opensearch instance are available and can be connected to by the BPDM service. The default configuration expects Postgresql to run on localhost on port 5432 and Opensearch to run on localhost on port 9200. If you are running the database and/or instance on a different host or port, you will need to update the configuration files accordingly.
 
-3. Check the configuration files (application.properties, application-auth.properties, and application-saas.properties) for any errors or misconfigurations. These files contain important information about how the BPDM service is configured and what resources it relies on.
+3. Check the configuration files (application.properties and application-auth.properties) for any errors or misconfigurations. These files contain important information about how the BPDM service is configured and what resources it relies on.
 
-4. If you are running the BPDM Gate, ensure that it can connect to the BPDM Pool API and the remote SaaS storage and datasource. The default configuration expects the BPDM Pool instance to be located at localhost with port 8080. If you are running the BPDM Pool on a different host or port, you will need to update the configuration files accordingly.
+4. If you are running the BPDM Gate, ensure that it can connect to the BPDM Pool API and datasource. The default configuration expects the BPDM Pool instance to be located at localhost with port 8080. If you are running the BPDM Pool on a different host or port, you will need to update the configuration files accordingly.
 
-5. Check the profiles (default, auth, and saas for BPDM Pool, and default, auth, and auth-pool for BPDM Gate) to make sure that they are properly configured for your specific use case. These profiles define how the BPDM service will behave under different circumstances and can be customized to fit your specific needs.
-
-6. If you encounter any errors or issues when running or deploying the BPDM service, refer to the [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) and [README.md](https://github.com/eclipse-tractusx/bpdm/blob/main/README.md)  files for troubleshooting tips and other helpful information. These files contain detailed instructions on how to install and configure the BPDM service and can be a valuable resource when encountering problems.
+5. If you encounter any errors or issues when running or deploying the BPDM service, refer to the [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) and [README.md](https://github.com/eclipse-tractusx/bpdm/blob/main/README.md)  files for troubleshooting tips and other helpful information. These files contain detailed instructions on how to install and configure the BPDM service and can be a valuable resource when encountering problems.
 
 ## Intergrating with BPDM api
 
