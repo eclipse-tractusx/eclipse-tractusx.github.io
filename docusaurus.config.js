@@ -118,6 +118,30 @@ const config = {
         noRuntimeDownloads: true
       },
     ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        id: "discoveryFinderOpenapi",
+        name: "discoveryFinder", // used by CLI, must be path safe
+        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/discoveryfinder/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "openApi/dt", // the base directory to output to.
+        documents: ["discovery-finder-openapi.yaml"], // the file names to download
+        noRuntimeDownloads: false
+      },
+    ],
+    [
+      "docusaurus-plugin-remote-content",
+      {
+        // options here
+        id: "bpnDiscoveryOpenapi",
+        name: "bpnDiscovery", // used by CLI, must be path safe
+        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/bpndiscovery/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        outDir: "openApi/dt", // the base directory to output to.
+        documents: ["bpn-discovery-service-openapi.yaml"], // the file names to download
+        noRuntimeDownloads: true
+      },
+    ],
     // ------------DOCUSAURUS PLUGIN OPEN API DOCS---------------------
     [
       'docusaurus-plugin-openapi-docs',
@@ -277,21 +301,21 @@ const config = {
             },
           },
           dt_discovery_finder: {
-            specPath: "./openApi/dt/discovery-finder.yaml", // Path to designated spec file
+            specPath: "./openApi/dt/discovery-finder-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/discovery-finder", // Output directory for generated .mdx docs
+              "./docs-kits_versioned_docs/version-3.1.0/kits/Digital Twin Kit/Software Development View/API Specs/Discovery Finder/", // Output directory for generated .mdx docs
               sidebarOptions: {
                 groupPathsBy: "tag",
               },
           },
           dt_bpn_discovery: {
-            specPath: "./openApi/dt/bpn-discovery.yaml", // Path to designated spec file
+            specPath: "./openApi/dt/bpn-discovery-service-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs/kits/tractusx-edc/docs/kit/development-view/openAPI/bpn-discovery", // Output directory for generated .mdx docs
+              "./docs-kits_versioned_docs/version-3.1.0/kits/Digital Twin Kit/Software Development View/API Specs/BPN Discovery/", // Output directory for generated .mdx docs
             sidebarOptions: {
                groupPathsBy: "tag",
             },
-          },
+          }
         },
       },
     ],
@@ -352,6 +376,10 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
+              },
+              {
+                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View',
+                 label: 'Digital Twin',
               },
             ],
           },
