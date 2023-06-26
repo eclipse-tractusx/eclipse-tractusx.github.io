@@ -4,6 +4,10 @@ title: Contribute
 
 On this page you find a FAQ which is focused on question regarding your contribution to the Tractus-X project.
 
+## Need help ?
+
+As described we try to answer as many questions as possible, but it will be the case that you won't find an answer. If you find yourself in this situation head to our [community repository](https://github.com/eclipse-tractusx/community) and raise an [issue](https://github.com/eclipse-tractusx/community/issues/new/choose) or search the [disucussion section](https://github.com/eclipse-tractusx/community/discussions). If you don't find something within the dicsussion section we encourage you to open a new discussion! The community will help!.
+
 ## How to contribute
 
 If you and your team want to contribute to an existing KIT or even suggest and work on an own KIT you have to fufill a small set of Prerequisites.
