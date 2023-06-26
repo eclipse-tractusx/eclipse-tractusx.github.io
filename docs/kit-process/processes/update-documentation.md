@@ -19,25 +19,31 @@ Currently the documentation has to be manually maintained by the process describ
 ### Overview
 
 1. Create a fork of the [Tractus-X website repository]("https://github.com/eclipse-tractusx/eclipse-tractusx.github.io") by clicking on the "fork" button on the top right
-![IMG: how to create fork](resources/create-new-fork.png)
+   ![IMG: how to create fork](resources/create-new-fork.png)
 
-2. Edit your documentation with regard to the schema
+2. Edit your documentation with regard to the schema. Note that you **only** apply changes to the content within the `docs-kits` directory! If you modify your or other content outside of this directory your changes will be rejected!
 3. create a pull request
-    1. click on "Pull Requests"
 
-        ![IMG: Click on Pull request first](resources/click-on-pr-first.png)
-    2. click on "New Pull Request"
+   1. click on "Pull Requests"
 
-        ![IMG: Click on New Pull request](resources/click-on-new-pr.png)
-    3. Select Branch which should be merge into the base repository
+      ![IMG: Click on Pull request first](resources/click-on-pr-first.png)
 
-        ![IMG: Select Branch to Merge](resources/select-branch-to-merge.png)
-    4. Click on Create Pull request
+   2. click on "New Pull Request"
 
-        ![IMG: Click on Create Pull Request second](resources/click-create-pr.png)
-    5. Add Description, what you add/change/improve. If available link an Issue with "#\<Issue Number\>. Then click on "Create Pull request"
+      ![IMG: Click on New Pull request](resources/click-on-new-pr.png)
 
-        ![IMG: Click on Create Pull Request final](resources/click-create-pr-final.png)
+   3. Select Branch which should be merge into the base repository
+
+      ![IMG: Select Branch to Merge](resources/select-branch-to-merge.png)
+
+   4. Click on Create Pull request
+
+      ![IMG: Click on Create Pull Request second](resources/click-create-pr.png)
+
+   5. Add Description, what you add/change/improve. If available link an Issue with "#\<Issue Number\>. Then click on "Create Pull request"
+
+      ![IMG: Click on Create Pull Request final](resources/click-create-pr-final.png)
+
 4. The Traktus-X Team will review your pull request
 
 The pull request will be approved if it meets our schema and liniting requirements.
