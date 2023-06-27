@@ -202,7 +202,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner": ""
+      "businessPartner": "BPNL50096894aNXY"
     }
   ]
 }
