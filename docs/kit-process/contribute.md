@@ -21,10 +21,24 @@ If you and your team want to contribute to an existing KIT or even suggest and w
 
 ## How to obtain a Tractus-X repository
 
-ToDO
+After your KIT suggestion is accepted your need a Tractus-X repository. Since Tractus-X ist part of the eclipse foundation the repositories are managed by the foundation. Thus you have to request the creation of a repository within the Tractus-X project at their GitLab.
+You find their Issue Section [here](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues). Raise an issue with the following information:
 
-- raise issue at eclipse foundation gitlab
-- assing project leads
+- The name should have the following format:
+
+  `Tractus-X: New GitHub Repository '\<Repo Name\>'`
+
+- Fill the request body with
+
+  - an Repository Name
+  - a short description
+  - reference the the Tractus-X GitHub organisation
+
+    `https://github.com/eclipse-tractusx`
+
+  - tag Daniel Miehle for approval
+
+- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2713)
 
 ## How to update the documentation on the Tractus website
 
@@ -42,6 +56,10 @@ To become a Tractus-X contributer you have to do the following steps:
 ### Importand Note
 
 While registring make sure to use your **email used for your github account**! There are automated checks in place that make sure a commited change is done by an eclipse contributer, it will be rejected otherwise! You are a eclipse contributer as soon as you signed the eclipse contribution agreement.
+
+## How to suggest a new KIT
+
+If you have an idea for a new KIT the Tractus-X community invites you to propose your idea. You find a description for this process [here](/docs/kit-process/processes/create_KIT_page.md)
 
 ## How to Version your KIT
 
