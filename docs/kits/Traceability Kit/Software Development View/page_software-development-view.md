@@ -427,8 +427,8 @@ The actual access information for the EDC is part of the endpoint attribute in t
         "href": "https://edc.data.plane/{path}/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
-        "subprotocol": "IDS",
-        "subprotocolBody": "id=123;idsEndpoint=http://edc.control.plane/",
+        "subprotocol": "DSP",
+        "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/",
         "subprotocolBodyEncoding": "plain",
         "securityAttributes": [ 
           { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -446,7 +446,7 @@ The following conventions apply for the endpoint:
   - `/submodel`: This part is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation. 
 - `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
   - `id=123`: The id of the asset for which a contract negitiation should be intiated.
-  - `idsEndpoint`: Server and port of the EDC control plane used for contract negotiation
+  - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation
 
 > :raised_hand: **Backend Data Service for Submodels** 
 According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported (via path suffixes like in "/submodel/$value"). This might change in later Catena-X releases. 
@@ -458,7 +458,7 @@ With this approach, the EDC asset structure must no longer follow the "one EDC a
 Submodels of digital twins are registered in the EDC the same way as for release 3.1: one EDC asset is created for every submodel of a digital twin.
 
 - `href` must have the following format: `http://edc.data.plane/submodel`
-- `subprotocolBody` must have the following format: `id={edcAssetId};idsEndpoint=http://edc.control.plane`
+- `subprotocolBody` must have the following format: `id={edcAssetId};dspEndpoint=http://edc.control.plane`
 - edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
   - aasIdentifier: The id of the digital twin (id property in the AAS descriptor)
   - submodelIdentifier: The id of the submodel (id property in the submodel descriptor)
@@ -486,8 +486,8 @@ Here's an example how such a submodel descriptor could look like:
           "href": "https://edc.data.plane/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "IDS",
-          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;idsEndpoint=http://edc.control.plane/",
+          "subprotocol": "DSP",
+          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;dspEndpoint=http://edc.control.plane/",
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -530,8 +530,8 @@ Here's an example how such a submodel descriptor could look like:
           "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "IDS",
-          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/",
+          "subprotocol": "DSP",
+          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;dspEndpoint=http://control-plane.edc.catena-x.net/",
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [ 
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -551,10 +551,10 @@ The above options are only two examples how a submodel's endpoint can be created
 
 The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
 
-- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS"
+- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfers in Catena-X, this is "DSP"
 - With `href`, the data consumer calls the local operation GetSubmodel as specified by the suffix "/submodel". As only the logical parameter "Content" must be supported in release 3.2, "/$value" must be appended to `href` by the data consumer.
  If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to CX-0002.
-- Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `idsEndpoint`.
+- Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `dspEndpoint`.
 - Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
 
 All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
