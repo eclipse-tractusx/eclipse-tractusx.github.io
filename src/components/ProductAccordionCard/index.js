@@ -69,6 +69,7 @@ export default function ProductAccordionCard({productName, productDescription, g
       <Accordion
         expanded={accordionOpen}
         className={styles.accordion}
+        elevation={0}
       >
         <AccordionSummary
           expandIcon={
@@ -78,7 +79,7 @@ export default function ProductAccordionCard({productName, productDescription, g
               onClick={()=> setAccordionOpen(!accordionOpen)}
             />
           }
-          sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '0.5rem', cursor: 'unset !important'}}
+          sx={{paddingBottom: '0.5rem', cursor: 'unset !important'}}
         >
           <section className={styles.summary_container}>
             <div className={styles.product_title_container}>
@@ -110,7 +111,7 @@ export default function ProductAccordionCard({productName, productDescription, g
         </section>
         </AccordionSummary>
         <AccordionDetails
-          sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
+          sx={{paddingBottom: '2rem'}}
         >
           <section className={styles.details_container}>
             <div className={styles.repo_details_container}>

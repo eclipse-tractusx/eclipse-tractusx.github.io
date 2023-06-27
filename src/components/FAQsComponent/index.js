@@ -84,7 +84,7 @@ export default function FAQsComponent() {
                     expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
                     aria-controls={`panel${faq.id}-content`}
                     id={`panel${faq.id}-header`}
-                    sx={{color: '#fff', paddingBottom: '1rem'}}
+                    sx={{paddingBottom: '1rem'}}
                   >
                     <Typography
                       sx={{
@@ -99,7 +99,7 @@ export default function FAQsComponent() {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails
-                    sx={{color: '#fff', paddingBottom: '2rem'}}
+                    sx={{paddingBottom: '2rem'}}
                   >
                     <Typography
                       sx={{
