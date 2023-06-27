@@ -36,7 +36,7 @@ You find their Issue Section [here](https://gitlab.eclipse.org/eclipsefdn/helpde
 
     `https://github.com/eclipse-tractusx`
 
-  - tag Daniel Miehle for approval
+  - tag Daniel Miehle, Siegfried Kiermayer for approval
 
 - [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2713)
 
@@ -51,7 +51,7 @@ To become a Tractus-X contributer you have to do the following steps:
 1. Create an Eclipse Foundation account following this [link](https://accounts.eclipse.org/user/register).
 
 2. Sing the Eclipse Contributer Agreement.
-   After you signed the agreement it takes some time until it is confirmed. Usually it is the next day, sometime it takes up to some days. This is completely dependen on the eclipse foundation.
+   After you signed the agreement it takes some time until it is confirmed. Usually it is the next day, sometime it takes up to some days. This is completely dependent on the eclipse foundation.
 
 ### Importand Note
 
