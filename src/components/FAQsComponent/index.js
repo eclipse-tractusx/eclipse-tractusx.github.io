@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React, {useState} from "react";
+import ThemedImage from '@theme/ThemedImage';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -50,6 +51,14 @@ export default function FAQsComponent() {
 
   return (
     <section className={styles.faqs}>
+      <ThemedImage
+        // alt="Docusaurus themed image hero background"
+        sources={{
+          // light: ('/img/main_bg-min.png'),
+          dark: ('/img/main_bg-min.png'),
+        }}
+        className={styles.hero_bg}
+      />
       <div className={styles.container}>
         <div className={styles.title_container}>
           <h2 className="title-h2">FAQs</h2> 
