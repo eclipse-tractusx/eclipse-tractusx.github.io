@@ -130,6 +130,10 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
       "value": "BPNL7588787849VQ"
     },
     {
+      "key": "manufacturerPartId",
+      "value": "95657362-83"
+    },
+    {
       "key": "partInstanceId",
       "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
     },
