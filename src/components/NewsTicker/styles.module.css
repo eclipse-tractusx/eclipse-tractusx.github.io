@@ -55,12 +55,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #dcdee4;
+  color: var(--ifm-font-color-base);
 }
 
 .slider_item:hover {
   text-decoration: none;
-  color: #dcdee4; 
+  /* color: #dcdee4; */
 }
 
 .date {
