@@ -40,6 +40,7 @@
   --ifm-color-primary-lightest: #fcc477;
   --ifm-background-color: #000;
   --ifm-navbar-background-color: #000;
+  --ifm-menu-color: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-heading-color: #fff;
   --ifm-font-color-base: #fff;
@@ -181,6 +182,11 @@
 
 .footer--dark {
   background-color: var(--ifm-navbar-background-color);
+}
+
+/* Docusaurus Menu */
+.menu__list-item {
+  background-color: var(--ifm-background-color);
 }
 
 /* Media Queries */
