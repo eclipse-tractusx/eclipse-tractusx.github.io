@@ -5,41 +5,9 @@
 
 .product_overview {
   width: 100%;
-  height: auto;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;;
 }
 
 .container {
   width: 100%;
-  height: fit-content;
-}
-
-.product_box {
-  display: grid;
-  grid-template-columns: repeat(3, 32%);
-  column-gap: 1.5rem;
-  row-gap: 2rem;
-}
-
-@media screen and (max-width: 1280px) {
-  .container {
-    width: 90vw;
-  }
-
-  .product_box {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .container {
-    width: 80vw;
-  }
-
-  .product_box {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }

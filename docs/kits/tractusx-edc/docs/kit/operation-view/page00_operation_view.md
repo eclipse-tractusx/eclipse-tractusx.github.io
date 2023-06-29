@@ -1,5 +1,9 @@
 # Software Operation View
 
+![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
+
+## Connector Kit
+
 ## Introduction
 
 The following documentation will guide you through the TractusX EDC deployment.

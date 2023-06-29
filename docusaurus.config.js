@@ -97,26 +97,33 @@ const config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "bpdm-pool",
+        id: "api-docs",
         docsPluginId: "classic",
         config: {
-          bpdm: {
+          bpdm_gate: {
+            specPath: "./openApi/bpdm/gate.yaml",
+            outputDir: "./docs/kits/Business Partner Kit/Software Development View/Gate Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          bpdm_pool: {
             specPath: "./openApi/bpdm/pool.yaml",
             outputDir: "./docs/kits/Business Partner Kit/Software Development View/Pool Api",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
-          irs: {
-            specPath: "./openApi/irs/irs-v1.0.yaml",
-            outputDir: "./docs/kits/Data Chain Kit/Software Development View/Job Api",
+          traceability_notifications: {
+            specPath: "./openApi/traceability/notifications.yaml",
+            outputDir: "./docs/kits/Traceability Kit/Software Development View/Notification API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
-          notifications: {
-            specPath: "./openApi/notifications/notifications.yaml", // Path to designated spec file
-            outputDir: "./docs/kits/Template Kit/Software Development View/Notification API", // Output directory for generated .mdx docs
+          traceability_unique_id_push: {
+            specPath: "./openApi/traceability/unique-id-push.yaml",
+            outputDir: "./docs/kits/Traceability Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -277,16 +284,29 @@ const config = {
             label: "About Us",
           },
           {
-            to: "/developer",
-            position: "left",
-            label: "KITs",
+            type: 'dropdown',
+            label: 'KITs',
+            position: 'left',
+            to: '/developer',
+            items: [
+              {
+                to: '/docs/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
+              },
+              {
+                to: '/docs/kits/Data%20Chain%20Kit/Adoption%20View',
+                label: 'Data Chain',
+              },
+              {
+                to: '/docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                label: 'Connector',
+              },
+              {
+                to: '/docs/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
+              },
+            ],
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'introduction',
-          //   position: 'left',
-          //   label: 'Documentation',
-          // },
           {
             type: 'doc',
             docId: 'developer',
@@ -303,7 +323,6 @@ const config = {
             position: "left",
             label: "Versions",
           },
-          /* {to: '/blog', label: 'Blog', position: 'left'}, */
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
             label: 'GitHub',
@@ -389,7 +408,7 @@ const config = {
             items: [
               {
                 html: `
-                  <img src='/img/EF_registered_wht_png.png'/>
+                  <img alt='' src='/img/EF_registered_wht_png.png'/>
                 `
               }
             ]

@@ -7,6 +7,10 @@ sidebar_position: 3
 ---
 <!-- # Architecture documentation (arc42) -->
 
+![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+
+### Data Chain Kit
+
 ## Introduction and goals
 
 This chapter gives you an overview about the goals of the service,
