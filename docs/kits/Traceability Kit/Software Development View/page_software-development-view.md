@@ -377,7 +377,7 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
   </tr>
   <tr>
     <td> assetLifecyclePhase </td>
-    <td> Optional </td>
+    <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
     <td> The lifecycle phase of the asset.<ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul></td>
     <td> Enum </td>
   </tr>
@@ -395,7 +395,7 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
 | Key            | Availability | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type   |
 |:---------------|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
 | batchId        | Optional     | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
-| partInstanceId | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>For **Release 3.0**, we also use the batch number as partInstanceId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the partInstanceId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
+| partInstanceId | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>Currently, we also use the batch number as partInstanceId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the partInstanceId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
 
 **For just-in-sequence (JIS) parts, additionally the following conventions apply:**
 
@@ -614,7 +614,7 @@ As a result, the AAS ID of the digital twin with this local IDs is returned. The
 
 Note that this query can return more than one AAS ID depending on the local IDs uniquely identifying a digital twin or not.
 
-For Release 3.0, even if more than one digital twin is returned in a lookup, these digital twins should have different submodels assigned to them. These submodels should be disjunct and not overlap. This means that you can use the submodel to filter out the correct digital twin.
+Currently, even if more than one digital twin is returned in a lookup, these digital twins should have different submodels assigned to them. These submodels should be disjunct and not overlap. This means that you can use the submodel to filter out the correct digital twin.
 
 - If there are returned more than one digital twin with the same submodel (based on their semanticId), this is considered an error. Processing should be canceled and an error message should be reported.
 
@@ -820,8 +820,8 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 
 - Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
-    - For Release 3.2 though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
-    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 3.2, you cannot rely on this key being available when looking for Batch digital twins.
+    - Currently though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
+    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
   - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPartTypization or Batch (depending on the digital twin type).
