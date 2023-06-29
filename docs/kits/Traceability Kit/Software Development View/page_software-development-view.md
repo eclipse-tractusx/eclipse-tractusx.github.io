@@ -377,7 +377,7 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
   </tr>
   <tr>
     <td> assetLifecyclePhase </td>
-    <td> Optional </td>
+    <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
     <td> The lifecycle phase of the asset.<ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul></td>
     <td> Enum </td>
   </tr>
