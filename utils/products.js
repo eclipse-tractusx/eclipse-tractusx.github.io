@@ -10,7 +10,8 @@ export const products = [
       "https://github.com/pazepaze",
       "https://github.com/Maximilianong"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Business Partner Data Management Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Business Partner Data Management Team",
+    hasBoard: false
   },
 
   {
@@ -25,7 +26,8 @@ export const products = [
     committers: [
       "https://github.com/wjost"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team",
+    hasBoard: false
   },
 
   {
@@ -38,7 +40,8 @@ export const products = [
     committers: [
       "https://github.com/wjost"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false
   },
 
   {
@@ -53,7 +56,8 @@ export const products = [
       "https://github.com/ds-mkanal",
       "https://github.com/jzbmw"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Item Relationship Service Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Item Relationship Service Team",
+    hasBoard: false
   },
 
   {
@@ -72,7 +76,8 @@ export const products = [
       "https://github.com/ntruchsess",
       "https://github.com/oyo"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team",
+    hasBoard: false
   },
 
   {
@@ -89,7 +94,8 @@ export const products = [
       "https://github.com/LuLeRoemer",
       "https://github.com/tunacicek"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false
   },
 
   {
@@ -100,9 +106,10 @@ export const products = [
       "https://github.com/eclipse-tractusx/traceability-foss-frontend"
     ],
     committers: [
-      "ds-mkanal"
+      "https://github.com/ds-mkanal"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
+    hasBoard: false
   },
 
   {
@@ -115,6 +122,7 @@ export const products = [
       "https://github.com/paullatzelsperger",
       "https://github.com/florianrusch-zf"
     ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team"
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
+    hasBoard: true
   },
 ]

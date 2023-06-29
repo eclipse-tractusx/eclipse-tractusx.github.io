@@ -3,22 +3,47 @@
 ![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.3](https://img.shields.io/badge/AppVersion-0.3.3-informational?style=flat-square)
 
 A Helm chart for Tractus-X Eclipse Data Space Connector. The connector deployment consists of two runtime consists of a
-Control Plane and a Data Plane. Note that no external dependencies such as a PostgreSQL database and HashiCorp Vault are included.
+Control Plane and a Data Plane. Note that _no_ external dependencies such as a PostgreSQL database and HashiCorp Vault are included.
 
 This chart is intended for use with an _existing_ PostgreSQL database and an _existing_ HashiCorp Vault.
 
 **Homepage:** <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
 
-## TL;DR
+This chart uses Hashicorp Vault, which is expected to contain the following secrets on application start:
+
+- `daps-cert`: contains the x509 certificate of the connector.
+- `daps-key`: the private key of the x509 certificate
+- `aes-keys`: a 128bit, 256bit or 512bit string used to encrypt data. Must be stored in base64 format.
+
+These must be obtained from a DAPS instance, the process of which is out of the scope of this document. Alternatively,
+self-signed certificates can be used for testing:
+
+```shell
+openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout daps.key -out daps.cert -subj "/CN=test"
+export DAPS_KEY="$(cat daps.key)"
+export DAPS_CERT="$(cat daps.cert)"
+```
+
+## Launching the application
+
+The following requirements must be met before launching the application:
+
+- Write access to a HashiCorp Vault instance is required to run this chart
+- Secrets are seeded in advance
+
+Please also consider using [this example configuration](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/edc-tests/deployment/src/main/resources/helm/tractusx-connector-test.yaml)
+to launch the application.
+Combined, run this shell command to start the in-memory Tractus-X EDC runtime:
 
 ```shell
 helm repo add tractusx-edc https://eclipse-tractusx.github.io/charts/dev
-helm install my-release tractusx-edc/tractusx-connector --version 0.3.3
+helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.3.3 \
+     -f <path-to>/tractusx-connector-test.yaml
 ```
 
 ## Source Code
 
-* <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
+- <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
 
 ## Values
 
@@ -124,7 +149,6 @@ helm install my-release tractusx-edc/tractusx-connector --version 0.3.3
 | controlplane.service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
 | controlplane.tolerations | list | `[]` |  |
 | controlplane.url.ids | string | `""` | Explicitly declared url for reaching the ids api (e.g. if ingresses not used) |
-| controlplane.url.readiness | string | `""` |  |
 | controlplane.volumeMounts | list | `[]` | declare where to mount [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) into the container |
 | controlplane.volumes | list | `[]` | [volume](https://kubernetes.io/docs/concepts/storage/volumes/) directories |
 | customLabels | object | `{}` |  |
@@ -207,7 +231,6 @@ helm install my-release tractusx-edc/tractusx-connector --version 0.3.3
 | dataplane.service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
 | dataplane.tolerations | list | `[]` |  |
 | dataplane.url.public | string | `""` | Explicitly declared url for reaching the public api (e.g. if ingresses not used) |
-| dataplane.url.readiness | string | `""` |  |
 | dataplane.volumeMounts | list | `[]` | declare where to mount [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) into the container |
 | dataplane.volumes | list | `[]` | [volume](https://kubernetes.io/docs/concepts/storage/volumes/) directories |
 | fullnameOverride | string | `""` |  |
@@ -221,7 +244,6 @@ helm install my-release tractusx-edc/tractusx-connector --version 0.3.3
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.imagePullSecrets | list | `[]` | Existing image pull secret bound to the service account to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
 | serviceAccount.name | string | `""` |  |
-| vault.hashicorp.enabled | bool | `true` |  |
 | vault.hashicorp.healthCheck.enabled | bool | `true` |  |
 | vault.hashicorp.healthCheck.standbyOk | bool | `true` |  |
 | vault.hashicorp.paths.health | string | `"/v1/sys/health"` |  |
