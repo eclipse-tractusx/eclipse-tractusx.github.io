@@ -260,7 +260,7 @@ To enable data sovereignty, access and usage policies are important to protect t
 
 To decide which company has access to the data assets, access policy should be used. It is maybe possible to skip access policies, but this will made all data assets public available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
-In the near future, other access policies will be introduced like a company role and attribute based policy.
+In the future, other access policies are planned.
 
 #### BPN Access Policy
 
@@ -272,113 +272,21 @@ In the near future, other access policies will be introduced like a company role
 Every Trustee is represented in the Catena-X network as a general participant with a unique BPN. Further, the Trustee is allowed to use supplier relationships and BoM data beyond the one-up/one-down principle due to the legal regulations.
 In order to grant access to the BoM as planned data assets, the Trustee's BPN must be mentioned in the policy. -->
 
-Examples for single and multiple BPN are described on [this page of the EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation).
-
-```json
-{
-  "uid": "<PolicyId>",
-  "prohibitions": [],
-  "obligations": [],
-  "permissions": [
-    {
-      "edctype": "dataspaceconnector:permission",
-      "action": {
-        "type": "USE"
-      },
-      "constraints": [
-        {
-          "edctype": "AtomicConstraint",
-          "leftExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "BusinessPartnerNumber"
-          },
-          "rightExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "<BPN>"
-          },
-          "operator": "EQ"
-        }
-      ]
-    }
-  ]
-}
-```
+Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
 
-To decide which company can use the data asset under specific conditions, usage policies are used. Therefore, they are more specific than access policies and only used just after access is granted. The `POST` `/api/v1/data/policydefinitions` endpoint is used to create a usage policy in the EDC. Currently, the usage policies aren't technically enforced (keep this in mind when publishing data assets).
+To decide which company can use the data asset under specific conditions, usage policies are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 
 #### Purpose-based Usage Policy
 
-It is recommended to restrict the data usage for all traceability aspects. This can be made with the purpose restricted data usage policy. It contains a String as `value` that defines the purpose of usage. Every participant in the Catena-X network must follow these purposes.
+It is recommended to restrict the data usage for all traceability aspects. This can be made with the purpose restricted data usage policy. It contains a String as `value` that defines the purpose of usage. Every participant in the Catena-X network must follow these purposes.  To make these purposes legally binding, they are included in different paper-based contracts.
 
-In the following, the purpose value, their detailed description and the aspects for which they are relevant fore are presented.
-
-| Purpose Value            | Relevant for                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| R2_Traceability          | SerialPartTypization 1.1.0  Batch 1.0.2 | The data can only be used for the Catena-X Use Case Traceability. This means that the data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply.                                                                                                               |
-| R2_Traceability          | AssemblyPartRelationship 1.1.1          | The data can only be used for the Catena-X Use Case Traceability. This means that t he data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply. <br />_"Assumption: only used by own data provider. No usage of other use cases like dismantling, ESS etc."_ |
-| R2_QualityAlert          | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that t he data exchange via the Quality Alert Notification endpoint can   only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations . The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                              |
-| R2_QualityInvestigation  | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that the data exchange via the Quality Alert Notification endpoint can only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations. The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                                  |
-
-The JSON payload of a purpose-based usage policy looks as follows:
-
-```json
-{
-  "uid": "<PolicyId>",
-  "prohibitions": [],
-  "obligations": [],
-  "permissions": [
-    {
-      "edctype": "dataspaceconnector:permission",
-      "action": {
-        "type": "USE"
-      },
-      "constraints": [
-        {
-          "edctype": "AtomicConstraint",
-          "leftExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "idsc:PURPOSE"
-          },
-          "rightExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "<PurposeValue>"
-          },
-          "operator": "EQ"
-        }
-      ]
-    }
-  ]
-}
-```
+Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the policy definition API](tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api/edc-policy-definition-api).
 
 ### Contract Definitions
 
-In the EDC, every policy is associated with a contract. The `POST` `/api/v1/data/contractdefinitions` has the following JSON payload to create a contract definition that creates the relationship:
-
-```json
-{
-  "id": "<ContractDefinitionId>",
-  "accessPolicyId" : "<AccessPolicyId>",
-  "contractPolicyId" : "<ContractPolicyId>",
-  "criteria": [
-    {
-      "operandLeft": "asset:prop:id",
-      "operator": "=",
-      "operandRight": "<UUID>"
-    }
-  ]
-}
-```
-
-The properties in this JSON have the following values:
-
-- `acccessPolicyId` is the UUID of the basic policy
-- `contractPolicyId` is the UUID of the basic policy
-- `criteria` is a list of simple expressions to express, which assets are used in this ContractDefinition.
-
-In the current implementation of the EDC only the `in` and `= operators are supported.
+In the EDC, every policy is associated with a contract. Thus, a contract definition is needed. Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the contract definition API](../tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api/edc-contract-definition-api).
 
 <!-- !Mandatory! -->
 ## Standards
