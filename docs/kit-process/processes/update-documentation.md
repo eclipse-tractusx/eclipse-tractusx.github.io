@@ -44,7 +44,7 @@ Currently the documentation has to be manually maintained by the process describ
 
       ![IMG: Click on Create Pull Request final](resources/click-create-pr-final.png)
 
-4. The Traktus-X Team will review your pull request
+4. The Tractus-X Team will review your pull request
 
 The pull request will be approved if it meets our schema and liniting requirements.
 
