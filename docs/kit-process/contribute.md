@@ -130,4 +130,13 @@ In this section we describe the general worklfow on how to contribute with git:
 
 ## When to update the KIT documentation
 
-You may update your KITs documentation as soon as you have published a new KIT Release. Note that your KIT release is **independent** of the catena-x release! This means you can update your KITs documentation **at any time**! make sure to add your updates to the correct directories and keep you changelog up to date. You find more detailed information on how to update [here](/docs/kit-process/processes/update-documentation.md).
+You may update your KITs documentation as soon as you have published a new KIT Release. Note that your KIT release is **independent** of the Catena-C release! This means you can update your KITs documentation **at any time**! make sure to add your updates to the correct directories and keep you changelog up to date. You find more detailed information on how to update [here](/docs/kit-process/processes/update-documentation.md).
+
+## What happens during the Catena-X Release
+
+## What to do to change already within Catena-x released content
+
+It may occurr that after the release of a new Catena-X version that you want to change something on your released documentation. Don't create a PR on the versionend documenation since it will be refused and more importantly it defeats the the purpose of versioning! If it is the case that you need to change something, we want to consider the following:
+
+1. Is it feasable to let the error be within the release e.g. typo or similar minor errors
+2. If it is a critical error, raise an issue within the [community repository](https://github.com/eclipse-tractusx/community). Explain your problem and why it is critical that you need to add a change. The issue will be reviewd and then there will be an decision made whether the changes will be approved or not.
