@@ -127,3 +127,7 @@ In this section we describe the general worklfow on how to contribute with git:
 4. Once your contribution is complete create a Pull Request and wait for the review of your contribution.
 
    → [how to create a PR](/docs/kit-process/processes/update-documentation.md#overview)
+
+## When to update the KIT documentation
+
+You may update your KITs documentation as soon as you have published a new KIT Release. Note that your KIT release is **independent** of the catena-x release! This means you can update your KITs documentation **at any time**! make sure to add your updates to the correct directories and keep you changelog up to date. You find more detailed information on how to update [here](/docs/kit-process/processes/update-documentation.md).
