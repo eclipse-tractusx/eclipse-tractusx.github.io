@@ -112,4 +112,18 @@ Raise an Issue within the Tractus-X Repository and add a decription where to fin
 
 ## How to request a promotion?
 
-Raise an Issue within the Tractus-X Repository and request an promotion to the the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
+Raise an Issue within the Tractus-X Repository and request an promotion to the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
+
+## General KIT Workflow
+
+In this section we describe the general worklfow on how to contribute with git:
+
+1. Create a fork of the repository where you want to contribute.
+
+   → [how to fork](/docs/kit-process/processes/update-documentation.md#overview)
+
+2. Create a new branch within your fork.
+3. Add your contribution to that branch.
+4. Once your contribution is complete create a Pull Request and wait for the review of your contribution.
+
+   → [how to create a PR](/docs/kit-process/processes/update-documentation.md#overview)
