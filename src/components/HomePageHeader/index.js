@@ -29,6 +29,7 @@ import styles from "./styles.module.css";
 export default function HomePageHeader() {
   return (
     <header className={styles.heroBanner}>
+    {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
       <ThemedImage
         // alt="Docusaurus themed image hero background"
         sources={{
@@ -37,6 +38,8 @@ export default function HomePageHeader() {
         }}
         className={styles.hero_bg}
       />
+
+    {/* Content of the component */}
       <div className={styles.container}>
         <h1 className={styles.title}>
           Welcome to <br />

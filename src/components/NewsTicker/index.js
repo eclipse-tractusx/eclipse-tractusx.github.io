@@ -41,6 +41,7 @@ export default function NewsTicker() {
     autoplaySpeed: 6000,
   };
 
+  // NewsTickerCard component that is been returned for each item in the { newsTitles } array
   const NewsTickerCard = ({date, title, blogLink}) => {
     return (
       <Link className={styles.slider_item} to={blogLink}>

@@ -51,6 +51,7 @@ export default function FAQsComponent() {
 
   return (
     <section className={styles.faqs}>
+    {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
       <ThemedImage
         // alt="Docusaurus themed image hero background"
         sources={{
@@ -59,6 +60,8 @@ export default function FAQsComponent() {
         }}
         className={styles.hero_bg}
       />
+
+    {/* Content of the component */}
       <div className={styles.container}>
         <div className={styles.title_container}>
           <h2 className="title-h2">FAQs</h2> 
