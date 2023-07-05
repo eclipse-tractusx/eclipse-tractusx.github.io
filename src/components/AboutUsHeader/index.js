@@ -28,6 +28,7 @@ import styles from "./styles.module.css";
 export default function AboutUsHeader() {
   return (
       <header className={styles.about_header}>
+      {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
@@ -36,6 +37,8 @@ export default function AboutUsHeader() {
           }}
           className={styles.hero_bg}
         />
+
+      {/* Content of the component */}
         <div className={styles.container}>
           <div className={styles.svg_container}>
             <TractusXSvg className={styles.svg}/>

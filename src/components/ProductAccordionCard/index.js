@@ -29,17 +29,21 @@ import styles from "./styles.module.css";
 
 export default function ProductAccordionCard({productName, productDescription, githubRepo, committers, mailTo, hasBoard}) {
   const [release, setRelease] = useState()
+  const [accordionOpen, setAccordionOpen] = useState(false);
   
+  // Obtaining leading repo from passed array
   let furtherRepos = [...githubRepo]
   let leadingRepo = furtherRepos.splice(0 ,1).toString()
   
+  // Obtaining owner and repo-name from leading repository, email address obtained from mailTo passed property
   let owner = leadingRepo.split('/')[3]
   let repo = leadingRepo.split('/')[4]
-  
   let emailAddress = mailTo.split('?')[0];
 
+  // Defining max amount of characters that is been passed to condiotionally render the productDescription string
   const MAX_LENGTH = 175;
 
+  // Fetching the latest release of passed leading repository and setting it as the "release" state 
   useEffect(() => {
   fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`,{
     method: 'GET',
@@ -54,14 +58,13 @@ export default function ProductAccordionCard({productName, productDescription, g
       .catch(err => console.log(err))
   }, []);
 
+  // Function that handles the "version string" in the product card
   const handleVersionString = (string) => {
     let str = string.toLowerCase()
     if (str.startsWith('v')) {
       return str.slice(1)
     } return str
   }
-
-  const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
     <>
@@ -82,6 +85,7 @@ export default function ProductAccordionCard({productName, productDescription, g
           sx={{paddingBottom: '0.5rem', cursor: 'unset !important'}}
         >
           <section className={styles.summary_container}>
+            {/* Title & Version Section */}
             <div className={styles.product_title_container}>
               <h2 className={styles.product_title}>{productName}</h2>
               {
@@ -91,6 +95,7 @@ export default function ProductAccordionCard({productName, productDescription, g
               }
             </div>
 
+            {/* Leading Repository & Contact Section  */}
             <div className={styles.repo_contact_container}>
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Leading Repository:</li>
@@ -115,6 +120,7 @@ export default function ProductAccordionCard({productName, productDescription, g
         >
           <section className={styles.details_container}>
             <div className={styles.repo_details_container}>
+              {/* Further Repositories Section */}
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Further Repositories:</li>
                 {
@@ -133,6 +139,7 @@ export default function ProductAccordionCard({productName, productDescription, g
                 }
               </ul>
 
+              {/* Committers Section */}
               <ul className={styles.repo_contact_item}>
                 <li className={styles.item_title}>Committers:</li>
                 {
@@ -151,6 +158,7 @@ export default function ProductAccordionCard({productName, productDescription, g
                 }
               </ul>
 
+              {/* Board Section - Conditional rendering when provided */}
               {
                 hasBoard ? 
                 <ul className={styles.repo_contact_item}>
@@ -162,6 +170,7 @@ export default function ProductAccordionCard({productName, productDescription, g
                 <ul className={styles.no_display}></ul>
               }
 
+              {/* Description Section */}
               <div className={styles.description_container}>
                 {
                   productDescription.length > MAX_LENGTH ? 
