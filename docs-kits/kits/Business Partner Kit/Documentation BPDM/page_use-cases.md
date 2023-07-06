@@ -7,13 +7,13 @@ sidebar_position: 3
 
 Here we have provided detailed examples of how the BPDM services can be used. This includes step-by-step instructions for each use case and code snippets showing how to make the API calls for better performance.
 
-## Use case 1. Create/setup test data on local system for Pool api
+## Use case 1. Setup test data on local system
 
-Description: This use case provides step-by-step instructions for setting up the local environment and starting the Pool API service for the BPDM (Business Partner Data Management) system. By following these instructions, users can easily clone the repository, configure the necessary services using Docker, and run the Pool API service on their local system.
+Description: This use case provides step-by-step instructions for setting up the local environment and with instructions on getting started with all services including Gate, Pool and Bridge dummy service on local for the BPDM (Business Partner Data Management) system. By following these instructions, users can easily clone the repository, configure the necessary services using Docker, and run the all three api services on their local system.
 
-This use case aims to provide users with clear and concise instructions, ensuring a smooth setup process for working with the BPDM Pool API on their local systems.
+This use case aims to provide users with clear and concise instructions, ensuring a smooth setup process for working with the BPDM api services on their local system.
 
-### 1.1 Start BPDM Pool Api service
+### 1.1 Start BPDM Api Services
 
 1. Clone the repository:
     - Go to the following GitHub repository: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
@@ -23,7 +23,7 @@ This use case aims to provide users with clear and concise instructions, ensurin
     git clone https://github.com/eclipse-tractusx/bpdm
     ```
 
-    - Choose an IDE:You can use any IDE of your preference to view the code. One recommended IDE is IntelliJ IDEA as it is Kotlin springBoot application.
+    - Choose an IDE: You can use any IDE of your preference to view the code. One recommended IDE is IntelliJ IDEA as application is based on Kotlin springBoot framework.
 
 2. Configure local service:
     - Open the docker-compose.yml file in the project.
@@ -36,18 +36,30 @@ This use case aims to provide users with clear and concise instructions, ensurin
     docker-compose up
     ```
 
-3. Start the Pool API service:
-    - Open your IDE and navigate to the following directory within the cloned repository: bpdm-pool/src/main/kotlin/org/eclipse/tractusx/bpdm/pool.
-    - Navigate to Application.kt file.
+3. Start the Gate API service:
+    - Open your IDE and navigate to the following directory within the cloned repository: bpdm/bpdm-gate.
+    - Navigate to Application.kt file from source directory i.e. /bpdm/bpdm-gate/src/main/kotlin/org/eclipse/tractusx/bpdm/gate/Application.kt.
+    - Run the main class Application.kt to start the Gate API service.
+    - The service should start and listen on the specified port i.e. by default on 8081 for local setup it will be on <http://localhost:8081/>.
+
+4. Start the Pool API service:
+    - Open your IDE and navigate to the following directory within the cloned repository: bpdm/bpdm-pool.
+    - Navigate to Application.kt file from source directory i.e. /bpdm/bpdm-pool/src/main/kotlin/org/eclipse/tractusx/bpdm/pool/Application.kt.
     - Run the main class Application.kt to start the Pool API service.
-    - The service should start and listen on the specified port for local setup it will be on <http://localhost:8080/>.
+    - The service should start and listen on the specified port i.e. by default on 8080 for local setup it will be on <http://localhost:8080/>.
+
+5. Start the Bridge Dummy API service:
+    - Open your IDE and navigate to the following directory within the cloned repository: /bpdm/bpdm-bridge-dummy.
+    - Navigate to Application.kt file from source directory i.e. /bpdm/bpdm-bridge-dummy/src/main/kotlin/com/catenax/bpdm/bridge/dummy/Application.kt.
+    - Run the main class Application.kt to start the Bridge Dummy API service.
+    - The service should start and listen on the specified port i.e. by default on 8083 for local setup it will be on <http://localhost:8083/>.
 
 ### 1.2 Test data setup
 
-1. Download the Postman collection JSON file:
+1. Download the Postman collection JSON files:
    - Go to the following GitHub repository path: [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman)
-   - Locate the JSON file named "BPDM Pool.postman_collection.json" and click on it to view its contents.
-   - Click the "Raw" button to download the file.
+   - Locate the JSON files named as "BPDM Gate.postman_collection.json","BPDM Pool.postman_collection.json", "BPDM Bridge Dummy.postman_collection.json" and "local.postman_collection.json" click on it to view its contents.
+   - Click the "Raw" button to download the file or you can simply download from git repo mentioned in first step.
 
 2. Open Postman:
    - If you don't have Postman installed, you can download it from the official website: [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
@@ -56,35 +68,32 @@ This use case aims to provide users with clear and concise instructions, ensurin
 3. Import the collection:
    - In the Postman application, click on the "Import" button located in the top left corner of the window.
    - Select the "File" tab.
-   - Click on the "Choose Files" button and browse to the location where you downloaded the "BPDM Pool.postman_collection.json" file.
-   - Select the JSON file and click "Open" to import it.
+   - Click on the "Choose Files" button and browse to the location where you downloaded the all files in step one.
+   - Select the JSON file and click "Open" to import them one by one.
 
 4. Verify the imported collection:
-   - After importing, you should see the "BPDM Pool" collection listed in the left sidebar of the Postman application.
-   - Click on the imported collection to expand it and view the available requests and folders.
+   - After importing, you should see the "BPDM Gate", "BPDM Pool" and "BPDM Bridge Dummy" collection listed in the left sidebar of the Postman application.
+   - Click on the imported collection to expand it and view the available api requests and folders.
 
 5. Set up environment variables:
    - In Postman, click on the "Manage Environments" button located in the top right corner of the window (it looks like an eye icon).
-   - Click on the "Add" button to create a new environment.
-   - Provide a name for the environment (e.g., "BPDM Pool Local").
-   - Add the following variables:
-     - Name: `Pool-Host`, Initial Value: `http://localhost:YOUR_PORT_NUMBER`
-       (Replace `YOUR_PORT_NUMBER` with the actual port number on which your Pool API service is running.)
+   - Click on the "Add" button to create a new environment and can be done as per the variables mentioned into "local.postman_collection.json".
+   - Also, user can directly import "local.postman_collection.json" to update their environment variables.
 
-6. Check if metadata is available:
-   - Expand the "BPDM Pool" collection in the left sidebar.
+6. Explore Apis for each service:
+   - Api's for each service can be seen under postman collection with refernced test data.
+   - For more information on apis, user can refere section of [Api Reference](../Documentation%20BPDM/page_api-reference.md)
+
+7. For Pool api service first check should be metadata availablity:
+   - Expand the "BPDM Pool Api" collection in the left sidebar.
+   - Under metadata controller, user need to check for Legal form, Identifier Type.
    - Click on the "GET identifier-types" request.
-   - In the request URL, replace `{{Pool-Host}}` with the appropriate Pool API host URL (e.g., `http://localhost:YOUR_PORT_NUMBER`).
    - Click the "Send" button to make the request.
-   - Verify if the response contains the identifier types.
+   - Verify that the response contain the identifier types and if not present then user can hit POST request and create new identifiers as per the need.
+   - Similarly, repeat the above steps for Legal form as well.
+   - If any of the metadata is not available in the response, you can create them using the respective "POST" requests provided in the Postman collection as those are mandatory objects for golden records.
 
-   - Similarly, repeat the above steps for the following requests:
-     - "GET issuing-bodies"
-     - "GET identifier-status"
-
-   - If any of the metadata (identifier types, issuing bodies, identifier status) is not available in the response, you can create them using the respective "POST" requests provided in the Postman collection.
-
-Now you have imported the Postman collection and checked if the metadata is available using the provided endpoints. If any metadata is missing, you can create it using the corresponding requests in the collection.
+By following above steps, user can use test data which has been created under postman collection.
 
 ## Use Case 2. Request Legal Entity by identifier number
 
@@ -94,12 +103,12 @@ The examples taken below are generic and depending on use cases, we have mention
 
 ### Example request call
 
-The request should be made first to check Catenea-X api for checking the identifier first. This request will be handled by metadata controller and will provide all available identifier type in particular enviroment.
+The request should be made first to check Catenea-X api for checking the identifier first. This request will be handled by metadata controller and will provide all available identifier type in particular enviroment with speficied business partner type and optional fields are country, pages and size. So, required field is lsaType here and can be taken considered between "LEGAL_ENTITY" and "ADDRESS".
 
 Request:
 
 ```bash
-curl --location 'http://localhost:8080/api/catena/identifier-types?page=0&size=100'
+curl --location 'http://localhost:8080/api/catena/identifier-types?page=0&size=100&lsaType=LEGAL_ENTITY'
 ```
 
 Response:
@@ -113,133 +122,289 @@ Response:
     "content": [
         {
             "technicalKey": "EU_VAT_ID_DE",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "DE",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_FR",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "FR",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_AT",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "AT",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_BE",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "BE",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_CH",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "CH",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_CZ",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "CZ",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_DK",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "DK",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_ES",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "ES",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_GB",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "GB",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_NO",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "NO",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "EU_VAT_ID_PL",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Value added tax identification number",
-            "url": null
+            "details": [
+                {
+                    "country": "PL",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "GS1_GLN",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Global Location Number",
-            "url": null
+            "details": [
+                {
+                    "country": null,
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "LEI_ID",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Legal Entity Identifier",
-            "url": null
+            "details": [
+                {
+                    "country": null,
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "DUNS_ID",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Data Universal Numbering System",
-            "url": null
+            "details": [
+                {
+                    "country": null,
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "DE_BNUM",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Handelsregister (HRB)",
-            "url": null
+            "details": [
+                {
+                    "country": "DE",
+                    "mandatory": false
+                }
+            ]
         },
         {
             "technicalKey": "FR_SIREN",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Siren/Siret",
-            "url": null
+            "details": [
+                {
+                    "country": "FR",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "BR_ID_AT",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Firmenbuchnummer",
-            "url": null
+            "details": [
+                {
+                    "country": "AT",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "BE_ENT_NO",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Organisation number",
-            "url": null
+            "details": [
+                {
+                    "country": "BE",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "CH_UID",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Company Identification Number CH",
-            "url": null
+            "details": [
+                {
+                    "country": "CH",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "CZ_ICO",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Company Identification Number CZ",
-            "url": null
+            "details": [
+                {
+                    "country": "CZ",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "CVR_DK",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Business Registration Number DK",
-            "url": null
+            "details": [
+                {
+                    "country": "DK",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "CIF_ES",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Certificado de Identificación Fiscal",
-            "url": null
+            "details": [
+                {
+                    "country": "ES",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "ID_CRN",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Company Registration Number",
-            "url": null
+            "details": [
+                {
+                    "country": "GB",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "NO_ORGID",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Organization Number",
-            "url": null
+            "details": [
+                {
+                    "country": "NO",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "PL_REG",
+            "lsaType": "LEGAL_ENTITY",
             "name": "REGON",
-            "url": null
+            "details": [
+                {
+                    "country": "PL",
+                    "mandatory": true
+                }
+            ]
         },
         {
             "technicalKey": "CUSTOM_ID_TYPE",
+            "lsaType": "LEGAL_ENTITY",
             "name": "Custom Identifier Type for Testing",
-            "url": null
+            "details": [
+                {
+                    "country": "DE",
+                    "mandatory": true
+                }
+            ]
         }
     ]
 }
@@ -269,94 +434,124 @@ Response:
 
 ```bash
 {
-    "bpn": "BPNL000000000001",
+    "legalName": "Name of Company",
+    "bpnl": "BPNL000000000001",
     "identifiers": [
         {
             "value": "123456789",
             "type": {
                 "technicalKey": "CUSTOM_ID_TYPE",
-                "name": "Custom Identifier Type for Testing",
-                "url": null
+                "name": "Custom Identifier Type for Testing"
             },
-            "issuingBody": {
-                "technicalKey": "CUSTOM_ISSUE_BODY",
-                "name": "Custom Issuing Body for Testing",
-                "url": null
-            },
-            "status": {
-                "technicalKey": "CUSTOM_ID_STATUS",
-                "name": "Custom Identifier Status for Testing"
-            }
+            "issuingBody": "CUSTOM_ISSUE_BODY"
         }
     ],
-    "names": [
-        {
-            "value": "Name of Company",
-            "shortName": "NoC",
-            "type": {
-                "technicalKey": "ACRONYM",
-                "name": "An acronym commonly used for a business partner.",
-                "url": ""
-            },
-            "language": {
-                "technicalKey": "en",
-                "name": "English"
-            }
-        }
-    ],
+    "legalShortName": "NoC",
     "legalForm": {
         "technicalKey": "CUSTOM_LEGAL_FORM",
         "name": "Custom Legal Form for Testing",
-        "url": null,
-        "mainAbbreviation": "CLF_0001",
-        "language": {
-            "technicalKey": "en",
-            "name": "English"
-        },
-        "categories": [
-            {
-                "name": "holding company",
-                "url": null
+        "abbreviation": null
+    },
+    "states": [
+        {
+            "officialDenotation": "Active",
+            "validFrom": "2020-12-16T05:54:48.942",
+            "validTo": "2023-06-05T07:31:01.213",
+            "type": {
+                "technicalKey": "ACTIVE",
+                "name": "Active"
             }
-        ]
-    },
-    "status": {
-        "officialDenotation": "Active",
-        "validFrom": "2020-12-16T05:54:48.942",
-        "validUntil": null,
-        "type": {
-            "technicalKey": "ACTIVE",
-            "name": "Active",
-            "url": ""
         }
-    },
-    "profileClassifications": [
+    ],
+    "classifications": [
         {
             "value": "Farming of cattle, dairy farming",
             "code": "01.21",
             "type": {
-                "name": "NACE",
-                "url": ""
+                "technicalKey": "NACE",
+                "name": "NACE"
             }
         }
     ],
-    "types": [],
-    "bankAccounts": [
-        {
-            "trustScores": [],
-            "currency": {
-                "technicalKey": "EUR",
-                "name": "Euro"
-            },
-            "internationalBankAccountIdentifier": "11223445569",
-            "internationalBankIdentifier": "TEST1234",
-            "nationalBankAccountIdentifier": "004566676",
-            "nationalBankIdentifier": "TEST223"
-        }
-    ],
-    "roles": [],
     "relations": [],
-    "currentness": "2023-05-08T12:02:38.289932Z"
+    "currentness": "2023-06-13T03:28:17.032022Z",
+    "createdAt": "2023-06-06T07:39:09.049097Z",
+    "updatedAt": "2023-06-13T03:28:17.034408Z",
+    "legalAddress": {
+        "bpna": "BPNA000000000001",
+        "name": "WESTERN_LATIN_STANDARD",
+        "states": [
+            {
+                "description": "WESTERN_LATIN_STANDARD",
+                "validFrom": "2020-12-16T05:54:48.942",
+                "validTo": "2023-06-05T07:31:01.213",
+                "type": {
+                    "technicalKey": "ACTIVE",
+                    "name": "Active"
+                }
+            }
+        ],
+        "identifiers": [
+            {
+                "value": "12345678910",
+                "type": {
+                    "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                    "name": "Custom Identifier Type of Address for Testing"
+                }
+            }
+        ],
+        "physicalPostalAddress": {
+            "geographicCoordinates": {
+                "longitude": 0.0,
+                "latitude": 0.0,
+                "altitude": 0.0
+            },
+            "country": {
+                "technicalKey": "DE",
+                "name": "Germany"
+            },
+            "postalCode": "70546",
+            "city": "Stuttgart",
+            "street": {
+                "name": "Stuttgarter Strasse",
+                "houseNumber": "1",
+                "milestone": "Stuttgarter Strasse 1",
+                "direction": "Stuttgarter Str."
+            },
+            "administrativeAreaLevel1": null,
+            "administrativeAreaLevel2": "test1",
+            "administrativeAreaLevel3": "test2",
+            "district": "Stuttgart",
+            "companyPostalCode": "GM01",
+            "industrialZone": "HEADQUARTER",
+            "building": "Building A",
+            "floor": "A",
+            "door": "test"
+        },
+        "alternativePostalAddress": {
+            "geographicCoordinates": {
+                "longitude": 0.0,
+                "latitude": 0.0,
+                "altitude": 0.0
+            },
+            "country": {
+                "technicalKey": "DE",
+                "name": "Germany"
+            },
+            "postalCode": "1234",
+            "city": "Stuttgart 1",
+            "administrativeAreaLevel1": null,
+            "deliveryServiceNumber": "1234",
+            "type": "PO_BOX",
+            "deliveryServiceQualifier": ""
+        },
+        "bpnLegalEntity": "BPNL000000000001",
+        "isLegalAddress": true,
+        "bpnSite": null,
+        "isMainAddress": false,
+        "createdAt": "2023-06-06T07:39:09.032826Z",
+        "updatedAt": "2023-06-06T07:39:09.057668Z"
+    }
 }
 ```
 
@@ -381,7 +576,7 @@ Response:
 
 ### 2.2 Match Response
 
-Scenario: To get matched response, you can use multiple key and value pair. Multiple attributes like name, legalForm, status, classification etc can be used with desired known values for them.
+Scenario: To get matched response, you can use multiple key and value pair. Multiple attributes like legalName, legalForm, classification etc can be used with desired known values for them.
 
 #### 2.2.1 Trade Scoring with Score -> take highest ranking
 
@@ -397,202 +592,137 @@ Flow:
 Request:
 
 ```bash
-curl --location 'http://localhost:8080/api/catena/legal-entities?name=Name%20of%20Company&page=0&size=10'
+curl --location 'http://localhost:8080/api/catena/legal-entities?legalName=Name%20of%20Company&page=0&size=10'
 ```
 
 Response:
 
 ```bash
 {
-    "totalElements": 2,
+    "totalElements": 1,
     "totalPages": 1,
     "page": 0,
-    "contentSize": 2,
+    "contentSize": 1,
     "content": [
         {
-            "score": 11.171583,
-            "legalEntity": {
-                "bpn": "BPNL000000000001",
-                "identifiers": [
-                    {
-                        "value": "123456789",
-                        "type": {
-                            "technicalKey": "CUSTOM_ID_TYPE",
-                            "name": "Custom Identifier Type for Testing",
-                            "url": null
-                        },
-                        "issuingBody": {
-                            "technicalKey": "CUSTOM_ISSUE_BODY",
-                            "name": "Custom Issuing Body for Testing",
-                            "url": null
-                        },
-                        "status": {
-                            "technicalKey": "CUSTOM_ID_STATUS",
-                            "name": "Custom Identifier Status for Testing"
-                        }
-                    }
-                ],
-                "names": [
-                    {
-                        "value": "Name of Company",
-                        "shortName": "NoC",
-                        "type": {
-                            "technicalKey": "ACRONYM",
-                            "name": "An acronym commonly used for a business partner.",
-                            "url": ""
-                        },
-                        "language": {
-                            "technicalKey": "en",
-                            "name": "English"
-                        }
-                    }
-                ],
-                "legalForm": {
-                    "technicalKey": "CUSTOM_LEGAL_FORM",
-                    "name": "Custom Legal Form for Testing",
-                    "url": null,
-                    "mainAbbreviation": "CLF_0001",
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
+            "score": 7.0275493,
+            "legalName": "Name of Company",
+            "bpnl": "BPNL000000000001",
+            "identifiers": [
+                {
+                    "value": "123456789",
+                    "type": {
+                        "technicalKey": "CUSTOM_ID_TYPE",
+                        "name": "Custom Identifier Type for Testing"
                     },
-                    "categories": [
-                        {
-                            "name": "holding company",
-                            "url": null
-                        }
-                    ]
-                },
-                "status": {
+                    "issuingBody": "CUSTOM_ISSUE_BODY"
+                }
+            ],
+            "legalShortName": "NoC",
+            "legalForm": {
+                "technicalKey": "CUSTOM_LEGAL_FORM",
+                "name": "Custom Legal Form for Testing",
+                "abbreviation": null
+            },
+            "states": [
+                {
                     "officialDenotation": "Active",
                     "validFrom": "2020-12-16T05:54:48.942",
-                    "validUntil": null,
+                    "validTo": "2023-06-05T07:31:01.213",
                     "type": {
                         "technicalKey": "ACTIVE",
-                        "name": "Active",
-                        "url": ""
+                        "name": "Active"
                     }
-                },
-                "profileClassifications": [
+                }
+            ],
+            "classifications": [
+                {
+                    "value": "Farming of cattle, dairy farming",
+                    "code": "01.21",
+                    "type": {
+                        "technicalKey": "NACE",
+                        "name": "NACE"
+                    }
+                }
+            ],
+            "relations": [],
+            "currentness": "2023-06-13T03:28:17.032022Z",
+            "createdAt": "2023-06-06T07:39:09.049097Z",
+            "updatedAt": "2023-06-13T03:28:17.034408Z",
+            "legalAddress": {
+                "bpna": "BPNA000000000001",
+                "name": "WESTERN_LATIN_STANDARD",
+                "states": [
                     {
-                        "value": "Farming of cattle, dairy farming",
-                        "code": "01.21",
+                        "description": "WESTERN_LATIN_STANDARD",
+                        "validFrom": "2020-12-16T05:54:48.942",
+                        "validTo": "2023-06-05T07:31:01.213",
                         "type": {
-                            "name": "NACE",
-                            "url": ""
+                            "technicalKey": "ACTIVE",
+                            "name": "Active"
                         }
                     }
                 ],
-                "types": [],
-                "bankAccounts": [
-                    {
-                        "trustScores": [],
-                        "currency": {
-                            "technicalKey": "EUR",
-                            "name": "Euro"
-                        },
-                        "internationalBankAccountIdentifier": "11223445569",
-                        "internationalBankIdentifier": "TEST1234",
-                        "nationalBankAccountIdentifier": "004566676",
-                        "nationalBankIdentifier": "TEST223"
-                    }
-                ],
-                "roles": [],
-                "relations": [],
-                "currentness": "2023-05-08T12:02:38.289932Z"
-            }
-        },
-        {
-            "score": 1.5469646,
-            "legalEntity": {
-                "bpn": "BPNL0000000001YN",
                 "identifiers": [
                     {
-                        "value": "987654321",
+                        "value": "12345678910",
                         "type": {
-                            "technicalKey": "CUSTOM_ID_TYPE",
-                            "name": "Custom Identifier Type for Testing",
-                            "url": null
-                        },
-                        "issuingBody": {
-                            "technicalKey": "CUSTOM_ISSUE_BODY",
-                            "name": "Custom Issuing Body for Testing",
-                            "url": null
-                        },
-                        "status": {
-                            "technicalKey": "CUSTOM_ID_STATUS",
-                            "name": "Custom Identifier Status for Testing"
+                            "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                            "name": "Custom Identifier Type of Address for Testing"
                         }
                     }
                 ],
-                "names": [
-                    {
-                        "value": "Other Test Company",
-                        "shortName": "OTC",
-                        "type": {
-                            "technicalKey": "REGISTERED",
-                            "name": "The main name under which a business is officially registered in a country's business register.",
-                            "url": ""
-                        },
-                        "language": {
-                            "technicalKey": "en",
-                            "name": "English"
-                        }
-                    }
-                ],
-                "legalForm": {
-                    "technicalKey": "CUSTOM_LEGAL_FORM",
-                    "name": "Custom Legal Form for Testing",
-                    "url": null,
-                    "mainAbbreviation": "CLF_0001",
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
+                "physicalPostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
                     },
-                    "categories": [
-                        {
-                            "name": "holding company",
-                            "url": null
-                        }
-                    ]
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "70546",
+                    "city": "Stuttgart",
+                    "street": {
+                        "name": "Stuttgarter Strasse",
+                        "houseNumber": "1",
+                        "milestone": "Stuttgarter Strasse 1",
+                        "direction": "Stuttgarter Str."
+                    },
+                    "administrativeAreaLevel1": null,
+                    "administrativeAreaLevel2": "test1",
+                    "administrativeAreaLevel3": "test2",
+                    "district": "Stuttgart",
+                    "companyPostalCode": "GM01",
+                    "industrialZone": "HEADQUARTER",
+                    "building": "Building A",
+                    "floor": "A",
+                    "door": "test"
                 },
-                "status": {
-                    "officialDenotation": "Dissolved",
-                    "validFrom": "2021-03-14T05:54:48.942",
-                    "validUntil": null,
-                    "type": {
-                        "technicalKey": "DISSOLVED",
-                        "name": "Dissolved",
-                        "url": ""
-                    }
+                "alternativePostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
+                    },
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "1234",
+                    "city": "Stuttgart 1",
+                    "administrativeAreaLevel1": null,
+                    "deliveryServiceNumber": "1234",
+                    "type": "PO_BOX",
+                    "deliveryServiceQualifier": ""
                 },
-                "profileClassifications": [
-                    {
-                        "value": "Warehousing and Storage",
-                        "code": "49",
-                        "type": {
-                            "name": "NAICS",
-                            "url": ""
-                        }
-                    }
-                ],
-                "types": [],
-                "bankAccounts": [
-                    {
-                        "trustScores": [],
-                        "currency": {
-                            "technicalKey": "EUR",
-                            "name": "Euro"
-                        },
-                        "internationalBankAccountIdentifier": "7654432212",
-                        "internationalBankIdentifier": "TEST1234",
-                        "nationalBankAccountIdentifier": "999847444",
-                        "nationalBankIdentifier": "TEST223"
-                    }
-                ],
-                "roles": [],
-                "relations": [],
-                "currentness": "2023-05-08T12:02:38.290191Z"
+                "bpnLegalEntity": "BPNL000000000001",
+                "isLegalAddress": true,
+                "bpnSite": null,
+                "isMainAddress": false,
+                "createdAt": "2023-06-06T07:39:09.032826Z",
+                "updatedAt": "2023-06-06T07:39:09.057668Z"
             }
         }
     ]
@@ -614,7 +744,7 @@ Flow:
 Request:
 
 ```bash
-curl --location 'http://localhost:8080/api/catena/legal-entities?legalForm=Custom%20Legal%20Form%20for%20Testing&page=0&size=10'
+curl --location 'http://localhost:8080/api/catena/legal-entities?legalForm=company&page=0&size=10'
 ```
 
 Response:
@@ -627,189 +757,228 @@ Response:
     "contentSize": 2,
     "content": [
         {
-            "score": 11.198933,
-            "legalEntity": {
-                "bpn": "BPNL000000000001",
-                "identifiers": [
-                    {
-                        "value": "123456789",
-                        "type": {
-                            "technicalKey": "CUSTOM_ID_TYPE",
-                            "name": "Custom Identifier Type for Testing",
-                            "url": null
-                        },
-                        "issuingBody": {
-                            "technicalKey": "CUSTOM_ISSUE_BODY",
-                            "name": "Custom Issuing Body for Testing",
-                            "url": null
-                        },
-                        "status": {
-                            "technicalKey": "CUSTOM_ID_STATUS",
-                            "name": "Custom Identifier Status for Testing"
-                        }
-                    }
-                ],
-                "names": [
-                    {
-                        "value": "Name of Company",
-                        "shortName": "NoC",
-                        "type": {
-                            "technicalKey": "ACRONYM",
-                            "name": "An acronym commonly used for a business partner.",
-                            "url": ""
-                        },
-                        "language": {
-                            "technicalKey": "en",
-                            "name": "English"
-                        }
-                    }
-                ],
-                "legalForm": {
-                    "technicalKey": "CUSTOM_LEGAL_FORM",
-                    "name": "Custom Legal Form for Testing",
-                    "url": null,
-                    "mainAbbreviation": "CLF_0001",
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
-                    },
-                    "categories": [
-                        {
-                            "name": "holding company",
-                            "url": null
-                        }
-                    ]
-                },
-                "status": {
+            "score": 0.0,
+            "legalName": "",
+            "bpnl": "BPNL0000000001YN",
+            "identifiers": [],
+            "legalShortName": "NoC",
+            "legalForm": {
+                "technicalKey": "CUSTOM_LEGAL_FORM",
+                "name": "Custom Legal Form for Testing",
+                "abbreviation": null
+            },
+            "states": [
+                {
                     "officialDenotation": "Active",
                     "validFrom": "2020-12-16T05:54:48.942",
-                    "validUntil": null,
+                    "validTo": "2023-06-05T07:31:01.213",
                     "type": {
                         "technicalKey": "ACTIVE",
-                        "name": "Active",
-                        "url": ""
+                        "name": "Active"
                     }
-                },
-                "profileClassifications": [
+                }
+            ],
+            "classifications": [
+                {
+                    "value": "Farming of cattle, dairy farming",
+                    "code": "01.21",
+                    "type": {
+                        "technicalKey": "NACE",
+                        "name": "NACE"
+                    }
+                }
+            ],
+            "relations": [],
+            "currentness": "2023-06-12T05:34:47.676190Z",
+            "createdAt": "2023-06-12T05:34:47.705949Z",
+            "updatedAt": "2023-06-12T05:34:47.705957Z",
+            "legalAddress": {
+                "bpna": "BPNA0000000004WK",
+                "name": "WESTERN_LATIN_STANDARD",
+                "states": [
                     {
-                        "value": "Farming of cattle, dairy farming",
-                        "code": "01.21",
+                        "description": "WESTERN_LATIN_STANDARD",
+                        "validFrom": "2020-12-16T05:54:48.942",
+                        "validTo": "2023-06-05T07:31:01.213",
                         "type": {
-                            "name": "NACE",
-                            "url": ""
+                            "technicalKey": "ACTIVE",
+                            "name": "Active"
                         }
                     }
                 ],
-                "types": [],
-                "bankAccounts": [
-                    {
-                        "trustScores": [],
-                        "currency": {
-                            "technicalKey": "EUR",
-                            "name": "Euro"
-                        },
-                        "internationalBankAccountIdentifier": "11223445569",
-                        "internationalBankIdentifier": "TEST1234",
-                        "nationalBankAccountIdentifier": "004566676",
-                        "nationalBankIdentifier": "TEST223"
-                    }
-                ],
-                "roles": [],
-                "relations": [],
-                "currentness": "2023-05-08T12:02:38.289932Z"
+                "identifiers": [],
+                "physicalPostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
+                    },
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "70546",
+                    "city": "Stuttgart",
+                    "street": {
+                        "name": "Stuttgarter Strasse",
+                        "houseNumber": "1",
+                        "milestone": "Stuttgarter Strasse 1",
+                        "direction": "Stuttgarter Str."
+                    },
+                    "administrativeAreaLevel1": null,
+                    "administrativeAreaLevel2": "test1",
+                    "administrativeAreaLevel3": "test2",
+                    "district": "Stuttgart",
+                    "companyPostalCode": "GM01",
+                    "industrialZone": "HEADQUARTER",
+                    "building": "Building A",
+                    "floor": "A",
+                    "door": "test"
+                },
+                "alternativePostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
+                    },
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "1234",
+                    "city": "Stuttgart 1",
+                    "administrativeAreaLevel1": null,
+                    "deliveryServiceNumber": "1234",
+                    "type": "PO_BOX",
+                    "deliveryServiceQualifier": ""
+                },
+                "bpnLegalEntity": "BPNL0000000001YN",
+                "isLegalAddress": true,
+                "bpnSite": null,
+                "isMainAddress": false,
+                "createdAt": "2023-06-12T05:34:47.698490Z",
+                "updatedAt": "2023-06-12T05:34:47.714935Z"
             }
         },
         {
-            "score": 11.198933,
-            "legalEntity": {
-                "bpn": "BPNL0000000001YN",
+            "score": 0.0,
+            "legalName": "Name of Company1",
+            "bpnl": "BPNL0000000002XY",
+            "identifiers": [
+                {
+                    "value": "12345678910",
+                    "type": {
+                        "technicalKey": "CUSTOM_ID_TYPE",
+                        "name": "Custom Identifier Type for Testing"
+                    },
+                    "issuingBody": "CUSTOM_ISSUE_BODY"
+                }
+            ],
+            "legalShortName": "NoC",
+            "legalForm": {
+                "technicalKey": "CUSTOM_LEGAL_FORM_test1",
+                "name": "Custom Legal Form for Testing 1",
+                "abbreviation": null
+            },
+            "states": [
+                {
+                    "officialDenotation": "Active",
+                    "validFrom": "2020-12-16T05:54:48.942",
+                    "validTo": "2023-06-05T07:31:01.213",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "classifications": [
+                {
+                    "value": "Farming of cattle, dairy farming",
+                    "code": "01.21",
+                    "type": {
+                        "technicalKey": "NACE",
+                        "name": "NACE"
+                    }
+                }
+            ],
+            "relations": [],
+            "currentness": "2023-06-16T09:08:22.222993Z",
+            "createdAt": "2023-06-16T09:08:22.244296Z",
+            "updatedAt": "2023-06-16T09:08:22.244300Z",
+            "legalAddress": {
+                "bpna": "BPNA0000000007UH",
+                "name": "WESTERN_LATIN_STANDARD",
+                "states": [
+                    {
+                        "description": "WESTERN_LATIN_STANDARD",
+                        "validFrom": "2020-12-16T05:54:48.942",
+                        "validTo": "2023-06-05T07:31:01.213",
+                        "type": {
+                            "technicalKey": "ACTIVE",
+                            "name": "Active"
+                        }
+                    }
+                ],
                 "identifiers": [
                     {
-                        "value": "987654321",
+                        "value": "12345678910",
                         "type": {
-                            "technicalKey": "CUSTOM_ID_TYPE",
-                            "name": "Custom Identifier Type for Testing",
-                            "url": null
-                        },
-                        "issuingBody": {
-                            "technicalKey": "CUSTOM_ISSUE_BODY",
-                            "name": "Custom Issuing Body for Testing",
-                            "url": null
-                        },
-                        "status": {
-                            "technicalKey": "CUSTOM_ID_STATUS",
-                            "name": "Custom Identifier Status for Testing"
+                            "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                            "name": "Custom Identifier Type of Address for Testing"
                         }
                     }
                 ],
-                "names": [
-                    {
-                        "value": "Other Test Company",
-                        "shortName": "OTC",
-                        "type": {
-                            "technicalKey": "REGISTERED",
-                            "name": "The main name under which a business is officially registered in a country's business register.",
-                            "url": ""
-                        },
-                        "language": {
-                            "technicalKey": "en",
-                            "name": "English"
-                        }
-                    }
-                ],
-                "legalForm": {
-                    "technicalKey": "CUSTOM_LEGAL_FORM",
-                    "name": "Custom Legal Form for Testing",
-                    "url": null,
-                    "mainAbbreviation": "CLF_0001",
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
+                "physicalPostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
                     },
-                    "categories": [
-                        {
-                            "name": "holding company",
-                            "url": null
-                        }
-                    ]
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "70546",
+                    "city": "Stuttgart",
+                    "street": {
+                        "name": "Stuttgarter Strasse",
+                        "houseNumber": "1",
+                        "milestone": "Stuttgarter Strasse 1",
+                        "direction": "Stuttgarter Str."
+                    },
+                    "administrativeAreaLevel1": null,
+                    "administrativeAreaLevel2": "test1",
+                    "administrativeAreaLevel3": "test2",
+                    "district": "Stuttgart",
+                    "companyPostalCode": "GM01",
+                    "industrialZone": "HEADQUARTER",
+                    "building": "Building A",
+                    "floor": "A",
+                    "door": "test"
                 },
-                "status": {
-                    "officialDenotation": "Dissolved",
-                    "validFrom": "2021-03-14T05:54:48.942",
-                    "validUntil": null,
-                    "type": {
-                        "technicalKey": "DISSOLVED",
-                        "name": "Dissolved",
-                        "url": ""
-                    }
+                "alternativePostalAddress": {
+                    "geographicCoordinates": {
+                        "longitude": 0.0,
+                        "latitude": 0.0,
+                        "altitude": 0.0
+                    },
+                    "country": {
+                        "technicalKey": "DE",
+                        "name": "Germany"
+                    },
+                    "postalCode": "1234",
+                    "city": "Stuttgart 1",
+                    "administrativeAreaLevel1": null,
+                    "deliveryServiceNumber": "1234",
+                    "type": "PO_BOX",
+                    "deliveryServiceQualifier": ""
                 },
-                "profileClassifications": [
-                    {
-                        "value": "Warehousing and Storage",
-                        "code": "49",
-                        "type": {
-                            "name": "NAICS",
-                            "url": ""
-                        }
-                    }
-                ],
-                "types": [],
-                "bankAccounts": [
-                    {
-                        "trustScores": [],
-                        "currency": {
-                            "technicalKey": "EUR",
-                            "name": "Euro"
-                        },
-                        "internationalBankAccountIdentifier": "7654432212",
-                        "internationalBankIdentifier": "TEST1234",
-                        "nationalBankAccountIdentifier": "999847444",
-                        "nationalBankIdentifier": "TEST223"
-                    }
-                ],
-                "roles": [],
-                "relations": [],
-                "currentness": "2023-05-08T12:02:38.290191Z"
+                "bpnLegalEntity": "BPNL0000000002XY",
+                "isLegalAddress": true,
+                "bpnSite": null,
+                "isMainAddress": false,
+                "createdAt": "2023-06-16T09:08:22.239413Z",
+                "updatedAt": "2023-06-16T09:08:22.248790Z"
             }
         }
     ]
@@ -840,7 +1009,7 @@ Request:
 curl --location 'http://localhost:8080/api/catena/legal-entities/search' \
 --header 'Content-Type: application/json' \
 --data '[
-  "BPNL000000000001"
+    "BPNL000000000001"
 ]'
 ```
 
@@ -849,94 +1018,124 @@ Response:
 ```bash
 [
     {
-        "bpn": "BPNL000000000001",
+        "legalName": "Name of Company",
+        "bpnl": "BPNL000000000001",
         "identifiers": [
             {
                 "value": "123456789",
                 "type": {
                     "technicalKey": "CUSTOM_ID_TYPE",
-                    "name": "Custom Identifier Type for Testing",
-                    "url": null
+                    "name": "Custom Identifier Type for Testing"
                 },
-                "issuingBody": {
-                    "technicalKey": "CUSTOM_ISSUE_BODY",
-                    "name": "Custom Issuing Body for Testing",
-                    "url": null
-                },
-                "status": {
-                    "technicalKey": "CUSTOM_ID_STATUS",
-                    "name": "Custom Identifier Status for Testing"
-                }
+                "issuingBody": "CUSTOM_ISSUE_BODY"
             }
         ],
-        "names": [
-            {
-                "value": "Name of Company",
-                "shortName": "NoC",
-                "type": {
-                    "technicalKey": "ACRONYM",
-                    "name": "An acronym commonly used for a business partner.",
-                    "url": ""
-                },
-                "language": {
-                    "technicalKey": "en",
-                    "name": "English"
-                }
-            }
-        ],
+        "legalShortName": "NoC",
         "legalForm": {
             "technicalKey": "CUSTOM_LEGAL_FORM",
             "name": "Custom Legal Form for Testing",
-            "url": null,
-            "mainAbbreviation": "CLF_0001",
-            "language": {
-                "technicalKey": "en",
-                "name": "English"
-            },
-            "categories": [
-                {
-                    "name": "holding company",
-                    "url": null
+            "abbreviation": null
+        },
+        "states": [
+            {
+                "officialDenotation": "Active",
+                "validFrom": "2020-12-16T05:54:48.942",
+                "validTo": "2023-06-05T07:31:01.213",
+                "type": {
+                    "technicalKey": "ACTIVE",
+                    "name": "Active"
                 }
-            ]
-        },
-        "status": {
-            "officialDenotation": "Active",
-            "validFrom": "2020-12-16T05:54:48.942",
-            "validUntil": null,
-            "type": {
-                "technicalKey": "ACTIVE",
-                "name": "Active",
-                "url": ""
             }
-        },
-        "profileClassifications": [
+        ],
+        "classifications": [
             {
                 "value": "Farming of cattle, dairy farming",
                 "code": "01.21",
                 "type": {
-                    "name": "NACE",
-                    "url": ""
+                    "technicalKey": "NACE",
+                    "name": "NACE"
                 }
             }
         ],
-        "types": [],
-        "bankAccounts": [
-            {
-                "trustScores": [],
-                "currency": {
-                    "technicalKey": "EUR",
-                    "name": "Euro"
-                },
-                "internationalBankAccountIdentifier": "11223445569",
-                "internationalBankIdentifier": "TEST1234",
-                "nationalBankAccountIdentifier": "004566676",
-                "nationalBankIdentifier": "TEST223"
-            }
-        ],
-        "roles": [],
         "relations": [],
-        "currentness": "2023-05-08T12:02:38.289932Z"
+        "currentness": "2023-06-13T03:28:17.032022Z",
+        "createdAt": "2023-06-06T07:39:09.049097Z",
+        "updatedAt": "2023-06-13T03:28:17.034408Z",
+        "legalAddress": {
+            "bpna": "BPNA000000000001",
+            "name": "WESTERN_LATIN_STANDARD",
+            "states": [
+                {
+                    "description": "WESTERN_LATIN_STANDARD",
+                    "validFrom": "2020-12-16T05:54:48.942",
+                    "validTo": "2023-06-05T07:31:01.213",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "identifiers": [
+                {
+                    "value": "12345678910",
+                    "type": {
+                        "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                        "name": "Custom Identifier Type of Address for Testing"
+                    }
+                }
+            ],
+            "physicalPostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "70546",
+                "city": "Stuttgart",
+                "street": {
+                    "name": "Stuttgarter Strasse",
+                    "houseNumber": "1",
+                    "milestone": "Stuttgarter Strasse 1",
+                    "direction": "Stuttgarter Str."
+                },
+                "administrativeAreaLevel1": null,
+                "administrativeAreaLevel2": "test1",
+                "administrativeAreaLevel3": "test2",
+                "district": "Stuttgart",
+                "companyPostalCode": "GM01",
+                "industrialZone": "HEADQUARTER",
+                "building": "Building A",
+                "floor": "A",
+                "door": "test"
+            },
+            "alternativePostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "1234",
+                "city": "Stuttgart 1",
+                "administrativeAreaLevel1": null,
+                "deliveryServiceNumber": "1234",
+                "type": "PO_BOX",
+                "deliveryServiceQualifier": ""
+            },
+            "bpnLegalEntity": "BPNL000000000001",
+            "isLegalAddress": true,
+            "bpnSite": null,
+            "isMainAddress": false,
+            "createdAt": "2023-06-06T07:39:09.032826Z",
+            "updatedAt": "2023-06-06T07:39:09.057668Z"
+        }
     }
 ]
 ```
@@ -962,18 +1161,82 @@ Response:
 
 ```bash
 {
-    "totalElements": 2,
+    "totalElements": 4,
     "totalPages": 1,
     "page": 0,
-    "contentSize": 2,
+    "contentSize": 4,
     "content": [
         {
-            "bpn": "BPNS000000000001",
-            "name": "Factory UT"
+            "bpns": "BPNS000000000001",
+            "name": "Factory UT",
+            "states": [
+                {
+                    "description": "Baden-Wuerttemberg",
+                    "validFrom": "2023-06-06T08:18:05.777",
+                    "validTo": "2024-06-06T08:18:05.777",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "bpnLegalEntity": "BPNL000000000001",
+            "createdAt": "2023-06-06T09:50:52.720153Z",
+            "updatedAt": "2023-06-06T09:50:52.720155Z"
         },
         {
-            "bpn": "BPNS0000000001YN",
-            "name": "Factory Sindelfingen"
+            "bpns": "BPNS0000000001YN",
+            "name": "Factory UT",
+            "states": [
+                {
+                    "description": "Baden-Wuerttemberg",
+                    "validFrom": "2023-06-06T08:18:05.777",
+                    "validTo": "2024-06-06T08:18:05.777",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "bpnLegalEntity": "BPNL000000000001",
+            "createdAt": "2023-06-06T10:00:19.733854Z",
+            "updatedAt": "2023-06-06T10:00:19.733858Z"
+        },
+        {
+            "bpns": "BPNS0000000002XY",
+            "name": "Factory UT",
+            "states": [
+                {
+                    "description": "Baden-Wuerttemberg",
+                    "validFrom": "2023-06-06T08:18:05.777",
+                    "validTo": "2024-06-06T08:18:05.777",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "bpnLegalEntity": "BPNL000000000001",
+            "createdAt": "2023-06-13T03:24:29.981397Z",
+            "updatedAt": "2023-06-13T03:24:29.981400Z"
+        },
+        {
+            "bpns": "BPNS0000000003X9",
+            "name": "Factory UT",
+            "states": [
+                {
+                    "description": "Baden-Wuerttemberg",
+                    "validFrom": "2023-06-06T08:18:05.777",
+                    "validTo": "2024-06-06T08:18:05.777",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "bpnLegalEntity": "BPNL000000000001",
+            "createdAt": "2023-06-13T06:01:09.734035Z",
+            "updatedAt": "2023-06-13T06:01:09.734039Z"
         }
     ]
 }
@@ -993,132 +1256,7 @@ Flow:
 Request:
 
 ```bash
-curl --location 'http://localhost:8080/api/catena/legal-entities/BPNL0000000001YN/addresses?page=0&size=10'
-```
-
-Response:
-
-```bash
-{
-    "totalElements": 1,
-    "totalPages": 1,
-    "page": 0,
-    "contentSize": 1,
-    "content": [
-        {
-            "bpn": "BPNA0000000001YN",
-            "version": {
-                "characterSet": {
-                    "technicalKey": "WESTERN_LATIN_STANDARD",
-                    "name": "Western Latin Standard (ISO 8859-1; Latin-1)"
-                },
-                "language": {
-                    "technicalKey": "en",
-                    "name": "English"
-                }
-            },
-            "careOf": null,
-            "contexts": [],
-            "country": {
-                "technicalKey": "DE",
-                "name": "Germany"
-            },
-            "administrativeAreas": [
-                {
-                    "value": "Baden-Wuerttemberg",
-                    "shortName": "BW",
-                    "fipsCode": "GM01",
-                    "type": {
-                        "technicalKey": "REGION",
-                        "name": "Region",
-                        "url": ""
-                    },
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
-                    }
-                }
-            ],
-            "postCodes": [
-                {
-                    "value": "80331",
-                    "type": {
-                        "technicalKey": "REGULAR",
-                        "name": "Regular",
-                        "url": ""
-                    }
-                }
-            ],
-            "localities": [
-                {
-                    "value": "Bavaria",
-                    "shortName": "B",
-                    "type": {
-                        "technicalKey": "CITY",
-                        "name": "City",
-                        "url": ""
-                    },
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
-                    }
-                }
-            ],
-            "thoroughfares": [
-                {
-                    "value": "Standort Strasse 10",
-                    "name": "Standort Strasse",
-                    "shortName": "Standort Str.",
-                    "number": "10",
-                    "direction": null,
-                    "type": {
-                        "technicalKey": "STREET",
-                        "name": "Street",
-                        "url": ""
-                    },
-                    "language": {
-                        "technicalKey": "en",
-                        "name": "English"
-                    }
-                }
-            ],
-            "premises": [],
-            "postalDeliveryPoints": [],
-            "geographicCoordinates": null,
-            "types": [
-                {
-                    "technicalKey": "UNSPECIFIC",
-                    "name": "Unspecified",
-                    "url": ""
-                }
-            ]
-        }
-    ]
-}
-```
-
-## Use Case 3. Update data from Legal Entity and check changelog
-
-Description: This use case involves a user updating record for a legal entity business partner associated with a Business Partner Number (BPNL). Changelogs can be identified using business partner controller, it have one GET api request explained in below use case to show up the changelog details for provided BPN.
-
-The user can use an API call for the business partner controller, which retrieves the changelog for reuested BPNL. The business-partner-controller checks if there are any updates since the last update and fetches array of the updated data for the BPNL via the business partner controller if there are updates in provided date and time frame. The Legal Entity Controller can be use to update the legal entity. Similarly site controller and address controller can be used to update sites and address type business partners respectively.
-
-### 3.1 Get Changelog for BPNL via business-partner-controller
-
-Scenario: The user enters a valid BPN under query param and business partner controller api returns information about changelogs for legal entities and also filteration should be their to fetch changelog only after particular dates.
-
-Flow:
-
-- The user initiates a request to search for changelogs for a specific BPNL by providing BPN in api request.
-- Here in example request, user has putted two query params named as bpn with value BPNL0000000001YN and modifiedAfter with value 2023-03-21T09:00:25.298594Z.
-- The business-partner-controller returns the changelog for the BPNL entered.
-- Also user can be filter data based on date named as Modified after paramter, The business-partner-controller checks if there are any updates since the last update.
-- If there are updates, the business partner controller fetches the updated data for the BPNL.
-
-Request:
-
-```bash
-curl --location 'http://localhost:8080/api/catena/business-partners/changelog?page=0&size=10&modifiedAfter=2023-03-21T09%3A00%3A25.298594Z&bpn=BPNL0000000001YN'
+curl --location 'http://localhost:8080/api/catena/legal-entities/BPNL000000000001/addresses?page=0&size=10'
 ```
 
 Response:
@@ -1131,14 +1269,219 @@ Response:
     "contentSize": 2,
     "content": [
         {
-            "bpn": "BPNL0000000001YN",
-            "changelogType": "CREATE",
-            "timestamp": "2023-05-04T11:18:34.915176Z"
+            "bpna": "BPNA000000000001",
+            "name": "WESTERN_LATIN_STANDARD",
+            "states": [
+                {
+                    "description": "WESTERN_LATIN_STANDARD",
+                    "validFrom": "2020-12-16T05:54:48.942",
+                    "validTo": "2023-06-05T07:31:01.213",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "identifiers": [
+                {
+                    "value": "12345678910",
+                    "type": {
+                        "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                        "name": "Custom Identifier Type of Address for Testing"
+                    }
+                }
+            ],
+            "physicalPostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "70546",
+                "city": "Stuttgart",
+                "street": {
+                    "name": "Stuttgarter Strasse",
+                    "houseNumber": "1",
+                    "milestone": "Stuttgarter Strasse 1",
+                    "direction": "Stuttgarter Str."
+                },
+                "administrativeAreaLevel1": null,
+                "administrativeAreaLevel2": "test1",
+                "administrativeAreaLevel3": "test2",
+                "district": "Stuttgart",
+                "companyPostalCode": "GM01",
+                "industrialZone": "HEADQUARTER",
+                "building": "Building A",
+                "floor": "A",
+                "door": "test"
+            },
+            "alternativePostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "1234",
+                "city": "Stuttgart 1",
+                "administrativeAreaLevel1": null,
+                "deliveryServiceNumber": "1234",
+                "type": "PO_BOX",
+                "deliveryServiceQualifier": ""
+            },
+            "bpnLegalEntity": "BPNL000000000001",
+            "isLegalAddress": true,
+            "bpnSite": null,
+            "isMainAddress": false,
+            "createdAt": "2023-06-06T07:39:09.032826Z",
+            "updatedAt": "2023-06-06T07:39:09.057668Z"
         },
         {
-            "bpn": "BPNL0000000001YN",
+            "bpna": "BPNA0000000003X9",
+            "name": "WESTERN_LATIN_STANDARD",
+            "states": [
+                {
+                    "description": "WESTERN_LATIN_STANDARD",
+                    "validFrom": "2023-06-06T10:02:00.355",
+                    "validTo": "2024-06-06T10:02:00.355",
+                    "type": {
+                        "technicalKey": "ACTIVE",
+                        "name": "Active"
+                    }
+                }
+            ],
+            "identifiers": [
+                {
+                    "value": "12345678910",
+                    "type": {
+                        "technicalKey": "CUSTOM_ID_ADD_TYPE",
+                        "name": "Custom Identifier Type of Address for Testing"
+                    }
+                }
+            ],
+            "physicalPostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "70546",
+                "city": "Stuttgart",
+                "street": {
+                    "name": "Stuttgarter Strasse",
+                    "houseNumber": "1",
+                    "milestone": "Stuttgarter Strasse 1",
+                    "direction": "Stuttgarter Str."
+                },
+                "administrativeAreaLevel1": null,
+                "administrativeAreaLevel2": null,
+                "administrativeAreaLevel3": null,
+                "district": "Stuttgart",
+                "companyPostalCode": "GM01",
+                "industrialZone": "HEADQUARTER",
+                "building": "Building A",
+                "floor": "A",
+                "door": null
+            },
+            "alternativePostalAddress": {
+                "geographicCoordinates": {
+                    "longitude": 0.0,
+                    "latitude": 0.0,
+                    "altitude": 0.0
+                },
+                "country": {
+                    "technicalKey": "DE",
+                    "name": "Germany"
+                },
+                "postalCode": "1234",
+                "city": "Stuttgart",
+                "administrativeAreaLevel1": null,
+                "deliveryServiceNumber": "test",
+                "type": "PO_BOX",
+                "deliveryServiceQualifier": ""
+            },
+            "bpnLegalEntity": "BPNL000000000001",
+            "isLegalAddress": false,
+            "bpnSite": null,
+            "isMainAddress": false,
+            "createdAt": "2023-06-06T10:20:48.376234Z",
+            "updatedAt": "2023-06-06T10:20:48.376264Z"
+        }
+    ]
+}
+```
+
+## Use Case 3. Update data from Legal Entity and check changelog
+
+Description: This use case involves a user updating record for a legal entity business partner associated with a Business Partner Number (BPNL). Changelogs can be identified using changelog controller, it have one POST api request explained in below use case to show up the changelog details for provided BPN.
+
+The user can use an API call for the changelog controller, which retrieves the changelog for reuested BPNL. The business-partner-controller checks if there are any updates since the last update and fetches array of the updated data for the BPNL via the business partner controller if there are updates in provided date and time frame. The Legal Entity Controller can be use to update the legal entity. Similarly site controller and address controller can be used to update sites and address type business partners respectively.
+
+### 3.1 Get Changelog for BPNL via changelog-controller
+
+Scenario: The user enters a valid BPNL under request body and changelog controller api returns information about changelogs for legal entities or on specified lsaType and also filteration should be their to fetch changelog only after particular dates.
+
+Flow:
+
+- The user initiates a request to search for changelogs for a specific BPNL by providing BPN in api request body.
+- Here in example request, user has putted two query params named as bpn with value BPNL000000000001.
+- The changelog controller returns the changelog for the BPNL entered business partner type array value.
+- Also user can be filter data based on date named as fromTime paramter, The changelog controller checks if there are any updates since the last update.
+- If there are updates, the changelog controller fetches the updated data for the BPNL.
+
+Request:
+
+```bash
+curl --location 'http://localhost:8080/api/catena/business-partners/changelog/search?page=0&size=10' \
+--header 'Content-Type: application/json' \
+--data '{
+  "fromTime": "2023-03-21T09:00:25.298594Z",
+  "bpns": [
+    "BPNL000000000001"
+  ],
+  "lsaTypes": [
+    "LEGAL_ENTITY"
+  ]
+}'
+```
+
+Response:
+
+```bash
+{
+    "totalElements": 3,
+    "totalPages": 1,
+    "page": 0,
+    "contentSize": 3,
+    "content": [
+        {
+            "bpn": "BPNL000000000001",
+            "changelogType": "CREATE",
+            "timestamp": "2023-06-06T07:39:09.028951Z",
+            "lsaType": "LEGAL_ENTITY"
+        },
+        {
+            "bpn": "BPNL000000000001",
             "changelogType": "UPDATE",
-            "timestamp": "2023-05-08T12:02:38.323994Z"
+            "timestamp": "2023-06-06T07:41:00.498695Z",
+            "lsaType": "LEGAL_ENTITY"
+        },
+        {
+            "bpn": "BPNL000000000001",
+            "changelogType": "UPDATE",
+            "timestamp": "2023-06-13T03:27:39.878101Z",
+            "lsaType": "LEGAL_ENTITY"
         }
     ]
 }
@@ -1146,7 +1489,7 @@ Response:
 
 ### 3.2 Changelog for update on business partner
 
-Scenario: Apply the changes or update on business partner of type legal entity, site and address through api request. Check changelog for each business partner.
+Scenario: Apply the changes or update on business partner of type legal entity, site and address through api request. Check changelog for each business partner example using above api request.
 
 #### 3.2.1 Update Legal Entity
 
@@ -1162,208 +1505,90 @@ Request:
 curl --location --request PUT 'http://localhost:8080/api/catena/legal-entities' \
 --header 'Content-Type: application/json' \
 --data '[
-    {
-        "identifiers": [
-            {
-                "value": "123456789",
-                "type": "CUSTOM_ID_TYPE",
-                "issuingBody": "CUSTOM_ISSUE_BODY",
-                "status": "CUSTOM_ID_STATUS"
-            }
-        ],
-        "names": [
-            {
-                "value": "Name of Company Test",
-                "shortName": "NoC",
-                "type": "ACRONYM",
-                "language": "en"
-            }
-        ],
-        "legalForm": "CUSTOM_LEGAL_FORM",
-        "status": {
-            "officialDenotation": "Active",
-            "validFrom": "2020-12-16T05:54:48.942Z",
-            "type": "ACTIVE"
+  {
+    "bpnl": "BPNL000000000001",
+    "legalName": "Name of Company",
+    "identifiers": [
+      {
+        "value": "123456789",
+        "type": "CUSTOM_ID_TYPE",
+        "issuingBody": "CUSTOM_ISSUE_BODY"
+      }
+    ],
+    "legalShortName": "NoC",
+    "legalForm": "CUSTOM_LEGAL_FORM",
+    "states": [
+      {
+        "officialDenotation": "Active",
+        "validFrom": "2020-12-16T05:54:48.942Z",
+        "validTo": "2023-06-05T07:31:01.213Z",
+        "type": "ACTIVE"
+      }
+    ],
+    "classifications": [
+      {
+        "value": "Farming of cattle, dairy farming",
+        "code": "01.21",
+        "type": "NACE"
+      }
+    ],
+    "legalAddress": {
+      "name": "WESTERN_LATIN_STANDARD",
+      "states": [
+        {
+          "description": "WESTERN_LATIN_STANDARD",
+          "validFrom": "2020-12-16T05:54:48.942Z",
+          "validTo": "2023-06-05T07:31:01.213Z",
+          "type": "ACTIVE"
+        }
+      ],
+      "identifiers": [
+        {
+          "value": "12345678910",
+          "type": "CUSTOM_ID_ADD_TYPE"
+        }
+      ],
+      "physicalPostalAddress": {
+        "geographicCoordinates": {
+          "longitude": 0,
+          "latitude": 0,
+          "altitude": 0
         },
-        "profileClassifications": [
-            {
-                "value": "Farming of cattle, dairy farming",
-                "code": "01.21",
-                "type": "NACE"
-            }
-        ],
-        "bankAccounts": [
-            {
-                "currency": "EUR",
-                "internationalBankAccountIdentifier": "11223445569",
-                "internationalBankIdentifier": "TEST1234",
-                "nationalBankAccountIdentifier": "004566676",
-                "nationalBankIdentifier": "TEST223"
-            }
-        ],
-        "legalAddress": {
-            "version": {
-                "characterSet": "WESTERN_LATIN_STANDARD",
-                "language": "en"
-            },
-            "country": "DE",
-            "administrativeAreas": [
-                {
-                    "value": "Baden-Wuerttemberg",
-                    "shortName": "BW",
-                    "fipsCode": "GM01",
-                    "type": "REGION"
-                }
-            ],
-            "postCodes": [
-                {
-                    "value": "70546",
-                    "type": "REGULAR"
-                }
-            ],
-            "localities": [
-                {
-                    "value": "Stuttgart",
-                    "shortName": "S",
-                    "type": "CITY"
-                }
-            ],
-            "thoroughfares": [
-                {
-                    "value": "Stuttgarter Strasse 1",
-                    "name": "Stuttgarter Strasse",
-                    "shortName": "Stuttgarter Str.",
-                    "number": "1",
-                    "type": "STREET"
-                }
-            ],
-            "premises": [
-                {
-                    "value": "Building A",
-                    "shortName": "A",
-                    "number": "A",
-                    "type": "BUILDING"
-                }
-            ],
-            "postalDeliveryPoints": [
-                {
-                    "value": "On-site Mailbox",
-                    "type": "MAILBOX"
-                }
-            ],
-            "geographicCoordinates": {
-                "longitude": 0,
-                "latitude": 0,
-                "altitude": 0
-            },
-            "types": [
-                "HEADQUARTER",
-                "REGISTERED"
-            ]
+        "country": "DE",
+        "postalCode": "70546",
+        "city": "Stuttgart",
+        "street": {
+          "name": "Stuttgarter Strasse",
+          "houseNumber": "1",
+          "milestone": "Stuttgarter Strasse 1",
+          "direction": "Stuttgarter Str."
         },
-        "bpn": "BPNL000000000001"
-    },
-    {
-        "identifiers": [
-            {
-                "value": "987654321",
-                "type": "CUSTOM_ID_TYPE",
-                "issuingBody": "CUSTOM_ISSUE_BODY",
-                "status": "CUSTOM_ID_STATUS"
-            }
-        ],
-        "names": [
-            {
-                "value": "Other Test Company",
-                "shortName": "OTC",
-                "type": "REGISTERED",
-                "language": "en"
-            }
-        ],
-        "legalForm": "CUSTOM_LEGAL_FORM",
-        "status": {
-            "officialDenotation": "Dissolved",
-            "validFrom": "2021-03-14T05:54:48.942Z",
-            "type": "DISSOLVED"
+        "administrativeAreaLevel1": "Baden-Wuerttemberg",
+        "administrativeAreaLevel2": "test1",
+        "administrativeAreaLevel3": "test2",
+        "district": "Stuttgart",
+        "companyPostalCode": "GM01",
+        "industrialZone": "HEADQUARTER",
+        "building": "Building A",
+        "floor": "A",
+        "door": "test"
+      },
+      "alternativePostalAddress": {
+        "geographicCoordinates": {
+          "longitude": 0,
+          "latitude": 0,
+          "altitude": 0
         },
-        "profileClassifications": [
-            {
-                "value": "Warehousing and Storage",
-                "code": "49",
-                "type": "NAICS"
-            }
-        ],
-        "bankAccounts": [
-            {
-                "currency": "EUR",
-                "internationalBankAccountIdentifier": "7654432212",
-                "internationalBankIdentifier": "TEST1234",
-                "nationalBankAccountIdentifier": "999847444",
-                "nationalBankIdentifier": "TEST223"
-            }
-        ],
-        "legalAddress": {
-            "version": {
-                "characterSet": "WESTERN_LATIN_STANDARD",
-                "language": "en"
-            },
-            "country": "DE",
-            "administrativeAreas": [
-                {
-                    "value": "Bavaria",
-                    "shortName": "B",
-                    "fipsCode": "GM02",
-                    "type": "REGION"
-                }
-            ],
-            "postCodes": [
-                {
-                    "value": "80331",
-                    "type": "REGULAR"
-                }
-            ],
-            "localities": [
-                {
-                    "value": "Munich",
-                    "shortName": "M",
-                    "type": "CITY"
-                }
-            ],
-            "thoroughfares": [
-                {
-                    "value": "Muenchener Strasse 1",
-                    "name": "Muenchener Strasse",
-                    "shortName": "Munchener Str.",
-                    "number": "1",
-                    "type": "STREET"
-                }
-            ],
-            "premises": [
-                {
-                    "value": "Block 1",
-                    "shortName": "B1",
-                    "number": "1",
-                    "type": "BUILDING"
-                }
-            ],
-            "postalDeliveryPoints": [
-                {
-                    "value": "On-site Mailbox",
-                    "type": "MAILBOX"
-                }
-            ],
-            "geographicCoordinates": {
-                "longitude": 0,
-                "latitude": 0,
-                "altitude": 0
-            },
-            "types": [
-                "HEADQUARTER",
-                "REGISTERED"
-            ]
-        },
-        "bpn": "BPNL0000000001YN"
+        "country": "DE",
+        "postalCode": "1234",
+        "city": "Stuttgart 1",
+        "administrativeAreaLevel1": "Baden-Wuerttemberg 1",
+        "deliveryServiceNumber": "1234",
+        "deliveryServiceType": "PO_BOX",
+        "deliveryServiceQualifier": "test"
+      }
     }
+  }
 ]'
 ```
 
@@ -1381,110 +1606,72 @@ Request:
 curl --location --request PUT 'http://localhost:8080/api/catena/sites' \
 --header 'Content-Type: application/json' \
 --data '[
-    {
-        "name": "Factory UT test",
-        "mainAddress": {
-            "version": {
-                "characterSet": "WESTERN_LATIN_STANDARD",
-                "language": "en"
-            },
-            "country": "DE",
-            "administrativeAreas": [
-                {
-                    "value": "Baden-Wuerttemberg",
-                    "shortName": "BW",
-                    "fipsCode": "GM01",
-                    "type": "REGION"
-                }
-            ],
-            "postCodes": [
-                {
-                    "value": "70327",
-                    "type": "REGULAR"
-                }
-            ],
-            "localities": [
-                {
-                    "value": "Stuttgart",
-                    "shortName": "S",
-                    "type": "CITY"
-                }
-            ],
-            "thoroughfares": [
-                {
-                    "value": "Untertuerckheim Strasse 1",
-                    "name": "Untertuerckheim Strasse",
-                    "shortName": "Untertuerckheim Str.",
-                    "number": "1",
-                    "type": "STREET"
-                }
-            ],
-            "premises": [
-                {
-                    "value": "Gate 1",
-                    "shortName": "G1",
-                    "number": "1",
-                    "type": "BUILDING"
-                }
-            ],
-            "types": [
-                "UNSPECIFIC"
-            ]
+  {
+    "bpns": "BPNS000000000001",
+    "name": "Factory UT",
+    "states": [
+      {
+        "description": "Baden-Wuerttemberg",
+        "validFrom": "2023-06-06T08:18:05.777Z",
+        "validTo": "2024-06-06T08:18:05.777Z",
+        "type": "ACTIVE"
+      }
+    ],
+    "mainAddress": {
+      "name": "WESTERN_LATIN_STANDARD",
+      "states": [
+        {
+          "description": "Baden-Wuerttemberg",
+          "validFrom": "2023-06-06T08:18:05.777Z",
+          "validTo": "2024-06-06T08:18:05.777Z",
+          "type": "ACTIVE"
+        }
+      ],
+      "identifiers": [
+        {
+          "value": "123456789",
+          "type": "CUSTOM_SITE_ID"
+        }
+      ],
+      "physicalPostalAddress": {
+        "geographicCoordinates": {
+          "longitude": 0,
+          "latitude": 0,
+          "altitude": 0
         },
-        "bpn": "BPNS000000000001"
-    },
-    {
-        "name": "Factory Sindelfingen",
-        "mainAddress": {
-            "version": {
-                "characterSet": "WESTERN_LATIN_STANDARD",
-                "language": "en"
-            },
-            "country": "DE",
-            "administrativeAreas": [
-                {
-                    "value": "Baden-Wuerttemberg",
-                    "shortName": "BW",
-                    "fipsCode": "GM01",
-                    "type": "REGION"
-                }
-            ],
-            "postCodes": [
-                {
-                    "value": "71034",
-                    "type": "REGULAR"
-                }
-            ],
-            "localities": [
-                {
-                    "value": "Sindelfinden",
-                    "shortName": "BB",
-                    "type": "CITY"
-                }
-            ],
-            "thoroughfares": [
-                {
-                    "value": "Sindelfinger Strasse 1",
-                    "name": "Sindelfinger Strasse",
-                    "shortName": "Sindelfinger Str.",
-                    "number": "1",
-                    "type": "STREET"
-                }
-            ],
-            "premises": [
-                {
-                    "value": "Building 8",
-                    "shortName": "G8",
-                    "number": "8",
-                    "type": "BUILDING"
-                }
-            ],
-            "types": [
-                "UNSPECIFIC"
-            ]
+        "country": "DE",
+        "postalCode": "70327",
+        "city": "Stuttgart",
+        "street": {
+          "name": "Untertuerckheim Strasse 1",
+          "houseNumber": "1234",
+          "milestone": "Untertuerckheim Strasse 1",
+          "direction": "Untertuerckheim Strasse 1"
         },
-        "bpn": "BPNS0000000001YN"
+        "administrativeAreaLevel1": "Baden-Wuerttember",
+        "district": "Stuttgart",
+        "companyPostalCode": "71034",
+        "industrialZone": "Sindelfinden",
+        "building": "Building A",
+        "floor": "A",
+        "door": "1"
+      },
+      "alternativePostalAddress": {
+        "geographicCoordinates": {
+          "longitude": 0,
+          "latitude": 0,
+          "altitude": 0
+        },
+        "country": "DE",
+        "postalCode": "1234",
+        "city": "Stuttgart",
+        "administrativeAreaLevel1": "Stuttgart",
+        "deliveryServiceNumber": "Untertuerckheim Strasse 1",
+        "deliveryServiceType": "PO_BOX",
+        "deliveryServiceQualifier": "test qualifier"
+      }
     }
+  }
 ]'
 ```
 
@@ -1503,165 +1690,63 @@ curl --location --request PUT 'http://localhost:8080/api/catena/addresses' \
 --header 'Content-Type: application/json' \
 --data '[
     {
-        "version": {
-            "characterSet": "WESTERN_LATIN_STANDARD",
-            "language": "en"
+        "bpna": "BPNA000000000001",
+        "name": "WESTERN_LATIN_STANDARD",
+        "states": [
+            {
+                "description": "WESTERN_LATIN_STANDARD",
+                "validFrom": "2020-12-16T05:54:48.942",
+                "validTo": "2023-06-05T07:31:01.213",
+                "type": "ACTIVE"
+            }
+        ],
+        "identifiers": [
+            {
+                "value": "12345678910",
+                "type": "CUSTOM_ID_ADD_TYPE"
+            }
+        ],
+        "physicalPostalAddress": {
+            "geographicCoordinates": {
+                "longitude": 0,
+                "latitude": 0,
+                "altitude": 0
+            },
+            "country": "DE",
+            "postalCode": "70546",
+            "city": "Stuttgart",
+            "street": {
+                "name": "Stuttgarter Strasse",
+                "houseNumber": "1",
+                "milestone": "Stuttgarter Strasse 1",
+                "direction": "Stuttgarter Str."
+            },
+            "administrativeAreaLevel1": null,
+            "administrativeAreaLevel2": "test1",
+            "administrativeAreaLevel3": "test2",
+            "district": "Stuttgart",
+            "companyPostalCode": "GM01",
+            "industrialZone": "HEADQUARTER",
+            "building": "Building A",
+            "floor": "A",
+            "door": "test"
         },
-        "country": "DE",
-        "administrativeAreas": [
-            {
-                "value": "Baden-Wuerttemberg-test",
-                "shortName": "BW",
-                "fipsCode": "GM01",
-                "type": "REGION"
-            }
-        ],
-        "postCodes": [
-            {
-                "value": "70327",
-                "type": "REGULAR"
-            }
-        ],
-        "localities": [
-            {
-                "value": "Stuttgart",
-                "shortName": "S",
-                "type": "CITY"
-            }
-        ],
-        "thoroughfares": [
-            {
-                "value": "Tor Strasse 1",
-                "name": "Tor Strasse",
-                "shortName": "Tor Str.",
-                "number": "1",
-                "type": "STREET"
-            }
-        ],
-        "premises": [
-            {
-                "value": "Gate 1",
-                "shortName": "1",
-                "number": "1",
-                "type": "BUILDING"
-            }
-        ],
-        "types": [
-            "UNSPECIFIC"
-        ],
-        "bpn": "BPNA000000000001"
-    },
-    {
-        "version": {
-            "characterSet": "WESTERN_LATIN_STANDARD",
-            "language": "en"
-        },
-        "country": "DE",
-        "administrativeAreas": [
-            {
-                "value": "Baden-Wuerttemberg",
-                "shortName": "BW",
-                "fipsCode": "GM01",
-                "type": "REGION"
-            }
-        ],
-        "postCodes": [
-            {
-                "value": "80331",
-                "type": "REGULAR"
-            }
-        ],
-        "localities": [
-            {
-                "value": "Bavaria",
-                "shortName": "B",
-                "type": "CITY"
-            }
-        ],
-        "thoroughfares": [
-            {
-                "value": "Standort Strasse 10",
-                "name": "Standort Strasse",
-                "shortName": "Standort Str.",
-                "number": "10",
-                "type": "STREET"
-            }
-        ],
-        "types": [
-            "UNSPECIFIC"
-        ],
-        "bpn": "BPNA0000000001YN"
+        "alternativePostalAddress": {
+            "geographicCoordinates": {
+                "longitude": 0,
+                "latitude": 0,
+                "altitude": 0
+            },
+            "country": "DE",
+            "postalCode": "Stuttgart 1",
+            "city": "string",
+            "administrativeAreaLevel1": "test1",
+            "deliveryServiceNumber": "test2",
+            "deliveryServiceType": "PO_BOX",
+            "deliveryServiceQualifier": "test3"
+        }
     }
 ]'
 ```
 
-Below api reuqest from business partner controller checks changelog on each business partner type and in response controller provide either business partner newly created or updated along with timestamp with filter on provided timestamp. Here, we have added filter for business partner type which we have updated in respective update flow.
-
-Request:
-
-```bash
-curl --location 'http://localhost:8080/api/catena/business-partners/changelog?page=0&size=10&modifiedAfter=2023-03-21T09%3A00%3A25.298594Z&bpn=BPNL000000000001&bpn=BPNS000000000001&bpn=BPNA0000000001YN'
-```
-
-Response:
-
-```bash
-{
-    "totalElements": 10,
-    "totalPages": 1,
-    "page": 0,
-    "contentSize": 10,
-    "content": [
-        {
-            "bpn": "BPNL000000000001",
-            "changelogType": "CREATE",
-            "timestamp": "2023-05-04T11:18:34.911829Z"
-        },
-        {
-            "bpn": "BPNS000000000001",
-            "changelogType": "CREATE",
-            "timestamp": "2023-05-04T11:33:19.068153Z"
-        },
-        {
-            "bpn": "BPNL000000000001",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-08T12:02:38.323393Z"
-        },
-        {
-            "bpn": "BPNA0000000001YN",
-            "changelogType": "CREATE",
-            "timestamp": "2023-05-08T12:41:28.431110Z"
-        },
-        {
-            "bpn": "BPNA0000000001YN",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-08T12:41:44.772685Z"
-        },
-        {
-            "bpn": "BPNL000000000001",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-09T05:13:36.308001Z"
-        },
-        {
-            "bpn": "BPNA0000000001YN",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-09T05:18:45.536015Z"
-        },
-        {
-            "bpn": "BPNS000000000001",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-09T05:23:13.258840Z"
-        },
-        {
-            "bpn": "BPNA0000000001YN",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-09T06:11:08.272858Z"
-        },
-        {
-            "bpn": "BPNA0000000001YN",
-            "changelogType": "UPDATE",
-            "timestamp": "2023-05-09T06:11:21.191976Z"
-        }
-    ]
-}
-```
+Below api reuqest from changelog controller checks changelog on each business partner type and in response controller provide either business partner newly created or updated along with timestamp with filter on provided timestamp. Here, we have added filter for business partner type which we can update in respective update flow same what we did in section 3.2 above.
