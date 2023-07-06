@@ -62,6 +62,14 @@ const sidebars = {
               },
                 items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api/sidebar.js'),
             },
+            {
+              type: "category",
+              label: "Bridge Dummy Api",
+              link: {
+                  type: "generated-index",
+              },
+              items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api/sidebar.js'),
+          },
           ]
         },
         {
