@@ -176,6 +176,14 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          edc_tractusx_api: {
+            specPath: "./openApi/edc/extensions/tractusx-edc-api.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/tractusx-edc-api", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
