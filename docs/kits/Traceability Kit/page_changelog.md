@@ -16,7 +16,10 @@ All notable changes to this Kit will be documented in this file.
 ### Added
 
 - **Adoption View:**
+  - TractionBatteryCode aspect model
   - Information about Verifiable Credentials
+- **Development View:**
+  - TractionBatteryCode aspect model
 
 ### Changed
 
