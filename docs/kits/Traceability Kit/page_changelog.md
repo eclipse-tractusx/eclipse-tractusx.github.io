@@ -15,7 +15,8 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- ./.
+- **Adoption View:**
+  - Information about Verifiable Credentials
 
 ### Changed
 
