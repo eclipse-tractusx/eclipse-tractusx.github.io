@@ -296,6 +296,68 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 > Please note that if a just-in-sequence part is also a serialized part SerialPartTypization should be used instead.
 
+#### Submodel TractionBatteryCode
+
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
+
+##### Submodel "TractionBatteryCode" for a Battery Module
+
+```json
+{
+  "productType": "module",
+  "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+  "subcomponents": [
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+    },
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+    }
+  ]
+}
+```
+
+##### Submodel "TractionBatteryCode" for a Battery Pack
+
+```json
+{
+  "productType": "pack",
+  "tractionBatteryCode": "4A6PCPM27KLPCLE742946319",
+  "subcomponents": [
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+        }
+      ]
+    },
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519858",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382322"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382323"
+        }
+      ]
+    }
+  ]
+}
+```
+
 <!-- Recommended -->
 ## Reference Implementation
 
