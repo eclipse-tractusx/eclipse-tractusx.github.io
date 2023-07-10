@@ -254,7 +254,7 @@ This architecture overview only shows Catena-X Core Services that are directly a
 <!-- Recommended -->
 ## Business Process
 
-To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following.
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the *CX-0018 Sovereign Data Exchange* standard.
 
 ### Access Policies
 
@@ -280,19 +280,24 @@ To decide which company can use the data asset under specific conditions, usage 
 
 #### Purpose-based Usage Policy
 
-It is recommended to restrict the data usage for all traceability aspects. This can be made with the purpose restricted data usage policy. It contains a String as `value` that defines the purpose of usage. Every participant in the Catena-X network must follow these purposes.  To make these purposes legally binding, they are included in different paper-based contracts.
+It is recommended to restrict the data usage for all traceability aspects. This can be made with the purpose restricted data usage policy. It contains a String as `value` that defines the purpose of usage. Every participant in the Catena-X network must follow them. To make these purposes legally binding, they are included in different paper-based contracts.
 
 Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the policy definition API](tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api/edc-policy-definition-api).
+
+For traceability related assets, we strongly recommend using `ID 3.2 Trace` as the value of the key `value` of the `rightExpression` in the policy. The definition and purpose behind "ID 3.2 Trace" is defined in a paper-based contract created by the [Catena-X association](https://catena-x.net/en/about-us/the-association) and signed by the use case participants. This enables the connection between a technical payload and a legally binding contract.
 
 ### Contract Definitions
 
 In the EDC, every policy is associated with a contract. Thus, a contract definition is needed. Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the contract definition API](../tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api/edc-contract-definition-api).
+
+When using an above mentioned [Access Policy](#access-policies), their `id` needs to be included as a value of the `accessPolicyId` key in the contract definition. When using an above mentioned [Usage Policy](#usage-policies), their `id` needs to be included as a value of the `contractPolicyId` key in the contract definition.
 
 <!-- !Mandatory! -->
 ## Standards
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
+- [CX - 0018 Sovereign Data Exchange](https://catena-x.net/de/standard-library)
 - [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
