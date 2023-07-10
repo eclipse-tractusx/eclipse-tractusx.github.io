@@ -412,27 +412,7 @@ The following conventions for specificAssetId apply to all digital twins:
     <td> customerPartId </td>
     <td> Optional </td>
     <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is <em>recommended</em> to always add the customerPartId for easier lookup.<br/>
-    If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
-    Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
-    Access to customerPartId only for BPNL1234:
 
-```json
-{
-  "key": "customerPartId",
-  "value": "39192",
-  "externalSubjectId": "BPNL1234"
-}
-```
-
-In case multiple companies shall have access, each company must be provided in a triple consisting of key, value and externalSubjectId.
-If no access control shall be applied, externalSubjectId must be omitted (no access control for `customerPartId`):
-
-```json
-{
-  "key": "customerPartId",
-  "value": "39192"
-}
-```
 
   </td>
     <td> String </td>
@@ -470,6 +450,43 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
 
 > :raised_hand: **Lookup of Digital Twins**
 The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
+
+##### Authorization: Visbility of Specific Asset IDs in the DTR
+
+To prevent anti-trust relevant data from being exposed, the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part . For that, the attribute `externalSubjectId` must be used.
+
+- Every entry in the attribute specificAssetId must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
+- If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
+- If no `externalSubjectId` is specified, the entry will not be visible to anyone by default. 
+
+**Example: Visibility of customerPartId only for company with BPN BPNL000000000AAA:**
+
+```json
+"specificAssetId": [
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": "BPNL000000000AAA"
+  }
+]
+```
+
+**Example: Visibility of customerPartId for two companies:**
+
+```json
+"specificAssetId": [
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": "BPNL000000000AAA"
+  },
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": "BPNL000000000ZZZ"
+  }
+]
+```
 
 ##### Submodel Descriptors
 
