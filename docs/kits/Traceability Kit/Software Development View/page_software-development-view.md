@@ -453,37 +453,52 @@ The lookup for parts can use the customerPartId or the manufacturerPartId. Both,
 
 ##### Authorization: Visbility of Specific Asset IDs in the DTR
 
-To prevent anti-trust relevant data from being exposed, the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part . For that, the attribute `externalSubjectId` must be used.
+To enforce a strict need-to-know   (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
 
-- Every entry in the attribute specificAssetId must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
+- _Every entry_ in the attribute specificAssetId (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
 - If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
 - If no `externalSubjectId` is specified, the entry will not be visible to anyone by default. 
 
-**Example: Visibility of customerPartId only for company with BPN BPNL000000000AAA:**
+###### Example: Visibility of manufacturerId and customerPartId only for company with BPN BPNL000000000XXX
 
 ```json
 "specificAssetId": [
   {
-    "key": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": "BPNL000000000AAA"
-  }
-]
-```
-
-**Example: Visibility of customerPartId for two companies:**
-
-```json
-"specificAssetId": [
-  {
-    "key": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": "BPNL000000000AAA"
+    "key": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": "BPNL000000000XXX"
   },
   {
     "key": "customerPartId",
     "value": "39192",
-    "externalSubjectId": "BPNL000000000ZZZ"
+    "externalSubjectId": "BPNL000000000XXX"
+  }
+]
+```
+
+###### Example: Visibility of manufacturerId and customerPartId for two companies
+
+```json
+"specificAssetId": [
+  {
+    "key": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": "BPNL000000000XXX"
+  },
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": "BPNL000000000XXX"
+  },
+  {
+    "key": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": "BPNL000000000YYY"
+  },
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": "BPNL000000000YYY"
   }
 ]
 ```
