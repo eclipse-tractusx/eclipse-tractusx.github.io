@@ -13,7 +13,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Initial version of the Kit including adoption, operation and development view + all relevant API specifications.
+- Initial version of the Kit including adoption, operation and development view incl. all relevant API specifications.
 
 ### Changed
 
