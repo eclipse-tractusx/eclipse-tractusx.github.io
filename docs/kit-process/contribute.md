@@ -105,3 +105,11 @@ It may be the case that you already started the development of your KIT outside 
      `git push -u origin main`
 
 After moving your content to the new repository you should make your old repositry as read-only and add a link to the new repositry to your Readme. You find this option within the settings of your repository in the "Danger Zone" at the bottom of your settings page. Note that for other git providers this may be reached in different ways.
+
+## How to request a artefact/request review?
+
+Raise an Issue within the Tractus-X Repository and add a decription where to find the artefact/devliverable.
+
+## How to request a promotion?
+
+Raise an Issue within the Tractus-X Repository and request an promotion to the the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
