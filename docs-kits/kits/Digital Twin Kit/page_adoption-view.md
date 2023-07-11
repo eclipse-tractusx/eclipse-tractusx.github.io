@@ -30,7 +30,7 @@ The Digital Twin Kit bundles the necessary standards, APIs, interaction patterns
 to build a Digital Twin for an asset. By adopting established standards and integrating them, the Digital Twin Kit leverages
 the conceptual and implementation work of existing communities while contributing feedback and Open-Source-Contributions
 back to the public. A priority is the seamless integration with other Catena-X developments such as the
-[Connector Kit](../docs-kits/kits/tractusx-edc/README.md).
+[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit).
 
 ### Customer Journey
 
@@ -42,7 +42,7 @@ are given the necessary tooling to format their data and APIs in a standardized 
 
 Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty, 
 authorization, authentication must be agreed upon and implemented. That is covered by the 
-[Connector Kit](../docs-kits/kits/tractusx-edc/README.md) and the
+[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the
 services it relies on. What this Kit adds is a set of technologies that reduce the integration efforts on the 
 data level. Data Consumers can develop their applications against data formats that are standardized and reuse 
 them independent of whom they will consume the data from. This reduces the necessary investment significantly 
