@@ -232,7 +232,6 @@ The aspect provides the information of the Traction battery code of a battery ce
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
 
-
 <!-- Recommended -->
 ## Logic & Schema
 
