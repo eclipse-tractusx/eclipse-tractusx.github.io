@@ -45,9 +45,6 @@ these, a consumer app will find information WHAT it will find (via the semanticI
 security setup etc.). As the information contained in the DTR may be sensitive and not be trusted with a central entity,
 every data provider must offer his own DTR as an EDC Data Asset.
 
-[AASR](https://app.swaggerhub.com/apis/Plattform_i40/AssetAdministrationShellRegistryServiceSpecification/V3.0_SSP-002)
-[Discovery](https://app.swaggerhub.com/apis/Plattform_i40/DiscoveryServiceSpecification/V3.0_SSP-001)
-
 ### Catena-X specific Services
 
 The AAS-specification makes the implicit assumption that only one DTR serves the entire network and is known
