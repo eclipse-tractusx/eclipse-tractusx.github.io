@@ -6,7 +6,7 @@
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.3.0] - 2023-07-07
+## [0.4.0] - 2023-07-07
 
 ### Added
 
@@ -28,7 +28,7 @@ All notable changes to this Kit will be documented in this file.
 - unused files like charts, values.yaml
 - decision records
 
-## [1.2.0] - 2023-05-16
+## [0.3.0] - 2023-05-16
 
 ### Added
 
@@ -43,7 +43,7 @@ All notable changes to this Kit will be documented in this file.
 - chart documentation for tractusx-connector-app
 - unused files like charts, values.yaml
 
-## [1.1.0] - 2023-04-28
+## [0.2.0] - 2023-04-28
 
 ### Added
 
@@ -62,7 +62,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Removed
 
-## [1.0.0] - 2023-03-01
+## [0.1.0] - 2023-03-01
 
 ### Added
 
