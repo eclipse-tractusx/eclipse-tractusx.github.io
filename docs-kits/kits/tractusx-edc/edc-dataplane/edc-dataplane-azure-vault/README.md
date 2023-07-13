@@ -1,9 +1,5 @@
 # EDC Data-Plane with Azure Key Vault
 
-## Used Components
-
-- [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview)
-
 ## Building
 
 ```shell

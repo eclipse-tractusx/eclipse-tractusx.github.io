@@ -2,7 +2,7 @@
 
 This content is produced and maintained by the Eclipse Tractus-X project.
 
-* Project home: https://projects.eclipse.org/projects/automotive.tractusx
+* Project home: <https://projects.eclipse.org/projects/automotive.tractusx>
 
 See the AUTHORS file(s) distributed with this work for additional information regarding authorship.
 
@@ -20,16 +20,16 @@ source code repository logs.
 
 This program and the accompanying materials are made available under the terms
 of the Apache License, Version 2.0 which is available at
-https://www.apache.org/licenses/LICENSE-2.0.
+<https://www.apache.org/licenses/LICENSE-2.0>.
 
 SPDX-License-Identifier: Apache-2.0
 
 ## Source Code
 
 The project maintains the following source code repositories
-in the GitHub organization https://github.com/eclipse-tractusx:
+in the GitHub organization <https://github.com/eclipse-tractusx>:
 
-* https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+* <https://github.com/eclipse-tractusx/eclipse-tractusx.github.io>
 
 ## Third-party Content
 
@@ -37,7 +37,7 @@ This project leverages the following third party content.
 
 See DEPENDENCIES file.
 
-In addtion, we use 'Manrope' as font. Copyright (c) Mikhail Sharanda (https://github.com/sharanda/manrope), with Reserved Font Name 'Manrope' under the SIL Open Font License 1.1 (OFL-1.1) see https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+In addtion, we use 'Manrope' as font. Copyright (c) Mikhail Sharanda (<https://github.com/sharanda/manrope>), with Reserved Font Name 'Manrope' under the SIL Open Font License 1.1 (OFL-1.1) see <https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL>
 
 ## Cryptography
 

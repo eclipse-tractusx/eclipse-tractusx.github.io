@@ -1,6 +1,6 @@
 # tractusx-connector-azure-vault
 
-![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.3](https://img.shields.io/badge/AppVersion-0.3.3-informational?style=flat-square)
+![Version: 0.5.0-rc5](https://img.shields.io/badge/Version-0.5.0--rc5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.5.0-rc5](https://img.shields.io/badge/AppVersion-0.5.0--rc5-informational?style=flat-square)
 
 A Helm chart for Tractus-X Eclipse Data Space Connector. The connector deployment consists of two runtime consists of a
 Control Plane and a Data Plane. Note that _no_ external dependencies such as a PostgreSQL database and Azure KeyVault are included.
@@ -9,36 +9,46 @@ This chart is intended for use with an _existing_ PostgreSQL database and an _ex
 
 **Homepage:** <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
 
-This chart uses Azure KeyVault, which is expected to contain the following secrets on application start:
+## Setting up SSI
 
-- `daps-cert`: contains the x509 certificate of the connector.
-- `daps-key`: the private key of the x509 certificate
-- `aes-keys`: a 128bit, 256bit or 512bit string used to encrypt data. Must be stored in base64 format.
+### Preconditions
 
-These must be obtained from a DAPS instance, the process of which is out of the scope of this document. Alternatively,
-self-signed certificates can be used for testing:
+- the Managed Identity Walled (MIW) must be running and reachable via network
+- the necessary set of VerifiableCredentials for this participant must be pushed to MIW. This is typically done by the
+  Portal during participant onboarding
+- KeyCloak must be running and reachable via network
+- an account with KeyCloak must be created for this BPN and the connector must be able to obtain access tokens
+- the client ID and client secret corresponding to that account must be known
 
-```shell
-openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout daps.key -out daps.cert -subj "/CN=test"
-export DAPS_KEY="$(cat daps.key)"
-export DAPS_CERT="$(cat daps.cert)"
-```
+### Preparatory work
 
-## Launching the application
+- store your KeyCloak client secret in the Azure KeyVault. The exact procedure is as follows:
 
-The following requirements must be met before launching the application:
+ ```bash
+ az keyvault secret set --vault-name <YOUR_VAULT_NAME> --name client-secret --value "$YOUR_CLIENT_SECRET"
+ ```
 
-- Write access to an Azure KeyVault instance is required to run this chart
-- Secrets are seeded in advance
-- The vault's client id, client secret, tenant id and vault name (not the url!) are known
+ By default, Tractus-X EDC expects to find the secret under `client-secret`.
 
-Please also consider using [this example configuration](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/edc-tests/deployment/src/main/resources/helm/tractusx-connector-azure-vault-test.yaml)
-to launch the application.
+### Configure the chart
+
+Be sure to provide the following configuration entries to your Tractus-X EDC Helm chart:
+
+- `controlplane.ssi.miw.url`: the URL
+- `controlplane.ssi.miw.authorityId`: the BPN of the issuer authority
+- `controlplane.ssi.oauth.tokenurl`: the URL (of KeyCloak), where access tokens can be obtained
+- `controlplane.ssi.oauth.client.id`: client ID for KeyCloak
+- `controlplane.ssi.oauth.client.secretAlias`: the alias under which the client secret is stored in the vault. Defaults to `client-secret`.
+
+### Launching the application
+
+As an easy starting point, please consider using [this example configuration](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/edc-tests/deployment/src/main/resources/helm/tractusx-connector-test.yaml)
+to launch the application. The configuration values mentioned above (`controlplane.ssi.*`) will have to be adapted manually.
 Combined, run this shell command to start the in-memory Tractus-X EDC runtime:
 
 ```shell
 helm repo add tractusx-edc https://eclipse-tractusx.github.io/charts/dev
-helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.3.3 \
+helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.5.0-rc5 \
      -f <path-to>/tractusx-connector-azure-vault-test.yaml \
      --set vault.azure.name=$AZURE_VAULT_NAME \
      --set vault.azure.client=$AZURE_CLIENT_ID \
@@ -46,11 +56,15 @@ helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.
      --set vault.azure.tenant=$AZURE_TENANT_ID
 ```
 
-Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the private key.
-
 ## Source Code
 
 - <https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector>
+
+## Requirements
+
+| Repository | Name | Version |
+|------------|------|---------|
+| <https://charts.bitnami.com/bitnami> | postgresql(postgresql) | 12.1.6 |
 
 ## Values
 
@@ -67,7 +81,7 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | controlplane.debug.enabled | bool | `false` |  |
 | controlplane.debug.port | int | `1044` |  |
 | controlplane.debug.suspendOnStart | bool | `false` |  |
-| controlplane.endpoints | object | `{"control":{"path":"/control","port":8083},"default":{"path":"/api","port":8080},"management":{"authKey":"","path":"/management","port":8081},"metrics":{"path":"/metrics","port":9090},"observability":{"insecure":true,"path":"/observability","port":8085},"protocol":{"path":"/api/v1/ids","port":8084}}` | endpoints of the control plane |
+| controlplane.endpoints | object | `{"control":{"path":"/control","port":8083},"default":{"path":"/api","port":8080},"management":{"authKey":"","path":"/management","port":8081},"metrics":{"path":"/metrics","port":9090},"protocol":{"path":"/api/v1/dsp","port":8084}}` | endpoints of the control plane |
 | controlplane.endpoints.control | object | `{"path":"/control","port":8083}` | control api, used for internal control calls. can be added to the internal ingress, but should probably not |
 | controlplane.endpoints.control.path | string | `"/control"` | path for incoming api calls |
 | controlplane.endpoints.control.port | int | `8083` | port for incoming api calls |
@@ -81,12 +95,8 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | controlplane.endpoints.metrics | object | `{"path":"/metrics","port":9090}` | metrics api, used for application metrics, must not be internet facing |
 | controlplane.endpoints.metrics.path | string | `"/metrics"` | path for incoming api calls |
 | controlplane.endpoints.metrics.port | int | `9090` | port for incoming api calls |
-| controlplane.endpoints.observability | object | `{"insecure":true,"path":"/observability","port":8085}` | observability api with unsecured access, must not be internet facing |
-| controlplane.endpoints.observability.insecure | bool | `true` | allow or disallow insecure access, i.e. access without authentication |
-| controlplane.endpoints.observability.path | string | `"/observability"` | observability api, provides /health /readiness and /liveness endpoints |
-| controlplane.endpoints.observability.port | int | `8085` | port for incoming API calls |
-| controlplane.endpoints.protocol | object | `{"path":"/api/v1/ids","port":8084}` | ids api, used for inter connector communication and must be internet facing |
-| controlplane.endpoints.protocol.path | string | `"/api/v1/ids"` | path for incoming api calls |
+| controlplane.endpoints.protocol | object | `{"path":"/api/v1/dsp","port":8084}` | ids api, used for inter connector communication and must be internet facing |
+| controlplane.endpoints.protocol.path | string | `"/api/v1/dsp"` | path for incoming api calls |
 | controlplane.endpoints.protocol.port | int | `8084` | port for incoming api calls |
 | controlplane.env | object | `{}` |  |
 | controlplane.envConfigMapNames | list | `[]` |  |
@@ -100,7 +110,7 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | controlplane.ingresses[0].certManager.issuer | string | `""` | If preset enables certificate generation via cert-manager namespace scoped issuer |
 | controlplane.ingresses[0].className | string | `""` | Defines the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)  to use |
 | controlplane.ingresses[0].enabled | bool | `false` |  |
-| controlplane.ingresses[0].endpoints | list | `["ids"]` | EDC endpoints exposed by this ingress resource |
+| controlplane.ingresses[0].endpoints | list | `["protocol"]` | EDC endpoints exposed by this ingress resource |
 | controlplane.ingresses[0].hostname | string | `"edc-control.local"` | The hostname to be used to precisely map incoming traffic onto the underlying network service |
 | controlplane.ingresses[0].tls | object | `{"enabled":false,"secretName":""}` | TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource |
 | controlplane.ingresses[0].tls.enabled | bool | `false` | Enables TLS on the ingress resource |
@@ -154,15 +164,16 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | controlplane.securityContext.runAsUser | int | `10001` | The container's process will run with the specified uid |
 | controlplane.service.annotations | object | `{}` |  |
 | controlplane.service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
+| controlplane.ssi.miw.authorityId | string | `""` |  |
+| controlplane.ssi.miw.url | string | `""` |  |
+| controlplane.ssi.oauth.client.id | string | `""` |  |
+| controlplane.ssi.oauth.client.secretAlias | string | `"client-secret"` |  |
+| controlplane.ssi.oauth.tokenurl | string | `""` |  |
 | controlplane.tolerations | list | `[]` |  |
 | controlplane.url.ids | string | `""` | Explicitly declared url for reaching the ids api (e.g. if ingresses not used) |
 | controlplane.volumeMounts | list | `[]` | declare where to mount [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) into the container |
 | controlplane.volumes | list | `[]` | [volume](https://kubernetes.io/docs/concepts/storage/volumes/) directories |
 | customLabels | object | `{}` |  |
-| daps.clientId | string | `""` |  |
-| daps.paths.jwks | string | `"/jwks.json"` |  |
-| daps.paths.token | string | `"/token"` |  |
-| daps.url | string | `""` |  |
 | dataplane.affinity | object | `{}` |  |
 | dataplane.autoscaling.enabled | bool | `false` | Enables [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) |
 | dataplane.autoscaling.maxReplicas | int | `100` | Maximum replicas if resource consumption exceeds resource threshholds |
@@ -181,9 +192,8 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | dataplane.endpoints.default.port | int | `8080` |  |
 | dataplane.endpoints.metrics.path | string | `"/metrics"` |  |
 | dataplane.endpoints.metrics.port | int | `9090` |  |
-| dataplane.endpoints.observability.insecure | bool | `true` | allow or disallow insecure access, i.e. access without authentication |
-| dataplane.endpoints.observability.path | string | `"/observability"` | observability api, provides /health /readiness and /liveness endpoints |
-| dataplane.endpoints.observability.port | int | `8085` | port for incoming API calls |
+| dataplane.endpoints.proxy.path | string | `"/proxy"` |  |
+| dataplane.endpoints.proxy.port | int | `8186` |  |
 | dataplane.endpoints.public.path | string | `"/api/public"` |  |
 | dataplane.endpoints.public.port | int | `8081` |  |
 | dataplane.env | object | `{}` |  |
@@ -242,25 +252,30 @@ Note that `DAPS_CERT` contains the x509 certificate, `DAPS_KEY` contains the pri
 | dataplane.volumes | list | `[]` | [volume](https://kubernetes.io/docs/concepts/storage/volumes/) directories |
 | fullnameOverride | string | `""` |  |
 | imagePullSecrets | list | `[]` | Existing image pull secret to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
+| install.postgresql | bool | `true` |  |
 | nameOverride | string | `""` |  |
+| participant.id | string | `""` |  |
+| postgresql.auth.database | string | `"edc"` |  |
+| postgresql.auth.password | string | `"password"` |  |
+| postgresql.auth.username | string | `"user"` |  |
 | postgresql.enabled | bool | `false` |  |
-| postgresql.jdbcUrl | string | `""` |  |
-| postgresql.password | string | `""` |  |
-| postgresql.username | string | `""` |  |
+| postgresql.jdbcUrl | string | `"jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/edc"` |  |
+| postgresql.primary.persistence | string | `nil` |  |
+| postgresql.readReplicas.persistence.enabled | bool | `false` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.imagePullSecrets | list | `[]` | Existing image pull secret bound to the service account to use to [obtain the container image from private registries](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry) |
 | serviceAccount.name | string | `""` |  |
+| tests | object | `{"hookDeletePolicy":"before-hook-creation,hook-succeeded"}` | Configurations for Helm tests |
+| tests.hookDeletePolicy | string | `"before-hook-creation,hook-succeeded"` | Configure the hook-delete-policy for Helm tests |
 | vault.azure.certificate | string | `nil` |  |
 | vault.azure.client | string | `""` |  |
 | vault.azure.name | string | `""` |  |
 | vault.azure.secret | string | `nil` |  |
 | vault.azure.tenant | string | `""` |  |
-| vault.secretNames.dapsPrivateKey | string | `"daps-private-key"` |  |
-| vault.secretNames.dapsPublicKey | string | `"daps-public-key"` |  |
 | vault.secretNames.transferProxyTokenEncryptionAesKey | string | `"transfer-proxy-token-encryption-aes-key"` |  |
-| vault.secretNames.transferProxyTokenSignerPrivateKey | string | `"transfer-proxy-token-signer-private-key"` |  |
-| vault.secretNames.transferProxyTokenSignerPublicKey | string | `"transfer-proxy-token-signer-public-key"` |  |
+| vault.secretNames.transferProxyTokenSignerPrivateKey | string | `nil` |  |
+| vault.secretNames.transferProxyTokenSignerPublicKey | string | `nil` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.10.0](https://github.com/norwoodj/helm-docs/releases/v1.10.0)

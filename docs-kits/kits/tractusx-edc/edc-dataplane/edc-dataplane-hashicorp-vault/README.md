@@ -1,9 +1,5 @@
 # EDC Data-Plane Hashicorp Vault
 
-## Used Components
-
-- [Hashicorp Vault](https://www.vaultproject.io/)
-
 ## Building
 
 ```shell

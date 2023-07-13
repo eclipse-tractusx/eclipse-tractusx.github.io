@@ -6,7 +6,29 @@
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.2.0] - 2023-05-16
+## [0.4.0] - 2023-07-07
+
+### Added
+
+- documentation to deal with the new managament-api
+- documentation to deal with the new SSI
+- tractusx-edc open api documentation
+- legacy connector documentation which works with daps
+- migration guide to edc version 0.5.x
+
+### Changed
+
+- helm charts reference now to the edc version 0.5.0-rc5
+- restructuring of the openAPI documentation
+- postmancollection contains the new management-api
+
+### Removed
+
+- chart documentation for tractusx-connector-app
+- unused files like charts, values.yaml
+- decision records
+
+## [0.3.0] - 2023-05-16
 
 ### Added
 
@@ -21,7 +43,7 @@ All notable changes to this Kit will be documented in this file.
 - chart documentation for tractusx-connector-app
 - unused files like charts, values.yaml
 
-## [1.1.0] - 2023-04-28
+## [0.2.0] - 2023-04-28
 
 ### Added
 
@@ -40,7 +62,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Removed
 
-## [1.0.0] - 2023-03-01
+## [0.1.0] - 2023-03-01
 
 ### Added
 
