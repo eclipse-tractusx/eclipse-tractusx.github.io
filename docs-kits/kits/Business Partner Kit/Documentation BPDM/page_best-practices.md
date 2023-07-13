@@ -9,7 +9,7 @@ Depending on usage, we have categorized best practices for two types of user.
 
 ## Running BPDM service locally
 
-1. Ensure that you have all the prerequisites installed before attempting to run the BPDM service. These include Maven, JDK17, PostgreSQL 14.2, OpenSearch 2.1.0, Keycloak 17.0.0, and a connection to an SaaS.
+1. Ensure that you have all the prerequisites installed before attempting to run the BPDM service. These include Maven, JDK17, PostgreSQL 14.2, OpenSearch 2.1.0 and Keycloak 17.0.0.
 
 2. Follow the instructions provided in the [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) and [README.md](https://github.com/eclipse-tractusx/bpdm/blob/main/README.md) files carefully to ensure that you install and configure the service correctly.
 
@@ -17,11 +17,11 @@ Depending on usage, we have categorized best practices for two types of user.
 
 4. Ensure that you have a Postgresql database and an Opensearch instance available to connect to before attempting to run the service or you can use existing config using [docker-compose.yml](https://github.com/eclipse-tractusx/bpdm/blob/main/docker-compose.yml).
 
-5. Check the configuration files, such as application.properties, application-auth.properties, and application-saas.properties, to ensure that they are correctly configured for your environment.
+5. Check the configuration files, such as application.properties and application-auth.properties to ensure that they are correctly configured for your environment.
 
-6. Use the REST API documentation provided at <http://localhost:8080/api/swagger-ui> and <http://localhost:8081/api/swagger-ui> for the BPDM Pool and Gate respectively to familiarize yourself with the API and to test your setup.
+6. Use the REST API documentation provided at <http://localhost:8080/ui/swagger-ui/index.html#/>, <http://localhost:8081/ui/swagger-ui/index.html#/> and <http://localhost:8083/ui/swagger-ui/index.html#/> for the BPDM Pool, Gate and Bridge dummy respectively to familiarize yourself with the API and to test your setup.
 
-7. Use the profiles, such as default, auth, and saas, provided by the service to configure it for your specific use case.
+7. Use the profiles, such as default and auth provided by the service to configure it for your specific use case.
 
 8. Ensure that you have a connection to the BPDM Pool API if you plan to use the BPDM Gate. Follow standard security practices when deploying the BPDM service, such as securing access to the service, and securing access to any data or credentials used by the service.
 

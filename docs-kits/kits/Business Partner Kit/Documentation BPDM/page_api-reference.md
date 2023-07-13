@@ -61,7 +61,7 @@ The Address Controller is the controller that updates, creates, or retrieves bus
 | [Update existing address business partners](../Software%20Development%20View/Pool%20Api/update-addresses.api.mdx) |
 | [Create new address business partners](../Software%20Development%20View/Pool%20Api/create-addresses.api.mdx) |
 | [Search address partners by BPNs and/or parent BPNs](../Software%20Development%20View/Pool%20Api/search-addresses.api.mdx) |
-| [Get address partners by bpn](../Software%20Development%20View/Pool%20Api/get-address.api.mdx) |
+| [Get address partners by bpna](../Software%20Development%20View/Pool%20Api/get-address.api.mdx) |
 
 ### 4. Open Search Controller
 
@@ -81,29 +81,25 @@ The Metadata Controller can retrieve and create legal forms, new issuing bodies,
 | :----------- |
 | [Get page of legal forms](../Software%20Development%20View/Pool%20Api/get-legal-forms.api.mdx) |
 | [Create new legal form](../Software%20Development%20View/Pool%20Api/create-legal-form.api.mdx) |
-| [Get page of issuing bodies](../Software%20Development%20View/Pool%20Api/get-issuing-bodies.api.mdx) |
-| [Create new issuing body](../Software%20Development%20View/Pool%20Api/create-issuing-body.api.mdx) |
 | [Get page of identifier types](../Software%20Development%20View/Pool%20Api/get-identifier-types.api.mdx) |
 | [Create new identifier type](../Software%20Development%20View/Pool%20Api/create-identifier-type.api.mdx) |
-| [Get page of identifier statuses](../Software%20Development%20View/Pool%20Api/get-identifier-stati.api.mdx) |
-| [Create new identifier status](../Software%20Development%20View/Pool%20Api/create-identifier-status.api.mdx) |
-| [Get valid identifier types for a country](../Software%20Development%20View/Pool%20Api/get-valid-identifier-types-for-country.api.mdx) |
+| [Get all field quality rules filtered by country](../Software%20Development%20View/Pool%20Api/get-field-quality-rules.api.mdx) |
 
-### 6. BPN Controller
+### 6. Changelog Controller
 
-The BPN Controller can retrieve business partner numbers by identifiers. The request is limited to 5000 entries. The hyperlink in below record gives you more information about api endpoint.
+The changelog Controller can retrieve business partner changelog entries from time, by BPN and/or LSA type. The hyperlink in below record gives you more information about api endpoint.
+
+| Changelog Controller Api|
+| :----------- |
+| [Get business partner changelog entries from time, by BPN and/or LSA type](../Software%20Development%20View/Pool%20Api/get-changelog-entries.api.mdx) |
+
+### 7. BPN Controller
+
+The BPN Controller retrieves business partner numbers by identifiers. The response can contain less results than the number of identifier values that were requested, if some of the identifiers did not exist. For a single request, the maximum number of identifier values to search for is limited to ${bpdm.bpn.search-request-limit} entries. The hyperlink in below record gives you more information about api endpoint.
 
 | BPN Controller Api|
 | :----------- |
 | [Find business partner numbers by identifiers](../Software%20Development%20View/Pool%20Api/find-bpns-by-identifiers.api.mdx) |
-
-### 7. Business Partner Controller
-
-The Business Partner Controller retrieves the change log entries per business partner number. The business partner number is a required field to execute the search. The hyperlink in below record gives you more information about api endpoint.
-
-| Business Partner Controller Api|
-| :----------- |
-| [Get business partner changelog entries by bpn](../Software%20Development%20View/Pool%20Api/get-changelog-entries.api.mdx) |
 
 ## BPDM Gate Api reference
 
@@ -118,59 +114,82 @@ The Business Partner Data Management Gate includes the services that managesto s
 | GET | Search for the best match |
 | DELETE | Deletes all the records in the controller, resets the timestamp|
 
-Gate service consist of five major controllers which are listed below.  
+Gate service consist of five major controllers which are listed below.
 
-### 1. Site Controller
+### 1. Sharing-state Controller
+
+The Sharing-state Controller is the controller that updates, or retrieves business partners of any type (referenced via LSA Type or External identifiers). There are PUT and GET requests possible.
+
+| Sharing-state Controller Api|
+| :----------- |
+| [Get sharing states](../Software%20Development%20View/Gate%20Api/get-sharing-states.api.mdx) |
+| [Insert/update sharing state](../Software%20Development%20View/Gate%20Api/upsert-sharing-state.api.mdx) |
+
+### 2. Site Controller
 
 The Site Controller is the controller that creates, updates, or retrieves business partners of type site (referenced via BPNS). There are PUT, POST and GET requests possible.
 
 | Site Controller Api|
 | :----------- |
+| [Create or update sites (Output)](../Software%20Development%20View/Gate%20Api/upsert-sites-output.api.mdx) |
 | [Get page of sites](../Software%20Development%20View/Gate%20Api/get-sites.api.mdx) |
 | [Create or update sites](../Software%20Development%20View/Gate%20Api/upsert-sites.api.mdx) |
 | [Get page of sites. Can optionally be filtered by external ids](../Software%20Development%20View/Gate%20Api/get-sites-output.api.mdx) |
-| [Validate a site](../Software%20Development%20View/Gate%20Api/validate-site.api.mdx) |
+| [Get page of sites filtered by a collection of externalIds.](../Software%20Development%20View/Gate%20Api/get-sites-by-external-ids.api.mdx) |
 | [Get site by external identifier](../Software%20Development%20View/Gate%20Api/get-site-by-external-id.api.mdx) |
 
-### 2. legal Entity Controller
+### 3. legal Entity Controller
 
 The Legal Entity Controller calls, searches, creates or updates existing business partners of type legal entity (referenced via BPNL). There are PUT, POST and GET requests possible. Some of the requests need a obligatory parameter, like external id.
 
 | legal Entity Controller |
 | :----------- |
+| [Create or update legal entities (Output).](../Software%20Development%20View/Gate%20Api/upsert-legal-entities-output.api.mdx) |
 | [Get page of legal entities](../Software%20Development%20View/Gate%20Api/get-legal-entities.api.mdx) |
 | [Create or update legal entities.](../Software%20Development%20View/Gate%20Api/upsert-legal-entities.api.mdx) |
 | [Get page of legal entities. Can optionally be filtered by external ids](../Software%20Development%20View/Gate%20Api/get-legal-entities-output.api.mdx) |
-| [Validate a legal entity](../Software%20Development%20View/Gate%20Api/validate-legal-entity.api.mdx) |
+| [Get page of legal-entities filtered by a collection of externalIds](../Software%20Development%20View/Gate%20Api/get-legal-entities-by-external-ids.api.mdx) |
 | [Get legal entity by external identifier](../Software%20Development%20View/Gate%20Api/get-legal-entity-by-external-id.api.mdx) |
 
-### 3. Address Controller
+### 4. Address Controller
 
 The Address Controller is the controller that updates, creates, or retrieves business partner records of type address via BPNA. There are PUT, POST and GET requests possible.
 
 | Address Controller |
 | :----------- |
+| [Create or update addresses (Output).](../Software%20Development%20View/Gate%20Api/put-addresses-output.api.mdx) |
 | [Get page of addresses](../Software%20Development%20View/Gate%20Api/get-addresses.api.mdx) |
 | [Create or update addresses](../Software%20Development%20View/Gate%20Api/upsert-addresses.api.mdx) |
 | [Get page of addresses. Can optionally be filtered by external ids.](../Software%20Development%20View/Gate%20Api/get-addresses-output.api.mdx) |
-| [Validate an address partner](../Software%20Development%20View/Gate%20Api/validate-site-1.api.mdx) |
+| [Get page of addresses filtered by a collection of externalIds.](../Software%20Development%20View/Gate%20Api/get-addresses-by-external-ids.api.mdx) |
 | [Get address by external identifier](../Software%20Development%20View/Gate%20Api/get-address-by-external-id.api.mdx) |
-
-### 4. Business Partner Controller
-
-The business partner controller is controller that determines its likely type of either legal entity, site or address. It is possible that no type could be determined.
-The candidate needs to contain either a name or an identifier as a minimum requirement.
-
-| Business Partner Controller |
-| :----------- |
-| [Determine the LSA type of a business partner candidate](../Software%20Development%20View/Gate%20Api/determine-lsa-type.api.mdx) |
 
 ### 5. Changelog controller
 
 The changelog controller is controller that gets business partner changelog entries by list of external id from timestamp.
-Only two POST api's available for search of business partner changelog details.
+Only two POST api's available for search of business partner changelog details for input and output respectively.
 
-| Changelog Controller | Description |
-| :----------- | :----------- |
-| POST /api/catena/business-partners/changelog/search | Retrive business partner changelog entries by list external id, from timestamp |
-| POST /api/catena/business-partners/changelog/filter | RGet business partner changelog entries by from timestamp or Legal Entity, Site or Address type |
+| Changelog Controller |
+| :----------- |
+| [Get business partner changelog entries for changes to the business partner output data.](../Software%20Development%20View/Gate%20Api/get-output-changelog.api.mdx) |
+| [Get business partner changelog entries for changes to the business partner input data.](../Software%20Development%20View/Gate%20Api/get-input-changelog.api.mdx) |
+
+## BPDM Bridge Dummy Api reference
+
+The Business Partner Data Management Bridge Dummy includes the services that sync business partner data between Gate and Pool Service. In the following sections, the available methods and different controllers of the API are explained.
+
+### Available Methods
+
+| Request Method | Request Description|
+| :----------- | :------------: |
+| POST| Sync between Gate and Pool |
+
+Bridge Dummy service consist of only one controllers which is listed below.
+
+### 1. Bridge Controller
+
+Bridge Controller is controller that perfom sync between Gate and Pool. There is only one api end point which is as mentioned below.
+
+| Bridge Controller API |
+| :----------- |
+| [Start sync between Gate and Pool](../Software%20Development%20View/Bridge%20Dummy%20Api/trigger-sync.api.mdx) |
