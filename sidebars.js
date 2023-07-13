@@ -60,8 +60,7 @@ const sidebars = {
           ],
       },
       'github-checks',
-      'dev_links',
-      'dev_faq'
+      'dev_links'
   ],
 };
 
