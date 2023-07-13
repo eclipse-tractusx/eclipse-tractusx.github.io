@@ -24,4 +24,9 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 
 ## Ports, Firewall and Proxy Configuration
 
-TODO: Add list
+-> Wenn möglich dann in public cloud. 
+
+TODO: Add list 
+- Ports to be open
+- URLs to be whitelisted 
+- 
