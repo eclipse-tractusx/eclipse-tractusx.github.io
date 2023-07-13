@@ -10,3 +10,6 @@ sidebar_position: 2
 This chapter is still work in progress. Check back layer!
 
 ---
+
+- Register digital twin (aspect)
+- Register EDC Asset

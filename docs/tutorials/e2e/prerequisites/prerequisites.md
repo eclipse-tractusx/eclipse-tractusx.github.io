@@ -17,5 +17,11 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 - Docker
 - Kubernetes
 - (Rancher?)
+- Minikube für lokal
 - Helm
-- Terraform
+- Terraform(?)
+
+
+## Ports, Firewall and Proxy Configuration
+
+TODO: Add list
