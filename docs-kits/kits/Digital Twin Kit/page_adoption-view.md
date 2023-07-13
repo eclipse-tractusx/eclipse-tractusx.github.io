@@ -5,7 +5,6 @@ description: 'Digital Twin Kit'
 sidebar_position: 2
 ---
 
-### Digital Twin Kit
 <!--
 Adoption View of the Kit.
 -->
@@ -75,8 +74,16 @@ pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likew
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
 For more info how specifically the Asset Administration Shell is used, consult the Kits.
 
-## Relevant CX-Standards
+## Additional Resources
+
+### CX-Standards
 
 - [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/9_Data-Discovery-Services/CX_-_0001_EDC_DISCOVERY_API_PlatformCapabilityDS_v_1.0.1-1.pdf)
 - [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0002-DigitalTwinsInCatena-X-v.1.0.2.pdf)
 - CX - 0053 BPN Discovery Services *(will be released publicly with R3.2 in ca 09/23)*
+
+### Terminology 
+
+The following figure is borrowed from the upcoming R3.2 release of "Digital Twins in Catena-X" standard. It is
+non-normative and shall only serve as a visual orientation for readers.
+![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
