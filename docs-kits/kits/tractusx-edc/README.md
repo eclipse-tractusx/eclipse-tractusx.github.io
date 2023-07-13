@@ -5,6 +5,8 @@
 [![Apache 2.0 License][license-shield]][license-url]
 [![Latest Release][release-shield]][release-url]
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eclipse-tractusx_tractusx-edc&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eclipse-tractusx_tractusx-edc)
+
 Container images and deployments of the Eclipse Dataspace Components for the Tractus-X project.
 
 Please also refer to:
@@ -28,7 +30,7 @@ The Data-Plane does the heavy lifting of transferring and receiving data streams
 
 Depending on your environment there are different derivatives of the control-plane prepared:
 
-- [edc-controlplane-postgresql](edc-controlplane/edc-controlplane-postgresql) with dependency onto
+- [edc-controlplane-postgresql-azure-vault](edc-controlplane/edc-controlplane-postgresql-azure-vault) with dependency onto
   - [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/#product-overview)
   - [PostgreSQL 8.2 or newer](https://www.postgresql.org/)
 - [edc-controlplane-postgresql-hashicorp-vault](edc-controlplane/edc-controlplane-postgresql-hashicorp-vault) with
