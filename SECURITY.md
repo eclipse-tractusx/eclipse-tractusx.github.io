@@ -8,4 +8,4 @@ Please report vulnerabilities to this repository via GitHub security advisories 
 
 How? Inside affected repository --> security tab --> advisories --> New draft security advisory
 
-In severe cases, you can also report a found vulnerability here: https://www.eclipse.org/security/
+In severe cases, you can also report a found vulnerability here: <https://www.eclipse.org/security/>
