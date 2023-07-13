@@ -1,6 +1,6 @@
 ---
 title: FAQ
-sidebar_position: 100
+sidebar_position: 1
 ---
 
 #### The ECA Check is failing while merging a PR. What to do?
