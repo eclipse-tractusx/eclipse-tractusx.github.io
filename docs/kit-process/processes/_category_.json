@@ -1,3 +1,7 @@
 {
-    "label": "How To's"
+    "label": "FAQ",
+    "link": {
+        "type": "doc",
+       "id": "contribute"
+    }
 }
