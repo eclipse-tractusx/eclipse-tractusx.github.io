@@ -47,7 +47,7 @@ const sidebars = {
                 label: "FAQ",
                 link: {
                     type: "doc",
-                    id: "kit-process/coverpage"
+                    id: "kit-process/processes/coverpage"
                 },
                 collapsed: true,
                 items: [
