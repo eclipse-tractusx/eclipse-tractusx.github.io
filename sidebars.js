@@ -46,7 +46,7 @@ const sidebars = {
           ],
       },{
         type: 'category',
-        label: 'Website Guidelines',
+        label: 'Website Admin Guidelines',
         link: {
             type: 'doc',
             id: 'website-guidelines/dev_faq'
