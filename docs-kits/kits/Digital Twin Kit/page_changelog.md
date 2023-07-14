@@ -9,7 +9,24 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.0.0] - 2023-04-12
+## [0.2.0] - 2023-07-20
+
+### Added
+
+- Additional graphic on terminology
+
+### Changed
+
+- Clarification on decentralization of registries
+- Minor improvements based on stakeholders' feedback
+- figures optimized for dark backgrounds
+
+### Removed
+
+- ./.
+
+
+## [0.1.0] - 2023-07-12
 
 ### Added
 
