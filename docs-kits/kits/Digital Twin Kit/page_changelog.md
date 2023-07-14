@@ -14,12 +14,11 @@ All notable changes to this Kit will be documented in this file.
 ### Added
 
 - Additional graphic on terminology
-- Payloads to register DT-components as EDC-Assets (EDC v0.4.1 and higher)
 
 ### Changed
 
 - Clarification on decentralization of registries
-- Minor improvements motivated by stakeholders' feedback
+- Minor improvements based on stakeholders' feedback
 - figures optimized for dark backgrounds
 
 ### Removed
