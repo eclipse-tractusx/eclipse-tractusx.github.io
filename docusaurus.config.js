@@ -218,7 +218,7 @@ const config = {
           dt_discovery_finder: {
             specPath: "./openApi/dt/discovery-finder-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Specs/Discovery Finder/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Discovery Finder/", // Output directory for generated .mdx docs
               sidebarOptions: {
                 groupPathsBy: "tag",
               },
@@ -226,31 +226,39 @@ const config = {
           dt_bpn_discovery: {
             specPath: "./openApi/dt/bpn-discovery-service-openapi.yaml", // Path to designated spec file
             outputDir:
-              ".docs-kits/kits/Digital Twin Kit/Software Development View/API Specs/BPN Discovery/", // Output directory for generated .mdx docs
+              ".docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
             sidebarOptions: {
                groupPathsBy: "tag",
             },
           },
-          submodel: {
+          dt_edc_discovery: {
+                      specPath: "./openApi/dt/edc-discovery-service-openapi.json", // Path to designated spec file
+                      outputDir:
+                        "./docs-kits/kits/Digital Twin Kit/Software Development View/API EDC Discovery/", // Output directory for generated .mdx docs
+                      sidebarOptions: {
+                        groupPathsBy: "tag",
+                      },
+          },
+          dt_submodel: {
             specPath: "./openApi/dt/submodel-service-ssp003-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Specs/Submodel/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Submodel/", // Output directory for generated .mdx docs
             sidebarOptions: {
                groupPathsBy: "tag",
             },
           },
-          registry: {
+          dt_registry: {
             specPath: "./openApi/dt/registry-service-ssp002-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Specs/AAS Registry/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Registry/", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
-          discovery: {
+          dt_aas_discovery: {
             specPath: "./openApi/dt/discovery-service-ssp001-openapi.yaml", // Path to designated spec file
             outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Specs/AAS Discovery/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
             },
