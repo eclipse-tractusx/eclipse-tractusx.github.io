@@ -79,29 +79,44 @@ schema has changed in the meantime, an update will be provided when available. T
 
 #### Digital Twin Registry as EDC Data Asset
 
-````json
+```json
 {
-  "asset": {
-    "properties": {
-        "asset:prop:id": "<EDC_ASSET_ID>",
-        "asset:prop:type": "data.core.digitalTwinRegistry",
-        "asset:prop:name": "Digital Twin Registry Endpoint of provider XYZ",
-        "asset:prop:contenttype": "application/json",
-        "asset:prop:policy-id": "use-eu"
-    }
-  },
-  "dataAddress": {
-    "properties": {
-        "type": "HttpData",
-        "baseUrl": "https://<YOUR_DIGITAL_TWIN_REGISTRY_URL>",
-        "proxyPath": true,
-        "proxyBody": true,
-        "proxyMethod": true,
-        "proxyQueryParams": true 
-    }
-  }
+  "@context": {
+    "@base": "http://myCompany.org/identifiers/",
+    "sap": "https://sap.com/btp/ica/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "aas": "https://admin-shell.io/aas/API/3/0/",
+    "aas-registry": "aas:AssetAdministrationShellRegistryServiceSpecification/"
+  },
+  "edc:asset": {
+    "@type": "edc:Asset",
+    "@id": "04a0993c-aa76-446f-a026-cb2ed62ea03f",
+    "edc:properties": {
+      "@type": "aas-registry:SSP-001",
+      "@id": "04a0993c-aa76-446f-a026-cb2ed62ea03f",
+      "rdfs:label": "Digital Twin Registry Endpoint of provider Processor_BackendIntegrationTests",
+      "rdfs:comment": "Digital Twin Registry Endpoint of provider Processor_BackendIntegrationTests",
+      "dcat:version": "0.0.1",
+      "edc:contentType": "application/json"
+    },
+    "edc:privateProperties": null
+  },
+  "edc:dataAddress": {
+    "@type": "edc:DataAddress",
+    "edc:type": "edc:HttpData",
+    "edc:baseUrl": "https://mycompany.com/dtr/",
+    "edc:authKey": "Authorization",
+    "edc:authCode": "Basic XXX",
+    "edc:proxyBody": "true",
+    "edc:proxyPath": "true",
+    "edc:proxyQueryParams": "true",
+    "edc:proxyMethod": "true",
+    "edc:contentType": "application/json"
+  }
 }
-````
+```
 
 `asset:prop:id` describes the id of the Data Asset, not of any offered resources themselves. 
 
@@ -109,7 +124,43 @@ schema has changed in the meantime, an update will be provided when available. T
 
 How a Submodel server is offered as a Data Asset is not yet agreed and will be added here soon.
 ```json
-
+{
+  "@context": {
+    "@base": "http://myCompany.org/identifiers/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "aas": "https://admin-shell.io/aas/API/3/0/",
+    "aas-submodel": "aas:SubmodelServiceSpecification/",
+    "aas-semantics": "aas:hasSemantics/"
+  },
+  "edc:asset": {
+    "@type": "edc:Asset",
+    "@id": "urn:uuid:ca180cf7-7ed6-4f53-b32f-d072d4cad834",
+    "edc:properties": {
+      "@type": "aas-submodel:SSP001",
+      "rdfs:label": "PCF Data",
+      "rdfs:comment": "Endpoint for PCF data",
+      "dcat:version": "0.0.2",
+      "aas-semantics:semanticId": "urn:bamm:io:pcf:4.0.1:Pcf",
+      "edc:contentType": "application/json"
+    },
+    "edc:privateProperties": null
+  },
+  "edc:dataAddress": {
+    "@type": "edc:DataAddress",
+    "edc:type": "edc:HttpData",
+    "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
+    "edc:authKey": "Authorization",
+    "edc:authCode": "Basic XXX",
+    "edc:proxyBody": "true",
+    "edc:proxyPath": "true",
+    "edc:proxyQueryParams": "true",
+    "edc:proxyMethod": "true",
+    "edc:contentType": "application/json"
+  }
+}
 ```
 
 ### Registration at Digital Twin Registry
