@@ -3,9 +3,9 @@ title: Creating an open API documentation
 sidebar_position: 3
 ---
 
-In our [Docusaurus-openAPI-docs](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/wiki#docusaurus-openapi-docs-github-repo) Plugin section, we give you an introduction about the method we use to generate `documentation pages` from `yaml` definitions. We strongly suggest you to check that section where you can find links to the plugin documentation and take a general overview of the results we are gaining from it.
+In our [Docusaurus-openAPI-docs](/docs/website-guidelines/wiki#docusaurus-openapi-docs-github-repo) Plugin section, we give you an introduction about the method we use to generate `documentation pages` from `yaml` definitions. We strongly suggest you to check that section where you can find links to the plugin documentation and take a general overview of the results we are gaining from it.
 
-In this `wiki` page we describe the steps to generate the `.mdx` files from the `yaml` definitions, that later will be translated in to `documentation pages` by Docusaurus.
+In this `guideline` page we describe the steps to generate the `.mdx` files from the `yaml` definitions, that later will be translated in to `documentation pages` by Docusaurus.
 
 In our example we are going to:
 
