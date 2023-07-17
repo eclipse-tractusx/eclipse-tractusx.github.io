@@ -107,39 +107,39 @@ identifier.
 
 ```json
 {
-  "@context": {
-    "@base": "http://myCompany.org/identifiers/",
-    "sap": "https://sap.com/btp/ica/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "aas": "https://admin-shell.io/aas/API/3/0/",
-    "aas-registry": "aas:AssetAdministrationShellRegistryServiceSpecification/",
-    "aas-discovery": "aas:DiscoveryServiceSpecification/"
-  },
-    
-  "@type": "edc:AssetEntryDto",
-  "edc:asset": {
-    "@id": "04a0993c-aa76-446f-a026-cb2ed62ea03f",
-    "edc:properties": {
-      "@type": ["aas-registry:SSP-001", "aas-discovery:SSP-002"],
-      "rdfs:label": "Digital Twin Registry",
-      "rdfs:comment": "DTR Endpoint of provider Processor_BackendIntegrationTests",
-      "dcat:version": "0.0.1"
-    },
-    "edc:privateProperties": null
-  },
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://mycompany.com/dtr/",
-    "edc:authKey": "Authorization",
-    "edc:authCode": "Basic XXX",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
-  }
+  "@context": {
+    "@base": "http://myCompany.org/identifiers/",
+    "sap": "https://sap.com/btp/ica/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "aas": "https://admin-shell.io/aas/API/3/0/",
+    "aas-registry": "aas:AssetAdministrationShellRegistryServiceSpecification/",
+    "aas-discovery": "aas:DiscoveryServiceSpecification/"
+  },
+    
+  "@type": "edc:AssetEntryDto",
+  "edc:asset": {
+    "@id": "04a0993c-aa76-446f-a026-cb2ed62ea03f",
+    "edc:properties": {
+      "@type": ["aas-registry:SSP-001", "aas-discovery:SSP-002"],
+      "rdfs:label": "Digital Twin Registry",
+      "rdfs:comment": "DTR Endpoint of provider Processor_BackendIntegrationTests",
+      "dcat:version": "0.0.1"
+    },
+    "edc:privateProperties": null
+  },
+  "edc:dataAddress": {
+    "edc:type": "edc:HttpData",
+    "edc:baseUrl": "https://mycompany.com/dtr/",
+    "edc:authKey": "Authorization",
+    "edc:authCode": "Basic XXX",
+    "edc:proxyBody": "true",
+    "edc:proxyPath": "true",
+    "edc:proxyQueryParams": "true",
+    "edc:proxyMethod": "true",
+    "edc:contentType": "application/json"
+  }
 }
 ```
 
@@ -153,41 +153,41 @@ recommended and shall signify the meaning of the Submodel's payload.
 The top-level `@id` field should be equivalent to the id of the Submodel.
 ```json
 {
-  "@context": {
-    "@base": "http://myCompany.org/identifiers/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "aas": "https://admin-shell.io/aas/API/3/0/",
-    "aas-submodel": "aas:SubmodelServiceSpecification/",
-    "aas-semantics": "aas:hasSemantics/"
-  },
-  
-  "@type": "edc:AssetEntryDto",
-  "edc:asset": {
-    "@id": "urn:uuid:ca180cf7-7ed6-4f53-b32f-d072d4cad834",
-    "edc:properties": {
-      "@type": "aas-submodel:SSP001",
-      "rdfs:label": "PCF Data",
-      "rdfs:comment": "Endpoint for PCF data",
-      "dcat:version": "0.0.2",
-      "aas-semantics:semanticId": "urn:bamm:io:pcf:4.0.1:Pcf",
-      "edc:contentType": "application/json"
-    },
-    "edc:privateProperties": null,
-   
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
-    "edc:authKey": "Authorization",
-    "edc:authCode": "Basic XXX",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
-  }
+  "@context": {
+    "@base": "http://myCompany.org/identifiers/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "aas": "https://admin-shell.io/aas/API/3/0/",
+    "aas-submodel": "aas:SubmodelServiceSpecification/",
+    "aas-semantics": "aas:hasSemantics/"
+  },
+  
+  "@type": "edc:AssetEntryDto",
+  "edc:asset": {
+    "@id": "urn:uuid:ca180cf7-7ed6-4f53-b32f-d072d4cad834",
+    "edc:properties": {
+      "@type": "aas-submodel:SSP001",
+      "rdfs:label": "PCF Data",
+      "rdfs:comment": "Endpoint for PCF data",
+      "dcat:version": "0.0.2",
+      "aas-semantics:semanticId": "urn:bamm:io:pcf:4.0.1:Pcf",
+      "edc:contentType": "application/json"
+    },
+    "edc:privateProperties": null,
+   
+  "edc:dataAddress": {
+    "edc:type": "edc:HttpData",
+    "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
+    "edc:authKey": "Authorization",
+    "edc:authCode": "Basic XXX",
+    "edc:proxyBody": "true",
+    "edc:proxyPath": "true",
+    "edc:proxyQueryParams": "true",
+    "edc:proxyMethod": "true",
+    "edc:contentType": "application/json"
+  }
 }
 ```
 
@@ -199,36 +199,36 @@ data access is not straight-forward but passes through an EDC which the Data Con
 the subprotocol body holds information on how to talk to the EDC's Data Plane.
 ````json
 {
-  "id": "<unique ID of submodel>",
-  "semanticId": {
-    "type": "ExternalReference",
-    "keys": [
-      {
-        "type": "GlobalReference",
-        "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
-      }
-    ]
-  },
-  "endpoints": {
-    "protocolInformation": {
-      "href": "https://edc.data.plane/<path>/submodel",
-      "endpointProtocol": "HTTP",
-      "endpointProtocolVersion": [
-        "1.1"
-      ],
-      "subprotocol": "DSP",
-      "subprotocolBody": "<body with information required by subprotocol>",
-      "subprotocolBodyEncoding": "plain",
-      "securityAttributes": [
-        {
-          "type": "NONE",
-          "key": "NONE",
-          "value": "NONE"
-        }
-      ]
-    },
-    "interface": "SUBMODEL-3.0"
-  }
+  "id": "<unique ID of submodel>",
+  "semanticId": {
+    "type": "ExternalReference",
+    "keys": [
+      {
+        "type": "GlobalReference",
+        "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
+      }
+    ]
+  },
+  "endpoints": {
+    "protocolInformation": {
+      "href": "https://edc.data.plane/<path>/submodel",
+      "endpointProtocol": "HTTP",
+      "endpointProtocolVersion": [
+        "1.1"
+      ],
+      "subprotocol": "DSP",
+      "subprotocolBody": "<body with information required by subprotocol>",
+      "subprotocolBodyEncoding": "plain",
+      "securityAttributes": [
+        {
+          "type": "NONE",
+          "key": "NONE",
+          "value": "NONE"
+        }
+      ]
+    },
+    "interface": "SUBMODEL-3.0"
+  }
 }
 ````
 Currently, this structure is still ambiguous (see `subprotocolBody`) but will be subject to further standardization introducing
