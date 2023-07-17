@@ -84,7 +84,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     └──page_software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
+6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](/docs/website-guidelines/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
 
 7. Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
 
@@ -169,4 +169,4 @@ The results of your newly created _KIT_ will be visible only (for now) in the `N
 
 To access the `Next` and the rest of the versions, you'll notice a `dropdown` menu with all of them in the `top-right` corner of the `NavBar` that is only been displayed when the user is navigating any of the existing `KITs`.
 
-Please check our [Understanding our multi-instance and versioning behaviour](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/wiki/Understanding-our-multi-instance-and-versioning-behaviour) page, where we explain a little bit more in deep the structure of the project, the different instances of documentation, how to create versions and how the conditional rendering of the `versions dropdown` menu is been handled.
+Please check our [Understanding our multi-instance and versioning behaviour](/docs/website-guidelines/understanding-multi-instance_versioning) page, where we explain a little bit more in deep the structure of the project, the different instances of documentation, how to create versions and how the conditional rendering of the `versions dropdown` menu is been handled.
