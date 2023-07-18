@@ -40,7 +40,22 @@ const sidebars = {
               "kit-process/versioning",
               "kit-process/artefacts",
           ],
-      },
+      },{
+        type: 'category',
+        label: 'Website Admin Guidelines',
+        link: {
+            type: 'doc',
+            id: "website-guidelines/wiki",
+        },
+        collapsed: true,
+        items: [
+            "website-guidelines/create-open-api-doc",
+            "website-guidelines/understanding-multi-instance_versioning",
+            "website-guidelines/update-and-integrate-react-components",
+            "website-guidelines/update-news-page",
+            "website-guidelines/automate-kit-doc-update",
+        ],
+    },
     {
         type: 'category',
         label: 'FAQ',
@@ -73,20 +88,9 @@ const sidebars = {
                 collapsed: true,
                 items: [                    
                 ],
-            },
-            {
-                type: 'category',
-                label: 'Website Admin Guidelines',
-                link: {
-                    type: 'doc',
-                    id: "website-guidelines/wiki",
-                },
-                collapsed: true,
-                items: [
-                ],
-            }
-        ],
-    },
+            }],
+    },           
+    
       {
           type: 'category',
           label: 'Open Source Development',
