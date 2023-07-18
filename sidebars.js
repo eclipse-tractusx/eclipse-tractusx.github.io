@@ -76,7 +76,7 @@ const sidebars = {
             },
             {
                 type: 'category',
-                label: 'Website Admin FAQ',
+                label: 'Website Admin Guidelines',
                 link: {
                     type: 'doc',
                     id: "website-guidelines/wiki",
