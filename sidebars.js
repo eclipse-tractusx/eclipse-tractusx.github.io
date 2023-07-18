@@ -33,42 +33,58 @@ const sidebars = {
       {
           type: 'category',
           label: 'KIT Guidelines',
-           link: {
-               type: 'doc',
-               id: 'kit-process/coverpage'
-           },
+           
           collapsed: true,
           items: [
               "kit-process/graduation-process",
               "kit-process/versioning",
               "kit-process/artefacts",
-              {
+          ],
+      },
+    {
+        type: 'category',
+        label: 'FAQ',
+        link: {
+            type: 'doc',
+            id: 'faq/coverpage'
+        },
+        collapsed: true,
+        items: [{
+            type: 'category',
+            label: 'KIT FAQ',
+             link: {
+                 type: 'doc',
+                 id: 'kit-process/processes/contribute'
+             },
+            collapsed: true,
+            items: [
+                      "kit-process/processes/contribute",
+                      "kit-process/processes/create_KIT_page",
+                      "kit-process/processes/update-documentation",
+  
+            ]},
+            {
                 type: 'category',
-                label: "FAQ",
+                label: 'General FAQ',
                 link: {
-                    type: "doc",
-                    id: "kit-process/processes/coverpage"
+                    type: 'doc',
+                    id: 'website-guidelines/dev_faq'
+                },
+                collapsed: true,
+                items: [                    
+                ],
+            },
+            {
+                type: 'category',
+                label: 'Website Admin Guidelines',
+                link: {
+                    type: 'doc',
+                    id: "website-guidelines/wiki",
                 },
                 collapsed: true,
                 items: [
-                    "kit-process/processes/contribute",
-                    "kit-process/processes/create_KIT_page",
-                    "kit-process/processes/update-documentation",
-
-                ]
-              } 
-          ],
-      },{
-        type: 'category',
-        label: 'Website Admin Guidelines',
-        link: {
-            type: 'doc',
-            id: 'website-guidelines/coverpage'
-        },
-        collapsed: true,
-        items: [
-            "website-guidelines/dev_faq",
-            "website-guidelines/wiki",
+                ],
+            }
         ],
     },
       {
