@@ -403,11 +403,11 @@ The following general conventions apply for all these digital twins:
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
 
-##### Property specificAssetId
+##### Property specificAssetIds
 
-For Traceability, we define some specificAssetId as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
+For Traceability, we define some specific asset IDs as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
-The following conventions for specificAssetId apply to all digital twins:
+The following conventions for specific asset IDs apply to all digital twins:
 
 <table>
   <tr>
@@ -469,25 +469,41 @@ The following conventions for specificAssetId apply to all digital twins:
 
 ##### Authorization: Visbility of Specific Asset IDs in the DTR
 
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
 
-- _Every entry_ in the attribute specificAssetId (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
+- _Every entry_ in the attribute specificAssetIds (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
 - If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
 - The owner (creator) of a digital twin will always see all specific asset IDs. So, it's not necessary to add an `externalSubjectId` for the owner itself. This also means that only the owner of a digital twin will be able to see the entry if no `externalSubjectId` is specified.
 
 ###### Example: Visibility of manufacturerId and customerPartId only for company with BPN BPNL000000000XXX
 
 ```json
-"specificAssetId": [
+"specificAssetIds": [
   {
-    "key": "manufacturerId",
+    "name": "manufacturerId",
     "value": "BPNL000000000AAA",
-    "externalSubjectId": "BPNL000000000XXX"
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
   },
   {
-    "key": "customerPartId",
+    "name": "customerPartId",
     "value": "39192",
-    "externalSubjectId": "BPNL000000000XXX"
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
   }
 ]
 ```
@@ -495,26 +511,58 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
 ###### Example: Visibility of manufacturerId and customerPartId for two companies
 
 ```json
-"specificAssetId": [
+"specificAssetIds": [
+  {
+    "name": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  },
+  {
+    "name": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  },
   {
     "key": "manufacturerId",
     "value": "BPNL000000000AAA",
-    "externalSubjectId": "BPNL000000000XXX"
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000YYY"
+        }
+      ]
+    }
   },
   {
     "key": "customerPartId",
     "value": "39192",
-    "externalSubjectId": "BPNL000000000XXX"
-  },
-  {
-    "key": "manufacturerId",
-    "value": "BPNL000000000AAA",
-    "externalSubjectId": "BPNL000000000YYY"
-  },
-  {
-    "key": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": "BPNL000000000YYY"
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000YYY"
+        }
+      ]
+    }
   }
 ]
 ```
@@ -686,7 +734,7 @@ For a data consumer, there are currently the following steps where they have to 
 
 ##### Lookup up a Digital Twin with Local IDs
 
-The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specificAssetId in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
+The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
 All Asset identifier key-value-pairs used as parameter to this lookup function are combined using AND. An example query would look like this: `https://URL/registry/lookup/shells?assetIds=%5B%7B%22key%22%3A%20%22manufacturerId%22,%22value%22%3A%20%22BPNL7588787849VQ%22%7D,%7B%22key%22%3A%20%22manufacturerPartId%22,%22value%22%3A%20%2295657362-83%22%7D,%7B%22key%22%3A%20%22partInstanceId%22,%22value%22%3A%20%22NO-574868639429552535768526%22%7D%5D`
 
@@ -711,10 +759,10 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part id to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
-  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specificAssetId property. This is decision that a customer must agree upon with each of their suppliers individually.
+  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
 
 As a result, the AAS ID of the digital twin with this local IDs is returned. The AAS ID can then be used to retrieve details about the digital twin, i.e. the digital twin's AAS descriptor including submodel descriptors.
 
