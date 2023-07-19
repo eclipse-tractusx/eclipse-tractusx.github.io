@@ -506,7 +506,7 @@ The following conventions apply for the endpoint:
   - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel.
   - `{path}`: This part is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
   - `/submodel`: This part is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
-- `subprotocolBody`: a semicolon-separated list of parameters passed to the data consumer.
+- `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
   - `dspEndpoint`: server and port of the EDC control plane used for contract negotiation.
 
