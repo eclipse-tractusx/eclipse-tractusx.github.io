@@ -452,7 +452,7 @@ The lookup for parts can use the customerPartId or the manufacturerPartId. Both,
 
 ##### Authorization: Visbility of Specific Asset IDs in the DTR
 
-To enforce a strict need-to-know   (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetId` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
 
 - _Every entry_ in the attribute specificAssetId (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
 - If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
