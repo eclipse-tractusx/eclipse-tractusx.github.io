@@ -72,123 +72,44 @@ the base-specifications (like AAS) but restrict the application even further for
 
 ### Registration at EDC
 
-While the exact AAS-EDC-integration is at the discretion of each Kit and use case, there are good practices
-that are likely to be standardized on the level of CX-0002 in the future. One relevant question is how the EDC-shielded services
-of this Kit should register with the Asset endpoint of theEDC Management API. The following recommendations follow 
-the data structure expected from tractusx-edc v0.4.1 onwards. It demands a json-ld structure. 
-
-Json-ld is a serialization for RDF graphs (see[Resource Description Framework](https://www.w3.org/RDF/)). The json-ld 
-`@context` section can declare the namespaces that resources explicitly mentioned in the rest of the document belong to.
-It may also define default namespace with `@vocab` for resources without explicitly stated namespaces. Outside of
-the "@context" section, the "@type" property always defines the class that an object belongs to.
-As stated in the openAPI-specification of the EDC Management API's relevant endpoint, all entries in the `asset/properties`
-object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is structured depending
-on the `edc:type` property. The example below is determined by the [HttpDataAddress](https://github.com/eclipse-edc/Connector/blob/main/spi/common/core-spi/src/main/java/org/eclipse/edc/spi/types/domain/HttpDataAddress.java) 
-class. Other implementations may require different parameters.
-
-For successful discovery of Digital Twins, it is critical to register Submodels and Digital-Twin-Registries in a 
-harmonized way. The following overview shall explain how the `asset/properties` section could be used. Bear in mind that 
-this is a non-normative example.
-
-- `@type` (mandatory): denotes the type of Asset that is registered. For all AAS-related endpoints, this shall be conformant to the
-appropriate result of the AAS-description endpoint that returns URIs for the AAS service specification profiles denoting
-the endpoint's capabilities.
-- `rdfs:label` (optional): short name for asset.
-- `rdfs:comment` (optional): free text property for human consumption.
-- `dcat:version` (optional): version-string of the registered resource. Please note that the version of the AAS-spec is 
-already considered in the `aas`-namespace.
-
-The top-level `@id` field denotes the identifier of the resource that is being registered.
+While the exact integration with the EDC is still at the discretion of each Kit and use case, there are best-practices
+that are likely to be standardized in the future. An example is HOW the EDC-shielded parts of this Kit should register
+with the EDC Management API. Please note that these recommendations are based on the schemas of EDC v0.3.0. As the
+schema has changed in the meantime, an update will be provided when available. The current recommendation is:
 
 #### Digital Twin Registry as EDC Data Asset
 
-The top-level `@id` field is mandatory but can (for a DTR) be chosen freely at registration since a DTR usually has no unique 
-identifier.
-
-```json
+````json
 {
-  "@context": {
-    "@base": "http://myCompany.org/identifiers/",
-    "sap": "https://sap.com/btp/ica/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "aas": "https://admin-shell.io/aas/API/3/0/",
-    "aas-registry": "aas:AssetAdministrationShellRegistryServiceSpecification/",
-    "aas-discovery": "aas:DiscoveryServiceSpecification/"
-  },
-    
-  "@type": "edc:AssetEntryDto",
-  "edc:asset": {
-    "@id": "04a0993c-aa76-446f-a026-cb2ed62ea03f",
-    "edc:properties": {
-      "@type": ["aas-registry:SSP-001", "aas-discovery:SSP-002"],
-      "rdfs:label": "Digital Twin Registry",
-      "rdfs:comment": "DTR Endpoint of provider Processor_BackendIntegrationTests",
-      "dcat:version": "0.0.1"
-    },
-    "edc:privateProperties": null
-  },
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://mycompany.com/dtr/",
-    "edc:authKey": "Authorization",
-    "edc:authCode": "Basic XXX",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
-  }
+  "asset": {
+    "properties": {
+        "asset:prop:id": "<EDC_ASSET_ID>",
+        "asset:prop:type": "data.core.digitalTwinRegistry",
+        "asset:prop:name": "Digital Twin Registry Endpoint of provider XYZ",
+        "asset:prop:contenttype": "application/json",
+        "asset:prop:policy-id": "use-eu"
+    }
+  },
+  "dataAddress": {
+    "properties": {
+        "type": "HttpData",
+        "baseUrl": "https://<YOUR_DIGITAL_TWIN_REGISTRY_URL>",
+        "proxyPath": true,
+        "proxyBody": true,
+        "proxyMethod": true,
+        "proxyQueryParams": true 
+    }
+  }
 }
-```
+````
 
+`asset:prop:id` describes the id of the Data Asset, not of any offered resources themselves. 
 
 #### Submodel as EDC Data Asset
 
-The following shows an example for registration of an AAS-Submodel as EDC Data Asset. The basic structure of the
-`properties` section extends that of the DTR but additionally holds `hasSemantics:semanticId`. It is strongly 
-recommended and shall signify the meaning of the Submodel's payload.
-
-The top-level `@id` field should be equivalent to the id of the Submodel.
+How a Submodel server is offered as a Data Asset is not yet agreed and will be added here soon.
 ```json
-{
-  "@context": {
-    "@base": "http://myCompany.org/identifiers/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "aas": "https://admin-shell.io/aas/API/3/0/",
-    "aas-submodel": "aas:SubmodelServiceSpecification/",
-    "aas-semantics": "aas:hasSemantics/"
-  },
-  
-  "@type": "edc:AssetEntryDto",
-  "edc:asset": {
-    "@id": "urn:uuid:ca180cf7-7ed6-4f53-b32f-d072d4cad834",
-    "edc:properties": {
-      "@type": "aas-submodel:SSP001",
-      "rdfs:label": "PCF Data",
-      "rdfs:comment": "Endpoint for PCF data",
-      "dcat:version": "0.0.2",
-      "aas-semantics:semanticId": "urn:bamm:io:pcf:4.0.1:Pcf",
-      "edc:contentType": "application/json"
-    },
-    "edc:privateProperties": null,
-   
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
-    "edc:authKey": "Authorization",
-    "edc:authCode": "Basic XXX",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
-  }
-}
+
 ```
 
 ### Registration at Digital Twin Registry
@@ -199,36 +120,36 @@ data access is not straight-forward but passes through an EDC which the Data Con
 the subprotocol body holds information on how to talk to the EDC's Data Plane.
 ````json
 {
-  "id": "<unique ID of submodel>",
-  "semanticId": {
-    "type": "ExternalReference",
-    "keys": [
-      {
-        "type": "GlobalReference",
-        "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
-      }
-    ]
-  },
-  "endpoints": {
-    "protocolInformation": {
-      "href": "https://edc.data.plane/<path>/submodel",
-      "endpointProtocol": "HTTP",
-      "endpointProtocolVersion": [
-        "1.1"
-      ],
-      "subprotocol": "DSP",
-      "subprotocolBody": "<body with information required by subprotocol>",
-      "subprotocolBodyEncoding": "plain",
-      "securityAttributes": [
-        {
-          "type": "NONE",
-          "key": "NONE",
-          "value": "NONE"
-        }
-      ]
-    },
-    "interface": "SUBMODEL-3.0"
-  }
+  "id": "<unique ID of submodel>",
+  "semanticId": {
+    "type": "ExternalReference",
+    "keys": [
+      {
+        "type": "GlobalReference",
+        "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
+      }
+    ]
+  },
+  "endpoints": {
+    "protocolInformation": {
+      "href": "https://edc.data.plane/<path>/submodel",
+      "endpointProtocol": "HTTP",
+      "endpointProtocolVersion": [
+        "1.1"
+      ],
+      "subprotocol": "DSP",
+      "subprotocolBody": "<body with information required by subprotocol>",
+      "subprotocolBodyEncoding": "plain",
+      "securityAttributes": [
+        {
+          "type": "NONE",
+          "key": "NONE",
+          "value": "NONE"
+        }
+      ]
+    },
+    "interface": "SUBMODEL-3.0"
+  }
 }
 ````
 Currently, this structure is still ambiguous (see `subprotocolBody`) but will be subject to further standardization introducing
