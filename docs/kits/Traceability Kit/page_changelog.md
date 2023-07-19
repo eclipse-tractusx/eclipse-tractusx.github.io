@@ -11,6 +11,23 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [2.0.0] - 2023-xx-xx
+
+### Added
+
+- TractionBatteryCode aspect model
+
+### Changed
+
+- Updated all parts of the KIT related to the digital twin registry as the DTR now has a decentralized architecture
+- Development View: Updated documentation because of the migration to the new standard AAS v3.0 by the DTR
+- Development View: Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
+- Fixed references to deprected Catena-X releases in the documentation.
+
+### Removed
+
+- ./.
+
 ## [1.0.1] - 2023-04-14
 
 ### Added
