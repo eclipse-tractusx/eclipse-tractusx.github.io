@@ -33,44 +33,64 @@ const sidebars = {
       {
           type: 'category',
           label: 'KIT Guidelines',
-           link: {
-               type: 'doc',
-               id: 'kit-process/coverpage'
-           },
+           
           collapsed: true,
           items: [
               "kit-process/graduation-process",
               "kit-process/versioning",
               "kit-process/artefacts",
-              {
-                type: 'category',
-                label: "FAQ",
-                link: {
-                    type: "doc",
-                    id: "kit-process/processes/coverpage"
-                },
-                collapsed: true,
-                items: [
-                    "kit-process/processes/contribute",
-                    "kit-process/processes/create_KIT_page",
-                    "kit-process/processes/update-documentation",
-
-                ]
-              } 
           ],
       },{
         type: 'category',
         label: 'Website Admin Guidelines',
         link: {
             type: 'doc',
-            id: 'website-guidelines/coverpage'
+            id: "website-guidelines/wiki",
         },
         collapsed: true,
         items: [
-            "website-guidelines/dev_faq",
-            "website-guidelines/wiki",
+            "website-guidelines/create-open-api-doc",
+            "website-guidelines/understanding-multi-instance_versioning",
+            "website-guidelines/update-and-integrate-react-components",
+            "website-guidelines/update-news-page",
+            "website-guidelines/automate-kit-doc-update",
         ],
     },
+    {
+        type: 'category',
+        label: 'FAQ',
+        link: {
+            type: 'doc',
+            id: 'faq/coverpage'
+        },
+        collapsed: true,
+        items: [{
+            type: 'category',
+            label: 'KIT FAQ',
+             link: {
+                 type: 'doc',
+                 id: 'kit-process/processes/contribute'
+             },
+            collapsed: true,
+            items: [
+                      "kit-process/processes/contribute",
+                      "kit-process/processes/create_KIT_page",
+                      "kit-process/processes/update-documentation",
+  
+            ]},
+            {
+                type: 'category',
+                label: 'General FAQ',
+                link: {
+                    type: 'doc',
+                    id: 'website-guidelines/dev_faq'
+                },
+                collapsed: true,
+                items: [                    
+                ],
+            }],
+    },           
+    
       {
           type: 'category',
           label: 'Open Source Development',
