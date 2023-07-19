@@ -374,6 +374,68 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 ```
 
+#### Submodel TractionBatteryCode
+
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
+
+##### Submodel "TractionBatteryCode" for a Battery Module
+
+```json
+{
+  "productType": "module",
+  "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+  "subcomponents": [
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+    },
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+    }
+  ]
+}
+```
+
+##### Submodel "TractionBatteryCode" for a Battery Pack
+
+```json
+{
+  "productType": "pack",
+  "tractionBatteryCode": "4A6PCPM27KLPCLE742946319",
+  "subcomponents": [
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+        }
+      ]
+    },
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519858",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382322"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382323"
+        }
+      ]
+    }
+  ]
+}
+```
+
 <!-- Recommended -->
 
 ## Reference Implementation
@@ -386,13 +448,13 @@ For a reference implementation, take a look at the open-source Trace-X app. More
 
 ### Data Provisioning
 
-The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital TWin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
+The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital Twin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
 
 ![Basic Data FLow](../assets/data_provisioning_data_flow.png)
 
 #### Register Digital Twins for Traceability
 
-In Traceability, digital twins for different types of parts are registered at the digital twin registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX - 0002 Digital Twins in Catena - X](https://catena-x.net/de/standard-library).
+In Traceability, digital twins for different types of parts are registered at a Digital Twin Registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library).
 
 > :raised_hand: **Unique ID Push**
 > Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
@@ -457,8 +519,7 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
   </tr>
   <tr>
     <td> assetLifecyclePhase </td>
-    <td> Optional (for DT As-Built) <br>
-Mandatory (for DT As-Planned) </td>
+    <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
     <td> The lifecycle phase of the asset.<ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul></td>
     <td> Enum </td>
   </tr>
@@ -476,7 +537,7 @@ Mandatory (for DT As-Planned) </td>
 | Key            | Availability | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type   |
 | :------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | batchId        | Optional     | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
-| partInstanceId | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>For **Release 3.0**, we also use the batch number as partInstanceId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the partInstanceId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
+| partInstanceId | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>Currently, we also use the batch number as partInstanceId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the partInstanceId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
 
 **For just-in-sequence (JIS) parts, additionally the following conventions apply:**
 
@@ -492,7 +553,9 @@ Mandatory (for DT As-Planned) </td>
 
 ##### Submodel Descriptors
 
-Data for digital twins is made available via EDC in Catena-X. Therefore, submodel descriptors of digital twins MUST be compliant to the following conventions:
+General conventions for submodel descriptors can be found in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library). This section is based on it and it is recommended to read it first. In this KIT, we extend this standard with some additional conventions.
+
+Submodel descriptors MUST be compliant to the following additional conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
 - `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
@@ -501,56 +564,78 @@ The actual access information for the EDC is part of the endpoint attribute in t
 
 ```json
 {
-  "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
-  "protocolInformation": {
-    "href": "https://provider-edc.data.plane:port/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel",
-    "subprotocol": "IDS/AAS",
-    "subprotocolBody": "asset:prop:id=123;idsEndpoint=http://edc.control.plane/"
-  }
+
+    "interface": "SUBMODEL-3.0",
+    "protocolInformation": {
+        "href": "https://edc.data.plane/{path}/submodel",
+        "endpointProtocol": "HTTP",
+        "endpointProtocolVersion": ["1.1"],
+        "subprotocol": "DSP",
+        "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/",
+        "subprotocolBodyEncoding": "plain",
+        "securityAttributes": [ 
+          { "type": "NONE", "key": "NONE", "value": "NONE" }
+        ]
+    }
 }
 ```
 
-The following conventions apply:
+The following conventions apply for the endpoint:
 
-- `interface` must be set to "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003"
-- `href`: The endpoint address must have the following format:
-  - `provider-edc.data.plane:port`: server and port of the EDC data plane that is providing the submodel
-  - `/shells/{aasIdentifier}/submodels/{submodelIdentifier}/submodel/$value`: A valid API call according to the AAS Submodel Service Specification with {aasIdentifier} the id of the digital twin and {submodelIdentifier} the id of the submodel.
-  - `/submodel`: This is currently the only API method that must be supported for Traceability
-  - `/$value`: For release 3.2, data providers only need to support "value" as serialization modifier.
-- `subprotocol` must be set to "IDS/AAS"
+- `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
+- `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
+  - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel
+  - `{path}`: This part is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below. 
+  - `/submodel`: This part is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation. 
 - `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
-  - `asset:prop:id=123`: A criteria used for filtering the EDC catalog which must only return exactly one EDC asset - this must be ensured by the data provider when registering its data in the EDC. Any property form the EDC catalog ("asset:prop:\*") can be used here. Only one filter criteria is allowed in `subprotocolBody`.
-  - `idsEndpoint`: server and port of the EDC control plane used for contract negotiation
 
-With this approach, the EDC asset structure is independent of the digital twin registry information in the endpoint property. Therefore, data providers can decide on their own what structure suits them best based on how they use the filter criteria in `subprotocolBody`.
+  - `id=123`: The id of the asset for which a contract negitiation should be intiated.
+  - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation
 
-- Option 1: Digital twins, i.e., their submodels, are registered in the EDC the same way as for release 3.1, i.e., one EDC asset is created for every submodel of a digital twin. In the example above, the asset:prop:id would have the value "urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:34b73238-4dc2-424a-985d-4afa01d7203e" with this option.
-- Option 2: A data provider can also link several submodel endpoints to the same EDC asset. This allows to, e.g., create only one EDC asset (per aspect model) for a catalog part (referenced by the asset:prop:id) and link all submodels (of the same aspect model) of serialized parts of the catalog part to the same EDC asset. The data provider would (in most cases) still needs to create separate EDC assets per aspect model as different usage policies are used for aspect models most of the time.
+> :raised_hand: **Backend Data Service for Submodels** 
+According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported (via path suffixes like in "/submodel/$value"). This might change in later Catena-X releases. 
 
-  As a result, data providers can decide on their own which EDC asset structure is best for them.
+With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
-  If a data provider no longer creates EDC assets on the level of submodels (Option 1), the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
+**Option 1: Same EDC Asset Structure as in Release 3.1**
 
-Here's an example of a valid submodel descriptor for Catena-X Traceability:
+Submodels of digital twins are registered in the EDC the same way as for release 3.1: one EDC asset is created for every submodel of a digital twin.
+
+- `href` must have the following format: `http://edc.data.plane/submodel`
+- `subprotocolBody` must have the following format: `id={edcAssetId};dspEndpoint=http://edc.control.plane`
+- edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
+  - aasIdentifier: The id of the digital twin (id property in the AAS descriptor)
+  - submodelIdentifier: The id of the submodel (id property in the submodel descriptor)
+
+Here's an example how such a submodel descriptor could look like:
 
 ```json
 "submodelDescriptors": [
   {
     "idShort": "serialPart",
-    "id": "urn:uuid:34b73238-4dc2-424a-985d-4afa01d7203e",
+    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
     "semanticId": {
-      "value": [
-        "urn:samm:io.catenax.serial_part:1.0.0#SerialPart"
+      "type": "ExternalReference", 
+      "keys": [
+        {
+          "type": "GlobalReference", 
+          "value": "urn:samm:io.catenax.serial_part:1.0.0#SerialPart"
+        }
       ]
     },
     "endpoints": [
       {
-        "interface": "https://admin-shell.io/aas/API/3/0/SubmodelServiceSpecification/SSP-003",
+        "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://data-plane.edc.catena-x.net/shells/urn:uuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe/submodels/urn%3Auuid%3A34b73238-4dc2-424a-985d-4afa01d7203e/submodel/$value",
-          "subprotocol": "IDS/AAS",
-          "subprotocolBody": "asset:prop:id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;idsEndpoint=http://control-plane.edc.catena-x.net/"
+          "href": "https://edc.data.plane/submodel",
+        "endpointProtocol": "HTTP",
+        "endpointProtocolVersion": ["1.1"],
+          "subprotocol": "DSP",
+          "subprotocolBody": "id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0;dspEndpoint=http://edc.control.plane/",
+          "subprotocolBodyEncoding": "plain",
+          "securityAttributes": [ 
+            { "type": "NONE", "key": "NONE", "value": "NONE" }
+          ]
         }
       }
     ]
@@ -558,13 +643,63 @@ Here's an example of a valid submodel descriptor for Catena-X Traceability:
 ]
 ```
 
-**Data Consumption with AAS Submodel Descriptor Endpoints\*\***
+In this example, the `path` part in the `href` is empty, as the EDC asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's EDC). 
+
+**Option 2: EDC Asset Structure on Catalog Part Level**
+
+ A data provider can link several submodel endpoints to the same EDC asset (referenced by its id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
+  
+If a data provider no longer creates EDC assets on the level of submodels, the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
+
+Here's an example how such a submodel descriptor could look like:
+
+```json
+"submodelDescriptors": [
+  {
+    "idShort": "serialPart",
+    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+    "semanticId": {
+      "type": "ExternalReference", 
+      "keys": [
+        {
+          "type": "GlobalReference", 
+          "value": "urn:samm:io.catenax.serial_part:1.0.0#SerialPart"
+        }
+      ]
+    },
+    "endpoints": [
+      {
+        "interface": "SUBMODEL-3.0",
+        "protocolInformation": {
+          "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+          "endpointProtocol": "HTTP",
+          "endpointProtocolVersion": ["1.1"],
+          "subprotocol": "DSP",
+          "subprotocolBody": "id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7;dspEndpoint=http://control-plane.edc.catena-x.net/",
+          "subprotocolBodyEncoding": "plain",
+          "securityAttributes": [ 
+            { "type": "NONE", "key": "NONE", "value": "NONE" }
+          ]
+        }
+      }
+    ]
+  }
+]
+```
+
+The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the EDC asset id is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses. 
+
+The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other EDC asset structure.
+
+**Data Consumption with AAS Submodel Descriptor Endpoints**
 
 The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
 
-- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfer with Catena-X EDCs, this is "IDS/AAS"
-- Then, the data consumer must use the information in the `subprotocol` to perform a contract negotiation for the EDC asset referenced by the filter criteria (in the above example, this is the EDC asset with id "urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7"). The contract negotiation must be performed with the EDC control plane of the data provider specified by the parameter idsEndpoint.
-- Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. In this data transfer, the actual AAS API call (the path part of the `href`URL) is passed to the from the data consumer to the data provider contral plane as a parameter for the backend data service that actually executes the request and returns the submodel (via the data provider EDC data plane).
+- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfers in Catena-X, this is "DSP"
+- With `href`, the data consumer calls the local operation GetSubmodel as specified by the suffix "/submodel". As only the logical parameter "Content" must be supported in release 3.2, "/$value" must be appended to `href` by the data consumer.
+ If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to CX-0002.
+- Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `dspEndpoint`.
+- Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
 
 All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
 
@@ -608,7 +743,7 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specificAssetId property is optional (see (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels). The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
   - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specificAssetId property. This is decision that a customer must agree upon with each of their suppliers individually.
@@ -623,7 +758,7 @@ As a result, the AAS ID of the digital twin with this local IDs is returned. The
 
 Note that this query can return more than one AAS ID depending on the local IDs uniquely identifying a digital twin or not.
 
-For Release 3.0, even if more than one digital twin is returned in a lookup, these digital twins should have different submodels assigned to them. These submodels should be disjunct and not overlap. This means that you can use the submodel to filter out the correct digital twin.
+Currently, even if more than one digital twin is returned in a lookup, these digital twins should have different submodels assigned to them. These submodels should be disjunct and not overlap. This means that you can use the submodel to filter out the correct digital twin.
 
 - If there are returned more than one digital twin with the same submodel (based on their semanticId), this is considered an error. Processing should be canceled and an error message should be reported.
 
@@ -718,14 +853,14 @@ All endpoints as well as the schema of the notification below are described in d
 
 Here is a short overview what the receiver has to do when they want to support Unique Id Push notifications. This is an optional feature.
 
-- The Receiver in this scenario is the customer of a part.
-- The Receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
+- The receiver in this scenario is the customer of a part.
+- The receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
 - The EDC in which the notification EDC asset was created must be registered at the Discovery Service (so that the sender can find the partner's EDC which should receive notifications)
 - When the Receiver receives a Unique Id Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
 - How the Receiver processes the notification is up to them, but the following steps are recommended:
   - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
   - Store the notification data for later.
-  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to the digital twin registry.
+  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to a supplier's Digital Twin Registry.
 
 ###### EDC Asset
 
@@ -816,7 +951,7 @@ For the build-in parts (child parts), their Unique ID is not known to the manufa
   - manufacturer (BPN), manufacturer part id and batch number for batches
 - The next step is about getting the Unique ID of all built-in parts. There are two ways:
   - Unique IDs might for built-in parts might already be available locally if Unique ID Push is supported by the data provider and the suppliers of the built-in parts.
-  - Query the Digital Twin Registry to find the digital twin for this built-in part
+  - Query a supplier's Digital Twin Registry to find the digital twin for this built-in part
 
 ###### Unique ID Push
 
@@ -824,13 +959,13 @@ Once the digital twin was created, optionally a Unique ID Push notification can 
 
 For more information, see [Unique ID Push Notifications](#unique-id-push-notifications)
 
-###### Query the Digital Twin Registry to find the digital twin for this built-in part
+###### Query a Digital Twin Registry to find the digital twin for this built-in part
 
-- Querying digital twins is described in (TRS) Lookup for Digital Twins at the Digital Twin Registry
+- Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
-    - For Release 3.0 though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
-    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory for Release 2, you cannot rely on this key being available when looking for Batch digital twins.
-  - To understand why, take a look at how these digital twins are created, especially their specificAssetId: (TRS) Create Digital Twins for Serialized Parts and Batches incl. Submodels
+    - Currently though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
+    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
+  - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPart or Batch (depending on the digital twin type).
 - Fetch the submodel SerialPart or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
@@ -840,15 +975,13 @@ These steps have to be repeated for all built-in parts by the manufacturer. Afte
 
 #### Publish Traceability Data Offers at EDC
 
-Currently, only the format and content of the `asset:prop:id` attribute is mandatory. All other attributes can be used optionally by data providers.
-
-- `asset:prop:id`: This is the EDC asset ID and must have the following format: `<AAS ID>-<Submodel ID>`
+With the changes of Release 3.2 regarding the submodel endpoints in the DTR, the actual EDC asset structure for submodels is no longer restricted by use case conventions and can be decided by the data provider. 
 
 ##### Data Provider Tasks
 
 Basically, as a data provider you have to do the following
 
 - Implement a Backend Data Service (BDS) for every asset that is provided via the EDC. It does not have to be a different BDS for each asset - you can use the same BDS for several assets (to be verified).
-- The BDS must support the AAS Interface Shell REST-API.
+- The BDS must support the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification (see standard CX-0002 for more details).
 - The BDS must use the REST API data plan for data transmission.
-- The BDS must verify that it only returns data to the data consumer that is compliant for the asset and data offer for which data is queried. As a data offer is always assigned to one data consumer, only data must be returned that is accessible for the data consumer.
+- The BDS must verify that it only returns data to the data consumer that is compliant to the EDC asset and data offer for which data is queried and authorize the request accordingly. 
