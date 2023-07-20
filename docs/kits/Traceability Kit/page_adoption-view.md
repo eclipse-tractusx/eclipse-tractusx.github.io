@@ -392,9 +392,12 @@ In the current implementation of the EDC only the `in` and `= operators are supp
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-- [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPart_UseCaseTraceability_v_2.0.0.pdf)
+- [CX - 0020 Aspect Model:Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_SingleLevelBomAsBuilt_UseCaseTraceability_v_2.0.0.pdf)
 - [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
 - [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
+- [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf)
+- [CX - 0043 Semantic Model: Part AsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
 - [CX - 0093 Aspect Model TractionBatteryCode]
+- [CX - 0094 Aspect Model Part Site Information AsPlanned]
