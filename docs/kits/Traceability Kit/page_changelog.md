@@ -25,6 +25,7 @@ All notable changes to this Kit will be documented in this file.
 - Fixed references to deprecated Catena-X releases in the documentation.
 - Updated SerialPartTypization 1.1.1 to SerialPart 1.0.1
 - updated AssemblyPartRelationship 1.1.1 to SingleLevelBomAsBuilt 1.0.0
+- Adoption View: Updated Standards of Aspect/Semantic Models of Release 3.2
 
 ### Removed
 
