@@ -428,7 +428,7 @@ The following conventions for specificAssetId apply to all digital twins:
   <tr>
     <td> customerPartId </td>
     <td> Optional </td>
-    <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. If known, it is <em>recommended</em> to always add the customerPartId for easier lookup.<br/>
+    <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. In case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is <em>required</em> to add this information for easier lookup and to enable further processes.<br/>
     If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
     Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
     Access to customerPartId only for BPNL1234:
@@ -680,7 +680,7 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is required to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
   - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specificAssetId property. This is decision that a customer must agree upon with each of their suppliers individually.
@@ -699,7 +699,7 @@ Currently, even if more than one digital twin is returned in a lookup, these dig
 
 - If there are returned more than one digital twin with the same submodel (based on their semanticId), this is considered an error. Processing should be canceled and an error message should be reported.
 
-The next section describes to to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
+The next section describes to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
 
 #### Unique ID Push Notifications
 
@@ -719,7 +719,7 @@ Secondly, EDCs are being used for the exchange and it is currently required to o
 
 ##### Unique ID Push Process Overview
 
-How the actual process is triggered is application specific. It is recommended to to trigger the push of Unique IDs towards the customer after the Goods Issue has been booked, since commonly at that point the serial numbers/batch numbers of the parts being delivered are fixed in the logistics process and shall be contained in delivery documents, EDI Messages and/or any internal representation of the received items (non-Catena-X communication).
+How the actual process is triggered is application specific. It is recommended to trigger the push of Unique IDs towards the customer after the Goods Issue has been booked, since commonly at that point the serial numbers/batch numbers of the parts being delivered are fixed in the logistics process and shall be contained in delivery documents, EDI Messages and/or any internal representation of the received items (non-Catena-X communication).
 
 The Unique ID push is initiated by the supplier (acting as sender) towards their customer (acting as receiver). Since the Unique ID of the asset (i.e., serial unit / batch) is unknown in the logistics process, the message needs to include local identifiers to be matched towards the information from the delivery documents and furthermore the internal data of the recipient's traceability solution.
 
@@ -729,7 +729,6 @@ Upon receipt of the message, the customer needs to match the local identifiers w
   Alternatively, if only production events are tracked, the data could be integrated at this point into the data provisioning pipeline's data structure for consumed materials.
 - In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
 
-In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
 
 ![Unique ID Push Process](../assets/unique_id_push_process.png)
 
@@ -784,7 +783,7 @@ The notifications send to inform a customer about the creating of a new digital 
 
 All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push API documentation](Unique%20ID%20Push%20API/unique-id-push-notification-api).
 
-> Adding the customer part id to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the notification.
+> Adding the customer part id to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding customer part id of its part though, it is required to always add the customer part id to the notification.
 
 ##### Notification Receiver (Customer)
 
@@ -851,7 +850,7 @@ The only special step in creating these two submodels is the initial creation of
 
 ##### Creation of Submodel SingleLevelBomAsBuilt
 
-The creation of the submodel SingleLevelBomAsBuilt is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childParts.childCatenaXId), as shown in the following example:
+The creation of the submodel SingleLevelBomAsBuilt is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childItems.catenaXId), as shown in the following example:
 
 ```json
 {
@@ -881,7 +880,7 @@ The creation of the submodel SingleLevelBomAsBuilt is more complicated. This sub
 }
 ```
 
-For the build-in parts (child parts), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
+For the build-in parts (child items), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
 
 - Get all necessary local ids for the built-in part:
   - manufacturer (BPN), manufacturer part id and serial number for serialized parts
