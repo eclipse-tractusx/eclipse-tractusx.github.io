@@ -22,7 +22,10 @@ All notable changes to this Kit will be documented in this file.
 - Updated all parts of the KIT related to the digital twin registry as the DTR now has a decentralized architecture
 - Development View: Updated documentation because of the migration to the new standard AAS v3.0 by the DTR
 - Development View: Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
-- Fixed references to deprected Catena-X releases in the documentation.
+- Fixed references to deprecated Catena-X releases in the documentation.
+- Updated SerialPartTypization 1.1.1 to SerialPart 1.0.1
+- updated AssemblyPartRelationship 1.1.1 to SingleLevelBomAsBuilt 1.0.0
+- Setting the visibility of entries in a digital twin's specifid asset IDs is now mandatory to ensure need-know
 
 ### Removed
 
