@@ -486,7 +486,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000XXX"
         }
       ]
@@ -499,7 +499,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000XXX"
         }
       ]
@@ -519,7 +519,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000XXX"
         }
       ]
@@ -532,7 +532,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000XXX"
         }
       ]
@@ -545,7 +545,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000YYY"
         }
       ]
@@ -558,7 +558,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
       "type": "ExternalReference",
       "keys": [
         {
-          "type": "Property",
+          "type": "GlobalReference",
           "value": "BPNL000000000YYY"
         }
       ]
