@@ -398,7 +398,7 @@ In Traceability, digital twins for different types of parts are registered at a 
 
 The following general conventions apply for all these digital twins:
 
-- id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`
+- id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`;
 - globalAssetId: the Unique ID of the real-world part for which a digital twin is created.
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
@@ -573,7 +573,7 @@ General conventions for submodel descriptors can be found in the standard [CX-00
 
 Submodel descriptors MUST be compliant to the following additional conventions:
 
-- `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
+- `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
 - `idShort`: the name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
 
 The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor.
@@ -603,12 +603,12 @@ The following conventions apply for the endpoint:
   - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel.
   - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
   - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
-- `subprotocolBody`: a semicolon-separated list of parameters passed to the data consumer.
+- `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
   - `dspEndpoint`: server and port of the EDC control plane used for contract negotiation.
 
 > :raised_hand: **Backend Data Service for Submodels**
-According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported (via path suffixes like in "/submodel/$value"). This might change in later Catena-X releases.
+According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
 
 With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
