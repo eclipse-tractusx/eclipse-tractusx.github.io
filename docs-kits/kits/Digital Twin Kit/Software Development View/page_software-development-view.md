@@ -44,7 +44,10 @@ index in a book: When trying to discover information, it's convenient to have an
 access it. The registry caters exactly that information: For every asset it knows, it holds a number of Submodel Descriptors and in 
 these, a consumer app will find information WHAT it will find (via the semanticId) and how to access the information (endpoint,
 security setup etc.). As the information contained in the DTR may be sensitive and not be trusted with a central entity,
-every data provider must offer his own DTR as an EDC Data Asset.
+every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET endpoints
+as specified in the [Development View](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20Kit),
+data providers may find it useful to implement POST requests for registration on top. Either way, they are free to populate
+their DTR in any way they desire.
 
 ### Catena-X specific Services
 
@@ -163,7 +166,6 @@ The top-level `@id` field should be equivalent to the id of the Submodel.
     "aas-submodel": "aas:SubmodelServiceSpecification/",
     "aas-semantics": "aas:hasSemantics/"
   },
-  
   "@type": "edc:AssetEntryDto",
   "edc:asset": {
     "@id": "urn:uuid:ca180cf7-7ed6-4f53-b32f-d072d4cad834",
@@ -176,22 +178,54 @@ The top-level `@id` field should be equivalent to the id of the Submodel.
       "edc:contentType": "application/json"
     },
     "edc:privateProperties": null,
-   
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
-    "edc:authKey": "Authorization",
-    "edc:authCode": "Basic XXX",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
+    "edc:dataAddress": {
+      "edc:type": "edc:HttpData",
+      "edc:baseUrl": "https://tf-test8-greentoken-consumer-2.tf-test8.app.green-token.io/edc",
+      "edc:authKey": "Authorization",
+      "edc:authCode": "Basic XXX",
+      "edc:proxyBody": "true",
+      "edc:proxyPath": "true",
+      "edc:proxyQueryParams": "true",
+      "edc:proxyMethod": "true",
+      "edc:contentType": "application/json"
+    }
   }
 }
 ```
 
 ### Registration at Digital Twin Registry
+
+#### Example for AAS-Registration
+
+```json
+{
+  "id": "urn:uuid:e5c96ab5-896a-1234-8761-efd74777ca97",
+  "idShort": "myAas",
+  "specificAssetIds": [
+    {
+      "name": "manufacturerPartId",
+      "value": "BPN:123-345-567103",
+      "externalSubjectId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "BPNL:someBpnOfAssetOwner"
+          }
+        ]
+      }
+    }
+  ],
+  "submodelDescriptors": [
+  ]
+}
+```
+
+
+
+<!-- Recommended -->
+
+#### Example for Submodel-Registration at existing AAS
 
 The Submodel Descriptors in the DTR must not only follow the schema defined by the openAPI file. Additionally, it is 
 imperative that the network mandates how they shall be populated with data. This is especially critical because the
