@@ -91,8 +91,7 @@ const sidebars = {
       type: 'category',
       label: 'Data Chain Kit',
       link: {
-        type: 'doc',
-        id: 'kits/Data Chain Kit/DCK'
+        type: 'generated-index',
       },
       collapsed: true,
       items: [
