@@ -1,5 +1,5 @@
 ---
-title: Contribute
+title: Contribute FAQ
 ---
 
 On this page you find a FAQ which is focused on question regarding your contribution to the Tractus-X project.
@@ -75,7 +75,7 @@ It may be the case that you already started the development of your KIT outside 
 
 1. If you have write access to your repositrory and it is empty you may see this code-tabe within the empty repository:
 
-   ![import repository](processes/resources/import-repository.png)
+   ![import repository](resources/import-repository.png)
 
    Click on the `import repository` button. Enter your clone url on the next page and your current repository will be cloned into the empty repo. After this is done you are ready to go.
 
@@ -112,4 +112,31 @@ Raise an Issue within the Tractus-X Repository and add a decription where to fin
 
 ## How to request a promotion?
 
-Raise an Issue within the Tractus-X Repository and request an promotion to the the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
+Raise an Issue within the Tractus-X Repository and request an promotion to the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
+
+## General KIT Workflow
+
+In this section we describe the general worklfow on how to contribute with git:
+
+1. Create a fork of the repository where you want to contribute.
+
+   → [how to fork](/docs/kit-process/processes/update-documentation.md#overview)
+
+2. Create a new branch within your fork.
+3. Add your contribution to that branch.
+4. Once your contribution is complete create a Pull Request and wait for the review of your contribution.
+
+   → [how to create a PR](/docs/kit-process/processes/update-documentation.md#overview)
+
+## When to update the KIT documentation
+
+You may update your KITs documentation as soon as you have published a new KIT Release. Note that your KIT release is **independent** of the Catena-C release! This means you can update your KITs documentation **at any time**! make sure to add your updates to the correct directories and keep you changelog up to date. You find more detailed information on how to update [here](/docs/kit-process/processes/update-documentation.md).
+
+## What happens during the Catena-X Release
+
+## What to do to change already within Catena-x released content
+
+It may occurr that after the release of a new Catena-X version that you want to change something on your released documentation. Don't create a PR on the versionend documenation since it will be refused and more importantly it defeats the the purpose of versioning! If it is the case that you need to change something, we want to consider the following:
+
+1. Is it feasable to let the error be within the release e.g. typo or similar minor errors
+2. If it is a critical error, raise an issue within the [community repository](https://github.com/eclipse-tractusx/community). Explain your problem and why it is critical that you need to add a change. The issue will be reviewd and then there will be an decision made whether the changes will be approved or not.
