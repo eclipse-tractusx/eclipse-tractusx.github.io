@@ -39,6 +39,17 @@ const sidebars = {
               "kit-process/graduation-process",
               "kit-process/versioning",
               "kit-process/artefacts",
+              {
+                type: 'category',
+                label: 'Documentation',
+                collapsed: true,
+                items: [
+                  "kit-process/processes/update-documentation",
+                  "kit-process/processes/create_KIT_page",
+                ]
+              },
+              "kit-process/processes/kit-faq"
+
           ],
       },{
         type: 'category',
@@ -55,42 +66,7 @@ const sidebars = {
             "website-guidelines/update-news-page",
             "website-guidelines/automate-kit-doc-update",
         ],
-    },
-    {
-        type: 'category',
-        label: 'FAQ',
-        link: {
-            type: 'doc',
-            id: 'faq/coverpage'
-        },
-        collapsed: true,
-        items: [{
-            type: 'category',
-            label: 'KIT FAQ',
-             link: {
-                 type: 'doc',
-                 id: 'kit-process/processes/contribute'
-             },
-            collapsed: true,
-            items: [
-                      "kit-process/processes/contribute",
-                      "kit-process/processes/create_KIT_page",
-                      "kit-process/processes/update-documentation",
-  
-            ]},
-            {
-                type: 'category',
-                label: 'General FAQ',
-                link: {
-                    type: 'doc',
-                    id: 'website-guidelines/dev_faq'
-                },
-                collapsed: true,
-                items: [                    
-                ],
-            }],
-    },           
-    
+    },         
       {
           type: 'category',
           label: 'Open Source Development',
@@ -105,6 +81,7 @@ const sidebars = {
               },
           ],
       },
+      "website-guidelines/dev_faq",
       'github-checks',
       'dev_links'
   ],
