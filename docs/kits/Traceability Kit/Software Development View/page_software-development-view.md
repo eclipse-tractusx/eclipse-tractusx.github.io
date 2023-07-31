@@ -398,16 +398,16 @@ In Traceability, digital twins for different types of parts are registered at a 
 
 The following general conventions apply for all these digital twins:
 
-- id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`
-- globalAssetId: The Unique ID of the real-world part for which a digital twin is created.
+- id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`;
+- globalAssetId: the Unique ID of the real-world part for which a digital twin is created.
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
 
-##### Property specificAssetId
+##### Property specificAssetIds
 
-For Traceability, we define some specificAssetId as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
+For Traceability, we define some specific asset IDs as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
-The following conventions for specificAssetId apply to all digital twins:
+The following conventions for specific asset IDs apply to all digital twins:
 
 <table>
   <tr>
@@ -429,27 +429,6 @@ The following conventions for specificAssetId apply to all digital twins:
     <td> customerPartId </td>
     <td> Optional </td>
     <td> The ID of the type/catalog part from the <em>customer</em>.<br/>The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. In case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is <em>required</em> to add this information for easier lookup and to enable further processes.<br/>
-    If a part has multiple customers, e.g., for batches or catalog parts, multiple customerPartIds can be added. BPN-based access control can be applied to customerPartIds to restrict visiblility.<br/>
-    Each company that shall have access to a specific customerPartId must be provided as externalSubjectId using its BPN.<br />
-    Access to customerPartId only for BPNL1234:
-
-```json
-{
-  "key": "customerPartId",
-  "value": "39192",
-  "externalSubjectId": "BPNL1234"
-}
-```
-
-In case multiple companies shall have access, each company must be provided in a triple consisting of key, value and externalSubjectId.
-If no access control shall be applied, externalSubjectId must be omitted (no access control for `customerPartId`):
-
-```json
-{
-  "key": "customerPartId",
-  "value": "39192"
-}
-```
 
   </td>
     <td> String </td>
@@ -488,14 +467,114 @@ If no access control shall be applied, externalSubjectId must be omitted (no acc
 > :raised_hand: **Lookup of Digital Twins**
 > The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
 
+##### Authorization: Visbility of Specific Asset IDs in the DTR
+
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
+
+- _Every entry_ in the attribute specificAssetIds (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
+- If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
+- The owner (creator) of a digital twin will always see all specific asset IDs. So, it's not necessary to add an `externalSubjectId` for the owner itself. This also means that only the owner of a digital twin will be able to see the entry if no `externalSubjectId` is specified.
+
+###### Example: Visibility of manufacturerId and customerPartId only for company with BPN BPNL000000000XXX
+
+```json
+"specificAssetIds": [
+  {
+    "name": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  },
+  {
+    "name": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  }
+]
+```
+
+###### Example: Visibility of manufacturerId and customerPartId for two companies
+
+```json
+"specificAssetIds": [
+  {
+    "name": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  },
+  {
+    "name": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000XXX"
+        }
+      ]
+    }
+  },
+  {
+    "key": "manufacturerId",
+    "value": "BPNL000000000AAA",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000YYY"
+        }
+      ]
+    }
+  },
+  {
+    "key": "customerPartId",
+    "value": "39192",
+    "externalSubjectId": {
+      "type": "ExternalReference",
+      "keys": [
+        {
+          "type": "Property",
+          "value": "BPNL000000000YYY"
+        }
+      ]
+    }
+  }
+]
+```
+
 ##### Submodel Descriptors
 
 General conventions for submodel descriptors can be found in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library). This section is based on it and it is recommended to read it first. In this KIT, we extend this standard with some additional conventions.
 
 Submodel descriptors MUST be compliant to the following additional conventions:
 
-- `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;"
-- `idShort`: The name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
+- `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
+- `idShort`: the name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
 
 The actual access information for the EDC is part of the endpoint attribute in the submodel descriptor.
 
@@ -520,29 +599,28 @@ The actual access information for the EDC is part of the endpoint attribute in t
 The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
-- `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-  - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel
-  - `{path}`: This part is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
-  - `/submodel`: This part is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
-- `subprotocolBody`: A semicolon-separated list of parameters passed to the data consumer.
-
-  - `id=123`: The id of the asset for which a contract negitiation should be intiated.
-  - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation
+- `href`: the endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
+  - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel.
+  - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
+  - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
+- `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
+  - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
+  - `dspEndpoint`: server and port of the EDC control plane used for contract negotiation.
 
 > :raised_hand: **Backend Data Service for Submodels**
-According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported (via path suffixes like in "/submodel/$value"). This might change in later Catena-X releases.
+According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
 
 With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
 ###### Option 1: Same EDC Asset Structure as in Release 3.1
 
-Submodels of digital twins are registered in the EDC the same way as for release 3.1: one EDC asset is created for every submodel of a digital twin.
+Submodels of digital twins are registered in the EDC the same way as for release 3.1: One EDC asset is created for every submodel of a digital twin.
 
 - `href` must have the following format: `http://edc.data.plane/submodel`
 - `subprotocolBody` must have the following format: `id={edcAssetId};dspEndpoint=http://edc.control.plane`
 - edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
-  - aasIdentifier: The id of the digital twin (id property in the AAS descriptor)
-  - submodelIdentifier: The id of the submodel (id property in the submodel descriptor)
+  - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
+  - submodelIdentifier: the id of the submodel (id property in the submodel descriptor)
 
 Here's an example how such a submodel descriptor could look like:
 
@@ -586,7 +664,7 @@ In this example, the `path` part in the `href` is empty, as the EDC asset refere
 
  A data provider can link several submodel endpoints to the same EDC asset (referenced by its id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
   
-If a data provider no longer creates EDC assets on the level of submodels, the EDC can no longer authorize a request on a submodel-level. For example: if EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
+If a data provider no longer creates EDC assets on the level of submodels, the EDC can no longer authorize a request on a submodel-level. For example: If EDC assets are created per catalog part, the EDC can only authorize if the requestor is allowed to see parts of these type in general; if the requestor is allowed to see a actual serialized part, must be authorized by the backend data service executing the request.
 
 Here's an example how such a submodel descriptor could look like:
 
@@ -624,7 +702,7 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the EDC asset id is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
+The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the EDC asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other EDC asset structure.
 
@@ -655,7 +733,7 @@ For a data consumer, there are currently the following steps where they have to 
 
 ##### Lookup up a Digital Twin with Local IDs
 
-The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specificAssetId in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
+The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
 All Asset identifier key-value-pairs used as parameter to this lookup function are combined using AND. An example query would look like this: `https://URL/registry/lookup/shells?assetIds=%5B%7B%22key%22%3A%20%22manufacturerId%22,%22value%22%3A%20%22BPNL7588787849VQ%22%7D,%7B%22key%22%3A%20%22manufacturerPartId%22,%22value%22%3A%20%2295657362-83%22%7D,%7B%22key%22%3A%20%22partInstanceId%22,%22value%22%3A%20%22NO-574868639429552535768526%22%7D%5D`
 
@@ -680,10 +758,10 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specificAssetId property is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is required to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part id to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
-  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specificAssetId property. This is decision that a customer must agree upon with each of their suppliers individually.
+  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
 
 As a result, the AAS ID of the digital twin with this local IDs is returned. The AAS ID can then be used to retrieve details about the digital twin, i.e. the digital twin's AAS descriptor including submodel descriptors.
 
@@ -728,7 +806,6 @@ Upon receipt of the message, the customer needs to match the local identifiers w
 - If there is an object for incoming deliveries, this event could be updated.
   Alternatively, if only production events are tracked, the data could be integrated at this point into the data provisioning pipeline's data structure for consumed materials.
 - In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
-
 
 ![Unique ID Push Process](../assets/unique_id_push_process.png)
 
