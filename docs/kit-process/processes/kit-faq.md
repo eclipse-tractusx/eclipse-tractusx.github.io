@@ -1,5 +1,5 @@
 ---
-title: Contribute FAQ
+title: KIT FAQ
 ---
 
 On this page you find a FAQ which is focused on question regarding your contribution to the Tractus-X project.

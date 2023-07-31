@@ -1,5 +1,5 @@
 ---
-title: How to Update the News page by adding a new post?
+title: How to update the News page by adding a new post?
 sidebar_position: 5
 ---
 
