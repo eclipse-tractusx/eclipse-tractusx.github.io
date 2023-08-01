@@ -49,7 +49,6 @@ const sidebars = {
                 ]
               },
               "kit-process/processes/kit-faq"
-
           ],
       },{
         type: 'category',
@@ -81,7 +80,7 @@ const sidebars = {
               },
           ],
       },
-      "website-guidelines/dev_faq",
+      'dev_faq',
       'github-checks',
       'dev_links'
   ],
