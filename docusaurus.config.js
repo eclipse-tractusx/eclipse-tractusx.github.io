@@ -128,7 +128,7 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs",'@docusaurus/theme-mermaid'], // Allows use of @theme/ApiItem and other components
+  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
