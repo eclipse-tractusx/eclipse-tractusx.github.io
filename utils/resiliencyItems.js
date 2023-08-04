@@ -8,26 +8,26 @@ export const resiliencyItems = [
 	{ 
 		id: 1,
 		img: DCM_Kit,
-		pageRoute: "/docs-kits/Resiliency/DCM%20Kit"
+		pageRoute: "/docs-kits/next/Resiliency/DCM%20Kit/Adoption%20View%20DCM%20Kit"
 	},
   { 
 		id: 2,
 		img: Maas_Kit,
-		pageRoute: "/docs-kits/Resiliency/maas"
+		pageRoute: "/docs-kits/next/Resiliency/MaaS%20Kit/Adoption%20View%20MaaS%20Kit"
 	},
 	{ 
 		id: 3,
 		img: OSim_Kit,
-		pageRoute: "/docs-kits/Resiliency/OSIM"
+		pageRoute: "/docs-kits/next/Resiliency/OSim%20Kit/Adoption%20View%20OSim%20Kit"
 	},
 	{ 
 		id: 4,
 		img: PURIS_Kit,
-		pageRoute: "/docs-kits/Resiliency/PURIS"
+		pageRoute: "/docs-kits/next/Resiliency/PURIS%20Kit/Adoption%20View%20PURIS%20Kit"
 	},
 	{ 
 		id: 5,
 		img: MP_Kit,
-		pageRoute: "/docs-kits/Resiliency/mp%20kit"
+		pageRoute: "/docs-kits/next/Resiliency/MP%20Kit/Adoption%20View%20MP%20Kit"
 	},
 ]
