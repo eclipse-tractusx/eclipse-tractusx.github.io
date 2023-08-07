@@ -397,11 +397,6 @@ const sidebars = {
             },
           ],
         },
-        // 'Resiliency/DCM Kit',
-        // 'Resiliency/maas',
-        // 'Resiliency/OSIM',
-        // 'Resiliency/PURIS',
-        // 'Resiliency/mp kit',
       ]
     },
   ],
