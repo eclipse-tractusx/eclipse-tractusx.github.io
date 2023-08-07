@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Catena-X Standards are the foundation for certifying any software component operating in the Catena-X data space. Those standards are the binding reference to obtain a valid certificate.
+[Catena-X Standards](https://catena-x.net/de/standard-library) are the foundation for certifying any software component operating in the Catena-X data space. Those standards are the binding reference to obtain a valid certificate.
 
-To make adopting the latest Catena-X standards easier, reference implementations are provided through the Elipse Tractus-X Project. Releases of these reference implementations happen four times a year using a calendar versioning scheme ([https://calver.org/](https://calver.org/)), and include the operating system consisting of core services, enablement services, and KITs.
+To make adopting the latest Catena-X standards easier, reference implementations are provided through the Elipse Tractus-X Project. Releases of these reference implementations happen four times a year using a [calendar versioning](https://calver.org/) scheme, and include the operating system consisting of core services, enablement services, and KITs.
 
-Please check the Change Log ([https://eclipse-tractusx.github.io/CHANGELOG](https://eclipse-tractusx.github.io/CHANGELOG)) for content, known knowns, and backward compatibility since the calendar versioning scheme readily shows the year and month of release.
+Please check the [Change Log](/CHANGELOG) for content, known knowns, and backward compatibility since the calendar versioning scheme readily shows the year and month of release.
 
 ![Release information cycles chart](@site/static/img/release-information-cycles.png)
 
