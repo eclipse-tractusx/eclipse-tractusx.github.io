@@ -342,9 +342,19 @@ const config = {
             label: "Community",
           },
           {
-            to: "/CHANGELOG",
-            position: "left",
-            label: "Versions",
+            type: 'dropdown',
+            label: 'Versions',
+            position: 'left',
+            items: [
+              {
+                to: '/release-information',
+                label: 'Release Information',
+              },
+              {
+                to: '/CHANGELOG',
+                label: 'Change Log',
+              },
+            ],
           },
           // {
           //   to: "/docs-products/category/products",
