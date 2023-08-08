@@ -374,13 +374,11 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 ```
 
 <!-- Recommended -->
-
 ## Reference Implementation
 
 For a reference implementation, take a look at the open-source Trace-X app. More information are provided in the [Operation View](../page_software-operation-view.md) section.
 
 <!-- Recommended -->
-
 ## Documentation in the Context of Development
 
 ### Data Provisioning
@@ -580,7 +578,6 @@ The actual access information for the EDC is part of the endpoint attribute in t
 
 ```json
 {
-
     "interface": "SUBMODEL-3.0",
     "protocolInformation": {
         "href": "https://edc.data.plane/{path}/submodel",
@@ -599,13 +596,13 @@ The actual access information for the EDC is part of the endpoint attribute in t
 The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
-- `href`: the endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-  - `edc.data.plane`: server and port of the EDC data plane that is providing the submodel.
+- `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
+  - `edc.data.plane`: Server and port of the EDC data plane that is providing the submodel.
   - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
   - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
-  - `dspEndpoint`: server and port of the EDC control plane used for contract negotiation.
+  - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation.
 
 > :raised_hand: **Backend Data Service for Submodels**
 According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
