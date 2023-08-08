@@ -261,137 +261,147 @@ This architecture overview only shows Catena-X Core Services that are directly a
 <!-- Recommended -->
 ## Business Process
 
-To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following.
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange](#standards) standard.
 
 ### Access Policies
 
-To decide which company has access to the data assets, access policy should be used. It is maybe possible to skip access policies, but this will made all data assets public available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
-
-In the near future, other access policies will be introduced like a company role and attribute based policy.
+To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
 #### BPN Access Policy
 
-<u>Description:</u> This policy will allow limiting access to a data offer based on a list of specific BPN. This translates to the following functionality:
+This policy allows limiting access to a data offer based on a list of specific BPNs. This translates to the following functionality:
 
 - The data offer creator will be able to create a policy listing all the BPN that can access the data offer
-- This means that only the connectors registered in DAPS with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
+- This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
 <!-- - To fulfill the requirements of the **Supply Chain Act**, a NGO Trustee is introduced that is trusted by the complete supply chain to evaluate if an inquiring company is impacted by a specific ESS incident.
 Every Trustee is represented in the Catena-X network as a general participant with a unique BPN. Further, the Trustee is allowed to use supplier relationships and BoM data beyond the one-up/one-down principle due to the legal regulations.
 In order to grant access to the BoM as planned data assets, the Trustee's BPN must be mentioned in the policy. -->
 
-Examples for single and multiple BPN are described on [this page of the EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation).
-
-```json
-{
-  "uid": "<PolicyId>",
-  "prohibitions": [],
-  "obligations": [],
-  "permissions": [
-    {
-      "edctype": "dataspaceconnector:permission",
-      "action": {
-        "type": "USE"
-      },
-      "constraints": [
-        {
-          "edctype": "AtomicConstraint",
-          "leftExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "BusinessPartnerNumber"
-          },
-          "rightExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "<BPN>"
-          },
-          "operator": "EQ"
-        }
-      ]
-    }
-  ]
-}
-```
+Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
 
-To decide which company can use the data asset under specific conditions, usage policies are used. Therefore, they are more specific than access policies and only used just after access is granted. The `POST` `/api/v1/data/policydefinitions` endpoint is used to create a usage policy in the EDC. Currently, the usage policies aren't technically enforced (keep this in mind when publishing data assets).
+To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 
-#### Purpose-based Usage Policy
-
-It is recommended to restrict the data usage for all traceability aspects. This can be made with the purpose restricted data usage policy. It contains a String as `value` that defines the purpose of usage. Every participant in the Catena-X network must follow these purposes.
-
-In the following, the purpose value, their detailed description and the aspects for which they are relevant fore are presented.
-
-| Purpose Value            | Relevant for                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| R2_Traceability          | SerialPart 1.0.1  Batch 1.0.2 | The data can only be used for the Catena-X Use Case Traceability. This means that the data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply.                                                                                                               |
-| R2_Traceability          | SingleLevelBomAsBuilt 1.0.0          | The data can only be used for the Catena-X Use Case Traceability. This means that t he data can only be consumed in the context of visualization of parts and vehicles and their relations and quality analysis to e.g. select relevant components for further quality analysis or notifications.<br />For demonstrations based on artificial data, this policy does not apply. <br />_"Assumption: only used by own data provider. No usage of other use cases like dismantling, ESS etc."_ |
-| R2_QualityAlert          | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that t he data exchange via the Quality Alert Notification endpoint can   only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations . The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                              |
-| R2_QualityInvestigation  | Notification API                        | This purpose is intended for a Catena-X Use-Case Traceability.   This means that the data exchange via the Quality Alert Notification endpoint can only be exchanged in the context of visualization of quality-relevant issues of parts  and vehicles and their relations. The exchanged data can only be used on a "need to know" basis in the context of quality analysis.<br />For demonstrations based on artificial data, this policy does not apply.                                  |
-
-The JSON payload of a purpose-based usage policy looks as follows:
+Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the `odrl:and` operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all traceability aspects. An example of one usage policy containing three different constraints is shown and described in the following:
 
 ```json
 {
-  "uid": "<PolicyId>",
-  "prohibitions": [],
-  "obligations": [],
-  "permissions": [
-    {
-      "edctype": "dataspaceconnector:permission",
-      "action": {
-        "type": "USE"
-      },
-      "constraints": [
-        {
-          "edctype": "AtomicConstraint",
-          "leftExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "idsc:PURPOSE"
-          },
-          "rightExpression": {
-            "edctype": "dataspaceconnector:literalexpression",
-            "value": "<PurposeValue>"
-          },
-          "operator": "EQ"
+  "@context": {
+    "odrl": http://www.w3.org/ns/odrl/2/
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "<POLICY-ID>", // Important for the contract definition
+  "policy": {
+    "@type": "Policy",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "LogicalConstraint",
+          "odrl:and": [ // All of the following three constraints have to be fullfilled (and, not or)
+            // First constraint to verify the the Catena-X membership
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "Membership",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            },
+            // Second constraint to verify if the framework agreement for the traceability use case is accepted
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "FrameworkAgreement.traceability",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            },
+            // Third constraint to define the specific purpose, further detailed in the framework agreement
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "PURPOSE",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>" // See list in the framework agreement
+            }
+          ]
         }
-      ]
-    }
-  ]
+      }
+    ]
+  }
 }
 ```
+
+#### Membership Policy
+
+To verify the participants Catena-X membership, the `Membership` verifiable credential can be used. In case of a policy, the data can only be used from verified Catena-X members. The payload is shown in the first constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#1-membership-constraint).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "Membership",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "active"
+}
+```
+
+#### Framework Agreement Policy
+
+To verify if a participant accepted the framework agreement of a specific use case created by the [Catena-X association](https://catena-x.net/en/about-us/the-association), the `FrameworkAgreement.traceability` verifiable credential can be used for the traceability framework agreement. In case of a policy, the data can only be used from accepted and verified traceability framework agreement members. This is shown in the second constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#35-traceability).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "FrameworkAgreement.traceability",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "active"
+}
+```
+
+#### Purpose-based Policy
+
+To further restrict the data usage, a purpose-based policy can be used. If, for example, the purpose mentions a quality investigation, this means that the data usage is only allowed for handling and working on the quality investigation. All possible purposes and their meanings are defined in the traceability framework agreement. This allows to create a uniform understanding and a standardized set of payloads in the network by connecting technical strings to legal agreements.
+
+It is highly recommended to only use this purpose-based policy together with the [Framework Agreement Policy](#framework-agreement-policy). Only with both together it can be ensured that the payload of the purpose policy is agreed by the other part and is based on the same set.
+
+Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the policy definition API](tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api/create-policy-definition).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "PURPOSE",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>"
+}
+```
+
+The `<POSSIBLE-PURPOSE-STRING>` have to be replaced with one purpose string defined in the framework agreement.
 
 ### Contract Definitions
 
-In the EDC, every policy is associated with a contract. The `POST` `/api/v1/data/contractdefinitions` has the following JSON payload to create a contract definition that creates the relationship:
+In the EDC, every policy is associated with a contract. Thus, a contract definition is needed. Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the contract definition API](../tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api/edc-contract-definition-api).
 
-```json
-{
-  "id": "<ContractDefinitionId>",
-  "accessPolicyId" : "<AccessPolicyId>",
-  "contractPolicyId" : "<ContractPolicyId>",
-  "criteria": [
-    {
-      "operandLeft": "asset:prop:id",
-      "operator": "=",
-      "operandRight": "<UUID>"
-    }
-  ]
-}
-```
+When using an above mentioned [Access Policy](#access-policies), their `id` needs to be included as a value of the `accessPolicyId` key in the contract definition. When using an above mentioned [Usage Policy](#usage-policies), their `id` needs to be included as a value of the `contractPolicyId` key in the contract definition.
 
-The properties in this JSON have the following values:
+### Verifiable Credentials
 
-- `acccessPolicyId` is the UUID of the basic policy
-- `contractPolicyId` is the UUID of the basic policy
-- `criteria` is a list of simple expressions to express, which assets are used in this ContractDefinition.
-
-In the current implementation of the EDC only the `in` and `= operators are supported.
+Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standard by the W3C. Details about Catena-X specific VCs can be found in the [CX - 0016 Company Attribute Verification](#standards) standard. As mentioned there, it offers a `UseCaseFrameworkConditionCX` type allowing a data provider to check if specific conditions, like a signed use case contract as introduced in the [Purpose-base Usage Policy section](#purpose-based-policy), are agreed. Further technical documentation are presented in the [SSI Docu](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture) repository.
 
 <!-- !Mandatory! -->
 ## Standards
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
+- [CX - 0018 Sovereign Data Exchange](https://catena-x.net/de/standard-library)
 - [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPart_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_SingleLevelBomAsBuilt_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
