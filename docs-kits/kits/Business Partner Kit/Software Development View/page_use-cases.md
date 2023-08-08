@@ -2,7 +2,7 @@
 id: Use Cases
 title: Use Cases
 description: ''
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 Here we have provided detailed examples of how the BPDM services can be used. This includes step-by-step instructions for each use case and code snippets showing how to make the API calls for better performance.
@@ -57,9 +57,12 @@ This use case aims to provide users with clear and concise instructions, ensurin
 ### 1.2 Test data setup
 
 1. Download the Postman collection JSON files:
-   - Go to the following GitHub repository path: [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman)
-   - Locate the JSON files named as "BPDM Gate.postman_collection.json","BPDM Pool.postman_collection.json", "BPDM Bridge Dummy.postman_collection.json" and "local.postman_collection.json" click on it to view its contents.
-   - Click the "Raw" button to download the file or you can simply download from git repo mentioned in first step.
+   - You can copy collection for each service from provided hyperlink below and can download local variables from [here](../Software%20Development%20View/Local.postman_environment.json)
+        1. [BPDM Bridge-Dummy service](../Software%20Development%20View/BPDM%20Bridge%20Dummy.postman_collection.json)
+        2. [BPDM Gate Service](../Software%20Development%20View/BPDM%20Gate.postman_collection.json)
+        3. [BPDM Pool Service](../Software%20Development%20View/BPDM%20Pool.postman_collection.json)
+   - Or for latest version of apis, you can navigate to the following GitHub repository path: [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman) and locate the JSON files named as "BPDM Gate.postman_collection.json","BPDM Pool.postman_collection.json", "BPDM Bridge Dummy.postman_collection.json" and "local.postman_collection.json" click on it to view its contents.
+   - Click the "Raw" button to download the files or simply import jsons.
 
 2. Open Postman:
    - If you don't have Postman installed, you can download it from the official website: [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
@@ -82,7 +85,7 @@ This use case aims to provide users with clear and concise instructions, ensurin
 
 6. Explore Apis for each service:
    - Api's for each service can be seen under postman collection with refernced test data.
-   - For more information on apis, user can refere section of [Api Reference](../Documentation%20BPDM/page_api-reference.md)
+   - For more information on apis, user can refere section of [Api Reference](./page_software-development-view.md#api-reference)
 
 7. For Pool api service first check should be metadata availablity:
    - Expand the "BPDM Pool Api" collection in the left sidebar.
