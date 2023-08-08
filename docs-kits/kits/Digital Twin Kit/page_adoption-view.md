@@ -9,6 +9,8 @@ sidebar_position: 2
 Adoption View of the Kit.
 -->
 
+![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+
 <!-- !Mandatory! -->
 ## Vision & Mission
 
