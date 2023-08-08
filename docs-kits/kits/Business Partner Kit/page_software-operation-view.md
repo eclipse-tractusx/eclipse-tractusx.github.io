@@ -9,87 +9,118 @@ sidebar_position: 3
 
 ### Business Partner Kit
 
-## Installation Instructions
+## Local Deployment
 
-This file contains information on how to configure and run the BPDM applications using helm chart.
+BPDM is an acronym for business partner data management. This project provides core services for querying, adding and changing business partner base information in the Eclipse Tractus-X landscape. BPDM project is SpringBoot Kotlin software project managed by Maven and consists of three microservices. This section contains information on how to configure and run the BPDM application.
 
-BPDM project is SpringBoot Kotlin software project managed by Maven.
-The indivial services from project can be run with the following command: `mvn clean spring-boot:run` on local system. This section covering on how you can deploy whole bpdm project and on how you can deploy each service Individual from the project.
+This local deployment is an easy installation with helm. This setup is built to run on a kubernetes cluster.
 
-## Prerequisites
+| Step                                                                             | Action                              | Description                                                             |
+|----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
+|![arrow down](@site/static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
+|![vector](@site/static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
+|![check](@site/static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with Services |
 
-* [Kubernetes Cluster](https://kubernetes.io/)
-* [Helm](https://helm.sh/docs/)
-* [Cloned BPDM repository](https://github.com/eclipse-tractusx/bpdm)
+### Step 1: Prerequisites
 
-## BPDM  
+1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
+2. [helm](https://helm.sh/docs/intro/install/) is installed
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+   You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
-In an existing Kubernetes cluster the application can be deployed with the following command:
+   ```bash
+   minikube start --memory 8192 --cpus 2 
+   ```
+
+   _Optional_: enable minikube metrics
+
+   ```bash
+   minikube addons enable metrics-server
+   ```
+
+4. [kubectl](https://kubernetes.io/docs/tasks/tools/) is installed
+5. [psql](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/) client is installed
+
+### Step 2: Check out the code
+
+Check out the project [BPDM](https://github.com/eclipse-tractusx/bpdm) or download a [released version](https://github.com/eclipse-tractusx/bpdm/releases) of the project.
+
+### Step 3: Installing the services
+
+#### 1. Start the cluster
+
+To deploy the services on kubernetes using helm charts, run
 
 ```bash
-helm install release_name ./charts/bpdm --namespace your_namespace
+cd local/bpdm
+helm install your_namespace ./charts/bpdm/
 ```
 
-This will install a new release of the BPDM in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
-The application is run on default profile without authorization.
-Additionally, the Helm deployment contains a PostgreSQL database and Opensearch instance which the BPDM Pool connects to.
-
-On the default values deployment no further action is needed to make the BPDM deployment run.
-However, per default, ingress as well as authentication for endpoints are disabled.
-
-By giving your own values file you can configure the Helm deployment of the BPDM freely:
+If postgresql is not available in your cluster then you might get following error.
 
 ```bash
-helm install release_name ./charts/bpdm --namespace your_namespace -f ./path/to/your/values.yaml
+Error: INSTALLATION FAILED: An error occurred while checking for chart dependencies. You may need to run `helm dependency build` to fetch missing dependencies: found in Chart.yaml, but missing in charts/ directory: opensearch, postgresql
 ```
 
-In the following sections you can have a look at the most important configuration options.
+You can resolve it by adding dependancy to the build
 
-### Image Tag
-
-Per default, the Helm deployment references a certain BPDM release version where the newest Helm release points to the newest version.
-This is a stable tag pointing to a fixed release version of the BPDM.
-For your deployment you might want to follow the latest application releases instead.
-
-In your values file you can overwrite the default tag:
-
-```yaml
-image:
-  tag: "latest"
+```bash
+helm dependency build ./charts/bpdm/
 ```
 
-### Helm Dependencies
+This can take up to **5 minutes**.
 
-On default, the Helm deployment also contains a PostgreSQL and Opensearch deployment.
-You can configure these deployments in your value file as well.
-For this, consider the documentation of the correspondent dependency [PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql/11.9.13)
-or [Opensearch](https://opensearch.org/docs/latest/dashboards/install/helm/).
-In case you want to use an already deployed database or Opensearch instance you can also disable the respective dependency and overwrite the default host
-address in the `applicationConfig`:
+When the deployment is finished you can expect that 3 deployments can be seen in the minikube dashboard:
 
-```yaml
-applicationConfig:
-  spring:
-    datasource:
-      url: jdbc:postgresql://remote.host.net:5432/bpdm
-postgres:
-  enabled: false
+* bpdm-bridge-dummy
+* bpdm-gate
+* bpdm-pool
+
+Also in total 5 Pods are up and running.
+
+##### 1.1 Get the status of the deployment
+
+The minikube dashboard will give you feedback on how the status of the deployment currently is:
+
+```bash
+  minikube dashboard 
 ```
+
+Make sure you select the namespace **your_namespace**:
+
+![expected status](@site/static/img/minikube-bpdm-dashboard-overview.png)
+
+#### 2. Forward ports
+
+When the deployment has been finished, you can for port forwarding using k9s. Also, if k9s tool is not installed the you can use [installer](https://k9scli.io/topics/install/)
+
+```bash
+<shift+f>
+```
+
+or port forwarding can also be achived kubernetes command
+
+```bash
+kubectl port-forward <pod-name> <locahost-port>:<pod-port>
+```
+
+After that you can access the:
+
+* **bpdm-bridge-dummy:** [http://localhost:8083](http://localhost:8083)
+* **bpdm-gate:** [http://localhost:8081](http://localhost:8081)
+* **bpdm-pool:** [http://localhost:8080](http://localhost:8080)
 
 ## Deploy Individual Service
 
 ### 1. BPDM Pool
 
-The [prerequisites](#prerequisites) for running this service. In an existing Kubernetes cluster the application can be deployed with the following command:
+The [prerequisites](#step-1-prerequisites) for running this service. In an existing Kubernetes cluster the application can be deployed with the following command:
 
 ```bash
-helm install release_name ./charts/bpdm-pool --namespace your_namespace
+helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace
 ```
 
-This will install a new release of the BPDM Pool in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
-The application is run on default profile (without authorization).
+This will install a new release of the BPDM Pool in the given namespace.On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry. The application is run on default profile (without authorization).
 Additionally, the Helm deployment contains a PostgreSQL database and Opensearch instance which the BPDM Pool connects to.
 
 On the default values deployment no further action is needed to make the BPDM Pool deployment run.
@@ -98,7 +129,7 @@ However, per default, ingress as well as authentication for endpoints are disabl
 By giving your own values file you can configure the Helm deployment of the BPDM Pool freely:
 
 ```bash
-helm install release_name ./charts/bpdm-pool --namespace your_namespace -f ./path/to/your/values.yaml
+helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace -f ./path/to/your/values.yaml
 ```
 
 In the following sections you can have a look at the most important configuration options.
@@ -197,12 +228,12 @@ postgres:
 
 ### 2. BPDM Gate
 
-The [prerequisites](#prerequisites) for running this service is same except this service need running BPDM Pool instance.
+The [prerequisites](#step-1-prerequisites) for running this service is same except this service need running BPDM Pool instance.
 
 In an existing Kubernetes cluster the application can be deployed with the following command:
 
 ```bash
-helm install release_name ./charts/bpdm-gate --namespace your_namespace -f /path/to/my_release-values.yaml
+helm install release_name ./charts/bpdm/bpdm-gate --namespace your_namespace -f /path/to/my_release-values.yaml
 ```
 
 This will install a new release of the BPDM Gate in the given namespace.
@@ -289,10 +320,10 @@ applicationSecrets:
 
 ### 3. BPDM Bridge Dummy
 
-The [prerequisites](#prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
+The [prerequisites](#step-1-prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
 
 ```bash
-helm install release_name ./charts/bpdm-bridge-dummy --namespace your_namespace -f /path/to/my_release-values.yaml
+helm install release_name ./charts/bpdm/bpdm-bridge-dummy --namespace your_namespace -f /path/to/my_release-values.yaml
 ```
 
 This will install a new release of the BPDM Bridge Dummy in the given namespace.
@@ -374,3 +405,24 @@ applicationSecrets:
       credentials:
         secret: your_client_secret
 ```
+
+## Stopping the cluster
+
+1. stop minikube
+
+    ```bash
+    minikube stop
+    ```
+
+2. stop the processes used for port forwarding and minikube dashboard
+3. shut down the Docker daemon
+
+## How to debug an application in the cluster
+
+If you want to connect your IDE to one of the applications in the cluster, you need to enable debug mode for that application by overriding the entrypoint (using the `command` and `args` fields in the deployment resource). How to do this depends on the application. For the BPDM, as it is based on Spring Boot and Kotlin, you would need to add this flag to the start command:
+
+```bash
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+```
+
+Then you can forward the port 8000 for the BPDM deployment to your host machine and connect your IDE to that port.
