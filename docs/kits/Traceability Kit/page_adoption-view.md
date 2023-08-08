@@ -194,7 +194,7 @@ Defined
   - Digital Twin Batch
   - Digital Twin Vehicle
 - Build up the basic chain
-  - Aspect model "SerialPartTypization"
+  - Aspect model "SerialPart"
   - Aspect model "AssemblyPartRelation"
   - Aspect model "Batch"
   - Aspect model "JustInSequencePart"
@@ -202,17 +202,17 @@ Defined
 
 ### AsBuilt Aspect Models
 
-#### 1. SerialPartTypization
+#### 1. SerialPart
 
 A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part_typization/1.1.1)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1)
 
-#### 2. AssemblyPartRelationship
+#### 2. SingleLevelBomAsBuilt
 
 The aspect provides the child parts (one structural level down) which the given object assembles.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.assembly_part_relationship/1.1.1)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0)
 
 #### 3. Batch
 
@@ -398,11 +398,13 @@ Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standa
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-- [CX - 0016 Company Attribute Verification](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/4_IAM/CX_-_0016_Company_Attribute_Verification_PlatformCapabilityIAM_v_1.0.1.pdf)
 - [CX - 0018 Sovereign Data Exchange](https://catena-x.net/de/standard-library)
-- [CX - 0019 Aspect Model: Serial Part Typization](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPartTypization_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0020 Aspect Model:Assembly Part Relationship](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_AssemblyPartRelationship_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPart_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_SingleLevelBomAsBuilt_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
 - [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
 - [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
+- [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf)
+- [CX - 0043 Semantic Model: Part AsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
 - [CX - 0093 Aspect Model TractionBatteryCode](https://catena-x.net/de/standard-library)
+- [CX - 0094 Aspect Model Part Site Information AsPlanned](https://catena-x.net/de/standard-library)
