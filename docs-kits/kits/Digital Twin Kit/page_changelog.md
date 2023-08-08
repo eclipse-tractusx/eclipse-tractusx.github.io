@@ -5,7 +5,7 @@ description: 'Digital Twin Kit'
 sidebar_position: 1
 ---
 
-### Digital Twin Kit
+![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
 
 All notable changes to this Kit will be documented in this file.
 

@@ -10,6 +10,8 @@ sidebar_position: 4
 Development View of the Kit.
 -->
 
+![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+
 <!-- !Mandatory! -->
 ## API Specifications
 
