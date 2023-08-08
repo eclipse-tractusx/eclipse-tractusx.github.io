@@ -265,7 +265,7 @@ To enable data sovereignty, access and usage policies are important to protect t
 
 ### Access Policies
 
-To decide which company has access to the data assets, access policy should be used. It is maybe possible to skip access policies, but this will made all data assets public available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN). In the future, additional access policies are planned besides the BPN access policy.
+To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
 #### BPN Access Policy
 
@@ -291,7 +291,7 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
     "odrl": http://www.w3.org/ns/odrl/2/
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "<POLICY-ID>",
+  "@id": "<POLICY-ID>", // Important for the contract definition
   "policy": {
     "@type": "Policy",
     "odrl:permission": [
@@ -299,7 +299,8 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
         "odrl:action": "USE",
         "odrl:constraint": {
           "@type": "LogicalConstraint",
-          "odrl:and": [
+          "odrl:and": [ // All of the following three constraints have to be fullfilled (and, not or)
+            // First constraint to verify the the Catena-X membership
             {
               "@type": "Constraint",
               "odrl:leftOperand": "Membership",
@@ -308,6 +309,7 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
               },
               "odrl:rightOperand": "active"
             },
+            // Second constraint to verify if the framework agreement for the traceability use case is accepted
             {
               "@type": "Constraint",
               "odrl:leftOperand": "FrameworkAgreement.traceability",
@@ -316,13 +318,14 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
               },
               "odrl:rightOperand": "active"
             },
+            // Third constraint to define the specific purpose, further detailed in the framework agreement
             {
               "@type": "Constraint",
               "odrl:leftOperand": "PURPOSE",
               "odrl:operator": {
                 "@id": "odrl:eq"
               },
-              "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>"
+              "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>" // See list in the framework agreement
             }
           ]
         }
