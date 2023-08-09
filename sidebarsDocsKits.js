@@ -147,7 +147,7 @@ const sidebars = {
           label: 'Development View',
           link: {
             type: 'doc',
-            id: 'kits/tractusx-edc/docs/kit/development-view/page00_development_view',
+            id: 'kits/tractusx-edc/docs/kit/operation-view/page10_extensions',
           },
           collapsed: true,
           items: [
@@ -203,7 +203,7 @@ const sidebars = {
               collapsed: true,
               link: {
                 type: 'doc',
-                id: 'kits/tractusx-edc/docs/kit/development-view/page10_extensions',
+                id: 'kits/tractusx-edc/docs/kit/operation-view/page10_extensions',
               },
               items: [
                 {
@@ -212,6 +212,7 @@ const sidebars = {
                 },
               ]
             },
+            'kits/tractusx-edc/core/edr-core/README',
             'kits/tractusx-edc/docs/development/Release'
           ],
         },

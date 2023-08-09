@@ -15,7 +15,7 @@ The following is a short overview of the necessary steps to start up the default
 
 ## Building
 
-TractusX EDC is build with Gradle. The following command creates the default control plane as a docker container:
+Tractus-X EDC is build with Gradle. The following command creates the default control plane as a docker container:
 
 ```shell
 ./gardlew :edc-controlplane:edc-controlplane-postgresql-hashicorp-vault:dockerize
@@ -63,7 +63,7 @@ edc.hostname=localhost
 edc.api.auth.key=password
 
 # OAuth / DAPS related configuration
-edc.oauth.token.url=https://daps.catena-x.net
+edc.oauth.token.url=https://daps.example.net
 edc.oauth.certificate.alias=key-to-daps-certificate-in-keyvault
 edc.oauth.private.key.alias=key-to-private-key-in-keyvault
 edc.oauth.client.id=daps-oauth-client-id
