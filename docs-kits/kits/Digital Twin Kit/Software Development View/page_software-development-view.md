@@ -10,7 +10,7 @@ sidebar_position: 4
 Development View of the Kit.
 -->
 
-![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+![DT Kit Pictotogram](../assets/img/DTKIT_pictogram_blue.png)
 
 <!-- !Mandatory! -->
 ## API Specifications
@@ -30,9 +30,12 @@ CX - 0002.
 #### Submodels
 
 An Asset Administration Shell is organized in Submodels. Each Submodel represents a self-contained aspect of an asset - 
-typical examples are the Nameplate or AssemblyPartRelationship (which denotes the hierarchical composition of parts into
+typical examples are the Nameplate or SingleLevelBomAsBuilt (which denotes the hierarchical composition of parts into
 a whole). As different aspects of an Asset may be known to different parties on the value-chain, Submodels for a single asset
-must be capable to run independently of each other. The specification explicitly allows this. Catena-X demands that Data 
+must be capable to run independently of each other. The specification explicitly allows this, enabling easy cross-company
+data integration.
+
+Recognizing that not all use-cases require the full functionality of the AAS-Spec, Catena-X demands that Data 
 Providers offer only a subset of the SubmodelServiceSpecification - namely the `$value` serialization. This is an abbreviated
 notation of an AAS-Submodel that is focused on data instead of context. While it is advisable to expose Submodels with help of 
 a full-fletched AAS-server SDK that provides the content-modifiers and API-endpoints out-of-the-box, this is not yet 
@@ -68,6 +71,34 @@ Data Consumer must still find out the address where to fetch the data from. That
 three-step discovery pattern made up of the central microservices Discovery Finder, BPN Discovery (or several of them) 
 and finally the EDC discovery that is part of the CX-Portal. They are also part of this Kit.
 
+## Discovery Sequence
+
+The services that make up the Digital Twin Kit partly rely on each other. Executing them in the right sequence allows 
+a Data Consumer to get access to data whose location was previously unknown. However, this discovery process relies on a 
+set of assumptions. Most relevant is the presence of the discovery services defined in CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx), 
+[BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx)) and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)). 
+As portrayed in the [Operation View](../page_software-operation-view.md), these
+discovery services are assumed to run centrally in a data space. A concept for decentralization will be validated in the
+future.
+
+Apart from their presence, the discovery services also must be populated with data by the data providers. This process
+is portrayed in the "setup of registration" section of the diagram below (steps 1-5). They describe the assumed calls
+that have been made prior to consumer-side discovery. While step 1 was completed during onboarding of a company to the
+Catena-X network, step 2 was executed by the operating company offering the BPN-Discovery Service. Step 3-5 are in the 
+responsibility of each Data Provider. 
+
+In steps 6-17, the consumer fetches the previously registered data from the central services and initiates data access.
+Please note that especially steps 12 & 13 (negotiation at EDC) are simplified in this figure as they are explained in the 
+Connector Kit already. The discovery sequence ends with step 17, after which the data consumer can make a request for the
+data that he set out to find.
+
+![DT Kit Discovery Sequence](../assets/img/DTKIT_discovery_seq.svg)
+
+Some use-cases assume that a consumer has prior knowledge of an asset's location in a provider's infrastructure. That's 
+why data on a new asset will not necessarily be obtained by executing the whole discovery sequence above. For example, 
+a consumer may know not only the assetId but also the provider's BPN, allowing him to enter the sequence at step 10. 
+If this prior knowledge is given under all circumstances, registration steps 2-3 can be skipped provider-side.
+
 <!-- Recommended -->
 ## Sample Data
 
@@ -79,10 +110,10 @@ the base-specifications (like AAS) but restrict the application even further for
 
 While the exact AAS-EDC-integration is at the discretion of each Kit and use case, there are good practices
 that are likely to be standardized on the level of CX-0002 in the future. One relevant question is how the EDC-shielded services
-of this Kit should register with the Asset endpoint of theEDC Management API. The following recommendations follow
+of this Kit should register with the Asset endpoint of the EDC Management API. The following recommendations follow
 the data structure expected from tractusx-edc v0.4.1 onwards. It demands a json-ld structure.
 
-Json-ld is a serialization for RDF graphs (see[Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
+Json-ld is a serialization for RDF graphs (see [Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
 `@context` section can declare the namespaces that resources explicitly mentioned in the rest of the document belong to.
 It may also define default namespace with `@vocab` for resources without explicitly stated namespaces. Outside of
 the "@context" section, the "@type" property always defines the class that an object belongs to.
@@ -115,7 +146,7 @@ identifier.
     "@base": "http://myCompany.org/identifiers/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
   },
   "edc:asset": {
     "@type": "Asset",
