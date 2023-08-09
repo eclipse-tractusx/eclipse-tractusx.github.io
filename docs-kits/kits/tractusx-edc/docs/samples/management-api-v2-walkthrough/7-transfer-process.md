@@ -44,7 +44,7 @@
   "privateProperties": {
     "receiverHttpEndpoint": "<RECEIVER-HTTP-ENDPOINT>"
   },
-  "protocol": "dataspace-protocol-http",
+  "protocol": "dataspace-protocol-http"
 }
 ```
 

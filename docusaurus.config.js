@@ -191,24 +191,8 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          edc_control_api: {
-            specPath: "./openApi/edc/control-api/control-api-0.1.3.yml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/control-api", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          edc_management_api: {
-            specPath: "./openApi/edc/management-api/management-api-0.1.3.yml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/management-api", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          edc_tractusx_api: {
-            specPath: "./openApi/edc/extensions/tractusx-edc-api.yaml", // Path to designated spec file
+          tractusx_edc_api: {
+            specPath: "./openApi/edc/tractusx-edc-0.5.1-SNAPSHOT.yaml", // Path to designated spec file
             outputDir:
               "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/tractusx-edc-api", // Output directory for generated .mdx docs
             sidebarOptions: {
