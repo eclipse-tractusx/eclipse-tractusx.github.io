@@ -338,6 +338,11 @@ structure will likely find its way into the CX-0002 standard in the future.
 
 <!-- Recommended -->
 
+### EDC Usage Policies
+
+The decision what policies shall be implemented for the exchange of data is at the discretion of each use-case and cannot
+be standardized in the context of the semantics-standards or the DT Kit.
+
 ## Data Provisioning
 
 ### Patterns
