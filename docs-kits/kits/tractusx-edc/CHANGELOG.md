@@ -6,6 +6,12 @@
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.5.0] - 2023-08-09
+
+### Changed
+
+- preparation for release Tractus-X EDC 0.5.0
+
 ## [0.4.0] - 2023-07-07
 
 ### Added
