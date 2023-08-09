@@ -30,18 +30,16 @@
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
   },
-  "@type": "AssetEntryDto",
-  "asset": {
-    "@id": "<ASSET-ID>",
-    "properties": {
-      "name": "<ASSET-NAME>",
-      "description": "<ASSET-DESCRIPTION>",
-      "version": "<ASSET-VERSION>",
-      "contenttype": "<ASSET-CONTENT-TYPE>"
-    },
-    "privateProperties": {
-      "private-property": "<PRIVATE-PROPERTY-VALUE>",
-    }
+  "@type": "Asset",
+  "@id": "<ASSET-ID>",
+  "properties": {
+    "name": "<ASSET-NAME>",
+    "description": "<ASSET-DESCRIPTION>",
+    "version": "<ASSET-VERSION>",
+    "contenttype": "<ASSET-CONTENT-TYPE>"
+  },
+  "privateProperties": {
+    "private-property": "<PRIVATE-PROPERTY-VALUE>"
   },
   "dataAddress": {
     "type": "<SUPPORTED-TYPE>"
@@ -55,9 +53,8 @@ This enables the storage of additional information pertaining the asset, that is
 Private properties are stores inside the `privateProperties` field.
 
 > Please note:
->
-> - `privateProperties` are entirely optional and the field is not required for creating or updating an asset.
-> - `dataAddress` should correspond to one of the supported types by the connector, e.g. HttpData and AmazonS3, and it should include all the necessary properties associated with the chosen type.
+> `privateProperties` are entirely optional and the field is not required for creating or updating an asset.
+> `dataAddress` should correspond to one of the supported types by the connector, e.g. HttpData and AmazonS3, and it should include all the necessary properties associated with the chosen type.
 
 ## Request
 
@@ -65,17 +62,15 @@ In this case we generate a very simple asset, that only contains the minimum in 
 For this we need both an asset and a data address, which together form an asset entry.
 
 ```bash
-curl -X POST "${MANAGEMENT_URL}/v2/assets" \
+curl -X POST "${MANAGEMENT_URL}/v3/assets" \
     --header 'X-Api-Key: password' \
     --header 'Content-Type: application/json' \
     --data '{
               "@context": {
                 "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
               },
-              "@type": "AssetEntryDto",
-              "asset": {
-                "@id": "asset-id"
-              },
+              "@type": "Asset",
+              "@id": "asset-id"
               "dataAddress": {
                 "type": "HttpData",
                 "baseUrl": "https://jsonplaceholder.typicode.com/todos"
