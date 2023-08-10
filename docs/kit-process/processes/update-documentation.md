@@ -18,7 +18,7 @@ Currently the documentation has to be manually maintained by the process describ
 
 ### Overview
 
-1. Create a fork of the [Tractus-X website repository]("https://github.com/eclipse-tractusx/eclipse-tractusx.github.io") by clicking on the "fork" button on the top right
+1. Create a fork of the [Tractus-X website repository](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io) by clicking on the "fork" button on the top right
    ![IMG: how to create fork](resources/create-new-fork.png)
 
 2. Edit your documentation with regard to the schema. Note that you **only** apply changes to the content within the `docs-kits` directory! If you modify your or other content outside of this directory your changes will be rejected!
@@ -59,15 +59,13 @@ In order to have a uniform apperance we expect the documentation to be in a simi
         ├── page-adoption-view.md
         ├── page-software-development-view.md
         ├── page-documentation.md
-        ├── page-software-operation-view.md
-        └── sidebar.js
+        └── page-software-operation-view.md
 ```
 
-The sections within these files are the aligned with the artefacts described [here](https://eclipse-tractusx.github.io/docs/artefacts/).
+The sections within these files are the aligned with the artefacts described [here](/docs/kit-process/artefacts).
 
 Additionaly we apply linter for to the submitted code which will atomatically reject your pull request if these fail.
 
 ## Notes
 
 - The documentation is only a copy thus it will not be automatically updated!
-- you find our linters [here]("https://github.com/eclipse-tractusx/eclipse-tractusx.github.io")
