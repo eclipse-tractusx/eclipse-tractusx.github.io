@@ -16,7 +16,7 @@ const sidebars = {
   kits: [
     {
       type: 'category',
-      label: 'Business Partner Kit',
+      label: 'Business Partner KIT',
       link: {
           type: 'generated-index',
       },
@@ -90,7 +90,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Data Chain Kit',
+      label: 'Data Chain KIT',
       link: {
         type: 'generated-index',
       },
@@ -135,7 +135,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Connector Kit',
+      label: 'Connector KIT',
       link: {
         type: 'generated-index',
       },
@@ -293,7 +293,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Traceability Kit',
+      label: 'Traceability KIT',
       link: {
         type: 'generated-index',
       },
@@ -307,7 +307,7 @@ const sidebars = {
     },
     {
           type: 'category',
-          label: 'Digital Twin Kit',
+          label: 'Digital Twin KIT',
           link: {
             type: 'generated-index',
           },
