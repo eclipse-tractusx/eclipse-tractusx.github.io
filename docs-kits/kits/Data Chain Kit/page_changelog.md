@@ -13,7 +13,7 @@ All notable changes to this Kit will be documented in this file.
 
 ## [1.0.0] - 2023-03-01
 
-### Added
+<h3>Added</h3>
 
 - dokumentation of the IRS API
 - dokumentation of adoption view
@@ -21,6 +21,10 @@ All notable changes to this Kit will be documented in this file.
 - dokumentation of the IRS reference implementation
 - two successstories how this Kit is beeing used
 
-### Changed
+<h3>Changed</h3>
 
-### Removed
+- ./.
+
+<h3>Removed</h3>
+
+- ./.
