@@ -7,7 +7,7 @@ sidebar_position: 2
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
-### Traceability Kit
+### Traceability KIT
 <!--
 Adoption View of the Kit.
 -->

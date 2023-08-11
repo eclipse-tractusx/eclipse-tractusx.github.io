@@ -2,7 +2,7 @@
 
 ![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 
-## Connector Kit
+## Connector KIT
 
 ## Introduction
 

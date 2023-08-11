@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
 
-### Data Chain Kit
+### Data Chain KIT
 
 ## Introduction and goals
 

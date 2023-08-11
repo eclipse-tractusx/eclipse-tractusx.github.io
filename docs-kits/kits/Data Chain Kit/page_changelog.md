@@ -7,7 +7,7 @@ sidebar_position: 10
 
 ![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
 
-### Data Chain Kit
+### Data Chain KIT
 
 All notable changes to this Kit will be documented in this file.
 
