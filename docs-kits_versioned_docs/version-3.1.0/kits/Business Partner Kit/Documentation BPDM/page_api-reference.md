@@ -1,6 +1,6 @@
 ---
 id: API Reference
-title: Api Reference
+title: API Reference
 description: ''
 sidebar_position: 2
 ---

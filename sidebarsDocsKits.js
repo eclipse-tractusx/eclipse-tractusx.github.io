@@ -35,7 +35,7 @@ const sidebars = {
             'kits/Business Partner Kit/Software Development View/Specification',
             {
               type: "category",
-              label: "Gate Api",
+              label: "Gate API",
               link: {
                 type: "generated-index",
               },
@@ -43,7 +43,7 @@ const sidebars = {
             },
             {
               type: "category",
-              label: "Pool Api",
+              label: "Pool API",
               link: {
                 type: "generated-index",
               },
@@ -51,7 +51,7 @@ const sidebars = {
             },
             {
               type: "category",
-              label: "Bridge Dummy Api",
+              label: "Bridge Dummy API",
               link: {
                   type: "generated-index",
               },

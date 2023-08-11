@@ -1,7 +1,7 @@
 ---
-id: Specification Digital Twin Kit
-title: Developing with the DT Kit
-description: 'Digital Twin Kit'
+id: Specification Digital Twin KIT
+title: Developing with the DT KIT
+description: 'Digital Twin KIT'
 sidebar_position: 4
 ---
 
@@ -11,6 +11,8 @@ Development View of the Kit.
 -->
 
 ![DT Kit Pictotogram](../assets/img/DTKIT_pictogram_blue.png)
+
+### Digital Twin KIT
 
 <!-- !Mandatory! -->
 ## API Specifications

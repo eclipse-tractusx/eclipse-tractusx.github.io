@@ -11,6 +11,8 @@ Adoption View of the Kit.
 
 ![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
 
+### Digital Twin KIT
+
 <!-- !Mandatory! -->
 ## Vision & Mission
 

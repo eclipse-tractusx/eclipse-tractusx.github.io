@@ -34,7 +34,7 @@
             "kits/Business Partner Kit/Software Development View/Specification",
             {
               "type": "category",
-              "label": "Gate Api",
+              "label": "Gate API",
               "link": {
                 "type": "generated-index"
               },
@@ -187,7 +187,7 @@
             },
             {
               "type": "category",
-              "label": "Pool Api",
+              "label": "Pool API",
               "link": {
                 "type": "generated-index"
               },
