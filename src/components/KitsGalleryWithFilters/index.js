@@ -145,6 +145,8 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
 
         <div className={styles.gallery_container}>
           {
+            filteredAndSortedKits.length === 0 ?
+            <p className={styles.no_match}>NO MATCH FOUND...</p> :
             filteredAndSortedKits.map((kit, index)=> {
               return(
                 <div key={index} className={styles.gallery_item}>
