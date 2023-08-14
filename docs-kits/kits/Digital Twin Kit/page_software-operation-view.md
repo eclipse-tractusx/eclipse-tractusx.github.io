@@ -7,6 +7,8 @@ sidebar_position: 3
 
 ![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
 
+### Digital Twin KIT
+
 <!--
 Documentation of the kit.
 -->

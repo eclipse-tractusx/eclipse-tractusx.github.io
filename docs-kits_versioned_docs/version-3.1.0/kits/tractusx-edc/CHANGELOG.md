@@ -2,28 +2,28 @@
 
 ![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 
-## Connector Kit
+## Connector KIT
 
 All notable changes to this Kit will be documented in this file.
 
 ## [1.2.0] - 2023-05-16
 
-### Added
+<h3>Added</h3>
 
 - chart documentation for tractusx-connector-azure-vault
 
-### Changed
+<h3>Changed</h3>
 
 - helm chart documentation -> added needed properties and information about self-signed certificates for testing
 
-### Removed
+<h3>Removed</h3>
 
 - chart documentation for tractusx-connector-app
 - unused files like charts, values.yaml
 
 ## [1.1.0] - 2023-04-28
 
-### Added
+<h3>Added</h3>
 
 - documentation of the control-plane-adapter extension
 - openAPI documentation of the control-plane-adapter extension
@@ -31,23 +31,29 @@ All notable changes to this Kit will be documented in this file.
 - migration documentation
 - postman collection
 
-### Changed
+<h3>Changed</h3>
 
 - helm chart version for the edc components is now 0.3.3
 - switched the whole documentation structure from product-edc to tractusx-edc
 - switched build tool from maven to gradle
 - restructured the whole documentation structure and order
 
-### Removed
+<h3>Removed</h3>
+
+- ./.
 
 ## [1.0.0] - 2023-03-01
 
-### Added
+<h3>Added</h3>
 
 - documentation of the management-api
 - documentation of adoption view
 - documentation of software development view
 
-### Changed
+<h3>Changed</h3>
 
-### Removed
+- ./.
+
+<h3>Removed</h3>
+
+- ./.

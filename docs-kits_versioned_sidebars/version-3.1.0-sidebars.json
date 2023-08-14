@@ -2,7 +2,7 @@
   "kits": [
     {
       "type": "category",
-      "label": "Business Partner Kit",
+      "label": "Business Partner KIT",
       "link": {
         "type": "generated-index"
       },
@@ -34,7 +34,7 @@
             "kits/Business Partner Kit/Software Development View/Specification",
             {
               "type": "category",
-              "label": "Gate Api",
+              "label": "Gate API",
               "link": {
                 "type": "generated-index"
               },
@@ -187,7 +187,7 @@
             },
             {
               "type": "category",
-              "label": "Pool Api",
+              "label": "Pool API",
               "link": {
                 "type": "generated-index"
               },
@@ -615,7 +615,7 @@
     },
     {
       "type": "category",
-      "label": "Data Chain Kit",
+      "label": "Data Chain KIT",
       "link": {
         "type": "generated-index"
       },
@@ -660,7 +660,7 @@
     },
     {
       "type": "category",
-      "label": "Connector Kit",
+      "label": "Connector KIT",
       "link": {
         "type": "generated-index"
       },
@@ -805,7 +805,7 @@
     },
     {
       "type": "category",
-      "label": "Traceability Kit",
+      "label": "Traceability KIT",
       "link": {
         "type": "generated-index"
       },

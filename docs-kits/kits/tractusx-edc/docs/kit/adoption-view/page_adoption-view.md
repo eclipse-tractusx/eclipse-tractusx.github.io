@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 
-## Connector Kit
+## Connector KIT
 
 The ConnectorKit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign, cross-enterprise data exchange.
 
