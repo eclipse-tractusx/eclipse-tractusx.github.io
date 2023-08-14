@@ -74,6 +74,10 @@
   opacity: 0.5;
 }
 
+.no_match {
+  font-size: 1.3rem;
+}
+
 @media screen and (max-width: 1270px) {
   .gallery_container {
     grid-template-columns: repeat(3, 1fr);
