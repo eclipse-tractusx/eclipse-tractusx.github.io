@@ -4,27 +4,35 @@ import Connector_Kit from "@site/static/img/connectorkit-min.png";
 import Traceability_Kit from "@site/static/img/traceabilitykit.png";
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
-export const galleryKits = [
+export const kitsGallery = [
   {
     id: 1,
+    name: 'Business Partner Kit',
+    domain: 'Network & Core Services',
     img: Business_Kit,
     pageRoute: "docs-kits/kits/Business Partner Kit/Adoption View"
   },
   {
     id: 2,
+    name: 'Data Chain Kit',
+    domain: 'PLM / Quality',
     img: DataChain_Kit,
     pageRoute: "docs-kits/kits/Data Chain Kit/Adoption View"
   },
   {
     id: 3,
+    name: 'Connector Kit',
+    domain: 'Sustainability',
     img: Connector_Kit,
     pageRoute: "docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
     id: 4,
+    name: 'Traceability Kit',
+    domain: 'Sustainability',
     img: Traceability_Kit,
     pageRoute: "docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit"
-  }
+  },
   // {
   //   id: 4,
   //   img: MoreToCome
