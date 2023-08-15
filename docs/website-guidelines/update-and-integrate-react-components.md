@@ -21,7 +21,7 @@ This `index.js` is defined as a `React` component. Its content is being imported
 
 - #### AboutUsCard `./src/components/AboutUsCard/index.js`
 
-- #### KitsGallery `./src/components/KitsGallery/index.js`
+- #### KitsGalleryWithFilters `./src/components/KitsGalleryWithFilters/index.js`
 
 - #### FAQsComponent `./src/components/FAQsComponent/index.js`
 
@@ -48,6 +48,8 @@ This `index.js` is defined as a `React` component. Its content is imported from 
 - #### DeveloperHeader `./src/components/DeveloperHeader/index.js`
 
 - #### DeveloperContent `./src/components/DeveloperContent/index.js`
+
+- #### KitsGalleryWithFilters `./src/components/KitsGalleryWithFilters/index.js`
 
 - #### KitsGallery `./src/components/KitsGallery/index.js`
 
@@ -103,12 +105,12 @@ Make sure when adding a new `object` to the `faqsContent array`, to include the 
 
 ### `<KitsGallery />`
 
-This component's content is defined in the `./utils/galleryKits.js` file, and follows the next structure:
+This component's content is defined in the `./utils/resiliencyItems.js` file, and follows the next structure:
 
 ```javascript
   import Business_Kit from "@site/static/img/bpkit.png";
 
-  export const galleryKits = [
+  export const resiliencyItems = [
     {
       id: 1,
       img: Business_Kit,
@@ -117,7 +119,27 @@ This component's content is defined in the `./utils/galleryKits.js` file, and fo
   ]
 ```
 
-Make sure when adding a new `object` to the `galleryKits array`, to include the same properties: `id` as a `number`, `img` and `pageRoute` as a `string` with your needed definitions if you want this to be displayed as part of the UI. _**Important:**_ remember to increase the `id` property of your new object +1 the last `object.id` of the array. Note as well, that this components takes an image as a property, and thus this needs to be imported from the `./statics/img` folder at the beginning of the file using the `@site/static/img/your-image` declaration.
+Make sure when adding a new `object` to the `resiliencyItems array`, to include the same properties: `id` as a `number`, `img` and `pageRoute` as a `string` with your needed definitions if you want this to be displayed as part of the UI. _**Important:**_ remember to increase the `id` property of your new object +1 the last `object.id` of the array. Note as well, that this components takes an image as a property, and thus this needs to be imported from the `./statics/img` folder at the beginning of the file using the `@site/static/img/your-image` declaration.
+
+### `<KitsGalleryWithFilters />`
+
+This component's content is defined in the `./utils/kitsGallery.js` file, and follows the next structure:
+
+```javascript
+  import Business_Kit from "@site/static/img/bpkit.png";
+
+  export const kitsGallery = [
+    {
+      id: 1,
+      name: 'Business Partner Kit',
+      domain: 'Network & Core Services',
+      img: Business_Kit,
+      pageRoute: "docs-kits/kits/Business Partner Kit/Adoption View"
+    },
+  ]
+```
+
+Make sure when adding a new `object` to the `kitsGallery array`, to include the same properties: `id` as a `number`, `name` as a `string`, `domain` as a `string`, `img` as an imported declaration and `pageRoute` as a `string` with your needed definitions if you want this to be displayed as part of the UI. _**Important:**_ remember to increase the `id` property of your new object +1 the last `object.id` of the array. Note as well, that this components takes an image as a property, and thus this needs to be imported from the `./statics/img` folder at the beginning of the file using the `@site/static/img/your-image` declaration.
 
 ### `<ProductOverview />`
 

@@ -38,8 +38,6 @@
   /* background-color: white; */
 }
 
-.button_container {}
-
 .button {
   font-size: 1.1rem;
   background-color: var(--ifm-background-color);
