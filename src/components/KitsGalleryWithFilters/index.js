@@ -33,11 +33,13 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
   const [filteredAndSortedKits, setFilteredAndSortedKits] = useState(itemsArray);
   const [sortOrder, setSortOrder] = useState('asc');
 
+  // In charge of sort the cards by name alphabetically when the component mount
   useEffect(() => {
     const sortedArray = [...itemsArray].sort((a, b) => a.name.localeCompare(b.name));
     setFilteredAndSortedKits(sortedArray);
   }, []);
 
+  // In charge of filter the cards by domain, keeping the selected sorted order
   const handleDomainChange = (event) => {
     const selectedDomain = event.target.value;
     setSelectedDomain(selectedDomain);
@@ -57,6 +59,7 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
     setFilteredAndSortedKits(sortedKits);
   };
 
+  // In charge of switch the sorted order by name from "asc" to "des" and vice versa
   const handleSort = () => {
     const sortedKits = [...filteredAndSortedKits];
   
@@ -105,7 +108,8 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 value={selectedDomain}
                 // label="Select Domain"
                 onChange={handleDomainChange}
-                // variant="outlined"
+
+                //styles for the input box
                 sx={
                   {
                     color: '#fff',
@@ -121,9 +125,21 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                     },
                     '&:hover .MuiOutlinedInput-notchedOutline': {
                       borderColor: '#ed8c05',
-                    },
+                    }
                   }
                 }
+
+                //styles for the dropdown paper
+                inputProps={{
+                  MenuProps: {
+                    MenuListProps: {
+                      sx: {
+                        backgroundColor: '#1f1f1f',
+                        color: '#fff',
+                      }
+                    },
+                  }
+                }}
               >
                 <MenuItem value={'All Domains'}>All Domains</MenuItem>
                 <MenuItem value={'Network & Core Services'}>Network & Core Services</MenuItem>
