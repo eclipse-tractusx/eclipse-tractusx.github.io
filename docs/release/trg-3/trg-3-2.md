@@ -2,11 +2,12 @@
 title: TRG 3.02 - Persist Data
 ---
 
-| Status | Created     | Post-History  |
-|--------|-------------|---------------|
-| Active | 07-Mar-2023 |               |
-| Draft  | 02-Jan-2023 | n/a           |
-| Moved  | 02-Jan-2023 | content moved |
+| Status | Created     | Post-History    |
+|--------|-------------|-----------------|
+| Draft  | 17-Jul-2023 | 'loos' typo fix |
+| Active | 07-Mar-2023 |                 |
+| Draft  | 02-Jan-2023 | n/a             |
+| Moved  | 02-Jan-2023 | content moved   |
 
 ## Why
 
@@ -14,7 +15,7 @@ In cases where data has to be persisted (database, uploaded files etc.), Kuberne
 
 ## Description
 
-Using stateful data requires additional caution to not loos data by accident. Therefore, when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
+Using stateful data requires additional caution to not lose data by accident. Therefore, when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
 
 ## How
 

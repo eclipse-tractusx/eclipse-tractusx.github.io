@@ -2,11 +2,148 @@ openapi: 3.0.1
 info:
   title: Business Partner Data Management Gate
   description: A gate for a member to share business partner data with CatenaX
-  version: 4.0.0
+  version: 4.0.0-SNAPSHOT
 servers:
   - url: http://localhost:8081
     description: Generated server url
 paths:
+  /api/catena/sharing-state:
+    get:
+      tags:
+        - sharing-state-controller
+      summary: Get sharing states (including error info and BPN) for business partners, optionally filtered by LSA type and external ID
+      operationId: getSharingStates
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+        - name: lsaType
+          in: query
+          description: LSA Type
+          required: false
+          schema:
+            type: string
+            enum:
+              - LEGAL_ENTITY
+              - SITE
+              - ADDRESS
+        - name: externalIds
+          in: query
+          description: External identifiers
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Page of sharing states
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageResponseSharingState'
+    put:
+      tags:
+        - sharing-state-controller
+      summary: Insert/update sharing state (including error info and BPN) for business partner with LSA type and external ID
+      operationId: upsertSharingState
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingState'
+        required: true
+      responses:
+        '204':
+          description: Operation completed successfully
+        '400':
+          description: Invalid data (e.g. externalId)
+  /api/catena/output/sites:
+    put:
+      tags:
+        - site-controller
+      summary: Create or update output sites.
+      description: Create or update sites (Output). Updates instead of creating a new site if an already existing external id is used. The same external id may not occur more than once in a single request. For a single request, the maximum number of sites in the request is limited to 100 entries.
+      operationId: upsertSitesOutput
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SiteGateOutputRequest'
+        required: true
+      responses:
+        '200':
+          description: Sites were successfully updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        '400':
+          description: On malformed site request
+  /api/catena/output/legal-entities:
+    put:
+      tags:
+        - legal-entity-controller
+      summary: Create or update output legal entities.
+      description: Create or update legal entities (Output). Updates instead of creating a new legal entity if an already existing external id is used. The same external id may not occur more than once in a single request. For a single request, the maximum number of legal entities in the request is limited to 100 entries.
+      operationId: upsertLegalEntitiesOutput
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LegalEntityGateOutputRequest'
+        required: true
+      responses:
+        '200':
+          description: Legal entities were successfully updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        '400':
+          description: On malformed legal entity request
+  /api/catena/output/addresses:
+    put:
+      tags:
+        - address-controller
+      summary: Create or update output addresses.
+      description: Create or update addresses (Output). Updates instead of creating a new address if an already existing external id is used. The same external id may not occur more than once in a single request. For a single request, the maximum number of addresses in the request is limited to 100 entries.
+      operationId: putAddressesOutput
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AddressGateOutputRequest'
+        required: true
+      responses:
+        '200':
+          description: Addresses were successfully updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        '400':
+          description: On malformed address request
   /api/catena/input/sites:
     get:
       tags:
@@ -15,28 +152,30 @@ paths:
       description: Get page of sites.
       operationId: getSites
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       responses:
         '200':
           description: The requested page of sites
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageStartAfterResponseSiteGateInputResponse'
+                $ref: '#/components/schemas/PageResponseSiteGateInputResponse'
         '400':
           description: On malformed pagination request
     put:
@@ -57,9 +196,9 @@ paths:
         '200':
           description: Sites were successfully updated or created
           content:
-            '*/*':
+            application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed site request
   /api/catena/input/legal-entities:
@@ -70,28 +209,30 @@ paths:
       description: Get page of legal entities.
       operationId: getLegalEntities
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       responses:
         '200':
           description: The requested page of legal entities
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageStartAfterResponseLegalEntityGateInputResponse'
+                $ref: '#/components/schemas/PageResponseLegalEntityGateInputResponse'
         '400':
           description: On malformed pagination request
     put:
@@ -112,9 +253,9 @@ paths:
         '200':
           description: Legal entities were successfully updated or created
           content:
-            '*/*':
+            application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed legal entity request
   /api/catena/input/addresses:
@@ -125,28 +266,30 @@ paths:
       description: Get page of addresses.
       operationId: getAddresses
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       responses:
         '200':
           description: The requested page of addresses
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageStartAfterResponseAddressGateInputResponse'
+                $ref: '#/components/schemas/PageResponseAddressGateInputResponse'
         '400':
           description: On malformed pagination request
     put:
@@ -167,7 +310,7 @@ paths:
         '200':
           description: Addresses were successfully updated or created
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/Unit'
         '400':
@@ -180,19 +323,21 @@ paths:
       description: Get page of sites. Can optionally be filtered by external ids.
       operationId: getSitesOutput
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       requestBody:
@@ -206,9 +351,9 @@ paths:
         '200':
           description: The requested page of sites
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageOutputResponseSiteGateOutput'
+                $ref: '#/components/schemas/PageResponseSiteGateOutputResponse'
         '400':
           description: On malformed pagination request
   /api/catena/output/legal-entities/search:
@@ -219,19 +364,21 @@ paths:
       description: Get page of legal entities. Can optionally be filtered by external ids.
       operationId: getLegalEntitiesOutput
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       requestBody:
@@ -245,32 +392,74 @@ paths:
         '200':
           description: The requested page of legal entities
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageOutputResponseLegalEntityGateOutput'
+                $ref: '#/components/schemas/PageResponseLegalEntityGateOutputResponse'
+        '400':
+          description: On malformed pagination request
+  /api/catena/output/changelog/search:
+    post:
+      tags:
+        - changelog-controller
+      summary: Get business partner changelog entries for changes to the business partner output data
+      description: Get business partner changelog entries for changes to the business partner output data. Filter by list external id, from timestamp and/or lsa type
+      operationId: getOutputChangelog
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeLogSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: The changelog entries for the specified parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageChangeLogResponseChangelogResponse'
         '400':
           description: On malformed pagination request
   /api/catena/output/addresses/search:
     post:
       tags:
         - address-controller
-      summary: Get page of addresses
-      description: Get page of addresses. Can optionally be filtered by external ids.
+      summary: Get page of addresses (Output)
+      description: Get page of addresses (Output). Can optionally be filtered by external ids.
       operationId: getAddressesOutput
       parameters:
-        - name: startAfter
+        - name: page
           in: query
-          description: Value used to indicate which page to retrieve. When this value is not provided, the first page is returned.The nextStartAfter value from the response can then be used to request subsequent pages.
+          description: Number of page to get results from
           required: false
           schema:
+            minimum: 0
             type: string
-        - name: limit
+            default: '0'
+        - name: size
           in: query
           description: Size of each page
           required: false
           schema:
             maximum: 100
-            minimum: 1
+            minimum: 0
             type: string
             default: '10'
       requestBody:
@@ -284,99 +473,177 @@ paths:
         '200':
           description: The requested page of addresses
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/PageOutputResponseAddressGateOutput'
+                $ref: '#/components/schemas/PageResponseAddressGateInputResponse'
         '400':
           description: On malformed pagination request
-  /api/catena/input/sites/validation:
+  /api/catena/input/sites/search:
     post:
       tags:
         - site-controller
-      summary: Validate a site
-      description: Determines errors in a site record which keep it from entering the sharing process
-      operationId: validateSite
+      summary: Get page of sites filtered by a collection of externalIds
+      description: Get page of sites filtered by a collection of externalIds.
+      operationId: getSitesByExternalIds
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SiteGateInputRequest'
+              type: array
+              items:
+                type: string
         required: true
       responses:
         '200':
-          description: A validation response with possible errors
+          description: The requested page of sites
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/ValidationResponse'
+                $ref: '#/components/schemas/PageResponseSiteGateInputResponse'
         '400':
-          description: On malformed site requests
-  /api/catena/input/legal-entities/validation:
+          description: On malformed pagination request
+  /api/catena/input/legal-entities/search:
     post:
       tags:
         - legal-entity-controller
-      summary: Validate a legal entity
-      description: Determines errors in a legal entity record which keep it from entering the sharing process
-      operationId: validateLegalEntity
+      summary: Get page of legal-entities filtered by a collection of externalIds
+      description: Get page of legal-entities filtered by a collection of externalIds.
+      operationId: getLegalEntitiesByExternalIds
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LegalEntityGateInputRequest'
+              type: array
+              items:
+                type: string
         required: true
       responses:
         '200':
-          description: A validation response with possible errors
+          description: The requested page of legal-entities
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/ValidationResponse'
+                $ref: '#/components/schemas/PageResponseLegalEntityGateInputResponse'
         '400':
-          description: On malformed legal entity requests
-  /api/catena/input/addresses/validation:
+          description: On malformed pagination request
+  /api/catena/input/changelog/search:
+    post:
+      tags:
+        - changelog-controller
+      summary: Get business partner changelog entries for changes to the business partner input data
+      description: Get business partner changelog entries for changes to the business partner input data. Filter by list external id, from timestamp and/or lsa type
+      operationId: getInputChangelog
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeLogSearchRequest'
+        required: true
+      responses:
+        '200':
+          description: The changelog entries for the specified parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageChangeLogResponseChangelogResponse'
+        '400':
+          description: On malformed pagination request
+  /api/catena/input/addresses/search:
     post:
       tags:
         - address-controller
-      summary: Validate an address partner
-      description: Determines errors in an address partner record which keep it from entering the sharing process
-      operationId: validateSite_1
+      summary: Get page of addresses filtered by a collection of externalIds
+      description: Get page of addresses filtered by a collection of externalIds.
+      operationId: getAddressesByExternalIds
+      parameters:
+        - name: page
+          in: query
+          description: Number of page to get results from
+          required: false
+          schema:
+            minimum: 0
+            type: string
+            default: '0'
+        - name: size
+          in: query
+          description: Size of each page
+          required: false
+          schema:
+            maximum: 100
+            minimum: 0
+            type: string
+            default: '10'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddressGateInputRequest'
+              type: array
+              items:
+                type: string
         required: true
       responses:
         '200':
-          description: A validation response with possible errors
+          description: The requested page of addresses
           content:
-            '*/*':
+            application/json:
               schema:
-                $ref: '#/components/schemas/ValidationResponse'
+                $ref: '#/components/schemas/PageResponseAddressGateInputResponse'
         '400':
-          description: On malformed address requests
-  /api/catena/business-partners/type-match:
-    post:
-      tags:
-        - business-partner-controller
-      summary: Determine the LSA type of a business partner candidate
-      description: For one business partner candidate this request determines its likely type of either legal entity, site or address.It is possible that no type could be determined.The candidate needs to contain either a name or an identifier as a minimum requirement.
-      operationId: determineLsaType
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BusinessPartnerCandidateDto'
-        required: true
-      responses:
-        '200':
-          description: Records were successfully processed.
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/TypeMatchResponse'
-        '400':
-          description: No name and no identifier given, or malformed request
+          description: On malformed pagination request
   /api/catena/input/sites/{externalId}:
     get:
       tags:
@@ -395,7 +662,7 @@ paths:
         '200':
           description: Found site with external identifier
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/SiteGateInputResponse'
         '404':
@@ -418,7 +685,7 @@ paths:
         '200':
           description: Found legal entity with external identifier
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/LegalEntityGateInputResponse'
         '404':
@@ -441,690 +708,208 @@ paths:
         '200':
           description: Found address with external identifier
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/AddressGateInputResponse'
         '404':
           description: No address found under specified external identifier
 components:
   schemas:
-    Address:
-      type: object
-      properties:
-        version:
-          $ref: '#/components/schemas/AddressVersion'
-        careOf:
-          type: string
-        contexts:
-          type: array
-          items:
-            type: string
-        country:
-          type: string
-          enum:
-            - UNDEFINED
-            - AC
-            - AD
-            - AE
-            - AF
-            - AG
-            - AI
-            - AL
-            - AM
-            - AN
-            - AO
-            - AQ
-            - AR
-            - AS
-            - AT
-            - AU
-            - AW
-            - AX
-            - AZ
-            - BA
-            - BB
-            - BD
-            - BE
-            - BF
-            - BG
-            - BH
-            - BI
-            - BJ
-            - BL
-            - BM
-            - BN
-            - BO
-            - BQ
-            - BR
-            - BS
-            - BT
-            - BU
-            - BV
-            - BW
-            - BY
-            - BZ
-            - CA
-            - CC
-            - CD
-            - CF
-            - CG
-            - CH
-            - CI
-            - CK
-            - CL
-            - CM
-            - CN
-            - CO
-            - CP
-            - CR
-            - CS
-            - CU
-            - CV
-            - CW
-            - CX
-            - CY
-            - CZ
-            - DE
-            - DG
-            - DJ
-            - DK
-            - DM
-            - DO
-            - DZ
-            - EA
-            - EC
-            - EE
-            - EG
-            - EH
-            - ER
-            - ES
-            - ET
-            - EU
-            - EZ
-            - FI
-            - FJ
-            - FK
-            - FM
-            - FO
-            - FR
-            - FX
-            - GA
-            - GB
-            - GD
-            - GE
-            - GF
-            - GG
-            - GH
-            - GI
-            - GL
-            - GM
-            - GN
-            - GP
-            - GQ
-            - GR
-            - GS
-            - GT
-            - GU
-            - GW
-            - GY
-            - HK
-            - HM
-            - HN
-            - HR
-            - HT
-            - HU
-            - IC
-            - ID
-            - IE
-            - IL
-            - IM
-            - IN
-            - IO
-            - IQ
-            - IR
-            - IS
-            - IT
-            - JE
-            - JM
-            - JO
-            - JP
-            - KE
-            - KG
-            - KH
-            - KI
-            - KM
-            - KN
-            - KP
-            - KR
-            - KW
-            - KY
-            - KZ
-            - LA
-            - LB
-            - LC
-            - LI
-            - LK
-            - LR
-            - LS
-            - LT
-            - LU
-            - LV
-            - LY
-            - MA
-            - MC
-            - MD
-            - ME
-            - MF
-            - MG
-            - MH
-            - MK
-            - ML
-            - MM
-            - MN
-            - MO
-            - MP
-            - MQ
-            - MR
-            - MS
-            - MT
-            - MU
-            - MV
-            - MW
-            - MX
-            - MY
-            - MZ
-            - NA
-            - NC
-            - NE
-            - NF
-            - NG
-            - NI
-            - NL
-            - 'NO'
-            - NP
-            - NR
-            - NT
-            - NU
-            - NZ
-            - OM
-            - PA
-            - PE
-            - PF
-            - PG
-            - PH
-            - PK
-            - PL
-            - PM
-            - PN
-            - PR
-            - PS
-            - PT
-            - PW
-            - PY
-            - QA
-            - RE
-            - RO
-            - RS
-            - RU
-            - RW
-            - SA
-            - SB
-            - SC
-            - SD
-            - SE
-            - SF
-            - SG
-            - SH
-            - SI
-            - SJ
-            - SK
-            - SL
-            - SM
-            - SN
-            - SO
-            - SR
-            - SS
-            - ST
-            - SU
-            - SV
-            - SX
-            - SY
-            - SZ
-            - TA
-            - TC
-            - TD
-            - TF
-            - TG
-            - TH
-            - TJ
-            - TK
-            - TL
-            - TM
-            - TN
-            - TO
-            - TP
-            - TR
-            - TT
-            - TV
-            - TW
-            - TZ
-            - UA
-            - UG
-            - UK
-            - UM
-            - US
-            - UY
-            - UZ
-            - VA
-            - VC
-            - VE
-            - VG
-            - VI
-            - VN
-            - VU
-            - WF
-            - WS
-            - XI
-            - XU
-            - XK
-            - YE
-            - YT
-            - YU
-            - ZA
-            - ZM
-            - ZR
-            - ZW
-        administrativeAreas:
-          type: array
-          items:
-            $ref: '#/components/schemas/AdministrativeArea'
-        postCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Postcode'
-        localities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Locality'
-        thoroughfares:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thoroughfare'
-        premises:
-          type: array
-          items:
-            $ref: '#/components/schemas/Premise'
-        postalDeliveryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostalDeliveryPoint'
-        geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        types:
-          type: array
-          items:
-            type: string
-            enum:
-              - BRANCH_OFFICE
-              - CARE_OF
-              - HEADQUARTER
-              - LEGAL_ALTERNATIVE
-              - PO_BOX
-              - REGISTERED
-              - REGISTERED_AGENT_MAIL
-              - REGISTERED_AGENT_PHYSICAL
-              - VAT_REGISTERED
-              - UNSPECIFIC
-      description: Localized address record for a business partner
     AddressGateInputRequest:
       type: object
       properties:
-        version:
-          $ref: '#/components/schemas/AddressVersion'
-        careOf:
-          type: string
-        contexts:
+        nameParts:
           type: array
+          description: |-
+            Name of the logistic address of the business partner. This is not according to official
+            registers but according to the name the uploading sharing member chooses.
           items:
             type: string
-        country:
-          type: string
-          enum:
-            - UNDEFINED
-            - AC
-            - AD
-            - AE
-            - AF
-            - AG
-            - AI
-            - AL
-            - AM
-            - AN
-            - AO
-            - AQ
-            - AR
-            - AS
-            - AT
-            - AU
-            - AW
-            - AX
-            - AZ
-            - BA
-            - BB
-            - BD
-            - BE
-            - BF
-            - BG
-            - BH
-            - BI
-            - BJ
-            - BL
-            - BM
-            - BN
-            - BO
-            - BQ
-            - BR
-            - BS
-            - BT
-            - BU
-            - BV
-            - BW
-            - BY
-            - BZ
-            - CA
-            - CC
-            - CD
-            - CF
-            - CG
-            - CH
-            - CI
-            - CK
-            - CL
-            - CM
-            - CN
-            - CO
-            - CP
-            - CR
-            - CS
-            - CU
-            - CV
-            - CW
-            - CX
-            - CY
-            - CZ
-            - DE
-            - DG
-            - DJ
-            - DK
-            - DM
-            - DO
-            - DZ
-            - EA
-            - EC
-            - EE
-            - EG
-            - EH
-            - ER
-            - ES
-            - ET
-            - EU
-            - EZ
-            - FI
-            - FJ
-            - FK
-            - FM
-            - FO
-            - FR
-            - FX
-            - GA
-            - GB
-            - GD
-            - GE
-            - GF
-            - GG
-            - GH
-            - GI
-            - GL
-            - GM
-            - GN
-            - GP
-            - GQ
-            - GR
-            - GS
-            - GT
-            - GU
-            - GW
-            - GY
-            - HK
-            - HM
-            - HN
-            - HR
-            - HT
-            - HU
-            - IC
-            - ID
-            - IE
-            - IL
-            - IM
-            - IN
-            - IO
-            - IQ
-            - IR
-            - IS
-            - IT
-            - JE
-            - JM
-            - JO
-            - JP
-            - KE
-            - KG
-            - KH
-            - KI
-            - KM
-            - KN
-            - KP
-            - KR
-            - KW
-            - KY
-            - KZ
-            - LA
-            - LB
-            - LC
-            - LI
-            - LK
-            - LR
-            - LS
-            - LT
-            - LU
-            - LV
-            - LY
-            - MA
-            - MC
-            - MD
-            - ME
-            - MF
-            - MG
-            - MH
-            - MK
-            - ML
-            - MM
-            - MN
-            - MO
-            - MP
-            - MQ
-            - MR
-            - MS
-            - MT
-            - MU
-            - MV
-            - MW
-            - MX
-            - MY
-            - MZ
-            - NA
-            - NC
-            - NE
-            - NF
-            - NG
-            - NI
-            - NL
-            - 'NO'
-            - NP
-            - NR
-            - NT
-            - NU
-            - NZ
-            - OM
-            - PA
-            - PE
-            - PF
-            - PG
-            - PH
-            - PK
-            - PL
-            - PM
-            - PN
-            - PR
-            - PS
-            - PT
-            - PW
-            - PY
-            - QA
-            - RE
-            - RO
-            - RS
-            - RU
-            - RW
-            - SA
-            - SB
-            - SC
-            - SD
-            - SE
-            - SF
-            - SG
-            - SH
-            - SI
-            - SJ
-            - SK
-            - SL
-            - SM
-            - SN
-            - SO
-            - SR
-            - SS
-            - ST
-            - SU
-            - SV
-            - SX
-            - SY
-            - SZ
-            - TA
-            - TC
-            - TD
-            - TF
-            - TG
-            - TH
-            - TJ
-            - TK
-            - TL
-            - TM
-            - TN
-            - TO
-            - TP
-            - TR
-            - TT
-            - TV
-            - TW
-            - TZ
-            - UA
-            - UG
-            - UK
-            - UM
-            - US
-            - UY
-            - UZ
-            - VA
-            - VC
-            - VE
-            - VG
-            - VI
-            - VN
-            - VU
-            - WF
-            - WS
-            - XI
-            - XU
-            - XK
-            - YE
-            - YT
-            - YU
-            - ZA
-            - ZM
-            - ZR
-            - ZW
-        administrativeAreas:
+            description: |-
+              Name of the logistic address of the business partner. This is not according to official
+              registers but according to the name the uploading sharing member chooses.
+        states:
           type: array
           items:
-            $ref: '#/components/schemas/AdministrativeArea'
-        postCodes:
+            $ref: '#/components/schemas/AddressState'
+        identifiers:
           type: array
           items:
-            $ref: '#/components/schemas/Postcode'
-        localities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Locality'
-        thoroughfares:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thoroughfare'
-        premises:
-          type: array
-          items:
-            $ref: '#/components/schemas/Premise'
-        postalDeliveryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostalDeliveryPoint'
-        geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        types:
+            $ref: '#/components/schemas/AddressIdentifier'
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddress'
+        roles:
           type: array
           items:
             type: string
             enum:
-              - BRANCH_OFFICE
-              - CARE_OF
-              - HEADQUARTER
-              - LEGAL_ALTERNATIVE
-              - PO_BOX
-              - REGISTERED
-              - REGISTERED_AGENT_MAIL
-              - REGISTERED_AGENT_PHYSICAL
-              - VAT_REGISTERED
-              - UNSPECIFIC
+              - SUPPLIER
+              - CUSTOMER
         externalId:
           type: string
         legalEntityExternalId:
           type: string
         siteExternalId:
-          type: string
-        bpn:
           type: string
       description: Address with legal entity or site references. Only one of either legal entity or site external id can be set for an address.
     AddressGateInputResponse:
       type: object
       properties:
-        version:
-          $ref: '#/components/schemas/AddressVersion'
-        careOf:
-          type: string
-        contexts:
+        nameParts:
+          type: array
+          description: |-
+            Name of the logistic address of the business partner. This is not according to official
+            registers but according to the name the uploading sharing member chooses.
+          items:
+            type: string
+            description: |-
+              Name of the logistic address of the business partner. This is not according to official
+              registers but according to the name the uploading sharing member chooses.
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressState'
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressIdentifier'
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddress'
+        roles:
           type: array
           items:
             type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+        siteExternalId:
+          type: string
+        bpn:
+          type: string
+      description: Address with legal entity or site references. Only one of either legal entity or site external id can be set for an address.
+    AddressGateOutputChildRequest:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: |-
+            Name of the logistic address of the business partner. This is not according to official
+            registers but according to the name the uploading sharing member chooses.
+          items:
+            type: string
+            description: |-
+              Name of the logistic address of the business partner. This is not according to official
+              registers but according to the name the uploading sharing member chooses.
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressState'
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressIdentifier'
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddress'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        bpn:
+          type: string
+      description: DTO for setting the output address data with BPN.
+    AddressGateOutputRequest:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: |-
+            Name of the logistic address of the business partner. This is not according to official
+            registers but according to the name the uploading sharing member chooses.
+          items:
+            type: string
+            description: |-
+              Name of the logistic address of the business partner. This is not according to official
+              registers but according to the name the uploading sharing member chooses.
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressState'
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressIdentifier'
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddress'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+        siteExternalId:
+          type: string
+        bpn:
+          type: string
+      description: Address with legal entity or site references. Only one of either legal entity or site external id can be set for an address.
+    AddressIdentifier:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Value of the identifier
+        type:
+          type: string
+          description: Technical key of the type to which this identifier belongs to
+      description: Identifier record for a logistic address
+    AddressState:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the status
+        validFrom:
+          type: string
+          description: Since when the status is/was valid
+          format: date-time
+        validTo:
+          type: string
+          description: Until the status was valid, if applicable
+          format: date-time
+        type:
+          type: string
+          description: The type of this specified status
+          enum:
+            - ACTIVE
+            - INACTIVE
+      description: Status record for a address
+    AlternativePostalAddress:
+      type: object
+      properties:
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
         country:
           type: string
+          description: Describes the country
           enum:
             - UNDEFINED
             - AC
@@ -1398,723 +1183,91 @@ components:
             - ZM
             - ZR
             - ZW
-        administrativeAreas:
+        postalCode:
+          type: string
+          description: A postal code, also known as postcode, PIN or ZIP Code
+        city:
+          type: string
+          description: 'The city of the address (Synonym: Town, village, municipality)'
+        administrativeAreaLevel1:
+          type: string
+          description: Identifying code of the Region within the country (e.g. Bayern)
+        deliveryServiceNumber:
+          type: string
+          description: Describes the PO Box or private Bag number the delivery should be placed at.
+        deliveryServiceType:
+          type: string
+          description: The type of this specified delivery
+          enum:
+            - PO_BOX
+            - PRIVATE_BAG
+            - BOITE_POSTALE
+        deliveryServiceQualifier:
+          type: string
+          description: Delivery Service Qualifier
+      description: Alternative Postal Address Part
+    ChangeLogSearchRequest:
+      type: object
+      properties:
+        fromTime:
+          type: string
+          format: date-time
+        externalIds:
+          uniqueItems: true
           type: array
           items:
-            $ref: '#/components/schemas/AdministrativeArea'
-        postCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Postcode'
-        localities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Locality'
-        thoroughfares:
-          type: array
-          items:
-            $ref: '#/components/schemas/Thoroughfare'
-        premises:
-          type: array
-          items:
-            $ref: '#/components/schemas/Premise'
-        postalDeliveryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostalDeliveryPoint'
-        geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        types:
+            type: string
+        lsaTypes:
+          uniqueItems: true
           type: array
           items:
             type: string
             enum:
-              - BRANCH_OFFICE
-              - CARE_OF
-              - HEADQUARTER
-              - LEGAL_ALTERNATIVE
-              - PO_BOX
-              - REGISTERED
-              - REGISTERED_AGENT_MAIL
-              - REGISTERED_AGENT_PHYSICAL
-              - VAT_REGISTERED
-              - UNSPECIFIC
+              - LEGAL_ENTITY
+              - SITE
+              - ADDRESS
+    ChangelogResponse:
+      type: object
+      properties:
         externalId:
           type: string
-        legalEntityExternalId:
-          type: string
-        siteExternalId:
-          type: string
-        bpn:
-          type: string
-        processStartedAt:
-          type: string
-          format: date-time
-      description: Address with legal entity or site references. Only one of either legal entity or site external id can be set for an address.
-    AddressGateOutput:
-      type: object
-      properties:
-        bpn:
-          type: string
-        version:
-          $ref: '#/components/schemas/AddressVersionResponse'
-        careOf:
-          type: string
-        contexts:
-          type: array
-          items:
-            type: string
-        country:
-          $ref: '#/components/schemas/TypeKeyNameDtoCountryCode'
-        administrativeAreas:
-          type: array
-          items:
-            $ref: '#/components/schemas/AdministrativeAreaResponse'
-        postCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostcodeResponse'
-        localities:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalityResponse'
-        thoroughfares:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThoroughfareResponse'
-        premises:
-          type: array
-          items:
-            $ref: '#/components/schemas/PremiseResponse'
-        postalDeliveryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostalDeliveryPointResponse'
-        geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/TypeKeyNameUrlDtoAddressType'
-        externalId:
-          type: string
-        legalEntityBpn:
-          type: string
-        siteBpn:
-          type: string
-      description: Address with legal entity or site references. Only one of either legal entity or site external id can be set for an address.
-    AddressResponse:
-      type: object
-      properties:
-        version:
-          $ref: '#/components/schemas/AddressVersionResponse'
-        careOf:
-          type: string
-        contexts:
-          type: array
-          items:
-            type: string
-        country:
-          $ref: '#/components/schemas/TypeKeyNameDtoCountryCode'
-        administrativeAreas:
-          type: array
-          items:
-            $ref: '#/components/schemas/AdministrativeAreaResponse'
-        postCodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostcodeResponse'
-        localities:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalityResponse'
-        thoroughfares:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThoroughfareResponse'
-        premises:
-          type: array
-          items:
-            $ref: '#/components/schemas/PremiseResponse'
-        postalDeliveryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostalDeliveryPointResponse'
-        geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/TypeKeyNameUrlDtoAddressType'
-      description: Localized address record of a business partner
-    AddressVersion:
-      type: object
-      properties:
-        characterSet:
+        businessPartnerType:
           type: string
           enum:
-            - ARABIC
-            - CHINESE
-            - CHINESE_TRADITIONAL
-            - CYRILLIC
-            - GREEK
-            - HANGUL_KOREAN
-            - HEBREW
-            - HIRAGANA
-            - KANJI
-            - KATAKANA
-            - LATIN
-            - THAI
-            - WESTERN_LATIN_STANDARD
-            - UNDEFINED
-        language:
-          type: string
-          enum:
-            - undefined
-            - aa
-            - ab
-            - ae
-            - af
-            - ak
-            - am
-            - an
-            - ar
-            - as
-            - av
-            - ay
-            - az
-            - ba
-            - be
-            - bg
-            - bh
-            - bi
-            - bm
-            - bn
-            - bo
-            - br
-            - bs
-            - ca
-            - ce
-            - ch
-            - co
-            - cr
-            - cs
-            - cu
-            - cv
-            - cy
-            - da
-            - de
-            - dv
-            - dz
-            - ee
-            - el
-            - en
-            - eo
-            - es
-            - et
-            - eu
-            - fa
-            - ff
-            - fi
-            - fj
-            - fo
-            - fr
-            - fy
-            - ga
-            - gd
-            - gl
-            - gn
-            - gu
-            - gv
-            - ha
-            - he
-            - hi
-            - ho
-            - hr
-            - ht
-            - hu
-            - hy
-            - hz
-            - ia
-            - id
-            - ie
-            - ig
-            - ii
-            - ik
-            - io
-            - is
-            - it
-            - iu
-            - ja
-            - jv
-            - ka
-            - kg
-            - ki
-            - kj
-            - kk
-            - kl
-            - km
-            - kn
-            - ko
-            - kr
-            - ks
-            - ku
-            - kv
-            - kw
-            - ky
-            - la
-            - lb
-            - lg
-            - li
-            - ln
-            - lo
-            - lt
-            - lu
-            - lv
-            - mg
-            - mh
-            - mi
-            - mk
-            - ml
-            - mn
-            - mr
-            - ms
-            - mt
-            - my
-            - na
-            - nb
-            - nd
-            - ne
-            - ng
-            - nl
-            - nn
-            - 'no'
-            - nr
-            - nv
-            - ny
-            - oc
-            - oj
-            - om
-            - or
-            - os
-            - pa
-            - pi
-            - pl
-            - ps
-            - pt
-            - qu
-            - rm
-            - rn
-            - ro
-            - ru
-            - rw
-            - sa
-            - sc
-            - sd
-            - se
-            - sg
-            - si
-            - sk
-            - sl
-            - sm
-            - sn
-            - so
-            - sq
-            - sr
-            - ss
-            - st
-            - su
-            - sv
-            - sw
-            - ta
-            - te
-            - tg
-            - th
-            - ti
-            - tk
-            - tl
-            - tn
-            - to
-            - tr
-            - ts
-            - tt
-            - tw
-            - ty
-            - ug
-            - uk
-            - ur
-            - uz
-            - ve
-            - vi
-            - vo
-            - wa
-            - wo
-            - xh
-            - yi
-            - yo
-            - za
-            - zh
-            - zu
-      description: Localization record for an address
-    AddressVersionResponse:
-      type: object
-      properties:
-        characterSet:
-          $ref: '#/components/schemas/TypeKeyNameDtoCharacterSet'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Localization record of an address
-    AdministrativeArea:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        fipsCode:
-          type: string
-        type:
-          type: string
-          enum:
-            - COUNTY
-            - REGION
-            - OTHER
-      description: Areas such as country regions or counties
-    AdministrativeAreaResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        fipsCode:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoAdministrativeAreaType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Area of an address such as country region or county
-    BankAccount:
-      type: object
-      properties:
-        trustScores:
-          type: array
-          items:
-            type: number
-            format: float
-        currency:
-          type: string
-          enum:
-            - UNDEFINED
-            - AED
-            - AFN
-            - ALL
-            - AMD
-            - ANG
-            - AOA
-            - ARS
-            - AUD
-            - AWG
-            - AZN
-            - BAM
-            - BBD
-            - BDT
-            - BGN
-            - BHD
-            - BIF
-            - BMD
-            - BND
-            - BOB
-            - BOV
-            - BRL
-            - BSD
-            - BTN
-            - BWP
-            - BYN
-            - BYR
-            - BZD
-            - CAD
-            - CDF
-            - CHE
-            - CHF
-            - CHW
-            - CLF
-            - CLP
-            - CNY
-            - COP
-            - COU
-            - CRC
-            - CUC
-            - CUP
-            - CVE
-            - CZK
-            - DJF
-            - DKK
-            - DOP
-            - DZD
-            - EGP
-            - ERN
-            - ETB
-            - EUR
-            - FJD
-            - FKP
-            - GBP
-            - GEL
-            - GHS
-            - GIP
-            - GMD
-            - GNF
-            - GTQ
-            - GYD
-            - HKD
-            - HNL
-            - HRK
-            - HTG
-            - HUF
-            - IDR
-            - ILS
-            - INR
-            - IQD
-            - IRR
-            - ISK
-            - JMD
-            - JOD
-            - JPY
-            - KES
-            - KGS
-            - KHR
-            - KMF
-            - KPW
-            - KRW
-            - KWD
-            - KYD
-            - KZT
-            - LAK
-            - LBP
-            - LKR
-            - LRD
-            - LSL
-            - LTL
-            - LYD
-            - MAD
-            - MDL
-            - MGA
-            - MKD
-            - MMK
-            - MNT
-            - MOP
-            - MRO
-            - MRU
-            - MUR
-            - MVR
-            - MWK
-            - MXN
-            - MXV
-            - MYR
-            - MZN
-            - NAD
-            - NGN
-            - NIO
-            - NOK
-            - NPR
-            - NZD
-            - OMR
-            - PAB
-            - PEN
-            - PGK
-            - PHP
-            - PKR
-            - PLN
-            - PYG
-            - QAR
-            - RON
-            - RSD
-            - RUB
-            - RUR
-            - RWF
-            - SAR
-            - SBD
-            - SCR
-            - SDG
-            - SEK
-            - SGD
-            - SHP
-            - SLL
-            - SOS
-            - SRD
-            - SSP
-            - STD
-            - STN
-            - SVC
-            - SYP
-            - SZL
-            - THB
-            - TJS
-            - TMT
-            - TND
-            - TOP
-            - TRY
-            - TTD
-            - TWD
-            - TZS
-            - UAH
-            - UGX
-            - USD
-            - USN
-            - USS
-            - UYI
-            - UYU
-            - UZS
-            - VEF
-            - VES
-            - VND
-            - VUV
-            - WST
-            - XAF
-            - XAG
-            - XAU
-            - XBA
-            - XBB
-            - XBC
-            - XBD
-            - XCD
-            - XDR
-            - XOF
-            - XPD
-            - XPF
-            - XPT
-            - XSU
-            - XTS
-            - XUA
-            - XXX
-            - YER
-            - ZAR
-            - ZMW
-            - ZWL
-        internationalBankAccountIdentifier:
-          type: string
-        internationalBankIdentifier:
-          type: string
-        nationalBankAccountIdentifier:
-          type: string
-        nationalBankIdentifier:
-          type: string
-      description: Bank account record of a business partner
-    BankAccountResponse:
-      type: object
-      properties:
-        trustScores:
-          type: array
-          items:
-            type: number
-            format: float
-        currency:
-          $ref: '#/components/schemas/TypeKeyNameDtoCurrencyCode'
-        internationalBankAccountIdentifier:
-          type: string
-        internationalBankIdentifier:
-          type: string
-        nationalBankAccountIdentifier:
-          type: string
-        nationalBankIdentifier:
-          type: string
-      description: Bank account record for a business partner
-    BusinessPartnerCandidateDto:
-      type: object
-      properties:
-        identifiers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Identifier'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        legalForm:
-          type: string
-        status:
-          $ref: '#/components/schemas/BusinessStatus'
-        profileClassifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/Classification'
-        bankAccounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/BankAccount'
-        address:
-          $ref: '#/components/schemas/Address'
-    BusinessStatus:
-      type: object
-      properties:
-        officialDenotation:
-          type: string
-        validFrom:
+            - LEGAL_ENTITY
+            - SITE
+            - ADDRESS
+        modifiedAt:
           type: string
           format: date-time
-        validUntil:
-          type: string
-          format: date-time
-        type:
-          type: string
-          enum:
-            - ACTIVE
-            - DISSOLVED
-            - IN_LIQUIDATION
-            - INACTIVE
-            - INSOLVENCY
-            - UNKNOWN
-      description: Status record for a business partner
-    BusinessStatusResponse:
-      type: object
-      properties:
-        officialDenotation:
-          type: string
-        validFrom:
-          type: string
-          format: date-time
-        validUntil:
-          type: string
-          format: date-time
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessStatusType'
-      description: Status of a business partner
+      description: Changelog entry for a business partner
     Classification:
       type: object
       properties:
         value:
           type: string
+          description: Name of the classification
         code:
           type: string
+          description: Identifying code of the classification, if applicable
         type:
           type: string
+          description: Type of specified classification
           enum:
             - NACE
             - NAF
             - NAICS
             - SIC
       description: Classification record for a business partner
-    ClassificationResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        code:
-          type: string
-        type:
-          $ref: '#/components/schemas/NamedTypeWithLink'
-      description: Classification record of a business partner
-    ErrorInfoBusinessPartnerOutputError:
+    ErrorInfoChangeLogOutputError:
       title: ErrorInfo
       type: object
       properties:
         errorCode:
           type: string
-          description: BusinessPartnerOutputError
+          description: ChangeLogOutputError
           enum:
-            - SharingProcessError
-            - SharingTimeout
-            - BpnNotInPool
+            - ExternalIdNotFound
         message:
           type: string
         entityKey:
@@ -2125,778 +1278,421 @@ components:
       properties:
         longitude:
           type: number
+          description: Longitude coordinate
           format: float
         latitude:
           type: number
+          description: Latitude coordinate
           format: float
         altitude:
           type: number
+          description: Altitude, if applicable
           format: float
       description: Geo coordinates record for an address
-    Identifier:
-      type: object
-      properties:
-        value:
-          type: string
-        type:
-          type: string
-        issuingBody:
-          type: string
-        status:
-          type: string
-      description: Identifier record for a business partner
-    IdentifierResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
-        issuingBody:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoString'
-        status:
-          $ref: '#/components/schemas/TypeKeyNameDtoString'
-      description: Identifier record of a business partner
     LegalEntityGateInputRequest:
       type: object
       properties:
+        legalNameParts:
+          type: array
+          items:
+            type: string
         identifiers:
           type: array
           items:
-            $ref: '#/components/schemas/Identifier'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
+            $ref: '#/components/schemas/LegalEntityIdentifier'
+        legalShortName:
+          type: string
+          description: Abbreviated name or shorthand
         legalForm:
           type: string
-        status:
-          $ref: '#/components/schemas/BusinessStatus'
-        profileClassifications:
+          description: Technical key of the legal form
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalEntityState'
+        classifications:
           type: array
           items:
             $ref: '#/components/schemas/Classification'
-        types:
+        roles:
           type: array
           items:
             type: string
             enum:
-              - BRAND
-              - LEGAL_ENTITY
-              - ORGANIZATIONAL_UNIT
-              - SITE
-              - UNKNOWN
-        bankAccounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/BankAccount'
+              - SUPPLIER
+              - CUSTOMER
         legalAddress:
-          $ref: '#/components/schemas/Address'
+          $ref: '#/components/schemas/LogisticAddressGateDto'
         externalId:
-          type: string
-        bpn:
           type: string
       description: Legal entity with external id
     LegalEntityGateInputResponse:
       type: object
       properties:
+        legalNameParts:
+          type: array
+          items:
+            type: string
         identifiers:
           type: array
           items:
-            $ref: '#/components/schemas/Identifier'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
+            $ref: '#/components/schemas/LegalEntityIdentifier'
+        legalShortName:
+          type: string
+          description: Abbreviated name or shorthand
         legalForm:
           type: string
-        status:
-          $ref: '#/components/schemas/BusinessStatus'
-        profileClassifications:
+          description: Technical key of the legal form
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalEntityState'
+        classifications:
           type: array
           items:
             $ref: '#/components/schemas/Classification'
-        types:
+        roles:
           type: array
           items:
             type: string
             enum:
-              - BRAND
-              - LEGAL_ENTITY
-              - ORGANIZATIONAL_UNIT
-              - SITE
-              - UNKNOWN
-        bankAccounts:
+              - SUPPLIER
+              - CUSTOMER
+        legalAddress:
+          $ref: '#/components/schemas/AddressGateInputResponse'
+        externalId:
+          type: string
+      description: Legal entity with external id
+    LegalEntityGateOutputRequest:
+      type: object
+      properties:
+        legalNameParts:
           type: array
           items:
-            $ref: '#/components/schemas/BankAccount'
+            type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalEntityIdentifier'
+        legalShortName:
+          type: string
+          description: Abbreviated name or shorthand
+        legalForm:
+          type: string
+          description: Technical key of the legal form
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegalEntityState'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
         legalAddress:
-          $ref: '#/components/schemas/Address'
+          $ref: '#/components/schemas/AddressGateOutputChildRequest'
         externalId:
           type: string
         bpn:
           type: string
-        processStartedAt:
-          type: string
-          format: date-time
       description: Legal entity with external id
-    LegalEntityGateOutput:
+    LegalEntityGateOutputResponse:
       type: object
       properties:
         identifiers:
           type: array
           items:
-            $ref: '#/components/schemas/IdentifierResponse'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/NameResponse'
+            $ref: '#/components/schemas/LegalEntityIdentifier'
+        legalShortName:
+          type: string
+          description: Abbreviated name or shorthand
         legalForm:
-          $ref: '#/components/schemas/LegalFormResponse'
-        status:
-          $ref: '#/components/schemas/BusinessStatusResponse'
-        profileClassifications:
+          type: string
+          description: Technical key of the legal form
+        states:
           type: array
           items:
-            $ref: '#/components/schemas/ClassificationResponse'
-        types:
+            $ref: '#/components/schemas/LegalEntityState'
+        classifications:
           type: array
           items:
-            $ref: '#/components/schemas/TypeKeyNameUrlDtoBusinessPartnerType'
-        bankAccounts:
+            $ref: '#/components/schemas/Classification'
+        legalNameParts:
           type: array
           items:
-            $ref: '#/components/schemas/BankAccountResponse'
+            type: string
         roles:
           type: array
           items:
-            $ref: '#/components/schemas/TypeKeyNameDtoString'
-        relations:
-          type: array
-          items:
-            $ref: '#/components/schemas/RelationResponse'
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
         legalAddress:
-          $ref: '#/components/schemas/AddressResponse'
-        bpn:
-          type: string
+          $ref: '#/components/schemas/AddressGateInputResponse'
         externalId:
           type: string
-      description: Legal entity with references
-    LegalFormResponse:
+        bpn:
+          type: string
+      description: Legal entity with external id
+    LegalEntityIdentifier:
       type: object
       properties:
-        technicalKey:
+        value:
           type: string
-        name:
+          description: Value of the identifier
+        type:
           type: string
-        url:
+          description: Technical key of the type to which this identifier belongs to
+        issuingBody:
           type: string
-        mainAbbreviation:
+          description: Body which issued the identifier
+      description: Identifier record for a legal entity
+    LegalEntityState:
+      type: object
+      properties:
+        officialDenotation:
           type: string
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-        categories:
+          description: Exact, official denotation of the status
+        validFrom:
+          type: string
+          description: Since when the status is/was valid
+          format: date-time
+        validTo:
+          type: string
+          description: Until the status was valid, if applicable
+          format: date-time
+        type:
+          type: string
+          description: The type of this specified status
+          enum:
+            - ACTIVE
+            - INACTIVE
+      description: Status record of a legal entity
+    LogisticAddressGateDto:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: |-
+            Name of the logistic address of the business partner. This is not according to official
+            registers but according to the name the uploading sharing member chooses.
+          items:
+            type: string
+            description: |-
+              Name of the logistic address of the business partner. This is not according to official
+              registers but according to the name the uploading sharing member chooses.
+        states:
           type: array
           items:
-            $ref: '#/components/schemas/NamedTypeWithLink'
-      description: Legal form a business partner can have
-    Locality:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        type:
-          type: string
-          enum:
-            - BLOCK
-            - CITY
-            - DISTRICT
-            - OTHER
-            - POST_OFFICE_CITY
-            - QUARTER
-      description: Locality record for an address such as city, block or district
-    LocalityResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoLocalityType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Locality record of an address such as city, block or district
-    Name:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        type:
-          type: string
-          enum:
-            - ACRONYM
-            - DOING_BUSINESS_AS
-            - ESTABLISHMENT
-            - INTERNATIONAL
-            - LOCAL
-            - OTHER
-            - REGISTERED
-            - TRANSLITERATED
-            - VAT_REGISTERED
-        language:
-          type: string
-          enum:
-            - undefined
-            - aa
-            - ab
-            - ae
-            - af
-            - ak
-            - am
-            - an
-            - ar
-            - as
-            - av
-            - ay
-            - az
-            - ba
-            - be
-            - bg
-            - bh
-            - bi
-            - bm
-            - bn
-            - bo
-            - br
-            - bs
-            - ca
-            - ce
-            - ch
-            - co
-            - cr
-            - cs
-            - cu
-            - cv
-            - cy
-            - da
-            - de
-            - dv
-            - dz
-            - ee
-            - el
-            - en
-            - eo
-            - es
-            - et
-            - eu
-            - fa
-            - ff
-            - fi
-            - fj
-            - fo
-            - fr
-            - fy
-            - ga
-            - gd
-            - gl
-            - gn
-            - gu
-            - gv
-            - ha
-            - he
-            - hi
-            - ho
-            - hr
-            - ht
-            - hu
-            - hy
-            - hz
-            - ia
-            - id
-            - ie
-            - ig
-            - ii
-            - ik
-            - io
-            - is
-            - it
-            - iu
-            - ja
-            - jv
-            - ka
-            - kg
-            - ki
-            - kj
-            - kk
-            - kl
-            - km
-            - kn
-            - ko
-            - kr
-            - ks
-            - ku
-            - kv
-            - kw
-            - ky
-            - la
-            - lb
-            - lg
-            - li
-            - ln
-            - lo
-            - lt
-            - lu
-            - lv
-            - mg
-            - mh
-            - mi
-            - mk
-            - ml
-            - mn
-            - mr
-            - ms
-            - mt
-            - my
-            - na
-            - nb
-            - nd
-            - ne
-            - ng
-            - nl
-            - nn
-            - 'no'
-            - nr
-            - nv
-            - ny
-            - oc
-            - oj
-            - om
-            - or
-            - os
-            - pa
-            - pi
-            - pl
-            - ps
-            - pt
-            - qu
-            - rm
-            - rn
-            - ro
-            - ru
-            - rw
-            - sa
-            - sc
-            - sd
-            - se
-            - sg
-            - si
-            - sk
-            - sl
-            - sm
-            - sn
-            - so
-            - sq
-            - sr
-            - ss
-            - st
-            - su
-            - sv
-            - sw
-            - ta
-            - te
-            - tg
-            - th
-            - ti
-            - tk
-            - tl
-            - tn
-            - to
-            - tr
-            - ts
-            - tt
-            - tw
-            - ty
-            - ug
-            - uk
-            - ur
-            - uz
-            - ve
-            - vi
-            - vo
-            - wa
-            - wo
-            - xh
-            - yi
-            - yo
-            - za
-            - zh
-            - zu
-      description: Name record for a business partner
-    NameResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoNameType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Name record of a business partner
-    NamedTypeWithLink:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-      description: General type with name and URL link for further information
-    PageOutputResponseAddressGateOutput:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int32
-        nextStartAfter:
-          type: string
-        content:
+            $ref: '#/components/schemas/AddressState'
+        identifiers:
           type: array
           items:
-            $ref: '#/components/schemas/AddressGateOutput'
-        invalidEntries:
-          type: integer
-          format: int32
-        pending:
+            $ref: '#/components/schemas/AddressIdentifier'
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddress'
+        roles:
           type: array
           items:
             type: string
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorInfoBusinessPartnerOutputError'
-      description: Paginated collection of results
-    PageOutputResponseLegalEntityGateOutput:
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+      description: Address record for a business partner
+    PageChangeLogResponseChangelogResponse:
       type: object
       properties:
-        total:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
           type: integer
           format: int32
-        nextStartAfter:
-          type: string
+        page:
+          type: integer
+          format: int32
+        contentSize:
+          type: integer
+          format: int32
         content:
           type: array
           items:
-            $ref: '#/components/schemas/LegalEntityGateOutput'
+            $ref: '#/components/schemas/ChangelogResponse'
         invalidEntries:
           type: integer
           format: int32
-        pending:
-          type: array
-          items:
-            type: string
         errors:
           type: array
           items:
-            $ref: '#/components/schemas/ErrorInfoBusinessPartnerOutputError'
+            $ref: '#/components/schemas/ErrorInfoChangeLogOutputError'
       description: Paginated collection of results
-    PageOutputResponseSiteGateOutput:
+    PageResponseAddressGateInputResponse:
       type: object
       properties:
-        total:
+        totalElements:
           type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
           format: int32
-        nextStartAfter:
-          type: string
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
         content:
           type: array
-          items:
-            $ref: '#/components/schemas/SiteGateOutput'
-        invalidEntries:
-          type: integer
-          format: int32
-        pending:
-          type: array
-          items:
-            type: string
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorInfoBusinessPartnerOutputError'
-      description: Paginated collection of results
-    PageStartAfterResponseAddressGateInputResponse:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int32
-        nextStartAfter:
-          type: string
-        content:
-          type: array
+          description: Collection of results in the page
           items:
             $ref: '#/components/schemas/AddressGateInputResponse'
-        invalidEntries:
-          type: integer
-          format: int32
       description: Paginated collection of results
-    PageStartAfterResponseLegalEntityGateInputResponse:
+    PageResponseLegalEntityGateInputResponse:
       type: object
       properties:
-        total:
+        totalElements:
           type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
           format: int32
-        nextStartAfter:
-          type: string
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
         content:
           type: array
+          description: Collection of results in the page
           items:
             $ref: '#/components/schemas/LegalEntityGateInputResponse'
-        invalidEntries:
-          type: integer
-          format: int32
       description: Paginated collection of results
-    PageStartAfterResponseSiteGateInputResponse:
+    PageResponseLegalEntityGateOutputResponse:
       type: object
       properties:
-        total:
+        totalElements:
           type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
           format: int32
-        nextStartAfter:
-          type: string
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
         content:
           type: array
+          description: Collection of results in the page
+          items:
+            $ref: '#/components/schemas/LegalEntityGateOutputResponse'
+      description: Paginated collection of results
+    PageResponseSharingState:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
+          format: int32
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
+        content:
+          type: array
+          description: Collection of results in the page
+          items:
+            $ref: '#/components/schemas/SharingState'
+      description: Paginated collection of results
+    PageResponseSiteGateInputResponse:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
+          format: int32
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
+        content:
+          type: array
+          description: Collection of results in the page
           items:
             $ref: '#/components/schemas/SiteGateInputResponse'
-        invalidEntries:
-          type: integer
-          format: int32
       description: Paginated collection of results
-    PostalDeliveryPoint:
+    PageResponseSiteGateOutputResponse:
       type: object
       properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        type:
-          type: string
-          enum:
-            - INTERURBAN_DELIVERY_POINT
-            - MAIL_STATION
-            - MAILBOX
-            - OTHER
-            - POST_OFFICE_BOX
-      description: Postal delivery point record for an address
-    PostalDeliveryPointResponse:
+        totalElements:
+          type: integer
+          description: Total number of all results in all pages
+          format: int64
+        totalPages:
+          type: integer
+          description: Total number pages
+          format: int32
+        page:
+          type: integer
+          description: Current page number
+          format: int32
+        contentSize:
+          type: integer
+          description: Number of results in the page
+          format: int32
+        content:
+          type: array
+          description: Collection of results in the page
+          items:
+            $ref: '#/components/schemas/SiteGateOutputResponse'
+      description: Paginated collection of results
+    PhysicalPostalAddressGateDto:
       type: object
       properties:
-        value:
+        geographicCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        country:
           type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoPostalDeliveryPointType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Postal delivery point record of an address
-    Postcode:
-      type: object
-      properties:
-        value:
-          type: string
-        type:
-          type: string
-          enum:
-            - CEDEX
-            - LARGE_MAIL_USER
-            - OTHER
-            - POST_BOX
-            - REGULAR
-      description: Postcode record for an address
-    PostcodeResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoPostCodeType'
-      description: Postcode record of an address
-    Premise:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        type:
-          type: string
-          enum:
-            - BUILDING
-            - OTHER
-            - LEVEL
-            - HARBOUR
-            - ROOM
-            - SUITE
-            - UNIT
-            - WAREHOUSE
-      description: Premise record for an address such as building, room or floor
-    PremiseResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoPremiseType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Premise record of an address such as building, room or floor
-    RelationResponse:
-      type: object
-      properties:
-        relationClass:
-          $ref: '#/components/schemas/TypeKeyNameDtoRelationClass'
-        type:
-          $ref: '#/components/schemas/TypeKeyNameDtoRelationType'
-        startNode:
-          type: string
-        endNode:
-          type: string
-        startedAt:
-          type: string
-          format: date-time
-        endedAt:
-          type: string
-          format: date-time
-      description: Directed relation between two business partners
-    SiteGateInputRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        mainAddress:
-          $ref: '#/components/schemas/Address'
-        externalId:
-          type: string
-        legalEntityExternalId:
-          type: string
-        bpn:
-          type: string
-      description: Site with legal entity reference
-    SiteGateInputResponse:
-      type: object
-      properties:
-        name:
-          type: string
-        mainAddress:
-          $ref: '#/components/schemas/Address'
-        externalId:
-          type: string
-        legalEntityExternalId:
-          type: string
-        bpn:
-          type: string
-        processStartedAt:
-          type: string
-          format: date-time
-      description: Site with legal entity reference
-    SiteGateOutput:
-      type: object
-      properties:
-        name:
-          type: string
-        mainAddress:
-          $ref: '#/components/schemas/AddressResponse'
-        externalId:
-          type: string
-        bpn:
-          type: string
-        legalEntityBpn:
-          type: string
-      description: Site with legal entity reference.
-    Thoroughfare:
-      type: object
-      properties:
-        value:
-          type: string
-        name:
-          type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        direction:
-          type: string
-        type:
-          type: string
-          enum:
-            - INDUSTRIAL_ZONE
-            - OTHER
-            - RIVER
-            - SQUARE
-            - STREET
-      description: Thoroughfare record for an address such as street, square or industrial zone
-    ThoroughfareResponse:
-      type: object
-      properties:
-        value:
-          type: string
-        name:
-          type: string
-        shortName:
-          type: string
-        number:
-          type: string
-        direction:
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKeyNameUrlDtoThoroughfareType'
-        language:
-          $ref: '#/components/schemas/TypeKeyNameDtoLanguageCode'
-      description: Thoroughfare record of an address such as street, square or industrial zone
-    TypeKeyNameDtoCharacterSet:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - ARABIC
-            - CHINESE
-            - CHINESE_TRADITIONAL
-            - CYRILLIC
-            - GREEK
-            - HANGUL_KOREAN
-            - HEBREW
-            - HIRAGANA
-            - KANJI
-            - KATAKANA
-            - LATIN
-            - THAI
-            - WESTERN_LATIN_STANDARD
-            - UNDEFINED
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoCountryCode:
-      type: object
-      properties:
-        technicalKey:
-          type: string
+          description: Describes the country
           enum:
             - UNDEFINED
             - AC
@@ -3170,645 +1966,239 @@ components:
             - ZM
             - ZR
             - ZW
-        name:
+        postalCode:
           type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoCurrencyCode:
+          description: A postal code, also known as postcode, PIN or ZIP Code
+        city:
+          type: string
+          description: 'The city of the address (Synonym: Town, village, municipality)'
+        street:
+          $ref: '#/components/schemas/StreetGate'
+        administrativeAreaLevel1:
+          type: string
+          description: Identifying code of the Region within the country (e.g. Bayern)
+        administrativeAreaLevel2:
+          type: string
+          description: Further possibility to describe the region/address(e.g. County/Landkreis)
+        administrativeAreaLevel3:
+          type: string
+          description: Further possibility to describe the region/address(e.g. Township/Gemeinde)
+        district:
+          type: string
+          description: Divides the city in several smaller areas
+        companyPostalCode:
+          type: string
+          description: A separate postal code for a company, also known as postcode, PIN or ZIP Code
+        industrialZone:
+          type: string
+          description: The practice of designating an area for industrial development
+        building:
+          type: string
+          description: Describes a specific building within the address
+        floor:
+          type: string
+          description: Describes the floor/level the delivery shall take place
+        door:
+          type: string
+          description: Describes the  door/room/suite on the respective floor the delivery shall take place
+      description: Physical Postal Address Part
+    SharingState:
       type: object
       properties:
-        technicalKey:
+        lsaType:
           type: string
+          description: LSA Type
           enum:
-            - UNDEFINED
-            - AED
-            - AFN
-            - ALL
-            - AMD
-            - ANG
-            - AOA
-            - ARS
-            - AUD
-            - AWG
-            - AZN
-            - BAM
-            - BBD
-            - BDT
-            - BGN
-            - BHD
-            - BIF
-            - BMD
-            - BND
-            - BOB
-            - BOV
-            - BRL
-            - BSD
-            - BTN
-            - BWP
-            - BYN
-            - BYR
-            - BZD
-            - CAD
-            - CDF
-            - CHE
-            - CHF
-            - CHW
-            - CLF
-            - CLP
-            - CNY
-            - COP
-            - COU
-            - CRC
-            - CUC
-            - CUP
-            - CVE
-            - CZK
-            - DJF
-            - DKK
-            - DOP
-            - DZD
-            - EGP
-            - ERN
-            - ETB
-            - EUR
-            - FJD
-            - FKP
-            - GBP
-            - GEL
-            - GHS
-            - GIP
-            - GMD
-            - GNF
-            - GTQ
-            - GYD
-            - HKD
-            - HNL
-            - HRK
-            - HTG
-            - HUF
-            - IDR
-            - ILS
-            - INR
-            - IQD
-            - IRR
-            - ISK
-            - JMD
-            - JOD
-            - JPY
-            - KES
-            - KGS
-            - KHR
-            - KMF
-            - KPW
-            - KRW
-            - KWD
-            - KYD
-            - KZT
-            - LAK
-            - LBP
-            - LKR
-            - LRD
-            - LSL
-            - LTL
-            - LYD
-            - MAD
-            - MDL
-            - MGA
-            - MKD
-            - MMK
-            - MNT
-            - MOP
-            - MRO
-            - MRU
-            - MUR
-            - MVR
-            - MWK
-            - MXN
-            - MXV
-            - MYR
-            - MZN
-            - NAD
-            - NGN
-            - NIO
-            - NOK
-            - NPR
-            - NZD
-            - OMR
-            - PAB
-            - PEN
-            - PGK
-            - PHP
-            - PKR
-            - PLN
-            - PYG
-            - QAR
-            - RON
-            - RSD
-            - RUB
-            - RUR
-            - RWF
-            - SAR
-            - SBD
-            - SCR
-            - SDG
-            - SEK
-            - SGD
-            - SHP
-            - SLL
-            - SOS
-            - SRD
-            - SSP
-            - STD
-            - STN
-            - SVC
-            - SYP
-            - SZL
-            - THB
-            - TJS
-            - TMT
-            - TND
-            - TOP
-            - TRY
-            - TTD
-            - TWD
-            - TZS
-            - UAH
-            - UGX
-            - USD
-            - USN
-            - USS
-            - UYI
-            - UYU
-            - UZS
-            - VEF
-            - VES
-            - VND
-            - VUV
-            - WST
-            - XAF
-            - XAG
-            - XAU
-            - XBA
-            - XBB
-            - XBC
-            - XBD
-            - XCD
-            - XDR
-            - XOF
-            - XPD
-            - XPF
-            - XPT
-            - XSU
-            - XTS
-            - XUA
-            - XXX
-            - YER
-            - ZAR
-            - ZMW
-            - ZWL
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoLanguageCode:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - undefined
-            - aa
-            - ab
-            - ae
-            - af
-            - ak
-            - am
-            - an
-            - ar
-            - as
-            - av
-            - ay
-            - az
-            - ba
-            - be
-            - bg
-            - bh
-            - bi
-            - bm
-            - bn
-            - bo
-            - br
-            - bs
-            - ca
-            - ce
-            - ch
-            - co
-            - cr
-            - cs
-            - cu
-            - cv
-            - cy
-            - da
-            - de
-            - dv
-            - dz
-            - ee
-            - el
-            - en
-            - eo
-            - es
-            - et
-            - eu
-            - fa
-            - ff
-            - fi
-            - fj
-            - fo
-            - fr
-            - fy
-            - ga
-            - gd
-            - gl
-            - gn
-            - gu
-            - gv
-            - ha
-            - he
-            - hi
-            - ho
-            - hr
-            - ht
-            - hu
-            - hy
-            - hz
-            - ia
-            - id
-            - ie
-            - ig
-            - ii
-            - ik
-            - io
-            - is
-            - it
-            - iu
-            - ja
-            - jv
-            - ka
-            - kg
-            - ki
-            - kj
-            - kk
-            - kl
-            - km
-            - kn
-            - ko
-            - kr
-            - ks
-            - ku
-            - kv
-            - kw
-            - ky
-            - la
-            - lb
-            - lg
-            - li
-            - ln
-            - lo
-            - lt
-            - lu
-            - lv
-            - mg
-            - mh
-            - mi
-            - mk
-            - ml
-            - mn
-            - mr
-            - ms
-            - mt
-            - my
-            - na
-            - nb
-            - nd
-            - ne
-            - ng
-            - nl
-            - nn
-            - 'no'
-            - nr
-            - nv
-            - ny
-            - oc
-            - oj
-            - om
-            - or
-            - os
-            - pa
-            - pi
-            - pl
-            - ps
-            - pt
-            - qu
-            - rm
-            - rn
-            - ro
-            - ru
-            - rw
-            - sa
-            - sc
-            - sd
-            - se
-            - sg
-            - si
-            - sk
-            - sl
-            - sm
-            - sn
-            - so
-            - sq
-            - sr
-            - ss
-            - st
-            - su
-            - sv
-            - sw
-            - ta
-            - te
-            - tg
-            - th
-            - ti
-            - tk
-            - tl
-            - tn
-            - to
-            - tr
-            - ts
-            - tt
-            - tw
-            - ty
-            - ug
-            - uk
-            - ur
-            - uz
-            - ve
-            - vi
-            - vo
-            - wa
-            - wo
-            - xh
-            - yi
-            - yo
-            - za
-            - zh
-            - zu
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoRelationClass:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - SAAS_HIERARCHY
-            - SAAS_TRANSITION
-            - CX_HIERARCHY
-            - DNB_HIERARCHY
-            - LEI_HIERARCHY
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoRelationType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - CX_LEGAL_SUCCESSOR_OF
-            - CX_LEGAL_PREDECESSOR_OF
-            - CX_ADDRESS_OF
-            - CX_SITE_OF
-            - CX_OWNED_BY
-            - DIRECT_LEGAL_RELATION
-            - COMMERCIAL_ULTIMATE
-            - DOMESTIC_BRANCH_RELATION
-            - INTERNATIONAL_BRANCH_RELATION
-            - DOMESTIC_LEGAL_ULTIMATE_RELATION
-            - GLOBAL_LEGAL_ULTIMATE_RELATION
-            - LEGAL_PREDECESSOR
-            - LEGAL_SUCCESSOR
-            - DNB_PARENT
-            - DNB_HEADQUARTER
-            - DNB_DOMESTIC_ULTIMATE
-            - DNB_GLOBAL_ULTIMATE
-            - LEI_DIRECT_PARENT
-            - LEI_INTERNATIONAL_BRANCH
-            - LEI_ULTIMATE_PARENT
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameDtoString:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-        name:
-          type: string
-      description: Named type uniquely identified by its technical key
-    TypeKeyNameUrlDtoAddressType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - BRANCH_OFFICE
-            - CARE_OF
-            - HEADQUARTER
-            - LEGAL_ALTERNATIVE
-            - PO_BOX
-            - REGISTERED
-            - REGISTERED_AGENT_MAIL
-            - REGISTERED_AGENT_PHYSICAL
-            - VAT_REGISTERED
-            - UNSPECIFIC
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoAdministrativeAreaType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - COUNTY
-            - REGION
-            - OTHER
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoBusinessPartnerType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - BRAND
             - LEGAL_ENTITY
-            - ORGANIZATIONAL_UNIT
             - SITE
-            - UNKNOWN
-        name:
+            - ADDRESS
+        externalId:
           type: string
-        url:
+          description: External identifier
+        sharingStateType:
           type: string
-    TypeKeyNameUrlDtoBusinessStatusType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
+          description: Type of sharing state
           enum:
-            - ACTIVE
-            - DISSOLVED
-            - IN_LIQUIDATION
-            - INACTIVE
-            - INSOLVENCY
-            - UNKNOWN
-        name:
+            - Pending
+            - Success
+            - Error
+        sharingErrorCode:
           type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoLocalityType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
+          description: BusinessPartnerSharingError
           enum:
-            - BLOCK
-            - CITY
-            - DISTRICT
-            - OTHER
-            - POST_OFFICE_CITY
-            - QUARTER
-        name:
+            - SharingProcessError
+            - SharingTimeout
+            - BpnNotInPool
+        sharingErrorMessage:
           type: string
-        url:
+          description: Sharing error message (for error)
+        bpn:
           type: string
-    TypeKeyNameUrlDtoNameType:
+          description: BPN (for success)
+        sharingProcessStarted:
+          type: string
+          description: Sharing process started (not updated if null)
+          format: date-time
+    SiteGateInputRequest:
       type: object
       properties:
-        technicalKey:
-          type: string
-          enum:
-            - ACRONYM
-            - DOING_BUSINESS_AS
-            - ESTABLISHMENT
-            - INTERNATIONAL
-            - LOCAL
-            - OTHER
-            - REGISTERED
-            - TRANSLITERATED
-            - VAT_REGISTERED
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoPostCodeType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - CEDEX
-            - LARGE_MAIL_USER
-            - OTHER
-            - POST_BOX
-            - REGULAR
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoPostalDeliveryPointType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - INTERURBAN_DELIVERY_POINT
-            - MAIL_STATION
-            - MAILBOX
-            - OTHER
-            - POST_OFFICE_BOX
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoPremiseType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - BUILDING
-            - OTHER
-            - LEVEL
-            - HARBOUR
-            - ROOM
-            - SUITE
-            - UNIT
-            - WAREHOUSE
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoString:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-    TypeKeyNameUrlDtoThoroughfareType:
-      type: object
-      properties:
-        technicalKey:
-          type: string
-          enum:
-            - INDUSTRIAL_ZONE
-            - OTHER
-            - RIVER
-            - SQUARE
-            - STREET
-        name:
-          type: string
-        url:
-          type: string
-    TypeMatchResponse:
-      type: object
-      properties:
-        score:
-          type: number
-          format: float
-        type:
-          type: string
-          enum:
-            - LegalEntity
-            - Site
-            - Address
-            - None
-    Unit:
-      type: object
-    ValidationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-            - OK
-            - ERROR
-        errors:
+        nameParts:
+          type: array
+          description: Parts that make up the name of that site
+          items:
+            type: string
+            description: Parts that make up the name of that site
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteState'
+        roles:
           type: array
           items:
             type: string
-      description: Contains overall result of a sharing process validation request
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        mainAddress:
+          $ref: '#/components/schemas/LogisticAddressGateDto'
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+      description: Site with legal entity reference
+    SiteGateInputResponse:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: Parts that make up the name of that site
+          items:
+            type: string
+            description: Parts that make up the name of that site
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteState'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        mainAddress:
+          $ref: '#/components/schemas/AddressGateInputResponse'
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+      description: Site with legal entity reference
+    SiteGateOutputRequest:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: Parts that make up the name of that site
+          items:
+            type: string
+            description: Parts that make up the name of that site
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteState'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        mainAddress:
+          $ref: '#/components/schemas/AddressGateOutputChildRequest'
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+        bpn:
+          type: string
+      description: Site with legal entity reference
+    SiteGateOutputResponse:
+      type: object
+      properties:
+        nameParts:
+          type: array
+          description: Parts that make up the name of that site
+          items:
+            type: string
+            description: Parts that make up the name of that site
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/SiteState'
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - SUPPLIER
+              - CUSTOMER
+        mainAddress:
+          $ref: '#/components/schemas/AddressGateInputResponse'
+        externalId:
+          type: string
+        legalEntityExternalId:
+          type: string
+        bpn:
+          type: string
+      description: Site with legal entity reference
+    SiteState:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the status
+        validFrom:
+          type: string
+          description: Since when the status is/was valid
+          format: date-time
+        validTo:
+          type: string
+          description: Until the status was valid, if applicable
+          format: date-time
+        type:
+          type: string
+          description: The type of this specified status
+          enum:
+            - ACTIVE
+            - INACTIVE
+      description: Status record of a site
+    StreetGate:
+      type: object
+      properties:
+        namePrefix:
+          type: string
+          description: Describes the official name prefix  of the Street.
+        additionalNamePrefix:
+          type: string
+          description: Describes the additional name prefix of the Street.
+        name:
+          type: string
+          description: Describes the Name of the Street.
+        additionalNameSuffix:
+          type: string
+          description: Describes the additional name suffix of the Street.
+        houseNumber:
+          type: string
+          description: Describes the House Number
+        milestone:
+          type: string
+          description: The Milestone is relevant for long roads without specific house numbers.
+        direction:
+          type: string
+          description: Describes the direction
+        nameSuffix:
+          type: string
+          description: Describes the name suffix of the Street.
+      description: A public road in a city, town, or village, typically with houses and buildings on one or both sides.
+    Unit:
+      type: object

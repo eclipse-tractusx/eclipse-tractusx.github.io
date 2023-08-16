@@ -1,0 +1,352 @@
+---
+openapi: 3.0.3
+info:
+  title: DotAAS Part 2 | HTTP/REST | Discovery Service Specification
+  description: "The entire Full Profile of the Discovery Service Specification as part of Details of the Asset Administration Shell Part 2. Publisher: Industrial Digital Twin Association (IDTA) 2023"
+  contact:
+    name: Industrial Digital Twin Association (IDTA)
+    email: info@idtwin.org
+  license:
+    name: CC BY 4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: V3.0_SSP-001
+servers:
+  - url: "{protocol}://{host_name}:{port}/api/{version_prefix}"
+    variables:
+      protocol:
+        description: Allows access through http and https (recommended)
+        default: https
+        enum:
+          - http
+          - https
+      host_name:
+        description: Hostname of server hosting the api
+        default: admin-shell.io
+      port:
+        description: "80 is default for http, 443 for https"
+        default: "443"
+        enum:
+          - "80"
+          - "443"
+      version_prefix:
+        default: v3.0
+        enum:
+          - v3.0
+paths:
+  /lookup/shells:
+    get:
+      tags:
+        - Asset Administration Shell Basic Discovery API
+      summary: Returns a list of Asset Administration Shell ids linked to specific Asset identifiers
+      operationId: GetAllAssetAdministrationShellIdsByAssetLink
+      parameters:
+        - name: assetIds
+          in: query
+          description: A list of specific Asset identifiers
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            example: "[ { \"name\": \"some-asset-id\", \"value\": \"http://example-company.com/myAsset\", \"externalSubjectId\": { \"keys\": [ { \"type\": \"GlobalReference\", \"value\": \"http://example-company.com/example-companys-asset-keys\" } ], \"type\": \"GlobalReference\" } }, { \"name\": \"some-other-asset-id\", \"value\": \"12345ABC\", \"externalSubjectId\": { \"keys\": [ { \"type\": \"GlobalReference\", \"value\": \"http://my-own-company.com/keys\" } ], \"type\": \"GlobalReference\" } } ]"
+            items:
+              $ref: '#/components/schemas/SpecificAssetId'
+        - name: limit
+          in: query
+          description: The maximum number of elements in the response array
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+        - name: cursor
+          in: query
+          description: A server-generated identifier retrieved from pagingMetadata that specifies from which position the result listing should continue
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Requested Asset Administration Shell ids
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        default:
+          description: Default error handling for unmentioned status codes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetAllAssetAdministrationShellIdsByAssetLink/3/0
+  /lookup/shells/{aasIdentifier}:
+    get:
+      tags:
+        - Asset Administration Shell Basic Discovery API
+      summary: Returns a list of specific Asset identifiers based on an Asset Administration Shell id to edit discoverable content
+      operationId: GetAllAssetLinksById
+      parameters:
+        - name: aasIdentifier
+          in: path
+          description: The Asset Administration Shell’s unique id (UTF8-BASE64-URL-encoded)
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            format: byte
+      responses:
+        "200":
+          description: Requested specific Asset identifiers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SpecificAssetId'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+        default:
+          description: Default error handling for unmentioned status codes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetAllAssetLinksById/3/0
+  /description:
+    get:
+      tags:
+        - Description API
+      summary: Returns the self-describing information of a network resource (ServiceDescription)
+      operationId: GetDescription
+      responses:
+        "200":
+          description: Requested Description
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceDescription'
+        default:
+          description: Default error handling for unmentioned status codes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/Descriptor/GetDescription/3/0
+components:
+  schemas:
+    SpecificAssetId:
+      allOf:
+        - $ref: '#/components/schemas/HasSemantics'
+        - required:
+            - name
+            - value
+          properties:
+            name:
+              maxLength: 64
+              minLength: 1
+              pattern: "^([\\t\\n\\r -퟿- ]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+              type: string
+            value:
+              maxLength: 2000
+              minLength: 1
+              pattern: "^([\\t\\n\\r -퟿- ]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+              type: string
+            externalSubjectId:
+              $ref: '#/components/schemas/Reference'
+    HasSemantics:
+      type: object
+      properties:
+        semanticId:
+          $ref: '#/components/schemas/Reference'
+        supplementalSemanticIds:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Reference'
+    Reference:
+      allOf:
+        - $ref: '#/components/schemas/ReferenceParent'
+        - properties:
+            referredSemanticId:
+              $ref: '#/components/schemas/ReferenceParent'
+    ReferenceParent:
+      required:
+        - keys
+        - type
+      properties:
+        type:
+          $ref: '#/components/schemas/ReferenceTypes'
+        keys:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/Key'
+    ReferenceTypes:
+      type: string
+      enum:
+        - ExternalReference
+        - ModelReference
+    Key:
+      required:
+        - type
+        - value
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/KeyTypes'
+        value:
+          maxLength: 2000
+          minLength: 1
+          pattern: "^([\\t\\n\\r -퟿- ]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+          type: string
+    KeyTypes:
+      type: string
+      enum:
+        - AnnotatedRelationshipElement
+        - AssetAdministrationShell
+        - BasicEventElement
+        - Blob
+        - Capability
+        - ConceptDescription
+        - DataElement
+        - Entity
+        - EventElement
+        - File
+        - FragmentReference
+        - GlobalReference
+        - Identifiable
+        - MultiLanguageProperty
+        - Operation
+        - Property
+        - Range
+        - Referable
+        - ReferenceElement
+        - RelationshipElement
+        - Submodel
+        - SubmodelElement
+        - SubmodelElementCollection
+        - SubmodelElementList
+    Result:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      properties:
+        code:
+          maxLength: 32
+          minLength: 1
+          type: string
+        correlationId:
+          maxLength: 128
+          minLength: 1
+          type: string
+        messageType:
+          type: string
+          enum:
+            - Undefined
+            - Info
+            - Warning
+            - Error
+            - Exception
+        text:
+          type: string
+        timestamp:
+          pattern: "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
+          type: string
+    ServiceDescription:
+      type: object
+      properties:
+        profiles:
+          minItems: 1
+          type: array
+          items:
+            type: string
+            enum:
+              - AssetAdministrationShellServiceSpecification/V3.0
+              - AssetAdministrationShellServiceSpecification/V3.0-MinimalProfile
+              - SubmodelServiceSpecification/V3.0
+              - SubmodelServiceSpecification/V3.0-ValueProfile
+              - SubmodelServiceSpecification/V3.0-MinimalProfile
+              - AasxFileServerServiceSpecification/V3.0
+              - RegistryServiceSpecification/V3.0
+              - RegistryServiceSpecification/V3.0- AssetAdministrationShellRegistry
+              - RegistryServiceSpecification/V3.0-SubmodelRegistry
+              - RepositoryServiceSpecification/V3.0
+              - RepositoryServiceSpecification/V3.0-MinimalProfile
+              - AssetAdministrationShellRepositoryServiceSpecification/V3.0
+              - AssetAdministrationShellRepositoryServiceSpecification/V3.0-MinimalProfile
+              - SubmodelRepositoryServiceSpecification/V3.0
+              - SubmodelRepositoryServiceSpecification/V3.0-MinimalProfile
+              - RegistryAndDiscoveryServiceSpecification/V3.0
+      description: "The Description object enables servers to present their capabilities to the clients, in particular which profiles they implement. At least one defined profile is required. Additional, proprietary attributes might be included. Nevertheless, the server must not expect that a regular client understands them."
+      example: |-
+        {
+          "profiles": [
+            "RepositoryServiceSpecification/V3.0-MinimalProfile",
+            "RegistryServiceSpecification/V3.0"
+          ]
+        }
+  responses:
+    default:
+      description: Default error handling for unmentioned status codes
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    not-found:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    bad-request:
+      description: "Bad Request, e.g. the request parameters of the format of the request body is wrong."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    conflict:
+      description: "Conflict, a resource which shall be created exists already. Might be thrown if a Submodel or SubmodelElement with the same ShortId is contained in a POST request."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: The maximum number of elements in the response array
+      required: false
+      schema:
+        minimum: 1
+        type: integer
+    Cursor:
+      name: cursor
+      in: query
+      description: A server-generated identifier retrieved from pagingMetadata that specifies from which position the result listing should continue
+      required: false
+      schema:
+        type: string
+    AssetAdministrationShellIdentifier:
+      name: aasIdentifier
+      in: path
+      description: The Asset Administration Shell’s unique id (UTF8-BASE64-URL-encoded)
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+        format: byte

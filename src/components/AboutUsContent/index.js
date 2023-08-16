@@ -20,7 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
-import TractusXBG from "@site/static/img/tractus-x_bg.svg";
+import TractusXBG from "@site/static/img/tractus-x_bg-updated.svg";
 import LicensesImg from "@site/static/img/licenses-minified.png";
 
 import styles from "./styles.module.css";

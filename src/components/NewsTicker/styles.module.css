@@ -120,6 +120,10 @@
     gap: 0.5rem;
   }
 
+  .arrow_container {
+    display: none;
+  }
+
   .slider_item {
     flex-direction: column;
   }
