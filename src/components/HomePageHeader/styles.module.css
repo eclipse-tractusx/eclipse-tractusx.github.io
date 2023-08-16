@@ -7,7 +7,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 94vh;
+  height: 71vh;
 }
     
 .container {
@@ -47,6 +47,10 @@
 }
 
 @media screen and (max-width: 996px) {
+  .container {
+    background-position: center right;
+  }
+
   .title {
     font-size: 10vw;
     line-height: 10vw;
@@ -63,6 +67,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .container {
+    justify-content: flex-start;
+    padding-top: 30%;
+  }
+
   .title {
     font-size: 44px;
     line-height: 40px;

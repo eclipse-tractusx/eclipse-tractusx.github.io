@@ -16,11 +16,10 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import HomePageHeader from "../components/HomePageHeader/index";
-import CarouselComponent from "../components/CarouselComponent";
 import AboutUsCard from "../components/AboutUsCard";
 import FAQsComponent from "../components/FAQsComponent";
-import KitsGallery from "../components/KitsGallery";
-import { galleryKits } from "@site/utils/galleryKits";
+import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
+import { kitsGallery } from "@site/utils/kitsGallery";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -32,8 +31,8 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard />
-        <KitsGallery 
-          itemsArray={galleryKits}
+        <KitsGalleryWithFilters 
+          itemsArray={kitsGallery}
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />

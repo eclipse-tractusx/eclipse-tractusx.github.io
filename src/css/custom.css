@@ -165,6 +165,11 @@
   font-weight: bold;
 }
 
+.dropdown.dropdown--right {
+  background-color: var(--ifm-color-primary-darkest);
+  border-radius: 5px;
+}
+
 /* Docusaurus Footer */
 .footer__links {
   border-top: 0.5px solid #aaa;
