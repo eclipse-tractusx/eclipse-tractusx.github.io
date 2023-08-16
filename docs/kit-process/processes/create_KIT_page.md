@@ -13,7 +13,7 @@ title: Create KIT website
 
 ## Project Structure
 
-Following our project structure, the collection of our KITs documentation is developed in the `./docs/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs/kits/Data Chain Kit`.
+Following our project structure, the collection of our KITs documentation is developed in the `./docs-kits/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs-kits/kits/Data Chain Kit`.
 
 Each folder/KIT's content is structured in at least four pages/subfolders:
 
@@ -32,54 +32,59 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
 
     ```md
     root
-    └── docs
-        └── NewKIT
+    └── docs-kits
+        └── kits
+            └── NewKIT
     ```
 
 2. Inside the `NewKIT` folder, add a `page_adoption-view.md` file with the content that suits your use case
 
     ```md
     root
-    └── docs
-        └── NewKIT
-            └── page_adoption-view.md
+    └── docs-kits
+        └── kits
+            └── NewKIT
+                └── page_adoption-view.md
     ```
 
 3. Inside the `NewKIT` folder, add a `page_software-operation-view.md` file with the content that suits your use case
 
     ```md
     root
-    └── docs
-        └── NewKIT
-            ├── page_adoption-view.md
-            └── page_software-operation-view.md
+    └── docs-kits
+        └── kits
+            └── NewKIT
+                ├── page_adoption-view.md
+                └── page_software-operation-view.md
     ```
 
 4. Inside the `NewKIT` folder, add a `page_documentation.md` file with the content that suits your use case
 
     ```md
     root
-    └── docs
-        └── NewKIT
-            ├── page_adoption-view.md
-            ├── page_software-operation-view.md
-            └── page_documentation.md
+    └── docs-kits
+        └── kits
+            └── NewKIT
+                ├── page_adoption-view.md
+                ├── page_software-operation-view.md
+                └── page_documentation.md
     ```
 
 5. Inside the `NewKIT` folder, add a `Software Development View` folder that contains a `page_software-development-view.md` file with the content that suits your use case
 
     ```md
     root
-    └── docs
-        └── NewKIT
-            ├── page_adoption-view.md
-            ├── page_software-operation-view.md
-            ├── page_documentation.md
-            └── Software Development View
-                └──page_software-development-view.md
+    └── docs-kits
+        └── kits
+            └── NewKIT
+                ├── page_adoption-view.md
+                ├── page_software-operation-view.md
+                ├── page_documentation.md
+                └── Software Development View
+                    └──page_software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
+6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](/docs/website-guidelines/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
 
 7. Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
 
@@ -106,3 +111,62 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
     ],
     };
     ```
+
+    **Note** the sidebars may required bigger customisation based on your requirements, for that matters consult the [official documentation](https://docusaurus.io/docs/2.2.0/sidebar)
+
+8. After the NewKIT documentation and the corresponding `sidebar` are created, you would want to make it accessible from the `NavBar` of the page. More specifically under the `KITs dropdown menu`. This is easily handled by `Docusaurus` in the `docusaurus.config.js` file, where you'll need to add to the existing `navbar` object your newly created `route` and `label` (name of kit) to be added as a `dropdown` menu item. More specifically in:
+
+    ```javascript
+    themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      // ...
+      navbar: {
+        title: 'Eclipse Tractus-X',
+        logo: {
+          alt: 'Eclipse Tractus-X logo',
+          src: 'img/logo_tractus-x.svg',
+        },
+        items: [
+          // ...
+          {
+            type: 'dropdown',
+            label: 'KITs',
+            position: 'left',
+            to: '/developer',
+            items: [
+              {
+                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
+              },
+              {
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                label: 'Data Chain',
+              },
+              {
+                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                label: 'Connector',
+              },
+              {
+                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
+              },
+              // ********* add here your object specifying "to" and "label" *********** 
+            ],
+          },
+          // ...
+        ]
+      }
+      // ...
+    })
+    ```
+
+To know more about the `NavBar` options and how to implement this and other features in it please check the [Docusaurus - NavBar Documentation](https://docusaurus.io/docs/2.2.0/api/themes/configuration#navbar-dropdown)
+
+## Important to know
+
+The results of your newly created _KIT_ will be visible only (for now) in the `Next` version of the documentation. When a `new version` is due to be created, all of your additions plus the ones from other _KITs_ will be taking part of said new released. To understand more about how `Docusaurus` handle the [versioning](https://docusaurus.io/docs/2.2.0/versioning) and more specifically the [versioning of multi-instance](https://docusaurus.io/docs/2.2.0/docs-multi-instance) projects, please check the official documentation.
+
+To access the `Next` and the rest of the versions, you'll notice a `dropdown` menu with all of them in the `top-right` corner of the `NavBar` that is only been displayed when the user is navigating any of the existing `KITs`.
+
+Please check our [Understanding our multi-instance and versioning behaviour](/docs/website-guidelines/understanding-multi-instance_versioning) page, where we explain a little bit more in deep the structure of the project, the different instances of documentation, how to create versions and how the conditional rendering of the `versions dropdown` menu is been handled.

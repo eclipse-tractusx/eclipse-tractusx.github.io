@@ -4,7 +4,7 @@ title: Artefacts
 
 - The documentation of a KIT can grow and change
 - Think about the customer perspective / who will be using this kit and needs to understand it
-- How to create the kit documentation in Github is explained [here](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/wiki/How-to-create-a-KIT-website%3F)
+- How to create the kit documentation in Github is explained [here](/docs/kit-process/processes/create_KIT_page)
 
 ## ADOPTION VIEW
 
@@ -139,7 +139,7 @@ Deliverable:
 
 `Example from DataChain KIT:` The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of CATENA-X partners.
 
-[`Example for OpenAPI integration:`](https://eclipse-tractusx.github.io/docs/kits/Business%20Partner%20Kit/Software%20Development%20View/Pool%20Api/business-partner-data-management-pool)
+[`Example for OpenAPI integration:`](/docs-kits/kits/Business%20Partner%20Kit/Software%20Development%20View/Pool%20Api/business-partner-data-management-pool)
 
 ### Sample Data
 
