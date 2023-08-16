@@ -9,13 +9,13 @@ This page will contain guidelines and good practices on contributions to Eclipse
 
 ## Code
 
-- Do all reviews and PRs in TractusX repositories, if this is done on fork, there is a leak in openess and transpareny
+- Do all reviews and PRs in Tractus-X repositories, if this is done on fork, there is a leak in openess and transparency.
 - Write meaningful and descriptive commit messages, look for example [here](https://cbea.ms/git-commit/), [here](https://medium.com/better-programming/your-git-commit-history-should-read-like-a-history-book-heres-how-7f44d5df1801) or here for [conventional committs](https://www.conventionalcommits.org/en/v1.0.0/).
-- Avoid references to closed systems, as this is not tracable for newcomers
+- Avoid references to closed systems, as this is not tracable for newcomers.
 
 ## Documentation
 
-Same recommondations like for code contributions.
+Same recommendations like for code contributions.
 
 ## Dev Mailinglist
 
@@ -24,7 +24,7 @@ The [dev mailinglist]((https://www.eclipse.org/projects/handbook/#resources-dev-
 All of the answers don’t need to necessarily come from project committers: empower your community to answer questions. When community members do provide answers that require further clarification (either they are not complete, or are not 100% correct), do so politely.
 The more welcome you make your community feel, the more likely it is that your project will be successful.
 
-Mail adress: tractusx-dev@eclipse.org
+Mail adress: <tractusx-dev@eclipse.org>
 
 Every contributor should be subscribed to the [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev). Committers have to be subscribed to the list and are added automatically when gaining the committer status.
 

@@ -6,6 +6,7 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                 |
 |--------------|----------------------------------------------------------------------------------------------|
+| 20-Jul-2023  | TRG 7.07 / 08 for OSS documentation improved, section added for documentation under CC-BY-4.0|
 | 6-June-2023  | Extend helm test example workflow (5.09) for k8s versions (5.10) and upgradeability (5.11)   |
 | 2-June-2023  | Add recommendation for implementing legal notice in frontend apps (7.06)                     |
 | 9-May-2023   | Make DockerHub registry mandatory (4.05), Describe mandatory notice for Docker images (4.06) |
