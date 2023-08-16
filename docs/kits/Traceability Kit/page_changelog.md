@@ -11,7 +11,9 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - 2023-xx-xx
+## [0.2.0] - UPCOMING
+
+Compatible for Catena-X Release 3.2
 
 ### Added
 
@@ -41,7 +43,9 @@ All notable changes to this Kit will be documented in this file.
 - **Adoption View:**
   - Policy payloads are removed and replaced by specific documentation links
 
-## [1.0.1] - 2023-04-14
+## [0.1.1] - 2023-04-14
+
+Compatible for Catena-X Release 3.1
 
 ### Added
 
@@ -57,7 +61,9 @@ All notable changes to this Kit will be documented in this file.
 
 - ./.
 
-## [1.0.0] - 2023-04-12
+## [0.1.0] - 2023-04-12
+
+Compatible for Catena-X Release 3.1
 
 ### Added
 
