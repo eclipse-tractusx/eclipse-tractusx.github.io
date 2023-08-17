@@ -9,11 +9,21 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.0.0] - 2023-08-17
+
+### Added
+
+- version from release
+
+### Changed
+
+- couple of bugfixes raised by reviewers
+
 ## [0.2.0] - 2023-08-08
 
 ### Added
 
-- Additional graphic on terminology
+- Additional figure on terminology
 - section on entire discovery mechanism
 - pictograms
 
