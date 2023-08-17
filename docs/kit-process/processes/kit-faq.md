@@ -2,6 +2,14 @@
 title: KIT FAQ
 ---
 
+
+:::danger
+The contents of this page are partially out of date, incorrect, redundant and can be misleading.
+Do not rely on these contents until we provide an updated version
+
+Best regards, System and FOSS Team
+:::
+
 On this page you find a FAQ which is focused on question regarding your contribution to the Tractus-X project.
 
 ## Need help ?
@@ -12,7 +20,7 @@ As described we try to answer as many questions as possible, but it will be the 
 
 If you and your team want to contribute to an existing KIT or even suggest and work on an own KIT you have to fufill a small set of Prerequisites.
 
-1. Become a Eclipse Foundation contributer. See this [roadmap](/docs/kit-process/contribute.md#how-to-become-a-tractus-x-contributer)
+1. Become a Eclipse Foundation contributor. See this [roadmap](/docs/kit-process/contribute.md#how-to-become-a-tractus-x-contributer)
 
 2. Make yourself familiar with git best practices, the eclipse contribution guidelines and our processes.
    - [Getting Started with git](https://docs.github.com/en/get-started/getting-started-with-git)
