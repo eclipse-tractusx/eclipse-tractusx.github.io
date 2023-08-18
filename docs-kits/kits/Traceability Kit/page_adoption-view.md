@@ -277,7 +277,7 @@ This policy allows limiting access to a data offer based on a list of specific B
 Every Trustee is represented in the Catena-X network as a general participant with a unique BPN. Further, the Trustee is allowed to use supplier relationships and BoM data beyond the one-up/one-down principle due to the legal regulations.
 In order to grant access to the BoM as planned data assets, the Trustee's BPN must be mentioned in the policy. -->
 
-Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
+Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
 
@@ -402,12 +402,12 @@ Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standa
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - [CX - 0018 Sovereign Data Exchange](https://catena-x.net/de/standard-library)
-- [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPart_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_SingleLevelBomAsBuilt_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
-- [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
-- [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf)
-- [CX - 0043 Semantic Model: Part AsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
+- [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/de/standard-library)
+- [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/de/standard-library)
+- [CX - 0021 Aspect Model: Batch](https://catena-x.net/de/standard-library)
+- [CX - 0022 Notification Process](https://catena-x.net/de/standard-library)
+- [CX - 0023 Notification API](https://catena-x.net/de/standard-library)
+- [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/de/standard-library)
+- [CX - 0043 Semantic Model: Part AsPlanned](https://catena-x.net/de/standard-library)
 - [CX - 0093 Aspect Model TractionBatteryCode](https://catena-x.net/de/standard-library)
 - [CX - 0094 Aspect Model Part Site Information AsPlanned](https://catena-x.net/de/standard-library)

@@ -11,9 +11,9 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.2.0] - UPCOMING
+## [2.0.0] - UPCOMING
 
-Compatible for Catena-X Release 3.2
+Compatible for release 3.2
 
 ### Added
 
@@ -29,7 +29,7 @@ Compatible for Catena-X Release 3.2
   - Updated all parts of the KIT related to the digital twin registry as the DTR now has a decentralized architecture
   - Updated SerialPartTypization 1.1.1 to SerialPart 1.0.1
   - Updated AssemblyPartRelationship 1.1.1 to SingleLevelBomAsBuilt 1.0.0
-  - Fixed references to deprecated Catena-X releases
+  - Fixed references to deprecated releases
 - **Adoption View:**
   - Updated description of the policy section (Access Policies, Usage Policies, Contract Definitions)
   - Updated relevant standards for release 3.2
@@ -43,9 +43,9 @@ Compatible for Catena-X Release 3.2
 - **Adoption View:**
   - Policy payloads are removed and replaced by specific documentation links
 
-## [0.1.1] - 2023-04-14
+## [1.0.1] - 2023-04-14
 
-Compatible for Catena-X Release 3.1
+Compatible for release 3.1
 
 ### Added
 
@@ -61,9 +61,9 @@ Compatible for Catena-X Release 3.1
 
 - ./.
 
-## [0.1.0] - 2023-04-12
+## [1.0.0] - 2023-04-12
 
-Compatible for Catena-X Release 3.1
+Compatible for release 3.1
 
 ### Added
 
