@@ -8,20 +8,22 @@ sidebar_position: 2
 
 ### OSim Kit
 
-<!--VISION of the Kit-->
-## Gain increased supply chain transparency through collaborative simulation across all stakeholders
+## Vision & Mission
 
-### Combine simulations of plants internally with simulations of external logistics over multiple tiers
+<!--VISION of the Kit-->
+**Gain increased supply chain transparency through collaborative simulation across all stakeholders**
+
+**Combine simulations of plants internally with simulations of external logistics over multiple tiers**
 
 Online control and simulation aims at linking production simulation with logistics simulation in order to identify delivery problems earlier and react in response to changing customer requirements or external disturbances/events
 The online control and simulation (OSim) Kit defines the mechanisms and services needed to enable every Catena-X partner (producer as well as logisticians) to exchange simulation results in an open, interoperable and Catena-X compliant way.
 An open architecture for integrating partners of all kinds together with standardized interfaces and semantics models are the fundamental basis of the OSim Kit.
 
-### Integrate any supply chain partner
+**Integrate any supply chain partner**
 
 Even partners that are not using any simulation tool can contribute to the overall transparency through the well-defined information requirements.
 
-### Integrate any simulation tool
+**Integrate any simulation tool**
 
 Thanks to open architecture OSim is independent of the simulation tools that partners use.
 
