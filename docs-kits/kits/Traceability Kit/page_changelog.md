@@ -37,6 +37,7 @@ Compatible for release 3.2
   - Updated documentation because of the migration to the new standard AAS v3.0 by the DTR
   - Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
   - Setting the visibility of entries in a digital twin's specifid asset IDs is now mandatory to ensure need-know
+  - Removed optional customer attributes from example for Batch aspect model
 
 ### Removed
 

@@ -253,10 +253,8 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "partTypeInformation": {
     "manufacturerPartId": "123-0.740-3434-A",
-    "customerPartId": "PRT-12345",
     "classification": "product",
     "nameAtManufacturer": "PA66-GF30",
-    "nameAtCustomer": "Polyamide"
   }
 }
 ```
