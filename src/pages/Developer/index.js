@@ -26,6 +26,7 @@ import DeveloperHeader from "../../components/DeveloperHeader";
 import DeveloperContent from "../../components/DeveloperContent";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters";
 import KitsGallery from "../../components/KitsGallery";
+import CarouselSuccessStories from "../../components/CarouselSuccessStories";
 import KitsCard from "../../components/KitsCard";
 import { kitsGallery } from "@site/utils/kitsGallery";
 import { previewKits } from '@site/utils/previewKits.js'
@@ -47,6 +48,7 @@ export default function DeveloperPage() {
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
+        <CarouselSuccessStories />
         <KitsGallery 
           itemsArray={previewKits} 
           title={"Preview of our Kits"} 

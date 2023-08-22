@@ -1,0 +1,112 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.container {
+  width: 60vw;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--ifm-font-color-base);
+}
+
+.title_container {
+  width: 75%;
+  text-align: left;
+}
+
+.subtitle_container {
+  width: 60%;
+}
+
+.slider_container {
+  width: 80%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.slider_item {
+  display: flex;
+  gap: 2rem;
+  height: 300px;
+}
+
+.slider_img_container {
+  width: 60%;
+}
+
+.slider_img {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.slider_info_container {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.slider_info_box {
+}
+
+.btn_slider_left {
+  cursor: pointer;
+  color: var(--ifm-color-primary);
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: -3rem;
+}
+
+.btn_slider_right {
+  cursor: pointer;
+  color: var(--ifm-color-primary);
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  right: -3rem;
+}
+
+.btn_slider_left:hover,
+.btn_slider_right:hover {
+  color: var(--ifm-font-color-base);
+}
+
+.btn_slider_left:active,
+.btn_slider_right:active {
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* @media screen and (max-width: 996px) {
+  .container {
+    width: 75vw;
+    height: auto;
+  }
+
+  .slider_container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slider_content {
+    height: 30vw;
+  }
+
+  .slider {
+    width: 115%;
+  }
+} */
