@@ -1,6 +1,6 @@
 ---
-id: Adoption View Traceability Kit
-title: Adoption View
+id: Deployment View Traceability Kit
+title: Deployment View
 description: 'Traceability Kit'
 sidebar_position: 2
 ---
@@ -9,81 +9,11 @@ sidebar_position: 2
 
 ### Traceability KIT
 <!--
-Adoption View of the Kit.
+Deployment View of the Kit.
 -->
 
 <!-- !Mandatory! -->
-## Vision & Mission
-
-### Vision
-
-The aim of the Traceability KIT is to trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels without compromising data sovereignty. This KIT enables data and app providers to deliver solutions for building data chains and to send quality notifications on all levels and industries.
-
-### Mission
-
-The Traceability KIT provides the necessary standards, aspect models, APIs, logics, and processes on how to build a data sovereign data chain and send quality notifications. This is done via the standardized creation of digital twins of components and vehicles as well as the logical linking to their sub-components (Bill of Material, BoM). The default visibility of digital twins and their respective semantic models follows the one-up/one-down principle. This enables businesses to track and trace products, components, material, and software along the value chain for all product lifecycle stages.
-
-All described specifications in the KIT are based on Catena-X standards like Data Space Connector, Asset Administration Shell (AAS), and Digital Twin Registry (DTR). They refer to other Catena-X KITs like the Connector KIT (EDC), Data Chain KIT (Item Relation Ship, IRS) and Business Partner KIT to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
-
-Furthermore, APIs and data models enable partners to send quality notifications in a standardized way while already knowing which parts of their direct customer and suppliers are affected and which are not. Moreover, the KIT is compatible with the data chain KIT to allow apps and business to traverse through the data chains over n-tier levels to enable further use cases like Circular Economy.
-
-In the current version, the KIT supports the creation of data chains for the life cycle contexts “as built” and “as planned”. Further lifecycle contexts, e.g., as maintained will be supported in the future. Overall, the KIT represents the backbone to build data chains for use cases based on vehicles and parts. It empowers app providers to develop a Catena-X Traceability application and data provider to implement their digital twins and the connection to their subcomponents themselves.
-
-### Customer Journey
-
-With the Traceability KIT, we support the Catena-X customer journey for our adopters and solutions providers.
-
-![Customer Journey](assets/traceability_customer-journey.png)
-
-<!-- !Mandatory! -->
-## Business Value
-
-Through the standardized specifications described in the “Traceability-KIT” – for example the semantic models and APIs – application and service providers can reduce investment and implementation costs to integrate new Catena-X services. Furthermore, application and service providers can enter potential new markets within the PLM & Quality domain. Data Provider and Businesses are able to build data sovereign data chains to enable data driven use – also for other domains like sustainability.
-
-<!-- !Mandatory! -->
-## Use Case
-
-### Status Quo / Today’s challenge
-
-From Traceability's perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains across the whole automotive supply chain to empower data driven use cases. Details regarding the challenges are:
-
-- Missing standards to trace serialized and non-serialized hardware and software components. This includes the datatype, data format and data description (semantics) as well as the data exchange. The existing regulatory requirements that every company within the industry faces today are being solved with individual, proprietary solutions.
-
-- The digital maturity is diverging within the automotive industry. For bigger companies it is a challenge to receive overall structured data from multiple different suppliers on a broad scale. Smaller companies struggle to generate and provide those data in a fully digitized way.
-
-- Current solutions are either costly due to expensive distributed ledgers or cannot guarantee trust and data sovereignty based on the GAIA-X and IDSA principles including the regulation of access and usage policies regarding data chains. Therefore, no end-to-end data exchange and cooperation has been achieved as of today.
-
-### Benefits
-
-#### OEM and large automotive suppliers
-
-For OEM and large automotive suppliers: The Traceability solution from Catena-X enables companies to identify products affected by a defect faster and more precisely and thus avoiding general and inaccurate recalls. Through this targeted containment, companies can save both time and money with fewer actions for their customers. Moreover, the Traceability solution enables businesses to rapidly identify the affected part and the corresponding supplier after receiving an alert from the customer. This leads to faster and, therefore, cheaper problem-solving for all parties and less complicated claim management. Furthermore, suppliers can prove compliance of their supply chain to upcoming regulations such as the Supply Chain Act.
-
-#### SME
-
-The developed and simple-to-use Traceability solutions support SMEs in their mission to digitize the shop floor and communication with customers and suppliers. Today, in order to provide data to their customers and suppliers, SMEs are obligated to use several, proprietary B2B-interfaces from their customers. With Catena-X aiming to have only one digital interface for all customers and suppliers, it increases the ease of data exchange and saves IT resources. Furthermore, due to the Catena-X data sovereignty principles, all participants know what happens with their data. This increases trust in the data exchange.
-
-#### Solution Provider
-
-Solution providers have the potential to scale customer groups and access new market potentials via marketplace and shared service network.
-
-### Example - Industry Problem
-
-The KIT enables business to start Quality Investigations and send Quality Alerts in a standardized way while already knowing which parts of your direct customer and suppliers are affected and which are not.
-
-Through the introduction of unique Catena-X IDs, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify them within the whole Catena-X ecosystem. Building on that, it is possible to interconnect the registered digital twins of different companies to create a coherent automotive data chain from end-to-end. Furthermore, those twins can easily be complemented with further data like material information to enable further use cases like Circular Economy.
-
-<!-- Recommended -->
-## Tutorials
-
-The following video gives an overview of the presented Traceability Use Case.
-
-<video controls style={{width:'100%'}} controlsList="nodownload">
-  <source src="/video/traceability-video-9min-UT.mp4"/>
-</video>
-
-<!-- Optional -->
-<!-- ## Whitepaper -->
+## Data Provider
 
 <!-- Recommended -->
 ## Semantic Models
@@ -141,13 +71,13 @@ The complexity of generic is much higher than BoM AsBuilt. It is used for techni
 Defined
 
 - Digital Twins
-  - Digtial Twin "PartType"
+    - Digtial Twin "PartType"
 
 - Traceability data aspect models
-  - Aspect model "PartAsPlanned"
-  - Aspect model "SingleLevelBoMAsPlanned"
-  - Aspect model "SingelLevelUsageAsPlanned"
-  - Aspect model "PartSiteInformationAsPlanned"
+    - Aspect model "PartAsPlanned"
+    - Aspect model "SingleLevelBoMAsPlanned"
+    - Aspect model "SingelLevelUsageAsPlanned"
+    - Aspect model "PartSiteInformationAsPlanned"
 
 ### AsPlanned Aspect Models
 
@@ -190,15 +120,15 @@ In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery
 Defined
 
 - Digital Twins
-  - Digital Twin Serialized Part
-  - Digital Twin Batch
-  - Digital Twin Vehicle
+    - Digital Twin Serialized Part
+    - Digital Twin Batch
+    - Digital Twin Vehicle
 - Build up the basic chain
-  - Aspect model "SerialPart"
-  - Aspect model "AssemblyPartRelation"
-  - Aspect model "Batch"
-  - Aspect model "JustInSequencePart"
-  - Aspect model "TractionBatteryCode"
+    - Aspect model "SerialPart"
+    - Aspect model "AssemblyPartRelation"
+    - Aspect model "Batch"
+    - Aspect model "JustInSequencePart"
+    - Aspect model "TractionBatteryCode"
 
 ### AsBuilt Aspect Models
 
@@ -232,38 +162,14 @@ The aspect provides the information of the Traction battery code of a battery ce
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
 
-<!-- Recommended -->
-## Logic & Schema
+### Aspect Models
 
-### Building Block Architecture Overview
+#### Sample Data
 
-This architecture overview only shows Catena-X Core Services that are directly accessed by Traceability components, e.g. the EDC is shown, but not the DAPS which is accessed by the EDC, but not directly by the Data Provisioning component.
-
-![Architecture - Level 1](assets/architecture_level_1.png)
-
-#### Traceability Components
-
-| Subsystem         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data Provisioning | This component provides a company's data to the Catena-X network by transforming it into the Catena-X format and publishing it. In Catena-X, data must be provided to the network based on existing standards from the other Kits. One example that can be used is the Connector Kit that builds a component based on the DSP protocol, e.g. the Connector of the Eclipse Dataspace Components (EDC). As standard for digital twins, the Asset Administration Shell standard is used - this is relevant for registering digital twins (in the Digital Twin Registry) as well as for providing digital twin data. The data format used for Traceability data is based on the BAMM aspects models published in the Semantic Hub.                                                                                                   |
-| Traceability App  | Enables traceability functionalities like quality alerts or notifications. When a Traceability App fetches data for digital twins (submodels), there are two options:<ul><li>Directly access the partner's EDC and DTR to connect to other partner's EDC and retrieve the data from ther</li><li>Use a local IRS service to get the data and let the IRS handle the EDC and DTR communication.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                     |
-| Internal Systems  | Existing internal systems of a Catena-X partner which provide data to Traceability components.<ul><li>For Data Provisioning: The data provided to Catena-X via the EDC should be fetched from a partner's internal PLM and parts master data systems.</li><li>For Traceability Apps: A Traceability App may show more data to a user than just the data that is provided to Catena-X (and fetched via the Data Provisioning component). The business scope of COTS software is bigger than just Traceability and they have existing interfaces to fetch all data they need for their business functionality (and not only Traceability data).</li></ul>Both components can also send data back to internal systems. That's at the discretion of the Catena-X partner and neither required nor prohibited by the Traceability use case. |
-
-#### Catena-X Core Services
-
-| Subsystem                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Digital Twin Registry              | The Digital Twin Registry acts as an address book for Digital Twins. Data Providers register their Digital Twins in their own Digital Twin Registry. Data consumers query the Digital Twin Registries to find Digital Twins and interact with them further. A Digital Twin contains endpoint references to Submodel endpoints. Calling a Submodel endpoint returns data compliant to a semantic model. A semantic model describes the data that a Submodel endpoint returns.<br/><br/>[Repository of the Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry). |
-| Item Relationship Service (IRS)    | The IRS is providing a technical API Endpoint in the Catena-X Network, which builds an item tree representation of given digital twins stored across the industry. Therefore it is a key component for the Network to provide data chains along the value chain in the industry.<br/><br/>[Repository of the IRS](https://github.com/eclipse-tractusx/item-relationship-service).                                                                                                                                                                                                        |
-| Eclipse Dataspace Components (EDC) | The Connector of the Eclipse Dataspace Components provides a framework for sovereign, inter-organizational data exchange. It will implement the International Data Spaces standard as well as relevant protocols associated with GAIA-X. The connector is designed in an extensible way in order to support alternative protocols and integrate in various ecosystems.<br/><br/>[Repository of the Catena-X specific EDC](https://github.com/eclipse-tractusx/tractusx-edc).                                                                                                       |
-| Discovery Service                  | The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.                                                                                                                                                                                                                                                                                                                                                                               |
-
-<!-- Recommended -->
-## Business Process
-
-To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange](#standards) standard.
+### Digital Twin
 
 ### Access Policies
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange](#standards) standard.
 
 To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
@@ -280,7 +186,6 @@ In order to grant access to the BoM as planned data assets, the Trustee's BPN mu
 Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
-
 To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 
 Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the `odrl:and` operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all traceability aspects. An example of one usage policy containing three different constraints is shown and described in the following:
@@ -334,7 +239,6 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
   }
 }
 ```
-
 #### Membership Policy
 
 To verify the participants Catena-X membership, the `Membership` verifiable credential can be used. In case of a policy, the data can only be used from verified Catena-X members. The payload is shown in the first constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#1-membership-constraint).
@@ -395,6 +299,21 @@ When using an above mentioned [Access Policy](#access-policies), their `id` need
 ### Verifiable Credentials
 
 Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standard by the W3C. Details about Catena-X specific VCs can be found in the [CX - 0016 Company Attribute Verification](#standards) standard. As mentioned there, it offers a `UseCaseFrameworkConditionCX` type allowing a data provider to check if specific conditions, like a signed use case contract as introduced in the [Purpose-base Usage Policy section](#purpose-based-policy), are agreed. Further technical documentation are presented in the [SSI Docu](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture) repository.
+
+### API Specification (Unique ID Push)
+Unique ID Push notifications are a way for a manufacturer to notify a customer as soon as possible when a new digital twin for a part is available. The solution is based on notification assets in the EDC (which is the same approach that is used for quality alerts & investigations). The customer creates a notification asset in the EDC and the customer's suppliers send their notifications (with the Unique Id) to this notification asset. Details can be found in section [Unique ID Push Notifications](#unique-id-push-notifications-1).
+
+All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push API documentation](Unique%20ID%20Push%20API/unique-id-push-notification-api).
+## Data Consumer (App Provider)
+
+### Aspect Models
+
+#### Sample Data
+
+### Usage Policies
+
+### API Specification (Notifications)
+
 
 <!-- !Mandatory! -->
 ## Standards
