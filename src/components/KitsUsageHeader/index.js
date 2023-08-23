@@ -20,22 +20,24 @@
 ********************************************************************************/
 
 import React from "react";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import DeepdiveHeader from "../../components/DeepDiveHeader";
-import DeepdiveContent from "../../components/DeepdiveContent";
+import KitsCoreSvg from '@site/static/img/kits&core.svg'
 
-export default function DeveloperPage() {
-  const { siteConfig } = useDocusaurusContext();
+import styles from "./styles.module.css";
+
+export default function KitsUsageHeader() {
   return (
-    <Layout
-      title={'Developer Kits DeepDive page'}
-      description="Description will go into a meta tag in <head />"
-    >
-      <DeepdiveHeader />
-      <main>
-        <DeepdiveContent />
-      </main>
-    </Layout>
+      <header className={styles.deepdive_header}>
+      <div className={styles.container}>
+        <div className={styles.svg_container}>
+          <KitsCoreSvg className={styles.svg}/>
+        </div>
+        <div className={styles.information_container}>
+          <h1 className="headers-title-h1">KIT Deepdive</h1>
+          <p className="headers-subtitle-p">
+            KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem.
+          </p>
+        </div>
+      </div>
+    </header>
   );
 }
