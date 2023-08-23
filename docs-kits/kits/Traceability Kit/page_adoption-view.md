@@ -218,7 +218,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0)
 
 #### 4. JustInSequencePart
 
