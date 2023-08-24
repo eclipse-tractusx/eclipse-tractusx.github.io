@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .deepdive_header {
+.usage_header {
   position: relative;
   overflow: hidden;
   height: 30vh;
@@ -15,10 +15,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/img/main_bg-min.png");
+  /* background-image: url("/static/img/main_bg-min.png");
   background-position: top right;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
       
 .svg_container {
@@ -28,13 +28,17 @@
   justify-content: flex-end;
   align-items: center;
   position: relative;
+
+  /* border: 1px solid red; */
 }
       
 .svg {
   width: 100%;
   height: 100%;
   position: absolute;
-  right: -2rem;
+  right: -3rem;
+
+  /* border: 1px solid blue; */
 }
       
 .information_container {
@@ -46,7 +50,7 @@
 }
       
 @media screen and (max-width: 996px) {
-  .deepdive_header {
+  .usage_header {
     height: auto;
   }
 
@@ -77,7 +81,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .deepdive_header {
+  .usage_header {
     height: fit-content;
   }
 

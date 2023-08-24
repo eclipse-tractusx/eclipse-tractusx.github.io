@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .developer_content {
+ .deepdive_content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,15 +28,24 @@
   padding-top: 4rem;
 }
 
+.siblings_paragraph_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siblings_paragraph {
+  width: 40%;
+}
+
 .img_container {
   display: flex;
   justify-content: center;
-  width: 110%;
+  width: 100%;
   margin: 2rem 0;
 }
 
 .img {
-  width: 75%;
+  width: 100%;
   height: auto;
 }
 
@@ -52,6 +61,15 @@
 
   .title_container {
     padding-top: 3rem;
+  }
+
+  .siblings_paragraph_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .siblings_paragraph {
+    width: 90%;
   }
 
   .img {

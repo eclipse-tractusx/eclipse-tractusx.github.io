@@ -20,21 +20,21 @@
 ********************************************************************************/
 
 import React from "react";
-import KitsCoreSvg from '@site/static/img/kits&core.svg'
+import KitsUsageSvg from '@site/static/img/kits_usage_logo.svg'
 
 import styles from "./styles.module.css";
 
 export default function KitsUsageHeader() {
   return (
-      <header className={styles.deepdive_header}>
+      <header className={styles.usage_header}>
       <div className={styles.container}>
         <div className={styles.svg_container}>
-          <KitsCoreSvg className={styles.svg}/>
+          <KitsUsageSvg className={styles.svg}/>
         </div>
         <div className={styles.information_container}>
-          <h1 className="headers-title-h1">KIT Deepdive</h1>
+          <h1 className="headers-title-h1">KITS Usage</h1>
           <p className="headers-subtitle-p">
-            KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem.
+            Utilize the KITS to develop applications for the Catena-X ecosystem or gain insights on how to integrate with your current infrastructure.
           </p>
         </div>
       </div>
