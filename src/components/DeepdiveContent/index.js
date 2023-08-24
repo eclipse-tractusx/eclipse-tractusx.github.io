@@ -22,13 +22,13 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 
-import Ecosystem1 from "@site/static/img/cj.png";
+import KitToolbox from "@site/static/img/kit-toolbox-min.png";
 
 import styles from "./styles.module.css";
 
 export default function DeepdiveContent() {
   return (
-    <section className={styles.developer_content}>
+    <section className={styles.deepdive_content}>
       <div className={styles.container}>
 
         <div className={styles.title_container}>
@@ -46,7 +46,15 @@ export default function DeepdiveContent() {
             This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.
           </p>
 
-          {/* vide here */}
+          <iframe 
+            width="100%" 
+            height="450" 
+            src="https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div className={styles.title_container}>
@@ -66,7 +74,24 @@ export default function DeepdiveContent() {
             There are two main customer groups for KITs:
           </p>
 
-          {/* React component here */}
+          <div className={styles.siblings_paragraph_container}>
+            <div className={styles.siblings_paragraph}>
+              <h2 className="title-h2">
+                Data <br></br> Prosumer
+              </h2>
+              <p className="description-p">
+                Companies that are part of the automotive value chain and participate in a Catena-X use case. These companies require technical support, specifications, and guidance. For instance, a production company may need to exchange product carbon footprint data with its partners. KITs keep together the necessary software components, standards, policies, and deployment scripts, ensuring these companies have everything required to successfully participate in a Catena-X use case. In Catena-X they are called adopters.
+              </p>
+            </div>
+            <div className={styles.siblings_paragraph}>
+              <h2 className="title-h2">
+                App- /Service <br></br> Provider
+              </h2>
+              <p className="description-p">
+                Companies interested in offering an application or service for a specific use case on one of the Catena-X marketplaces need to align their existing solutions with Catena-X requirements. Within a KIT, these companies receive guidelines and technical support necessary for adapting their solutions to meet Catena-X conformity. These companies are called solution providers.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className={styles.title_container}>
@@ -108,9 +133,8 @@ export default function DeepdiveContent() {
             A Kit is always structured in the same way and supports the journey of a company joining the data space of Catena-X. In order to ensure interoperability and data sovereignty in Catena-X use cases, adherence to a minimum set of elements is required, including semantic models for data integration and understanding, logic and schema for value calculation, API implementation for intercommunication, and access and usage policies to maintain data sovereignty.
           </p>
 
-          {/* DIFFERENT IMAGE & SIZE */}
           <div className={styles.img_container}>
-            <img className={styles.img} src={Ecosystem1} /> 
+            <img className={styles.img} src={KitToolbox} /> 
           </div>
 
           <p className="description-p">

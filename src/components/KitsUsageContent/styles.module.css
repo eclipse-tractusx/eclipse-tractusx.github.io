@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .developer_content {
+.usage_content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,16 +28,31 @@
   padding-top: 4rem;
 }
 
-.img_container {
+.domains_container {
+  margin-top: 4rem;
   display: flex;
-  justify-content: center;
-  width: 110%;
-  margin: 2rem 0;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.img {
+.domain_item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.domain_logo_box {
+  width: 20%;
+}
+
+.logo {
+  width: 100%;
+}
+
+.domain_description {
   width: 75%;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 996px) {
@@ -53,10 +68,6 @@
   .title_container {
     padding-top: 3rem;
   }
-
-  .img {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -64,9 +75,5 @@
     width: 70vw;
     gap: 1rem;
     padding-bottom: 0;
-  }
-
-  .img {
-    width: 100%;
   }
 }

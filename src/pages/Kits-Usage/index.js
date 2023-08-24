@@ -27,6 +27,8 @@ import KitsUsageContent from "../../components/KitsUsageContent";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
 import { kitsGallery } from "@site/utils/kitsGallery";
 
+import styles from "./styles.module.css";
+
 export default function KitsUsagePage() {
   const { siteConfig } = useDocusaurusContext();
   return (
