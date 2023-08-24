@@ -17,7 +17,7 @@ Development View of the Kit.
 <!-- !Mandatory! -->
 ## API Specifications
 
-All openAPI-specifications for the Digital Twin Kit services are rendered in the section [of these docs](API%20Specs)
+All openAPI-specifications for the Digital Twin Kit services are rendered in the section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-service-specification.info.mdx)
 
 ### Asset Administration Shell
 
@@ -273,7 +273,7 @@ The top-level `@id` field should be equivalent to the id of the Submodel.
               "1.1"
             ],
             "subprotocol": "DSP",
-            "subprotocolBody": "body with information required by subprotocol",
+            "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/",
             "subprotocolBodyEncoding": "plain",
             "securityAttributes": [
               {
