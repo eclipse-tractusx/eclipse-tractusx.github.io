@@ -132,9 +132,9 @@ The following general conditions apply:
 
 - The IRS recursive is for use-cases, which want to apply business logic with data along the value chain. For example, to summarize, or check for existence of values or certificates.
 - Each participant has the possibility to check their values, before passing them to next in line 
-- access control through policies and contracts is done by the EDC 
-- direct data exchange between supply-chain partners 
-- business logic is being applied with an extension concept
+- Access control through policies and contracts is done by the EDC 
+- Direct data exchange between supply-chain partners 
+- Business logic is being applied with an extension concept
 
 The recursive approach is based on a decentralized network in which only the next level of a relationship between two companies (one level down approach) is known. (Relationship: Customer - Supplier)
 1.	Company OEM initiate request using a consumer application.
