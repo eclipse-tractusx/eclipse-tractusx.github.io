@@ -48,7 +48,7 @@ There are few steps for your Customer Journey:
 * Application and Service provider can reduce integrate or migrate due to one API specification
 * The IRS Recursive API enables an easy interface for complex network tasks
 * The IRS Recursive API enables different use cases which collect insights over distributed data by not disclosing the supply chain
-* The solution enables interoperability with other solution along the value chain to extend 
+* The solution enables interoperability with other solutions along the value chain to extend 
 
 ## Logic & Schema
 
