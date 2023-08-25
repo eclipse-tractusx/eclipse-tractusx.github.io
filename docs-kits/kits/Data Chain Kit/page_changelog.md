@@ -15,6 +15,7 @@ All notable changes to this Kit will be documented in this file.
 
 ## [1.1.0] - 2023-08-25
 
+- Adoption View: addes NOTICE section accordint to TRG 7.0.7 Legal notice for non-code (e.g. documentation)
 - Adoption View: added Vision &amp; Mission
 - Adoption View: added Customer Journey 
 - Adoption View: added Business Value 
