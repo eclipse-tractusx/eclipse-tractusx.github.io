@@ -97,7 +97,7 @@ The DataChainKit by IRS API is being consumed by the dismantler dashboard and ot
 
 The IRS retrieves data from the Catena-X network (using the necessary infrastructure, see Technical Context), aggregates it and provides it back to the consumers. This connection is mandatory. If the Catena-X services are unavailable, the IRS cannot perform any work.
 
-As of now, the IRS uses it technical user credentials provided by the portal to gather the required data. This might be changed to use the consumer credentials in the future.
+As of now, the IRS uses technical user credentials provided by the portal to gather the required data. This might be changed to use the consumer credentials in the future.
 
 ## Standards
 
