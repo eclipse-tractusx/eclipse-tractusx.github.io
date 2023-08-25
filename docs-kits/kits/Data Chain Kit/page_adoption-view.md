@@ -142,5 +142,5 @@ The recursive approach is based on a decentralized network in which only the nex
 3.	After receiving the message on supplier level, the IRS determines the suppliers on the next lower level and also sends a message to the IRS instances of the suppliers.
 4.	This is repeated until a leaf node (a company has no more suppliers or the company is not part of the C-X network) is reached.
 5.	In this case the leaf node is responding with a message to the customer company.
-6.	The IRS on customer company level receives and aggregates the messages from all requested supplier and responds again to the customer until OEM level is reached.
+6.	The IRS on customer company level receives and aggregates the messages from all requested suppliers and responds again to the customer until OEM level is reached.
 7.	OEM shows result of recursive investigation according to the given use case in consumer application.
