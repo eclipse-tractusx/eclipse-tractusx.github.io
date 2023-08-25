@@ -1,4 +1,3 @@
-@@ -1,30 +0,0 @@
 ---
 id: data chain kit changelog
 title: Changelog
