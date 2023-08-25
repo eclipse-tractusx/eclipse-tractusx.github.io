@@ -19,14 +19,17 @@
 * SPDX-License-Identifier: Apache-2.0
 ********************************************************************************/
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "@docusaurus/Link";
 
 import KitToolbox from "@site/static/img/kit-toolbox-min.png";
+import Thumbnail from "@site/static/img/main_bg-min.png"
 
 import styles from "./styles.module.css";
 
 export default function DeepdiveContent() {
+  // let [display, setDisplay] = useState('block');
+
   return (
     <section className={styles.deepdive_content}>
       <div className={styles.container}>
@@ -46,15 +49,22 @@ export default function DeepdiveContent() {
             This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.
           </p>
 
-          <iframe 
-            width="100%" 
-            height="450" 
-            src="https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen
-          ></iframe>
+          <div className={styles.iframe_container}>
+            <div 
+            className={styles.thumbnail} 
+            // style={{display: display}} 
+            // onMouseOver={()=> setDisplay("none")}
+            // onMouseOut={()=> setDisplay("block")}
+            ></div>
+            <iframe 
+              width="100%"
+              height="450" 
+              src="https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML?" 
+              title="YouTube video player"  
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
 
         <div className={styles.title_container}>

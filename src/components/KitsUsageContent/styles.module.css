@@ -41,7 +41,7 @@
 }
 
 .domain_logo_box {
-  width: 20%;
+  width: 13%;
 }
 
 .logo {
@@ -49,10 +49,20 @@
 }
 
 .domain_description {
-  width: 75%;
+  width: 84%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1240px) {
+  .domain_logo_box {
+    width: 20%;
+  }
+
+  .domain_description {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -75,5 +85,29 @@
     width: 70vw;
     gap: 1rem;
     padding-bottom: 0;
+  }
+
+  .domain_logo_box {
+    width: 25%;
+  }
+
+  .domain_description {
+    width: 70%;
+  }
+  
+  .domain_item {
+    flex-direction: column;
+  }
+  
+  .domain_logo_box {
+    width: 100%;
+  }
+  
+  .logo {
+    width: 30%;
+  }
+  
+  .domain_description {
+    width: 100%;
   }
 }
