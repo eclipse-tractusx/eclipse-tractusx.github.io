@@ -19,7 +19,7 @@ DataChainKit brings valuable data chain information to your use-cases and servic
 
 ### Mission
 
-The Data Chain KIT provides reference implementation as functional federated component to handle ad-hoc data chains across n-tiers within the Catena-X network. To realize these data chains, the Data Chain Kit relies on data models of the Traceability use case and provides the federated data chains to customers or applications. Furthermore, the target picture of the IRS includes the enablement of new business areas by means of data chains along the value chain in the automotive industry.
+The Data Chain KIT provides a reference implementation as functional federated component to handle ad-hoc data chains across n-tiers within the Catena-X network. To realize these data chains, the Data Chain Kit relies on data models of the Traceability use case and provides the federated data chains to customers or applications. Furthermore, the target picture of the IRS includes the enablement of new business areas by means of data chains along the value chain in the automotive industry.
 
 All described specifications in the KIT are based on Catena-X standards and refer to other Catena-X KITs like the Connector KIT (EDC) and Digital Twin Registry to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
