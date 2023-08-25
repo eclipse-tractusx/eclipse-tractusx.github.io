@@ -41,7 +41,6 @@ export default function KitsUsageContent() {
             Each domain within the Catena-X ecosystem supports various use cases. To bring these use cases to life, Catena-X requires apps and services. For each use case, Catena-X has released a KIT that empowers you to offer solutions. <b>Let's introduce the Catena-X domains:</b>
           </p>
 
-          {/* IMAGE HERE */}
           <div className={styles.domains_container}>
             <div className={styles.domain_item}>
               <div className={styles.domain_logo_box}>
