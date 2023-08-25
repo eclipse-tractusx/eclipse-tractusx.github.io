@@ -120,9 +120,9 @@ The IRS iterative iterates through the different digital twin aspects, which are
 ![IRS iterative diagram](@site/static/img/irs-minified.svg)
 
 The following general conditions apply:
--access control through policies and contracts is done by the EDC
--direct data exchange between supply-chain partners
--Catena-X partners of the accessible value chain are known to the data-consumer
+- Access control through policies and contracts is done by the EDC
+- Direct data exchange between supply-chain partners
+- Catena-X partners of the accessible value chain are known to the data-consumer
 
 ## IRS Recursive
 
