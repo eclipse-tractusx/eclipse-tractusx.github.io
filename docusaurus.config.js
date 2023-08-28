@@ -246,7 +246,15 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-            }
+            }, 
+            pcf_exchange_api: {
+              specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
+              outputDir:
+                "./docs-kits/kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/", // Output directory for generated .mdx docs
+              sidebarOptions: {
+                groupPathsBy: "tag",
+              },
+            },
         },
       },
     ],
