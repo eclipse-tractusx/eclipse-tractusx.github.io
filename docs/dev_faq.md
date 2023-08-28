@@ -16,7 +16,7 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 
 - Go to your Eclipse profile, click on "Eclipse Contributor Agreement" -> ECA Validation Tool
 
-## How can I become an official TractusX contributor with triage role?
+## How can I become an official Tractus-X contributor with triage role?
 
 - List of existing [project contributors](https://projects.eclipse.org/projects/automotive.tractusx/who)
 - A TractusX committer can add a contributor, see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors)
