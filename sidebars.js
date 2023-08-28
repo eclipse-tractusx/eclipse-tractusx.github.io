@@ -33,7 +33,7 @@ const sidebars = {
       {
           type: 'category',
           label: 'KIT Guidelines',
-           
+
           collapsed: true,
           items: [
               "kit-process/graduation-process",
@@ -65,7 +65,7 @@ const sidebars = {
             "website-guidelines/update-news-page",
             "website-guidelines/automate-kit-doc-update",
         ],
-    },         
+    },
       {
           type: 'category',
           label: 'Open Source Development',
@@ -80,8 +80,8 @@ const sidebars = {
               },
           ],
       },
-      'dev_faq',
       'github-checks',
+      'dev_faq',
       'dev_links'
   ],
 };
