@@ -254,7 +254,7 @@ const config = {
               sidebarOptions: {
                 groupPathsBy: "tag",
               },
-            },
+            }
         },
       },
     ],
