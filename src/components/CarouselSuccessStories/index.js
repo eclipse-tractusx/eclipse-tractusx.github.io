@@ -19,7 +19,7 @@
 * SPDX-License-Identifier: Apache-2.0
 ********************************************************************************/
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "@docusaurus/Link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -33,6 +33,8 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 import styles from "./styles.module.css";
 
 export default function CarouselSuccessStories() {
+  let [progress, setProgress] = useState((100 / successStories.length))
+  let [slideToShow, setSlideToShow] = useState(1.1)
 
   const PrevArrow = () => {
     return (
@@ -44,21 +46,20 @@ export default function CarouselSuccessStories() {
     return (
         <ArrowCircleRightOutlinedIcon sx={{fontSize: '2rem'}}className={styles.btn_slider_right} onClick={() => slider?.current?.slickNext()}/>
     );
-  };
+  }; 
 
   let settings = {
     dots: false,
-    // centerMode: true,
-    // centerPadding: '20%',
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
+    infinite: false,
+    speed: 450,
+    slidesToShow: 1.1,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />
-    // prevArrow: <ArrowCircleLeftOutlinedIcon sx={{fontSize: '2.3vw', color: '#faa023', '@media (max-width: 996px)': {fontSize: '3.5vw'}}} className={styles.btn_slider} onClick={() => slider?.current?.slickPrev()}/>,
-    // nextArrow: <ArrowCircleRightOutlinedIcon sx={{fontSize: '2.3vw', color: '#faa023',  '@media (max-width: 996px)': {fontSize: '3.5vw'}}} className={styles.btn_slider} onClick={() => slider?.current?.slickNext()}/>
+    nextArrow: <NextArrow />,
+    afterChange: current => {
+      setProgress(100/ (successStories.length - slideToShow + 1) * (current + 1));
+    }
   };
 
   const slider = React.useRef(null);
@@ -108,6 +109,10 @@ export default function CarouselSuccessStories() {
               })
             }
           </Slider>
+
+          <div className={styles.progress_bar_container}>
+            <div className={styles.progress_bar} style={{width: `${progress}%`}}></div>
+          </div>
         </div>
       </div>
     </section>
