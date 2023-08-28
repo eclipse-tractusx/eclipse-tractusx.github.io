@@ -1,0 +1,91 @@
+@startuml "EDC Discovery and dDTRAccess"
+
+participant PCF_Client
+participant Client_API_Wapper
+participant Client_EDC
+participant EDC_Discovery_Service
+participant Company_EDC
+participant Company_DTR
+
+group Request PCF value
+
+group Technical user login (not shown in detail here)
+end
+!startsub EDCDiscovery
+group Lookup Company's EDC
+PCF_Client -> EDC_Discovery_Service: Lookup EDC URL (via BPN)
+note right
+POST https://portal-backend.some.demo.catena-x.net/api/administration/connectors/discovery
+{
+   [ <Company's BPN> ] 
+}
+end note
+EDC_Discovery_Service -> PCF_Client: EDC URL
+end
+!endsub
+
+!startsub DTRDiscovery
+group Lookup Companies DTR
+PCF_Client -> Client_EDC: Lookup Companies DTR\n(via Company's EDC URL)
+Client_EDC -> Company_EDC: Lookup Asset in Catalog\n(EDC asset type "data.core.digitalTwinRegistry")
+note right
+Assumption PI9: Only one dDTR behind one of the EDCs 
+(there could be multiple in theory!)
+end note
+Company_EDC -> Client_EDC: DTR Asset
+Client_EDC -> PCF_Client: DTR Asset ID
+end
+!endsub
+
+!startsub MaterialTwinLookup
+group Lookup PCF Submodel of Material Twin
+PCF_Client -> Client_EDC: Lookup Twin's Submodel\nin Companies DTR\n(via Company's EDC URL)
+Client_EDC -> Company_EDC: Negotiate DTR access & lookup\nTwin's Submodel in Company's DTR\n(using AAS API and materialID)
+note right
+Lookup Twin ID for material:
+GET https://someEDCProxURL/lookup/shells?assetIds=[{"key": "manufacturerId","value":"<Company's BPN>"},{"key": "manufacturerPartId","value":"mat345"},{"key": "assetLifecyclePhase","value": "AsPlanned"}]
+
+Lookup Twin for ID
+GET https://someEDCProxURL/registry/shell-descriptors/urn:uuid:c34018ab-5820-4065-9087-416d78e1ab60
+
+end note
+Company_EDC -> Company_DTR: Lookup Material Twin\nincl. PCF submodel
+Company_DTR -> Company_EDC: Material Twin (AAS)\nincl. PCF submodel
+Company_EDC -> Client_EDC: Material Twin (AAS)\nincl. PCF submodel
+Client_EDC -> PCF_Client: Material Twin (AAS)\nincl. PCF submodel
+note right
+Showing submodel only to ease readability!
+
+{
+    "description": [
+        {
+            "language": "en",
+            "text": "PCF endpoint for material 'mat345'"
+        }
+    ],
+    "idShort": "PCFExchangeEndpoint",
+    "identification": "urn:uuid:205cf8d1-8f07-483c-9c5b-c8d706c7d05d",
+    "semanticId": {
+        "value": [
+            "urn:bamm:io.catenax.pcf:4.0.0#Pcf"
+        ]
+    },
+    "endpoints": [
+        {
+            "interface": "PCF-0.0.3",
+            "protocolInformation": {
+                "href": "https://edc.data.plane/productIds/mat345",
+                "endpointProtocol": "HTTP",
+                "endpointProtocolVersion": ["1.1"]
+                "subprotocol": "DSP",
+                "subprotocolBody": "id=c34018ab-5820-4065-9087-416d78e1ab60;dspEndpoint=https://some.controlplane.url:7173",
+                "subprotocolBodyEncoding": "plain"
+            }
+        }
+    ]
+}
+end note
+end
+!endsub
+
+@enduml
