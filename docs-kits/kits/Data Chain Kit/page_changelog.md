@@ -14,6 +14,8 @@ All notable changes to this Kit will be documented in this file.
 
 ## [1.1.0] - 2023-08-25
 
+<h3>Added</h3>
+
 - Adoption View: added NOTICE section according to TRG 7.0.7 Legal notice for non-code (e.g. documentation)
 - Adoption View: added Vision &amp; Mission
 - Adoption View: added Customer Journey 
@@ -23,7 +25,9 @@ All notable changes to this Kit will be documented in this file.
 - Adoption View: added Standards 
 - Adoption View: added irs building block for decentral architecture
 
-* Adoption View: adaption to new structure of Adoption View
+
+<h3>Changed</h3>
+- Adoption View: adaption to new structure of Adoption View
 
 ## [1.0.0] - 2023-03-01
 
