@@ -151,7 +151,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
         </tr>
     </thead>
     <tbody>
-        <tr style="vertical-align:top">
+        <tr>
             <td> Purchaser </td>
             <td> In general, the purchaser will not be a sustainability expert!
             Sustainability is for him just an additional dimension (as cost, quality, ...).
@@ -194,7 +194,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>CX provides apps and services for data exchange.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>PCF Calculator</td>
             <td>
                 He is an expert for PCF calculation. He could be described as a “PCF Engineer,” analogous to the role of a “Cost Engineer” established in many companies.
@@ -243,7 +243,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>CX provides access to eco-data(bases) for secondary data.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>PCF Controller (product)</td>
             <td>
                 <p>his is more of an operational role (as opposed to the Sustainability Manager). He is a PCF expert who works with many internal and external partners.</p>
@@ -281,7 +281,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>CX provides phase-specific data.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>Sustainability Manager (product)</td>
             <td>
                 <p>This is more of a strategic role than an operational role.</p>
@@ -317,7 +317,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>CX provides analysis tools.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>Sustainability Manager (corporate)</td>
             <td>
                 <p>He has no active role in Catena-X (e.g.: getting reports is a passive, not an active role in this sense).</p>
@@ -334,7 +334,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
             </td>
             <td>CX provides up-to-date and reliable sustainability data.</td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>Salespeople</td>
             <td>
                 <p>He is the central interface to the customer.</p>
@@ -354,7 +354,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>CX provides apps and services for data exchange.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>Auditor (external)</td>
             <td>
                 <p>He does a yearly audit of conformity with Catena-X methodology.</p>
@@ -369,7 +369,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
                 <p>Catena-X provides access to metadata that allows the reported PCF data to be verified.</p>
             </td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td>Sustainability Associations / Institutions</td>
             <td>They provide industry-specific averages and benchmarks of PCF values.</td>
             <td></td>
