@@ -54,7 +54,6 @@ export default function DeepdiveContent() {
             className={styles.thumbnail} 
             // style={{display: display}} 
             // onMouseOver={()=> setDisplay("none")}
-            // onMouseOut={()=> setDisplay("block")}
             ></div>
             <iframe 
               width="100%"
