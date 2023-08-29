@@ -7,7 +7,7 @@ sidebar_position: 3
 
 ![Business partner kit banner](@site/static/img/BPKitIcon.png)
 
-### Business Partner Kit
+### Business Partner KIT
 
 ## Installation Instructions
 

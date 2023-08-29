@@ -24,7 +24,7 @@ The [dev mailinglist]((https://www.eclipse.org/projects/handbook/#resources-dev-
 All of the answers don’t need to necessarily come from project committers: empower your community to answer questions. When community members do provide answers that require further clarification (either they are not complete, or are not 100% correct), do so politely.
 The more welcome you make your community feel, the more likely it is that your project will be successful.
 
-Mail adress: tractusx-dev@eclipse.org
+Mail adress: <tractusx-dev@eclipse.org>
 
 Every contributor should be subscribed to the [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev). Committers have to be subscribed to the list and are added automatically when gaining the committer status.
 

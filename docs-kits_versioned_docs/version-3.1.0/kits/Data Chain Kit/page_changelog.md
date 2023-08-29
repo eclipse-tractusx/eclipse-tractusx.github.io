@@ -7,20 +7,24 @@ sidebar_position: 10
 
 ![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
 
-### Data Chain Kit
+### Data Chain KIT
 
 All notable changes to this Kit will be documented in this file.
 
 ## [1.0.0] - 2023-03-01
 
-### Added
+<h3>Added</h3>
 
-- dokumentation of the IRS API
-- dokumentation of adoption view
-- dokumentation of software development view
-- dokumentation of the IRS reference implementation
-- two successstories how this Kit is beeing used
+- documentation of the IRS API
+- documentation of adoption view
+- documentation of software development view
+- documentation of the IRS reference implementation
+- two success stories how this Kit is used
 
-### Changed
+<h3>Changed</h3>
 
-### Removed
+- ./.
+
+<h3>Removed</h3>
+
+- ./.
