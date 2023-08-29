@@ -7,13 +7,13 @@ sidebar_position: 1
 
 ![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
 
-### Data Chain Kit
+### Data Chain KIT
 
 DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help Business Owner and Catena-X participants to be up to date and prepared. It's easy to use the DataChainKit with an Open Source Software package, which can easily deployed via HELM or docker-compose. The DataChainKit enables to apply business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy, Traceability, Quality and the European supply chain act.
 
 (#GreenIT#DataSovereignty#Interoperability#ConnectedData)
 
-## Why Data Chain Kit
+## Why Data Chain KIT
 
 What is in for you to use the Data Chain Kit. On what is it built on.
 

@@ -7,6 +7,8 @@ sidebar_position: 1
 
 ![Business partner kit banner](@site/static/img/BPKitIcon.png)
 
+### Business Partner KIT
+
 ## Introduction
 
 BPDM (Business Partner Data Management) is a core component of the Catena-X project, which aims to create a secure, trusted, and standardized ecosystem for the exchange of data among various stakeholders in the automotive industry. BPDM provides services for querying, adding, and managing business partner base information in the Catena-X landscape.

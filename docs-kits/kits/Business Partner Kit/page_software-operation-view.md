@@ -7,146 +7,422 @@ sidebar_position: 3
 
 ![Business partner kit banner](@site/static/img/BPKitIcon.png)
 
-### Business Partner Kit
+### Business Partner KIT
 
-## Installation Instructions
+## Local Deployment
 
-This file contains information on how to configure and run the BPDM applications.
+BPDM is an acronym for business partner data management. This project provides core services for querying, adding and changing business partner base information in the Eclipse Tractus-X landscape. BPDM project is SpringBoot Kotlin software project managed by Maven and consists of three microservices. This section contains information on how to configure and run the BPDM application.
 
-## BPDM Pool
+This local deployment is an easy installation with helm. This setup is built to run on a kubernetes cluster.
 
-BPDM Pool is a SpringBoot Kotlin software project managed by Maven.
+| Step                                                                             | Action                              | Description                                                             |
+|----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
+|![arrow down](@site/static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
+|![vector](@site/static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
+|![check](@site/static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with Services |
 
-The project can be run with the following command: `mvn clean spring-boot:run`
+### Step 1: Prerequisites
 
-### Prerequisites
+1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
+2. [helm](https://helm.sh/docs/intro/install/) is installed
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+   You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
-* Maven
-* JDK17
-* PostgreSQL 14.2
-* OpenSearch 2.1.0
-* Keycloak 17.0.0 (with enabled `auth` profile)
-* Connection to an SaaS for the sharing process (with enabled `saas` profile)
+   ```bash
+   minikube start --memory 8192 --cpus 2 
+   ```
 
-When running, the project requires a Postgresql database and an Opensearch instance to be available to connect to.
-Per default configuration the application expects postgres to run on `localhost` on port `5432`.
-Opensearch needs to run on `localhost` on port `9200` on default.
+   _Optional_: enable minikube metrics
 
-You can find and edit the default configuration for the Pool in the `application.properties`,  `application-auth.properties` and `application-saas.properties`
-files in the `resources` folder.
+   ```bash
+   minikube addons enable metrics-server
+   ```
 
-The REST API documentation can be accessed at `http://localhost:8080/api/swagger-ui`.
+4. [kubectl](https://kubernetes.io/docs/tasks/tools/) is installed
+5. [psql](https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/) client is installed
 
-### Profiles
+### Step 2: Check out the code
 
-The default configuration of the application is determined by the `application.properties` file.
-Here you can find core application configuration such as Swagger documentation, BPN generation and Actuator.
-Furthermore, here you can find the configuration for the connection to the Spring datasource (currently, developed against PostgreSQL) and Opensearch.
+Check out the project [BPDM](https://github.com/eclipse-tractusx/bpdm) or download a [released version](https://github.com/eclipse-tractusx/bpdm/releases) of the project.
 
-You can also run the project with Spring profiles to enable additional components on top of the default configuration.
-Currently, the BPDM Pool offers the profiles `auth` and `saas`.
-In order to run the application with a specific profile you can use the appropriate maven flag `Dspring.profiles.active`.
+### Step 3: Installing the services
 
-For example, the command `mvn clean spring-boot:run -Dspring.profiles.active=auth` starts the application with additional `auth` configuration enabled.
-You can also run several profiles at once, of course: `mvn clean spring-boot:run -Dspring.profiles.active=auth,saas`.
+#### 1. Start the cluster
 
-The following sections detail the configuration properties for each profile.
+To deploy the services on kubernetes using helm charts, run
 
-### Auth
+```bash
+cd local/bpdm
+helm install your_namespace ./charts/bpdm/
+```
 
-`application-auth.properties` enables authorization of endpoints and configures the connection to a Keycloak instance on which the authorization relies on.
-The application expects the Keycloak to run on `localhost` on port `8180`.
-However, as with the Spring datasource and Opensearch connections, the connection to the Keycloak can be freely configured.
-The application uses the configured auth server URL to validate incoming tokens.
+If postgresql is not available in your cluster then you might get following error.
 
-For authorization purposes the application checks incoming token's permissions:
+```bash
+Error: INSTALLATION FAILED: An error occurred while checking for chart dependencies. You may need to run `helm dependency build` to fetch missing dependencies: found in Chart.yaml, but missing in charts/ directory: opensearch, postgresql
+```
 
-* add_company_data: For endpoints creating or updating business partner records including triggering imports from SaaS/exports to Opensearch
-* view_company_data: For read-only endpoints of business partner data
+You can resolve it by adding dependancy to the build
 
-The BPDM Pool looks for these permissions in the client/resource and not on the realm level.
+```bash
+helm dependency build ./charts/bpdm/
+```
 
-This profile also enables/disables the login form in the auto-generated Swagger documentation.
-The Swagger login uses the client specified in the property `springdoc.swagger-ui.oauth.client-id`.
+This can take up to **5 minutes**.
 
-### SaaS
+When the deployment is finished you can expect that 3 deployments can be seen in the minikube dashboard:
 
-The file `application-saas.properties` enables and configures the connection to a remote SaaS for the sharing process from which the application can import
-business partner records.
-Depending on whether this component is enabled, the application offers an endpoint to import records from SaaS.
-If enabled the application requires the environment variable `BPDM_SAAS_KEY` to contain an API key with necessary privileges for accessing the specified
-storage.
-Further, you need to provide a hostname (`BPDM_SAAS_HOST`), storage ID (`BPDM_SAAS_STORAGE`) and datasource ID `BPDM_SAAS_DATASOURCE` to specify from where the records
-should be imported by the application.
+* bpdm-bridge-dummy
+* bpdm-gate
+* bpdm-pool
 
-### Helm Deployment
+Also in total 5 Pods are up and running.
 
-This repository contains Helm files for deploying the BPDM Pool to a Kubernetes environment.
-See the [BPDM Pool Helm README](charts/pool/README.md) for details.
+##### 1.1 Get the status of the deployment
 
-## BPDM Gate
+The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
-BPDM is a SpringBoot Kotlin software project managed by Maven and can be run with the following command: `mvn clean spring-boot:run`
+```bash
+  minikube dashboard 
+```
 
-### Prerequisites
+Make sure you select the namespace **your_namespace**:
 
-* Maven
-* JDK17
-* Connection to an SaaS for the sharing process
-* Connection to BPDM Pool API
-* Keycloak 17.0.0 (with enabled `auth` or `pool-auth` profile)
+![expected status](@site/static/img/minikube-bpdm-dashboard-overview.png)
 
-When running, the BPDM Gate requires a remote SaaS storage and datasource to exchange data with. The application expects the environment variables `BPDM_SAAS_HOST`, `BPDM_SAAS_KEY`, `BPDM_SAAS_STORAGE` and `BPDM_SAAS_DATASOURCE` to contain the hostname to connect to, the API key and the identifiers for the storage and datasource respectively.
+#### 2. Forward ports
 
-The Gate also requires a connection to a BPDM Pool instance which is expected at `localhost` with port `8080` on default configuration.
+When the deployment has been finished, you can for port forwarding using k9s. Also, if k9s tool is not installed the you can use [installer](https://k9scli.io/topics/install/)
 
-You can find and edit the default configuration for the Gate in the `application.properties`,  `application-auth.properties`
-and  `application-pool-auth.properties` files in the `resources` folder.
+```bash
+<shift+f>
+```
 
-The REST API documentation can be accessed at `http://localhost:8081/api/swagger-ui`.
+or port forwarding can also be achived kubernetes command
 
-### Profiles
+```bash
+kubectl port-forward <pod-name> <locahost-port>:<pod-port>
+```
 
-The default configuration of the application is determined by the `application.properties` file.
-Here you can find core application configuration such as Swagger documentation, SaaS and BPDM Pool connection.
+After that you can access the:
 
-You can also run the project with Spring profiles to enable additional components on top of the default configuration.
-Currently, the BPDM Gate offers the profiles `auth` and `auth-pool`.
-In order to run the application with a specific profile you can use the appropriate maven flag `Dspring.profiles.active`.
+* **bpdm-bridge-dummy:** [http://localhost:8083](http://localhost:8083)
+* **bpdm-gate:** [http://localhost:8081](http://localhost:8081)
+* **bpdm-pool:** [http://localhost:8080](http://localhost:8080)
 
-For example, the command `mvn clean spring-boot:run -Dspring.profiles.active=auth` starts the application with additional `auth` configuration enabled.
-You can also run several profiles at once, of course: `mvn clean spring-boot:run -Dspring.profiles.active=auth,auth-pool`.
+## Deploy Individual Service
 
-The following sections detail the configuration properties for each profile.
+### 1. BPDM Pool
 
-### Auth
+The [prerequisites](#step-1-prerequisites) for running this service. In an existing Kubernetes cluster the application can be deployed with the following command:
 
-`application-auth.properties` enables authorization of endpoints and configures the connection to a Keycloak instance on which the authorization relies on.
-The application expects the Keycloak to run on `localhost` on port `8180` and needs a client secret has to be submitted via environment
-variable `BPDM_KEYCLOAK_SECRET`.
-But keep in mind that the connection to the Keycloak can be freely configured.
-The application uses the configured auth server URL to validate incoming tokens.
+```bash
+helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace
+```
 
-For authorization purposes the application checks incoming token's permissions:
+This will install a new release of the BPDM Pool in the given namespace.On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry. The application is run on default profile (without authorization).
+Additionally, the Helm deployment contains a PostgreSQL database and Opensearch instance which the BPDM Pool connects to.
 
-* change_company_data: For endpoints adding or updating business partner data
-* view_company_data: For endpoints reading the original unrefined business partner data
-* view_shared_data: For endpoints reading the business partner data which has been cleaned and refined through the sharing process
+On the default values deployment no further action is needed to make the BPDM Pool deployment run.
+However, per default, ingress as well as authentication for endpoints are disabled.
 
-The BPDM Pool looks for these permissions in the client/resource and not on the realm level.
+By giving your own values file you can configure the Helm deployment of the BPDM Pool freely:
 
-This profile also enables/disables the login form in the auto-generated Swagger documentation.
-The Swagger login uses the client specified in the property `springdoc.swagger-ui.oauth.client-id`.
+```bash
+helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace -f ./path/to/your/values.yaml
+```
 
-### Pool-Auth
+In the following sections you can have a look at the most important configuration options.
 
-On default configuration, the BPDM Gate expects the API of the BPDM Pool to be accessible without authorization requirements.
-In case the Pool instance to connect to has authorization activated, you need to activate this profile.
-The file `application-pool-auth.properties` configures the oAuth2 client for connecting to a secured BPDM Pool.
-Per default, the client will try to acquire a token via client credentials flow and expects the environment variable `BPDM_KEYCLOAK_SECRET` to contain the
-secret for the client.
+#### Image Tag
 
-### Helm Deployment
+Per default, the Helm deployment references a certain BPDM Pool release version where the newest Helm release points to the newest Pool version.
+This is a stable tag pointing to a fixed release version of the BPDM Pool.
+For your deployment you might want to follow the latest application releases instead.
 
-This repository contains Helm files for deploying the BPDM Gate to a Kubernetes environment.
-See the [BPDM Gate Helm README](charts/gate/README.md) for details.
+In your values file you can overwrite the default tag:
+
+```yaml
+image:
+  tag: "latest"
+```
+
+#### Profiles
+
+You can also activate Spring profiles in which the BPDM Pool should be run.
+In case you want to run the Pool with authorization enabled you can write the following:
+
+```yaml
+springProfiles:
+  - auth
+```
+
+#### Ingress
+
+You can specify your own ingress configuration for the Helm deployment to make the BPDM Pool available over Ingress.
+Note that you need to have the appropriate Ingress controller installed in your cluster first.
+For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
+An Ingress configuration for the Pool deployment could look like this:
+
+```yaml
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  hosts:
+    - host: business-partners.your-domain.net
+      paths:
+        - path: /pool
+          pathType: Prefix
+```
+
+#### Pool Configuration
+
+The Helm deployment comes with the ability to configure the BPDM Pool application directly over the values file.
+This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
+Consider that you would need to turn on `auth`  profile first before overwriting any property in the corresponding properties file could take effect.
+Overwriting configuration properties can be useful to connect to a remote service:
+
+```yaml
+applicationConfig:
+  bpdm:
+    security:
+      auth-server-url: https://remote.keycloak.domain.com
+      realm: CUSTOM_REALM
+      client-id: POOL_CLIENT
+```
+
+In this example above a Pool with authenticated activated connects to a remote Keycloak instance and uses its custom realm and resource.
+
+Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
+This can be a problem if you want to overwrite configuration properties with secrets.
+Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
+Content of this value is written in a Kubernetes secret instead.
+If you want to specify a custom database password for example:
+
+```yaml
+applicationSecrets:
+  spring:
+    datasource:
+      password: your_database_secret
+```
+
+#### Helm Dependencies
+
+On default, the Helm deployment also contains a PostgreSQL and Opensearch deployment.
+You can configure these deployments in your value file as well.
+For this, consider the documentation of the correspondent dependency [PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql/11.9.13)
+or [Opensearch](https://opensearch.org/docs/latest/dashboards/install/helm/).
+In case you want to use an already deployed database or Opensearch instance you can also disable the respective dependency and overwrite the default host
+address in the `applicationConfig`:
+
+```yaml
+applicationConfig:
+  spring:
+    datasource:
+      url: jdbc:postgresql://remote.host.net:5432/bpdm
+postgres:
+  enabled: false
+```
+
+### 2. BPDM Gate
+
+The [prerequisites](#step-1-prerequisites) for running this service is same except this service need running BPDM Pool instance.
+
+In an existing Kubernetes cluster the application can be deployed with the following command:
+
+```bash
+helm install release_name ./charts/bpdm/bpdm-gate --namespace your_namespace -f /path/to/my_release-values.yaml
+```
+
+This will install a new release of the BPDM Gate in the given namespace.
+On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
+The application is run on default profile (without authorization for its own endpoints or BPDM Pool endpoints).
+This deployment requires a BPDM Pool deployment to be reachable under host name `bpdm-pool` on port `8080`.
+
+By giving your own values file you can configure the Helm deployment of the BPDM Gate freely.
+In the following sections you can have a look at the most important configuration options.
+
+#### Image Tag
+
+Per default, the Helm deployment references the latest BPDM gate release tagged as `main`.
+This tag follows the latest version of the Gate and contains the newest features and bug fixes.
+You might want to switch to a more stable release tag instead for your deployment.
+In your values file you can overwrite the default tag:
+
+```yaml
+image:
+  tag: "latest"
+```
+
+#### Profiles
+
+You can also activate Spring profiles in which the BPDM Gate should be run.
+In case you want to run the Gate with authorization and oAuth Pool client enabled you can write the following:
+
+```yaml
+springProfiles:
+  - auth
+  - pool-auth
+```
+
+#### Ingress
+
+You can specify your own ingress configuration for the Helm deployment to make the BPDM Gate available over Ingress.
+Note that you need to have the appropriate Ingress controller installed in your cluster first.
+For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
+An Ingress configuration for the Gate deployment could look like this:
+
+```yaml
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  hosts:
+    - host: business-partners.your-domain.net
+      paths:
+        - path: /companies/test-company
+          pathType: Prefix
+```
+
+#### Gate Configuration
+
+For the default deployment you already need to overwrite the configuration properties of the application.
+The Helm deployment comes with the ability to configure the BPDM Gate application directly over the values file.
+This way you are able to overwrite any configuration property of the `application.properties`,  `application-auth.properties`
+and  `application-pool-auth.properties` files.
+Consider that you would need to turn on `auth` and `pool-auth` profile first before overwriting any property in the corresponding properties file could take
+effect.
+Overwriting configuration properties can be useful for connecting to a remotely hosted BPDM Pool instance:
+
+```yaml
+applicationConfig:
+  bpdm:
+    pool:
+      base-url: http://remote.domain.net/api/catena
+```
+
+Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
+This can be a problem if you want to overwrite configuration properties with secrets.
+Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
+Content of this value is written in a Kubernetes secret instead.
+If you want to specify a keycloak client secret for example:
+
+```yaml
+applicationSecrets:
+  bpdm:
+    security:
+      credentials:
+        secret: your_client_secret
+```
+
+### 3. BPDM Bridge Dummy
+
+The [prerequisites](#step-1-prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
+
+```bash
+helm install release_name ./charts/bpdm/bpdm-bridge-dummy --namespace your_namespace -f /path/to/my_release-values.yaml
+```
+
+This will install a new release of the BPDM Bridge Dummy in the given namespace.
+On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
+
+By giving your own values file you can configure the Helm deployment of the BPDM Bridge Dummy freely.
+In the following sections you can have a look at the most important configuration options.
+
+#### Image Tag
+
+Per default, the Helm deployment references the latest BPDM Bridge Dummy release tagged as `main`.
+This tag follows the latest version of the Bridge Dummy and contains the newest features and bug fixes.
+You might want to switch to a more stable release tag instead for your deployment.
+In your values file you can overwrite the default tag:
+
+```yaml
+image:
+  tag: "latest"
+```
+
+#### Profiles
+
+You can also activate Spring profiles in which the BPDM Bridge Dummy should be run.
+In case you want to run the Bridge Dummy with authorization enabled you can write the following:
+
+```yaml
+springProfiles:
+  - auth
+```
+
+#### Ingress
+
+You can specify your own ingress configuration for the Helm deployment to make the BPDM Bridge Dummy available over Ingress.
+Note that you need to have the appropriate Ingress controller installed in your cluster first.
+For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
+An Ingress configuration for the Bridge Dummy deployment could somehow look like this:
+
+```yaml
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  hosts:
+    - host: business-partners.your-domain.net
+      paths:
+        - path: /bridge
+          pathType: Prefix
+```
+
+#### Bridge Dummy Configuration
+
+For the default deployment you already need to overwrite the configuration properties of the application.
+The Helm deployment comes with the ability to configure the BPDM Bridge Dummy application directly over the values file.
+This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
+Consider that you would need to turn on `auth` profile first before overwriting any property in the corresponding properties file could take
+effect.
+Overwriting configuration properties can be useful for connecting to a remotely hosted BPDM Gate and Pool instance:
+
+```yaml
+applicationConfig:
+  bpdm:
+    pool:
+      base-url: http://remote.domain.net/api/catena
+    gate:
+      base-url: http://remote.domain.net/api/catena
+```
+
+Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
+This can be a problem if you want to overwrite configuration properties with secrets.
+Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
+Content of this value is written in a Kubernetes secret instead.
+If you want to specify a keycloak client secret for example:
+
+```yaml
+applicationSecrets:
+  bpdm:
+    security:
+      credentials:
+        secret: your_client_secret
+```
+
+## Stopping the cluster
+
+1. stop minikube
+
+    ```bash
+    minikube stop
+    ```
+
+2. stop the processes used for port forwarding and minikube dashboard
+3. shut down the Docker daemon
+
+## How to debug an application in the cluster
+
+If you want to connect your IDE to one of the applications in the cluster, you need to enable debug mode for that application by overriding the entrypoint (using the `command` and `args` fields in the deployment resource). How to do this depends on the application. For the BPDM, as it is based on Spring Boot and Kotlin, you would need to add this flag to the start command:
+
+```bash
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+```
+
+Then you can forward the port 8000 for the BPDM deployment to your host machine and connect your IDE to that port.

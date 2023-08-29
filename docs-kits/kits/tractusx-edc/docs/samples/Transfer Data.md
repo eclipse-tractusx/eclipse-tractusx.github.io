@@ -10,12 +10,18 @@ consumer. But the roles could be inverse as well.
 
 ## Table of Content
 
-1. [Optional - Local Setup](#1-optional---local-setup)
-2. [Setup Data Offer](#2-setup-data-offer)
-3. [Request Contract Offers](#3-request-contract-offer-catalog)
-4. [Negotiate Contract](#4-negotiate-contract)
-5. [Transfer Data](#5-transfer-data)
-6. [Verify Data Transfer](#6-verify-data-transfer)
+- [Transfer Data](#transfer-data)
+  - [Table of Content](#table-of-content)
+  - [1. Optional - Local Setup](#1-optional---local-setup)
+    - [See Node Ports using Minikube](#see-node-ports-using-minikube)
+    - [See Node Ports using Kubernetes](#see-node-ports-using-kubernetes)
+    - [Set Environment Variables, used by this example](#set-environment-variables-used-by-this-example)
+  - [2. Setup Data Offer](#2-setup-data-offer)
+  - [3. Request Contract Offer Catalog](#3-request-contract-offer-catalog)
+  - [4. Negotiate Contract](#4-negotiate-contract)
+  - [5. Transfer Data](#5-transfer-data)
+  - [6. Verify Data Transfer](#6-verify-data-transfer)
+  - [Delete All Data](#delete-all-data)
 
 ## 1. Optional - Local Setup
 

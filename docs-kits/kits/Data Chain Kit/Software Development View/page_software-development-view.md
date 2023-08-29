@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
 
-### Data Chain Kit
+### Data Chain KIT
 
 ## IRS REST API
 
