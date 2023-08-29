@@ -97,7 +97,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'kits/Data Chain Kit/data chain kit changelog',
-        'kits/Data Chain Kit/Adoption View',
+        'kits/Data Chain Kit/Adoption View Data Chain Kit',
         'kits/Data Chain Kit/Operation View',
         {
           type: 'category',
