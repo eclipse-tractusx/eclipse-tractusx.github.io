@@ -320,6 +320,10 @@ const config = {
                  to: '/docs-kits/next/category/digital-twin-kit',
                  label: 'Digital Twin',
               },
+              {
+                to: '/docs-kits/kits/PCF%20KExchange%20Kit/Adoption%20View',
+                label: 'PCF Exchange',
+              },
             ],
           },
           {
