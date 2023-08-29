@@ -67,10 +67,6 @@
   background-size: cover;
 } */
 
-/* .thumbnail:hover {
-  display: none;
-} */
-
 @media screen and (max-width: 996px) {
   .container {
     width: 80vw;
