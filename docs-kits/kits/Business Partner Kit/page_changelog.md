@@ -23,7 +23,7 @@ All notable changes to this Kit will be documented in this file.
 
 - documentation of the operations view with an installation guide for all services
 
-<h3>Removed</h3>
+### Removed
 
 - documentation of api references, troubleshooting and best practices
 
