@@ -320,10 +320,6 @@ const config = {
                  to: '/docs-kits/next/category/digital-twin-kit',
                  label: 'Digital Twin',
               },
-              {
-                to: '/docs-kits/next/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
-                label: 'OSim',
-             },
             ],
           },
           {
