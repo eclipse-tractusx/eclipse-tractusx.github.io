@@ -320,6 +320,10 @@ const config = {
                  to: '/docs-kits/next/category/digital-twin-kit',
                  label: 'Digital Twin',
               },
+              {
+                to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
+              },
             ],
           },
           {
