@@ -43,7 +43,7 @@ PCF_Client -> Client_EDC: Lookup Twin's Submodel\nin Companies DTR\n(via Company
 Client_EDC -> Company_EDC: Negotiate DTR access & lookup\nTwin's Submodel in Company's DTR\n(using AAS API and materialID)
 note right
 Lookup Twin ID for material:
-GET https://someEDCProxURL/lookup/shells?assetIds=[{"key": "manufacturerId","value":"<Company's BPN>"},{"key": "manufacturerPartId","value":"mat345"},{"key": "assetLifecyclePhase","value": "AsPlanned"}]
+GET https://someEDCProxURL/lookup/shells?assetIds=[{"key": "manufacturerPartId","value":"mat345"},{"key": "assetLifecyclePhase","value": "AsPlanned"}]
 
 Lookup Twin for ID
 GET https://someEDCProxURL/registry/shell-descriptors/urn:uuid:c34018ab-5820-4065-9087-416d78e1ab60
