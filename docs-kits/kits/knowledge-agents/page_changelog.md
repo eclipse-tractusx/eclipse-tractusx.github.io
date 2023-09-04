@@ -9,6 +9,46 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.9.8] - 2023-09-04
+
+### Added
+
+- Matchmaking Agent: Possibility to invoke Skills as Services according to KA-MATCH
+- Matchmaking Agent: Possibility to steer Delegation through Asset Properties
+- Matchmaking Agent: Possibility to allow/deny service requests based on URL pattern
+- Transfer: Possibility to annotate assets with service request allow/deny patterns
+- Transfer: Implement Skill Protocol of KA-TRANSFER
+- Federated Data Catalogue: Embedding Shapes Properties as Named Graphs
+- Skill Store: Implementation using EDC Control Plane/Asset Catalogue
+
+### Changed
+
+- Adapted all Catena-X namespaces to https://w3id.org/catenax
+- Adapted to Tractus-X EDC 0.5 and the changed EDR callback
+- Adapted to Tractus-X EDC 0.4 and the v2 Management and Catalogue APIs
+- Upgraded to the latest possible version of dependent libraries
+- Eclipse Tractus-X standards and migration
+
+### Removed
+
+- Previous EDC Control Plane Extensions regarding SPARQL/HTTP transfer
+
+## [0.8.6] - 2023-05-19
+
+### Added
+
+- Support for SPARQL KA-transfer profile including the cx_warnings header
+
+### Removed
+
+- Registration of Additional Callback Handlers
+
+### Changed
+
+- Based on Tractus-X EDC 0.3.3
+
+### Removed
+
 ## [0.7.4] - 2023-02-20
 
 ### Added
