@@ -246,7 +246,7 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-            }, 
+          }, 
           pcf_exchange_api: {
               specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
               outputDir:
@@ -254,7 +254,15 @@ const config = {
               sidebarOptions: {
                 groupPathsBy: "tag",
               },
-            }
+            },
+          resiliency_osim: {
+            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits/Resiliency/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
