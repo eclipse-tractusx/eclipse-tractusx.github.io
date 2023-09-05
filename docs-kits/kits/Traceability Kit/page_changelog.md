@@ -2,12 +2,10 @@
 id: Traceability Kit Changelog
 title: Changelog
 description: 'Traceability Kit'
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
-
-### Traceability KIT
 
 All notable changes to this Kit will be documented in this file.
 

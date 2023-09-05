@@ -7,11 +7,10 @@ sidebar_position: 3
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
-### Traceability KIT
-
 <!--
-Documentation of the Kit.
+Operation View  of the Kit.
 -->
+The following page offers information on how to operate and deploy a Traceability application.
 
 Based on the information provided in this KIT, it is possible to create and operate an own, custom
 Traceability app. One open-source example is the **Trace-X app** in conjunction with the **Simple

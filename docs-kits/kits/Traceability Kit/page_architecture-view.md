@@ -6,11 +6,11 @@ sidebar_position: 2
 ---
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
-
-### Traceability KIT
 <!--
 Architecture View of the Kit.
 -->
+
+The following page offers an architecture perspective including the main building blocks and information regarding communication between different components, shown as sequence diagrams in a runtime view.
 
 <!-- !Mandatory! -->
 <!-- ## Requirement / Understanding -->
@@ -18,14 +18,13 @@ Architecture View of the Kit.
 <!-- #### Business Context -->
 <!-- #### Technical Context -->
 
-## Building Block View / Runtime View
+## Building Block View
+
 This architecture overview only shows Catena-X Core Services that are directly accessed by Traceability components, e.g. the EDC is shown, but not the DAPS which is accessed by the EDC, but not directly by the Data Provisioning component.
 
-### Building Block View
+![Architecture - Level 1](assets/architecture_level_1.png)
 
-![Architecture - Level 1](../assets/architecture_level_1.png)
-
-#### Traceability Components
+### Traceability Components
 
 | Subsystem         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,7 +32,7 @@ This architecture overview only shows Catena-X Core Services that are directly a
 | Traceability App  | Enables traceability functionalities like quality alerts or notifications. When a Traceability App fetches data for digital twins (submodels), there are two options:<ul><li>Directly access the partner's EDC and DTR to connect to other partner's EDC and retrieve the data from ther</li><li>Use a local IRS service to get the data and let the IRS handle the EDC and DTR communication.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                     |
 | Internal Systems  | Existing internal systems of a Catena-X partner which provide data to Traceability components.<ul><li>For Data Provisioning: The data provided to Catena-X via the EDC should be fetched from a partner's internal PLM and parts master data systems.</li><li>For Traceability Apps: A Traceability App may show more data to a user than just the data that is provided to Catena-X (and fetched via the Data Provisioning component). The business scope of COTS software is bigger than just Traceability and they have existing interfaces to fetch all data they need for their business functionality (and not only Traceability data).</li></ul>Both components can also send data back to internal systems. That's at the discretion of the Catena-X partner and neither required nor prohibited by the Traceability use case. |
 
-#### Catena-X Core Services
+### Catena-X Core Services
 
 | Subsystem                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,4 +41,22 @@ This architecture overview only shows Catena-X Core Services that are directly a
 | Eclipse Dataspace Components (EDC) | The Connector of the Eclipse Dataspace Components provides a framework for sovereign, inter-organizational data exchange. It will implement the International Data Spaces standard as well as relevant protocols associated with GAIA-X. The connector is designed in an extensible way in order to support alternative protocols and integrate in various ecosystems.<br/><br/>[Repository of the Catena-X specific EDC](https://github.com/eclipse-tractusx/tractusx-edc).                                                                                                       |
 | Discovery Service                  | The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.                                                                                                                                                                                                                                                                                                                                                                               |
 
-## Runtime View / Sequence Diagrams
+## Runtime View
+
+_Detail runtime views including specific sequence diagrams will follow in the near future._
+
+<!-- !Mandatory! -->
+## Standards
+
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+- [CX - 0018 Sovereign Data Exchange](https://catena-x.net/de/standard-library)
+- [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0019_SerialPart_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0020_SingleLevelBomAsBuilt_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
+- [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
+- [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0023_Notification_API_v_1.1.1.pdf)
+- [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0042_Semantic_Model_Single_Level_BomAsPlanned_v_1.0.1.pdf)
+- [CX - 0043 Semantic Model: Part AsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
+- [CX - 0093 Aspect Model TractionBatteryCode](https://catena-x.net/de/standard-library)
+- [CX - 0094 Aspect Model Part Site Information AsPlanned](https://catena-x.net/de/standard-library)

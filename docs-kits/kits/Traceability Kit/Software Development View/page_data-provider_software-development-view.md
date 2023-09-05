@@ -1,35 +1,85 @@
 ---
-id: Operation View Traceability Kit
-title: Operation View
-description: 'Traceability Kit'
-sidebar_position: 2
+id: Data Provider Development View Traceability Kit
+title: Data Provider
+description: "Traceability Kit"
+sidebar_position: 1
 ---
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
-### Traceability KIT
-<!--
-Operation View of the Kit.
--->
-
-<!-- !Mandatory! -->
-## Reference Implementation
-
-### Traceability Data Offers at EDC
-
-[Publish Traceability Data Offers at EDC](#publish-traceability-data-offers-at-edc)
+The following page offers specific developer resources, including payloads and API endpoints for data providers. It is important to read the business and architecture view first to understand everything.
 
 <!-- Recommended -->
+## Bill of Material (BoM)
 
-## Sample Data
+A bill of material resembles the structure of an end product. It is a list of all raw materials, sub-assemblies and sub-components that are needed to manufacture the end procuct.
+At Catena-X Traceability we consider more than one single BoM. The BoM changes during the lifecyle and therefore, we are talking about different BoMs in different lifecycles.
 
-In the following, example data for submodels are provided.
+### BoM Representations
 
-### As Planned Submodels Sample Data
+#### Single-Level BOM
 
-#### Submodel "PartAsPlanned" for a Catalog Part
+A single-level BOM represents one level of an assembly and does not include any lower-level subassemblies.
+
+#### Multi-Level BOM
+
+A Multi-Level Bill of Materials (BOM) is a [bill of materials (BOM)](https://www.bterrell.com/sage-accpac-erp/manufacturing/definition-multi-level-bom/definition-bom/) that lists the components, assemblies, and materials required to make a part. It provides a display of all components that are directly or indirectly used in a parent item. When an item is a subcomponent, blend, intermediate, etc., all of its components, including purchased parts and [raw materials](https://www.bterrell.com/sage-accpac-erp/manufacturing/definition-multi-level-bom/definition-bom/definition-raw-materials/), are also exhibited. A multilevel structure can be illustrated by a tree with several levels. A multi-level BOM is created by connecting a series of individual single level BOMs together.
+
+#### Flattened BOM
+
+Flattening BOM means the intermediate levels in the BOM are removed and the lowest level is directly connected to the highest level.
+
+### BoM Lifecycle Stages
+
+BoM LifeCycleStage concept based on STEP AP242 with slight adoptions in layout & wording:
+
+- Each instance can be identified by unique (within the organization) serial number (SN).
+- The ‘multi-SN’ (multi Serial number) describes product defined with a generic part or item
+- The ‘one per SN’ (one per Serial number) describes product defined with an individual part or item
+
+| Name |Identifier Step |Implemented CX |Identifier CX| Description |Purpose |Creating time of BoM | BoM Ausprägungen | one/more fix suppliers |
+| :--- | :----:|:----: |:----: |:----: | :----: |:----: |:----: |:----: |
+| **AsDesigned (AsDeveloped)** | multi-SN | Currently Not Implemented |Part number* <br />may not be the specific part number but a code that describes a part<br />(technische Produktbeschreibung)  |BoM asDesigned is generated in the design phase of a new product including alternative parts. |Build up the initial BoM in design phase of a new automotive product including alternative parts<br />Expected to have research & development part descriptions instead of specific part numbers |starting 2 years before SoP (for e.g. of a new vehicle project) |150% incl. variants which will not be used later |partly known<br />can be open at this point of time |
+| **AsPlanned** | multi-SN | **Implemented** |Part number|BoM AsPlanned is used to plan the manufacturing process including alternative parts. |BoM AsPlanned is used to plan manufacturing including alternative parts.<br />Sourcing will most likely be based on this (besides key parts which start earlier) |starting 1,5 years before building the first component |120% of all variants are covered, incl. possibly multiple suppliers for the same component |fixed suppliers, could be more than one supplier per part|
+| **AsOrdered** | one per SN | Currently Not Implemented |Part number | BoM AsOrdered is used for manufacturing realization. | BoM that is used for manufacturing realization.<br /> This is the list of parts & components currently used for manufactoring after start of production (SOP) or shortly before.| fixed order<br />(production order or custom order)|100% exact order is known |fixed suppliers, could be more than one supplier per part|
+| **AsBuilt** | one per SN | **Implemented**|Serial number / batch number | BoM AsBuilt describes a product as manufactured. | BoM as a component is built or manufactured.<br />During manufactoring of for e.g. a vehicle the serial numbers & batch numbers are documented (German: Verbaudokumentation).<br />This leads to one BoM per built car|during building process or directly after finishing|100% |one specific supplier|
+| **AsSupported / AsFlying / AsMaintained / AsOperated** | one per SN | Currently Not Implemented |Serial number / batch number | BoM AsMaintained describes the product after purchasing by a customer and updates by maintenance. | BoM after for e.g. a vehicle was picked up by the customer. Changes to live cycle before may apply due to maintenance or repair work e.g. exchange of parts, liquids, ...|Starts when customer has picked up the product, updating if any change is done|100% inkl. replaced parts, incl. history of exchanged parts |one specific supplier|
+| **AsRecycled** | - |Currently Not Implemented| Serial number / batch number | BoM AsRecycled describes the BoM after the recycling of the product. | Requirement for Batteries.||100% ||
+
+Two of the considered BoMs are already implemented in the use case Traceability and will be described as follows.
+
+## Aspect Models
+
+### AsPlanned
+
+#### Short Introduction: What is a BoM AsPlanned?
+
+The BoM AsPlanned is the generic list of all possible catalogue parts & materials for a specific vehical project and the supply chain from OEM to raw material suppliers. The BoM is also called 120% which means that it includes alternative parts / materials (e.g. LED headlights and XENON headlights) and parts for certain markets. It will be set up way before Start of Production (SOP) and be updated if the contents are updated. It is used for Sourcing / Production Planning and always reflects the current state of parts / materials build into this specific vehicle project.
+
+The BoM AsPlanned also includes all versions of parts like changed parts. It has to enable parts/materials provided from multiple manufacturers or the same manufacturer at different production sites. Additionally it must be possible to map relations of the same part/material to different customers.
+
+The complexity of generic is much higher than BoM AsBuilt. It is used for technical topics, e.g., Supply Chain Act, DCM.
+
+#### Definition Status of the BoM AsPlanned
+
+Defined
+
+- Digital Twins
+    - Digtial Twin "PartType"
+
+- Traceability data aspect models
+    - Aspect model "PartAsPlanned"
+    - Aspect model "SingleLevelBoMAsPlanned"
+    - Aspect model "SingelLevelUsageAsPlanned"
+    - Aspect model "PartSiteInformationAsPlanned"
+
+#### 1. PartAsPlanned
+
+A Part as Planned represents an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1)
+
+##### Example: Submodel `PartAsPlanned` for a Catalog Part
 
 ```json
 {
@@ -46,9 +96,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel "SingleLevelBomAsPlanned" for a Catalog Part
+#### 2. SingelLevelBomAsPlanned
+
+The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0)
+
+##### Example: Submodel `SingleLevelBomAsPlanned` for a Catalog Part
 
 ```json
 {
@@ -67,9 +121,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel SingleLevelUsageAsPlanned for a Catalog Part
+#### 3. SingelLevelUsageAsPlanned
+
+The aspect provides the information in which parent part(s)/product(s) the given item is assembled in. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from as planned lifecycle phase. If multiple versions of parent parts exist that the child part can be assembled into, all versions of the parent part are included in the usage list.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0)
+
+##### Example: Submodel `SingleLevelUsageAsPlanned` for a Catalog Part
 
 ```json
 {
@@ -88,9 +146,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel "PartSiteInformationAsPlanned" for a component that is produced at the given site
+#### 4. PartSiteInformationAsPlanned
+
+The aspect provides site related information for a given as planned item (i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In the \"as planned\" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0)
+
+##### Example: Submodel `PartSiteInformationAsPlanned` for a Component that is Produced at the Given Site
 
 ```json
 {
@@ -106,13 +168,38 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-### As Built Submodels Sample Data
+### AsBuilt
 
-#### Submodel SerialPart
+#### Short Introduction: What is a BoM AsBuilt?
+
+A BoM AsBuilt resembles a single vehicle, which means that each vehicle built has its own individual BoM asBuilt. The BoM includes all part/components which either have a serial number, batch number, JIS number (sequence number) or a combination out of these. This means, that there is a direct and specific connection between a parent and a child part/component so that an accurate and exact traceability is possible.
+
+Also, the BoM is called 100%, as there are no alternative parts included but only built parts. Therefore, it will be set up when a part is produced and can be connected to its parent and child parts.
+
+In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery Passport (CE).
+
+#### Definition Status of the BoM AsBuilt
+
+Defined
+
+- Digital Twins
+    - Digital Twin Serialized Part
+    - Digital Twin Batch
+    - Digital Twin Vehicle
+- Build up the basic chain
+    - Aspect model "SerialPart"
+    - Aspect model "AssemblyPartRelation"
+    - Aspect model "Batch"
+    - Aspect model "JustInSequencePart"
+    - Aspect model "TractionBatteryCode"
+
+#### 1. SerialPart
+
+A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1)
 
-##### Submodel "SerialPart" for a Vehicle
+##### Example: Submodel `SerialPart` for a Vehicle
 
 ```json
 {
@@ -147,7 +234,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-##### Submodel "SerialPart" for a Serialized Part (Non-Vehicle)
+##### Example: Submodel `SerialPart` for a Serialized Part (Non-Vehicle)
 
 ```json
 {
@@ -180,11 +267,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel SingleLevelBomAsBuilt
+#### 2. SingleLevelBomAsBuilt
+
+The aspect provides the child parts (one structural level down) which the given object assembles.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0)
 
-##### Submodel "SingleLevelBomAsBuilt" for a Serialized Part
+##### Example: Submodel `SingleLevelBomAsBuilt` for a Serialized Part
 
 ```json
 {
@@ -204,7 +293,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-##### Submodel "SingleLevelBomAsBuilt" for a Batch
+##### Submodel `SingleLevelBomAsBuilt` for a Batch
 
 ```json
 {
@@ -224,11 +313,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel Batch
+#### 3. Batch
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2)
+A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID.
 
-##### Submodel "Batch" for a Batch of Raw Material
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0)
+
+##### Example: Submodel `Batch` for a Batch of Raw Material
 
 ```json
 {
@@ -251,11 +342,13 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-#### Submodel JustInSequencePart
+#### 4. JustInSequencePart
+
+A just-in-sequence part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a combination of several IDs related to a just-in-sequence process.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0)
 
-##### Submodel "JustInSequencePart" for a non-serialized component
+##### Example: Submodel `JustInSequencePart` for a non-serialized component
 
 ```json
 {
@@ -290,13 +383,15 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-> Please note that if a just-in-sequence part is also a serialized part SerialPart should be used instead.
+> Please note that if a just-in-sequence part is also a serialized part, SerialPart should be used instead.
 
-#### Submodel TractionBatteryCode
+#### 5. TractionBatteryCode
+
+The aspect provides the information of the Traction battery code of a battery cell, a battery module or a battery pack according to the chinese standard GB/T 34014-2017. Furthermore, it provides the traction battery codes for the assembled sub parts of the component, e.g.  Traction battery code of a battery module plus all the traction battery codes of the assembled battery cells of this battery module.
 
 Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0)
 
-##### Submodel "TractionBatteryCode" for a Battery Cell
+##### Example: Submodel `TractionBatteryCode` for a Battery Cell
 
 ```json
 {
@@ -305,7 +400,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-##### Submodel "TractionBatteryCode" for a Battery Module
+##### Example: Submodel `TractionBatteryCode` for a Battery Module
 
 ```json
 {
@@ -324,7 +419,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-##### Submodel "TractionBatteryCode" for a Battery Pack
+##### Example: Submodel `TractionBatteryCode` for a Battery Pack
 
 ```json
 {
@@ -363,21 +458,9 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-<!-- Recommended -->
-## Reference Implementation
+## Digital Twin
 
-For a reference implementation, take a look at the open-source Trace-X app. More information are provided in the [Operation View](../page_software-operation-view.md) section.
-
-<!-- Recommended -->
-## Documentation in the Context of Development
-
-### Data Provisioning
-
-The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. It depicts the necessary steps as well as where communication with other services, e.g., Catena-X network services like the Digital Twin Registry, are necessary. Any implementation of this implementation specification can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
-
-![Basic Data FLow](../assets/data_provisioning_data_flow.png)
-
-#### Register Digital Twins for Traceability
+### Register Digital Twins
 
 In Traceability, digital twins for different types of parts are registered at a Digital Twin Registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library).
 
@@ -491,12 +574,12 @@ The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-    - `edc.data.plane`: Server and port of the EDC data plane that is providing the submodel.
-    - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
-    - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
+  - `edc.data.plane`: Server and port of the EDC data plane that is providing the submodel.
+  - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
+  - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
-    - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
-    - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation.
+  - `id=123`: The ID of the EDC asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this EDC asset ID (dataset ID) with other IDs that might be defined additionally for an EDC asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
+  - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation.
 
 > :raised_hand: **Backend Data Service for Submodels**
 According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
@@ -510,8 +593,8 @@ Submodels of digital twins are registered in the EDC the same way as for release
 - `href` must have the following format: `http://edc.data.plane/submodel`
 - `subprotocolBody` must have the following format: `id={edcAssetId};dspEndpoint=http://edc.control.plane`
 - edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
-    - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
-    - submodelIdentifier: the id of the submodel (id property in the submodel descriptor)
+  - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
+  - submodelIdentifier: the id of the submodel (id property in the submodel descriptor)
 
 Here's an example how such a submodel descriptor could look like:
 
@@ -609,7 +692,7 @@ The endpoint `href` in the submodel descriptor cannot be used directly to contac
 
 All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
 
-#### Lookup for Digital Twins in the Digital Twin Registry
+### Lookup in the Digital Twin Registry
 
 For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
 
@@ -651,8 +734,8 @@ The lookup (for serialized parts/batches as well as catalog parts) can use the c
 
 - For a digital twin, adding the customer part id to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
-    - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
-    - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
+  - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
+  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
 
 As a result, the AAS ID of the digital twin with this local IDs is returned. The AAS ID can then be used to retrieve details about the digital twin, i.e. the digital twin's AAS descriptor including submodel descriptors.
 
@@ -670,7 +753,7 @@ Currently, even if more than one digital twin is returned in a lookup, these dig
 
 The next section describes to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
 
-#### Unique ID Push Notifications
+### Unique ID Push Notifications
 
 Unique ID Push notifications are a way for a manufacturer to notify a customer as soon as possible when a new digital twin for a part is available.
 
@@ -762,9 +845,9 @@ Here is a short overview what the receiver has to do when they want to support U
 - The EDC in which the notification EDC asset was created must be registered at the Discovery Service (so that the sender can find the partner's EDC which should receive notifications)
 - When the Receiver receives a Unique Id Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
 - How the Receiver processes the notification is up to them, but the following steps are recommended:
-    - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
-    - Store the notification data for later.
-    - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to a supplier's Digital Twin Registry.
+  - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
+  - Store the notification data for later.
+  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to a supplier's Digital Twin Registry.
 
 ###### EDC Asset
 
@@ -810,7 +893,7 @@ The sender must first find the EDC of the customer to which the notification sho
 
 There should only be one EDC which provides the notification EDC asset for Unique Id Push. If more than one EDC (for the same BPN/partner) are found, this is considered a misconfiguration of the corresponding partner.
 
-#### Creating Submodels for Digital Twins
+### Creating Submodels
 
 Submodels for Traceability are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPart or Batch. Transformations are mostly straightforward in these cases.
 
@@ -851,11 +934,11 @@ The creation of the submodel SingleLevelBomAsBuilt is more complicated. This sub
 For the build-in parts (child items), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
 
 - Get all necessary local ids for the built-in part:
-    - manufacturer (BPN), manufacturer part id and serial number for serialized parts
-    - manufacturer (BPN), manufacturer part id and batch number for batches
+  - manufacturer (BPN), manufacturer part id and serial number for serialized parts
+  - manufacturer (BPN), manufacturer part id and batch number for batches
 - The next step is about getting the Unique ID of all built-in parts. There are two ways:
-    - Unique IDs might for built-in parts might already be available locally if Unique ID Push is supported by the data provider and the suppliers of the built-in parts.
-    - Query a supplier's Digital Twin Registry to find the digital twin for this built-in part
+  - Unique IDs might for built-in parts might already be available locally if Unique ID Push is supported by the data provider and the suppliers of the built-in parts.
+  - Query a supplier's Digital Twin Registry to find the digital twin for this built-in part
 
 ###### Unique ID Push
 
@@ -866,11 +949,11 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 ###### Query a Digital Twin Registry to find the digital twin for this built-in part
 
 - Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
-    - Note that the query parameters differ depending on what type of digital twin is looked up.
-        - Currently though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
-        - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
-    - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
-    - The result of this query will be the AAS ID of the digital twin.
+  - Note that the query parameters differ depending on what type of digital twin is looked up.
+    - Currently though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
+    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
+  - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
+  - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPart or Batch (depending on the digital twin type).
 - Fetch the submodel SerialPart or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
 - The submodel then contains the Unique ID of the built-in part in its catenaXId attribute.
@@ -889,3 +972,137 @@ Basically, as a data provider you have to do the following
 - The BDS must support the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification (see standard CX-0002 for more details).
 - The BDS must use the REST API data plan for data transmission.
 - The BDS must verify that it only returns data to the data consumer that is compliant to the EDC asset and data offer for which data is queried and authorize the request accordingly.
+
+## Policies
+
+### Access Policies
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange](#standards) standard.
+
+To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
+
+#### BPN Access Policy
+
+This policy allows limiting access to a data offer based on a list of specific BPNs. This translates to the following functionality:
+
+- The data offer creator will be able to create a policy listing all the BPN that can access the data offer
+- This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
+<!-- - To fulfill the requirements of the **Supply Chain Act**, a NGO Trustee is introduced that is trusted by the complete supply chain to evaluate if an inquiring company is impacted by a specific ESS incident.
+Every Trustee is represented in the Catena-X network as a general participant with a unique BPN. Further, the Trustee is allowed to use supplier relationships and BoM data beyond the one-up/one-down principle due to the legal regulations.
+In order to grant access to the BoM as planned data assets, the Trustee's BPN must be mentioned in the policy. -->
+
+Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/business-partner-validation) or in the [Business Partner Validation Extension part of the Connector Kit](../tractusx-edc/edc-extensions/business-partner-validation/).
+
+### Usage Policies
+To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
+
+Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the `odrl:and` operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all traceability aspects. An example of one usage policy containing three different constraints is shown and described in the following:
+
+```json
+{
+  "@context": {
+    "odrl": http://www.w3.org/ns/odrl/2/
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "<POLICY-ID>", // Important for the contract definition
+  "policy": {
+    "@type": "Policy",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "LogicalConstraint",
+          "odrl:and": [ // All of the following three constraints have to be fullfilled (and, not or)
+            // First constraint to verify the the Catena-X membership
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "Membership",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            },
+            // Second constraint to verify if the framework agreement for the traceability use case is accepted
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "FrameworkAgreement.traceability",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            },
+            // Third constraint to define the specific purpose, further detailed in the framework agreement
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "PURPOSE",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>" // See list in the framework agreement
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+#### Membership Policy
+
+To verify the participants Catena-X membership, the `Membership` verifiable credential can be used. In case of a policy, the data can only be used from verified Catena-X members. The payload is shown in the first constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#1-membership-constraint).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "Membership",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "active"
+}
+```
+
+#### Framework Agreement Policy
+
+To verify if a participant accepted the framework agreement of a specific use case created by the [Catena-X association](https://catena-x.net/en/about-us/the-association), the `FrameworkAgreement.traceability` verifiable credential can be used for the traceability framework agreement. In case of a policy, the data can only be used from accepted and verified traceability framework agreement members. This is shown in the second constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#35-traceability).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "FrameworkAgreement.traceability",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "active"
+}
+```
+
+#### Purpose-based Policy
+
+To further restrict the data usage, a purpose-based policy can be used. If, for example, the purpose mentions a quality investigation, this means that the data usage is only allowed for handling and working on the quality investigation. All possible purposes and their meanings are defined in the traceability framework agreement. This allows to create a uniform understanding and a standardized set of payloads in the network by connecting technical strings to legal agreements.
+
+It is highly recommended to only use this purpose-based policy together with the [Framework Agreement Policy](#framework-agreement-policy). Only with both together it can be ensured that the payload of the purpose policy is agreed by the other part and is based on the same set.
+
+Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the policy definition API](tractusx-edc/docs/kit/development-view/openAPI/management-api/policy-definition-api/create-policy-definition).
+
+```json
+{
+  "@type": "Constraint",
+  "odrl:leftOperand": "PURPOSE",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "<POSSIBLE-PURPOSE-STRING>"
+}
+```
+
+The `<POSSIBLE-PURPOSE-STRING>` have to be replaced with one purpose string defined in the framework agreement.
+
+### Contract Definitions
+
+In the EDC, every policy is associated with a contract. Thus, a contract definition is needed. Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/samples/Transfer%20Data.md#2-setup-data-offer) or in the [Connector Kit API documentation of the contract definition API](../tractusx-edc/docs/kit/development-view/openAPI/management-api/contract-definition-api/edc-contract-definition-api).
+
+When using an above mentioned [Access Policy](#access-policies), their `id` needs to be included as a value of the `accessPolicyId` key in the contract definition. When using an above mentioned [Usage Policy](#usage-policies), their `id` needs to be included as a value of the `contractPolicyId` key in the contract definition.
+
+### Verifiable Credentials
+
+Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standard by the W3C. Details about Catena-X specific VCs can be found in the [CX - 0016 Company Attribute Verification](#standards) standard. As mentioned there, it offers a `UseCaseFrameworkConditionCX` type allowing a data provider to check if specific conditions, like a signed use case contract as introduced in the [Purpose-base Usage Policy section](#purpose-based-policy), are agreed. Further technical documentation are presented in the [SSI Docu](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture) repository.

@@ -6,11 +6,11 @@ sidebar_position: 1
 ---
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
-
-### Traceability KIT
 <!--
 Business View of the Kit.
 -->
+
+The following page offers a high level business view on the Traceability KIT with its vision, mission, benefits, business value, customer journey and examples in form of videos.
 
 <!-- !Mandatory! -->
 ## Vision & Mission
@@ -31,7 +31,7 @@ In the current version, the KIT supports the creation of data chains for the lif
 
 
 <!-- !Mandatory! -->
-## Business Value, Todays Challenge and Benefits for OEM, SME and Solution Provider
+## Business Value & Benefits
 ### Business Value
 Through the standardized specifications described in the “Traceability-KIT” – for example the semantic models and APIs – application and service providers can reduce investment and implementation costs to integrate new Catena-X services. Furthermore, application and service providers can enter potential new markets within the PLM & Quality domain. Data Provider and Businesses are able to build data sovereign data chains to enable data driven use – also for other domains like sustainability.
 
@@ -58,21 +58,21 @@ Solution providers have the potential to scale customer groups and access new ma
 
 With the Traceability KIT, we support the Catena-X customer journey for our adopters and solutions providers.
 
-![Customer Journey](../assets/traceability_customer-journey.png)
+![Customer Journey](assets/traceability_customer-journey.png)
 
 <!-- ### Main Functionalities / Capabilities -->
 <!-- ### Roles (Data Provider, Data Consumer, Solution Provider) -->
 
 
 <!-- Recommended -->
-## Videos, Whitepaper, further high level explanations
+## Further Explanations
 
 ### Example - Industry Problem
 The KIT enables business to start Quality Investigations and send Quality Alerts in a standardized way while already knowing which parts of your direct customer and suppliers are affected and which are not.
 
 Through the introduction of unique Catena-X IDs, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify them within the whole Catena-X ecosystem. Building on that, it is possible to interconnect the registered digital twins of different companies to create a coherent automotive data chain from end-to-end. Furthermore, those twins can easily be complemented with further data like material information to enable further use cases like Circular Economy.
 
-### Videos
+### Video
 The following video gives an overview of the presented Traceability Use Case.
 
 <video controls style={{width:'100%'}} controlsList="nodownload">
