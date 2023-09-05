@@ -1,0 +1,57 @@
+---
+id: postSkill
+title: Register a Skill
+slug: agent-skill-post
+---
+
+```
+POST /agent/skill
+```
+
+**Register a Skill: **
+
+## Parameters
+
+| name             | in    | type    | required | description                                                             |
+| ---------------- | ----- | ------- | -------- | ----------------------------------------------------------------------- |
+| asset            | query | string  | true     | The Target Asset of the Query (targets the complete dataspace if empty) |
+| distributionMode | query | string  | false    | The distribution mode under which to publish the skill                  |
+| contract         | query | string  | false    | The contract under which the skill should be published                  |
+| isFederated      | query | boolean | false    | Whether the skill should be visible in the Federated Catalogue          |
+| ontology         | query | string  | false    | Multiple references to ontologies which are referenced in the skill     |
+
+## Request Body
+
+| Headers      |                          |
+| ------------ | ------------------------ |
+| content-type | application/sparql-query |
+
+```json title="Example request"
+"string"
+```
+
+## Code Snippets
+
+```shell title="Shell + Curl"
+curl --request POST \
+  --url 'https://knowledge.dev.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api/agent/skill?asset=SOME_STRING_VALUE&distributionMode=SOME_STRING_VALUE&contract=SOME_STRING_VALUE&isFederated=SOME_BOOLEAN_VALUE&ontology=SOME_STRING_VALUE' \
+  --header 'content-type: application/sparql-query'
+```
+
+## Responses
+
+### 200
+
+Skill has been registered
+
+### 204
+
+Skill has been updated
+
+### 400
+
+Bad request or malformed SPARQL
+
+### 500
+
+Fatal error
