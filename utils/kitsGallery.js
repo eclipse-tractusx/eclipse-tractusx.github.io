@@ -2,6 +2,7 @@ import Business_Kit from "@site/static/img/bpkit.png";
 import DataChain_Kit from "@site/static/img/datachainkit.png";
 import Connector_Kit from "@site/static/img/connectorkit-min.png";
 import Traceability_Kit from "@site/static/img/traceabilitykit.png";
+
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 //************************** IMPORTANT **************************** */

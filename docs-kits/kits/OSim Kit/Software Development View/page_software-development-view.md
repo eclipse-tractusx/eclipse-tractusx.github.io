@@ -5,6 +5,10 @@ description: 'OSim Kit'
 sidebar_position: 4
 ---
 
+![osim kit banner](@site/static/img/OSimKitIcon.svg)
+
+### OSim Kit
+
 ## Sample Data
 
 The following example shows the payload used for exchange  of simulation results between the OSim partners. The format corresponds with AAS format serialized as a JSON string.
