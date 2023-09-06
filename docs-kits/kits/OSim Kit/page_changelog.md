@@ -5,7 +5,7 @@ description: 'OSim Kit'
 sidebar_position: 1
 ---
 
-<!--![Resiliency kit banner](@site/static/img/doc-traceability_header-minified.png) -->
+![osim kit banner](@site/static/img/OSimKitIcon.svg)
 
 ### OSim Kit
 

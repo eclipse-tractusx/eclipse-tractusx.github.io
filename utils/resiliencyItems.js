@@ -18,7 +18,7 @@ export const resiliencyItems = [
 	{
 		id: 3,
 		img: OSim_Kit,
-		pageRoute: "/docs-kits/next/Resiliency/OSim%20Kit/Adoption%20View%20OSim%20Kit"
+		pageRoute: "/docs-kits/next/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit"
 	},
 	{
 		id: 4,
