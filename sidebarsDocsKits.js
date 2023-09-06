@@ -306,6 +306,19 @@ const sidebars = {
       ],
     },
     {
+      type: 'category',
+      label: 'ECO Pass KIT',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: true,
+      items: [
+        "kits/Eco_Pass_KIT/page_adoption-view.md",
+        "kits/Eco_Pass_KIT/changelog.md",
+        "kits/Eco_Pass_KIT/page_software-development-view.md"
+      ],
+    },
+    {
           type: 'category',
           label: 'Digital Twin KIT',
           link: {
