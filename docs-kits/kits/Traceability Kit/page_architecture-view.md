@@ -12,6 +12,19 @@ Architecture View of the Kit.
 
 The following page offers an architecture perspective including the main building blocks and information regarding communication between different components, shown as sequence diagrams in a runtime view.
 
+In general, data must be provided to the Catena-X network using the Data Space Protocol (DSP). As standard for digital twins the Asset Administration Shell (AAS) standard is used - this is relevant for registering digital twins (in the Digital Twin Registry) as well as for providing digital twin data. SAMM is used as modelling language to describe the data of digital twins as aspects models.
+
+## Assumptions 
+This architecture is based on the following assumptions:
+
+- <p>The <b>customers of parts</b> (on catalog and instance level) must be known when creating a digital twin and registering its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent exposing data to unauthorized parties. For Traceability, the customer of a part must have access to the digital twin in the DTR as well as to the digital twin's data in the EDC.</p><p>If the customer is not known when a digital twin is created, additional processes must be set up by the data provider to add access permissions for the customer at a later time.
+
+## Non-Functional Requirements
+
+| Requirement | Description |
+| :--: | :-- |
+| Resilience | <p>While processing data for publishing it to Catena-X, a data provider needs to access the digital twins of built-in parts from suppliers. These must be available in Catena-X at this point. If these digital twins are not found while the data provider is looking them up, the data provider will not be able to integrate these built-in parts into BoM aspect models (e.g., SingleLevelBomAsBuilt) as it is missing the built-in parts' Unique ID.</p><p>Reasons for not finding a built-in part's digital twin can be:<ol><li>There is a network failure while the data provider's is looking for the digital twin.</li><li>The supplier did not yet create the digital twin, e.g., because its internal processes were delayed.</li><li>The supplier is not yet part of the Catena-X network.</li></ol></p><p>Resilience means that the data provider implements a pipeline that can cope with these issues. Digital twins are provided with the information that is available and are updated once more information is available (e.g., the supplier provides digital twins for built-in parts later on).</p> |
+
 <!-- !Mandatory! -->
 <!-- ## Requirement / Understanding -->
 <!-- ### System Scope and Context (Business & Technical Context) -->

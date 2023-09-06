@@ -9,6 +9,12 @@ sidebar_position: 0
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.3.0] - UPCOMING
+
+### Added
+- **Architecture View:**
+  - Added assumptions and non-functional requirements for Traceability architecture
+
 ## [0.2.0] - UPCOMING
 
 Compatible for Catena-X Release 3.2
