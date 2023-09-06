@@ -20,6 +20,8 @@ import AboutUsCard from "../components/AboutUsCard";
 import FAQsComponent from "../components/FAQsComponent";
 import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";
+import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
+import CommunityComponent from "../components/CommunityComponent";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -30,7 +32,9 @@ export default function Home() {
     >
       <HomePageHeader />
       <main>
+        <RoleBasedEnrtyComponent />
         <AboutUsCard />
+        <CommunityComponent />
         <KitsGalleryWithFilters 
           itemsArray={kitsGallery}
           title={"Our Kits"}
