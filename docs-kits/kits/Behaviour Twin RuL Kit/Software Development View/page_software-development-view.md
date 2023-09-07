@@ -880,7 +880,7 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
   cx-fx:targetUri "https://rul.supplier.com/api/v1/routine/notification";
   cx-fx:invocationMethod "POST-JSON";
 # cx-common:authenticationKey "Authorization";
-# cx-common:authenticationCode "Basic Zdm7vsdgasfghcg==";
+# cx-common:authenticationCode "Basic AAAAAAAAAAAAA==";
   cx-fx:invocationMethod "POST-JSON";
   cx-fx:invocationIdProperty "header.notificationID,content.requestRefId";
   cx-fx:callbackProperty "header.respondAssetId";
