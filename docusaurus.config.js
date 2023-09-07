@@ -324,6 +324,10 @@ const config = {
                 to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
                 label: 'Remaining Useful Life (RuL)',
               },
+              {
+                to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
+              },
             ],
           },
           {
