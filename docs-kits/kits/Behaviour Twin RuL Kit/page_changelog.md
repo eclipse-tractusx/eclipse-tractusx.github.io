@@ -13,7 +13,7 @@ All notable changes to this Kit will be documented in this file.
 
 
 ## [0.1.1] - 2023-09-07
-- Adoption View: addid license notice section.
+- Adoption View: added license notice section.
 - Unified KIT name in menues/sidebars.
 
 ## [0.1.0] - 2023-09-07
