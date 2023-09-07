@@ -301,24 +301,32 @@ const config = {
             to: '/developer',
             items: [
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
-                label: 'Business Partner',
+                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
-                label: 'Data Chain',
+                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
               },
               {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
-                label: 'Traceability',
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                label: 'Data Chain',
               },
               {
-                 to: '/docs-kits/next/category/digital-twin-kit',
-                 label: 'Digital Twin',
+                to: '/docs-kits/next/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
+                label: 'Digital Twin',
+              },
+              {
+                to: '/docs-kits/next/kits/Eco_Pass_KIT/page-adoption-view',
+                label: 'Eco Pass',
+              },
+              {
+                to: '/docs-kits/next/category/osim-kit',
+                label: 'Online Simulation',
               },
               {
                 to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
@@ -327,6 +335,10 @@ const config = {
               {
                 to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
                 label: 'Quality',
+              },
+              {
+                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
               },
             ],
           },
