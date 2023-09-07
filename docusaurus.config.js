@@ -320,6 +320,10 @@ const config = {
                  to: '/docs-kits/next/category/digital-twin-kit',
                  label: 'Digital Twin',
               },
+              {
+                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
+              },
             ],
           },
           {
@@ -411,6 +415,10 @@ const config = {
               {
                 label: "Icons used from svgrepo with CC0 License",
                 href: "https://www.svgrepo.com/",
+              },
+              {
+                to: '/docs/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
               },
             ],
           },
