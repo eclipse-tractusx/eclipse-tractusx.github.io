@@ -40,14 +40,14 @@ export default function RoleBasedEnrtyComponent() {
         infinite: false,
         variableWidth: true,
         arrows: true,
-        nextArrow: <Box sx={{
+        nextArrow: <ArrowCircleRightIcon sx={{
             display: 'flex !important',
             color: '#fff',
             right: '20px',
-            boxShadow: '0px 4px 100px 30px rgb(255 255 255)',
-            backgroundColor: 'rgb(255 255 255 / 35%)',
+            boxShadow: '0px 4px 100px 100px rgb(1 1 1)',
+            backgroundColor: '#111111',
             borderRadius: '100px'
-        }}></Box>,
+        }} />,
         prevArrow: <Box sx={{
             display: 'flex !important',
             color: '#fff',
