@@ -12,6 +12,20 @@ sidebar_position: 1
 All notable changes to this Kit will be documented in this file.
 
 
+## [0.1.1] - 2023-09-07
+
+### Added
+
+- Adoption View: added license notice section.
+
+### Changed
+
+- Unified KIT name in menues/sidebars.
+
+### Removed
+
+- Removed unused page "Documentation".
+
 ## [0.1.0] - 2023-09-07
 
 ### Added
