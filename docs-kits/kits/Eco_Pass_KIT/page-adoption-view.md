@@ -21,12 +21,14 @@ The EcoPass KIT envisions a future where sustainability is at the core of every 
 
 The EcoPass KIT enables the scalable usage of digital product passports in order to address the pressing issue of inefficient resource usage and lack of product transparency. With growing concerns over environmental impact, limited resources and waste generation, there is an urgent need for a comprehensive solution to drive sustainable practices across the value chain. The KIT offers unified data models, a reference application for passport utilization as well as the required API. Low entry barriers will allow you to adapt digital product passports rapidly and pay your contribution to a fully circular value chain without the necessity of vast expertise or resources. Designed for multiple products, the KIT offers scalability, high-quality product information and a set of tools for regulatory compliance. Our mission is to unlock the circular potential of every component and material, fostering a culture of sustainability, innovation, and shared responsibility among all stakeholders.
 
-All described specifications in the KIT are based on [Catena-X standards](https://catena-x.net/de/standard-library) such as the Asset Administration Shell, SSI and decentral Digital Twin Registry. They refer to other Catena-X KITs like the [Connector KIT]/<https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View/> (EDC), [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) (Item Relationship Service = IRS) and [Business Partner KIT](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit/) to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
+All described specifications in the KIT are based on [Catena-X standards](https://catena-x.net/de/standard-library) such as the Asset Administration Shell, SSI and decentral Digital Twin Registry. They refer to other Catena-X KITs like the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View/) (EDC), [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) (Item Relationship Service = IRS) and [Business Partner KIT](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit/) to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
 ## Business Value
 
 Following this mission, the EcoPass KIT serves as an instrumental tool promoting sustainable and circular value chains. The improved transparency, traceability and accountability offered with digital product passports will facilitate informed decision-making for various stakeholders. This will bring ethical sourcing, efficient use of resources and reduction of environmental impacts to a new level. By making use of the Catena-X standards defined within the EcoPass KIT, product passports will ensure interoperability for stakeholders and systems to communicate seamlessly. This standardized language is crucial to improve efficiency, lower operational costs and create faster data processing. It ensures a consistent approach to data collection, storage and visualization to enhance the accuracy, reliability and comparability of information.
 The following section will highlight the five major advantages of the Catena-X EcoPass KIT, which are also displayed below.
+
+#### Figure 1
 
 ![AdoptionView Business Value](resources/adoption-view/adoption-view-BusinessValue.png)
 
@@ -55,9 +57,12 @@ Embracing a digital product pass can address these challenges, enabling transpar
 
 ### Ecopass KIT benefits for value chain partners and solution providers
 
-Stakeholders along the value chain, as well as solution providers can reap the benefits of utilizing KITs in their organization. The Figure below shows an overview of these benefits, further explanation can be found below the illustration.
+Stakeholders along the value chain, as well as solution providers can reap the benefits of utilizing KITs in their organization. The [Figure 2](page-adoption-view#figure-2) below shows an overview of these benefits, further explanation can be found below the illustration.
+
+#### Figure 2
 
 ![ValueChain Benefits](resources/adoption-view/adoption-view-ValueChainBenefits.png)
+
 
 **Value Chain Partners** can benefit from the EcoPass KIT especially by bringing the product transparency to a next level which will allow for several areas to increase the company’s value. Multiple risks (e.g. regulatory compliance) can be mitigated, cost and process efficiency may be improved, the strategic knowledge about products increases and the possibility for new business is being established.
 
@@ -85,6 +90,8 @@ Stakeholders along the value chain, as well as solution providers can reap the b
 
 In the automotive industry, a Battery Pass or digital product passport for batteries plays a crucial role in ensuring transparency, traceability, and sustainability in the battery supply chain. Here's a real-world example of how a digital product pass might be set up for a battery used in electric vehicles (EVs), including its benefits, illustrated below:
 
+#### Figure 3
+
 ![BP realWorldExample](resources/adoption-view/adoption-view-BatteryPass_a_example.png)
 
 1. **Battery Manufacturing**: During the production stage, the battery manufacturer collects and records relevant data, such as the battery's unique identifier, type and model, manufacturing date and location, energy capacity and raw materials composition, including the content of critical elements like lithium, cobalt and nickel.
@@ -94,9 +101,9 @@ In the automotive industry, a Battery Pass or digital product passport for batte
 5. **End-of-Life Management**: When the battery reaches the end of its useful life, the Battery Pass provides detailed instructions for proper disposal and recycling, ensuring compliance with regulations and facilitating the recovery of valuable materials. The data stored in the Battery Pass helps recycling facilities to efficiently process the battery, reducing waste and promoting a circular economy.
 
 Throughout this process, the Battery Pass serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
-The following video visualizes how it can work:
+<!---The following video visualizes how it can work:
 
-#### ToDO: Insert / link BP video here
+ #### ToDO: Insert / link BP video here -->
 
 ### How the KIT can help
 
@@ -246,7 +253,9 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 ## Business Architecture
 
-The Business Architecture illustrates the interaction between the EcoPass KIT and other KITs, components, data models, and artifacts used for identity and access management, illustrated by the Figure below.
+The Business Architecture illustrates the interaction between the EcoPass KIT and other KITs, components, data models, and artifacts used for identity and access management, illustrated by the [Figure 4](page-adoption-view#figure-4) below.
+
+#### Figure 4
 
 ![Image: Business Architecture](resources/adoption-view/adoption-view-EcoPassKITBusinessArch.png)
 
