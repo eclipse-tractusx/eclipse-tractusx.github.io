@@ -321,8 +321,8 @@ const config = {
                  label: 'Digital Twin',
               },
               {
-                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Behaviour Twin RuL',
+                to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
               },
             ],
           },
