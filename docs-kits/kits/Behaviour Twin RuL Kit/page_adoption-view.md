@@ -173,4 +173,12 @@ Some of our relevant standards can **not yet** be downloaded from the official [
 
   _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which estimates a so-called "remaining useful life value" (RUL-value, see CX-0057) using estimated load data (UserEstimatedLoading, see CX-0088). This standard covers exclusively the illustration of the specific API endpoints._
 
+## NOTICE
 
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022,2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+- SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2022,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
