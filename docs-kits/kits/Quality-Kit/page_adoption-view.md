@@ -415,20 +415,20 @@ The tier-1 receives data on vehicle master data, existing claims and DTCs. Once 
 
 ## Business Process
 
-All steps in the **Business Process** described in the Quality Kit, like data provisioning and consuming, access and cooperative data analysis by the involved partner companies,
+To realize the **Business Logic** described in the Quality Kit
 
 ![quality kit business process diagram](@site/static/img/quality-kit_business-process-min.png)
 
-are realized in compliance with the [Catena-X Data Governance Framework](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations), where the regulations are seperated in the following levels:
+all steps of the **Business Process** (described in the [Development View](https://confluence.catena-x.net/display/BDPQ/WORK+IN+PROGRESS+-+Quality+KIT+-+Development+View)), like data provisioning and consuming by the involved partner companies, are realized in compliance with the [Catena-X Data Governance Framework](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations).  Under this link you can find the latest version of the framework regulations as download. The documents are seperated in the following levels:
+
+![quality kit data offering diagram](@site/static/img/quality-kit_data-offering-min.png)
 
 <!-- BROKEN LINK............... -->
-**Data Space Level**: [10 Golden Rules of Catena-X](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Framework_Use_Case_Traceability/CX_10_Goldene_Regeln.pdf)
+**Data Space Level**: 10 Golden Rules of Catena-X
 
 **Use Case Level**: Quality Management specific policy as MS Word download (not released yet): <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
-
-![quality kit data offering diagram](@site/static/img/quality-kit_data-offering-min.png)
 
 ## Standards 
 
