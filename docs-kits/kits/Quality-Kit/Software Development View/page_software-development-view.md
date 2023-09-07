@@ -9,6 +9,22 @@ sidebar_position: 4
 
 ### Quality KIT
 
+## Quality Data Offers at EDC
+
+For the process described in the KIT Quality, data exchange between the participating partner companies is necessarily to be done for large vehicle and product populations. The data exchange therefore tshould be done as a file download via EDC according to the following specifications.
+
+### **Asset File type**
+
+It is recommended to create and transfer the files in the types csv, parquet, json or xls
+
+### **Asset Transfers**
+
+File transfer can be done via EDC S3 plane or alternatively REST http.
+
+### **Asset consumption**
+
+**File** flattening **rules**: The data provided in the asset  is build from 4 to 6 structures. To assure a secure and smooth exchange flatting rules for the file (csv / xls / Parquet / json) must be applied. This includes checks for format and possible values for each column and will be part of next version regulations. If the rules are not applied correctly the mapping of content will not be possible without manual handling effort.
+
 ## Sample Data
 
 Standard version from: 09.2023
