@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ### Quality KIT
 
-## [1.0.0] - 2023-08-18
+## [0.1.0] - 2023-08-18
 
 ### Added
 
