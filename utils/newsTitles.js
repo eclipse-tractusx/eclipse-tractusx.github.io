@@ -5,11 +5,6 @@ export const newsTitles = [
     blogLink: "/blog/portal-is-live"
   },
   {
-    date: "26.05.2023",
-    title: "Tractus-X 3.1 is available now",
-    blogLink: "/blog/new-release-3-1-0"
-  },
-  {
     date: "08.09.2023",
     title: "Tractus-X 23.09 is available now",
     blogLink: "/blog/new-release-23.09"
