@@ -246,6 +246,14 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
+          }, 
+          pcf_exchange_api: {
+              specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
+              outputDir:
+                "./docs-kits/kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+              },
             },
           resiliency_osim: {
             specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
@@ -335,6 +343,10 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
+              },
+              {
+                to: '/docs-kits/kits/PCF%20KExchange%20Kit/Adoption%20View',
+                label: 'PCF Exchange',
               },
             ],
           },
