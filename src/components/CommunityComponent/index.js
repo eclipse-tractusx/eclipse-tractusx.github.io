@@ -28,9 +28,43 @@ import { carouselCommunityInfo } from "../../../utils/carouselCommunityInfo";
 import styles from "./styles.module.css";
 import { useMediaQuery, Box } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
+import sliderWhiteRightArrowImage from '@site/static/img/slider_white_right_icon.png';
+import sliderWhiteLeftArrowImage from '@site/static/img/slider_white_left_icon.png';
 
 export default function CommunityComponent() {
   const isWeb = useMediaQuery('(min-width:1023px)');
+  function  NextArrow (props) {
+    const { onClick } = props;
+    return (
+        <div style={{
+          position: 'absolute',
+          display: 'flex !important',
+          color: '#fff',
+          right: '20px',
+          boxShadow: '0px 0px 200px 40px rgb(255 255 255)',
+          backgroundColor: 'rgb(255 255 255 / 35%)',
+          borderRadius: '100px',
+          marginTop: '-10px',
+          top: '120px',
+          cursor: 'pointer'
+        }} onClick={onClick}><img src={sliderWhiteRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+    )
+}
+function  PrevArrow (props) {
+    const { onClick } = props;
+    return (
+        <div style={{
+          position: 'absolute',
+          display: 'flex !important',
+          color: '#fff',
+          left: '20px',
+          zIndex: '999',
+          marginTop: '-10px',
+          top: '120px',
+          cursor: 'pointer'
+        }} onClick={onClick}><img src={sliderWhiteLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+    )
+}
   let settings = {
     dots: false,
     slidesToShow: isWeb ? 2 : 1,
@@ -39,22 +73,8 @@ export default function CommunityComponent() {
     infinite: false,
     variableWidth: true,
     arrows: true,
-    nextArrow: <Box sx={{
-      display: 'flex !important',
-      color: '#fff',
-      right: '20px',
-      boxShadow: '0px 0px 200px 70px rgb(255 255 255)',
-      backgroundColor: 'rgb(255 255 255 / 35%)',
-      borderRadius: '100px',
-      marginTop: '-10px'
-    }} />,
-    prevArrow: <Box sx={{
-      display: 'flex !important',
-      color: '#fff',
-      left: '20px',
-      zIndex: '999',
-      marginTop: '-10px'
-    }} />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     initialSlide: 0,
   };
 
