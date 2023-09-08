@@ -829,6 +829,60 @@
           "dirName": "kits/Traceability Kit"
         }
       ]
+    },
+    {
+      "type": "category",
+      "label": "PCF Exchange KIT",
+      "link": {
+        "type": "generated-index"
+      },
+      "collapsed": true,
+      "items": [
+        "kits/PCF Exchange Kit/PCF Exchange Kit Changelog",
+        "kits/PCF Exchange Kit/Adoption View",
+        "kits/PCF Exchange Kit/Operation View",
+        {
+          "type": "category",
+          "label": "Development View",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            "kits/PCF Exchange Kit/Software Development View/Specification",
+            {
+              "type": "category",
+              "label": "PCF Exchange API",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/catena-x-pcf-request-endpoint"
+                },
+                {
+                  "type": "category",
+                  "label": "PCF Exchange API",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/get-pcf",
+                      "label": "get_pcf",
+                      "className": "api-method get"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/set-pcf",
+                      "label": "set_pcf",
+                      "className": "api-method put"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "Resiliency": [
