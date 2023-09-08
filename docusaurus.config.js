@@ -246,7 +246,15 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-            }
+            },
+          resiliency_osim: {
+            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
@@ -293,24 +301,44 @@ const config = {
             to: '/developer',
             items: [
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
-                label: 'Business Partner',
+                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
-                label: 'Data Chain',
+                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
               },
               {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
-                label: 'Traceability',
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                label: 'Data Chain',
               },
               {
-                 to: '/docs-kits/next/category/digital-twin-kit',
-                 label: 'Digital Twin',
+                to: '/docs-kits/next/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
+                label: 'Digital Twin',
+              },
+              {
+                to: '/docs-kits/next/kits/Eco_Pass_KIT/page-adoption-view',
+                label: 'Eco Pass',
+              },
+              {
+                to: '/docs-kits/next/category/osim-kit',
+                label: 'Online Simulation',
+              },
+              {
+                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Remaining Useful Life (RuL)',
+              },
+              {
+                to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
+              },
+              {
+                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
               },
             ],
           },
@@ -403,6 +431,10 @@ const config = {
               {
                 label: "Icons used from svgrepo with CC0 License",
                 href: "https://www.svgrepo.com/",
+              },
+              {
+                to: '/docs/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
               },
             ],
           },
