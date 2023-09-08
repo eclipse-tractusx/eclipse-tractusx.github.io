@@ -333,6 +333,10 @@ const config = {
                 label: 'Online Simulation',
               },
               {
+                to: '/docs-kits/kits/PCF%20KExchange%20Kit/Adoption%20View',
+                label: 'PCF Exchange',
+              },
+              {
                 to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
                 label: 'Remaining Useful Life (RuL)',
               },
@@ -343,11 +347,7 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
-              },
-              {
-                to: '/docs-kits/kits/PCF%20KExchange%20Kit/Adoption%20View',
-                label: 'PCF Exchange',
-              },
+              }
             ],
           },
           {
