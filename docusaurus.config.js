@@ -317,7 +317,7 @@ const config = {
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
                 label: 'Data Chain',
               },
               {
@@ -333,7 +333,7 @@ const config = {
                 label: 'Online Simulation',
               },
               {
-                to: '/docs-kits/kits/PCF%20KExchange%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
                 label: 'PCF Exchange',
               },
               {
