@@ -26,12 +26,42 @@ import "slick-carousel/slick/slick-theme.css";
 import Typography from '@mui/material/Typography';
 import { carouselRoleBased } from "../../../utils/carouselRoleBased";
 import styles from "./styles.module.css";
-import { useMediaQuery, Box } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
+import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
 
 export default function RoleBasedEnrtyComponent() {
     const isWeb = useMediaQuery('(min-width:1024px)');
     const isMobile = useMediaQuery('(max-width:600px)');
+    function  NextArrow (props) {
+        const { onClick } = props;
+        return (
+            <div style={{
+                display: 'flex',
+                right: '20px',
+                boxShadow: '0px 4px 100px 100px rgb(1 1 1)',
+                backgroundColor: '#111111',
+                position: 'absolute',
+                top: '75px',
+                cursor: 'pointer'
+            }} onClick={onClick}><img src={sliderRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+        )
+    }
+    function  PrevArrow (props) {
+        const { onClick } = props;
+        return (
+            <div style={{
+                display: 'flex',
+                left: '20px',
+                backgroundColor: '#111111',
+                position: 'absolute',
+                top: '75px',
+                cursor: 'pointer',
+                zIndex: '9'
+            }} onClick={onClick}><img src={sliderLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+        )
+    }
     let settings = {
         dots: false,
         slidesToShow: isWeb ? 2 : 1,
@@ -40,20 +70,8 @@ export default function RoleBasedEnrtyComponent() {
         infinite: false,
         variableWidth: true,
         arrows: true,
-        nextArrow: <ArrowCircleRightIcon sx={{
-            display: 'flex !important',
-            color: '#fff',
-            right: '20px',
-            boxShadow: '0px 4px 100px 100px rgb(1 1 1)',
-            backgroundColor: '#111111',
-            borderRadius: '100px'
-        }} />,
-        prevArrow: <Box sx={{
-            display: 'flex !important',
-            color: '#fff',
-            left: '20px',
-            zIndex: '999'
-        }}></Box>,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         initialSlide: 0,
     };
 
