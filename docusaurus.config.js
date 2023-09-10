@@ -14,6 +14,10 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x-min.ico',
 
+  markdown: {
+    mermaid: true,
+  },
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'eclipse-tractusx', // Usually your GitHub org/user name.
@@ -252,7 +256,7 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"], // Allows use of @theme/ApiItem and other components
+  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
