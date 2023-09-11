@@ -144,3 +144,15 @@ The recursive approach is based on a decentralized network in which only the nex
 5.	In this case the leaf node is responding with a message to the customer company.
 6.	The IRS on customer company level receives and aggregates the messages from all requested suppliers and responds again to the customer until OEM level is reached.
 7.	OEM shows result of recursive investigation according to the given use case in consumer application.
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2022, 2023 BOSCH AG
+- SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2022 ISTOS GmbH
+- SPDX-FileCopyrightText: 2021, 2023 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/item-relationship-service
