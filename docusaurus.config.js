@@ -321,15 +321,15 @@ const config = {
                 label: 'Data Chain',
               },
               {
-                to: '/docs-kits/next/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
+                to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
                 label: 'Digital Twin',
               },
               {
-                to: '/docs-kits/next/kits/Eco_Pass_KIT/page-adoption-view',
+                to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
                 label: 'Eco Pass',
               },
               {
-                to: '/docs-kits/next/category/osim-kit',
+                to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
                 label: 'Online Simulation',
               },
               {
@@ -337,12 +337,12 @@ const config = {
                 label: 'PCF Exchange',
               },
               {
-                to: '/docs-kits/next/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Remaining Useful Life (RuL)',
+                to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
               },
               {
-                to: '/docs-kits/next/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
-                label: 'Quality',
+                to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Remaining Useful Life (RuL)',
               },
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
