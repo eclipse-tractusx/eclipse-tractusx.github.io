@@ -62,7 +62,7 @@ In the use case, it was assumed that a company in the supply chain is considered
 
 The benefit of the solution is to obtain an automated overview of the supply chain's compliance and to be able to check it again and again on a cyclical basis. The companies in the supply chain are not disclosed, which follows the Catena-X specifications.
 
-The decentralized implementation at Catena-X "crawls" from the OEM to the direct supplier and from the direct supplier to its next supplier and thus through the supply chain for a specific component. Each partner determines its direct supplier automatically via the parts list stored by it in Catena-X's Item Relationship Service (IRS).
+The decentralized implementation at Catena-X "traverses" from the OEM to the direct supplier and from the direct supplier to its next supplier and thus through the supply chain for a specific component. Each partner determines its direct supplier automatically via the parts list stored by it in Catena-X's Item Relationship Service (IRS).
 
 Aggregated information on the compliance of the upstream suppliers is returned to the OEM via each stage of the supply chain. From this, the OEM can finally read how many companies are compliant and how many are non-compliant in its supply chain for the component.
 
