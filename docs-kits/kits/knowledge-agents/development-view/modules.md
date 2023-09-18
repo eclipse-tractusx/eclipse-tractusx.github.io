@@ -12,7 +12,7 @@ For more information see
 * Our [Reference Implementation](reference)
 * The [Deployment](../operation-view/deployment) guide
 
-In this context generic building blocks were defined (see Figure 4) which can be implemented with different open source or COTS solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found here: <https://catenax-ng.github.io/product-knowledge/docs/architecture>.
+In this context generic building blocks were defined (see next figure) which can be implemented with different open source or [COTS](https://en.wikipedia.org/wiki/Commercial_off-the-shelf) solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found here: <https://catenax-ng.github.io/product-knowledge/docs/architecture>.
 
 [![Architecture High-Level](/img/knowledge-agents/layer_architecture_small.png)](/img/knowledge-agents/layer_architecture.png)
 
@@ -110,34 +110,21 @@ Delegate the resulting call to the Matchmaking Agent.
 
 This component which is the first stage of SPARQL processing serves several purposes. It operates as the main invocation point to the Data Consuming Layer. It operates as the main bridging point between incoming EDC transfers (from an “Agent Source”) and the underlying Binding Layer. And it implements federation by delegating any outgoing SERVICE/GRAPH contexts to the EDC. The Matchmaking Agent
 
-Should  perform a realm-mapping from the tenant domain (Authentication Scheme, such as API-Key and Oauth2) into the dataspace domain (EDC tokens)
-Should use the EDC management API in order to negotiate outgoing “HttpProtocol” transfers. It may use parallelism and asynchronity to perform multiple such calls simultaneously. It will wrap any inbound “Accept” header requirements as an additional “cx_accept” parameter to the transfer sink.
-Should operate as a endpoint callback listener, such that the setup transfers can invoke the data plane
-Uses and Maintains the Federated Catalogue as an RDF store.
-Should be able to access Binding Agents by means of “SERVICE” contexts in the SPARQL standard. Hereby, the Matchmaking Agent should be able to restrict the type of sub-queries that are forwarded. For practicability purposes, Binding Agents need only support a subset of SPARQL and OWL (no embedded GRAPH/SERVICE contexts, no transitive closures and inversion, no object variables in rdf:type, no owl:sameAs lookups, …).
+* Should  perform a realm-mapping from the tenant domain (Authentication Scheme, such as API-Key and Oauth2) into the dataspace domain (EDC tokens)
+* Should use the EDC management API in order to negotiate outgoing “HttpProtocol” transfers. It may use parallelism and asynchronity to perform multiple such calls simultaneously. It will wrap any inbound “Accept” header requirements as an additional “cx_accept” parameter to the transfer sink.
+* Should operate as a endpoint callback listener, such that the setup transfers can invoke the data plane
+* Uses and Maintains the Federated Catalogue as an RDF store.
+* Should be able to access Binding Agents by means of “SERVICE” contexts in the SPARQL standard. Hereby, the Matchmaking Agent should be able to restrict the type of sub-queries that are forwarded. For practicability purposes, Binding Agents need only support a subset of SPARQL and OWL (no embedded GRAPH/SERVICE contexts, no transitive closures and inversion, no object variables in rdf:type, no owl:sameAs lookups, …).
 Since EDC and Matchmaking Agent are bidirectionally coupled, implementations could merge Data Plane and Matchmaking Agent into a single package, the so-called Agent Plane. Agent Planes and ordinary Data Planes can co-exist due to our design choices.
 
 ### Federated Catalogue
 
-The Federated Catalogue is an RDF data storage facility for the Matchmaking Agent. It could be an in-memory triple store (that is restored via downloading TTL and configuration files upon restart) or an ordinary relational database that has been adapted to fit to the chosen Matchmaking Agent implementation. One example of such an interface is the RDF4J SAIL compliant to all RDF4J based SPARQL engines.
+The Federated Catalogue is an RDF data storage facility for the Matchmaking Agent. It could be an in-memory triple store (that is restored via downloading TTL and configuration files upon restart) or an ordinary relational database that has been adapted to fit to the chosen Matchmaking Agent implementation. One example of such an interface is the [RDF4J SAIL](https://rdf4j.org/documentation/reference/sail/) compliant to all RDF4J based SPARQL engines.
 
-The Federated Catalogue should initially download the complete Semantic Model that has been released for the target environment. It should also contain a list of business partners and their roles which form the surrounding dataspace neighborhood of the tenant. For that purpose, It could use GPDM and Self-Description Hub services in order to lookup EDC addresses and additional domain information (sites, geo addresses). It should then be frequently updated with “live” information by invoking the EDC data management API to regularly obtain catalogue information.
+The Federated Catalogue should initially download the complete Semantic Model that has been released for the target environment. It should also contain a list of business partners and their roles which form the surrounding dataspace neighborhood of the tenant. For that purpose, It could use GPDM (Business Partner Data Management) and Self-Description Hub services in order to lookup EDC addresses and additional domain information (sites, geo addresses). It should then be frequently updated with “live” information by invoking the EDC data management API to regularly obtain catalogue information.
 
 The portion of the Semantic Model describing these meta-data (Business Partners, Sites, Addresses, Use Cases, Use Case Roles, Connectors & Assets) is called the Common domain ontology and is mandatory for all releases/excerpts of the Semantic Model (<https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/common_ontology.ttl>).
 
-## Backend Systems (Non-Standard Relevant)
-
-(Legacy, Non-Dataspace) IT landscape of data space participants consisting of various backend systems, such as PLM, ERP, ObjectStores mostly located in the Enterprise Intranet and hosted/goverened by the business departments.
-Here, the actual data sources of all Catena-X participants is originated
-where they are served using custom, but mission-critical business or
-technological APIs in specific, transaction-oriented formats.
-
-### AAS Servers and Databases
-
-As a special case of backend systems, we also regard existing AAS servers and databases as valid data sources
-to form a semantic dataspace.
-
-See [AAS Bridge](aas/bridge.md) for a more detailed explanation.
 
 ## Virtualization Layer (Non-Standard Relevant)
 
@@ -192,5 +179,19 @@ In order to form a twin-based, highly-standarized access to any graphTo allow fo
 In order to form a graph-based, flexible access to AAS backend components, we
 employ a bridge virtualization module which denormalizes/caches the information
 inside Shells and Submodels.
+
+See [AAS Bridge](aas/bridge.md) for a more detailed explanation.
+
+## Backend Systems (Non-Standard Relevant)
+
+(Legacy, Non-Dataspace) IT landscape of data space participants consisting of various backend systems, such as PLM, ERP, ObjectStores mostly located in the Enterprise Intranet and hosted/goverened by the business departments.
+Here, the actual data sources of all Catena-X participants is originated
+where they are served using custom, but mission-critical business or
+technological APIs in specific, transaction-oriented formats.
+
+### AAS Servers and Databases
+
+As a special case of backend systems, we also regard existing AAS servers and databases as valid data sources
+to form a semantic dataspace.
 
 See [AAS Bridge](aas/bridge.md) for a more detailed explanation.

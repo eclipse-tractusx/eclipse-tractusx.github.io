@@ -3,7 +3,7 @@ sidebar_position: 1
 title: Introduction
 ---
 
-This document describes the foundations of this Kit (=Keep it together).
+This document describes the foundations of this KIT (=Keep It Together).
 
 For inquiries please contact [Tom Buchert](mailto:tom.buchert@t-systems.com)
 
@@ -52,7 +52,7 @@ Simply put, an [Agent](https://en.wikipedia.org/wiki/Software_agent) is an exten
 
 ### Skill
 
-Using her agent, a Consumer can invoke a [Skill](https://en.wikipedia.org/wiki/Amazon_Alexa) (a kind of Stored Procedure in a standardized Scripting/Query Language) which is then executed
+Using the agent, a Consumer can invoke a [Skill](https://en.wikipedia.org/wiki/Amazon_Alexa) (a kind of Stored Procedure in a standardized Scripting/Query Language) which is then executed
 distributedly in the Dataspace.
 
 ### Binding and Delegation
@@ -74,9 +74,9 @@ Since the raw data is never copied but rather traversed by the Skill Bindings, t
 
 ## Catena-X Standard and KITs
 
-The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/)) is subject of an upcoming [Catena-X standard](CX-0084-Federated_Queries_in_Data_Spaces_v1.0.0).
+The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of an upcoming [Catena-X standard](CX-0084-Federated_Queries_in_Data_Spaces_v1.0.0).
 
-This Agent KIT is a FOSS reference implementation of that standard following Eclipse guidelines.
+This Agent KIT is a FOSS (Free and Open-Source Software) reference implementation of that standard following Eclipse guidelines.
 
 If you employ any of our artifacts and/or follow our blueprints, you will be eligible for compliance to a respective Catena-X release. Appropriate assessment criteria and methods have been established as a part of the Agent standard.
 

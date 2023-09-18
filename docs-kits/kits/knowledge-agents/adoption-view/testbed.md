@@ -17,11 +17,11 @@ For more information see
 
 #### Test Scripts
 
-The CAB MAY use a set of predefined API interactions to run against its own dataspace tenant or let the assessed party run these scripts depending on the assessment method. The scripts  are hierarchically organized in a POSTMAN Collection and can be found under <https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection>
+The CAB (Conformity Assessment Body) may use a set of predefined API interactions to run against its own dataspace tenant or let the assessed party run these scripts depending on the assessment method. The scripts are hierarchically organized in a POSTMAN Collection and can be found under <https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection>
 
 #### Test Graph Assets
 
-The CAB MAY use the following Asset Description, Policy Definition and Contract Definition in its assessment method. The CAB MAY deploy these objects in its own dataspace tenant or let the assessed party deploy these objects depending on the assessment method.
+The CAB may use the following Asset Description, Policy Definition and Contract Definition in its assessment method. The CAB may deploy these objects in its own dataspace tenant or let the assessed party deploy these objects depending on the assessment method.
 
 ```csharp
 {    “asset": {
@@ -85,7 +85,7 @@ The CAB MAY use the following Asset Description, Policy Definition and Contract 
 
 #### Test Skill Asset
 
-The CAB MAY use the following Asset Description and Contract Definition in combination with the Policy Definition of 2.2 in its assessment method. The CAB MAY deploy these objects in its own dataspace tenant or let the assessed party deploy these objects depending on the assessment method.
+The CAB may use the following Asset Description and Contract Definition in combination with the Policy Definition of 2.2 in its assessment method. The CAB may deploy these objects in its own dataspace tenant or let the assessed party deploy these objects depending on the assessment method.
 
 ```csharp
 {
