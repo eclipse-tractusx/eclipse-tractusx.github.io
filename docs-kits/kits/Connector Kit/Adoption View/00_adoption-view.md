@@ -1,5 +1,7 @@
 # Adoption View
 
+![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
+
 The ConnectorKit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign, cross-enterprise data exchange.
 
 ![EDC Overview](images/edc_overview.png)

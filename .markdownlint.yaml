@@ -25,3 +25,9 @@
 # Allow same content on headlines on siblings: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD024
 "MD024":
   "siblings_only": true
+"MD032": false
+# Allow lists without empty lines around them: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD032
+# Necessary for Helm docs
+"MD004": false
+# Allow for more unordered lists: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD004
+# Necessary for Helm docs
