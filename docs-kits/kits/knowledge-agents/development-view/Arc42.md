@@ -69,18 +69,18 @@ Knowledge because computations and graph contents are not arbitrary, but share c
 
 To reach that metaphor, the Knowledge Agents Architecture uses the following specifications, some of which are standard-relevant:
 
-    * A general description language based on the Resource Description Framework (RDF)
-    * A Meta-Model defined by OWL-R
-    * A platform Ontology (consisting of several domain ontologies) as the Semantic Model
-    * A description of graphs (=graph assets) which contain instance data for the Semantic Model (or: use-case driven and role-driven subsets thereof) and which may be described as SHACL constraints
-    * A query language to traverse the graphs in SparQL and store these queries as skills (=skill assets) in the database
+* A general description language based on the Resource Description Framework (RDF)
+* A Meta-Model defined by OWL-R
+* A platform Ontology (consisting of several domain ontologies) as the Semantic Model
+* A description of graphs (=graph assets) which contain instance data for the Semantic Model (or: use-case driven and role-driven subsets thereof) and which may be described as SHACL constraints
+* A query language to traverse the graphs in SPARQL and store these queries as skills (=skill assets) in the database
 
 Non-standard relevant, but provided as a best practice/blueprint architecture are
 
-    * Bindings for relational and functional data
-      * R2RML or OBDA for relational data
-      * RDF4J/SAIL configuration for REST remoting
-    * SQL- and REST-based Virtualizers which bridge public Dataspace Operations with internal/private backend systems/data sources.
+* Bindings for relational and functional data
+  * [R2RML](https://www.w3.org/TR/r2rml/) or OBDA (Ontology-Based Data Access ) for relational data
+  * [RDF4J](https://en.wikipedia.org/wiki/RDF4J)/SAIL (Storage And Inference Layer) configuration for REST remoting
+* SQL- and REST-based Virtualizers which bridge public Dataspace Operations with internal/private backend systems/data sources.
 
   [![Example_Graph_Standards](/img/knowledge-agents/Example_Graph.jpg)](/img/knowledge-agents/Example_Graph.jpg)
 
@@ -98,33 +98,36 @@ See chapter [Layers & Modules](modules)
 
 [![Architecture High-Level](/img/knowledge-agents/knowledge_agent_architecture_small.png)](/img/knowledge-agents/knowledge_agent_architecture.png)
 
+
 ## Runtime View
 
 [![Runtime View2](/img/knowledge-agents/Runtime_View3.png)](/img/knowledge-agents/Runtime_View3.png)
 
 Sequence of actions:
 
-    A data provider provides a self description of the piece of knowledge he likes to provide including the terms of conditions in his own data catalogue
-        * Graph assets describe
-          * node classes
-          * relations (arity) and 
-          * constraints on nodes and relations (temporal, value ranges, ...) 
-          * constraints on the queries/skills that may be executed on the graph
-        * Graph usage policies can restrict the following operations on graphs (given an execution context)
-          * selection
-          * traversion
-          * the storage
-          * the manipulation and the
-          * deletion of nodes and relations  
-    A data provider marks particular graph assets as being visible in the federated data catalog. The federated data catalogues of the federated companies/EDCs will be automatically synchronized.
-    Any consuming app can employ an agent with a suitable skill/query (which can be provided locally or as a remote asset, too)
-    The agent will match the requirements in the skill with the offers in the federated data catalog to fill in the endpoints and usage policies from the self description. Optional: If necessary, needed attributes/claims have to be requested from a suitable issuer to get the verifiable credentials into the wallet.
-    Agreements (between XA, XC, eventually between XB) have to be set up in such a way that the corresponding agents will be available through the data plane. Optional: Within EDC the contracts are negotiated and the needed attributes/claims are verified (see PEP, PDP and PIP).
-    The agent delegates a sub-query/sub-skill to the respective knowledge owners (data provider) for the knowledge via an instance of EDC. It annotates the sub-queries with a call context which contains the EDC/agent calling sequence and the other assets with which the result data → ohne data oder resulting data will be joined.
-    The data plane will validate the calling context together with the claims inside the agreement token. → im Schaubild gibt es zweimal Schritt "7"; eine der Beschreibungen fehlt hier also, oder?
-    The agent executes the actual query by mapping to a backend data system and finally provides the app the result → "provides the result to the app"? → auf "8" kommt zweimal vor; einmal als "bind" Schritt ins Backend, einmal als request
-    The agent can decide to delegate further down the line → sollte das auch im Schaubild zu sehen sein?
+1. A data provider provides a self description of the piece of knowledge he likes to provide including the terms of conditions in his own data catalogue
+  * Graph assets describe means of domain ontologies the
+    * node classes
+    * relations (edges between nodes)
+    * constraints on nodes and relations (temporal, value ranges, regex patterns, ...) 
+    * constraints on the queries/skills that may be executed on the graph (e.g. allowed and denied network connections)
+  * Graph policies will restrict the following operations on graphs (based on nodes and edges, given an execution context)
+    * selection
+    * traversion
+    * storage
+    * manipulation
+    * deletion 
+    * delegation
+    (Although the diagram depicts only one single instance of the Federated Datacatalog, each EDC of each participant (Provider or Consumer) runs a Datacatalog instance. Beween those synchronisation takes place)
+2. A data provider marks particular graph assets as being visible in the federated data catalog. The federated data catalogues of the federated companies/EDCs will be automatically synchronized.
+3. Any consuming app can employ an agent with a suitable skill/query (which can be provided locally or as a remote asset, too)
+4. The agent will match the requirements in the skill with the offers in the federated data catalog to fill in the endpoints and usage policies from the self descriptions. 
+5. Agreements (between XA (5.1), XC (5.2), eventually between AB (5.3)) have to be set up in such a way that the corresponding agents are allowed to communicate through the data plane.
+6. The agent delegates a sub-query/sub-skill to the respective knowledge owners (data provider C: 6.1, A: 6.2 and B: 6.3) via an instance of EDC. It annotates the sub-queries with a call context containing the EDC/agent calling sequence and the other assets to be joined with the result data. 6.3 shows that an agent can decide to delegate further down the line
+7. The data plane will validate the calling context together with the claims inside the agreement token.
+8. The agent executes the actual query by mapping to a backend data system and finally providing the result to the app 
 
+Just as the Federated Datacatalog is a multi-instance-synchronised component, also the Federated Trust is an instance running on each EDC. All Federated Trust instances are synchronised with each other within the referring EDC ecosystem.
 ## Deployment View
 
 See chapter [Deployment](../operation-view/deployment).
