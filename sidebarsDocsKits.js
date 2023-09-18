@@ -345,11 +345,6 @@ const sidebars = {
                           label: 'Catena-X Standard CX-0084',
                           href: 'https://github.com/catenax-ng/product-catena-x-standardization/blob/main/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md'
                       },
-                      {
-                        type: 'doc',
-                        id: 'kits/knowledge-agents/adoption-view/CX-00XX-Ontology Models in Catena-X_v1.0.0',
-                        label: 'Catena-X Standard CX-00XX'
-                      }, 
                       'kits/knowledge-agents/adoption-view/testbed',
                   ],
               },
