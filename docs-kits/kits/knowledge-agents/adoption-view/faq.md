@@ -3,13 +3,14 @@ sidebar_position: 3
 title: Frequently Asked Questions
 ---
 
-This document lists frequently asked questions about this Kit.
+This document describes the foundations about the (Knowledge) Agents KIT (=Keep It Together).
 
 For more information see
 
 * Our [Introduction](audience) manifest
 * Our [Target Audience](audience) description
-* The [CX-0084](https://github.com/catenax-ng/product-catena-x-standardization/blob/main/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md) standard
+* The [CX-0084 Federated Queries in Data Spaces](https://github.com/catenax-ng/product-catena-x-standardization/blob/CX-0084-FederatedQueriesInDataSpaces/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md) standard
+* The [CX-00XX Ontology Models in Catena-X](https://github.com/catenax-ng/product-knowledge/blob/feature/ART3-382-documentation/docs/adoption-view/CX-00XX-Ontology%20Models%20in%20Catena-X_v1.0.0.md) standard
 * The [conformity](testbed) testbed
 * An [Architecture](../development-view/architecture) documentation
 * The [Deployment](../operation-view/deployment) guide
