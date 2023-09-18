@@ -14,7 +14,7 @@ For more information see
 
 ## Compute-To-Data
 
-The main objective concerning the approach described in this section is to create a state-of-the-art compute-to-data architecture for automotive use cases (and beyond) based on standards and best practices around GAIA-X (<https://gaia-x.eu>), W3C (<https://www.w3.org/>) and Big Data ( <https://en.wikipedia.org/wiki/Big_data>). To reach this aim, full semantic integration, search and query with focus on relations between entities and data sovereignty is focused. In contrast to a simple file-based data transfer, this shifts the responsibility for the (I) access, (II) authorization to the data and (III) processing of the data from the application development to the provider and hence ultimately, the actual owner of the data. Figure 2 shows the high-level approach, introducing the most important concepts needed for the realization.
+The main objective concerning the approach described in this section is to create a state-of-the-art compute-to-data architecture for automotive use cases (and beyond) based on standards and best practices around [GAIA-X](https://gaia-x.eu), [W3C](https://www.w3.org/) and [Big Data](https://en.wikipedia.org/wiki/Big_data). To reach this aim, full semantic integration, search and query with focus on relations between entities and data sovereignty is focused. In contrast to a simple file-based data transfer, this shifts the responsibility for the (I) access, (II) authorization to the data and (III) processing of the data from the application development to the provider and hence ultimately, the actual owner of the data. Figure 2 shows the high-level approach, introducing the most important concepts needed for the realization.
 
 [![Architecture Interaction](/img/knowledge-agents/architecture_small.png)](/img/knowledge-agents/architecture.png)
 
@@ -32,13 +32,13 @@ In order to obtain the correct results in a federated system, all the participan
 
 ### Matchmaking Agent
 
-This coordinating job is taken over by the Matchmaking Agent, an endpoint that is mandatory for any KA-enabled Dataspace Participant. For that purpose, the Matchmaking Agent supports the SparQL specification with the effect that the dataspace can be traversed as one large data structure. Hereby, the Consumer-Side Matchmaking Agent will – as driven by the builtin federation features of SparQL - interact with the KA-enabled EDC in order to negotiate and perform the transfer of Sub-Skills (=SparQL Contexts) to other Dataspace Participants.
+This coordinating job is taken over by the Matchmaking Agent, an endpoint that is mandatory for any KA-enabled Dataspace Participant. For that purpose, the Matchmaking Agent supports the [SPARQL](https://en.wikipedia.org/wiki/SPARQL) specification with the effect that the dataspace can be traversed as one large data structure. Hereby, the Consumer-Side Matchmaking Agent will – as driven by the builtin federation features of SPARQL - interact with the KA-enabled EDC in order to negotiate and perform the transfer of Sub-Skills (=SPARQL Contexts) to other Dataspace Participants.
 
 ### Binding Agent
 
 In turn, upon successful transfer of the Sub-Skill, the Provider-Side Matchmaking Agent(s) will be activated by their respective EDC. Prior to such a success, the Provider EDC of course first needs to offer a so-called Graph Asset: Graph Assets are a variant of ordinary Data Assets in the Catena-X EDC Standard; while Data Asset typically refer to an actual backend system (e.g., an Blob in an ObjectStorey, an AAS server, a REST endpoint), Graph Assets introduce another intermediary instance, the so-called Binding Agent.
 
-Simply put, the Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skils of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. This scheme has several advantages:
+Simply put, the Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SPARQL, e.g., without federation) which is just focused on translating Sub-Skils of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. This scheme has several advantages:
 
 * For different types of backend systems, business domains and usage scenarios, different Binding Agent implementations (Caching Graph Store, SQL Binding Engine, REST Binding Engine) can be switched-in without affecting both the shared dataspace/semantic model and the mostly immutable backend systems/data models as well.
 * Access to the backend systems can be optimized by JIT compilation technology.

@@ -25,7 +25,7 @@ In particular, each Dataspace Participant needs an [Agent-Enabled Connector](../
 
 ### Consumer
 
-Any party that wants to use data and logic using Agent Technology (for example by employing Agent-Enabled Applications or Services), such as a Recycling Company or a Fleet Manager
+Any party who wants to use data and logic using Agent Technology (for example by employing Agent-Enabled Applications or Services), such as a Recycling Company or a Fleet Manager
 
 ### Provider
 
@@ -33,15 +33,15 @@ We distinguish Providers whether they want to publish data or logic using Agent 
 
 #### Data Provider
 
-Any party that provides data (for example by a backend database or other Agent-enabled Applications or Services), for example an Automotive OEM
+Any party who provides data (for example by a backend database or other Agent-enabled Applications or Services), for example an Automotive OEM (original equipment manufacturer)
 
 #### Function Provider
 
-Any party that provides proprietary functions (for example by a REST endpoint or other Agent-enabled Applications or Services), for example a Tier1 Sensor Device Supplier
+Any party who provides proprietary functions (for example by a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) endpoint or other Agent-enabled Applications or Services), for example a Tier1 Sensor Device Supplier
 
 #### Skill (=Compute) Provider
 
-Any party that provides compute resources and/or procedural logic (for example by a server or other Agent-enabled Applications or Services), for example a Recycling Software Specialist
+Any party who provides compute resources and/or procedural logic (for example by a server or other Agent-enabled Applications or Services), for example a Recycling Software Specialist
 
 #### Core Service Provider
 
@@ -53,8 +53,8 @@ The following stakeholders should [interface](../development-view/architecture) 
 
 ### Business Developer
 
-Any party that publishes an Application, Standard or KIT based on Agent Technology on behalf of a Dataspace Participant (e.g. a Fleet Monitor, an Incident Reporting Solution, a Telematics KIT)
+Any party who publishes an Application, Standard or KIT based on Agent Technology on behalf of a Dataspace Participant (e.g. a Fleet Monitor, an Incident Reporting Solution, a Telematics KIT)
 
 ### Enablement Service Developer
 
-Any party that offers ready-made artifacts, packages and managed services which assist Dataspace Participants/Applications to process data using Agent technology (e.g. a Graph Database, a Virtual Graph Binding Engine, an EDC Package)
+Any party who offers ready-made artifacts, packages and managed services assisting Dataspace Participants/Applications to process data using Agent technology (e.g. a Graph Database, a Virtual Graph Binding Engine, an EDC Package)

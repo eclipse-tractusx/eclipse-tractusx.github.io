@@ -20,9 +20,9 @@ For more information see
 
 #### Isn't this a proprietary approach?
 
-The underlying API's, protocols, standards and technologies are first-class citizens of the official [Gaia-X](https://gaia-x.eu/what-is-gaia-x/deliverables/data-spaces/) & [W3C Semantic Web](https://www.w3.org/standards/semanticweb/) portfolio.
+The underlying [API](https://en.wikipedia.org/wiki/API)s, protocols, standards and technologies are first-class citizens of the official [Gaia-X](https://gaia-x.eu/what-is-gaia-x/deliverables/data-spaces/) & [W3C Semantic Web](https://www.w3.org/standards/semanticweb/) portfolio.
 These techs have been already adopted globally for a plethora of domains, use cases and derived (Open Source & commercial) projects.
-Using these approaches will give you a competitive advantage which is even independent of the concrete dataspace instance/application that you are targetting at.
+Using these approaches will give you a competitive advantage which is even independent of the concrete dataspace instance/application that you are targeting at.
 
 ### No Redundancy
 
@@ -34,7 +34,7 @@ There will be some use cases (large interconnected datasets, ad-hoc querying, in
 
 For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs).
 
-For the app developers it will be easy to use both SDK's over a single consumer connector and even interchange the identifiers/IRis.
+For the app developers it will be easy to use both [SDK](https://en.wikipedia.org/wiki/Software_development_kit)s over a single consumer connector and even interchange the identifiers/[IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)s.
 
 For the modellers, there is only a loose coupling between a protocol-independent, inference-agnostic data format description, such as BAMM, and a protocol-binding, but data-format independent inference/semantic model, such as OWL-R. We expect tools to generate at least the latter from the ubiquitous Excel/Tabular specifications. We could also imagine a kind of OWL-R to BAMM embedding (but not vice versa) once this is needed by a use case.
 
@@ -42,7 +42,7 @@ For the modellers, there is only a loose coupling between a protocol-independent
 
 #### Isn't it inherently insecure to let arbitrary Dataspace tenants invoke ad-hoc computations in my backend?
 
-First, these are not arbitrary tenants, but access is only given to business partners with which you have signed contracts (and which appear in certain roles there).
+First, these are not arbitrary tenants, but access is only given to business partners with whom you have signed contracts (and who appear in certain roles there).
 A Skill request from a non-authorized chain of computation would not be able to enter your backend at all.
 
 Furthermore, you would not expose your backend directly, but rather introduce a [virtualization layer](../development-view/architecture) between the Agent and your data source. This introduces another (role-based) security domain by appropriate sub-schemas and filters. So different contracts can be mapped to different security principals/data views in the backend.
@@ -53,9 +53,9 @@ Finally, we are investigating a form of differential privacy which introduces no
 
 ### Easy Deployment
 
-#### Doesn't this place additional burdens to the dataspace participants?
+#### Doesn't this impose additional burdens to the dataspace participants?
 
-For data consumers, there is virtually nothing to do. All they have to care for is to add an Agent-Enabled data plane to their connector (or even use our Agent Plane as a full-blown replacement for the Http/AmazonS3 standard of Tractus-X).
+For data consumers, there is virtually nothing to do. All they have to care for is to add an Agent-Enabled data plane to their connector (or even use our Agent Plane as a fully-blown replacement for the Http/AmazonS3 standard of Tractus-X).
 
 For smaller data and skill providers, there will be the possibility to host non-critical data directly through the storage facilities of the Agent Plane.
 
@@ -69,5 +69,5 @@ Our technology has been thoroughly developed, tested and piloted over the years 
 a part of its work to other Business Partners/Agents and hence to bring the computations close to the actual data. This delegation pattern has several very nice properties:
 
 * Delegation is dynamic based on the supply chain(s) that are described in the actual data. So the actual computation chain optimizes with the data.
-* Delegation is parallelized such that several suppliers are requested simultaneously. Latency is hence minimized.
+* Delegation is parallelized in the sense that several suppliers are requested simultaneously. Latency is hence minimized.
 * Delegation may be opaque from the consumer view if contracts require so.
