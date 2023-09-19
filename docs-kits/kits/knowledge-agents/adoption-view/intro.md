@@ -2,12 +2,34 @@
 sidebar_position: 1
 title: Introduction
 ---
+<!--
+ * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Mercedes-Benz AG
+ * Copyright (c) 2021,2023 ZF Friedrichshafen AG
+ * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This documentation and the accompanying materials are made available under the
+ * terms of the Creative Commons Attribution 4.0 International License,  which is available at
+ * https://creativecommons.org/licenses/by/4.0/legalcode.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: CC-BY-4.0
+-->
+### Agents KIT
 
 ![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
 
 This document describes the foundations of the (Knowledge) Agents KIT (=Keep It Together).
-
-For inquiries please contact [Tom Buchert](mailto:tom.buchert@t-systems.com)
 
 For more information see
 
@@ -42,12 +64,13 @@ For more information, see the [Connector Kit](https://eclipse-tractusx.github.io
 
 ## Federated Operations through Agents
 
-### Agent
+In many cases, the standardized transfer of data may already be enough to create value (e.g. exchange precomputed product carbon footprints across a supply chain).
 
-In some cases the standardized transfer of data may already be enough to create value (e.g. exchange precomputed product carbon footprints across a supply chain).
+However, other use cases such as the joint prediction of the behaviour of a complex machine that does not even exists but is developed by a team of collaborating companies, require more advanced solutions.
 
-However, other use cases such as the joint behavioural prediction of complex machines which are yet to be developed by a team of collaborating companies, require more advanced solutions.
 These are solutions in which data and information is federated into a multi-directional semantic context.
+
+### Agent
 
 Simply put, an [Agent](https://en.wikipedia.org/wiki/Software_agent) is an extension/companion to the Connector that allows to transfer Business Logic instead of raw data payloads.
 
@@ -55,7 +78,7 @@ Simply put, an [Agent](https://en.wikipedia.org/wiki/Software_agent) is an exten
 
 ### Skill
 
-Using the agent, a Consumer can invoke a [Skill](https://en.wikipedia.org/wiki/Amazon_Alexa) (a kind of Stored Procedure in a standardized Scripting/Query Language) which is then executed
+Using her/his agent, a Consumer can invoke a [Skill](https://en.wikipedia.org/wiki/Amazon_Alexa) (a kind of Stored Procedure in a standardized Scripting/Query Language) which is then executed
 distributedly in the Dataspace.
 
 ### Binding and Delegation
@@ -77,11 +100,14 @@ Since the raw data is never copied but rather traversed by the Skill Bindings, t
 
 ## Catena-X Standard and KITs
 
-The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of an upcoming [Catena-X standard](CX-0084-Federated_Queries_in_Data_Spaces_v1.0.0).
+The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of [the Catena-X Standard on Federated Queris and Data Spaces](https://github.com/catenax-ng/product-catena-x-standardization/blob/CX-0084-FederatedQueriesInDataSpaces/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md).
 
-This Agent KIT is a FOSS (Free and Open-Source Software) reference implementation of that standard following Eclipse guidelines.
+The Agents KIT is a set of FOSS (Free and Open-Source Software) reference implementations of this standard following the Eclipse Tractus-X guidelines.
 
 If you employ any of our artifacts and/or follow our blueprints, you will be eligible for compliance to a respective Catena-X release. Appropriate assessment criteria and methods have been established as a part of the Agent standard.
 
 The Agents KIT is depending on the [Connector Kit](https://eclipse-tractusx.github.io/docs/category/connector-kit)
-This Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications.
+
+The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Behaviour Twin Remaining Useful Life (RUL Kit](/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit)
+
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

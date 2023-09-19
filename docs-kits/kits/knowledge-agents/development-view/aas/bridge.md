@@ -2,7 +2,29 @@
 sidebar_position: 1
 title: AAS Bridge
 ---
-
+<!--
+ * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Mercedes-Benz AG
+ * Copyright (c) 2021,2023 ZF Friedrichshafen AG
+ * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This documentation and the accompanying materials are made available under the
+ * terms of the Creative Commons Attribution 4.0 International License,  which is available at
+ * https://creativecommons.org/licenses/by/4.0/legalcode.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: CC-BY-4.0
+-->
 This section describes modules and components which are able to bridge
 the [Semantic Web](https://www.w3.org/standards/semanticweb/) technology of
 Knowledge Agents with the [Industrial Digital Twin Association's](https://industrialdigitaltwin.org/)
@@ -57,3 +79,5 @@ the KA-AAS Bridge in the future.
 
 [FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) is used as SDK providing the AAS tooling required for the implementation
 of all relevant AAS-APIs.
+
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

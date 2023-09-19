@@ -465,8 +465,6 @@ const sidebars = {
                           ],
                       },
                       'kits/knowledge-agents/development-view/reference',
-                      'kits/knowledge-agents/development-view/build',
-                      'kits/knowledge-agents/development-view/compile',
                       {
                           type: 'category',
                           label: 'API',
@@ -495,8 +493,8 @@ const sidebars = {
                       'kits/knowledge-agents/operation-view/deployment',
                       'kits/knowledge-agents/operation-view/agent_edc',
                       'kits/knowledge-agents/operation-view/provider',
+                      'kits/knowledge-agents/operation-view/bridge',
                       'kits/knowledge-agents/operation-view/policy',
-                      'kits/knowledge-agents/operation-view/sample',
                   ],
               },
             ],
