@@ -2,7 +2,29 @@
 sidebar_position: 3
 title: Frequently Asked Questions
 ---
-
+<!--
+ * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Mercedes-Benz AG
+ * Copyright (c) 2021,2023 ZF Friedrichshafen AG
+ * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This documentation and the accompanying materials are made available under the
+ * terms of the Creative Commons Attribution 4.0 International License,  which is available at
+ * https://creativecommons.org/licenses/by/4.0/legalcode.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: CC-BY-4.0
+-->
 This document describes the foundations about the (Knowledge) Agents KIT (=Keep It Together).
 
 For more information see
@@ -21,23 +43,23 @@ For more information see
 
 #### Isn't this a proprietary approach?
 
-The underlying [API](https://en.wikipedia.org/wiki/API)s, protocols, standards and technologies are first-class citizens of the official [Gaia-X](https://gaia-x.eu/what-is-gaia-x/deliverables/data-spaces/) & [W3C Semantic Web](https://www.w3.org/standards/semanticweb/) portfolio.
+The underlying [API](https://en.wikipedia.org/wiki/API), protocols, standards and technologies are first-class citizens of the official [Gaia-X](https://gaia-x.eu/what-is-gaia-x/deliverables/data-spaces/) & [W3C Semantic Web](https://www.w3.org/standards/semanticweb/) portfolio.
 These techs have been already adopted globally for a plethora of domains, use cases and derived (Open Source & commercial) projects.
 Using these approaches will give you a competitive advantage which is even independent of the concrete dataspace instance/application that you are targeting at.
 
 ### No Redundancy
 
-#### Is this a replacement to the existing BAMM Aspect Meta Model (BAMM) & Asset Administration Shell (AAS) approach?
+#### Is this a replacement to the existing Aspect Meta Model (BAMM/SAMM) & Asset Administration Shell (AAS) approach?
 
-Agent technology is a complement that means that both approaches can be deployed in co-existance. See the recommendation of the Catena-X Architecture Board
+Agent technology is a complement that means that both approaches can be deployed in co-existance. 
 
-There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which enfavour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM & AAS approach.
+There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which enfavour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM/SAMM & AAS approach.
 
-For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs).
+For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs). We provide [bridging technology](../development-view/aas/bridge) for that purpose.
 
 For the app developers it will be easy to use both [SDK](https://en.wikipedia.org/wiki/Software_development_kit)s over a single consumer connector and even interchange the identifiers/[IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)s.
 
-For the modellers, there is only a loose coupling between a protocol-independent, inference-agnostic data format description, such as BAMM, and a protocol-binding, but data-format independent inference/semantic model, such as OWL-R. We expect tools to generate at least the latter from the ubiquitous Excel/Tabular specifications. We could also imagine a kind of OWL-R to BAMM embedding (but not vice versa) once this is needed by a use case.
+For the modellers, there is only a loose coupling between a protocol-independent, inference-agnostic data format description, such as BAMM/SAMM, and a protocol-binding, but data-format independent inference/semantic model, such as OWL-R. We expect tools to generate at least the latter from ubiquitous Excel/Tabular specifications. We could also imagine a kind of OWL-R to BAMM/SAMM embedding (but not vice versa) once this is needed by a use case.
 
 ### Enhanced Security
 
@@ -72,3 +94,5 @@ a part of its work to other Business Partners/Agents and hence to bring the comp
 * Delegation is dynamic based on the supply chain(s) that are described in the actual data. So the actual computation chain optimizes with the data.
 * Delegation is parallelized in the sense that several suppliers are requested simultaneously. Latency is hence minimized.
 * Delegation may be opaque from the consumer view if contracts require so.
+
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

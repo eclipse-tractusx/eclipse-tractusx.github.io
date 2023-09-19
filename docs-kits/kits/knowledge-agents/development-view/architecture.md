@@ -2,12 +2,42 @@
 sidebar_position: 1
 title: High-Level Architecture
 ---
+<!--
+ * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Mercedes-Benz AG
+ * Copyright (c) 2021,2023 ZF Friedrichshafen AG
+ * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This documentation and the accompanying materials are made available under the
+ * terms of the Creative Commons Attribution 4.0 International License,  which is available at
+ * https://creativecommons.org/licenses/by/4.0/legalcode.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: CC-BY-4.0
+-->
 
-This document describes the High-Level Architecture of the Agents Standard and Kit.
+### Agents KIT
+
+![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
+
+This document describes the High-Level Architecture of the (Knowledge) Agents KIT (=Keep It Together).
 
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
+* The [ARC42](Arc42) documentation
+* Our [Development](Development_Process) process 
+* An [API](api) specification
 * The [Layers & Modules](modules) Architecture
 * Our [Reference Implementation](reference)
 * The [Deployment](../operation-view/deployment) guide
@@ -32,7 +62,7 @@ In order to obtain the correct results in a federated system, all the participan
 
 ### Matchmaking Agent
 
-This coordinating job is taken over by the Matchmaking Agent, an endpoint that is mandatory for any KA-enabled Dataspace Participant. For that purpose, the Matchmaking Agent supports the [SPARQL](https://en.wikipedia.org/wiki/SPARQL) specification with the effect that the dataspace can be traversed as one large data structure. Hereby, the Consumer-Side Matchmaking Agent will – as driven by the builtin federation features of SPARQL - interact with the KA-enabled EDC in order to negotiate and perform the transfer of Sub-Skills (=SPARQL Contexts) to other Dataspace Participants.
+This coordinating job is taken over by the Matchmaking Agent, an endpoint that is mandatory for any KA-enabled Dataspace Participant. For that purpose, the Matchmaking Agent supports the [SPARQL](https://en.wikipedia.org/wiki/SPARQL) specification with the effect that the dataspace can be traversed as one large data structure. Hereby, the Consumer-Side Matchmaking Agent will – as driven by the builtin federation features of SPARQL - interact with the KA-enabled EDC in order to negotiate and perform the transfer of Sub-Skills (=SPARQL Contexts) to other Dataspace Participants. See the [Knowledge Agents SPARQL API](api) for detailed information.
 
 ### Binding Agent
 
@@ -88,3 +118,5 @@ Utilization of dataspaces for exchanging complex product- or production data usu
 ## Data Sovereignty
 
 One of the key requirements for dataspaces is to guarantee that data is only shared willingly and subject to specific terms and conditions of respective data providers. One core component to support definition and negotiation of contracts and policies is the Eclipse Dataspace Connector (EDC). Nevertheless, the way how data is processed via a semantic layer also contributes to data sovereignty. KA follows a strict compute to data approach. Thus, by design only computation results are shared instead of copying all data relevant for this computation (e.g. submit only weight information instead of geometry and material information). Furthermore, by utilizing data models based on ontologies definition of access rights can be made up to a high level of granularity (attribute level).
+
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

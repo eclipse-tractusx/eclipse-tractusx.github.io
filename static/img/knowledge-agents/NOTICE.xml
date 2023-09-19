@@ -81,8 +81,9 @@ The source can be found under https://github.com/drcgjung/eclipse-tractusx.githu
 	<iptc-tag>
 		<tag-name>Iptc.Application2.Keywords</tag-name>
 		<tag-mode>multi</tag-mode>
-		<tag-value>(C) 2021, 2023 BMW AG
-(C) 2021, 2023 Mercedes-Benz Model
+		<tag-value>(C) 2021, 2023 T-Systems International GmbH
+(C) 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+(C) 2021, 2023 Mercedes-Benz AG
 (C) 2021, 2023 ZF Friedrichshafen AG
 (C) 2021, 2023 SAP SE	</tag-value>
 	</iptc-tag>
@@ -137,8 +138,9 @@ The source can be found under https://github.com/drcgjung/eclipse-tractusx.githu
 	<xmp-tag>
 		<tag-name>Xmp.dc.subject</tag-name>
 		<tag-mode>multi</tag-mode>
-		<tag-value>(C) 2021, 2023 BMW AG
-(C) 2021, 2023 Mercedes-Benz Model
+		<tag-value>(C) 2021, 2023 T-Systems International GmbH
+(C) 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+(C) 2021, 2023 Mercedes-Benz AG
 (C) 2021, 2023 ZF Friedrichshafen AG
 (C) 2021, 2023 SAP SE	</tag-value>
 	</xmp-tag>

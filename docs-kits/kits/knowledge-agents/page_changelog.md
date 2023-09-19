@@ -4,15 +4,58 @@ title: Changelog
 description: 'Knowledge Agent'
 sidebar_position: 1
 ---
+<!--
+ * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Mercedes-Benz AG
+ * Copyright (c) 2021,2023 ZF Friedrichshafen AG
+ * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This documentation and the accompanying materials are made available under the
+ * terms of the Creative Commons Attribution 4.0 International License,  which is available at
+ * https://creativecommons.org/licenses/by/4.0/legalcode.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: CC-BY-4.0
+-->
+### Agents KIT
 
-# Changelog
+![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
 
-## [1.9.8] - 2023-09-04
+## [23.12] - 
 
 ### Added
 
+- AAS Bridge References
+- Deployment Examples
+- References to the RUL Kit
+
+### Changed
+
+- Pointers moved from Catena-X to Tractus-X 
+
+### Removed
+
+- Sample Dataspace
+- Build & Compile
+- Standard Drafts
+
+## [23.09-PREVIEW] - 2023-09-04
+
+### Added
+
+- Conformity Assessment Testbed
 - Matchmaking Agent: Possibility to invoke Skills as Services according to KA-MATCH
 - Matchmaking Agent: Possibility to steer Delegation through Asset Properties
 - Matchmaking Agent: Possibility to allow/deny service requests based on URL pattern
@@ -33,26 +76,11 @@ All notable changes to this Kit will be documented in this file.
 
 - Previous EDC Control Plane Extensions regarding SPARQL/HTTP transfer
 
-## [0.8.6] - 2023-05-19
+## [0.7.4-SNAPSHOT] - 2023-02-20
 
 ### Added
 
 - Support for SPARQL KA-transfer profile including the cx_warnings header
-
-### Removed
-
-- Registration of Additional Callback Handlers
-
-### Changed
-
-- Based on Tractus-X EDC 0.3.3
-
-### Removed
-
-## [0.7.4] - 2023-02-20
-
-### Added
-
 - Necessary documentation markdown for Eclipse Standard
 - Helm Sub-Charts for Umbrella Embedding
 - Postman Collection with Integration Tests
@@ -61,14 +89,15 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed
 
+- Registration of Additional Callback Handlers
 - Move patched code into extensions
 - Based on EDC 0.2.0
 
 ### Removed
 
--
+- Based on Tractus-X EDC 0.3.3
 
-## [0.6.4] - 2022-12-15
+## [0.6.4-SNAPSHOT] - 2022-12-15
 
 ### Added
 
@@ -88,7 +117,7 @@ All notable changes to this Kit will be documented in this file.
 
 - Hardcoded UX pages
 
-## [0.5.5] - 2022-08-10
+## [0.5.5-SNAPSHOT] - 2022-08-10
 
 ### Added
 
@@ -109,7 +138,7 @@ All notable changes to this Kit will be documented in this file.
 - Tractus-X and Jena Links
 - Spike Data
 
-## [0.4.6] - 2022-05-13
+## [0.4.6-SNAPSHOT] - 2022-05-13
 
 ### Added
 
@@ -122,3 +151,5 @@ All notable changes to this Kit will be documented in this file.
 ### Changed
 
 ### Removed
+
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
