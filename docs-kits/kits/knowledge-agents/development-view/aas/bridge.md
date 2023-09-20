@@ -67,17 +67,16 @@ can be left out if a sparql-capable database holds its data in conformance to th
 
 ## KA-AAS Bridge
 
-Exposing substructures of the distributed knowledge graph via the AAS APIs is possible by implementing [a mapper](https://github.com/catenax-ng/product-knowledge/tree/main/dataspace/aas-bridge/src/main/java/io/catenax/knowledge/dataspace/aasbridge/aspects)
-and registering it in the KA-AAS Bridge. For each submodel template, there will be a combination of
+Exposing substructures of the distributed knowledge graph via the AAS APIs is possible by deploying the [KA-AAS-Bridge](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge). This generic tool can be used to expose the graphs structures as AAS by configuring a set of mappings. Each consists of two components
 
 * a SPARQL query extracting "flat" information out of the virtual graph
-* a shell/submodel template providing the basic structure of the target AAS
-* a mapper class which populates the query results into the AAS representation
+* a mapping configuration providing the basic structure of the target AAS
 
-To reduce the complexity of implementing new mappings, a mechanism that works on configuration only will be integrated into
-the KA-AAS Bridge in the future.
-
-[FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) is used as SDK providing the AAS tooling required for the implementation
-of all relevant AAS-APIs.
+These two components must be closely coordinated with each other. The query is executed against an internal 
+SPARQL-endpoint configured by the data provider. Its response (XML) is then digested by the [aas4j-transformation-library](https://github.com/eclipse-aas4j/aas4j-transformation-library) 
+and transformed into AAS-native structures. This is executed at runtime whenever a request hits the AAS-APIs of the bridge so 
+that the ground truth remains in the RDF-graph (or the persistence it was virtualized from, see above). [FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) provides 
+the AAS-tooling required for the implementation of all relevant AAS-APIs. The library ships with four default mappings for 
+Traceability-related Aspect-Models but is not restricted to these. Details on the KA-AAS-bridge's deployment can (soon) be found in [its documentation](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge/blob/main/README.md).
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
