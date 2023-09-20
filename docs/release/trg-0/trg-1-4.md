@@ -9,16 +9,16 @@ title: TRG 1.04 - Diagrams as Code
 
 ## Why
 
-To have an easier approach to update current static files and have a better overview of the changes within the product pictures.
+To have an easier approach to update current diagram files and have a better overview of the changes within the diagrams.
 
 This helps people to understand our workflows within our products and make it easier to understand the product itself.
 Also updating the static files will be easier and faster to do for every committer or maintainer of our repositories.
 
 ## Description
 
-All static files **must** be created with code and also stored as `.svg` file within your product repository.
+All diagram files **must** be created with code and either stored as `.svg` file within our repositories or implemented in your documentation.
 After a committers [decision](https://github.com/eclipse-tractusx/sig-infra/discussions/19) there are 2 languages accepted, either [PUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/).
-These code files (`.puml`,`.mmd`,`mermaid`) and static `.svg` files **must** be stored within the `docs/static` folder.
+These diagram code files (`.puml`,`.mmd`,`.mermaid`) and / or static diagram `.svg` files **must** be stored within the `docs/` folder as described in [TRG 2.03](https://eclipse-tractusx.github.io/docs/release/trg-2/trg-2-3#docs).
 In addition to this you can integrate mermaid diagrams also directly into your markdown files as code snippets.
 
 This includes:
