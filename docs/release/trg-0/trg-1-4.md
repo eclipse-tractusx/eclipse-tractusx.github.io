@@ -19,6 +19,7 @@ Also updating the static files will be easier and faster to do for every committ
 All static files **must** be created with code and also stored as `.svg` file within your product repository.
 After a committers [decision](https://github.com/eclipse-tractusx/sig-infra/discussions/19) there are 2 languages accepted, either [PUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/).
 These code files (`.puml`,`.mmd`,`mermaid`) and static `.svg` files **must** be stored within the `docs/static` folder.
+In addition to this you can integrate mermaid diagrams also directly into your markdown files as code snippets.
 
 This includes:
 
@@ -29,11 +30,11 @@ This includes:
 - gantt charts
 - etc.
 
-## PlantUML / Mermaid snippets
+## PlantUML / Mermaid / Markdown snippets
 
 ### PlantUML example
 
-```bash
+```plantuml
 @startuml
 (First usecase)
 (Another usecase) as (UC2)
@@ -42,11 +43,11 @@ usecase (Last\nusecase) as UC4
 @enduml
 ```
 
-![example](https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuT9moomgBb4eBKvDJYnErUJISCpBByb8BOABA2GMAsY4EXjfSa5554ATZU5i3P_4ufAOF2J5G6aJBeVKl1IWwG00)
+![example-as-image](https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuT9moomgBb4eBKvDJYnErUJISCpBByb8BOABA2GMAsY4EXjfSa5554ATZU5i3P_4ufAOF2J5G6aJBeVKl1IWwG00)
 
 ### Mermaid example
 
-``` bash
+```markdown
 flowchart TD
     A[Committer] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -55,7 +56,29 @@ flowchart TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-[![example2](https://mermaid.ink/img/pako:eNpVkEFug0AMRa9iedVK4QIsKiXQZpOokZodsHDBMKMwYzQxiiLg7h3KpvXK8n_fX_aEtTSMKba9PGpDQeGalx5i7YtMnLOqHCpIkrf5yApOPD9nOLwcBe5GhsH67nXjDysE2XRaMQY11t-WTcp-_Z-eZ8iLEw0qQ_VXuT5khvfiLN-2Z7iYGPJfN4Gj96NoKW0pqSlARqHCHToOjmwTD5hWQ4lq2HGJaWwbCrcSS79EjkaVr6evMdUw8g7HoSHl3FIXyGFc2t_jlBurEs7bR2rxre1w-QHjzV4u?type=png)](https://mermaid.live/edit#pako:eNpVkEFug0AMRa9iedVK4QIsKiXQZpOokZodsHDBMKMwYzQxiiLg7h3KpvXK8n_fX_aEtTSMKba9PGpDQeGalx5i7YtMnLOqHCpIkrf5yApOPD9nOLwcBe5GhsH67nXjDysE2XRaMQY11t-WTcp-_Z-eZ8iLEw0qQ_VXuT5khvfiLN-2Z7iYGPJfN4Gj96NoKW0pqSlARqHCHToOjmwTD5hWQ4lq2HGJaWwbCrcSS79EjkaVr6evMdUw8g7HoSHl3FIXyGFc2t_jlBurEs7bR2rxre1w-QHjzV4u)
+[![example2-as-image](https://mermaid.ink/img/pako:eNpVkEFug0AMRa9iedVK4QIsKiXQZpOokZodsHDBMKMwYzQxiiLg7h3KpvXK8n_fX_aEtTSMKba9PGpDQeGalx5i7YtMnLOqHCpIkrf5yApOPD9nOLwcBe5GhsH67nXjDysE2XRaMQY11t-WTcp-_Z-eZ8iLEw0qQ_VXuT5khvfiLN-2Z7iYGPJfN4Gj96NoKW0pqSlARqHCHToOjmwTD5hWQ4lq2HGJaWwbCrcSS79EjkaVr6evMdUw8g7HoSHl3FIXyGFc2t_jlBurEs7bR2rxre1w-QHjzV4u?type=png)](https://mermaid.live/edit#pako:eNpVkEFug0AMRa9iedVK4QIsKiXQZpOokZodsHDBMKMwYzQxiiLg7h3KpvXK8n_fX_aEtTSMKba9PGpDQeGalx5i7YtMnLOqHCpIkrf5yApOPD9nOLwcBe5GhsH67nXjDysE2XRaMQY11t-WTcp-_Z-eZ8iLEw0qQ_VXuT5khvfiLN-2Z7iYGPJfN4Gj96NoKW0pqSlARqHCHToOjmwTD5hWQ4lq2HGJaWwbCrcSS79EjkaVr6evMdUw8g7HoSHl3FIXyGFc2t_jlBurEs7bR2rxre1w-QHjzV4u)
+
+### Example Mermaid into Markdown
+
+````markdown
+```mermaid
+flowchart TD
+    A[Committer] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[Mobile Phone]
+    C -->|Three| F[fa:fa-car Car]
+```
+````
+
+```mermaid
+flowchart TD
+    A[Committer] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[Mobile Phone]
+    C -->|Three| F[fa:fa-car Car]
+```
 
 ## Technical requirements
 
