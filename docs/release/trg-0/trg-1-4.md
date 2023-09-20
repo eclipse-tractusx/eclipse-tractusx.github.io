@@ -33,7 +33,7 @@ This includes:
 
 ### PlantUML example
 
-``` bash
+```bash
 @startuml
 (First usecase)
 (Another usecase) as (UC2)
