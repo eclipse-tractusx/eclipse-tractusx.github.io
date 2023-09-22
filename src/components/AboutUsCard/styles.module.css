@@ -106,6 +106,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 20px;
   }
 
   .information_container {
@@ -113,15 +114,32 @@
     align-items: center;
     text-align: center;
   }
+
+  .img {
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .container {
     width: 70vw;
     height: fit-content;
+    margin-bottom: 20px;
+  }
+
+  .img {
+    height: auto;
   }
 
   .information_container {
     height: fit-content;
+  }
+
+  .subtitle {
+    width: 90%;
+  }
+
+  .outlinedbutton {
+    margin-bottom: 20px;
   }
 }
