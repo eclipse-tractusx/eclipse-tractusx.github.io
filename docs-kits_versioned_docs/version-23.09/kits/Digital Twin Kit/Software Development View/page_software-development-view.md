@@ -140,7 +140,9 @@ The top-level `@id` field denotes the identifier of the resource that is being r
 #### Digital Twin Registry as EDC Data Asset
 
 The top-level `@id` field is mandatory but can (for a DTR) be chosen freely at registration since a DTR usually has no unique
-identifier.
+identifier. Please note that the dataAddress field `edc:baseUrl` ends before the URL-segments`/shell-descriptors/` and 
+`/lookup/`. Those must be added by the data consumer. The segments in the baseUrl are purely at the discretion of the data
+provider as they are not specified by CX-0018 (and thus by the underlying IDTA-Standard).
 
 ```json
 {
@@ -164,7 +166,7 @@ identifier.
   "edc:dataAddress": {
     "@type": "DataAddress",
     "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://mycompany.com/dtr/",
+    "edc:baseUrl": "https://mycompany.com/dtr/api/v3/",
     "edc:authKey": "Authorization",
     "edc:authCode": "Basic XXX",
     "edc:proxyBody": "true",
@@ -179,16 +181,16 @@ identifier.
 
 #### Submodel as EDC Data Asset
 
-Registering a Submodel as Asset with the EDC Management API is at the discretion of each Data Provider. She may create
-one entry per Submodel or bundle them into one - yielding a smaller catalogue hence better performance. This may seem
-strange because unharmonized Asset Registration does not allow a Data Consumer to systematically find all EDC-Assets of
-type "Submodel". The discovery-sequence, however, is still intact since a Data Consumer will always know the Data Plane
-and Control Plane of a Submodel from its [Submodel Descriptor in the Digital Twin Registry](#registration-at-digital-twin-registry).
+Registering a Submodel as Asset with the EDC Management API is at the discretion of each Data Provider. 
 
-If a Data Provider wanted to 
-The following shows an example for registration of an AAS-Submodel as EDC Data Asset. The basic structure of the
-`properties` section extends that of the DTR but additionally holds `hasSemantics:semanticId`. It is
-recommended and shall signify the meaning of the Submodel's payload.
+She may createone entry per Submodel or bundle them into one - yielding a smaller catalogue hence better performance. 
+This may seem strange because unharmonized Asset Registration does not allow a Data Consumer to systematically find all 
+EDC-Assets of type "Submodel". The discovery-sequence, however, is still intact since a Data Consumer will always know the 
+Data Plane and Control Plane of a Submodel from its [Submodel Descriptor in the Digital Twin Registry](#registration-at-digital-twin-registry).
+
+The following shows an example for registration of an AAS-Submodel as EDC Data Asset. The basic structure lends a type to 
+the asset and additionally holds `hasSemantics:semanticId`. It is recommended and shall signify the meaning of the 
+Submodel's payload.
 
 The top-level `@id` field should be equivalent to the id of the Submodel.
 ```json
@@ -219,7 +221,7 @@ The top-level `@id` field should be equivalent to the id of the Submodel.
       "edc:authKey": "Authorization",
       "edc:authCode": "Basic XXX",
       "edc:proxyBody": "true",
-      "edc:proxyPath": "true",
+      "edc:proxyPath": "false",
       "edc:proxyQueryParams": "true",
       "edc:proxyMethod": "true",
       "edc:contentType": "application/json"
