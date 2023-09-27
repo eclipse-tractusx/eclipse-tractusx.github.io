@@ -30,7 +30,7 @@ export default function AboutUsCard() {
     <section className={styles.about_us}>
       <div className={styles.maincontainer}>
         <div className={styles.headercontainer}>
-          <h2 className={styles.title}>Roadmap & Releases</h2>
+          <h2 className={styles.title}>Welcome to the community</h2>
           <p className={styles.subtitle}>
           The magic behind Eclipse Tractus-X
           </p>
@@ -44,8 +44,8 @@ export default function AboutUsCard() {
             <span className={styles.descriptionhighlight}> The Eclipse Tractus-X™ project</span> is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is not-for-profit corporation that it supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
           </p>
           <div>
-            <Link className={styles.outlinedbutton} to="/developer">
-              Dev Hub
+            <Link className={styles.outlinedbutton} to="/aboutus">
+              About Us
             </Link>
           </div>
         </div>
