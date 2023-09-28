@@ -234,7 +234,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 #### Submodel Batch
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/1.0.2)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0)
 
 ##### Submodel "Batch" for a Batch of Raw Material
 
@@ -253,10 +253,8 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "partTypeInformation": {
     "manufacturerPartId": "123-0.740-3434-A",
-    "customerPartId": "PRT-12345",
     "classification": "product",
     "nameAtManufacturer": "PA66-GF30",
-    "nameAtCustomer": "Polyamide"
   }
 }
 ```
@@ -467,103 +465,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 
 ##### Authorization: Visbility of Specific Asset IDs in the DTR
 
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to only the manufacturer of the part (which is represented by the digital twin) and the customers of the part. For that, the attribute `externalSubjectId` must be used.
-
-- _Every entry_ in the attribute specificAssetIds (e.g., for `customerPartId`, `manufacturerId` or `manufacturerPartId`) must contain a `externalSubjectId` attribute that defines which company (identified by a BPN) is allowed to see the entry.
-- If a key-value pair should be visible to multiple companies, e.g., for batches or catalog parts, multiple entries with the same key-value pair, but different BPNs in the `externalSubjectId` attribute must be specified.
-- The owner (creator) of a digital twin will always see all specific asset IDs. So, it's not necessary to add an `externalSubjectId` for the owner itself. This also means that only the owner of a digital twin will be able to see the entry if no `externalSubjectId` is specified.
-
-###### Example: Visibility of manufacturerId and customerPartId only for company with BPN BPNL000000000XXX
-
-```json
-"specificAssetIds": [
-  {
-    "name": "manufacturerId",
-    "value": "BPNL000000000AAA",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000XXX"
-        }
-      ]
-    }
-  },
-  {
-    "name": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000XXX"
-        }
-      ]
-    }
-  }
-]
-```
-
-###### Example: Visibility of manufacturerId and customerPartId for two companies
-
-```json
-"specificAssetIds": [
-  {
-    "name": "manufacturerId",
-    "value": "BPNL000000000AAA",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000XXX"
-        }
-      ]
-    }
-  },
-  {
-    "name": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000XXX"
-        }
-      ]
-    }
-  },
-  {
-    "key": "manufacturerId",
-    "value": "BPNL000000000AAA",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000YYY"
-        }
-      ]
-    }
-  },
-  {
-    "key": "customerPartId",
-    "value": "39192",
-    "externalSubjectId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "BPNL000000000YYY"
-        }
-      ]
-    }
-  }
-]
-```
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
 
 ##### Submodel Descriptors
 
@@ -595,7 +497,7 @@ The actual access information for the EDC is part of the endpoint attribute in t
 
 The following conventions apply for the endpoint:
 
-- `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
+- `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the [CX-0002 standard](https://catena-x.net/de/standard-library).
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
   - `edc.data.plane`: Server and port of the EDC data plane that is providing the submodel.
   - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
@@ -605,7 +507,7 @@ The following conventions apply for the endpoint:
   - `dspEndpoint`: Server and port of the EDC control plane used for contract negotiation.
 
 > :raised_hand: **Backend Data Service for Submodels**
-According to CX-0002, the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
+According to [CX-0002](https://catena-x.net/de/standard-library), the backend data service identified via `href`and the filter criteria in `subprotocolBody` MUST be conformant to the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. In release 3.2, only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later releases.
 
 With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
@@ -701,7 +603,7 @@ Here's an example how such a submodel descriptor could look like:
 
 The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the EDC asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
-The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other EDC asset structure.
+The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including [CX-0002](https://catena-x.net/de/standard-library)) a data provider can also use any other EDC asset structure.
 
 ###### Data Consumption with AAS Submodel Descriptor Endpoints
 
@@ -709,7 +611,7 @@ The endpoint `href` in the submodel descriptor cannot be used directly to contac
 
 - A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfers in Catena-X, this is "DSP"
 - With `href`, the data consumer calls the local operation GetSubmodel as specified by the suffix "/submodel". As only the logical parameter "Content" must be supported in release 3.2, "/$value" must be appended to `href` by the data consumer.
- If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to CX-0002.
+ If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to [CX-0002](https://catena-x.net/de/standard-library).
 - Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the EDC asset referenced by `id` with the EDC control plane of the data provider specified by `dspEndpoint`.
 - Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the EDC data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
 
@@ -992,6 +894,6 @@ With the changes of Release 3.2 regarding the submodel endpoints in the DTR, the
 Basically, as a data provider you have to do the following
 
 - Implement a Backend Data Service (BDS) for every asset that is provided via the EDC. It does not have to be a different BDS for each asset - you can use the same BDS for several assets (to be verified).
-- The BDS must support the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification (see standard CX-0002 for more details).
+- The BDS must support the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification (see [standard CX-0002](https://catena-x.net/de/standard-library) for more details).
 - The BDS must use the REST API data plan for data transmission.
 - The BDS must verify that it only returns data to the data consumer that is compliant to the EDC asset and data offer for which data is queried and authorize the request accordingly.
