@@ -15,11 +15,11 @@ All notable changes to this Kit will be documented in this file.
 
 <h3>Added</h3>
 
-- dokumentation of the IRS API
-- dokumentation of adoption view
-- dokumentation of software development view
-- dokumentation of the IRS reference implementation
-- two successstories how this Kit is beeing used
+- documentation of the IRS API
+- documentation of adoption view
+- documentation of software development view
+- documentation of the IRS reference implementation
+- two success stories how this Kit is used
 
 <h3>Changed</h3>
 
