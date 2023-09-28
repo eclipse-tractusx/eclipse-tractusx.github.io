@@ -14,6 +14,10 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x-min.ico',
 
+  markdown: {
+    mermaid: true,
+  },
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'eclipse-tractusx', // Usually your GitHub org/user name.
@@ -246,13 +250,29 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-            }
+          }, 
+          pcf_exchange_api: {
+              specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
+              outputDir:
+                "./docs-kits/kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/",
+              sidebarOptions: {
+                groupPathsBy: "tag",
+              },
+            },
+          resiliency_osim: {
+            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
+            outputDir:
+              "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
         },
       },
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"], // Allows use of @theme/ApiItem and other components
+  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -297,21 +317,41 @@ const config = {
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
-                label: 'Data Chain',
-              },
-              {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
-                label: 'Traceability',
+                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
+                label: 'Data Chain',
               },
               {
-                 to: '/docs-kits/next/category/digital-twin-kit',
-                 label: 'Digital Twin',
+                to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
+                label: 'Digital Twin',
               },
+              {
+                to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
+                label: 'Eco Pass',
+              },
+              {
+                to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
+                label: 'Online Simulation',
+              },
+              {
+                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
+                label: 'PCF Exchange',
+              },
+              {
+                to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
+                label: 'Quality',
+              },
+              {
+                to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Remaining Useful Life (RuL)',
+              },
+              {
+                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                label: 'Traceability',
+              }
             ],
           },
           {
@@ -403,6 +443,10 @@ const config = {
               {
                 label: "Icons used from svgrepo with CC0 License",
                 href: "https://www.svgrepo.com/",
+              },
+              {
+                to: '/docs/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
+                label: 'Behaviour Twin RuL',
               },
             ],
           },
