@@ -11,6 +11,54 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [3.0.0] - UPCOMING
+
+Compatible for release 23.12.
+
+### Added
+
+- **Business View:**
+  - ./.
+- **Architecture View:**
+  - ./.
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
+
+### Changed
+
+- **General:**
+  - Restructure from adoption, operation and development view to business, architecture, operation and development view
+- **Business View:**
+  - ./.
+- **Architecture View:**
+  - ./.
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
+
+### Removed
+
+- **Business View:**
+  - ./.
+- **Architecture View:**
+  - ./.
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
+
 ## [2.0.0] - 2023-09-28
 
 Compatible for release 23.09 (also known as 3.2).
