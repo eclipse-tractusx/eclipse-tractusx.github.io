@@ -11,9 +11,9 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - UPCOMING
+## [2.0.0] - 2023-09-28
 
-Compatible for release 3.2
+Compatible for release 23.09 (also known as 3.2).
 
 ### Added
 
@@ -47,7 +47,7 @@ Compatible for release 3.2
 
 ## [1.0.1] - 2023-04-14
 
-Compatible for release 3.1
+Compatible for release 3.1.
 
 ### Added
 
@@ -65,7 +65,7 @@ Compatible for release 3.1
 
 ## [1.0.0] - 2023-04-12
 
-Compatible for release 3.1
+Compatible for release 3.1.
 
 ### Added
 
