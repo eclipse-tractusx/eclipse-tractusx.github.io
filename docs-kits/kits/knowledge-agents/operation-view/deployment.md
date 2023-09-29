@@ -39,7 +39,9 @@ For more information see
 * The [EDC Deployment](agent_edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
+* The [Conformity](testbed) testbed
 * A [Data Sovereignity & Graph Policy](policy) discussion
+
 
 ## Motivation & Deployment Roles
 

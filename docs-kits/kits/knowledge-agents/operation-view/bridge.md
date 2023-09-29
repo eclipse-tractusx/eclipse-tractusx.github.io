@@ -32,6 +32,7 @@ For more information see
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../development-view/architecture) documentation
 * The [Deployment](deployment) overview
+* The [Conformity](testbed) testbed
 * A [Data Sovereignity & Graph Policy](policy) discussion
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

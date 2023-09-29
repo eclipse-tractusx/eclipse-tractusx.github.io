@@ -415,31 +415,7 @@ const sidebars = {
             collapsed: true,
             items: [
                 'kits/knowledge-agents/Knowledge Agent Changelog',
-                 {
-                    type: 'category',
-                    label: 'Adoption View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/knowledge-agents/adoption-view/intro',
-                    },
-                    collapsed: true,
-                    items: [
-                        'kits/knowledge-agents/adoption-view/intro',
-                        'kits/knowledge-agents/adoption-view/usecase',
-                        'kits/knowledge-agents/adoption-view/value',
-                        {
-                            type: 'link',
-                            label: 'Catena-X Standard CX-0084',
-                            href: 'https://github.com/catenax-ng/product-catena-x-standardization/blob/main/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md'
-                        },
-                        {
-                            type: 'link',
-                            label: 'Catena-X Standard CX-00XX',
-                            href: 'https://github.com/catenax-ng/product-knowledge/blob/feature/ART3-382-documentation/docs/adoption-view/CX-00XX-Ontology%20Models%20in%20Catena-X_v1.0.0.md'
-                        }, 
-                        'kits/knowledge-agents/adoption-view/testbed',
-                    ],
-                },
+                'kits/knowledge-agents/adoption-view/intro',
                 {
                   type: 'category',
                   label: 'Development View',
@@ -484,7 +460,8 @@ const sidebars = {
                       'kits/knowledge-agents/operation-view/provider',
                       'kits/knowledge-agents/operation-view/bridge',
                       'kits/knowledge-agents/operation-view/policy',
-                  ],
+                      'kits/knowledge-agents/operation-view/testbed',
+                    ],
               },
             ],
         },

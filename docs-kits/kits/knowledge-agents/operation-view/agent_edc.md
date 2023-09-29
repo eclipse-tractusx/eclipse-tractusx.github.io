@@ -33,6 +33,7 @@ For more information see
 * Our [Adoption](../adoption-view/intro) guidelines
 * The [Implementation](../development-view/architecture) documentation
 * The [Deployment](deployment) overview
+* The [Conformity](testbed) testbed
 * A [Data Sovereignity & Graph Policy](policy) discussion
 
 ### Quick Setup Guide for Agent-Enabled EDC (KA-EDC)
