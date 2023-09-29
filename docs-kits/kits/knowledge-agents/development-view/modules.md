@@ -234,20 +234,62 @@ The Functional Remoting building block allows translation of SPARQL queries to s
 
 A graph database stores a pre-mapped Knowledge Graph in a dedicated RDF store. It can be combined with a Virtual Knowledge Graph in order to cache frequent accesses to the Virtualization Layer.
 
-### AAS->KA Bridge
+### AAS Bridge(s)
+
+These are virtualization components which bridge between the [Semantic Web](https://www.w3.org/standards/semanticweb/) technology of
+Knowledge Agents with the [Industrial Digital Twin Association's](https://industrialdigitaltwin.org/)
+[Asset Administration Shell (AAS)](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01002-3-0_SpecificationAssetAdministrationShell_Part2_API.pdf)
+standard.
+
+Actually, we are talking about two bridges, one which bridges AAS information that is described in Catena-X aspect schemas
+into the Catena-X domain ontologies (the AAS-KA Bridge). And one bridge which is able to emulate
+shells and submodels out of a given (federated) virtual graph.
+
+[![AAS Bridge(s)](/img/knowledge-agents/aas_bridge_small.png)](/img/knowledge-agents/aas_bridge.png)
+
+As the result, we are able to provide both SPARQL-based Graph Assets as well as AAS-based Submodel Assets based on the same
+data sources.
+
+This integration does not aim to solve the fundamental challenge of conflicting data formats on the meta-model level but
+maps only a subset of the domain-models between the Knowledge-Graph- and AAS-world. This is true for either direction: The
+native submodel template/aspect model must be mapped to a subset of the Catena-X-Ontology manually. Likewise, only that part
+of the graph can be exposed via the AAS-APIs that has mapper implementing the transformation.
+
+#### AAS->KA Bridge
 
 Special form of virtualization component which denormalizes/flattens & caches the often hierarchical
 information (Shells, Submodels, Submodel Elements) stored in backend AAS servers in order to make it
 accessible for ad-hoc querying.
 
-See [AAS Bridge](aas/bridge.md) for a more detailed explanation.
+There are two main components whose interplay implements the AAS-KA bridge:
 
-### KA->AAS Bridge
+* A flexible SQL/JSON engine, such as Dremio or in parts also Postgresql which is able to mount raw data in various
+formats from remote filesystems and APIs. This engine is used to build flat relational views onto a hierarchical
+json structure that may originate in the value-only-serialization of the AAS. Typically there will be one table/view
+per json-schema/submodel template. As an example, see these [scripts](https://github.com/catenax-ng/product-knowledge/tree/main/infrastructure/resources/dremio)
+* A graph engine (such as [ontop](https://ontop-vkg.org/guide/) ) that is able to bind/translate SPARQL queries into SQL. As an example, see these [bindings](https://github.com/catenax-ng/product-knowledge/tree/main/infrastructure/oem/resources/trace.obda)
+
+Of course, if the data is available in a native SQL-schema, the SQL/JSON-engine can be omitted. Likewise, even the graph engine
+can be left out if a sparql-capable database holds its data in conformance to the CX-ontologies.
+
+#### KA->AAS Bridge
 
 In order to form a twin-based, highly-standarized access to any graphTo allow for a more strict
 In order to form a graph-based, flexible access to AAS backend components, we
 employ a bridge virtualization module which denormalizes/caches the information
 inside Shells and Submodels.
+
+Exposing substructures of the distributed knowledge graph via the AAS APIs is possible by deploying the [KA-AAS-Bridge](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge). This generic tool can be used to expose the graphs structures as AAS by configuring a set of mappings. Each consists of two components
+
+* a SPARQL query extracting "flat" information out of the virtual graph
+* a mapping configuration providing the basic structure of the target AAS
+
+These two components must be closely coordinated with each other. The query is executed against an internal 
+SPARQL-endpoint configured by the data provider. Its response (XML) is then digested by the [aas4j-transformation-library](https://github.com/eclipse-aas4j/aas4j-transformation-library) 
+and transformed into AAS-native structures. This is executed at runtime whenever a request hits the AAS-APIs of the bridge so 
+that the ground truth remains in the RDF-graph (or the persistence it was virtualized from, see above). [FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) provides 
+the AAS-tooling required for the implementation of all relevant AAS-APIs. The library ships with four default mappings for 
+Traceability-related Aspect-Models but is not restricted to these. Details on the KA-AAS-bridge's deployment can (soon) be found in [its documentation](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge/blob/main/README.md).
 
 ## Backend Systems (Non-Standard Relevant)
 

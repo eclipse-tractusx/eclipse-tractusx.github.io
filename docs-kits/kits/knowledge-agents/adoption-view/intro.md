@@ -33,8 +33,8 @@ This document describes the foundations of the (Knowledge) Agents KIT (=Keep It 
 
 For more information see
 
-* Our [Target Audience](audience) description
-* A [Frequently Asked Question](faq) list
+* Our [Use Case](usecase) description
+* A [Business Value](value) list
 * The [CX-0084 Federated Queries in Data Spaces](https://github.com/catenax-ng/product-catena-x-standardization/blob/CX-0084-FederatedQueriesInDataSpaces/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md) standard
 * The [CX-00XX Ontology Models in Catena-X](https://github.com/catenax-ng/product-knowledge/blob/feature/ART3-382-documentation/docs/adoption-view/CX-00XX-Ontology%20Models%20in%20Catena-X_v1.0.0.md) standard
 * The [conformity](testbed) testbed
