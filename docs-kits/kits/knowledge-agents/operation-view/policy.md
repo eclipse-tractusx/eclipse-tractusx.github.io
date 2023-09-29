@@ -33,7 +33,10 @@ For more information see
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../development-view/architecture) documentation
 * The [EDC Deployment](agent_edc) description
-* The [Provider Deployment](agent_edc) description
+* The [Provider Deployment](provider) description
+* The [AAS Bridge Deployment](bridge) description
+* The [Conformity](testbed) testbed
+
 
 The core ingredient to the KA Semantic Dataspace Architecture is that a business partner (the Provider) offers an RDF-based query endpoint (Graph Asset) over her Connector.
 

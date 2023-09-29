@@ -33,6 +33,15 @@ More specifically, we recommend to deploy
 * the [Tractus-X Provisioning Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/provisioning/README.md) for relational or virtualized data sources.
 * the [Tractus-X Remoting Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/remoting/README.md) for REST-based API functions.
 
+
+For more information see
+
+* Our [Adoption](../adoption-view/intro) guidelines
+* The [Implementation](../development-view/architecture) documentation
+* The [Deployment](deployment) overview
+* The [Conformity](testbed) testbed
+* A [Data Sovereignity & Graph Policy](policy) discussion
+
 ### Quick Setup Guide for Data Provisioning
 
 Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example uses a postgresql telematics sample, see [here](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/provisioning/README.md) for more options and full details).
