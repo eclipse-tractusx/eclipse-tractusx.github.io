@@ -37,7 +37,6 @@ For more information see
 * Our [Adoption](../adoption-view/intro) guideline
 * The [High-Level](architecture) architecture
 * An [API](api) specification
-* Our [Development](Development_Process) process 
 * The [Layers & Modules](modules) Architecture
 * Our [Reference Implementation](reference)
 * The [Deployment](../operation-view/deployment) guide
