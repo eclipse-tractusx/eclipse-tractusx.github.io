@@ -36,7 +36,6 @@ For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [ARC42](Arc42) documentation
-* Our [Development](Development_Process) process 
 * An [API](api) specification
 * The [Layers & Modules](modules) Architecture
 * Our [Reference Implementation](reference)
