@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Frequently Asked Questions
+title: Business Value
 ---
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
@@ -25,12 +25,12 @@ title: Frequently Asked Questions
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-This document describes the foundations about the (Knowledge) Agents KIT (=Keep It Together).
+This document describes the business value of the (Knowledge) Agents KIT (=Keep It Together) by means of frequently asked questions.
 
 For more information see
 
-* Our [Introduction](audience) manifest
-* Our [Target Audience](audience) description
+* Our [Introduction](intro) manifest
+* Our [Use Case](usecase) description
 * The [CX-0084 Federated Queries in Data Spaces](https://github.com/catenax-ng/product-catena-x-standardization/blob/CX-0084-FederatedQueriesInDataSpaces/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md) standard
 * The [CX-00XX Ontology Models in Catena-X](https://github.com/catenax-ng/product-knowledge/blob/feature/ART3-382-documentation/docs/adoption-view/CX-00XX-Ontology%20Models%20in%20Catena-X_v1.0.0.md) standard
 * The [conformity](testbed) testbed

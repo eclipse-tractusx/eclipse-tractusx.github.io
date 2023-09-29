@@ -425,8 +425,8 @@ const sidebars = {
                     collapsed: true,
                     items: [
                         'kits/knowledge-agents/adoption-view/intro',
-                        'kits/knowledge-agents/adoption-view/audience',
-                        'kits/knowledge-agents/adoption-view/faq',
+                        'kits/knowledge-agents/adoption-view/usecase',
+                        'kits/knowledge-agents/adoption-view/value',
                         {
                             type: 'link',
                             label: 'Catena-X Standard CX-0084',
@@ -452,18 +452,7 @@ const sidebars = {
                       'kits/knowledge-agents/development-view/architecture',
                       'kits/knowledge-agents/development-view/Development_Process',
                       'kits/knowledge-agents/development-view/Arc42',
-                      {
-                          type: 'category',
-                          label: 'Layers & Modules',
-                          link: {
-                              type: 'doc',
-                              id: 'kits/knowledge-agents/development-view/modules',
-                          },
-                          collapsed: true,
-                          items: [
-                              'kits/knowledge-agents/development-view/aas/bridge',
-                          ],
-                      },
+                      'kits/knowledge-agents/development-view/modules',
                       'kits/knowledge-agents/development-view/reference',
                       {
                           type: 'category',

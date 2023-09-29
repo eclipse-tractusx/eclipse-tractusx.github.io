@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Target Audience
+title: Use Case
 ---
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
@@ -25,12 +25,12 @@ title: Target Audience
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-This document describes the audience of the (Knowledge) Agents KIT (=Keep It Together).
+This document describes the use case and target audience of the (Knowledge) Agents KIT (=Keep It Together).
 
 For more information see
 
 * Our [Introduction](intro) manifest
-* Our [Frequently Asked Question](faq) list
+* Our [Business Value](value) list
 * The [CX-0084 Federated Queries in Data Spaces](https://github.com/catenax-ng/product-catena-x-standardization/blob/CX-0084-FederatedQueriesInDataSpaces/standards/CX-0084-FederatedQueriesInDataSpaces/1.0.0/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.md) standard
 * The [CX-00XX Ontology Models in Catena-X](https://github.com/catenax-ng/product-knowledge/blob/feature/ART3-382-documentation/docs/adoption-view/CX-00XX-Ontology%20Models%20in%20Catena-X_v1.0.0.md) standard
 * The [conformity](testbed) testbed
