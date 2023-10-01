@@ -29,7 +29,7 @@ sidebar_position: 1
 -->
 ### Agents KIT
 
-![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
+![Agents Kit Banner](/img/knowledge-agents/AgentsKit-icon.png)
 
 All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
 
