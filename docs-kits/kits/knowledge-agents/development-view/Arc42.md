@@ -28,7 +28,7 @@ title: Detailed Architecture
 
 ### Agents KIT
 
-![Agents Kit Banner](/img/knowledge-agents/AgentsKit-icon.png)
+![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
 This document describes the detailed Architecture of the (Knowledge) Agents KIT (=Keep It Together) based on ARC42 recommendations.
 
