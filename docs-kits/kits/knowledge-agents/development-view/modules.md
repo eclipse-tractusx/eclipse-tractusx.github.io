@@ -303,6 +303,4 @@ technological APIs in specific, transaction-oriented formats.
 As a special case of backend systems, we also regard existing AAS servers and databases as valid data sources
 to form a semantic dataspace.
 
-See [AAS Bridge](aas/bridge.md) for a more detailed explanation.
-
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

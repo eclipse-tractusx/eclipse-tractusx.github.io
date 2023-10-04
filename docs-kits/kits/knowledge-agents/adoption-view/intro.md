@@ -28,7 +28,7 @@ title: Adoption View
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
+![Agents Kit Banner](/img/knowledge-agents/AgentsKit-icon.png)
 
 This document describes the foundations of the (Knowledge) Agents KIT (=Keep It Together).
 

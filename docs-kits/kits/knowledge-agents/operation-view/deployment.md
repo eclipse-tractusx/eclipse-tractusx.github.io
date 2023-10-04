@@ -28,7 +28,7 @@ title: Deployment
 
 ### Agents KIT
 
-![Agents Kit Banner](@site/static/img/knowledge-agents/AgentsKit-icon.png)
+![Agents Kit Banner](/img/knowledge-agents/AgentsKit-icon.png)
 
 This document describes the deployment of the (Knowledge) Agents KIT (=Keep It Together) depending on the role that the respective tenant/business partner has.
 
