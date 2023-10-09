@@ -6,7 +6,8 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                  |
 |--------------|-----------------------------------------------------------------------------------------------|
-| 22-Sep-2023  | TRG 4.06 add base image for hashicorp vault                                                   |
+| 09-Oct-2023  | TRG 4.06 add base image for hashicorp vault                                                   |
+| 29-Sep-2023  | TRG 4.02 / 06 add Alpine Linux to list of container base images                               |
 | 20-Sept-2023 | Adjust PostgreSQL version in TRG 5.07                                                         |
 | 24-Aug-2023  | Move updated TRG 7.01 to active                                                               |
 | 20-Jul-2023  | TRG 7.07 / 08 for OSS documentation improved, section added for documentation under CC-BY-4.0 |
