@@ -406,6 +406,64 @@ const sidebars = {
                 },
             ],
         },
+        {
+            type: 'category',
+            label: 'Agents Kit',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                'kits/knowledge-agents/Knowledge Agent Changelog',
+                'kits/knowledge-agents/adoption-view/intro',
+                {
+                  type: 'category',
+                  label: 'Development View',
+                  link: {
+                      type: 'doc',
+                      id: 'kits/knowledge-agents/development-view/architecture',
+                  },
+                  collapsed: true,
+                  items: [
+                      'kits/knowledge-agents/development-view/architecture',
+                      'kits/knowledge-agents/development-view/Arc42',
+                      'kits/knowledge-agents/development-view/modules',
+                      'kits/knowledge-agents/development-view/reference',
+                      {
+                          type: 'category',
+                          label: 'API',
+                          link: {
+                              type: 'doc',
+                              id: 'kits/knowledge-agents/development-view/api',
+                          },
+                          collapsed: true,
+                          items: [
+                              'kits/knowledge-agents/development-view/api/agent/getAgent',
+                              'kits/knowledge-agents/development-view/api/agent/postAgent',
+                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
+                          ],
+                      }
+                  ],
+              },
+              {
+                  type: 'category',
+                  label: 'Operation View',
+                  link: {
+                      type: 'doc',
+                      id: 'kits/knowledge-agents/operation-view/deployment',
+                  },
+                  collapsed: true,
+                  items: [
+                      'kits/knowledge-agents/operation-view/deployment',
+                      'kits/knowledge-agents/operation-view/agent_edc',
+                      'kits/knowledge-agents/operation-view/provider',
+                      'kits/knowledge-agents/operation-view/bridge',
+                      'kits/knowledge-agents/operation-view/policy',
+                      'kits/knowledge-agents/operation-view/testbed',
+                    ],
+              },
+            ],
+        },
     ],
     Resiliency: [
         {
