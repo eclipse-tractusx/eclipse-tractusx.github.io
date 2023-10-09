@@ -1,5 +1,10 @@
 export const newsTitles = [
   {
+    date: "04.10.2023",
+    title: "Open Source Planning for Tractus-X on 19. / 25. October, 2023",
+    blogLink: "/blog/open-planning-days"
+  },
+  {
     date: "20.09.2023",
     title: "First Tractus-X Community Days on 7. / 8. December, 2023",
     blogLink: "/blog/community-days"
