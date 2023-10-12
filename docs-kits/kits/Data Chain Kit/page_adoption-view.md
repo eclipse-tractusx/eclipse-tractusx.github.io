@@ -34,6 +34,7 @@ There are few steps for your Customer Journey:
 * Step 4: Adopt a data driven business process and create instant value
 * Step 5: Utilize the full power of collaboration in your business team
 
+<!-- !Mandatory! -->
 ## Business Value
 
 ### IRS Iterative
@@ -49,6 +50,23 @@ There are few steps for your Customer Journey:
 * The IRS Recursive API enables an easy interface for complex network tasks
 * The IRS Recursive API enables different use cases which collect insights over distributed data by not disclosing the supply chain
 * The solution enables interoperability with other solutions along the value chain to extend 
+
+<!-- !Mandatory! -->
+## Use Case
+
+### Environmental Social Responsibility (ESR)
+
+_Use Case for achieving compliance for Environmental Social Responsibility (ESR) for a component in the supply chain (multi-tier)_
+
+In the use case, it was assumed that a company in the supply chain is considered "compliant" if that company can show the ISO 14001 certificate. Presenting means that either the company itself provides it as a data provider or deposits it in a certificate repository with a service provider.
+
+The benefit of the solution is to obtain an automated overview of the supply chain's compliance and to be able to check it again and again on a cyclical basis. The companies in the supply chain are not disclosed, which follows the Catena-X specifications.
+
+The decentralized implementation at Catena-X "traverses" from the OEM to the direct supplier and from the direct supplier to its next supplier and thus through the supply chain for a specific component. Each partner determines its direct supplier automatically via the parts list stored by it in Catena-X's Item Relationship Service (IRS).
+
+Aggregated information on the compliance of the upstream suppliers is returned to the OEM via each stage of the supply chain. From this, the OEM can finally read how many companies are compliant and how many are non-compliant in its supply chain for the component.
+
+The names of the suppliers further down the supply chain are not disclosed to follow the Catena-X data sovereignty principle one-up-one-down, but each intermediate level sees which of the direct suppliers are non-compliant and can act, so that perspectively the whole supply chain is assessed as compliant.
 
 ## Logic & Schema
 
@@ -144,3 +162,15 @@ The recursive approach is based on a decentralized network in which only the nex
 5.	In this case the leaf node is responding with a message to the customer company.
 6.	The IRS on customer company level receives and aggregates the messages from all requested suppliers and responds again to the customer until OEM level is reached.
 7.	OEM shows result of recursive investigation according to the given use case in consumer application.
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2022, 2023 BOSCH AG
+- SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2022 ISTOS GmbH
+- SPDX-FileCopyrightText: 2021, 2023 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/item-relationship-service
