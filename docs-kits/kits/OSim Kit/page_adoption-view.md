@@ -125,3 +125,11 @@ The following appropriate configurations must be made in advance of the data exc
 4. The certificates required for SSI are issued on request.
 
 At runtime the OSim Manager application must know the partner BPN-ID of the communication partner. With this BPN-ID, a look-up command is issued on the Discovery Service. The result is the endpoint link that the EDC connector needs to establish the connection.
+
+## Standards
+
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+- [CX - 0072 OSim Process and Core Business Logic](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0072-OSimProcessAndCoreBusinessLogic-v1.0.0.pdf)
+- [CX - 0073 OSim API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0073-OSimAPI-v1.0.0.pdf)
+- [CX - 0087 OSim Data Model Material Flow Simulation Result](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0087-OSimDataModelMaterialFlowSimulationResult-v1.0.0.pdf)
