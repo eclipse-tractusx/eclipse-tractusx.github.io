@@ -41,7 +41,9 @@ Compatible for release 23.12.
   - ./.
 - **Development View:**
   - **Data Provider:**
-    - ./.
+    - Updated aspect model SingleLevelBoMAsPlanned from version 1.1.0 to 2.0.0
+    - Updated aspect model SingleLevelBomAsBuilt from version 1.0.0 to 2.0.0
+    - Updated example for creation of the aspect model SingleLevelBomAsBuilt regarding version 2.0.0
   - **Data Consumer:**
     - ./.
 
