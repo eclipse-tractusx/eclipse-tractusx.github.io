@@ -38,7 +38,7 @@ In the following, example data for the standardized data models are provided as 
 
 Github Link to semantic data model: [CX-00036 Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230704-io.catenax.quality_task.zip").default } download>20230704-io.catenax.quality_task.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230704-io.catenax.quality_task.zip" download>20230704-io.catenax.quality_task.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:
@@ -54,7 +54,7 @@ CX_release32_qualitytask_100_testdata_100_parquet
 
 Github Link to semantic data model: [CX-00092 Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230718-io.catenax.quality_task_attachment.zip").default } download>20230718-io.catenax.quality_task_attachment.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230718-io.catenax.quality_task_attachment.zip" download>20230718-io.catenax.quality_task_attachment.zip</a>
 
 As **data provider** please add the **PARQUET file** from folder tesdata_CX32
 as EDC asset id to **EDC S3 data plane**:
@@ -70,7 +70,7 @@ Github Link to semantic data models:
 
 [CX-00091 Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.vehicles)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230707-io.catenax.fleet.vehicles.zip").default } download>20230707-io.catenax.fleet.vehicles.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230707-io.catenax.fleet.vehicles.zip" download>20230707-io.catenax.fleet.vehicles.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:
@@ -86,7 +86,7 @@ CX_release32_fleetvehicles_100_testdata_100_parquet
 
 Github Link to semantic data model: [CX-00038 Fleet Diagnostic Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230707-io.catenax.fleet.diagnostic_data.zip").default } download>20230707-io.catenax.fleet.diagnostic_data.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230707-io.catenax.fleet.diagnostic_data.zip" download>20230707-io.catenax.fleet.diagnostic_data.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:
@@ -102,7 +102,7 @@ CX_release32_fleetdiagnostic_100_testdata_100_parquet
 
 Github Link to semantic data model: [CX-00039 Fleet Claim Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230707-io.catenax.fleet.claim_data.zip").default } download>20230707-io.catenax.fleet.claim_data.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230707-io.catenax.fleet.claim_data.zip" download>20230707-io.catenax.fleet.claim_data.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:
@@ -118,7 +118,7 @@ CX_release32_fleetclaim_100_testdata_100_parquet
 
 Github Link to semantic data model: [CX-00041 Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230707-io.catenax.manufactured_parts_quality_information.zip").default } download>20230707-io.catenax.manufactured_parts_quality_information.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230707-io.catenax.manufactured_parts_quality_information.zip" download>20230707-io.catenax.manufactured_parts_quality_information.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:
@@ -134,7 +134,7 @@ CX_release32_manufacturingqualityinformation_100_testdata_100_parquet
 
 Github Link to semantic data model: [CX-00040 Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
 
-<!-- Filedownload: <a target="_blank" href={ require("/office/20230704-io.catenax.parts_analyses.zip").default } download>20230704-io.catenax.parts_analyses.zip</a> -->
+Filedownload: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/20230704-io.catenax.parts_analyses.zip" download>20230704-io.catenax.parts_analyses.zip</a>
 
 As **data provider** please add the **JSON file** from folder tesdata_CX32
 as EDC asset id to **EDC REST data plane**:

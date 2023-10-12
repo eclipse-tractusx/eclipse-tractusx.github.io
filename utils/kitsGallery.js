@@ -33,7 +33,7 @@ export const kitsGallery = [
     name: 'Data Chain Kit',
     domain: 'Network & Core Services',
     img: DataChain_Kit,
-    pageRoute: "/docs-kits/kits/Data Chain Kit/Adoption View"
+    pageRoute: "/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit"
   },
   {
     id: 3,
@@ -54,35 +54,35 @@ export const kitsGallery = [
     name: 'Behaviour Twin RuL Kit',
     domain: 'PLM / Quality',
     img: BehaviourTwinRuLKit,
-    pageRoute: "/docs-kits/next/kits/Behaviour Twin RuL Kit/Adoption View Remaining Useful Life Kit"
+    pageRoute: "/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit"
   },
   {
     id: 6,
     name: 'Digital Twin Kit',
     domain: 'Network & Core Services',
     img: DigitalTwin,
-    pageRoute: "/docs-kits/next/kits/Digital Twin Kit/Adoption View Digital Twin Kit"
+    pageRoute: "/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit"
   },
   {
     id: 7,
     name: 'Eco Pass Kit',
     domain: 'Sustainability',
     img: EcoPass,
-    pageRoute: "/docs-kits/next/kits/Eco_Pass_KIT/page-adoption-view"
+    pageRoute: "/docs-kits/kits/Eco_Pass_KIT/page-adoption-view"
   },
   {
     id: 8,
     name: 'Online Simulation Kit',
     domain: 'Resiliency',
     img: OnlineSimulation,
-    pageRoute: "/docs-kits/next/kits/OSim Kit/Adoption View OSim Kit"
+    pageRoute: "/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit"
   },
   {
     id: 9,
     name: 'Quality Kit',
     domain: 'PLM / Quality',
     img: Quality,
-    pageRoute: "/docs-kits/next/kits/Quality-Kit/Adoption View Quality Kit"
+    pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
   },
   // {
   //   id: 4,
