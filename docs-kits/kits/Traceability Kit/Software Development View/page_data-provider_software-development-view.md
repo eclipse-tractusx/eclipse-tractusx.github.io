@@ -509,7 +509,11 @@ The following conventions for specific asset IDs apply to all digital twins:
   <tr>
     <td> assetLifecyclePhase </td>
     <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
-    <td> The lifecycle phase of the asset.<ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul></td>
+    <td>
+      The lifecycle phase of the asset:
+      <ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul>
+      assetLifecyclePhase was added to allow data consumers to search only for catalog parts by using <code>assetLifecyclePhase="AsPlanned"</code> as filter. Without this filter, a search for a particular  manufacturer part ID would not only return the digital twin of the catalog part, but also all digital twins of instances of this catalog part, i.e., of the corresponding serial parts.
+    </td>
     <td> Enum </td>
   </tr>
 </table>
