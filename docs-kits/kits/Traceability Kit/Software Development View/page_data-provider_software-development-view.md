@@ -100,23 +100,23 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.single_level_bom_as_planned/2.0.0)
 
 ##### Example: Submodel `SingleLevelBomAsPlanned` for a Catalog Part
 
 ```json
 {
   "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "childParts": [
+  "childItems": [
     {
+      "catenaXId": "urn:uuid:5daB938E-Cafa-92B3-7ca1-9aD7885e9dC8"
       "quantity": {
         "quantityNumber": 2.5,
         "measurementUnit": "unit:litre"
       },
       "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "childCatenaXId": "urn:uuid:5daB938E-Cafa-92B3-7ca1-9aD7885e9dC8"
-    }
+      "businessPartner": "BPNL50096894aNXY",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
   ]
 }
 ```
@@ -271,7 +271,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 The aspect provides the child parts (one structural level down) which the given object assembles.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0)
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0)
 
 ##### Example: Submodel `SingleLevelBomAsBuilt` for a Serialized Part
 
@@ -284,6 +284,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
         "quantityNumber": 1.0,
         "measurementUnit": "unit:piece"
       },
+      "hasAlternatives": false,
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
@@ -304,6 +305,7 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
         "quantityNumber": 25.0,
         "measurementUnit": "unit:kilogram"
       },
+      "hasAlternatives": false,
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
@@ -912,20 +914,22 @@ The creation of the submodel SingleLevelBomAsBuilt is more complicated. This sub
         "quantityNumber": 1,
         "measurementUnit": "unit:piece"
       },
+      "hasAlternatives": false,
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2",
-      "businessPartner": "SingleLevelBomAsBuilt"
+      "businessPartner": "BPNL50096894aNXY"
     },
     {
       "quantity": {
         "quantityNumber": 1,
         "measurementUnit": "unit:piece"
       },
+      "hasAlternatives": false,
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098",
-      "businessPartner": "SingleLevelBomAsBuilt"
+      "businessPartner": "BPNL50097894aNXA"
     }
   ]
 }
