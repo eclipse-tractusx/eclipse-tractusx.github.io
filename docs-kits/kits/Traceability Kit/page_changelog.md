@@ -25,7 +25,7 @@ Compatible for release 23.12.
   - ./.
 - **Development View:**
   - **Data Provider:**
-    - ./.
+    - Added a description of the purpose why assetLifecylePhase was added as specific asset ID
   - **Data Consumer:**
     - ./.
 
