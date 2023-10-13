@@ -12,35 +12,60 @@ Please check the [Change Log](/CHANGELOG) for content, known knowns, and backwar
 
 ## Release Cycle
 
-**Feature Definition (2 Weeks)**
+### Feature Definition (2 Weeks)
 
 - Feature discussions per product team (ongoing through the year)
 - Selection of features targeting for a given release
 - Feature readiness latest by alignment and planing meetings
 
-_Milestone: Enhancements Freeze (in week 2)_
+**Milestone:** Enhancements Freeze (in week 2)
 
-**Feature Work (ca. 10 weeks)**
+### Feature Work (ca. 10 weeks)
 
 - Feature development and reviews (in sprints / iterations)
 - Unit and integration tests
 
-_Milestone: Feature / Code Freeze (in week 12)_
+**Milestone:** Feature / Code Freeze (in week 12)
 
-**Test & Bug Fixing (ca. 4 Weeks)**
+### Test & Bug Fixing (ca. 4 Weeks)
 
 - System and (E2E) acceptance tests
 - Bug fixing and testing (iterative)
 
-_Release Freeze (in week 16 )_
+Release Freeze (in week 16 )
 
-**Release**
+### Release
 
 - Enhancement pass all relevant release gates
 - Release communication (e.g. update of change log / release notes)
 
-_Release (in week 20)_
+Release (in week 20)
 
 ## The next two Release Cycles in detail
 
-![Release information next two cycles chart](@site/static/img/release-information-next-two-cycles.png)
+```mermaid
+gantt
+    title Next Release Cycles
+    dateFormat  DD-MM-YYYY
+    todayMarker off
+    
+    section Release v23.12
+    Feature Definition           :a1, 15-07-2023, 07-08-2023
+    Feature Enhancement 07/08/23 :milestone, after a1, 0d
+    Feature Work                 :a2, 07-08-2023, 13-10-2023
+    Feature Freeze 13/10/23      :milestone, 13-10-2023, 0d
+    Test & Bug Fixing            :a3, 13-10-2023, 06-11-2023
+    Release Freeze 06/11/23      :milestone, 06-11-2023, 0d
+    Release                      :a4, 06-11-2023, 08-12-2023
+    Release 08/12/23             :milestone, 08-12-2023, 0d
+    
+    section Release v24.02
+    Feature Definition           :b1, 10-10-2023, 30-10-2023
+    Feature Ready 30/10/23       :milestone, after b1, 0d
+    Feature Work                 :b2, after b1, 08-12-2023
+    Feature Freeze 08/12/23      :milestone, after b2, 0d
+    Test & Bug Fixing            :b3, after b2, 26-01-2024
+    Release Freeze 26/01/24      :milestone, after b3, 0d
+    Release                      :b4, after b3, 23-02-2024
+    Release 23/02/24             :milestone, after b4, 0d
+```

@@ -105,6 +105,7 @@ components:
   schemas:
     DiscoveryEndpoint:
       title: DiscoveryEndpoint
+      type: object
       required:
         - type
         - description
@@ -148,6 +149,7 @@ components:
           maxItems: 10000
           items:
             $ref: '#/components/schemas/DiscoveryEndpoint'
+            type: object
     ErrorResponse:
       type: object
       required:

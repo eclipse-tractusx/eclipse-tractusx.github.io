@@ -2,22 +2,66 @@
 id: Traceability Kit Changelog
 title: Changelog
 description: 'Traceability Kit'
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
+### Traceability KIT
+
 All notable changes to this Kit will be documented in this file.
 
-## [0.3.0] - UPCOMING
+## [3.0.0] - UPCOMING
+
+Compatible for release 23.12.
 
 ### Added
+
+- **Business View:**
+  - ./.
 - **Architecture View:**
   - Added assumptions and non-functional requirements for Traceability architecture
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
 
-## [0.2.0] - UPCOMING
+### Changed
 
-Compatible for Catena-X Release 3.2
+- **General:**
+  - Restructure from adoption, operation and development view to business, architecture, operation and development view
+- **Business View:**
+  - ./.
+- **Architecture View:**
+  - ./.
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
+
+### Removed
+
+- **Business View:**
+  - ./.
+- **Architecture View:**
+  - ./.
+- **Operation View:**
+  - ./.
+- **Development View:**
+  - **Data Provider:**
+    - ./.
+  - **Data Consumer:**
+    - ./.
+
+## [2.0.0] - 2023-09-28
+
+Compatible for release 23.09 (also known as 3.2).
 
 ### Added
 
@@ -34,7 +78,7 @@ Compatible for Catena-X Release 3.2
   - Updated SerialPartTypization 1.1.1 to SerialPart 1.0.1
   - Updated AssemblyPartRelationship 1.1.1 to SingleLevelBomAsBuilt 1.0.0
   - Updated aspect model Batch from version 1.0.2 to 2.0.0 ([Release Notes](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.batch/RELEASE_NOTES.md))
-  - Fixed references to deprecated Catena-X releases
+  - Fixed references to deprecated releases
 - **Adoption View:**
   - Updated description of the policy section (Access Policies, Usage Policies, Contract Definitions)
   - Updated relevant standards for release 3.2
@@ -42,15 +86,16 @@ Compatible for Catena-X Release 3.2
   - Updated documentation because of the migration to the new standard AAS v3.0 by the DTR
   - Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
   - Setting the visibility of entries in a digital twin's specifid asset IDs is now mandatory to ensure need-know
+  - Removed optional customer attributes from example for Batch aspect model
 
 ### Removed
 
 - **Adoption View:**
   - Policy payloads are removed and replaced by specific documentation links
 
-## [0.1.1] - 2023-04-14
+## [1.0.1] - 2023-04-14
 
-Compatible for Catena-X Release 3.1
+Compatible for release 3.1.
 
 ### Added
 
@@ -66,9 +111,9 @@ Compatible for Catena-X Release 3.1
 
 - ./.
 
-## [0.1.0] - 2023-04-12
+## [1.0.0] - 2023-04-12
 
-Compatible for Catena-X Release 3.1
+Compatible for release 3.1.
 
 ### Added
 
