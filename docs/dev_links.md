@@ -3,11 +3,12 @@ title: Links
 sidebar_position: 98
 ---
 
-### Tractus-X Project
+### Eclipse Tractus-X Project
 
-- [Eclipse Tractus-X Projekt](https://projects.eclipse.org/projects/automotive.tractusx)
+- [Tractus-X Projekt](https://projects.eclipse.org/projects/automotive.tractusx)
 - [eclipse-tractusx GitHub Organisation](https://github.com/eclipse-tractusx)
-- [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev)
+- [Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev)
+- [Tractus-X General Chat Room](https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org)
 
 ### Eclipse Foundation communication channels
 
@@ -15,12 +16,14 @@ sidebar_position: 98
 - [Automotive PMC mailinglist](https://accounts.eclipse.org/mailing-list/automotive-pmc)
 - [All Eclipse mailinglists](https://accounts.eclipse.org/mailing-list)
 
-### Eclipse Foundation Issue Tracker
+### Requesting infrastructure and support
 
 See [examples and a detailed description](/docs/oss/issues).
 
-- [Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened) (e.g. request a new repository)
-- [Helpdesk for IP Checks](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20) - open issues for Tractus-X
+- [Create / manage Tractus-X repositories](/docs/oss/issues#create-manage-a-repository-in-eclipse-tractusx)
+- [Tractus-X infrastructure issues](https://github.com/eclipse-tractusx/sig-infra/issues) via sig-infra
+- [Eclipse Foundation Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)
+- [Eclipse Foundation Helpdesk for IP Checks](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20) - open issues for Tractus-X
 
 ### Eclipse Foundation Documentation
 

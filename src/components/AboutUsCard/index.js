@@ -28,21 +28,28 @@ import styles from "./styles.module.css";
 export default function AboutUsCard() {
   return (
     <section className={styles.about_us}>
-      <div className={styles.container}>
+      <div className={styles.maincontainer}>
+        <div className={styles.headercontainer}>
+          <h2 className={styles.title}>Welcome to the community</h2>
+          <p className={styles.subtitle}>
+          The magic behind Eclipse Tractus-X
+          </p>
+        </div>
+        <div className={styles.container}>
         <div className={styles.img_container}>
           <img className={styles.img} src={AboutUsTeaser} />
         </div>
         <div className={styles.information_container}>
-          <h2 className="title-h2">About Eclipse Tractus-X</h2>
-          <p className="subtitle-h3">
-            Background about Eclipse Tractus-X, license and legal information.
+          <p className={styles.description}>
+            <span className={styles.descriptionhighlight}> The Eclipse Tractus-X™ project</span> is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is not-for-profit corporation that it supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
           </p>
           <div>
-            <Link className="button" to="/aboutus">
-              About Tractus-X
+            <Link className={styles.outlinedbutton} to="/aboutus">
+              About Us
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
