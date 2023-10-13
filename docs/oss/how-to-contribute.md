@@ -19,7 +19,7 @@ Same recommendations like for code contributions.
 
 ## Dev Mailinglist
 
-The [dev mailinglist]((https://www.eclipse.org/projects/handbook/#resources-dev-list)) is the official channel for project communication, use it for questions, announcing news or discuss relevant topics.
+The [dev mailinglist](https://www.eclipse.org/projects/handbook/#resources-dev-list) is the official channel for project communication, use it for questions, announcing news or discuss relevant topics.
 
 All of the answers don’t need to necessarily come from project committers: empower your community to answer questions. When community members do provide answers that require further clarification (either they are not complete, or are not 100% correct), do so politely.
 The more welcome you make your community feel, the more likely it is that your project will be successful.
