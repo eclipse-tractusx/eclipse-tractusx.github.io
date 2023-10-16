@@ -20,7 +20,7 @@ Compatible for release 23.12.
 - **Business View:**
   - ./.
 - **Architecture View:**
-  - ./.
+  - Added assumptions and non-functional requirements for Traceability architecture
 - **Operation View:**
   - ./.
 - **Development View:**
