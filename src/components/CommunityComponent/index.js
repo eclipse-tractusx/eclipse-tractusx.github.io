@@ -30,6 +30,7 @@ import { useMediaQuery, Box } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
 import sliderWhiteRightArrowImage from '@site/static/img/slider_white_right_icon.png';
 import sliderWhiteLeftArrowImage from '@site/static/img/slider_white_left_icon.png';
+import Link from "@docusaurus/Link";
 
 export default function CommunityComponent() {
   const isWeb = useMediaQuery('(min-width:1023px)');
@@ -78,7 +79,7 @@ function  PrevArrow (props) {
     initialSlide: 0,
   };
 
-  const CompanyCard = ({ title, subtitle, description, icon, textCard }) => {
+  const CompanyCard = ({ title, subtitle, description, icon, textCard, navigate }) => {
     return (
       <>
         {textCard ? (
@@ -112,16 +113,18 @@ function  PrevArrow (props) {
             <div className={styles.card_container}>
               <img className={styles.img} src={icon} />
             </div>
-            <div className={styles.card_title_container}>
-              <Typography className={styles.card_title}
-                sx={{
-                  fontFamily: 'Manrope, sans-serif'
-                }}
-              >
-                {title}
-              </Typography>
-              <LaunchIcon className={styles.launch} />
-            </div>
+            <Link className={styles.link_container} to={navigate}>
+              <div className={styles.card_title_container}>
+                <Typography className={styles.card_title}
+                  sx={{
+                    fontFamily: 'Manrope, sans-serif'
+                  }}
+                >
+                  {title}
+                </Typography>
+                <LaunchIcon sx={{ color: "#ffffff" }} className={styles.launch} />
+              </div>
+            </Link>
           </div>
         )}
       </>

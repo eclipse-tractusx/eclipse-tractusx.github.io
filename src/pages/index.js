@@ -32,7 +32,8 @@ export default function Home() {
     >
       <HomePageHeader />
       <main>
-        <RoleBasedEnrtyComponent />
+        {/* TODO - Enable when pages/content is available */}
+        {/* <RoleBasedEnrtyComponent /> */}
         <AboutUsCard />
         <CommunityComponent />
         <KitsGalleryWithFilters 
