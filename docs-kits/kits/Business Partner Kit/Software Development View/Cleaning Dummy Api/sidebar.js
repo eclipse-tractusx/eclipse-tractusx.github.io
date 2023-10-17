@@ -1,0 +1,1 @@
+module.exports = [{"type":"doc","id":"kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/business-partner-data-management-cleaning-service-dummy"}];
