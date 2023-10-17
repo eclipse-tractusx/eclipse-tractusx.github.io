@@ -85,6 +85,14 @@
   display: flex;
 }
 
+.card_title_container p {
+  color: #ffffff;
+}
+
+.link_container {
+  text-decoration: none !important;
+}
+
 .launch {
   padding-left: 10px;
   cursor: pointer;
