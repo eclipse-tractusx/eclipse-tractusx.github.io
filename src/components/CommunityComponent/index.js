@@ -109,23 +109,23 @@ function  PrevArrow (props) {
             </div>
           </div>
         ) : (
-          <div className={styles.container}>
-            <div className={styles.card_container}>
-              <img className={styles.img} src={icon} />
-            </div>
-            <Link className={styles.link_container} to={navigate}>
-              <div className={styles.card_title_container}>
-                <Typography className={styles.card_title}
-                  sx={{
-                    fontFamily: 'Manrope, sans-serif'
-                  }}
-                >
-                  {title}
-                </Typography>
-                <LaunchIcon sx={{ color: "#ffffff" }} className={styles.launch} />
+          <Link className={styles.link_container} to={navigate}>
+            <div className={styles.container}>
+              <div className={styles.card_container}>
+                <img className={styles.img} src={icon} />
               </div>
-            </Link>
-          </div>
+                <div className={styles.card_title_container}>
+                  <Typography className={styles.card_title}
+                    sx={{
+                      fontFamily: 'Manrope, sans-serif'
+                    }}
+                  >
+                    {title}
+                  </Typography>
+                  <LaunchIcon sx={{ color: "#ffffff" }} className={styles.launch} />
+                </div>
+            </div>
+          </Link>
         )}
       </>
     )
