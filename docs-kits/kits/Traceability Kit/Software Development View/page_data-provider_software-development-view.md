@@ -860,10 +860,10 @@ Here is a short overview what the receiver has to do when they want to support U
 The EDC asset can be created using the EDC Data Management API. The following conventions apply for the properties of this asset:
 
 ```apacheconf
-"asset:prop:id": "uniqueidpushnnotification-receipt"
-"asset:prop:type": "notification.trace.uniqueidpush"
-"asset:prop:notificationtype": "uniqueidpush"
-"asset:prop:notificationmethod": "receive"
+"id": "uniqueidpushnnotification-receipt"
+"type": "notification.trace.uniqueidpush"
+"notificationtype": "uniqueidpush"
+"notificationmethod": "receive"
 ```
 
 ###### EDC Policies
