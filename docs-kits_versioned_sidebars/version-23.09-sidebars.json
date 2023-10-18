@@ -884,21 +884,5 @@
         }
       ]
     }
-  ],
-  "Resiliency": [
-    {
-      "type": "category",
-      "label": "Resiliency",
-      "link": {
-        "type": "doc",
-        "id": "Resiliency/resiliency"
-      },
-      "items": [
-        "Resiliency/DCM Kit",
-        "Resiliency/maas",
-        "Resiliency/PURIS",
-        "Resiliency/mp kit"
-      ]
-    }
   ]
 }
