@@ -879,7 +879,7 @@ In general, a data provider is free to decide which usage policies to define for
 Keep in mind that usage policies currently aren't technically enforced by the EDC or other components.
 
 > :raised_hand: **Usage Policy for Unique ID Push**
-> The Unique ID push notification endpoints are protected with a purpose-based usage policy and "R3-1_UniqueIDPush" as purpose.
+> The Unique ID push notification endpoints are protected with a purpose-based usage policy and "purpose.trace.v1.aspects" as purpose.
 
 ###### Backend Data Service to Process Unique ID Push Notifications
 
