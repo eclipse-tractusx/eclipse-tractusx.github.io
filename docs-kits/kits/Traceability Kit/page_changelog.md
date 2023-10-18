@@ -89,6 +89,7 @@ Compatible for release 23.09 (also known as 3.2).
   - Updated conventions for submodel descriptors and EDC asset structure to give data provides more flexibility in how to create EDC assets for submodels of digital twins
   - Setting the visibility of entries in a digital twin's specifid asset IDs is now mandatory to ensure need-know
   - Removed optional customer attributes from example for Batch aspect model
+  - Updated purpose for Unique ID Push notifications to be compliant to the framework agreement for Traceability
 
 ### Removed
 
