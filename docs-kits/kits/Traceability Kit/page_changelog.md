@@ -25,7 +25,7 @@ Compatible for release 23.12.
   - ./.
 - **Development View:**
   - **Data Provider:**
-    - Added a description of the purpose why assetLifecylePhase was added as specific asset ID
+    - Added a description of the purpose why `assetLifecylePhase` was added as specific asset ID
   - **Data Consumer:**
     - ./.
 
@@ -45,6 +45,7 @@ Compatible for release 23.12.
     - Updated aspect model SingleLevelBoMAsPlanned from version 1.1.0 to 2.0.0
     - Updated aspect model SingleLevelBomAsBuilt from version 1.0.0 to 2.0.0
     - Updated example for creation of the aspect model SingleLevelBomAsBuilt regarding version 2.0.0
+    - Updated EDC asset props for unique ID push
   - **Data Consumer:**
     - ./.
 
