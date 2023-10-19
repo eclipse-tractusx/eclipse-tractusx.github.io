@@ -29,9 +29,31 @@ info:
 security:
   - CatenaXOpenId:
       - profile
-
+servers:
+  - url: "{protocol}://{host_name}:{port}/api/{version_prefix}"
+    variables:
+      protocol:
+        description: Allows access through http and https (recommended)
+        default: http
+        enum:
+          - http
+          - https
+      host_name:
+        description: Hostname of server hosting the api
+        default: localhost
+      port:
+        description: "80 is default for http, 443 for https"
+        default: "443"
+        enum:
+          - "80"
+          - "443"
+          - "4243"
+      version_prefix:
+        default: v1.0
+        enum:
+          - v1.0
 paths:
-  /api/administration/connectors/discovery:
+  /administration/connectors/discovery:
     post:
       tags:
         - Finder
@@ -57,7 +79,7 @@ paths:
               examples:
                 complete:
                   $ref: '#/components/examples/discovery-endpoint-result'
-  /api/administration/connectors/discovery/search:
+  /administration/connectors/discovery/search:
     post:
       tags:
         - Finder
@@ -83,7 +105,7 @@ paths:
               examples:
                 complete:
                   $ref: '#/components/examples/discovery-endpoint-search-result'
-  /api/administration/connectors/discovery/{resourceId}:
+  /administration/connectors/discovery/{resourceId}:
     delete:
       tags:
         - Finder
