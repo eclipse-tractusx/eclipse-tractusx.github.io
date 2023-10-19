@@ -474,7 +474,18 @@ const sidebars = {
                 id: 'Resiliency/resiliency'
             },
             items: [
-                'Resiliency/DCM Kit',
+                {
+                    type: 'category',
+                    label: 'DCM KIT',
+                    link: {
+                        type: 'doc',
+                        id: 'Resiliency/DCM KIT/Adoption View'
+                    },
+                    items: [
+                        'Resiliency/DCM KIT/Adoption View',
+                        'Resiliency/DCM KIT/Development View',
+                    ]
+                },
                 'Resiliency/maas',
                 'Resiliency/PURIS',
                 'Resiliency/mp kit',
