@@ -1,11 +1,11 @@
 ---
-title: TRG 1.04 - Diagrams as Code
+title: TRG 1.04 - Diagrams as code / Editable static files 
 ---
 
-| Status | Created       | Post-History          |
-|--------|---------------|-----------------------|
-| Draft  | 20-Sept-2023  | created initial Draft |
-|        |               |                       |
+| Status | Created      | Post-History                                             |
+|--------|--------------|----------------------------------------------------------|
+| Draft  | 20-Sept-2023 | created initial Draft                                    |
+| Edited | 24-Okt-2023  | add draw.io as possible solution for static `.svg`-files |
 
 ## Why
 
@@ -16,7 +16,7 @@ Also updating the static files will be easier and faster to do for every committ
 
 ## Description
 
-All diagram files **must** be created with code and either stored as `.svg` file within our repositories or implemented in your documentation.
+All diagram files **must** be either created with code languages or stored as `.svg` file within our repositories.
 After a committers [decision](https://github.com/eclipse-tractusx/sig-infra/discussions/19) there are 2 languages accepted, either [PUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/).
 These diagram code files (`.puml`,`.mmd`,`.mermaid`) and / or static diagram `.svg` files **must** be stored within the `docs/` folder as described in [TRG 2.03](https://eclipse-tractusx.github.io/docs/release/trg-2/trg-2-3#docs).
 In addition to this you can integrate mermaid diagrams also directly into your markdown files as code snippets.
@@ -80,11 +80,21 @@ flowchart TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
+### Draw.io Example
+
+```markdown
+![alice-bob-as-image](docs/alice-bob-drawio.svg)
+```
+
+![alice-bob-as-image](../../../static/img/alice-bob-drawio.svg)
+
 ## Technical requirements
 
-- [PlantUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/) must be used to create the static files.
-- Live Mermaid Editor: [Mermaid Live Editor](https://mermaid.live/edit)
-- Live PlantUML Editor: [PlantUML Live Editor](https://www.planttext.com/)
+- diagrams as code with [PlantUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/)
+- static `.svg` diagram files, draw.io can be used
+- Live [Mermaid Live Editor](https://mermaid.live/edit)
+- Live [PlantUML Live Editor](https://www.planttext.com/)
+- Live [Draw.io](https://app.diagrams.net/)
 
 ## GitHub workflows
 
