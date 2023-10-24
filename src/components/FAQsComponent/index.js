@@ -52,7 +52,7 @@ export default function FAQsComponent() {
     <section className={styles.faqs}>
       <div className={styles.container}>
         <div className={styles.title_container}>
-          <h2 className={styles.title}>FAQs</h2> 
+          <h2 className="title-h2">FAQs</h2> 
         </div>
 
         <div className={styles.accordion_box}>
@@ -64,12 +64,18 @@ export default function FAQsComponent() {
                   className={styles.accordion}
                   expanded={expanded.includes(faq.id)}
                   onChange={handleChange(faq.id)}
+                  sx={{
+                    '&:before': {
+                      display: 'none'
+                    },
+                    backgroundColor: 'transparent'}}
+                  elevation={0}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
                     aria-controls={`panel${faq.id}-content`}
                     id={`panel${faq.id}-header`}
-                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '1rem'}}
+                    sx={{color: '#fff', paddingBottom: '1rem'}}
                   >
                     <Typography
                       sx={{
@@ -84,14 +90,14 @@ export default function FAQsComponent() {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails
-                    sx={{backgroundColor: '#000', color: '#fff', paddingBottom: '2rem'}}
+                    sx={{color: '#fff', paddingBottom: '2rem'}}
                   >
                     <Typography
                       sx={{
                         fontFamily: 'Manrope, sans-serif',
                         fontSize: '14px',
                         lineHeight: '22px',
-                        letterSpacing: '-0.4px'  
+                        letterSpacing: '-0.4px',
                       }}
                     >
                       {faq.answer}    
@@ -105,7 +111,7 @@ export default function FAQsComponent() {
 
         <div className={styles.btn_container}>
           <button 
-            className={styles.button}
+            className="button"
             onClick={handleToggleAll}
           >
             {isAllExpanded ? "Close All" : "Open All"}

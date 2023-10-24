@@ -1,19 +1,16 @@
 ---
-title: TRG 2.05 - Repository metafile PRERELEASE
+title: TRG 2.05 - Repository metafile
 ---
-
-:::caution
-Proposed release date: "mandatory after": 31st of March 2023
-:::
 
 | Status     | Created     | Post-History       |
 |------------|-------------|--------------------|
+| Active     | 24-Apr-2023 |
 | Prerelease | 7-Mar-2023  | Moved out of draft |
 | Draft      | 24-Feb-2023 | Draft release      |
 
 ## Why
 
-Due to many products having more than one repository, we need a way of identifing dependend repositories automatically. This allows us to programmatically parse and analyse repositories for quality checks and for generating documentation across repositories.
+Due to many products having more than one repository, we need a way of identifying dependent repositories automatically. This allows us to programmatically parse and analyze repositories for quality checks and for generating documentation across repositories.
 
 ## Description
 

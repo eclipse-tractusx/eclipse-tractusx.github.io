@@ -20,7 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
-import ProductOverviewCard from "../ProductOverviewCard";
+import ProductAccordionCard from "../ProductAccordionCard";
 
 import { products } from "../../../utils/products";
 
@@ -30,13 +30,11 @@ export default function ProductOverview() {
   return (
     <section className={styles.product_overview}>
       <div className={styles.container}>
-        <div className={styles.product_box}>
-          {products.map((product, index) => {
-            return(
-            <ProductOverviewCard key={index} {...product} />
-            )
-          })}
-        </div>
+        {products.map((product, index) => {
+          return(
+          <ProductAccordionCard key={index} {...product} />
+          )
+        })}
       </div>
    </section>
   );

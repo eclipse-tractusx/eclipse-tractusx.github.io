@@ -29,17 +29,7 @@
 }
 
 .title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-}
-
-.description {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 1.5rem;
 }
 
 .gallery_container {
@@ -80,19 +70,17 @@
     margin-top: 2rem;
   }
 
-  .title {
-    font-size: 4vw;
-  }
-
-  .description {
-    font-size: 1.8vw;
-  }
-
   .container {
     width: 80vw;
     height: auto;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery_container {
+    grid-template-columns: 1fr;
   }
 }

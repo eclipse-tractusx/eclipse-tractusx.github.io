@@ -1,0 +1,2266 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Org.Eclipse.TractusX.Portal.Backend.Administration.Service",
+    "version": "v2"
+  },
+  "paths": {
+    "/api/administration/Connectors/discovery": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "post list of bpns or an empty array to retrieve available company connector. (Authorization required - Roles: view_connectors)",
+        "description": "Example: POST: /api/administration/connectors/discovery",
+        "requestBody": {
+          "description": "Single or List of Business Partner Number of the company.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns company connector per bpn.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConnectorEndPointData"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "401": {
+            "description": "The User is unauthorized"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgreementConsentData": {
+        "type": "object",
+        "properties": {
+          "agreementId": {
+            "type": "string",
+            "description": "",
+            "format": "uuid"
+          },
+          "consentStatus": {
+            "$ref": "#/components/schemas/ConsentStatusId"
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "AgreementsRoleData": {
+        "type": "object",
+        "properties": {
+          "companyRole": {
+            "$ref": "#/components/schemas/CompanyRoleId"
+          },
+          "agreements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgreementConsentData"
+            },
+            "description": "",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ApplicationChecklistEntryDetails": {
+        "type": "object",
+        "properties": {
+          "typeId": {
+            "$ref": "#/components/schemas/ApplicationChecklistEntryTypeId"
+          },
+          "statusId": {
+            "$ref": "#/components/schemas/ApplicationChecklistEntryStatusId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationChecklistEntryStatusId": {
+        "enum": [
+          "TO_DO",
+          "IN_PROGRESS",
+          "DONE",
+          "FAILED"
+        ],
+        "type": "string"
+      },
+      "ApplicationChecklistEntryTypeId": {
+        "enum": [
+          "REGISTRATION_VERIFICATION",
+          "BUSINESS_PARTNER_NUMBER",
+          "IDENTITY_WALLET",
+          "CLEARING_HOUSE",
+          "SELF_DESCRIPTION_LP",
+          "APPLICATION_ACTIVATION"
+        ],
+        "type": "string"
+      },
+      "ChecklistDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ApplicationChecklistEntryTypeId"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApplicationChecklistEntryStatusId"
+          },
+          "details": {
+            "type": "string",
+            "nullable": true
+          },
+          "retriggerableProcessSteps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcessStepTypeId"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClearinghouseResponseData": {
+        "type": "object",
+        "properties": {
+          "bpn": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/ClearinghouseResponseStatus"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClearinghouseResponseStatus": {
+        "enum": [
+          "CONFIRM",
+          "DECLINE"
+        ],
+        "type": "string"
+      },
+      "ClientRoles": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyAddressDetailData": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpn": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortName": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "streetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryAlpha2Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "streetAdditional": {
+            "type": "string",
+            "nullable": true
+          },
+          "streetNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "zipCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyAppUserDetails": {
+        "type": "object",
+        "properties": {
+          "companyUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusId"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyAppUserDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyAppUserDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyApplicationDetails": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "applicationStatus": {
+            "$ref": "#/components/schemas/CompanyApplicationStatusId"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentDetails"
+            },
+            "nullable": true
+          },
+          "companyRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyRoleId"
+            },
+            "nullable": true
+          },
+          "applicationChecklist": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationChecklistEntryDetails"
+            },
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "bpn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyApplicationDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyApplicationDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyApplicationStatusFilter": {
+        "enum": [
+          "Closed",
+          "InReview"
+        ],
+        "type": "string"
+      },
+      "CompanyApplicationStatusId": {
+        "enum": [
+          "CREATED",
+          "ADD_COMPANY_DATA",
+          "INVITE_USER",
+          "SELECT_COMPANY_ROLE",
+          "UPLOAD_DOCUMENTS",
+          "VERIFY",
+          "SUBMITTED",
+          "CONFIRMED",
+          "DECLINED"
+        ],
+        "type": "string"
+      },
+      "CompanyApplicationWithCompanyUserDetails": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "applicationStatus": {
+            "$ref": "#/components/schemas/CompanyApplicationStatusId"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyApplicationWithCompanyUserDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyApplicationWithCompanyUserDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyAssignedUseCaseData": {
+        "type": "object",
+        "properties": {
+          "useCaseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyInvitationData": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          },
+          "organisationName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyOwnUserDetails": {
+        "type": "object",
+        "properties": {
+          "companyUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bpn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusId"
+          },
+          "assignedRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyUserAssignedRoleDetails"
+            },
+            "nullable": true
+          },
+          "admin": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyUserAdminDetails"
+            },
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyRoleConsentDetails": {
+        "type": "object",
+        "properties": {
+          "companyRoles": {
+            "$ref": "#/components/schemas/CompanyRoleId"
+          },
+          "agreements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyRoleConsentViewData": {
+        "type": "object",
+        "properties": {
+          "companyRoles": {
+            "$ref": "#/components/schemas/CompanyRoleId"
+          },
+          "roleDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyRolesActive": {
+            "type": "boolean"
+          },
+          "agreements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentAgreementViewData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyRoleId": {
+        "enum": [
+          "ACTIVE_PARTICIPANT",
+          "APP_PROVIDER",
+          "SERVICE_PROVIDER",
+          "OPERATOR"
+        ],
+        "type": "string"
+      },
+      "CompanyServiceAccountData": {
+        "type": "object",
+        "properties": {
+          "serviceAccountId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceAccountType": {
+            "$ref": "#/components/schemas/CompanyServiceAccountTypeId"
+          },
+          "offerSubscriptionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "connector": {
+            "$ref": "#/components/schemas/ConnectorResponseData"
+          },
+          "offer": {
+            "$ref": "#/components/schemas/OfferResponseData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyServiceAccountDataResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyServiceAccountData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyServiceAccountTypeId": {
+        "enum": [
+          "MANAGED",
+          "OWN"
+        ],
+        "type": "string"
+      },
+      "CompanySsiDetailData": {
+        "type": "object",
+        "properties": {
+          "credentialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "participationStatus": {
+            "$ref": "#/components/schemas/CompanySsiDetailStatusId"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanySsiDetailSorting": {
+        "enum": [
+          "CompanyAsc",
+          "CompanyDesc"
+        ],
+        "type": "string"
+      },
+      "CompanySsiDetailStatusId": {
+        "enum": [
+          "PENDING",
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "type": "string"
+      },
+      "CompanySsiDetailTransferData": {
+        "type": "object",
+        "properties": {
+          "credentialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "participationStatus": {
+            "$ref": "#/components/schemas/CompanySsiDetailStatusId"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanySsiExternalTypeDetailData": {
+        "type": "object",
+        "properties": {
+          "externalDetailData": {
+            "$ref": "#/components/schemas/ExternalTypeDetailData"
+          },
+          "ssiDetailData": {
+            "$ref": "#/components/schemas/CompanySsiDetailData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyUserAdminDetails": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyUserAssignedRoleDetails": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyUserData": {
+        "type": "object",
+        "properties": {
+          "userEntityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusId"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyUserDataResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyUserData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyUserDetails": {
+        "type": "object",
+        "properties": {
+          "companyUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bpn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusId"
+          },
+          "assignedRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyUserAssignedRoleDetails"
+            },
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyWithAddressData": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "description": "",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "shortName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "bpn": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "streetName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "countryAlpha2Code": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "streetAdditional": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "streetNumber": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "zipCode": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "companyRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgreementsRoleData"
+            },
+            "description": "",
+            "nullable": true
+          },
+          "companyUser": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvitedUserData"
+            },
+            "description": "",
+            "nullable": true
+          },
+          "uniqueIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentifierData"
+            },
+            "description": "",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ConnectorData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ConnectorTypeId"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ConnectorStatusId"
+          },
+          "hostId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "hostCompanyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "selfDescriptionDocumentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "documentName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConnectorDataResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectorData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConnectorEndPointData": {
+        "type": "object",
+        "properties": {
+          "bpn": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "connectorEndpoint": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "ConnectorResponseData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConnectorStatusId": {
+        "enum": [
+          "PENDING",
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "type": "string"
+      },
+      "ConnectorTypeId": {
+        "enum": [
+          "COMPANY_CONNECTOR",
+          "CONNECTOR_AS_A_SERVICE"
+        ],
+        "type": "string"
+      },
+      "ConnectorUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "connectorUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsentAgreementViewData": {
+        "type": "object",
+        "properties": {
+          "agreementId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agreementName": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "consentStatus": {
+            "$ref": "#/components/schemas/ConsentStatusId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsentDetails": {
+        "type": "object",
+        "properties": {
+          "agreementId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "consentStatus": {
+            "$ref": "#/components/schemas/ConsentStatusId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsentStatusId": {
+        "enum": [
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "type": "string"
+      },
+      "CredentialDetailData": {
+        "type": "object",
+        "properties": {
+          "credentialDetailId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "credentialType": {
+            "$ref": "#/components/schemas/VerifiedCredentialTypeId"
+          },
+          "useCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "participantStatus": {
+            "$ref": "#/components/schemas/CompanySsiDetailStatusId"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentData"
+          },
+          "externalTypeDetail": {
+            "$ref": "#/components/schemas/ExternalTypeDetailData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentData": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentDetails": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "documentType": {
+            "$ref": "#/components/schemas/DocumentTypeId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentTypeId": {
+        "enum": [
+          "CX_FRAME_CONTRACT",
+          "COMMERCIAL_REGISTER_EXTRACT",
+          "APP_CONTRACT",
+          "CONFORMITY_APPROVAL_REGISTRATION",
+          "ADDITIONAL_DETAILS",
+          "APP_LEADIMAGE",
+          "APP_IMAGE",
+          "SELF_DESCRIPTION",
+          "APP_TECHNICAL_INFORMATION",
+          "CONFORMITY_APPROVAL_CONNECTOR",
+          "CONFORMITY_APPROVAL_BUSINESS_APPS",
+          "CONFORMITY_APPROVAL_SERVICES",
+          "SERVICE_LEADIMAGE",
+          "PRESENTATION"
+        ],
+        "type": "string"
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "errorId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalTypeDetailData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "verifiedCredentialExternalTypeId": {
+            "$ref": "#/components/schemas/VerifiedCredentialExternalTypeId"
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "template": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expiry": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "File": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "IActionResult": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "IamClientAuthMethod": {
+        "enum": [
+          "JWT",
+          "SECRET",
+          "X509",
+          "SECRET_JWT"
+        ],
+        "type": "string"
+      },
+      "IamIdentityProviderClientAuthMethod": {
+        "enum": [
+          "JWT",
+          "SECRET_BASIC",
+          "SECRET_POST",
+          "SECRET_JWT"
+        ],
+        "type": "string"
+      },
+      "IamIdentityProviderProtocol": {
+        "enum": [
+          "SAML",
+          "OIDC"
+        ],
+        "type": "string"
+      },
+      "IamIdentityProviderSignatureAlgorithm": {
+        "enum": [
+          "ES256",
+          "ES384",
+          "ES512",
+          "HS256",
+          "HS384",
+          "HS512",
+          "PS256",
+          "PS384",
+          "PS512",
+          "RS256",
+          "RS384",
+          "RS512"
+        ],
+        "type": "string"
+      },
+      "IdentifierData": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/UniqueIdentifierId"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderCategoryId": {
+        "enum": [
+          "KEYCLOAK_SHARED",
+          "KEYCLOAK_OIDC",
+          "KEYCLOAK_SAML"
+        ],
+        "type": "string"
+      },
+      "IdentityProviderDetails": {
+        "type": "object",
+        "properties": {
+          "identityProviderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "alias": {
+            "type": "string",
+            "nullable": true
+          },
+          "identityProviderCategoryId": {
+            "$ref": "#/components/schemas/IdentityProviderCategoryId"
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "mappers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderMapperModel"
+            },
+            "nullable": true
+          },
+          "oidc": {
+            "$ref": "#/components/schemas/IdentityProviderDetailsOidc"
+          },
+          "saml": {
+            "$ref": "#/components/schemas/IdentityProviderDetailsSaml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderDetailsOidc": {
+        "type": "object",
+        "properties": {
+          "authorizationUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientAuthMethod": {
+            "$ref": "#/components/schemas/IamIdentityProviderClientAuthMethod"
+          },
+          "signatureAlgorithm": {
+            "$ref": "#/components/schemas/IamIdentityProviderSignatureAlgorithm"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderDetailsSaml": {
+        "type": "object",
+        "properties": {
+          "serviceProviderEntityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "singleSignOnServiceUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderEditableDetails": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "oidc": {
+            "$ref": "#/components/schemas/IdentityProviderEditableDetailsOidc"
+          },
+          "saml": {
+            "$ref": "#/components/schemas/IdentityProviderEditableDetailsSaml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderEditableDetailsOidc": {
+        "type": "object",
+        "properties": {
+          "metadataUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientAuthMethod": {
+            "$ref": "#/components/schemas/IamIdentityProviderClientAuthMethod"
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "secret": {
+            "type": "string",
+            "nullable": true
+          },
+          "signatureAlgorithm": {
+            "$ref": "#/components/schemas/IamIdentityProviderSignatureAlgorithm"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderEditableDetailsSaml": {
+        "type": "object",
+        "properties": {
+          "serviceProviderEntityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "singleSignOnServiceUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderMapperModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/IdentityProviderMapperType"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityProviderMapperType": {
+        "enum": [
+          "HARDCODED_SESSION_ATTRIBUTE",
+          "HARDCODED_ATTRIBUTE",
+          "OIDC_ADVANCED_GROUP",
+          "OIDC_USER_ATTRIBUTE",
+          "OIDC_ADVANCED_ROLE",
+          "OIDC_HARDCODED_ROLE",
+          "OIDC_ROLE",
+          "OIDC_USERNAME",
+          "KEYCLOAK_OIDC_ROLE"
+        ],
+        "type": "string"
+      },
+      "IdentityProviderUpdateStats": {
+        "type": "object",
+        "properties": {
+          "updated": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unchanged": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvitedUserData": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": ""
+      },
+      "LanguageData": {
+        "type": "object",
+        "properties": {
+          "languageShortName": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageLongNames": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LanguageDataLongName"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LanguageDataLongName": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "longDescription": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenseTypeData": {
+        "type": "object",
+        "properties": {
+          "licenseTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "totalElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoContentResult": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OfferResponseData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OfferTypeId"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "subscriptionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OfferRoleInfo": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OfferRoleInfos": {
+        "type": "object",
+        "properties": {
+          "offerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfferRoleInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OfferTypeId": {
+        "enum": [
+          "APP",
+          "CORE_COMPONENT",
+          "SERVICE"
+        ],
+        "type": "string"
+      },
+      "OwnCompanyUserEditableDetails": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^.+$",
+            "type": "string",
+            "default": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessStepTypeId": {
+        "enum": [
+          "VERIFY_REGISTRATION",
+          "CREATE_BUSINESS_PARTNER_NUMBER_PUSH",
+          "CREATE_BUSINESS_PARTNER_NUMBER_PULL",
+          "CREATE_BUSINESS_PARTNER_NUMBER_MANUAL",
+          "CREATE_IDENTITY_WALLET",
+          "RETRIGGER_IDENTITY_WALLET",
+          "START_CLEARING_HOUSE",
+          "RETRIGGER_CLEARING_HOUSE",
+          "END_CLEARING_HOUSE",
+          "START_SELF_DESCRIPTION_LP",
+          "RETRIGGER_SELF_DESCRIPTION_LP",
+          "ACTIVATE_APPLICATION",
+          "RETRIGGER_BUSINESS_PARTNER_NUMBER_PUSH",
+          "RETRIGGER_BUSINESS_PARTNER_NUMBER_PULL",
+          "OVERRIDE_BUSINESS_PARTNER_NUMBER",
+          "TRIGGER_OVERRIDE_CLEARING_HOUSE",
+          "START_OVERRIDE_CLEARING_HOUSE",
+          "FINISH_SELF_DESCRIPTION_LP",
+          "DECLINE_APPLICATION",
+          "TRIGGER_PROVIDER",
+          "START_AUTOSETUP",
+          "OFFERSUBSCRIPTION_CLIENT_CREATION",
+          "SINGLE_INSTANCE_SUBSCRIPTION_DETAILS_CREATION",
+          "OFFERSUBSCRIPTION_TECHNICALUSER_CREATION",
+          "ACTIVATE_SUBSCRIPTION",
+          "TRIGGER_PROVIDER_CALLBACK",
+          "RETRIGGER_PROVIDER",
+          "RETRIGGER_OFFERSUBSCRIPTION_CLIENT_CREATION",
+          "RETRIGGER_OFFERSUBSCRIPTION_TECHNICALUSER_CREATION",
+          "RETRIGGER_PROVIDER_CALLBACK"
+        ],
+        "type": "string"
+      },
+      "ProviderDetailData": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "callbackUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProviderDetailReturnData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrationDeclineData": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfDescriptionResponseData": {
+        "type": "object",
+        "properties": {
+          "externalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SelfDescriptionStatus"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "selfDescriptionDocument": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelfDescriptionStatus": {
+        "enum": [
+          "Confirm",
+          "Failed"
+        ],
+        "type": "string"
+      },
+      "ServiceAccountConnectorOfferData": {
+        "type": "object",
+        "properties": {
+          "serviceAccountId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationType": {
+            "$ref": "#/components/schemas/IamClientAuthMethod"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRoleData"
+            },
+            "nullable": true
+          },
+          "companyServiceAccountTypeId": {
+            "$ref": "#/components/schemas/CompanyServiceAccountTypeId"
+          },
+          "secret": {
+            "type": "string",
+            "nullable": true
+          },
+          "connector": {
+            "$ref": "#/components/schemas/ConnectorResponseData"
+          },
+          "offer": {
+            "$ref": "#/components/schemas/OfferResponseData"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceAccountCreationInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationType": {
+            "$ref": "#/components/schemas/IamClientAuthMethod"
+          },
+          "roleIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceAccountDetails": {
+        "type": "object",
+        "properties": {
+          "serviceAccountId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationType": {
+            "$ref": "#/components/schemas/IamClientAuthMethod"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRoleData"
+            },
+            "nullable": true
+          },
+          "companyServiceAccountTypeId": {
+            "$ref": "#/components/schemas/CompanyServiceAccountTypeId"
+          },
+          "secret": {
+            "type": "string",
+            "nullable": true
+          },
+          "subscriptionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceAccountEditableDetails": {
+        "type": "object",
+        "properties": {
+          "serviceAccountId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationType": {
+            "$ref": "#/components/schemas/IamClientAuthMethod"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SsiCertificateTransferData": {
+        "type": "object",
+        "properties": {
+          "credentialType": {
+            "$ref": "#/components/schemas/VerifiedCredentialTypeId"
+          },
+          "ssiDetailData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanySsiDetailTransferData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UniqueIdentifierId": {
+        "enum": [
+          "COMMERCIAL_REG_NUMBER",
+          "VAT_ID",
+          "LEI_CODE",
+          "VIES",
+          "EORI"
+        ],
+        "type": "string"
+      },
+      "UseCaseData": {
+        "type": "object",
+        "properties": {
+          "useCaseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortname": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UseCaseIdDetails": {
+        "type": "object",
+        "properties": {
+          "useCaseId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UseCaseParticipationData": {
+        "type": "object",
+        "properties": {
+          "useCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "credentialType": {
+            "$ref": "#/components/schemas/VerifiedCredentialTypeId"
+          },
+          "verifiedCredentials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanySsiExternalTypeDetailData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserCreationInfo": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserCreationInfoIdp": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserCreationStats": {
+        "type": "object",
+        "properties": {
+          "created": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserIdentityProviderData": {
+        "type": "object",
+        "properties": {
+          "companyUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "identityProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserIdentityProviderLinkData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserIdentityProviderLinkData": {
+        "type": "object",
+        "properties": {
+          "identityProviderId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLinkData": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRoleData": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRoleInfo": {
+        "type": "object",
+        "properties": {
+          "companyUserId": {
+            "type": "string",
+            "description": "CompanyUser Id",
+            "format": "uuid"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Role of User",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "model to specify Role Information for User."
+      },
+      "UserRoleWithDescription": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleDescription": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRoleWithId": {
+        "type": "object",
+        "properties": {
+          "companyUserRoleText": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyUserRoleId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserStatusId": {
+        "enum": [
+          "ACTIVE",
+          "INACTIVE",
+          "DELETED"
+        ],
+        "type": "string"
+      },
+      "VerifiedCredentialExternalTypeId": {
+        "enum": [
+          "TRACEABILITY_CREDENTIAL",
+          "PCF_CREDENTIAL",
+          "BEHAVIOR_TWIN_CREDENTIAL",
+          "VEHICLE_DISMANTLE"
+        ],
+        "type": "string"
+      },
+      "VerifiedCredentialTypeId": {
+        "enum": [
+          "TRACEABILITY_FRAMEWORK",
+          "PCF_FRAMEWORK",
+          "BEHAVIOR_TWIN_FRAMEWORK",
+          "DISMANTLER_CERTIFICATE"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
