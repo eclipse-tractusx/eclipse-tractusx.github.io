@@ -351,6 +351,10 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
+              },
+              {
+                to: 'docs-kits/next/Resiliency/',
+                label: 'Preview',
               }
             ],
           },
