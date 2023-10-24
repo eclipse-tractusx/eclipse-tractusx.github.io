@@ -184,6 +184,10 @@
   --ifm-footer-background-color: #000;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1250px) {
   .navbar__items {
