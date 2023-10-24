@@ -46,44 +46,6 @@ Chart structure, refer to [TRG 5.01 - Helm Chart requirements](../trg-5/trg-5-01
 
 ### Files
 
-#### AUTHORS.md (optional)
-
-Add a `AUTHORS.md` file at root level to your GitHub repository if you want to mention the authors of the code. Example
-content can be found [here](assets/AUTHORS.txt).
-
-#### CODE_OF_CONDUCT.md
-
-Add a `CODE_OF_CONDUCT.md` file at root level to your GitHub repository with content of this [example](assets/CODE_OF_CONDUCT.txt).
-
-#### CONTRIBUTING.md
-
-Add a `CONTRIBUTING.md` file at root level to your GitHub repository with content of this [example](assets/CONTRIBUTING.txt).
-
-#### DEPENDENCIES
-
-Add a `DEPENDENCIES` file at root level to your GitHub repository. The file **must** contain a list of all 3rd party libraries
-used with your code.
-
-:::info
-
-Create the content for this file using the Eclipse Dash
-Tool: [Example](https://github.com/eclipse-tractusx/sldt-semantic-hub/blob/main/DEPENDENCIES), created
-with [Eclipse Dash Tool](https://github.com/eclipse/dash-licenses#readme).
-
-This content needs frequent updates to reflect your code changes.
-
-:::
-
-#### LICENSE
-
-Add a `LICENSE` file at root level to your GitHub repository with content
-of [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt).
-
-#### NOTICE.md
-
-Add a `NOTICE.md` file at root level to your GitHub repository with content of this [example](assets/NOTICE.txt). Add
-your repositories to the section _Source Code_.
-
 #### README.md
 
 Your repository **must** contain a `README.md` file. See [TRG 1.01 - README.md](../trg-1/trg-1-1).
@@ -92,6 +54,14 @@ Your repository **must** contain a `README.md` file. See [TRG 1.01 - README.md](
 
 Your repository **should** contain a `INSTALL.md` file. See[TRG 1.02 - INSTALL.md](../trg-1/trg-1-2).
 
-#### SECURITY.md
+#### Legal documentation
 
-Add a `SECURITY.md` file at root level to your GitHub repository with content of this [example](assets/SECURITY.txt).
+For the following files, see [TRG 7.01](../trg-7/trg-7-01)
+
+- AUTHORS.md (optional)
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- DEPENDENCIES
+- LICENSE
+- NOTICE.md
+- SECURITY.md

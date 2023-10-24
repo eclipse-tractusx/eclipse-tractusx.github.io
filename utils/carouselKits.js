@@ -12,7 +12,7 @@ export const carouselKits = [
   {
     id: 2,
     img: Conector_Kit,
-    pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const carouselKits = [
   {
     id: 5,
     img: Conector_Kit,
-    pageRoute: "docs/kits/product-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
   },
   {
     id: 6,

@@ -55,10 +55,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #dcdee4;
+}
+
+.slider_item:hover {
+  text-decoration: none;
+  color: #dcdee4; 
 }
 
 .date {
-  color: #dcdee4;
   margin: 0 1rem;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
@@ -75,15 +80,20 @@
   opacity: 0.8;
 }
 
+.arrow {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 996px) {
   .container {
-    height: 2rem;
+    width: 80vw;
+    height: 3rem;
     padding: 0.5rem 0;
   }
 
   .button {
     padding: 0 0.8rem;
-    font-size: 1.3vw;
+    font-size: 12px;
   }
 
   .date {
@@ -95,12 +105,44 @@
     font-size: smaller;
   }
 
-  .link_to_blog {
+  .arrow_container {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: smaller;
-    color: var(--ifm-color-primary);
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column-reverse;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .arrow_container {
+    display: none;
+  }
+
+  .slider_item {
+    flex-direction: column;
+  }
+
+  .button {
+    padding: 0rem 0.6rem;
+    font-size: 14px;
+  }
+
+  .carousel_container {
+    width: 80vw;
+  }
+
+  .slider_item {
+    justify-content: center;
+  }
+
+  .date {
+    margin: 0;
   }
 }
     

@@ -93,6 +93,54 @@
   display: none;
 }
 
+/* Global Classes */
+.headers-title-h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.headers-subtitle-p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.title-h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.subtitle-h3 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.7px;
+}
+
+.description-p {
+  font-weight: 400;
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+}
+
+.button {
+  padding: 0.6rem 2rem;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  border-radius: 5px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #1e1e1e;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+
 /* Docusaurus NavBar */
 .navbar {
   height: 74px;
@@ -117,6 +165,26 @@
   font-weight: bold;
 }
 
+.dropdown.dropdown--right {
+  background-color: var(--ifm-color-primary-darkest);
+  border-radius: 5px;
+}
+
+/* Docusaurus Footer */
+.footer__links {
+  border-top: 0.5px solid #aaa;
+  padding-top: 2rem;
+}
+
+.footer .container .footer__bottom {
+  margin-top: 60px;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #000;
+}
+
+/* Media Queries */
 @media screen and (max-width: 1250px) {
   .navbar__items {
     margin: 0 8px;
@@ -136,20 +204,6 @@
   }
 }
 
-/* Docusaurus Footer */
-.footer__links {
-  border-top: 0.5px solid #aaa;
-  padding-top: 2rem;
-}
-
-.footer .container .footer__bottom {
-  margin-top: 60px;
-}
-
-.footer--dark {
-  --ifm-footer-background-color: #000;
-}
-
 @media screen and (max-width: 996px) {
   .footer__title,
   .footer__items {
@@ -158,6 +212,44 @@
 
   .footer__col .footer__items .footer__item img {
     width: 50%;
+  }
+
+  .headers-title-h1 {
+    font-size: 32px;
+  }
+
+  .headers-subtitle-p {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: -1rem;
+  }
+
+  .title-h2 {
+    font-size: 26px;
+  }
+
+  .subtitle-h3 {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .headers-title-h1 {
+    font-size: 30px;
+  }
+
+  .headers-subtitle-p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .button {
+    font-size: 12px;
   }
 }
 

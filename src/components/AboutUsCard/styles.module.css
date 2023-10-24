@@ -7,18 +7,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 0;
+  padding: 10rem 0 6rem;
   overflow: hidden;
-  background-color: var(--ifm-background-color)
+  background-color: var(--ifm-background-color);
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headercontainer {
+  margin-bottom: 80px;
 }
 
 .container {
   width: 60vw;
-  height: 25vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem; 
+  gap: 0rem;
 }
 
 .img_container {
@@ -30,7 +39,8 @@
 
 .img {
   border-radius: 10px;
-  width: 90%;
+  width: auto;
+  height: 250px;
 }
 
 .information_container {
@@ -42,38 +52,53 @@
 }
 
 .title {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 40px;
-  margin-top: -0.8rem;
-  color: var(--ifm-heading-color);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: var(--ifm-color-primary);
 }
 
 .subtitle {
-  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.descriptionhighlight {
+  color: #ffffff;
+}
+
+.description {
+  font-size: 21px;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.7px;
+  line-height: 29px;
+  letter-spacing: 0.052799999713897705px;
+  text-align: left;
+  color: #999999;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
+.outlinedbutton {
+  border-width: 1px;
+  border-color: var(--ifm-color-primary);
+  padding: 5px 25px;
+  border: 1px solid;
   border-radius: 5px;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
+.outlinedbutton:hover {
   text-decoration: none;
 }
 
 @media screen and (max-width: 996px) {
+  .about_us {
+    padding: 6rem 0 0;
+  }
+
   .container {
     width: 40vw;
     height: auto;
@@ -81,17 +106,40 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 20px;
   }
 
   .information_container {
-    height: 25vw;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
   }
 
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
+  .img {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 70vw;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+
+  .img {
+    height: auto;
+  }
+
+  .information_container {
+    height: fit-content;
+  }
+
+  .subtitle {
+    width: 90%;
+  }
+
+  .outlinedbutton {
+    margin-bottom: 20px;
   }
 }

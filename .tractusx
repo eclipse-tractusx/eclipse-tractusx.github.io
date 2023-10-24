@@ -1,0 +1,7 @@
+product: "eclipse-tractusx.github.io"
+leadingRepository: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
+repoCategory: "support"
+repositories:
+- name: "eclipse-tractusx.github.io"
+  usage: "Eclipse-tractusx website repository"
+  url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"

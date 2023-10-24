@@ -7,7 +7,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 94vh;
+  height: 71vh;
 }
     
 .container {
@@ -17,8 +17,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/img/main_bg-min.png");
-  background-position: bottom;
+  background-image: url("/static/img/main-bg-new.png");
+  /* background-position: bottom; */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -46,22 +46,11 @@
   letter-spacing: -0.7px;
 }
 
-.button {
-  padding: 0.6rem 2rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-background-color);
-  font-family: "Manrope", sans-serif;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.button:hover {
-  background-color: #1e1e1e;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
 @media screen and (max-width: 996px) {
+  .container {
+    background-position: center right;
+  }
+
   .title {
     font-size: 10vw;
     line-height: 10vw;
@@ -72,8 +61,27 @@
     line-height: 3vw;
   }
 
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.8vw;
+  .btn_container {
+    margin-top: -2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    justify-content: flex-start;
+    padding-top: 30%;
+  }
+
+  .title {
+    font-size: 44px;
+    line-height: 40px;
+  }
+  .subtitle_box {
+    width: 75vw;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 16px;
   }
 }

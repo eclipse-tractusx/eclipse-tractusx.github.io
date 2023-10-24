@@ -39,8 +39,8 @@ export default function HomePageHeader() {
             the Catena-X ecosystem. Find documentation, APIs, SDKs and more.
           </p>
         </div>
-        <div>
-          <Link className={styles.button} to="/developer">
+        <div className={styles.btn_container}>
+          <Link className="button" to="/developer">
             Our Dev Kits
           </Link>
         </div>

@@ -6,13 +6,12 @@ sidebar_position: 10
 This page provides information and links to relevant resources before you start contributing to Eclipse Tractus-X.
 
 - Create Eclipse Foundation account [here](https://accounts.eclipse.org/user/register)
-- Use the mail adress you also use in GitHub for your contributions, e.g. if you contribute on behalf of your company, you have to create the account with your company mail adress
-- Profile page:
-  - Sign [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php)
-  - Add your GitHub id to your Eclipse profile (Section: Social Media Links)
+  - Use the same email address that you use in GitHub for your contributions, e.g. if you contribute on behalf of your company, you must create the account with your company email address
+  - Sign the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php)
+  - Add your **GitHub ID** to your Eclipse profile (Section: Social Media Links)
 - Subscribe to the [Eclipse Tractus-X Developer Mailinglist](https://accounts.eclipse.org/mailing-list/tractusx-dev)
 - Get familiar with the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/), we will reference the dedicated chapters for the different topics.
-- See the [documentation](links#eclipse-foundation-documentation)
+- See the [documentation](/docs/dev_links#eclipse-foundation-documentation)
 
 ## Meet the Eclipse Foundation Team at the Eclipse Office Hours
 
