@@ -79,7 +79,7 @@ Through the introduction of unique Catena-X IDs, companies can register digital 
 The following video gives an overview of the presented Traceability Use Case.
 
 <video controls style={{width:'100%'}} controlsList="nodownload">
-  <source src="/video/traceability-video-9min-UT.mp4"/>
+  <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/traceability-kit/TRACEABILITY_VIDEO_v1.mp4"/>
 </video>
 
 <!-- Optional -->
