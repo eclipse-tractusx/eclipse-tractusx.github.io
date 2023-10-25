@@ -3,8 +3,6 @@ title: Get an Overview
 sidebar_position: 1
 ---
 
-# Onboarding Material
-
 ---
 **NOTE:**
 This chapter is still work in progress. Check back later!
@@ -22,7 +20,7 @@ Catena-X is an open, secure, and standardized data ecosystem for the automotive 
 
 > Further reading:
 >
-> - More information on the Catena-X initiative can be found at the visions and goals section of the association homepage (https://catena-x.net/en/vision-goals).
+> - More information on the Catena-X initiative can be found at the visions and goals section of the association homepage (<https://catena-x.net/en/vision-goals>).
 
 ## 2. Use-Cases
 
@@ -30,7 +28,7 @@ Catena-X is organized around ten initial use-cases. If your company decided to b
 
 > Further reading:
 >
-> - The list of the ten initial use-cases as well as a description of each of them can be found here: https://catena-x.net/en/benefits
+> - The list of the ten initial use-cases as well as a description of each of them can be found here: <https://catena-x.net/en/benefits>
 
 ## 3. The Data Space
 
@@ -38,9 +36,8 @@ To enable the use-cases, Catena-X builds a decentral data space. In a data space
 
 > Further reading:
 >
-> - For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: https://docs.internationaldataspaces.org/ids-ram-4/  
-> - The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf 
-
+> - For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>  
+> - The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: <https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf>
 
 ## 4. The Onboarding Journey
 
@@ -49,15 +46,15 @@ Your task to setup the technical components is part of a larger onboarding journ
 
 >Further reading:
 >
-> - For an in-depth understanding of the onboarding process, it can be helpful to read the Onboarding Guide (https://catena-x.net/en/catena-x-introduce-implement/onboarding) and especially the Chapter "IT Specialist".
-> - The "Internal Company Onboarding Tracker" provides a checklist for all onboarding setps and can also be found via the link above. 
+> - For an in-depth understanding of the onboarding process, it can be helpful to read the Onboarding Guide (<https://catena-x.net/en/catena-x-introduce-implement/onboarding>) and especially the Chapter "IT Specialist".
+> - The "Internal Company Onboarding Tracker" provides a checklist for all onboarding setps and can also be found via the link above.
 
 ## 5. Backend Integration
+
 Loret ipsum
 
 > Further reading:
 >
 > - Placeholder
 
-
-In the next chapter, you will learn about the Catena-X architecture, and how some of the most important technical components work together. 
+In the next chapter, you will learn about the Catena-X architecture, and how some of the most important technical components work together.

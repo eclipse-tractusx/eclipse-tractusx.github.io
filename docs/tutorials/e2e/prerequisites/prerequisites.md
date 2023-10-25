@@ -21,12 +21,12 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 - Helm
 - Terraform(?)
 
-
 ## Ports, Firewall and Proxy Configuration
 
--> Wenn möglich dann in public cloud. 
+-> Wenn möglich dann in public cloud.
 
-TODO: Add list 
+TODO: Add list
+
 - Ports to be open
-- URLs to be whitelisted 
-- 
+- URLs to be whitelisted
+-

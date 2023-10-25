@@ -18,7 +18,7 @@ This tutorial is **not** designed for the following purposes:
 - It is not designed for adopters who only want to buy a business application or use fully managed services.
 - It will not show you how to further develop Catena-X components.
 
-If you fall into one of those three groups, please revisit the Catena-X association homepage information for Application and Service Providers (www.catena-x.net) or the "Community" page of Tractus-X (https://eclipse-tractusx.github.io/community).
+If you fall into one of those three groups, please revisit the [Catena-X association homepage](<https://www.catena-x.net>) information for Application and Service Providers or the [Community](<https://eclipse-tractusx.github.io/community>) page of Tractus-X.
 
 ## Goal of this tutorial
 
@@ -61,7 +61,7 @@ Coming Soon: Chapter 4: Adopt dives into some advanced concepts that you will ne
 
 ### Chapter 5: Inform
 
-Todo: Aktueller Stand - brauchen wir nicht. 
+Todo: Aktueller Stand - brauchen wir nicht.
 
 ## Outcome
 
