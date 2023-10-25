@@ -1,5 +1,5 @@
 ---
-title: Consume the first data asset
+title: Consume data
 sidebar_position: 3
 ---
 
