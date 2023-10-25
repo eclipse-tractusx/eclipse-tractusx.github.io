@@ -1,9 +1,7 @@
 ---
-title: Consume the first data asset
+title: Consume data
 sidebar_position: 3
 ---
-
-# Consume the first data asset
 
 ---
 **NOTE:**
