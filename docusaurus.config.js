@@ -354,7 +354,7 @@ const config = {
               },
               {
                 to: 'docs-kits/next/Resiliency/',
-                label: 'Preview',
+                label: 'Upcoming KITs',
               }
             ],
           },
