@@ -3,6 +3,8 @@ title: "Chapter 2: Connect"
 sidebar_position: 4
 ---
 
+The `Connect Chapter` describes step by step how you have to setup your (cloud) infrastructure including servers, a kubernetes cluster, networking and security. On this stack you will deploy the components that you need for data provisioning and data consumption. Along with that you will deploy all the components that simulate the core service provider in our data space.
+
 This tutorial is designed for developers who want to get their hands dirty, for companies that want to perform data exchange in actual Catena-X data space infrastructure and generally for curious minds who want to explore dataspaces.
 
 Required knowledge and skills:
