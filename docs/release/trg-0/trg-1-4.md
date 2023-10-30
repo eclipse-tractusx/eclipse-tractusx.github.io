@@ -16,7 +16,7 @@ Also updating the static files will be easier and faster to do for every committ
 
 ## Description
 
-All diagram files **must** be either created with code languages or stored as `.svg` file within our repositories.
+All diagram files **must** be either created with code languages or stored as `.svg` file within our repositories. If your using Draw.io please also describe how and with which version you created the used diagram in your `README.md` documentation file.
 After a committers [decision](https://github.com/eclipse-tractusx/sig-infra/discussions/19) there are 2 languages accepted, either [PUML](https://plantuml.com/en/) or [Mermaid](https://mermaid.js.org/).
 These diagram code files (`.puml`,`.mmd`,`.mermaid`) and / or static diagram `.svg` files **must** be stored within the `docs/` folder as described in [TRG 2.03](https://eclipse-tractusx.github.io/docs/release/trg-2/trg-2-3#docs).
 In addition to this you can integrate mermaid diagrams also directly into your markdown files as code snippets.
@@ -82,11 +82,13 @@ flowchart TD
 
 ### Draw.io Example
 
+This image was generated with [draw.io](https://app.diagrams.net/) + `version` and stored as `.svg` file within the repository.
+
 ```markdown
 ![alice-bob-as-image](docs/alice-bob-drawio.svg)
 ```
 
-![alice-bob-as-image](../../../static/img/alice-bob-drawio.svg)
+![alice-bob-as-image](../../../docs/images/alice-bob-drawio.svg)
 
 ## Technical requirements
 
