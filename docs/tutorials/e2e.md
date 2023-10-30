@@ -55,14 +55,6 @@ deploy the components that you need for data provisioning and data consumption. 
 
 In Chapter 3: Boost you will configure and register your components so that they are discoverable in your local data space deployment. You will then take on the role of a data provider, build your first data pipeline, register your data at your decentral digital twin registry and create a contract offer in the EDC. As a data consumer you will discover the data that you have previously registered and initiate a data transfer. After completing this step, you have all the foundational knowledge you need to get started with active participation in a use-case.
 
-### Chapter 4: Adopt
-
-Coming Soon: Chapter 4: Adopt dives into some advanced concepts that you will need if your company wants to participate in Catena-X in a larger scale. It explains how you can deploy a UI for the EDC or configure an SSI wallet to work with the EDC.
-
-### Chapter 5: Inform
-
-Todo: Aktueller Stand - brauchen wir nicht.
-
 ## Outcome
 
 After completing this tutorial you have all the foundational knowledge that you need to participate in a use-case. The use-case specific instructions build on top of this foundational knowledge.
