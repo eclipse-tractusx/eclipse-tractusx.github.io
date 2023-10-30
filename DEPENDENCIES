@@ -290,7 +290,7 @@ npm/npmjs/-/faye-websocket/0.11.4, Apache-2.0, approved, clearlydefined
 npm/npmjs/-/fbemitter/3.0.0, BSD-3-Clause, approved, #6649
 npm/npmjs/-/fbjs-css-vars/1.0.2, MIT, approved, #6648
 npm/npmjs/-/fbjs/3.0.4, MIT, approved, clearlydefined
-npm/npmjs/-/feed/4.2.2, MIT, restricted, clearlydefined
+npm/npmjs/-/feed/4.2.2, MIT, approved, #11153
 npm/npmjs/-/file-loader/6.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/file-saver/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/-/file-type/3.9.0, MIT, approved, clearlydefined
@@ -362,7 +362,7 @@ npm/npmjs/-/hast-util-whitespace/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/hastscript/6.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/hastscript/7.2.0, MIT, approved, #6623
 npm/npmjs/-/he/1.2.0, MIT, approved, clearlydefined
-npm/npmjs/-/heap/0.2.7, MIT, restricted, clearlydefined
+npm/npmjs/-/heap/0.2.7, Python-2.0 AND MIT, restricted, #11149
 npm/npmjs/-/hexoid/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/history/4.10.1, MIT, approved, clearlydefined
 npm/npmjs/-/hoist-non-react-statics/3.3.2, BSD-3-Clause, approved, clearlydefined
@@ -476,7 +476,7 @@ npm/npmjs/-/kleur/4.1.5, MIT, approved, clearlydefined
 npm/npmjs/-/klona/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/-/latest-version/5.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/layout-base/1.0.2, MIT, approved, clearlydefined
-npm/npmjs/-/layout-base/2.0.1, MIT, restricted, clearlydefined
+npm/npmjs/-/layout-base/2.0.1, MIT AND Apache-2.0, approved, #11151
 npm/npmjs/-/leven/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/lilconfig/2.0.6, MIT, approved, clearlydefined
 npm/npmjs/-/lines-and-columns/1.2.4, MIT, approved, clearlydefined
@@ -523,7 +523,7 @@ npm/npmjs/-/memfs/3.4.13, Unlicense, approved, #2974
 npm/npmjs/-/merge-descriptors/1.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/merge-stream/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/merge2/1.4.1, MIT, approved, clearlydefined
-npm/npmjs/-/mermaid/9.4.3, MIT, restricted, clearlydefined
+npm/npmjs/-/mermaid/9.4.3, MIT AND (BSD-2-Clause AND MIT) AND ISC, approved, #11150
 npm/npmjs/-/methods/1.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-core-commonmark/1.0.6, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-factory-destination/1.0.0, MIT, approved, clearlydefined
@@ -833,7 +833,7 @@ npm/npmjs/-/side-channel/1.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/signal-exit/3.0.7, ISC, approved, #5892
 npm/npmjs/-/sirv/1.0.19, MIT, approved, clearlydefined
 npm/npmjs/-/sisteransi/1.0.5, MIT, approved, clearlydefined
-npm/npmjs/-/sitemap/7.1.1, MIT, restricted, clearlydefined
+npm/npmjs/-/sitemap/7.1.1, MIT AND CC-BY-4.0 AND CC0-1.0, approved, #11152
 npm/npmjs/-/slash/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/slash/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/slick-carousel/1.8.1, MIT, approved, #2986
