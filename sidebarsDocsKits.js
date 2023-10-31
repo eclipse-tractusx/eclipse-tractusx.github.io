@@ -108,7 +108,6 @@ const sidebars = {
                     collapsed: true,
                     items: [
                         'kits/tractusx-edc/docs/README',
-                        'kits/tractusx-edc/docs/kit/adoption-view/Domain Model',
                         {
                             type: 'category',
                             label: 'openAPI',
