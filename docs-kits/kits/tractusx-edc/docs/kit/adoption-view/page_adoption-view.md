@@ -74,7 +74,7 @@ The architecture of the EDC combines various services that are necessary for the
 
 ### Catena-X Standards
 
-The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Every data consumer and provider in Catena-X is required to comply with these standards. The [EDC Connector][edc-url] builds on the following standards:
+The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Every data consumer and provider in Catena-X is required to comply with these standards. The [EDC][edc-url] builds on the following standards:
 
 - [CX - 0002 Digital Twins in Catena - X][CX0002]
 - [CX - 0003 BAMM Aspect Meta Model][CX0003]
