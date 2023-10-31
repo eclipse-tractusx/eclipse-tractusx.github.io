@@ -41,7 +41,7 @@ With the [EDC][edc-url], a new communication component was introduced, which imp
 
 ## Use Case
 
-The EDC Connector is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therfore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of an [EDC Connector][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required.
+The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therfore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of an [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required.
 
 - [Sustainability][sustainability-url]
 - [Traceability][traceability-url]
