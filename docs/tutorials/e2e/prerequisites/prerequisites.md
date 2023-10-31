@@ -19,6 +19,7 @@ AAs mentioned in the introduction, no preliminary knowledge about Catena-X is re
 - Kubernetes
 - Minikube (for local)
 - Helm
+- Terraform
 
 ## Using cloud based environments
 
