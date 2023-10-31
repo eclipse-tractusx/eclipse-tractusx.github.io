@@ -362,7 +362,7 @@ npm/npmjs/-/hast-util-whitespace/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/hastscript/6.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/hastscript/7.2.0, MIT, approved, #6623
 npm/npmjs/-/he/1.2.0, MIT, approved, clearlydefined
-npm/npmjs/-/heap/0.2.7, Python-2.0 AND MIT, restricted, #11149
+npm/npmjs/-/heap/0.2.7, MIT, approved, #11149
 npm/npmjs/-/hexoid/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/history/4.10.1, MIT, approved, clearlydefined
 npm/npmjs/-/hoist-non-react-statics/3.3.2, BSD-3-Clause, approved, clearlydefined
