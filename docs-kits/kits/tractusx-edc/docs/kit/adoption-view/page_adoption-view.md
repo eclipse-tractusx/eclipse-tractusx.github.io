@@ -26,7 +26,7 @@ The Connector KIT provides the single source of information and technology to pe
 
 ## Concept
 
-Trust, interoperability, and data sovereignty are the objectives and values for secure and sustainable peer-to-peer data exchange between organizations and companies. The claim is data sovereignty: Whoever provides data to the Data Space retains control and decides individually who is involved in the data exchange, how, when, where and under what conditions. A corresponding concept was developed in the context of [Gaia-X][gaiax-url] and the [International Data Space Association][idsa-url]. __The essential software component is the EDC Connector.__
+Trust, interoperability, and data sovereignty are the objectives and values for secure and sustainable peer-to-peer data exchange between organizations and companies. The claim is data sovereignty: Whoever provides data to the Data Space retains control and decides individually who is involved in the data exchange, how, when, where and under what conditions. A corresponding concept was developed in the context of [Gaia-X][gaiax-url] and the [International Data Space Association][idsa-url]. __The essential software component is the EDC.__
 
 With the [EDC Connector][edc-url], a new communication component was introduced, which implements the following architectural principles:
 
