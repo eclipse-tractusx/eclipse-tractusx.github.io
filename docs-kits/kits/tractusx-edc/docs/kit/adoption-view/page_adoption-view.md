@@ -120,7 +120,7 @@ By combining [`Assets`](#data asset) and Policies, Contracts for data offerings 
 
 #### Contract offer
 
-The contract offer is a representation of the [`ContractDefinition`](#contract-definition) for a specific consumer and serves as protocol for a data transfer object (DTO) for a particular contract negotiation. If a data consumer wants to conclude a binding data exchange contract based on the terms of a Data Offer, the data consumer can communicate such desire to the data provider by referencing to a specific Data Offer. Under German law, this constitutes a binding offer by the data consumer. For now, the dtaa consumer only has the option to accept all terms of a Data Offer (or not). The Data Exchange Process does not yet provide for the data consumer to make an offer that deviates from the terms of a Data Offer as set by the data provider.
+The contract offer is a representation of the [`ContractDefinition`](#contract-definition) for a specific consumer and serves as protocol for a data transfer object (DTO) for a particular contract negotiation. If a data consumer wants to conclude a binding data exchange contract based on the terms of a Data Offer, the data consumer can communicate such desire to the data provider by referencing to a specific Data Offer. This constitutes a binding offer by the data consumer. For now, the dtaa consumer only has the option to accept all terms of a Data Offer (or not). The Data Exchange Process does not yet provide for the data consumer to make an offer that deviates from the terms of a Data Offer as set by the data provider.
 
 #### Contract negotiation
 
