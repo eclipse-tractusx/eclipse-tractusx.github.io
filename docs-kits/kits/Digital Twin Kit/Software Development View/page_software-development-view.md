@@ -124,7 +124,15 @@ There's three relevant inputs to discover a referenced Submodel in Catena-X:
 of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field and 
 append the additional URL-segment /$value 
 
-#### Example for AAS-Registration
+#### Registering a new Twin
+
+Registration of a new twin is (at least in Catena-X) equivalent to the creation of a new twin. Thus, a Data Provider
+should
+always ensure that there is no shell-descriptor created for the respective assetIds yet. If there already is one,
+the submodel-descriptor should
+be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
+
+`POST /shell-descriptors`
 
 ```json
 {
@@ -139,7 +147,7 @@ append the additional URL-segment /$value
         "keys": [
           {
             "type": "GlobalReference",
-            "value": "BPNL:someBpnOfAssetOwner"
+            "value": "{{BPN of the a party priviledged}}"
           }
         ]
       }
@@ -184,7 +192,9 @@ append the additional URL-segment /$value
 }
 ```
 
-#### Example for Submodel-Registration at existing AAS
+#### Registering a new Submodel at an existing Twin
+
+`POST /shell-descriptors/{{aasId}}`
 
 ```json
 {
@@ -243,7 +253,8 @@ the "@context" section, the `@type` property always defines the class that an ob
 As stated in the openAPI-specification of the EDC Management API's relevant endpoint, all entries in the `asset/properties`
 object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is structured depending
 on the `edc:type` property. The example below is determined by the [HttpDataAddress](https://github.com/eclipse-edc/Connector/blob/main/spi/common/core-spi/src/main/java/org/eclipse/edc/spi/types/domain/HttpDataAddress.java) class. Its parameters determine
-the behavior of the EDC's data plane at runtime. How they should be used is not subject to standardization since they 
+the behavior of the EDC's HTTP data plane at runtime. How they should be used is not subject to standardization since
+they
 aren't visible in the Dataspace. Certain values may have to be set in a certain way to enable the data exchange via
 the DT Kit.
 
@@ -257,7 +268,8 @@ harmonized way. The following overview shall explain how the `asset/properties` 
 points to an RDF resource that can be either `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry` or `https://w3id.org/catenax/taxonomy#Submodel`
 
 - `https://w3id.org/catenax/common/version` (mandatory as per CX-0002): version-string of the registered type of resource.
-For all endpoints related to the AAS-spec, this must be set to "3.0".
+  For all endpoints related to the AAS-spec, this must be set to "3.0" as that's the current normative version of the
+  AAS specification.
 
 #### Digital Twin Registry as EDC Data Asset
 
@@ -396,19 +408,40 @@ be standardized in the context of the semantics-standards or the DT Kit.
 
 ## Data Provisioning
 
-### Patterns
+### Versioning
+
+Versioning in the Catena-X network is an essential task. This holds true for Digital Twins more specifically, too. The
+network builds on several specifications where changes in API or specifications could break existing communication
+channels.
+In a simple scenario (where the Data Provider offers access to a Submodel via DTR and a Data Consumer GETs both
+resources),
+these are the layers of complexity:
+
+| Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                          | Method to increment                                                                                  |
+|--------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request points to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | Unclear, under discussion in Connector Kit.                                                          |
+| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         | Unclear, under discussion in DT Kit.                                                                 |
+| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the schema requires setup of a new submodel. This includes registration at the DTR. |
+
+### Patterns for Submodels
 
 Data Providers will usually follow one of two patterns:
 1. Digital Twin Repository: Deploying a dedicated Repository for the persistence of digital twins and related data is the most
-convenient way to get going with the AAS. Due to the risk of data duplication and unclear initial ingestion mechanisms,
+   convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
+   mechanisms,
 it may not scale to industrial sizes.
 2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
-requests to the respective backend systems. 
+   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since it
 
 Offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
 can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
 
-### Register Digital Twins
+### Patterns for DTRs
 
-As mentioned in CX - 0002, every Data Provider is required not only to deploy a DTR in his infrastructure but also to
-register each of the Submodels. Otherwise, the data will not be discoverable by Data Consumers.
+Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001 by
+means of POST endpoints, updatable with PUT and PATCH requests (
+see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
+These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
+or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
+as backend integration pattern is more inconvenient as the DTR must process and return reproducable IDs not only for
+the assets but also for the AAS - this is hard to realize in a pure stateless implementation.
