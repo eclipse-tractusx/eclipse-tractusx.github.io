@@ -32,4 +32,4 @@ A good example when a product has a separate repository for frontend and backend
 - It **should** contain the release (whether it is source code, helm chart or any other artifact)
 - README.md contains the description of what the product does
 - README.md contains the references/urls to the product's other repositories if they exist
-- It **should** contain the [TRG 5.08 - Product Helm Chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-8)
+- It **should** contain the [TRG 5.08 - Product Helm Chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-08)

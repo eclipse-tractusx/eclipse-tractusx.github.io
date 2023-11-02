@@ -7,10 +7,11 @@ sidebar_position: 1
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 
-1. Check if all contributors of this PR have a signed ECA.
-2. Check if the mail adresses of the EF account and the GitHub email adress are corresponding.
-3. Check if there is the correct mail adress in your commits (Tipp: add .patch to the GitHub Commit URL to see the plain text)
-4. Check the [Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened) issues, if there is a known problem or open an issue.
+1. Verify that all contributors to this PR have a signed ECA.
+1. Verify that the EF account email addresses and the primary email address configured in GitHub match.
+1. Verify that your commits include the correct email address (tip: add .patch to the GitHub commit url to see the plaintext).
+1. Make sure you have added your GitHub ID to your Eclipse profile (Section: Social Media Links).
+1. Check the [Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened) issues, if there is a known problem or open an issue.
 
 ## How can I check that somebody has a valid ECA?
 

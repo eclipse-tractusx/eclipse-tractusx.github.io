@@ -2,81 +2,86 @@
 title: KIT FAQ
 ---
 
-
-:::danger
-The contents of this page are partially out of date, incorrect, redundant and can be misleading.
-Do not rely on these contents until we provide an updated version
-
-Best regards, System and FOSS Team
+:::info
+This page is currently under construction!
 :::
 
-On this page you find a FAQ which is focused on question regarding your contribution to the Tractus-X project.
+On this page you will find an FAQ focused on questions related to the KIT documentation. There is also a general [FAQ for Tractus-X](/docs/dev_faq) and the [Tractus-X link collection](/docs/dev_links).
 
-## Need help ?
+## How do I start?
 
-As described we try to answer as many questions as possible, but it will be the case that you won't find an answer. If you find yourself in this situation head to our [community repository](https://github.com/eclipse-tractusx/community) and raise an [issue](https://github.com/eclipse-tractusx/community/issues/new/choose) or search the [disucussion section](https://github.com/eclipse-tractusx/community/discussions). If you don't find something within the dicsussion section we encourage you to open a new discussion! The community will help!.
+There are several resources providing information about contributing to the Eclipse Tractus-X project. Before you begin, please familiarize yourself with the following documentation:
+
+- [Getting started](/docs/oss/getting-started)
+- [How to contribute](/docs/oss/how-to-contribute)
+- [Eclipse project roles](/docs/oss/contributor-committer)
+- [Tractus-X link collection](/docs/dev_links)
+
+Tractus-X is an Eclipse project, the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/#legaldoc) is the leading documentation.
+
+## How do I get support?
+
+If you have any questions not answered here, in the general [FAQ](/docs/dev_faq) or in the documentation, please feel free to ask questions in our community channels:
+
+- [Tractus-X General Chat Room](https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org)
+- [Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev)
+
+There are several issue tracker for different purpose, please see the [issue tracker documentation](/docs/oss/issues).
+
+## How do I become a Tractus-X contributor?
+
+See [here](/docs/kit-process/processes/kit-faq#how-to-start)
+
+:::info
+You are an Eclipse contributor once you have signed the Eclipse Contributor Agreement (ECA).
+GitHub has automated checks that check your contributions. Without a signed ECA, the [checks will fail](/docs/dev_faq#the-eca-check-is-failing-while-merging-a-pr-what-to-do).
+:::
 
 ## How to contribute ?
 
-If you and your team want to contribute to an existing KIT or even suggest and work on an own KIT you have to fufill a small set of Prerequisites.
+If you and your team want to contribute to an existing KIT or suggest a new KIT you have to fulfill a small set of prerequisites.
 
-1. Become a Eclipse Foundation contributor. See this [roadmap](/docs/kit-process/contribute.md#how-to-become-a-tractus-x-contributer)
+1. See the process for creating a new KIT (TBD)
 
-2. Make yourself familiar with git best practices, the eclipse contribution guidelines and our processes.
+1. Become an Eclipse Tractus-X project contributor, see [here](/docs/kit-process/processes/kit-faq#how-to-start)
+
+<!--
+1. Make yourself familiar with git best practices, the Eclipse contribution guidelines and our processes.
    - [Getting Started with git](https://docs.github.com/en/get-started/getting-started-with-git)
    - [Eclipse Contribution Guidelines](https://wiki.eclipse.org/Development_Resources/Contributing_via_Git)
    - [Tractus-X processes](/docs/kit-process/processes/)
 
-## How to obtain a Tractus-X repository ?
+-->
 
-After your KIT suggestion is accepted your need a Tractus-X repository. Since Tractus-X ist part of the eclipse foundation the repositories are managed by the foundation. Thus you have to request the creation of a repository within the Tractus-X project at their GitLab.
-You find their Issue Section [here](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues). Raise an issue with the following information:
+## How do I get a Tractus-X repository?
 
-- The name should have the following format:
+After your KIT suggestion is accepted you need to [request a Tractus-X repository](/docs/oss/issues#create-manage-a-repository-in-eclipse-tractusx). Tractus-X is an Eclipse project, the repositories are managed by the Eclipse Foundation.
 
-  `Tractus-X: New GitHub Repository '\<Repo Name\>'`
+## How to update the KIT documentation on the Tractus-X website ?
 
-- Fill the request body with
-
-  - an Repository Name
-  - a short description
-  - reference the the Tractus-X GitHub organisation
-
-    `https://github.com/eclipse-tractusx`
-
-  - tag Daniel Miehle, Siegfried Kiermayer for approval
-
-- [Example](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/2713)
-
-## How to update the documentation on the Tractus website ?
-
-We have a page where we exlpain the process. You find it [here](/docs/kit-process/processes/update-documentation.md)
-
-## How to become a Tractus-X contributer ?
-
-To become a Tractus-X contributer you have to do the following steps:
-
-1. Create an Eclipse Foundation account following this [link](https://accounts.eclipse.org/user/register).
-
-2. Sing the Eclipse Contributer Agreement.
-   After you signed the agreement it takes some time until it is confirmed. Usually it is the next day, sometime it takes up to some days. This is completely dependent on the eclipse foundation.
-
-### Importand Note
-
-While registring make sure to use your **email used for your github account**! There are automated checks in place that make sure a commited change is done by an eclipse contributer, it will be rejected otherwise! You are a eclipse contributer as soon as you signed the eclipse contribution agreement.
+We have a page where we explain the process. You find it [here](/docs/kit-process/processes/update-documentation.md)
 
 ## How to suggest a new KIT ?
 
+(TBD)
+<!--
 If you have an idea for a new KIT the Tractus-X community invites you to propose your idea. You find a description for this process [here](/docs/kit-process/processes/create_KIT_page.md)
+-->
+## How to version your KIT ?
 
-## How to Version your KIT ?
-
+(TBD)
+<!--
 View the Tractus-X [versioning scheme](/docs/kit-process/versioning.md). On this page you find our versioning scheme we recommend you to follow in your KIT.
+-->
 
-## How to create a new release ?
+## How to create a new KIT release ?
 
+(TBD)
+<!--
 Usually a new version is assigned when a new release is created. So a the version and release are closely releated. Below you find the github documentation to manage your [releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
+-->
 
+<!--
 ## What to do with an project external KIT repository ?
 
 It may be the case that you already started the development of your KIT outside of the Tractus-X project. In that case you should move your progress to your kit repository within the Tractus-X project. If you don't have an Tractus-X repository consult this [guide](/docs/kit-process/contribute.md#how-to-obtain-a-tractus-x-repository). Otherwise there are two options to move your content.
@@ -116,14 +121,17 @@ After moving your content to the new repository you should make your old reposit
 
 ## How to request a artefact/request review?
 
-Raise an Issue within the Tractus-X Repository and add a decription where to find the artefact/devliverable.
+Raise an issue within the Tractus-X Repository and add a decription where to find the artefact/devliverable.
 
 ## How to request a promotion?
 
 Raise an Issue within the Tractus-X Repository and request an promotion to the next development stage. Consult the [Graduation Process](/docs/kit-process/graduation-process.md) page to know which artefacts must be finished to be able to be promited to the next stage. Additionally link the review Issue to each artefact! If it is the case that an artefact is not relevant to you provide a detailed description why.
 
-## General KIT Workflow
+-->
+## General KIT workflow
 
+(TBD)
+<!--
 In this section we describe the general worklfow on how to contribute with git:
 
 1. Create a fork of the repository where you want to contribute.
@@ -148,3 +156,5 @@ It may occurr that after the release of a new Catena-X version that you want to 
 
 1. Is it feasable to let the error be within the release e.g. typo or similar minor errors
 2. If it is a critical error, raise an issue within the [community repository](https://github.com/eclipse-tractusx/community). Explain your problem and why it is critical that you need to add a change. The issue will be reviewd and then there will be an decision made whether the changes will be approved or not.
+(TBD)
+-->
