@@ -3,12 +3,6 @@ title: Get an Overview
 sidebar_position: 1
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back later!
-
----
-
 Welcome to this first step of the tutorial. As a developer, you most likely don't want to become an expert on all legal, organizational or business related Catena-X topics.
 Nevertheless, it makes sense to familiarize yourself with some of the high-level concepts of Catena-X, before you proceed with the architecture.
 
@@ -47,14 +41,14 @@ Your task to setup the technical components is part of a larger onboarding journ
 >Further reading:
 >
 > - For an in-depth understanding of the onboarding process, it can be helpful to read the Onboarding Guide (<https://catena-x.net/en/catena-x-introduce-implement/onboarding>) and especially the Chapter "IT Specialist".
-> - The "Internal Company Onboarding Tracker" provides a checklist for all onboarding setps and can also be found via the link above.
+> - The "Internal Company Onboarding Tracker" provides a checklist for all onboarding steps and can also be found via the link above.
 
 ## 5. Backend Integration
 
-Loret ipsum
+Setting up all technical components is only the first step towards active participation in Catena-X. To be able to send and receive data and participate in use-cases, the backend systems from/to where data is transferred must be connected. Those backend systems can be existing business applications, a data lake or data warehouses. Backend Integration also includes typical ETL tasks, such as adapting data formats to the Catena-X semantic.
 
 > Further reading:
 >
-> - Placeholder
+> - The data integration pattern guide gives an overview over the tasks and challenges associated with backend integration: <<https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_V1.1.pdf>>
 
 In the next chapter, you will learn about the Catena-X architecture, and how some of the most important technical components work together.
