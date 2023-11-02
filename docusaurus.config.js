@@ -353,7 +353,7 @@ const config = {
                 label: 'Traceability',
               },
               {
-                to: 'docs-kits/next/Resiliency/',
+                to: 'docs-kits/next/kits/Resiliency/',
                 label: 'Preview',
               }
             ],
