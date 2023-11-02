@@ -2,12 +2,6 @@
 title: Tutorials
 ---
 
-## What are tutorials?
+Tractus-X tutorials are descriptions and explanations on how to **run** the components in the Catena-X network. They are targeted towards software engineers that are getting started with Catena-x and want to familiarize themselves with the IT stack.
 
-- Descriptions and explanations how to **run** exiting components in the Catena-X network
-- Not meant to explain how to further develop components.
-- Can be run stand-alone, no need to integrate into an operating company network environment.
-
-## What are the customer groups?
-
-- IT Departments of operating companies.
+More information about the content and type of each tutorial can be found inside the respective tutorial.
