@@ -830,10 +830,20 @@
           "dirName": "kits/Traceability Kit"
         }
       ]
-    }
-
-  ],
-  "Resiliency": [
+    },
+    {
+      "type": "category",
+      "label": "DCM KIT",
+      "link": {
+        "type": "generated-index"
+      },
+      "collapsed": true,
+      "items": [
+        "DCM Kit/adoption-view",
+        "DCM Kit/development-view",
+        "DCM Kit/changelog"
+      ]
+    },
     {
       "type": "category",
       "label": "Resiliency",
