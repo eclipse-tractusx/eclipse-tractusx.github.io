@@ -6,6 +6,12 @@
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.6.0] - 2023-10-31
+
+<h3>Changed</h3>
+
+- restructuring of adoption view
+
 ## [0.5.0] - 2023-08-09
 
 <h3>Changed</h3>
