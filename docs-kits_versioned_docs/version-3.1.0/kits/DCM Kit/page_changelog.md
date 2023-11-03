@@ -1,7 +1,7 @@
 ---
 id: changelog
 title: Changelog
-description: 'Demand and Capacity Management Kit'
+description: 'What has changed recently?'
 sidebar_position: 3
 ---
 

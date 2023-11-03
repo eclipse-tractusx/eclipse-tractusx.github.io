@@ -839,9 +839,9 @@
       },
       "collapsed": true,
       "items": [
-        "Resiliency/DCM Kit/adoption-view",
-        "Resiliency/DCM Kit/development-view",
-        "Resiliency/DCM Kit/changelog"
+        "kits/DCM Kit/adoption-view",
+        "kits/DCM Kit/development-view",
+        "kits/DCM Kit/changelog"
       ]
     },
     {
