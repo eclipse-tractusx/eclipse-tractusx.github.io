@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Demand and Capacity Management Kit'
+description: 'A first impression'
 sidebar_position: 1
 ---
 

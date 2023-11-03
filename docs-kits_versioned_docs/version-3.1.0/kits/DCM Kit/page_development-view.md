@@ -1,7 +1,7 @@
 ---
 id: development-view
 title: Development View
-description: 'Demand and Capacity Management Kit'
+description: 'What do I have to implement?'
 sidebar_position: 2
 ---
 
