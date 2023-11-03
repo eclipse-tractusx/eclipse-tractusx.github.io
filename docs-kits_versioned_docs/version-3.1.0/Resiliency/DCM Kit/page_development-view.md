@@ -9,6 +9,8 @@ sidebar_position: 2
 
 ## DCM Development View
 
+This page describes the most important parts for the implementation of the DCM standards. For the full technical specification, please refer to the standards [CX-0047 DCM Data Model Material Demand & Capacity Group](https://catena-x.net/de/standard-library) and [CX-0048 DCM API Material Demand & Capacity Group](https://catena-x.net/de/standard-library).
+
 ## Introduction
 
 This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the API definitions used in the DCM Catena-X network.
