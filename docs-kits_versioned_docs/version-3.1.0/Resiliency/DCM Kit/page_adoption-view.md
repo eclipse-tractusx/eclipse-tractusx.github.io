@@ -62,14 +62,14 @@ The DCM KIT enables better and faster issue resolution. We believe that collabor
 
 Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
 
-### Semantic Models
+## Semantic Models
 
 | Semantic Model | Link to GitHub Repository |
 | ------------- | ------------- |
 | WeekBasedCapacityGroup  | https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_capacity_group  |
 | WeekBasedMaterialDemand | https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_material_demand |
 
-### Notice
+## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 - SPDX-License-Identifier: CC-BY-4.0
