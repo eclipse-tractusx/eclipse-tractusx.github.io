@@ -28,7 +28,7 @@ import Thumbnail from "@site/static/img/main_bg-min.png"
 import styles from "./styles.module.css";
 
 export default function DeepdiveContent() {
-  // let [display, setDisplay] = useState('block');
+  const [display, setDisplay] = useState('block');
 
   return (
     <section className={styles.deepdive_content}>
@@ -52,8 +52,8 @@ export default function DeepdiveContent() {
           <div className={styles.iframe_container}>
             <div 
             className={styles.thumbnail} 
-            // style={{display: display}} 
-            // onMouseOver={()=> setDisplay("none")}
+            style={{display: display}}
+            onMouseOver={()=> setDisplay("none")}
             ></div>
             <iframe 
               width="100%"

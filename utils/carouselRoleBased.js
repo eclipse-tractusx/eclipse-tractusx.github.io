@@ -1,45 +1,21 @@
 export const carouselRoleBased = [
     {
         id: 1,
-        title: "Operating Company",
-        description: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-        navigate: "/"
+        title: "KIT Deepdive",
+        description: "What is a KIT?",
+        pageRoute: "/kit-deepdive"
     },
     {
         id: 2,
-        title: "Data Provider",
-        description: "Lorem ipsum dolor sit amet",
-        navigate: "/"
+        title: "KIT Usage",
+        description: "How to use a KIT ?",
+        pageRoute: "/kits-usage"
     },
     {
         id: 3,
-        title: "App/Service Provider",
-        description: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-        navigate: "/"
-    },
-    {
-        id: 4,
-        title: "Roadmap and Releases",
-        description: "Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-        navigate: "/"
-    },
-    {
-        id: 5,
-        title: "Example Section one",
-        description: "Lorem ipsum dolor sit amet",
-        navigate: "/"
-    },
-    {
-        id: 6,
-        title: "Example Section two",
-        description: "Lorem ipsum dolor sit amet",
-        navigate: "/"
-    },
-    {
-        id: 7,
-        title: "Example Section three",
-        description: "Lorem ipsum dolor sit amet",
-        navigate: "/"
-    },
+        title: "KIT Creation",
+        description: "How to create a KIT?",
+        pageRoute: "/docs/kit-process/graduation-process"
+    }
   ]
   
