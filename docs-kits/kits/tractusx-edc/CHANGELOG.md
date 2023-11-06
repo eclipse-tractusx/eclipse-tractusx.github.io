@@ -11,6 +11,7 @@ All notable changes to this Kit will be documented in this file.
 <h3>Changed</h3>
 
 - restructuring of adoption view
+- new domain model, drawn with drawio
 
 ## [0.5.0] - 2023-08-09
 

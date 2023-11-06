@@ -9,22 +9,22 @@ export const previewKits = [
 	{
 		id: 1,
 		img: DCM_Kit,
-		pageRoute: "/docs-kits/Resiliency/DCM%20Kit"
+		pageRoute: "/docs-kits/kits/Resiliency/DCM%20Kit"
 	},
   {
 		id: 2,
 		img: Maas_Kit,
-		pageRoute: "/docs-kits/Resiliency/maas"
+		pageRoute: "/docs-kits/kits/Resiliency/maas"
 	},
 	{
 		id: 3,
 		img: PURIS_Kit,
-		pageRoute: "/docs-kits/Resiliency/PURIS"
+		pageRoute: "/docs-kits/kits/Resiliency/PURIS"
 	},
 	{
 		id: 4,
 		img: MP_Kit,
-		pageRoute: "/docs-kits/Resiliency/mp%20kit"
+		pageRoute: "/docs-kits/kits/Resiliency/mp%20kit"
 	},
 	{
 		id: 5,

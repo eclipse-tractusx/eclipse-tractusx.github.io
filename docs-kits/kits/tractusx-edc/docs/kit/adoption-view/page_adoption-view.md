@@ -86,9 +86,9 @@ The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Ev
 
 ### Terminology
 
-![domain-model](images/domain-model.png)
+The shown picture illustrates only a generic view of the Domain Model and is not intended to show all aspects of the project.
 
-> The shown picture illustrates only a generic view of the Domain Model and is not intended to show all aspects of the project.
+![domain_model](@site/static/img/domain_model.drawio.svg)
 
 #### Extensions
 
