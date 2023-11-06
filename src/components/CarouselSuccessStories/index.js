@@ -64,7 +64,7 @@ export default function CarouselSuccessStories() {
 
   const slider = React.useRef(null);
 
-  const SuccessStoryCard = ({id, img, title, description, blogLink}) => {
+  const SuccessStoryCard = ({id, img, title, description, pageRoute, buttonName}) => {
     return (
       <div className={styles.slider_item}>
         <div className={styles.slider_img_container}>
@@ -78,8 +78,8 @@ export default function CarouselSuccessStories() {
             <div>
               <p className="description-p">{description}</p>
             </div>
-            <Link className="button" to={blogLink}>
-              Success Stories {id}
+            <Link className="button" to={pageRoute}>
+              {buttonName}
             </Link>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function CarouselSuccessStories() {
           <h2 className="title-h2">Success Stories</h2>
           <div className={styles.subtitle_container}>
             <p className="subtitle-h3">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+              Solutions / apps that already used one of the KITs and are sharing their experience with it on how they used the KIT for a use case.
             </p>
           </div>
         </div>

@@ -49,7 +49,7 @@
   height: auto;
 }
 
-/* .iframe_container {
+.iframe_container {
   width: 100%;
   height: 450px;
   position: relative;
@@ -65,7 +65,7 @@
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
 
 @media screen and (max-width: 996px) {
   .container {

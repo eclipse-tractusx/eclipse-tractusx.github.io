@@ -20,6 +20,7 @@ import AboutUsCard from "../components/AboutUsCard";
 import FAQsComponent from "../components/FAQsComponent";
 import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";
+import CarouselSuccessStories from "../components/CarouselSuccessStories";
 import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
 import CommunityComponent from "../components/CommunityComponent";
 
@@ -32,8 +33,7 @@ export default function Home() {
     >
       <HomePageHeader />
       <main>
-        {/* TODO - Enable when pages/content is available */}
-        {/* <RoleBasedEnrtyComponent /> */}
+        <RoleBasedEnrtyComponent />
         <AboutUsCard />
         <CommunityComponent />
         <KitsGalleryWithFilters 
@@ -41,6 +41,7 @@ export default function Home() {
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
+        <CarouselSuccessStories />
         <FAQsComponent />
       </main>
     </Layout>

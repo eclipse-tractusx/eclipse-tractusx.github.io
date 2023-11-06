@@ -30,6 +30,7 @@ import { useMediaQuery } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
 import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
+import Link from "@docusaurus/Link";
 
 export default function RoleBasedEnrtyComponent() {
     const isWeb = useMediaQuery('(min-width:1024px)');
@@ -69,39 +70,41 @@ export default function RoleBasedEnrtyComponent() {
         autoplay: false,
         infinite: false,
         variableWidth: true,
-        arrows: true,
+        arrows: false,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         initialSlide: 0,
     };
 
-    const RoleBasedEntryCard = ({ title, description }) => {
+    const RoleBasedEntryCard = ({ title, description, pageRoute }) => {
         return (
-            <div className={styles.card_container}>
-                <div>
-                    <Typography className={styles.roles_title}
-                        sx={{
-                            fontFamily: 'Manrope, sans-serif'
-                        }}
-                    >
-                        {title}
-                    </Typography>
-                    <Typography className={styles.roles_description}
-                        sx={{
-                            fontFamily: 'Manrope, sans-serif',
-                        }}
-                    >
-                        {description}
-                    </Typography>
-                </div>
-                <div className={styles.icon_container}>
-                    <div className={styles.empty_container}></div>
-                    <div className={styles.empty_container}></div>
-                    <div className={styles.arrow_icon}>
-                        <ArrowCircleRightIcon />
+            <Link className={styles.link_container} to={pageRoute}>
+                <div className={styles.card_container}>
+                    <div>
+                        <Typography className={styles.roles_title}
+                            sx={{
+                                fontFamily: 'Manrope, sans-serif'
+                            }}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography className={styles.roles_description}
+                            sx={{
+                                fontFamily: 'Manrope, sans-serif',
+                            }}
+                        >
+                            {description}
+                        </Typography>
+                    </div>
+                    <div className={styles.icon_container}>
+                        <div className={styles.empty_container}></div>
+                        <div className={styles.empty_container}></div>
+                        <div className={styles.arrow_icon}>
+                            <ArrowCircleRightIcon />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         )
     }
 
