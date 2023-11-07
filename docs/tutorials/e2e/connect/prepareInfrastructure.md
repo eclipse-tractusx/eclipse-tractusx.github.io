@@ -3,12 +3,6 @@ title: Prepare the infrastructure
 sidebar_position: 1
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back later!
-
----
-
 ## Prerequisites
 
 In order to run the MXD on your local machine, please make sure the following
