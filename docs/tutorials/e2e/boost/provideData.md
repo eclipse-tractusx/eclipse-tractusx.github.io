@@ -86,7 +86,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
 }' 
 ```
 
-## Request catalog
+## Request Bob's catalog
 
 Now that Bob created an access policy, Alice can once again try to access Bob's asset.
 
