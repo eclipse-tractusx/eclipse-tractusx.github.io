@@ -14,7 +14,7 @@ Due to many products having more than one repository, we need a way of identifyi
 
 ## Description
 
-To enable automatic analyzing of repositories, all repositories **MUST** have a file named `.tractusx` present on root-level.
+To enable automatic analysis of repositories, all repositories **MUST** have a file named `.tractusx` present on root-level.
 This file needs to contain metadata about the repository and product in a YAML format.
 The mandatory declarations in the `.tractusx` metadata file do vary for leading- and non-leading repositories.
 
@@ -27,7 +27,7 @@ Example `.tractusx` file taken from the docs:
 product: "your-product-name"
 # mandatory info in every repo
 leadingRepository: "https://github.com/eclipse-tractusx/<your-leading-repo>"
-# default: product; available options: "special", "support", "product"
+# default: available options: "special", "support"; optional field. will be treated as regular product repo without entry
 repoCategory: "special"
 # optional section to refer to all of your teams repositories
 repositories:
