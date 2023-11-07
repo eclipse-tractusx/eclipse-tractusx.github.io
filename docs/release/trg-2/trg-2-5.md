@@ -10,32 +10,35 @@ title: TRG 2.05 - Repository metafile
 
 ## Why
 
-Due to many products having more than one repository, we need a way of identifying dependent repositories automatically. This allows us to programmatically parse and analyze repositories for quality checks and for generating documentation across repositories.
+Due to many products having more than one repository, we need a way of identifying dependent repositories automatically. This allows us to analyze repositories for quality checks and for generating documentation across repositories.
 
 ## Description
 
-Having a `.tractusx` metafile helps individuals, release management, test management and others to determine basic information about a repository in the scope of **Eclipse Tractus-X**.
+To enable automatic analyzing of repositories, all repositories **MUST** have a file named `.tractusx` present on root-level.
+This file needs to contain metadata about the repository and product in a YAML format.
+The mandatory declarations in the `.tractusx` metadata file do vary for leading- and non-leading repositories.
 
-The `yaml` format enables the opportunity to programmatically combine repositories to a single product, determine leading product repository, read data that can be processed for different cases.
+Documentation on the content of the `.tractusx` metadata file can be found [in the quality check docs](https://github.com/eclipse-tractusx/tractusx-quality-checks/blob/main/docs/metadata_file.md).
 
-The `.tractusx` dotfile **must** contain metadata about the repository and product in a `yaml` format that can be processed programmatically. The structure is the following:
-
-- In the root of the [TRG 2.04 - Leading product repository](docs/release/trg-2/trg-2-4.md) create a file called `.tractusx`:
+Example `.tractusx` file taken from the docs:
 
 ```yaml
-product: "PRODUCT_NAME"
-leadingRepository: "LEADING_PRODUCT_REPOSITORY_URL"
+# Will be used on release checks dashboard etc. to refer to your product; only mandatory in the leading repo
+product: "your-product-name"
+# mandatory info in every repo
+leadingRepository: "https://github.com/eclipse-tractusx/<your-leading-repo>"
+# default: product; available options: "special", "support", "product"
+repoCategory: "special"
+# optional section to refer to all of your teams repositories
 repositories:
-  - name: "REPOSITORY_1_NAME"
-    usage: "DESCRIPTION/PURPOSE"
-    url: "REPOSITORY_1_URL"
-  - name: "REPOSITORY_2_NAME"
-    usage: "DESCRIPTION/PURPOSE"
-    url: "REPOSITORY_2_URL"
-```
-
-In the root of a sub/non-leading repository create a file called `.tractusx`:
-
-```yaml
-leadingRepository: "LEADING_PRODUCT_REPOSITORY_URL"
+  - name: "your-product-repo"
+    usage: "Main documentation and release repo for <product>"
+    url: "https://github.com/eclipse-tractusx/<your-leading-repo>"
+  - name: "your-product-library"
+    usage: "A library supporting <product>, that is released separately"
+    url: "https://github.com/eclipse-tractusx/<your-product-lib>"
+# section to explicitly skip certain release guideline checks
+skipReleaseChecks:
+  alignedBaseImage:
+    - "/path/to/non-published/Dockerfile"
 ```
