@@ -21,3 +21,13 @@ By performing this tutorial a data space will be set up including the following 
 - 1 Managed Identity Wallet. The Managed Identity Wallet (MIW) service is a central component storing technical identities. Connectors can request the identity, including properties, in order to take decisions if a contract-offer will be made, a contract agreement will be negotiated, or a data-exchange will be processed.
 - 1 Keycloak instance. Keycloak is used for Identiy and Access Management of technical users.
 - 1 Postgres data base. A data base building the foundation for the MXD setup.
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 sovity GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 msg systems AG
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

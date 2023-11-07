@@ -3,12 +3,6 @@ title: Deploy components
 sidebar_position: 2
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back layer!
-
----
-
 The "MXD" dataspace initially consists of several components: `Alice` and `Bob` (two Tractus-X EDC connectors),
 a Vault instance each, a Postgres database, a Managed Identity Wallet app, a Keycloak instance. `Alice` and `Bob` will
 be our dataspace participants. Each of them stores their secrets in their respective vault instances, and there is a

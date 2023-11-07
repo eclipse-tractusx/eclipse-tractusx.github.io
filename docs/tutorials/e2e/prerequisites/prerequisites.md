@@ -8,7 +8,11 @@ sidebar_position: 1
 
 The components and tools that are described here are to be understood as a proposal from Catena-X and not as standards that must be used. Using the proposed software stack of this tutorial will make it easier to complete it. Nevertheless, if your company policy requires e.g. the use of open stack, or you can't use docker containers or kubernetes, the Catena-X components will also work, you might just need a little extra effort.
 
+:::info
+
 You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or locally. If you choose to run the tutorial locally, make sure that your machine fulfils the minimal performance requirements.
+
+:::
 
 ## Required Skills and Technologies
 
@@ -122,3 +126,13 @@ Within this section we briefly describe how to install the required tools on an 
     6.) if not already installed, install a webbroser like firefox or goggle-chrome
         
 Your enviromnet to start with the tutorial starting with chaper ... should be ready. 
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 sovity GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 msg systems AG
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
