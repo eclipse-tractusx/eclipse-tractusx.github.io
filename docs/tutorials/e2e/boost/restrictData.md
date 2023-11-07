@@ -3,12 +3,6 @@ title: Restricting users from accessing an asset
 sidebar_position: 4
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back layer!
-
----
-
 ## Create an asset
 
 Bob will once again be the data provider and Alice is interested in Bob’s data assets. Bob, as a data provider, creates an asset.

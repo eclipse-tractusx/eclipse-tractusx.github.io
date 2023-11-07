@@ -3,12 +3,6 @@ title: Understand the architecture
 sidebar_position: 2
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back layer!
-
----
-
 If you are interested more in buying services, please get in contact with a operating company.
 This section is for the makerr, which are intereste in deploying the services in their own it landscape.
 
@@ -150,3 +144,13 @@ Rel(SystemPortal, SystemEDCA, "configure BPN")
 - Architecture principles in Scope of the Journey or Catena-X
   - Data Sovereignty
   - Interoperability
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 sovity GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 msg systems AG
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -3,15 +3,6 @@ title: Provide data
 sidebar_position: 2
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back later!
-
-- Register digital twin (aspect)
-- Register EDC Asset
-
----
-
 ## Create first data asset
 
 In this step we will focus on inserting data into our provider connector (Alice) using
