@@ -12,7 +12,6 @@ sidebar_position: 1
 The Catena-X-Standards for Demand- and Capacity-Management enable participants of the automotive supply chain to become more resilient and to increase the degree of collaboration aimed at avoiding or solving production bottlenecks as well as surplus situations in a tactical horizon of 1-2 years.
 
 Thereby the standards empower participants to share data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
-
  
 ## Status Quo
 

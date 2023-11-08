@@ -13,7 +13,8 @@ This page describes the most important parts for the software implementation of 
 
 ## Introduction
 
-This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the API definitions used in the DCM Catena-X network.
+This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the 
+API definitions used in the DCM Catena-X network.
 
 The `WeekBasedMaterialDemand` object will be send by customers to their suppliers in order to
 communicate how many parts they need in which period of time. The customers of materials therefore
@@ -297,7 +298,7 @@ aforementioned property MUST be visible to the customer at any time to avoid amb
 An example EDC Data Asset definition with a corresponding access / usage policy and contract
 definition are shown below.
 
->Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
+> Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
 
 ```json
 // Asset definition
@@ -456,7 +457,7 @@ aforementioned property MUST be visible to the supplier at any time to avoid amb
 An example EDC Data Asset definition with a corresponding access / usage policy and contract
 definition are shown below.
 
->Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
+> Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
 
 ```json
 // Asset definition
