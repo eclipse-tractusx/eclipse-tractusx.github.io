@@ -849,14 +849,14 @@
       "label": "Resiliency",
       "link": {
         "type": "doc",
-        "id": "Resiliency/resiliency"
+        "id": "kits/Resiliency/resiliency"
       },
       "items": [
-        "Resiliency/DCM Kit",
-        "Resiliency/maas",
-        "Resiliency/OSIM",
-        "Resiliency/PURIS",
-        "Resiliency/mp kit"
+        "kits/Resiliency/DCM Kit",
+        "kits/Resiliency/maas",
+        "kits/Resiliency/OSIM",
+        "kits/Resiliency/PURIS",
+        "kits/Resiliency/mp kit"
       ]
     }
   ]
