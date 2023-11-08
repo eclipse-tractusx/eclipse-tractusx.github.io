@@ -33,7 +33,7 @@ Control of your data means, that you can decide who can access your data and who
 
 :::
 
-In our setup we already configured two EDCs. **Àlice** and **Bob** and also the related databases (to persist the assets, policies aso.) are ready to use.
+In our setup we already configured two EDCs. **Alice** and **Bob** and also the related databases (to persist the assets, policies aso.) are ready to use.
 
 :::info
 
