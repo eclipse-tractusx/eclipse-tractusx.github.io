@@ -2,7 +2,7 @@
 id: changelog
 title: Changelog
 description: 'What has changed recently?'
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
