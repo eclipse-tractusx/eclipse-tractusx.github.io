@@ -108,7 +108,6 @@ const sidebars = {
                     collapsed: true,
                     items: [
                         'kits/tractusx-edc/docs/README',
-                        'kits/tractusx-edc/docs/kit/adoption-view/Domain Model',
                         {
                             type: 'category',
                             label: 'openAPI',
@@ -464,22 +463,20 @@ const sidebars = {
               },
             ],
         },
-    ],
-    Resiliency: [
         {
             type: 'category',
             label: 'Resiliency',
             link: {
                 type: 'doc',
-                id: 'Resiliency/resiliency'
+                id: 'kits/Resiliency/resiliency'
             },
             items: [
-                'Resiliency/DCM Kit',
-                'Resiliency/maas',
-                'Resiliency/PURIS',
-                'Resiliency/mp kit',
+                'kits/Resiliency/DCM Kit',
+                'kits/Resiliency/maas',
+                'kits/Resiliency/PURIS',
+                'kits/Resiliency/mp kit',
             ]
         },
-    ],
+    ]
 };
 module.exports = sidebars;
