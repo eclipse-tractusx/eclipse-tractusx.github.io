@@ -112,18 +112,23 @@ You will need https (port 443) as open port for getting access to the above repo
 ```bash
 export https_proxy=http://arena2036-proxy.rus.uni-stuttgart.de:8080
 ```
+
 The complete format is:
+
 ```bash
 export https_proxy=http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]
 ```
+
 :::tip
 
-The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Futher you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf: 
+The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Futher you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf:
 
 ```bash
 Acquire::https::Proxy "http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]";
 ```
+
 To ensure, that the local access is not forwarded, you should set NO_PROXY as environment variable or in your .bashrc or in /etc/environment.
+
 ```bash
 export NO_PROXY="localhost,127.0.0.1,::1"
 ```
