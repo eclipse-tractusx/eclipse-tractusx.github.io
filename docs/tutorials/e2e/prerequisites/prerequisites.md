@@ -150,12 +150,14 @@ Within this section we briefly describe how to install the required tools on an 
 #### Install docker
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install docker.io
 ```
 
 #### Install kubernetes
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install kubernetes
 ```
 
@@ -176,6 +178,7 @@ It might be the case, not all of these steps are needed on your machine.
 ##### Install go
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install golang-go
 ```
 
@@ -206,13 +209,13 @@ Prepare the installation of Terraform including helm:
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 
-sudo wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+sudo wget -O- https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
   
 Verify the generated key is working:
 
 ```bash
-gpg --no-default-keyring \
+sudo gpg --no-default-keyring \
 --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
 --fingerprint
 
@@ -223,6 +226,7 @@ https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/
 Now install Terraform, which automatically also will install helm.
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt-get install terraform
 ```
 
