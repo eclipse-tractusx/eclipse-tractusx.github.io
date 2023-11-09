@@ -131,7 +131,7 @@ curl --location --request POST 'http://localhost/alice/management/v2/transferpro
 --data ''
 ```
 
-The response shows her that she has a "TERMINATED" transfer with the type "CONSUMER" of the asset with the ID "3". This means that Alice has now successfully transferred Bob's data to her desired location via the EDC!
+The response shows her that she has a "FINALIZED" transfer with the type "CONSUMER" of the asset with the ID "3". This means that Alice has now successfully transferred Bob's data to her desired location via the EDC!
 
 ## Notice
 
