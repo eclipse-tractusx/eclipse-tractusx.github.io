@@ -86,7 +86,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
 }' 
 ```
 
-## Request Bob's catalog
+## Request catalog - second try
 
 Now that Bob created an access policy, Alice can once again try to access Bob's asset.
 
@@ -148,7 +148,7 @@ curl --location 'http://localhost/bob/management/v2/contractdefinitions' \
 }'
 ```
 
-## Request catalog
+## Request catalog - third try
 
 Let´s see if Alice can finally see the Asset.
 Action (Alice): Execute the request again using the following `curl` command:

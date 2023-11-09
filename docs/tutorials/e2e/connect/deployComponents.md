@@ -12,10 +12,17 @@ once and are accessible by all participants.
 For the most bare-bones installation of the dataspace, execute the following commands in a shell:
 
 ```shell
+# get the tutorial including the config file for the cluster by cloning the repository locally
+git clone  https://github.com/eclipse-tractusx/tutorial-resources.git
+# will install the mxd directory under <current working directory>/tutorial-resources/mxd
+# the directory should contain the config file for kind: kind.config.yaml
 cd <path/of/mxd>
 kind create cluster -n mxd --config kind.config.yaml
+# 
+# Now we activate ingress for the later port forwarding ?
 # the next step is specific to KinD and will be different for other Kubernetes runtimes!
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f  \ 
+https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 # wait until the ingress controller is ready
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
@@ -80,7 +87,23 @@ Naturally there are several ways to enable access to those services (Load balanc
 of simplicity we will use a plain Kubernetes port-forwarding:
 
 ```shell
-kubectl port-forward postgres-5b788f6bdd-bvt9b 5432:5423
+# find out about the names of your pods
+kubectl get pods
+# you should see a list like:
+NAME                                                     READY   STATUS    RESTARTS   AGE
+alice-tractusx-connector-controlplane-6f7555bcb7-mhxh6   1/1     Running   0          4m
+alice-tractusx-connector-dataplane-6db78d69c5-sw87d      1/1     Running   0          4m
+alice-vault-0                                            1/1     Running   0          4m
+bob-tractusx-connector-controlplane-76ccd79946-84zjw     1/1     Running   0          4m
+bob-tractusx-connector-dataplane-85554c7dcd-6pzzs        1/1     Running   0          4m
+bob-vault-0                                              1/1     Running   0          4m
+keycloak-6bdf4d7689-8mwfd                                1/1     Running   0          4m58s
+miw-574bf87bc-c4n6c                                      1/1     Running   0          4m58s
+postgres-66677b8665-lxxp2                                1/1     Running   0          5m14s
+#
+# We will use the last entry for ingress for our port-forwarding, the name of the postgres pod will be slightly differnt in your local cluster.
+# now we activtae the kuberntes port-forwarding:
+kubectl port-forward postgres-66677b8665-lxxp2  5432:5423
 ```
 
 > Note that the actual pod name will be slightly different in your local cluster.
