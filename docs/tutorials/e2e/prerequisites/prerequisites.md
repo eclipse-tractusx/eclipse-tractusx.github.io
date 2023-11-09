@@ -99,7 +99,7 @@ apt.releases.hashicorp.com
 
 :::note
 
-The above list is currently a candidate for changes, especially as long as the used installions scripts and tools are still in development.
+The above list is currently a candidate for changes, especially as long as the used installations scripts and tools are still in development.
 
 :::
 
@@ -107,17 +107,32 @@ The above list is currently a candidate for changes, especially as long as the u
 
 #### https (443)
 
-You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment wich is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the envionment variabale "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
+You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment which is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the envionment variabale "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
 
 ```bash
 export https_proxy=http://arena2036-proxy.rus.uni-stuttgart.de:8080
 ```
-
+The complete format is:
+```bash
+export https_proxy=http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]
+```
 :::tip
 
-The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs.
+The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Futher you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf: 
+
+```bash
+Acquire::https::Proxy "http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]";
+```
+To ensure, that the local access is not forwarded, you should set NO_PROXY as environment variable or in your .bashrc or in /etc/environment.
+```bash
+export NO_PROXY="localhost,127.0.0.1,::1"
+```
 
 :::
+
+#### http (80)
+
+The port http (80) should not be used, but in case it will, you can apply the above hints just by replacing https by http.
 
 #### ssh (22)
 
