@@ -3,7 +3,7 @@ title: Understand the overarching architecture
 sidebar_position: 2
 ---
 
-If you are interested more in buying services, please get in contact with a operating company.
+If you are interested more in buying services, please get in contact with an operating company.
 
 :::info
 
@@ -19,17 +19,17 @@ The first thing you need is a BPN (Business Partner Number) because this is used
 
 :::info
 
-Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the self description phase within your account in the portal. // ToDo Link to the onboarding guide
+Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the self description phase within your account in the portal within the [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
 
 :::
 
-The BPN is also used to restrict the access and usage of your provided assets. This is done via policies. Some example policies are also part of this tutorial
+The BPN is also used to restrict the access and usage of your provided assets. This is done via policies. Some example policies are also part of this tutorial.
 
 One of the key components of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC). This component is used to exchange data between participants. The EDC is also used to register data offers and to discover data offers from other participants. With the EDC you are always in control of your data.
 
 :::note
 
-Control of your data means, that you can decide who can access your data and who can not. This is done via policies. And is called **data sovereignty**.
+Control of your data means on the one hand, that you can decide who can access your data and who can not. On the other hand you can decide under which constraints the data may be used by the data consumer after providing access. This is achieved via policies and sovereign deployment of data provisioning (in Catena-X you have the opportunity to freely decide where and by whom the data is stored and offered). This is called **data sovereignty**.
 
 :::
 
@@ -41,9 +41,13 @@ Registering an EDC is part of the onboarding process and is done in the portal. 
 
 :::
 
-Now the minimal Setup for data exchange is in place. Now you are able to provide and exchange data.
+The minimal Setup for data exchange is in place. Now you are able to provide and exchange data.
 
 ## What language does Catena-X speak? / Asset Administration Shell with Aspect Models define the language in Catena-X
+
+When it comes to a desired data exchange, it as an utmost concern to be able to find the data on the one hand, and to understand the data on the other hand. Especially if you want to provide or consume data to or from an audience you might not know in advance.
+
+--->>> Continue here
 
 :::danger
 
