@@ -6,6 +6,7 @@ sidebar_position: 1
 ---
 
 import Notice from './part_notice.mdx'
+import BillOfMaterials from './part_bill-of-materials.mdx'
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 <!--
@@ -65,6 +66,29 @@ With the Traceability KIT, we support the Catena-X customer journey for our adop
 <!-- ### Main Functionalities / Capabilities -->
 <!-- ### Roles (Data Provider, Data Consumer, Solution Provider) -->
 
+## Data Requirements for Traceability
+
+<BillOfMaterials components={props.components} />
+
+### AsPlanned
+
+#### Short Introduction: What is a BoM AsPlanned?
+
+The BoM AsPlanned is the generic list of all possible catalogue parts & materials for a specific vehical project and the supply chain from OEM to raw material suppliers. The BoM is also called 120% which means that it includes alternative parts / materials (e.g. LED headlights and XENON headlights) and parts for certain markets. It will be set up way before Start of Production (SOP) and be updated if the contents are updated. It is used for Sourcing / Production Planning and always reflects the current state of parts / materials build into this specific vehicle project.
+
+The BoM AsPlanned also includes all versions of parts like changed parts. It has to enable parts/materials provided from multiple manufacturers or the same manufacturer at different production sites. Additionally it must be possible to map relations of the same part/material to different customers.
+
+The complexity of generic is much higher than BoM AsBuilt. It is used for technical topics, e.g., Supply Chain Act, DCM.
+
+## AsBuilt
+
+#### Short Introduction: What is a BoM AsBuilt?
+
+A BoM AsBuilt resembles a single vehicle, which means that each vehicle built has its own individual BoM asBuilt. The BoM includes all part/components which either have a serial number, batch number, JIS number (sequence number) or a combination out of these. This means, that there is a direct and specific connection between a parent and a child part/component so that an accurate and exact traceability is possible.
+
+Also, the BoM is called 100%, as there are no alternative parts included but only built parts. Therefore, it will be set up when a part is produced and can be connected to its parent and child parts.
+
+In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery Passport (CE).
 
 <!-- Recommended -->
 ## Further Explanations
