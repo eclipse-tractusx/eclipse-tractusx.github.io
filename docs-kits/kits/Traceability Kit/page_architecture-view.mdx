@@ -6,6 +6,12 @@ sidebar_position: 2
 ---
 
 import Notice from './part_notice.mdx'
+import NotificationSendReceive from './diagrams/part_notiifcation_send-receive.mdx'
+import NotificationSendReceiveAlert from './diagrams/part_notification_send-receive-alert.mdx'
+import NotificationUpdateInvestigation from './diagrams/part_notification_update-investigation.mdx'
+import NotificationUpdateAlert from './diagrams/part_notification_update-alert.mdx'
+import NotificationResolveInvestigation from './diagrams/part_notification_resolve-investigation.mdx'
+import NotificationResolveAlert from './diagrams/part_notification_resolve-alert.mdx'
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 <!--
@@ -14,18 +20,17 @@ Architecture View of the Kit.
 
 The following page offers an architecture perspective including the main building blocks and information regarding communication between different components, shown as sequence diagrams in a runtime view.
 
-In general, data must be provided to the Catena-X network using the Data Space Protocol (DSP). As standard for digital twins the Asset Administration Shell (AAS) standard is used - this is relevant for registering digital twins (in the Digital Twin Registry) as well as for providing digital twin data. SAMM is used as modelling language to describe the data of digital twins as aspects models.
+The architectur of Traceability is built upon several other components of Catena-X. You need to be familiar with these components to understand the Traceability architecture:
 
-## Assumptions 
-This architecture is based on the following assumptions:
+- Industry Core for a basic understanding of digital twins and aspect models,
+- Asset Administration Shell (AAS) as the underlying standard for digital twins,
+- Digital Twin Registry (DTR) as the main service to store, publish, and search digital twins, and
+- Eclipse Dataspace Connector (EDC) as the central data exchange infrastructure of Catena-X.
 
-- The **customers of parts** (on catalog and instance level) must be known when creating a digital twin and registering its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent exposing data to unauthorized parties. For Traceability, the customer of a part must have access to the digital twin in the DTR as well as to the digital twin's data in the EDC.If the customer is not known when a digital twin is created, additional processes must be set up by the data provider to add access permissions for the customer at a later time.
-
-## Non-Functional Requirements
-
-| Requirement | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| :--: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Resilience | While processing data for publishing it to Catena-X, a data provider needs to access the digital twins of built-in parts from suppliers. These must be available in Catena-X at this point. If these digital twins are not found while the data provider is looking them up, the data provider will not be able to integrate these built-in parts into BoM aspect models (e.g., SingleLevelBomAsBuilt) as it is missing the built-in parts' Unique ID. Reasons for not finding a built-in part's digital twin can be:<ol><li>There is a network failure while the data provider's is looking for the digital twin.</li><li>The supplier did not yet create the digital twin, e.g., because its internal processes were delayed.</li><li>The supplier is not yet part of the Catena-X network.</li></ol>Resilience means that the data provider implements a pipeline that can cope with these issues. Digital twins are provided with the information that is available and are updated once more information is available (e.g., the supplier provides digital twins for built-in parts later on). |
+Additionally you might make yourself familiar with
+- Item Relationship Service for traversing digital twin data chains based on the Data Chain Template,
+- EDC Discovery for finding the EDC of a Catena-X partner, and
+- SAMM as the modelling standard for aspect models.
 
 <!-- !Mandatory! -->
 <!-- ## Requirement / Understanding -->
@@ -37,7 +42,7 @@ This architecture is based on the following assumptions:
 
 This architecture overview only shows Catena-X Core Services that are directly accessed by Traceability components, e.g. the EDC is shown, but not the DAPS which is accessed by the EDC, but not directly by the Data Provisioning component.
 
-![Architecture - Level 1](assets/architecture_level_1.png)
+![Architecture - Level 1](./assets/architecture_level_1.png)
 
 ### Traceability Components
 
@@ -54,11 +59,104 @@ This architecture overview only shows Catena-X Core Services that are directly a
 | Digital Twin Registry              | The Digital Twin Registry acts as an address book for Digital Twins. Data Providers register their Digital Twins in their own Digital Twin Registry. Data consumers query the Digital Twin Registries to find Digital Twins and interact with them further. A Digital Twin contains endpoint references to Submodel endpoints. Calling a Submodel endpoint returns data compliant to a semantic model. A semantic model describes the data that a Submodel endpoint returns.<br/><br/>[Repository of the Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry). |
 | Item Relationship Service (IRS)    | The IRS is providing a technical API Endpoint in the Catena-X Network, which builds an item tree representation of given digital twins stored across the industry. Therefore it is a key component for the Network to provide data chains along the value chain in the industry.<br/><br/>[Repository of the IRS](https://github.com/eclipse-tractusx/item-relationship-service).                                                                                                                                                                                                        |
 | Eclipse Dataspace Components (EDC) | The Connector of the Eclipse Dataspace Components provides a framework for sovereign, inter-organizational data exchange. It will implement the International Data Spaces standard as well as relevant protocols associated with GAIA-X. The connector is designed in an extensible way in order to support alternative protocols and integrate in various ecosystems.<br/><br/>[Repository of the Catena-X specific EDC](https://github.com/eclipse-tractusx/tractusx-edc).                                                                                                       |
-| Discovery Service                  | The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.                                                                                                                                                                                                                                                                                                                                                                               |
+| Discovery Service                  | The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.    |
+
+## Data Provisioning
+
+- Digital Twins
+    - Digtial Twin "PartType"
+    - Digtial Twin "PartInstance"
+
+- Traceability data aspect models
+    - Aspect model "SingelLevelUsageAsPlanned"
+    - Aspect model "TractionBatteryCode"
+
+## Traceability App
+
+The objective of this section is to define what mandatory features a Traceability app must provide and how to implement them to be interoperable with other Traceability apps. Additionally, optional features of Traceability apps are also included. This information is used by software vendors to develop Traceability-compliant apps for Catena-X.
+
+### Functional Requirements
+
+| Requirement | Mandatory | Description |
+| :-- | :--: |:-- |
+| Digital Twin PartInstance	| Yes | For Release 2, the Traceability app must be able to visualize BoM As-Built data. This data will also be used by Quality Investigations & Alert features, so it's essential for a Traceability app. The data for the manufacturer's parts is retrieved from the manufacturer's internal systems; the data for built-in parts from suppliers must be retrieved from the supplier's EDC as this is a cross-company data transfer (if necessary).<br/>The data for the manufacturer's parts can be retrieved from a company's internal systems:<ul><li>via a dedicated interface for the Traceability app</li><li>via the EDC using the data also provided to other partner's in the Catena-X ecosystem</li></ul>It is not mandatory to use EDC to retrieve this data as this is not a cross-company data transfer, but a data transfer from one application of the company to another application of the company. Advantages and disadvantages of getting the data from the EDC compared to using a dedicated interface, see the example discussion of this matter in context of the Trace-X solution: (TRS) Decision: Trace-X: Dedicated Interface for Company Data.<br/>It is at the discretion of the Traceability app vendor which option they choose. |
+| Data Exchange via EDC	| Yes | The data exchange with other Catena-X partners (for Traceability partners, these are their customers and suppliers mostly) must be done via EDC. |
+| Data Sovereignty | Yes | The usage of data in the Traceability app is compliant with the Access and Usage Policies as defined in Traceability KIT.
+| Quality Alerts | No | In the event of an incident the partner's value chain, the partner would like to be informed promptly and in a structured manner by the triggering partners (e.g., manufacturing problem, field problems) so that the partner can respond as quickly as possible (Supplier/Customer). In the same way, the partner wants to inform their value chain partners easily and specifically in the event of relevant incidents. The traceability apps are able to exchange the alerts in the same interoperable way. | 
+| Quality Investigations | Yes | For a given incident in a partner's supply chain, the partner would like to be able to narrow down the affected products as sharply as possible in order to carry out suitable actions in a targeted manner. The partners in the value chain use interoperable Traceability apps for this purpose.|
+
+### Non-Functional Requirements
+
+There are no non-functional requirements defined for this release.
+
+### Quality Alerts & Quality Investigations
+
+Notifications are - in contrast to classical data offers - a way to push data from a sender to a receiver. In the below paragraphs, the implementation is described to realize quality notifications. In that sense, the below specification has not the scope and intention to be a general solution pattern for notifications across various use cases. For now, it is limited to the sending and receiving of quality notifications as well as the update of the notification status (following a predefined status model).
+
+#### Notification State Model 
+
+Notifications always have a status. The transition from one status to a subsequent status is described in the below state model.
+
+> :raised_hand: The Sender can change the status to CLOSED from any status. The receiver can never change the status to CLOSED.
+
+The legend in the below state diagram describes who can set the status. One exception from this rule: the transition from status SENT to status RECEIVED is not done with a separate Http POST update call from the receiver. Rather, this status transition is implicitly done once the Sender receives the Http status code 201 after the initial Http POST to send/receive the notification.
+
+### Resolution of a Quality Notification
+
+The resolution is an optional feature, which MAY be implemented by a traceability application. It is an information that helps an end user working with quality notifications to know how a quality notification has been resolved. Especially, with the resolution it is possible for an end user to know the resolution for an already closed quality notification.
+
+The resolution is an information attached to a quality notification and can have the following values:
+- OPEN
+- ACCEPTED
+- DECLINED
+- ABORTED
+
+The above mentioned values are automatically set with each status transition as defined in the notification state model. The following table defines the values of the resolution based on those status transitions:
+
+| Start Status | End Status | Resolution Value |
+| :-- | :-- | :-- |
+| None	| CREATED	| OPEN |
+| CREATED	| SENT	| OPEN |
+| SENT	| RECEIVED	| OPEN |
+| RECEIVED	| ACKNOWLEDGED	| OPEN |
+| ACKNOWLEDGED	| ACCEPTED	| ACCEPTED |
+| ACKNOWLEDGED	| DECLINED	| DECLINED |
+| ACCEPTED	| CLOSED	| ACCEPTED |
+| DECLINED	| CLOSED	| DECLINED |
+| ACKNOWLEDGED	| CLOSED	A| BORTED |
+| RECEIVED	| CLOSED	| ABORTED |
+| SENT	| CLOSED	| ABORTED |
+| CREATED	| LOSED	| ABORTED |
 
 ## Runtime View
 
 _Detail runtime views including specific sequence diagrams will follow in the near future._
+
+### Processes for Sending, Updating and Resolving Notifications
+
+Below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the section (TRS) Quality Notification Endpoints and EDC Contract Offerings.
+
+To read the UML sequence diagrams correctly, some remarks:
+
+- The shown Notification EDC Adapter is not mandatory. It is just one option to send a notification via the EDC control and data plane. Important is that a similar functionality must be provided/implemented by the (traceability) application vendor. The Notification EDC Adapter or a similar component / functionality will not be provided as a central service from Catena-X.
+- To know where a notification must be send to, the (traceability) application must resolve the BPN of the receiver. This can either be happen because the (traceability) application has this information in its data model or it could - alternatively - also be resolved e.g. via a lookup of the digital twin in the central asset administration shell (AAS) registry.
+
+  :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications. (Warnung)
+- The resolution of the EDC URL for a given BPN is done via the Discovery Service API. The entry for each EDC into this Discovery Service is done via the CX Portal.
+- In each UML sequence diagram the step [01] describes the publishing of the notification endpoints as described in the above sections
+- Similarly, the Http POST request and response bodies are described in the above sections
+
+<NotificationSendReceive components={props.components} />
+
+<NotificationSendReceiveAlert components={props.components} />
+
+<NotificationUpdateInvestigation components={props.components} />
+
+<NotificationUpdateAlert components={props.components} />
+
+<NotificationResolveInvestigation components={props.components} />
+
+<NotificationResolveAlert components={props.components} />
 
 <!-- !Mandatory! -->
 ## Standards
