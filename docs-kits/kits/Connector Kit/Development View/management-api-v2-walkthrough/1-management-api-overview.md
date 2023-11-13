@@ -5,14 +5,13 @@ TODO: fully describe standard for all mentioned object types (asset, policy(3 ot
 
 ## Introduction
 
-With the introduction of the new [Dataspace Protocol](https://docs.internationaldataspaces.org/dataspace-protocol/overview/readme), now using JSON-LD, all Management API endpoints had to be adapted as well to reflect that.
-JSON-LD (JSON for Linked Data) is an extension of JSON that introduces a set of principles and mechanisms to enable interoperability.
+The EDC implements the [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/overview/readme), as specified by the IDSA. As the DSP uses JSON-LD for all payloads, 
+the EDC Management API reflects this as well, even though it is not a part of the DSP.
 
-This document will showcase how this change impacts the management API usage.
+## 1.  Endpoints
 
-## 1. Modified Endpoints
-
-The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v2` and `v3` allows access to the most recent functionalities of the management API.
+The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v2` and `v3` allows access to the most 
+recent functionalities of the management API.
 
 | Resource              | Endpoint                                   |
 |-----------------------|--------------------------------------------|
@@ -26,10 +25,19 @@ The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v
 
 ## 2. Brief JSON-LD Introduction
 
-JSON-LD includes several important keywords that play a crucial role in defining the structure, semantics, and relationships within a JSON-LD document. Since some keys which are required in requests for the new management API aren't self-explanatory when you first see them, here are some of the most commonly used and important keywords in JSON-LD.
-These keys are generally part of the JSON-LD spec and serve as identification on a larger scope. Please also refer to the [JSON-LD spec](https://www.w3.org/TR/json-ld11/).
+JSON-LD (JSON for Linked Data) is an extension of JSON that introduces a set of principles and mechanisms to serialize
+RDF-graphs and thus open new opportunities for interoperability. As such, there is a clear separation into identifiable
+resources (IRIs) and Literals holding primitive data like strings or integers.For developers used to working with JSON, 
+JSON-LD can act in unexpected ways, for example a list with one entry will always unwrap to an object which may cause
+schema validation to fail on the client side. Please also refer to
+the [JSON-LD spec](https://www.w3.org/TR/json-ld11/) and try it out on the [JSON-LD Playground](https://json-ld.org/playground/).
 
 ### Keywords
+
+JSON-LD includes several important keywords that play a crucial role in defining the structure, semantics, and relationships
+within a JSON-LD document. Since some keys which are required in requests for the new management API aren't self-explanatory
+when you first see them, here are some of the most commonly used and important keywords in JSON-LD.
+These keys are generally part of the JSON-LD spec and serve as identification on a larger scope.
 
 | Key       | Description                                                                                                                                                                                               |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +48,11 @@ These keys are generally part of the JSON-LD spec and serve as identification on
 
 ### Namespaces
 
-A namespace is defined by associating a prefix with a URI or IRI in the @context of a JSON-LD document. The prefix is typically a short string, while the URI or IRI represents a namespace or vocabulary where the terms or properties are defined.
+A namespace is defined by associating a prefix with a URI or IRI in the @context of a JSON-LD document. The prefix is 
+typically a short string, while the URI or IRI represents a namespace or vocabulary where the terms or properties are defined.
+
+Some namespaces are known to the EDC internally. That means that the EDC will resolve all resources to non-prefixed IRIs
+given they are not part of the following list:
 
 | Key    | Description                                                                                                                                                                                                       |
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,9 +63,14 @@ A namespace is defined by associating a prefix with a URI or IRI in the @context
 | dspace | Defines the prefix "dspace" and associates it with the URI "<https://w3id.org/dspace/v0.8/>". The prefix "dspace" can now be used to represent terms from the DSpace vocabulary.                                    |
 
 > Please note: The namespace `edc` currently is only a placeholder and does not lead to any JSON-LD context definition or vocabulary.
-> This will change at a later date.
+> This may change at a later date.
 
 ## 3. Walkthrough
+
+This walkthrough attempts to be a reference for systems integrators attempting to expose APIs safely to the Catena-X dataspace.
+Please note that improper usage of the Management-API can lead to accidental exposure of competitively sensitive data and
+trade secrets. The assumption is that the systems integrator has two tractusx-edc deployments of version 0.5.1 or higher 
+available (one acting as provider, one acting as consumer).
 
 1. [Create an Asset](2-assets.md)
 2. [Create a Policy Definition](3-policy-definitions.md)
