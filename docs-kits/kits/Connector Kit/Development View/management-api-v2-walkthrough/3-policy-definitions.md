@@ -1,40 +1,84 @@
 # Creating a Policy Definition
 
-## Plain old JSON Schema
+A policy is a declaration of a Data Consumer's rights and duties. Policies themselves make no statements about the
+object that they may grant access and usage permission to. They are created at the EDC like this:
 
+```http
+POST /v3/assets HTTP/1.1
+Host: https://control.plane/api/management
+X-Api-Key: password
+Content-Type: application/json
+
+{
+  "@context": {
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "{% uuid 'v4' %}",
+  "policy": {
+    "@type": "Policy",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "Constraint",
+          "odrl:leftOperand": "BusinessPartnerNumber",
+          "odrl:operator": {
+            "@id": "odrl:eq"
+          },
+          "odrl:rightOperand": "{{ _.bpn_cp_1 }}"
+   
+        }
+      }
+    ]
+  }
+}
+
+```
+
+In the EDC, policies are pure [ODRL (Open Digital Rights Language)](https://www.w3.org/TR/odrl-model/).
+Like the payloads of the [Dataspace Protocol](#1-management-api-overview), they are written in JSON-LD. Even if the user
+only has rudimentary knowledge of JSON-LD, the [policy playground](https://eclipse-tractusx.github.io/tutorial-resources/policy-playground/)
+will provide a good starting point to start writing policies. It is important to keep in mind that the extensive ODRL-
+context (that the EDC is aware of) allows for ergonomic reuse of the vocabulary in individual policies.
+
+## Writing Policies for the EDC
+
+ODRL's model and expressiveness surpass the EDC's current ability to interpret the policies and derive behavior from
+them. This must be kept in mind even when Data Offers based on policies are not yet published to the Dataspace. Here again,
+configuring the wrong policies is a risk for unsafe and incompliant behavior. This is exacerbated by the fact that
+the EDC interprets policies it can't evaluate as true by default. A couple of examples:
+
+### Pass all
 ```json
 {
-  "id": "<POLICY-DEFINITION-ID>",
+  "@context": {
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "{% uuid 'v4' %}",
   "policy": {
-    "permissions": [
+    "@type": "Policy",
+    "odrl:permission": [
       {
-        "action": {
-          "type": "USE"
-        },
-        "constraints": [
-          {
-            "leftExpression": {
-              "value": "<LEFT-EXPRESSION-VALUE>"
-            },
-            "rightExpression": {
-              "value": "<RIGHT-EXPRESSION-VALUE>"
-            },
-            "operator": "<OPERATOR>"
-          }
-        ]
+        "odrl:action": "USE"
       }
-    ],
-    "prohibition": [],
-    "obligation": []
+    ]
   }
 }
 ```
 
-## New JSON-LD Document
+### Only pass single Business Partner
+```json
+
+
+
+```
+### Enforcable Policies
+
 
 Policy model is now pure [ODRL (Open Digital Rights Language)](https://www.w3.org/TR/odrl-model/) and going through it would help get a more complete picture.
 
-> Please note: In our samples, except from `odrl` vocabulary terms that must override `edc` default prefixing, properties **WILL NOT** be explicitly namespaced, and internal nodes **WILL NOT** be typed, relying on `@vocab` prefixing and root schema type inheritance respectively.
 
 ```json
 {

@@ -8,22 +8,23 @@ TODO: fully describe standard for all mentioned object types (asset, policy(3 ot
 The EDC implements the [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/overview/readme), as specified by the IDSA. As the DSP uses JSON-LD for all payloads, 
 the EDC Management API reflects this as well, even though it is not a part of the DSP.
 
-## 1.  Endpoints
+## Endpoints
 
 The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v2` and `v3` allows access to the most 
 recent functionalities of the management API.
 
-| Resource              | Endpoint                                   |
-|-----------------------|--------------------------------------------|
-| Asset                 | `<MANAGEMENT_URL>/v3/assets`               |
-| Policy Definition     | `<MANAGEMENT_URL>/v2/policydefinitions`    |
-| Contract Definition   | `<MANAGEMENT_URL>/v2/contractdefinitions`  |
-| Catalog               | `<MANAGEMENT_URL>/v2/catalog`              |
-| Contract Negotiation  | `<MANAGEMENT_URL>/v2/contractnegotiations` |
-| Contract Agreement    | `<MANAGEMENT_URL>/v2/contractagreements`   |
-| Transfer Process      | `<MANAGEMENT_URL>/v2/transferprocesses`    |
+| Resource             | Endpoint                                   | Side-effects    |
+|----------------------|--------------------------------------------|-----------------|
+| Asset                | `<MANAGEMENT_URL>/v3/assets`               | internal        |
+| Policy Definition    | `<MANAGEMENT_URL>/v2/policydefinitions`    | internal        |
+| Contract Definition  | `<MANAGEMENT_URL>/v2/contractdefinitions`  | internal        |
+| Catalog              | `<MANAGEMENT_URL>/v2/catalog`              | intra-dataspace |
+| Contract Negotiation | `<MANAGEMENT_URL>/v2/contractnegotiations` | intra-dataspace |
+| Contract Agreement   | `<MANAGEMENT_URL>/v2/contractagreements`   | intra-dataspace |
+| Transfer Process     | `<MANAGEMENT_URL>/v2/transferprocesses`    | intra-dataspace |
+| EDR                  |                                            | intra-dataspace |
 
-## 2. Brief JSON-LD Introduction
+## Brief JSON-LD Introduction
 
 JSON-LD (JSON for Linked Data) is an extension of JSON that introduces a set of principles and mechanisms to serialize
 RDF-graphs and thus open new opportunities for interoperability. As such, there is a clear separation into identifiable
@@ -64,8 +65,9 @@ given they are not part of the following list:
 
 > Please note: The namespace `edc` currently is only a placeholder and does not lead to any JSON-LD context definition or vocabulary.
 > This may change at a later date.
+> Please note: In our samples, except from `odrl` vocabulary terms that must override `edc` default prefixing, properties **WILL NOT** be explicitly namespaced, and internal nodes **WILL NOT** be typed, relying on `@vocab` prefixing and root schema type inheritance respectively.
 
-## 3. Walkthrough
+## Walkthrough
 
 This walkthrough attempts to be a reference for systems integrators attempting to expose APIs safely to the Catena-X dataspace.
 Please note that improper usage of the Management-API can lead to accidental exposure of competitively sensitive data and
