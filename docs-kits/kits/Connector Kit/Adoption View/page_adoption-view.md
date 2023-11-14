@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## Connector KIT
 
-The ConnectorKit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign, cross-enterprise data exchange.
+The Connector Kit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign, cross-enterprise data exchange.
 
 ![EDC Overview](images/edc_overview.png)
 TODO: Digital Twin Registry as decentralized component
