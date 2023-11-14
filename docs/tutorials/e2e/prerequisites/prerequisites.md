@@ -17,7 +17,7 @@ You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or loc
 
 As mentioned in the introduction, no preliminary knowledge about Catena-X is required. However, to complete the tutorial you will have to work with the following technical software stack. A basic understanding of those technologies is advised.
 
-- Cloud Environment (AWS/Azure) or a local machine with at least 16GB RAM, 20GB free storage
+- Cloud Environment (AWS/Azure) or a local machine with at least 2 CPUs, 16GB RAM, 20GB free storage
 - Docker
 - Kubernetes
 - Kind (for local systems)
@@ -26,21 +26,21 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 
 ## Chosing your environment
 
-The tutorial is designed to be used in cloud environments, such as AWS, Google or Azure. If you intendend to build your own local environment independly from Cloud based offers, you may use ths tutorial as well, but you need to ensure, you have the rigth technical software stack installed, see below.
+The tutorial is designed to be used in cloud environments, such as AWS, Google or Azure. If you intend to build your own local environment independently of Cloud based offers, you may use this tutorial as well. In this case you need to ensure, you have the right technical software stack installed, see below.
 
 ## Setting up your own environment on local systems
 
-In case you want to install Catena-X components or Kits directly on your local system you need the following:
+In case you want to install Catena-X components or [Kits] directly on your local system you need the following:
 
 - Access to the internet (see next section)
-- One local server instance, either a physical server or a virtual machine with at least 2 CPUs 16 GB menory and 20 GB storage
+- One local server instance, either a physical server or a virtual machine with at least 2 CPUs, 16 GB [RAM] and 20 GB storage
 - Your local system should run a Linux Version (Debian or Ubuntu are recommended)
 - You need super user privileges (either root access or the right to use sudo)
 - The above tools should be installed (Docker, Kubernetes, Kind, Helm, Terraform)
 
 ### Access to the Internet
 
-Most companies run are more complex network, usually direct open access to the Internet is not allowed. Firewalls and proxy server isolate the local network and most communication links are blocked (by blocking ports and external URLs).
+Most companies run a complex network. Usually direct open access to the Internet is not allowed. Firewalls and proxy server isolate the local network and most communication links are blocked (by blocking ports and external URLs).
 
 Before you start configuring your environment ensure that you know your
 
@@ -52,7 +52,7 @@ You may need the support of your local IT department. Once you are confident to 
 
 ### URL Whitelist
 
-#### Specific URLs​, required for MxD
+#### Specific URLs​, required for [MXD]
 
 ```bash
 .download.docker.com​
@@ -67,7 +67,7 @@ You may need the support of your local IT department. Once you are confident to 
 .helm.sh                                            # Helm Charts​
 .hashicorp.com​
 .github.io​
-apt.releases.hashicorp.com
+.apt.releases.hashicorp.com
 ```
 
 #### General URLs​, may be used for further components of the EDC
@@ -141,7 +141,7 @@ The port http (80) should not be used, but in case it will, you can apply the ab
 
 #### ssh (22)
 
-For the MxD, which is running locally, you only need secure shell access, which means port 22 should be open.
+For the [MXD], which is running locally, you only need secure shell access, which means port 22 should be open.
 
 ### Install the basic tools (on Ubuntu 20.x and higher)
 
@@ -171,7 +171,7 @@ sudo snap install --classic kubectl
 
 :::note
 
-It might be the case, not all of these steps are needed on your machine.
+It might be the case, that not all of these steps are needed on your machine.
 
 :::
 
@@ -234,7 +234,7 @@ sudo apt-get install terraform
 
 :::note
 
-If not already installed, install a webbroser like firefox or goggle-chrome, you also may need to install an x-environment (xterm).
+If not already installed, install a webbroser like firefox or google-chrome, you also may need to install an x-environment (xterm).
 
 :::
 
