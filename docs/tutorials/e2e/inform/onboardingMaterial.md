@@ -18,7 +18,7 @@ Catena-X is an open, secure, and standardized data ecosystem for the automotive 
 
 :::note
 
-More information on the Catena-X initiative can be found at the visions and goals section of the association homepage (<https://catena-x.net/en/vision-goals>).
+More information on the Catena-X initiative can be found at the visions and goals section of the association homepage (<https://catena-x.net/en/benefits>).
 
 :::
 
@@ -28,7 +28,7 @@ Catena-X is organized around ten initial use-cases. If your company decided to b
 
 :::note
 
-The list of the ten initial use-cases as well as a description of each of them can be found here: <https://catena-x.net/en/benefits>
+The list of the ten initial use-cases as well as a description of each of them can be found here: <https://catena-x.net/en/offers>
 
 :::
 
@@ -39,7 +39,7 @@ To enable the use-cases, Catena-X builds a decentral data space. In a data space
 :::note
 
 For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>  
-The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: <https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf>
+The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: <https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf>
 
 :::
 
