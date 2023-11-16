@@ -42,9 +42,9 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 }'
 ```
 
-The response shows all available data offerings in Bob's catalog. Bob has already told Alice that he gave the Asset the Id 3, and added a simple description to make it easier for Alice to identify. 
+The response shows all available data offerings in Bob's catalog. Bob has already told Alice that he gave the Asset the ID 3, and added a simple description to make it easier for Alice to identify. 
 
-Alice finds the Asset with the ID 3 and the description "Product EDC Demo Asset 3" in the catalog. Now she that she is sure which Asset she wants to consume, she wants to start the data transfer.
+Alice finds the Asset with the ID 3 and the description "Product EDC Demo Asset 3" in the catalog. Now that she is sure which Asset she wants to consume, she wants to start the data transfer.
 
 ## Negotiate a contract
 
@@ -97,6 +97,12 @@ Alice now has a contract with Bob and can begin transferring the asset's data.
 
 Alice wants to send the data to her backend application ("http://backend:8080"). So she uses the following command to direct the data from Asset 3 to her desired data sink.
 
+:::tip
+
+For testing purposes, you can replace `backend:8080` with your own test API or use [webhook. site](https://webhook.site/) as your backend system. If you are using webhook.site, please make sure that you use "Your unique URL" and that you do not transfer any sensitive information to webhook.
+
+:::
+
 ```shell
 curl --location 'http://localhost/alice/management/v2/transferprocesses' \
 --header 'Content-Type: application/json' \
@@ -108,7 +114,7 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses' \
     "assetId": "3",
     "connectorAddress": "http://alice-controlplane:8084/api/v1/dsp",
     "connectorId": "BPNL000000000001",
-    "contractId": "<contractAgreementId>",
+    "contractId": "3",
     "dataDestination": {
         "type": "HttpProxy"
     },
