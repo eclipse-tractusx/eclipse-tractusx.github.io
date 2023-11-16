@@ -22,8 +22,8 @@ The aim of the Digital Twin Kit is to trace parts and materials across the entir
 cases over all n-tier levels without compromising data sovereignty. This Kit enables data and app providers to deliver 
 solutions for building data chains and to send quality notifications on all levels and industries.
 
-To provide the Catena-X Automotive Network with a uniform infrastructure to enable data-level interoperability between
-Business Partners is the purpose of the Digital Twin Kit. Regardless of the data's provenance, the Kit sets the scene
+The Kits purpose is to provide the Catena-X Automotive Network with a uniform infrastructure to enable data-level 
+interoperability between Business Partners. Regardless of the data's provenance, the Kit sets the scene
 for a comprehensive landscape of distributed Digital Twins of assets (mostly parts) along the entire lifecycle of the
 supply chain.
 
@@ -44,14 +44,15 @@ are given the necessary tooling to format their data and APIs in a standardized 
 ## Business Value
 
 Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty, 
-authorization, authentication must be agreed upon and implemented. That is covered by the 
-[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the
-services it relies on. What this Kit adds is a set of technologies that reduce the integration efforts on the 
-data level. Data Consumers can develop their applications against data formats that are standardized and reuse 
-them independent of whom they will consume the data from. This reduces the necessary investment significantly 
-and saves a network-participant from a strict link between the application and the data model. 
-Consuming applications can be substituted seamlessly if they are developed against the
-relevant Catena-X standards - further lowering the bar of entry for new applications in the CX-Ecosystem.
+authorization, authentication must be agreed upon and implemented. In the Catena-X network, that is covered by the 
+[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the services it relies on. 
+
+What this Kit adds is a set of technologies to reduce the integration efforts on the data level. Data Consumers can 
+develop their applications against data formats and interfaces that are standardized encouraging client-side reuse.
+Consequently, data providers present data agnostic to who will consume the data from. This reduces the investment necessary 
+to onboard to additional Catena-X use-cases significantly.  Consuming applications can be substituted seamlessly as 
+they are developed against the relevant Catena-X standards - further lowering the bar of entry for new applications in 
+the ecosystem.
 
 <!-- !Mandatory! -->
 ## Use Case
@@ -59,9 +60,9 @@ relevant Catena-X standards - further lowering the bar of entry for new applicat
 ### Status Quo / Today’s challenge
 
 This Kit's aim is not to solve a dedicated business problem. It is an infrastructure component, critical for scalable
-data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage.
+data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage, namely:
 
-- Well-defined API structure extensible by domain models. Each use case will want to share different data and the API
+- Well-defined API structures extensible by domain models. Each use case will want to share different data and the API
 expands with the scope of the model.
 
 - A distributed infrastructure of central and decentral components integrating hand-in-hand with backend-systems southward
