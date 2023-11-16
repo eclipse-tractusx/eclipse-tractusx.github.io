@@ -57,6 +57,22 @@ const sidebars = {
                             },
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api/sidebar.js'),
                         },
+                        {
+                            type: "category",
+                            label: "Cleaning Dummy API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
+                        },
+                        {
+                            type: "category",
+                            label: "Orchestrator API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api/sidebar.js'),
+                        },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
                 },
