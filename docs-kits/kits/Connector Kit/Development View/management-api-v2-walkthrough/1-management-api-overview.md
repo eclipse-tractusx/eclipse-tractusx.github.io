@@ -11,7 +11,8 @@ the EDC Management API reflects this as well, even though it is not a part of th
 ## Endpoints
 
 The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v2` and `v3` allows access to the most 
-recent functionalities of the management API.
+recent functionalities of the management API. Note that the resources are not versioned in lockstep but independently of
+each other.
 
 | Resource             | Endpoint                                   | Side-effects    |
 |----------------------|--------------------------------------------|-----------------|
