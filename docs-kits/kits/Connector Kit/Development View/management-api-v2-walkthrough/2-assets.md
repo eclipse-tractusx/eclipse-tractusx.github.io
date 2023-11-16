@@ -38,7 +38,8 @@ along with the properties. There are conventions in the Catena-X Dataspace how D
 Data Consumers to decide what Data Offers they want to negotiate for. These conventions are standardized in CX-0018 and
 the standards building on it. The only one mandated is the "https://purl.org/dc/terms/type" property which signifies what
 kind of API can be found behind the EDC-Asset. This matters especially when the Data Consumer has to add URL-segements or
-HTTP bodies to its requests.
+HTTP bodies to its requests. The value entered as the Asset's `@id` will automatically be added as a redundant `edc:id`
+property.
 
 Most consequential however is the `dataAddress` section of the asset-APIs payload. It configures the Data Plane's
 behavior.Depending on the protocol used for data exchange, an EDC will use different Data Planes. This is manifested by

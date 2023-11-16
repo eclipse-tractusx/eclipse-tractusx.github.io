@@ -49,13 +49,13 @@ them. This must be kept in mind even when Data Offers based on policies are not 
 configuring the wrong policies is a risk for unsafe and incompliant behavior. This is exacerbated by the fact that
 the EDC interprets policies it can't evaluate as true by default. A couple of examples:
 
-### Pass all
+### Let all pass
 ```json
 {
   "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
-  "@type": "PolicyDefinitionRequestDto",
+  "@type": "PolicyDefinitionRequest",
   "@id": "{% uuid 'v4' %}",
   "policy": {
     "@type": "Policy",
@@ -69,15 +69,41 @@ the EDC interprets policies it can't evaluate as true by default. A couple of ex
 ```
 
 ### Only pass single Business Partner
+
+A Business Partner Group is an identifiable group of BPNs that are allowed to pass this constraint. A BPN can be added
+to a group even after a Contract Offer for a certain BPN-Group was published. For this, there's the EDC-Management-API 
+`/business-partner-groups` endpoint offering CRUD-Operations.
+
 ```json
-
-
+{
+  "@context": {
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/"
+  },
+  "@type": "PolicyDefinitionRequest",
+  "@id": "{% uuid 'v4' %}",
+  "policy": {
+    "@type": "Set",
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "permission": [
+      {
+        "action": "use",
+        "constraint": [
+          {
+            "leftOperand": "tx:BusinessPartnerGroup",
+            "operator": "isPartOf",
+            "rightOperand": "<group>"
+          }
+        ]
+      }
+    ]
+  }
+}
 
 ```
 ### Enforcable Policies
 
-
-Policy model is now pure [ODRL (Open Digital Rights Language)](https://www.w3.org/TR/odrl-model/) and going through it would help get a more complete picture.
+More generally, the Policies in the EDC are ODRL. That means that a Data Provider could theoretically write arbitrary
+policies. The EDC however can only 
 
 
 ```json

@@ -1,70 +1,81 @@
 # Creating a Contract Definition
 
-## Plain old JSON Schema
+A Contract Definition is the connection between a set of [Assets](2-assets.md) with one Access Policy and one Contract
+Policy. The two policies are both policies as explained [previously](3-policy-definitions.md) but checked in different
+stages of communication between Data Provider and Data Consumer. The creation request looks like this:
 
-```json
-{
-  "id": "<CONTRACT-DEFINITION-ID>",
-  "accessPolicyId": "<ACCESS-POLICY-ID>",
-  "contractPolicyId": "<CONTRACT-POLICY-ID>",
-  "assetsSelector": [
-    {
-      "operandLeft": "<OPERAND-LEFT>",
-      "operator": "<OPERATOR>",
-      "operandRight": "<OPERAND-RIGHT>"
-    }
-  ]
-}
-```
+```http
+POST /v2/contractdefinitions HTTP/1.1
+Host: https://control.plane/api/management
+X-Api-Key: password
+Content-Type: application/json
 
-## New JSON-LD Document
-
-> Please note: In our samples, properties **WILL NOT** be explicitly namespaced, and internal nodes **WILL NOT** be typed, relying on `@vocab` prefixing and root schema type inheritance respectively.
-
-```json
 {
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
   },
   "@type": "ContractDefinition",
-  "@id": "<CONTRACT-DEFINITION-ID>",
-  "accessPolicyId": "<ACCESS-POLICY-ID>",
-  "contractPolicyId": "<CONTRACT-POLICY-ID>",
+  "@id": "myContractDefinitionId",
+  "accessPolicyId": "myAccessPolicyId",
+  "contractPolicyId": "myContractPolicyId",
+  "assetsSelector": 
+    {
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+      "operator": "=",
+      "operandRight": "myAssetId"
+    }
+  
+}
+```
+
+## assetsSelector
+
+The `assetsSelector` is a EDC-Criterion. This class specifies filters over a set of objects, Assets in this case. The
+concept is functionally similar to the `odrl:Constraint` in a [Policy](3-policy-definitions.md) but syntactically different.
+- `operandLeft` is a property in the Entity (`edc:Asset` in this case) that is assigned a value. If the property is nested,
+traversion can be achieved by chaining the properties like `"'https://w3id.org/edc/v0.0.1/ns/nested'.'https://w3id.org/edc/v0.0.1/ns/key'"`
+Note that this function is namespace-aware so the `operandLeft` must either be written in extended form (see above)
+or in a prefixed form with a corresponding entry in the `@context`.
+- `operator` is the logical operation that will be used to compare the `operandLeft` with the `operandRight`. The possible
+values are `=` (equivalence), `in` (existence in a list) and `like` (regex match).
+- `operandRight` is the constant that the dynamically retrieved value of `operandLeft` will be compared to via the `operator`.
+
+This mechanism allows the administrator to bind the same policies to multiple assets. The example on the top of this page
+will only match a single Asset as the `edc:id` will be unique as it's derived from the Asset's `@id`. It is however possible
+to match multiple Assets if they share a common property:
+
+```json
+{
+  "assetsSelector": {
+    "operandLeft": "https://w3id.org/edc/v0.0.1/ns/myCommonProperty",
+    "operator": "=",
+    "operandRight": "sharedValue"
+  }
+}
+```
+These can also be chained together with a logical AND:
+
+```json
+{
   "assetsSelector": [
     {
-      "operandLeft": "<OPERAND-LEFT>",
-      "operator": "<OPERATOR>",
-      "operandRight": "<OPERAND-RIGHT>"
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/myCommonProperty",
+      "operator": "=",
+      "operandRight": "sharedValue"
+    },
+    {
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/myOtherProperty",
+      "operator": "=",
+      "operandRight": "otherSharedValue"
     }
   ]
 }
 ```
 
-## Request
+The `edc:Criterion` mechanism is not only found here but also in the provider-internal request-endpoints where it's
+part of the `edc:QuerySpec` objects that also allow pagination:
 
-In this case we generate a very simple contract definition, that only contains the minimum in terms of information.
-A Contract Definition MUST have `accessPolicy`, `contractPolicy` identifiers and `assetsSelector`property values.
-The `operandLeft` property value MUST contain the asset property full qualified term `<vocabulary-uri>/<term>`, in our case `https://w3id.org/edc/v0.0.1/ns/id`.
+- `POST /v3/assets/request`
+- `POST /v2/policydefinitions/request`
+- `POST /v2/contractdefinitions/request`
 
-```bash
-curl -X POST "${MANAGEMENT_URL}/v2/contractdefinitions" \
-    --header 'X-Api-Key: password' \
-    --header 'Content-Type: application/json' \
-    --data '{
-              "@context": {
-                "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
-              },
-              "@type": "ContractDefinition",
-              "@id": "contract-definition-id",
-              "accessPolicyId": "policy-id,
-              "contractPolicyId": "policy-id",
-              "assetsSelector": [
-                {
-                  "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
-                  "operator": "=",
-                  "operandRight": "asset-id"
-                }
-              ]
-            }' \
-    -s -o /dev/null -w 'Response Code: %{http_code}\n'
-```
