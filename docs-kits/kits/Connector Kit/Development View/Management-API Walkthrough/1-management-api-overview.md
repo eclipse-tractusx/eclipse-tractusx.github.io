@@ -1,5 +1,9 @@
-TODO: Add docusaurus headers
-TODO: fully describe standard for all mentioned object types (asset, policy(3 other teams are already doing this one), etc.)
+---
+id: Management API Overview
+title: Management API Overview
+description: 'Connector Kit'
+sidebar_position: 1
+---
 
 # Management API Overview
 
@@ -14,16 +18,17 @@ The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v
 recent functionalities of the management API. Note that the resources are not versioned in lockstep but independently of
 each other.
 
-| Resource             | Endpoint                                   | Side-effects    |
-|----------------------|--------------------------------------------|-----------------|
-| Asset                | `<MANAGEMENT_URL>/v3/assets`               | internal        |
-| Policy Definition    | `<MANAGEMENT_URL>/v2/policydefinitions`    | internal        |
-| Contract Definition  | `<MANAGEMENT_URL>/v2/contractdefinitions`  | internal        |
-| Catalog              | `<MANAGEMENT_URL>/v2/catalog`              | intra-dataspace |
-| Contract Negotiation | `<MANAGEMENT_URL>/v2/contractnegotiations` | intra-dataspace |
-| Contract Agreement   | `<MANAGEMENT_URL>/v2/contractagreements`   | intra-dataspace |
-| Transfer Process     | `<MANAGEMENT_URL>/v2/transferprocesses`    | intra-dataspace |
-| EDR                  |                                            | intra-dataspace |
+| Resource             | Endpoint                                 | Involved Actors                       |
+|----------------------|------------------------------------------|---------------------------------------|
+| [Asset](2-assets)    | `<MANAGEMENT_URL>/v3/assets`   | Provider & Provider EDC               |
+| Policy Definition    | `<MANAGEMENT_URL>/v2/policydefinitions`  | Provider & Provider EDC               |
+| Contract Definition  | `<MANAGEMENT_URL>/v2/contractdefinitions` | Provider & Provider EDC               |
+| Catalog              | `<MANAGEMENT_URL>/v2/catalog`            | Consumer, Consumer EDC & Provider EDC |
+| Contract Negotiation | `<MANAGEMENT_URL>/v2/contractnegotiations` | Consumer, Consumer EDC & Provider EDC |
+| Contract Agreement   | `<MANAGEMENT_URL>/v2/contractagreements` | Consumer, Consumer EDC & Provider EDC |
+| Transfer Process     | `<MANAGEMENT_URL>/v2/transferprocesses`  | Consumer, Consumer EDC & Provider EDC |
+| EDR                  |                                          | Consumer, Consumer EDC & Provider EDC |
+| Data Plane           |                                          | Consumer & Provider EDC               |
 
 ## Brief JSON-LD Introduction
 

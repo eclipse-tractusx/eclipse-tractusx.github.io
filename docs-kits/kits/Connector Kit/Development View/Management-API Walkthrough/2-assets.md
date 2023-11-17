@@ -1,3 +1,10 @@
+---
+id: Assets-API
+title: Assets-API
+description: 'Connector Kit'
+sidebar_position: 2
+---
+
 # Creating an Asset
 
 An Asset is the fundamental representation of an arbitrary backend interface in the EDC. The Data Provider registers it
@@ -99,6 +106,3 @@ have proven to enable an integration that's quite complete from a functional vie
 | `oauth2:tokenUrl`        | If the backend is secured by an oauth2 authentication mechanism, the Data Plane will request an access token at this URL.                                                                                                                                                                                                                                                                                          | no        | null    |
 | `oauth2:clientId`        | This is the clientId of the (technical) user that the credential was created for by the backend application.                                                                                                                                                                                                                                                                                                       | no        | null    |
 | `oauth2:clientSecretKey` | The Data Provider must store his backend-issued client-secret in a Vault. The key under which the Data Plane can retrieve the secret's value is configured in this field.                                                                                                                                                                                                                                          | no        | null    |
-
-
-
