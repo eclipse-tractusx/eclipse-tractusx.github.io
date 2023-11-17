@@ -1,3 +1,10 @@
+---
+id: Contract-Negotiation-API
+title: Contract-Negotiation-API
+description: 'Connector Kit'
+sidebar_position: 6
+---
+
 # Initiation a Contract Negotiation
 
 ## Plain old JSON Schema

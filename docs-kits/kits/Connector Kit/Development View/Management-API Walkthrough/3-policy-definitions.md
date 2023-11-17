@@ -1,3 +1,10 @@
+---
+id: Policy-Definition-API
+title: Policy-Definition-API
+description: 'Connector Kit'
+sidebar_position: 3
+---
+
 # Creating a Policy Definition
 
 A policy is a declaration of a Data Consumer's rights and duties. Policies themselves make no statements about the
@@ -68,9 +75,9 @@ the EDC interprets policies it can't evaluate as true by default. A couple of ex
 }
 ```
 
-### Only pass single Business Partner
+### Only let pass a Business Partner Group
 
-A Business Partner Group is an identifiable group of BPNs that are allowed to pass this constraint. A BPN can be added
+A Business Partner Group is a group of BPNs that are allowed to pass this constraint. A BPN can be added
 to a group even after a Contract Offer for a certain BPN-Group was published. For this, there's the EDC-Management-API 
 `/business-partner-groups` endpoint offering CRUD-Operations.
 
@@ -100,69 +107,49 @@ to a group even after a Contract Offer for a certain BPN-Group was published. Fo
 }
 
 ```
-### Enforcable Policies
 
-More generally, the Policies in the EDC are ODRL. That means that a Data Provider could theoretically write arbitrary
-policies. The EDC however can only 
+### Chaining Constraints
 
+Constraints can be chained together via logical constraints. This is currently implemented for `odrl:and`, `odrl:or` 
+and `odrl:xone` (exactly one constraint evaluates to `true`).
 
 ```json
 {
   "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
-    "odrl": "http://www.w3.org/ns/odrl/2/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/"
   },
-  "@type":"PolicyDefinition",
-  "@id": "<POLICY-DEFINITION-ID>",
+  "@type": "PolicyDefinitionRequest",
+  "@id": "{{POLICY_ID}}",
   "policy": {
-    "odrl:permission": [
+    "@type": "Set",
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "permission": [
       {
-        "odrl:action": "USE",
-        "odrl:constraint": [
+        "action": "use",
+        "constraint": [
           {
-            "odrl:leftOperand": "<LEFT-OPERAND>",
-            "odrl:operator": "<OPERATOR>",
-            "odrl:rightOperand":  "<RIGHT-OPERAND>"
-          }]
+            "@type": "LogicalConstraint",
+            "and": [
+              {
+                "leftOperand": {
+                  "@value": "<field>"
+                },
+                "operator": "eq",
+                "rightOperand": "<value>"
+              },
+              {
+                "leftOperand": "tx:BusinessPartnerGroup",
+                "operator": "isPartOf",
+                "rightOperand": "<group>"
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "odrl:prohibition": [],
-    "odrl:obligation": []
+    ]
   }
 }
 ```
 
-## Request
-
-In this case we generate a very simple policy definition, that only contains the minimum in terms of information.
-A Policy MUST have at least one permission, prohibition, or obligation property value of type Rule and in our case it will hold a permission defining our well-known `BusinessPartnerNumber` validation `Constraint`.
-
-```bash
-curl -X POST "${MANAGEMENT_URL}/v2/policydefinitions" \
-    --header 'X-Api-Key: password' \
-    --header 'Content-Type: application/json' \
-    --data '{
-              "@context": {
-                "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
-                "odrl": "http://www.w3.org/ns/odrl/2/"
-              },
-              "@type":"PolicyDefinition",
-              "@id": "policy-definition-id",
-              "policy": {
-                "odrl:permission": [
-                  {
-                    "odrl:action": "USE",
-                    "odrl:constraint": [
-                      {
-                        "odrl:leftOperand": "BusinessPartnerNumber",
-                        "odrl:operator": "eq",
-                        "odrl:rightOperand":  "BPN"
-                      }]
-                  }
-                ],
-                "odrl:prohibition": [],
-                "odrl:obligation": []
-              }
-            }' \
-    -s -o /dev/null -w 'Response Code: %{http_code}\n'
-```
+Some constraints trigger specific behavior in the EDC. That should be kept in mind when designing policies and requires an
+understanding of how the EDC evaluates and acts upon them.

@@ -1,3 +1,10 @@
+---
+id: Contract-Definition-API
+title: Contract-Definition-API
+description: 'Connector Kit'
+sidebar_position: 4
+---
+
 # Creating a Contract Definition
 
 A Contract Definition is the connection between a set of [Assets](2-assets.md) with one Access Policy and one Contract
@@ -72,10 +79,21 @@ These can also be chained together with a logical AND:
 }
 ```
 
-The `edc:Criterion` mechanism is not only found here but also in the provider-internal request-endpoints where it's
+The `edc:Criterion` mechanism is used as well in the provider-internal request-endpoints where it's
 part of the `edc:QuerySpec` objects that also allow pagination:
 
 - `POST /v3/assets/request`
 - `POST /v2/policydefinitions/request`
 - `POST /v2/contractdefinitions/request`
 
+## Side-Effects
+
+The [Adoption View](../../Adoption%20View/page_adoption-view.md#terminology) shows the basic connection between the core concepts of
+the EDC. Contract Offers for a particular Data Consumer are created dynamically from the Contract Definitions created 
+by a Data Provider. The mechanics are explained in the section on the [catalog-API](5-catalog.md). But already at this 
+stage, Data Providers must be aware that creating a Contract Definition is sufficient to expose a Backend System
+(as defined in the [Asset](2-assets.md)) to the Dataspace and let third parties access it. 
+After contract definition, an EDC will automatically allow data access if a requesting party passes the policies.
+
+Contract Definitions thus must be created with great care. It is essential to align the backend-credentials with the 
+Access and Contract Policies to manage access consistently from the Dataspace to the backend data. 
