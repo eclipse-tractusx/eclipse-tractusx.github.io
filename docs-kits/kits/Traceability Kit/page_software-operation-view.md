@@ -19,7 +19,7 @@ Data Exchanger (SDE)** for data provisioning. For further information regarding
 their usage, configuration and deployment, follow these resources:
 
 - [Trace-X Frontend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss)
-- [Trace-X Backend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss-backend)
+- [Trace-X Backend GitHub Repository](https://github.com/eclipse-tractusx/traceability-foss)
 - [Trace-X Installation Guide](https://github.com/eclipse-tractusx/traceability-foss/blob/main/frontend/INSTALL.md)
 - [SDE Frontend GitHub Repository](https://github.com/eclipse-tractusx/dft-frontend)
 - [SDE Backend GitHub Repository](https://github.com/eclipse-tractusx/dft-backend)
