@@ -33,6 +33,16 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
 
+## [1.0] - 2023-11-17 
+
+### Added
+
+- Stable Deployment Example
+
+### Changed
+
+- Simplified Adoption View
+
 ## [0.1] - 2023-09-29 
 
 ### Added
