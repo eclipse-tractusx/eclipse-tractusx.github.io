@@ -1,6 +1,6 @@
 ---
-id: Transfer-Process-API
-title: Transfer-Process-API
+id: Transfer Process
+title: Transfer Process
 description: 'Connector Kit'
 sidebar_position: 7
 ---

@@ -1,6 +1,6 @@
 ---
-id: Assets-API
-title: Assets-API
+id: Assets
+title: Assets
 description: 'Connector Kit'
 sidebar_position: 2
 ---
@@ -13,10 +13,12 @@ executed via the following Request:
 
 ```http
 POST /v3/assets HTTP/1.1
-Host: https://control.plane/api/management
+Host: https://provider-control.plane/api/management
 X-Api-Key: password
 Content-Type: application/json
+```
 
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
@@ -24,7 +26,9 @@ Content-Type: application/json
   },
   "@id": "<ASSET-ID>",
   "properties": {
-    "dct:type": {"@id":"https://my-namespa.ce/my-asset-type"}
+    "dct:type": {
+      "@id": "https://my-namespa.ce/my-asset-type"
+    }
   },
   "privateProperties": {
     "private-property": "<PRIVATE-PROPERTY-VALUE>"

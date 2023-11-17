@@ -1,6 +1,6 @@
 ---
-id: Contract-Definition-API
-title: Contract-Definition-API
+id: Contract Definition
+title: Contract Definition
 description: 'Connector Kit'
 sidebar_position: 4
 ---
@@ -13,10 +13,12 @@ stages of communication between Data Provider and Data Consumer. The creation re
 
 ```http
 POST /v2/contractdefinitions HTTP/1.1
-Host: https://control.plane/api/management
+Host: https://provider-control.plane/api/management
 X-Api-Key: password
 Content-Type: application/json
+```
 
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -34,6 +36,9 @@ Content-Type: application/json
   
 }
 ```
+`accessPolicyId` and `contractPolicyId` are the identifiers of the [policies](3-policy-definitions.md) used in the contract
+definition. On creation, the EDC does not automatically check if a policy with the corresponding `@id` exists - the call 
+sequence will fail later when the Data Consumer attempts to find the offer in the [catalog-request](5-catalog.md).
 
 ## assetsSelector
 
