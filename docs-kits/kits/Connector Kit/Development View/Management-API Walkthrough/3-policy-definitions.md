@@ -1,6 +1,6 @@
 ---
-id: Policy-Definition-API
-title: Policy-Definition-API
+id: Policy Definitions
+title: Policy Definition
 description: 'Connector Kit'
 sidebar_position: 3
 ---
@@ -12,10 +12,12 @@ object that they may grant access and usage permission to. They are created at t
 
 ```http
 POST /v3/assets HTTP/1.1
-Host: https://control.plane/api/management
+Host: https://provider-control.plane/api/management
 X-Api-Key: password
 Content-Type: application/json
+```
 
+```json
 {
   "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
@@ -33,8 +35,7 @@ Content-Type: application/json
           "odrl:operator": {
             "@id": "odrl:eq"
           },
-          "odrl:rightOperand": "{{ _.bpn_cp_1 }}"
-   
+          "odrl:rightOperand": "BpnIntendedConsumer"
         }
       }
     ]

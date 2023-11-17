@@ -1,6 +1,6 @@
 ---
-id: Contract-Negotiation-API
-title: Contract-Negotiation-API
+id: Contract Negotiation
+title: Contract Negotiation
 description: 'Connector Kit'
 sidebar_position: 6
 ---
