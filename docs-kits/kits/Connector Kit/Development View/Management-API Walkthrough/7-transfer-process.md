@@ -1,3 +1,10 @@
+---
+id: Transfer-Process-API
+title: Transfer-Process-API
+description: 'Connector Kit'
+sidebar_position: 7
+---
+
 # Initiation a Transfer Process
 
 ## Plain old JSON Schema

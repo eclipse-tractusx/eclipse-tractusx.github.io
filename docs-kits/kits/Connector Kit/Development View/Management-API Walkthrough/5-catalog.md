@@ -1,3 +1,10 @@
+---
+id: Catalog-API
+title: Catalog-API
+description: 'Connector Kit'
+sidebar_position: 5
+---
+
 # Fetching provider's Catalog
 
 ## Plain old JSON Schema
