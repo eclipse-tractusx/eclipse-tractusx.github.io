@@ -49,7 +49,7 @@ We want to specify a semantically-driven and state-of-the-art compute-to-data ar
 
 #### Mission
 
-##### Standards
+##### Specifications
 
 We compose specifications for invoking and performing semantic computations (inferences or `skills`) based on normalized and linked data representations (`knowledge graph` described as RDF triples) over the `dataspace`.
 
@@ -57,7 +57,7 @@ Leveraging existing standards such as [IDS](https://internationaldataspaces.org/
 
 Skills can be described in tractable sub-languages of well-known declarative syntaxes, such as [SparQL](https://www.w3.org/2001/sw/wiki/SPARQL) (in the future maybe also: [GraphQL](https://en.wikipedia.org/wiki/GraphQL) and [SQL](https://en.wikipedia.org/wiki/SQL)). 
 
-##### Reference Implementations
+##### Implementations
 
 We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](http://localhost:3000/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View) 
 
@@ -65,7 +65,7 @@ These components are called [`agents`](https://en.wikipedia.org/wiki/Software_ag
 
 Knowledge agents introduce an ecosystem of efficient services (for data handling, compute, skill orchestration and frontend components) where an optimal matchmaking between those services needs to be reached.
 
-##### Use Case Support
+##### Support
 
 We support use case consumers, app developers, data providers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback.
 
@@ -191,5 +191,12 @@ Any party who publishes an Application, Standard or KIT based on Agent Technolog
 ##### Enablement Service Developer
 
 Any party who offers ready-made artifacts, packages and managed services assisting Dataspace Participants/Applications to process data using Agent technology (e.g. a Graph Database, a Virtual Graph Binding Engine, an EDC Package)
+
+### Catena-X Standards 
+
+The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of the following two [Catena-X e.V. Standards](https://catena-x.net/de/standard-library):
+
+- [CX-0084 Federated Queries in Dataspaces](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
+- [CX-0067 Ontology Models in Catena-X (Upcoming)](https://catena-x.net/de/standard-library)
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
