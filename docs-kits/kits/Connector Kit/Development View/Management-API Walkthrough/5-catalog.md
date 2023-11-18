@@ -161,4 +161,3 @@ returns `HttpProxy` and `AmazonS3` even though not all EDC-deployments have both
   - The `odrl:target` properties in the Data Offer always hold the Asset's id.
   - The `odrl:permission`, `odrl:prohibition` and `odrl:obligation` will hold the content of the contractPolicy configured
   in the [Contract Definition](4-contract-definitions.md) the Contract Offer was derived from.
-
