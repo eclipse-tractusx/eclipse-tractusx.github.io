@@ -79,8 +79,9 @@ the EDC interprets policies it can't evaluate as true by default. A couple of ex
 ### Only let pass a Business Partner Group
 
 A Business Partner Group is a group of BPNs that are allowed to pass this constraint. A BPN can be added
-to a group even after a Contract Offer for a certain BPN-Group was published. For this, there's the EDC-Management-API 
-`/business-partner-groups` endpoint offering CRUD-Operations.
+to a group even after a Contract Offer for a certain BPN-Group was published. The groups are persisted and maintained
+in the Provider's Control Plane. The EDC-Management-API's `/business-partner-groups` endpoint offers CRUD-operations for
+it.
 
 ```json
 {
@@ -152,5 +153,13 @@ and `odrl:xone` (exactly one constraint evaluates to `true`).
 }
 ```
 
-Some constraints trigger specific behavior in the EDC. That should be kept in mind when designing policies and requires an
-understanding of how the EDC evaluates and acts upon them.
+Some permission-constraints trigger specific behavior in the EDC. That should be kept in mind when designing policies
+and requires an understanding of how the EDC evaluates and acts upon them.
+
+| `leftOperand`                                                | `rightOperand`                                   | usage in <br> [Contract Definition](4-contract-definitions.md) | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------------------------------|--------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BusinessPartnerNumber`                                      | a BPNL                                           | access or contract                                             | _This function is deprecated._ <br> The leftOperand "BusinessPartnerNumber" will trigger a check against the property in a Consumer's VC that holds said BPNL.                                                                                                                                                                                                                                                                                                               |
+| `https://w3id.org/tractusx/v0.0.1/ns/BusinessPartnerGroup`   | a Business Partner Group                         | access or contract                                             | see [above](#only-let-pass-a-business-partner-group). The `leftOperand` is in this case not queried from the Consumer's VC but acts as a signal to check the Consumer's BPN for membership in the designated Business Partner Group.                                                                                                                                                                                                                                         |
+| `https://w3id.org/edc/v0.0.1/ns/InForceDate`                 | json-object with properties `@value` and `@type` | contract                                                       | If the negotiation via either [Contract Negotiation](6-contract-negotiation.md) or the [EDR process](8-edr.md) is successful, the EDC will only renew short-lived Data-Plane tokens for a contract if the contract is still valid (in force). Start and end dates can be set with absolute timestamps or relative to the time of the contract agreement. For exact syntax, visit the [playground](https://eclipse-tractusx.github.io/tutorial-resources/policy-playground/). |
+| `https://w3id.org/tractusx/v0.0.1/ns/FrameworkAgreement.pcf` | "active"                                         | access or contract                                             | Framework agreements in Catena-X are legal documents signed by a Business Partner to participate in a Business Scenario. In return, her credential is enhanced with a reference to the corresponding framework agreement - like in this case `pcf`. A complete list of framework agreements is maintained by the Catena-X association.                                                                                                                                       |
+
