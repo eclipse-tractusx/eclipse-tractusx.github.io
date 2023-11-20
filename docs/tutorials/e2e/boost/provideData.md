@@ -62,9 +62,9 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 
 ## Create first access policy
 
-Let´s see if Alice can see the Asset (ID:3).
+Let´s see if Alice can see the Asset (ID: 3).
 
-As you can see in the response, the data offer "Product EDC Demo Asset 3" (asset ID:3) does not appear. Unfortunately, Alice sees some contract offers but she cannot find the contract offer from Bob.
+As you can see in the response, the data offer "Product EDC Demo Asset 3" (asset ID: 3) does not appear. Unfortunately, Alice sees some contract offers but she cannot find the contract offer from Bob.
 
 Alice calls Bob and says she can´t see the asset. Bob remembers that he did not create an access policy. An access policy defines who is allowed to see a data offering.
 
@@ -117,13 +117,18 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 
 Let´s see if Alice can see the Asset.
 
-Once again Alice cannot find the data offer. This is by design and to be expected since Bob has only created an asset and a policy definition. An asset and a policy cannot be displayed to Alice as a consumer without a contract definition.
-**This is the first lesson for this tutorial: A contract definition must be created on the data provider side. It must always contain an asset, an access policy and a contract policy.**
+Once again Alice cannot find the data offer. This is by design and to be expected since Bob has only created an asset and a policy definition. An asset and a policy can not be displayed to Alice as a consumer without a contract definition.
 
-Contract definitions state how assets and policies are linked together. Contract definitions express under what conditions an asset is published to a data space. Those conditions are comprised of a contract policy and an access policy. Those policies are referenced by ID, that means they must already exist in the policy store before creating the contract definition.
+:::info
 
-- Access policy: determines whether a particular consumer is offered an asset or not. For example, we may want to restrict certain assets such that only selected consumers from a list of slescted partners can access the asset. This can be done using a unique identifier such as the Business Partner Nukber (BPN). Other dta space participants than those whose BPN is listed in the access policy wouldn't even have the assets in their catalog.
-- Contract policy: determines the conditions for initiating a contract negotiation for a particular asset. Note that does not automatically guarantee the successful creation of a contract, it merely expresses the eligibility to start the negotiation.
+This is the first lesson in this tutorial: For providing data, a contract definition must be created on the provider side. This must always contain an asset, an access policy, and a contract policy.
+
+:::
+
+Contract definitions state how assets and policies are linked together. Contract definitions express under what conditions an asset is published in a data space. Those conditions are comprised of a contract policy and an access policy. Those policies are referenced by ID, that means they must already exist in the policy store before creating the contract definition.
+
+- Access policy: determines whether or not a particular consumer can see an asset in the provider's catalog. For example, we may want to restrict certain assets such that only selected consumers from a list of selected partners can access the asset. This can be done using a unique identifier such as the Business Partner Number (BPN). Other data space participants than those whose BPN is listed in the access policy wouldn't even be able to see the asset in the catalog.
+- Contract policy: determines the conditions for initiating a contract negotiation for a particular asset. Note that this does not automatically guarantee the successful creation of a contract, it merely expresses the eligibility to start the negotiation.
 
 Find additional information on transferring data in the [Developer's Handbook](https://github.com/eclipse-edc/docs/blob/main/developer/handbook.md).
 
@@ -175,7 +180,7 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 ```
 
 Finally Alice can see the Contract Offer from Bob.
-Congratulations on yor first successful data exchange in your own data space!
+Congratulations on yor first successful offering of data in your own data space!
 
 ## Notice
 
