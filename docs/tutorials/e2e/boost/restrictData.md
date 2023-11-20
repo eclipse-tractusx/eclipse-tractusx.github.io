@@ -76,6 +76,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
   }
 }' 
 ```
+
 Bob defined a policy which restricts access to connector(s) with the BusinessPartnerNumber BPNL000000000003. As Alice does not own this BPN, she should not be able to access the asset.
 
 ## Create a contract definition
