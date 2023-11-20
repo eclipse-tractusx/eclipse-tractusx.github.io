@@ -5,7 +5,8 @@ sidebar_position: 4
 
 ## Create an asset
 
-Bob will once again be the data provider and Alice is interested in Bob’s data assets. Bob, as a data provider, creates an asset.
+Bob will once again be the data provider. But this time Bob does not want Alice to see the asset.
+The first step for Bob will again be to create an asset.
 
 Action (Bob): Create an asset using the following `curl` command:
 
@@ -32,7 +33,13 @@ curl --location 'http://localhost/bob/management/v2/assets' \
 
 ## Create a permissive access policy
 
-Now that the asset is created, an access policy must be created to define who shall be able to see the asset within the catalog. This time Bob does not want Alice to see the asset. So he defines a policy not allowing Alice to see the asset in her catalog.
+Now that the asset has been created, Bob creates an access policy that defines who can see and therefore access the asset in his catalog. To specify this access, Bob uses the Business Partner Number (BPN). The BPN is a unique identifier for participants of a data space. Bob knows that his exchange partner for this asset has the BPN (BPNL000000000003). Therefore, he can define his access policy as follows:
+
+:::info
+
+The MXD contains only two members (Alice & Bob). Therefore, it will not be possible to consume an asset with the policy defined here, because the participant with the BPN BPNL000000000003 does not exist in this data space. This is an example to demonstrate the restriction of an asset with a policy.
+
+:::
 
 Action (Bob): Create the access policy using the following `curl` command:
 
@@ -69,6 +76,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
   }
 }' 
 ```
+Bob defined a policy which restricts access to connector(s) with the BusinessPartnerNumber BPNL000000000003. As Alice does not own this BPN, she should not be able to access the asset.
 
 ## Create a contract definition
 
