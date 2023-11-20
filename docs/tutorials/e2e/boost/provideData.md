@@ -79,7 +79,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "3",
+  "@id": "31",
   "policy": {
     "@type": "Policy"
   }
@@ -127,10 +127,30 @@ This is the first lesson in this tutorial: For providing data, a contract defini
 
 Contract definitions state how assets and policies are linked together. Contract definitions express under what conditions an asset is published in a data space. Those conditions are comprised of a contract policy and an access policy. Those policies are referenced by ID, that means they must already exist in the policy store before creating the contract definition.
 
-- Access policy: determines whether or not a particular consumer can see an asset in the provider's catalog. For example, we may want to restrict certain assets such that only selected consumers from a list of selected partners can access the asset. This can be done using a unique identifier such as the Business Partner Number (BPN). Other data space participants than those whose BPN is listed in the access policy wouldn't even be able to see the asset in the catalog.
-- Contract policy: determines the conditions for initiating a contract negotiation for a particular asset. Note that this does not automatically guarantee the successful creation of a contract, it merely expresses the eligibility to start the negotiation.
+- **Access policy:** determines whether or not a particular consumer can see an asset in the provider's catalog. For example, we may want to restrict certain assets such that only selected consumers from a list of selected partners can access the asset. This can be done using a unique identifier such as the Business Partner Number (BPN). Other data space participants than those whose BPN is listed in the access policy wouldn't even be able to see the asset in the catalog.
+- **Contract policy:** determines the conditions for initiating a contract negotiation for a particular asset. Note that this does not automatically guarantee the successful creation of a contract, it merely expresses the eligibility to start the negotiation.
 
 Find additional information on transferring data in the [Developer's Handbook](https://github.com/eclipse-edc/docs/blob/main/developer/handbook.md).
+
+Since an access policy has already been created, a contract policy must be created and linked in a contract definition.
+
+Action (BoB): Create the contract policy using the following `curl` command:
+
+```shell
+curl --location 'http://localhost/bob/management/v2/policydefinitions' \
+--header 'Content-Type: application/json' \
+--header 'X-Api-Key: password' \
+--data-raw '{
+  "@context": {
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "32",
+  "policy": {
+    "@type": "Policy"
+  }
+}'
+```
 
 Action (Bob): Create a contract definition including the asset and the policies you have created. For this, use the following `curl` command:
 
@@ -142,8 +162,8 @@ curl --location 'http://localhost/bob/management/v2/contractdefinitions' \
   "@context": {},
   "@id": "3",
   "@type": "ContractDefinition",
-  "accessPolicyId": "3",
-  "contractPolicyId": "3",
+  "accessPolicyId": "31",
+  "contractPolicyId": "32",
   "assetsSelector": {
     "@type": "CriterionDto",
     "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
@@ -179,8 +199,12 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 }'
 ```
 
+:::info
+
 Finally Alice can see the Contract Offer from Bob.
 Congratulations on yor first successful offering of data in your own data space!
+
+:::
 
 ## Notice
 
