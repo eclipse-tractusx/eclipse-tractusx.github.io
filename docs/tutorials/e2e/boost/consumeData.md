@@ -3,12 +3,6 @@ title: Consume data
 sidebar_position: 3
 ---
 
----
-**NOTE:**
-This chapter is still work in progress. Check back later!
-
----
-
 This step continues the journey of our data consumer Alice. After the data provider Bob has successfully provided his data as a contract definition in his catalog. Alice will now consume the data.
 
 We will use plain CLI tools (`curl`) for this, but feel free to use graphical tools such as Postman or Insomnia.
