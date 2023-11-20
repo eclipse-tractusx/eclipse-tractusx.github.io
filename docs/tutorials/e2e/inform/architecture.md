@@ -69,6 +69,12 @@ I think we want to describe the architecture a little bit more. Isn't there a pr
 
 ## The different components
 
+:::info
+
+In the following picture, the most important elements of Catena-X architecture for the MXD are depicted. This architecture will be expanded in future versions of the MXD.
+
+:::
+
 ![cx_architecture](@site/static/img/architecture.drawio.svg)
 
 ## Notice
