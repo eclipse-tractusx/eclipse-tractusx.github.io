@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Fetching provider's Catalog
 
-The catalog API is the first request in this sequence that passes through the dataspace. It is executed by the Data 
+The catalog API is the first request in this sequence that passes through the Dataspace. It is executed by the Data 
 Consumer against her own Control Plane and triggers the retrieval of a catalog from a specified Data Provider. The request
 looks like this:
 
@@ -39,7 +39,7 @@ Content-Type: application/json
           "edc": "https://w3id.org/edc/v0.0.1/ns/"
         },
         "@type": "edc:Criterion",
-        "operandLeft": "edc:differentiator",
+        "operandLeft": "edc:someProperty",
         "operator": "=",
         "operandRight": "value"
       }
@@ -47,7 +47,7 @@ Content-Type: application/json
   }
 }
 ```
-The request generally is lean. Mandatory properties are:
+The request body is lean. Mandatory properties are:
 - `counterPartyAddress` (formerly `providerUrl`): This property points to the DSP-endpoint of the Data Provider's Control
 Plane. Usually this ends on `/api/v1/dsp`.
 - `protocol`: must be `"dataspace-protocol-http"`.
