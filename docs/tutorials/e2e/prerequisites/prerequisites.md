@@ -209,7 +209,7 @@ Prepare the installation of Terraform including helm:
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 
-sudo wget -O- https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+sudo wget -o - https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
   
 Verify the generated key is working:

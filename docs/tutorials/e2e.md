@@ -64,7 +64,7 @@ This tutorial is split into three chapters (more will follow) that build on each
 
 :::tip
 
-Within the kits you are able to switch the different released versions. IN every adoption view, you will also find the related standards and reference implementations.
+Within the kits you are able to switch the different released versions. In each adoption view, you will also find the related standards and reference implementations.
 
 :::
 
