@@ -14,7 +14,7 @@ This tutorial is built for employees of the **IT department who operates the IT 
 
 :::note
 
-The related MXD (minimum viable dataspace) doesn`t include alle of the services, which are provided right now by an operating company. As the name says, right now its just a minmal set of services to learn and get in touch with the ecosystem dataspace. 
+The related MXD (minimum viable dataspace) doesn`t include alle of the services, which are provided right now by an operating company. As the name says, right now its just a minmal set of services to learn and get in touch with the ecosystem dataspace.
 
 :::
 
