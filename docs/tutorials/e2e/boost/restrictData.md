@@ -52,7 +52,7 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "4",
+  "@id": "41",
   "policy": {
     "@type": "Policy",
     "odrl:permission": [
@@ -79,6 +79,46 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
 
 Bob defined a policy which restricts access to connector(s) with the BusinessPartnerNumber BPNL000000000003. As Alice does not own this BPN, she should not be able to access the asset.
 
+## Create a permissive contract policy
+
+Since an access policy has already been created, a contract policy must be created and linked in the contract definition.
+
+Action (Bob): Create the contract policy using the following `curl` command:
+
+```shell
+curl --location 'http://localhost/bob/management/v2/policydefinitions' \
+--header 'Content-Type: application/json' \
+--header 'X-Api-Key: password' \
+--data-raw '{
+  "@context": {
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "42",
+  "policy": {
+    "@type": "Policy",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "LogicalConstraint",
+          "odrl:or": [
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "BpnCredential",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}'
+```
+
 ## Create a contract definition
 
 Lastly, the asset and the access policy must be linked in a contract definition.
@@ -92,8 +132,8 @@ curl --location 'http://localhost/bob/management/v2/contractdefinitions' \
     "@context": {},
     "@id": "4",
     "@type": "ContractDefinition",
-    "accessPolicyId": "4",
-    "contractPolicyId": "4",
+    "accessPolicyId": "41",
+    "contractPolicyId": "42",
     "assetsSelector" : {
         "@type" : "CriterionDto",
         "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
@@ -130,7 +170,11 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
 }'
 ```
 
+:::info
+
 Bob’s asset (ID: 4) should not be displayed. The access policy successfully restricts Alice from seeing and therefore obtaining Bob’s asset. Now Bob is able to manage who sees which of his sensitive data assets. If Bob decides to enable Alice to see his asset, he can simply adjust the access policy definition and add Alice BPN (BPNL000000000001) to the list of BPNs.
+
+:::
 
 ## Notice
 
