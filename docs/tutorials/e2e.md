@@ -8,13 +8,19 @@ This initial setup can be done without interaction with an external provider or 
 
 Completing this tutorial is recommended for IT departments prior to participating in Catena-X use-cases as the IT department needs to understand the basic technical concepts and their relation before they can begin to provide or consume data within a use-case.
 
+:::info
+
+With the Minimum Tractus-X Dataspace (MXD), IT departments can set up their own data space locally to perform a data exchange between two parties (Alice and Bob in our example). The MXD can be used as a sandbox for testing and exploring the EDC.
+
+:::
+
 ## Target Audience
 
 This tutorial is built for employees of the **IT department who operates the IT stack of an adopter (data provider/consumer)**. It shows how to operate the various Catena-X components in combination with each other. It also explains the basic connection with the core services (e.g. KeyCloak and MIW), as provided by an operating company (e.g. first Catena-X Operating Company Confinity-X).
 
 :::note
 
-The related MXD (minimum viable dataspace) doesn`t include alle of the services, which are provided right now by an operating company. As the name says, right now its just a minmal set of services to learn and get in touch with the ecosystem dataspace.
+The related MXD doesn`t include all of the services, which are provided right now by an operating company. As the name says, right now its just a minmal set of services to learn and get in touch with the ecosystem dataspace.
 
 :::
 
