@@ -423,13 +423,25 @@ these are the layers of complexity:
 | AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         | Unclear, under discussion in DT Kit.                                                                 |
 | Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the schema requires setup of a new submodel. This includes registration at the DTR. |
 
-### Patterns for Submodels
+Here's a list of duties for Data Providers in case they integrate a new Submodel (or version of an existing one) to an existing
+twin:
+
+- Expose a new Submodel to the Dataspace. If its URL is a subpath of one that's already registered as a EDC-Asset,
+there is no need to specifically register it as a new EDC-Asset and create a Contract Definition for it. However,
+if there is no such EDC-Asset, that's what a Data Provider must do: create an Asset, connect it to policies via the contract-
+definition-API and let consumers negotiate for it.
+- If only assetIds are known, the aasId can be discovered via `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=...` as specified
+by CX-0002.
+- `POST https://mydtr.com/api/v3.0/shell-descriptors/{{aasId}}/submodel-descriptors` with the (known or obtained) aasId in the path
+and the new submodel-descriptor in the body of the request. The attribute `semanticId` is mandatory for submodel-descriptors in Catena-X.
+As defined in CX-0002, semanticIds in Catena-X are  aspect-model-urns (see CX-0003) including a version.
+
+### Patterns for Submodel Deployment
 
 Data Providers will usually follow one of two patterns:
 1. Digital Twin Repository: Deploying a dedicated Repository for the persistence of digital twins and related data is the most
    convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
-   mechanisms,
-it may not scale to industrial sizes.
+   mechanisms, it may not scale to industrial sizes.
 2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
    requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since it
 
