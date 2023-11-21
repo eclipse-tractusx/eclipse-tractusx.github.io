@@ -12,6 +12,8 @@ to negotiate access to a Data Offer and receive the corresponding Data Plane tok
 [Contract-Negotiation](6-contract-negotiation.md)- and [Transfer-Process](7-transfer-process.md)-APIs, the EDR-process does not require a Consumer to operate a 
 separate service that receives the Tokens from the Provider Control Plane. Instead, the Consumer Control Plane receives 
 and stores the Data Plane Tokens. Consumer Applications query it for valid tokens and use these for Data Plane calls.
+As a consumer-side abstraction, the checks of the Contract Negotiation and Transfer Process phases are still executed
+between the Business Partners' EDCs.
 
 ## Initiate Contract Negotiation
 
