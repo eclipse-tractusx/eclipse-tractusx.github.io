@@ -17,7 +17,6 @@ Host: https://consumer-control.plane/api/management
 X-Api-Key: password
 Content-Type: application/json
 ```
-
 ```json
 {
   "@context": {
@@ -60,7 +59,9 @@ How to write proper `filterExpression`s was previously [explained](4-contract-de
 In this walkthrough's sequence of API-calls, this is the first that triggers interaction between two EDCs. The Consumer
 requests the Provider's catalog of Data Offers. Partners in the Dataspace are authenticated via Verifiable Credentials (VC).
 These can broadly be conceptualized as another JSON-LD document that holds information on a business partner's identify.
-It follows an aligned schema and is extensible with properties relevant to the Dataspace.
+It follows an aligned schema and is extensible with properties relevant to the Dataspace. For more info, see
+[the documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/credentials/summary/summary.vc.md) 
+of the currently used Summary Credential used in Catena-X.
 
 When the Consumer makes a catalog-request to the Provider, the provider collects the Consumer's VC and checks it against
 each of the `accessPolicies` defined in his [Contract Definitions](4-contract-definitions.md). If the VC passes the 
