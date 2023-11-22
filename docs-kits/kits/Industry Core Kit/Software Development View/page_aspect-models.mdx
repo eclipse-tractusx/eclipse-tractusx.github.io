@@ -4,39 +4,51 @@ title: Aspect Models
 description: "Industry Core KIT"
 sidebar_position: 2
 ---
-<!--
-This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
-
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 BASF SE
-- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
-- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
-- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
-- SPDX-FileCopyrightText: 2023 Siemens AG
-- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
--->
 
 import Notice from '../part_notice.mdx'
+import AspectModelOverview from './part_aspect-model-overview.mdx'
 
 ## Aspect Models
 
-Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPart or Batch. Transformations are mostly straightforward in these cases.
+Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model. Transformations are mostly straightforward in these cases. If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
 
-If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
+<AspectModelOverview components={props.components} />
 
 ### CataloguePart
 
 CataloguePart represents an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1)
+Aspect model in GitHub: 
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1
+- PartAsPlanned, Version 1.0.1: 
+  - Deprecated - Successor version is CataloguePart, Version 1.0.0
+  - https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1
 
 #### Example: Aspect Model `CataloguePart` for a part type
+
+```json
+{
+  "partTypeInformation": {
+    "classification": "component",
+    "manufacturerPartId": "123-0.740-3434-A",
+    "nameAtManufacturer": "Mirror left"
+  },
+  "validityPeriod": {
+    "validFrom": "2021-06-14T06:55:29.935Z",
+    "validTo": "2022-06-14T06:55:29.935Z"
+  },
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
+}
+```
+
+### PartAsPlanned (Deprecated)
+
+PartAsPlanned represents an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version.
+
+Aspect model in GitHub: 
+- Version 1.0.1 (Deprecated - Successor version is CataloguePart, Version 1.0.0):  https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1
+
+#### Example: Aspect Model `PartAsPlanned` for a part type
 
 ```json
 {
@@ -57,7 +69,9 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.single_level_bom_as_planned/2.0.0)
+Aspect model in GitHub: 
+- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/2.0.0
+- Version 1.1.1 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.1
 
 #### Example: Aspect Model `SingleLevelBomAsPlanned` for a Catalog Part
 
@@ -78,11 +92,35 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 }
 ```
 
-### PartSiteInformationAsPlanned
+### PartSiteInformation
 
-The aspect provides site related information for a given as planned item (i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In the \"as planned\" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
+The aspect provides site related information for a given as planned item (i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0)
+Aspect model in GitHub: 
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information/1.0.0
+
+#### Example: Aspect Model `PartSiteInformation` for a Component that is Produced at the Given Site
+
+```json
+{
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "sites": [
+    {
+      "catenaXSiteId": "BPNS1234567890ZZ",
+      "functionValidUntil": "2025-11-21T11:14:30.825+01:00",
+      "function": "production",
+      "functionValidFrom": "2022-11-21T11:14:30.825+01:00"
+    }
+  ]
+}
+```
+
+### PartSiteInformationAsPlanned (Deprecated)
+
+The aspect provides site related information for a given as planned item (i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
+
+Aspect model in GitHub: 
+- Version 1.0.0 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0
 
 #### Example: Aspect Model `PartSiteInformationAsPlanned` for a Component that is Produced at the Given Site
 
@@ -104,7 +142,9 @@ Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-se
 
 A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1)
+Aspect model in GitHub: 
+- Version 1.0.2: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.2
+- Version 1.0.1 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1
 
 #### Example: Aspect Model `SerialPart` for a Vehicle
 
@@ -181,7 +221,9 @@ The only special step in creating this aspect model is the initial creation of t
 
 A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0)
+Aspect model in GitHub: 
+- Version 2.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.1
+- Version 2.0.0 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0
 
 #### Example: Aspect Model `Batch` for a Batch of Raw Material
 
@@ -213,7 +255,9 @@ The only special step in creating this aspect model is the initial creation of t
 
 A just-in-sequence part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a combination of several IDs related to a just-in-sequence process.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0)
+Aspect model in GitHub: 
+- Version 1.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.1
+- Version 1.0.0 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0
 
 #### Example: Aspect Model `JustInSequencePart` for a non-serialized component
 
@@ -260,7 +304,9 @@ The only special step in creating this aspect model is the initial creation of t
 
 The aspect provides the child parts (one structural level down) which the given object assembles.
 
-Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0)
+Aspect model in GitHub: 
+- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0
+- Version 1.0.0 (Deprecated): https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0
 
 #### Example: Aspect Model `SingleLevelBomAsBuilt` for a Serialized Part
 
