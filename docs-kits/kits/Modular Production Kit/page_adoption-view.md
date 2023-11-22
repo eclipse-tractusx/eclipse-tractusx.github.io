@@ -57,7 +57,7 @@ The following diagram depicts all possible interactions between partners, in cas
 3. get the desired information via *ProvideProductionForecastInformation*(...) - transferred by Modular Production (synchronous, cyclic, or notification-like),
 4. Unsubscribe from the *GetProductionForecastInformation* service to receive no further information.
 
-![Architecture](res/architecture.png)
+![SIS Production Forecast Sequence Chart](res/SIS_ProduktionForecast_SequenceChart.svg)
 
 The left side shows the different request possibilities of customers. The right shows Modular Production that features a scheduler to generate answers for requests. The two boxes in the middle represent the EDC of each partner. The communication between the respective EDC is transparent to the user (shaded). Data for the request and the response are transmitted in the payload of the messages. The synchronous response (http response) does not contain any technical information but provides information whether the exchange of information succeeded or not. The concrete information is sent with one or multiple asynchronous responses, depending on the communication mode between the partners. The left side shows the different request possibilities of customers. The right shows Modular Production that features a scheduler to generates answers for requests.
 
@@ -65,7 +65,7 @@ The left side shows the different request possibilities of customers. The right 
 
 #### Technical requirements for a CATENA-X compliant data transmission
 
-![Components](res/components.png)
+![SIS Production Forecast Overview](res/SIS_ProduktionForecast_Overview.svg)
 
 Both partners, the customer and the Modular Production, must be members of the Catena X network to communicate with each other. By registering a Modular Production in advance with the Discovery Service, a customer can find it via a so-called Business Partner Number (BPN). With the help of SSI (Self Sovereign Identity) the correct identity is guaranteed. Customer are using the *GetProductionForecastInformation* call to request a production forecast, as specified in CX-0075. The Modular Production generates the required information by internal services like a schedulers and answers accordingly by calling *ProvideProductionForecastInformation* as specified in CX-0075. In case of a cyclic messages or notification mode, the customer has to unsubscribe from the service, if the service is not needed anymore.
 
