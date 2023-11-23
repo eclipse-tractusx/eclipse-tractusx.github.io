@@ -19,13 +19,21 @@ The first thing you need is a BPN (Business Partner Number) because this is used
 
 :::info
 
-Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the self description phase within your account in the portal within the [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
+Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the onboarding / regirstraion process [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
 
 :::
 
-The BPN is also used to restrict the access and usage of your provided assets. This is done via policies. Some example policies are also part of this tutorial.
+The BPN is also used to restrict the access and usage of your provided data assets. This is done via policies. Some example policies are also part of this tutorial.
 
-One of the key components of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC). This component is used to exchange data between participants. The EDC is also used to register data offers and to discover data offers from other participants. With the EDC you are always in control of your data.
+A data asset is the metadata for the data that is intended to be provided or consumed. This data asset is the element in the ecosystem for which policies are defined to build a contract offer which can be agreed and consumed by a consumer.
+
+One of the key components of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC) as one implementation of the [Dataspace Protocol](https://docs.internationaldataspaces.org/dataspace-protocol/). This component is used to exchange data between participants. This includes:
+
+- Publish data offers and to discover data offers from other participants.
+- Negotiate data offers and come to an agreement on how to data is allowed to be used (Usage Policies)
+- Transfer data based on a previously negotiated agreement.
+
+With the EDC you are always in control of your data.
 
 :::note
 
@@ -51,7 +59,7 @@ This is realized with [Asset Administration Shell](https://eclipse-tractusx.gith
 
 With that you are able to speak Catena-X.
 
-When it comes to data exchange, it as an utmost concern to be able to find the desired data on the one hand and to understand the structure and meaning of the data on the other hand. 
+When it comes to data exchange, it as an utmost concern to be able to find the desired data on the one hand and to understand the structure and meaning of the data on the other hand.
 Finding and understanding data is a typical challenge, if you want to provide or consume data to or from an audience you are not in direct contact in advance.
 
 To tackle these concerns the Industry-Standard for Digital Twins, the [Asset Administration Shell](https://industrialdigitaltwin.org) is referenced.
@@ -62,36 +70,17 @@ To tackle these concerns the Industry-Standard for Digital Twins, the [Asset Adm
 
 "Digital Twin registry" is used to lookup the logical ID of the desired Twin and stores the endpoint address to access the Server that stores the Digital Twin Data - the AAS-Server.
 
-"AAS-Server" is used to provide the API for the desired data - which are implemented as "Submodels" or also called "Digital twin aspects", that can either implement a dedicated persistence and gather copies of information in the desired quality or by access the corresponding business systems directly. These Submodels are semantically described (structure and meaning) by semantic models which are centrally managed in the
+"AAS-Server" is used to provide the API for the desired data - which are implemented as `Submodels` or also called "Digital twin aspects", that can either implement a dedicated persistence and gather copies of information in the desired quality or by access the corresponding business systems directly. These Submodels are semantically described (structure and meaning) by semantic models which are centrally managed in the
 
 "Semantic Hub" which stores all semantic models that may be described in a Semantic Aspect Meta Model (SAMM) compliant format to be able to inform about requirements for an API providing that kind of data or validate information that is transferred via AAS-API.
 
-:::danger
-
-no idea what to write here. I think the goal for this page is to describe the different components and which one are already used in the MXD and which once are planned to be used in the future.
-
-:::
-
-
 ## What else is needed
 
-Managed Identity Wallet - the Managed Identity wallet provides a service where you can store your credentials for any Catena-X services in a safe place, when you do not want to implement your own wallet.
+Managed Identity Wallet (MIW) - the Managed Identity wallet provides a service where you can store your Verifiable Credentials (VC) for any Catena-X services in a safe place. This is only an intermediate step before self hosted wallets are supported and organizations have the choice to either use a managed service or store their VCs in their own wallets.
 
-Keycloak - is the place, where ...
-
-:::danger
-
-I think we want to describe the architecture a little bit more. Isn't there a predefined description?
-
-:::
+Keycloak is used to manage access to central components, e.g. the MIW and some of the discovery services with typical OAuth Client Credentials flow.
 
 ## The different components
-
-:::info
-
-In the following picture, the most important elements of Catena-X architecture for the MXD are depicted. This architecture will be expanded in future versions of the MXD.
-
-:::
 
 ![cx_architecture](@site/static/img/architecture.drawio.svg)
 
