@@ -116,11 +116,19 @@ A Behaviour Twin  "Use Case Rahmenbedingung" which covers the business process o
 This Rahmenbedingung document can be referenced in the usage policies, and therefore limit Data & Service access to Behaviour Twin participants.
 
 
-
-
-
 <!-- !Mandatory! -->
-## Semantic Models & Standards
+<!-- ## Semantic Models & Standards -->
+## Standards
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library). 
 
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022,2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
+- SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2022,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+<!-- - Source URL: https://github.com/eclipse-tractusx/XXXXX -->
