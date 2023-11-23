@@ -112,7 +112,7 @@ So, a decision is made to use real **usage data** from the predecessor vehicle f
 The usage of predecessor data is not straightforward and the car manufacturer decides to assign the task of setting up an appropriate process to a **modeling specialist**. The modeling specialist needs to **integrate** an **FMU** from the supplier to **simulate** the new **component** in the **process**. Finally, **both** the car manufacturer and the supplier want to be able to **execute** the **process** and do fine tuning on component parameters.
 
 How can Catena-X help the parties to come to an efficient solution?
-![Business Process Partners](images/image-2023-11-3_9-54-26-1.png)
+![Business Process Partners](images/Pic_Proc_0.png)
 
 ### The following sketches illustrate the Business Process
 ![Business Process 1 Partners](images/Pic_Proc_1.png)
@@ -155,7 +155,8 @@ Use case specific credentials exist and will be mandatory. Their documentation w
 
 
 <!-- !Mandatory! -->
-## Semantic Models & Standards
+<!-- ## Semantic Models & Standards -->
+## Standards
 
 The  Standard CX-0102-Functional-Mock-Up has been submitted for standardization and will soon be linked here.
 
@@ -163,7 +164,6 @@ The Standard aims at using the exisiting FMI industry standard as a Catena-X sta
 
 The Functional Mock-up Interface (FMI) is a free standard that defines a container and an interface to exchange dynamic simulation models using a combination of XML files, binaries and C code, distributed as a ZIP file. It is supported by 170+ tools and maintained as a Modelica Association Project. The FMI implementation by a software modelling tool enables the creation of simulation models that can be interconnected. The file format of the FMI standard is called Functional Mock-up Unit (FMU)(source: https://fmi-standard.org/).
 
-------------
 
 ### Guidelines for generating FMU:
 
@@ -171,7 +171,7 @@ The FMU/FMI format allows a high degree of flexibility in generating an FMU mode
 
 The list of guidelines below have the goal to guide the modeling expert in the creation of an FMU for the Model and Data Processing use cases.
 
-Guidelines:
+**Guidelines**:
 
 - generate a license-free FMU so that it can be imported in any software,
 - generate a co-simulation FMU so that solver is included in the FMU and can be directly executed,
@@ -197,3 +197,16 @@ The following list of potential properties along with some examples shall be see
 - Version (1.4,...)
 - Release date (2023-09-18,...)
 Some properties could be selected from a pre-defined list (and not be free text) in order to ensure a certain standardization during asset registration
+
+
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2023 Siemens AG
+- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse Foundation
+<!-- - Source URL: https://github.com/eclipse-tractusx/XXXXX -->
