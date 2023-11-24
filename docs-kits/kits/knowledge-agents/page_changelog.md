@@ -112,4 +112,4 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 
 ### Removed
 
-<sub><sup>(C) 2021,2023 [Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
