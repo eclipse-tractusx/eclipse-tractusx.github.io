@@ -1,6 +1,6 @@
 export const newsTitles = [
   {
-    date: "22.11.2023",
+    date: "28.11.2023",
     title: "New launch of tutorials section / First E2E adopter Journey tutorial",
     blogLink: "/blog/release-tutorials"
   },

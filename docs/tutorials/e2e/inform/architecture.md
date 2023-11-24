@@ -64,21 +64,21 @@ Finding and understanding data is a typical challenge, if you want to provide or
 
 To tackle these concerns the Industry-Standard for Digital Twins, the [Asset Administration Shell](https://industrialdigitaltwin.org) is referenced.
 
-"Discovery finder" is used to identify which services are available to search for dedicated characteristics of a digital twin (e.g. Serialnumber discovery, Product type discovery,...)
+**Discovery finder** is used to identify which services are available to search for dedicated characteristics of a digital twin (e.g. Serialnumber discovery, Product type discovery,...)
 
-"Discovery service" maintains a catalog of all entries that can be looked up and may be operated by any operating company. All twins that want to be able to be found within that search have to register/be registered in the corresponding service with its logical ID (and a reference to the Digital Twin registry).
+**Discovery service** maintains a catalog of all entries that can be looked up and may be operated by any operating company. All twins that want to be able to be found within that search have to register/be registered in the corresponding service with its logical ID (and a reference to the Digital Twin registry).
 
-"Digital Twin registry" is used to lookup the logical ID of the desired Twin and stores the endpoint address to access the Server that stores the Digital Twin Data - the AAS-Server.
+**Digital Twin registry** is used to lookup the logical ID of the desired Twin and stores the endpoint address to access the Server that stores the Digital Twin Data - the AAS-Server.
 
-"AAS-Server" is used to provide the API for the desired data - which are implemented as `Submodels` or also called "Digital twin aspects", that can either implement a dedicated persistence and gather copies of information in the desired quality or by access the corresponding business systems directly. These Submodels are semantically described (structure and meaning) by semantic models which are centrally managed in the
+**AAS-Server** is used to provide the API for the desired data - which are implemented as `Submodels` or also called "Digital twin aspects", that can either implement a dedicated persistence and gather copies of information in the desired quality or by access the corresponding business systems directly. These Submodels are semantically described (structure and meaning) by semantic models which are centrally managed in the
 
-"Semantic Hub" which stores all semantic models that may be described in a Semantic Aspect Meta Model (SAMM) compliant format to be able to inform about requirements for an API providing that kind of data or validate information that is transferred via AAS-API.
+**Semantic Hub** which stores all semantic models that may be described in a Semantic Aspect Meta Model (SAMM) compliant format to be able to inform about requirements for an API providing that kind of data or validate information that is transferred via AAS-API.
 
 ## What else is needed
 
-Managed Identity Wallet (MIW) - the Managed Identity wallet provides a service where you can store your Verifiable Credentials (VC) for any Catena-X services in a safe place. This is only an intermediate step before self hosted wallets are supported and organizations have the choice to either use a managed service or store their VCs in their own wallets.
+The **Managed Identity Wallet (MIW)** provides a service where you can store your Verifiable Credentials (VC) for any Catena-X services in a safe place. This is only an intermediate step before self hosted wallets are supported and organizations have the choice to either use a managed service or store their VCs in their own wallets.
 
-Keycloak is used to manage access to central components, e.g. the MIW and some of the discovery services with typical OAuth Client Credentials flow.
+**Keycloak** is used to manage access to central components, e.g. the MIW and some of the discovery services with typical OAuth Client Credentials flow.
 
 ## The different components
 
