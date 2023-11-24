@@ -34,10 +34,8 @@ This document describes the foundations of the (Knowledge) Agents KIT (=Keep It 
 
 For more information see
 
-* The [CX-0084 Federated Queries in Data Spaces](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf) standard
-* The [CX-0067 Quality Guidelines for Ontology Models in Catena-X](https://catena-x.net/de/standard-library) standard
-* An [Architecture](../development-view/architecture) documentation
-* The [Deployment & Conformity](../operation-view/deployment) guide
+* [Architecture](../development-view/architecture) 
+* [Deployment & Conformity](../operation-view/deployment) 
 
 ### Vision & Mission
 
@@ -59,7 +57,7 @@ Skills can be described in tractable sub-languages of well-known declarative syn
 
 ##### Implementations
 
-We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](http://localhost:3000/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View) 
+We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../tractusx-edc/docs/kit/adoption-view/Adoption%20View) 
 
 These components are called [`agents`](https://en.wikipedia.org/wiki/Software_agent)) because they (semi-)actively negotiate and collaborate with each other (via so-called graph and skill assets) over the dataspace in order to derive higher-level semantic knowledge from the plain, isolated data.
 
@@ -196,7 +194,18 @@ Any party who offers ready-made artifacts, packages and managed services assisti
 
 The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of the following two [Catena-X e.V. Standards](https://catena-x.net/de/standard-library):
 
-- [CX-0084 Federated Queries in Dataspaces](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
-- [CX-0067 Ontology Models in Catena-X (Upcoming)](https://catena-x.net/de/standard-library)
+- [CX-0084 Federated Queries in Dataspaces (V1.1.0 Upcoming)](https://catena-x.net/de/standard-library) 
+- [CX-0084 Federated Queries in Dataspaces (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
+- [CX-0067 Quality Guidelines for Ontology Models in Catena-X (V1.0.0 Upcoming)](https://catena-x.net/de/standard-library)
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2021,2023 Mercedes-Benz AG
+- SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2021,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2021,2023 SAP SE
+- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
