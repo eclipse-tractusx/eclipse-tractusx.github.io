@@ -4,6 +4,7 @@ title: Adoption View
 description: 'Connector Kit'
 sidebar_position: 1
 ---
+# Adoption View
 
 ![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
 

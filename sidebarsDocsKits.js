@@ -13,7 +13,6 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
-// TODO: connector kit structure complete rework
 const sidebars = {
     kits: [
         {
