@@ -1,3 +1,7 @@
+---
+title: Architecture
+sidebar_position: 3
+---
 # Architecture
 
 ## Overview
@@ -30,3 +34,5 @@ TODO: link Management API walkthrough
 TODO: link Specifications
 
 ### Catena X Portal
+
+Contact with the Catena X Portal is necessary to register as a participant and obtain a Business Partner Number. This ID is used in exchanges with other participants.
