@@ -11,6 +11,19 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.2.0] - 2023-12-05
+
+### Added
+
+- remarks on versioning
+- guidance for adding submodels to existing twins
+
+### Changed
+
+- A couple of clarifications and bugfixes for R23-12
+- Version of Kit incremented as minor revision since no breaking changes occurred.
+
+
 ## [1.0.0] - 2023-08-17
 
 ### Added
