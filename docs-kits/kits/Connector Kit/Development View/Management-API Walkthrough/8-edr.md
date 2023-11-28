@@ -102,7 +102,11 @@ by the POST /edrs request.
 - `edc:agreementId`: This is the ID of the agreement that the two EDCs have made in the [Contract Negotiation](6-contract-negotiation.md)
 phase of their EDR-interaction. 
 
-The EDR mechanism stores the Data Plane Tokens. Finally, after first obtaining them from the Provider Control Plane and 
+One of the essential features of the EDR-API is the automatic retrieval of new short-lived Data Plane tokens for an 
+agreed Contract Agreement. When choosing the route via [the negotiation- ](6-contract-negotiation.md) and [transfer-APIs](7-transfer-process.md),
+the transfer process would have to be initiated for every new token.
+
+The EDR mechanism stores the Data Plane tokens. Finally, after first obtaining them from the Provider Control Plane and 
 then locating in the Consumer Control Plane's cache, they can be retrieved using the `transferProcessId`.
 
 ```http
