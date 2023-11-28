@@ -379,6 +379,12 @@ const config = {
             label: 'Developer Hub',
           },
           {
+            type: 'doc',
+            docId: 'tutorials',
+            position: 'left',
+            label: 'Tutorials',
+          },
+          {
             to: "/community",
             position: "left",
             label: "Community",
