@@ -3,14 +3,6 @@ title: Understand the overarching architecture
 sidebar_position: 2
 ---
 
-If you are interested more in buying services, please get in contact with an operating company.
-
-:::info
-
-One of the first operating companies is [Cofinity-X](https://cofinity-x.com/).
-
-:::
-
 This section contains more information than is currently implemented in the MXD. However, it is intended to provide a general overview of the Catena-X architecture. However, not all components are listed here.
 
 ## The journey starts
