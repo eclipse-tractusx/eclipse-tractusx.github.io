@@ -23,13 +23,7 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
     "counterPartyAddress": "http://bob-controlplane:8084/api/v1/dsp",
     "querySpec": {
         "offset": 0,
-        "limit": 100,
-        "filter": "",
-        "range": {
-            "from": 0,
-            "to": 100
-        },
-        "criterion": ""
+        "limit": 100
     }
 }'
 ```
