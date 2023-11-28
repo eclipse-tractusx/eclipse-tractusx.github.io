@@ -66,7 +66,7 @@ of the currently used Summary Credential used in Catena-X.
 When the Consumer makes a catalog-request to the Provider, the provider collects the Consumer's VC and checks it against
 each of the `accessPolicies` defined in his [Contract Definitions](4-contract-definitions.md). If the VC passes the 
 `accessPolicy`, the Contract Definition is transformed to a Data Offer and added to the catalog. If the content of the VC
-does not fulfuill the `accessPolicy`, the Contract Definition is invisible for the requesting Data Consumer - rendering
+does not fulfil the `accessPolicy`, the Contract Definition is invisible for the requesting Data Consumer - rendering
 any further communication between the Business Partners useless.
 
 ## Returned Payload
@@ -158,7 +158,8 @@ Consequently, if there may be more than one offer for the same Asset,
 returns `HttpProxy` and `AmazonS3` even though not all EDC-deployments have both capabilities.
 - `dcat:hasPolicy` holds the Data Offer that is relevant for the Consumer.
   - `@id` is the identifier for the Data Offer. The EDC composes this id by concatenating three identifiers in base64-encoding.
-  separated with `:` (colons). The format is `base64(contractDefinitionId):base64(assetId):base64(newUuidV4)`.
+  separated with `:` (colons). The format is `base64(contractDefinitionId):base64(assetId):base64(newUuidV4)`. The last 
+  of three UUIDs changes with every request as every /v2/catalog/request call yields a new catalog with new Data Offers.
   - The `odrl:target` properties in the Data Offer always hold the Asset's id.
   - The `odrl:permission`, `odrl:prohibition` and `odrl:obligation` will hold the content of the contractPolicy configured
   in the [Contract Definition](4-contract-definitions.md) the Contract Offer was derived from.

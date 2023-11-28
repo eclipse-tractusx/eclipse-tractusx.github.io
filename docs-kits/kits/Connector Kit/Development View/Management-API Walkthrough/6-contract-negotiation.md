@@ -82,13 +82,15 @@ Content-Type: application/json
     - `uri` is the http endpoint of the token repository. Mandatory.
     - `events` is a list of the strings, signifying for what callbacks the specified API shall be used. They are
       structured hierarchically, so if a Consumer is interested in all events about status changes, the 
-      `transfer.process` marker can be added.
-      If only events about the completion of a transfer are relevant, they can be subscribed via
-      `transfer.process.completed`. Mandatory.
+      `transfer.process` marker can be added. If only events about the completion of a transfer are relevant, they can 
+      be subscribed via `transfer.process.completed`. This enables the consumer to wait for arrival of a relevant event
+      instead of having to poll for transition into a desired state. 
     - `transactional` Optional, default false.
     - `authCodeId` is the key of a secret stored in the Consumer's vault that can be used to unlock the callback API if
       it is protected. Optional.
     - `authKey` Key of the HTTP-header that will be sent to the callbackAddress for authentication. Optional. If 
-      `authCodeId` is set and 
+      `authCodeId` is set and `authKey` isn't, it defaults to `Authorization`.
 
+The API returns a TODO
 
+## Polling for Completion
