@@ -9,6 +9,31 @@ be our dataspace participants. Each of them stores their secrets in their respec
 shared Postgres server, where each of them has a database. MIW and Keycloak are central components, they only exist
 once and are accessible by all participants.
 
+:::warning
+
+Since this documentation is based on a MXD version where tractusx-edc version `0.5.1` is used, there is a need to adapt the `values.yaml` inside the cloned repository **tutorial-resources**. The file is located in `tutorial-resources/mxd/modules/connector/values.yaml`
+
+Instead of the `latest` tag for the **controlplane** and **dataplane** image, please use `0.5.1`.
+
+```yaml
+# As an example for the controlplane
+controlplane:
+  debug:
+    enabled: true
+    port: 1044
+  service:
+    type: NodePort
+  endpoints:
+    management:
+      authKey: password
+  image:
+    pullPolicy: Never
+    #tag: "latest"
+    tag: "0.5.1"
+```
+
+:::
+
 For the most bare-bones installation of the dataspace, execute the following commands in a shell:
 
 ```shell
