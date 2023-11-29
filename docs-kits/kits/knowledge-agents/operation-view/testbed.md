@@ -176,7 +176,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Open Conforming Asset.",
             "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
             "rdf:type": "cx-common:GraphAsset",
@@ -216,7 +216,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Closed Conforming Asset.",
             "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
             "rdf:type": "cx-common:GraphAsset",
@@ -256,7 +256,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Unfederated Conforming Asset.",
             "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Graph&mode=open",
             "rdf:type": "cx-common:GraphAsset",
@@ -299,7 +299,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Open Skill",
             "description": "A conformity assessment skill.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
             "rdf:type": "cx-common:SkillAsset",
@@ -341,7 +341,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Closed Skill",
             "description": "A conformity assessment skill.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
             "rdf:type": "cx-common:SkillAsset",
@@ -382,7 +382,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Provider-Forced Skill",
             "description": "A conformity assessment skill.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
             "rdf:type": "cx-common:SkillAsset",
@@ -423,7 +423,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
         "properties": {
             "name": "Consumer-Forced Skill",
             "description": "A conformity assessment skill.",
-            "version": "1.9.8",
+            "version": "1.10.15",
             "contenttype": "application/json, application/xml",
             "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
             "rdf:type": "cx-common:SkillAsset",

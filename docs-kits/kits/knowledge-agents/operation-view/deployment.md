@@ -142,7 +142,7 @@ We give the complete manifests but hide the secrets.
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.9.8
+  targetRevision: 1.10.15
   plugin:
     env:
       - name: HELM_VALUES
@@ -256,7 +256,7 @@ destination:
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.9.8
+  targetRevision: 1.10.15
   plugin:
     env:
       - name: HELM_VALUES
@@ -375,7 +375,7 @@ Therefore, some of the following settings are specific to stable and will not be
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.9.8
+  targetRevision: 1.10.15
   plugin:
     env:
       - name: HELM_VALUES
@@ -450,7 +450,7 @@ For simplicity, the remoting agent exposes a simply public API as a graph.
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.9.8
+  targetRevision: 1.10.15
   plugin:
     env:
       - name: HELM_VALUES
