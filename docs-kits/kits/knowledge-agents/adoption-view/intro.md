@@ -196,7 +196,7 @@ The concrete choices for how the data graphs are to be constructed (using the [R
 
 - [CX-0084 Federated Queries in Dataspaces (V1.1.0 Upcoming)](https://catena-x.net/de/standard-library) 
 - [CX-0084 Federated Queries in Dataspaces (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
-- [CX-0067 Quality Guidelines for Ontology Models in Catena-X (V1.0.0 Upcoming)](https://catena-x.net/de/standard-library)
+- [CX-0067 Ontology Models to realize Federated Query in Catena-X  (V1.0.0 Upcoming)](https://catena-x.net/de/standard-library)
 
 ## NOTICE
 
