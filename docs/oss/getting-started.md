@@ -9,7 +9,6 @@ This page provides information and links to relevant resources before you start 
   - Use the same email address that you use in GitHub for your contributions, e.g. if you contribute on behalf of your company, you must create the account with your company email address
   - Sign the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/legal/ECA.php)
   - Add your **GitHub ID** to your Eclipse profile (Section: Social Media Links)
-- Checkout the [committer list](https://projects.eclipse.org/projects/automotive.tractusx/who) of our project and highlight at least one of them in our [issue template](https://github.com/eclipse-tractusx/sig-infra/issues/new?assignees=&labels=support&projects=&template=support-add-project-contributor.md&title=New+Tractus-X+project+contributor) to onboard you into the Eclipse Tractus-X GitHub organisation, since every committer can add project contributors
 - Subscribe to the [Eclipse Tractus-X Developer Mailinglist](https://accounts.eclipse.org/mailing-list/tractusx-dev)
 - Get familiar with the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/handbook/), we will reference the dedicated chapters for the different topics.
 - See the [documentation](../dev_links.md#eclipse-foundation-documentation)
@@ -23,3 +22,9 @@ Text from the EF:
 Next call: see [calendar](https://www.eclipse.org/projects/calendar/)
 
 Note: the time in the calendar is GMT
+
+## Contributor Permissions
+
+If you need to be a [contributor](https://www.eclipse.org/projects/handbook/#contributing-contributors) to the Eclipse Tractus-X project ([Triage GitHub permissions](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)), you need to do the following steps:
+
+- Checkout the [committer list](https://projects.eclipse.org/projects/automotive.tractusx/who) of our project and highlight at least one of them in our [issue template](https://github.com/eclipse-tractusx/sig-infra/issues/new?assignees=&labels=support&projects=&template=support-add-project-contributor.md&title=New+Tractus-X+project+contributor) to onboard you into the Eclipse Tractus-X GitHub organisation, since every committer can add project contributors
