@@ -9,7 +9,7 @@ info:
   license:
     name: Eclipse Public License
     url: https://www.eclipse.org/legal/epl-2.0/
-  version: 1.9.8
+  version: 1.10.15
 servers:
 - url: https://knowledge.dev.demo.catena-x.net/conforming-agent/bind
   description: Development Conforming Agent for KA-BIND Profile
