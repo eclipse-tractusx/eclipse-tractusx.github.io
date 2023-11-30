@@ -1,5 +1,10 @@
 export const newsTitles = [
   {
+    date: "30.11.2023",
+    title: "The centerpiece of the data space are the so-called KIT-blocks",
+    blogLink: "/blog/news-faz"
+  },
+  {
     date: "28.11.2023",
     title: "New launch of tutorials section / First E2E adopter Journey tutorial",
     blogLink: "/blog/release-tutorials"
