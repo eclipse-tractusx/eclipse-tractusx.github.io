@@ -17,7 +17,7 @@ It includes
 To trigger the process, the Data Consumer POSTs against his own Control Plane.
 
 ```http
-POST /v2/catalog/request HTTP/1.1
+POST /v2/contractnegotiations HTTP/1.1
 Host: https://consumer-control.plane/api/management
 X-Api-Key: password
 Content-Type: application/json
@@ -32,13 +32,14 @@ Content-Type: application/json
   "connectorAddress": "https://provider-control.plane/api/v1/dsp",
   "protocol": "dataspace-protocol-http",
   "providerId": "<PROVIDER_BPN>",
+  "connectorId": "<PROVIDER_BPN>", 
   "offer": {
     "offerId": "<OFFER_ID>",
     "assetId": "<ASSET_ID>",
     "policy": {
       "@context": "http://www.w3.org/ns/odrl.jsonld",
       "@type": "Set",
-      "@id": "<CONTRACT_POLICY_ID",
+      "@id": "<CONTRACT_OFFER_ID",
       "permission": [
         {
           "target": "<ASSET_ID>",
@@ -91,6 +92,67 @@ Content-Type: application/json
     - `authKey` Key of the HTTP-header that will be sent to the callbackAddress for authentication. Optional. If 
       `authCodeId` is set and `authKey` isn't, it defaults to `Authorization`.
 
-The API returns a TODO
+This call does not yet return a negotiation result but rather a server-side generated id for the contract negotiation in
+the `@id` property.
+
+```json
+{
+	"@type": "edc:IdResponse",
+	"@id": "773b8795-45f2-4c57-a020-dc04e639baf3",
+	"edc:createdAt": 1701289079455,
+	"@context": {
+		"dct": "https://purl.org/dc/terms/",
+		"tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+		"edc": "https://w3id.org/edc/v0.0.1/ns/",
+		"dcat": "https://www.w3.org/ns/dcat/",
+		"odrl": "http://www.w3.org/ns/odrl/2/",
+		"dspace": "https://w3id.org/dspace/v0.8/"
+	}
+}
+```
 
 ## Polling for Completion
+
+```http
+GET /v2/contractnegotiation/773b8795-45f2-4c57-a020-dc04e639baf3 HTTP/1.1
+Host: https://consumer-control.plane/api/management
+X-Api-Key: password
+Content-Type: application/json
+```
+
+This request (holding the previously returned `contractNegotiationId` in its path) returns details on the negotiation
+that will first look like this:
+
+```json
+{
+  "@type": "edc:ContractNegotiation",
+  "@id": "50bf14b9-8f6e-4975-8ada-6f24379a58a2",
+  "edc:type": "CONSUMER",
+  "edc:protocol": "dataspace-protocol-http",
+  "edc:state": "REQUESTING",
+  "edc:counterPartyId": "<PROVIDER_BPN>",
+  "edc:counterPartyAddress": "https://provider-control.plane/api/v1/dsp",
+  "callbackAddresses": [
+    {
+      "transactional": false,
+      "uri": "http://callback/url",
+      "events": [
+        "contract.negotiation",
+        "transfer.process.completed"
+      ],
+      "authKey": "auth-key",
+      "authCodeId": "auth-code-id"
+    }
+  ],
+  "edc:createdAt": 1701351116766,
+  "@context": {
+    "dct": "https://purl.org/dc/terms/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "dspace": "https://w3id.org/dspace/v0.8/"
+  }
+}
+```
+
