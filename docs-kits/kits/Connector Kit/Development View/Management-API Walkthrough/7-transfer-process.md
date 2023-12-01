@@ -47,7 +47,7 @@ Content-Type: application/json
 - `dataDestination` should correspond to one of the supported types listed in the provider's catalog `dcat:distribution`, 
 and it should include all the necessary properties associated with the chosen type. Please note that this will usually be
 `HttpProxy` and NOT `HttpData`.
-- `managedResources` is a boolean (not a string like in the [assets-API](2-assets.md#http-data-plane)). TODO
+- `managedResources` is a boolean (not a string like in the [assets-API](2-assets.md#http-data-plane)).
 - `privateProperties` can be filled with arbitrary data (like in the [assets-API](2-assets.md)), however, the property
 `receiverHttpEndpoint` is interpreted by the EDC as the URL that it shall write the Data Plane token to.
 - `protocol` describes the protocol between the EDCs and will always be `dataspace-protocol-http`.
@@ -56,3 +56,4 @@ Response TODO
 
 ## Polling for Completion
 
+https://eclipse-edc.github.io/docs/#/submodule/Connector/docs/developer/data-transfer?id=transfer-process-state-machine
