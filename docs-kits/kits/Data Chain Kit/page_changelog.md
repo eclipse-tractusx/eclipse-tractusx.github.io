@@ -11,6 +11,12 @@ sidebar_position: 10
 
 All notable changes to this Kit will be documented in this file.
 
+## Unreleased
+
+<h3>Fixed</h3>
+
+- Update documentation: Local deployment currently requires IRS version 2.4.0. See https://github.com/eclipse-tractusx/item-relationship-service/issues/247.
+
 
 ## [1.1.0] - 2023-08-25
 

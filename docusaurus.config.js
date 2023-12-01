@@ -174,6 +174,20 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          bpdm_cleaning: {
+            specPath: "./openApi/bpdm/cleaning-dummy.yaml",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          bpdm_orchestrator: {
+            specPath: "./openApi/bpdm/orchestrator.yaml",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
           irs: {
             specPath: "./openApi/irs/irs-v1.0.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
@@ -353,8 +367,8 @@ const config = {
                 label: 'Traceability',
               },
               {
-                to: 'docs-kits/next/Resiliency/',
-                label: 'Preview',
+                to: 'docs-kits/next/kits/Resiliency/',
+                label: 'Upcoming KITs',
               }
             ],
           },
@@ -363,6 +377,12 @@ const config = {
             docId: 'developer',
             position: 'left',
             label: 'Developer Hub',
+          },
+          {
+            type: 'doc',
+            docId: 'tutorials',
+            position: 'left',
+            label: 'Tutorials',
           },
           {
             to: "/community",
