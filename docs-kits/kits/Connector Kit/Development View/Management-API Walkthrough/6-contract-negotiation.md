@@ -158,6 +158,8 @@ that will look like this:
 
 The Contract Negotiation was successful when `edc:state == FINALIZED`.
 
+### Callbacks
+
 As shown in the example above, state transitions can also be subscribed to by adding a `callbackAddress`. A typical
 callback message will hold the relevant information in the `type` property. The value of the `type` property will always 
 hold a string following the schema `ContractNegotiation` appended by the new state like `Verified` yielding `ContractNegotiationVerified`
@@ -259,6 +261,3 @@ Here's an example:
 
 As soon as `"type": "ContractNegotiationFinalized"`, a `contractAgreement` will be added holding additional context 
 like the `contractSigningDate`.
-
-
-
