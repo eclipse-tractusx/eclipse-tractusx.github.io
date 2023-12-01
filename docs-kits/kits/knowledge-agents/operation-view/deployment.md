@@ -4,7 +4,7 @@ title: Deployment
 ---
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
@@ -100,13 +100,13 @@ As a function provider, you want to
 Knowledge Agents on Stable is deployed on the following two tenants
 - App Provider 1 (BPNL000000000001)
   - Agent-Enabled Dataspace Connector
-    - In-Memory Hashicorp-Vault Control Plane 
+    - In-Memory Hashicorp-Vault Control Plane
     - Hashicorp-Vault Agent Data Plane
   - Provisioning Agent incl. Local Database
   - Remoting Agent
 - App Consumer 4 (BPNL0000000005VV)
   - Agent-Enabled Dataspace Connector
-    - In-Memory Hashicorp-Vault Control Plane 
+    - In-Memory Hashicorp-Vault Control Plane
     - Hashicorp-Vault Agent Data Plane
 
 ### 1. Prepare the Two Tenants
@@ -151,8 +151,8 @@ source:
             id: BPNL000000000001
           nameOverride: agent-connector-provider
           fullnameOverride: agent-connector-provider
-          vault: 
-            hashicorp: 
+          vault:
+            hashicorp:
               enabled: true
               url: https://vault.demo.catena-x.net
               token: ****
@@ -166,25 +166,25 @@ source:
               transferProxyTokenSignerPublicKey: oem-cert
               transferProxyTokenEncryptionAesKey: oem-symmetric-key
           controlplane:
-            securityContext: 
+            securityContext:
               readOnlyRootFilesystem: false
-            image: 
+            image:
               pullPolicy: Always
-            ssi: 
+            ssi:
               miw:
                 # -- MIW URL
                 url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
                 # -- The BPN of the issuer authority
                 authorityId: "BPNL00000003CRHK"
               oauth:
-                # -- The URL (of KeyCloak), where access tokens can be obtained
+                # -- The URL (of Keycloak), where access tokens can be obtained
                 tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
                 client:
-                  # -- The client ID for KeyCloak
+                  # -- The client ID for Keycloak
                   id: "sa4"
                   # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-provider-miw"    
-            endpoints:  
+                  secretAlias: "stable-provider-miw"
+            endpoints:
               management:
                 authKey: ****
             ## Ingress declaration to expose the network service.
@@ -202,11 +202,11 @@ source:
                   enabled: true
           dataplanes:
             dataplane:
-              securityContext: 
+              securityContext:
                 readOnlyRootFilesystem: false
-              image: 
+              image:
                 pullPolicy: Always
-              configs: 
+              configs:
                 dataspace.ttl: |-
                   ################################################
                   # Catena-X Agent Bootstrap
@@ -265,8 +265,8 @@ source:
             id: BPNL0000000005VV
           nameOverride: agent-connector-consumer
           fullnameOverride: agent-connector-consumer
-          vault: 
-            hashicorp: 
+          vault:
+            hashicorp:
               enabled: true
               url: https://vault.demo.catena-x.net
               token: ****
@@ -280,25 +280,25 @@ source:
               transferProxyTokenSignerPublicKey: consumer-cert
               transferProxyTokenEncryptionAesKey: consumer-symmetric-key
           controlplane:
-            securityContext: 
+            securityContext:
               readOnlyRootFilesystem: false
-            image: 
+            image:
               pullPolicy: Always
-            ssi: 
+            ssi:
               miw:
                 # -- MIW URL
                 url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
                 # -- The BPN of the issuer authority
                 authorityId: "BPNL00000003CRHK"
               oauth:
-                # -- The URL (of KeyCloak), where access tokens can be obtained
+                # -- The URL (of Keycloak), where access tokens can be obtained
                 tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
                 client:
-                  # -- The client ID for KeyCloak
+                  # -- The client ID for Keycloak
                   id: "sa5"
                   # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-consumer-miw"    
-            endpoints:  
+                  secretAlias: "stable-consumer-miw"
+            endpoints:
               management:
                 authKey: ***
             ## Ingress declaration to expose the network service.
@@ -316,11 +316,11 @@ source:
                   enabled: true
           dataplanes:
             dataplane:
-              securityContext: 
+              securityContext:
                 readOnlyRootFilesystem: false
-              image: 
+              image:
                 pullPolicy: Always
-              configs: 
+              configs:
                 dataspace.ttl: |-
                   ################################################
                   # Catena-X Agent Bootstrap
@@ -411,28 +411,28 @@ source:
                 obda:               https://w3id.org/obda/vocabulary#
                 rdfs:               http://www.w3.org/2000/01/rdf-schema#
                 oem:                urn:oem:
-                
+
                 [MappingDeclaration] @collection [[
                   mappingId dtc-meta
-                  target    bpnl:{bpnl} rdf:type cx-common:BusinessPartner ; cx-core:id {bpnl}^^xsd:string . 
+                  target    bpnl:{bpnl} rdf:type cx-common:BusinessPartner ; cx-core:id {bpnl}^^xsd:string .
                   source    SELECT distinct "bpnl" FROM "dtc"."meta"
-                  
+
                   mappingId dtc-content
                   target    oem:Analysis/{id} rdf:type cx-reliability:Analysis ; cx-core:id {code}^^xsd:string ; cx-core:name {description}^^xsd:string .
                   source    SELECT * FROM "dtc"."content"
-                  
+
                   mappingId dtc-part
                   target    oem:Part/{entityGuid} rdf:type cx-vehicle:Part ; cx-core:id {enDenomination}^^xsd:string ; cx-core:name {classification}^^xsd:string .
                   source    SELECT * FROM "dtc"."part"
-                  
+
                   mappingId dtc-meta-part
-                  target    oem:Part/{entityGuid} cx-vehicle:manufacturer bpnl:{bpnl}. 
+                  target    oem:Part/{entityGuid} cx-vehicle:manufacturer bpnl:{bpnl}.
                   source    SELECT "bpnl","entityGuid" FROM "dtc"."part"
-                  
+
                   mappingId dtc-part-content
-                  target    oem:Analysis/{dtc_id} cx-reliability:analysedObject oem:Part/{part_entityGuid}. 
+                  target    oem:Analysis/{dtc_id} cx-reliability:analysedObject oem:Part/{part_entityGuid}.
                   source    SELECT "part_entityGuid","dtc_id" FROM "dtc"."content_part"
-                  
+
                 ]]
   chart: provisioning-agent
 destination:
