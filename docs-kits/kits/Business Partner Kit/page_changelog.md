@@ -11,6 +11,23 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [3.0.0] -2023-11-02
+
+### Added
+
+- documentation for orchestrator and cleaning dummy service in software development view
+- documentation of new services with installation steps in operation view
+- documentation of bpdm architecture (arc42)
+
+### Changed
+
+- documentation of gate service with new endpoints for creating and querying generic business partners
+- documentation of operation view for local deployment
+
+### Removed
+
+- documentation of old endpoints in software development view for gate and pool servicce
+
 ## [2.0.0] - 2023-08-25
 
 ### Added

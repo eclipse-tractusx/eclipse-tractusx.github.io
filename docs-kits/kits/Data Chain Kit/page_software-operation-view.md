@@ -11,6 +11,8 @@ sidebar_position: 2
 
 ## Local Deployment
 
+> **Please note that this demo is currently based on IRS version 2.4.0.**
+
 Run a working demo scenario of the Item Relationship Service with a mocked Catena-X network to retrieve data chains with the following components:
 
 * Item Relationship Service
@@ -56,6 +58,12 @@ This local deployment is an easy installation with helm. This setup is built to 
 ### Step 2: Check out the code
 
 Check out the project [Item Relationship Service](https://github.com/eclipse-tractusx/item-relationship-service) or download a [released version](https://github.com/eclipse-tractusx/item-relationship-service/releases) of the Item Relationship Service
+
+> 👉 **Please use [tag 2.6.0](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/2.6.0) instead
+of the latest version currently (this is the version compatible with IRS 2.4.0).**
+>
+> ```git clone -b 2.6.0 https://github.com/catenax-ng/tx-item-relationship-service```
+
 
 ### Step 3: Installing the services
 

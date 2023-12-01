@@ -57,6 +57,22 @@ const sidebars = {
                             },
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api/sidebar.js'),
                         },
+                        {
+                            type: "category",
+                            label: "Cleaning Dummy API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
+                        },
+                        {
+                            type: "category",
+                            label: "Orchestrator API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api/sidebar.js'),
+                        },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
                 },
@@ -108,7 +124,6 @@ const sidebars = {
                     collapsed: true,
                     items: [
                         'kits/tractusx-edc/docs/README',
-                        'kits/tractusx-edc/docs/kit/adoption-view/Domain Model',
                         {
                             type: 'category',
                             label: 'openAPI',
@@ -464,22 +479,20 @@ const sidebars = {
               },
             ],
         },
-    ],
-    Resiliency: [
         {
             type: 'category',
             label: 'Resiliency',
             link: {
                 type: 'doc',
-                id: 'Resiliency/resiliency'
+                id: 'kits/Resiliency/resiliency'
             },
             items: [
-                'Resiliency/DCM Kit',
-                'Resiliency/maas',
-                'Resiliency/PURIS',
-                'Resiliency/mp kit',
+                'kits/Resiliency/DCM Kit',
+                'kits/Resiliency/maas',
+                'kits/Resiliency/PURIS',
+                'kits/Resiliency/mp kit',
             ]
         },
-    ],
+    ]
 };
 module.exports = sidebars;
