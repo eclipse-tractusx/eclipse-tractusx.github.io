@@ -53,8 +53,7 @@ Content-Type: application/json
       "transactional": false,
       "uri": "http://callback/url",
       "events": [
-        "contract.negotiation",
-        "transfer.process.completed"
+        "contract.negotiation"
       ],
       "authKey": "auth-key",
       "authCodeId": "auth-code-id"
@@ -83,9 +82,9 @@ Content-Type: application/json
     - `uri` is the http endpoint of the token repository. Mandatory.
     - `events` is a list of the strings, signifying for what callbacks the specified API shall be used. They are
       structured hierarchically, so if a Consumer is interested in all events about status changes, the 
-      `transfer.process` marker can be added. If only events about the completion of a transfer are relevant, they can 
-      be subscribed via `transfer.process.completed`. This enables the consumer to wait for arrival of a relevant event
-      instead of having to poll for transition into a desired state. 
+      `contract.negotiation` marker can be added. If only events about the `requested` stage of a transfer are relevant, 
+      they can be subscribed via `transfer.process.requested`. This enables the consumer to wait for arrival of a 
+      relevant event instead of having to poll for transition into a desired state. 
     - `transactional` Optional, default false.
     - `authCodeId` is the key of a secret stored in the Consumer's vault that can be used to unlock the callback API if
       it is protected. Optional.
@@ -111,7 +110,9 @@ the `@id` property.
 }
 ```
 
-## Polling for Completion
+## Checking for Completion
+
+### Polling
 
 ```http
 GET /v2/contractnegotiation/773b8795-45f2-4c57-a020-dc04e639baf3 HTTP/1.1
@@ -121,7 +122,7 @@ Content-Type: application/json
 ```
 
 This request (holding the previously returned `contractNegotiationId` in its path) returns details on the negotiation
-that will first look like this:
+that will look like this:
 
 ```json
 {
@@ -135,10 +136,9 @@ that will first look like this:
   "callbackAddresses": [
     {
       "transactional": false,
-      "uri": "http://callback/url",
+      "uri": "http://call.back/url",
       "events": [
-        "contract.negotiation",
-        "transfer.process.completed"
+        "contract.negotiation"
       ],
       "authKey": "auth-key",
       "authCodeId": "auth-code-id"
@@ -155,4 +155,110 @@ that will first look like this:
   }
 }
 ```
+
+The Contract Negotiation was successful when `edc:state == FINALIZED`.
+
+As shown in the example above, state transitions can also be subscribed to by adding a `callbackAddress`. A typical
+callback message will hold the relevant information in the `type` property. The value of the `type` property will always 
+hold a string following the schema `ContractNegotiation` appended by the new state like `Verified` yielding `ContractNegotiationVerified`
+The state-machine for the Contract Negotiation process is [visualized in the documentation](https://eclipse-edc.github.io/docs/#/submodule/Connector/docs/developer/contracts?id=state-machine)
+of the eclipse-edc/connector. The diagram only visualizes the transitions while the callbacks are fired when such a
+transition is done yielding a new state.
+
+Be aware that (unlike most other messages) this is not JSON-LD and thus does not require prefix/context handling. 
+Here's an example:
+
+```json
+{
+  "id": "5e6b1a66-c0a8-4189-bbb8-305e3bdbeddd",
+  "at": 1701441001897,
+  "payload": {
+    "contractNegotiationId": "019488e0-f242-4c12-8314-610927b09e96",
+    "counterPartyAddress": "<PROVIDER-CONTROLPLANE-DSP-ENDPOINT>",
+    "counterPartyId": "<PROVIDER-BPN>",
+    "callbackAddresses": [
+      {
+        "transactional": false,
+        "uri": "http://call.back/url",
+        "events": [
+          "contract.negotiation"
+        ],
+        "authKey": "auth-key",
+        "authCodeId": "auth-code-id"
+      }
+    ],
+    "contractOffers": [
+      {
+        "id": "<OFFER-ID>",
+        "policy": {
+          "permissions": [
+            {
+              "edctype": "dataspaceconnector:permission",
+              "target": "<ASSET-ID>",
+              "action": {
+                "type": "http://www.w3.org/ns/odrl/2/use",
+                "includedIn": null,
+                "constraint": null
+              },
+              "assignee": null,
+              "assigner": null,
+              "constraints": [],
+              "duties": []
+            }
+          ],
+          "prohibitions": [],
+          "obligations": [],
+          "extensibleProperties": {},
+          "inheritsFrom": null,
+          "assigner": null,
+          "assignee": null,
+          "target": "<ASSET-ID>",
+          "@type": {
+            "@policytype": "set"
+          }
+        },
+        "assetId": "<ASSET-ID>"
+      }
+    ],
+    "protocol": "dataspace-protocol-http",
+    "lastContractOffer": {
+      "id": "<OFFER-ID>",
+      "policy": {
+        "permissions": [
+          {
+            "edctype": "dataspaceconnector:permission",
+            "target": "<ASSET-ID>",
+            "action": {
+              "type": "http://www.w3.org/ns/odrl/2/use",
+              "includedIn": null,
+              "constraint": null
+            },
+            "assignee": null,
+            "assigner": null,
+            "constraints": [],
+            "duties": []
+          }
+        ],
+        "prohibitions": [],
+        "obligations": [],
+        "extensibleProperties": {},
+        "inheritsFrom": null,
+        "assigner": null,
+        "assignee": null,
+        "target": "<ASSET-ID>",
+        "@type": {
+          "@policytype": "set"
+        }
+      },
+      "assetId": "<ASSET-ID>"
+    }
+  },
+  "type": "ContractNegotiationRequested"
+}
+```
+
+As soon as `"type": "ContractNegotiationFinalized"`, a `contractAgreement` will be added holding additional context 
+like the `contractSigningDate`.
+
+
 
