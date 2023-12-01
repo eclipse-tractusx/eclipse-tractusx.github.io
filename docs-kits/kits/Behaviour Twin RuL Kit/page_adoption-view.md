@@ -134,7 +134,7 @@ This Rahmenbedingung document can be referenced in the usage policies, and there
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library). 
 
 
-- [CX - 0056 Semantic Model: ClassifiedLoadSpectrum](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0056-SemanticModelClassifiedLoadSpectrum.pdf):
+- [CX - 0056 Semantic Model: ClassifiedLoadSpectrum:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0056-SemanticModelClassifiedLoadSpectrum.pdf)
 
   _The data model “ClassifiedLoadSpectrum” represents the load data of a vehicle component. The load spectrum is a data set that represents the aggregated loading of a component. Any kind of loading is covered: loading can be force or torque or revolutions or temperature or event or similar. The load data is classified and counted with specific counting methods. This standard defines the format for the counted load data, so that the exchange of load data between different partners is possible._
 
@@ -146,39 +146,24 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX - 0058 API: Endurance Predictor:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0058-APIEndurancePredictor.pdf)
 
-  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)"
-data at component level of a concrete vehicle instance ("as built") and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which calculate a so-called "remaining useful life value" (RUL-value, see CX-0057). This standard covers exclusively the definition of the specific API endpoint._
+  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)" data at component level of a concrete vehicle instance ("as built") and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which calculate a so-called "remaining useful life value" (RUL-value, see CX-0057). This standard covers exclusively the definition of the specific API endpoint._
 
+- [CX - 0059 Triangle Behavioral Twin Endurance Predictor:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0059-TriangleBehavioralTwinEndurancePredictorService-v.1.1.0.pdf)
 
-- [CX - 0059 Triangle Behavioral Twin Endurance Predictor:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0059-TriangleBehavioralTwinEndurancePredictorService-v.1.0.0.pdf)
+  _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life (RUL)" data as well as providing a service for its calculation at a component level.Included are APIs to be provided by the service provider and the service requestor, as well as aspect models for the respective payloads being exchanged in an asynchronous pattern leveraging those APIs._
 
-  _This triangle document acts as a bracket for single standards required to request "Remaining Useful Life
-(RUL)" data as well as providing a service for its calculation at a component level. Included are APIs to be
-provided by the service provider and the service requestor, as well as aspect models for the respective
-payloads being exchanged in an asynchronous pattern leveraging those APIs._
+- [CX - 0088 Aspect Model User Estimated Loading:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0088-AspectModel_UserEstimatedLoading_v1.0.0.pdf)
 
-<!-- Standard candidates -->
+  _The semantic model for "User Estimated Loading" is the structured input for the Endurance Estimator Service. This Service should be used by normal customer without special knowledge of technical details of the car or access to ECU data. The input is basic data about the vehicle and information about the usage, previous usage as well as future usage._
 
-Some of our relevant standards can **not yet** be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library) **as they don't have been published yet**. Here is a preview of our **standard candidates**: <!-- Link to be provided-->
-
-- CX - 0088 Aspect Model User Estimated Loading: 
-
-  _The semantic model for "User Estimated Loading" is the structured the input for the Endurance Estimator Service. It is basic data about the vehicle and information about the usage, previous usage as well as future usage._
-
-- CX - 0089 Triangle BehaviourTwin EnduranceEstimator:
+- [CX - 0089 Triangle BehaviourTwin EnduranceEstimator:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0089-TriangleBehavioralTwinEnduranceEstimator_v.1.0.0.pdf)
 
   _This triangle document acts as a bracket for single standards  required to request "Remaining Useful Life (RUL)" data as well as providing a service for its estimation. Included are APIs to be provided by the service provider and the service requestor, as well as aspect models for the respective payloads being exchanged in an asynchronous pattern leveraging those APIs._
 
-- CX - 0090 API EnduranceEstimator :
+- [CX - 0090 API EnduranceEstimator:](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0090-APIEnduranceEstimator_v1.0.0.pdf)
 
-  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which estimates a so-called "remaining useful life value" (RUL-value, see CX-0057) using estimated load data (UserEstimatedLoading, see CX-0088). This standard covers exclusively the illustration of the specific API endpoints._
+  _This documentation describes the technical specification to enable the request of standardized "Remaining Useful Life (RUL)" data for "User Estimated Loading" and its integration into the Eclipse Dataspace connector (EDC). It sets the standards for the API for the usage of services which estimates a so-called "remaining useful life value" (RUL-value, see CX-0057) using estimated load data ("User Estimated Loading", see CX-0088). This standard covers exclusively the illustration of the specific API endpoints._
 
-## NOTICE
-
-This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
-
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2022,2023 Allgemeine Deutsche Automobil-Club (ADAC) e.V
-- SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2022,2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+<!-- Standard candidates -->
+<!--
+Some of our relevant standards can **not yet** be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library) **as they don't have been published yet**. Here is a preview of our **standard candidates**: -->
