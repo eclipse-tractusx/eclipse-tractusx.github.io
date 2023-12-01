@@ -36,15 +36,14 @@ aspects, yielding json-schema that defines the payloads and context for runtime 
 
 This architecture is based on the following assumptions:
 
-- There is a complete setup of the Catena-X dataspace available with all Core Services as defined by the Operating
-  Model Whitepaper for R24-03.
+- There is a complete setup of the Catena-X Dataspace available with all Core Services as defined by the [Operating Model Whitepaper v2.1](https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf).
 - All users have **completed onboarding** to the Catena-X network. This includes:
     - All participants hold a Verifiable Credential issued by an Operating Company (Core Service Provider B)
     - All participants have at least one Dataspace Connector deployed that's linked to their BPNL at the EDC Discovery
       Service.
     - All participants have an active network membership that is represented in their membership credential.
     - Data Providers operate a Digital Twin Registry according to
-      the [Digital Twin Kit](../Digital Twin Kit/page_adoption-view.md)
+      the [Digital Twin Kit](../Digital%20Twin%20Kit/Adoption%20View)
     - Data Providers expose their data via the Submodel API according to the Digital Twin Kit.
 - The **customers of parts** (on catalog and instance level) must be known when creating a digital twin and registering
   its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent
@@ -67,9 +66,11 @@ This architecture is based on the following assumptions:
 
 ## Runtime View
 
-_Detail runtime views including specific sequence diagrams will follow in the near future._
-
-<!-- !Mandatory! -->
+The runtime patterns represent a subset of the interactions specified in the Digital Twin Kit.
+Its ["Discovery Sequence" section](../Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#discovery-sequence)
+describes the interaction between a Data Provider and Data Consumer including the necessary configuration steps.
+Since the Discovery Services according to CX-0053 are not part of the Industry Core, all calls going to the components
+`DiscoveryFinder` and `BPN Discovery Service` can be omitted.
 
 ## Standards
 
