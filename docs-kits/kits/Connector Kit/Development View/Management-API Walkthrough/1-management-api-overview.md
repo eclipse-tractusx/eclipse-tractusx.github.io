@@ -31,7 +31,7 @@ endpoints are versioned independently of each other.
 | [Contract Definition](4-contract-definitions.md)  | `<MANAGEMENT_URL>/v2/contractdefinitions`  | Provider Admin & Provider EDC                                                        |
 | [Catalog](5-catalog.md)                           | `<MANAGEMENT_URL>/v2/catalog`              | Consumer App, Consumer EDC & Provider EDC                                            |
 | [Contract Negotiation](6-contract-negotiation.md) | `<MANAGEMENT_URL>/v2/contractnegotiations` | Consumer App, Consumer EDC & Provider EDC                                            |
-| [Contract Agreement](9-contract-agreement.md)     | `<MANAGEMENT_URL>/v2/contractagreements`   | Consumer App, Consumer EDC & Provider EDC                                            |
+| [Contract Agreement](9-contract-agreement.md)     | `<MANAGEMENT_URL>/v2/contractagreements`   | Provider Admin & Provider EDC                                                        |
 | [Transfer Process](7-transfer-process.md)         | `<MANAGEMENT_URL>/v2/transferprocesses`    | Consumer, Consumer EDC & Provider EDC     TODO is this also available consumer-side? |
 | [EDR](8-edr.md)                                   | `<MANAGEMENT_URL>/edrs`                    | Consumer, Consumer EDC & Provider EDC                                                |
 | Data Plane                                        |                                            | Consumer & Provider EDC                                                              |
@@ -81,6 +81,27 @@ given they are not part of the following list:
 
 ### More documentation and learning resources
 
-- MXD
-- Eclipse-EDC Samples
-- E2E-Tutorial on this homepage
+- Setup of EDC infrastructure:
+  - Read
+    the ["Connect" section of the E2E-Tutorial](https://eclipse-tractusx.github.io/docs/tutorials/e2e/connect/prepareInfrastructure)
+    for first steps. It provides an easy-to-start preconfigured deployment of critical Catena-X infrastructure
+    components.
+  -
+  The [MXD documentation](https://eclipse-edc.github.io/docs/#/submodule/MinimumViableDataspace/docs/developer/continuous-deployment/continuous_deployment)
+  has a similar section on its setup.
+  - To deploy and configure the Tractus-X EDC, check
+    its [documentation](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/README.md).
+- Exchanging data via two EDCs:
+  - Via API: ["Boost" section of the E2E-Tutorial](https://eclipse-tractusx.github.io/docs/tutorials/e2e/boost/). It is
+    exemplary and non-comprehensive.
+  - Via
+    Frontend: [The MXD-Documentation ](https://eclipse-edc.github.io/docs/#/submodule/MinimumViableDataspace/docs/developer/?id=scenarios-covered)
+    explains how to use the open-source web-view.
+- [Eclipse-EDC Samples](https://github.com/eclipse-edc/Samples). This repo includes a wide variety of setups - many of
+  which
+  go beyond this Kit in scope but not in detail.
+- openApi-definitions
+  - [tractusx-edc](https://app.swaggerhub.com/apis/eclipse-tractusx-bot/tractusx-edc/0.5.1-SNAPSHOT)
+  - components-edc: There's separate pages for
+    the [Management-API](https://app.swaggerhub.com/apis/eclipse-edc-bot/management-api) and
+    the [Control-API](https://app.swaggerhub.com/apis/eclipse-edc-bot/control-api).
