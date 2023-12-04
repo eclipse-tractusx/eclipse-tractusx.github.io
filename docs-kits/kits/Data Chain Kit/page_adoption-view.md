@@ -13,7 +13,12 @@ sidebar_position: 1
 
 ### Vision
 
-DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help Business Owner and Catena-X participants to be up to date and prepared. It's easy to use the DataChainKit with an Open Source Software package, which can easily deployed via HELM or docker-compose. The DataChainKit enables to apply business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy, Traceability, Quality and the European supply chain act.
+DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help
+Business Owner and Catena-X participants to be up-to-date and prepared. It's easy to use the DataChainKit with an Open
+Source Software package, which can easily deployed via HELM or docker-compose. The DataChainKit enables to apply
+business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also,
+ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy,
+Traceability, Quality and the European supply chain act.
 
 (#GreenIT#DataSovereignty#Interoperability#ConnectedData)
 
@@ -67,6 +72,89 @@ The decentralized implementation at Catena-X "traverses" from the OEM to the dir
 Aggregated information on the compliance of the upstream suppliers is returned to the OEM via each stage of the supply chain. From this, the OEM can finally read how many companies are compliant and how many are non-compliant in its supply chain for the component.
 
 The names of the suppliers further down the supply chain are not disclosed to follow the Catena-X data sovereignty principle one-up-one-down, but each intermediate level sees which of the direct suppliers are non-compliant and can act, so that perspectively the whole supply chain is assessed as compliant.
+
+### Environmental and Social Standards (ESS) Top-Down
+
+With the entry into force of the German Supply Chain Due Diligence Act as from January 1st, 2023, German companies are
+obliged to implement the corresponding requirements of this law. In addition, the following European directives on this
+subject have also been adopted: EU regulation 2018/858. This regulation is legally binding to all EU member states.
+
+This component facilitates the [IRS Recursive](#irs-recursive-1) approach and enables data providers to provide the BoM as planned aspect models via the Catena-X defined solution
+stack (i.e. EDC). The BoM as planned aspect models consists of three aspect models:
+
+- PartAsPlanned - Masterdata of a Part Type incl. location related data (e.g. production sites)
+- SingleLevelBomAsPlanned - The relation to child part types provided by the supplier of the given company
+- Relation to Sites in order to resemble the flow of the specific part/material
+
+#### Step 0: Process initiation
+
+The process is initiated by an ESS incident, that is received by (or created within) the inquiring company. This ESS
+incident acts as the root incident for the overall process. The incident contains a company name (incl. address) and a
+valid BPN exists for that company. The BPN (a BPNL or BPNS) can be looked up in BPDM.
+
+#### Step 1: Check direct suppliers
+
+The inquiring company checks, if the company of the incident is a direct supplier of them. In order to perform this
+check, the following data must be available in the inquiring company:
+
+- Full list of direct suppliers
+- Full list of parts supplied by those direct suppliers
+
+In case the company of the incident is a direct supplier of the inquiring company, the process ends. In case the company
+of the incident is not a direct supplier of the inquiring company, Step 2 is executed.
+
+#### Step 2: Forward Incident
+
+The incident is forwarded to all direct suppliers. Each direct supplier is sent a "personalized" request to evaluate, if
+the inquiring company is impacted by the incident. The incident is enhanced with additional data by the inquiring
+company:
+
+- List of parts, that are supplied to the inquiring company by their direct supplier.
+
+Each direct supplier executes Step 1.
+
+#### Step 3: Gather Responses
+
+The inquiring company collects the (asynchronous) responses. The response of each direct supplier may contain the
+following results:
+
+- YES → The company of the incident was found in the supply chain of the given list of parts. In this case, the result also contains the BPN of the direct supplier where the incident occurred alongside the number of hops (i.e. how many levels down the chain) to where the incident occurred
+- NO → The company of the incident was not found in the supply chain of the given list of parts
+- UNKNOWN → The query timed out or some other error occurred
+
+In case at least one "YES" is received, the process step 3 ends
+
+### Environmental and Social Standards (ESS) Bottom-Up
+
+The occasion related traceability helps stakeholders to identify if a company that is detected for social or environmental misbehavior is part of its own supply chain. In case of a hit, the inquiring company and the originator company will be informed by the response, and therefore if the specific company has to start investigations.
+
+Similar to the ESS use-case Top-Down, ESS Bottom-Up focuses on notifying customers about incidents in the supply chain. The difference to Top-Down is that the Bottom-Up approach only investigates on one level and does not send any notifications.
+
+IRS validates if the requested BPNS is part of PartSiteInformationAsPlanned and returns the resulting BPNLs as JobResult for an incident company to handle further incident management.
+
+```json
+{
+  "customers": [
+    {
+      "businessPartnerNumberLegalEntity": "<bpnl>",
+      "customerParts": [
+        {
+          "globalAssetId": "<globalAssetId>",
+          "sites": [
+            {<BPNS>}
+          ]
+        },
+        ...
+      ]
+    }
+  ]
+}
+```
+
+### Data Integrity Layer (DIL)
+
+The use-case Data Integrity Layer is an additional Layer in IRS processing. It aims to data verify integrity along the data chain by introducing a new aspect model `DataIntegrity`. This model contains hashes and signatures of semantic models in a parent - child structure, similar to `SingleLevelBomAsBuilt`.  
+Based on these hashes IRS can compare the data received by a data provider with the given hash and verify that the data was not altered or manipulated after initial provision.
 
 ## Logic & Schema
 
@@ -144,7 +232,10 @@ The following general conditions apply:
 
 ## IRS Recursive
 
-The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the supply chain in a direct way, it triggers the IRS of a partner to start a IRS job to retrieve data of the sub-partners. This is done to keep the structure below intransparent to the value chain above, even though it is still possible to aggregate results; pass information along the value chain.
+The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the
+supply chain in a direct way, it triggers the IRS of a partner to start an IRS job to retrieve data of the sub-partners.
+This is done to keep the structure below intransparent to the value chain above, even though it is still possible to
+aggregate results; pass information along the value chain.
 
 The following general conditions apply:
 
