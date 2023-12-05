@@ -79,35 +79,31 @@ With the entry into force of the German Supply Chain Due Diligence Act as from J
 obliged to implement the corresponding requirements of this law. In addition, the following European directives on this
 subject have also been adopted: EU regulation 2018/858. This regulation is legally binding to all EU member states.
 
-This component facilitates the [IRS Recursive](#irs-recursive-1) approach and enables data providers to provide the BoM as planned aspect models via the Catena-X defined solution
+This use-case facilitates the [IRS Recursive](#irs-recursive-1) approach and enables data providers to provide the BoM
+as planned aspect models via the Catena-X defined solution
 stack (i.e. EDC). The BoM as planned aspect models consists of three aspect models:
 
-- PartAsPlanned - Masterdata of a Part Type incl. location related data (e.g. production sites)
-- SingleLevelBomAsPlanned - The relation to child part types provided by the supplier of the given company
-- Relation to Sites in order to resemble the flow of the specific part/material
+- SingleLevelBomAsPlanned - The single-level bill of material (BoM) represents one sub-level of an assembly and does not
+  include any lower-level subassemblies. In the As-Planned lifecycle state all variants are covered ("120% BoM"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
+- PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version. This also includes information about the validityPeriod - the period of time during which the Part is offered by the manufacturer and can be purchased by customers.
+- PartSiteInformationAsPlanned - Site related information for a given as planned item. A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
 
 #### Step 0: Process initiation
 
-The process is initiated by an ESS incident, that is received by (or created within) the inquiring company. This ESS
-incident acts as the root incident for the overall process. The incident contains a company name (incl. address) and a
-valid BPN exists for that company. The BPN (a BPNL or BPNS) can be looked up in BPDM.
+The process is initiated by an ESS incident, that is received by (or created within) the inquiring company. This ESS incident acts as the root incident for the overall process. The incident contains a company name (incl. address) and a valid BPN exists for that company. The BPN (a BPNL or BPNS) can be looked up in BPDM.
 
 #### Step 1: Check direct suppliers
 
-The inquiring company checks, if the company of the incident is a direct supplier of them. In order to perform this
-check, the following data must be available in the inquiring company:
+The inquiring company checks, if the company of the incident is a direct supplier of them. In order to perform this check, the following data must be available in the inquiring company:
 
 - Full list of direct suppliers
 - Full list of parts supplied by those direct suppliers
 
-In case the company of the incident is a direct supplier of the inquiring company, the process ends. In case the company
-of the incident is not a direct supplier of the inquiring company, Step 2 is executed.
+In case the company of the incident is a direct supplier of the inquiring company, the process ends. In case the company of the incident is not a direct supplier of the inquiring company, Step 2 is executed.
 
 #### Step 2: Forward Incident
 
-The incident is forwarded to all direct suppliers. Each direct supplier is sent a "personalized" request to evaluate, if
-the inquiring company is impacted by the incident. The incident is enhanced with additional data by the inquiring
-company:
+The incident is forwarded to all direct suppliers. Each direct supplier is sent a "personalized" request to evaluate, if the inquiring company is impacted by the incident. The incident is enhanced with additional data by the inquiring company:
 
 - List of parts, that are supplied to the inquiring company by their direct supplier.
 
@@ -115,8 +111,7 @@ Each direct supplier executes Step 1.
 
 #### Step 3: Gather Responses
 
-The inquiring company collects the (asynchronous) responses. The response of each direct supplier may contain the
-following results:
+The inquiring company collects the (asynchronous) responses. The response of each direct supplier may contain the following results:
 
 - YES → The company of the incident was found in the supply chain of the given list of parts. In this case, the result also contains the BPN of the direct supplier where the incident occurred alongside the number of hops (i.e. how many levels down the chain) to where the incident occurred
 - NO → The company of the incident was not found in the supply chain of the given list of parts
@@ -128,9 +123,13 @@ In case at least one "YES" is received, the process step 3 ends
 
 The occasion related traceability helps stakeholders to identify if a company that is detected for social or environmental misbehavior is part of its own supply chain. In case of a hit, the inquiring company and the originator company will be informed by the response, and therefore if the specific company has to start investigations.
 
-Similar to the ESS use-case Top-Down, ESS Bottom-Up focuses on notifying customers about incidents in the supply chain. The difference to Top-Down is that the Bottom-Up approach only investigates on one level and does not send any notifications.
+Similar to the ESS use-case Top-Down, ESS Bottom-Up focuses on notifying customers about incidents in the supply chain. The difference to Top-Down is that the Bottom-Up approach only investigates on one level and does not send any notifications. To achieve this goal, IRS uses these aspect models:
 
-IRS validates if the requested BPNS is part of PartSiteInformationAsPlanned and returns the resulting BPNLs as JobResult for an incident company to handle further incident management.
+- SingleLevelUsageAsPlanned - The aspect provides the information in which parent part(s)/product(s) the given item is assembled in. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from as-planned lifecycle phase. If multiple versions of parent parts exist that the child part can be assembled into, all versions of the parent part are included in the usage list.
+- PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version. This also includes information about the validityPeriod - the period of time during which the Part is offered by the manufacturer and can be purchased by customers.
+- PartSiteInformationAsPlanned - Site related information for a given "as planned" item. A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
+
+For the originator company, IRS validates whether the requested BPNS is part of their PartSiteInformationAsPlanned and whether the provided validityTimestamp is within the validityPeriod of PartAsPlanned. If this is the case, IRS will then collect all the BPNLs of the direct customer and return the affected parts in the following structure for an incident company to handle further incident management:
 
 ```json
 {
@@ -141,7 +140,9 @@ IRS validates if the requested BPNS is part of PartSiteInformationAsPlanned and 
         {
           "globalAssetId": "<globalAssetId>",
           "sites": [
-            {<BPNS>}
+            {
+              <BPNS>
+            }
           ]
         },
         ...
@@ -151,10 +152,43 @@ IRS validates if the requested BPNS is part of PartSiteInformationAsPlanned and 
 }
 ```
 
-### Data Integrity Layer (DIL)
+### Data Integrity Layer (DIL) - Spike
 
-The use-case Data Integrity Layer is an additional Layer in IRS processing. It aims to data verify integrity along the data chain by introducing a new aspect model `DataIntegrity`. This model contains hashes and signatures of semantic models in a parent - child structure, similar to `SingleLevelBomAsBuilt`.  
-Based on these hashes IRS can compare the data received by a data provider with the given hash and verify that the data was not altered or manipulated after initial provision.
+The use-case Data Integrity Layer is an additional Layer in IRS processing. It aims to verify integrity along the data
+chain by introducing a new aspect model: DataIntegrity. This model contains hashes and signatures of semantic models in
+a parent - child structure, similar to SingleLevelBomAsBuilt:
+
+```json
+{
+  "catenaXId": "urn:uuid:123",
+  "childParts": [
+    {
+      "catenaXId": "urn:uuid:456",
+      "references": [
+        {
+          "semanticModelUrn": "urn:bamm:io.catenax.data_integrity:1.0.0#DataIntegrity",
+          "hash": "5a4cc1c6817b0045b26d3e842482753b5ad1cf20fbedebed2ee3c09936800821",
+          "signature": "e71196ddd321cc0f87cca372c304d74b9e741d8a5a3ddd5b953877b1f65a5206815d20f53bb51cf3d7725ed14fb5e18bd7b65e0ba9ef0e2f0cb44b5d5fc42e4197ce004ce4d0369e15c0429c7097099d46ce8640ff7197ac57f8045d3db996df1deaf8e7f01b447118d62876d2cd44484d2e2c49fac4a47c8a6ea9177142d8efdc032fd5638968dcd8982349b65cc6f75409dccc2386aa5e76c397d77e54e0fe4add1c870af5eab754c911595e8dc4b6e33643d15b95c2f8b62524702e30bf49736063e71761f6382aca8b46fffbd529495bba075e29fc540cd0a9b11c349512ddd97c371b9eb7e56196b5236f31290912f2f282786042a6a81017030a6d82eb"
+        },
+        {
+          "semanticModelUrn": "urn:bamm:io.catenax.serial_part:1.0.1#SerialPart",
+          "hash": "823dd4d758f2aafd5cf63de1144b178118cfe97388678d9b42eabe65a7e66e55",
+          "signature": "4ac7a5feb1724bbf5e6f9ba8ed55f09133185b9f9c49b627f6bc7f36b49e42f4dcfecd19bb64ad0bdc93742bab5add7a45f67ff7a2603f93e62f2b2bd4ed606b0d637f075df73b5aef91e8f20128dd55e62cce2f059beb59723927835e6e108c84170d7ca03a11fc65a9d57d618156c69fde6112955e53dca04bd0f860b75477eb7b58ee10ab8e5d3bcaacdfa1b6ba0f86e6d2518154642c1da8a42397221a556cfc536614298afeeaf5098c18f5aaf260bf78bfea30e066316819d0f442491fdf4cdc10929605ebefef05c5a503b62b8788d6bb9c76b8a9108987beca19cb5eae50bd83a5f29e241689f1450d4c06a7524955f4fbf6c4d773ef3a94e4a3a1a8"
+        },
+        {
+          "semanticModelUrn": "urn:bamm:io.catenax.single_level_bom_as_built:1.0.0#SingleLevelBomAsBuilt",
+          "hash": "e2efea25b47bec2b5ce2a65b4785172240d97acfbd7f223ae009f9686a155e16",
+          "signature": "a0b344cd9fc3c5d51738a5f1b76ba079319ea9d270f181b0e691ff7a6bbc6eaab3955c324d9b7b8db679473408961cb06826532bb4bd54321d9e04539f6bd520def9b648e3a06a4ee035f4d961212a46404ac512ea64d72224af474ebe004ae87ec121078db994e7750324e7a2de66667512b3b2c0e60ba8c1391dcfcfe57f21b51256fc1a794cdace47a70561136328a7b8fce8539533c971d6ef29ea57c04fb6f87e873c0b66ca21c70f8689696b42bec47c718d9145f2de8bea38d9dc1718322ddc6014b6d781db846446c0dcb4ce3c6dda8e018be2732b32f414fd074dfadf87fa605ca57598095df7d139432015a0ba6a125089f835ee0af4db8a733074"
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
+Based on the DataIntegrity aspect IRS can compare the data received by a data provider with the given hash and verify
+that the data was not altered or manipulated after initial provision.
 
 ## Logic & Schema
 
