@@ -53,7 +53,7 @@ HTTP bodies to its requests. The value entered as the Asset's `@id` will automat
 property.
 
 Most consequential however is the `dataAddress` section of the asset-APIs payload. It configures the Data Plane's
-behavior.Depending on the protocol used for data exchange, an EDC will use different Data Planes. This is manifested by
+behavior. Depending on the protocol used for data exchange, an EDC will use different Data Planes. This is manifested by
 the `type` property of the `dataAddress` object. There
 may be arbitrary extensions extending the required parameters in the `dataAddress` section. That's why the following
 examples are not complete but should rather be viewed as archetypes of established combinations of technologies.

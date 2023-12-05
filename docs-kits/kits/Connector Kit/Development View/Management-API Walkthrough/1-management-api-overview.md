@@ -24,17 +24,17 @@ the EDC Management API reflects this as well, even though it is not a part of th
 The `MANAGEMENT_URL` specifies the URL of the management API and the prefixes `v2` and `v3` respect the fact that the
 endpoints are versioned independently of each other.
 
-| Resource                                          | Endpoint                                   | Involved Actors                                                                      |
-|---------------------------------------------------|--------------------------------------------|--------------------------------------------------------------------------------------|
-| [Asset](2-assets.md)                              | `<MANAGEMENT_URL>/v3/assets`               | Provider Admin & Provider EDC                                                        |
-| [Policy Definition](3-policy-definitions.md)      | `<MANAGEMENT_URL>/v2/policydefinitions`    | Provider Admin & Provider EDC                                                        |
-| [Contract Definition](4-contract-definitions.md)  | `<MANAGEMENT_URL>/v2/contractdefinitions`  | Provider Admin & Provider EDC                                                        |
-| [Catalog](5-catalog.md)                           | `<MANAGEMENT_URL>/v2/catalog`              | Consumer App, Consumer EDC & Provider EDC                                            |
-| [Contract Negotiation](6-contract-negotiation.md) | `<MANAGEMENT_URL>/v2/contractnegotiations` | Consumer App, Consumer EDC & Provider EDC                                            |
-| [Contract Agreement](9-contract-agreement.md)     | `<MANAGEMENT_URL>/v2/contractagreements`   | Provider Admin & Provider EDC                                                        |
-| [Transfer Process](7-transfer-process.md)         | `<MANAGEMENT_URL>/v2/transferprocesses`    | Consumer, Consumer EDC & Provider EDC     TODO is this also available consumer-side? |
-| [EDR](8-edr.md)                                   | `<MANAGEMENT_URL>/edrs`                    | Consumer, Consumer EDC & Provider EDC                                                |
-| Data Plane                                        |                                            | Consumer & Provider EDC                                                              |
+| Resource                                          | Endpoint                                   | Involved Actors                                                                       |
+|---------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------|
+| [Asset](2-assets.md)                              | `<MANAGEMENT_URL>/v3/assets`               | Provider Admin & Provider EDC                                                         |
+| [Policy Definition](3-policy-definitions.md)      | `<MANAGEMENT_URL>/v2/policydefinitions`    | Provider Admin & Provider EDC                                                         |
+| [Contract Definition](4-contract-definitions.md)  | `<MANAGEMENT_URL>/v2/contractdefinitions`  | Provider Admin & Provider EDC                                                         |
+| [Catalog](5-catalog.md)                           | `<MANAGEMENT_URL>/v2/catalog`              | Consumer App, Consumer EDC & Provider EDC                                             |
+| [Contract Negotiation](6-contract-negotiation.md) | `<MANAGEMENT_URL>/v2/contractnegotiations` | Consumer App, Consumer EDC & Provider EDC                                             |
+| [Contract Agreement](9-contract-agreements.md)    | `<MANAGEMENT_URL>/v2/contractagreements`   | Provider Admin & Provider EDC                                                         |
+| [Transfer Process](7-transfer-process.md)         | `<MANAGEMENT_URL>/v2/transferprocesses`    | Consumer, Consumer EDC & Provider EDC     TODO: is this also available consumer-side? |
+| [EDR](8-edr.md)                                   | `<MANAGEMENT_URL>/edrs`                    | Consumer, Consumer EDC & Provider EDC                                                 |
+| Data Plane                                        |                                            | Consumer & Provider EDC                                                               |
 
 ## Brief JSON-LD Introduction
 
