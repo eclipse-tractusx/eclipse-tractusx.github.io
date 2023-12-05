@@ -45,7 +45,7 @@ const config = {
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
           docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
+          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -73,8 +73,8 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
         docLayoutComponent: "@theme/DocPage",
-        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
-      }, 
+        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
+      },
     ],
     [
       '@docusaurus/plugin-content-docs',
@@ -83,7 +83,7 @@ const config = {
         path: 'docs-products',
         routeBasePath: 'docs-products',
         sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
-      }, 
+      },
     ],
     // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
     [
@@ -264,7 +264,7 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-          }, 
+          },
           pcf_exchange_api: {
               specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
               outputDir:
@@ -385,9 +385,10 @@ const config = {
             label: 'Tutorials',
           },
           {
-            to: "/community",
-            position: "left",
-            label: "Community",
+            type: 'doc',
+            docId: 'community',
+            position: 'left',
+            label: 'Community',
           },
           {
             type: 'dropdown',

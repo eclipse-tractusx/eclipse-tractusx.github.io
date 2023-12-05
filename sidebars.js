@@ -102,6 +102,11 @@ const sidebars = {
             ],
         },
     ],
+    community: [
+        'community',
+        'community/open-meetings',
+        'community/products',
+    ],
 };
 
 module.exports = sidebars;
