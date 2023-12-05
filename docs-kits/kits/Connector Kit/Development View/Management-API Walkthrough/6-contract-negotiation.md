@@ -14,7 +14,7 @@ It includes
 
 ## Creating a new Contract Negotiation
 
-To trigger the process, the Data Consumer POSTs against his own Control Plane.
+To trigger the process, the Data Consumer POSTs against their own Control Plane.
 
 ```http
 POST /v2/contractnegotiations HTTP/1.1
@@ -60,8 +60,8 @@ Content-Type: application/json
     }
   ]
 }
-```
 
+```
 - `edc:connectorAddress` sets the coordinates for the connector that the Consumer-EDC shall negotiate with (Provider
   EDC).
   It will usually end on /api/v1/dsp

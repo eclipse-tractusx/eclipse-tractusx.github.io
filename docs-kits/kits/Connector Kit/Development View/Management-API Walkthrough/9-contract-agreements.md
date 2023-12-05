@@ -8,7 +8,7 @@ sidebar_position: 9
 # Checking existing Contract Agreements
 
 The Management API has a provider-internal endpoint to retrieve existing Contract Agreements. It also exposes a `/request`
-endpoint (to be used with the previously explained `QuerySpec` object) but allows to retrieve single agreements by id 
+endpoint (to be used with the previously explained `QuerySpec` object) but allows retrieval of single agreements by id 
 like this:
 
 ```http
