@@ -13,12 +13,7 @@ sidebar_position: 1
 
 ### Vision
 
-DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help
-Business Owner and Catena-X participants to be up-to-date and prepared. It's easy to use the DataChainKit with an Open
-Source Software package, which can easily deployed via HELM or docker-compose. The DataChainKit enables to apply
-business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also,
-ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy,
-Traceability, Quality and the European supply chain act.
+DataChainKit brings valuable data chain information to your use-cases and services through connected data that can help Business Owner and Catena-X participants to be up-to-date and prepared. It's easy to use the DataChainKit with an Open Source Software package, which can easily deployed via HELM or docker-compose. The DataChainKit enables to apply business logic along a distributed data chains, for example aggregation of certificates along the value chain. Also, ad-hoc provisioning of continuous data chains across company boundaries for empowerment of use cases Circular Economy, Traceability, Quality and the European supply chain act.
 
 (#GreenIT#DataSovereignty#Interoperability#ConnectedData)
 
@@ -266,10 +261,7 @@ The following general conditions apply:
 
 ## IRS Recursive
 
-The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the
-supply chain in a direct way, it triggers the IRS of a partner to start an IRS job to retrieve data of the sub-partners.
-This is done to keep the structure below intransparent to the value chain above, even though it is still possible to
-aggregate results; pass information along the value chain.
+The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the supply chain in a direct way, it triggers the IRS of a partner to start an IRS job to retrieve data of the sub-partners. This is done to keep the structure below intransparent to the value chain above, even though it is still possible to aggregate results; pass information along the value chain.
 
 The following general conditions apply:
 
