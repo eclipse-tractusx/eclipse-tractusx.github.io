@@ -23,6 +23,8 @@ This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/
 - Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
 -->
 
+import Notice from '../part_notice.mdx'
+
 ## Policies
 
 Policies are used to increase data sovereignty by limiting the access and usage of data. In the following, access and usage policies with their usage in the EDC are described.
@@ -54,3 +56,5 @@ In the EDC, every policy is connected with a data asset by a contract definition
 ### Verifiable Credentials
 
 Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standard by the W3C. Details about Catena-X specific VCs can be found in the [CX - 0016 Company Attribute Verification](#standards) standard. As mentioned there, it offers a `UseCaseFrameworkConditionCX` type allowing a data provider to check if specific conditions, like a signed use case contract as introduced in the [Purpose-base Usage Policy section](#purpose-based-policy), are agreed. Further technical documentation are presented in the [SSI Docu](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture) repository.
+
+<Notice components={props.components} />
