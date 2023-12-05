@@ -5,10 +5,10 @@ description: 'Connector Kit'
 sidebar_position: 5
 ---
 
-# Fetching provider's Catalog
+# Fetching a provider's Catalog
 
 The catalog API is the first request in this sequence that passes through the Dataspace. It is executed by the Data 
-Consumer against her own Control Plane and triggers the retrieval of a catalog from a specified Data Provider. The request
+Consumer against their own Control Plane and triggers the retrieval of a catalog from a specified Data Provider. The request
 looks like this:
 
 ```http
@@ -58,7 +58,7 @@ How to write proper `filterExpression`s was previously [explained](4-contract-de
 
 In this walkthrough's sequence of API-calls, this is the first that triggers interaction between two EDCs. The Consumer
 requests the Provider's catalog of Data Offers. Partners in the Dataspace are authenticated via Verifiable Credentials (VC).
-These can broadly be conceptualized as another JSON-LD document that holds information on a business partner's identify.
+These can broadly be conceptualized as another JSON-LD document that holds information on a business partner's identity.
 It follows an aligned schema and is extensible with properties relevant to the Dataspace. For more info, see
 [the documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/credentials/summary/summary.vc.md) 
 of the currently used Summary Credential used in Catena-X.
@@ -144,7 +144,7 @@ The returned payload is a `dcat:Catalog` as required by the [DSP-Specification v
 In the payload above, some properties are meta-data that's independent of whether the Provider extends any Data Offers
 to the Consumer. 
 
-- The `@id` is the identifier for this catalog. As the catalog is created dynamically, the id is a UUIDv regenerated for each
+- The `@id` is the identifier for this catalog. As the catalog is created dynamically, the id is a UUID regenerated for each
   request to the Provider's catalog.
 - `dcat:service` holds data about the Provider's connector that the Consumer's connector communicated with.
 - `edc:participantId` signifies the BPN of the Provider. This is specific to the EDC and not mandated by the DSP-spec.
@@ -152,6 +152,7 @@ to the Consumer.
 
 The Data Offers are hidden in the `dcat:dataset` section, grouped by the [Asset](2-assets.md) that the offer is made for.
 Consequently, if there may be more than one offer for the same Asset, 
+TODO: finish sentence
 
 - The `@id` corresponds to the id of the Asset that can be negotiated for.
 - `dcat:Distribution` makes statements over which Data Planes an Asset's data can be retrieved. Currently, the EDC always

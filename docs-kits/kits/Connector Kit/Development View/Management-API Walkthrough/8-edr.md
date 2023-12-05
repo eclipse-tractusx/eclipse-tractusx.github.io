@@ -64,8 +64,8 @@ Content-Type: application/json
 }
 ```
 - `edc:connectorAddress` sets the coordinates for the connector that the Consumer-EDC shall negotiate with (Provider EDC).
-  It will usually end on /api/v1/dsp
-- `edc:protocol` must be "dataspace-protocol-http"
+  It will usually end in `/api/v1/dsp`
+- `edc:protocol` must be `dataspace-protocol-http`
 - `edc:assetId` and all `odrl:target` properties must be the id of the EDC-Asset/dcat:DataSet that the offer was made for.
 - `edc:connectorId` and `edc:providerId` must both hold the correct BPN for the `edc:connectorAddress`.
 - In the `edc:offer` section, the Data Consumer specifies the Data Offer for the negotiation. As there may be multiple
@@ -98,7 +98,7 @@ Content-Type: application/json
 
 It returns a set of EDR entries holding meta-data including two new IDs per entry:
 - `edc:transferProcessId`: This is the ID of the [Transfer Process](7-transfer-process.md) that was implicitly initiated 
-by the POST /edrs request.
+by the POST `/edrs` request.
 - `edc:agreementId`: This is the ID of the agreement that the two EDCs have made in the [Contract Negotiation](6-contract-negotiation.md)
 phase of their EDR-interaction. 
 

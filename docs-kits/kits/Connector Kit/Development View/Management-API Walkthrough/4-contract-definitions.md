@@ -101,4 +101,4 @@ stage, Data Providers must be aware that creating a Contract Definition is suffi
 After contract definition, an EDC will automatically allow data access if a requesting party passes the policies.
 
 Contract Definitions thus must be created with great care. It is essential to align the backend-credentials with the 
-Access and Contract Policies to manage access consistently from the Dataspace to the backend data. 
+Access and Contract Policies to manage access consistently from the Dataspace to the backend data.
