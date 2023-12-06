@@ -36,7 +36,6 @@ AUTHORS.md
 INSTALL.md
 ```
 
-
 ### Directories
 
 #### /docs
