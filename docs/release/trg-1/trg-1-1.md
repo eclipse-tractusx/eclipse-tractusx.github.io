@@ -25,7 +25,7 @@ Each repository **must** contain a `README.md` file which **shall** cover follow
 - Troubleshooting and FAQs to help users solve common problems
 - Contribution guidelines to help users contribute to your project
 - Contact information to help users get in touch with you
-- Professionalism and credibility for your project
+- Professionalism and integrity for your project
 - Badges to show the status of your project (e.g. build status, code coverage, [etc](https://github.com/badges/shields/blob/master/README.md).)
 
 For our open-source eclipse tractus-x project, the `README.md` often includes guidelines on how others can contribute. This may cover aspects like submitting bug reports, suggesting new features, or providing code contributions. Clear contribution guidelines can help streamline collaboration.
