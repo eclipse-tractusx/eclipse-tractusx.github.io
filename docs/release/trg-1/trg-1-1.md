@@ -23,7 +23,7 @@ Each repository **must** contain a `README.md` file which **shall** cover follow
 - Usage examples and intended use cases
 - License Information
 - Troubleshooting and FAQs to help users solve common problems
-- Contribution guidelines reference to your `CONTRIBUTING.md` file
+- Reference your `CONTRIBUTING.md` file as Contribution guidelines to your project
 - Contact information to help users get in touch with you
 - Professionalism and integrity for your project
 - Badges to show the status of your project (e.g. build status, code coverage, [etc](https://github.com/badges/shields/blob/master/README.md).)
