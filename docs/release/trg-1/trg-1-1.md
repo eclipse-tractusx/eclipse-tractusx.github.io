@@ -31,8 +31,8 @@ Each repository **must** contain a `README.md` file which **shall** cover follow
 Common questions that are answered in the `README.md` file include:
 
 - If installation instructions for your product are too comprehensive for `README.md` move content to `INSTALL.md` file, see [TRG 1.02](trg-1-2.md).
-- If your project is too complex to be described in a single `README.md` file, consider creating a `docs` folder and adding a `README.md` file there. This will help you keep your main repository directory clean and tidy.
-- If your project has multiple component repositories, link the other repositories in your leading repository in your `README.md` against to it.
+- If your project is too complex to be described in a single `README.md` file, consider creating a `docs` folder and add additional parts to your documentation.
+- If your project has multiple component repositories, link the other repositories in your leading repository in your `README.md` towards each other.
 
 In summary, a good README is a crucial component of any repository, serving as a gateway for users and contributors to understand, use, and potentially contribute to your project. It's a fundamental part of effective project communication and collaboration.
 
