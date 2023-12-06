@@ -21,7 +21,7 @@ Each repository **must** contain a `README.md` file which **shall** cover follow
 - Setup and installation instructions
 - Configuration and customization if required for additional post installation steps to finish installation
 - Usage examples and intended use of your product
-- License Information
+- License information
 - Troubleshooting and FAQs to help users solve common problems
 - Reference your `CONTRIBUTING.md` file as Contribution guidelines to your project
 - Contact information to help users get in touch with you
