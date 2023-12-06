@@ -606,7 +606,7 @@ npm/npmjs/-/on-headers/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/once/1.4.0, ISC, approved, clearlydefined
 npm/npmjs/-/onetime/5.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/open/8.4.0, MIT, approved, #7102
-npm/npmjs/-/opener/1.5.2, MIT OR WTFPL OR (MIT AND WTFPL), approved, clearlydefined
+npm/npmjs/-/opener/1.5.2, MIT AND WTFPL AND WTFPL, approved, #11619
 npm/npmjs/-/p-cancelable/1.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/p-limit/2.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/p-limit/3.1.0, MIT, approved, clearlydefined
@@ -728,7 +728,6 @@ npm/npmjs/-/react-json-view/1.21.3, MIT, approved, clearlydefined
 npm/npmjs/-/react-lifecycles-compat/3.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/react-live/3.1.1, MIT, approved, clearlydefined
 npm/npmjs/-/react-loadable-ssr-addon-v5-slorber/1.0.1, MIT, approved, clearlydefined
-npm/npmjs/-/react-loadable/5.5.2, MIT, approved, #6650
 npm/npmjs/-/react-magic-dropzone/1.0.1, MIT, approved, #6622
 npm/npmjs/-/react-markdown/8.0.5, MIT, approved, #6635
 npm/npmjs/-/react-modal/3.16.1, MIT, approved, clearlydefined
