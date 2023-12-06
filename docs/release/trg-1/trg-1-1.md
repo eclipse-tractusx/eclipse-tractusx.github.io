@@ -28,7 +28,7 @@ Each repository **must** contain a `README.md` file which **shall** cover follow
 - Professionalism and integrity for your project
 - Badges to show the status of your project (e.g. build status, code coverage, [etc](https://github.com/badges/shields/blob/master/README.md).)
 
-Common questions that are answered in the `README.md` file include:
+Best practices:
 
 - If installation instructions for your product are too complex for `README.md` move content to `INSTALL.md` file, see [TRG 1.02](trg-1-2.md).
 - If your project is too complex to be described in a single `README.md` file, consider creating a `docs` folder and add additional parts to your documentation and reference it.
