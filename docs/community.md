@@ -1,4 +1,8 @@
-# Tractus-X community
+---
+title: Intro
+---
+
+## Tractus-X Community
 
 We warmly welcome You to shape the automotive value chain of the next generation!
 The global Tractus-X community consists of a broad range of users, contributors, and committers from various companies
@@ -12,7 +16,7 @@ an [Eclipse Foundation Account](https://accounts.eclipse.org/user/register?desti
 
 In addition, we encourage you to sign the Eclipse Contribution Agreement (ECA) to contribute to our Tractus-X project.
 For example, report and fix bugs or implement enhancements according to the Tractus-X roadmap. See
-our [contributing guide](https://eclipse-tractusx.github.io/docs/oss/how-to-contribute)
+our [contributing guide](https://eclipse-tractusx.github.io/docs/oss/how-to-contribute).
 
 - __For a first contact__ please use our Tractus-X mailing list (tractusx-dev@eclipse.org) to get in touch with our
   community or a specific product team you want to contribute.

@@ -1,4 +1,6 @@
-# Eclipse Tractus-X open meetings
+# Open Meetings
 
 This page hosts information about all of our open Tractus-X meetings.
 These are dedicated sync meetings for specific products, as well as open planning sessions.
+
+## Tractus-X community call
