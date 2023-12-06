@@ -188,9 +188,9 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          traceability_unique_id_push: {
-            specPath: "./openApi/traceability/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Unique ID Push API",
+          industrycore_unique_id_push: {
+            specPath: "./openApi/industrycore/unique-id-push.yaml",
+            outputDir: "./docs-kits/kits/Industry Core Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -214,7 +214,7 @@ const config = {
           dt_bpn_discovery: {
             specPath: "./openApi/dt/bpn-discovery-service-openapi.yaml", // Path to designated spec file
             outputDir:
-              ".docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
             sidebarOptions: {
                groupPathsBy: "tag",
             },
