@@ -18,14 +18,14 @@ A well-maintained README reflects positively on the overall professionalism of t
 Each repository **must** contain a `README.md` file which **shall** cover following topics:
 
 - Basic documentation of repository and its content to understanding how your repository is structured and what it contains
-- Setup and Installation Instructions to get your component working
-- Configuration and Customization if required for additional post installation steps to finish installation
-- Usage Examples and Demonstrations of you product
+- Setup and installation instructions to get your component working
+- Configuration and customization if required for additional post installation steps to finish installation
+- Usage examples and demonstrations of you product
 - License Information
 - Troubleshooting and FAQs to help users solve common problems
-- Contribution Guidelines to help users contribute to your project
-- Contact Information to help users get in touch with you
-- Professionalism and Credibility for your project
+- Contribution guidelines to help users contribute to your project
+- Contact information to help users get in touch with you
+- Professionalism and credibility for your project
 - Badges to show the status of your project (e.g. build status, code coverage, [etc](https://github.com/badges/shields/blob/master/README.md).)
 
 For our open-source eclipse tractus-x project, the `README.md` often includes guidelines on how others can contribute. This may cover aspects like submitting bug reports, suggesting new features, or providing code contributions. Clear contribution guidelines can help streamline collaboration.
