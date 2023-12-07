@@ -534,7 +534,17 @@ const sidebars = {
                 'kits/Resiliency/PURIS',
                 'kits/Resiliency/mp kit',
             ]
-        },
+        }, {
+            type: 'category',
+            label: 'Circularity KIT',
+            link: {
+                type: 'doc',
+                id: 'kits/Circularity_KIT/CHANGELOG'
+            },
+            items: [
+                'kits/Circularity_KIT/page-adoption-view',
+            ]
+        }
     ]
 };
 module.exports = sidebars;
