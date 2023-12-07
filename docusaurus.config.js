@@ -281,6 +281,24 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          resiliency_mp_provider: {
+            specPath:
+              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer: {
+            specPath:
+              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
         },
       },
     ],
