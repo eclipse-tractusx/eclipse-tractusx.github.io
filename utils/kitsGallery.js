@@ -84,16 +84,4 @@ export const kitsGallery = [
     img: Quality,
     pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
   },
-  {
-    id: 10,
-    name: 'Modular Production Kit',
-    domain: 'Resiliency',
-    img: ModularProduction,
-    pageRoute:
-      '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
-  },
-  // {
-  //   id: 4,
-  //   img: MoreToCome
-  // },
 ]
