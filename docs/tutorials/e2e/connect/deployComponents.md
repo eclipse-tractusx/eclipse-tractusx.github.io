@@ -46,7 +46,7 @@ kind create cluster -n mxd --config kind.config.yaml
 # 
 # Now we activate ingress for the later port forwarding ?
 # the next step is specific to KinD and will be different for other Kubernetes runtimes!
-kubectl apply -f  \ 
+kubectl apply -f  \
 https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 # wait until the ingress controller is ready
 kubectl wait --namespace ingress-nginx \
