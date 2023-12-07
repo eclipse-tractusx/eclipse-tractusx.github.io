@@ -5,7 +5,10 @@ description: 'Health Indicator Kit'
 sidebar_position: 2
 ---
 
+<!--
+TODO: Fix missing image
 ![Health Indicator kit banner](@site/static/img/doc-hi_header-minified.png)
+-->
 
 ### Health Indicator Kit
 <!--
@@ -70,19 +73,19 @@ The architecture image describes the interaction between the HI Service and the 
 ![Building Block Architecture Overview](images/BT_HI_KIT_Building_Block_Architecture_Overview_V1.png)
 
 ### HI Components
-|Subsystem|Description|
-|---------|-----------|
-|HI Application| This component is the app that is hosted at the Consumer/Data Provider. The data provider can select multiple vehicle identifier numbers (VIN) and gets back calculated HI values.|
-|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the HI calculation. <BR> It can be accessed by the knowledge agent via data bindings.|
-|HI Service| A HI calculation service at the Service Provider. It accepts input data from the Data Provider, calculates the HI value and returns it.|
+|Subsystem| Description                                                                                                                                                                                         |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|HI Application| This component is the app that is hosted at the Consumer/Data Provider. The data provider can select multiple vehicle identifier numbers (VIN) and gets back calculated HI values.                  |
+|Loading Data	| A data source at the Data Provider that provides the loading data and other vehicle data that are needed for the HI calculation. <BR/> It can be accessed by the knowledge agent via data bindings. |
+|HI Service| A HI calculation service at the Service Provider. It accepts input data from the Data Provider, calculates the HI value and returns it.                                                             |
 
 ### Knowledge Agent components
-|Subsystem|Description|
-|---------|-----------|
-|Matchmaking Agent|This component supports SparQL to traverse the federated data space as a large data structure. It interacts with the EDC. <UL><LI>The provider's Matchmaking Agent will be activated by its EDC. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the Catena-X EDC standard).</LI><LI> The consumer's Matchmaking Agent interacts with its EDC to negotiate and perform the transfer of Sub-Skills to other dataspace participants.</LI></UL> The Matchmaking Agents are matching the (sub)graphs and negotiate appropriated graph assets with the partner EDCs.|
-|Binding Agent|	The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. <BR> Implementation details: For data bindings, OnTop is used. For service bindings, RDF4J is used.|
-|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR> It must be hosted in a way that all participants can access it. Currently, the ontology is hosted at GitHub.|
-|Skill/Sub-Skill|	The Skill describes, what to do (which data have to be connected, transferred and so on).|
+|Subsystem| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Matchmaking Agent| This component supports SparQL to traverse the federated data space as a large data structure. It interacts with the EDC. <UL><LI>The provider's Matchmaking Agent will be activated by its EDC. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the Catena-X EDC standard).</LI><LI> The consumer's Matchmaking Agent interacts with its EDC to negotiate and perform the transfer of Sub-Skills to other dataspace participants.</LI></UL> The Matchmaking Agents are matching the (sub)graphs and negotiate appropriated graph assets with the partner EDCs. |
+|Binding Agent| 	The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SparQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.)  into proper SQL- or REST based backend system calls. <BR/> Implementation details: For data bindings, OnTop is used. For service bindings, RDF4J is used.                                                                                                                                                                  |
+|Ontology| The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR/> It must be hosted in a way that all participants can access it. Currently, the ontology is hosted at GitHub.                                                                                                                                                                                                                                                                                      |
+|Skill/Sub-Skill| 	The Skill describes, what to do (which data have to be connected, transferred and so on).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ### Catena-X Core Services (except Knowledge Agent components)
 |Subsystem|Description|
