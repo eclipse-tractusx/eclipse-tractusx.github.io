@@ -6,7 +6,7 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                  |
 |--------------|-----------------------------------------------------------------------------------------------|
-| 04-Dec-2023  | TRG 6.02 added Draf for TRG API Versioning                                                    |
+| 04-Dec-2023  | TRG 6.02 added Draft for TRG API Versioning                                                    |
 | 04-Dec-2023  | TRG 7.06 update Shared UI Components / NPM library                                            |
 | 09-Oct-2023  | TRG 4.06 add base image for hashicorp vault                                                   |
 | 29-Sep-2023  | TRG 4.02 / 06 add Alpine Linux to list of container base images                               |

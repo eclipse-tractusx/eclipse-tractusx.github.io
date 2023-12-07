@@ -19,23 +19,23 @@ Note that for APIs accessible only via EDC, the API-version is included in the E
 
 ## Description
 
-For public REST-APIs (= not hidden behind an EDC aspect), the Version number MUST be included in the URL.
+For public REST-APIs (= not hidden behind an EDC aspect), the Version number **must** be included in the URL.
 
 Example:  `https://example.com/api/v2/customers`
 
-An standard SHOULD offer the following aliases as well (meaning they all answer identically to HTTP requests):
+A standard **should** offer the following aliases as well (meaning they all answer identically to HTTP requests):
 
 `https://example.com/api/v2.1/customers`
 
 `https://example.com/api/latest/customers`
 
-For the version in the URL, semantic versioning MUST be used.
+For the version in the URL, semantic versioning **must** be used.
 
-Old endpoints (that have been offered bevor) and are not supported anymore MUST respond with an appropriate HTTP 30x status code and the new location (URL).
+Old endpoints (that have been offered bevor) and are not supported anymore **must** respond with an appropriate HTTP 30x status code and the new location (URL).
 
 For example, when v3 of an API is released, an request to `https://example.com/api/v2/customers` would return HTTP 301 (moved permanently) and point to `https://example.com/api/v3/customers`
 
-Queries and fragments MAY be used, so the following example is valid:
+Queries and fragments **may** be used, so the following example is valid:
 
         https://example.com:443/messaging/v1/messages?textContains=AMG#resultlist
         \___/   \______________/\___________________/\_______________/ \________/
@@ -50,9 +50,13 @@ Note that the structure of the URL needs to be chosen mindfully. For example:
 
 Further rules and recommendations on URL design:
 
-* It is RECOMMENDED to use nouns over verbs. For example, use `/customers` instead of `/getCustomers/`
-* It is RECOMMENDED to use plural nouns. For example, use `/customers/` instead of `/customer/`
-* It is RECOMMENDED to use the concrete object, not a abstraction. For example, use `/customers/` instead of `/persons/`
-* The technical identifier SHOULD be part of the path, not the query. For example, use `/customers/12345/` instead of `/customers?key=12345`
-* Only English words MUST be used. For example, use `/customers/` instead of `/kunden/`
-* Camel case SHOULD NOT be used in the URI, but it MAY be used in the query or fragment part. For example, use `/vehicleorders/`, `/vehicle-orders/` or `/vehicle_orders/` instead of `/VehicleOrders/`
+* It is **recommended** to use nouns over verbs. For example, use `/customers` instead of `/getCustomers/`
+* It is **recommended** to use plural nouns. For example, use `/customers/` instead of `/customer/`
+* It is **recommended** to use the concrete object, not a abstraction. For example, use `/customers/` instead of `/persons/`
+* The technical identifier **should** be part of the path, not the query. For example, use `/customers/12345/` instead of `/customers?key=12345`
+* Only English words **must** be used. For example, use `/customers/` instead of `/kunden/`
+* Camel case **should not** be used in the URI, but it MAY be used in the query or fragment part. For example, use `/vehicleorders/`, `/vehicle-orders/` or `/vehicle_orders/` instead of `/VehicleOrders/`
+
+## APIs behind EDC asset
+
+For APIs that are not publicly available but only called through an EDC asset, the version information is included as a property in the EDC asset. This needs to be done in accordance with Catena-X standard CX-0018. More information and guidance is available there.
