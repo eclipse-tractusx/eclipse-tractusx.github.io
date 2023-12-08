@@ -393,7 +393,7 @@ If a problem is detected by early warning in the field or in production, a data-
 
 ### Architecture Overview
 
-![independant architecture r2312 chart](@site/static/img/quality-kit_general_app-independant_architecture-R2312.jpg)
+![independant architecture r2312 chart](@site/static/img/quality-kit_general_app-independant_archicture-R2312.jpg)
 
 The tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier is analyzing the data in order to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC while the authorization is managed via the the shared services of the consortia.
 
