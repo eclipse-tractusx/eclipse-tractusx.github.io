@@ -40,7 +40,7 @@ In sum this KIT enables quality management to substantially **increase speed** i
 
 With the Quality KIT, we support the Catena-X customer journey for our adopters and solutions providers.
 
-![quality kit customer journey diagram](@site/static/img/quality-kit_customer-journey-1_1.png)
+![quality kit customer journey diagram](@site/static/img/quality.kit_customer-Journey-1_1.jpg)
 
 ## Business Value
 
