@@ -2,7 +2,7 @@
 title: Circularity KIT Changelog
 ---
 
-## [0.0.1] - 2023-11-14
+## [0.1.0] - 2023-11-14
 
 ### Added
 
