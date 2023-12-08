@@ -347,12 +347,20 @@ const config = {
                 label: 'Business Partner',
               },
               {
+                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
+                label: 'Circularity',
+              },
+              {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
               {
                 to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
                 label: 'Data Chain',
+              },
+              {
+                to: '/docs-kits/kits/DCM%20Kit/adoption-view',
+                label: 'DCM KIT',
               },
               {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
