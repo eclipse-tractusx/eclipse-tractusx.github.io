@@ -23,7 +23,7 @@ export const resiliencyItems = [
 	{
 		id: 4,
 		img: PURIS_Kit,
-		pageRoute: "/docs-kits/kits/Resiliency/PURIS"
+		pageRoute: "/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit"
 	},
 	{
 		id: 5,
