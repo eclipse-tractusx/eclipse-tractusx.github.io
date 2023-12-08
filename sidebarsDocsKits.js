@@ -539,9 +539,10 @@ const sidebars = {
             label: 'Circularity KIT',
             link: {
                 type: 'doc',
-                id: 'kits/Circularity_KIT/CHANGELOG'
+                id: 'kits/Circularity_KIT/page-adoption-view'
             },
             items: [
+                'kits/Circularity_KIT/Changelog Circularity KIT',
                 'kits/Circularity_KIT/page-adoption-view',
             ]
         }
