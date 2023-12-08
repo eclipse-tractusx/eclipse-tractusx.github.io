@@ -326,12 +326,6 @@ const config = {
           src: 'img/logo_tractus-x.svg',
         },
         items: [
-          {
-            to: "/",
-            exact: true,
-            position: "left",
-            label: "Home",
-          },
           {to: 'blog', label: 'News', position: 'left'},
           {
             to: "/aboutus",
@@ -344,6 +338,10 @@ const config = {
             position: 'left',
             to: '/developer',
             items: [
+              {
+                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
+                label: 'Agents',
+              },
               {
                 to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
                 label: 'Business Partner',
@@ -365,6 +363,18 @@ const config = {
                 label: 'Eco Pass',
               },
               {
+                to: '/docs-kits/kits/Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit',
+                label: 'Health Indicator',
+              },
+              {
+                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
+                label: 'Model Based Development',
+              },
+              {
+                to: '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
+                label: 'Modular Production',
+              },
+              {
                 to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
                 label: 'Online Simulation',
               },
@@ -378,14 +388,14 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Remaining Useful Life (RuL)',
+                label: 'Remaining Useful Life',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
                 label: 'Traceability',
               },
               {
-                to: 'docs-kits/next/kits/Resiliency/',
+                to: 'docs-kits/kits/Resiliency/',
                 label: 'Upcoming KITs',
               }
             ],
