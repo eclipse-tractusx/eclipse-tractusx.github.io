@@ -359,6 +359,10 @@ const config = {
                 label: 'Data Chain',
               },
               {
+                to: '/docs-kits/kits/DCM%20Kit/adoption-view',
+                label: 'DCM KIT',
+              },
+              {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
                 label: 'Digital Twin',
               },
