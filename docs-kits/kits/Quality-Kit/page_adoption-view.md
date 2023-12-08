@@ -40,7 +40,7 @@ In sum this KIT enables quality management to substantially **increase speed** i
 
 With the Quality KIT, we support the Catena-X customer journey for our adopters and solutions providers.
 
-![quality kit customer journey diagram](@site/static/img/quality-kit_customer-journey-min.png)
+![quality kit customer journey diagram](@site/static/img/quality-kit_customer-journey-1_1.png)
 
 ## Business Value
 
@@ -98,7 +98,7 @@ The affected component continues to be monitored regularly. After a few months, 
 
 The image below shows user feedback, challenges, results and benefits of the new data-based way of working using the example of the Early Warning & Root Cause Analysis process steps.
 
-![quality kit example of benefits chart](@site/static/img/quality-kit_example-benefit-min.png)
+![quality kit example of benefits chart](@site/static/img/quality-kit_example-benefit-1_1.png)
 
 **Conclusion:**
 
@@ -381,7 +381,7 @@ Github Link to semantic data model: [CX-00040 Parts Analyses](https://github.com
 
 ### Business Logic
 
-![quality kit business logic diagram](@site/static/img/quality-kit_business-logic-min.png)
+![quality kit business logic diagram](@site/static/img/quality-kit_business-logic-1_1.png)
 
 The prerequisite for faster faster problem solving is the earliest possible detection of a problem (early warning) and the fastest possible understanding of the error chain and cause (root cause analysis). Early Warning in general has to be realized at all relevant points along the value chain.
 
@@ -393,7 +393,7 @@ If a problem is detected by early warning in the field or in production, a data-
 
 ### Architecture Overview
 
-![independant architecture r3_2 chart](@site/static/img/quality-kit_general_app-independant_architecture-R3_2-min.jpg)
+![independant architecture r2312 chart](@site/static/img/quality-kit_general_app-independant_architecture-R2312.jpg)
 
 The tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier is analyzing the data in order to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC while the authorization is managed via the the shared services of the consortia.
 
@@ -417,7 +417,7 @@ The tier-1 receives data on vehicle master data, existing claims and DTCs. Once 
 
 To realize the **Business Logic** described in the Quality Kit
 
-![quality kit business process diagram](@site/static/img/quality-kit_business-process-min.png)
+![quality kit business process diagram](@site/static/img/quality-kit_business-logic-1_1.png)
 
 all steps of the **Business Process** (described in the [Development View](https://confluence.catena-x.net/display/BDPQ/WORK+IN+PROGRESS+-+Quality+KIT+-+Development+View)), like data provisioning and consuming by the involved partner companies, are realized in compliance with the [Catena-X Data Governance Framework](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations).  Under this link you can find the latest version of the framework regulations as download. The documents are seperated in the following levels:
 
