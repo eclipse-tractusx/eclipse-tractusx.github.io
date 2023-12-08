@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([[72533],{31068:e=>{e.exports=JSON.parse('{"title":"Agents Kit","slug":"/category/agents-kit","permalink":"/docs-kits/category/agents-kit","navigation":{"next":{"title":"Changelog","permalink":"/docs-kits/kits/knowledge-agents/Knowledge Agent Changelog"}}}')}}]);
