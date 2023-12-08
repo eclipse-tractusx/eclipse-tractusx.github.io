@@ -116,7 +116,7 @@ Overview about how Quality Management is improved by Catena-X
 
 For more technical details take a look at the video in the [Operation View](/docs-kits/kits/Quality-Kit/page_software-operation-view.md)
 
-Data driven Quality Management with Catena-X - Statements from the consortial partners
+Data driven Quality Management with Catena-X - [Statements from the consortial partners](http://youtube.com/watch?v=T-Xh_LzXXbg)
 
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/T-Xh_LzXXbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -426,7 +426,7 @@ all steps of the **Business Process** (described in the [Development View](https
 <!-- BROKEN LINK............... -->
 **Data Space Level**: 10 Golden Rules of Catena-X
 
-**Use Case Level**: Quality Management specific policy as MS Word download (not released yet): <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
+**Use Case Level**: Quality Management specific policy as download: <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
 
@@ -446,8 +446,18 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX - 0041 Semantic Model Manufactured Parts Quality Information](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0041_Semantic_Model_Manufactured_Parts_Quality_Information_v_1.0.1.pdf)
 
-- [CX - 0071 - Triangle Quality Early Warning Field and Root Cause (to be updated when published)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf)
+- [CX - 0071 Triangle Quality Early Warning Field and Root Cause)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf)
 
-<!-- - [CX - 0041 Semantic Model Manufactured Parts Quality Information](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0041_Semantic_Model_Manufactured_Parts_Quality_Information_v_1.0.1.pdf)
+- [CX - 0091 Aspect Model Fleet Vehicles](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0091-AspectModelFleetVehicles-v.1.0.0.pdf)
 
-- [CX - 0071 - Triangle Quality Early Warning Field and Root Cause (to be updated when published)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf) -->
+- [CX - 0092 Aspect Model Quality Task Attachment](https://catena-x.net/de/standard-library#top)
+
+## Notice 
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2023 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2023 SAP SE
+- SPDX-FileCopyrightText: 2023,2023 Siemens AG
+- SPDX-FileCopyrightText: 2023,2023 Volkswagen AG
