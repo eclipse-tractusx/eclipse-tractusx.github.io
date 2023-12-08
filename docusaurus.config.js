@@ -347,6 +347,10 @@ const config = {
                 label: 'Business Partner',
               },
               {
+                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
+                label: 'Circularity',
+              },
+              {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
                 label: 'Connector',
               },
