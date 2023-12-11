@@ -23,6 +23,7 @@ All notable changes to this Kit will be documented in this file.
 
 - Development View: Update request collection to latest state of IRS
 - Documentation: Update Arc42 and Admin guide to latest state of IRS
+- Moved Success Stories to Adoption View
 
 <h3>Fixed</h3>
 
