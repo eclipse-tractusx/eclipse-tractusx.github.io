@@ -261,14 +261,6 @@ const sidebars = {
                 },
                 {
                     type: 'category',
-                    label: 'Success Stories',
-                    items: [
-                        'kits/Data Chain Kit/Success Stories/Trace-X Sucess Story',
-                        'kits/Data Chain Kit/Success Stories/Circularity Dashboard Sucess Story'
-                    ]
-                },
-                {
-                    type: 'category',
                     label: 'Documentation',
                     items: [
                         {
