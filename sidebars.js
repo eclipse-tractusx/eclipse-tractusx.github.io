@@ -105,6 +105,11 @@ const sidebars = {
     community: [
         'community',
         'community/open-meetings',
+        {
+            type: 'link',
+            label: 'Meeting Minutes',
+            href: '/meeting-minutes', // see docusaurus.config.js '@docusaurus/plugin-content-blog' plugin with id: 'blog-meeting-minutes' property: 'routeBasePath:'
+        },
         'community/products',
     ],
 };
