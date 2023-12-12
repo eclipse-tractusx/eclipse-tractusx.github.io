@@ -128,9 +128,9 @@ The returned payload is a `dcat:Catalog` as required by the [DSP-Specification v
     "@id": "b4f2c6b6-d3d1-46e2-a517-6912b7f8a509",
     "@type": "dcat:DataService",
     "dct:terms": "connector",
-    "dct:endpointUrl": "https://t03-052-cp.mx.k8scluster.de/api/v1/dsp"
+    "dct:endpointUrl": "https://provider-data.plane/api/v1/dsp"
   },
-  "edc:participantId": "BPNL000SAP000003",
+  "edc:participantId": "<PROVIDER-BPN>",
   "@context": {
     "dct": "https://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
@@ -151,8 +151,8 @@ to the Consumer.
 - `@context` is part of every JSON-LD document.
 
 The Data Offers are hidden in the `dcat:dataset` section, grouped by the [Asset](2-assets.md) that the offer is made for.
-Consequently, if there may be more than one offer for the same Asset, 
-TODO: finish sentence
+Consequently, if there may be more than one offer for the same Asset, requiring a Data Consumer to select based on the 
+policies included.
 
 - The `@id` corresponds to the id of the Asset that can be negotiated for.
 - `dcat:Distribution` makes statements over which Data Planes an Asset's data can be retrieved. Currently, the EDC always
