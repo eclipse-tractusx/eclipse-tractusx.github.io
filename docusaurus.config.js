@@ -85,6 +85,18 @@ const config = {
         sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-meeting-minutes',
+        path: 'blog-meeting-minutes',
+        blogTitle: 'Open meeting minutes',
+        blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
+        routeBasePath: 'meeting-minutes',
+        showReadingTime: false,
+        authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+      },
+    ],
     // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
     [
       "docusaurus-plugin-remote-content",
