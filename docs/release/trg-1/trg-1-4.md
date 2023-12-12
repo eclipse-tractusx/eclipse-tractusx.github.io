@@ -4,6 +4,7 @@ title: TRG 1.04 - Diagrams as code / Editable static files
 
 | Status | Created      | Post-History                                             |
 |--------|--------------|----------------------------------------------------------|
+| Active | 12-Dez-2023  | move from Draft section to Active TRG's                  |
 | Draft  | 20-Sept-2023 | created initial Draft                                    |
 | Edited | 24-Okt-2023  | add draw.io as possible solution for static `.svg`-files |
 
