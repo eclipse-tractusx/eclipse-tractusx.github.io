@@ -2,10 +2,11 @@
 title: TRG 2.04 - Leading product repository
 ---
 
-| Status | Created     | Post-History    |
-|--------|-------------|-----------------|
-| Active | 07-Mar-2023 |                 |
-|        | 10-Jan-2023 | Initial release |
+| Status | Created     | Post-History                                   |
+|--------|-------------|------------------------------------------------|
+| Update | 12-Dez-2023 | add example leading repository reference links |
+| Active | 07-Mar-2023 |                                                |
+|        | 10-Jan-2023 | Initial release                                |
 
 ## Why
 
@@ -21,6 +22,8 @@ A good example when a product has a separate repository for frontend and backend
 
 - productname: leading product repository
   - README.md: contains the urls for the backend and frontend applications
+  - README.md: each repo follows our [TRG 1.01](../trg-1/trg-1-1.md) about the README.md
+  - README.md: an [example](#readme-example-section-for-a-leading-product-repository) for a leading product repository
   - contains the release of the product
   - contains the [product helm chart](../trg-5/trg-5-08)
 - productname-A-frontend: the repository for the frontend application
@@ -33,3 +36,11 @@ A good example when a product has a separate repository for frontend and backend
 - README.md contains the description of what the product does
 - README.md contains the references/urls to the product's other repositories if they exist
 - It **should** contain the [TRG 5.08 - Product Helm Chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-08)
+
+### README example section for a leading product repository
+
+```markdown
+Leading repository for [product-name](link_to_product_repository):
+- [product component A](link_to_product_component_A_repository)
+- [product component B](link_to_product_component_B_repository)
+```
