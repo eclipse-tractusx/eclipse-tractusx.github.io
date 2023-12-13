@@ -32,7 +32,7 @@ export const carouselCommunityInfo = [
     {
         id: 4,
         title: "FAQ",
-        navigate: "/docs/kit-process/processes/kit-faq",
+        navigate: "/docs/dev_faq",
         icon: faqIcon
     }
   ]
