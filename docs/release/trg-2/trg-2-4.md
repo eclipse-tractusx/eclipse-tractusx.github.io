@@ -15,10 +15,14 @@ They need to be able to understand complicated product structures in an intuitiv
 
 ## Description
 
-Each product **must** have a leading product repository that can point the users to all the parts/components/charts/releases of that product.
+Each product **must** have a leading product repository that points to all the parts/components/charts/releases of the product.
 This can be achieved by having a single repository for a product or creating references to the other repositories.
 
-Good product examples have separate repositories for each component (e.g. frontend and backend). Then the product team **must** have a leading repository where they reference the components/repositories of the product:
+Good examples of products got separate repositories for each component (e.g. frontend and backend).
+
+The product **must** have a leading repository where they reference the components/repositories of the product:
+
+Exemplary repository structure:
 
 - productname: leading product repository
   - README.md: contains the urls for e.g. the backend and frontend applications
@@ -28,6 +32,8 @@ Good product examples have separate repositories for each component (e.g. fronte
   - contains the [product helm chart](../trg-5/trg-5-08)
 - productname-a-component: e.g. the repository for the frontend application
 - productname-b-component: e.g. the repository for the backend application
+
+And each repo **must** contain the metafile see [TRG 2.05](../trg-2/trg-2-5.md).
 
 ## Leading product repository rules
 
