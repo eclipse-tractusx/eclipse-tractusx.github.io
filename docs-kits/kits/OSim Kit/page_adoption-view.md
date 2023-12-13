@@ -16,7 +16,7 @@ sidebar_position: 2
 
 **Combine simulations of plants internally with simulations of external logistics over multiple tiers**
 
-Online control and simulation aims at linking production simulation with logistics simulation in order to identify delivery problems earlier and react in response to changing customer requirements or external disturbances/events
+Online control and simulation aims at linking production simulation with logistics simulation in order to identify delivery problems earlier, to operate with potentially changed situations in production and to react in response to changing customer requirements or external disturbances/events.
 The online control and simulation (OSim) Kit defines the mechanisms and services needed to enable every Catena-X partner (producer as well as logisticians) to exchange simulation results in an open, interoperable and Catena-X compliant way.
 An open architecture for integrating partners of all kinds together with standardized interfaces and semantics models are the fundamental basis of the OSim Kit.
 
@@ -33,38 +33,47 @@ Thanks to open architecture OSim is independent of the simulation tools that par
 Conventional planning and simulation tools use material flow simulations only on the plant level but they don't exchange simulation results with their respective partners in the supply chain. OSim goes beyond this by enabling every Catena-X partner (producers as well as logisticians) to integrate material flow simulation results of their partners into the simulation of their own processes. This is achieved by sharing the material flow simulation results on supply chain level.
 
 The simulation results of the Catena-X partners on the supply chain's lower tier level and logistics, together with data of the company's own operations are fed into a simulation model as input. Considering both, plannable and unpredictable influencing factors, this simulation model is iterated as often as necessary until an optimal result has been found. Sharing of simulation results to the next tier level is the core capability of the collaborative simulation approach.
+One specific case of this data exchange is so called “What-If” scenario. This capability provides validation respectively calibration of potentially changed manufacturing or transportation situations across the entire supply chain.
 
 A central application takes over the tasks of monitoring and controlling the transmission of the simulation results, regardless of the level of digitalization of the partners. In addition, this application takes over the control of the simulation tools used.
 
 ![Example of an OSim partner network from the perspective of the producing company WERK-76](./werk76.png)
 
-Benefits for OEM, SME and Solution Provider
+### Benefits for OEM, SME and Solution Provider
 
-- Collaborative simulation over the supply chain
-- Linking production simulation and logistics simulation
-- Early detection and reaction to delivery problems
-- Early response to changing customer requirements
-- Take external disturbances/events into account early
+- Collaborative simulation over the supply chain (Basic flow)
+- “What-If” triggered scenarios (Scenario flow)
+- Early reaction to delivery problems
+- Early response to changes in customer requirements
+- Early consideration of external disturbances/events on the process
+- Validation of potential changes in advance of implementation
 
 ## Business Process
 
-The simulation results of the Catena-X partners on the lower tier level and logistics, together with data of the company's own operations are fed into the individual simulation model as input. Considering both, planable and unforeseeable influencing factors, this simulation model is iterated through as often as necessary until an optimal production schedule is reached and a simulation result is created. Sharing of simulation results to the next tier level is the base of the collaborative simulation approach in a short-term horizon, across the complete supply chain.
+The simulation results of the Catena-X partners on the lower tier level and logistics, together with data of the company's own operations are fed into the individual simulation model as input. Considering both, plannable and unforeseeable influencing factors, this simulation model is iterated through as often as necessary until an optimal production schedule is reached and a simulation result is created. Sharing of simulation results to the next tier level is the base of the collaborative simulation approach in a short-term horizon, across the complete supply chain.
+
+This basic data exchange is based on a real production state and current planning. Additionally, a further functionality allows to operate with potentially changed situations in production or changed requirements. So called "What-If" scenarios" can be initiated and communicated to the supply chain partners confirming the feasibility.
 
 The following picture shows the fundamental network structure, consisting of suppliers, logisticians and OEMs who exchange simulation results with each other, considering the one-up and one-down principles. Every material flow simulation result includes information about delivery readiness of packaged material goods, like material identifier, amount, delivery time and destination.
 
 ![business processes](./businessProcess.png)
 
+See also the following publications for more detailed description of the process and its components:
+
+- [Catena-X – Online Steuerung und Simulation](https://www.degruyter.com/document/doi/10.1515/zwf-2023-1031/html) (Publication by De Gruyter 18. April 2023)
+- [Kollaborative Materialflusssimulationen zur Steuerung der Verknüpfung von Supply Chain und Shopfloor – Ein Catena-X Use-Case (Publication in the VDI-Report „Automation 2023“ by VDI Wissensforum GmbH Hrsg., see pages 73-88)](https://elibrary.vdi-verlag.de/10.51202/9783181024195/automation-2023?page=1)
+
 ## Semantic Model
 
 ### Materialflow Simulation Result (MaterialFlowSimulationResult)
 
-The Semantic Model *MaterialFlowSimulationResult* summarizes simulation results of the individual partners and is used for data exchange along the supply chain.
+The Semantic Model MaterialFlowSimulationResult summarizes simulation results of the individual partners and is used for data exchange along the supply chain.
 
 The *MaterialFlowSimulationResult* object will be sent by OSim partner to another OSim partner on a higher tier level. OSim partner can be a producing company as well as a logistics company.
 
 Every *MaterialFlowSimulationResult* includes information about delivery readiness of packaged material goods, like material identifier, amount, delivery time and destination.
 
-#### Structure of the Material Flow Result
+#### Structure of the Materialflow Simulation Result
 
 The MaterialFlowSimulationResult semantic model contains 4 hierarchical entities:
 
@@ -73,17 +82,46 @@ The MaterialFlowSimulationResult semantic model contains 4 hierarchical entities
 - HandlingUnit
 - MaterialBatch
 
-One MaterialFlowSimulationResult refers to one or more Shipments.
+One *MaterialFlowSimulationResult* refers to one or more Shipments.
 
 **Shipment** describes a delivery approach with information about source, destination and delivery time. One Shipment refers to one or more HandlingUnits.
 
 **HandlingUnit** describes the smallest shipment unit. One HandlingUnit refers to one or more MaterialBatches. The parameter Amount allows to define how many absolute identical (size and content) HandlingUnits are included in the shipment.
 
-**MateriaBatch** describes the material and the quantity which the handling unit contains.
+**MaterialBatch** describes the material and the quantity which the handling unit contains.
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_simulation_result/1.0.0>
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/2.0.0>
+
+### Materialflow Scenario Request (MaterialFlowScenarioRequest)
+
+The Semantic Model *MaterialFlowScenarioRequest* includes scenario related information of the individual partners and is used for data exchange along the supply chain in regard to “What-If” scenarios.
+
+The *MaterialFlowScenarioRequest* object will be sent by OSim partner to another OSim partner (possible in both directions: up and down). OSim partner can be a producing company as well as a logistics company.
+
+Every *MaterialFlowScenarioRequest* includes information about the scenario description, scenario parameters (optional) and two simulation results analogues to the MaterialFlowSimulationResult (one with the unchanged and another one with the changed situation, allowing verification of scenario impact through comparison).
+
+#### Structure of the Materialflow Scenario Request
+
+The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
+
+- Scenario Header
+- Scenario Parameters (optional)
+- Scenario Simulation Results Initial (optional)
+- Scenario Simulation Results Updated (optional)
+
+**Scenario Header** entity describes the scenario in general.
+
+**Scenario Parameters** entity includes the delivery related parameters, if relevant.
+
+**Scenario Simulation Results Initial** is a reference to the aspect model MaterialFlowSimulationResult and includes the simulation result of the unchanged situation.
+
+**Scenario Simulation Results Updated** is a reference to the aspect model MaterialFlowSimulationResult and includes the simulation result of the scenario related change.
+
+#### Aspect Model
+
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/1.0.0>
 
 ## Logic & Schema
 
@@ -128,8 +166,12 @@ At runtime the OSim Manager application must know the partner BPN-ID of the comm
 
 ## Standards
 
-Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library).
 
-- [CX - 0072 OSim Process and Core Business Logic](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0072-OSimProcessAndCoreBusinessLogic-v1.0.0.pdf)
-- [CX - 0073 OSim API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0073-OSimAPI-v1.0.0.pdf)
-- [CX - 0087 OSim Data Model Material Flow Simulation Result](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0087-OSimDataModelMaterialFlowSimulationResult-v1.0.0.pdf)
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute of Optronics, System Technology and Image Exploitation (IOSB)
+- SPDX-FileCopyrightText: 2024,Siemens AG
