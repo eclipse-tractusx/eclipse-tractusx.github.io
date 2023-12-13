@@ -18,6 +18,7 @@ All notable changes to this Kit will be documented in this file.
 - Adoption View: added use-case Environmental and Social Standards Top-Down
 - Adoption View: added use-case Environmental and Social Standards Bottom-UP
 - Adoption View: added use-case Data Integrity Layer
+- Adoption View: added visualization for IRS-Recursive
 
 <h3>Changed</h3>
 
