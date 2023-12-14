@@ -11,7 +11,7 @@ title: TRG 2.03 - Repo structure
 
 ## Why
 
-In order to foster consistency, collaboration and ease of navigation, adhereing to a specific open source project repository structure within Eclipse Foundation is important. The structure serves a standardized framework, facilitating efficient development by providing a clear organisation of essential project components. By adopting recommended layout of files and directories, contributors can quickly locate resources such as source code, documentation and configuration files. Moreover specified repository structure aligns with industry best practices under Eclipse Foundation governance.
+In order to foster consistency, collaboration and ease of navigation, adhereing to a specific repository structure is important. The structure serves a standardized framework, facilitating efficient development by providing a clear organisation of essential project components. By adopting recommended layout of files and directories, contributors can quickly locate resources such as source code, documentation and configuration files. Moreover specified repository structure aligns with industry best practices.
 
 ## Description
 
