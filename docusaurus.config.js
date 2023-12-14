@@ -85,6 +85,7 @@ const config = {
         sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
       },
     ],
+    // -- Community --
     [
       '@docusaurus/plugin-content-blog',
       {
@@ -92,9 +93,21 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        routeBasePath: 'meeting-minutes',
+        blogSidebarCount: 10,
+        blogSidebarTitle: "Recent meetings",
+        routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-community',
+        path: 'community',
+        routeBasePath: 'community',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/community',
+        sidebarPath: './sidebarsCommunity.js',
       },
     ],
     // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
@@ -397,10 +410,9 @@ const config = {
             label: 'Tutorials',
           },
           {
-            type: 'doc',
-            docId: 'community',
-            position: 'left',
+            to: '/community/intro',
             label: 'Community',
+            position: 'left',
           },
           {
             type: 'dropdown',
@@ -417,11 +429,6 @@ const config = {
               },
             ],
           },
-          // {
-          //   to: "/docs-products/category/products",
-          //   position: "left",
-          //   label: "Products",
-          // },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',

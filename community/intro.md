@@ -21,7 +21,7 @@ our [contributing guide](https://eclipse-tractusx.github.io/docs/oss/how-to-cont
 - __For a first contact__ please use our Tractus-X mailing list (tractusx-dev@eclipse.org) to get in touch with our
   community or a specific product team you want to contribute.
 - __For quick and informal syncs__ please use
-  our [Matrix Chat](https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org) to align on easy topics, ask
+  our [Eclipse Matrix Space](https://matrix.to/#/#automotive.tractusx:matrix.eclipse.org) to align on easy topics, ask
   questions, share a link or a bite-size piece of information.
 - __For product alignments__ please set up a meeting with a tool of your choice as a project manager. The preparation of
   meeting minutes is not required. Recurring formal meetings must be communicated via our Tractus-X mailing list. Ad hoc
