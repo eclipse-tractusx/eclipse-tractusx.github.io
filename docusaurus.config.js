@@ -110,6 +110,19 @@ const config = {
         sidebarPath: './sidebarsCommunity.js',
       },
     ],
+    [
+      // HINT: won't redirect in local dev mode (npm start). See: https://docusaurus.io/docs/2.x/api/plugins/@docusaurus/plugin-client-redirects
+      // to test, use npm run build && npm run serve
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/community/intro',
+            from: '/community',
+          },
+        ],
+      },
+    ],
     // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
     [
       "docusaurus-plugin-remote-content",
