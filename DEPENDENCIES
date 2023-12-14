@@ -160,7 +160,7 @@ npm/npmjs/-/cssnano-preset-default/5.2.13, MIT, approved, clearlydefined
 npm/npmjs/-/cssnano-utils/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/cssnano/5.1.14, MIT, approved, clearlydefined
 npm/npmjs/-/csso/4.2.0, MIT, approved, clearlydefined
-npm/npmjs/-/csstype/3.1.1, MIT, approved, clearlydefined
+npm/npmjs/-/csstype/3.1.1, MIT, approved, #11847
 npm/npmjs/-/cytoscape-cose-bilkent/4.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/cytoscape-fcose/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/cytoscape/3.26.0, MIT, approved, clearlydefined
@@ -1165,6 +1165,7 @@ npm/npmjs/@docusaurus/cssnano-preset/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/logger/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/mdx-loader/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/module-type-aliases/2.2.0, MIT, approved, clearlydefined
+npm/npmjs/@docusaurus/plugin-client-redirects/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-blog/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-docs/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-pages/2.2.0, MIT, approved, clearlydefined
