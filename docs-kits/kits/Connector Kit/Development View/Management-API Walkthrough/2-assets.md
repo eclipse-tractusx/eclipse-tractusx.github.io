@@ -4,24 +4,6 @@ title: Assets
 description: 'Connector Kit'
 sidebar_position: 2
 ---
-<!--
- * Copyright (c) 2023 Contributors to the Eclipse Foundation
- *
- * See the NOTICE file(s) distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This program and the accompanying materials are made available under the
- * terms of the Apache License, Version 2.0 which is available at
- * https://www.apache.org/licenses/LICENSE-2.0.
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations
- * under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
--->
 
 # Creating an Asset
 
@@ -128,3 +110,11 @@ have proven to enable an integration that's quite complete from a functional vie
 | `oauth2:tokenUrl`        | If the backend is secured by an oauth2 authentication mechanism, the Data Plane will request an access token at this URL.                                                                                                                                                                                                                                                                                          | no        | null    |
 | `oauth2:clientId`        | This is the clientId of the (technical) user that the credential was created for by the backend application.                                                                                                                                                                                                                                                                                                       | no        | null    |
 | `oauth2:clientSecretKey` | The Data Provider must store his backend-issued client-secret in a Vault. The key under which the Data Plane can retrieve the secret's value is configured in this field.                                                                                                                                                                                                                                          | no        | null    |
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)

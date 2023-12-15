@@ -59,3 +59,11 @@ The specifics of these interactions and how to manage them are described in grea
 ### Catena X Portal
 
 Contact with the Catena X Portal is necessary to register as a participant and obtain a Business Partner Number. This ID is used in exchanges with other participants.
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
