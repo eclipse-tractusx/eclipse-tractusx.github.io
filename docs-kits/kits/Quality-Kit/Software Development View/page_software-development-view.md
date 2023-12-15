@@ -21,7 +21,7 @@ Quality).
 The dataAddress object's structure is determined by the dataplane implementation as it configures the details of the
 data transfer. They are not visible via the catalog.
 
-The following suggestion is a draft how Assets (and thus by proxy, dcat:Datasets) should be registered
+The following suggestion is a non-standardized draft how Assets (and thus by proxy, dcat:Datasets) should be registered
 in the Quality Use-Case.
 
 ```json
@@ -70,14 +70,14 @@ in the Quality Use-Case.
 This section is not use-case specific but since the EDC's AmazonS3 dataplane is basically undocumented, here is an
 explanation:
 
-| Property              | Value                  | Description                                                                                                                       |
-|-----------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `edc:type`            | `"AmazonS3"`           | This shows which data source the Data Plane will query. It also determines what other content the `dataAddress` object must hold. |
-| `edc:region`          | `"eu-west-1"`          | This property represents the AWS-region where the source bucket is located.                                                       |
-| `edc:bucketName`      | `"<sourceBucketName>"` | This is the name of the source bucket that the data to-be-transferred resides in.                                                 |
-| `edc:keyName`         | `"<somePath>"`         | This is the path of the file that shall be offered to the dataspace.                                                              |
-| `edc:accessKeyId`     | `"<keyId>"`            | TODO                                                                                                                              |
-| `edc:secretAccessKey` | `"<secretAccessKey>"`  | TODO                                                                                                                              |
+| Property              | Value                        | Description                                                                                                                                                                                                                          |
+|-----------------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `edc:type`            | `"AmazonS3"`                 | This shows which data source the Data Plane will query. It also determines what other content the `dataAddress` object must hold.                                                                                                    |
+| `edc:region`          | `"eu-west-1"`                | This property represents the AWS-region where the source bucket is located.                                                                                                                                                          |
+| `edc:bucketName`      | `"provider-quality-bucket"`  | This is the name of the source bucket that the data to-be-transferred resides in.                                                                                                                                                    |
+| `edc:keyName`         | `"path/through/provider/s3"` | This is the path of the file that shall be offered to the dataspace.                                                                                                                                                                 |
+| `edc:accessKeyId`     | `"<keyId>"`                  | Amazon S3 uses this property similarly to how oauth2 client credentials use the `clientId`. Note that this can also be set during deployment-time for the whole S3-dataplane. If it's set here, it will override the default config. |
+| `edc:secretAccessKey` | `"<secretAccessKey>"`        | This secret is used similarly to a `clientSecret` in oauth2 client credentials                                                                                                                                                       |
 
 ### Properties
 
