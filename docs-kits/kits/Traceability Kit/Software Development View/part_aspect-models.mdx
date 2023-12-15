@@ -111,12 +111,30 @@ Aspect model in GitHub:
 }
 ```
 
-### SoftwareInformation
-
-Aspect model in GitHub:
-- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.software_information/1.0.0
 
 ### SingleLevelUsageAsBuilt
 
 Aspect model in GitHub:
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/2.0.0
+
+##### Example: Submodel `SingleLevelUsageAsBuilt` for a Instance Part
+
+```json
+{
+  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+  "customers" : [ {
+    "parentItems" : [ {
+      "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+      "quantity" : {
+        "quantityNumber" : 2.5,
+        "measurementUnit" : "unit:litre"
+      },
+      "createdOn" : "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
+    } ],
+    "businessPartner" : "BPNL50096894aNXY",
+    "createdOn" : "2022-02-03T14:48:54.709Z",
+    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
+  } ]
+}
+```
