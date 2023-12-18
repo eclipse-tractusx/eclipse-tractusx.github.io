@@ -1164,6 +1164,7 @@ npm/npmjs/@docusaurus/cssnano-preset/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/logger/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/mdx-loader/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/module-type-aliases/2.2.0, MIT, approved, clearlydefined
+npm/npmjs/@docusaurus/plugin-client-redirects/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-blog/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-docs/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/plugin-content-pages/2.2.0, MIT, approved, clearlydefined
