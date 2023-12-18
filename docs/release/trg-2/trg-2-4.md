@@ -10,17 +10,13 @@ title: TRG 2.04 - Leading product repository
 
 ## Why
 
-We have multiply stakeholders for a repository: system team, release management, test management, external people who are trying it out, want to contribute or need to set it up.
+We have multiple stakeholders for a repository: system team, release management, test management, external people who are trying it out, want to contribute or need to set it up.
 They need to be able to understand complicated product structures in an intuitive way to have an easier task of diving into a product.
 
 ## Description
 
 Each product **must** have a leading product repository that points to all the parts/components/charts/releases of the product.
 This can be achieved by having a single repository for a product or creating references to the other repositories.
-
-Good examples of products got separate repositories for each component (e.g. frontend and backend).
-
-The product **must** have a leading repository where they reference the components/repositories of the product:
 
 Exemplary repository structure:
 
