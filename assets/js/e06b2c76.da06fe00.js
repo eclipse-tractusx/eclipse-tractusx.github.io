@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([[72998],{96716:e=>{e.exports=JSON.parse('{"title":"Recent meetings","items":[{"title":"New Open Meeting blog","permalink":"/community/meeting-minutes/new-open-meeting-blog"}]}')}}]);

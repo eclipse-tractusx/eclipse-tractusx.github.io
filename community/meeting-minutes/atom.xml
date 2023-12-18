@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
+    <title>Eclipse Tractus-X Blog</title>
+    <updated>2023-12-06T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
+    <subtitle>Eclipse Tractus-X Blog</subtitle>
+    <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[New Open Meeting blog]]></title>
+        <id>new-open-meeting-blog</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/new-open-meeting-blog"/>
+        <updated>2023-12-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New home for open meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-home-for-open-meeting-minutes">New home for open meeting minutes<a class="hash-link" href="#new-home-for-open-meeting-minutes" title="Direct link to heading">​</a></h2><p>We are happy to announce a new blog, that will host meeting minutes of all our open meetings</p>]]></content>
+        <author>
+            <name>Sebastian Bezold</name>
+            <uri>https://github.com/SebastianBezold</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
+</feed>
