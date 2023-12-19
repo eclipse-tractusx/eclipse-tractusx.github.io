@@ -2,7 +2,7 @@ import Business_Kit from "@site/static/img/bpkit.png";
 import DataChain_Kit from "@site/static/img/datachainkit.png";
 import Connector_Kit from "@site/static/img/connectorkit-min.png";
 import Traceability_Kit from "@site/static/img/traceabilitykit.png";
-import BehaviourTwinRuLKit from "@site/static/img/BehaviourTwinRuLKit.png";
+import BehaviourTwinRuL_Kit from "@site/static/img/BehaviourTwinRuL_Kit.png";
 import DigitalTwin from "@site/static/img/DigitalTwin.png";
 import EcoPass from "@site/static/img/EcoPass.png";
 import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
@@ -59,7 +59,7 @@ export const kitsGallery = [
     id: 5,
     name: 'Behaviour Twin RuL Kit',
     domain: 'PLM / Quality',
-    img: BehaviourTwinRuLKit,
+    img: BehaviourTwinRuL_Kit,
     pageRoute: "/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit"
   },
   {
