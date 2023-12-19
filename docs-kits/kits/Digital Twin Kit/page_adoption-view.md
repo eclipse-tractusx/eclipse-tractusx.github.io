@@ -83,12 +83,12 @@ For more info how specifically the Asset Administration Shell is used, consult t
 
 ### CX-Standards
 
-- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/9_Data-Discovery-Services/CX_-_0001_EDC_DISCOVERY_API_PlatformCapabilityDS_v_1.0.1-1.pdf) 
-- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0002-DigitalTwinsInCatena-X-v.1.0.2.pdf)*(linked version 1.0.2, this KIT refers to v2.0.0, to be released in 09/23)*
-- CX - 0053 BPN Discovery Services *(v1.0.0 to be released in 09/23)*
+- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0001-EDCDiscoveryAPI_v1.0.2.pdf) 
+- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0002-DigitalTwinsInCatenaX-v.2.0.0.pdf)*(linked version 2.0.0, this KIT refers to v2.1.0, to be released in 2024-03)*
+- [CX - 0053 BPN Discovery Service](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0053-BPNDiscoveryServiceAPIs.pdf) *(inked version 1.0.0, this KIT refers to v2.2.0, to be released in 2024-03)*
 
 ### Terminology 
 
-The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. 
+The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. CX-0002 contains also a chapter on terminology with concept definitions.
 All standards can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
 ![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
