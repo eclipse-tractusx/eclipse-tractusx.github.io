@@ -10,7 +10,7 @@ title: TRG 2.04 - Leading product repository
 
 ## Why
 
-We have multiple stakeholders for a repository: system team, release management, test management, external people who are trying it out, want to contribute or need to set it up.
+We have multiple stakeholders for a repository: system team, release management, test management, interested persons trying it out, want to contribute or need to set it up.
 They need to be able to understand complicated product structures in an intuitive way to have an easier task of diving into a product.
 
 ## Description
@@ -21,8 +21,8 @@ This can be achieved by having a single repository for a product or creating ref
 Exemplary repository structure:
 
 - productname: leading product repository
-  - README.md: contains the urls for e.g. the backend and frontend applications
-  - README.md: each repo follows our [TRG 1.01](../trg-1/trg-1-1.md) about the README.md
+  - README.md: contains the URLs for e.g. the backend and frontend applications
+  - README.md: each repo has to follow our [TRG 1.01](../trg-1/trg-1-1.md) about the README.md
   - README.md: an [example section](#readme-example-section-for-a-leading-product-repository) for a leading product repository
   - contains the release of the product
   - contains the [product helm chart](../trg-5/trg-5-08)
@@ -36,7 +36,7 @@ And each repo **must** contain the metafile see [TRG 2.05](../trg-2/trg-2-5.md).
 - The name of the leading product repository **must** contain the product name without prefix or suffix
 - It **should** contain the release (whether it is source code, helm chart or any other artifact)
 - README.md contains the description of what the product does
-- README.md contains the references/urls to the product's other repositories if they exist
+- README.md contains the references/URLs to the product's other repositories if they exist
 - It **should** contain the [TRG 5.08 - Product Helm Chart](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-08)
 
 ### README example section for a leading product repository
