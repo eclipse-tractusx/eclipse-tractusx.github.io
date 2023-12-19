@@ -25,14 +25,14 @@ Create a `INSTALL.md` file in the main folder of the repository and add all inst
 
 ## Best Practices
 
-- a clear installing guide through our official helm chart repo
-- table of content of your installation guide
-- prerequisites section for the installation
-- a numeric step-by-step installation guide with command copy options
-- a reference your helm chart `README.md` file
-- install verification / uninstallation / upgrade guide if needed local deployment advisories
+a well structured installation guide includes
+- the prerequisites
+- a step-by-step installation instruction which can be copy+pasted directly
+  - using only the charts of our official [helm chart repository](https://github.com/eclipse-tractusx/charts)
+- a link to your helm chart `README.md` file
+- guides on verification, upgrade and uninstallation (and if needed: local deployment/testing specifics)
 - a FAQ and troubleshooting section
-- additional resources information
+- links to additional resources / information
 - contact information for support or feedback
 
 ## Exemplary Helm installation guide structure
