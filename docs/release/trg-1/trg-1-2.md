@@ -16,7 +16,7 @@ If these instructions are too long, they can be moved into a dedicated `INSTALL.
 
 Having a proper `INSTALL.md` file is crucial for ensuring a seamless and user-friendly experience for the product-users.
 
-In conclusion, a proper `INSTALL.md` file should be mainly adapted to end-users, but also a developers. It is not a technical necessity.
+In conclusion, a proper `INSTALL.md` file should be mainly adapted to end-users, but also developers. It is not a technical necessity.
 It's a strategic investment in user satisfaction, community engagement, and the overall success of the product. It reflects a commitment to inclusivity and usability, ensuring that a diverse user base can effortlessly install and enjoy the benefits of your product.
 
 ## Description
