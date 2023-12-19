@@ -37,7 +37,7 @@ back to the public. A priority is the seamless integration with other Catena-X d
 
 ### Customer Journey
 
-With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf) 
+With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Modelv2.1_final.pdf) 
 are given the necessary tooling to format their data and APIs in a standardized manner.
 
 <!-- !Mandatory! -->
@@ -68,7 +68,7 @@ expands with the scope of the model.
 - A distributed infrastructure of central and decentral components integrating hand-in-hand with backend-systems southward
 and the network northward.
 
-- Extensive meta-model to create a virtual representation of asses across their entire lifecycle.
+- Extensive meta-model to create a virtual representation of assets across their entire lifecycle.
 
 ### Example
 
@@ -89,6 +89,6 @@ For more info how specifically the Asset Administration Shell is used, consult t
 
 ### Terminology 
 
-The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. When published, that 
-standard can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
+The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. 
+All standards can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
 ![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
