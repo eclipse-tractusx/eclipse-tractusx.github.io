@@ -148,8 +148,10 @@ assets, policies and contract definitions.
 In order to check that the connectors were deployed successfully, please execute the following commands in a shell:
 
 ```shell
-curl -X GET http://localhost/bob/health/api/check/liveness
-curl -X GET http://localhost/alice/health/api/check/liveness
+curl -X GET http://localhost/bob/health/api/check/liveness | jq
+```
+```shell
+curl -X GET http://localhost/alice/health/api/check/liveness | jq
 ```
 
 which should return something similar to this, the important part being the `isSystemHealthy: true` bit:
@@ -175,7 +177,7 @@ which should return something similar to this, the important part being the `isS
 Once we've established the basic readiness of our connectors, we can move on to inspect a few data items:
 
 ```shell
-curl -X POST http://localhost/bob/management/v3/assets/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v3/assets/request -H "x-api-key: password" -H "content-type: application/json" | jq
 ```
 
 This queries the `/assets` endpoint returning the entire list of assets that `bob` currently maintains. You should see
@@ -236,9 +238,12 @@ Note: the same thing can be done to inspect policies and contract definitions. T
 
 ```shell
 # policies:
-curl -X POST http://localhost/bob/management/v2/policydefinitions/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v2/policydefinitions/request -H "x-api-key: password" -H "content-type: application/json" | jq
+```
+
+```shell
 # contract defs:
-curl -X POST http://localhost/bob/management/v2/contractdefinitions/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v2/contractdefinitions/request -H "x-api-key: password" -H "content-type: application/json" | jq
 ```
 
 Alternatively, please check out the [Postman collections here](./postman)
