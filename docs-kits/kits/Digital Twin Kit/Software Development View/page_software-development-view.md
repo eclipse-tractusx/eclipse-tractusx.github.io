@@ -456,7 +456,8 @@ can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin
 
 ### Patterns for DTRs
 
-Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-0001 by
+Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the 
+SSP-001 profile of the Asset Administration Shell Registry Service by
 means of POST endpoints, updatable with PUT and PATCH requests (
 see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
