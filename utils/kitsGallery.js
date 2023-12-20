@@ -53,7 +53,7 @@ export const kitsGallery = [
     name: 'Traceability Kit',
     domain: 'PLM / Quality',
     img: Traceability_Kit,
-    pageRoute: "/docs-kits/kits/Traceability Kit/Adoption View Traceability Kit"
+    pageRoute: "/docs-kits/kits/Traceability Kit/Business View Traceability Kit"
   },
   {
     id: 5,
