@@ -40,7 +40,7 @@ In sum this KIT enables quality management to substantially **increase speed** i
 
 With the Quality KIT, we support the Catena-X customer journey for our adopters and solutions providers.
 
-![quality kit customer journey diagram](@site/static/img/quality-kit_customer-journey-min.png)
+![quality kit customer journey diagram](@site/static/img/quality.kit_customer-Journey-1_1.jpg)
 
 ## Business Value
 
@@ -98,7 +98,7 @@ The affected component continues to be monitored regularly. After a few months, 
 
 The image below shows user feedback, challenges, results and benefits of the new data-based way of working using the example of the Early Warning & Root Cause Analysis process steps.
 
-![quality kit example of benefits chart](@site/static/img/quality-kit_example-benefit-min.png)
+![quality kit example of benefits chart](@site/static/img/quality-kit_example-benefit-1_1.png)
 
 **Conclusion:**
 
@@ -116,7 +116,7 @@ Overview about how Quality Management is improved by Catena-X
 
 For more technical details take a look at the video in the [Operation View](/docs-kits/kits/Quality-Kit/page_software-operation-view.md)
 
-Data driven Quality Management with Catena-X - Statements from the consortial partners
+Data driven Quality Management with Catena-X - [Statements from the consortial partners](http://youtube.com/watch?v=T-Xh_LzXXbg)
 
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/T-Xh_LzXXbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -381,7 +381,7 @@ Github Link to semantic data model: [CX-00040 Parts Analyses](https://github.com
 
 ### Business Logic
 
-![quality kit business logic diagram](@site/static/img/quality-kit_business-logic-min.png)
+![quality kit business logic diagram](@site/static/img/quality-kit_business-logic-1_1.png)
 
 The prerequisite for faster faster problem solving is the earliest possible detection of a problem (early warning) and the fastest possible understanding of the error chain and cause (root cause analysis). Early Warning in general has to be realized at all relevant points along the value chain.
 
@@ -393,7 +393,7 @@ If a problem is detected by early warning in the field or in production, a data-
 
 ### Architecture Overview
 
-![independant architecture r3_2 chart](@site/static/img/quality-kit_general_app-independant_architecture-R3_2-min.jpg)
+![independant architecture r2312 chart](@site/static/img/quality-kit_general_app-independant_archicture-R2312.jpg)
 
 The tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier is analyzing the data in order to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC while the authorization is managed via the the shared services of the consortia.
 
@@ -417,7 +417,7 @@ The tier-1 receives data on vehicle master data, existing claims and DTCs. Once 
 
 To realize the **Business Logic** described in the Quality Kit
 
-![quality kit business process diagram](@site/static/img/quality-kit_business-process-min.png)
+![quality kit business process diagram](@site/static/img/quality-kit_business-logic-1_1.png)
 
 all steps of the **Business Process** (described in the [Development View](https://confluence.catena-x.net/display/BDPQ/WORK+IN+PROGRESS+-+Quality+KIT+-+Development+View)), like data provisioning and consuming by the involved partner companies, are realized in compliance with the [Catena-X Data Governance Framework](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations).  Under this link you can find the latest version of the framework regulations as download. The documents are seperated in the following levels:
 
@@ -426,7 +426,7 @@ all steps of the **Business Process** (described in the [Development View](https
 <!-- BROKEN LINK............... -->
 **Data Space Level**: 10 Golden Rules of Catena-X
 
-**Use Case Level**: Quality Management specific policy as MS Word download (not released yet): <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
+**Use Case Level**: Quality Management specific policy as download: <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
 
@@ -446,8 +446,18 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX - 0041 Semantic Model Manufactured Parts Quality Information](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0041_Semantic_Model_Manufactured_Parts_Quality_Information_v_1.0.1.pdf)
 
-- [CX - 0071 - Triangle Quality Early Warning Field and Root Cause (to be updated when published)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf)
+- [CX - 0071 Triangle Quality Early Warning Field and Root Cause)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf)
 
-<!-- - [CX - 0041 Semantic Model Manufactured Parts Quality Information](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0041_Semantic_Model_Manufactured_Parts_Quality_Information_v_1.0.1.pdf)
+- [CX - 0091 Aspect Model Fleet Vehicles](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0091-AspectModelFleetVehicles-v.1.0.0.pdf)
 
-- [CX - 0071 - Triangle Quality Early Warning Field and Root Cause (to be updated when published)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0071-TriangleQualityEarlyWarningFieldandRootCause-v1.0.0.pdf) -->
+- [CX - 0092 Aspect Model Quality Task Attachment](https://catena-x.net/de/standard-library#top)
+
+## Notice 
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2023 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2023 SAP SE
+- SPDX-FileCopyrightText: 2023,2023 Siemens AG
+- SPDX-FileCopyrightText: 2023,2023 Volkswagen AG

@@ -23,7 +23,7 @@ name: Verify website build
 on:
   pull_request:
     branches:
-      - !main
+      - main
 
 # This job will try to build the website to find potential issues
 # before actually merging and deploying the page.
