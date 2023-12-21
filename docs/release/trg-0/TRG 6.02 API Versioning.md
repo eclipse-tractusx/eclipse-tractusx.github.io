@@ -17,9 +17,13 @@ For publicly available APIs a versioning mechanism is required, so that all APIs
 
 Note that for APIs accessible only via EDC, the API-version is included in the EDC asset and not the URL. This is described in CX-0018.
 
+## What
+
+This TRG applies to all APIs created within Tractus-X, but does not apply where existing standards (e.g. Data Space Protocol) are implemented where contracticting behavoir is required in order to adhere to that standard.
+
 ## Description
 
-For public REST-APIs (= not hidden behind an EDC aspect), the Version number **must** be included in the URL.
+For public REST-APIs (= called through an EDC aspect), the Version number **must** be included in the URL.
 
 Example:  `https://example.com/api/v2/customers`
 
@@ -31,7 +35,7 @@ A standard **should** offer the following aliases as well (meaning they all answ
 
 For the version in the URL, semantic versioning **must** be used.
 
-Old endpoints (that have been offered bevor) and are not supported anymore **must** respond with an appropriate HTTP 30x status code and the new location (URL).
+Old endpoints (that have been offered bevor) and are not supported anymore **should** respond with an appropriate HTTP 30x status code and the new location (URL).
 
 For example, when v3 of an API is released, an request to `https://example.com/api/v2/customers` would return HTTP 301 (moved permanently) and point to `https://example.com/api/v3/customers`
 
