@@ -21,6 +21,8 @@ Note that for APIs accessible only via EDC, the API-version is included in the E
 
 This TRG applies to all APIs created within Tractus-X, but does not apply where existing standards (e.g. Data Space Protocol) are implemented where contracticting behavoir is required in order to adhere to that standard.
 
+For APIs that are called through an EDC asset, the version information hast to be included as a property in the EDC asset. This needs to be done in accordance with Catena-X standard CX-0018. More information and guidance is available there.
+
 ## Description
 
 For public REST-APIs (= called through an EDC aspect), the Version number **must** be included in the URL.
@@ -60,7 +62,3 @@ Further rules and recommendations on URL design:
 * The technical identifier **should** be part of the path, not the query. For example, use `/customers/12345/` instead of `/customers?key=12345`
 * Only English words **must** be used. For example, use `/customers/` instead of `/kunden/`
 * Camel case **should not** be used in the URI, but it MAY be used in the query or fragment part. For example, use `/vehicleorders/`, `/vehicle-orders/` or `/vehicle_orders/` instead of `/VehicleOrders/`
-
-## APIs behind EDC asset
-
-For APIs that are not publicly available but only called through an EDC asset, the version information is included as a property in the EDC asset. This needs to be done in accordance with Catena-X standard CX-0018. More information and guidance is available there.
