@@ -9,21 +9,23 @@ sidebar_position: 2
 This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 BASF SE
-- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
-- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
-- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
-- SPDX-FileCopyrightText: 2023 Siemens AG
-- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
+- SPDX-FileCopyrightText: 2023 - 2024 BASF SE
+- SPDX-FileCopyrightText: 2023 - 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 - 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
+- SPDX-FileCopyrightText: 2023 - 2024 German Edge Cloud GmbH & Co. KG
+- SPDX-FileCopyrightText: 2023 - 2024 Mercedes Benz AG
+- SPDX-FileCopyrightText: 2023 - 2024 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023 - 2024 SAP SE
+- SPDX-FileCopyrightText: 2023 - 2024 Siemens AG
+- SPDX-FileCopyrightText: 2023 - 2024 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 - 2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 - 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Industry%20Core%20Kit (latest version)
 -->
 
 import Notice from './part_notice.mdx'
+
+![Industry Core kit banner](@site/static/img/doc-industry-core_header-minified.png)
 
 The following page offers an architecture perspective including the main building blocks and information regarding
 communication between different components, shown as sequence diagrams in a runtime view. In general, data access must
@@ -60,6 +62,19 @@ This architecture is based on the following assumptions:
 | Correctness | Data Chains are built up of the links to resources distributed among the supply chain. This is reflected in distributed data. Publishing incorrect or outdated data to the network will have ripple-on effects that may break the chain for all interested parties. To avoid this, implementation strictly according to standard, verified by rigorous certification, is critical for the success of the Industry Core and the network as a whole.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Resilience  | While processing data for publishing it to Catena-X, a data provider needs to access the digital twins of built-in parts from suppliers. These must be available in Catena-X at this point. If these digital twins are not found while the data provider is looking them up, the data provider will not be able to integrate these built-in parts into BoM aspect models (e.g., SingleLevelBomAsBuilt) as it is missing the built-in parts' Unique ID. Reasons for not finding a built-in part's digital twin can be:<ol><li>There is a network failure while the data provider's is looking for the digital twin.</li><li>The supplier did not yet create the digital twin, e.g., because its internal processes were delayed.</li><li>The supplier is not yet part of the Catena-X network.</li></ol>Resilience means that the data provider implements a pipeline that can cope with these issues. Digital twins are provided with the information that is available and are updated once more information is available (e.g., the supplier provides digital twins for built-in parts later on). |
 | Backward Compatibility | <p>Backward compatibility in Catena-X allows for interoperability with previous Catena-X release than the most recent one. For Industry Core, this means that software, e.g., a Traceability app, that was built based on an older, but still valid, Industry Core KIT and Catena-X version, must still work in an environment that is running the most recent Catena-X release. A new release is not allowed to introduce a new or change an existing feature that prevents software (based on a still valid release) from no longer working.</p><p>Only Catena-X releases that introduce breaking changes do not need to be backward compatible. These releases are clearly marked as such and data providers and data consumers must take special care to prepare for such releases by planing necessary migrations in time.</p><ul><li> **For digital twins and aspect models**, this means that data providers and data consumers MUST at least support the mandatory version of an aspect model. Support for newer versions is optional, but if supported, they must be provided or consumed additionally to the mandatory version.<br/>A data provider that wants to support several versions of aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin's sumodel.<br/>A data consumer must part the submodelDescriptors for a digital twin for supported semanticIds and then select the most suitable one for further processing.</li><li>**For Notification APIs**, a separate EDC asset must be created for every minor API version, e.g., for versions v1.1 and v1.2 of the API separate EDC assets must be created. The API version (e.g., 1.1) must be documented in the `https://w3id.org/catenax/ontology/common#version` property of the EDC asset. With that, a data consumer can select the correct API version that it supports.</li></ul> |
+
+In general, data must be provided to the Catena-X network using the Data Space Protocol (DSP). As standard for digital twins the Asset Administration Shell (AAS) standard is used - this is relevant for registering digital twins (in the Digital Twin Registry) as well as for providing digital twin data. SAMM is used as modelling language to describe the data of digital twins as aspects models.
+
+## Assumptions
+This architecture is based on the following assumptions:
+
+- The **customers of parts** (on catalog and instance level) must be known when creating a digital twin and registering its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent exposing data to unauthorized parties. For Traceability, the customer of a part must have access to the digital twin in the DTR as well as to the digital twin's data in the EDC.If the customer is not known when a digital twin is created, additional processes must be set up by the data provider to add access permissions for the customer at a later time.
+
+## Non-Functional Requirements
+
+| Requirement | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| :--: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Resilience | While processing data for publishing it to Catena-X, a data provider needs to access the digital twins of built-in parts from suppliers. These must be available in Catena-X at this point. If these digital twins are not found while the data provider is looking them up, the data provider will not be able to integrate these built-in parts into BoM aspect models (e.g., SingleLevelBomAsBuilt) as it is missing the built-in parts' Unique ID. Reasons for not finding a built-in part's digital twin can be:<ol><li>There is a network failure while the data provider's is looking for the digital twin.</li><li>The supplier did not yet create the digital twin, e.g., because its internal processes were delayed.</li><li>The supplier is not yet part of the Catena-X network.</li></ol>Resilience means that the data provider implements a pipeline that can cope with these issues. Digital twins are provided with the information that is available and are updated once more information is available (e.g., the supplier provides digital twins for built-in parts later on). |
 
 ## Building Block View
 

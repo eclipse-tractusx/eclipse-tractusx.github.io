@@ -6,33 +6,18 @@ import Agents_Kit from "@site/static/img/knowledge-agents/AgentsKit.png";
 import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 export const previewKits = [
-	{
+  	{
 		id: 1,
-		img: DCM_Kit,
-		pageRoute: "/docs-kits/Resiliency/DCM%20Kit"
-	},
-  {
-		id: 2,
 		img: Maas_Kit,
-		pageRoute: "/docs-kits/Resiliency/maas"
+		pageRoute: "/docs-kits/kits/Resiliency/maas"
 	},
 	{
-		id: 3,
+		id: 2,
 		img: PURIS_Kit,
-		pageRoute: "/docs-kits/Resiliency/PURIS"
+		pageRoute: "/docs-kits/kits/Resiliency/PURIS"
 	},
 	{
 		id: 4,
-		img: MP_Kit,
-		pageRoute: "/docs-kits/Resiliency/mp%20kit"
+		img: MoreToCome
 	},
-	{
-		id: 5,
-		img: Agents_Kit,
-		pageRoute: "/docs-kits/next/category/agents-kit"
-	},
-  {
-    id: 6,
-    img: MoreToCome
-  },
 ]
