@@ -15,11 +15,11 @@ For the process described in the KIT Quality, data exchange between the particip
 
 ### **Asset File type**
 
-It is recommended to create and transfer the files in the types csv, parquet, json or xls
+It is recommended to create and transfer the files in the type parquet. Only attachments for the Quality task (Quality Task Attachment) should be created in ZIP format.
 
-### **Asset Transfers**
+### **Asset Transfers via EDC**
 
-File transfer can be done via EDC S3 plane or alternatively REST http.
+File transfer is recommended to be done via EDC S3 plane, The transfer via EDC http data plane is not recommended due to the big data size.
 
 ### **Asset consumption**
 
