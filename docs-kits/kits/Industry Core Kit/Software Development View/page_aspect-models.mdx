@@ -40,23 +40,6 @@ Aspect model in GitHub:
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/2.0.0
 - Version 1.0.1:  https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1
 
-#### Example: Aspect Model `PartAsPlanned 1.0.1` for a part type
-
-```json
-{
-  "partTypeInformation": {
-    "classification": "component",
-    "manufacturerPartId": "123-0.740-3434-A",
-    "nameAtManufacturer": "Mirror left"
-  },
-  "validityPeriod": {
-    "validFrom": "2021-06-14T06:55:29.935Z",
-    "validTo": "2022-06-14T06:55:29.935Z"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
-}
-```
-
 #### Example: Aspect Model `PartAsPlanned 2.0.0` for a part type
 
 ```json
@@ -78,6 +61,23 @@ Aspect model in GitHub:
 }
 ```
 
+#### Example: Aspect Model `PartAsPlanned 1.0.1` for a part type
+
+```json
+{
+  "partTypeInformation": {
+    "classification": "component",
+    "manufacturerPartId": "123-0.740-3434-A",
+    "nameAtManufacturer": "Mirror left"
+  },
+  "validityPeriod": {
+    "validFrom": "2021-06-14T06:55:29.935Z",
+    "validTo": "2022-06-14T06:55:29.935Z"
+  },
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
+}
+```
+
 ### SingleLevelBomAsPlanned
 
 The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
@@ -85,27 +85,6 @@ The single-level Bill of Material represents one sub-level of an assembly and do
 Aspect model in GitHub: 
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/2.0.0
 - Version 1.1.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0
-
-#### Example: Aspect Model `SingleLevelBomAsPlanned 1.1.0` for a Catalog Part
-
-```json
-{
-  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "childParts" : [ {
-    "childCatenaXId" : "fEbdF497-B223-8365-dEbe-df4A6E67bDee",
-    "validityPeriod" : {
-      "validFrom" : "2023-03-21T08:17:29.187+01:00",
-      "validTo" : "2024-07-01T16:10:00.000+01:00"
-    },
-    "quantity" : {
-      "quantityNumber" : 2.5,
-      "measurementUnit" : "unit:litre"
-    },
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-  } ]
-}
-```
 
 #### Example: Aspect Model `SingleLevelBomAsPlanned 2.0.0` for a Catalog Part
 
@@ -128,6 +107,27 @@ Aspect model in GitHub:
       "lastModifiedOn": "2022-02-03T14:48:54.709Z"
     }
   ]
+}
+
+```
+#### Example: Aspect Model `SingleLevelBomAsPlanned 1.1.0` for a Catalog Part
+
+```json
+{
+  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+  "childParts" : [ {
+    "childCatenaXId" : "fEbdF497-B223-8365-dEbe-df4A6E67bDee",
+    "validityPeriod" : {
+      "validFrom" : "2023-03-21T08:17:29.187+01:00",
+      "validTo" : "2024-07-01T16:10:00.000+01:00"
+    },
+    "quantity" : {
+      "quantityNumber" : 2.5,
+      "measurementUnit" : "unit:litre"
+    },
+    "createdOn" : "2022-02-03T14:48:54.709Z",
+    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
+  } ]
 }
 ```
 
@@ -181,41 +181,6 @@ Aspect model in GitHub:
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/2.0.0
 - Version 1.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1
 
-#### Example: Aspect Model `SerialPart 1.0.1` for a Vehicle
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "manufacturerPartId",
-      "value": "95657362-83"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "van",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartID": "QX-39",
-    "classification": "product",
-    "nameAtManufacturer": "Vehicle Model A"
-  }
-}
-```
-
 #### Example: Aspect Model `SerialPart 2.0.0` for a Vehicle
 
 ```json
@@ -257,38 +222,6 @@ Aspect model in GitHub:
 }
 ```
 
-#### Example: Aspect Model `SerialPart 1.0.2` for a Serialized Part (Non-Vehicle)
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "manufacturerPartId",
-      "value": "95657362-83"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "NO-574868639429552535768526"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-  "partTypeInformation": {
-    "manufacturerPartID": "95657362-83",
-    "customerPartId": "798-515297795-A",
-    "classification": "component",
-    "nameAtManufacturer": "High Voltage Battery",
-    "nameAtCustomer": "High Voltage Battery"
-  }
-}
-```
 #### Example: Aspect Model `SerialPart 2.0.0` for a Serialized Part (Non-Vehicle)
 
 ```json
@@ -328,6 +261,74 @@ Aspect model in GitHub:
 }
 ```
 
+#### Example: Aspect Model `SerialPart 1.0.1` for a Vehicle
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "key": "manufacturerId",
+      "value": "BPNL7588787849VQ"
+    },
+    {
+      "key": "manufacturerPartId",
+      "value": "95657362-83"
+    },
+    {
+      "key": "partInstanceId",
+      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
+    },
+    {
+      "key": "van",
+      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
+    }
+  ],
+  "manufacturingInformation": {
+    "date": "2022-02-04T14:48:54",
+    "country": "DEU"
+  },
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "partTypeInformation": {
+    "manufacturerPartID": "QX-39",
+    "classification": "product",
+    "nameAtManufacturer": "Vehicle Model A"
+  }
+}
+```
+
+#### Example: Aspect Model `SerialPart 1.0.1` for a Serialized Part (Non-Vehicle)
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "key": "manufacturerId",
+      "value": "BPNL7588787849VQ"
+    },
+    {
+      "key": "manufacturerPartId",
+      "value": "95657362-83"
+    },
+    {
+      "key": "partInstanceId",
+      "value": "NO-574868639429552535768526"
+    }
+  ],
+  "manufacturingInformation": {
+    "date": "2022-02-04T14:48:54",
+    "country": "DEU"
+  },
+  "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
+  "partTypeInformation": {
+    "manufacturerPartID": "95657362-83",
+    "customerPartId": "798-515297795-A",
+    "classification": "component",
+    "nameAtManufacturer": "High Voltage Battery",
+    "nameAtCustomer": "High Voltage Battery"
+  }
+}
+```
+
 #### Creation of Aspect Model SerialPart
 
 The only special step in creating this aspect model is the initial creation of the Unique ID for the corresponding part.
@@ -339,29 +340,6 @@ A batch is a quantity of (semi-) finished products or (raw) material product tha
 Aspect model in GitHub: 
 - Version 2.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.1
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0
-
-#### Example: Aspect Model `Batch 2.0.0` for a Batch of Raw Material
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "value": "BID12345678",
-      "key": "batchId"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "HUR"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartId": "123-0.740-3434-A",
-    "classification": "product",
-    "nameAtManufacturer": "PA66-GF30",
-  }
-}
-```
 
 #### Example: Aspect Model `Batch 2.0.1` for a Batch of Raw Material
 
@@ -392,6 +370,29 @@ Aspect model in GitHub:
 }
 ```
 
+#### Example: Aspect Model `Batch 2.0.0` for a Batch of Raw Material
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "BID12345678",
+      "key": "batchId"
+    }
+  ],
+  "manufacturingInformation": {
+    "date": "2022-02-04T14:48:54",
+    "country": "HUR"
+  },
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "partTypeInformation": {
+    "manufacturerPartId": "123-0.740-3434-A",
+    "classification": "product",
+    "nameAtManufacturer": "PA66-GF30",
+  }
+}
+```
+
 #### Creation of Aspect Model Batch
 
 The only special step in creating this aspect model is the initial creation of the Unique ID for the corresponding batch.
@@ -403,41 +404,6 @@ A just-in-sequence part is an instantiation of a (design-) part, where the parti
 Aspect model in GitHub: 
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/2.0.0
 - Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0
-
-#### Example: Aspect Model `JustInSequencePart 1.0.0` for a non-serialized component
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "jisNumber",
-      "value": "894651684"
-    },
-    {
-      "key": "parentOrderNumber",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "jisCallDate",
-      "value": "2022-01-24T09:13:34"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartID": "84816168424",
-    "classification": "product",
-    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B"
-  }
-}
-```
 
 #### Example: Aspect Model `JustInSequencePart 2.0.0` for a non-serialized component
 
@@ -480,6 +446,41 @@ Aspect model in GitHub:
 }
 ```
 
+#### Example: Aspect Model `JustInSequencePart 1.0.0` for a non-serialized component
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "key": "manufacturerId",
+      "value": "BPNL7588787849VQ"
+    },
+    {
+      "key": "jisNumber",
+      "value": "894651684"
+    },
+    {
+      "key": "parentOrderNumber",
+      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
+    },
+    {
+      "key": "jisCallDate",
+      "value": "2022-01-24T09:13:34"
+    }
+  ],
+  "manufacturingInformation": {
+    "date": "2022-02-04T14:48:54",
+    "country": "DEU"
+  },
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "partTypeInformation": {
+    "manufacturerPartID": "84816168424",
+    "classification": "product",
+    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B"
+  }
+}
+```
+
 > Please note that if a just-in-sequence part is also a serialized part, SerialPart should be used instead.
 
 #### Creation of Aspect Model JustInSequencePart
@@ -494,7 +495,7 @@ Aspect model in GitHub:
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0
 - Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0
 
-#### Example: Aspect Model `SingleLevelBomAsBuilt` for a Serialized Part
+#### Example: Aspect Model `SingleLevelBomAsBuilt 2.0.0` for a Serialized Part
 
 ```json
 {
@@ -515,7 +516,7 @@ Aspect model in GitHub:
 }
 ```
 
-#### Aspect Model `SingleLevelBomAsBuilt` for a Batch
+#### Aspect Model `SingleLevelBomAsBuilt 2.0.0` for a Batch
 
 ```json
 {
@@ -527,6 +528,46 @@ Aspect model in GitHub:
         "measurementUnit": "unit:kilogram"
       },
       "hasAlternatives": false,
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
+      "businessPartner": "BPNL50096894aNXY"
+    }
+  ]
+}
+```
+
+#### Example: Aspect Model `SingleLevelBomAsBuilt 1.0.0` for a Serialized Part
+
+```json
+{
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "childItems": [
+    {
+      "quantity": {
+        "quantityNumber": 1.0,
+        "measurementUnit": "unit:piece"
+      },
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
+      "businessPartner": "BPNL50096894aNXY"
+    }
+  ]
+}
+```
+
+#### Aspect Model `SingleLevelBomAsBuilt 1.0.0` for a Batch
+
+```json
+{
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "childItems": [
+    {
+      "quantity": {
+        "quantityNumber": 25.0,
+        "measurementUnit": "unit:kilogram"
+      },
       "createdOn": "2022-02-03T14:48:54.709Z",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z",
       "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
