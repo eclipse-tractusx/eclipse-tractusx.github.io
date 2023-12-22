@@ -35,7 +35,7 @@ import NotificationResolveAlert from './diagrams/part_notification_resolve-alert
 
 The following page offers an architecture perspective including the main building blocks and information regarding communication between different components, shown as sequence diagrams in a runtime view.
 
-The architectur of Traceability is built upon several other components of Catena-X. You need to be familiar with these components to understand the Traceability architecture:
+The architecture of Traceability is built upon several other components of Catena-X. You need to be familiar with these components to understand the Traceability architecture:
 
 - Industry Core for a basic understanding of digital twins and aspect models,
 - Asset Administration Shell (AAS) as the underlying standard for digital twins,
@@ -88,7 +88,7 @@ This capability focusses on how data providers must prepare and publish their da
 
 ### Basic Data Processing Flow
 
-The following diagram shows a basic data processing flow how a comany's internal data can be transformed into a Traceability-compliant format. Implementations of data providers can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
+The following diagram shows a basic data processing flow how a company's internal data can be transformed into a Traceability-compliant format. Implementations of data providers can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
 
 ![Data Processing Flow](./assets/data_provisioning_data_flow.png)
 
@@ -96,11 +96,10 @@ The following diagram shows a basic data processing flow how a comany's internal
 
 Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/category/industry-core-kit), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
 
-- Digtial Twin "PartType"
+- Digital Twin "PartType"
   - Aspect model ["SingelLevelUsageAsPlanned"](<./Software Development View/page_data-provider_software-development-view.mdx#SingelLevelUsageAsPlanned>)
-- Digtial Twin "PartInstance"
+- Digital Twin "PartInstance"
   - Aspect model ["TractionBatteryCode"](<./Software Development View/page_data-provider_software-development-view.mdx#TractionBatteryCode>)
-  - Aspect model ["SoftwareInformation"](<./Software Development View/page_data-provider_software-development-view.mdx#SoftwareInformation>)
   - Aspect model ["SingleLevelUsageAsBuilt"](<./Software Development View/page_data-provider_software-development-view.mdx#SingleLevelUsageAsBuilt>)
 
 Details about these aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](<./Software Development View/page_data-provider_software-development-view.mdx>).
@@ -220,5 +219,7 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 - [CX - 0043 Semantic Model: PartAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
 - [CX - 0093 Aspect Model Traction Battery Code](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0093-AspectModelTractionBatteryCode-v1.0.0.pdf)
 - [CX - 0094 Aspect Model PartSiteInformationAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0094-AspectModelPartSiteInformationAsPlanned-v1.0.0.pdf)
+- [CX - 0125 Traceability Use Case](https://catena-x.net/de/standard-library)
+- [CX - 0127 Industry Core: Part Instance](https://catena-x.net/de/standard-library)
 
 <Notice components={props.components} />
