@@ -37,11 +37,11 @@ This local deployment is an easy installation with helm. This setup is built to 
 
 1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
 2. [helm](https://helm.sh/docs/intro/install/) is installed
-3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.
    You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
    ```bash
-   minikube start --memory 8192 --cpus 2 
+   minikube start --memory 8192 --cpus 2
    ```
 
    _Optional_: enable minikube metrics
@@ -112,7 +112,7 @@ error: timed out waiting for the condition on deployments/irs-frontend
 The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
 ```bash
-  minikube dashboard 
+  minikube dashboard
 ```
 
 Make sure you select the namespace **irs**:
