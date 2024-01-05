@@ -53,15 +53,15 @@ The decentral components of the DGK are tightly coupled with the dataspace conne
 * Provide standards (e.g. Asset properties and their semantics on data space and/or use case level)
 * Provide reference implementations (uncommited)
 
-##### Overview
+### Overview
 
 The Data Governance Kit will be developed as a new dedicated component that links Backend Data Services with EDCs to ease the management of the data governance aspects. It is being envisioned to provide this component as an SDK with corresponding APIs and delivered as basic reference implementations (uncommited). This should be helpful in building products but won't be one in itself. The client APIfrom data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations
 
-##### Target Group / Service/ Apps that needs the enabler{}
+### Target Group / Service/ Apps that needs the enabler{}
 
 All Data Providers and/or Data Consumers
 
-##### Support
+### Support
 
 We support use cases for data providers, data consumers, app developers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback.
 
@@ -74,7 +74,6 @@ Data sovereignty is one of the core value propositions of Catena-X. EDC contribu
 * How to manage multiple EDCs?
 * How to document transfers and negotiated policies in a single place?
 * How to see which policy is active and when does it expire
-
 
 #### Dataspace Participants
 
@@ -95,7 +94,9 @@ The following stakeholders should [interface or implement](../development-view/a
 
 #### Business Developers
 
+
 -Any party who publishes an Application on behalf of a Dataspace Participant (e.g. a Fleet Monitor, an Incident Reporting Solution, a Telematics KIT)-
+
 
 ## NOTICE
 
