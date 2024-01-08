@@ -10,7 +10,7 @@ title: TRG 2.04 - Leading product repository
 
 ## Why
 
-We have multiple stakeholders for a repository: system team, release management, test management, interested persons trying it out, want to contribute or need to set it up.
+We have multiple stakeholders for a repository: system team, test management, release management and everybody else interested in the product.
 They need to be able to understand complicated product structures in an intuitive way to have an easier task of diving into a product.
 
 ## Description
