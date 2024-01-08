@@ -18,4 +18,23 @@ Key Benefits:
 
 ## Description
 
+Dependabot is an excellent fit for application dependencies/vulnerabilities. By regularly checking for updates, it allows you to seamlessly integrate the latest improvements into your application.
+
+For Docker images, Dependabot ensures that your base images and dependencies are regularly updated, reducing the risk of using outdated or vulnerable components.
+
+Dependabot can also assist in keeping your GitHub Actions workflows up-to-date. This is crucial for ensuring that your continuous integration and delivery processes leverage the latest GitHub Actions features and improvements.
+
+### Version updates
+
+To enable Dependabot for version updates, create a dependabot.yml file in the root of your repository. See provided example below.
+More information:
+<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>
+<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
+
+### Security updates
+
+To enable Dependabot for security updates, you can leverage GitHub's Security tab. Go to the "Security" tab in your repository and follow the prompts to enable automated security updates.
+More information:
+<https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates>
+
 ## Example
