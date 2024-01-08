@@ -25,7 +25,8 @@ Create a `INSTALL.md` file in the main folder of the repository and add all inst
 
 ## Best Practices
 
-a well structured installation guide includes
+a well-structured installation guide includes:
+
 - the prerequisites
 - a step-by-step installation instruction which can be copy+pasted directly
   - using only the charts of our official [helm chart repository](https://github.com/eclipse-tractusx/charts)
