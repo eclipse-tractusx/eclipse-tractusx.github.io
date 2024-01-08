@@ -5,7 +5,7 @@ title: Adoption View
 ## Data Governance KIT
 
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
