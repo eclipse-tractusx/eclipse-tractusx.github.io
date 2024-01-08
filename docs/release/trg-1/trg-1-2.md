@@ -25,7 +25,7 @@ Create a `INSTALL.md` file in the main folder of the repository and add all inst
 
 ## Best Practices
 
-a well-structured installation guide includes:
+A well-structured installation guide includes:
 
 - the prerequisites
 - a step-by-step installation instruction which can be copy+pasted directly
