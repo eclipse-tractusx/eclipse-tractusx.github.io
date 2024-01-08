@@ -78,13 +78,10 @@ The architecture of the EDC combines various services that are necessary for the
 
 The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Every data consumer and provider in Catena-X is required to comply with these standards. The [EDC][edc-url] builds on the following standards:
 
-- [CX - 0002 Digital Twins in Catena - X][CX0002]
-- [CX - 0003 BAMM Aspect Meta Model][CX0003]
-- [CX - 0008 Relevant standards for conformity assessments][CX0008]
 - [CX - 0018 Eclipse Data Space Connector (EDC)][CX0018]
-- [CX - 0044 ECLASS][CX044]
-- [CX - 0047 DCM Data Model Material Demand & Capacity Group][CX0047]
-- [CX - 0059 Triangle Behavioral Twin Endurance Predictor][CX0059]
+- [CX - 0049 DID Document Schema][CX0049]
+- [CX - 0050 Framework Agreement Credential][CX0050]
+- [CX - 0051 Summary Credential][CX0051]
 
 ### Terminology
 
@@ -163,10 +160,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 [PURIS-url]: https://github.com/eclipse-tractusx/puris
 [digital-product-pass-url]:https://github.com/eclipse-tractusx/digital-product-pass
 [Catena-X-Standards-url]:https://catena-x.net/de/standard-library
-[CX0002]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0002-DigitalTwinsInCatena-X-v.1.0.2.pdf
-[CX0003]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0003-SAMMSemanticAspectMetaModel-v.1.0.2.pdf
-[CX0008]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/6_Onboarding/CX_-_0008_Conformity_Assessment_PlatformCapabilityOnboarding_v_1.0.1.pdf
-[CX0018]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/3_Sovereign_Data_Exchange/CX_-_0018_EDC_PlatformCapabilitySovereignDataExchange_v_1.0.1.pdf
-[CX044]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0044-ECLASS-v1.0.2.pdf
-[CX0047]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0047-DemandCapacityManagementDataModels-v1.0.0.pdf
-[CX0059]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0059-TriangleBehavioralTwinEndurancePredictorService-v.1.0.0.pdf
+[CX0018]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0018-EclipseDataConnector_EDC_-v.2.0.1.pdf
+[CX0049]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0049-DIDDocument-v.1.0.0.pdf
+[CX0050]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0050-FrameworkAgreementCredential-v.1.0.0.pdf
+[CX0051]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0051-SummaryCredential-v.1.0.0.pdf
