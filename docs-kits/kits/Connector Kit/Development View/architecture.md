@@ -49,12 +49,12 @@ This is usually accomplished via a secret vault such as Hashicorp Vault or Azure
 The reason to use a Connector in the first place is to make data available to or obtain it from other participants.
 This data comes from or is used in your other Business Applications.
 These interact with the Connector by providing addresses where said data can be found that are then wrapped in Assets by the Connector.
+For the reference implementation, the interaction will usually pass through the Management API that is [documented in 
+detail](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs) in the tractusx-edc repository.
 
 ### Other Connectors
 
-The interactions between different Connectors are a large part of the functionality of said Connectors.
-The specifics of these interactions and how to manage them are described in great detail in the 
-[Management API Walkthrough](./Management-API%20Walkthrough/1-management-api-overview.md).
+The interactions between different Connectors are specified by the DSP.
 
 ### Catena X Portal
 
