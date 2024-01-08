@@ -4,6 +4,13 @@ title: Adoption View
 ---
 ## Data Governance KIT
 
+docs-kits/kits/Data Governance Kit/adoption-view/DGK Overview.png
+
+![Data Governance Kit Overview](@site/docs-kits/kits/Data Governance Kit/adoption-view/DGK Overview.png)
+
+![AdoptionView Business Value](resources/adoption-view/adoption-view-BusinessValue.png)
+
+
 <!--
  * Copyright (c) 2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
@@ -22,9 +29,9 @@ title: Adoption View
  * under the License.
  *
  * SPDX-License-Identifier: CC-BY-4.0
+![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 -->
 
-![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
@@ -56,8 +63,6 @@ The decentral components of the DGK are tightly coupled with the dataspace conne
 ### Overview
 
 The Data Governance Kit will be developed as a new dedicated component that links Backend Data Services with EDCs to ease the management of the data governance aspects. It is being envisioned to provide this component as an SDK with corresponding APIs and delivered as basic reference implementations (uncommited). This should be helpful in building products but won't be one in itself. The client APIfrom data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations
-
-docs-kits/kits/Data Governance Kit/adoption-view/DGK Overview.png
 
 ### Target Group / Service/ Apps that needs the enabler{}
 
