@@ -80,7 +80,7 @@ Data sovereignty is one of the core value propositions of Catena-X. EDC contribu
 The following stakeholders should [deploy](../operation-view/deployment) modules/artifacts of the Data Governance Kit.
 In particular, each Dataspace Participant needs at least one [Connector](../operation-view/DatGov_edc).
 
-##### Consumer
+##### Data Consumer
 
 Any party who wants to consume the data made available by the data providers and use the governance features from Data Governance Kit.
 
