@@ -8,13 +8,13 @@ title: TRG 2.06 - Dependabot
 
 ## Why
 
-GitHub Dependabot is a powerful tool designed to help keep your project's dependencies up-to-date. By automating the process of checking for updates and creating pull requests when new versions are available, Dependabot ensures that your project benefits from the latest features, bug fixes, and security patches.
+GitHub Dependabot is a powerful tool designed to help keep your project's dependencies up to date. By automating the process of checking for updates and creating pull requests when new versions are available, Dependabot ensures that your project benefits from the latest features, bug fixes, and security patches.
 
 Key Benefits:
 
 - Security: Receive timely updates for security vulnerabilities in your project's dependencies.
 - Stability: Keep your project stable by staying current with the latest releases.
-- Efficiency: Automate the time-consuming task of manually checking for updates and creating pull requests.
+- Efficiency: Automate the time consuming task of manually checking for updates and creating pull requests.
 
 ## Description
 
@@ -24,17 +24,45 @@ For Docker images, Dependabot ensures that your base images and dependencies are
 
 Dependabot can also assist in keeping used GitHub Actions up to date. This is crucial for ensuring that your workflows leverage the latest GitHub Actions features and improvements.
 
-### Version updates
-
-To enable Dependabot for version updates, create a dependabot.yml file in the root of your repository. See provided example below.
-More information:  
-<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>  
-<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
-
 ### Security updates
 
 To enable Dependabot for security updates, you can leverage GitHub's Security tab. Go to the "Security" tab in your repository and follow the prompts to enable automated security updates.
 More information:  
 <https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates>  
 
-## Example
+### Version updates
+
+To enable Dependabot for version updates, create a dependabot.yml file in .github directory the root of your repository. In order to reduce number of generated bump Pull Requests, recommendation is to change default interval to i.e. weekly, as well as limit open PRs. See provided example below.
+
+### Example
+
+This configuration checks for Maven, GitHub Action and Docker updates on a weekly basis and creates pull requests for up to 5 updates at a time.
+
+```yaml
+version: 2
+updates:
+    # Maintain dependencies for Maven
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+    # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+    # Maintain dependencies for Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+```
+
+More information:  
+<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>  
+<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
