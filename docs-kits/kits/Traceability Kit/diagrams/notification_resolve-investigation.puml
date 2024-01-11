@@ -1,31 +1,4 @@
----
-sidebar_class_name: hidden
----
-
-<!---
-This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
-
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 - 2024 BASF SE
-- SPDX-FileCopyrightText: 2023 - 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023 - 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
-- SPDX-FileCopyrightText: 2023 - 2024 German Edge Cloud GmbH & Co. KG
-- SPDX-FileCopyrightText: 2023 - 2024 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 - 2024 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 - 2024 SAP SE
-- SPDX-FileCopyrightText: 2023 - 2024 Siemens AG
-- SPDX-FileCopyrightText: 2023 - 2024 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023 - 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 - 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
---->
-
-#### Resolve of a Quality Alert (Optional)
-
-Below, the UML sequence diagram to resolve a quality alert is depicted.
-
-<!--
-@startuml 
+@startuml
 
 autonumber "<B>[00]"
 autoactivate on
@@ -51,7 +24,7 @@ participant "EDC" as REDC order 4
 participant "Some (Traceability) App" as TraceApp2 order 5
 end box
 
-TraceApp2 -> REDC: Create EDC Asset for \n"Quality Alert Resolve"\nwith ""DataAddress"" as ""HTTP POST"" endpoint
+TraceApp2 -> REDC: Create EDC Asset for \n"Quality Investigation Resolve"\nwith ""DataAddress"" as ""HTTP POST"" endpoint
 return OK
 TraceApp1 -> TraceApp1: Trigger Resolution of Notification
 deactivate TraceApp1
@@ -70,7 +43,7 @@ NAdapter -> NAdapter: Find and Select Contract
 rnote right NAdapter
 Find the correct contract offer with:
 
-"asset:prop:notificationtype": "qualityalert",
+"asset:prop:notificationtype": "qualityinvestigation",
 "asset:prop:notificationmethod": "resolve"
 end rnote
 deactivate NAdapter
@@ -86,7 +59,7 @@ SEDC -> REDC: POST /public/...
 rnote right SEDC
 Payload as described above.
 end rnote
-REDC -> TraceApp2: POST /notifications/qualityalerts/resolve
+REDC -> TraceApp2: POST /notifications/qualityinvestigations/resolve
 rnote right REDC
 Payload as described above.
 end rnote
@@ -112,4 +85,3 @@ rnote left NAdapter
 Payload as described above.
 end rnote
 @enduml
--->
