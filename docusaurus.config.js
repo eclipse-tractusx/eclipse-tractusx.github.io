@@ -120,6 +120,10 @@ const config = {
             to: '/community/intro',
             from: '/community',
           },
+          {
+            to: '/docs/release/',
+            from: '/docs/release/trg-2/trg-2-2',
+          },
         ],
       },
     ],
