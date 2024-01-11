@@ -24,12 +24,6 @@ This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/
 --->
 
 import Notice from './part_notice.mdx'
-import NotificationSendReceive from './diagrams/part_notiifcation_send-receive.mdx'
-import NotificationSendReceiveAlert from './diagrams/part_notification_send-receive-alert.mdx'
-import NotificationUpdateInvestigation from './diagrams/part_notification_update-investigation.mdx'
-import NotificationUpdateAlert from './diagrams/part_notification_update-alert.mdx'
-import NotificationResolveInvestigation from './diagrams/part_notification_resolve-investigation.mdx'
-import NotificationResolveAlert from './diagrams/part_notification_resolve-alert.mdx'
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
@@ -186,17 +180,32 @@ To read the UML sequence diagrams correctly, some remarks:
 - In each UML sequence diagram the step [01] describes the publishing of the notification endpoints as described in the above sections
 - Similarly, the Http POST request and response bodies are described in the above sections
 
-<NotificationSendReceive components={props.components} />
+#### Sending and Receiving of a Quality Investigation
 
-<NotificationSendReceiveAlert components={props.components} />
+Below, the UML sequence diagram to send and receive a quality investigation is depicted. In addition to the above mentioned general remarks, the following remark:
 
-<NotificationUpdateInvestigation components={props.components} />
+![NotificationSendReceive](./diagrams/notifcation_send-receive.png)
 
-<NotificationUpdateAlert components={props.components} />
+#### Sending and Receiving of a Quality Alert (Optional)
 
-<NotificationResolveInvestigation components={props.components} />
+Below, the UML sequence diagram to send and receive a quality alert is depicted. In addition to the above mentioned general remarks, the following remark:
 
-<NotificationResolveAlert components={props.components} />
+- The status transition from SENT to RECEIVED has to be done by the sender once it received the Http status code 201 from the receiver
+
+![NotificationSendReceiveAlert](./diagrams/notification_send-receive-alert.png)
+
+
+#### Update of a Quality Investigation
+
+Below, the UML sequence diagram to update a quality investigation is depicted.
+
+![NotificationUpdateInvestigation](./diagrams/notification_update-investigation.png)
+
+#### Update of a Quality Alert
+
+Below, the UML sequence diagram to update a quality alert is depicted.
+
+![NotificationUpdateAlert](./diagrams/notification_update-alert.png)
 
 ## Standards
 
