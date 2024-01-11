@@ -66,3 +66,9 @@ updates:
 More information:  
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>  
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
+
+:::info
+Importance of Implemented Tests:
+
+Ensure that your project has comprehensive test coverage. Automated tests are crucial for quickly validating that updates do not introduce regressions or break existing functionality. 
+:::
