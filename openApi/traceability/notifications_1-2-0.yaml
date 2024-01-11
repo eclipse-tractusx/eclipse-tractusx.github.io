@@ -7,15 +7,15 @@ info:
     url: http://apache.org/v2
   version: 1.2.0
 servers:
-- url: /
+  - url: /
 tags:
-- name: Notification API
-  description: 'Api to receive, update and fetch a notification. At the moment, quality notifications are supported. Those support two types of quality notifications: quality investigations and quality alerts.'
+  - name: Notification API
+    description: 'Api to receive, update and fetch a notification. At the moment, quality notifications are supported. Those support two types of quality notifications: quality investigations and quality alerts.'
 paths:
   /qualitynotifications/receive:
     post:
       tags:
-      - Quality notification
+        - Quality notification
       description: Receives a new quality notification
       operationId: receiveQualityNotification
       requestBody:
@@ -29,7 +29,7 @@ paths:
         "400":
           description: Request body was malformed
         "401":
-          description: Not authorized     
+          description: Not authorized
         "403":
           description: Forbidden
         "405":
@@ -41,7 +41,7 @@ paths:
   /qualitynotifications/update:
     post:
       tags:
-      - Quality notification
+        - Quality notification
       description: Updates a quality notification
       operationId: updateQualityNotification
       requestBody:
@@ -55,7 +55,7 @@ paths:
         "400":
           description: Request body was malformed
         "401":
-          description: Not authorized     
+          description: Not authorized
         "403":
           description: Forbidden
         "405":
@@ -106,8 +106,8 @@ components:
           format: uuid
           example: "7895a39d-c4ef-4b75-b39f-cae8207a262f"
           description: A UUIDv4 to uniquely identify a related quality notification. This field is not about mapping the internal references between quality notifications. This field should only reference the quality notifications that
-          
-          
+            
+            
             \- the recipient can basically understand in his business context and
             
             
@@ -115,7 +115,7 @@ components:
             
             
             That means, that in most instances, the sender and receiver of both quality notifications (i.e., the send one and the referenced one) are the same. Examples Due to an QM-Investigation an QM-Alert is created and referencing to the QM-Investigation. An QM-Investigation is followed by another QM-Investigation that is referencing to the same quality issue.
-          
+
         version:
           type: string
           example: "urn:samm:io.catenax.message_header:1.0.0"
@@ -123,10 +123,10 @@ components:
     QualityNotificationReceivePayload:
       type: object
       required:
-         - notificationId
-         - status
-         - severity
-         - listOfAffectedItems
+        - notificationId
+        - status
+        - severity
+        - listOfAffectedItems
       properties:
         notificationId:
           type: string
@@ -152,7 +152,7 @@ components:
           description: Items are added by the initiator (i.e., sender) of a notification. Once the notification is not in the status CREATED (e.g., it has been sent) the array cannot be changed.
     QualityNotificationUpdatePayload:
       required:
-         - notificationId
+        - notificationId
       type: object
       properties:
         notificationId:
@@ -171,8 +171,8 @@ components:
           description: A text that e.g. describes the quality alert or the quality investigation. Recommendations or counter actions can be added by the receiver when ACCECPTED or DECLINED the notification.
     QualityNotificationReceiveRequestBody:
       required:
-      - header
-      - content
+        - header
+        - content
       type: object
       properties:
         header:
@@ -181,43 +181,43 @@ components:
           $ref: '#/components/schemas/QualityNotificationReceivePayload'
     QualityNotificationUpdateRequestBody:
       required:
-      - header
-      - content
+        - header
+        - content
       type: object
       properties:
         header:
           $ref: '#/components/schemas/QualityNotificationStandardRequestHeader'
         content:
-          $ref: '#/components/schemas/QualityNotificationUpdatePayload'          
+          $ref: '#/components/schemas/QualityNotificationUpdatePayload'
     QualityContext:
-        type: string
-        enum:
-          - TRACE-QM-Investigation:1.0.0
-          - TRACE-QM-Alert:1.0.0
-        example: TRACE-QM-Investigation:1.0.0
-        description: The context defines the type of quality notification. The context is chosen by the initiator of a quality notification. The QM-Investigation describes a quality issue top-down when it's sent towards the supplier. The QM-Alert describes a quality issue bottom-up when it's sent towards the customer.
+      type: string
+      enum:
+        - TRACE-QM-Investigation:1.0.0
+        - TRACE-QM-Alert:1.0.0
+      example: TRACE-QM-Investigation:1.0.0
+      description: The context defines the type of quality notification. The context is chosen by the initiator of a quality notification. The QM-Investigation describes a quality issue top-down when it's sent towards the supplier. The QM-Alert describes a quality issue bottom-up when it's sent towards the customer.
         
         
-          TRACE-QM-Investigation:1.0.0
-          
-          
-          A quality investigation is used to try and technically narrow down the cause of a suspected problem with a serialized part / batch. To achieve this, a customer who has purchased serialized parts/ batches can request his supplier to investigate the affected serialized parts / batches regarding the suspected problem.
-          
-          
-          TRACE-QM-Alert:1.0.0
-          
-          
-          A quality alert is sent by a supplier to a customer and describes identified quality issue(s) in one or more serialized parts/ batches delivered to that customer. Thus, the quality alert - besides other information - contains a list of the affected serialized parts/ batches and a description of the quality issue(s). In the worst case the quality alert can result in a recall of the affected serialized parts/ batches.
-          
-          
-          The value MUST consist of two parts -- an identifier of the context (e.g. business domain, etc.) followed by a version number. Both the identifier and the version number MUST correspond to the content of the message. Versioning only refers to major versions in both default and fallback cases. Note -- The version of the message's header is specified in the version field.
+        TRACE-QM-Investigation:1.0.0
+        
+        
+        A quality investigation is used to try and technically narrow down the cause of a suspected problem with a serialized part / batch. To achieve this, a customer who has purchased serialized parts/ batches can request his supplier to investigate the affected serialized parts / batches regarding the suspected problem.
+        
+        
+        TRACE-QM-Alert:1.0.0
+        
+        
+        A quality alert is sent by a supplier to a customer and describes identified quality issue(s) in one or more serialized parts/ batches delivered to that customer. Thus, the quality alert - besides other information - contains a list of the affected serialized parts/ batches and a description of the quality issue(s). In the worst case the quality alert can result in a recall of the affected serialized parts/ batches.
+        
+        
+        The value MUST consist of two parts -- an identifier of the context (e.g. business domain, etc.) followed by a version number. Both the identifier and the version number MUST correspond to the content of the message. Versioning only refers to major versions in both default and fallback cases. Note -- The version of the message's header is specified in the version field.
     QualitySeverity:
       type: string
       enum:
-      - MINOR
-      - MAJOR
-      - CRITICAL
-      - LIFE-THREATENING
+        - MINOR
+        - MAJOR
+        - CRITICAL
+        - LIFE-THREATENING
       example: CRITICAL
       description: The severity of the quality notification describes its criticality. The severity is set by the initiator of a quality notification. The following entries are supported and allowed
         
@@ -228,11 +228,11 @@ components:
         
         - MAJOR
         This is the case if the quality issue(s) is/are so critical that the functionality of the serialized parts/batch is partially not given. This is also the case if the serialized part / batch is no longer functional, but the missing functionality
-          
-          (a) can be compensated by other parts of a superordinate system or
-          (b) has a relatively low significance / benefit
         
-          
+        (a) can be compensated by other parts of a superordinate system or
+        (b) has a relatively low significance / benefit
+        
+        
         - CRITICAL
         This is the case if the quality issue(s) is/are so critical that the basic functionality of the serialized parts/batch is no longer given.
         
@@ -251,31 +251,31 @@ components:
         - CLOSED
       example: SENT
       description: The status of the quality notification. The following entries are supported and allowed
-      
-      
+
+
         - CREATED
         This status is an internal status and is used after the initial creation of a notification. It is not communicated to an other CX/business partner.
-      
-      
+
+
         - SENT
         This status means that the notification has been sent out. This status is shown on the sender side (and not on the receiver side).
-      
-      
+
+
         - RECEIVED
         This status means that the notification has been received by the receiver. The status is shown on sender and receiver side.
-      
-      
+
+
         - ACKNOWLEDGED
         Defines that a user has confirmed that the notification has been received. This does NOT mean that the user accepted the notification in the sense of an admission of guilt or the like. However, it means that the notification gets processed by the user (or the organization behind).
-      
-      
+
+
         - ACCEPTED
         The status expresses that the received agrees on the quality investigation/alert. Recommendations, counter actions, and the like can be conveyed in the payload field information.
-      
-      
+
+
         - DECLINED
         The status expresses that the received does not agree on the quality investigation/alert. Recommendations, counter actions, and the like can be conveyed in the payload field information.
-      
-      
+
+
         - CLOSED
         This status is set by the initiator of the notification either to regularly close the notification (i.e., after the receiver has set the status to ACCEPTED or DECLINED) or to abort the processing of the notification (e.g., because the notification is not relevant anymore).

@@ -181,9 +181,16 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          traceability_notifications: {
-            specPath: "./openApi/traceability/notifications.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API",
+          traceability_notifications_120: {
+            specPath: "./openApi/traceability/notifications_1-2-0.yaml",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.2.0 - optional",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          traceability_notifications_110: {
+            specPath: "./openApi/traceability/notifications_1-1-0.yaml",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.1.0 - mandatory",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
