@@ -16,11 +16,11 @@ We aim to have automatic quality checks and therefore need a metadata file to id
 
 ## Description
 
-To enable automatic analysis of repositories, all repositories **MUST** have a file named `.tractusx` present on root-level with the dedicated `repoCategory` which points to the displayed section for the repository.
+To enable automatic analysis of repositories, all repositories **MUST** have a file named `.tractusx` present on root-level.
 This file needs to contain metadata about the repository and product in a YAML format.
 The mandatory declarations in the `.tractusx` metadata file do vary for leading- and non-leading repositories.
 
-Detailed documentation on the content of the `.tractusx` metadata file can be found [in the quality check docs](https://github.com/eclipse-tractusx/tractusx-quality-checks/blob/main/docs/metadata_file.md).
+Detailed documentation on the content of the `.tractusx` metadata file can be found [in the quality check docs](https://github.com/eclipse-tractusx/sig-release/blob/main/docs/metadata_file.md).
 
 The result of the automated repository checks depending on the `.tractusx` metadata file can be found on the [quality checks dashboard](https://eclipse-tractusx.github.io/sig-release)
 
@@ -31,7 +31,7 @@ Example `.tractusx` file taken from the docs:
 product: "your-product-name"
 # mandatory info in every repo
 leadingRepository: "https://github.com/eclipse-tractusx/<your-leading-repo>"
-# default: available options: "special", "support"; optional field. will be treated as regular product repo without entry
+# optional field by default it will be treated as regular product repo. Available options: "special" , "support".
 repoCategory: "special"
 # optional section to refer to all of your teams repositories
 repositories:
