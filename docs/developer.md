@@ -10,8 +10,4 @@ In case you have questions about these rules just want to get in contact, feel f
 [Community](/community/intro) page. It sets the stage for your contribution to Eclipse Tractus-X and provides a broad
 overview of our project and community.
 
-Once you're familiar with our community, the **Developer Hub** becomes your critical next step. This space is your
-comprehensive guide and trusted companion in your contribution journey. It is highly recommended familiarizing yourself
-with most, if not all, of its content.
-
 Your journey with Eclipse Tractus-X starts here, let's build the future of automotive technology together!
