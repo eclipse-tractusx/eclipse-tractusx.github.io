@@ -11,8 +11,8 @@ title: TRG 2.05 - Repository metafile
 
 ## Why
 
-Since to many products having more than one repository, we need a way of identifying dependent leading repositories automatically. This allows us to analyze the repositories for quality checks we need to assure for our releases.
-In summary, automatic checking of the repositories contributes to improving code quality, enhancing development and resource efficiency, and ensuring the overall reliability of our products.
+Many products are build from more than one repository.
+We aim to have automatic quality checks and therefore need a metadata file to identify the repositories belonging to a product.
 
 ## Description
 
