@@ -70,5 +70,5 @@ More information:
 :::info
 Importance of Implemented Tests:
 
-Ensure that your project has comprehensive test coverage. Automated tests are crucial for quickly validating that updates do not introduce regressions or break existing functionality. 
+Ensure that your project has comprehensive test coverage. Automated tests are crucial for quickly validating that updates do not introduce regressions or break existing functionality.
 :::
