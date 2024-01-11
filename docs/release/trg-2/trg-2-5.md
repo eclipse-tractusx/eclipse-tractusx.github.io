@@ -11,8 +11,7 @@ title: TRG 2.05 - Repository metafile
 
 ## Why
 
-Due to many products having more than one repository, we need a way of identifying dependent leading repositories automatically. This allows us to analyze the repositories for quality checks we need to assure for our releases.
-This will reduce the manual effort in reviewing the code quality and will allow us to provide a better overview of the quality of the products. It will also allow us to provide consistency and the same coding standards and improve the readability and maintainability.
+Since to many products having more than one repository, we need a way of identifying dependent leading repositories automatically. This allows us to analyze the repositories for quality checks we need to assure for our releases.
 In summary, automatic checking of the repositories contributes to improving code quality, enhancing development and resource efficiency, and ensuring the overall reliability of our products.
 
 ## Description
