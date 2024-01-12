@@ -17,9 +17,9 @@ This helps people who are using the product, to understand which version to choo
 ## Description
 
 All notable changes in the product repositories **have to** be added to a `CHANGELOG.md` file.
-Also, a link to the [Eclipse Tractus-X Changelog](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md) **have to** be added there.
+Also, a link to the [Eclipse Tractus-X Changelog](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md) **has to** be added there.
 
-The versioning of the product releases **have to** follow [semantic versioning](https://semver.org/).
+The versioning of the product releases **has to** follow [semantic versioning](https://semver.org/).
 
 The product `CHANGELOG.md` file **should** follow the format as described in [Keep A Changelog](https://keepachangelog.com/en/1.1.0/).
 
@@ -33,19 +33,14 @@ The product `CHANGELOG.md` file **should** follow the format as described in [Ke
 ### Example `CHANGELOG.md`
 
 ```markdown
-# CHANGELOG
 
-All notable changes to this project will be documented in this file.
-
-## General Tractus-X Release Changelog
-
-The overarching [`CHANGELOG.md`](https://eclipse-tractusx.github.io/changelog) and including compatibility matrices for Tractus-X releases.
+All notable changes to this project will be documented in this file see also the overarching [`CHANGELOG.md`](https://eclipse-tractusx.github.io/changelog) for Tractus-X releases.
 
 ## [Unreleased]
 
 - add API reference documentation (#issue, #pull-request)
 
-## [Version] - your currently released version
+## [v2.0.1](https://github.com/eclipse-tractusx/digital-product-pass/releases/tag/v2.0.1)  (your currently released semantic version) 
 
 ### Added
 
