@@ -34,42 +34,65 @@ The following page offers a high level business view on the Traceability KIT wit
 
 ### Vision
 
-The aim of the Traceability KIT is to trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels without compromising data sovereignty. This KIT enables app providers to deliver solutions to send quality notifications on all levels and industries while the Industry Core Kit supports data provider to build sovereign data chains to enable data driven use – also for other domains like sustainability.
+The aim of the Traceability KIT is to enable app- and data-providers to trace parts and materials across the entire value chain without compromising data sovereignty.
+
+This enables the industry to narrow down quality issues faster and reduce recall costs due to fast and precise containment of defect parts.
+Furthermore, it will enable solutions and services for tracking and tracing conformity relevant data to fulfill security and legal requirements.
+
 
 ### Mission
 
-The Traceability KIT provides the necessary standards, aspect models, APIs, logics, and processes on how to build a data sovereign data chain and send quality notifications. This is done via the standardized creation of digital twins of components and vehicles as well as the logical linking to their sub-components (Bill of Material, BoM). The default visibility of digital twins and their respective semantic models follows the one-up/one-down principle. This enables businesses to track and trace products, components, material, and software along the value chain for all product lifecycle stages.
+The Traceability KIT provides the necessary standards, aspect models, APIs, logics, and processes to develop traceability apps and provide the necessary data.
+All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
-All described specifications in the KIT are based on Catena-X standards like Data Space Connector, Asset Administration Shell (AAS), and Digital Twin Registry (DTR). They refer to other Catena-X KITs like the Industry Core KIT, the Connector KIT (EDC), Data Chain KIT (Item Relation Ship, IRS) and Business Partner KIT to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
+This KIT is closely connected to the Industry Core KIT "Part Instance”, which provides the basis on how to built a data chain based on vehicles, parts and materials - a mandatory prerequisite.
+The Traceability KIT supplements it with further tracking relevant aspects, business logic and APIs to e.g. send quality notifications or trace battery relevant aspects (e.g. GBT-Codes for China).
 
-Furthermore, APIs and data models enable partners to send quality notifications in a standardized way while already knowing which parts of their direct customer and suppliers are affected and which are not. Moreover, the KIT is compatible with the data chain KIT to allow apps and business to traverse through the data chains over n-tier levels to enable further use cases like Circular Economy.
-
-The creation of data chains for the life cycle contexts “as built” and “as planned” is supported by the Industry Core Kit. This data chains are the backbone for use cases based on vehicles and parts. This KIT empowers app providers to develop Catena-X Traceability applications.
 
 ## Business Value & Benefits
 ### Business Value
-Through the standardized specifications described in the “Traceability-KIT” – for example the semantic models and APIs – application and service providers can reduce investment and implementation costs to integrate new Catena-X services. Furthermore, application and service providers can enter potential new markets within the PLM & Quality domain.
+Through the standardized specifications described in this Traceability KIT – for example the semantic models and APIs – application and service providers are able to develop interoperable Catena-X traceability solutions.
+Since this KIT is built on the Industry Core KIT, investment and implementation costs to integrate traceability services are reduced.
+Application and service providers can enter potential new markets within the PLM & Quality domain.
 
 ### Todays Challenge
-From Traceability's perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains across the whole automotive supply chain to empower data driven use cases. Details regarding the challenges are:
+From traceability's perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains across the whole automotive supply chain to track and trace parts and materials. Details regarding the challenges are:
 
 - Missing standards to trace serialized and non-serialized hardware and software components. This includes the datatype, data format and data description (semantics) as well as the data exchange. The existing regulatory requirements that every company within the industry faces today are being solved with individual, proprietary solutions.
+These solutions are either costly due to expensive distributed ledgers or cannot guarantee trust and data sovereignty based on the GAIA-X and IDSA principles including the regulation of access and usage policies regarding data chains. Therefore, no end-to-end data exchange and cooperation has been achieved as of today.
+This will be standardized in the Industry Core KIT.
 
 - The digital maturity is diverging within the automotive industry. For bigger companies it is a challenge to receive overall structured data from multiple different suppliers on a broad scale. Smaller companies struggle to generate and provide those data in a fully digitized way.
+Interoperable Catena-X traceability solutions will ensure easy onboarding and data sovereign data exchange.
 
-- Current solutions are either costly due to expensive distributed ledgers or cannot guarantee trust and data sovereignty based on the GAIA-X and IDSA principles including the regulation of access and usage policies regarding data chains. Therefore, no end-to-end data exchange and cooperation has been achieved as of today.
+- Missing standardized industry process for notifying suppliers to narrow down quality issues and sending alerts to customers in case of detected faulty components.
 
 ### Quality Notifications
-Quality notifications are the best way to make customers or suppliers aware of a situation that requires timely action or attention. This could be a situation that has just arisen, or a task triggered by a workflow. The "Taceability-KIT" covers two differnt types of notifications: Quality Investigation and Quality Alert.
+Quality notifications are the best way to make customers or suppliers aware of a situation that requires timely action or attention. This could be a situation that has just arisen, or a task triggered by a workflow.
+The Traceability KIT covers two different types of notifications: Quality Investigation and Quality Alert.
+
 A quality investigation is used to try and technically narrow down the cause of a suspected problem with a serialized part or batch. To achieve this, a customer can request his supplier to investigate the affected serialized parts or batches regarding the suspected problem.
-A quality alert is sent by a supplier to a customer and describes identified quality issue(s) in one or more serialized parts or batches delivered to that customer. Thus, the quality alert - besides other information - contains a list of the affected serialized parts or batches and a description of the quality issue(s). In the worst case the quality alert can result in a recall of the affected serialized parts or batches.
+
+A quality alert is sent by a supplier to a customer and describes identified quality issue(s) in one or more serialized parts or batches delivered to that customer.
+Thus, the quality alert - besides other information - contains a list of the affected serialized parts or batches and a description of the quality issue(s).
+In the worst case, the quality alert can result in a recall of the affected serialized parts, batches or vehicles.
+
+The following figure illustrates, how quality investigations and alerts throughout the supply chain enable quality problems to be contained quickly and precisely.
+
+![Quality Notifications](assets/quality_notifications.png)
 
 ### Benefits for OEM, SME and Solution Provider
 #### OEM
-For OEM and large automotive suppliers: The Traceability solution from Catena-X enables companies to identify products affected by a defect faster and more precisely and thus avoiding general and inaccurate recalls. Through this targeted containment, companies can save both time and money with fewer actions for their customers. Moreover, the Traceability solution enables businesses to rapidly identify the affected part and the corresponding supplier after receiving an alert from the customer. This leads to faster and, therefore, cheaper problem-solving for all parties and less complicated claim management. Furthermore, suppliers can prove compliance of their supply chain to upcoming regulations such as the Supply Chain Act.
+For OEM and large automotive suppliers, the traceability solution from Catena-X enables companies to identify products affected by a defect faster and more precisely and thus avoiding general and inaccurate recalls.
+Through this targeted containment, companies can save both time and money with fewer actions for their customers.
+Moreover, the traceability solution enables businesses to rapidly identify the affected part and the corresponding supplier after receiving an alert from the customer.
+This leads to faster and, therefore, cheaper problem-solving for all parties and less complicated claim management.
+
+Furthermore, OEMs and suppliers can prove compliance of production or products like china relevant battery traction codes or product related certificates.
 
 #### SME
-The developed and simple-to-use Traceability solutions support SMEs in their mission to digitize the shop floor and communication with customers and suppliers. Today, in order to provide data to their customers and suppliers, SMEs are obligated to use several, proprietary B2B-interfaces from their customers. With Catena-X aiming to have only one digital interface for all customers and suppliers, it increases the ease of data exchange and saves IT resources. Furthermore, due to the Catena-X data sovereignty principles, all participants know what happens with their data. This increases trust in the data exchange.
+The developed and simple-to-use traceability solutions support SMEs in their mission to digitize the shop floor and communication with customers and suppliers. Today, in order to provide data to their customers and suppliers, SMEs are obligated to use several, proprietary B2B-interfaces from their customers. With Catena-X aiming to have only one digital interface for all customers and suppliers, it increases the ease of data exchange and saves IT resources.
+Furthermore, due to the Catena-X data sovereignty principles, all participants know what happens with their data. This increases trust in the data exchange like quality relevant notifications.
 
 #### Solution Provider
 Solution providers have the potential to scale customer groups and access new market potentials via marketplace and shared service network.
@@ -80,36 +103,13 @@ With the Traceability KIT, we support the Catena-X customer journey for our adop
 
 ![Customer Journey](assets/traceability_customer-journey.png)
 
-## Data Requirements for Traceability
-
-<BillOfMaterials components={props.components} />
-
-### AsPlanned
-
-#### Short Introduction: What is a BoM AsPlanned?
-
-The BoM AsPlanned is the generic list of all possible catalogue parts & materials for a specific vehicle project and the supply chain from OEM to raw material suppliers. The BoM is also called 120% which means that it includes alternative parts / materials (e.g. LED headlights and XENON headlights) and parts for certain markets. It will be set up way before Start of Production (SOP) and be updated if the contents are updated. It is used for Sourcing / Production Planning and always reflects the current state of parts / materials build into this specific vehicle project.
-
-The BoM AsPlanned also includes all versions of parts like changed parts. It has to enable parts/materials provided from multiple manufacturers or the same manufacturer at different production sites. Additionally it must be possible to map relations of the same part/material to different customers.
-
-The complexity of generic is much higher than BoM AsBuilt. It is used for technical topics, e.g., Supply Chain Act, DCM.
-
-## AsBuilt
-
-#### Short Introduction: What is a BoM AsBuilt?
-
-A BoM AsBuilt resembles a single vehicle, which means that each vehicle built has its own individual BoM asBuilt. The BoM includes all part/components which either have a serial number, batch number, JIS number (sequence number) or a combination out of these. This means, that there is a direct and specific connection between a parent and a child part/component so that an accurate and exact traceability is possible.
-
-Also, the BoM is called 100%, as there are no alternative parts included but only built parts. Therefore, it will be set up when a part is produced and can be connected to its parent and child parts.
-
-In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery Passport (CE).
 
 ## Further Explanations
 
 ### Example - Industry Problem
-The KIT enables business to start Quality Investigations and send Quality Alerts in a standardized way while already knowing which parts of your direct customer and suppliers are affected and which are not.
-
-Through the introduction of unique Catena-X IDs, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify them within the whole Catena-X ecosystem. Building on that, it is possible to interconnect the registered digital twins of different companies to create a coherent automotive data chain from end-to-end. Furthermore, those twins can easily be complemented with further data like material information to enable further use cases like Circular Economy.
+Through the Industry Core KIT, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify and connect them one-up / one-down within the whole Catena-X ecosystem.
+This creates a coherent end-to-end automotive data chain.
+Traceability is built on top of this data chain and supplements it to e.g. start Quality Investigations and send Quality Alerts in a standardized way while already knowing which parts of your direct customer and suppliers are affected and which are not.
 
 ### Video
 The following video gives an overview of the presented Traceability Use Case.
