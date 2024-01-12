@@ -132,7 +132,6 @@ components:
         - type
         - description
         - endpointAddress
-        - timeToLive
       properties:
         type:
           type: string
@@ -152,10 +151,6 @@ components:
           maxLength: 500
         resourceId:
           type: string
-        timeToLive:
-          type: integer
-          minimum: 1
-          maximum: 31536000
     SearchRequest:
       title: SearchRequest
       required:
@@ -214,8 +209,7 @@ components:
           "type": "oen",
           "description": "Service to discover BPN to a particular OEN",
           "endpointAddress": "http://...",
-          "documentation": "http://.../swagger/index.html",
-          "timeToLive": 31536000
+          "documentation": "http://.../swagger/index.html"
         }
     discovery-endpoint-result:
       value:
@@ -224,8 +218,7 @@ components:
           "description": "Service to discover BPN to a particular OEN",
           "endpointAddress": "http://...",
           "documentation": "http://.../swagger/index.html",
-          "resourceId": "ec6f407b-4296-418c-9e4e-fb739fe72a67",
-          "timeToLive": 31536000
+          "resourceId": "ec6f407b-4296-418c-9e4e-fb739fe72a67"
         }
     discovey-endpoint-search:
       value:
@@ -241,24 +234,21 @@ components:
               "description": "Service to discover BPN to a particular OEN",
               "endpointAddress": "http://...",
               "documentation": "http://.../swagger/index.html",
-              "resourceId": "ec6f407b-4296-418c-9e4e-fb739fe72a67",
-              "timeToLive": 31536000
+              "resourceId": "ec6f407b-4296-418c-9e4e-fb739fe72a67"
             },
             {
               "type": "bpid",
               "description": "Service to discover BPN to a particular Battery Pass ID",
               "endpointAddress": "http://...",
               "documentation": "http://.../swagger/index.html",
-              "resourceId": "08702529-3714-4c4f-b022-346b9b4fbbe2",
-              "timeToLive": 31536000
+              "resourceId": "08702529-3714-4c4f-b022-346b9b4fbbe2"
             },
             {
               "type": "bpn",
               "description": "Service to discover EDC to a particular BPN",
               "endpointAddress": "http://...",
               "documentation": "http://.../swagger/index.html",
-              "resourceId": "316417cd-0fb5-4daf-8dfa-8f68125923f1",
-              "timeToLive": 31536000
+              "resourceId": "316417cd-0fb5-4daf-8dfa-8f68125923f1"
             }
           ]
         }
