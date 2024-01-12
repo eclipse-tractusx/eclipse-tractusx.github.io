@@ -129,40 +129,13 @@ There are no non-functional requirements defined for this release.
 
 Notifications are - in contrast to classical data offers - a way to push data from a sender to a receiver. In the below paragraphs, the implementation is described to realize quality notifications. In that sense, the below specification has not the scope and intention to be a general solution pattern for notifications across various use cases. For now, it is limited to the sending and receiving of quality notifications as well as the update of the notification status (following a predefined status model).
 
-#### Notification State Model 
+> :raised_hand: Detailed Open API specifications for Quality Alerts & Investigations are available in the Software Development View. For the current release, [version 1.1.0](<./Software Development View/Notification API/v1.1.0 - mandatory/notification-api>) is mandatory and must be supported by every App provider. The newer [version 1.2.0](<./Software Development View/Notification API/v1.2.0 - optional/notification-api>) can be supported optionally.
 
-Notifications always have a status. The transition from one status to a subsequent status is described in the below state model.
+#### Notification State Model
 
-> :raised_hand: The Sender can change the status to CLOSED from any status. The receiver can never change the status to CLOSED.
+The notification itself has various states. The states and their cycle are described in the following figure:
 
-The legend in the below state diagram describes who can set the status. One exception from this rule: the transition from status SENT to status RECEIVED is not done with a separate Http POST update call from the receiver. Rather, this status transition is implicitly done once the Sender receives the Http status code 201 after the initial Http POST to send/receive the notification.
-
-### Resolution of a Quality Notification
-
-The resolution is an optional feature, which MAY be implemented by a traceability application. It is an information that helps an end user working with quality notifications to know how a quality notification has been resolved. Especially, with the resolution it is possible for an end user to know the resolution for an already closed quality notification.
-
-The resolution is an information attached to a quality notification and can have the following values:
-- OPEN
-- ACCEPTED
-- DECLINED
-- ABORTED
-
-The above mentioned values are automatically set with each status transition as defined in the notification state model. The following table defines the values of the resolution based on those status transitions:
-
-| Start Status | End Status | Resolution Value |
-| :-- | :-- | :-- |
-| None	| CREATED	| OPEN |
-| CREATED	| SENT	| OPEN |
-| SENT	| RECEIVED	| OPEN |
-| RECEIVED	| ACKNOWLEDGED	| OPEN |
-| ACKNOWLEDGED	| ACCEPTED	| ACCEPTED |
-| ACKNOWLEDGED	| DECLINED	| DECLINED |
-| ACCEPTED	| CLOSED	| ACCEPTED |
-| DECLINED	| CLOSED	| DECLINED |
-| ACKNOWLEDGED	| CLOSED	A| BORTED |
-| RECEIVED	| CLOSED	| ABORTED |
-| SENT	| CLOSED	| ABORTED |
-| CREATED	| LOSED	| ABORTED |
+![Notification State Model](./assets/notification-state-model.png)
 
 ## Runtime View
 
@@ -215,8 +188,6 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 - [CX - 0019 Aspect Model: Serial Part](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0019-AspectModelSerialPart-v2.0.0.pdf)
 - [CX - 0020 Aspect Model: Single Level BoMAsBuilt](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0020-AspectModelSingleLevelBoMAsBuilt-v.2.0.0.pdf)
 - [CX - 0021 Aspect Model: Batch](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0021__Batch_UseCaseTraceability_v_1.0.1.pdf)
-- [CX - 0022 Notification Process](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0022_Notification_Process_v_1.1.1.pdf)
-- [CX - 0023 Notification API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0023-NotificationAPI-v1.2.2.pdf)
 - [CX - 0042 Aspect Model: Single Level BomAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0042-AspectModelSingleLevelBomAsPlanned-v1.1.2.pdf)
 - [CX - 0043 Semantic Model: PartAsPlanned](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Traceability/CX_-_0043_Semantic_Model_PartAsPlanned_v_1.0.1.pdf)
 - [CX - 0093 Aspect Model Traction Battery Code](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0093-AspectModelTractionBatteryCode-v1.0.0.pdf)
