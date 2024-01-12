@@ -1,6 +1,6 @@
 # Creating an Asset
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {

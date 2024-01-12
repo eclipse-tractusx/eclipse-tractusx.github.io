@@ -1,6 +1,6 @@
 # Initiation a Transfer Process
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {
