@@ -8,7 +8,7 @@ sidebar_position: 1
 The following describes the standards for implementation of the Connector Kit.
 They detail the necessary functionality of as well as the expected communication with a Connector.
 
-## Dataspace Protocol
+## Dataspace Protocol (DSP)
 
 The core specification for the Connector Kit is the Dataspace Protocol (DSP), which can be found [here](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme).
 This specification is supplied by the International Data Spaces Association (IDSA).
@@ -17,6 +17,12 @@ The DSP provides the core specifications for exchanges between connectors, inclu
 In the reference implementation, these are the management plane and the data plane.
 
 ![IMG: DSP Diagram](https://1597595229-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlnGZQUB3A7aTQkUjaEA4%2Fuploads%2Fgit-blob-fb75be575f63a8e65f3e14563607363f52daf352%2FProtocolOverview.png?alt=media)
+
+## Identity and Trust Protocol (IATP)
+
+In Catena-X, the interaction between the wallets holding a participant's identity credentials and the connector is 
+specified by the [IATP](https://github.com/eclipse-tractusx/identity-trust). This protocol is currently under development with the Eclipse-Tractusx community and will find 
+its way into the IDSA and international standardization bodies.
 
 ## Catena X Standard Library
 
