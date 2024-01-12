@@ -24,7 +24,7 @@ Sharing data along the automotive supply chain adds great value for every partic
 ### Mission
 
 Collaboration needs trust. Within Catena-X trust is built on an open-source architecture and components designed to support full sovereignity.
-The Connector KIT provides the single source of information and technology to perform trustful data exchange within Catena-X. The Connector KIT bundles the interaction patterns, relevant standards, APIs, and reference implementations for developers.
+The Connector KIT provides the single directory of information and technology to perform trustful data exchange within Catena-X. The Connector KIT bundles the interaction patterns, relevant standards, APIs, and reference implementations for developers.
 
 ## Concept
 
@@ -43,7 +43,7 @@ With the [EDC][edc-url], a new communication component was introduced, which imp
 
 ## Use Case
 
-The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therfore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of an [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required.
+The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therefore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of a connector compliant to the [DSP](dsp-url) such as the [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required explained in subsequent Kits.
 
 - [Sustainability][sustainability-url]
 - [Traceability][traceability-url]
@@ -66,7 +66,7 @@ The main difference between the EDC and the previous connectors of the [IDSA][id
 
 The architecture of the EDC combines various services that are necessary for the above principles:
 
-- An interface to the Identity Provider service, currently the [Managed identity Wallet][miw-url]. This central service provides the identity and the corresponding authentication of the participants in the data exchange. Decentralized solutions will also be supported in the future, following [Gaia-X][gaiax-url]'s principles and implementing self sovereign identity.
+- An interface to the Identity Provider service, currently [IDSA][idsa-url]'s [Identity And Trust Protocol][iatp-url] communicating  with the [Managed identity Wallet][miw-url]. This central service provides the identity and the corresponding authentication of the participants in the data exchange. (There is no authorization at this point). Decentralized solutions will also be supported in the future.
 - The provision of possible offers (contract offering) which, on the one hand, stipulates the data offered and the associated terms of use (policies) in corresponding contracts.
 - An interface for manual selection of data and associated contract offers.
 - The actual data transfer via the data plane extension
@@ -85,13 +85,15 @@ The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Ev
 
 ### Terminology
 
-The shown picture illustrates only a generic view of the Domain Model and is not intended to show all aspects of the project.
+The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of 
+the implementation. Most of the Domain-Model-Elements are represented by separate APIs. Please check the [Management API Walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs)
+in the tractusx-edc repository for more a reference on usage of the API.
 
 ![domain_model](@site/static/img/domain_model.drawio.svg)
 
 #### Extensions
 
-There are different extenions for the Connector, e.g. for the Data Plane. This enables various tranfer modes like httpData or via blob-storage.
+There are different extenions for the Connector, e.g. for the Data Plane. This enables various transfer modes like httpData or via blob-storage.
 
 #### Data Plane
 
@@ -150,15 +152,17 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
 
 [edc-url]: https://github.com/eclipse-edc/Connector
+[dsp-url]: https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme
 [gaiax-url]: https://www.data-infrastructure.eu/GAIAX/Navigation/EN/Home/home.html
 [idsa-url]: https://internationaldataspaces.org/
 [miw-url]: https://github.com/eclipse-tractusx/managed-identity-wallet
-[traceability-url]: https://github.com/eclipse-tractusx/traceability-foss
-[sustainability-url]: https://github.com/ChristopherWinterZF/pcf-exchange-kit/tree/featurebranch/devlopmentview
-[BPDM-url]: https://github.com/eclipse-tractusx/bpdm
-[DCM-url]: https://github.com/eclipse-tractusx/demand-capacity-mgmt/blob/main/README.md
+[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit
+[sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Circularity_KIT/page-adoption-view
+[BPDM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Business%20Partner%20Kit/Adoption%20View
+[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/DCM%20Kit/adoption-view
 [PURIS-url]: https://github.com/eclipse-tractusx/puris
 [digital-product-pass-url]:https://github.com/eclipse-tractusx/digital-product-pass
+[iatp-url]: https://github.com/eclipse-tractusx/identity-trust
 [Catena-X-Standards-url]:https://catena-x.net/de/standard-library
 [CX0018]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0018-EclipseDataConnector_EDC_-v.2.0.1.pdf
 [CX0049]:https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0049-DIDDocument-v.1.0.0.pdf
