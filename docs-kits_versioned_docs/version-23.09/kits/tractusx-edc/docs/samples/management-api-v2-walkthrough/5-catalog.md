@@ -1,6 +1,6 @@
 # Fetching provider's Catalog
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {

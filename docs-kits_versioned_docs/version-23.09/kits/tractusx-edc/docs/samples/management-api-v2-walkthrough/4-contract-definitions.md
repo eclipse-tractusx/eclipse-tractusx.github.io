@@ -1,6 +1,6 @@
 # Creating a Contract Definition
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {

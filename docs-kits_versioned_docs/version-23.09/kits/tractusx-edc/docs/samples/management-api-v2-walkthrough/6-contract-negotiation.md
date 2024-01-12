@@ -1,6 +1,6 @@
 # Initiation a Contract Negotiation
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {

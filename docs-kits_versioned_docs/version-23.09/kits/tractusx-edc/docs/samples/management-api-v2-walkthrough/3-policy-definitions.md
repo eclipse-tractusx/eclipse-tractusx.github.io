@@ -1,6 +1,6 @@
 # Creating a Policy Definition
 
-## Plain old JSON Schema
+## Old plain JSON Schema
 
 ```json
 {
