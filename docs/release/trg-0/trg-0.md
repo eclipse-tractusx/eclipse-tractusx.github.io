@@ -6,6 +6,7 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                  |
 |--------------|-----------------------------------------------------------------------------------------------|
+| 10-Jan-2024  | Remove TRG 2.02 - Repo permission, since specified in our "OSS - How to contribute" already   |
 | 04-Dec-2023  | TRG 7.06 update Shared UI Components / NPM library                                            |
 | 09-Oct-2023  | TRG 4.06 add base image for hashicorp vault                                                   |
 | 29-Sep-2023  | TRG 4.02 / 06 add Alpine Linux to list of container base images                               |
