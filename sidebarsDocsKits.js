@@ -164,6 +164,19 @@ const sidebars = {
         },
         {
             type: 'category',
+            label: 'Certificate Management KIT',
+            link: {
+                type: 'doc',
+                id: 'kits/Certificate Management Kit/Adoption View'
+            },
+            items: [
+                'kits/Certificate Management Kit/Changelog',
+                'kits/Certificate Management Kit/Adoption View',
+                'kits/Certificate Management Kit/Operation View'
+            ]
+        },
+        {
+            type: 'category',
             label: 'Circularity KIT',
             link: {
                 type: 'doc',
