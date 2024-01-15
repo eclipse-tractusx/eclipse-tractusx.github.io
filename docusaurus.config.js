@@ -76,15 +76,6 @@ const config = {
         docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
     ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'docs-products',
-        path: 'docs-products',
-        routeBasePath: 'docs-products',
-        sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
-      },
-    ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
