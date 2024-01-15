@@ -67,6 +67,11 @@ More information:
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>  
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
 
+:::caution
+Be careful, Dependabot PR merge can lead to out of date DEPENDENCIES file.
+Make sure DEPENDENCIES file is updated by DASH tool.
+:::
+
 :::info
 Importance of Implemented Tests:
 
