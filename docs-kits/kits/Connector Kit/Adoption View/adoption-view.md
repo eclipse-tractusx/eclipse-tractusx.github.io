@@ -13,8 +13,6 @@ sidebar_position: 1
 
 The Connector Kit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign, cross-enterprise data exchange.
 
-![EDC Overview](images/edc_overview.png)
-
 ## Vision & Mission
 
 ### Vision
