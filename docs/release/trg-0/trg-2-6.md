@@ -20,7 +20,7 @@ Key Benefits:
 
 Dependabot is an excellent fit for application dependencies/vulnerabilities. By regularly checking for updates, it allows you to seamlessly integrate the latest improvements into your application.
 
-For Docker images, Dependabot ensures that your base images and dependencies are regularly updated, reducing the risk of using outdated or vulnerable components.
+For Docker images, Dependabot ensures that your [base images](https://eclipse-tractusx.github.io/docs/release/trg-4/trg-4-02) and dependencies are regularly updated, reducing the risk of using outdated or vulnerable components.
 
 Dependabot can also assist in keeping used GitHub Actions up to date. This is crucial for ensuring that your workflows leverage the latest GitHub Actions features and improvements.
 
@@ -37,6 +37,11 @@ To enable Dependabot for version updates, create a dependabot.yml file in .githu
 ### Example
 
 This configuration checks for Maven, GitHub Action and Docker updates on a weekly basis and creates pull requests for up to 5 updates at a time.
+
+:::caution
+Be careful, Dependabot PR merge can lead to out of date DEPENDENCIES file.
+Make sure DEPENDENCIES file is updated by DASH tool.
+:::
 
 ```yaml
 version: 2
@@ -66,11 +71,6 @@ updates:
 More information:  
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates>  
 <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>
-
-:::caution
-Be careful, Dependabot PR merge can lead to out of date DEPENDENCIES file.
-Make sure DEPENDENCIES file is updated by DASH tool.
-:::
 
 :::info
 Importance of Implemented Tests:
