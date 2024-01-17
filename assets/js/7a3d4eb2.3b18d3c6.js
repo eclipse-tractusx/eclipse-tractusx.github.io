@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([[48335],{77374:t=>{t.exports=JSON.parse('{"title":"Products","slug":"/category/products","permalink":"/docs-products/category/products","navigation":{"next":{"title":"Portal","permalink":"/docs-products/products/portal"}}}')}}]);
