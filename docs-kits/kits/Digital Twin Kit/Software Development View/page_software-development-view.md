@@ -65,8 +65,8 @@ several high-level concepts for DDTRs are introduced. The AAS-specification rema
 none of them. Catena-X must deal with the additional complexity that stems from the interaction with the EDC.
 
 Leveraging the native capabilities of the EDC and the EDC Discovery Service, Catena-X uses a discovery pattern that has the
-same capability as a central [Digital Twin Registry](#digital-twin-registry): 
-It allows to start a Discovery Process with an Asset ID. 
+same capability as a central [Digital Twin Registry](#digital-twin-registry):
+It allows to start a Discovery Process with an Asset ID.
 However, in Catena-X some of the data is deemed so sensitive that a central authority can't be
 trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR. 
 This poses a challenge for discovery if the BPN of the supplier is not known by the data consumer. After all, a
