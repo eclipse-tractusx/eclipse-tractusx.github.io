@@ -68,7 +68,7 @@ Leveraging the native capabilities of the EDC and the EDC Discovery Service, Cat
 same capability as a central [Digital Twin Registry](#digital-twin-registry):
 It allows to start a Discovery Process with an Asset ID.
 However, in Catena-X some of the data is deemed so sensitive that a central authority can't be
-trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR. 
+trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR.
 This poses a challenge for discovery if the BPN of the supplier is not known by the data consumer. After all, a
 Data Consumer must still find out the address where to fetch the data from. That's why Catena-X has introduced a 
 three-step discovery pattern made up of the central microservices Discovery Finder, BPN Discovery (or several of them) 
