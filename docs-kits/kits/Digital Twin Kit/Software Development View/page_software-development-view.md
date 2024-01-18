@@ -79,7 +79,7 @@ The Discovery Finder and the BPN Discovery service are described as part of this
 
 The services that make up the Digital Twin Kit partly rely on each other. Executing them in the right sequence allows 
 a Data Consumer to get access to data whose location was previously unknown. However, this discovery process relies on a 
-set of assumptions. Most relevant is the presence of the discovery services defined in 
+set of assumptions. Most relevant is the presence of the discovery services defined in
 CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx), 
 [BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx)) 
 and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)). 
