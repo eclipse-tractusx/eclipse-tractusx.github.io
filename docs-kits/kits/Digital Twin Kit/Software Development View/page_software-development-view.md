@@ -60,7 +60,7 @@ their DTR in any way they desire.
 DTRs hold sensitive information: a SubmodelDescriptor may not give access to the actual Submodel-data but all in cumulo hint at 
 production volumes as each Twin represents an asset. Therefore, Catena-X implements decentral DTRs (DDTR), each running with a 
 business partner.
-[In an IDTA-Whitepaper](https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/06/Decentralized-Registries-Taxonomy-of-decentralized-registries-and-an-architectural-overview_.pdf ),
+[In an IDTA-Whitepaper](https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/06/Decentralized-Registries-Taxonomy-of-decentralized-registries-and-an-architectural-overview_.pdf),
 several high-level concepts for DDTRs are introduced. The AAS-specification remains agnostic to the approaches and endorses
 none of them. Catena-X must deal with the additional complexity that stems from the interaction with the EDC.
 
