@@ -60,7 +60,7 @@ const itemLink = {
     fontSize: '14px',
     lineHeight: '18px',
     color: '#faa023',
-    listStyleImage: 'url(\"../../../static/img/product_link_bullet.png\")'
+    listStyleImage: 'url("/img/product_link_bullet.png")'
 }
 
 const itemTitle = {
