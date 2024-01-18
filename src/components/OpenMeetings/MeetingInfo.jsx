@@ -18,8 +18,6 @@
  ********************************************************************************/
 import React from 'react';
 
-import styles from "./styles.module.css";
-
 export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined}) {
     return (
         <section style={meetingInfo}>
@@ -30,24 +28,24 @@ export default function MeetingInfo({title, schedule, description, contact, sess
             <div style={meetingDetails}>
                 <p>{description}</p>
                 
-                <ul className={styles.meeting_contact_item}>
-                    <li className={styles.item_title}>Contact:</li>
-                    <li className={styles.item_link}>
+                <ul>
+                    <li style={itemTitle}>Contact:</li>
+                    <li style={itemLink}>
                         <a href={"mailto:" + contact}>{contact}</a>
                     </li>
                 </ul>
 
-                <ul className={styles.meeting_participation_item}>
-                    <li className={styles.item_title}>Participation opportunities:</li>
+                <ul>
+                    <li style={itemTitle}>Participation opportunities:</li>
                     { 
                         sessionLink && 
-                            <li className={styles.item_link}>
+                            <li style={itemLink}>
                                 <a href={sessionLink}>Join Meeting</a>
                             </li> 
                     }
                     { 
                         meetingLink &&
-                            <li className={styles.item_link}>
+                            <li style={itemLink}>
                                 <a href={meetingLink}>Download calendar file</a>
                             </li>
                     }
@@ -56,6 +54,21 @@ export default function MeetingInfo({title, schedule, description, contact, sess
         </section>
     );
 }
+
+const itemLink = {
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    color: '#faa023',
+    listStyleImage: 'url(\"../../../static/img/product_link_bullet.png\")'
+}
+
+const itemTitle = {
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    listStyle: 'none'
+  }
 
 const meetingInfo = {
     display: 'flex',
