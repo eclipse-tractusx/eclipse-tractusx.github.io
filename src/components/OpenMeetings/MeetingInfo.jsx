@@ -18,7 +18,7 @@
  ********************************************************************************/
 import React from 'react';
 
-export default function MeetingInfo({title, schedule, description, contact}) {
+export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined}) {
     return (
         <section style={meetingInfo}>
             <div style={meetingOverview}>
@@ -27,12 +27,48 @@ export default function MeetingInfo({title, schedule, description, contact}) {
             </div>
             <div style={meetingDetails}>
                 <p>{description}</p>
-                <p>Contact:</p>
-                <a href={"mailto:" + contact}>{contact}</a>.
+                
+                <ul>
+                    <li style={itemTitle}>Contact:</li>
+                    <li style={itemLink}>
+                        <a href={"mailto:" + contact}>{contact}</a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li style={itemTitle}>Participation opportunities:</li>
+                    { 
+                        sessionLink && 
+                            <li style={itemLink}>
+                                <a href={sessionLink}>Join Meeting</a>
+                            </li> 
+                    }
+                    { 
+                        meetingLink &&
+                            <li style={itemLink}>
+                                <a href={meetingLink}>Download calendar file</a>
+                            </li>
+                    }
+                </ul>
             </div>
         </section>
     );
 }
+
+const itemLink = {
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    color: '#faa023',
+    listStyleImage: 'url("/img/product_link_bullet.png")'
+}
+
+const itemTitle = {
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    listStyle: 'none'
+  }
 
 const meetingInfo = {
     display: 'flex',
