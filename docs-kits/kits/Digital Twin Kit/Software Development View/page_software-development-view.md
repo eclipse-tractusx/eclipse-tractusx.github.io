@@ -73,7 +73,7 @@ This poses a challenge for discovery if the BPN of the supplier is not known by 
 Data Consumer must still find out the address where to fetch the data from. That's why Catena-X has introduced a 
 three-step discovery pattern made up of the central microservices Discovery Finder, BPN Discovery (or several of them) 
 and finally the EDC discovery that is part of the CX-Portal.
-The Discovery Finder and the BPN Discovery service are described as part of this Kit. 
+The Discovery Finder and the BPN Discovery service are described as part of this Kit.
 
 ## Discovery Sequence
 
