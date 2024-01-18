@@ -18,7 +18,9 @@
  ********************************************************************************/
 import React from 'react';
 
-export default function MeetingInfo({title, schedule, description, contact}) {
+import styles from "./styles.module.css";
+
+export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined}) {
     return (
         <section style={meetingInfo}>
             <div style={meetingOverview}>
@@ -27,8 +29,29 @@ export default function MeetingInfo({title, schedule, description, contact}) {
             </div>
             <div style={meetingDetails}>
                 <p>{description}</p>
-                <p>Contact:</p>
-                <a href={"mailto:" + contact}>{contact}</a>.
+                
+                <ul className={styles.meeting_contact_item}>
+                    <li className={styles.item_title}>Contact:</li>
+                    <li className={styles.item_link}>
+                        <a href={"mailto:" + contact}>{contact}</a>
+                    </li>
+                </ul>
+
+                <ul className={styles.meeting_participation_item}>
+                    <li className={styles.item_title}>Participation opportunities:</li>
+                    { 
+                        sessionLink && 
+                            <li className={styles.item_link}>
+                                <a href={sessionLink}>Join Meeting</a>
+                            </li> 
+                    }
+                    { 
+                        meetingLink &&
+                            <li className={styles.item_link}>
+                                <a href={meetingLink}>Download calendar file</a>
+                            </li>
+                    }
+                </ul>
             </div>
         </section>
     );
