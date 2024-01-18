@@ -1,0 +1,19 @@
+/**
+* CSS files with the .module.css suffix will be treated as CSS modules
+* and scoped locally.
+*/
+
+.item_title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  list-style: none;
+}
+
+.item_link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #faa023;
+  list-style-image: url('../../../static/img/product_link_bullet.png');
+}
