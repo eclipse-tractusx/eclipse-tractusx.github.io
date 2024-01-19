@@ -119,7 +119,7 @@ The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
 
 **Scenario Simulation Results Updated** is a reference to the aspect model MaterialFlowSimulationResult and includes the simulation result of the scenario related change.
 
-#### Aspect Model
+#### Link to the semantic data models
 
 Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/1.0.0>
 
@@ -163,6 +163,79 @@ The following appropriate configurations must be made in advance of the data exc
 4. The certificates required for SSI are issued on request.
 
 At runtime the OSim Manager application must know the partner BPN-ID of the communication partner. With this BPN-ID, a look-up command is issued on the Discovery Service. The result is the endpoint link that the EDC connector needs to establish the connection.
+
+## Policies
+
+### ACCESS POLICIES
+
+To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange standard](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/3_Sovereign_Data_Exchange/CX_-_0018_EDC_PlatformCapabilitySovereignDataExchange_v_1.0.1.pdf).
+
+To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
+
+#### BPN Access Policy
+
+This policy allows limiting access to a data offer based on a list of specific BPNs. This translates to the following functionality:
+
+- The data offer creator will be able to create a policy listing all the BPN that can access the data offer
+- This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
+
+Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector Kit](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
+
+### USAGE POLICIES
+
+To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
+Policies are defined based on the W3C ODRL format. This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the odrl:and operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all traceability aspects. An example of one usage policy containing three different constraints is shown and described in the following:
+
+**Sample-1**: The following example shows the payload used to create a usage policy with the restriction regarding Membership in CATENA-X network related to the consuming partner.
+
+```json
+{
+  "@context": {
+    "odrl": http://www.w3.org/ns/odrl/2/
+  },
+  "@type": "PolicyDefinitionRequestDto",
+  "@id": "<POLICY-ID>", // Important for the contract definition
+  "policy": {
+    "@type": "Policy",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "LogicalConstraint",
+          "odrl:and": [ // All of the following three constraints have to be fullfilled (and, not or)
+            // First constraint to verify the the Catena-X membership
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": "Membership",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "active"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+#### Membership Policy
+
+To verify the participants Catena-X membership, the Membership verifiable credential can be used. In case of a policy, the data can only be used from verified Catena-X members. The payload is shown in the first constraint-part of the example above and described in detail in the [EDC part of the SSI documentation](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#1-membership-constraint).
+
+**Sample-2**: Membership Usage Policy example
+
+```json
+{
+ "@type": "Constraint",
+ "odrl:leftOperand": "Membership",
+ "odrl:operator": {
+ "@id": "odrl:eq"
+ },
+ "odrl:rightOperand": "active"
+}
+```
 
 ## Standards
 
