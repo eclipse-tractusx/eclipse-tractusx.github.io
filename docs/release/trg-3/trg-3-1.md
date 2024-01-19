@@ -1,49 +1,75 @@
 ---
-title: TRG 3.01 Superseded Supported Versions
+title: TRG 3.01 - Persist Data
 ---
 
-| Status     | Created      | Post-History         |
-|------------|--------------|----------------------|
-| Superseded | 08-Mar-2023  | Marked as superseded |
-| Moved      | 02-Jan-2023  | content moved        |
-| Draft      | 13-Sept-2022 | n/a                  |
+| Status | Created     | Post-History      |
+|--------|-------------|-------------------|
+| Update | 18-Jan-2024 | update trg number |
+| Draft  | 17-Jul-2023 | 'loos' typo fix   |
+| Active | 07-Mar-2023 |                   |
+| Draft  | 02-Jan-2023 | n/a               |
+| Moved  | 02-Jan-2023 | content moved     |
 
-## Superseded by TRG 5.09 - Helm test
+## Why
 
-This is superseded by [TRG 5.09 - Helm test](../trg-5/trg-5-09)
+In cases where data has to be persisted (database, uploaded files etc.), Kubernetes **must** be configured to create Persistent Volume that is attached to an underlying disk where data remains even after the deletion of the application. Otherwise, an incidental deletion will delete all state.
 
-## ~~Description~~
+## Description
 
-~~As new Kubernetes versions are released every few months, teams need to support 3 versions at a time:~~
+Using stateful data requires additional caution to not lose data by accident. Therefore, when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
 
-- latest
-- latest - 1
-- latest - 2
+## How
 
-~~For checking the current versions available please use the [AKS Kubernetes release calendar](https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar). The __AKS GA__ column is relevant and determines which is the Azure release date of a Kubernetes version. Example: at 02-Jan-2023 the current AKS GA version is 1.25, therefore the supported versions are 1.25, 1.24 and 1.23.~~
-
-## ~~Testing compatibility~~
-
-~~For testing whether the application is compatible with the supported Kubernetes versions CI/CD pipeline integration or local deployment is recommended. For local deployment please see [Kind](https://kind.sigs.k8s.io/) clusters where a Kubernetes cluster can be started with a [specific version](https://kind.sigs.k8s.io/docs/user/configuration/#kubernetes-version) locally on a development machine. Example for example:~~
+Example PersistentVolumeClaim:
 
 ```yaml
-# config.yaml
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-- role: worker
-  image: kindest/node:v1.25.3@sha256:f1de3b0670462f43280114eccceab8bf1b9576d2afe0582f8f74529da6fd0365
+# pvc.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-persistent-tmp-demo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
 ```
 
-~~After Kind is installed locally, run the following command with the config above:~~
+This can be referenced in the volumes section of a Pod/Deployment/StatefulSet resource:
 
-```sh
-kind create cluster --config=config.yaml
+```yaml
+# deployment.yaml
+#...
+      volumes:
+        - name: pv-tmp-demo
+          persistentVolumeClaim:
+            claimName: pvc-persistent-tmp-demo
+#...
 ```
 
-~~A Kubernetes node will start with version 1.25.~~
+:::tip
 
-## ~~Why~~
+It is not recommended to directly request the claim in a StatefulSet! Rather create the PVC separately and reference that as an existing claim. See the example in [Bitnami's Postgresql chart](https://github.com/bitnami/charts/tree/main/bitnami/postgresql) where an existing claim can be referenced for the primary database at the [primary.persistence.existingClaim property](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#postgresql-primary-parameters).
 
-~~New Kubernetes minor versions are released quite frequently with bugfixes, security patches and new features. Clusters implement these new versions at a different pace but the applications that are deployed there has to be supported.~~
+:::
+
+### How to expand volume in Kubernetes with ArgoCD
+
+1. Open **ArgoCD** in the desired environment and find the application
+1. Delete all Pod's that are attached to the volume. This also can be achieved by **scaling a StatefulSet to 0 replicas**
+1. Find the desired PersistenceVolumeClaim resource, click on it and press **Edit**
+1. Change the **spec.resource.requests.storage** property's value to the desired size
+1. Save the changes and wait for them to take effect.
+   This can be found in the PVC's status section:
+
+   ```yaml
+   status:
+     accessModes:
+       - ReadWriteOnce
+     capacity:
+       storage: 16Gi # DESIRED SIZE
+     phase: Bound
+   ```
+
+1. Scale back the StatefulSet to the original replica count
