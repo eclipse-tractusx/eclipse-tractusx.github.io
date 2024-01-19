@@ -166,7 +166,7 @@ At runtime the OSim Manager application must know the partner BPN-ID of the comm
 
 ## Policies
 
-### ACCESS POLICIES
+### Access Policies
 
 To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the EDC, described in the following. Further details are described in the [CX - 0018 Sovereign Data Exchange standard](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/3_Sovereign_Data_Exchange/CX_-_0018_EDC_PlatformCapabilitySovereignDataExchange_v_1.0.1.pdf).
 
@@ -181,7 +181,7 @@ This policy allows limiting access to a data offer based on a list of specific B
 
 Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector Kit](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
 
-### USAGE POLICIES
+### Usage Policies
 
 To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 Policies are defined based on the W3C ODRL format. This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the odrl:and operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all traceability aspects. An example of one usage policy containing three different constraints is shown and described in the following:
