@@ -1,10 +1,9 @@
 ---
-title: TRG 3.01 - Persist Data
+title: TRG 3.02 - Persist Data
 ---
 
 | Status | Created     | Post-History      |
 |--------|-------------|-------------------|
-| Update | 18-Jan-2024 | update trg number |
 | Draft  | 17-Jul-2023 | 'loos' typo fix   |
 | Active | 07-Mar-2023 |                   |
 | Draft  | 02-Jan-2023 | n/a               |
