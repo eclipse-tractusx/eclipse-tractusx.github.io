@@ -37,7 +37,7 @@ in the Quality Use-Case.
   "@type": "edc:Asset",
   "edc:properties": {
     "dct:type": {
-      "@id": "cx-taxo:ProductDescription"
+      "@id": "cx-taxo:QualityAsset"
     },
     "cx-common:version": "1.0",
     "dct:language": {
