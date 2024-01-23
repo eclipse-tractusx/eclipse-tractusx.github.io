@@ -47,6 +47,7 @@ cd <path/of/mxd>
 
 ```shell
 kind create cluster -n mxd --config kind.config.yaml
+```
 
 ```shell
 # 
