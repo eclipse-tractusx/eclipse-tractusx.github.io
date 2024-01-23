@@ -154,7 +154,7 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses/<ID>' \
 ```
 
 - If the transfer was **successful**, Alice will see an ouput as shown below.
-- If the transfer was **unsuccessful**, the transfer state will be `TERMINATED`.
+- If the transfer was **unsuccessful**, the transfer state (`edc:state`) will be `TERMINATED`.
 
 ```json
 {
