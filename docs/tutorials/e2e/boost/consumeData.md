@@ -214,6 +214,7 @@ curl -X GET -H '<authKey>: <authCode>' <endpoint>
 :::warning
 In this example, we can not use the endpoint URL as is, because we are working with a local Kubernetes cluster and can not use the cluster internal URL. Therefore, we have to use the ingress URL instead.
 :::
+
 In this example, this results in the following request:
 
 ```shell
