@@ -174,6 +174,7 @@ In order to check that the connectors were deployed successfully, please execute
 ```shell
 curl -X GET http://localhost/bob/health/api/check/liveness | jq
 ```
+
 ```shell
 curl -X GET http://localhost/alice/health/api/check/liveness | jq
 ```
