@@ -75,6 +75,7 @@ curl --location 'http://localhost/alice/management/v2/contractnegotiations/<ID>'
 
 - If the negotiation was **successful**, Alice will see an ouput as shown below.
 - If the negotiation was **unsuccessful**, the negotiation state will be `TERMINATED` and no contract agreement ID will be present.
+
 ```json
 {
   "@type": "edc:ContractNegotiation",
@@ -106,7 +107,7 @@ Alice wants to send the data to her backend application ("<http://backend:8080>"
 
 :::warning
 
-For testing purposes, you should replace `backend:8080` with your own test API or use [webhook. site](https://webhook.site/) as your backend system. 
+For testing purposes, you should replace `backend:8080` with your own test API or use [webhook. site](https://webhook.site/) as your backend system.
 If you do not change this, you will not be able to view the received token, which is required for requesting the data!
 If you are using webhook.site, please make sure that you use "Your unique URL" and that you do not transfer any sensitive information to webhook.
 
@@ -153,6 +154,7 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses/<ID>' \
 
 - If the transfer was **successful**, Alice will see an ouput as shown below.
 - If the transfer was **unsuccessful**, the transfer state will be `TERMINATED`.
+
 ```json
 {
   "@id": "6d6bca4e-4da5-4ed3-9fe5-2b98623d9a59",
@@ -192,6 +194,7 @@ curl --location 'http://localhost/alice/management/edrs?assetId=3' \
 ## Consume the data
 
 In her backend, Alice can now see the following output:
+
 ```json
 {
   "id": "841e3cd7-add0-47fd-adef-ea8074ec50af",
@@ -201,7 +204,9 @@ In her backend, Alice can now see the following output:
   "properties": {}
 }
 ```
+
 Alice can now request the data using the provided information as follows:
+
 ```shell
 curl -X GET -H '<authKey>: <authCode>' <endpoint>
 ```
@@ -210,10 +215,10 @@ curl -X GET -H '<authKey>: <authCode>' <endpoint>
 In this example, we can not use the endpoint URL as is, because we are working with a local Kubernetes cluster and can not use the cluster internal URL. Therefore, we have to use the ingress URL instead.
 :::
 In this example, this results in the following request:
+
 ```shell
 curl -X GET -H 'Authorization: eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MDI5OTE2NTUsImRhZCI6InIyaVpYUE9kSGJvUHBMTXZTS1hlSjgrc05WSThuS0V6WnhHa3hrSHN0YVJ1Z3l3TTlNRkxQbWJaT0toOUFXKzRwMlVZT3hEQitGMlNsbEFnTGZ0c1IyVVIxbE5RZEhNeFVDYkM3Nm12U0xmdkw4RFpZM2E0bG1pTXU4VUU3Zk92aXczaGlyKy9zWFRtNDU5M3EweXBHRmRaZ1VORko3ZnFRbjI2OStyWmZzWnZtaitLaWZZMURJcEQ5ZEQ1NkNURW1naTczU1VyRWF5RWtlc3dTWTJRZEluNWxOSFVReDdJMWNkZFZJdXkyZkMzYVJVWENqK003MjVmZ2ZERkwwR2N0ZTFkSWVjOUhHYTRyVW5WL0ZWbVJnUURUZSsza0thaGQ3WjVDTE5wcVVtREx5SGpBNHV3U1dkWHZ3emxDeGlxRzZ4eDg0amZtVDZlMzNLeG9NT1RVUUpnbWZyQWtJUkJ5a0dPa3BvN2p1a2dWVWk1bGNyUVEyMjQxYW5xa3ZzbWh5cnN1dUdTcnBxdEl4ZzQrd1lSSDYvTnBvRUUvemRxS0xLaE9hcz0iLCJjaWQiOiJNdz09Ok13PT06Tm1ZNU1EQTRPR0V0T1dZMVpDMDBZbVl5TFdGaVpqTXRNalJpTnpZMFl6RXlPVGs0In0.RvbdPWKIrBmMqIN7kvPnwoAOJMug-VKfREKrHWPOmfp0VGSsVuma7SAJaMb9cPT7X4lNZilw36GYWDh92FHSVA' http://localhost/bob/api/public
 ```
-
 
 ## Notice
 
