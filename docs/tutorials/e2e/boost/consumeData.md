@@ -107,7 +107,7 @@ Alice wants to send the data to her backend application ("<http://backend:8080>"
 
 :::warning
 
-For testing purposes, you should replace `backend:8080` with your own test API or use [webhook. site](https://webhook.site/) as your backend system.
+For testing purposes, you should replace `backend:8080` with your own test API or use [webhook.site](https://webhook.site/) as your backend system.
 If you do not change this, you will not be able to view the received token, which is required for requesting the data!
 If you are using webhook.site, please make sure that you use "Your unique URL" and that you do not transfer any sensitive information to webhook.
 
