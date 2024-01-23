@@ -44,7 +44,6 @@ git clone  https://github.com/eclipse-tractusx/tutorial-resources.git
 # will install the mxd directory under <current working directory>/tutorial-resources/mxd
 # the directory should contain the config file for kind: kind.config.yaml
 cd <path/of/mxd>
-``` 
 
 ```shell
 kind create cluster -n mxd --config kind.config.yaml
