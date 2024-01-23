@@ -40,6 +40,7 @@ For the most bare-bones installation of the dataspace, execute the following com
 # get the tutorial including the config file for the cluster by cloning the repository locally
 git clone  https://github.com/eclipse-tractusx/tutorial-resources.git
 ```
+
 ```shell
 # will install the mxd directory under <current working directory>/tutorial-resources/mxd
 # the directory should contain the config file for kind: kind.config.yaml
