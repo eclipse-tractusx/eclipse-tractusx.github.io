@@ -5,12 +5,13 @@ title: Changelog
 ## [released]
 ## [2.0.0] - 2024-01-12
 
-## Added 
+### Added 
 - Added EcoPass KIT Logo
 - Added `Digital Product Pass v3.0.0` aspect and explanations
   
 ### Updated
 - Updated battery pass model to latest version `v4.0.0`
+- Updated Business Architecture Diagram
 
 
 ## [0.1.0] - 2023-08-11
