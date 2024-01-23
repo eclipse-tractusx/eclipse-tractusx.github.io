@@ -96,7 +96,7 @@ In the automotive industry, a Battery Pass or digital product passport for batte
 5. **End-of-Life Management**: When the battery reaches the end of its useful life, the Battery Pass provides detailed instructions for proper disposal and recycling, ensuring compliance with regulations and facilitating the recovery of valuable materials. The data stored in the Battery Pass helps recycling facilities to efficiently process the battery, reducing waste and promoting a circular economy.
 
 Throughout this process, the Battery Pass serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
-For more information please read the [Battery Pass Viewer App Success Story](./success-stories/BatteryPass_Viewer_App.md)!
+For more information please read the [Battery Pass Viewer App Success Story](./Success%20Stories/BatteryPass_Viewer_App.mdx)!
 
 
 
