@@ -8,13 +8,15 @@ title: Changelog
 ### Added 
 - Added EcoPass KIT Logo
 - Added `Digital Product Pass v3.0.0` aspect and explanations
-  
+- Added new sequence diagrams in software architecture
+- Added detailed data retrieval flow
+    
 ### Updated
 - Updated battery pass model to latest version `v4.0.0`
 - Updated Business Architecture Diagram
 - Updated Software Architecture guide with descriptive documentation 
 
-## Issues Fixed
+### Issues Fixed
 - Corrected links paths to absolute path
 
 
