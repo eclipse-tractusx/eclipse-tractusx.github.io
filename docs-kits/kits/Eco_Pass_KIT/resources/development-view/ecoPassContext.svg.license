@@ -1,33 +1,3 @@
----
-title: Changelog
----
-
-## [released]
-## [2.0.0] - 2024-01-12
-
-### Added 
-- Added EcoPass KIT Logo
-- Added `Digital Product Pass v3.0.0` aspect and explanations
-  
-### Updated
-- Updated battery pass model to latest version `v4.0.0`
-- Updated Business Architecture Diagram
-- Updated Software Architecture guide with descriptive documentation 
-
-## Issues Fixed
-- Corrected links paths to absolute path
-
-
-## [0.1.0] - 2023-08-11
-
-### Added
-
-- move KIT to Tractus-X repository
-
-### Changed
-
-### Removed
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
