@@ -74,7 +74,7 @@ curl --location 'http://localhost/alice/management/v2/contractnegotiations/<ID>'
 ```
 
 - If the negotiation was **successful**, Alice will see an ouput as shown below.
-- If the negotiation was **unsuccessful**, the negotiation state will be `TERMINATED` and no contract agreement ID will be present.
+- If the negotiation was **unsuccessful**, the negotiation state (`edc:state`) will be `TERMINATED` and no contract agreement ID will be present.
 
 ```json
 {
