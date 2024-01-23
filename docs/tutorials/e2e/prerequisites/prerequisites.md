@@ -137,7 +137,11 @@ export NO_PROXY="localhost,127.0.0.1,::1"
 
 #### http (80)
 
-The port http (80) should not be used, but in case it will, you can apply the above hints just by replacing https by http.
+The port http (80) should not be used, but it will, you can apply the above hints just by replacing https by http.
+
+#### Port 8080
+
+Port 8080 will be used by the EDC, you will need the port 8080 once you want to exchnage data with a remote node.  
 
 #### ssh (22)
 
@@ -208,17 +212,23 @@ Prepare the installation of Terraform including helm:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+```
 
-sudo wget -o - https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+Generate key for terraform:
+
+```bash
+sudo wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
   
 Verify the generated key is working:
 
 ```bash
-sudo gpg --no-default-keyring \
---keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
---fingerprint
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
+```
 
+Store location into source öist for hashicorp:
+
+```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 ```
