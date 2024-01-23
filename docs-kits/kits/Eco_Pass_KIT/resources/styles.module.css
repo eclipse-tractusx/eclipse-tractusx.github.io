@@ -1,0 +1,22 @@
+.logoContainer {
+    text-align: center;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.logoBackground {
+    background: rgb(237,237,237);
+    background: linear-gradient(90deg, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+    border-radius: 5px;
+    border: 5px solid var(--ifm-breadcrumb-color-active);
+}
+
+.logoImage {
+    height: 90px;
+    margin-top: 25px;
+}
+
+.logoName {
+    font-size: 20px;
+    color:black;
+}
