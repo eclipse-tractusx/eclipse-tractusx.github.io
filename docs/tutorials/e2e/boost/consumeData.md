@@ -143,6 +143,7 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses' \
 Just to make sure everything worked, Alice uses another `curl` command to check if the transfer was successful.
 
 In the response, Alice gets a UUID. This is the ID of the created transfer. Alice can now use this ID to see the current status of the transfer.
+
 :::tip
 Make sure to replace `<ID>` in the URL with the UUID you just received.
 :::
