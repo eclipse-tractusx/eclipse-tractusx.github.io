@@ -1582,7 +1582,7 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 The Business Architecture illustrates the interaction between the EcoPass KIT and other KITs, components, data models, and artifacts used for identity and access management, illustrated by the Figure below.
 
-![Image: Business Architecture](./resources/adoption-view/adoption-view-EcoPassKITBusinessArch.jpg)
+![Image: Business Architecture](./resources/adoption-view/adoption-view-EcoPassKITBusinessArch.svg)
 
 The core of the network is to provide interoperability between different applications. For this reason, a common semantic is indispensable. In the Catena-X ecosystem, it has been agreed to use the description language SAMM to describe data models.
 To additionally provide a standardized interface, the open standard of the International Digital Twin Association (IDTA) is used, abbreviated as IDTA. This [standard](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01002-3-0_SpecificationAssetAdministrationShell_Part2_API.pdf) corresponds to the Asset Administration Shell (AAS 3.0).
@@ -1605,4 +1605,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eco-pass-kit
+- Source URL: https://github.com/eclipse-tractusx/digital-product-pass
