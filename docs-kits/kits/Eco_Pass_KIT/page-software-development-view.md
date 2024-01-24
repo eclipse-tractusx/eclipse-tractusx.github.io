@@ -67,7 +67,7 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 
 Here is a diagram of the data retrial flow necessary to retrieve any data from the Catena-X Network without any optimizations:
 
-[![Data Retrieval Flow](./resources/development-view/dataRetrievalFlow.jpg)](./resources/development-view/dataRetrievalFlow.jpg)
+[![Data Retrieval Flow](./resources/development-view/dataRetrievalFlow.svg)](./resources/development-view/dataRetrievalFlow.svg)
 
 
 ### 1. Discovery Phase
@@ -510,4 +510,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eco-pass-kit
+- Source URL: https://github.com/eclipse-tractusx/digital-product-pass
