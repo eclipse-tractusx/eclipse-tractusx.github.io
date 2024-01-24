@@ -30,7 +30,7 @@ curl --location 'http://localhost/bob/management/v2/assets' \
         "type": "HttpData",
         "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
     }
-}'
+}' | jq
 ```
 
 ## Request catalog
@@ -51,7 +51,7 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
         "offset": 0,
         "limit": 100
     }
-}'
+}' | jq
 ```
 
 ## Create first access policy
@@ -73,11 +73,11 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "31",
+  "@id": "3-1",
   "policy": {
     "@type": "Policy"
   }
-}' 
+}' | jq
 ```
 
 ## Request catalog - second try
@@ -98,7 +98,7 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
         "offset": 0,
         "limit": 100
     }
-}'
+}' | jq
 ```
 
 ## Create first contract definition
@@ -133,11 +133,11 @@ curl --location 'http://localhost/bob/management/v2/policydefinitions' \
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "32",
+  "@id": "3-2",
   "policy": {
     "@type": "Policy"
   }
-}'
+}' | jq
 ```
 
 Action (Bob): Create a contract definition including the asset and the policies you have created. For this, use the following `curl` command:
@@ -150,15 +150,15 @@ curl --location 'http://localhost/bob/management/v2/contractdefinitions' \
   "@context": {},
   "@id": "3",
   "@type": "ContractDefinition",
-  "accessPolicyId": "31",
-  "contractPolicyId": "32",
+  "accessPolicyId": "3-1",
+  "contractPolicyId": "3-2",
   "assetsSelector": {
     "@type": "CriterionDto",
     "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
     "operator": "=",
     "operandRight": "3"
   }
-}'
+}' | jq
 ```
 
 ## Request catalog - third try
@@ -178,7 +178,7 @@ curl --location 'http://localhost/alice/management/v2/catalog/request' \
         "offset": 0,
         "limit": 100
     }
-}'
+}' | jq
 ```
 
 :::info
