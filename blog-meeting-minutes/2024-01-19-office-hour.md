@@ -1,6 +1,6 @@
 ---
 slug: office-hour-19-01-2024
-title: Office hour 19.01.2024
+title: Eclipse Tractus-X Office hour
 authors: 
     - harald_zierer
 tags: [meeting-minutes, community]
@@ -25,7 +25,7 @@ tags: [meeting-minutes, community]
 - Last open planning session went very well
 - There's a new [open meetings](https://eclipse-tractusx.github.io/community/open-meetings) page
 
-### open discussion
+### Open discussion
 - discussion regarding the "Notice for docker image" to be moved into a separate file.
   - [TRG 4.06](https://eclipse-tractusx.github.io/docs/release/trg-4/trg-4-06) will be updated to mandate a dedicated file.
   - Please keep in mind to update your docker build workflow to include the new file instead of the `README.md`. See [example of TRG 4.05](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/204cfddb5531fd6430001c0baf0ca12a97bb9718/docs/release/trg-4/trg-4-05.md?plain=1#L99-L100) for reference.
@@ -38,4 +38,4 @@ tags: [meeting-minutes, community]
 ## Session recording
 - You can find the recording [HERE](https://bcgcatenax.sharepoint.com/sites/CommunitiesofPractises/_layouts/15/stream.aspx?id=%2Fsites%2FCommunitiesofPractises%2FShared%20Documents%2FCX%2DCoP%20DevSecOps%2FOffice%5FHours%5FRegular%5FRecordings%2F20240119%5FEclipse%5FTractus%2DX%5FOffice%20Hours%5FRecording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)
 
-[^1]: the generator for the pages you are reading right now
+[^1]: [docusaurus](https://docusaurus.io/docs): the generator for the pages you are reading right now
