@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OSim API",
-    "description": "OSim API for requesting and receiving simulation results",
+    "description": "Osim API for requesting and receiving simulation results as well as for interactions related to scenario management.",
     "version": "2.0.0"
   },
   "servers": [
@@ -660,7 +660,7 @@
         }
       ]
     },
-    "/api/pushScenarioState/bpns/{bpns}/scenarioId/{scenarioId}/feedback/{feedback}": {
+    "/api/pushScenarioState/bpns/{bpns}/scenarioId/{scenarioId}/state/{state}": {
       "get": {
         "tags": ["pushScenarioState"],
         "operationId": "pushScenarioState",
@@ -690,7 +690,7 @@
             "example": "50737df3-4237-4652-b092-1ef8649f6ca6"
           },
           {
-            "name": "feedback",
+            "name": "state",
             "in": "path",
             "required": true,
             "style": "simple",
