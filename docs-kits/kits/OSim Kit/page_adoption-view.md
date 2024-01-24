@@ -22,7 +22,7 @@ An open architecture for integrating partners of all kinds together with standar
 
 **Integrate any supply chain partner**
 
-Even partners that are not using any simulation tool can contribute to the overall transparency through the well-defined information requirements.
+Even partners that do  not use any simulation tool can contribute to the overall transparency through the well-defined information requirements.
 
 **Integrate any simulation tool**
 
@@ -35,7 +35,7 @@ Conventional planning and simulation tools use material flow simulations only on
 The simulation results of the Catena-X partners on the supply chain's lower tier level and logistics, together with data of the company's own operations are fed into a simulation model as input. Considering both, plannable and unpredictable influencing factors, this simulation model is iterated as often as necessary until an optimal result has been found. Sharing of simulation results to the next tier level is the core capability of the collaborative simulation approach.
 One specific case of this data exchange is so called “What-If” scenario. This capability provides validation respectively calibration of potentially changed manufacturing or transportation situations across the entire supply chain.
 
-A central application takes over the tasks of monitoring and controlling the transmission of the simulation results, regardless of the level of digitalization of the partners. In addition, this application takes over the control of the simulation tools used.
+A central application takes over the tasks of monitoring and controlling the transmission of the simulation results, regardless of the level of digitalization of the partners. In addition, this application takes over control of the simulation tools used.
 
 ![Example of an OSim partner network from the perspective of the producing company WERK-76](./werk76.png)
 
@@ -61,7 +61,7 @@ The following picture shows the fundamental network structure, consisting of sup
 See also the following publications for more detailed description of the process and its components:
 
 - [Catena-X – Online Steuerung und Simulation](https://www.degruyter.com/document/doi/10.1515/zwf-2023-1031/html) (Publication by De Gruyter 18. April 2023)
-- [Kollaborative Materialflusssimulationen zur Steuerung der Verknüpfung von Supply Chain und Shopfloor – Ein Catena-X Use-Case (Publication in the VDI-Report „Automation 2023“ by VDI Wissensforum GmbH Hrsg., see pages 73-88)](https://elibrary.vdi-verlag.de/10.51202/9783181024195/automation-2023?page=1)
+- [Kollaborative Materialflusssimulationen zur Steuerung der Verknüpfung von Supply Chain und Shopfloor – Ein Catena-X Use-Case](https://elibrary.vdi-verlag.de/10.51202/9783181024195/automation-2023?page=1) (Publication in the VDI-Report „Automation 2023“ by VDI Wissensforum GmbH Hrsg., see pages 73-88)
 
 ## Semantic Model
 
@@ -119,7 +119,7 @@ The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
 
 **Scenario Simulation Results Updated** is a reference to the aspect model MaterialFlowSimulationResult and includes the simulation result of the scenario related change.
 
-#### Link to the semantic data models
+#### Aspect Model
 
 Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/1.0.0>
 
