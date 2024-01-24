@@ -226,7 +226,7 @@ Verify the generated key is working:
 sudo gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
 ```
 
-Store location into source öist for hashicorp:
+Store location into source for hashicorp:
 
 ```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
