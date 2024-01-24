@@ -246,5 +246,5 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024,Fraunhofer Institute of Optronics, System Technology and Image Exploitation (IOSB)
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Factory Operation and Automation IFF
 - SPDX-FileCopyrightText: 2024,Siemens AG
