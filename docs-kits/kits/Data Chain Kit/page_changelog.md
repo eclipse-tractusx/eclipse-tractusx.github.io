@@ -13,6 +13,19 @@ All notable changes to this Kit will be documented in this file.
 
 ## Unreleased
 
+<h3>Added</h3>
+
+- Adoption View: added use-case Environmental and Social Standards Top-Down
+- Adoption View: added use-case Environmental and Social Standards Bottom-UP
+- Adoption View: added use-case Data Integrity Layer
+- Adoption View: added visualization for IRS-Recursive
+
+<h3>Changed</h3>
+
+- Development View: Update request collection to latest state of IRS
+- Documentation: Update Arc42 and Admin guide to latest state of IRS
+- Moved Success Stories to Adoption View
+
 <h3>Fixed</h3>
 
 - Update documentation: Local deployment currently requires IRS version 2.4.0. See https://github.com/eclipse-tractusx/item-relationship-service/issues/247.
