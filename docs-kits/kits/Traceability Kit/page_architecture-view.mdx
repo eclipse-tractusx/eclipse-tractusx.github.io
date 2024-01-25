@@ -82,15 +82,15 @@ The following diagram shows a basic data processing flow how a company's interna
 
 ### Digital Twins and Aspect Models
 
-Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/category/industry-core-kit), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
+Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](../Industry%20Core%20Kit/Architecture%20View%20Industry%20Core%20Kit), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
 
 - Digital Twin "PartType"
-  - Aspect model ["SingelLevelUsageAsPlanned"](<./Software Development View/page_data-provider_software-development-view.mdx#SingelLevelUsageAsPlanned>)
+  - Aspect model ["SingelLevelUsageAsPlanned"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#singellevelusageasplanned)
 - Digital Twin "PartInstance"
-  - Aspect model ["TractionBatteryCode"](<./Software Development View/page_data-provider_software-development-view.mdx#TractionBatteryCode>)
-  - Aspect model ["SingleLevelUsageAsBuilt"](<./Software Development View/page_data-provider_software-development-view.mdx#SingleLevelUsageAsBuilt>)
+  - Aspect model ["TractionBatteryCode"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#tractionbatterycode)
+  - Aspect model ["SingleLevelUsageAsBuilt"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#singlelevelusageasbuilt)
 
-Details about these aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](<./Software Development View/page_data-provider_software-development-view.mdx>).
+Details about these aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit).
 
 ### Policies
 
@@ -100,12 +100,12 @@ To enable data sovereignty, access and usage policies are important to protect t
 
 To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
-Implementation details and examples can be found [here](<./Software Development View/page_data-provider_software-development-view.mdx#AccessPolicies>).
+Implementation details and examples can be found [here](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#access-policies).
 
 ### Usage Policies
 To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 
-Implementation details and examples can be found [here](<./Software Development View/page_data-provider_software-development-view.mdx#UsagePolicies>).
+Implementation details and examples can be found [here](./Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#usage-policies--contract-policies).
 
 ## Traceability App
 
