@@ -35,7 +35,4 @@ tags: [meeting-minutes, community]
 - Content updates for KITs: Please ensure that no copyrighted content (incl. Catena-X) is contributed to Tractus-X.
 - False-positive issues opened by Trivy - please raise a "tooling support" issue in the [sig-security](https://github.com/eclipse-tractusx/sig-security) repository
 
-## Session recording
-- You can find the recording [HERE](https://bcgcatenax.sharepoint.com/sites/CommunitiesofPractises/_layouts/15/stream.aspx?id=%2Fsites%2FCommunitiesofPractises%2FShared%20Documents%2FCX%2DCoP%20DevSecOps%2FOffice%5FHours%5FRegular%5FRecordings%2F20240119%5FEclipse%5FTractus%2DX%5FOffice%20Hours%5FRecording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview)
-
 [^1]: [docusaurus](https://docusaurus.io/docs): the generator for the pages you are reading right now
