@@ -39,21 +39,39 @@ For the most bare-bones installation of the dataspace, execute the following com
 ```shell
 # get the tutorial including the config file for the cluster by cloning the repository locally
 git clone  https://github.com/eclipse-tractusx/tutorial-resources.git
+```
+
+```shell
 # will install the mxd directory under <current working directory>/tutorial-resources/mxd
 # the directory should contain the config file for kind: kind.config.yaml
 cd <path/of/mxd>
+```
+
+```shell
 kind create cluster -n mxd --config kind.config.yaml
+```
+
+```shell
 # 
 # Now we activate ingress for the later port forwarding ?
 # the next step is specific to KinD and will be different for other Kubernetes runtimes!
-kubectl apply -f  \ 
+kubectl apply -f  \
 https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
+
+```shell
 # wait until the ingress controller is ready
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
   --timeout=90s
+```
+
+```shell
 terraform init
+```
+
+```shell
 terraform apply
 # type "yes" and press enter when prompted to do so 
 ```
@@ -114,6 +132,9 @@ of simplicity we will use a plain Kubernetes port-forwarding:
 ```shell
 # find out about the names of your pods
 kubectl get pods
+```
+
+```shell
 # you should see a list like:
 NAME                                                     READY   STATUS    RESTARTS   AGE
 alice-tractusx-connector-controlplane-6f7555bcb7-mhxh6   1/1     Running   0          4m
@@ -125,10 +146,13 @@ bob-vault-0                                              1/1     Running   0    
 keycloak-6bdf4d7689-8mwfd                                1/1     Running   0          4m58s
 miw-574bf87bc-c4n6c                                      1/1     Running   0          4m58s
 postgres-66677b8665-lxxp2                                1/1     Running   0          5m14s
+```
+
+```shell
 #
 # We will use the last entry for ingress for our port-forwarding, the name of the postgres pod will be slightly differnt in your local cluster.
 # now we activtae the kuberntes port-forwarding:
-kubectl port-forward postgres-66677b8665-lxxp2  5432:5423
+kubectl port-forward postgres-66677b8665-lxxp2  5432:5432
 ```
 
 > Note that the actual pod name will be slightly different in your local cluster.
@@ -148,8 +172,11 @@ assets, policies and contract definitions.
 In order to check that the connectors were deployed successfully, please execute the following commands in a shell:
 
 ```shell
-curl -X GET http://localhost/bob/health/api/check/liveness
-curl -X GET http://localhost/alice/health/api/check/liveness
+curl -X GET http://localhost/bob/health/api/check/liveness | jq
+```
+
+```shell
+curl -X GET http://localhost/alice/health/api/check/liveness | jq
 ```
 
 which should return something similar to this, the important part being the `isSystemHealthy: true` bit:
@@ -175,7 +202,7 @@ which should return something similar to this, the important part being the `isS
 Once we've established the basic readiness of our connectors, we can move on to inspect a few data items:
 
 ```shell
-curl -X POST http://localhost/bob/management/v3/assets/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v3/assets/request -H "x-api-key: password" -H "content-type: application/json" | jq
 ```
 
 This queries the `/assets` endpoint returning the entire list of assets that `bob` currently maintains. You should see
@@ -236,9 +263,12 @@ Note: the same thing can be done to inspect policies and contract definitions. T
 
 ```shell
 # policies:
-curl -X POST http://localhost/bob/management/v2/policydefinitions/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v2/policydefinitions/request -H "x-api-key: password" -H "content-type: application/json" | jq
+```
+
+```shell
 # contract defs:
-curl -X POST http://localhost/bob/management/v2/contractdefinitions/request -H "x-api-key: password" -H "content-type: application/json"
+curl -X POST http://localhost/bob/management/v2/contractdefinitions/request -H "x-api-key: password" -H "content-type: application/json" | jq
 ```
 
 Alternatively, please check out the [Postman collections here](./postman)

@@ -76,15 +76,6 @@ const config = {
         docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
     ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'docs-products',
-        path: 'docs-products',
-        routeBasePath: 'docs-products',
-        sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
-      },
-    ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
@@ -120,6 +111,10 @@ const config = {
             to: '/community/intro',
             from: '/community',
           },
+          {
+            to: '/docs/release/',
+            from: '/docs/release/trg-2/trg-2-2',
+          },
         ],
       },
     ],
@@ -142,9 +137,9 @@ const config = {
         // options here
         id: "remoteIrs",
         name: "irs", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/catenax-ng/tx-item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/irs", // the base directory to output to.
-        documents: ["irs-v1.0.yaml"], // the file names to download
+        documents: ["irs-api.yaml"], // the file names to download
         noRuntimeDownloads: true
       },
     ],
@@ -227,7 +222,7 @@ const config = {
             },
           },
           irs: {
-            specPath: "./openApi/irs/irs-v1.0.yaml",
+            specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
             sidebarOptions: {
               groupPathsBy: "tag",
