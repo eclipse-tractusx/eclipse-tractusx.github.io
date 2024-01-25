@@ -1,6 +1,6 @@
 ---
 slug: office-hour-19-01-2024
-title: Eclipse Tractus-X Office hour
+title: Office hour 19.01.2024
 authors: 
     - harald_zierer
 tags: [meeting-minutes, community]
