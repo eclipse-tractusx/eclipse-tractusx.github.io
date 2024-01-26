@@ -795,7 +795,7 @@
                             <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
                                 <font style="font-size: 16px">
                                     <b>
-                                        KeyCloak
+                                        Keycloak
                                     </b>
                                 </font>
                                 <div>
@@ -812,7 +812,7 @@
                     </div>
                 </foreignObject>
                 <text x="540" y="1644" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
-                    KeyCloak...
+                    Keycloak...
                 </text>
             </switch>
         </g>
