@@ -13,6 +13,7 @@ import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityM
 import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import BehaviourTwinHI_Kit from "@site/static/img/BehaviourTwinHI_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
+import Maas_Kit from "@site/static/img/MaaSKIT.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -131,5 +132,12 @@ export const kitsGallery = [
     domain: 'Sustainability',
     img: PCF_Kit,
     pageRoute: "/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View"
-  }
+  },
+  {
+    id: 16,
+    name: 'Manufacturing as a Service Kit',
+    domain: 'Resiliency',
+    img: Maas_Kit,
+    pageRoute: "/docs-kits/next/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
+  },
 ]

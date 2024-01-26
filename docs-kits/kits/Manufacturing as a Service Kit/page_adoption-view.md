@@ -52,6 +52,8 @@ The goal is a federated marketplace for manufacturing as a service, connecting s
 
 ![Marketplace use case overview (Schoeppenthau et al. 2023)](resources/MarketplaceUseCases.png)
 
+*Marketplace use case overview (Schoeppenthau et al. 2023)[^1]*
+
 ## Whitepaper
 
 To empower MaaS for the automotive industry we built a reference architecture of a digital MaaS ecosystem based on a dataspace-agnostic reference architecture for open, sustainable, and resilient digital manufacturing ecosystems. To perform the capability matchmaking and capability data integration, the prototypical implementation of this reference architecture consists of components for smart semantic integration to bridge the semantic gap between different manufacturing capability descriptions, as well as a search engine and a multi- purpose API connector. Furthermore, the standardization of interfaces and data models for the most relevant communication within the architecture ensures exchangeability of and interoperability between all major components. This prevents the vendor lock-in effect, enables a market for MaaS services and opportunities for interested operating companies. The architecture fully supports existing manufacturing networks like on-demand manufacturing platforms by federating them in utilizing a network of networks approach.
@@ -59,6 +61,8 @@ To empower MaaS for the automotive industry we built a reference architecture of
 The journal article “Building a Digital Manufacturing as a Service Ecosystem for Catena-X” describes the dataspace-agnostic basis for the Catena-X MaaS reference architecture.
 
 ![Link to the journal paper: <https://www.researchgate.net/publication/ 373383262_Building_a_Digital_Manufacturing_as_a_Service_Ecosystem_for_Catena-X>](resources/Architekturteaser.png)
+
+*[Building a Digital Manufacturing as a Service Ecosystem for Catena-X[^1]](https://doi.org/10.3390/s23177396)*
 
 ## Semantic Models
 
@@ -80,3 +84,7 @@ In general, the MaaS KIT does not consider specific business logic. However, a c
 The figure also depicts phases which are currently out of scope. This includes the product design, the simulation and planning within a factory and all steps after a request for quotation is submitted.
 
 ![Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023](resources/image-2023-11-2_13-54-35.png)
+
+*Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023)[^1]*
+
+[^1]: ```Schöppenthau, F.; Patzer, F.; Schnebel, B.; Watson, K.; Baryschnikov, N.; Obst, B.; Chauhan, Y.; Kaever, D.; Usländer, T.; Kulkarni, P. Building a Digital Manufacturing as a Service Ecosystem for Catena-X. Sensors 2023, 23, 7396. https://doi.org/10.3390/s23177396```
