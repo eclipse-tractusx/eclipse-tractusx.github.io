@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OSim API",
-    "description": "Osim API for requesting and receiving simulation results as well as for interactions related to scenario management.",
+    "description": "OSim API for requesting and receiving simulation results as well as for interactions related to scenario management.",
     "version": "2.0.0"
   },
   "servers": [

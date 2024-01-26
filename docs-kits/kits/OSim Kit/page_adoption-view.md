@@ -129,7 +129,7 @@ Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-se
 
 #### Introduction
 
-The Osim approach is based on a distributed simulation in which each participant simulates its role and additionally exchanges information with its suppliers and customers online via standardized interfaces. In the process, a strict 1-up / 1-down principle (i.e. data is only exchanged with the immediate predecessors and successors in the supply chain) guarantees compliance with antitrust regulations. The data exchange itself is carried out according to Gaia-X principles, which guarantee the data sovereignty of all partners involved.
+The OSim approach is based on a distributed simulation in which each participant simulates its role and additionally exchanges information with its suppliers and customers online via standardized interfaces. In the process, a strict 1-up / 1-down principle (i.e. data is only exchanged with the immediate predecessors and successors in the supply chain) guarantees compliance with antitrust regulations. The data exchange itself is carried out according to Gaia-X principles, which guarantee the data sovereignty of all partners involved.
 
 All partners involved in the supply chain simulate their respective actions (production or logistical deliveries) on the basis of the latest information from the shop floor and its internal systems. They then pass this on to the successors in the supply chain according to the 1-up principle, where a new simulation is carried out on the basis of this possibly changed information. In OSim, a "horizontal" exchange of information across the supply chain is thus combined with a "vertical" exchange with the simulation tools and thus indirectly with the shop floor.
 
