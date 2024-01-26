@@ -139,9 +139,6 @@ export NO_PROXY="localhost,127.0.0.1,::1"
 
 The port http (80) should not be used, but it will, you can apply the above hints just by replacing https by http.
 
-#### Port 8080
-
-Port 8080 will be used by the EDC, you will need the port 8080 once you want to exchnage data with a remote node.  
 
 #### ssh (22)
 
