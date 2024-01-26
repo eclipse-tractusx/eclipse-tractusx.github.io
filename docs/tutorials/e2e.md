@@ -16,7 +16,7 @@ With the Minimum Tractus-X Dataspace (MXD), IT departments can set up their own 
 
 ## Target Audience
 
-This tutorial is built for employees of the **IT department who operates the IT stack of an adopter (data provider/consumer)**. It shows how to operate the various Catena-X components in combination with each other. It also explains the basic connection with the core services (e.g. KeyCloak and MIW), as provided by an operating company (e.g. first Catena-X Operating Company Confinity-X).
+This tutorial is built for employees of the **IT department who operates the IT stack of an adopter (data provider/consumer)**. It shows how to operate the various Catena-X components in combination with each other. It also explains the basic connection with the core services (e.g. Keycloak and MIW), as provided by an operating company (e.g. first Catena-X Operating Company Confinity-X).
 
 :::note
 
