@@ -30,7 +30,7 @@ The project can be run with the following command: `mvn clean spring-boot:run`
 
 When running, the project requires a Postgresql database and an Opensearch instance to be available to connect to.
 Per default configuration the application expects postgres to run on `localhost` on port `5432`.
-Opensearch needs to run on `localhost` on port `9200` on default.
+OpenSearch needs to run on `localhost` on port `9200` on default.
 
 You can find and edit the default configuration for the Pool in the `application.properties`,  `application-auth.properties` and `application-saas.properties`
 files in the `resources` folder.
@@ -41,7 +41,7 @@ The REST API documentation can be accessed at `http://localhost:8080/api/swagger
 
 The default configuration of the application is determined by the `application.properties` file.
 Here you can find core application configuration such as Swagger documentation, BPN generation and Actuator.
-Furthermore, here you can find the configuration for the connection to the Spring datasource (currently, developed against PostgreSQL) and Opensearch.
+Furthermore, here you can find the configuration for the connection to the Spring datasource (currently, developed against PostgreSQL) and OpenSearch.
 
 You can also run the project with Spring profiles to enable additional components on top of the default configuration.
 Currently, the BPDM Pool offers the profiles `auth` and `saas`.
@@ -56,12 +56,12 @@ The following sections detail the configuration properties for each profile.
 
 `application-auth.properties` enables authorization of endpoints and configures the connection to a Keycloak instance on which the authorization relies on.
 The application expects the Keycloak to run on `localhost` on port `8180`.
-However, as with the Spring datasource and Opensearch connections, the connection to the Keycloak can be freely configured.
+However, as with the Spring datasource and OpenSearch connections, the connection to the Keycloak can be freely configured.
 The application uses the configured auth server URL to validate incoming tokens.
 
 For authorization purposes the application checks incoming token's permissions:
 
-* add_company_data: For endpoints creating or updating business partner records including triggering imports from SaaS/exports to Opensearch
+* add_company_data: For endpoints creating or updating business partner records including triggering imports from SaaS/exports to OpenSearch
 * view_company_data: For read-only endpoints of business partner data
 
 The BPDM Pool looks for these permissions in the client/resource and not on the realm level.
@@ -82,7 +82,7 @@ should be imported by the application.
 ### Helm Deployment
 
 This repository contains Helm files for deploying the BPDM Pool to a Kubernetes environment.
-See the [BPDM Pool Helm README](charts/pool/README.md) for details.
+See the [BPDM Pool Helm README](https://github.com/eclipse-tractusx/bpdm/blob/main/charts/bpdm/charts/bpdm-pool/README.md) for details.
 
 ## BPDM Gate
 
@@ -149,4 +149,4 @@ secret for the client.
 ### Helm Deployment
 
 This repository contains Helm files for deploying the BPDM Gate to a Kubernetes environment.
-See the [BPDM Gate Helm README](charts/gate/README.md) for details.
+See the [BPDM Gate Helm README](https://github.com/eclipse-tractusx/bpdm/blob/main/charts/bpdm/charts/bpdm-gate/README.md) for details.
