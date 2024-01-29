@@ -26,7 +26,7 @@ consumer. But the roles could be inverse as well.
 ## 1. Optional - Local Setup
 
 To create a local setup with two connectors have a look at
-the [Local TXDC Setup Documentation](Local%20TXDC%20Setup.md).
+the [Local TXDC Setup Documentation](/docs-kits_versioned_docs/version-23.09/kits/tractusx-edc/docs/samples/example-dataspace/README.md).
 It creates two connectors (Plato & Sokrates) with exposed Node Ports.
 
 ### See Node Ports using Minikube
@@ -262,7 +262,7 @@ offer (received in step 2).
 In the diagram the IDS contract negotiation is marked as simplified, because the EDC is exchanging multiple messages
 during contract negotiation. But the inter-controlplane communication is not in the scope of this document.
 
-After the negotiation is initiated ensure that is has concluded. This is done by requesting the negotiation from the API
+After the negotiation is initiated ensure that it has concluded. This is done by requesting the negotiation from the API
 and checking whether the `contractAgreementId` is set. This might take a few seconds.
 
 ![Sequence 1](diagrams/transfer_sequence_3.png)
