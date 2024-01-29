@@ -30,10 +30,15 @@ For receiving the EDC Endpoints for a requested partner, the EDC Discovery Servi
 
 ### PCF Request
 
-To actual request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore the decentralized Digital Twin Registry (dDTR) is used. Data provider must register their dDTR(s) as EDC assets following the CX-0002 standard. After identifying the dDTR the Digital Twin with the related PCF submodel can be searched (see [API calls [0003 +0004]](#api-calls)). An example are documented [here](#payload-for-requesting-pcf-sub-model).
-After successfully locating the EDC asset containing the PCF request endpoint (Example Payload can be found [here](#payload-for-edc-data-asset-pcf)), the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
+To actual request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore the decentralized Digital Twin Registry (dDTR) is used. Data provider must register their dDTR(s) as EDC assets following the CX-0002 standard. After identifying the dDTR the Digital Twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example are documented [here](#payload-for-requesting-pcf-sub-model).
+
+After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint cen be extracted (Example Payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
 ![PCF Request](../resources/development-view/PCFRequestthroughAAS.png)
+
+In case no matching material twin or PCF submodel exists, the flow falls back to a direct lookup of an EDC asset containing the PCF request endpoint provided within the offers of any EDC registered for the Data provider's BPNL.
+
+![PCF Request without Twin or Submodel](../resources/development-view/PCFRequestWithoutTwinOrSubmodel.png)
 
 >**Note**
 > The API Wrapper shown in the sequence diagrams is optional. The management API of the EDC can also be used directly.
@@ -52,7 +57,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 | [002](https://eclipse-tractusx.github.io/docs-kits/next/kits/tractusx-edc/docs/samples/management-api-v2-walkthrough/catalog) (Look up dDTR)                                                                                                                                            | POST   | /v2/catalog/request-->Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry) |                                                                                                                   |
 | [003](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-administration-shell-ids-by-asset-link) (Lookup Twin ID)                                                                            | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"assetLifecyclePhase", "value": "AsPlanned"}}]` |
 | [004](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Registry/get-all-asset-administration-shell-descriptors) (Look Up PCF Submodel/EDC Asset ID)                                                                | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
-| [005] (Requesting PCF Value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
+| 005 (Requesting PCF Value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
 | 006 (Sending PCF Value)                                                                                                                                                                                                                                                                 | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
 
 - The assetIds under [003] must be base64 encoded!
@@ -64,10 +69,10 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the CX Standard [CX-0002](https://catena-x.net/de/standard-library) is to be followed.
 
-The digital twin id can be searched via the, `manufacturerPartId` and the ``assetLifecyclePhase:"asPlanned"``
+The digital twin id can be searched via the `manufacturerPartId` and the ``assetLifecyclePhase:"asPlanned"``. Alternatively `manufacturerPartId` and the ``digitalTwinType:"PartType"`` can be used.
+
 The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
 
-```json
 {
     "description": [
         {
@@ -79,16 +84,16 @@ The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
     "identification": "urn:uuid:205cf8d1-8f07-483c-9c5b-c8d706c7d05d",
     "semanticId": {
         "value": [
-            "urn:bamm:io.catenax.pcf:4.0.0#Pcf"
+            "urn:samm:io.catenax.pcf:5.0.0#Pcf"
         ]
     },
     "endpoints": [
         {
-            "interface": "PCF-0.0.3",
+            "interface": "PCF-1.0.0",
             "protocolInformation": {
                 "href": "https://edc.data.plane/productIds/mat345",
                 "endpointProtocol": "HTTP",
-                "endpointProtocolVersion": ["1.1"]
+                "endpointProtocolVersion": ["1.1"],
                 "subprotocol": "DSP",
                 "subprotocolBody": "id=c34018ab-5820-4065-9087-416d78e1ab60;dspEndpoint=https://some.controlplane.url:7173",
                 "subprotocolBodyEncoding": "plain"
@@ -105,30 +110,33 @@ The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
 The following JSON shows the the EDC Asset for PCF defined in the EDC using the asset bundling mentioned under [Payload for Requesting PCF Sub Model](#api-calls).
 
 ```json
+{
   "@type": "edc:AssetEntryDto",
   "edc:asset": {
     "@id": "c34018ab-5820-4065-9087-416d78e1ab60",
     "edc:properties": {
       "rdfs:label": "PCF Data",
       "rdfs:comment": "Endpoint for PCF data",
-      "dcat:version": "0.0.3",
-      "aas-semantics:semanticId": "urn:bamm:io.catenax.pcf:4.0.0#Pcf",
+      "dcat:version": "1.0.0", 
+      "cx-common:version": "1.0.0", 
+      "aas-semantics:semanticId": "urn:samm:io.catenax.pcf:5.0.0#Pcf",
       "edc:contentType": "application/json",
-      "edc:type": "data.pcf.exchangeEndpoint"
+      "edc:type": "data.pcf.exchangeEndpoint", 
+      "dct:type": {"@id":"cx-taxo:data.pcf.exchangeEndpoint"}
     },
     "edc:privateProperties": null,
      
   "edc:dataAddress": {
     "edc:type": "edc:HttpData",
-    "edc:baseUrl": https://some.url/service,
+    "edc:baseUrl": "https://some.url/service",
     "edc:proxyBody": "true",
     "edc:proxyPath": "true",
     "edc:proxyQueryParams": "true",
     "edc:proxyMethod": "true",
     "edc:contentType": "application/json"
+    }
   }
 }
-
 ```
 
 #### Payload for EDC Policy
@@ -138,7 +146,6 @@ The following JSON is an policy definition including the policy "frameworkagreem
 ##### Payload to create a SSI based Policy
 
 ```json
-
 {
     "@context": {
         "odrl": "http://www.w3.org/ns/odrl/2/"
@@ -155,7 +162,7 @@ The following JSON is an policy definition including the policy "frameworkagreem
                     "odrl:and": [
                         {
                             "@type": "Constraint",
-                            "odrl:leftOperand": "activeMember",
+                            "odrl:leftOperand": "Membership", 
                             "odrl:operator": {
                                 "@id": "odrl:eq"
                             },
@@ -175,7 +182,6 @@ The following JSON is an policy definition including the policy "frameworkagreem
         ]
     }
 }
-
 ```
 
 For more examples how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
@@ -187,7 +193,7 @@ For more examples how to define policies with SSI have a look [here](https://git
     "@id": "54ef3326-42b2-4221-8c5a-3a6270d54db8",
     "edc:accessPolicyId": "a343fcbf-99fc-4ce8-8e9b-148c97605aab",
     "edc:contractPolicyId": "a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-    "edc:assetsSelector": [
+    "edc:assetsSelector":[
         {
             "@type": "Criterion",
             "edc:operandLeft": "@id",
@@ -200,7 +206,7 @@ For more examples how to define policies with SSI have a look [here](https://git
 
 ## Error Handling
 
-As Release 3.2 only covers the "happy path" for exchange PCF data via the Catena-X network. Error handling is currently not covered.
+In case no material twin or no PCF submodel is found, EDC Asset type has to be used to find the Endpoint needed to perform the PCF request.
 
 ## Standards
 

@@ -8,6 +8,21 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.0.0] - 2024-02-12
+
+### Added
+
+* Flow description in case no material twin or PCF submodel exists
+
+### Changed
+
+* Open API updated to version 1.0.0 (Rel.24.03)
+* Asset and Policy definitions updated
+
+### Removed
+
+N/A
+
 ## [0.1.0] - 2023-08-23
 
 ### Added
