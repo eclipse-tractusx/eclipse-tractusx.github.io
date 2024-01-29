@@ -3,11 +3,11 @@ title: Understanding our multi instance and versioning behaviour
 sidebar_position: 6
 ---
 
-Like mentioned in the [important to know!](/docs/kit-process/processes/create_KIT_page#important-to-know) section, In this `guideline` page we want to talk a bit about the structure, documentation instances, versioning and conditional rendering (non official) solution for the `versions dropdown` menu.
+Like mentioned in the [important to know!](/docs/kit-process/processes/create_KIT_page.md#important-to-know) section, In this `guideline` page we want to talk a bit about the structure, documentation instances, versioning and conditional rendering (non-official) solution for the `versions dropdown` menu.
 
 ## Our multi-instance structure
 
-We have structured our documentation i a way that it's divided in 3 instances/folders:
+We have structured our documentation in a way that it's divided in 3 instances/folders:
 
 - `./docs` -> dedicated to the `Developer Hub` content (not versioned)
 - `./docs-kits` -> dedicated to the `KITs` content (versioned)
@@ -29,7 +29,7 @@ The creation/tagging of a new version will follow a scheduled period of time, th
 npm run docusaurus docs:version:docs-kits 1.0.0
 ```
 
-This `command` will freeze (create a copy) all the documentation included in the `./docs-kits` folder at the moment of the creation and storage said copy in the `./docs-kits-versioned_docs` folder. At the same time, it will create a copy of the `sidebarsDocsKits.js` file and it will storage it in the `./docs-kits_versioned_sidebars` folder.
+This `command` will freeze (create a copy) all the documentation included in the `./docs-kits` folder at the moment of the creation and storage said copy in the `./docs-kits-versioned_docs` folder. At the same time, it will create a copy of the `sidebarsDocsKits.js` file, and it will document it in the `./docs-kits_versioned_sidebars` folder.
 
 That way `docusaurus` handles the different versions and is the reason why the `./docs-kits` folder is pointing always to the `Next` version.
 
@@ -64,4 +64,4 @@ themeConfig:
     })
 ```
 
-This last declaration will include automatically all the created versions from the `./docs-kits` instance, but it will be displayed at all time. This is a behaviour that we wanted to avoid, because it could create a misunderstanding for the user and raised questions like: what documentation does that `version dropdown menu` is pointing at? what if other instance needs to be versioned as well? `Docusaurus` doesn't provided an official solution for this scenario, but the community provided a good one that you can check at the end of this [tread](https://github.com/facebook/docusaurus/issues/4389), it required to [swizzle](https://docusaurus.io/docs/2.2.0/swizzling) the `DocsVersionDropdownNavbarItem` to make the conditional rendering of it depending on the navigation location in the page.
+This last declaration will include automatically all the created versions from the `./docs-kits` instance, but it will be displayed at all time. This is a behaviour that we wanted to avoid, because it could create a misunderstanding for the user and raised questions like: what documentation does that `version dropdown menu` is pointing at? what if other instance needs to be versioned as well? `Docusaurus` doesn't provide an official solution for this scenario, but the community provided a good one that you can check at the end of this [tread](https://github.com/facebook/docusaurus/issues/4389), it required to [swizzle](https://docusaurus.io/docs/2.2.0/swizzling) the `DocsVersionDropdownNavbarItem` to make the conditional rendering of it depending on the navigation location in the page.

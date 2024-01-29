@@ -12,13 +12,13 @@ title: Update Documentation
 
 On this page you find a description on how to create/update your KITs documentation.
 
-Before you can generate KIT documentation on the Tractus-X website repository, ensure that a dedicated repository exists for your product ([How to obtain a Tractus-X repository](/docs/kit-process/processes/kit-faq/#how-to-obtain-a-tractus-x-repository-)). This repository will serve as a storage space for your files and provide a platform for your work.
+Before you can generate KIT documentation on the Tractus-X website repository, ensure that a dedicated repository exists for your product. This repository will serve as a storage space for your files and provide a platform for your work.
 
 Subsequently, the KIT documentation will be duplicated to the Tractus-X website repository. The specific process for accomplishing this will be elucidated in the subsequent documentation.
 
 ## Process
 
-Currently the documentation has to be manually maintained by the process described below. This is only a temporary solution as we are still in process on finding the perfect fitting process.
+Currently, the documentation has to be manually maintained by the process described below. This is only a temporary solution as we are still in process on finding the perfect fitting process.
 
 ### Overview
 
@@ -36,7 +36,7 @@ Currently the documentation has to be manually maintained by the process describ
 
       ![IMG: Click on New Pull request](resources/click-on-new-pr.png)
 
-   3. Select Branch which should be merge into the base repository
+   3. Select Branch which should be merged into the base repository
 
       ![IMG: Select Branch to Merge](resources/select-branch-to-merge.png)
 
@@ -44,17 +44,17 @@ Currently the documentation has to be manually maintained by the process describ
 
       ![IMG: Click on Create Pull Request second](resources/click-create-pr.png)
 
-   5. Add Description, what you add/change/improve. If available link an Issue with "#\<Issue Number\>. Then click on "Create Pull request"
+   5. Add Description, what you add/change/improve. If available link an Issue with `#Issue Number`. Then click on "Create Pull request"
 
       ![IMG: Click on Create Pull Request final](resources/click-create-pr-final.png)
 
 4. The process owners ([@danielmiehle](https://github.com/danielmiehle) / [@maximilianong](https://github.com/maximilianong)) of publishing a KIT will review your pull request.
 
-The pull request will be approved if it meets our schema, liniting requirements and follows the [open source governance](/docs/release/trg-7/trg-7-00/).
+The pull request will be approved if it meets our schema, linting requirements and follows the [open source governance](/docs/release/trg-7/trg-7-00.md).
 
 ### Schema
 
-In order to have a uniform apperance we expect the documentation to be in a similar structure. You find the template in the template folder, a structural overview is below:
+In order to have a uniform appearance we expect the documentation to be in a similar structure. You find the template in the template folder, a structural overview is below:
 
 ```md
     .
@@ -66,9 +66,9 @@ In order to have a uniform apperance we expect the documentation to be in a simi
         └── page-software-operation-view.md
 ```
 
-The sections within these files are the aligned with the artefacts described [here](/docs/kit-process/artefacts).
+The sections within these files are the aligned with the artefacts described [here](/docs/kit-process/artefacts.md).
 
-Additionaly we apply linter for to the submitted code which will atomatically reject your pull request if these fail.
+Additionally, we apply linter for to the submitted code which will automatically reject your pull request if these fail.
 
 ## Notes
 

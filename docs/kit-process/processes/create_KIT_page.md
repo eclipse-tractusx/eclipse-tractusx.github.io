@@ -13,9 +13,9 @@ title: Create KIT website
 
 ## Project Structure
 
-Following our project structure, the collection of our KITs documentation is developed in the `./docs-kits/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs-kits/kits/Data Chain Kit`.
+Following our project structure, the collection of our KITs documentation is developed in the `./docs-kits/kits` folder, where each KIT is a sub folder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs-kits/kits/Data Chain Kit`.
 
-Each folder/KIT's content is structured in at least four pages/subfolders:
+Each folder/KIT's content is structured in at least four pages/sub-folders:
 
 - Adoption View -> `page_adoption-view.md`
 - Software Operation View -> `page_software-operation-view.md`
@@ -84,7 +84,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     └──page_software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](/docs/website-guidelines/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
+6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](/docs/website-guidelines/wiki.md#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
 
 7. Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
 
@@ -112,7 +112,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
     };
     ```
 
-    **Note** the sidebars may required bigger customisation based on your requirements, for that matters consult the [official documentation](https://docusaurus.io/docs/2.2.0/sidebar)
+    **Note** the sidebars may require bigger customisation based on your requirements, for that matters consult the [official documentation](https://docusaurus.io/docs/2.2.0/sidebar)
 
 8. After the NewKIT documentation and the corresponding `sidebar` are created, you would want to make it accessible from the `NavBar` of the page. More specifically under the `KITs dropdown menu`. This is easily handled by `Docusaurus` in the `docusaurus.config.js` file, where you'll need to add to the existing `navbar` object your newly created `route` and `label` (name of kit) to be added as a `dropdown` menu item. More specifically in:
 
@@ -169,4 +169,4 @@ The results of your newly created _KIT_ will be visible only (for now) in the `N
 
 To access the `Next` and the rest of the versions, you'll notice a `dropdown` menu with all of them in the `top-right` corner of the `NavBar` that is only been displayed when the user is navigating any of the existing `KITs`.
 
-Please check our [Understanding our multi-instance and versioning behaviour](/docs/website-guidelines/understanding-multi-instance_versioning) page, where we explain a little bit more in deep the structure of the project, the different instances of documentation, how to create versions and how the conditional rendering of the `versions dropdown` menu is been handled.
+Please check our [Understanding our multi-instance and versioning behaviour](/docs/website-guidelines/understanding-multi-instance-versioning.md) page, where we explain a little bit more in deep the structure of the project, the different instances of documentation, how to create versions and how the conditional rendering of the `versions dropdown` menu is being handled.
