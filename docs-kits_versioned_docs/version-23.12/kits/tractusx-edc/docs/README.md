@@ -32,9 +32,7 @@ The three supported setups are.
   - [Control Plane](../edc-controlplane/edc-controlplane-postgresql-hashicorp-vault/README.md)
     - [IDS DAPS Extensions](https://github.com/eclipse-edc/Connector/tree/main/extensions/common/iam/oauth2/daps)
     - [PostgreSQL Persistence Extensions](https://github.com/eclipse-edc/Connector/tree/main/extensions/control-plane/store/sql)
-    - [HashiCorp Vault Extension](../edc-extensions/hashicorp-vault/README.md)
   - [Data Plane](../edc-dataplane/edc-dataplane-hashicorp-vault/README.md)
-    - [HashiCorp Vault Extension](../edc-extensions/hashicorp-vault/README.md)
 
 ## Recommended Documentation
 

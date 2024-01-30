@@ -33,7 +33,7 @@ Before the connectors can be setup, the Supporting Infrastructure must be in pla
 to run two connectors independently.
 
 For this local test scenario,
-the [Supporting Infrastructure](../../edc-tests/cucumber/src/main/resources/deployment/helm/supporting-infrastructure/README.md)
+the [Supporting Infrastructure](../../edc-tests/deployment/test-infrastructure/README.md)
 of the TXDC Business Tests can be used.
 
 Install the TXDC Supporting Infrastructure by running the following command from the project root directory. The Minio
