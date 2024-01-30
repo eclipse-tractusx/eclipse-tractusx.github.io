@@ -91,7 +91,7 @@ The circular economy involves a complex interplay of various stakeholders, rangi
 
 The image below shows the big picture of a circular economy when material is tracked over its complete life cycle excluding the usage phase.
 
-#### Figure 2
+**Figure 2**
 
 ![Overview Material flow](resources/adoption-view/overview_material_flow.svg)
 
@@ -112,7 +112,7 @@ Catena-X offers a decentral, sovereign, cross-organizational data exchange. For 
 
 The goal of the Material Accounting Feature inside the Catena-X consortium and association is to collaborate on exchanging standardized secondary material information across the upstream & downstream value in order to develop a standardized data model. To do so, we identified potential data points along a closed loop with OEM, recycler and supplier as stakeholders as seen in the picture below. Further feature content will follow in upcoming versions of the Circularity KIT.
 
-#### Figure 3
+**Figure 3**
 
 ![Data Points along the Value Chain](resources/adoption-view/datapoints_along_valuechain.svg)
 
@@ -136,7 +136,7 @@ The secondary material content chapter of the circularity Kit explores how the s
 
 This user journey illustrates the data exchange process through Catena-X in the context of secondary material content. The user journey outlines the various stakeholders along the value chain and within the individual tiers and their involvement.
 
-#### Figure 4
+**Figure 4**
 
 ![User Journey - SMC](resources/adoption-view/userJourney_smc.svg)
 
@@ -161,11 +161,13 @@ The main difference between these data models, is whether the data is based on a
 
 In the table below, different scenarios are described to clarify which data model is used in which case.
 
-| Scenario name                                       | Description                                                                                                                                               | Example from practice                                                                                                                         | data model                                    |
+| Scenario                                            | Description                                                                                                                                               | Example from practice                                                                                                                         | Data Model                                    |
 |-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 |     Assumption-based SMC data exchange              |     The SMC data exchanged in this scenario is based on   assumptions made by considering various factors                                                 |     Tier-n requests an initial estimate of the SMC data   for a new component from its supplier.                                              |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
 |     Prognosis-based SMC data exchange               |     In this scenario, SMC data is exchanged based on a   prediction or forecast of future events in the automotive sector.                                |     When the production of a previously produced car is   continued, a prognosis of the SMC is made based on the previous production.         |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
 |     Measured-information-based SMC data exchange    |     In this scenario, the SMC data that is exchanged is   based on actual measured information and data. The relevant data is therefore   verifiable.     |     During the production of a component, the order   information of the used material clearly indicates the SMC of the used   materials.     |     [SecondaryMaterialContentVerifiable](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_verifiable)    |
+
+**Figure 5**
 
 ![Depiction of SMC Data Models - SMC](resources/adoption-view/depiction_of_smc_data_models.svg)
 
@@ -196,11 +198,11 @@ Essential material characteristics that are mandatory within the data model incl
 
 Further, information regarding inorganic/fossil-based materials is required. The percentage of primary inorganic/fossil-based material weight (percentageOfMaterialWeight) shall be provided. When it comes to secondary material, the percentage of material weight of chemically and mechanically recycled pre-consumer and post-consumer material according to ISO 14021 should be included (percentageOfMaterialWeight). Post-Consumer material is divided into two streams: Post consumer material from end-of-life vehicles as well as post consumer from other sources. When chemical or mechanical recycling has been applied, it is important to disclose information whether a mass balancing approach was followed (isMassBalanced).
 
-Definition of pre-consumer material:
+*Definition of pre-consumer material:*
 
 “Material diverted from the waste stream during a manufacturing process. Excluded is reutilization of materials such as rework, regrind or scrap generated in a process and capable of being reclaimed within the same process that generated it. Pre consumer material can be used in form of recovered or recycled material as a substitute for primary material.”
 
-Definition of post-consumer material:
+*Definition of post-consumer material:*
 
 “Material generated by households or by commercial, industrial and institutional facilities in their role as end-users of the product which can no longer be used for its intended purpose. This includes returns of material from the distribution chain. Post-consumer material can be used in form of recovered or recycled material as a substitute for primary material.”
 
@@ -208,7 +210,7 @@ Definition of post-consumer material:
 
 Optional information can be included to enhance the quality of the provided data, such as the percentage of material weight of reutilization material content (additionalInformation).
 
-Definition of Reutilization:
+*Definition of Reutilization:*
 
 “Reutilization of materials such as rework, regrind or scrap materials generated within the process and capable of being reused within the same process that generated it. Any operation by which products or components that are not waste are used again for the same purpose for which they were originally intended. Reutilization allows waste to be reduced and materials can be kept in the cycle.”
 
@@ -216,7 +218,7 @@ Even though Reutilization fosters the avoidance of waste, it does not count as r
 
 If available, the name of a certificate verifying the recycling content and a link to its PDF validating the provided information can be included (certificate).
 
-**Figure 5**
+**Figure 6**
 
 ![Material Characteristics](resources/adoption-view/Relationship_between_Material_Characteristics.svg)
 
@@ -230,7 +232,7 @@ To clearly identify the order and relevant material, the order number (orderNumb
 
 Please see the Catena-X Product Carbon Footprint (PCF) Rulebook for further information. Chain of custody is an administrative process by which information about materials is transferred, monitored, and controlled as those materials move through supply chains [ISO 22095:2020]. There are in principle four chains of custody models possible, illustrated in the figure below. Their common objective is to guarantee correct bookkeeping and to corroborate a link between in-going content, e.g., ‘sustainable’, ‘recycled’ or ‘organic’ by harmonized definitions, and the finally out-going product. They differ regarding physical or administrative links. Furthermore, they differ on the set of rules for balancing, and the possibility to keep materials streams segregated or not.
 
-**Figure 6**
+**Figure 7**
 ![figure custody models](resources/adoption-view/custody_models.svg)[^1]
 
 [^1]: Original image taken from [Mass Balance EMF White Paper](https://emf.thirdlight.com/link/f1phopemqs36-8xgjzx/@/preview/1?o), visually adapted for this purpose.
@@ -322,7 +324,7 @@ It is important to note that data quality may vary during different stages of th
 
 To calculate the average portion of, for instance, the amount of mechanical recycling of post-consumer material content in the whole material, the values along the data model must be multiplied. For example, the content of inorganic or fossil-based material, content of secondary inorganic or fossil-based material, post-consumer material content, and mechanical recycling would be multiplied as can be seen in the schematic depiction below.
 
-**Figure 7**
+**Figure 8**
 
 ![material_characteristics](resources/adoption-view/material_charactersitics.svg)
 
@@ -360,7 +362,7 @@ Ultimately, our efforts provide essential support for the digitalization and aut
 
 The "Data Journey" represents the entire process of dismantling an End-of-Life (EoL) vehicle. Each process step is accompanied by CX data models that would be necessary for digitally representing the individual process steps. This enables us to elevate the data journey for the dismantling process to a digital level and to gain an understanding of which data attributes and aspect models are required for each process step. It forms the foundation for the creation of digital EoL-solutions and the use of robotics.
 
-**Figure 8**
+**Figure 9**
 ![Data Journey - End of LIfe](resources/adoption-view/figure_dataJourney_EOF.svg)
 
 Future additions include data models for the following topics:
@@ -383,7 +385,7 @@ Future additions include data models for the following topics:
 
 The user journey "Certificate of Decommissioning" (CoDM) describes the moment at which a vehicle is transferred into the End-of-Life (EoL) phase from the perspective of an authorized collection point for EoL-vehicles, such as an authorized dismantling facility. The CoDM resembles the official Certificate of Destruction (CoD) but marks the starting point of the upcoming CX concept of a digital CoD.
 
-**Figure 9**
+**Figure 10**
 
 ![User Journey CODM](resources/adoption-view/figure_user_journey_codm.svg)
 
@@ -429,7 +431,7 @@ The CE-Assistant provides decision support and circular strategies, enabling sev
 
 The User Journey describes the system interaction of the CE Assistant with the user, the Dismantling Lead, with the aim of providing a recommendation for a component-level circular strategy for end-of-life vehicles. This involves breaking down the process of holistic decision-making into individual process steps and identifying the interaction with the user/system at each process step.
 
-**Figure 10**
+**Figure 11**
 
 ![Figure UserJourney CE Assistant](resources/adoption-view/figure_userstory_ce_assistant.svg)
 
@@ -468,7 +470,7 @@ The core process means in a chronological order: The basic reuse-potential, mate
 
 If one or more of these criteria are not fulfilled, the component will only be assigned to recovery or recycling. If the component qualifies for disassembly, a manual visual inspection and a functional check are conducted. For components, where the visual condition is relevant, such as body parts and interior components, the visual inspection is conducted first. In contrast, components, for which the technical condition is of significant relevance, such as engines and gearboxes, are first subjected to a functional test. Here, the data can also be provided in the Catena-X network as an update of the DT. Thereafter, a quality comparison of the component condition with threshold values takes place. When the quality is insufficient for reuse, the technical check for remanufacturing is carried out chronologically: Assimilability, cleanability and restorability/upgradability. Finally, a possible strategy is given to the user as a result.
 
-**Figure 11**
+**Figure 12**
 
 ![user story flowchart](resources/adoption-view/figure11.svg)
 
@@ -515,9 +517,13 @@ The key user journey relevant in Catena-X circular economy area relates to the n
 
 Some information could be provided by a variety of data models, but the highest value lies within the generic digital product passport (and by extension, battery passport, sealant passport, transmission passport). When a seller is publishing a listing with a product that he is willing to sell, there is only a limited amount of information he can provide with it, mostly the one available from the visual inspection or on-board data (such as mileage, OE-number, brand) as well as logistical/ sales information (such as location or price). When a potential buyer views the listing, he should have a possibility to request additional details from a data provider of the generic digital product passport (if available) for that product (see diagram below). More information on the digital product passport can be found in the [Ecopass KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Eco_Pass_KIT/page-adoption-view/).
 
+**Figure 13**
+
 ![User Journey - Secondary Marketplace](resources/adoption-view/user_journey_secondary_marketplace.svg)
 
 This process is reflected in the architecture for communicating with the Catena-X network and data providers of the battery passport data model, as presented below.
+
+**Figure 14**
 
 ![Communication Architecture](resources/adoption-view/communication_architecture.svg)
 
@@ -609,16 +615,15 @@ Remanufacture | Use parts of a discarded product in a new product with the same 
 Remanufacturing | Remanufacturing is a standardized industrial process that restores used products to their original performance level or better, with a warranty equivalent to or surpassing that of newly manufactured products. The remanufacturing effort includes dismantling the product, restoring and replacing components, and testing individual parts and the whole product to ensure it meets its original design and performance specifications, as seen from the customer’s perspective. | BS 8887-2:2009
 Repair | Repair is the process of returning a faulty or broken product or component to a usable state. The effort put into the repair is minimal and only addresses the specified fault to ensure the useability of the product; however, the performance of the repaired part may not be guaranteed. The warranty for a repaired product is generally less than that of a new or remanufactured product and may only apply to the replaced or repaired component | BS 8887-2:2009
 Repurpose | Use a redundant product or its parts in a new product with different function | European Commission, Categorization System for the Circular Economy, doi:10.2777/172131, p. 7
-Ressource (Rohstoff) | Resource that is used or can be used in a process. A resource can be of a material or immaterial nature.When the term "resource" is used in the context of environmental science, it refers to a "natural resource".Unlike here, the term resource is often used very narrowly in the sense of raw materials. | Translated from BMW Proposal
-Resource Protection | Economical use of natural resources with the aim of preserving their quantity and function. | Translated from BMW Proposal
+Resource (Rohstoff) | Resource that is used or can be used in a process. A resource can be of a material or immaterial nature. When the term "resource" is used in the context of environmental science, it refers to a "natural resource". Unlike here, the term resource is often used very narrowly in the sense of raw materials. | 
+Resource Protection | Economical use of natural resources with the aim of preserving their quantity and function. | 
 Rethink | Make product use more intensive (e.g. through product-as-a service, reuse and sharing models or by putting multi-functional products on the market) | European Commission, Categorization System for the Circular Economy, doi:10.2777/172131, p. 7
 R-Strategies | R-Strategies, as part of circular economy, encompass a range of sustainable resource management approaches that prioritize actions such as reuse, remanufacturing, recycling, and recovery. These strategies aim to extend the life of products and materials, reduce waste generation, and minimize environmental impacts by promoting the efficient and responsible use of resources throughout their life cycle, thus contributing to the implementation of the circular economy model. | Inspired by Potting et al.: Potting, J.; Hekkert, M.P.; Worrell, E.; Hanemaaijer, A. Circular Economy: Measuring Innovation in the Product Chain; Planbureau voor de Leefomgeving: Hague, The Netherlands, 2017.
 Re-use | Re-use of a product which is still in good condition and fulfils its original function (and is not waste) for the same purpose for which it was conceived | European Commission, Categorization System for the Circular Economy, doi:10.2777/172131, p. 7
 Reusability | The ability of components to be diverted from the waste stream and reused. | ISO 22628:2002-02
 Reutilization | Reutilization of materials such as rework, regrind, or scrap materials generated within the process and capable of being reused within the same process that generated it. | Adapted from ISO 14021
 Scrap | Iron and steel material in metallic form that is recovered in multiple life cycle stages, including steel production processes, the manufacturing processes of final products and the end of life of final products | Adapted from ISO 20915:2018
-Secondary Raw Material | Secondary raw materials are recycled materials that can be used in manufacturing processes instead of or alongside virgin raw materials. | European Parliament
-Secondary Raw Material Content | The secondary raw material content is calculated in proportion of secondary material and product weight. |
+Secondary Raw Material | Secondary materials are any materials that are not the primary products from manufacturing and other industrial sectors. These materials can include scrap and residuals from production processes and products that have been recovered at the end of their useful life. | [US EPA, 17.08.2023](https://www.epa.gov/smm/sustainable-management-industrial-non-hazardous-secondary-materials#:~:text=Secondary%20materials%20are%20any%20materials,end%20of%20their%20useful%20life)
 Shredder | Any facility that is used to crush or shred end-of-life vehicles, including for the purpose of recovering directly reusable metal scrap. | Guideline 2000/53/EG
 Treatment | Activities carried out after the end-of-life vehicle is handed over to a facility for the elimination of pollutants, dismantling, coarse crushing, shredding, recycling or preparation for disposal of shredder waste, as well as other activities related to the recycling and/or disposal of end-of-life vehicles and end-of-life vehicle components. | Guideline 2000/53/EG
 Vehicle | Vehicles of classes M1 or N1 according to Annex II Section A of Directive 70/156/EC and three-wheeled vehicles according to Directive 92/61/EC, however excluding three-wheeled motorcycles. | Article 2 Definitions 200053EG
@@ -631,12 +636,12 @@ Weight | In science and engineering, the weight of an object is the _force_ acti
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- Copyright (c) 2023 BMW AG
-- Copyright (c) 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
-- Copyright (c) 2023 BASF SE
-- Copyright (c) 2023 SAP Deutschland SE & Co.KG
-- Copyright (c) 2023 T-Systems International GmbH
-- Copyright (c) 2023 LRP Auto-Recycling Leipzig GmbH
-- Copyright (c) 2023 Robert Bosch GmbH
-- Copyright (c) 2023 tec4U-Ingenieurgesellschaft mbH
-- Copyright (c) 2023 Contributors to the Eclipse Foundation
+- Copyright (c) 2023,2024 BMW AG
+- Copyright (c) 2023,2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- Copyright (c) 2023,2024 BASF SE
+- Copyright (c) 2023,2024 SAP Deutschland SE & Co.KG
+- Copyright (c) 2023,2024 T-Systems International GmbH
+- Copyright (c) 2023,2024 LRP Auto-Recycling Leipzig GmbH
+- Copyright (c) 2023,2024 Robert Bosch GmbH
+- Copyright (c) 2023,2024 tec4U-Ingenieurgesellschaft mbH
+- Copyright (c) 2023,2024 Contributors to the Eclipse Foundation
