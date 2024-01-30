@@ -84,7 +84,7 @@ Usually a new version is assigned when a new release is created. So a version an
 <!--
 ## What to do with a project external KIT repository ?
 
-It may be the case that you already started the development of your KIT outside the Tractus-X project. In that case you should move your progress to your kit repository within the Tractus-X project. If you don't have a Tractus-X repository consult this [guide](/docs/kit-process/contribute.md#how-to-obtain-a-tractus-x-repository). Otherwise, there are two options to move your content.
+It may be the case that you already started the development of your KIT outside the Tractus-X project. In that case you should move your progress to your kit repository within the Tractus-X project. If you don't have a Tractus-X repository consult this [guide](/docs/oss/issues.md#create-manage-a-repository-in-eclipse-tractusx) Otherwise, there are two options to move your content.
 
 1. If you have write access to your repository, and it is empty you may see this code-tab within the empty repository:
 
