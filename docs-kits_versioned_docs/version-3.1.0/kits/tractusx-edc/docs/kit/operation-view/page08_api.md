@@ -3,7 +3,7 @@
 ## API Spec
 
 The API spec of the EDC is constantly evolving.
-The full API documentation for each release can be viewed on [management-api](../development-view/openAPI/management-api/management-api.info.mdx).
+The full API documentation for each release can be viewed on the openAPI section, e.g [api-observability](../development-view/openAPI/management-api/api-observability/check-health.api.mdx).
 The following are some example API calls for common use cases.
 They assume the default parameters from the previous local setup.
 
