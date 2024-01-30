@@ -30,7 +30,7 @@ For receiving the EDC Endpoints for a requested partner, the EDC Discovery Servi
 
 ### PCF Request
 
-To actual request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore the decentralized Digital Twin Registry (dDTR) is used. Data provider must register their dDTR(s) as EDC assets following the CX-0002 standard. After identifying the dDTR the Digital Twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example are documented [here](#payload-for-requesting-pcf-sub-model).
+To actual request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore the decentralized Digital Twin Registry (dDTR) is used. Data provider must register their dDTR(s) as EDC assets following the CX-0002 standard. After identifying the dDTR the Digital Twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint cen be extracted (Example Payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
@@ -141,7 +141,7 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
 
 #### Payload for EDC Policy
 
-The following JSON is an policy definition including the policy "frameworkagreement pcf" and membership. The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/Catena-X_UseCasePCFExchange_Beta-Phase_DE.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
+The following JSON is an policy definition including the policy "frameworkagreement pcf" and membership. The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
 
 ##### Payload to create a SSI based Policy
 
@@ -212,25 +212,25 @@ In case no material twin or no PCF submodel is found, EDC Asset type has to be u
 
 ### Used CX Standards
 
-- [CX-0001-EDCDiscoveryAPI](https://catena-x.net/de/standard-library)
-- [CX-0002-DigitalTwinsInCX](https://catena-x.net/de/standard-library)
-- [CX-0003-SAMMSemanticAspectMetaModel](https://catena-x.net/de/standard-library)
-- [CX-0006-RegistrationAndInitialOnBoarding](https://catena-x.net/de/standard-library)
-- [CX-0013 Identity of Member Companies](https://catena-x.net/de/standard-library)
-- [CX-0014 Employees and Technical Users](https://catena-x.net/de/standard-library)
-- [CX-0015 IAM & Access Control Paradigm](https://catena-x.net/de/standard-library)
-- [CX-0016 Company Attribute Verification](https://catena-x.net/de/standard-library)
-- [CX-0017 Company Role by the Connector](https://catena-x.net/de/standard-library)
-- [CX-0018-SovereignDataExchange](https://catena-x.net/de/standard-library)
-- [CX-0026 PCF Data Model](https://catena-x.net/de/standard-library)
-- [CX-0029 Product Carbon Footprint Rulebook](https://catena-x.net/de/standard-library)
-- [CX-0049-DID Document Schema](NeedtobeaddedbyAccociation)
-- [CX-0050-Framework Agreement Credential](NeedtobeaddedbyAccociation)
-- [CX-0051-Summary Credential](NeedtobeaddedbyAccociation)
+- [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/de/standard-library)
+- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/de/standard-library)
+- [CX-0003 SAMMSemanticAspectMetaModel v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0006 RegistrationAndInitialOnBoarding v1.1.3](https://catena-x.net/de/standard-library)
+- [CX-0013 Identity of Member Companies v1.1.0](https://catena-x.net/de/standard-library)
+- [CX-0014 Employees and Technical Users v1.0.1](https://catena-x.net/de/standard-library)
+- [CX-0016 Company Attribute Verification v1.1.0](https://catena-x.net/de/standard-library)
+- [CX-0017 Company Role by the Connector v1.1.0](https://catena-x.net/de/standard-library)
+- [CX-0018 Eclipse Data Space Connector (EDC) v2.1.0](https://catena-x.net/de/standard-library)
+- [CX-0026 Product Carbon Footprint Data Model v2.0.0](https://catena-x.net/de/standard-library) 
+- [CX-0028 Product Carbon Footprint Request API v2.0.0](https://catena-x.net/de/standard-library)
+- [CX-0029 Product Carbon Footprint Rulebook v2.0.0](https://catena-x.net/de/standard-library)
+- [CX-0049 DID Document Schema v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0050 Framework Agreement Credential v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0051 Summary Credential v1.0.0](https://catena-x.net/de/standard-library)
 
 ## Other Standards
 
-- [Pathfinder Framework](https://wbcsd.github.io/data-exchange-protocol/v2/)
+- [Pathfinder Framework - v2.0.0](https://wbcsd.github.io/tr/2023/data-exchange-protocol-20230221)
 
 ## NOTICE
 

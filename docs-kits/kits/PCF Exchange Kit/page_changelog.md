@@ -13,11 +13,13 @@ All notable changes to this Kit will be documented in this file.
 ### Added
 
 * Flow description in case no material twin or PCF submodel exists
+* Versions of referenced standards
 
 ### Changed
 
 * Open API updated to version 1.0.0 (Rel.24.03)
 * Asset and Policy definitions updated
+* Link to Frameworkagreement updated
 
 ### Removed
 
