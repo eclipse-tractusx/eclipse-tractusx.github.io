@@ -52,6 +52,7 @@ In its first version the KIT covers 4 focus topics along an automotive value loo
 2. **Material Accounting:** provides standardized scrap/waste and secondary material data exchange for the ecosystem partners to create transparency about recycling activities and verifiable closed loops.
 3. **EoL / Dismantling Services:** offers essential support for the digitalization and automation of the EoL phase to consequently close value loops.
 4. **CE-Assistant (Circular Strategy Assistant):** is a decision support system that facilitates the selection of the optimal R-Strategy for end-of-life vehicles, with a focus on Reuse, Remanufacturing, Recycling, and Recovery, guided by a comprehensive technical and environmental assessment process.
+5. **Secondary Marketplace:** buying and selling used components and secondary raw materials in order to create and open new opportunities for collaborating across the value chain and closing the loop on component and material level.
 
 **Figure 1**
 ![Circularity KIT Wheel](resources/adoption-view/circularity_kit_wheel.svg)
@@ -135,11 +136,11 @@ The secondary material content chapter of the circularity Kit explores how the s
 
 This user journey illustrates the data exchange process through Catena-X in the context of secondary material content. The user journey outlines the various stakeholders along the value chain and within the individual tiers and their involvement.
 
-#### Figur 4
+#### Figure 4
 
 ![User Journey - SMC](resources/adoption-view/userJourney_smc.svg)
 
-The user journey follows the same process during all four lifecycle stages and differ in data quality as stated below. Further information to the lifecycle stages can be found in the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit).
+The user journey follows the same process during all four lifecycle stages and differ in data quality as stated below. Further information to the lifecycle stages can be found in the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit/).
 
 | Lifecycle Stage | Explanation                                                                                       | Example                                                                                                                                                                           |
 | --------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,9 +151,27 @@ The user journey follows the same process during all four lifecycle stages and d
 
 ### Semantic Models
 
-This part provides an overview of the secondary material content (SMC) Calculation Framework, including relevant data points, the calculation of SMC, and links to the data model and GitHub. The goal is to create a common basis for the data relevant for the SMC. Based on this, steering for secondary material content SMC and secondary material quota (SMQ) is possible.
+There are different scenarios in which SMC Data can be exchanged. According to the semantic model framework, this implies that there is a specific data model for each purpose (scenario).
 
-#### A. Introduction to the Semantic Model
+In order to ensure efficiency by avoiding redundancy and maintaining multiple data models, the concept of a shared aspect model was used: This means that there is one Secondary Material “base model”, which is the SecondaryMaterialContent. This serves as an enabler for data modelling and not for data exchange itself, it is bad practice to use it for data exchange. 
+
+Instead, SecondaryMaterialContentCalculated or SecondaryMaterialContentVerifiable should be used when exchanging SMC data, depending on the actual scenario. 
+
+The main difference between these data models, is whether the data is based on assumptions or a prognosis and is therefore not fixed, in which case SecondaryMaterialContentCalculated is to be used. On the other hand, once the data is actually measured and can therefore be verified, the SecondaryMaterialContentVerifiable should be used. It is important to note that the models now include the same properties and can only be differentiated by the name of the relevant data model. 
+
+In the table below, different scenarios are described to clarify which data model is used in which case.
+
+| Scenario name                                       | Description                                                                                                                                               | Example from practice                                                                                                                         | data model                                    |
+|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+|     Assumption-based SMC data exchange              |     The SMC data exchanged in this scenario is based on   assumptions made by considering various factors                                                 |     Tier-n requests an initial estimate of the SMC data   for a new component from its supplier.                                              |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
+|     Prognosis-based SMC data exchange               |     In this scenario, SMC data is exchanged based on a   prediction or forecast of future events in the automotive sector.                                |     When the production of a previously produced car is   continued, a prognosis of the SMC is made based on the previous production.         |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
+|     Measured-information-based SMC data exchange    |     In this scenario, the SMC data that is exchanged is   based on actual measured information and data. The relevant data is therefore   verifiable.     |     During the production of a component, the order   information of the used material clearly indicates the SMC of the used   materials.     |     [SecondaryMaterialContentVerifiable](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_verifiable)    |
+
+![Depiction of SMC Data Models - SMC](resources/adoption-view/depiction_of_smc_data_models.svg)
+
+The next part provides an overview of the secondary material content (SMC) Calculation Framework, including relevant data points, the calculation of SMC, and links to the data model and GitHub. The goal is to create a common basis for the data relevant for the SMC. Based on this, steering for secondary material content SMC and secondary material quota (SMQ) is possible. 
+
+#### A. Introduction to the Semantic Models
 
 The semantic model is based on data points regarding material and order data.
 
@@ -160,7 +179,7 @@ There are different timestamps to which data for SMC is relevant.
 
 To ensure the accuracy of the data and account for varying availability and quality of the information, it is important to identify at which step of the process data is exchanged. The process is divided into four steps, which are explained below.
 
-| **Timestamp**   <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit/)  | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed | Data Models that need to be filled (link to the relevant data models here)    |
+| **Timestamp**   <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit/)  | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed | Data Models that need to be filled (link to the relevant data models here)    |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------- |
 | a. Supplier Inquiry/As Designed                                                                                                                             | This is the initial phase of the process where the supplier is inquired about the design of the product. The data exchanged in this phase is an initial estimation of secondary material content.                                                         | Concept currently not developed   | N/A                                                                           |
 | b. Supplier Selection/ As Planend                                                                                                                           | In this phase, the supplier is selected, and the data exchanged is based on the planned production and concretized to the previous phase.                                                                                                                 | Concept developed                 | 1. Part as Planned (Component)   <br /> 2. SMC                                     |
@@ -171,11 +190,11 @@ In addition to filling out the data model for Secondary Material Content, other 
 
 #### 1. Material
 
-The Model is designed to address the material at the lowest level requiring descriptive information, such as the material name in accordance with a standardized format, as well as the name and code of the referenced standard (materialNameStandardizedValue; referencedStandard; referencedStandardID). For example, a material name may be given based on the ISO 1043 standard, in which case ISO would be the referenced standard and ‘1043’ the referenced standard ID. The material class (materialClass) must be provided in accordance with the VDA standard 231-106. To provide relevant data regarding the material mass per declared unit of the material, the unit of measure, such as gram or kilogram (unitOfMeasureKey), must first be defined, followed by the actual weight (unitOfMeasureValue).
+The Model is designed to address the material at the lowest level requiring descriptive information, such as the material name in accordance with a standardized format, as well as the name and code of the referenced standard (materialNameStandardizedValue; referencedStandard; referencedStandardID). For example, a material name may be given based on the ISO 1043 standard, in which case ISO would be the referenced standard and ‘1043’ the referenced standard ID. The material class (materialClass) must be provided in accordance with the VDA standard 231-106. To provide relevant data regarding the material mass per declared unit of the material, the unit of measure, such as gram or kilogram (unitOfMeasureKey), must first be defined. Next, the gross material input weight (grossMaterialInputMass) as well as the net mass of the material (materialNetMass) shall be provided.
 
 Essential material characteristics that are mandatory within the data model include the use of bio-based materials and their material class (bioBasedClass), as well as the percentage of material weight of each primary and secondary bio-based material (primaryBioBased; secondaryBioBased). For secondary bio-based material it can be chosen whether a mass balancing approach was followed or not (isMassBalanced). Further information and mass-balancing can be found under B, Accounting for Chain of Custody models.
 
-Further, information regarding inorganic/fossil-based materials is required. The percentage of primary inorganic/fossil-based material weight (percentageOfMaterialWeight) shall be provided. When it comes to secondary material, the percentage of material weight of chemically and mechanically recycled pre-consumer and post-consumer material according to ISO 14021 should be included (percentageOfMaterialWeight). For Post-Consumer material, the differentiation whether the material originates from recycled end-of-life vehicles (isPreviousIndustryAutomotive) can be selected. When chemical or mechanical recycling has been applied, it is important to disclose information whether a mass balancing approach was followed (isMassBalanced).
+Further, information regarding inorganic/fossil-based materials is required. The percentage of primary inorganic/fossil-based material weight (percentageOfMaterialWeight) shall be provided. When it comes to secondary material, the percentage of material weight of chemically and mechanically recycled pre-consumer and post-consumer material according to ISO 14021 should be included (percentageOfMaterialWeight). Post-Consumer material is divided into two streams: Post consumer material from end-of-life vehicles as well as post consumer from other sources. When chemical or mechanical recycling has been applied, it is important to disclose information whether a mass balancing approach was followed (isMassBalanced).
 
 Definition of pre-consumer material:
 
@@ -309,7 +328,11 @@ To calculate the average portion of, for instance, the amount of mechanical recy
 
 #### D. Data model and Github
 
-The relevant data model can be found on the following link on GitHub: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content/1.0.0)
+The relevant data model can be found on the following link on GitHub: 
+
+- [Secondary Material Content](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.secondary_material_content)
+- [Secondary Material Content Calculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)
+- [Secondary Material Content Verifiable](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_verifiable) 
 
 The open availability on GitHub allows companies to combine their own internal target guidance programs with the data models from Catena-X to SMC.
 
@@ -448,6 +471,69 @@ If one or more of these criteria are not fulfilled, the component will only be a
 **Figure 11**
 
 ![user story flowchart](resources/adoption-view/figure11.svg)
+
+## Secondary Marketplace
+
+### Introduction
+
+A Secondary Marketplace is fundamental to establish a circular economy where components and materials are available and offered to the interested users creating new value chains and extending the life of the parts and the materials before becoming waste. Digital platforms offering marketplace services are essential to enable trading of secondary materials and components, provide transparency into supply and demand that potential buyers and sellers can expect.
+
+The main goals of the Marketplace are: (1) to match the demand and the supply of available components and secondary raw materials and (2) to provide transparency on sales opportunities for used components which can be, for example, reused or re-manufactured.
+
+If offered, additional services such as grading, certifications for the offered listings (components or secondary materials) and transport handling and logistics could support trading processes.
+
+### Business Context
+
+A secondary marketplace enables closing the loop on economical and physical layers. Following the logic described in the previous chapter, there could be multiple scenarios related to R-strategies on how secondary marketplaces enable a circular economy.
+
+Potential sales scenarios:
+
+-	Dismantling companies selling old components and material/scrap;
+-	Automotive manufacturers selling old unused components;
+-	Automotive manufacturers selling production waste and scrap;
+-	and others.
+
+Potential purchase scenarios: 
+
+-	Automotive companies buying components for re-manufacturing;
+-	Workshops buying components for re-use;
+-	Recyclers buying production waste and scrap;
+-	and others.
+
+In all of those cases, having additional information (e.g. product carbon footprint or digital product passport details) on the products offered on the marketplace is beneficial.
+
+### User Journey and Architecture Overview
+
+In general, there are several goals that buyers and sellers pursue on a secondary marketplace:
+
+-	As a (Core) Purchaser, I want to search and filter for market supply on OE number level to match the market offers towards my demand.
+-	As a (Core) Purchaser, I want to reach as many possible sellers as possible to purchase parts that I cannot procure today. This includes brokers I don't buy from today.
+-	As a (Core) Seller, I want to place offers on the marketplace with standard upload tools and manually.
+-	As a (Core) Seller, I want to reach as many possible customers as possible to maximize my turnover. This includes customers I don't sell to today.
+
+The key user journey relevant in Catena-X circular economy area relates to the need of a buyer to have full reliable information on a product that he is intending to purchase. This is especially important given that many buyers are looking for parts for re-manufacturing or re-use, where product quality plays a vital role. Furthermore, in case of recycling, recyclers are interested to know material composition and additional information that would influence their purchasing decision. 
+
+Some information could be provided by a variety of data models, but the highest value lies within the generic digital product passport (and by extension, battery passport, sealant passport, transmission passport). When a seller is publishing a listing with a product that he is willing to sell, there is only a limited amount of information he can provide with it, mostly the one available from the visual inspection or on-board data (such as mileage, OE-number, brand) as well as logistical/ sales information (such as location or price). When a potential buyer views the listing, he should have a possibility to request additional details from a data provider of the generic digital product passport (if available) for that product (see diagram below). More information on the digital product passport can be found in the [Ecopass KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Eco_Pass_KIT/page-adoption-view/).
+
+![User Journey - Secondary Marketplace](resources/adoption-view/user_journey_secondary_marketplace.svg)
+
+This process is reflected in the architecture for communicating with the Catena-X network and data providers of the battery passport data model, as presented below.
+
+![Communication Architecture](resources/adoption-view/communication_architecture.svg)
+
+When it comes to the data exchange schema and other details, see the [Triangle for Secondary Marketplace](https://catena-x.net/de/standard-library) document for more information on how such a request could be realized within Catena-X environment and according to applicable guidelines (e.g. on interoperability and data sovereignty). In a decentral environment, such attributes as manufacturer part ID and OE number play a vital role in order to get access to the right component and the right data model at data provider’s side.
+
+### Semantic Models
+
+In the following, relevant semantic models for the secondary marketplace are listed. For further information about the listed data models please refer to the Catena-X standards library for the respective data model, marked as “CX-“, which contains the standardized data models with further descriptions and explanations. The standards library can be founded here: [Catena-X Standard-Library](https://catena-x.net/de/standard-library)
+
+The Marketplace Offer is an aspect model that is complementary to the concept of a secondary marketplace. It described a product (e.g. a used, dismantled component) that is placed for sale onto the marketplace, with key supporting information such as quantity, quality, or price. It provides essential information for potential buyers and could be used in the future to exchange product information between multiple marketplaces. This model can therefore be used to exchange offers between multiple marketplaces. As there is no exchange scenario defined yet, the Marketplace Offer is a recommendation and non-normative, since it is so far concerning the business application-internal data structure only. More information on this aspect model can be found under CX-0035 in the standards library or under the following link: [Marketplace Offer](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.market_place_offer)
+
+Additionally, two other aspect models could play a supporting role for secondary marketplaces.
+
+The Return Request aspect model could be used to flag a vehicle or product to indicate that there is a demand or a request for return. It specifies the aspect of the recall of a vehicle part and thus provides the information whether and why a return request exists for a product. More information on this aspect model can be found under CX-0033 in the standards library or under the following link: [Return Request](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.return_request)
+
+The Product Passport aspect model could provide reliable details on the product characteristics or lifecycle information, therefore complementing the basic Marketplace Offer information. More information on this aspect model can be found under CX-0103 in the standards library or under the following link: [Digital Product Passport](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.generic.digital_product_passport)
 
 ## Glossary
 
