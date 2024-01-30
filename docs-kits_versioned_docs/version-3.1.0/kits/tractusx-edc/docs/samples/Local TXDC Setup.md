@@ -121,4 +121,4 @@ helm uninstall --namespace cx plato
 helm uninstall --namespace cx sokrates
 ```
 
-> To try out the local setup, have a look at the [Transfer Example Documentation](Transfer%20Data.md)
+> To try out the local setup, have a look at the [Transfer Example Documentation](./Transfer%20Data.md)
