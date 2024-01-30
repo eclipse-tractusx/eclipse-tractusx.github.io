@@ -26,7 +26,7 @@ consumer. But the roles could be inverse as well.
 ## 1. Optional - Local Setup
 
 To create a local setup with two connectors have a look at
-the [Local TXDC Setup Documentation](Local%20TXDC%20Setup.md).
+the [Local TXDC Setup Documentation](../samples/example-dataspace/README.md).
 It creates two connectors (Plato & Sokrates) with exposed Node Ports.
 
 ### See Node Ports using Minikube
