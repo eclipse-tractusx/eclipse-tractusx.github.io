@@ -82,7 +82,7 @@ should be imported by the application.
 ### Helm Deployment
 
 This repository contains Helm files for deploying the BPDM Pool to a Kubernetes environment.
-See the [BPDM Pool Helm README](charts/pool/README.md) for details.
+See the [BPDM Pool Helm README](https://github.com/eclipse-tractusx/bpdm/blob/main/charts/bpdm/charts/bpdm-pool/README.md) for details.
 
 ## BPDM Gate
 
@@ -149,4 +149,4 @@ secret for the client.
 ### Helm Deployment
 
 This repository contains Helm files for deploying the BPDM Gate to a Kubernetes environment.
-See the [BPDM Gate Helm README](charts/gate/README.md) for details.
+See the [BPDM Gate Helm README](https://github.com/eclipse-tractusx/bpdm/blob/main/charts/bpdm/charts/bpdm-gate/README.md) for details.
