@@ -55,6 +55,7 @@ In its first version the KIT covers 5 focus topics along an automotive value loo
 5. **Secondary Marketplace:** buying and selling used components and secondary raw materials in order to create and open new opportunities for collaborating across the value chain and closing the loop on component and material level.
 
 **Figure 1**
+
 ![Circularity KIT Wheel](resources/adoption-view/circularity_kit_wheel.svg)
 
 ### Use Case / Domain Explanation
@@ -133,7 +134,7 @@ By facilitating seamless data exchange and introducing standardized calculation 
 
 The secondary material content chapter of the Circularity KIT explores how the secondary material framework contributes to heightened transparency, empowered data management, and streamlined communication, ultimately fostering a more sustainable and interconnected automotive ecosystem.
 
-### Business Content
+### Business Context
 
 #### Use Case / Domain Explanation
 
@@ -236,6 +237,7 @@ To clearly identify the order and relevant material, the order number (orderNumb
 Please see the Catena-X Product Carbon Footprint (PCF) Rulebook for further information. Chain of custody is an administrative process by which information about materials is transferred, monitored, and controlled as those materials move through supply chains [ISO 22095:2020]. There are in principle four chains of custody models possible, illustrated in the figure below. Their common objective is to guarantee correct bookkeeping and to corroborate a link between in-going content, e.g., ‘sustainable’, ‘recycled’ or ‘organic’ by harmonized definitions, and the finally out-going product. They differ regarding physical or administrative links. Furthermore, they differ on the set of rules for balancing, and the possibility to keep materials streams segregated or not.
 
 **Figure 7**
+
 ![figure custody models](resources/adoption-view/custody_models.svg)[^1]
 
 [^1]: Original image taken from [Mass Balance EMF White Paper](https://emf.thirdlight.com/link/f1phopemqs36-8xgjzx/@/preview/1?o), visually adapted for this purpose.
