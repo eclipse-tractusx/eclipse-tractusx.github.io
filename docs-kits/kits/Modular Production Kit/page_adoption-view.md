@@ -85,4 +85,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2023;Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IWU & Fraunhofer IOSB & Fraunhofer IPA)
-- SPDX-FileCopyrightText: 2023,Siemens AG
+- SPDX-FileCopyrightText: 2023 Siemens AG
