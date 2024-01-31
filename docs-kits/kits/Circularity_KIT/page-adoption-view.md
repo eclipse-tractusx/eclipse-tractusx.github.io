@@ -4,13 +4,13 @@ title: Adoption View
 
 ## Circularity KIT
 
-### Vision & Misson
+### Vision & Mission
 
 #### Introduction
 
 The Circularity KIT shall empower stakeholders to transition towards a circular economy by providing frameworks, guidelines and best practices to enhance sustainability credentials, enable data-driven decision-making and foster collaboration and innovation in the automotive industry.
 
-Secondary material content, material accounting, dismantling services, and the CE-Assistant are the four focus topics that form the first version of Circularity KIT. The offered content and artifacts address important use cases such as sustainable materials management, waste minimization and resource efficiency, that contribute to more sustainable and circular automotive value loops.
+Secondary material content, material accounting, dismantling services, the CE-Assistant, and the secondary marketplace are the five focus topics that form the Circularity KIT as of now. The offered content and artifacts address important use cases such as sustainable materials management, waste minimization and resource efficiency, that contribute to more sustainable and circular automotive value loops.
 
 The overarching goals of the Circularity KIT, therefore, are to:
 
@@ -24,7 +24,7 @@ Vision Catch Phrase: "Closing the Loop, by harnessing the power of Circularity"
 
 Context: Our vision is to create a future where resources are intelligently and efficiently utilized, enabling industries and communities to minimize waste, embrace R-strategies, and foster a circular economy that leads to a sustainable and prosperous world.
 
-The Circularity Kit serves as a practical set of tools, guidelines, and best practices designed to help stakeholders in the automotive industry to transition towards this vision.
+The Circularity KIT serves as a practical set of tools, guidelines, and best practices designed to help stakeholders in the automotive industry to transition towards this vision.
 
 #### Mission
 
@@ -46,7 +46,7 @@ The Circularity KIT provides business opportunities for service providers in var
 
 #### Circularity KIT Wheel
 
-In its first version the KIT covers 4 focus topics along an automotive value loop.
+In its first version the KIT covers 5 focus topics along an automotive value loop.
 
 1. **Secondary Material Content:** promotes the use of secondary materials in the automotive industry by providing a standardized data model for data exchange and a calculation framework.
 2. **Material Accounting:** provides standardized scrap/waste and secondary material data exchange for the ecosystem partners to create transparency about recycling activities and verifiable closed loops.
@@ -82,7 +82,8 @@ Benefits for OEMs, SMEs, and Solution Providers:
 
 ### Introduction
 
-Material Accounting: Enabling Transparency in the Circular Economy to Validate Material Loops
+*Material Accounting: Enabling Transparency in the Circular Economy to Validate Material Loops*
+
 In the dynamic landscape of modern industry, the pursuit of a circular economy has become increasingly vital. This transformative approach seeks to minimize waste and enhance resource efficiency by promoting the reuse, recycling and repurposing of materials throughout their entire lifecycle. However, the realization of a truly circular economy faces significant challenges, primarily stemming from the absence of standardized data exchange and communication among the diverse network of stakeholders involved in the process.
 
 Currently, there is a notable absence of a uniform data format or exchange mechanism for recycled materials within industrial processes and value chains. This lack of transparency presents a barrier to comprehending the flow of materials and recycled materials circulating within this ecosystem. Without a standardized approach, tracking the contributions of recycled materials, assessing their successful reintegration into the circular loop, and quantifying output volumes remain challenging tasks.
@@ -120,7 +121,7 @@ The goal of the Material Accounting Feature inside the Catena-X consortium and a
 
 ### Introduction
 
-Introducing the Secondary Material Framework within the Circularity KIT by Catena-X: Enhancing Sustainability and Communication in the Automotive Value Chain.
+*Introducing the Secondary Material Framework within the Circularity KIT by Catena-X: Enhancing Sustainability and Communication in the Automotive Value Chain.*
 
 In the pursuit of sustainability and resource efficiency, the automotive industry is continuously exploring innovative ways to incorporate secondary materials into its value chain. At the forefront of this endeavor is the secondary material framework, a pivotal component of Catena-X's Circularity KIT.
 
@@ -128,7 +129,7 @@ Designed with a clear mission, this framework seeks to revolutionize the utiliza
 
 By facilitating seamless data exchange and introducing standardized calculation methodologies, this framework establishes a transparent foundation that harmonizes communication among stakeholders by employing consistent metrics. The decentralized nature of this data ecosystem empowers each actor to manage their own data and determine what can be shared with whom.
 
-The secondary material content chapter of the circularity Kit explores how the secondary material framework contributes to heightened transparency, empowered data management, and streamlined communication, ultimately fostering a more sustainable and interconnected automotive ecosystem.
+The secondary material content chapter of the Circularity KIT explores how the secondary material framework contributes to heightened transparency, empowered data management, and streamlined communication, ultimately fostering a more sustainable and interconnected automotive ecosystem.
 
 ### Business Content
 
@@ -161,7 +162,7 @@ The main difference between these data models, is whether the data is based on a
 
 In the table below, different scenarios are described to clarify which data model is used in which case.
 
-| Scenario                                            | Description                                                                                                                                               | Example from practice                                                                                                                         | Data Model                                    |
+| Scenario                                            | Description                                                                                                                                               | Example from Practice                                                                                                                         | Data Model                                    |
 |-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 |     Assumption-based SMC data exchange              |     The SMC data exchanged in this scenario is based on   assumptions made by considering various factors                                                 |     Tier-n requests an initial estimate of the SMC data   for a new component from its supplier.                                              |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
 |     Prognosis-based SMC data exchange               |     In this scenario, SMC data is exchanged based on a   prediction or forecast of future events in the automotive sector.                                |     When the production of a previously produced car is   continued, a prognosis of the SMC is made based on the previous production.         |     [SecondaryMaterialContentCalculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)    |
@@ -171,7 +172,7 @@ In the table below, different scenarios are described to clarify which data mode
 
 ![Depiction of SMC Data Models - SMC](resources/adoption-view/depiction_of_smc_data_models.svg)
 
-The next part provides an overview of the secondary material content (SMC) Calculation Framework, including relevant data points, the calculation of SMC, and links to the data model and GitHub. The goal is to create a common basis for the data relevant for the SMC. Based on this, steering for secondary material content SMC and secondary material quota (SMQ) is possible. 
+The next part provides an overview of the secondary material content (SMC) calculation framework, including relevant data points, the calculation of SMC, and links to the data model and GitHub. The goal is to create a common basis for the data relevant for the SMC. Based on this, steering for secondary material content (SMC) and secondary material quota (SMQ) is possible. 
 
 #### A. Introduction to the Semantic Models
 
@@ -181,7 +182,7 @@ There are different timestamps to which data for SMC is relevant.
 
 To ensure the accuracy of the data and account for varying availability and quality of the information, it is important to identify at which step of the process data is exchanged. The process is divided into four steps, which are explained below.
 
-| **Timestamp**   <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit/)  | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed | Data Models that need to be filled (link to the relevant data models here)    |
+| **Timestamp**   <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit/)  | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed | Data Models that need to be filled                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------- |
 | a. Supplier Inquiry/As Designed                                                                                                                             | This is the initial phase of the process where the supplier is inquired about the design of the product. The data exchanged in this phase is an initial estimation of secondary material content.                                                         | Concept currently not developed   | N/A                                                                           |
 | b. Supplier Selection/ As Planend                                                                                                                           | In this phase, the supplier is selected, and the data exchanged is based on the planned production and concretized to the previous phase.                                                                                                                 | Concept developed                 | 1. Part as Planned (Component)   <br /> 2. SMC                                     |
@@ -194,7 +195,7 @@ In addition to filling out the data model for Secondary Material Content, other 
 
 The Model is designed to address the material at the lowest level requiring descriptive information, such as the material name in accordance with a standardized format, as well as the name and code of the referenced standard (materialNameStandardizedValue; referencedStandard; referencedStandardID). For example, a material name may be given based on the ISO 1043 standard, in which case ISO would be the referenced standard and ‘1043’ the referenced standard ID. The material class (materialClass) must be provided in accordance with the VDA standard 231-106. To provide relevant data regarding the material mass per declared unit of the material, the unit of measure, such as gram or kilogram (unitOfMeasureKey), must first be defined. Next, the gross material input weight (grossMaterialInputMass) as well as the net mass of the material (materialNetMass) shall be provided.
 
-Essential material characteristics that are mandatory within the data model include the use of bio-based materials and their material class (bioBasedClass), as well as the percentage of material weight of each primary and secondary bio-based material (primaryBioBased; secondaryBioBased). For secondary bio-based material it can be chosen whether a mass balancing approach was followed or not (isMassBalanced). Further information and mass-balancing can be found under B, Accounting for Chain of Custody models.
+Essential material characteristics that are mandatory within the data model include the use of bio-based materials and their material class (bioBasedClass), as well as the percentage of material weight of each primary and secondary bio-based material (primaryBioBased; secondaryBioBased). For secondary bio-based material it can be chosen whether a mass balancing approach was followed or not (isMassBalanced). Further information on mass-balancing can be found under [*B. Accounting for chain of custody models*](#b-accounting-for-chain-of-custody-models).
 
 Further, information regarding inorganic/fossil-based materials is required. The percentage of primary inorganic/fossil-based material weight (percentageOfMaterialWeight) shall be provided. When it comes to secondary material, the percentage of material weight of chemically and mechanically recycled pre-consumer and post-consumer material according to ISO 14021 should be included (percentageOfMaterialWeight). Post-Consumer material is divided into two streams: Post consumer material from end-of-life vehicles as well as post consumer from other sources. When chemical or mechanical recycling has been applied, it is important to disclose information whether a mass balancing approach was followed (isMassBalanced).
 
