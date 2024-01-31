@@ -65,15 +65,15 @@ Values for taking the challenge: By adopting the Circularity KIT and embracing c
 
 Benefits for OEMs, SMEs, and Solution Providers:
 
-1. OEMs and large suppliers:
+1. **OEMs and large suppliers:**
    - Minimize raw material consumption and waste generation by integrating R-strategies and secondary material quotas in their production processes.
    - Enhance their brand image and reputation by adopting eco-friendly practices and demonstrating commitment to sustainability.
    - Achieve regulatory compliance and meet customer expectations for environmentally responsible products.
-2. SMEs can:
+2. **SMEs can:**
    - Access cost-effective, high-quality secondary materials for their production processes, reducing dependency on non-renewable resources.
    - Improve competitiveness by adopting innovative circular economy technologies and practices.
    - Collaborate with other industry stakeholders to develop and implement sustainable solutions.
-3. Solution Providers can:
+3. **Solution Providers can:**
    - Develop and market innovative technologies, products, and services that support circular economy principles in the automotive industry.
    - Access new market opportunities and scale their customer base through a circularity network and shared services.
    - Leverage the collective wisdom of industry stakeholders to drive continuous improvement and innovation.
@@ -88,7 +88,9 @@ In the dynamic landscape of modern industry, the pursuit of a circular economy h
 
 Currently, there is a notable absence of a uniform data format or exchange mechanism for recycled materials within industrial processes and value chains. This lack of transparency presents a barrier to comprehending the flow of materials and recycled materials circulating within this ecosystem. Without a standardized approach, tracking the contributions of recycled materials, assessing their successful reintegration into the circular loop, and quantifying output volumes remain challenging tasks.
 
-The circular economy involves a complex interplay of various stakeholders, ranging from tier-n companies to original equipment manufacturers (OEMs), each employing unique methods for measuring inputs and outputs. The overarching objective of the material accounting feature in the Circularity KIT, therefore, is to make the circular economy visible and digitally verifiable across the automotive value chain. To realize this ambition, a standardized framework is imperative, one that facilitates the exchange of material data for both primary and secondary raw materials, including corresponding quantities and qualities, illuminating material flows across the entire value chain.
+The circular economy involves a complex interplay of various stakeholders, ranging from tier-n companies to original equipment manufacturers (OEMs), each employing unique methods for measuring inputs and outputs. The overarching objective of the material accounting feature in the Circularity KIT, therefore, is to make the circular economy visible and digitally verifiable across the automotive value chain. 
+
+To realize this ambition, a standardized framework is imperative, one that facilitates the exchange of material data for both primary and secondary raw materials, including corresponding quantities and qualities, illuminating material flows across the entire value chain.
 
 The image below shows the big picture of a circular economy when material is tracked over its complete life cycle excluding the usage phase.
 
