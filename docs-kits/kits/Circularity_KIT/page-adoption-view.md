@@ -225,7 +225,7 @@ If available, the name of a certificate verifying the recycling content and a li
 
 The schematic depiction above provides a visual representation of the connection between various material characteristics, facilitating an understanding of how different data points relate to each other and contribute to the calculation of SMC.
 
-#### 2. Order data
+#### 2. Order Data
 
 To clearly identify the order and relevant material, the order number (orderNumber) can be provided on an optional basis.
 
@@ -329,9 +329,9 @@ To calculate the average portion of, for instance, the amount of mechanical recy
 
 ![material_characteristics](resources/adoption-view/material_charactersitics.svg)
 
-#### D. Data model and Github
+#### D. Data Models and Github
 
-The relevant data model can be found on the following link on GitHub: 
+The relevant data models can be found via the following links on GitHub: 
 
 - [Secondary Material Content](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.secondary_material_content)
 - [Secondary Material Content Calculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)
@@ -343,7 +343,7 @@ The open availability on GitHub allows companies to combine their own internal t
 
 ### Introduction
 
-Closing Loops, Preserving Resources: Creating tomorrow's EoL landscape and empower the circularity
+*Closing Loops, Preserving Resources: Creating tomorrow's EoL landscape and empower the circularity*
 
 As part of the Circularity KIT, we are committed to developing services for the future of the circular economy in the end-of-life (EoL) sector of vehicles. This phase represents an important stage where decisions are made regarding the fate of vehicles and their components after their initial use. Recognizing the immense value of the world's limited resources, we are dedicated to minimizing waste and maximizing resource efficiency.
 
@@ -364,6 +364,7 @@ Ultimately, our efforts provide essential support for the digitalization and aut
 The "Data Journey" represents the entire process of dismantling an End-of-Life (EoL) vehicle. Each process step is accompanied by CX data models that would be necessary for digitally representing the individual process steps. This enables us to elevate the data journey for the dismantling process to a digital level and to gain an understanding of which data attributes and aspect models are required for each process step. It forms the foundation for the creation of digital EoL-solutions and the use of robotics.
 
 **Figure 9**
+
 ![Data Journey - End of LIfe](resources/adoption-view/figure_dataJourney_EOF.svg)
 
 Future additions include data models for the following topics:
@@ -382,7 +383,7 @@ Future additions include data models for the following topics:
 - Technical drawings & specifications
 - PCF Information
 
-#### User Journey "Certificate of Decomnissioning"
+#### User Journey "Certificate of Decomissioning"
 
 The user journey "Certificate of Decommissioning" (CoDM) describes the moment at which a vehicle is transferred into the End-of-Life (EoL) phase from the perspective of an authorized collection point for EoL-vehicles, such as an authorized dismantling facility. The CoDM resembles the official Certificate of Destruction (CoD) but marks the starting point of the upcoming CX concept of a digital CoD.
 
@@ -400,7 +401,7 @@ The open availability on GitHub allows companies to combine their own internal t
 
 ### Introduction
 
-Empowering Circular Economy Decisions: Introducing the Circular Strategy Assistant
+*Empowering Circular Economy Decisions: Introducing the Circular Strategy Assistant*
 
 In the dynamic landscape of sustainability and resource conservation, the Circular Strategy Assistant (CE-Assistant) emerges as a pioneering solution, providing decision support for the selection of optimal strategies concerning end-of-life vehicles. At its core, the CE-Assistant tackles the task of evaluating and choosing from a spectrum of R-Strategies—namely Reuse, Remanufacturing, Recycling, and Recovery.
 
@@ -455,7 +456,7 @@ If you are eager to dive deeper into the world of the CE-Strategy Assistant, inc
 - **Abstract:** Digital twins (DT) for circular economy (CE) offer a promising approach as part of digital data ecosystems for more sustainable value creation. By mapping and analyzing product, component and material specific data along the lifecycle, it is possible to address current challenges such as climate change and resource scarcity. Within Catena-X, specific solutions based on this cross-company exchanged data and information are developed. Here, the “CE-Assistant” is presented. It is an application, which identifies the best CE-Strategy based on DT data at the end of a vehicle's life.
 - **Link:** [OA_Mügge_6-2022 | INDUSTRIE-MANAGEMENT](https://www.industrie-management.de/node/556)
 
-#### Logic /Schema
+#### Logic / Schema
 
 In order to evaluate which R-Strategy can be applied to individual components, instance-specific data must be available. This is ensured using DT data throughout the product lifecycle. Such an DT enables the collection of instance-specific data on the product, and thus provides the missing EoL data for vehicle disassembly.
 
@@ -479,7 +480,7 @@ If one or more of these criteria are not fulfilled, the component will only be a
 
 ### Introduction
 
-A Secondary Marketplace is fundamental to establish a circular economy where components and materials are available and offered to the interested users creating new value chains and extending the life of the parts and the materials before becoming waste. Digital platforms offering marketplace services are essential to enable trading of secondary materials and components, provide transparency into supply and demand that potential buyers and sellers can expect.
+A secondary marketplace is fundamental to establish a circular economy where components and materials are available and offered to the interested users creating new value chains and extending the life of the parts and the materials before becoming waste. Digital platforms offering marketplace services are essential to enable trading of secondary materials and components, provide transparency into supply and demand that potential buyers and sellers can expect.
 
 The main goals of the Marketplace are: (1) to match the demand and the supply of available components and secondary raw materials and (2) to provide transparency on sales opportunities for used components which can be, for example, reused or re-manufactured.
 
