@@ -1,5 +1,10 @@
 export const newsTitles = [
   {
+    date: "15.03.2024",
+    title: "Catena-X Release Day - Join the Release Event for Catena-X Release 24.03",
+    blogLink: "/blog/release-day"
+  },
+  {
     date: "11.12.2023",
     title: "Open Source Planning for Tractus-X release 24.05",
     blogLink: "/blog/open-planning-days-pi12"
