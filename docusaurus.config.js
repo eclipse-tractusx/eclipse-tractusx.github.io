@@ -111,9 +111,10 @@ const config = {
             to: '/community/intro',
             from: '/community',
           },
+          // Redirect from multiple old paths to the new path
           {
             to: '/docs/release/',
-            from: '/docs/release/trg-2/trg-2-2',
+            from: ['/docs/release/trg-2/trg-2-2', '/docs/release/trg-3/trg-3-1'],
           },
         ],
       },
