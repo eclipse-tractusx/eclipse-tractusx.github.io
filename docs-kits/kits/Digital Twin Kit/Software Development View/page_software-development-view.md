@@ -1,8 +1,8 @@
 ---
-id: Specification Digital Twin KIT
+id: dt-kit-software-development-view
 title: Developing with the DT KIT
-description: 'Digital Twin KIT'
-sidebar_position: 4
+description: 'Digital Twin KIT - Software DevelopmentView'
+sidebar_position: 1
 ---
 
 
