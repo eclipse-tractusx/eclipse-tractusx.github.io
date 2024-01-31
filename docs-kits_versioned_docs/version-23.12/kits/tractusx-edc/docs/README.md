@@ -42,8 +42,8 @@ The three supported setups are.
 - [Application: Control Plane](../edc-controlplane)
 - [Application: Data Plane](../edc-dataplane)
 - [Extension: Business Partner Numbers](../edc-extensions/business-partner-validation/README.md)
-- [Example: Local TXDC Setup](samples/Local%20TXDC%20Setup.md)
-- [Example: Data Transfer](samples/Transfer%20Data.md)
+- [Example: Local TXDC Setup](./samples/example-dataspace/README.md)
+- [Example: Data Transfer](./samples/Transfer%20Data.md)
 
 ### Eclipse Dataspace Connector
 
