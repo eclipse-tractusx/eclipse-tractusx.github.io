@@ -19,7 +19,7 @@ All notable changes to this Kit will be documented in this file.
 
 * Open API updated to version 1.0.0 (Rel.24.03)
 * Asset and Policy definitions updated
-* Link to Frameworkagreement updated
+* Link to Framework Agreement updated
 
 ### Removed
 
