@@ -21,8 +21,8 @@ All openAPI-specifications for the Digital Twin Kit services are rendered in the
 
 ### Asset Administration Shell
 
-The Asset Administration Shell (AAS) is a specification that is released by the[Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/) 
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage). 
+The Asset Administration Shell (AAS) is a specification that is released by the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/) 
+with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as IEC 63278. 
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a value
 creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an extensive
 suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X standard 
@@ -59,25 +59,30 @@ their DTR in any way they desire.
 
 DTRs hold sensitive information: a SubmodelDescriptor may not give access to the actual Submodel-data but all in cumulo hint at 
 production volumes as each Twin represents an asset. Therefore, Catena-X implements decentral DTRs (DDTR), each running with a 
-business partner. [In an IDTA-Whitepaper](https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/06/Decentralized-Registries-Taxonomy-of-decentralized-registries-and-an-architectural-overview_.pdf ),
+business partner.
+[In an IDTA-Whitepaper](https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/06/Decentralized-Registries-Taxonomy-of-decentralized-registries-and-an-architectural-overview_.pdf),
 several high-level concepts for DDTRs are introduced. The AAS-specification remains agnostic to the approaches and endorses
 none of them. Catena-X must deal with the additional complexity that stems from the interaction with the EDC.
 
 Leveraging the native capabilities of the EDC and the EDC Discovery Service, Catena-X uses a discovery pattern that has the
-same capability as a central [Digital Twin Registry](#digital-twin-registry): It allows to start a Discovery Process with only an AssetId and 
-As none of the options fit the data-space-specific requirements of Catena-X entirely, yet a different approach is implemented:
+same capability as a central [Digital Twin Registry](#digital-twin-registry):
+It allows to start a Discovery Process with an Asset ID.
 However, in Catena-X some of the data is deemed so sensitive that a central authority can't be
-trusted with it. Thus, each Data Provider will run their own DTR which poses a challenge for discovery. After all, a
+trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR.
+This poses a challenge for discovery if the BPN of the supplier is not known by the data consumer. After all, a
 Data Consumer must still find out the address where to fetch the data from. That's why Catena-X has introduced a 
 three-step discovery pattern made up of the central microservices Discovery Finder, BPN Discovery (or several of them) 
-and finally the EDC discovery that is part of the CX-Portal. They are also part of this Kit.
+and finally the EDC discovery that is part of the CX-Portal.
+The Discovery Finder and the BPN Discovery service are described as part of this Kit.
 
 ## Discovery Sequence
 
 The services that make up the Digital Twin Kit partly rely on each other. Executing them in the right sequence allows 
 a Data Consumer to get access to data whose location was previously unknown. However, this discovery process relies on a 
-set of assumptions. Most relevant is the presence of the discovery services defined in CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx), 
-[BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx)) and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)). 
+set of assumptions. Most relevant is the presence of the discovery services defined in
+CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx),
+[BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx))
+and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)).
 As portrayed in the [Operation View](../page_software-operation-view.md), these
 discovery services are assumed to run centrally in a data space. A concept for decentralization will be validated in the
 future.
@@ -118,7 +123,7 @@ as standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
 There's three relevant inputs to discover a referenced Submodel in Catena-X:
 - The `subprotocolBody` contains two pieces of information, assigned with `=` and separated by `;`:
   - `dspEndpoint` is the URL of the Data Plane where a Data Consumer can negotiate for access to this Submodel.
-  -  When calling the /catalog API of that Data Plane, she should filter for dcat:Dataset entries that have are identified
+  -  When calling the /catalog API of that Data Plane, she should filter for dcat:Dataset entries that are identified
   by the `id` mentioned in the subprotocolBody.
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data Plane
 of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field and 
@@ -246,7 +251,7 @@ One relevant question is how the EDC-shielded services of this Kit should regist
 While the EDC's /v3/assets endpoint is internal to the Data Provider only, the objects are also available via the /catalog API
 that is specified in the Dataspace Protocol.
 
-The EDC uses json-ld for Json-ld is a serialization for RDF graphs (see [Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
+The EDC uses json-ld. Json-ld is a serialization for RDF graphs (see [Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
 `@context` section can declare the namespaces that resources explicitly mentioned in the rest of the document belong to.
 It may also define default namespace with `@vocab` for resources without explicitly stated namespaces. Outside of
 the "@context" section, the `@type` property always defines the class that an object belongs to.
@@ -265,7 +270,7 @@ For successful discovery of Digital Twins, it is critical to register Submodels 
 harmonized way. The following overview shall explain how the `asset/properties` section could be used.
 
 - `https://purl.org/dc/terms/type` (mandatory as per CX-0018): denotes the type of Asset that is registered. The property
-points to an RDF resource that can be either `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry` or `https://w3id.org/catenax/taxonomy#Submodel`
+points to an RDF resource. In the context of digital twins two predefined resources are of relevance: `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry`and `https://w3id.org/catenax/taxonomy#Submodel`
 
 - `https://w3id.org/catenax/common/version` (mandatory as per CX-0002): version-string of the registered type of resource.
   For all endpoints related to the AAS-spec, this must be set to "3.0" as that's the current normative version of the
@@ -285,7 +290,7 @@ points to an RDF resource that can be either `https://w3id.org/catenax/taxonomy#
     "cx-taxo": "https://w3id.org/catenax/taxonomy#",
     "dct": "https://purl.org/dc/terms/"
   },
-  "@id": "{{ _.assetId }}",
+  "@id": "{{ _.edcAssetId }}",
   "properties": {
     "dct:type": {"@id": "cx-taxo:DigitalTwinRegistry"},
     "cx-common:version": "3.0",
@@ -367,7 +372,8 @@ recommended and shall signify the meaning of the Submodel's payload.
 
 There is no normative guidance yet on how to register multiple Submodels bundled together yet. These bundles may include
 all the Submodels of a specific semanticId, all Submodels of an asset or any other arbitrary quality. This may be added to 
-CX-0002 in future iterations. Even though the IDTA specifies a [Submodel Repository API](https://app.swaggerhub.com/apis/Plattform_i40/SubmodelRepositoryServiceSpecification/V3.0.1_SSP-002),
+CX-0002 in future iterations. Even though the IDTA specifies a
+[Submodel Repository API](https://app.swaggerhub.com/apis/Plattform_i40/SubmodelRepositoryServiceSpecification/V3.0.1_SSP-002),
 in the context of the Catena-X architecture it is not strictly necessary to adhere to it. Submodels will be found regardless,
 given the URL-path relative to the `baseUrl` is appended correctly to the Data Plane's URL in the `href` field. The only
 differences are the changed typization. `proxyPath` parameter  should be set `"true"` either way.
@@ -419,18 +425,18 @@ these are the layers of complexity:
 
 | Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                          | Method to increment                                                                                  |
 |--------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request points to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | Unclear, under discussion in Connector Kit.                                                          |
-| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         | Unclear, under discussion in DT Kit.                                                                 |
-| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the schema requires setup of a new submodel. This includes registration at the DTR. |
+| Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request points to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | Under discussion in Connector Kit.                                                          |
+| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         |  Under discussion in DT Kit.                                                                 |
+| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the semantic model requires either setup of a new submodel (with a new submodel ID and the new semantic ID) or update of an existing submodel descriptor (with updated semantic ID). This includes updating registration information at the DTR. Rules on backward compatibility need to be considered. It may be requested to offer two Submodel versions at the same time. |
 
 Here's a list of duties for Data Providers in case they integrate a new Submodel (or version of an existing one) to an existing
 twin:
 
 - Expose a new Submodel to the Dataspace. If its URL is a subpath of one that's already registered as a EDC-Asset,
 there is no need to specifically register it as a new EDC-Asset and create a Contract Definition for it. However,
-if there is no such EDC-Asset, that's what a Data Provider must do: create an Asset, connect it to policies via the contract-
+if there is no such EDC-Asset, that's what a Data Provider must do: create an EDC-Asset, connect it to policies via the contract-
 definition-API and let consumers negotiate for it.
-- If only assetIds are known, the aasId can be discovered via `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=...` as specified
+- If assetIds are known, the aasId can be discovered via `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=...` as specified
 by CX-0002.
 - `POST https://mydtr.com/api/v3.0/shell-descriptors/{{aasId}}/submodel-descriptors` with the (known or obtained) aasId in the path
 and the new submodel-descriptor in the body of the request. The attribute `semanticId` is mandatory for submodel-descriptors in Catena-X.
@@ -443,14 +449,15 @@ Data Providers will usually follow one of two patterns:
    convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
    mechanisms, it may not scale to industrial sizes.
 2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
-   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since it
+   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace.
 
 Offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
 can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
 
 ### Patterns for DTRs
 
-Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001 by
+Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the
+SSP-001 profile of the Asset Administration Shell Registry Service by
 means of POST endpoints, updatable with PUT and PATCH requests (
 see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
