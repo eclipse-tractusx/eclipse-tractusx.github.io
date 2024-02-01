@@ -1,7 +1,7 @@
 ---
 id: dt-kit-software-development-view
 title: Developing with the DT KIT
-description: 'Digital Twin KIT - Software DevelopmentView'
+description: 'Digital Twin KIT - Software Development View'
 sidebar_position: 1
 ---
 
@@ -122,20 +122,20 @@ as standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
 
 There's three relevant inputs to discover a referenced Submodel in Catena-X:
 - The `subprotocolBody` contains two pieces of information, assigned with `=` and separated by `;`:
-  - `dspEndpoint` is the URL of the Data Plane where a Data Consumer can negotiate for access to this Submodel.
-  -  When calling the /catalog API of that Data Plane, she should filter for dcat:Dataset entries that are identified
+  - `dspEndpoint` is the URL of the Data Plane where a Data Consumer can negotiate for access to this Submodel. For many
+  connector-implementations, this will end on `/api/v1/dsp`. As this property will be used in the discovery sequence
+  to construct a `catalog`-request, this variable is equivalent to the `<base>` in [this DSP-example.](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites).
+  -  When calling the /catalog API of that Control Plane, she should filter for dcat:Dataset entries that are identified
   by the `id` mentioned in the subprotocolBody.
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data Plane
 of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field and 
-append the additional URL-segment /$value 
+append the additional URL-segment `/$value`. 
 
 #### Registering a new Twin
 
 Registration of a new twin is (at least in Catena-X) equivalent to the creation of a new twin. Thus, a Data Provider
-should
-always ensure that there is no shell-descriptor created for the respective assetIds yet. If there already is one,
-the submodel-descriptor should
-be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
+should always ensure that there is no shell-descriptor created for the respective assetIds yet. If there already is one,
+the submodel-descriptor should be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
 
 `POST /shell-descriptors`
 
@@ -180,7 +180,7 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
               "1.1"
             ],
             "subprotocol": "DSP",
-            "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/",
+            "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/api/v1/dsp",
             "subprotocolBodyEncoding": "plain",
             "securityAttributes": [
               {
@@ -223,7 +223,7 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
           "1.1"
         ],
         "subprotocol": "DSP",
-        "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/",
+        "subprotocolBody": "id=123;dspEndpoint=http://edc.control.plane/api/v1/dsp",
         "subprotocolBodyEncoding": "plain",
         "securityAttributes": [
           {
