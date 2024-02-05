@@ -110,7 +110,7 @@ The above list is currently a candidate for changes, especially as long as the u
 You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment which is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the envionment variabale "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
 
 ```bash
-export https_proxy=http://arena2036-proxy.rus.uni-stuttgart.de:8080
+export https_proxy=http://[proxy-web-or-IP-address]:8080
 ```
 
 The complete format is:
