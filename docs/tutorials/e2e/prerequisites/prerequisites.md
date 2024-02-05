@@ -110,7 +110,7 @@ The above list is currently a candidate for changes, especially as long as the u
 You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment which is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the envionment variabale "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
 
 ```bash
-export https_proxy=http://arena2036-proxy.rus.uni-stuttgart.de:8080
+export https_proxy=http://[proxy-web-or-IP-address]:8080
 ```
 
 The complete format is:
@@ -151,6 +151,9 @@ Within this section we briefly describe how to install the required tools on an 
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install docker.io
 ```
 
@@ -158,6 +161,9 @@ sudo apt install docker.io
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install kubernetes
 ```
 
@@ -179,6 +185,9 @@ It might be the case, that not all of these steps are needed on your machine.
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install golang-go
 ```
 
@@ -192,7 +201,7 @@ sudo go install sigs.k8s.io/kind@v0.20.0
 
 ```bash
 go version
-``````
+```
 
 :::note
 
@@ -208,8 +217,10 @@ Prepare the installation of Terraform including helm:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+```
 
-sudo wget -o - https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+```bash
+sudo wget -O- - https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
   
 Verify the generated key is working:
@@ -218,7 +229,9 @@ Verify the generated key is working:
 sudo gpg --no-default-keyring \
 --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
 --fingerprint
+```
 
+```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 ```
@@ -227,6 +240,9 @@ Now install Terraform, which automatically also will install helm.
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt-get install terraform
 ```
 
