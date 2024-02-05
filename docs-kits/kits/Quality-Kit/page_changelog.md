@@ -6,8 +6,41 @@ sidebar_position: 1
 ---
 
 ![Quality kit banner](@site/static/img/QualityKitIcon.png)
-
 ### Quality KIT
+
+## [1.2.0] - 2024-03-08
+
+### Added
+
+#### Development view
+- Added S3 adresses details
+- Added properties details
+
+### Changed
+
+#### Adaption view
+
+Area Benefits:
+- Advantages slide converted to table
+- Advantage example slide make-over
+
+Area Sematic model:
+- Deleted the detailed tables for each aspect model to make it more compact - see software development view instead
+  
+Area Business process:
+- Deletion of picture "Levels" only link to Catena-X website directly
+- Deletion of link to policy as word document instead add of link to PDF on Catena-X website
+
+Area Standards:
+- Added Link to EDC standard to list
+
+
+
+### Removed
+
+- ./.
+
+
 
 ## [1.1.0] - 2023-11-23
 
