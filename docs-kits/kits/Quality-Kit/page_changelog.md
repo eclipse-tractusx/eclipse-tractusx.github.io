@@ -28,11 +28,11 @@ Area Sematic model:
 - Deleted the detailed tables for each aspect model to make it more compact - see software development view instead
   
 Area Business process:
-- Deletion of picture "Levels" only link to Catena-X website directly
-- Deletion of link to policy as word document instead add of link to PDF on Catena-X website
+- Deletion of picture "Levels" replaced by direct link to Catena-X website
+- Deletion of link to policy as word document instead added link to PDF on Catena-X website
 
 Area Standards:
-- Added Link to EDC standard to list
+- Added link to EDC standard to list
 
 
 
