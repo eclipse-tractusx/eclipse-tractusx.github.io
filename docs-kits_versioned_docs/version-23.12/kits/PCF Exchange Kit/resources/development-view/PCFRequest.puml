@@ -1,0 +1,104 @@
+@startuml "PCF Request through AAS"
+
+participant PCF_Client
+participant Client_API_Wapper
+participant Client_EDC
+participant EDC_Discovery_Service
+participant Company_EDC
+participant Company_DTR
+participant Company_API_Wapper
+participant Company_PCF_App
+
+group Request PCF value
+
+group Technical user login (not shown in detail here)
+end
+
+!includesub EDCDiscoveryAnddDTRAccess.puml!EDCDiscovery
+!includesub EDCDiscoveryAnddDTRAccess.puml!DTRDiscovery
+!includesub EDCDiscoveryAnddDTRAccess.puml!MaterialTwinLookup
+
+group Invoke PCF Submodel of Material Twin
+PCF_Client -> PCF_Client: Extract Endpoint from submodel via 'idShort'
+PCF_Client -> PCF_Client: Rewrite endpoint URL for call through own API Wrapper
+PCF_Client -> Client_API_Wapper: Invoke asset with reqID, BPN & comment
+note right
+GET https://clientApiWrapperUrl/api/service/c34018ab-5820-4065-9087-416d78e1ab60/productIds/mat345?providerUrl=https://some.controlplane.url:7173&requestId=123&BPN=<Client's BPN>&comment=...
+end note
+Client_API_Wapper -> Client_EDC: Negotiate access to asset and enable proxy transfer
+Client_EDC -> Company_EDC: Negotiate access to asset and enable proxy transfer
+Company_EDC -> Client_EDC: Agreement & EndpointDataReference
+Client_EDC -> Client_API_Wapper: Agreement & EndpointDataReference
+Client_API_Wapper -> Client_EDC: PCF endpoint call incl. req.ID, BPN & comment
+Client_EDC -> Company_EDC: PCF endpoint call incl. req.ID, BPN & comment
+note right
+Using PCF API through EDC via HTTP Proxy:
+GET https://{someURL}/productIds/mat345?requestId=123&BPN=<Client's BPN>&comment=...
+end note
+Company_EDC -> Company_PCF_App: PCF endpoint call incl. req.ID, BPN & comment
+note right
+Can we use existing
+PCF API directly?
+If so: no AAS adapter 
+would be needed!
+end note
+Company_PCF_App -> Company_EDC: Accepted
+Company_EDC -> Client_EDC: Accepted
+Client_EDC -> Client_API_Wapper: Accepted
+Client_API_Wapper -> PCF_Client: Accepted
+end
+end
+
+Company_PCF_App -> Company_PCF_App: Approve PCF Request and\ncalculate PCF if needed
+
+group Receive/Send PCF value
+
+group Technical user login (not shown in detail here)
+end
+
+group Lookup Clients's EDC
+Company_PCF_App -> EDC_Discovery_Service: Lookup EDC URL (via BPN)
+note right
+POST https://portal-backend.some.demo.catena-x.net/api/administration/connectors/discovery
+{
+   [ <Client's BPN> ] 
+}
+end note
+EDC_Discovery_Service -> Company_PCF_App: EDC URL
+end
+
+group Lookup Clients PCF Receive Asset
+Company_PCF_App -> Company_EDC: Lookup Client's Receive Asset\n(via Company's EDC URL)
+Company_EDC -> Client_EDC: Lookup Asset in Catalog\n(EDC asset type "data.pcf.exchangeEndpoint")
+note right
+There could be multiple EDC URLs, but
+only one with a PCF Exchange Asset
+end note
+Client_EDC -> Company_EDC: PCF Asset
+Company_EDC -> Company_PCF_App: PCF Asset ID
+end
+
+group Push PCF to Client
+Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID, BPN & comment
+note right
+PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123&BPN=<Company's BPN>&
+end note
+Company_API_Wapper -> Company_EDC: Negotiate access to asset and enable proxy transfer
+Company_EDC -> Client_EDC: Negotiate access to asset and enable proxy transfer
+Client_EDC -> Company_EDC: Agreement & EndpointDataReference
+Company_EDC -> Company_API_Wapper: Agreement & EndpointDataReference
+Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID & BPN
+Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID & BPN
+note right
+Using PCF API through EDC via HTTP Proxy:
+PUT https://{someURL}/productIds/mat345?requestId=123&BPN=<Company's BPN>
+end note
+Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID, BPN & comment
+PCF_Client -> Client_EDC: OK
+Client_EDC -> Company_EDC: OK
+Company_EDC -> Company_API_Wapper: OK
+Company_API_Wapper -> Company_PCF_App: OK
+end
+end
+ 
+@enduml
