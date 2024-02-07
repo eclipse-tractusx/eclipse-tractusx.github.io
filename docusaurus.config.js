@@ -45,7 +45,7 @@ const config = {
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
           docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
+          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -73,17 +73,51 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
         docLayoutComponent: "@theme/DocPage",
-        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs  
-      }, 
+        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
+      },
+    ],
+    // -- Community --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-meeting-minutes',
+        path: 'blog-meeting-minutes',
+        blogTitle: 'Open meeting minutes',
+        blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
+        blogSidebarCount: 10,
+        blogSidebarTitle: "Recent meetings",
+        routeBasePath: 'community/meeting-minutes',
+        showReadingTime: false,
+        authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+      },
     ],
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'docs-products',
-        path: 'docs-products',
-        routeBasePath: 'docs-products',
-        sidebarPath: require.resolve('./sidebarsDocsProducts.js'),
-      }, 
+        id: 'docs-community',
+        path: 'community',
+        routeBasePath: 'community',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/community',
+        sidebarPath: './sidebarsCommunity.js',
+      },
+    ],
+    [
+      // HINT: won't redirect in local dev mode (npm start). See: https://docusaurus.io/docs/2.x/api/plugins/@docusaurus/plugin-client-redirects
+      // to test, use npm run build && npm run serve
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/community/intro',
+            from: '/community',
+          },
+          // Redirect from multiple old paths to the new path
+          {
+            to: '/docs/release/',
+            from: ['/docs/release/trg-2/trg-2-2', '/docs/release/trg-3/trg-3-1'],
+          },
+        ],
+      },
     ],
     // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
     [
@@ -104,9 +138,9 @@ const config = {
         // options here
         id: "remoteIrs",
         name: "irs", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/catenax-ng/tx-item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/irs", // the base directory to output to.
-        documents: ["irs-v1.0.yaml"], // the file names to download
+        documents: ["irs-api.yaml"], // the file names to download
         noRuntimeDownloads: true
       },
     ],
@@ -174,8 +208,22 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          bpdm_cleaning: {
+            specPath: "./openApi/bpdm/cleaning-dummy.yaml",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          bpdm_orchestrator: {
+            specPath: "./openApi/bpdm/orchestrator.yaml",
+            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
           irs: {
-            specPath: "./openApi/irs/irs-v1.0.yaml",
+            specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
             sidebarOptions: {
               groupPathsBy: "tag",
@@ -250,7 +298,7 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-          }, 
+          },
           pcf_exchange_api: {
               specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
               outputDir:
@@ -265,6 +313,24 @@ const config = {
               "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: "tag",
+            },
+          },
+          resiliency_mp_provider: {
+            specPath:
+              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer: {
+            specPath:
+              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
             },
           },
         },
@@ -294,12 +360,6 @@ const config = {
           src: 'img/logo_tractus-x.svg',
         },
         items: [
-          {
-            to: "/",
-            exact: true,
-            position: "left",
-            label: "Home",
-          },
           {to: 'blog', label: 'News', position: 'left'},
           {
             to: "/aboutus",
@@ -313,8 +373,16 @@ const config = {
             to: '/developer',
             items: [
               {
+                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
+                label: 'Agents',
+              },
+              {
                 to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
                 label: 'Business Partner',
+              },
+              {
+                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
+                label: 'Circularity',
               },
               {
                 to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
@@ -325,12 +393,28 @@ const config = {
                 label: 'Data Chain',
               },
               {
+                to: '/docs-kits/kits/DCM%20Kit/adoption-view',
+                label: 'DCM KIT',
+              },
+              {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
                 label: 'Digital Twin',
               },
               {
                 to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
                 label: 'Eco Pass',
+              },
+              {
+                to: '/docs-kits/kits/Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit',
+                label: 'Health Indicator',
+              },
+              {
+                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
+                label: 'Model Based Development',
+              },
+              {
+                to: '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
+                label: 'Modular Production',
               },
               {
                 to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
@@ -346,14 +430,14 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Remaining Useful Life (RuL)',
+                label: 'Remaining Useful Life',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
                 label: 'Traceability',
               },
               {
-                to: 'docs-kits/next/kits/Resiliency/',
+                to: 'docs-kits/kits/Resiliency/',
                 label: 'Upcoming KITs',
               }
             ],
@@ -365,9 +449,15 @@ const config = {
             label: 'Developer Hub',
           },
           {
-            to: "/community",
-            position: "left",
-            label: "Community",
+            type: 'doc',
+            docId: 'tutorials',
+            position: 'left',
+            label: 'Tutorials',
+          },
+          {
+            to: '/community/intro',
+            label: 'Community',
+            position: 'left',
           },
           {
             type: 'dropdown',
@@ -384,11 +474,6 @@ const config = {
               },
             ],
           },
-          // {
-          //   to: "/docs-products/category/products",
-          //   position: "left",
-          //   label: "Products",
-          // },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',

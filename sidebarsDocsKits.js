@@ -1,3 +1,22 @@
+ /**
+ * Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 /**
  * Creating a sidebar enables you to:
  - create an ordered group of docs
@@ -12,8 +31,67 @@
 // @ts-nocheck
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+
 const sidebars = {
     kits: [
+        {
+            type: 'category',
+            label: 'Agents Kit',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                'kits/knowledge-agents/Knowledge Agent Changelog',
+                'kits/knowledge-agents/adoption-view/intro',
+                {
+                  type: 'category',
+                  label: 'Development View',
+                  link: {
+                      type: 'doc',
+                      id: 'kits/knowledge-agents/development-view/architecture',
+                  },
+                  collapsed: true,
+                  items: [
+                      'kits/knowledge-agents/development-view/architecture',
+                      'kits/knowledge-agents/development-view/Arc42',
+                      'kits/knowledge-agents/development-view/modules',
+                      'kits/knowledge-agents/development-view/reference',
+                      {
+                          type: 'category',
+                          label: 'API',
+                          link: {
+                              type: 'doc',
+                              id: 'kits/knowledge-agents/development-view/api',
+                          },
+                          collapsed: true,
+                          items: [
+                              'kits/knowledge-agents/development-view/api/agent/getAgent',
+                              'kits/knowledge-agents/development-view/api/agent/postAgent',
+                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
+                          ],
+                      }
+                  ],
+              },
+              {
+                  type: 'category',
+                  label: 'Operation View',
+                  link: {
+                      type: 'doc',
+                      id: 'kits/knowledge-agents/operation-view/deployment',
+                  },
+                  collapsed: true,
+                  items: [
+                      'kits/knowledge-agents/operation-view/deployment',
+                      'kits/knowledge-agents/operation-view/agent_edc',
+                      'kits/knowledge-agents/operation-view/provider',
+                      'kits/knowledge-agents/operation-view/bridge',
+                      'kits/knowledge-agents/operation-view/policy',
+                      'kits/knowledge-agents/operation-view/testbed',
+                    ],
+              },
+            ],
+        },
         {
             type: 'category',
             label: 'Business Partner KIT',
@@ -57,6 +135,22 @@ const sidebars = {
                             },
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api/sidebar.js'),
                         },
+                        {
+                            type: "category",
+                            label: "Cleaning Dummy API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
+                        },
+                        {
+                            type: "category",
+                            label: "Orchestrator API",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api/sidebar.js'),
+                        },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
                 },
@@ -90,161 +184,43 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Connector KIT',
+            label: 'Circularity KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Circularity_KIT/page-adoption-view'
             },
-            collapsed: true,
             items: [
-                'kits/tractusx-edc/CHANGELOG',
-                'kits/tractusx-edc/docs/kit/adoption-view/Adoption View',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/tractusx-edc/docs/kit/operation-view/page10_extensions',
-                    },
-                    collapsed: true,
-                    items: [
-                        'kits/tractusx-edc/docs/README',
-                        {
-                            type: 'category',
-                            label: 'openAPI',
-                            collapsed: true,
-                            items: [
-                                {
-                                    type: 'category',
-                                    label: 'management-api-v2-walkthrough',
-                                    collapsed: true,
-                                    items: [
-                                        {
-                                            type: 'autogenerated',
-                                            dirName: 'kits/tractusx-edc/docs/samples/management-api-v2-walkthrough',
-                                        }
-                                    ]
-                                },
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/docs/kit/development-view/openAPI'
-                                },
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'edc-controlplane',
-                            collapsed: true,
-                            items: [
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/edc-controlplane',
-                                },
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'edc-dataplane',
-                            collapsed: true,
-                            items: [
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/edc-dataplane',
-                                },
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'edc-extensions',
-                            collapsed: true,
-                            link: {
-                                type: 'doc',
-                                id: 'kits/tractusx-edc/docs/kit/operation-view/page10_extensions',
-                            },
-                            items: [
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/edc-extensions',
-                                },
-                            ]
-                        },
-                        'kits/tractusx-edc/core/edr-core/README',
-                        'kits/tractusx-edc/docs/development/Release'
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Operation View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/tractusx-edc/docs/kit/operation-view/page00_operation_view',
-                    },
-                    collapsed: true,
-                    items: [
-                        'kits/tractusx-edc/docs/kit/operation-view/page02_technical_prerequisites',
-                        {
-                            type: 'category',
-                            label: 'Setting up from source',
-                            collapsed: true,
-                            items: [
-                                'kits/tractusx-edc/docs/kit/operation-view/page03_local_setup_controlplane',
-                                'kits/tractusx-edc/docs/kit/operation-view/page04_local_setup_dataplane',
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'Deployment via Helm',
-                            collapsed: true,
-                            items: [
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/charts',
-                                },
-
-                                'kits/tractusx-edc/docs/samples/example-dataspace/README',
-                                'kits/tractusx-edc/docs/samples/edr-api-overview/edr-api-overview',
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'Test your setup',
-                            collapsed: true,
-                            items: [
-                                'kits/tractusx-edc/docs/development/postman/README',
-                                'kits/tractusx-edc/docs/kit/operation-view/page08_api',
-                                'kits/tractusx-edc/docs/samples/Transfer Data',
-                            ]
-                        },
-                        {
-                            type: 'category',
-                            label: 'Migration',
-                            collapsed: true,
-                            link: {
-                                type: 'doc',
-                                id: 'kits/tractusx-edc/docs/kit/operation-view/page09_upgrading',
-                            },
-                            items: [
-                                {
-                                    type: 'autogenerated',
-                                    dirName: 'kits/tractusx-edc/docs/migration',
-                                },
-                            ]
-                        },
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Documentation',
-                    collapsed: true,
-                    items: [
-                        'kits/tractusx-edc/docs/kit/development-view/page02_repository_structure',
-                        'kits/tractusx-edc/docs/kit/development-view/page03_project_structure',
-                        'kits/tractusx-edc/docs/development/coding-principles',
-                        'kits/tractusx-edc/pr_etiquette',
-                        'kits/tractusx-edc/styleguide'
-                    ]
-                },
+                'kits/Circularity_KIT/Changelog Circularity KIT',
+                'kits/Circularity_KIT/page-adoption-view',
             ]
         },
+                {
+                    type: 'category',
+                    label: 'Connector KIT',
+                    link: {
+                        type: 'generated-index',
+                    },
+                    collapsed: true,
+                    items: [
+                        'kits/Connector Kit/Adoption View/Adoption View',
+                        {
+                            type: 'category',
+                            label: 'Development View',
+                            link: {
+                                type: 'doc',
+                                id: 'kits/Connector Kit/Development View/specifications'
+                            },
+                            items: [
+                                {
+                                    type: 'autogenerated',
+                                    dirName: 'kits/Connector Kit/Development View',
+                                },
+                            ]
+                        },
+                        'kits/Connector Kit/Operation View/operation-view',
+
+                    ],
+                },
         {
             type: 'category',
             label: 'Data Chain KIT',
@@ -272,14 +248,6 @@ const sidebars = {
                 },
                 {
                     type: 'category',
-                    label: 'Success Stories',
-                    items: [
-                        'kits/Data Chain Kit/Success Stories/Trace-X Sucess Story',
-                        'kits/Data Chain Kit/Success Stories/Circularity Dashboard Sucess Story'
-                    ]
-                },
-                {
-                    type: 'category',
                     label: 'Documentation',
                     items: [
                         {
@@ -289,6 +257,20 @@ const sidebars = {
                     ]
                 },
             ],
+        },
+        {
+            "type": "category",
+            "label": "DCM KIT",
+            "link": {
+              "type": "generated-index"
+            },
+            "collapsed": true,
+            "items": [
+              {
+                "type": "autogenerated",
+                "dirName": "kits/DCM Kit"
+              }
+            ]
         },
         {
             type: 'category',
@@ -317,6 +299,48 @@ const sidebars = {
             },
             ],
         },
+        {
+            type: 'category',
+            label: 'Health Indicator (HI) KIT',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/Behaviour Twin HI Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Model Based Development and Data Processing (MDP) KIT',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/Behaviour Twin MDP Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Modular Production Kit',
+            link: {
+              type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+              {
+                type: 'autogenerated',
+                dirName: 'kits/Modular Production Kit',
+              },
+            ],
+          },
         {
             type: 'category',
             label: 'OSim Kit',
@@ -407,74 +431,14 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Agents Kit',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                'kits/knowledge-agents/Knowledge Agent Changelog',
-                'kits/knowledge-agents/adoption-view/intro',
-                {
-                  type: 'category',
-                  label: 'Development View',
-                  link: {
-                      type: 'doc',
-                      id: 'kits/knowledge-agents/development-view/architecture',
-                  },
-                  collapsed: true,
-                  items: [
-                      'kits/knowledge-agents/development-view/architecture',
-                      'kits/knowledge-agents/development-view/Arc42',
-                      'kits/knowledge-agents/development-view/modules',
-                      'kits/knowledge-agents/development-view/reference',
-                      {
-                          type: 'category',
-                          label: 'API',
-                          link: {
-                              type: 'doc',
-                              id: 'kits/knowledge-agents/development-view/api',
-                          },
-                          collapsed: true,
-                          items: [
-                              'kits/knowledge-agents/development-view/api/agent/getAgent',
-                              'kits/knowledge-agents/development-view/api/agent/postAgent',
-                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
-                          ],
-                      }
-                  ],
-              },
-              {
-                  type: 'category',
-                  label: 'Operation View',
-                  link: {
-                      type: 'doc',
-                      id: 'kits/knowledge-agents/operation-view/deployment',
-                  },
-                  collapsed: true,
-                  items: [
-                      'kits/knowledge-agents/operation-view/deployment',
-                      'kits/knowledge-agents/operation-view/agent_edc',
-                      'kits/knowledge-agents/operation-view/provider',
-                      'kits/knowledge-agents/operation-view/bridge',
-                      'kits/knowledge-agents/operation-view/policy',
-                      'kits/knowledge-agents/operation-view/testbed',
-                    ],
-              },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Resiliency',
+            label: 'Upcoming KITs',
             link: {
                 type: 'doc',
                 id: 'kits/Resiliency/resiliency'
             },
             items: [
-                'kits/Resiliency/DCM Kit',
                 'kits/Resiliency/maas',
-                'kits/Resiliency/PURIS',
-                'kits/Resiliency/mp kit',
+                'kits/Resiliency/PURIS'
             ]
         },
     ]
