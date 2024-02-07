@@ -26,7 +26,7 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 For receiving the EDC Endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001]([test](https://catena-x.net/de/standard-library)) Standard. For receiving endpoints, at least the BPN-L needs to be known to get the related endpoints. For more details the used Catena-X Standard is linked.
 
-![EDCDiscoveryAndDTRAccess](../resources/development-view/PCFUpdatepushthroughEDC.png)
+![EDCDiscoveryAndDTRAccess](../resources/development-view/EDCDiscoveryanddDTRAccess.png)
 
 ### PCF Request
 

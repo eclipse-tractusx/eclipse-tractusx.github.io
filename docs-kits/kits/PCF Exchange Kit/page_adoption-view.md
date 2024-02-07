@@ -489,11 +489,8 @@ The following json shows a example payload for a requested pcf value.
 }
 ```
 
-The entire data model is available as open source through the link provided below.
-
-```text
-https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/4.0.0
-```
+The entire data model is available as open source through following the link:
+[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/5.0.0)
 
 ## Business Architecture
 
