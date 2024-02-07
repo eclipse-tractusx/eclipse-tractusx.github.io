@@ -32,8 +32,7 @@ export default function Home() {
     >
       <HomePageHeader />
       <main>
-        {/* TODO - Enable when pages/content is available */}
-        {/* <RoleBasedEnrtyComponent /> */}
+        <RoleBasedEnrtyComponent />
         <AboutUsCard />
         <CommunityComponent />
         <KitsGalleryWithFilters 
@@ -41,7 +40,8 @@ export default function Home() {
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
-        <FAQsComponent />
+        {/* Enable when it is required */}
+        {/* <FAQsComponent /> */}
       </main>
     </Layout>
   );
