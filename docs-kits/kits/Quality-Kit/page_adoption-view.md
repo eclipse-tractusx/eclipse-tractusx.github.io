@@ -242,8 +242,7 @@ all steps of the **Business Process** (described in the [Development View](https
 **Data Space Level**: 10 Golden Rules of Catena-X
 
 
-**Use Case Level**: [Quality Management specific policy](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_Quality.pdf)![image](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/assets/148753489/3d45270a-3045-41b7-a187-8ce9789f497c)
-as download.
+**Use Case Level**: [Quality Management specific policy](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_Quality.pdf) as download.
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
 
