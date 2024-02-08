@@ -139,7 +139,6 @@ export NO_PROXY="localhost,127.0.0.1,::1"
 
 The port http (80) should not be used, but it will, you can apply the above hints just by replacing https by http.
 
-
 #### ssh (22)
 
 For the [MXD], which is running locally, you only need secure shell access, which means port 22 should be open.
