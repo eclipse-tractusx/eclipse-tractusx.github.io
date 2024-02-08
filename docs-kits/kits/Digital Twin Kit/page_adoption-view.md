@@ -93,3 +93,12 @@ The following figure is also a non-normative part of CX-0002 "Digital Twins in C
 between terms used in this Kit and the domain of Digital Twins in Catena-X.
 All standards can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
 ![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
+
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)

@@ -9,7 +9,11 @@ sidebar_position: 1
 
 ### Digital Twin KIT
 
-All notable changes to this Kit will be documented in this file.
+## [1.2.0] - 2024-03-02
+
+- Added more details on interaction patterns
+- Added guidance on confidentiality classification of properties
+- bugfixes, clarifications
 
 ## [1.1.0] - 2023-12-05
 

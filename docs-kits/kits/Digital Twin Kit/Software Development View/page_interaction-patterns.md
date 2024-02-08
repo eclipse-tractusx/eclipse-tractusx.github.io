@@ -123,3 +123,12 @@ can implement and expose them to the dataspace. This obviously bears risks: not 
 configuration lead to unauthorized access to data like in the simple read access (see [scenario 1](#1-fetching-a-suppliers-twin), [scenario 2](#2-adding-a-new-twin-for-a-given-asset)).
 In this case, data could be manipulated and overwritten endangering the processes that build on it. That's why 
 fine-grained access control for components like the DTR is a fundamental requirement to operate.
+
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
