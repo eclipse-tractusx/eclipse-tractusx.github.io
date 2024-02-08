@@ -30,7 +30,7 @@ tags: [meeting-minutes, community]
   last modification year) in the header but they have to be separated with comma character.
 - Please sign the Eclipse Contributor Agreement when trying to contribute to the webpage. Without that it is not possible to merge commits
   to the main branch.
-- Please don't put any Catena-X content or resource on the website without permission.
+- ❗ Please don't put any Catena-X content or resource on the website without permission.
 
 ### Open planning / community
 
