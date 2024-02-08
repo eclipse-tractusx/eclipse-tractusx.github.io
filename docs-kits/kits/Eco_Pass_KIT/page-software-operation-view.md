@@ -14,23 +14,23 @@ Based on the information provided in this kit, it is possible to run and program
 
 | Service Name          | Description                                                                                                                                                                                                             | Reference Implementation                                                                                                                                                                                                                                                                                     | [Standardized in](https://catena-x.net/de/standard-library) |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| Portal/IAM            | The central component of the Catena-X network. The Federated IAM from Catena-X is provided by the portal where you can manage the users and roles for the applications.                                                                                 | [Portal](https://github.com/eclipse-tractusx/portal-backend)                                        | [CX - 0015](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/4_IAM/CX_-_0015_IAM___Access_Control_Paradigm_PlatformCapabilityIAM_v_1.0.1.pdf)             |
+| Portal/IAM            | The central component of the Catena-X network. The Federated IAM from Catena-X is provided by the portal where you can manage the users and roles for the applications.                                                                                 | [Portal](https://github.com/eclipse-tractusx/portal-backend)                                        | CX - 0015             |
 | Discovery Finder      | A microservice resolving a type of identifiers against a set of BPN-Discovery Servers.  Responsible to give the search endpoints for a type of id                                                                       | [eclipse-tractusx/sldt-discovery-finder](https://github.com/eclipse-tractusx/sldt-discovery-finder)                                                                                                                                                                                                          | CX - 0053                                                   |
 | BPN Discovery         | A microservice resolving a particular assetId against the registered BPN of its owner. Responsible for indicating the BPNs for the IDs registered by the providers                                                      | [eclipse-tractusx/sldt-bpn-discover](https://github.com/eclipse-tractusx/sldt-bpn-discovery)                                                                                                                                                                                                                 | CX - 0053                                                   |
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                                                                                                                | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two edc need be existing, one connected to the Digital Product Pass (Eco Pass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]         | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
-| Digital Product Pass  | The [**Eco Pass KIT**] reference implementation. The application responsible for retrieving the passports and interacting with the services listed above.                                                               | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
+| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]         | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
+| Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application is responsible for retrieving the passports and interacting with the services listed above.                                                               | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
 
 <br/>
 
 # Configuration Guide
 
-In order to get the Digital Product Pass working, an EDC connector needs to be configured and assets need to be created so that the Application is able to perform the communications.
+In order to get the Digital Product Pass working, an EDC needs to be configured and assets need to be created so that the application is able to perform the communications.
 
 > **_NOTE:_**
-*This documentation is based in the Digital Product Pass Admin Guide. For the complete information check the CX-0096-TriangleForDigitalProductPass Standard or the [Admin Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/admin%20guide/Admin_Guide.md)*
+*This documentation is based on the Digital Product Pass Admin Guide. For the complete information check the CX-0096-TriangleForDigitalProductPass Standard or the [Admin Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/admin%20guide/Admin_Guide.md)*
 
 
 ## EDC Provider Configuration
@@ -48,7 +48,7 @@ All the configurations are in JSON notation and follow the [EDC Configuration fr
 
 ### Asset Configuration
 
-When configurating you EDC provider you will be able to set some assets which refer to a certain endpoint.
+When configurating your EDC provider you will be able to set some assets which refer to a certain endpoint.
 
 > **_INFO:_** *All public assets must be registered in a SubModel from a Digital Twin in the Digital Twin Registry.*
 
@@ -194,9 +194,9 @@ For framework agreement and membership in Catena-X configure this policy:
 
 ### Contract Definition Configuration
 
-Contract definitions allow us to expose the assets and link them to a contract policy and a access policy.
+Contract definitions allow us to expose the assets and link them to a contract policy and an access policy.
 
-> **_INFO:_** *Remember that all **policies and assets** you bind to a contract **must be defined in the same EDC Connector** and linked though their ID in the configuration from the contract.*
+> **_INFO:_** *Remember that all **policies and assets** you bind to a contract **must be defined in the same EDC Connector** and linked through their ID in the configuration from the contract.*
 
 #### Variables:
 
@@ -204,8 +204,8 @@ Contract definitions allow us to expose the assets and link them to a contract p
 | ---- | -------- |-----------------------------------------------------------------------------------------------------------------------------------------------|
 | ContractDefinitionId | UUID that identifies the policy in the EDC Connector | 76b50bfc-ec19-457f-9911-a283f0d6d0df                                                                                                          |
 | AssetId | Combination of Digital Twin and Sub Model UUIDs | **Example value for asset**: urn:uuid:0ec8cf2b-f58e-3f13-b5ef-e7dd01d15b19 <br/> **Example value for registry**: digital-twin-registry |
-| AccessPolicyId | Policy that allows/restricts/enforces asset access constrains | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
-| ContractPolicyId | Policy that allows/restricts/enforces contract constrains | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
+| AccessPolicyId | Policy that allows/restricts/enforces asset access constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
+| ContractPolicyId | Policy that allows/restricts/enforces contract constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
 
 #### Format and Fields:
 
@@ -246,9 +246,9 @@ Once you finish the configuration, to make the endpoint public configure your di
 | EDCProviderUrl | URL to the endpoint which contains the EDC Provider | [https://edc.control.plane/](https://edc.control.plane/) |
 | BPN | OPTIONAL: The endpoint address can include a BPN number, which shall lead to the EDC Provider, and return the contracts when called from an EDC Consumer | BPNL000000000000 |
 | SubmodelIdShort | EXACT STRING REQUIRED: The submodel id of the battery passports needs to be exactly the string: "batteryPass" | **batteryPass** |
-| BammModelVersionId | The semantic version of the asset passport model, currently the  version v3.0.1 is used | urn:bamm:io.catenax.battery.battery_pass:3.0.1#BatteryPass |
+| BammModelVersionId | The semantic version of the asset passport model, currently the  version v4.0.0 is used | urn:samm:io.catenax.battery.battery_pass:4.0.0#BatteryPass |
 
-> **_INFO:_** *It is important that the "SubmodelIdShort" is set in the correct format and that the EDCProviderUrl points to an valid EDC Provider, that providers valid contracts configured in the structure defined here.*
+> **_INFO:_** *It is important that the "SubmodelIdShort" is set in the correct format and that the EDCProviderUrl points to an valid EDC Provider, that provides valid contracts configured in the structure defined here.*
 
 
 #### Format and Fields:
