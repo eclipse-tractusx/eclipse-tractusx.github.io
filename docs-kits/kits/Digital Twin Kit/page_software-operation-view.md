@@ -31,3 +31,12 @@ CX-0002.
 
 
 ![High Level Architecture of an App leveraging the Digital Twin Kit](assets/img/DTKIT_high_level_arch.svg)
+
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
