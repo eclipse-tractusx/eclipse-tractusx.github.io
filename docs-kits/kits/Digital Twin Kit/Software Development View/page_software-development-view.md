@@ -419,6 +419,22 @@ be standardized in the context of the semantics-standards or the DT Kit.
 
 ## Data Provisioning
 
+### Regulatory Compliance and Security
+
+The services of this Kit will in many instances hold sensitive data. While sound access management is a prerequisite for
+every webservice, it is especially important in case of the DTR and Submodels. As they hold competitively sensitive data,
+unauthorized access is not only a data leak but a potential violation of regulatory compliance such as anti-trust law.
+
+That's why there are a couple shared requirements that DTR-deployments must adhere to:
+- If a Data Consumer has no legitimate interest, a shell-descriptor must not be returned when requested.
+- If a Data Consumer has a legitimate interest, a shell-descriptor must not include any data (like `specificAssetIds`) of 
+companies other than the involved Data Provider and Data Consumer.
+- If a Data Provider wants to share data publicly, a shell-descriptor must only contain the attributes `id`, `submodelDescriptors`
+and those `specificAssetIds` that were issued by the Data Provider and contain no hints of existing business relationships.
+
+As the above properties are exposed not only via the AssetAdministrationShellRegistry interface but also the Discovery
+interface (via the `/lookup/shells` endpoint), it must not serve more data than specified above.
+
 ### Versioning
 
 Versioning in the Catena-X network is an essential task. This holds true for Digital Twins more specifically, too. The
@@ -467,5 +483,6 @@ means of POST endpoints, updatable with PUT and PATCH requests (
 see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
 or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
-as backend integration pattern is more inconvenient as the DTR must process and return reproducable IDs not only for
+as backend integration pattern is more inconvenient as the DTR must process and return reproducible IDs not only for
 the assets but also for the AAS - this is hard to realize in a pure stateless implementation.
+
