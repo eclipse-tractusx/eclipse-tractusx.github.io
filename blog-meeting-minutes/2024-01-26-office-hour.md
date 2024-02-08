@@ -34,8 +34,7 @@ tags: [meeting-minutes, community]
 
 ### Open planning / community
 
-- New location for Open Meeting info can be found [here](https://eclipse-tractusx.github.io/community/open-meetings). Calendar file can be
-  downloaded from there.
+- New [Open Meetings Links](https://eclipse-tractusx.github.io/community/open-meetings) are listed directly on our webpage to participate and separate calendar files can be downloaded from there.
 - Office hours will probably start a few minutes later so the people don't have to wait until everyone gets there.
 - Commiters and Contributors Meeting could be a new form of communication where the committers are more involved getting some pressure off the System Team.
 - Newjoiner rounds for basic introductions would be held every 2 weeks in a separate session.
@@ -48,4 +47,4 @@ tags: [meeting-minutes, community]
     whether the version from SAP can be used without a license. Currently all components can run without MIW but data exchange functionality won't work.
 - Public API versioning is still an open topic where no decision has been made to create a TRG or guide the Tractus-X community to follow
   one versioning strategy.
-- An alternative for MS Teams should be found as it is hard to manage for an open community (for example Discord).
+- An alternative for MS Teams should be found as it is hard to manage for an open community (e.g. Discord).
