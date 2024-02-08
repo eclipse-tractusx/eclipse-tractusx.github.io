@@ -51,9 +51,10 @@ access it. The registry caters exactly that information: For every asset it know
 these, a consumer app will find information what it will find (via the semanticId) and how to access the information (endpoint,
 security setup etc.). As the information contained in the DTR may be sensitive and not be trusted with a central entity,
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET endpoints
-as specified in the [Development View](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20Kit),
-data providers may find it useful to implement other requests for registration on top. Either way, they are free to populate
-their DTR in any way they desire.
+as specified in
+the [Development View](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20Kit),
+data providers may find it useful to implement other requests for registration
+on top. Either way, they are free to populate their DTR in any way they desire.
 
 ### Catena-X specific Services
 
@@ -65,8 +66,8 @@ several high-level concepts for DDTRs are introduced. The AAS-specification rema
 none of them. Catena-X must deal with the additional complexity that stems from the interaction with the EDC.
 
 Leveraging the native capabilities of the EDC and the EDC Discovery Service, Catena-X uses a discovery pattern that has the
-same capability as a central [Digital Twin Registry](#digital-twin-registry):
-It allows to start a Discovery Process with an Asset ID.
+same capability as a central [Digital Twin Registry](#digital-twin-registry) would:
+It allows to start a Discovery Process with ONLY an Asset ID.
 However, in Catena-X some of the data is deemed so sensitive that a central authority can't be
 trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR.
 This poses a challenge for discovery if the BPN of the supplier is not known by the data consumer. After all, a
@@ -106,6 +107,7 @@ a consumer may know not only the assetId but also the provider's BPN, allowing h
 If this prior knowledge is given under all circumstances, registration steps 2-3 can be skipped provider-side.
 
 <!-- Recommended -->
+
 ## Sample Data
 
 Generic sample data for relevant data objects is contained in the openAPI-specs of the respective services. This chapter 
@@ -122,11 +124,14 @@ as standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
 
 There's three relevant inputs to discover a referenced Submodel in Catena-X:
 - The `subprotocolBody` contains two pieces of information, assigned with `=` and separated by `;`:
-  - `dspEndpoint` is the URL of the Data Plane where a Data Consumer can negotiate for access to this Submodel. For many
+    - `dspEndpoint` is the URL of the Control Plane where a Data Consumer can negotiate for access to this Submodel. For
+      many
   connector-implementations, this will end on `/api/v1/dsp`. As this property will be used in the discovery sequence
-  to construct a `catalog`-request, this variable is equivalent to the `<base>` in [this DSP-example.](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites).
+      to construct a `catalog`-request, this variable is equivalent to the `<base>`
+      in [this example](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites)
+      in the DSP-spec.
   -  When calling the /catalog API of that Control Plane, she should filter for dcat:Dataset entries that are identified
-  by the `id` mentioned in the subprotocolBody.
+     by the `id` mentioned in the `subprotocolBody`.
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data Plane
 of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field and 
 append the additional URL-segment `/$value`. 
@@ -423,11 +428,11 @@ In a simple scenario (where the Data Provider offers access to a Submodel via DT
 resources),
 these are the layers of complexity:
 
-| Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                          | Method to increment                                                                                  |
-|--------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request points to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | Under discussion in Connector Kit.                                                          |
-| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         |  Under discussion in DT Kit.                                                                 |
-| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the semantic model requires either setup of a new submodel (with a new submodel ID and the new semantic ID) or update of an existing submodel descriptor (with updated semantic ID). This includes updating registration information at the DTR. Rules on backward compatibility need to be considered. It may be requested to offer two Submodel versions at the same time. |
+| Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                                        | Method to increment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|--------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request includes a reference to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | As the design of the EDC's `/catalog/request`-API is an implementation detail, Consumers must consistently monitor its versioning. As the EDC-Management-API abstracts the DSP-messages, changes in the DSP may reflect in the Management-API but will not always do so. If a Consumer application decides to interact with the dataspace without mediation of the EDC, this changes.                                                                                                                                                                                                      |
+| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.                       | For a major change in the AAS-spec, a new set of Catalog entries must be created by the Data Provider in accordance with the standards. For minor changes (AAS 3.x), Data Providers must signal the version in the `https://w3id.org/catenax/common#version` property of their contract offers and update it with each minor or patch update that's supported. Minor versions must also be signalled in the `submodelDescriptor`.`ìnterface`.`protocol` property. If the Submodel API increments with a major version, a new `interface` object must be added to the `submodelDescriptor`. |
+| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                                        | A new version of the semantic model requires either setup of a new submodel (with a new submodel ID and the new semantic ID) or update of an existing submodel descriptor (with updated semantic ID). This includes updating registration information at the DTR. Rules on backward compatibility need to be considered. It may be requested to offer two Submodel versions at the same time.                                                                                                                                                                                              |
 
 Here's a list of duties for Data Providers in case they integrate a new Submodel (or version of an existing one) to an existing
 twin:
