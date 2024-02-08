@@ -128,7 +128,7 @@ Data driven Quality Management with Catena-X - Statements from the consortial pa
 
 ### Overview Data Model Entities
 
-Download for MS Excel: <a target="_blank" href={ require("/office/Quality_KIT_DataModelOverview_v1.0.xlsx").default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
+Download for MS Excel: <a target="_blank" href={ require("/static/img/Quality_KIT_DataModelOverview_v1.0.xlsx").default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
 
 ### Quality Task
 
