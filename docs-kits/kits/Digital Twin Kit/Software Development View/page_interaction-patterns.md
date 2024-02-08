@@ -57,8 +57,7 @@ everyone in the network. Thus, the dismantler must publish the data themselves, 
 
 #### 2.1. Discovery by Convention
 
-In certain use-cases, participants can agree on conventions where a specific Submodel may be expected. For example,
-a use-case may require data about what car a clutch was built into (like the [SingleLevelUsageAsPlanned](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/cf4d3378ad95e746694b83817dcfd7f40c7f3559/io.catenax.single_level_usage_as_built/1.0.1/gen/SingleLevelUsageAsBuilt.json)).
+In certain use-cases, participants can agree on conventions where a specific Submodel may be expected.
 This information can only be provided by the buyer of a certain part who creates a new Twin for the part with identical
 `assetIds`. Such conventions about how to locate certain types of Submodels should be explicitly mentioned in the 
 Standards and Kits for a use-case as the default hypothesis is always that a [Supplier holds relevant data](#1-fetching-a-suppliers-twin).
