@@ -55,6 +55,16 @@ everyone in the network. Thus, the dismantler must publish the data themselves, 
     - registered to the correct ShellDescriptor in the DTR.
     - Serving arbitrary but well-specified json via `GET` requests from the `/$value` endpoint.
 
+#### 2.1. Discovery by Convention
+
+In certain use-cases, participants can agree on conventions where a specific Submodel may be expected. For example,
+a use-case may require data about what car a clutch was built into (like the [SingleLevelUsageAsPlanned](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/cf4d3378ad95e746694b83817dcfd7f40c7f3559/io.catenax.single_level_usage_as_built/1.0.1/gen/SingleLevelUsageAsBuilt.json)).
+This information can only be provided by the buyer of a certain part who creates a new Twin for the part with identical
+`assetIds`. Such conventions about how to locate certain types of Submodels should be explicitly mentioned in the 
+Standards and Kits for a use-case as the default hypothesis is always that a [Supplier holds relevant data](#1-fetching-a-suppliers-twin).
+
+#### 2.2. Discovery by Registration
+
 Additionally, the dismantler must signal in a [BPN-Discovery-Service](../page_software-operation-view.md) that he indeed has data on said vehicle.
 
 That way, any interested Data Consumer can not only suspect data with the part's manufacturer but also all third parties
@@ -88,14 +98,14 @@ in the Catena-X dataspace. Again, the Supplier register the twin:
 Implementing the last point is tricky. It requires a very differentiated access control concept on the Supplier's side,
 differentiating WHO is allowed to write into WHAT part of the Submodel. Several approaches to implementation can be taken:
 
-#### 4.1. Access Control at the connector
+#### 3.1. Access Control at the connector
 Connectors can prevent certain network participants from accessing the Submodel in the Supplier's backend. The EDC for
 example can intercept or rewrite components of an HTTP-request like headers, methods/verbs, bodies. Only extending a 
 data offer after preliminary checks is another option, implemented for instance in the EDC's Access Policy checks. A 
 combination of the two approaches can lead to fairly complete access control but may require fine-grained data-offers
 in the provider's catalog (i.e. very restricted EDC-Assets with a lot of proxy-parameters set `"false"`).
 
-#### 4.2. Access Control in the backend
+#### 3.2. Access Control in the backend
 Depending on the backend's capabilities to fine-tune access control, it may be more beneficial to let the backend (like
 a Submodel Repository) decide if data will certain API-operations will be allowed. In this example, it would be possible
 to let a user update certain properties in a Submodel but only read others. This differentiation can't be made by the 
@@ -108,3 +118,9 @@ Submodel Repository.
 |---------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------|--------------------|
 | A new customer wants their customerPartId as specificAssetId on the twin. | - Data Provider (Supplier) <br/> - Data Provider (Third Party) | 1. Third Party knows an id of the asset | None yet           |
 
+An update to a twin is any change to the ShellDescriptor via the APIs of the AssetAdministrationShellServiceSpecification
+or DiscoveryServiceSpecification of AAS Pt 2. While the relevant write-APIs are not mandatory in Catena-X, Data Providers
+can implement and expose them to the dataspace. This obviously bears risks: not only can improper implementation and 
+configuration lead to unauthorized access to data like in the simple read access (see [scenario 1](#1-fetching-a-suppliers-twin), [scenario 2](#2-adding-a-new-twin-for-a-given-asset)).
+In this case, data could be manipulated and overwritten endangering the processes that build on it. That's why 
+fine-grained access control for components like the DTR is a fundamental requirement to operate.
