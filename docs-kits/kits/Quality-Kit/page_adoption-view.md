@@ -138,7 +138,7 @@ Data driven Quality Management with Catena-X - [Statements from the consortial p
 
 ### Overview Data Model Entities
 
-Download for MS Excel: <a target="_blank" href={ require("/office/Quality_KIT_DataModelOverview_v1.0.xlsx").default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
+Download for MS Excel: <a target="_blank" href={ require(@site/static/img/Quality_KIT_DataModelOverview_v1.0.xlsx).default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
 
 ### Common Data
 Data structured in the following semantic models are to be delivered by OEM & supplier.
