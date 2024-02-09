@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-01-26T00:00:00.000Z</updated>
+    <updated>2024-02-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Office Hour 02.02.2024]]></title>
+        <id>office-hour-02-02-2024</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-02-02-2024"/>
+        <updated>2024-02-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[office hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">office hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Please be aware of our Markdown lint problem in the eclipse-tractusx.github.io that currently only the <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/package.json#L15" target="_blank" rel="noopener noreferrer"><code>/docs</code></a> folder is checked and should be extended to more markdown file directories </li><li>TRG Update information about <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/618" target="_blank" rel="noopener noreferrer">TRG 3-1</a> that was superseded by <a href="https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-09" target="_blank" rel="noopener noreferrer">TRG 5-09</a></li><li>Upcoming Office Hours meeting minutes will be reported in the community section of our webpage and you can find <a href="https://eclipse-tractusx.github.io/community/meeting-minutes" target="_blank" rel="noopener noreferrer">here</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>New <a href="https://github.com/eclipse-tractusx/sig-security/issues/new/choose" target="_blank" rel="noopener noreferrer">security issue templates</a> for sig-security repository</li><li>Security assessments <a href="https://github.com/eclipse-tractusx/sig-security/issues/new?assignees=szymonkowalczykzf&amp;labels=security%2C+assessment&amp;projects=&amp;template=security-assessment-request.md&amp;title=%5BSecurity+Assessment%5D+SUBJECT_HERE" target="_blank" rel="noopener noreferrer">template</a> and <a href="https://github.com/szymonkowalczykzf" target="_blank" rel="noopener noreferrer">contact</a></li><li>Access to security tools <a href="https://github.com/eclipse-tractusx/sig-security/issues/new?assignees=RoKrish14&amp;labels=security%2C+tooling&amp;projects=&amp;template=security-tooling-support-request.md&amp;title=%5BSecurity+Tooling%5D+YOUR_ISSUE_TITLE_HERE" target="_blank" rel="noopener noreferrer">template</a> like Snyk and other tools</li><li><a href="https://snyk.io/" target="_blank" rel="noopener noreferrer">Snyk</a> tool will be available after consortia time</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Please take your vote on a new <a href="https://projects.eclipse.org/projects/automotive.tractusx/elections/election-f%C3%A1bio-mota-committer-eclipse-tractus-x" target="_blank" rel="noopener noreferrer">Committer Election</a> for <a href="https://github.com/fabiodmota" target="_blank" rel="noopener noreferrer">Fábio Mota</a></li><li>Please participate in <a href="https://www.eclipse.org/projects/calendar/" target="_blank" rel="noopener noreferrer">Eclipse Committer Office Hour Meetings</a> and join the discussion about changes to the Eclipse IP Policy and Due Diligence Process</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>Open <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer">Meetings Links</a> with ics invitation files are available for the community</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussion">Open discussion<a class="hash-link" href="#open-discussion" title="Direct link to heading">​</a></h3><ul><li>No open discussion</li></ul>]]></content>
+        <author>
+            <name>Fabian Grün</name>
+            <uri>https://github.com/fagru3n</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Office hour 26.01.2024]]></title>
         <id>office-hour-26-01-2024</id>
