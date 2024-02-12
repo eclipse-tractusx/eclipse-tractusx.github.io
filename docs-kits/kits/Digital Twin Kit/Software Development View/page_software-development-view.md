@@ -80,7 +80,9 @@ The Discovery Finder and the BPN Discovery service are described as part of this
 
 The services that make up the Digital Twin Kit partly rely on each other. Executing them in the right sequence allows 
 a Data Consumer to get access to data whose location was previously unknown. However, this discovery process relies on a 
-set of assumptions. Most relevant is the presence of the discovery services defined in
+set of assumptions and thus, requirements. 
+
+Most relevant is the presence of the discovery services defined in
 CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx),
 [BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx))
 and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)).
@@ -441,8 +443,7 @@ Versioning in the Catena-X network is an essential task. This holds true for Dig
 network builds on several specifications where changes in API or specifications could break existing communication
 channels.
 In a simple scenario (where the Data Provider offers access to a Submodel via DTR and a Data Consumer GETs both
-resources),
-these are the layers of complexity:
+resources), these are the layers of complexity:
 
 | Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                                        | Method to increment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -478,14 +479,12 @@ can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin
 ### Patterns for DTRs
 
 Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the
-SSP-001 profile of the Asset Administration Shell Registry Service by
-means of POST endpoints, updatable with PUT and PATCH requests (
-see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
+SSP-001 profile of the Asset Administration Shell Registry Service by means of POST endpoints, updatable with PUT and 
+PATCH requests (see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
 or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
 as backend integration pattern is more inconvenient as the DTR must process and return reproducible IDs not only for
 the assets but also for the AAS - this is hard to realize in a pure stateless implementation.
-
 
 
 ## Notice
