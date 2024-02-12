@@ -133,12 +133,17 @@ In certain use-cases, participants can agree on conventions where a specific Sub
 This information can only be provided by the buyer of a certain part who creates a new Twin for the part with identical
 `assetIds`. Such conventions about how to locate certain types of Submodels should be explicitly mentioned in the 
 Standards and Kits for a use-case as the default hypothesis is always that a supplier holds the relevant data.
-If multiple parties publish data on the same asset, they all follow the Data Provisioning flow from [the default case](#1-fetching-a-suppliers-twin)
+
+For discovery of digital twins for parts, it might be useful to standardize the specific asset IDs the supplier should 
+attach to its part twin. Via these `specificAssetIds` the corresponding digital twin of the part can be found by the 
+OEM. If the `globalAssetId` is known to the OEM it is not necessary to defined additional specific asset IDs
+
+If multiple parties publish data on the same asset, each follows the Data Provisioning flow from [the default case](#1-fetching-a-suppliers-twin)
 
 #### 2.2. Discovery by Registration
 
 If no heuristic is precise enough to expect a Submodel's location, the dismantler must signal in a [BPN-Discovery-Service](../page_software-operation-view.md) 
-that he indeed has data on said vehicle. This is the registration process:
+that they indeed have data on said vehicle. This is the registration process:
 
 ```mermaid
 sequenceDiagram
@@ -184,6 +189,7 @@ After that, [the default consumption process](#1-fetching-a-suppliers-twin) is e
 
 There may be a scenario where a Supplier deploys a Digital Twin that holds data that will have to be updated during the 
 lifecycle. A potential use-case would be the update of a particular vehicle's BoM - for instance if the engine is replaced.
+This could be represented in a Submodel "SingleLevelBomAsMaintained".
 Currently, updating remote Submodels is a hypothetical example but, with the right tools, a pattern that can be executed 
 in the Catena-X dataspace. Again, the Supplier registers the twin:
 
@@ -238,7 +244,7 @@ Submodel Repository.
 | A new customer wants their customerPartId as specificAssetId on the twin. | - Data Provider (Supplier) <br/> - Data Provider (Third Party) | 1. Third Party knows an id of the asset | None yet           |
 
 An update to a twin is any change to the AAS-descriptor via the APIs of the AssetAdministrationShellServiceSpecification
-or DiscoveryServiceSpecification of AAS Pt 2. While the relevant write-APIs are not mandatory in Catena-X, Data Providers
+or DiscoveryServiceSpecification of AAS Part 2. While the relevant write-APIs are not mandatory in Catena-X, Data Providers
 can implement and expose them to the dataspace. This obviously bears risks: not only can improper implementation and 
 configuration lead to unauthorized access to data like in the simple read access (see [scenario 1](#1-fetching-a-suppliers-twin), [scenario 2](#2-adding-a-new-twin-for-a-given-asset)).
 In this case, data could be manipulated and overwritten endangering the processes that build on it. That's why 
