@@ -121,7 +121,7 @@ export https_proxy=http://[username]:[password]@ [proxy-web-or-IP-address]:[port
 
 :::tip
 
-The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Futher you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf:
+The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Further you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf:
 
 ```bash
 Acquire::https::Proxy "http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]";
@@ -137,7 +137,7 @@ export NO_PROXY="localhost,127.0.0.1,::1"
 
 #### http (80)
 
-The port http (80) should not be used, but in case it will, you can apply the above hints just by replacing https by http.
+The port http (80) should not be used, but it will. You can apply the above hints for https (port 443) just by replacing https by http.
 
 #### ssh (22)
 
@@ -219,17 +219,19 @@ Prepare the installation of Terraform including helm:
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 ```
 
+Generate key for terraform:
+
 ```bash
-sudo wget -O- - https://apt.releases.hashicorp.com/gpg | | sudo gpg --dearmor -o | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+sudo wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
   
 Verify the generated key is working:
 
 ```bash
-sudo gpg --no-default-keyring \
---keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \
---fingerprint
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
 ```
+
+Store location into source for hashicorp:
 
 ```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
