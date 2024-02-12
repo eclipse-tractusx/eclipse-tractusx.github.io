@@ -7,7 +7,8 @@ sidebar_position: 2
 
 ## Interaction Patterns for Distributed Digital Twins
 
-The Catena-X standard CX-0002 (Digital Twins in Catena-X) defines a subset of the
+The Catena-X standard CX-0002 (Digital Twins in Catena-X) defines a subset of the AAS-standard that is relevant for 
+Catena-X. However, it is concerned only with the network-facing APIs 
 
 ### 1. Fetching a supplier's Twin
 
