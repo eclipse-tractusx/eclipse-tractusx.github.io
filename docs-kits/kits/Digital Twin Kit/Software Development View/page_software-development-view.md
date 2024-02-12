@@ -76,40 +76,6 @@ three-step discovery pattern made up of the central microservices Discovery Find
 and finally the EDC discovery that is part of the CX-Portal.
 The Discovery Finder and the BPN Discovery service are described as part of this Kit.
 
-## Discovery Sequence
-
-The services that make up the Digital Twin Kit partly rely on each other. Executing them in the right sequence allows 
-a Data Consumer to get access to data whose location was previously unknown. However, this discovery process relies on a 
-set of assumptions and thus, requirements. 
-
-Most relevant is the presence of the discovery services defined in
-CX - 0053 ([Discovery Finder](./API%20Discovery%20Finder/discovery-finder.info.mdx),
-[BPN Discovery](./API%20BPN%20Discovery/bpn-discovery-service.info.mdx))
-and CX - 0001 ([EDC Discovery](./API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors.api.mdx)).
-As portrayed in the [Operation View](../page_software-operation-view.md), these
-discovery services are assumed to run centrally in a data space. A concept for decentralization will be validated in the
-future.
-
-Apart from their presence, the discovery services also must be populated with data by the data providers. This process
-is portrayed in the "setup of registration" section of the diagram below (steps 1-5). They describe the assumed calls
-that have been made prior to consumer-side discovery. While step 1 was completed during onboarding of a company to the
-Catena-X network, step 2 was executed by the operating company offering the BPN-Discovery Service. Step 3-5 are in the 
-responsibility of each Data Provider. 
-
-In steps 6-17, the consumer fetches the previously registered data from the central services and initiates data access.
-Please note that especially steps 12 & 13 (negotiation at EDC) are simplified in this figure as they are explained in the 
-Connector Kit already. The discovery sequence ends with step 17, after which the data consumer can make a request for the
-data that he set out to find.
-
-![DT Kit Discovery Sequence](../assets/img/DTKIT_discovery_seq.svg)
-
-Some use-cases assume that a consumer has prior knowledge of an asset's location in a provider's infrastructure. That's 
-why discovering data will not always necessitate executing the whole discovery sequence above. For example, 
-a consumer may know not only the assetId but also the provider's BPN, allowing him to enter the sequence at step 10. 
-If this prior knowledge is given under all circumstances, registration steps 2-3 can be skipped provider-side.
-
-<!-- Recommended -->
-
 ## Sample Data
 
 Generic sample data for relevant data objects is contained in the openAPI-specs of the respective services. This chapter 
