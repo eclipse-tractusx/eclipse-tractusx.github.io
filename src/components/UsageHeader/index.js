@@ -1,7 +1,7 @@
 /********************************************************************************* 
- * Copyright (c) 2023 BMW Group AG
- * Copyright (c) 2023 Mercedes Benz AG 
-* Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 BMW Group AG
+ * Copyright (c) 2024 Mercedes Benz AG 
+* Copyright (c) 2024 Contributors to the Eclipse Foundation
 * 
 * See the NOTICE file(s) distributed with this work for additional
 * information regarding copyright ownership.
@@ -20,21 +20,21 @@
 ********************************************************************************/
 
 import React from "react";
-import KitsUsageSvg from '@site/static/img/kits_usage_logo.svg'
 
 import styles from "./styles.module.css";
 
-export default function KitsUsageHeader() {
+export default function UsageHeader(props) {
+  console.log(props)
   return (
       <header className={styles.usage_header}>
       <div className={styles.container}>
         <div className={styles.svg_container}>
-          <KitsUsageSvg className={styles.svg}/>
+          {props.icon}
         </div>
         <div className={styles.information_container}>
-          <h1 className="headers-title-h1">KITS Usage</h1>
+          <h1 className="headers-title-h1">{props.title}</h1>
           <p className="headers-subtitle-p">
-            Utilize the KITS to develop applications for the Catena-X ecosystem or gain insights on how to integrate with your current infrastructure.
+            {props.description}
           </p>
         </div>
       </div>

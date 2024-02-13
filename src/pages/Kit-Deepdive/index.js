@@ -27,12 +27,17 @@ import DeepdiveContent from "../../components/DeepdiveContent";
 
 export default function KitDeepdivePage() {
   const { siteConfig } = useDocusaurusContext();
+  const headerInput = {
+    title: "KIT Deepdive",
+    description: "KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem.",
+    showImage: false
+  }
   return (
     <Layout
       title={'Developer Kits DeepDive page'}
       description="Description will go into a meta tag in <head />"
     >
-      <DeepdiveHeader />
+      <DeepdiveHeader {...headerInput} />
       <main>
         <DeepdiveContent />
       </main>

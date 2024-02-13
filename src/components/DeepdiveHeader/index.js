@@ -24,17 +24,17 @@ import KitsCoreSvg from '@site/static/img/kits&core.svg'
 
 import styles from "./styles.module.css";
 
-export default function DeepdiveHeader() {
+export default function DeepdiveHeader({title, description, showImage}) {
   return (
       <header className={styles.deepdive_header}>
-      <div className={styles.container}>
+      <div className={showImage ? styles.container : styles.no_bg_container}>
         <div className={styles.svg_container}>
           <KitsCoreSvg className={styles.svg}/>
         </div>
         <div className={styles.information_container}>
-          <h1 className="headers-title-h1">KIT Deepdive</h1>
+          <h1 className="headers-title-h1">{title}</h1>
           <p className="headers-subtitle-p">
-            KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem.
+            {description}
           </p>
         </div>
       </div>
