@@ -61,7 +61,7 @@ Setting up all technical components is only the first step towards active partic
 
 :::note
 
-The data integration pattern guide gives an overview over the tasks and challenges associated with backend integration: <<https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_V1.1.pdf>>
+The data integration pattern guide gives an overview over the tasks and challenges associated with backend integration: <https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_V1.1.pdf>
 
 :::
 
