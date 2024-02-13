@@ -32,7 +32,7 @@ import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
 import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
 import Link from "@docusaurus/Link";
 
-export default function RoleBasedEnrtyComponent() {
+export default function RoleBasedEnrtyComponent({data}) {
     const isWeb = useMediaQuery('(min-width:1024px)');
     const isMobile = useMediaQuery('(max-width:600px)');
     function  NextArrow (props) {
@@ -76,9 +76,9 @@ export default function RoleBasedEnrtyComponent() {
         initialSlide: 0,
     };
 
-    const RoleBasedEntryCard = ({ title, description, pageRoute }) => {
+    const RoleBasedEntryCard = ({ title, description, navigate }) => {
         return (
-            <Link className={styles.link_container} to={pageRoute}>
+            <Link className={styles.link_container} to={navigate}>
                 <div className={styles.card_container}>
                     <div>
                         <Typography className={styles.roles_title}
@@ -110,18 +110,20 @@ export default function RoleBasedEnrtyComponent() {
 
     return (
         <section className={styles.roles_based_entry}>
+            {data && (
             <Slider {...settings} className={styles.slider}>
                 {!isMobile && (
                     <div className={styles.text_card_container}></div>
                 )}
                 {
-                    carouselRoleBased.map((newPost, index) => {
+                    data?.map((newPost, index) => {
                         return (
                             <RoleBasedEntryCard key={index} {...newPost} />
                         )
                     })
                 }
             </Slider>
+            )}
         </section>
     );
 }

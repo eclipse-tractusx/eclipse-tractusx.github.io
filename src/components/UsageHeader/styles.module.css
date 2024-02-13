@@ -32,7 +32,7 @@
   /* border: 1px solid red; */
 }
       
-.svg {
+.svg_container svg {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -67,7 +67,7 @@
     justify-content: center;
   }
 
-  .svg {
+  .svg_container svg {
     position: initial;
   }
 

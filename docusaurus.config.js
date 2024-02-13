@@ -370,7 +370,7 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/developer',
+            to: '/Kits',
             items: [
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',

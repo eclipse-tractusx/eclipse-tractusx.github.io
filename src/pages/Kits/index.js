@@ -15,43 +15,44 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
-import HomePageHeader from "../components/HomePageHeader/index";
-import AboutUsCard from "../components/AboutUsCard";
-import FAQsComponent from "../components/FAQsComponent";
-import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
+import DeepdiveHeader from "../../components/DeepDiveHeader";
+import AboutUsCard from "../../components/AboutUsCard";
+import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";
-import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
-import CommunityComponent from "../components/CommunityComponent";
-import { carouselRoleBased } from "../../utils/carouselRoleBased";
+import CarouselSuccessStories from "../../components/CarouselSuccessStories";
+import RoleBasedEnrtyComponent from "../../components/RoleBasedEnrtyComponent";
+import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
 
-
-export default function Home() {
+export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
   const aboutInput = {
-    highlightText: "Welcome to the community",
-    title: "The magic behind Eclipse Tractus-X",
-    descriptionHighlight: "The Eclipse Tractus-X™ project",
-    description: " is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
-    buttonText: "About Us",
-    link: "/aboutus"
+    highlightText: "Catena-X KITS",
+    title: "KIT stands for Keep It Together",
+    descriptionHighlight: "Kits aim to accelerate",
+    description: " the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
+    buttonText: "KIT Deepdive",
+    link: "/Kit-deepdive"
+  }
+  const headerInput = {
+    title: "KIT",
+    description: "Introduction to the Catena-X KITS.",
+    showImage: true
   }
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomePageHeader />
+      <DeepdiveHeader {...headerInput} />
       <main>
-        <RoleBasedEnrtyComponent data={carouselRoleBased} />
+        <RoleBasedEnrtyComponent data={carouselKitdeepdive} />
         <AboutUsCard {...aboutInput} />
-        <CommunityComponent />
         <KitsGalleryWithFilters 
           itemsArray={kitsGallery}
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
-        {/* Enable when it is required */}
-        {/* <FAQsComponent /> */}
+        <CarouselSuccessStories />
       </main>
     </Layout>
   );

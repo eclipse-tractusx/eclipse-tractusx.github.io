@@ -19,64 +19,33 @@
 * SPDX-License-Identifier: Apache-2.0
 ********************************************************************************/
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "@docusaurus/Link";
 
 import KitToolbox from "@site/static/img/kit-toolbox-min.png";
 import Thumbnail from "@site/static/img/main_bg-min.png"
 
 import styles from "./styles.module.css";
+import IFrameComponent from "../IFrameComponent";
 
 export default function DeepdiveContent() {
-  const [display, setDisplay] = useState('block');
-
   return (
     <section className={styles.deepdive_content}>
       <div className={styles.container}>
 
-        <div className={styles.title_container}>
-          <p className="description-p">
-            Kits aim to accelerate the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.
-          </p>
-
-          <p className="description-p">
-            KITs are an important part of the Eclipse Tractus-X™ project here.
-          </p>
-          
-          <h2 className="title-h2">Get inspired by using a KIT</h2>
-
-          <p className="description-p">
-            This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.
-          </p>
-
-          <div className={styles.iframe_container}>
-            <div 
-            className={styles.thumbnail} 
-            style={{display: display}}
-            onMouseOver={()=> setDisplay("none")}
-            ></div>
-            <iframe 
-              width="100%"
-              height="450" 
-              src="https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML?" 
-              title="YouTube video player"  
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-
+        <IFrameComponent
+          link={'https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML?'}
+          description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.'}
+          title={'Get inspired by using a KIT'}
+          headerDescription={'Business applications enable data providers and consumers  to leverage different use cases and data-driven processes to solve a specific industry problem (e.g., PCF) and create business value, by using KITs and Standards for interoperable and trusted data exchange. A business application provider (BAP) can decide on the scope of its business applications and whether to offer them on one or more of the marketplaces.'}
+        />
         <div className={styles.title_container}>
           <h2 className="title-h2">
-            KIT Deepdive
+            General
           </h2>
 
           <p className="description-p">
-            To establish a global data space for collaboration and interoperability, Catena-X offers a range of standards and developer resources. Standards, such as whitepapers, are published on the Catena-X Association website (Standard Library), while developer resources, including KITs, compatible implementations, and release guidelines, can be found on the Tractus-X Website.
-          </p>
-
-          <p className="description-p">
-            KITs are an essential part of the Catena-X customer journey, which consists of five steps: Inform, Connect, Boost, Adopt, and Utilize. These KITs provide a dedicated set of tools that empower solution providers to develop interoperable solutions for each stage of the customer journey. These solutions can be offered on various marketplaces within the Catena-X data space. Adopters, such as OEMs, suppliers, or recyclers, can choose to use KITs or solutions from the marketplaces to support their own customer journey.
+            To establish a global data space, Catena-X offers a range of standards and developer resources. Standards are published on the Catena-X Association website (Standard Library), while the developer resources, including KITs,  are open for use and collaboration within the Tractus-X community, promoting trust. The development and maintenance of KITs forms the basis for further use cases, interoperable business applications, and services.
           </p>
 
           <p className="description-p">
@@ -86,10 +55,10 @@ export default function DeepdiveContent() {
           <div className={styles.siblings_paragraph_container}>
             <div className={styles.siblings_paragraph}>
               <h2 className="title-h2">
-                Data <br></br> Prosumer
+                Data Provider<br></br> / Consumer
               </h2>
               <p className="description-p">
-                Companies that are part of the automotive value chain and participate in a Catena-X use case. These companies require technical support, specifications, and guidance. For instance, a production company may need to exchange product carbon footprint data with its partners. KITs keep together the necessary software components, standards, policies, and deployment scripts, ensuring these companies have everything required to successfully participate in a Catena-X use case. In Catena-X they are called adopters.
+                Companies that are part of the automotive value chain and participate in a Catena-X use case. These companies require technical support, specifications, and guidance. For example, a production company needs to exchange data on  carbon footprint with its partners. KITs keep together the necessary software components, standards, policies, and deployment scripts, ensuring these companies have everything required to successfully participate in a Catena-X use case. In Catena-X they are called adopters.
               </p>
             </div>
             <div className={styles.siblings_paragraph}>
@@ -97,10 +66,14 @@ export default function DeepdiveContent() {
                 App- /Service <br></br> Provider
               </h2>
               <p className="description-p">
-                Companies interested in offering an application or service for a specific use case on one of the Catena-X marketplaces need to align their existing solutions with Catena-X requirements. Within a KIT, these companies receive guidelines and technical support necessary for adapting their solutions to meet Catena-X conformity. These companies are called solution providers.
+                Companies interested in offering an application or service for a specific use case on one of the Catena-X marketplaces must align their existing solutions with Catena-X requirements. Within a KIT, these companies receive guidelines and technical support necessary for adapting their solutions to meet Catena-X conformity. These companies are referred to as solution providers.
               </p>
             </div>
           </div>
+
+          <p className="description-p">
+            Achieving network effects in the Catena-X data space is critical to success and depends on the active participation of adopters and the creation of appealing solution offerings, especially for SMEs, by solution providers. It is therefore important to make it as easy as possible to get started. KITs facilitate this process by supporting both customer groups and simplifying the technical integration with the Catena-X data space.
+          </p>
         </div>
 
         <div className={styles.title_container}>
@@ -109,11 +82,11 @@ export default function DeepdiveContent() {
           </h2>
 
           <p className="description-p">
-            KITs are open to everyone as part of the Eclipse Tractus-X open-source project, which facilitates participation in the design and development of KIT. KITs have a wide applicability and are not limited to the automotive value chain. Each use case offers at least one kit to support the companies.
+            KITs are available to everyone as part of the Eclipse Tractus-X open-source project, which facilitates participation in the design and development of KIT. KITs have a broad applicability and are not limited to the automotive value chain. There is at least  one KIT  to support companies  for every use case.
           </p>
-          
+
           <p className="description-p">
-            1. Transparency is a key feature of Kits as it allows car companies, suppliers, and other stakeholders to comprehend the source code. This transparency enables bug identification and encourages contributions for improvement, fostering trust and collaboration.
+            1. Transparency is a key feature of KITs as it enables automotive companies, suppliers, and other stakeholders to comprehend the source code. This transparency enables the  identification of bugs and encourages contributions for improvement, fostering trust and collaboration.
           </p>
 
           <p className="description-p">
@@ -121,15 +94,15 @@ export default function DeepdiveContent() {
           </p>
 
           <p className="description-p">
-            3. Innovation thrives within KITs due to the diverse group of contributors. Regardless of a company's size, small, medium, or large, contributors share ideas, expertise, and resources, promoting a culture of innovation.
+            3. Innovation thrives within KITs because of the diverse group of contributors. Regardless of the size of a company, small, medium, or large, contributors share ideas, expertise, and resources, promoting a culture of innovation.
           </p>
 
           <p className="description-p">
-            4. KITs align with Catena-X principles of interoperability and standardization. They encompass use case semantics to establish a common "language" within the ecosystem, enabling seamless integration of diverse technologies from different providers while adhering to relevant standards.
+            4. KITs in line with Catena-X principles of interoperability and standardization. They embrace the semantics of use cases, to establish a common "language" within the ecosystem, enabling seamless integration of diverse technologies from different providers while adhering to relevant standards.
           </p>
 
           <p className="description-p">
-            5. KITs promotes the building of an ecosystem. Different stakeholders are collaborating and tailor solutions on specific needs. This expands the range of solutions and creates opportunities for partnerships.
+            5. KITs promote the development of an ecosystem. Different stakeholders are collaborating and tailor solutions to specific needs. This expands the range of solutions and creates opportunities for partnerships.
           </p>
         </div>
 
@@ -139,24 +112,23 @@ export default function DeepdiveContent() {
           </h2>
 
           <p className="description-p">
-            A Kit is always structured in the same way and supports the journey of a company joining the data space of Catena-X. In order to ensure interoperability and data sovereignty in Catena-X use cases, adherence to a minimum set of elements is required, including semantic models for data integration and understanding, logic and schema for value calculation, API implementation for intercommunication, and access and usage policies to maintain data sovereignty.
+            A KIT is always structured in the same way and supports the journey of a company joining the data space of Catena-X. In order to ensure interoperability and data sovereignty in Catena-X use cases, compliance with a minimum set of elements is required. These  include semantic models for data integration and understanding, logic and schema for value calculation, API implementation for intercommunication, and access and usage policies to maintain data sovereignty.
           </p>
 
           <div className={styles.img_container}>
-            <img className={styles.img} src={KitToolbox} /> 
+            <img className={styles.img} src={KitToolbox} />
           </div>
 
           <p className="description-p">
-            A KIT consists of various other artefacts in addition to the minimum set: The vision formulates strategic objectives of a KIT that inspire adopters and solution providers to engage. The mission defines the purpose and addresses industry-specific problems. The business value highlights the benefits by enabling the connection to the Catena-X data space and facilitating commercial or non-profit solutions for Catena-X marketplaces. Tutorials provide educational resources, including how-to guides and videos for specific use cases. Whitepapers outline KIT's goals, provide background information, highlight challenges, propose solutions, evaluate alternatives and offer actionable recommendations.
+            In addition to the minimum set , a KIT consists of various other artifacts  The vision formulates the strategic goals of a KIT, which motivate users  and solution providers to engage. The mission defines the purpose and addresses industry-specific problems. The business value emphasizes value by enabling the connection to the Catena-X data space and facilitating commercial or non-profit solutions for Catena-X marketplaces. Tutorials provide educational resources, including how-to guides and videos for specific use cases. Whitepapers outline KIT's goals, provide background information, highlight challenges, propose solutions, evaluate alternatives and offer actionable recommendations.
           </p>
 
           <p className="description-p">
-            Standardized semantic models add basic meaning to the data and the relationships to enable interoperability. Standardized logic and schemas provide a definition of the minimum viable business logic that must be implemented to enable interoperability. Business processes describe interrelated (and cross-company) activities that enable specific objectives within a Catena-X use case. Access and usage guidelines regulate the rights and terms of data access and usage to enable data sovereignty.
+            Standardized semantic models give fundamental meaning to the data and the relationships to enable interoperability. Standardized logic and schemas provide a definition of the minimum viable business logic that must be implemented to enable interoperability. Business processes describe interrelated (and cross-company) activities that enable specific objectives within a Catena-X use case. Access and usage guidelines regulate the rights and terms of data access and usage to enable data sovereignty.
           </p>
 
           <p className="description-p">
-            API specifications details the functional and expected behavior of an API, endpoints, data formats, and rules for interface interaction, promoting interoperability. Protocols define rules for data transmission and communication between components. Reference implementations implement all requirements from our corresponding standards in the Catena-X Association and beyond and are available for use or further development. The architecture describes the basic components and their interaction within the operating system. Quick setup guides for installing and configuring reference implementation provide step-by-step instructions for developers. Deployment scripts, such as HELM diagrams, simplify the installation of components in the desired target environment.
-          </p>
+            API specifications describe the functional and expected behavior of an API, endpoints, data formats, and rules for interface interaction, and promote interoperability. Protocols define rules for data transmission and communication between components. Reference implementations implement all requirements from our corresponding standards in the Catena-X Association and beyond and are available for use or further development. The architecture describes the basic components and their interaction within the operating system. Quick Setup Guides for installing and configuring reference implementation provide step-by-step instructions for developers. Deployment scripts, such as HELM diagrams, simplify the installation of the components in the desired target environment.          </p>
         </div>
 
       </div>

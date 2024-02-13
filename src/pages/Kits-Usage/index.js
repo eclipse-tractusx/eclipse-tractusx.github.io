@@ -22,10 +22,11 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import KitsUsageHeader from "../../components/KitsUsageHeader"
+import UsageHeader from "../../components/UsageHeader"
 import KitsUsageContent from "../../components/KitsUsageContent";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
 import { kitsGallery } from "@site/utils/kitsGallery";
+import KitsUsageSvg from '@site/static/img/kits_usage_logo.svg';
 
 import styles from "./styles.module.css";
 
@@ -36,7 +37,7 @@ export default function KitsUsagePage() {
       title={'Developer Kits Usage page'}
       description="Description will go into a meta tag in <head />"
     >
-      <KitsUsageHeader />
+      <UsageHeader description={'Utilize the KITS to develop applications for the Catena-X ecosystem or gain insights on how to integrate with your current infrastructure.'} title={'KITS Usage'} icon={<KitsUsageSvg className={styles.svg} />} />
       <main>
         <KitsUsageContent />
         <KitsGalleryWithFilters 
