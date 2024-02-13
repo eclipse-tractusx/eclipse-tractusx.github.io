@@ -151,6 +151,9 @@ Within this section we briefly describe how to install the required tools on an 
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install docker.io
 ```
 
@@ -158,6 +161,9 @@ sudo apt install docker.io
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install kubernetes
 ```
 
@@ -179,6 +185,9 @@ It might be the case, that not all of these steps are needed on your machine.
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt install golang-go
 ```
 
@@ -192,7 +201,7 @@ sudo go install sigs.k8s.io/kind@v0.20.0
 
 ```bash
 go version
-``````
+```
 
 :::note
 
@@ -233,6 +242,9 @@ Now install Terraform, which automatically also will install helm.
 
 ```bash
 sudo apt update && sudo apt upgrade
+```
+
+```bash
 sudo apt-get install terraform
 ```
 
