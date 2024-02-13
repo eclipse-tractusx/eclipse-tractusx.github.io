@@ -25,6 +25,8 @@ import Layout from "@theme/Layout";
 import UsageHeader from "../../components/UsageHeader";
 import UsageSvg from '@site/static/icons/Icon_App_Service_Grey.svg';
 import styles from "./styles.module.css";
+import ProductOverview from '../../components/ProductOverview'
+import { enablementServices } from "../../../utils/enablementServices"
 
 export default function ServiceProvider() {
   const { siteConfig } = useDocusaurusContext();
@@ -51,6 +53,7 @@ export default function ServiceProvider() {
               <p className="description-p">
                 Every data provider / consumer must use enablement services to establish a basic connection to the data space, regardless of the business use case. The connector based on the data space protocol (e.g., Tractus-X EDC) and the identity wallet form the mandatory basis of the enablement services. In addition, there are context-specific enablement services. Examples include the Asset Administration Shell (AAS) as harmonized access layer for digital twins, the Decentral Digital Twin Registry (DDTR) for the local discoverability of digital twins in decentrally organized data spaces or the Item Relationship Service (IRS) for the creation of data chains and iteration through a tree structure of digital twins.               </p>
             </div>
+            <ProductOverview inputData={enablementServices} />
           </div>
         </section>
       </main>
