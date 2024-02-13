@@ -17,6 +17,8 @@ In cases where data has to be persisted (database, uploaded files etc.), Kuberne
 
 Using stateful data requires additional caution to not lose data by accident. Therefore, when a pod/deployment/statefulset resource is removed, data will still be available on the StorageClass's disk that was used.
 
+Persistent Volumes can have different reclaim policies, such as "Retain," "Recycle," and "Delete". The default reclaim policy is set to "Delete" for dynamically provisioned PVs. This implies that provisioned persistent volume gets automatically erased when a user removes the associated PersistentVolumeClaim. However, this automated deletion might not be suitable, especially if the volume contains valuable data. In such scenarios, opting for the "Retain" policy is more fitting. With the "Retain" policy, deleting a PersistentVolumeClaim won't result in the corresponding PersistentVolume being deleted, allowing users to manually recover all of its data.
+
 ## How
 
 Example PersistentVolumeClaim:
