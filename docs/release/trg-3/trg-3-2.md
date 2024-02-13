@@ -54,23 +54,3 @@ This can be referenced in the volumes section of a Pod/Deployment/StatefulSet re
 It is not recommended to directly request the claim in a StatefulSet! Rather create the PVC separately and reference that as an existing claim. See the example in [Bitnami's Postgresql chart](https://github.com/bitnami/charts/tree/main/bitnami/postgresql) where an existing claim can be referenced for the primary database at the [primary.persistence.existingClaim property](https://github.com/bitnami/charts/tree/main/bitnami/postgresql#postgresql-primary-parameters).
 
 :::
-
-### How to expand volume in Kubernetes with ArgoCD
-
-1. Open **ArgoCD** in the desired environment and find the application
-1. Delete all Pod's that are attached to the volume. This also can be achieved by **scaling a StatefulSet to 0 replicas**
-1. Find the desired PersistenceVolumeClaim resource, click on it and press **Edit**
-1. Change the **spec.resource.requests.storage** property's value to the desired size
-1. Save the changes and wait for them to take effect.
-   This can be found in the PVC's status section:
-
-   ```yaml
-   status:
-     accessModes:
-       - ReadWriteOnce
-     capacity:
-       storage: 16Gi # DESIRED SIZE
-     phase: Bound
-   ```
-
-1. Scale back the StatefulSet to the original replica count
