@@ -25,6 +25,8 @@ import Layout from "@theme/Layout";
 import UsageHeader from "../../components/UsageHeader";
 import UsageSvg from '@site/static/icons/Icon_Operators_Grey.svg';
 import styles from "./styles.module.css";
+import ProductOverview from '../../components/ProductOverview'
+import { coreOnboardingServices } from "../../../utils/coreOnboardingServices"
 
 export default function Operator() {
   const { siteConfig } = useDocusaurusContext();
@@ -52,6 +54,7 @@ export default function Operator() {
                 In contrast to the Enablement Services, the Core & Onboarding Services offer  common accessibility and discoverability functionalities for data space participants. Examples include BPN issuers for maintaining business partner numbers, and participant information, IAM solutions for identity and access management, and discovery services  for locating  the address of assets in decentralized organized registers, throughout the data space.
               </p>
             </div>
+            <ProductOverview inputData={coreOnboardingServices} />
           </div>
         </section>
       </main>
