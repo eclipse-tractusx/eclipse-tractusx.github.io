@@ -11,14 +11,31 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.1.0] - 2024-02-XX
+
+### Added
+
+- API definitions
+
+### Changed
+
+n/a
+
+### Removed
+
+n/a
+
 ## [0.1.0] - 2023-03-01
 
 ### Added
+
 - Adoption View
 - Development View
 
 ### Changed
+
 n/a
 
 ### Removed
+
 n/a
