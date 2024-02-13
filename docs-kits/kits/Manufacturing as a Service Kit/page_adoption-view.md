@@ -88,3 +88,14 @@ The figure also depicts phases which are currently out of scope. This includes t
 *Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023)[^1]*
 
 [^1]: ```Schöppenthau, F.; Patzer, F.; Schnebel, B.; Watson, K.; Baryschnikov, N.; Obst, B.; Chauhan, Y.; Kaever, D.; Usländer, T.; Kulkarni, P. Building a Digital Manufacturing as a Service Ecosystem for Catena-X. Sensors 2023, 23, 7396. https://doi.org/10.3390/s23177396```
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IOSB)
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH
+- SPDX-FileCopyrightText: 2024 mipart GmbH
+- SPDX-FileCopyrightText: 2024 Siemens AG
+- SPDX-FileCopyrightText: 2024 up2parts GmbH
