@@ -21,8 +21,8 @@ All openAPI-specifications for the Digital Twin Kit services are rendered in the
 
 ### Asset Administration Shell
 
-The Asset Administration Shell (AAS) is a specification that is released by the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/) 
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage). 
+The Asset Administration Shell (AAS) is a specification that is released by the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/)
+with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage).
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a value
 creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an extensive
 suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X standard 
