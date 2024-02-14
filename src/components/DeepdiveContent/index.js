@@ -34,7 +34,7 @@ export default function DeepdiveContent() {
       <div className={styles.container}>
 
         <IFrameComponent
-          link={'https://www.youtube.com/embed/e5Qv6jGPYRw?si=40_WaRhPVhXX_KML?'}
+          link={'https://www.youtube.com/embed/k4z_fLdr1SQ'}
           description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.'}
           title={'Get inspired by using a KIT'}
           headerDescription={'Business applications enable data providers and consumers  to leverage different use cases and data-driven processes to solve a specific industry problem (e.g., PCF) and create business value, by using KITs and Standards for interoperable and trusted data exchange. A business application provider (BAP) can decide on the scope of its business applications and whether to offer them on one or more of the marketplaces.'}

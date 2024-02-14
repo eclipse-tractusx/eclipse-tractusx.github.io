@@ -2,7 +2,7 @@ export const carouselRoleBased = [
     {
         id: 1,
         title: "Operator",
-        description: "Provie core services",
+        description: "Core services",
         navigate: "/Operator"
     },
     {
