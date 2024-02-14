@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2022 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -15,7 +15,7 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
-import DeepdiveHeader from "../../components/DeepDiveHeader";
+import DeepdiveHeader from "../../components/DeepdiveHeader";
 import AboutUsCard from "../../components/AboutUsCard";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";

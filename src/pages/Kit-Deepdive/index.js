@@ -1,7 +1,7 @@
 /********************************************************************************* 
- * Copyright (c) 2023 BMW Group AG
- * Copyright (c) 2023 Mercedes Benz AG 
-* Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 BMW Group AG
+ * Copyright (c) 2024 Mercedes Benz AG 
+* Copyright (c) 2024 Contributors to the Eclipse Foundation
 * 
 * See the NOTICE file(s) distributed with this work for additional
 * information regarding copyright ownership.
@@ -22,7 +22,7 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import DeepdiveHeader from "../../components/DeepDiveHeader";
+import DeepdiveHeader from "../../components/DeepdiveHeader";
 import DeepdiveContent from "../../components/DeepdiveContent";
 
 export default function KitDeepdivePage() {
