@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
 
-This page describes the most important parts for the software implementation of the DCM standards. For the full technical specification, please refer to the standard [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library)
+This page describes the most important parts for the software implementation of the DCM standards. For the full technical specification, please refer to the standard [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library).
 
 ## Introduction
 
