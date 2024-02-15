@@ -10,4 +10,4 @@ tags: [meeting-minutes, community]
 
 We are happy to announce a new blog, that will host meeting minutes of all our open meetings in the future.
 
-Looking to dive into our archive of past blog entries? You can find our previous posts by visiting our [repo](https://github.com/catenax-ng/catenax-ng.github.io/tree/main/blog) or [blog](https://catenax-ng.github.io/blog/).
+Looking for past blog entries? You can find previous posts on this [consortia site](https://catenax-ng.github.io/blog/) or by visiting this [consortia repo](https://github.com/catenax-ng/catenax-ng.github.io/tree/main/blog).
