@@ -19,27 +19,26 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
-import ProductAccordionCard from "../ProductAccordionCard";
-
-import { products } from "../../../utils/products";
-
-import styles from "./styles.module.css";
+ import React from "react";
+ import Link from "@docusaurus/Link";
+ import NewsTicker from "../NewsTicker";
  
-export default function ProductOverview({inputData}) {
-  let data = products
-  if(inputData) {
-    data = inputData
-  }
-  return (
-    <section className={styles.product_overview}>
-      <div className={styles.container}>
-        {data.map((product, index) => {
-          return(
-          <ProductAccordionCard key={index} {...product} />
-          )
-        })}
-      </div>
-   </section>
-  );
-}
+ import styles from "./styles.module.css";
+ 
+ export default function KitsPageHeader() {
+   return (
+     <header className={styles.heroBanner}>
+       <div className={styles.container}>
+         <h1 className={styles.title}>
+           KIT
+         </h1>
+         <div className={styles.subtitle_box}>
+           <p className={styles.subtitle}>
+           Introduction to the Catena-X KITS.
+           </p>
+         </div>
+       </div>
+     </header>
+   );
+ }
+ 

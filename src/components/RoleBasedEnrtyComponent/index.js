@@ -30,8 +30,9 @@ import { useMediaQuery } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
 import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
+import Link from "@docusaurus/Link";
 
-export default function RoleBasedEnrtyComponent() {
+export default function RoleBasedEnrtyComponent({data}) {
     const isWeb = useMediaQuery('(min-width:1024px)');
     const isMobile = useMediaQuery('(max-width:600px)');
     function  NextArrow (props) {
@@ -75,50 +76,54 @@ export default function RoleBasedEnrtyComponent() {
         initialSlide: 0,
     };
 
-    const RoleBasedEntryCard = ({ title, description }) => {
+    const RoleBasedEntryCard = ({ title, description, navigate }) => {
         return (
-            <div className={styles.card_container}>
-                <div>
-                    <Typography className={styles.roles_title}
-                        sx={{
-                            fontFamily: 'Manrope, sans-serif'
-                        }}
-                    >
-                        {title}
-                    </Typography>
-                    <Typography className={styles.roles_description}
-                        sx={{
-                            fontFamily: 'Manrope, sans-serif',
-                        }}
-                    >
-                        {description}
-                    </Typography>
-                </div>
-                <div className={styles.icon_container}>
-                    <div className={styles.empty_container}></div>
-                    <div className={styles.empty_container}></div>
-                    <div className={styles.arrow_icon}>
-                        <ArrowCircleRightIcon />
+            <Link className={styles.link_container} to={navigate}>
+                <div className={styles.card_container}>
+                    <div>
+                        <Typography className={styles.roles_title}
+                            sx={{
+                                fontFamily: 'Manrope, sans-serif'
+                            }}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography className={styles.roles_description}
+                            sx={{
+                                fontFamily: 'Manrope, sans-serif',
+                            }}
+                        >
+                            {description}
+                        </Typography>
+                    </div>
+                    <div className={styles.icon_container}>
+                        <div className={styles.empty_container}></div>
+                        <div className={styles.empty_container}></div>
+                        <div className={styles.arrow_icon}>
+                            <ArrowCircleRightIcon />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         )
     }
 
     return (
         <section className={styles.roles_based_entry}>
+            {data && (
             <Slider {...settings} className={styles.slider}>
                 {!isMobile && (
                     <div className={styles.text_card_container}></div>
                 )}
                 {
-                    carouselRoleBased.map((newPost, index) => {
+                    data?.map((newPost, index) => {
                         return (
                             <RoleBasedEntryCard key={index} {...newPost} />
                         )
                     })
                 }
             </Slider>
+            )}
         </section>
     );
 }
