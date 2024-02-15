@@ -1,7 +1,7 @@
 export const coreOnboardingServices = [
   {
     productName: "Business Partner Data Management",
-    subTitle: "BPDM",
+    subTitle: "",
     productDescription: "The core services for querying, adding, and changing business partner data in the Catena-X data space and the unique company identifier.",
     githubRepo: [
       "https://github.com/eclipse-tractusx/bpdm",
@@ -11,7 +11,7 @@ export const coreOnboardingServices = [
     ],
     committers: [],
     mailTo: "",
-    hasBoard: false
+    hasBoard: false,
   },
 
   {

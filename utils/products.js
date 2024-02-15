@@ -11,7 +11,8 @@ export const products = [
       "https://github.com/Maximilianong"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Business Partner Data Management Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -24,10 +25,11 @@ export const products = [
       "https://github.com/eclipse-tractusx/autosetup-backend"
     ],
     committers: [
-      "https://github.com/wjost"
+    "https://github.com/wjost"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -41,7 +43,8 @@ export const products = [
       "https://github.com/wjost"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -57,7 +60,8 @@ export const products = [
       "https://github.com/jzbmw"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Item Relationship Service Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -77,7 +81,8 @@ export const products = [
       "https://github.com/oyo"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -95,7 +100,8 @@ export const products = [
       "https://github.com/tunacicek"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -109,7 +115,8 @@ export const products = [
       "https://github.com/ds-mkanal"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -123,6 +130,7 @@ export const products = [
       "https://github.com/florianrusch-zf"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
-    hasBoard: true
+    hasBoard: true,
+    showVersion: true
   },
 ]

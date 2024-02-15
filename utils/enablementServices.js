@@ -1,7 +1,7 @@
 export const enablementServices = [
     {
       productName: "Tractus-X EDC",
-      subTitle: "BPDM",
+      subTitle: "",
       productDescription: "Tractus-X EDC provides a framework for sovereign data exchange containing modules for performing data query, data exchange, policy enforcement, monitoring, and auditing.",
       githubRepo: [
         "https://github.com/eclipse-tractusx/bpdm",

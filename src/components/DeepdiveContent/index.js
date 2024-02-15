@@ -55,7 +55,7 @@ export default function DeepdiveContent() {
           <div className={styles.siblings_paragraph_container}>
             <div className={styles.siblings_paragraph}>
               <h2 className="title-h2">
-                Data Provider<br></br> / Consumer
+                User(Data Provider<br></br> / Consumer)
               </h2>
               <p className="description-p">
                 Companies that are part of the automotive value chain and participate in a Catena-X use case. These companies require technical support, specifications, and guidance. For example, a production company needs to exchange data on  carbon footprint with its partners. KITs keep together the necessary software components, standards, policies, and deployment scripts, ensuring these companies have everything required to successfully participate in a Catena-X use case. In Catena-X they are called adopters.

@@ -70,7 +70,7 @@ export default function RoleBasedEnrtyComponent({data}) {
         autoplay: false,
         infinite: false,
         variableWidth: true,
-        arrows: false,
+        arrows: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         initialSlide: 0,
