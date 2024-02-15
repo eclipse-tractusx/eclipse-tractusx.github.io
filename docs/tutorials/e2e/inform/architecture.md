@@ -37,7 +37,7 @@ In our setup we already configured two EDCs. **Alice** and **Bob** and also the 
 
 :::info
 
-Registering an EDC is part of the onboarding process and is done in the portal. In our setup the EDCs are already registered and technical users are already created in the KeyCloak instance.
+Registering an EDC is part of the onboarding process and is done in the portal. In our setup the EDCs are already registered and technical users are already created in the Keycloak instance.
 
 :::
 
