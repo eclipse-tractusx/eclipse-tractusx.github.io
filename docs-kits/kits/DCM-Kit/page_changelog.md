@@ -11,15 +11,18 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.1.0] - 2024-02-XX
+## [0.2.0] - 2024-02-xx
 
 ### Added
 
 - API definitions
+- Documentation of DCM architecture (arc42)
+- Documentation versions based on Catena-X release
 
 ### Changed
 
-n/a
+- Documentation Adoption View based on Catena-X release
+- Documentation Development View based on Catena-X release
 
 ### Removed
 
