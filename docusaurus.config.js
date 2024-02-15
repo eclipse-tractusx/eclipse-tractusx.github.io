@@ -370,7 +370,7 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/developer',
+            to: '/Kits',
             items: [
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
@@ -532,11 +532,7 @@ const config = {
               {
                 label: "Icons used from svgrepo with CC0 License",
                 href: "https://www.svgrepo.com/",
-              },
-              {
-                to: '/docs/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Behaviour Twin RuL',
-              },
+              }
             ],
           },
           {
