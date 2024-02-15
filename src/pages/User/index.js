@@ -20,7 +20,7 @@ import styles from "./styles.module.css";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
 import { kitsGallery } from "@site/utils/kitsGallery";
 
-export default function DataProvider() {
+export default function User() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -28,7 +28,7 @@ export default function DataProvider() {
       title={'App Provider page'}
       description="Description will go into a meta tag in <head />"
     >
-      <UsageHeader description={'Provide and process data to interoperate with other ecosystem participants using core & data services and business applications.'} title={'Data Provider'} icon={<UsageSvg />} />
+      <UsageHeader description={'Provide and process data to interoperate with other ecosystem participants using core & data services and business applications.'} title={'User'} icon={<UsageSvg />} />
       <main>
         <section className={styles.content}>
           <div className={styles.container}>

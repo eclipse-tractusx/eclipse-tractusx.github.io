@@ -61,7 +61,7 @@ export default function KitsUsageContent() {
               <div className={styles.domain_description}>
                 <h3>PLM & Quality Domain</h3>
                 <p>
-                  We still need a description here. Maximum would be two sentences.
+                  Trace parts, build data chains, solve quality issues and optimize your products based on data across the entire value chain without compromising data sovereignty.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function KitsUsageContent() {
               <div className={styles.domain_description}>
                 <h3>Sustainability Domain</h3>
                 <p>
-                  We still need a description here. Maximum would be two sentences.We still need a description here. Maximum would be two sentences.
+
                 </p>
               </div>
             </div>

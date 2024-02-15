@@ -27,7 +27,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import styles from "./styles.module.css";
 
-export default function ProductAccordionCard({ productName, productDescription, githubRepo, committers, mailTo, hasBoard, subTitle }) {
+export default function ProductAccordionCard({ productName, productDescription, githubRepo, committers, mailTo, hasBoard, subTitle, showVersion = false }) {
   const [release, setRelease] = useState()
 
   let furtherRepos = [...githubRepo]
@@ -81,21 +81,17 @@ export default function ProductAccordionCard({ productName, productDescription, 
             sx={{ backgroundColor: '#000', color: '#fff', paddingBottom: '0.5rem', cursor: 'unset !important' }}
           >
             <section className={styles.summary_container}>
-              {subTitle ? (
-                <div className={styles.product_title_container}>
-                  <h2 className={styles.product_title}>{productName}</h2>
+              <div className={styles.product_title_container}>
+                <h2 className={styles.product_title}>{productName}</h2>
+                {subTitle && (
                   <p className={styles.version}>{subTitle}</p>
-                </div>
-              ) : (
-                <div className={styles.product_title_container}>
-                  <h2 className={styles.product_title}>{productName}</h2>
-                  {
-                    release != undefined ?
-                      <p className={styles.version}>Version:{handleVersionString(release)}</p> :
-                      <p className={styles.no_display}></p>
-                  }
-                </div>
-              )}
+                )}
+                {showVersion && release != undefined ? (
+                  <p className={styles.version}>Version:{handleVersionString(release)}</p>
+                ) : (
+                  <p className={styles.no_display}></p>
+                )}
+              </div>
 
 
               <div className={styles.repo_contact_container}>
