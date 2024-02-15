@@ -32,9 +32,7 @@ The three supported setups are.
   - [Control Plane](../edc-controlplane/edc-controlplane-postgresql-hashicorp-vault/README.md)
     - [IDS DAPS Extensions](https://github.com/eclipse-edc/Connector/tree/main/extensions/common/iam/oauth2/daps)
     - [PostgreSQL Persistence Extensions](https://github.com/eclipse-edc/Connector/tree/main/extensions/control-plane/store/sql)
-    - [HashiCorp Vault Extension](../edc-extensions/hashicorp-vault/README.md)
   - [Data Plane](../edc-dataplane/edc-dataplane-hashicorp-vault/README.md)
-    - [HashiCorp Vault Extension](../edc-extensions/hashicorp-vault/README.md)
 
 ## Recommended Documentation
 
@@ -44,8 +42,8 @@ The three supported setups are.
 - [Application: Control Plane](../edc-controlplane)
 - [Application: Data Plane](../edc-dataplane)
 - [Extension: Business Partner Numbers](../edc-extensions/business-partner-validation/README.md)
-- [Example: Local TXDC Setup](samples/Local%20TXDC%20Setup.md)
-- [Example: Data Transfer](samples/Transfer%20Data.md)
+- [Example: Local TXDC Setup](./samples/example-dataspace/README.md)
+- [Example: Data Transfer](./samples/Transfer%20Data.md)
 
 ### Eclipse Dataspace Connector
 
