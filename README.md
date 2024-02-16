@@ -21,6 +21,6 @@ We do want to follow a specific style for our markdown based documentation.
 Therefore, this repository is configured to use a [markdown linter](https://github.com/DavidAnson/markdownlint-cli2).
 Specific rules are configured via [.markdownlint.yaml](./.markdownlint.yaml).
 
-Additionally, there is a npm script `lint-doc`, that will lint all the markdown files inside [docs](./docs).
+Additionally, there is a npm script `lint-doc`, that will lint all the markdown files inside [docs](./docs) and `lint-kits`, that will lint all the markdown files inside [docs-kits](./docs-kits).
 This script is also run as a pre-commit hook, set up via [husky](https://www.npmjs.com/package/husky).
-You can also run the linting step manually by running `npm run lint-doc`.
+You can also run the linting step manually by running `npm run lint-doc` or `npm run lint-kits`.
