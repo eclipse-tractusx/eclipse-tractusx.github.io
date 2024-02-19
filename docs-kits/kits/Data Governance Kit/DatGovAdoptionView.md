@@ -75,7 +75,7 @@ Any party who provides data (for example by a backend database or other supporte
 
 Any party who wants to consume the data made available by the data providers and use the governance features from Data Governance Kit.
 
-### Target Group / Service/ Apps that needs the enabler{}
+### Target Group / Service/ Apps that need the enabler
 
 - All Data Providers
 - All Data Consumers
