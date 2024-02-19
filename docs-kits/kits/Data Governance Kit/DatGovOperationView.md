@@ -36,6 +36,10 @@ For more information see
 ### Operation View
 
 #### Operation View
+Based on the information provided in the Data Governance KIT, it is possible to to develop the new decentralized applications to simplify the data governance topics r multiple connectors. The API specifications are  described in the [Development View](./DatGovDevelopmentView.md). Additional Data Governance KIT specific code or APIs are not provided and implementation therefor not necessary.
+
+
+
 
 
 
