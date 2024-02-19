@@ -13,6 +13,7 @@ import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityM
 import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import BehaviourTwinHI_Kit from "@site/static/img/BehaviourTwinHI_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
+import Certificate_Kit from "@site/static/img/Certificate_Kit.png"
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -131,5 +132,12 @@ export const kitsGallery = [
     domain: 'Sustainability',
     img: PCF_Kit,
     pageRoute: "/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View"
+  },
+  {
+    id: 16,
+    name: 'Certificate Management Kit',
+    domain: 'Network & Core Services',
+    img: Certificate_Kit,
+    pageRoute: "/docs-kits/kits/Certificate Management Kit/Adoption View"
   }
 ]
