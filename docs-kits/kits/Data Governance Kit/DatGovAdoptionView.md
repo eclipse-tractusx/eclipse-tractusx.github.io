@@ -55,7 +55,7 @@ The mission is to provide all the required details about Adoption View, Operatio
 
 The Data Governance Kit will provide the API specifications which in turn will enable the develpment of the decentralized components that links Backend Data Services with Data Space Connectors to ease the management of the data governance aspects. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations.
 
-![Data Governance Kit Overview](../resources/DGK%20Overview.png)
+![Data Governance Kit Overview](./resources/DGK%20Overview.png)
 
 ### Business Value
 
