@@ -55,15 +55,15 @@ For more information see
 
 ### Tractus-X Knowledge Agents EDC Extensions (KA-EDC)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent_edc)
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent_edc) 
 
 ### Tractus-X Knowledge Agents Reference Implementations (KA-RI)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents) and its [KA-RI Deployment](../operation-view/provider)
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents) and its [KA-RI Deployment](../operation-view/provider) 
 
 ### Tractus-X Knowledge Agents AAS Bridge (KA-AAS)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) and its [KA-AAS Deployment](../operation-view/bridge)
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) and its [KA-AAS Deployment](../operation-view/bridge) 
 
 ## Contact & Further Reading
 

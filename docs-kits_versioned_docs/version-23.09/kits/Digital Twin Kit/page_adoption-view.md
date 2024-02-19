@@ -18,8 +18,8 @@ Adoption View of the Kit.
 
 ### Vision
 
-The aim of the Digital Twin Kit is to trace parts and materials across the entire value chain to enable data driven use
-cases over all n-tier levels without compromising data sovereignty. This Kit enables data and app providers to deliver
+The aim of the Digital Twin Kit is to trace parts and materials across the entire value chain to enable data driven use 
+cases over all n-tier levels without compromising data sovereignty. This Kit enables data and app providers to deliver 
 solutions for building data chains and to send quality notifications on all levels and industries.
 
 To provide the Catena-X Automotive Network with a uniform infrastructure to enable data-level interoperability between
@@ -37,19 +37,19 @@ back to the public. A priority is the seamless integration with other Catena-X d
 
 ### Customer Journey
 
-With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf)
+With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf) 
 are given the necessary tooling to format their data and APIs in a standardized manner.
 
 <!-- !Mandatory! -->
 ## Business Value
 
-Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty,
-authorization, authentication must be agreed upon and implemented. That is covered by the
+Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty, 
+authorization, authentication must be agreed upon and implemented. That is covered by the 
 [Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the
-services it relies on. What this Kit adds is a set of technologies that reduce the integration efforts on the
-data level. Data Consumers can develop their applications against data formats that are standardized and reuse
-them independent of whom they will consume the data from. This reduces the necessary investment significantly
-and saves a network-participant from a strict link between the application and the data model.
+services it relies on. What this Kit adds is a set of technologies that reduce the integration efforts on the 
+data level. Data Consumers can develop their applications against data formats that are standardized and reuse 
+them independent of whom they will consume the data from. This reduces the necessary investment significantly 
+and saves a network-participant from a strict link between the application and the data model. 
 Consuming applications can be substituted seamlessly if they are developed against the
 relevant Catena-X standards - further lowering the bar of entry for new applications in the CX-Ecosystem.
 
@@ -71,9 +71,9 @@ and the network northward.
 
 ### Example
 
-The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#logic--schema)
-and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/Documentation/irs_arc42)
-build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the
+The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#logic--schema) 
+and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/Documentation/irs_arc42) 
+build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the 
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
 For more info how specifically the Asset Administration Shell is used, consult the Kits.
@@ -82,12 +82,12 @@ For more info how specifically the Asset Administration Shell is used, consult t
 
 ### CX-Standards
 
-- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/9_Data-Discovery-Services/CX_-_0001_EDC_DISCOVERY_API_PlatformCapabilityDS_v_1.0.1-1.pdf)
+- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/9_Data-Discovery-Services/CX_-_0001_EDC_DISCOVERY_API_PlatformCapabilityDS_v_1.0.1-1.pdf) 
 - [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0002-DigitalTwinsInCatena-X-v.1.0.2.pdf)*(linked version 1.0.2, this KIT refers to v2.0.0, to be released in 09/23)*
 - CX - 0053 BPN Discovery Services *(v1.0.0 to be released in 09/23)*
 
-### Terminology
+### Terminology 
 
-The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. When published, that
+The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. When published, that 
 standard can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
 ![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)

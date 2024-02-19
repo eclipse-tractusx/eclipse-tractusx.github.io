@@ -64,6 +64,7 @@ of the latest version currently (this is the version compatible with IRS 2.4.0).
 >
 > ```git clone -b 2.6.0 https://github.com/catenax-ng/tx-item-relationship-service```
 
+
 ### Step 3: Installing the services
 
 #### 1. Start the cluster

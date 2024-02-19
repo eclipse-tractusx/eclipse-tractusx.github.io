@@ -12,7 +12,7 @@ sidebar_position: 2
 The Catena-X-Standards for Demand- and Capacity-Management enable participants of the automotive supply chain to become more resilient and to increase the degree of collaboration aimed at avoiding or solving production bottlenecks as well as surplus situations in a tactical horizon of 1-2 years.
 
 Thereby the standards empower participants to share data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
-
+ 
 ## Status Quo
 
 **Today's challenge for automotive companies**
@@ -26,12 +26,10 @@ Inside the volatile and highly complex surroundings of the automotive industry n
 **Why DCM KIT?**
 
 The purpose and focus of Demand and Capacity Management (DCM) KIT is twofold:
-
 - Define a common understanding of the DCM process thus paving the way for more proactive and efficient collaboration.
 - Establish process and application interoperability with the help of common semantics and unified interfaces for data exchange while ensuring the data sovereignty of data providers.
 
 Implementing the DCM standards will add the following core capabilities to business applications:
-
 - Provisioning and consumption of material demands data in a sovereign manner.
 - Provisioning and consumption of capacity data in a sovereign manner.
 - Discovery of bottlenecks and surplus capacity situations by employing a unified calculation logic.
@@ -39,7 +37,6 @@ Implementing the DCM standards will add the following core capabilities to busin
 ## Standards
 
 The DCM standard comprises three main elements:
-
 - **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 3.1) [CX-0046 DCM Process & Core Business Logic](https://catena-x.net/de/standard-library)
 - **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 3.1) [CX-0047 DCM Data Model Material Demand & Capacity Group](https://catena-x.net/de/standard-library)
 - **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 3.1) [CX-0048 DCM API Material Demand & Capacity Group](https://catena-x.net/de/standard-library)
@@ -70,13 +67,12 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 | Semantic Model | Link to GitHub Repository |
 | ------------- | ------------- |
-| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_capacity_group>  |
-| WeekBasedMaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_material_demand> |
+| WeekBasedCapacityGroup  | https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_capacity_group  |
+| WeekBasedMaterialDemand | https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_material_demand |
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
-
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)

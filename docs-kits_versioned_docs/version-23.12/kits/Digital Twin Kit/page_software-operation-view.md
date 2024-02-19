@@ -26,4 +26,5 @@ discover each other, exchange information and contextualize it according to a st
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. | [Tractus-X Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                   | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0.                   | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server) | CX - 0002                                                   |
 
+
 ![High Level Architecture of an App leveraging the Digital Twin Kit](assets/img/DTKIT_high_level_arch.svg)

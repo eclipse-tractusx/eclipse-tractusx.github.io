@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/) for overarching, quarterly Releases. Semantic Versioning remains unchanged for all components.
 
+
 ## [23.12] - 2023-12-08
 
 ### Added
@@ -20,6 +21,8 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 | [Demand and Capacity Management (DCM) KIT](https://eclipse-tractusx.github.io/docs-kits/3.1.0/category/dcm-kit)                                                   |      n/a       |                                       [3.1.0](https://eclipse-tractusx.github.io/docs-kits/3.1.0/kits/DCM%20Kit/adoption-view/)                                        |
 | [Knowledge Agent KIT](https://eclipse-tractusx.github.io/docs-kits/category/agents-kit)                                                                           |      n/a       |                                    [1.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/adoption-view/intro)                                     |
 | [Modular Production KIT](https://eclipse-tractusx.github.io/docs-kits/category/modular-production-kit)                                                            |      n/a       |                  [0.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit/)                   |
+
+
 
 ### Changed
 
@@ -44,8 +47,9 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 | [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss)          |                             [1.3.20](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.3.20)                             |                                                                                                                                                              [9.0.0](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/9.0.0)                                                                                                                                                               |
 | [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/category/traceability-kit)         |                                                                           n/a                                                                           |                                                                                                                                             [3.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit/)                                                                                                                                              |
 
-### Unchanged, untested
 
+
+### Unchanged, untested
 All components listed here have not seen any update since their previous Release. No specific regression tests executed.
 
 | Component                                                                                                                               |                                                          Helm Chart (s)                                                          |                                                        App-/KIT Version (s)                                                         |
@@ -58,6 +62,8 @@ All components listed here have not seen any update since their previous Release
 | [OSim KIT](https://eclipse-tractusx.github.io/docs-kits/category/osim-kit)                                                              |                                                               n/a                                                                |                    [1.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/OSim%20Kit/OSim%20Kit%20Changelog)                     |
 | [Product Carbon Footprint (PCF) KIT](https://eclipse-tractusx.github.io/docs-kits/category/pcf-exchange-kit)                            |                                                               n/a                                                                |          [0.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/PCF%20Exchange%20Kit/PCF%20Exchange%20Kit%20Changelog)           |
 | [Behavioral Twin: Remaining useful Life (RUL) KIT](https://eclipse-tractusx.github.io/docs-kits/category/remaining-useful-life-rul-kit) |                                                               n/a                                                                | [0.1.1](https://eclipse-tractusx.github.io/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Changelog%20Remaining%20Useful%20Life%20Kit) |
+
+
 
 ### Known knowns
 
@@ -75,6 +81,7 @@ All components listed here have not seen any update since their previous Release
 - GeoBlocking recommended for Operations (GBaaS)
 - Security concept (overall) recommended for Operations
 
+
 ### Runtime
 
 - Tested on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.27.3`
@@ -83,14 +90,13 @@ All components listed here have not seen any update since their previous Release
 ### Using helm with central helm registry
 
 You can search all released helm charts with the following commands:
-
 ```shell
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 helm repo update tractusx-dev
 helm search repo tractusx-dev --versions
 ```
-
 For installation details, please see the referenced Repositories / Releases.
+
 
 ## [23.09] - 2023-09-08
 
@@ -109,6 +115,7 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 | [OSim KIT](https://eclipse-tractusx.github.io/docs-kits/category/osim-kit)                                                              |                                                           n/a                                                            |                    [1.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/OSim%20Kit/OSim%20Kit%20Changelog)                     |
 | [PCF KIT](https://eclipse-tractusx.github.io/docs-kits/category/pcf-exchange-kit)                                                       |                                                           n/a                                                            |          [0.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/PCF%20Exchange%20Kit/PCF%20Exchange%20Kit%20Changelog)           |
 | [Quality KIT](https://eclipse-tractusx.github.io/docs-kits/category/quality-kit)                                                        |                                                           n/a                                                            |                  [0.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Quality%20Kit%20Changelog)                   |
+
 
 ### Changed
 
@@ -130,6 +137,7 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 | [Simple Data Exchanger (SDE)](https://github.com/eclipse-tractusx/managed-simple-data-exchanger)                                       |                         sde: [0.0.9](https://github.com/eclipse-tractusx/managed-simple-data-exchanger/releases/tag/sde-0.0.9)                          |                                                                                   Frontend: [v2.1.1](https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend/releases/tag/v2.1.1)<br/>Backend: [v2.1.1](https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend/releases/tag/v2.1.1)                                                                                    |
 | [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss)                                              |                             [1.3.12](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.3.12)                             |                                                                                                                                                              [6.0.0](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/6.0.0)                                                                                                                                                               |
 
+
 ### Unchanged, untested (see known knowns)
 
 | Component                                                                                    |                                                    Helm Chart (s)                                                    |                                                                                                App Version (s)                                                                                                 |
@@ -143,6 +151,7 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 |-------------------------------------------------------------------------------------------------------|
 | [DAPS Registration Service](https://github.com/eclipse-tractusx/daps-registration-service/)           |
 | [Dynamic Attribute Provisioning Service (DAPS)](https://github.com/eclipse-tractusx/daps-helm-chart/) |
+
 
 ### Known knowns
 
@@ -158,6 +167,7 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 - GeoBlocking recommended for Operations (GBaaS)
 - Security concept (overall) recommended for Operations
 
+
 ### Runtime
 
 - Tested on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.25.6`
@@ -166,14 +176,13 @@ Tractus-X has switched to YY.0M.MICRO [Calendar Versioning](https://calver.org/)
 ### Using helm with central helm registry
 
 You can search all released helm charts with the following commands:
-
 ```shell
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 helm repo update tractusx-dev
 helm search repo tractusx-dev --versions
 ```
-
 For installation details, please see the referenced Repositories / Releases.
+
 
 ## [3.1.0] - 2023-05-17
 
@@ -206,6 +215,7 @@ For installation details, please see the referenced Repositories / Releases.
 | [Simple Data Exchanger (SDE)](https://github.com/eclipse-tractusx/dft-frontend)                       |                                                                                                  dftfrontend: [2.0.0](https://github.com/eclipse-tractusx/dft-frontend/releases/tag/dftfrontend-2.0.0)<br/>dftbackend: [2.0.0](https://github.com/eclipse-tractusx/dft-backend/releases/tag/dftbackend-2.0.0)                                                                                                   |                                                                                                               Frontend: [2.0.0](https://github.com/eclipse-tractusx/dft-frontend/releases/tag/2.0.0)<br/>Backend: [2.0.0](https://github.com/eclipse-tractusx/dft-backend/releases/tag/2.0.0)                                                                                                                |
 | [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss)             |                                                                                                                                                          [1.3.5](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.3.5)                                                                                                                                                          |                                                                                                                                                              [3.1.2](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/3.1.2)                                                                                                                                                               |
 
+
 ### Unchanged
 
 | Component                                                                                                         |                                                                                                                                    Helm Chart (s)                                                                                                                                     |                                                                                                                                                                                            App Version (s)                                                                                                                                                                                             |
@@ -237,13 +247,11 @@ For installation details, please see the referenced Repositories / Releases.
 ### Using helm with central helm registry
 
 You can search all released helm charts with the following commands:
-
 ```shell
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 helm repo update tractusx-dev
 helm search repo tractusx-dev --versions
 ```
-
 For installation details, please see the referenced Repositories / Releases.
 
 ## [3.0.1] - 2023-03-24
@@ -305,19 +313,16 @@ The [Gaia-X](https://gaia-x.eu/) compliance service should generally be capable 
 ### Using helm with central helm registry
 
 You can search all released helm charts with the following commands:
-
 ```shell
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 helm repo update tractusx-dev
 helm search repo tractusx-dev --versions
 ```
-
 For installation details, please see the referenced Repositories / Releases.
 
 ## [3.0.0] - 2023-03-03
 
 ### Added
-
 - [Connector KIT](https://eclipse-tractusx.github.io/docs/category/connector-kit/), v1.0.0
 - [Business Partner KIT](https://eclipse-tractusx.github.io/docs/category/business-partner-kit/), v1.0.0
 - [Data Chain KIT](https://eclipse-tractusx.github.io/docs/kits/Data%20Chain%20Kit/data%20chain%20kit%20changelog/), v1.0.0
@@ -326,7 +331,6 @@ For installation details, please see the referenced Repositories / Releases.
 - [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss-frontend), v1.1.0
 
 ### Changed
-
 - [Autosetup Service](https://github.com/eclipse-tractusx/autosetup-backend), Frontend v1.4.7, Backend v1.4.6
 - [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry), v0.2.0-M3-multi-tenancy
 - [Dynamic Attribute Provisioning Service (DAPS)](https://github.com/eclipse-tractusx/daps-helm-chart/), v1.7.1
@@ -340,7 +344,6 @@ For installation details, please see the referenced Repositories / Releases.
 - [Semantic Hub](https://github.com/eclipse-tractusx/sldt-semantic-hub), v0.1.0-M3
 
 ### Known knowns
-
 - Relevant components and interfaces developed considering [Gaia-X](https://gaia-x.eu/) Trust Framework - 22.10\
   Connection to an external Clearing House service for the entire Catena-X ecosystem required.\
   The [Gaia-X](https://gaia-x.eu/) compliance service should generally be capable to recognize all companies that are able to register with the Catena-X Portal.
@@ -398,12 +401,11 @@ For installation details, please see the referenced Repositories / Releases.
 - [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry), v0.2.0M2
 
 ### Known knowns
-
 - FOSS components developed and pre-tested to TRL6 with artificial test data only
 - No execution of Load-, Performance- or Penetration Tests
 - No assignment of Export Control Classification Numbers (ECCN) to FOSS components
 - GeoBlocking recommended for Operations (GBaaS)
-- Portal (Registration) as well as Managed Identity Wallet scope required for full functionality; yet both are unreleased
+- Portal (Registration) as well as Managed Identity Wallet scope required for full functionality; yet both are unreleased 
   at this point in time and can be expected with Release 2.1.0
 - Released Helm Chart missing for EDC v0.1.2; can be expected with Release 2.1.0
 

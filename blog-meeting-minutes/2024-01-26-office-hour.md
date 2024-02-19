@@ -18,7 +18,7 @@ tags: [meeting-minutes, community]
 - New issue templates are available for the following topics:
   - [OSS Tool membership request](https://github.com/eclipse-tractusx/sig-security/issues/new?assignees=SSIRKC&labels=security%2C+tool&projects=&template=tractus-x-oss-tool-membership-request.md&title=Requesting+access+to+%22%5BTOOL+NAME%5D+YOUR_REPOSITORY%22)
   - [Ask the community](https://github.com/eclipse-tractusx/sig-security/discussions/categories/q-a) for security help via Discussions
-  - Keep an eye out on the [Security Announcements](https://github.com/eclipse-tractusx/sig-security/discussions/categories/announcements) where news
+  - Keep an eye out on the [Security Announcements](https://github.com/eclipse-tractusx/sig-security/discussions/categories/announcements) where news 
     about security topics are announces regularly
 - Get in touch with the Security Team for testing with [Snyk](https://snyk.io/)
 

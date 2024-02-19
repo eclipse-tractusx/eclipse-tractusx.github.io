@@ -244,4 +244,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2023 CCT
 - SPDX-FileCopyrightText: 2023,2023 Gris Group
 - SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse Foundation
-- Source URL: <https://github.com/eclipse-tractusx/pcf-exchange-kit>
+- Source URL: https://github.com/eclipse-tractusx/pcf-exchange-kit

@@ -45,25 +45,24 @@ The CAB (Conformity Assessment Body) may use a set of predefined API interaction
 ![KA Confirmity Assessment Scrtips](@site/static/img/knowledge-agents/ka_conformity_scripts.png)
 
 The scripts are organised as follows:
-
-* 01_TESTASSETS - asset descriptions, policies and contract definitions to be deployed both at the CAB as well as the CAP EDC (Control Plane), see below
-* 02_ALL - scripts which need to be run at all CAPs
-  * 0201_EDC_CONTROL_PLANE - scripts to be run against control plane (transfer check)
-  * 0202_EDC_DATA_PLANE - scripts to be run against the data plane (callback and proxying)
-  * 0203_MATCHMAKING_AGENT - scripts to be run against the matchmaking agent
-  * 0204_FEDERATED_DATA_CATALOGUE - scripts checking the state of the federated data catalogue
-* 03_PROVIDER - scripts which need to run at Provider CAPs
-  * 0301_PROVIDER_DATA - scripts to be run at Data Provider CAPs
-    * 030101_PROVIDER_DATA_SPARQL - scripts to be run against Data Provider Agents
-  * 0302_PROVIDER_FUNCTION - scripts to be run at Function Provider CAPs
-    * 030201_PROVIDER_FUNCTION_SPARQL - scripts to be run against Function Provider Agents
-* 04_CONSUMER - scripts to be run against Consumer CAPs
-  * 0401_CONSUMER_APPLICATION - scripts to be run against a KA-enabled Application
-    * 040101_CONSUMER_APPLICATION_SPARQL  - scripts to be run against a SPARQL-speaking Application
-* 05_CORE - scripts to be run against a Core Service CAP
-  * 0501_CORE_ONTOLOGY  - scripts to be run against the Ontology Hosting Capability of the Core Service CAP
-    * 050101_CORE_ONTOLOGY_MANAGEMENT - scripts to be run against the Ontology Hosting Capability for management
-    * 050102_CORE_ONTOLOGY_EDITOR - scripts to be run against the Ontology Hosting Capability for editing
+- 01_TESTASSETS - asset descriptions, policies and contract definitions to be deployed both at the CAB as well as the CAP EDC (Control Plane), see below
+- 02_ALL - scripts which need to be run at all CAPs 
+  - 0201_EDC_CONTROL_PLANE - scripts to be run against control plane (transfer check)
+  - 0202_EDC_DATA_PLANE - scripts to be run against the data plane (callback and proxying)
+  - 0203_MATCHMAKING_AGENT - scripts to be run against the matchmaking agent
+  - 0204_FEDERATED_DATA_CATALOGUE - scripts checking the state of the federated data catalogue
+- 03_PROVIDER - scripts which need to run at Provider CAPs 
+  - 0301_PROVIDER_DATA - scripts to be run at Data Provider CAPs
+    - 030101_PROVIDER_DATA_SPARQL - scripts to be run against Data Provider Agents
+  - 0302_PROVIDER_FUNCTION - scripts to be run at Function Provider CAPs
+    - 030201_PROVIDER_FUNCTION_SPARQL - scripts to be run against Function Provider Agents
+- 04_CONSUMER - scripts to be run against Consumer CAPs
+   - 0401_CONSUMER_APPLICATION - scripts to be run against a KA-enabled Application
+     - 040101_CONSUMER_APPLICATION_SPARQL  - scripts to be run against a SPARQL-speaking Application
+- 05_CORE - scripts to be run against a Core Service CAP
+   - 0501_CORE_ONTOLOGY  - scripts to be run against the Ontology Hosting Capability of the Core Service CAP
+     - 050101_CORE_ONTOLOGY_MANAGEMENT - scripts to be run against the Ontology Hosting Capability for management
+     - 050102_CORE_ONTOLOGY_EDITOR - scripts to be run against the Ontology Hosting Capability for editing
 
 ## Test Policies and Contract Definitions
 
@@ -80,11 +79,11 @@ The CAB may use the following Policy Definitions and Contract Definitions in its
     "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?cab=Asset&mode=open",
     "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : []
-  }]
+		"@type": "Policy",
+		"odrl:permission" : [{
+			"odrl:action" : "USE",
+			"odrl:constraint" : []
+		}]
     }
 }
 ```
@@ -100,18 +99,18 @@ The CAB may use the following Policy Definitions and Contract Definitions in its
     "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?cab=Asset&mode=closed",
     "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : {
-    "@type" : "Constraint",
-    "odrl:leftOperand" : "BusinessPartnerNumber",
-     "odrl:operator" : {
+		"@type": "Policy",
+		"odrl:permission" : [{
+			"odrl:action" : "USE",
+			"odrl:constraint" : {
+				"@type" : "Constraint",
+				"odrl:leftOperand" : "BusinessPartnerNumber",
+					"odrl:operator" : {
                         "@id": "odrl:eq"
                     },
-    "odrl:rightOperand" : "{{cabBPNL}}"
-   }
-  }]
+				"odrl:rightOperand" : "{{cabBPNL}}"
+			}
+		}]
     }
 }
 ```

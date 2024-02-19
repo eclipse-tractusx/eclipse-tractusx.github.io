@@ -147,7 +147,7 @@ Quality Task is the root element and describes why companies are working togethe
 | dataDeletion          | What should be done with the data after this quality task is closed                                                                                    | delete-data-after-closing        |
 | cxBPN                 | Catena-X Business Partner Number (BPN) of the involved company                                                                                         | BPN-8110                         |
 | name                  | Name of the involved company                                                                                                                           | testCompanyA                     |
-| email                 | E-Mail of the key contact at involved company                                                                                                          | <Horst.Schlemmer@testCompanyA.de>  |
+| email                 | E-Mail of the key contact at involved company                                                                                                          | Horst.Schlemmer@testCompanyA.de  |
 
 Github Link to semantic data model: [CX-00036 Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
 
@@ -430,7 +430,7 @@ all steps of the **Business Process** (described in the [Development View](https
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
 
-## Standards
+## Standards 
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library:](https://catena-x.net/de/standard-library)
 
@@ -452,10 +452,8 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX - 0092 Aspect Model Quality Task Attachment](https://catena-x.net/de/standard-library#top)
 
-## Notice
-
+## Notice 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
-
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023,2023 Robert Bosch GmbH

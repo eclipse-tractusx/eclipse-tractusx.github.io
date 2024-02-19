@@ -23,6 +23,7 @@ All notable changes to this Kit will be documented in this file.
 - A couple of clarifications and bugfixes for R23-12
 - Version of Kit incremented as minor revision since no breaking changes occurred.
 
+
 ## [1.0.0] - 2023-08-17
 
 ### Added
@@ -51,6 +52,7 @@ All notable changes to this Kit will be documented in this file.
 <h3>Removed</h3>
 
 - ./.
+
 
 ## [0.1.0] - 2023-07-12
 

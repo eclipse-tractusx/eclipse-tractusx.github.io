@@ -113,7 +113,7 @@ For the data provider, the process is now over, and the consumer's request has b
 >**Remark:**
 >There are currently no options for data verification or acceptance/rejection of transmitted data at this stage in the process. These topics are currently still being discussed at Catena-X association level and are therefore not yet covered in the processes and tools. This will only happen with later releases.
 
-10. The data consumer can now transfer this data to his internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
+10.	The data consumer can now transfer this data to his internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
 This ends this customer journey.
 
 ### Customer Journey “PCF Calculation”
@@ -524,4 +524,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2023 CCT
 - SPDX-FileCopyrightText: 2023,2023 Gris Group
 - SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse Foundation
-- Source URL: <https://github.com/eclipse-tractusx/pcf-exchange-kit>
+- Source URL: https://github.com/eclipse-tractusx/pcf-exchange-kit

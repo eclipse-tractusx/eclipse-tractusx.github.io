@@ -14,14 +14,11 @@ All notable changes to this Kit will be documented in this file.
 ## [0.1.0] - 2023-03-01
 
 ### Added
-
 - Adoption View
 - Development View
 
 ### Changed
-
 n/a
 
 ### Removed
-
 n/a

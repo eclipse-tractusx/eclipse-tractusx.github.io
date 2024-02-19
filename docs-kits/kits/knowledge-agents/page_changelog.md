@@ -33,7 +33,7 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
 
-## [1.0.0] - 2023-11-24
+## [1.0.0] - 2023-11-24 
 
 ### Added
 
@@ -45,7 +45,7 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 - Simplified Adoption View
 - Updated Standard References, Release Dates
 
-## [0.0.1] - 2023-09-29
+## [0.0.1] - 2023-09-29 
 
 ### Added
 
@@ -55,11 +55,12 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 
 ### Changed
 
-- Pointers moved from Catena-X to Tractus-X
+- Pointers moved from Catena-X to Tractus-X 
 - Adapted to Tractus-X EDC 0.5.x and the changed EDR callback
-- Adapted all Catena-X namespaces to <https://w3id.org/catenax>
+- Adapted all Catena-X namespaces to https://w3id.org/catenax
 - Upgraded to the latest possible version of dependent libraries
 - Eclipse Tractus-X standards and migration
+
 
 ### Removed
 
