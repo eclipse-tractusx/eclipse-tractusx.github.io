@@ -33,12 +33,11 @@ For more information see
 * [Architecture](../development-view/architecture) 
 * [Deployment & Conformity](../operation-view/deployment) 
 
-### API Specifications
+### Overview
+The Data Governance Kit provides a set of API specifications which would help the application developers in developing the abstraction layer of EDC to simplify the data governance. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations. Important to note here is that the API specifications makes it possible to interact with multiple EDC connectors at once.
 
 #### API Specifications
-
-
-
+The Data Governance KIT API specifications can be found here.
 
 
 ## NOTICE
