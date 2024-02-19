@@ -24,7 +24,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Typography from '@mui/material/Typography';
-import { carouselRoleBased } from "../../../utils/carouselRoleBased";
 import styles from "./styles.module.css";
 import { useMediaQuery } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
@@ -32,7 +31,7 @@ import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
 import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
 import Link from "@docusaurus/Link";
 
-export default function RoleBasedEnrtyComponent({data}) {
+export default function RoleBasedEnrtyComponent({data, showArrow = true}) {
     const isWeb = useMediaQuery('(min-width:1024px)');
     const isMobile = useMediaQuery('(max-width:600px)');
     function  NextArrow (props) {
@@ -70,7 +69,7 @@ export default function RoleBasedEnrtyComponent({data}) {
         autoplay: false,
         infinite: false,
         variableWidth: true,
-        arrows: true,
+        arrows: showArrow,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         initialSlide: 0,
