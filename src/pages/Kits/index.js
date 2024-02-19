@@ -45,7 +45,7 @@ export default function KitsPage() {
     >
       <DeepdiveHeader {...headerInput} />
       <main>
-        <RoleBasedEnrtyComponent data={carouselKitdeepdive} />
+        <RoleBasedEnrtyComponent showArrow={false} data={carouselKitdeepdive} />
         <AboutUsCard {...aboutInput} />
         <KitsGalleryWithFilters 
           itemsArray={kitsGallery}
