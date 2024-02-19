@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
 
-This page describes the most important parts for the software implementation of the DCM standards. For the full technical specification, please refer to the standard [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library).
+This page describes the most important parts for the software implementation of the DCM standards. For the full technical specification, please refer to the standard [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library).
 
 ## Introduction
 
@@ -299,7 +299,7 @@ For the data exchange between demand and capacity management applications the `d
 
 The `pointInTime` property represents the calendar week as a date and MUST be set to a monday of the week for that specific demand. The date format MUST be in accordance with ISO8601 and MUST be in the format YYYY-MM-DD (for example 2023-02-13) without a time zone.
 
-The attributes `demandCategory` and `unitOfMeasure` MUST be set to one of the defined values as defined in [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library). If the customer explicitly does not want to send a unit of measure to the supplier, then the `unitOfMeasure` property can be omitted in the payload and the `unitOfMeasureIsOmitted` flag value MUST be set to `true`.
+The attributes `demandCategory` and `unitOfMeasure` MUST be set to one of the defined values as defined in [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library). If the customer explicitly does not want to send a unit of measure to the supplier, then the `unitOfMeasure` property can be omitted in the payload and the `unitOfMeasureIsOmitted` flag value MUST be set to `true`.
 
 The data series in the `MaterialDemand` SHOULD start already from week _n+2_, where n represents the current week.
 
@@ -360,7 +360,7 @@ An example EDC Data Asset definition is shown below.
 
 #### Error Handling and payload validation
 
-For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library) standard.
+For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library) standard.
 
 ### WeekBasedCapacityGroup API
 
@@ -384,7 +384,7 @@ The data payload itself MUST be a valid JSON string.
 
 All attributes marked as mandatory in the aspect model standard MUST be included in the dataset. Attribute marked as 'optional' MAY be included in the data set.
 
-The usage of the attributes in the data model MUST follow the attribute descriptions of the respective aspect model and the definitions in [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library). For example, an exact definition of the different capacities is provided there and needs to be observed.
+The usage of the attributes in the data model MUST follow the attribute descriptions of the respective aspect model and the definitions in [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library). For example, an exact definition of the different capacities is provided there and needs to be observed.
 
 While some attributes are technically a string, not any string is valid. For example, `supplier` MUST be formatted as a BPNL.
 
@@ -396,7 +396,7 @@ The capacities for the current week (_n=0_) and the next week (_n=1_) MAY be inc
 
 If the capacity for one of the weeks changes, the whole dataset MUST be sent to the customer, sending the changes only (delta update / incremental update) is NOT possible. By this procedure, inconsistent or incomplete data sets are avoided. One data transfer MUST contain at least one `WeekBasedCapacityGroup` data set.
 
-Additional business-process related rules are specified in [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library), these MUST be followed as well. For example, the process defines a capacity and how it is to be interpreted or that a demand must be consistent with other exchanged information such as call-offs. All `WeekBasedCapacityGroup` objects MUST only use a mutually agreed unit of measure (as defined in [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library)).
+Additional business-process related rules are specified in [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library), these MUST be followed as well. For example, the process defines a capacity and how it is to be interpreted or that a demand must be consistent with other exchanged information such as call-offs. All `WeekBasedCapacityGroup` objects MUST only use a mutually agreed unit of measure (as defined in [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)).
 
 The property `linkedDemandSeries` is used to indicate to which MaterialDemand object a `WeekBasedCapacityGroup` object refers to. More specifically, the linkedDemandSeries refers to a demand for a specific `demandCategory` / `customerLocation` / `materialNumberCustomer` combination.
 
@@ -453,7 +453,7 @@ An example EDC Data Asset definition is shown below.
 
 #### Error Handling and payload validation
 
-For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library) standard.
+For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library) standard.
 
 ### RequestForUpdate API
 
@@ -595,7 +595,7 @@ An example EDC Data Asset definition is shown below.
 
 #### Error Handling and payload validation
 
-For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library) standard.
+For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library) standard.
 
 ### IdBasedComment API
 
@@ -619,7 +619,7 @@ The data payload itself MUST be a valid JSON string.
 
 All attributes marked as mandatory in the respective aspect model standard MUST be included in the dataset. Attributes marked as 'optional' MAY be included in the data set.
 
-The usage of the attributes in the data model MUST follow the attribute descriptions of the respective aspect model and the definitions in [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library).
+The usage of the attributes in the data model MUST follow the attribute descriptions of the respective aspect model and the definitions in [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library).
 
 While some attributes are technically a string, not any string is valid. For example, `objectType` MUST be as a Catena-X aspect model unique identifier (defined on this page) without a version. For reusability reasons of the aspect model there are no enum values defined in the characteristic of this property.
 
@@ -705,7 +705,7 @@ An example EDC Data Asset definition is shown below.
 
 #### Error Handling and payload validation
 
-For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library) standard.
+For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library) standard.
 
 ### DCM ASSET ADMINISTRATION SHELL API (AAS API)
 

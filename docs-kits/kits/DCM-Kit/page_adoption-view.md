@@ -40,9 +40,9 @@ Implementing the DCM standards will add the following core capabilities to busin
 
 The DCM standard consists of three main elements:
 
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library)
-- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library)
-- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management](https://catena-x.net/de/standard-library)
+- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 
 **POWER of STANDARD**
 
