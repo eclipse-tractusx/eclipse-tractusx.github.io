@@ -43,7 +43,6 @@ For more information see
 * The [Conformity](testbed) testbed
 * A [Data Sovereignity & Graph Policy](policy) discussion
 
-
 ## Motivation & Deployment Roles
 
 Knowledge Agents is a federated technology, so there is no central component setup to take into account.
@@ -98,41 +97,44 @@ As a function provider, you want to
 ## Runbook For Deploying and Smoke-Testing Knowledge Agents (Stable)
 
 Knowledge Agents on Stable is deployed on the following two tenants
-- App Provider 1 (BPNL000000000001)
-  - Agent-Enabled Dataspace Connector
-    - In-Memory Hashicorp-Vault Control Plane 
-    - Hashicorp-Vault Agent Data Plane
-  - Provisioning Agent incl. Local Database
-  - Remoting Agent
-- App Consumer 4 (BPNL0000000005VV)
-  - Agent-Enabled Dataspace Connector
-    - In-Memory Hashicorp-Vault Control Plane 
-    - Hashicorp-Vault Agent Data Plane
+
+* App Provider 1 (BPNL000000000001)
+  * Agent-Enabled Dataspace Connector
+    * In-Memory Hashicorp-Vault Control Plane
+    * Hashicorp-Vault Agent Data Plane
+  * Provisioning Agent incl. Local Database
+  * Remoting Agent
+* App Consumer 4 (BPNL0000000005VV)
+  * Agent-Enabled Dataspace Connector
+    * In-Memory Hashicorp-Vault Control Plane
+    * Hashicorp-Vault Agent Data Plane
 
 ### 1. Prepare the Two Tenants
 
-As a first step, we installed two technical users for the dataspace connectors using the https://portal.stable.demo.catena-x.net
-- App Provider 1: sa4
-- App Consumer 4: sa5
+As a first step, we installed two technical users for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
 
+* App Provider 1: sa4
+* App Consumer 4: sa5
 
-The generated secrets have been installed under https://vault.demo.catena-x.net/ui/vault/secrets/knowledge
-- stable-provider-miw
-- stable-consumer-miw
+The generated secrets have been installed under <https://vault.demo.catena-x.net/ui/vault/secrets/knowledge>
+
+* stable-provider-miw
+* stable-consumer-miw
 
 Further secrets have been installed
-- oem-cert
-- oem-key
-- oem-symmetric-key
-- consumer-cert
-- consumer-key
-- consumer-symmetric-key
+
+* oem-cert
+* oem-key
+* oem-symmetric-key
+* consumer-cert
+* consumer-key
+* consumer-symmetric-key
 
 Finally an access token has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following two applications have been installed.
+Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following two applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
@@ -366,7 +368,7 @@ destination:
 
 ### 3. Deploy App Provider 1 Provisioning Agent
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following application has been installed.
+Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following application has been installed.
 
 For simplicity, the provisioning agent exposes a builtin sample H2 database as a graph and therefore needs to write the file system with its non-root account.
 Therefore, some of the following settings are specific to stable and will not be used under productive settings.
@@ -442,7 +444,7 @@ destination:
 
 ### 4. Deploy App Provider 1 Remoting Agent
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following application has been installed.
+Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following application has been installed.
 
 For simplicity, the remoting agent exposes a simply public API as a graph.
 
@@ -526,19 +528,18 @@ destination:
 We provide a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-f11c5dda-cc04-444f-b38b-3deb3c098478?action=share&creator=2757771&ctx=documentation&active-environment=2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
 
 It consists of the following steps:
-- Query Provider Agent (Internally)
-- Query Provider Agent (Internally from Agent Plane)
-- Query Remoting Agent (Internally)
-- Query Remoting Agent (Internally from Agent Plane)
-- Create Graph Policy (Provider)
-- Create Graph Contract (Provider)
-- Create Data Graph Asset (Provider)
-- Create Function Graph Asset (Provider)
-- Show Own Catalogue (Provider)
-- Show Remote Catalogue (Consumer)
-- Query Data Graph Asset (Consumer)
-- Query Function Graph Asset (Consumer)
 
-
+* Query Provider Agent (Internally)
+* Query Provider Agent (Internally from Agent Plane)
+* Query Remoting Agent (Internally)
+* Query Remoting Agent (Internally from Agent Plane)
+* Create Graph Policy (Provider)
+* Create Graph Contract (Provider)
+* Create Data Graph Asset (Provider)
+* Create Function Graph Asset (Provider)
+* Show Own Catalogue (Provider)
+* Show Remote Catalogue (Consumer)
+* Query Data Graph Asset (Consumer)
+* Query Function Graph Asset (Consumer)
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

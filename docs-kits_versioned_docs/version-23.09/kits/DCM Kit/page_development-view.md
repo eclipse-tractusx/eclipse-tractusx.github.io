@@ -13,7 +13,7 @@ This page describes the most important parts for the software implementation of 
 
 ## Introduction
 
-This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the 
+This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the
 API definitions used in the DCM Catena-X network.
 
 The `WeekBasedMaterialDemand` object will be send by customers to their suppliers in order to
@@ -95,9 +95,11 @@ The characteristics BPNL and BPNS MUST be used according to the standard [CX-001
 ```
 
 The semantic model has the unique identifier
+
 ```text
   urn:bamm:io.catenax.week_based_material_demand:1.0.0
 ```
+
 This identifier MUST be used by the data provider to define the semantics of the data being
 transferred.
 
@@ -178,17 +180,21 @@ The characteristics BPNL and BPNS MUST be used according to the standard [CX-001
 ```
 
 The semantic model has the unique identifier
+
 ```text
   urn:bamm:io.catenax.week_based_capacity_group:1.0.0
 ```
+
 This identifier MUST be used by the data provider to define the semantics of the data being
 transferred.
 
 The rdf turtle file, an instance of the Semantic Aspect Meta Model, is the master for generating
 additional file formats and serializations.
+
 ```text
   https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/1.0.0/WeekBasedCapacityGroup.ttl
 ```
+
 The open source command line tool of the Eclipse Semantic Modeling Framework  is used for generation
 of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel
 Template or a HTML documentation.

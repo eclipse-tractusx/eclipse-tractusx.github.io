@@ -14,7 +14,6 @@ TODO: Img reference is broken
 
 All notable changes to this Kit will be documented in this file.
 
-
 ## [0.0.1] - 2023-11-23
 
 ### Added

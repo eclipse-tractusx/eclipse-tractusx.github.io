@@ -20,8 +20,8 @@ In the reference implementation, these are the management plane and the data pla
 
 ## Identity and Trust Protocol (IATP)
 
-In Catena-X, the interaction between the wallets holding a participant's identity credentials and the connector is 
-specified by the [IATP](https://github.com/eclipse-tractusx/identity-trust). This protocol is currently under development with the Eclipse-Tractusx community and will find 
+In Catena-X, the interaction between the wallets holding a participant's identity credentials and the connector is
+specified by the [IATP](https://github.com/eclipse-tractusx/identity-trust). This protocol is currently under development with the Eclipse-Tractusx community and will find
 its way into the IDSA and international standardization bodies.
 
 ## Catena X Standard Library

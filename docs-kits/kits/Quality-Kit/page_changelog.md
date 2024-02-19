@@ -18,7 +18,8 @@ sidebar_position: 1
 ### Changed
 
 #### Adaption view
-General 
+
+General
 
 - Update picture "Customer Journey"
 - Update cosmetics to all pictures
@@ -26,17 +27,18 @@ General
 - Update list of related standards
 - License notice added
 
-Area Tutorials 
+Area Tutorials
+
 - Video "Data driven Quality Management with Catena-X - Statements from the consortial partners" now provided as link only
 
 #### Development view
+
 - Updated Asset Transfer recommendation
 
 ### Removed
 
 - ./.
 
-  
 ## [0.1.0] - 2023-08-18
 
 ### Added
