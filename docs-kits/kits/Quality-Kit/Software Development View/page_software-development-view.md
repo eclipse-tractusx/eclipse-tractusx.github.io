@@ -109,17 +109,17 @@ File transfer is recommended to be done via EDC S3 plane, The transfer via EDC h
 
 ### **Asset consumption**
 
-**File** flattening **rules**: The data provided in the asset  is build from 4 to 6 structures. To assure a secure and 
-smooth exchange flatting rules for the file (csv / xls / Parquet / json) must be applied. This includes checks for 
-format and possible values for each column and will be part of next version regulations. If the rules are not applied 
+**File** flattening **rules**: The data provided in the asset  is build from 4 to 6 structures. To assure a secure and
+smooth exchange flatting rules for the file (csv / xls / Parquet / json) must be applied. This includes checks for
+format and possible values for each column and will be part of next version regulations. If the rules are not applied
 correctly the mapping of content will not be possible without manual handling effort.
 
 ## Sample Data
 
 Standard version from: 09.2023
 
-In the following, example data for the standardized data models are provided as download in zip format. The sample data 
-is generated according the current standards. It contains a virtual fleet of 50.000 vehicles where two quality issues 
+In the following, example data for the standardized data models are provided as download in zip format. The sample data
+is generated according the current standards. It contains a virtual fleet of 50.000 vehicles where two quality issues
 are implemented.
 
 - Production failure of product "zehn" at Tier 1

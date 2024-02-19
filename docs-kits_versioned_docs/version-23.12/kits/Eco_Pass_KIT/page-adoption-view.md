@@ -63,7 +63,6 @@ Stakeholders along the value chain, as well as solution providers can reap the b
 
 ![ValueChain Benefits](resources/adoption-view/adoption-view-ValueChainBenefits.png)
 
-
 **Value Chain Partners** can benefit from the EcoPass KIT especially by bringing the product transparency to a next level which will allow for several areas to increase the company’s value. Multiple risks (e.g. regulatory compliance) can be mitigated, cost and process efficiency may be improved, the strategic knowledge about products increases and the possibility for new business is being established.
 
 1. **Regulatory Compliance**: Improve compliance with regulations and industry standards by utilizing a digital product passport to demonstrate responsible sourcing, production and waste management practices.
