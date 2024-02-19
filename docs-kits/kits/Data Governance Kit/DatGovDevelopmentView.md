@@ -38,7 +38,7 @@ The Data Governance Kit provides a set of API specifications which would help th
 
 #### API Specifications
 The Data Governance KIT API specifications can be found here.
-
+![Data Governance Kit Overview](./resources/dgk-api-docs.yaml)
 
 ## NOTICE
 
