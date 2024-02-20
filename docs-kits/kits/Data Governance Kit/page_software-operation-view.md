@@ -30,6 +30,9 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
+* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md) 
+* [Operation View](./page_software-operation-view.md)
+
 * [Adoption View](./DatGovAdoptionView.md) 
 * [Development View and Architecture](./DatGovDevelopmentView.md) 
 
