@@ -30,8 +30,8 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
-* [Adoption View](../DatGovAdoptionView.md) 
-* [Operation View](../DatGovOperationView.md) 
+* [Adoption View](../page_adoption-view.md) 
+* [Operation View](../page_software-operation-view.md) 
 
 ### Overview
 The Data Governance Kit provides a set of API specifications which would help the application developers in developing the abstraction layer of EDC to simplify the data governance. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations. Important to note here is that the API specifications makes it possible to interact with multiple EDC connectors at once.
