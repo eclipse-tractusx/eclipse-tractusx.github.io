@@ -45,7 +45,7 @@ As it would be clear now that the Data Governance Kit acts as an abstraction lay
 The staging or Management refers to the creation, updation, deletion of various Assets, Policies and Contract Offers locally within the Governance KIT before actually sending those to the connectors. The users can create as many Assets, Policies or Contract Offers, get those reviewed and approved by any manual or automatic workflow process. Once the users are sure that now the data is ready to be sent to Connectors, the Publication process kicks in. Using the publication process, all the reviewed/approved assets, policies and contract offers can be sent to the required connectors. The following high level architecture provides more details.
 
 ![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
-![Data Governance Kit High Level Architecture](./resources/Data%20Governance%20KIT_ Big%20Picture.png)
+![Data Governance Kit High Level Architecture](./resources/Data%20Governance%20KIT_%20Big%20Picture.png)
 
 ### API Specifications
 The Data Governance KIT API specifications can be found here.
