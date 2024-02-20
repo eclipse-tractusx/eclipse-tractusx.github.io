@@ -76,13 +76,13 @@ The following conventions for specific asset IDs apply to all digital twins:
   </tr>
   <tr>
     <td> digitalTwinType </td>
-    <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
+    <td> Mandatory </td>
     <td>
       The type of the digital twin:
       <ul><li>"PartInstance" for serialized parts, batches, and JIS parts</li><li>"PartType" for catalog parts</li></ul>
       digitalTwinType was added to allow data consumers to search for all digital twins of a particular type, e.g, only for catalog parts by using <code>digitalTwinType="PartType"</code> as filter. Without this filter, a search for a particular  manufacturer part ID would not only return the digital twin of the catalog part, but also all digital twins of instances of this catalog part, i.e., of the corresponding serial parts.
     </td>
-    <td> Enum </td>
+    <td> String </td>
   </tr>
 </table>
 
