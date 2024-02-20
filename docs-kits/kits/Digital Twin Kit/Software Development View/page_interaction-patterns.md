@@ -48,7 +48,7 @@ party - can assume that a part's supplier offers a Digital Twin if the data-exch
 - Submodels
     - registered in a DSP-conformant connector to the Dataspace.
     - registered to the correct AAS-descriptor in the DTR.
-    - Serving arbitrary payloads from the `/$value` endpoint, in accordance with their semantic definition.
+    - Serving payloads from the `/$value` endpoint, in accordance with their semantic definition.
 
 The Data Provider's setup is explained here:
 
