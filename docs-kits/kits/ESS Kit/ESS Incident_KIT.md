@@ -4,7 +4,7 @@ KIT
 
 # Adoption view
 
-## Vision & Missions
+## Vision & Mission
 
 ### Introduction
 
@@ -46,7 +46,7 @@ Furthermore, the ESS KIT allows for quick adaptation to new national and interna
 
 Thus, the ESS incident KIT offers a uniform and cross-sectoral grievance mechanism for managing incidents related to specific occasions, filling a gap that currently exists.
 
-## Business process
+## Use Case
 
 ### Prerequisites
 
@@ -182,7 +182,7 @@ The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/st
 | Anonymous                 | Flag that Incident issuer wants to be anonymous                                                                                      | Checkbox: ticked / not ticked                                                                                                                                        |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-### Business architecture 
+### Business architecture / Schema
 
 ![](media/CatenaX_ESS_KitBusinessArchitecture.png){width="5.82823709536308in" height="3.076013779527559in"}
 
@@ -193,42 +193,6 @@ In the Catena-X Use Case Sustainability / Environmental and Social Standards, pr
 A code of conduct defines the minimum requirements and clear expectations for the corporate due diligence of the Catena-X members. It should be adopted by every company participating in the Catena-X Use Case Sustainability / Environmental and Social Standards.
 
 We believe that we can only enhance the sustainability performance of companies through continuous development. Given the complexity and dynamics of the n-tier network, we rely on joint activities with all our members to identify environmental and social standard risks, create more transparency, and achieve greater effectiveness.
-
-# Operation View
-
-Not relevant we do not have a technical solution.
-
-# Development View
-
-## ESS incidents views
-
-### Building block view
-
-The following figure shows the current high-level architecture of the use case "Occasion-related tracking of ESS-related incidents".
-
-![](media/CatenaX_ESS_KitBlockDiagram.png){width="6.6930555555555555in" height="3.752083333333333in"}
-
-### Sequence view
-
-This simplified sequence view shows the process starting from an Input Channel.
-
-As the use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach, this process is the basis for the sequence view.
-
-The Input Channel can be a whistle-blower, a third-party application, or another Input channel of a CatenaX member. Someone reports an incident and maintains as much information as possible about the incident. The incident is processed at the Clearing Agency. It is enriched with information from CatenaX-Services and then transferred to the CXMemberL0 who is the originator of the incident.
-
-The Incident originator L0 investigates further about the incident and takes appropriate measures. To identify affected Business Partners along the supply chain, that need to be informed, the CXMemberL0 can use a CX trace solution like recursive IRS or Knowledge Agent. The Knowledge Agent can provide the complex search logic that might be needed to find the affected customers.
-
-To be able to address the affected Business Partners / Customers via EDC CatenaX-Services can be used.
-
-Now, the incident traverses upwards within the supply chain to the next levels one by one.
-
-The CXMemberL1 is related directly to L0, so he will receive detailed information about the ESS incident from CXMemberL0.
-
-The CXMemberLn is not related directly to L0, so he will receive anonymized information about the ESS incident from CXMemberL1.
-
-As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
-
-![](media/CatenaX_ESS_KitSequenceView.png){width="6.6930555555555555in" height="3.6381944444444443in"}
 
 ## Standards
 
@@ -304,6 +268,42 @@ The following standards were used in the creation of this code of conduct and se
 
 -   Handreichung zur Umsetzung einer Risikoanalyse nach den Vorgaben des Lieferkettensorgfaltspflichtengesetzes (BAFA)
 
+
+# Development View / ESS incidents views
+
+## Building block view
+
+The following figure shows the current high-level architecture of the use case "Occasion-related tracking of ESS-related incidents".
+
+![](media/CatenaX_ESS_KitBlockDiagram.png){width="6.6930555555555555in" height="3.752083333333333in"}
+
+## Sequence view
+
+This simplified sequence view shows the process starting from an Input Channel.
+
+As the use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach, this process is the basis for the sequence view.
+
+The Input Channel can be a whistle-blower, a third-party application, or another Input channel of a CatenaX member. Someone reports an incident and maintains as much information as possible about the incident. The incident is processed at the Clearing Agency. It is enriched with information from CatenaX-Services and then transferred to the CXMemberL0 who is the originator of the incident.
+
+The Incident originator L0 investigates further about the incident and takes appropriate measures. To identify affected Business Partners along the supply chain, that need to be informed, the CXMemberL0 can use a CX trace solution like recursive IRS or Knowledge Agent. The Knowledge Agent can provide the complex search logic that might be needed to find the affected customers.
+
+To be able to address the affected Business Partners / Customers via EDC CatenaX-Services can be used.
+
+Now, the incident traverses upwards within the supply chain to the next levels one by one.
+
+The CXMemberL1 is related directly to L0, so he will receive detailed information about the ESS incident from CXMemberL0.
+
+The CXMemberLn is not related directly to L0, so he will receive anonymized information about the ESS incident from CXMemberL1.
+
+As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
+
+![](media/CatenaX_ESS_KitSequenceView.png){width="6.6930555555555555in" height="3.6381944444444443in"}
+
+
 ## Sample data \[Mandatory / Optional?\]
+
+Not relevant we do not have a technical solution.
+
+# Operations View
 
 Not relevant we do not have a technical solution.
