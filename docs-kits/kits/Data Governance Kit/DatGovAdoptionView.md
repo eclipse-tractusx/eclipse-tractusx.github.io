@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Data Governance KIT Adoption View
+title: Adoption View
 ---
 ## Data Governance KIT
 
@@ -30,8 +30,8 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
-* [Architecture](../development-view/architecture) 
-* [Deployment & Conformity](../operation-view/deployment) 
+* [Development View and Architecture](./DatGovDevelopmentView.md) 
+* [Operation View](./DatGovOperationView.md) 
 
 ### Vision & Mission
 
