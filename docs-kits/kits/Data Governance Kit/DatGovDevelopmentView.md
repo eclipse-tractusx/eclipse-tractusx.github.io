@@ -36,16 +36,20 @@ For more information see
 ### Overview
 The Data Governance Kit provides a set of API specifications which would help the application developers in developing the abstraction layer of EDC to simplify the data governance. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations. Important to note here is that the API specifications makes it possible to interact with multiple EDC connectors at once.
 
-#### API Specifications
+### High Level Architecture
+As it would be clear now that the Data Governance Kit acts as an abstraction layer for multiple EDC Connctors and hides the EDC complexities behind it. This is achieved by using the below concepts:
+
+- Staging (or Management)
+- Publication
+
+The staging or Management refers to the creation, updation, deletion of various Assets, Policies and Contract Offers locally within the Governance KIT before actually sending those to the connectors. The users can create as many Assets, Policies or Contract Offers, get those reviewed and approved by any manual or automatic workflow process. Once the users are sure that now the data is ready to be sent to Connectors, the Publication process kicks in. Using the publication process, all the reviewed/approved assets, policies and contract offers can be sent to the required connectors. The following high level architecture provides more details.
+
+![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
+![Data Governance Kit High Level Architecture](./resources/Data%20Governance%20KIT_ Big%20Picture.png)
+
+### API Specifications
 The Data Governance KIT API specifications can be found here.
-![YAML Data Governance Kit API Specifications](./resources/dgk-api-docs.yaml)
-
-![MDX API Docs Data Governance Kit API Specifications](./resources/api-docs-3.mdx)
-
-![MDX Formatter Data Governance Kit API Specifications](./resources/mdx-formatter.mdx)
-
-[Swagger Data Governance Kit API Specifications](https://app.swaggerhub.com/apis-docs/dg-tsy/data-governance_kit/0.0.1-SNAPSHOT)
-[Swagger2 Data Governance Kit API Specifications](https://app.swaggerhub.com/api-docs/dg-tsy/data-governance_kit/0.0.1-SNAPSHOT)
+[Data Governance Kit Swagger API Specifications](https://app.swaggerhub.com/apis-docs/dg-tsy/data-governance_kit/0.0.1-SNAPSHOT)
 
 
 ## NOTICE
