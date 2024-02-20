@@ -25,7 +25,7 @@ sidebar_position: 1
 -->
 ### Data Governance KIT
 
-![DatGov Kit Banner](/img/DatGov/DatGovKit-Icon.png)
+![DatGov Kit Banner](./resources/DatGovKit-Icon.png)
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 
@@ -33,7 +33,9 @@ All notable changes to the Data Governance KIT (=Keep It Together) will be docum
 
 ### Added
 
-- First Draft for Adoption View
+- First Version for Adoption View
+- First Version for Operation View
+- First Version for Development View
 - Notice
 
 ### Changed
