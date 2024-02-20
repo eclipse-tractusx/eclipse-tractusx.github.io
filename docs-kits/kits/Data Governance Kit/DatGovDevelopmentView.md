@@ -30,7 +30,7 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
-* [Architecture](../development-view/architecture) 
+* [Adoption View](./DatGovAdoptionView.md) 
 * [Deployment & Conformity](../operation-view/deployment) 
 
 ### Overview
