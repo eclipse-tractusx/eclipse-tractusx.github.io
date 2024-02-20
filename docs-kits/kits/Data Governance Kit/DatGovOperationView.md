@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Data Governance Kit Operation View
+title: Operation View
 ---
 ## Data Governance KIT
 
@@ -30,13 +30,13 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
-* [Architecture](../development-view/architecture) 
-* [Deployment & Conformity](../operation-view/deployment) 
+* [Adoption View](./DatGovAdoptionView.md) 
+* [Development View and Architecture](./DatGovDevelopmentView.md) 
 
 ### Operation View
 
 #### Operation View
-Based on the information provided in the Data Governance KIT, it is possible to to develop the new decentralized applications to simplify the data governance topics r multiple connectors. The API specifications are  described in the [Development View](./DatGovDevelopmentView.md). Additional Data Governance KIT specific code or APIs are not provided and implementation therefor not necessary.
+Based on the information provided in the Data Governance KIT, it is possible to develop the new decentralized applications to simplify the data governance topics r multiple connectors. The API specifications are  described in the [Development View](./DatGovDevelopmentView.md). Additional Data Governance KIT specific code or APIs are not provided and reference implementation therefore not necessary.
 
 
 
