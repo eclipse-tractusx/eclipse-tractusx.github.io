@@ -38,7 +38,11 @@ The Data Governance Kit provides a set of API specifications which would help th
 
 #### API Specifications
 The Data Governance KIT API specifications can be found here.
-![Data Governance Kit API Specifications](./resources/dgk-api-docs.yaml)
+![YAML Data Governance Kit API Specifications](./resources/dgk-api-docs.yaml)
+
+![MDX API Docs Data Governance Kit API Specifications](./resources/api-docs-3.mdx)
+
+![MDX Formatter Data Governance Kit API Specifications](./resources/mdx-formatter.mdx)
 
 ## NOTICE
 
