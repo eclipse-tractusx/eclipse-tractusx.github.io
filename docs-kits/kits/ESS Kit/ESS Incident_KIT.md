@@ -182,7 +182,7 @@ The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/st
 | Anonymous                 | Flag that Incident issuer wants to be anonymous                                                                                      | Checkbox: ticked / not ticked                                                                                                                                        |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-### Business architecture / Schema
+### Schema / Business architecture
 
 ![](media/CatenaX_ESS_KitBusinessArchitecture.png){width="5.82823709536308in" height="3.076013779527559in"}
 
