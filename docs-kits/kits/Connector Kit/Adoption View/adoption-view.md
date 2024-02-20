@@ -1,6 +1,5 @@
 ---
 id: Adoption View
-title: Adoption View
 description: 'Connector Kit'
 sidebar_position: 1
 ---
@@ -83,7 +82,7 @@ The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Ev
 
 ### Terminology
 
-The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of 
+The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of
 the implementation. Most of the Domain-Model-Elements are represented by separate APIs. Please check the [Management API Walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs)
 in the tractusx-edc repository for more a reference on usage of the API.
 
