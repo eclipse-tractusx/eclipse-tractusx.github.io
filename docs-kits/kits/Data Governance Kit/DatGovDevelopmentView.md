@@ -31,7 +31,7 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 For more information see
 
 * [Adoption View](./DatGovAdoptionView.md) 
-* [Deployment & Conformity](../operation-view/deployment) 
+* [Operation View](./DatGovOperationView.md) 
 
 ### Overview
 The Data Governance Kit provides a set of API specifications which would help the application developers in developing the abstraction layer of EDC to simplify the data governance. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations. Important to note here is that the API specifications makes it possible to interact with multiple EDC connectors at once.
@@ -44,7 +44,6 @@ As it would be clear now that the Data Governance Kit acts as an abstraction lay
 
 The staging or Management refers to the creation, updation, deletion of various Assets, Policies and Contract Offers locally within the Governance KIT before actually sending those to the connectors. The users can create as many Assets, Policies or Contract Offers, get those reviewed and approved by any manual or automatic workflow process. Once the users are sure that now the data is ready to be sent to Connectors, the Publication process kicks in. Using the publication process, all the reviewed/approved assets, policies and contract offers can be sent to the required connectors. The following high level architecture provides more details.
 
-![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 ![Data Governance Kit High Level Architecture](./resources/Data%20Governance%20KIT_%20Big%20Picture.png)
 
 ### API Specifications
