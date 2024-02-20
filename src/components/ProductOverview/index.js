@@ -26,11 +26,15 @@ import { products } from "../../../utils/products";
 
 import styles from "./styles.module.css";
  
-export default function ProductOverview() {
+export default function ProductOverview({inputData}) {
+  let data = products
+  if(inputData) {
+    data = inputData
+  }
   return (
     <section className={styles.product_overview}>
       <div className={styles.container}>
-        {products.map((product, index) => {
+        {data.map((product, index) => {
           return(
           <ProductAccordionCard key={index} {...product} />
           )
