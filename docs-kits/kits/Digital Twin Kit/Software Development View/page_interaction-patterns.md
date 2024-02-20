@@ -43,7 +43,7 @@ party - can assume that a part's supplier offers a Digital Twin if the data-exch
 (and by proxy CX-0002). The data provider deploys at least:
 - Digital Twin Registry (DTR)
   - registered in a DSP-conformant connector offering the DTR to the Dataspace.
-  - registers Digital Twins (AssetAdministrationAAS-descriptors - or AAS descriptor - in AAS vocabulary) with assetIds 
+  - registers Digital Twins (AssetAdministrationShell-descriptors - or AAS descriptor - in AAS vocabulary) with assetIds 
   including at least one that's known at both, the supplier and customer.
 - Submodels
     - registered in a DSP-conformant connector to the Dataspace.
