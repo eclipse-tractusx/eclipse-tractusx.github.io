@@ -44,6 +44,8 @@ The Data Governance KIT API specifications can be found here.
 
 ![MDX Formatter Data Governance Kit API Specifications](./resources/mdx-formatter.mdx)
 
+![Swagger Data Governance Kit API Specifications](https://app.swaggerhub.com/apis/dg-tsy/data-governance_kit/0.0.1-SNAPSHOT)
+
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
