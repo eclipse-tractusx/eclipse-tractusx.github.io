@@ -13,8 +13,7 @@ This page describes the most important parts for the software implementation of 
 
 ## Introduction
 
-This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the 
-API definitions used in the DCM Catena-X network.
+This document describes the `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` semantic models and the API definitions used in the DCM Catena-X network.
 
 The `WeekBasedMaterialDemand` object will be send by customers to their suppliers in order to
 communicate how many parts they need in which period of time. The customers of materials therefore
@@ -95,9 +94,11 @@ The characteristics BPNL and BPNS MUST be used according to the standard [CX-001
 ```
 
 The semantic model has the unique identifier
+
 ```text
   urn:bamm:io.catenax.week_based_material_demand:1.0.0
 ```
+
 This identifier MUST be used by the data provider to define the semantics of the data being
 transferred.
 
@@ -178,17 +179,21 @@ The characteristics BPNL and BPNS MUST be used according to the standard [CX-001
 ```
 
 The semantic model has the unique identifier
+
 ```text
   urn:bamm:io.catenax.week_based_capacity_group:1.0.0
 ```
+
 This identifier MUST be used by the data provider to define the semantics of the data being
 transferred.
 
 The rdf turtle file, an instance of the Semantic Aspect Meta Model, is the master for generating
 additional file formats and serializations.
+
 ```text
   https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/1.0.0/WeekBasedCapacityGroup.ttl
 ```
+
 The open source command line tool of the Eclipse Semantic Modeling Framework  is used for generation
 of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel
 Template or a HTML documentation.
@@ -398,7 +403,7 @@ All attributes marked as mandatory in the standard [CX-0047](https://catena-x.ne
 included in the dataset. Attribute marked as 'Optional' CAN be included in the data set.
 
 The usage of the attributes in the data model MUST follow the attribute descriptions in the standard
-[CX-0047](https://catena-x.net/de/standard-library) and the definitions in [CX-0046](#41-normative-references). For example, an exact definition of the different capacities is provided there and needs to be observed.
+[CX-0047](https://catena-x.net/de/standard-library) and the definitions in [CX-0046](https://catena-x.net/de/standard-library). For example, an exact definition of the different capacities is provided there and needs to be observed.
 
 While some attributes are technically a string, not any string is valid. For example, supplier MUST
 be formatted as a BPNL.
