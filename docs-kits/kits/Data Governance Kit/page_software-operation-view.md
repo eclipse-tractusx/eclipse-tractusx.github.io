@@ -30,25 +30,19 @@ This document describes the foundations of the Data Governance KIT (=Keep It Tog
 
 For more information see
 
-* [Adoption View](./page_adoption-view.md) 
-* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md) 
+* [Adoption View](./page_adoption-view.md)
+* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md)
 
-### Operation View
+### DGK Operation View
 
 #### Operation View
+
 Based on the information provided in the Data Governance KIT, it is possible to develop the new decentralized applications to simplify the data governance topics r multiple connectors. The API specifications are  described in the [Development View](./DatGovDevelopmentView.md). Additional Data Governance KIT specific code or APIs are not provided and reference implementation therefore not necessary.
-
-
-
-
-
-
-
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+* SPDX-License-Identifier: CC-BY-4.0
+* SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
