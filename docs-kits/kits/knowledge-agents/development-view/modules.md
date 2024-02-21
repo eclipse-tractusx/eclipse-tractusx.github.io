@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Layers & Modules
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -80,21 +80,21 @@ The base Dataspace-building technology is the Eclipse Dataspace Connector (EDC) 
 
 ### EDC
 
-Actually, the Eclipse Dataspace Connector (see Catena-X Standard CX-00001) consists of two components, one of which needs to be extended. 
-See the [Tractus-X Knowledge Agents EDC Extensions (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) and their [KA-EDC Deployment](../operation-view/agent_edc) 
+Actually, the Eclipse Dataspace Connector (see Catena-X Standard CX-00001) consists of two components, one of which needs to be extended.
+See the [Tractus-X Knowledge Agents EDC Extensions (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) and their [KA-EDC Deployment](../operation-view/agent_edc)
 
 #### Control Plane
 
 The Control Plane hosts the actual management/negotiation engine and is usually a singleton that is exposing
 
-- an internal (api-key secured) API for managing the control plane by administrative accounts/apps and the Matchmaking Agent
-  - Manages Assets (=Internal Addresses including security and other contextual information into the Binding/Virtualization/Backend Layers together with External meta-data/properties of the Assets for discovery and self-description)
-  - Manages Policies (=Conditions regarding the validity of Asset negotiations and interactions)
-  - Manages Contract Definitions (=Offers are combinations of Assets and Policies and are used to build up a Catalogue)
-- a public (SSI-secured) Protocol API for coordination with other control planes of other business partners to setup transfer routings between the data planes.
-  - state machines for monitoring (data) transfer processes which are actually executed by the (multiple, scalable) data plane(s). KA uses the standard “HttpProxy” transfer.
-  - a validation engine which currently operates on static tokens/claims which are extracted from the transfer flow but may be extended with additional properties in order to check additional runtime information in the form of properties
-- callback triggers for announcing transfer endpoints to the data plane to external applications, such as the Matchmaking Agent (or other direct EDC clients, frameworks and applications). We want to support multiple Matchmaking Agent instances per EDC for load-balancing purposes and we also like to allow for a bridged operation with other non-KA use cases, so it should be possible to configure several endpoint callback listeners per control plane.
+* an internal (api-key secured) API for managing the control plane by administrative accounts/apps and the Matchmaking Agent
+  * Manages Assets (=Internal Addresses including security and other contextual information into the Binding/Virtualization/Backend Layers together with External meta-data/properties of the Assets for discovery and self-description)
+  * Manages Policies (=Conditions regarding the validity of Asset negotiations and interactions)
+  * Manages Contract Definitions (=Offers are combinations of Assets and Policies and are used to build up a Catalogue)
+* a public (SSI-secured) Protocol API for coordination with other control planes of other business partners to setup transfer routings between the data planes.
+  * state machines for monitoring (data) transfer processes which are actually executed by the (multiple, scalable) data plane(s). KA uses the standard “HttpProxy” transfer.
+  * a validation engine which currently operates on static tokens/claims which are extracted from the transfer flow but may be extended with additional properties in order to check additional runtime information in the form of properties
+* callback triggers for announcing transfer endpoints to the data plane to external applications, such as the Matchmaking Agent (or other direct EDC clients, frameworks and applications). We want to support multiple Matchmaking Agent instances per EDC for load-balancing purposes and we also like to allow for a bridged operation with other non-KA use cases, so it should be possible to configure several endpoint callback listeners per control plane.
 
 #### Data Plane
 
@@ -131,7 +131,7 @@ Skill Assets use the asset type/data source “urn:cx:Protocol:w3c:Http#SKILL”
 | proxyQueryParams | must be set to “true” |
 | proxyBody   | must be set to “true” |
 
-Both Skill and Graph Assets share public properties 
+Both Skill and Graph Assets share public properties
 
 | Public Property                                      | Description                                                                                      |
 |-----------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -144,7 +144,7 @@ Both Skill and Graph Assets share public properties
 | properties.version | A version IRI |
 | properties.contenttype | "application/json, application/xml" for Graph Assets, "application/sparql-query, application/json, application/xml" for Skill Assets |
 | properties.rdf:type | "cx-common:GraphAssetAsset" for graph Assets, "cx-common:SkillAsset" for Skill Assets |
-| properties.rdfs:isDefinedBy | An RDF description listing the Use case ontologies that this asset belongs to, e.g., “&lt;https://w3id.org/catenax/ontology/core&gt;" |
+| properties.rdfs:isDefinedBy | An RDF description listing the Use case ontologies that this asset belongs to, e.g., “&lt;<https://w3id.org/catenax/ontology/core>&gt;" |
 | properties.cx-common:implementsProtocol | should be set to “&lt;urn:cx:Protocol:w3c:Http#SPARQL&gt;” for Graph Assets, “&lt;urn:cx:Protocol:w3c:Http#SKILL&gt;” for Skill Assets |
 | properties.cx-common:isFederated | Whether this asset will be automatically synchronized (and is hence inferrable) in the federated data catalogue |
 
@@ -167,11 +167,12 @@ Skill Assets have the following private properties
 | privateProperties.cx-common:query | A SPARQL string implementing the skill.  |
 
 For both Graph and Skill Assets, appropriate Sink and Source implementations have to be registered which operate just as the standard HttpSink and HttpSource, but cater for some additional peculiarities. In particular, the “AgentSource”
-- will detunnel all protocol-specific information from the HttpProxy call (headers wrapped as parameters etc., see the standard). 
-- may parse the query and validate the given data address using additional runtime information from the query, the header, the parameters and extended  policies with the help of the extended control plane.
-- rewrites the resulting SPARQL query parameter/body by replacing any occurrence of the Asset-URI “GRAPH <?assetUri>” with the actual URL of the asset baseUrl (SERVICE <?baseUrl>).
-- may rewrite the query using the “sh:shape” property of the GraphAsset in order to enforce particular constraints.
-- finally delegate the resulting call to the Matchmaking Agent.
+
+* will detunnel all protocol-specific information from the HttpProxy call (headers wrapped as parameters etc., see the standard).
+* may parse the query and validate the given data address using additional runtime information from the query, the header, the parameters and extended  policies with the help of the extended control plane.
+* rewrites the resulting SPARQL query parameter/body by replacing any occurrence of the Asset-URI “GRAPH <?assetUri>” with the actual URL of the asset baseUrl (SERVICE <?baseUrl>).
+* may rewrite the query using the “sh:shape” property of the GraphAsset in order to enforce particular constraints.
+* finally delegate the resulting call to the Matchmaking Agent.
 
 ### Matchmaking Agent
 
@@ -220,7 +221,7 @@ This approach offers users a unified and technically abstract view for querying 
 
 Finally, the missing link between the Dataspace Layer and the Virtualization Layer is the Binding Layer. Hereby rather than mapping the data between different formats (e.g. Data Tables in CSV Format to and from Data Graphs in the TTL format) which is a mostly resource-consuming data transformation process, binding rather rewrites the actual queries (e.g. SPARQL into SQL, SPARQL into GraphQL or REST). In order to make this query rewriting not too complicated, a restricted subset of SPARQL is envisaged.
 
-See the [Tractus-X Knowledge Agents Reference Implementations (KA-RI)](https://github.com/eclipse-tractusx/knowledge-agents) and their [KA-RI Deployment](../operation-view/provider) 
+See the [Tractus-X Knowledge Agents Reference Implementations (KA-RI)](https://github.com/eclipse-tractusx/knowledge-agents) and their [KA-RI Deployment](../operation-view/provider)
 
 ### Virtual Knowledge Graph
 
@@ -284,11 +285,11 @@ Exposing substructures of the distributed knowledge graph via the AAS APIs is po
 * a SPARQL query extracting "flat" information out of the virtual graph
 * a mapping configuration providing the basic structure of the target AAS
 
-These two components must be closely coordinated with each other. The query is executed against an internal 
-SPARQL-endpoint configured by the data provider. Its response (XML) is then digested by the [aas4j-transformation-library](https://github.com/eclipse-aas4j/aas4j-transformation-library) 
-and transformed into AAS-native structures. This is executed at runtime whenever a request hits the AAS-APIs of the bridge so 
-that the ground truth remains in the RDF-graph (or the persistence it was virtualized from, see above). [FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) provides 
-the AAS-tooling required for the implementation of all relevant AAS-APIs. The library ships with four default mappings for 
+These two components must be closely coordinated with each other. The query is executed against an internal
+SPARQL-endpoint configured by the data provider. Its response (XML) is then digested by the [aas4j-transformation-library](https://github.com/eclipse-aas4j/aas4j-transformation-library)
+and transformed into AAS-native structures. This is executed at runtime whenever a request hits the AAS-APIs of the bridge so
+that the ground truth remains in the RDF-graph (or the persistence it was virtualized from, see above). [FAAAST framework](https://github.com/FraunhoferIOSB/FAAAST-Service/) provides
+the AAS-tooling required for the implementation of all relevant AAS-APIs. The library ships with four default mappings for
 Traceability-related Aspect-Models but is not restricted to these. Details on the KA-AAS-bridge's deployment can (soon) be found in [its documentation](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge/blob/main/README.md).
 
 ## Backend Systems (Non-Standard Relevant)

@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Provisioning
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -33,7 +33,6 @@ More specifically, we recommend to deploy
 * the [Tractus-X Provisioning Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/provisioning/README.md) for relational or virtualized data sources.
 * the [Tractus-X Remoting Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/remoting/README.md) for REST-based API functions.
 
-
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guidelines
@@ -49,7 +48,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 ```yaml
     - name: provisioning-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.10.15
+      version: 1.11.16
       alias: my-provider-agent
 ```
 
@@ -78,49 +77,49 @@ my-provider-agent:
         cx-core:            https://w3id.org/catenax/ontology/core#
         cx-vehicle:         https://w3id.org/catenax/ontology/vehicle#
         cx-reliability:     https://w3id.org/catenax/ontology/reliability#
-        uuid:		        urn:uuid:
-        bpnl:		        bpn:legal:
-        owl:		        http://www.w3.org/2002/07/owl#
-        rdf:		        http://www.w3.org/1999/02/22-rdf-syntax-ns#
-        xml:		        http://www.w3.org/XML/1998/namespace
-        xsd:		        http://www.w3.org/2001/XMLSchema#
+        uuid:          urn:uuid:
+        bpnl:          bpn:legal:
+        owl:          http://www.w3.org/2002/07/owl#
+        rdf:          http://www.w3.org/1999/02/22-rdf-syntax-ns#
+        xml:          http://www.w3.org/XML/1998/namespace
+        xsd:          http://www.w3.org/2001/XMLSchema#
         json:               https://json-schema.org/draft/2020-12/schema#
-        obda:		        https://w3id.org/obda/vocabulary#
-        rdfs:		        http://www.w3.org/2000/01/rdf-schema#
+        obda:          https://w3id.org/obda/vocabulary#
+        rdfs:          http://www.w3.org/2000/01/rdf-schema#
         oem:                urn:oem:
 
         [MappingDeclaration] @collection [[
-        mappingId	vehicles
-        target		<{vehicle_id}> rdf:type cx-vehicle:Vehicle ; cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string; cx-vehicle:worldManufaturerId bpnl:{localIdentifiers_manufacturerId}; cx-vehicle:productionDate {production_date}^^xsd:date.
-        source		SELECT vehicle_id, van, '{{MYBPNL}}' as localIdentifiers_manufacturerId, production_date FROM vehicles
+        mappingId vehicles
+        target  <{vehicle_id}> rdf:type cx-vehicle:Vehicle ; cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string; cx-vehicle:worldManufaturerId bpnl:{localIdentifiers_manufacturerId}; cx-vehicle:productionDate {production_date}^^xsd:date.
+        source  SELECT vehicle_id, van, '{{MYBPNL}}' as localIdentifiers_manufacturerId, production_date FROM vehicles
 
-        mappingId	partsvehicle
-        target		<{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
-        source		SELECT vehicle_id, gearbox_id FROM vehicles
+        mappingId partsvehicle
+        target  <{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
+        source  SELECT vehicle_id, gearbox_id FROM vehicles
 
-        mappingId	vehicleparts
-        target		<{vehicle_id}> cx-vehicle:hasPart <{gearbox_id}> .
-        source		SELECT vehicle_id, gearbox_id FROM vehicles
+        mappingId vehicleparts
+        target  <{vehicle_id}> cx-vehicle:hasPart <{gearbox_id}> .
+        source  SELECT vehicle_id, gearbox_id FROM vehicles
 
-        mappingId	parts
-        target		<{gearbox_id}> rdf:type cx-vehicle:Part ; cx-vehicle:id {gearbox_id}^^xsd:string; cx-vehicle:name {partTypeInformation_nameAtManufacturer}^^xsd:string; cx-vehicle:number {partTypeInformation_manufacturerPartId}^^xsd:string; cx-vehicle:supplier bpnl:{localIdentifiers_manufacturerId}; cx-vehicle:productionDate {production_date}^^xsd:date .
-        source		SELECT gearbox_id, production_date, 'Differential Gear' as partTypeInformation_nameAtManufacturer, '{{PARTNERTBPNL}}' as localIdentifiers_manufacturerId, 'Dummy Gearbox' as partTypeInformation_manufacturerPartId FROM vehicles
+        mappingId parts
+        target  <{gearbox_id}> rdf:type cx-vehicle:Part ; cx-vehicle:id {gearbox_id}^^xsd:string; cx-vehicle:name {partTypeInformation_nameAtManufacturer}^^xsd:string; cx-vehicle:number {partTypeInformation_manufacturerPartId}^^xsd:string; cx-vehicle:supplier bpnl:{localIdentifiers_manufacturerId}; cx-vehicle:productionDate {production_date}^^xsd:date .
+        source  SELECT gearbox_id, production_date, 'Differential Gear' as partTypeInformation_nameAtManufacturer, '{{PARTNERTBPNL}}' as localIdentifiers_manufacturerId, 'Dummy Gearbox' as partTypeInformation_manufacturerPartId FROM vehicles
 
         mappingId   partAnalysis
-        target		oem:{newest_telematics_id} cx-reliability:analysedObject <{gearbox_id}>.
-        source		SELECT gearbox_id, newest_telematics_id FROM vehicles
+        target  oem:{newest_telematics_id} cx-reliability:analysedObject <{gearbox_id}>.
+        source  SELECT gearbox_id, newest_telematics_id FROM vehicles
 
         mappingId   analysisInformation
         target      oem:{id} rdf:type cx-reliability:Analysis; cx-reliability:operatingHoursOfVehicle {metadata_status_operatingHours}^^xsd:float; cx-core:startDateTime {metadata_status_date}^^xsd:dateTime; cx-core:endDateTime {metadata_status_date}^^xsd:dateTime; cx-reliability:mileageOfVehicle {metadata_status_mileage}^^xsd:int.
-        source		SELECT id, floor((load_spectra::jsonb->0->'metadata'->'status'->>'operatingHours')::numeric)::integer as metadata_status_operatingHours, replace(load_spectra::jsonb->0->'metadata'->'status'->>'date','Z','.000Z') as metadata_status_date,load_spectra::jsonb->0->'metadata'->'status'->>'mileage' as metadata_status_mileage FROM telematics_data
+        source  SELECT id, floor((load_spectra::jsonb->0->'metadata'->'status'->>'operatingHours')::numeric)::integer as metadata_status_operatingHours, replace(load_spectra::jsonb->0->'metadata'->'status'->>'date','Z','.000Z') as metadata_status_date,load_spectra::jsonb->0->'metadata'->'status'->>'mileage' as metadata_status_mileage FROM telematics_data
 
         mappingId   analysisResult
-        target		oem:{newest_telematics_id} cx-reliability:result oem:{newest_telematics_id}/{name}.
-        source		SELECT gearbox_id, newest_telematics_id, name FROM vehicles, (VALUES ('GearSet'), ('GearOil'), ('Clutch')) AS spectrum(name)
+        target  oem:{newest_telematics_id} cx-reliability:result oem:{newest_telematics_id}/{name}.
+        source  SELECT gearbox_id, newest_telematics_id, name FROM vehicles, (VALUES ('GearSet'), ('GearOil'), ('Clutch')) AS spectrum(name)
 
         mappingId   loadspectrum
         target      oem:{id}/{name} rdf:type cx-reliability:LoadSpectrum; cx-core:id {name}^^xsd:string; cx-core:name {metadata_projectDescription}^^xsd:string; cx-reliability:description {metadata_routeDescription}^^xsd:string; cx-reliability:countingValue {body_counts_countsName}^^xsd:string; cx-reliability:countingUnit {header_countingUnit}^^xsd:string; cx-reliability:countingMethod {header_countingMethod}^^xsd:string; cx-reliability:channels {header_channels}^^json:Object; cx-reliability:classes {body_classes}^^json:Object; cx-reliability:values {body_counts_countsList}^^json:Object .
-        source		SELECT id, index, name, load_spectra::jsonb->index->'metadata'->>'projectDescription' as metadata_projectDescription, load_spectra::jsonb->index->'metadata'->>'routeDescription' as metadata_routeDescription, load_spectra::jsonb->index->'header'->>'countingUnit' as header_countingUnit, load_spectra::jsonb->index->'header'->>'countingMethod' as header_countingMethod, load_spectra::jsonb->index->'header'->'channels' as header_channels, load_spectra::jsonb->index->'body'->'classes' as body_classes, load_spectra::jsonb->index->'body'->'counts'->'countsName' as body_counts_countsName, load_spectra::jsonb->index->'body'->'counts'->'countsList' as body_counts_countsList FROM telematics_data, (VALUES (0,'GearSet'), (1,'GearOil'), (2,'Clutch')) AS spectrum(index,name)
+        source  SELECT id, index, name, load_spectra::jsonb->index->'metadata'->>'projectDescription' as metadata_projectDescription, load_spectra::jsonb->index->'metadata'->>'routeDescription' as metadata_routeDescription, load_spectra::jsonb->index->'header'->>'countingUnit' as header_countingUnit, load_spectra::jsonb->index->'header'->>'countingMethod' as header_countingMethod, load_spectra::jsonb->index->'header'->'channels' as header_channels, load_spectra::jsonb->index->'body'->'classes' as body_classes, load_spectra::jsonb->index->'body'->'counts'->'countsName' as body_counts_countsName, load_spectra::jsonb->index->'body'->'counts'->'countsList' as body_counts_countsList FROM telematics_data, (VALUES (0,'GearSet'), (1,'GearOil'), (2,'Clutch')) AS spectrum(index,name)
         ]]  
   ingresses:
     - enabled: true
@@ -146,7 +145,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml(this example us
 ```yaml
     - name: remoting-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.10.15
+      version: 1.11.16
       alias: my-remoting-agent
 ```
 
@@ -416,29 +415,29 @@ curl --location --globoff '{{controlPlaneName}}/management/v2/policydefinitions'
     "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?me=GraphPolicy",
     "policy": {
-		"@type": "Policy",
-		"odrl:permission" : [{
-			"odrl:action" : "USE",
-			"odrl:constraint" : {
-				"@type": "LogicalConstraint",
-				"odrl:or" : [{
-					"@type" : "Constraint",
-					"odrl:leftOperand" : "BusinessPartnerNumber",
-					"odrl:operator" : {
+  "@type": "Policy",
+  "odrl:permission" : [{
+   "odrl:action" : "USE",
+   "odrl:constraint" : {
+    "@type": "LogicalConstraint",
+    "odrl:or" : [{
+     "@type" : "Constraint",
+     "odrl:leftOperand" : "BusinessPartnerNumber",
+     "odrl:operator" : {
                         "@id": "odrl:eq"
                     },
-					"odrl:rightOperand" : "{{PARTNERBPNL}}"
-				},
+     "odrl:rightOperand" : "{{PARTNERBPNL}}"
+    },
                 {
-					"@type" : "Constraint",
-					"odrl:leftOperand" : "BusinessPartnerNumber",
-					"odrl:operator" : {
+     "@type" : "Constraint",
+     "odrl:leftOperand" : "BusinessPartnerNumber",
+     "odrl:operator" : {
                         "@id": "odrl:eq"
                     },
-					"odrl:rightOperand" : "{{MYBPNL}}"
-				}]
-			}
-		}]
+     "odrl:rightOperand" : "{{MYBPNL}}"
+    }]
+   }
+  }]
     }
 }
 '
@@ -522,7 +521,5 @@ For more information see
 * The [Implementation](../development-view/architecture) documentation
 * The [Deployment](deployment) overview
 * A [Data Sovereignity & Graph Policy](policy) discussion
-
-## 
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
