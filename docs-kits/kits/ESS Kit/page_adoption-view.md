@@ -83,43 +83,82 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 ### ESS Incidents personas
 
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Persona Title**  | **Short Description**                                                                                                                                       | **Task / Responsibilities**                                                                                                                                                  |
-+====================+=============================================================================================================================================================+==============================================================================================================================================================================+
-| Incident Issuer    | -   Issuer can be any person or institution                                                                                                                 | -   Raise ESS-related incident in a structured or unstructured manner                                                                                                        |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Not necessarily an ESS expert                                                                                                                           | -   Ambition to make ESS-related issue transparent and visible with as much information as possible                                                                          |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Can be either internal (*e.g.* auditor or employee) or external (*e.g.* business partner, individual, NGO, automatic-detection)                         | -   Committed to provide relevant information to properly address the ESS-related incident to the right business partner/ organizational unit                                |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Uses either formal contact point (Catena-X Incident App, Catena-X Webpage, Company Webpage) or any kind of (social) media to issue ESS-related incident |                                                                                                                                                                              |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Potential contact to incident manager (ESS), human rights officer/ risk management specialist                                                           |                                                                                                                                                                              |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Incident Manager   | -   Operational internal role/ central function that covers incidents as primary responsibility                                                             | -   Recording of ESS-related incidents                                                                                                                                       |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Follows statutory requirements and incidents through each process step until closure                                                                    | -   Assignment of the ESS-related incident to the correct category with as much information as possible. Categories are: Violation of environmental and/ or social standards |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   First contact and dispatcher for ESS-related incidents and incident status                                                                              | -   Rejection or acceptance of ESS-related incident                                                                                                                          |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Incident-Manager to get in contact with (e.g. sustainability@\...)                                                                                      | -   Assignment of ESS-incident to internal business partner                                                                                                                  |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   SME/ Business Partner for human rights officer, sustainability manager product/ corporate, audit (internal, external)                                   | -   Collaboration & cooperation with business partners and internal units                                                                                                    |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   Potential contact to incident issuer (ESS)                                                                                                              | -   Agreement of binding measures with relevant SMEs/ Business Partners                                                                                                      |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Clearing agent ESS | -   Operational internal role/ central function that covers incidents as primary responsibility                                                             | -   Receives incident from various sources                                                                                                                                   |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    | -   First contact and dispatcher for ESS-related incidents and incident status                                                                              | -   Reduce fraud / identify fake incidents                                                                                                                                   |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    |                                                                                                                                                             | -   Consolidate incidents (no multiples)                                                                                                                                     |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    |                                                                                                                                                             | -   Set / maintain central incident status and anonymized information (respect: one-up/one-down, decentral, data-sovereign, "flag" to allow sharing)                         |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    |                                                                                                                                                             | -   Forward information to L0 of cleared ESS incident or archive of ESS incident                                                                                             |
-|                    |                                                                                                                                                             |                                                                                                                                                                              |
-|                    |                                                                                                                                                             | -   Transfer ESS incidents to archive                                                                                                                                        |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+<table>
+<thead>
+<tr>
+<th>Persona Title</th>
+<th>Short Description</th>
+<th>Task / Responsibilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Incident Issuer
+</td>
+<td> 
+<ul>
+<li>Issuer can be any person or institution</li>
+<li>Not necessarily an ESS expert</li>
+<li>Can be either internal (e.g. auditor or employee) or external (e.g. business partner, individual, NGO, automatic-detection)</li>
+<li>Uses either formal contact point (Catena-X Incident App, Catena-X Webpage, Company Webpage) or any kind of (social) media to issue ESS-related incident</li>
+<li>Potential contact to incident manager (ESS), human rights officer/ risk management specialist</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Raise ESS-related incident in a structured or unstructured manner</li>
+<li>Ambition to make ESS-related issue transparent and visible with as much information as possible</li>
+<li>Committed to provide relevant information to properly address the ESS-related incident to the right business partner/ organizational unit</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Incident Manager
+</td>
+<td>
+<ul>
+<li>Operational internal role/ central function that covers incidents as primary responsibility</li>
+<li>Follows statutory requirements and incidents through each process step until closure</li>
+<li>First contact and dispatcher for ESS-related incidents and incident status</li>
+<li>Incident-Manager to get in contact with (e.g. sustainability@...)</li>
+<li>SME/ Business Partner for human rights officer, sustainability manager product/ corporate, audit (internal, external)</li>
+<li>Potential contact to incident issuer (ESS)</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Recording of ESS-related incidents</li>
+<li>Assignment of the ESS-related incident to the correct category with as much information as possible. Categories are: Violation of environmental and/ or social standards</li>
+<li>Rejection or acceptance of ESS-related incident</li>
+<li>Assignment of ESS-incident to internal business partner</li>
+<li>Collaboration and cooperation with business partners and internal units</li>
+<li>Agreement of binding measures with relevant SMEs/ Business Partners</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Clearing agent ESS</td>
+<td>
+<ul>
+<li>Operational internal role/ central function that covers incidents as primary responsibility</li>
+<li>First contact and dispatcher for ESS-related incidents and incident status</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Receives incident from various sources</li>
+<li>Reduce fraud / identify fake incidents</li>
+<li>Consolidate incidents (no multiples)</li>
+<li>Set / maintain central incident status and anonymized information (respect: one-up/one-down, decentral, data-sovereign, “flag” to allow sharing)</li>
+<li>Forward information to L0 of cleared ESS incident or archive of ESS incident</li>
+<li>Transfer ESS incidents to archive</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
 
 ### Semantic models
 
