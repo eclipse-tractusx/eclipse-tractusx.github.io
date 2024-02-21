@@ -16,88 +16,107 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
-import React from 'react';
+import React from "react";
 
-export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined}) {
-    return (
-        <section style={meetingInfo}>
-            <div style={meetingOverview}>
-                <h2 style={meetingTitle}>{title}</h2>
-                <div style={meetingSchedule}>{schedule}</div>
-            </div>
-            <div style={meetingDetails}>
-                <p>{description}</p>
-                
-                <ul>
-                    <li style={itemTitle}>Contact:</li>
-                    <li style={itemLink}>
-                        <a href={"mailto:" + contact}>{contact}</a>
-                    </li>
-                </ul>
+export default function MeetingInfo({
+  title,
+  schedule,
+  description,
+  contact,
+  sessionLink = undefined,
+  meetingLink = undefined,
+  additionalLinks = [],
+}) {
+  return (
+    <section style={meetingInfo}>
+      <div style={meetingOverview}>
+        <h2 style={meetingTitle}>{title}</h2>
+        <div style={meetingSchedule}>{schedule}</div>
+      </div>
+      <div style={meetingDetails}>
+        <p>{description}</p>
 
-                <ul>
-                    <li style={itemTitle}>Participation opportunities:</li>
-                    { 
-                        sessionLink && 
-                            <li style={itemLink}>
-                                <a href={sessionLink}>Join Meeting</a>
-                            </li> 
-                    }
-                    { 
-                        meetingLink &&
-                            <li style={itemLink}>
-                                <a href={meetingLink}>Download calendar file</a>
-                            </li>
-                    }
-                </ul>
-            </div>
-        </section>
-    );
+        <ul>
+          <li style={itemTitle}>Contact:</li>
+          <li style={itemLink}>
+            <a href={"mailto:" + contact}>{contact}</a>
+          </li>
+        </ul>
+
+        <ul>
+          <li style={itemTitle}>Participation opportunities:</li>
+          {sessionLink && (
+            <li style={itemLink}>
+              <a href={sessionLink}>Join Meeting</a>
+            </li>
+          )}
+          {meetingLink && (
+            <li style={itemLink}>
+              <a href={meetingLink}>Download calendar file</a>
+            </li>
+          )}
+        </ul>
+        {additionalLinks.length > 0 && (
+          <ul>
+            <li style={itemTitle}>Additional links:</li>
+            {additionalLinks.map((link, index) => {
+                const { url, title } = link;
+                return (
+                  <li key={`${index}${url}`} style={itemLink}>
+                    <a href={url}>{title}</a>
+                  </li>
+                );
+              })}
+          </ul>
+        )}
+      </div>
+    </section>
+  );
 }
 
 const itemLink = {
-    fontWeight: '400',
-    fontSize: '14px',
-    lineHeight: '18px',
-    color: '#faa023',
-    listStyleImage: 'url("/img/product_link_bullet.png")'
-}
+  fontWeight: "400",
+  fontSize: "14px",
+  lineHeight: "18px",
+  color: "#faa023",
+  listStyleImage: 'url("/img/product_link_bullet.png")',
+};
 
 const itemTitle = {
-    fontWeight: '400',
-    fontSize: '14px',
-    lineHeight: '18px',
-    listStyle: 'none'
-  }
+  fontWeight: "400",
+  fontSize: "14px",
+  lineHeight: "18px",
+  listStyle: "none",
+};
 
 const meetingInfo = {
-    display: 'flex',
-    width: '100%',
-    padding: '1rem 0 0.5rem'
-}
+  display: "flex",
+  width: "100%",
+  padding: "1rem 0 0.5rem",
+};
 
 const meetingOverview = {
-    width: '33%',
-    margin: 'auto 0',
-    padding: '2rem 0 0.5rem',
-    borderRight: '2px solid #faa023'
-}
+  width: "33%",
+  margin: "auto 0",
+  padding: "2rem 0 0.5rem",
+  borderRight: "2px solid #faa023",
+};
 
 const meetingTitle = {
-    fontWeight: '700',
-    fontSize: '20px',
-    lineHeight: '25px'
-}
+  fontWeight: "700",
+  fontSize: "20px",
+  lineHeight: "25px",
+};
 
 const meetingSchedule = {
-    fontWeight: '400',
-    fontSize: '12px',
-    lineHeight: '16px',
-    color: '#a5a5a5'
-}
+  fontWeight: "400",
+  fontSize: "12px",
+  lineHeight: "16px",
+  color: "#a5a5a5",
+};
 
 const meetingDetails = {
-    width: '67%',
-    margin: 'auto 0',
-    padding: '0.5rem 1.5rem'
-}
+  width: "67%",
+  margin: "auto 0",
+  padding: "0.5rem 1.5rem",
+};
