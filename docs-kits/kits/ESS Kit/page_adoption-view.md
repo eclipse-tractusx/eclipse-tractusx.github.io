@@ -1,8 +1,11 @@
-**Catena-X Environmental and Social Standards Incident Management**
+---
+id: ESS Kit Adoption View
+title: Adoption View
+description: 'Environmental and Social Standards Incident Management Kit'
+sidebar_position: 2
+---
 
-KIT
-
-# Adoption view
+![ESS Kit Pictotogram](images/CatenaX_ESS_KitBlockDiagram.png)
 
 ## Vision & Mission
 
@@ -20,19 +23,15 @@ As companies governed by environment and social standards (ESS), we would like t
 
 The automotive supply network is described as highly complex and globally interwoven. It operates in a heterogeneous political and environmental context with many different ambitions. The current challenges for cross-company ESS incident management are described by:
 
--   High manual effort of a small set of experts that work in their own silos and focus on company-centric investigation. A problem accentuated at the level of small and medium enterprises (SME),
-
--   Low network collaboration and by that long processing time amongst business partners,
-
--   Lack of trust to share data, amongst many intermediates,
-
--   Varying quality of information and sources.
+- High manual effort of a small set of experts that work in their own silos and focus on company-centric investigation. A problem accentuated at the level of small and medium enterprises (SME),
+- Low network collaboration and by that long processing time amongst business partners,
+- Lack of trust to share data, amongst many intermediates,
+- Varying quality of information and sources.
 
 Our mission is to streamline the handling of incidents reported to the Catena-X network. The ESS KIT supports cross-company ESS incident management with appropriate processes. This radical change from our organization-centred model would mitigate the challenges listed above. The ESS KIT consists of the following building blocks:
 
--   Standards to guarantee data sovereignty and data security, like the Connector KIT (EDC), Business Partner KIT and Agents KIT, as well as our standards,
-
--   Standardized data model accompanied with a defined tracing process to reduce processing time for an incident.
+- Standards to guarantee data sovereignty and data security, like the Connector KIT (EDC), Business Partner KIT and Agents KIT, as well as our standards,
+- Standardized data model accompanied with a defined tracing process to reduce processing time for an incident.
 
 ### Business value
 
@@ -52,13 +51,11 @@ Thus, the ESS incident KIT offers a uniform and cross-sectoral grievance mechani
 
 The scope of our business is the prompt handling of incidents reported to the Catena-X network. The following prerequisites are necessary for the ESS KIT:
 
--   High number of Catena-X members need to be onboarded to cover our supply chains and increase the success rate of the tracing of incidents,
+- High number of Catena-X members need to be onboarded to cover our supply chains and increase the success rate of the tracing of incidents,
+- Catena-X members agree to a code of conduct,
+- The member needs to follow the onboarding process.
 
--   Catena-X members agree to a code of conduct,
-
--   The member needs to follow the onboarding process.
-
-### Customer Journey: \"Occasion-related tracking of ESS-related incidents\"
+### Customer Journey: Occasion-related tracking of ESS-related incidents
 
 This customer journey describes the process when an incident is reported to the Catena-X network. From the determination that needs to be made regarding its relevance to the business partners and further processing.
 
@@ -74,15 +71,15 @@ This means that the transfer of information is initiated by L0 who identifies it
 
 The trace of an incident follows previously mentioned principles along any obligations enforced by law. For any business partner in the supply chain, its access to the status/information related to a specific incident will depend on its degree of relationship with the impacted company:
 
--   **Level 0 (L~0~):** the incident report is targeting the company directly. At that level, the incident manager of the L~0~ can consult all the relevant information and will manage the status and response.
+- **Level 0 (L~0~):** the incident report is targeting the company directly. At that level, the incident manager of the L~0~ can consult all the relevant information and will manage the status and response.
 
--   **Level 1 (L~1~):** those business partners have a direct relationship with the L~0~. As already supported in existing legislations, L~1~ business partners will have access to the status of the incident and the full information of the potential incident at the L~0~.
+- **Level 1 (L~1~):** those business partners have a direct relationship with the L~0~. As already supported in existing legislations, L~1~ business partners will have access to the status of the incident and the full information of the potential incident at the L~0~.
 
--   **Level n (L~n~)**: those business partners have an indirect relationship with the potential incident originator (L~0~). They will receive from the previous business partner (L~n-1~) the anonymized incident information (anonymized title & description, category, status, etc.) along with the degree of relationship (*i.e.* their distance to the L~0~). The incident originator's identity (L~0~) and the path from L~0~ to L~n~ in the impacted supply chain will not be communicated, nor documented.
+- **Level n (L~n~)**: those business partners have an indirect relationship with the potential incident originator (L~0~). They will receive from the previous business partner (L~n-1~) the anonymized incident information (anonymized title & description, category, status, etc.) along with the degree of relationship (*i.e.* their distance to the L~0~). The incident originator's identity (L~0~) and the path from L~0~ to L~n~ in the impacted supply chain will not be communicated, nor documented.
 
--   **Clearing Agency:** these users can see the status and the original intake of information of all incidents. The clearing agency will only be able to identify the targeted business partner (L~0~) who is handling the incident. Finally, if the incident can be closed by the L0, the clearing agency will receive a status update.
+- **Clearing Agency:** these users can see the status and the original intake of information of all incidents. The clearing agency will only be able to identify the targeted business partner (L~0~) who is handling the incident. Finally, if the incident can be closed by the L0, the clearing agency will receive a status update.
 
-![](media/CatenaX_ESS_KitCustomerJourney.png){width="6.666666666666667in" height="2.7708891076115485in"}
+![](images/CatenaX_ESS_KitCustomerJourney.png)
 
 ### ESS Incidents personas
 
@@ -128,7 +125,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 Catena-X offers various semantic models depending on the specific application and KIT. They establish a fundamental understanding of the data and its connections, facilitating compatibility between different data sets. The data models of Catena-X prioritize principles such as clarity, standardization, distinction, verifiability, and comprehensiveness.
 
-The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/standard-library) and is modelled following the CX-0003 Standard (https://catena-x.net/de/standard-library). Below, you can find an excerpt of the full data set:
+The data model follows the Catena-X Standard CX-0113 (<https://catena-x.net/de/standard-library>) and is modelled following the CX-0003 Standard (<https://catena-x.net/de/standard-library>). Below, you can find an excerpt of the full data set:
 
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Attribute Name            | Description                                                                                                                          | Example                                                                                                                                                              |
@@ -171,7 +168,7 @@ The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/st
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | First and last Name       | Contact name of ESS incident issuer                                                                                                  | Camille Mustermensch                                                                                                                                                 |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| E-Mail Address            | E-Mail address of ESS incident issuer                                                                                                | xyz.abc@xxx.com                                                                                                                                                      |
+| E-Mail Address            | E-Mail address of ESS incident issuer                                                                                                | <xyz.abc@xxx.com>                                                                                                                                                      |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Phone number              | Phone number of ESS incident issuer                                                                                                  | +49 89 123456789                                                                                                                                                     |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -182,12 +179,11 @@ The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/st
 | Anonymous                 | Flag that Incident issuer wants to be anonymous                                                                                      | Checkbox: ticked / not ticked                                                                                                                                        |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
-## Business process 
+## Business process
 
 ### Business architecture
 
-![](media/CatenaX_ESS_KitBusinessArchitecture.png){width="5.82823709536308in" height="3.076013779527559in"}
+![](images/CatenaX_ESS_KitBusinessArchitecture.png)
 
 ### Access & Usage Policies / Code of conduct
 
@@ -203,25 +199,16 @@ We believe that we can only enhance the sustainability performance of companies 
 
 To participate in the ESS Incident Management use-case, the following single standards must be fulfilled and can be consulted in the [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
--   CX-0001 EDC Discovery API
-
--   CX-0006 Registration and initial on Boarding
-
--   CX-0013 Identity of Member Companies
-
--   CX-0014 Employees and Technical Users
-
--   CX-0015 IAM & Access Control Paradigm
-
--   CX-0016 Company Attribute Verification
-
--   CX-0017 Company Role by the Connector
-
--   CX-0018 Sovereign Data Exchange
-
--   CX-0049 DID Document Schema
-
--   CX-0050 Framework Agreement Credential
+- CX-0001 EDC Discovery API
+- CX-0006 Registration and initial on Boarding
+- CX-0013 Identity of Member Companies
+- CX-0014 Employees and Technical Users
+- CX-0015 IAM & Access Control Paradigm
+- CX-0016 Company Attribute Verification
+- CX-0017 Company Role by the Connector
+- CX-0018 Sovereign Data Exchange
+- CX-0049 DID Document Schema
+- CX-0050 Framework Agreement Credential
 
 ### ESS incidents Data model (CX-0113)
 
@@ -233,80 +220,22 @@ References:
 
 The following standards were used in the creation of this code of conduct and serve as an additional source of information:
 
--   ILO Code of Practice in Safety and Health
-
--   ILO International Labor Standards
-
--   ISO 14001
-
--   OECD Due Diligence Guidance for Responsible Supply Chains of Minerals from Conflict-Affected and High-Risk Areas
-
--   OECD Guidelines for Multinational Enterprises
-
--   Universal Declaration of Human Rights
-
--   United Nations Convention Against Corruption
-
--   United Nations Convention on the Rights of the Child
-
--   United Nations Convention on the Elimination of All Forms of Discrimination Against Women
-
--   United Nations Global Compact
-
--   High Conservation Value Resource Network (HCV)
-
--   High Carbon Stock Approach (HCSA)
-
--   Initiative for Responsible Mining Assurance (IRMA)
-
--   Responsible Business Alliance (RBA)
-
--   Drive Sustainability Guiding Principles
-
--   Farm Animal Welfare Committee (FAWC)
-
--   Terrestrial Animal Health Code
-
--   Act on Corporate Due Diligence Obligations in Supply Chains
-
--   Handreichung zur Umsetzung einer Risikoanalyse nach den Vorgaben des Lieferkettensorgfaltspflichtengesetzes (BAFA)
-
-
-# Development View / ESS incidents views
-
-## Building block view
-
-The following figure shows the current high-level architecture of the use case "Occasion-related tracking of ESS-related incidents".
-
-![](media/CatenaX_ESS_KitBlockDiagram.png){width="6.6930555555555555in" height="3.752083333333333in"}
-
-## Sequence view
-
-This simplified sequence view shows the process starting from an Input Channel.
-
-As the use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach, this process is the basis for the sequence view.
-
-The Input Channel can be a whistle-blower, a third-party application, or another Input channel of a CatenaX member. Someone reports an incident and maintains as much information as possible about the incident. The incident is processed at the Clearing Agency. It is enriched with information from CatenaX-Services and then transferred to the CXMemberL0 who is the originator of the incident.
-
-The Incident originator L0 investigates further about the incident and takes appropriate measures. To identify affected Business Partners along the supply chain, that need to be informed, the CXMemberL0 can use a CX trace solution like recursive IRS or Knowledge Agent. The Knowledge Agent can provide the complex search logic that might be needed to find the affected customers.
-
-To be able to address the affected Business Partners / Customers via EDC CatenaX-Services can be used.
-
-Now, the incident traverses upwards within the supply chain to the next levels one by one.
-
-The CXMemberL1 is related directly to L0, so he will receive detailed information about the ESS incident from CXMemberL0.
-
-The CXMemberLn is not related directly to L0, so he will receive anonymized information about the ESS incident from CXMemberL1.
-
-As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
-
-![](media/CatenaX_ESS_KitSequenceView.png){width="6.6930555555555555in" height="3.6381944444444443in"}
-
-
-## Sample data \[Mandatory / Optional?\]
-
-Not relevant we do not have a technical solution.
-
-# Operations View
-
-Not relevant we do not have a technical solution.
+- ILO Code of Practice in Safety and Health
+- ILO International Labor Standards
+- ISO 14001
+- OECD Due Diligence Guidance for Responsible Supply Chains of Minerals from Conflict-Affected and High-Risk Areas
+- OECD Guidelines for Multinational Enterprises
+- Universal Declaration of Human Rights
+- United Nations Convention Against Corruption
+- United Nations Convention on the Rights of the Child
+- United Nations Convention on the Elimination of All Forms of Discrimination Against Women
+- United Nations Global Compact
+- High Conservation Value Resource Network (HCV)
+- High Carbon Stock Approach (HCSA)
+- Initiative for Responsible Mining Assurance (IRMA)
+- Responsible Business Alliance (RBA)
+- Drive Sustainability Guiding Principles
+- Farm Animal Welfare Committee (FAWC)
+- Terrestrial Animal Health Code
+- Act on Corporate Due Diligence Obligations in Supply Chains
+- Handreichung zur Umsetzung einer Risikoanalyse nach den Vorgaben des Lieferkettensorgfaltspflichtengesetzes (BAFA)
