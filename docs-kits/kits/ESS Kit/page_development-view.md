@@ -34,3 +34,18 @@ The CXMemberLn is not related directly to L0, so he will receive anonymized info
 As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
 
 ![](images/CatenaX_ESS_KitSequenceView.png)
+
+
+## Notice
+
+This work is licensed under the CC-BY-4.0.
+•	SPDX-License-Identifier: CC-BY-4.0
+•	SPDX-FileCopyrightText: 2024, 2024 ZF Friedrichshafen AG
+•	SPDX-FileCopyrightText: 2024, 2024 BASF SE
+•	SPDX-FileCopyrightText: 2024, 2024 Mercedes Benz Group
+•	SPDX-FileCopyrightText: 2024, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+•	SPDX-FileCopyrightText: 2024, 2024 SAP SE
+•	SPDX-FileCopyrightText: 2024, 2024 Robert Bosch GmbH
+•	SPDX-FileCopyrightText: 2024, 2024 Gris Group
+•	SPDX-FileCopyrightText: 2024, 2024 Contributors to the Eclipse Foundation
+•	Source URL: https://github.com/eclipse-tractusx/ESS-kit
