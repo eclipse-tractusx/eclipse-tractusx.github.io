@@ -1,5 +1,4 @@
 ---
-id: Specifications
 sidebar_position: 1
 ---
 

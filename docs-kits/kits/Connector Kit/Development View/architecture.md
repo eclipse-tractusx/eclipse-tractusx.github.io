@@ -1,5 +1,4 @@
 ---
-id: Architecture
 sidebar_position: 2
 ---
 <!--

@@ -1,5 +1,4 @@
 ---
-id: Operation View
 sidebar_position: 1
 ---
 
