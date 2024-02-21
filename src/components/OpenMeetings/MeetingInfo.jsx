@@ -67,48 +67,48 @@ export default function MeetingInfo({title, schedule, description, contact, sess
 }
 
 const itemLink = {
-  fontWeight: '400',
-  fontSize: '14px',
-  lineHeight: '18px',
-  color: '#faa023',
-  listStyleImage: 'url("/img/product_link_bullet.png")',
-};
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    color: '#faa023',
+    listStyleImage: 'url("/img/product_link_bullet.png")',
+}
 
 const itemTitle = {
-  fontWeight: '400',
-  fontSize: '14px',
-  lineHeight: '18px',
-  listStyle: 'none',
-};
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '18px',
+    listStyle: 'none',
+}
 
 const meetingInfo = {
-  display: 'flex',
-  width: '100%',
-  padding: '1rem 0 0.5rem',
-};
+    display: 'flex',
+    width: '100%',
+    padding: '1rem 0 0.5rem',
+}
 
 const meetingOverview = {
-  width: '33%',
-  margin: 'auto 0',
-  padding: '2rem 0 0.5rem',
-  borderRight: '2px solid #faa023',
-};
+    width: '33%',
+    margin: 'auto 0',
+    padding: '2rem 0 0.5rem',
+    borderRight: '2px solid #faa023',
+}
 
 const meetingTitle = {
-  fontWeight: '700',
-  fontSize: '20px',
-  lineHeight: '25px',
-};
+    fontWeight: '700',
+    fontSize: '20px',
+    lineHeight: '25px',
+}
 
 const meetingSchedule = {
-  fontWeight: '400',
-  fontSize: '12px',
-  lineHeight: '16px',
-  color: '#a5a5a5',
-};
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '16px',
+    color: '#a5a5a5',
+}
 
 const meetingDetails = {
-  width: '67%',
-  margin: 'auto 0',
-  padding: '0.5rem 1.5rem',
-};
+    width: '67%',
+    margin: 'auto 0',
+    padding: '0.5rem 1.5rem',
+}
