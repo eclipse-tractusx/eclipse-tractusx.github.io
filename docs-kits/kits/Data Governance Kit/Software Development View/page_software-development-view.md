@@ -22,9 +22,8 @@ title: Development View
  * under the License.
  *
  * SPDX-License-Identifier: CC-BY-4.0
--->
-
 ![DatGov Kit Banner](/resources/DatGovKit-Icon.png)
+-->
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
