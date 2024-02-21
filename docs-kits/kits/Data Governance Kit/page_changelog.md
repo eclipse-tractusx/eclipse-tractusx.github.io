@@ -22,10 +22,10 @@ sidebar_position: 1
  * under the License.
  *
  * SPDX-License-Identifier: CC-BY-4.0
+ ![DatGov Kit Banner](./resources/DatGovKit-Icon.png)
 -->
-### Data Governance KIT
 
-![DatGov Kit Banner](./resources/DatGovKit-Icon.png)
+### Data Governance KIT
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 
