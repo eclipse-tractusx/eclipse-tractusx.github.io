@@ -8,7 +8,7 @@ export const carouselKitdeepdive = [
     {
         id: 2,
         title: "KIT Usage",
-        description: "How to use a KIT ?",
+        description: "How to use a KIT?",
         navigate: "/kits-usage"
     },
     {
