@@ -22,9 +22,19 @@ import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";
 import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
 import CommunityComponent from "../components/CommunityComponent";
+import { carouselRoleBased } from "../../utils/carouselRoleBased";
+
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const aboutInput = {
+    highlightText: "Welcome to the community",
+    title: "The magic behind Eclipse Tractus-X",
+    descriptionHighlight: "The Eclipse Tractus-X™ project",
+    description: " is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
+    buttonText: "About Us",
+    link: "/aboutus"
+  }
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -32,16 +42,16 @@ export default function Home() {
     >
       <HomePageHeader />
       <main>
-        {/* TODO - Enable when pages/content is available */}
-        {/* <RoleBasedEnrtyComponent /> */}
-        <AboutUsCard />
+        <RoleBasedEnrtyComponent data={carouselRoleBased} />
+        <AboutUsCard {...aboutInput} />
         <CommunityComponent />
         <KitsGalleryWithFilters 
           itemsArray={kitsGallery}
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
-        <FAQsComponent />
+        {/* Enable when it is required */}
+        {/* <FAQsComponent /> */}
       </main>
     </Layout>
   );

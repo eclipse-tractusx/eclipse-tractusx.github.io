@@ -13,13 +13,13 @@ A Helm chart for Tractus-X Eclipse Data Space Connector based on memory. Please 
 - the [Managed Identity Walled (MIW)](https://github.com/catenax-ng/tx-managed-identity-wallets) must be running and reachable via network
 - the necessary set of VerifiableCredentials for this participant must be pushed to MIW. This is typically done by the
   Portal during participant onboarding
-- KeyCloak must be running and reachable via network
-- an account with KeyCloak must be created for this BPN and the connector must be able to obtain access tokens
+- Keycloak must be running and reachable via network
+- an account with Keycloak must be created for this BPN and the connector must be able to obtain access tokens
 - the client ID and client secret corresponding to that account must be known
 
 ### Preparatory work
 
-- store your KeyCloak client secret in the HashiCorp vault. The exact procedure will depend on your deployment of HashiCorp Vault and
+- store your Keycloak client secret in the HashiCorp vault. The exact procedure will depend on your deployment of HashiCorp Vault and
   is out of scope of this document. But by default, Tractus-X EDC expects to find the secret under `secret/client-secret`.
 
 ### Configure the chart
@@ -28,8 +28,8 @@ Be sure to provide the following configuration entries to your Tractus-X EDC Hel
 
 - `runtime.ssi.miw.url`: the URL
 - `runtime.ssi.miw.authorityId`: the BPN of the issuer authority
-- `runtime.ssi.oauth.tokenurl`: the URL (of KeyCloak), where access tokens can be obtained
-- `runtime.ssi.oauth.client.id`: client ID for KeyCloak
+- `runtime.ssi.oauth.tokenurl`: the URL (of Keycloak), where access tokens can be obtained
+- `runtime.ssi.oauth.client.id`: client ID for Keycloak
 - `runtime.ssi.oauth.client.secretAlias`: the alias under which the client secret is stored in the vault. Defaults to `client-secret`.
 
 ### Launching the application
@@ -155,9 +155,9 @@ helm install my-release tractusx-edc/tractusx-connector-memory --version 0.5.0 \
 | runtime.service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
 | runtime.ssi.miw.authorityId | string | `""` | The BPN of the issuer authority |
 | runtime.ssi.miw.url | string | `""` | MIW URL |
-| runtime.ssi.oauth.client.id | string | `""` | The client ID for KeyCloak |
+| runtime.ssi.oauth.client.id | string | `""` | The client ID for Keycloak |
 | runtime.ssi.oauth.client.secretAlias | string | `"client-secret"` | The alias under which the client secret is stored in the vault. |
-| runtime.ssi.oauth.tokenurl | string | `""` | The URL (of KeyCloak), where access tokens can be obtained |
+| runtime.ssi.oauth.tokenurl | string | `""` | The URL (of Keycloak), where access tokens can be obtained |
 | runtime.tolerations | list | `[]` |  |
 | runtime.url.protocol | string | `""` | Explicitly declared url for reaching the dsp api (e.g. if ingresses not used) |
 | runtime.url.public | string | `""` |  |

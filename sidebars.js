@@ -91,7 +91,7 @@ const sidebars = {
             label: 'End-to-End Adopter Journey',
             link: {
                 type: 'doc',
-                id: 'tutorials/e2e/e2e'
+                id: 'tutorials/e2e'
             },
             collapsed: true,
             items: [

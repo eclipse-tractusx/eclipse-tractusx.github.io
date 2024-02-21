@@ -1,0 +1,1508 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+BEGIN:STANDARD
+DTSTART:16011028T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010325T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DESCRIPTION:IMPORTANT UPDATE\n\n \n\nHello\,\n\n \n\nAs mentioned before we
+	 will move this meeting from confluence directly to Github.\n\nReasons are
+	:\n\n1.	Confluence is a licensed service platform and in the future not ev
+	eryone from the open source community might have access to it\n2.	Using Gi
+	thub features allows for faster reaction times. We hope to foster a proces
+	s where we can address your questions in a continuous cycle and not just o
+	nce a week.\n3.	Only action needed so far\, if you don’t have a Github a
+	ccount yet\, you will need one (free)\n\n \n\nYou can find the EDC repo he
+	re:\nhttps://github.com/eclipse-tractusx/tractusx-edc/discussions\n\n \n\n
+	Creating an item is simple:\n\n1.	Create a new discussion\n2.	Select the Q
+	&A category\n3.	Start the title with the prefix [Extended Sync]…your tit
+	le goes here\n\n \n\nPoint 3 ensures we are able to filter accordingly and
+	 find your questions fast and easy.\n\n \n\nIf you have any questions plea
+	se get back to me or contact the team via the matrix channel and we will t
+	ry to help as fast as possible.\n\n \n\nThanks and have a nice day\nBen We
+	stphal\n\n \n\n \n\n------------------------------------------------------
+	---\n\n \n\nStarting from 6th June 2023 EDC weekly includes only colleague
+	s\, who are working on EDC Stories. During EDC weekly are discussed only t
+	opics\, which were planned during PI.\n\n \n\n \n\nEDC weekly extended at 
+	10:00 a.m. includes all interested colleagues.\n\nConfluence page for topi
+	cs / questions to discuss during EDC weekly extended: \n\n*	https://conflu
+	ence.catena-x.net/display/ARTI/EDC+Extended+Sync\n\n \n\n_________________
+	_______________________________________________________________ \n\nMicros
+	oft Teams-Besprechung \n\nNehmen Sie auf dem Computer\, in der mobilen App
+	 oder im Raumgerät teil \n\nHier klicken\, um an der Besprechung teilzune
+	hmen <https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2JmZWMzNDktN
+	mFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40thread.v2/0?context=%7b%22Tid%22%3a%
+	229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%22%3a%22a92c6916-f523-4
+	c1d-9ab7-61b5e6eef3be%22%7d>  \n\nBesprechungs-ID: 325 194 697 429 \nPassc
+	ode: LGP8wy \n\nTeams herunterladen <https://www.microsoft.com/en-us/micro
+	soft-teams/download-app>  | Im Web beitreten <https://www.microsoft.com/mi
+	crosoft-teams/join-a-meeting> \n\nMit einem Videokonferenzgerät teilnehme
+	n \n\nmercedes-benz@m.webex.com <mailto:mercedes-benz@m.webex.com>  \n\nVi
+	deokonferenz-ID: 128 874 434 1 \n\nAlternative VTC-Anweisungen <https://ww
+	w.webex.com/msteams?confid=1288744341&tenantkey=mercedes-benz&domain=m.web
+	ex.com>  \n\nOder rufen Sie an (nur Audio) \n\n+49 69 365057583\,\,7050510
+	02# <tel:+4969365057583\,\,705051002#>    Germany\, Frankfurt am Main \n\n
+	Telefonkonferenz-ID: 705 051 002# \n\nLokale Nummer suchen <https://dialin
+	.teams.microsoft.com/e2cdbd38-5369-4c1b-a0af-ca0e45cfce10?id=705051002>  |
+	 PIN zurücksetzen <https://dialin.teams.microsoft.com/usp/pstnconferencin
+	g>  \n\nWeitere Infos <https://aka.ms/JoinTeamsMeeting>  | Besprechungsopt
+	ionen <https://teams.microsoft.com/meetingOptions/?organizerId=a92c6916-f5
+	23-4c1d-9ab7-61b5e6eef3be&tenantId=9652d7c2-1ccf-4940-8151-4a92bd474ed0&th
+	readId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm@thread.
+	v2&messageId=0&language=de-DE>  \n\n______________________________________
+	__________________________________________ \n\n \n\n
+DTEND;TZID="W. Europe Standard Time":20230808T110000
+DTSTAMP:20240215T115105Z
+DTSTART;TZID="W. Europe Standard Time":20230808T103000
+EXDATE;TZID="W. Europe Standard Time":20230919T103000,20231003T103000,20231
+	226T103000,20240102T103000
+LAST-MODIFIED:20240215T161359Z
+LOCATION:Microsoft Teams-Besprechung
+ORGANIZER;CN="Westphal, Benjamin BW. (415)":mailto:benjamin.bw.westphal@mer
+	cedes-benz.com
+PRIORITY:5
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SEQUENCE:29
+SUMMARY;LANGUAGE=de:EDC Weekly | Extended
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=Generato
+	r content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Defin
+	itions */\n@font-face\n	{font-family:Wingdings\;\n	panose-1:5 0 0 0 0 0 0 
+	0 0 0\;}\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 
+	4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 
+	4 3 2 4\;}\n@font-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2
+	 4 2 2 3\;}\n@font-face\n	{font-family:"Segoe UI Semibold"\;\n	panose-1:2 
+	11 7 2 4 2 4 2 2 3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal
+	\, div.MsoNormal\n	{margin:0cm\;\n	font-size:11.0pt\;\n	font-family:"Calib
+	ri"\,sans-serif\;\n	mso-fareast-language:EN-US\;}\na:link\, span.MsoHyperl
+	ink\n	{mso-style-priority:99\;\n	color:#0563C1\;\n	text-decoration:underli
+	ne\;}\np.MsoListParagraph\, li.MsoListParagraph\, div.MsoListParagraph\n	{
+	mso-style-priority:34\;\n	margin-top:0cm\;\n	margin-right:0cm\;\n	margin-b
+	ottom:0cm\;\n	margin-left:36.0pt\;\n	font-size:11.0pt\;\n	font-family:"Cal
+	ibri"\,sans-serif\;\n	mso-fareast-language:EN-US\;}\nspan.E-MailFormatvorl
+	age18\n	{mso-style-type:personal-compose\;\n	font-family:"Calibri"\,sans-s
+	erif\;\n	color:windowtext\;}\n.MsoChpDefault\n	{mso-style-type:export-only
+	\;\n	font-size:10.0pt\;}\n@page WordSection1\n	{size:612.0pt 792.0pt\;\n	m
+	argin:70.85pt 70.85pt 2.0cm 70.85pt\;}\ndiv.WordSection1\n	{page:WordSecti
+	on1\;}\n/* List Definitions */\n@list l0\n	{mso-list-id:668675431\;\n	mso-
+	list-type:hybrid\;\n	mso-list-template-ids:186962884 67698689 67698691 676
+	98693 67698689 67698691 67698693 67698689 67698691 67698693\;}\n@list l0:l
+	evel1\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-
+	level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-18
+	.0pt\;\n	font-family:Symbol\;}\n@list l0:level2\n	{mso-level-number-format
+	:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:none\;\n	mso-level-num
+	ber-position:left\;\n	text-indent:-18.0pt\;\n	font-family:"Courier New"\;}
+	\n@list l0:level3\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F
+	0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	tex
+	t-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list l0:level4\n	{mso-leve
+	l-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:no
+	ne\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-fam
+	ily:Symbol\;}\n@list l0:level5\n	{mso-level-number-format:bullet\;\n	mso-l
+	evel-text:o\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:left
+	\;\n	text-indent:-18.0pt\;\n	font-family:"Courier New"\;}\n@list l0:level6
+	\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0A7\;\n	mso-level
+	-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\
+	;\n	font-family:Wingdings\;}\n@list l0:level7\n	{mso-level-number-format:b
+	ullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-
+	number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@l
+	ist l0:level8\n	{mso-level-number-format:bullet\;\n	mso-level-text:o\;\n	m
+	so-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:
+	-18.0pt\;\n	font-family:"Courier New"\;}\n@list l0:level9\n	{mso-level-num
+	ber-format:bullet\;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\
+	n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:W
+	ingdings\;}\n@list l1\n	{mso-list-id:1167477264\;\n	mso-list-template-ids:
+	978349222\;}\n@list l1:level1\n	{mso-level-number-format:bullet\;\n	mso-le
+	vel-text:\\F0B7\;\n	mso-level-tab-stop:36.0pt\;\n	mso-level-number-positio
+	n:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-fami
+	ly:Symbol\;}\n@list l1:level2\n	{mso-level-number-format:bullet\;\n	mso-le
+	vel-text:\\F0B7\;\n	mso-level-tab-stop:72.0pt\;\n	mso-level-number-positio
+	n:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-fami
+	ly:Symbol\;}\n@list l1:level3\n	{mso-level-number-format:bullet\;\n	mso-le
+	vel-text:\\F0B7\;\n	mso-level-tab-stop:108.0pt\;\n	mso-level-number-positi
+	on:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-fam
+	ily:Symbol\;}\n@list l1:level4\n	{mso-level-number-format:bullet\;\n	mso-l
+	evel-text:\\F0B7\;\n	mso-level-tab-stop:144.0pt\;\n	mso-level-number-posit
+	ion:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-fa
+	mily:Symbol\;}\n@list l1:level5\n	{mso-level-number-format:bullet\;\n	mso-
+	level-text:\\F0B7\;\n	mso-level-tab-stop:180.0pt\;\n	mso-level-number-posi
+	tion:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-f
+	amily:Symbol\;}\n@list l1:level6\n	{mso-level-number-format:bullet\;\n	mso
+	-level-text:\\F0B7\;\n	mso-level-tab-stop:216.0pt\;\n	mso-level-number-pos
+	ition:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-
+	family:Symbol\;}\n@list l1:level7\n	{mso-level-number-format:bullet\;\n	ms
+	o-level-text:\\F0B7\;\n	mso-level-tab-stop:252.0pt\;\n	mso-level-number-po
+	sition:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font
+	-family:Symbol\;}\n@list l1:level8\n	{mso-level-number-format:bullet\;\n	m
+	so-level-text:\\F0B7\;\n	mso-level-tab-stop:288.0pt\;\n	mso-level-number-p
+	osition:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	fon
+	t-family:Symbol\;}\n@list l1:level9\n	{mso-level-number-format:bullet\;\n	
+	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:324.0pt\;\n	mso-level-number-
+	position:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-font-size:10.0pt\;\n	fo
+	nt-family:Symbol\;}\n@list l2\n	{mso-list-id:1424380976\;\n	mso-list-type:
+	hybrid\;\n	mso-list-template-ids:-1361255378 67567631 67567641 67567643 67
+	567631 67567641 67567643 67567631 67567641 67567643\;}\n@list l2:level1\n	
+	{mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-inden
+	t:-18.0pt\;}\n@list l2:level2\n	{mso-level-number-format:alpha-lower\;\n	m
+	so-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:
+	-18.0pt\;}\n@list l2:level3\n	{mso-level-number-format:roman-lower\;\n	mso
+	-level-tab-stop:none\;\n	mso-level-number-position:right\;\n	text-indent:-
+	9.0pt\;}\n@list l2:level4\n	{mso-level-tab-stop:none\;\n	mso-level-number-
+	position:left\;\n	text-indent:-18.0pt\;}\n@list l2:level5\n	{mso-level-num
+	ber-format:alpha-lower\;\n	mso-level-tab-stop:none\;\n	mso-level-number-po
+	sition:left\;\n	text-indent:-18.0pt\;}\n@list l2:level6\n	{mso-level-numbe
+	r-format:roman-lower\;\n	mso-level-tab-stop:none\;\n	mso-level-number-posi
+	tion:right\;\n	text-indent:-9.0pt\;}\n@list l2:level7\n	{mso-level-tab-sto
+	p:none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;}\n@lis
+	t l2:level8\n	{mso-level-number-format:alpha-lower\;\n	mso-level-tab-stop:
+	none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;}\n@list 
+	l2:level9\n	{mso-level-number-format:roman-lower\;\n	mso-level-tab-stop:no
+	ne\;\n	mso-level-number-position:right\;\n	text-indent:-9.0pt\;}\n@list l3
+	\n	{mso-list-id:1625190104\;\n	mso-list-type:hybrid\;\n	mso-list-template-
+	ids:1872891226 67567631 67567641 67567643 67567631 67567641 67567643 67567
+	631 67567641 67567643\;}\n@list l3:level1\n	{mso-level-tab-stop:none\;\n	m
+	so-level-number-position:left\;\n	text-indent:-18.0pt\;}\n@list l3:level2\
+	n	{mso-level-number-format:alpha-lower\;\n	mso-level-tab-stop:none\;\n	mso
+	-level-number-position:left\;\n	text-indent:-18.0pt\;}\n@list l3:level3\n	
+	{mso-level-number-format:roman-lower\;\n	mso-level-tab-stop:none\;\n	mso-l
+	evel-number-position:right\;\n	text-indent:-9.0pt\;}\n@list l3:level4\n	{m
+	so-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:
+	-18.0pt\;}\n@list l3:level5\n	{mso-level-number-format:alpha-lower\;\n	mso
+	-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-1
+	8.0pt\;}\n@list l3:level6\n	{mso-level-number-format:roman-lower\;\n	mso-l
+	evel-tab-stop:none\;\n	mso-level-number-position:right\;\n	text-indent:-9.
+	0pt\;}\n@list l3:level7\n	{mso-level-tab-stop:none\;\n	mso-level-number-po
+	sition:left\;\n	text-indent:-18.0pt\;}\n@list l3:level8\n	{mso-level-numbe
+	r-format:alpha-lower\;\n	mso-level-tab-stop:none\;\n	mso-level-number-posi
+	tion:left\;\n	text-indent:-18.0pt\;}\n@list l3:level9\n	{mso-level-number-
+	format:roman-lower\;\n	mso-level-tab-stop:none\;\n	mso-level-number-positi
+	on:right\;\n	text-indent:-9.0pt\;}\nol\n	{margin-bottom:0cm\;}\nul\n	{marg
+	in-bottom:0cm\;}\n--></style><!--[if gte mso 9]><xml>\n<o:shapedefaults v:
+	ext="edit" spidmax="1026" />\n</xml><![endif]--><!--[if gte mso 9]><xml>\n
+	<o:shapelayout v:ext="edit">\n<o:idmap v:ext="edit" data="1" />\n</o:shape
+	layout></xml><![endif]--></head><body lang=DE link="#0563C1" vlink="#954F7
+	2" style='word-wrap:break-word'><div class=WordSection1><p class=MsoNormal
+	><b><span lang=EN-US style='font-size:24.0pt\;background:red\;mso-highligh
+	t:red'>IMPORTANT UPDATE</span></b><b><span lang=EN-US style='font-size:24.
+	0pt'><o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US><o:p
+	>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>Hello\
+	,<o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&nb
+	sp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>As mention
+	ed before we will move this meeting from confluence directly to Github.<o:
+	p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>Reasons are:
+	<o:p></o:p></span></b></p><ol style='margin-top:0cm' start=1 type=1><li cl
+	ass=MsoListParagraph style='margin-left:0cm\;mso-list:l2 level1 lfo4'><b><
+	span lang=EN-US>Confluence is a licensed service platform and in the futur
+	e not everyone from the open source community might have access to it<o:p>
+	</o:p></span></b></li><li class=MsoListParagraph style='margin-left:0cm\;m
+	so-list:l2 level1 lfo4'><b><span lang=EN-US>Using Github features allows f
+	or faster reaction times. We hope to foster a process where we can address
+	 your questions in a continuous cycle and not just once a week.<o:p></o:p>
+	</span></b></li><li class=MsoListParagraph style='margin-left:0cm\;mso-lis
+	t:l2 level1 lfo4'><b><span lang=EN-US>Only action needed so far\, if you d
+	on&#8217\;t have a Github account yet\, you will need one (free)<o:p></o:p
+	></span></b></li></ol><p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;<
+	/o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>You can find th
+	e EDC repo here:<br><a href="https://github.com/eclipse-tractusx/tractusx-
+	edc/discussions">https://github.com/eclipse-tractusx/tractusx-edc/discussi
+	ons</a><o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US><o
+	:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>Crea
+	ting an item is simple:<o:p></o:p></span></b></p><ol style='margin-top:0cm
+	' start=1 type=1><li class=MsoListParagraph style='margin-left:0cm\;mso-li
+	st:l3 level1 lfo5'><b><span lang=EN-US>Create a new discussion<o:p></o:p><
+	/span></b></li><li class=MsoListParagraph style='margin-left:0cm\;mso-list
+	:l3 level1 lfo5'><b><span lang=EN-US>Select the Q&amp\;A category<o:p></o:
+	p></span></b></li><li class=MsoListParagraph style='margin-left:0cm\;mso-l
+	ist:l3 level1 lfo5'><b><span lang=EN-US>Start the title with the prefix [E
+	xtended Sync]&#8230\;your title goes here<o:p></o:p></span></b></li></ol><
+	p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;</o:p></span></b></p><p 
+	class=MsoNormal><b><span lang=EN-US>Point 3 ensures we are able to filter 
+	accordingly and find your questions fast and easy.<o:p></o:p></span></b></
+	p><p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;</o:p></span></b></p>
+	<p class=MsoNormal><b><span lang=EN-US>If you have any questions please ge
+	t back to me or contact the team via the matrix channel and we will try to
+	 help as fast as possible.<o:p></o:p></span></b></p><p class=MsoNormal><b>
+	<span lang=EN-US><o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><s
+	pan lang=EN-US>Thanks and have a nice day<br>Ben Westphal<o:p></o:p></span
+	></b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;</o:p></span><
+	/b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;</o:p></span></b
+	></p><p class=MsoNormal><b><span lang=EN-US>------------------------------
+	---------------------------<o:p></o:p></span></b></p><p class=MsoNormal><s
+	pan lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span lang=
+	EN-US>Starting from 6<sup>th</sup> June 2023 <b>EDC weekly</b> includes on
+	ly <b>colleagues\, who are working on EDC Stories</b>. During <b>EDC weekl
+	y</b> are discussed <b><u>only</u> topics\, which were planned during PI</
+	b>.<o:p></o:p></span></p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp\;<
+	/o:p></span></p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp\;</o:p></sp
+	an></p><p class=MsoNormal><b><span lang=EN-US style='color:#0000CC'>EDC we
+	ekly extended</span></b><span lang=EN-US style='color:#0000CC'> </span><sp
+	an lang=EN-US>at 10:00 a.m. includes <u>all</u> interested colleagues.<o:p
+	></o:p></span></p><p class=MsoNormal><span lang=EN-US>Confluence page for 
+	<b>topics / questions to discuss </b>during<b> <span style='color:#0000CC'
+	>EDC weekly extended</span></b>: <o:p></o:p></span></p><ul style='margin-t
+	op:0cm' type=disc><li class=MsoNormal style='mso-list:l0 level1 lfo3'><spa
+	n lang=EN-US><a href="https://confluence.catena-x.net/display/ARTI/EDC+Ext
+	ended+Sync">https://confluence.catena-x.net/display/ARTI/EDC+Extended+Sync
+	</a><o:p></o:p></span></li></ul><p class=MsoNormal><span lang=EN-US><o:p>&
+	nbsp\;</o:p></span></p><p class=MsoNormal><span style='color:#5F5F5F'>____
+	__________________________________________________________________________
+	__</span> <span style='font-size:12.0pt'><o:p></o:p></span></p><div><div s
+	tyle='margin-top:18.0pt\;margin-bottom:15.0pt'><p class=MsoNormal><span st
+	yle='font-size:18.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>
+	Microsoft Teams-Besprechung</span><span style='font-family:"Segoe UI"\,san
+	s-serif\;color:#252424'> <o:p></o:p></span></p></div><div style='margin-bo
+	ttom:15.0pt'><div><p class=MsoNormal><b><span style='font-size:10.5pt\;fon
+	t-family:"Segoe UI"\,sans-serif\;color:#252424'>Nehmen Sie auf dem Compute
+	r\, in der mobilen App oder im Raumgerät teil</span></b><b><span style='f
+	ont-family:"Segoe UI"\,sans-serif\;color:#252424'> <o:p></o:p></span></b><
+	/p></div><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-seri
+	f\;color:#252424'><a href="https://teams.microsoft.com/l/meetup-join/19%3a
+	meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40thread.v2/0?con
+	text=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%22
+	%3a%22a92c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d" target="_blank"><span st
+	yle='font-size:10.5pt\;font-family:"Segoe UI Semibold"\,sans-serif\;color:
+	#6264A7'>Hier klicken\, um an der Besprechung teilzunehmen</span></a> <o:p
+	></o:p></span></p></div><div style='margin-top:15.0pt\;margin-bottom:15.0p
+	t'><div style='margin-bottom:3.0pt'><p class=MsoNormal><span style='font-s
+	ize:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Besprechung
+	s-ID: </span><span style='font-family:"Segoe UI"\,sans-serif\;color:#25242
+	4'>325 194 697 429</span><span style='font-size:10.5pt\;font-family:"Segoe
+	 UI"\,sans-serif\;color:#252424'> </span><span style='font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'><br></span><span style='font-size:10.5pt\;f
+	ont-family:"Segoe UI"\,sans-serif\;color:#252424'>Passcode: </span><span s
+	tyle='font-family:"Segoe UI"\,sans-serif\;color:#252424'>LGP8wy <o:p></o:p
+	></span></p><div><p class=MsoNormal><span style='font-size:10.5pt\;font-fa
+	mily:"Segoe UI"\,sans-serif\;color:#252424'><a href="https://www.microsoft
+	.com/en-us/microsoft-teams/download-app" target="_blank"><span style='colo
+	r:#6264A7'>Teams herunterladen</span></a> | <a href="https://www.microsoft
+	.com/microsoft-teams/join-a-meeting" target="_blank"><span style='color:#6
+	264A7'>Im Web beitreten</span></a><o:p></o:p></span></p></div></div></div>
+	<div style='margin-bottom:3.0pt'><p class=MsoNormal><b><span style='font-s
+	ize:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Mit einem V
+	ideokonferenzgerät teilnehmen</span></b><span style='font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'> </span><span style='font-size:12.0pt\;font
+	-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p></span></p></div
+	><div><p class=MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe
+	 UI"\,sans-serif\;color:#252424'><a href="mailto:mercedes-benz@m.webex.com
+	">mercedes-benz@m.webex.com</a> <o:p></o:p></span></p></div><div><p class=
+	MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-seri
+	f\;color:#252424'>Videokonferenz-ID: </span><span style='font-family:"Sego
+	e UI"\,sans-serif\;color:#252424'>128 874 434 1 </span><span style='font-s
+	ize:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p>
+	</span></p></div><div style='margin-bottom:15.0pt'><p class=MsoNormal><spa
+	n style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#2524
+	24'><a href="https://www.webex.com/msteams?confid=1288744341&amp\;tenantke
+	y=mercedes-benz&amp\;domain=m.webex.com"><span style='color:#6264A7'>Alter
+	native VTC-Anweisungen</span></a> <o:p></o:p></span></p></div><div style='
+	margin-bottom:3.0pt'><div style='margin-bottom:3.0pt'><p class=MsoNormal><
+	b><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'>Oder rufen Sie an (nur Audio)</span></b><span style='font-family
+	:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style='font-size:12.
+	0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p></span>
+	</p></div><div style='margin-bottom:3.0pt'><p class=MsoNormal><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="tel:+49693650
+	57583\,\,705051002# "><span style='font-size:10.5pt\;color:#6264A7'>+49 69
+	 365057583\,\,705051002#</span></a> </span><span style='font-size:10.5pt\;
+	font-family:"Segoe UI"\,sans-serif\;color:#252424'>&nbsp\; Germany\, Frank
+	furt am Main </span><span style='font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'><o:p></o:p></span></p></div></div><p class=MsoNormal><span style
+	='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Tel
+	efonkonferenz-ID: </span><span style='font-family:"Segoe UI"\,sans-serif\;
+	color:#252424'>705 051 002# <o:p></o:p></span></p><div style='margin-botto
+	m:15.0pt'><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-ser
+	if\;color:#252424'><a href="https://dialin.teams.microsoft.com/e2cdbd38-53
+	69-4c1b-a0af-ca0e45cfce10?id=705051002" target="_blank"><span style='font-
+	size:10.5pt\;color:#6264A7'>Lokale Nummer suchen</span></a> | <a href="htt
+	ps://dialin.teams.microsoft.com/usp/pstnconferencing" target="_blank"><spa
+	n style='font-size:10.5pt\;color:#6264A7'>PIN zurücksetzen</span></a> <o:
+	p></o:p></span></p></div><div style='margin-top:15.0pt\;margin-bottom:18.0
+	pt'><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-serif\;co
+	lor:#252424'><a href="https://aka.ms/JoinTeamsMeeting" target="_blank"><sp
+	an style='font-size:10.5pt\;color:#6264A7'>Weitere Infos</span></a> | <a h
+	ref="https://teams.microsoft.com/meetingOptions/?organizerId=a92c6916-f523
+	-4c1d-9ab7-61b5e6eef3be&amp\;tenantId=9652d7c2-1ccf-4940-8151-4a92bd474ed0
+	&amp\;threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm
+	@thread.v2&amp\;messageId=0&amp\;language=de-DE" target="_blank"><span sty
+	le='font-size:10.5pt\;color:#6264A7'>Besprechungsoptionen</span></a> <o:p>
+	</o:p></span></p></div></div><div><p class=MsoNormal><span style='color:#5
+	F5F5F'>___________________________________________________________________
+	_____________</span> <span style='font-family:"Times New Roman"\,serif'><o
+	:p></o:p></span></p></div><p class=MsoNormal><o:p>&nbsp\;</o:p></p></div><
+	/body></html>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTLASTSEQUENCE:29
+X-MS-OLK-APPTSEQTIME:20240215T115105Z
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20230822T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20230822T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20230822T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DESCRIPTION:UPDATE 08/18/2023\n\nAdapted the meeting time down to 30 minute
+	s due to former experiences\, can be adapted again if deemed needed in the
+	 future\n\n---------------------------------------------------------------
+	\n\n \n\nUpdate 08/14/2023\n\nAdded andreas.hess01@sap.com <mailto:andreas
+	.hess01@sap.com> \n\n \n\nUpdate 08/09/2023\n\nAdded  Jerzy.Wachowiak@supp
+	lyon.com <mailto:Jerzy.Wachowiak@supplyon.com> \n\n \n\nUpdate 08/08/2023\
+	n\nAdded Daniela Wuensch\n\n \n\n-----------------------------------------
+	----------------\n\n \n\nStarting from 6th June 2023 EDC weekly includes o
+	nly colleagues\, who are working on EDC Stories. During EDC weekly are dis
+	cussed only topics\, which were planned during PI.\n\n \n\n \n\nEDC weekly
+	 extended at 10:00 a.m. includes all interested colleagues.\n\nConfluence 
+	page for topics / questions to discuss during EDC weekly extended: \n\n*	h
+	ttps://confluence.catena-x.net/display/ARTI/EDC+Extended+Sync\n\n \n\n____
+	__________________________________________________________________________
+	__ \n\nMicrosoft Teams-Besprechung \n\nNehmen Sie auf dem Computer\, in de
+	r mobilen App oder im Raumgerät teil \n\nHier klicken\, um an der Besprec
+	hung teilzunehmen <https://teams.microsoft.com/l/meetup-join/19%3ameeting_
+	Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40thread.v2/0?context=%7b
+	%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%22%3a%22a9
+	2c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d>  \n\nBesprechungs-ID: 325 194 69
+	7 429 \nPasscode: LGP8wy \n\nTeams herunterladen <https://www.microsoft.co
+	m/en-us/microsoft-teams/download-app>  | Im Web beitreten <https://www.mic
+	rosoft.com/microsoft-teams/join-a-meeting> \n\nMit einem Videokonferenzger
+	ät teilnehmen \n\nmercedes-benz@m.webex.com <mailto:mercedes-benz@m.webex
+	.com>  \n\nVideokonferenz-ID: 128 874 434 1 \n\nAlternative VTC-Anweisunge
+	n <https://www.webex.com/msteams?confid=1288744341&tenantkey=mercedes-benz
+	&domain=m.webex.com>  \n\nOder rufen Sie an (nur Audio) \n\n+49 69 3650575
+	83\,\,705051002# <tel:+4969365057583\,\,705051002#>    Germany\, Frankfurt
+	 am Main \n\nTelefonkonferenz-ID: 705 051 002# \n\nLokale Nummer suchen <h
+	ttps://dialin.teams.microsoft.com/e2cdbd38-5369-4c1b-a0af-ca0e45cfce10?id=
+	705051002>  | PIN zurücksetzen <https://dialin.teams.microsoft.com/usp/ps
+	tnconferencing>  \n\nWeitere Infos <https://aka.ms/JoinTeamsMeeting>  | Be
+	sprechungsoptionen <https://teams.microsoft.com/meetingOptions/?organizerI
+	d=a92c6916-f523-4c1d-9ab7-61b5e6eef3be&tenantId=9652d7c2-1ccf-4940-8151-4a
+	92bd474ed0&threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDc
+	wNWRm@thread.v2&messageId=0&language=de-DE>  \n\n_________________________
+	_______________________________________________________ \n\n \n\n
+DTEND:20230829T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20230829T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20230829T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=Generato
+	r content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Defin
+	itions */\n@font-face\n	{font-family:Wingdings\;\n	panose-1:5 0 0 0 0 0 0 
+	0 0 0\;}\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 
+	4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 
+	4 3 2 4\;}\n@font-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2
+	 4 2 2 3\;}\n@font-face\n	{font-family:"Segoe UI Semibold"\;\n	panose-1:2 
+	11 7 2 4 2 4 2 2 3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal
+	\, div.MsoNormal\n	{margin:0cm\;\n	margin-bottom:.0001pt\;\n	font-size:11.
+	0pt\;\n	font-family:"Calibri"\,sans-serif\;\n	mso-fareast-language:EN-US\;
+	}\na:link\, span.MsoHyperlink\n	{mso-style-priority:99\;\n	color:#0563C1\;
+	\n	text-decoration:underline\;}\na:visited\, span.MsoHyperlinkFollowed\n	{
+	mso-style-priority:99\;\n	color:#954F72\;\n	text-decoration:underline\;}\n
+	p.msonormal0\, li.msonormal0\, div.msonormal0\n	{mso-style-name:msonormal\
+	;\n	mso-margin-top-alt:auto\;\n	margin-right:0cm\;\n	mso-margin-bottom-alt
+	:auto\;\n	margin-left:0cm\;\n	font-size:12.0pt\;\n	font-family:"Times New 
+	Roman"\,serif\;}\nspan.E-MailFormatvorlage18\n	{mso-style-type:personal-co
+	mpose\;\n	font-family:"Calibri"\,sans-serif\;\n	color:windowtext\;}\n.MsoC
+	hpDefault\n	{mso-style-type:export-only\;\n	font-size:10.0pt\;}\n@page Wor
+	dSection1\n	{size:612.0pt 792.0pt\;\n	margin:70.85pt 70.85pt 2.0cm 70.85pt
+	\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n/* List Definitions */\n@li
+	st l0\n	{mso-list-id:668675431\;\n	mso-list-type:hybrid\;\n	mso-list-templ
+	ate-ids:186962884 67698689 67698691 67698693 67698689 67698691 67698693 67
+	698689 67698691 67698693\;}\n@list l0:level1\n	{mso-level-number-format:bu
+	llet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-n
+	umber-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@li
+	st l0:level2\n	{mso-level-number-format:bullet\;\n	mso-level-text:o\;\n	ms
+	o-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-
+	18.0pt\;\n	font-family:"Courier New"\;}\n@list l0:level3\n	{mso-level-numb
+	er-format:bullet\;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n
+		mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Wi
+	ngdings\;}\n@list l0:level4\n	{mso-level-number-format:bullet\;\n	mso-leve
+	l-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:le
+	ft\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level5\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:
+	none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-f
+	amily:"Courier New"\;}\n@list l0:level6\n	{mso-level-number-format:bullet\
+	;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number
+	-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list
+	 l0:level7\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n
+		mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-inden
+	t:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level8\n	{mso-level-number-f
+	ormat:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:none\;\n	mso-leve
+	l-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:"Courier Ne
+	w"\;}\n@list l0:level9\n	{mso-level-number-format:bullet\;\n	mso-level-tex
+	t:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\
+	n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list l1\n	{mso-list-i
+	d:2043020217\;\n	mso-list-template-ids:-478515820\;}\n@list l1:level1\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:36.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n
+		mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level2\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:72.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n
+		mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level3\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:108.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\
+	n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level4\n	{
+	mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab
+	-stop:144.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;
+	\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level5\n	
+	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-ta
+	b-stop:180.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\
+	;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level6\n
+		{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-t
+	ab-stop:216.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt
+	\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level7\
+	n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-
+	tab-stop:252.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0p
+	t\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level8
+	\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level
+	-tab-stop:288.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0
+	pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level
+	9\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-leve
+	l-tab-stop:324.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.
+	0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\nol\n	{margin-
+	bottom:0cm\;}\nul\n	{margin-bottom:0cm\;}\n--></style><!--[if gte mso 9]><
+	xml>\n<o:shapedefaults v:ext="edit" spidmax="1026" />\n</xml><![endif]--><
+	!--[if gte mso 9]><xml>\n<o:shapelayout v:ext="edit">\n<o:idmap v:ext="edi
+	t" data="1" />\n</o:shapelayout></xml><![endif]--></head><body lang=DE lin
+	k="#0563C1" vlink="#954F72"><div class=WordSection1><p class=MsoNormal><b>
+	<span lang=EN-US style='background:lime\;mso-highlight:lime'>UPDATE 08/18/
+	2023<o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style
+	='background:lime\;mso-highlight:lime'>Adapted the meeting time down to 30
+	 minutes due to former experiences\, can be adapted again if deemed needed
+	 in the future<o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=E
+	N-US style='background:lime\;mso-highlight:lime'>-------------------------
+	--------------------------------------<o:p></o:p></span></b></p><p class=M
+	soNormal><b><span lang=EN-US style='background:lime\;mso-highlight:lime'><
+	o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US sty
+	le='background:lime\;mso-highlight:lime'>Update 08/14/2023<o:p></o:p></spa
+	n></b></p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;m
+	so-highlight:lime'>Added </span></b><b><span lang=EN-US><a href="mailto:an
+	dreas.hess01@sap.com">andreas.hess01@sap.com</a><span style='background:li
+	me\;mso-highlight:lime'><o:p></o:p></span></span></b></p><p class=MsoNorma
+	l><b><span lang=EN-US style='background:lime\;mso-highlight:lime'><o:p>&nb
+	sp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style='bac
+	kground:lime\;mso-highlight:lime'>Update 08/09/2023<o:p></o:p></span></b><
+	/p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;mso-high
+	light:lime'>Added </span></b><b><span lang=EN-US>&nbsp\;<a href="mailto:Je
+	rzy.Wachowiak@supplyon.com">Jerzy.Wachowiak@supplyon.com</a><span style='b
+	ackground:lime\;mso-highlight:lime'><o:p></o:p></span></span></b></p><p cl
+	ass=MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:li
+	me'><o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-U
+	S style='background:lime\;mso-highlight:lime'>Update 08/08/2023<o:p></o:p>
+	</span></b></p><p class=MsoNormal><b><span lang=EN-US style='background:li
+	me\;mso-highlight:lime'>Added Daniela Wuensch</span></b><b><span lang=EN-U
+	S><o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&n
+	bsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>---------
+	------------------------------------------------<o:p></o:p></span></b></p>
+	<p class=MsoNormal><span lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=
+	MsoNormal><span lang=EN-US>Starting from 6<sup>th</sup> June 2023 <b>EDC w
+	eekly</b> includes only <b>colleagues\, who are working on EDC Stories</b>
+	. During <b>EDC weekly</b> are discussed <b><u>only</u> topics\, which wer
+	e planned during PI</b>.<o:p></o:p></span></p><p class=MsoNormal><span lan
+	g=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span lang=EN-US><
+	o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><b><span lang=EN-US style='
+	color:#0000CC'>EDC weekly extended</span></b><span lang=EN-US style='color
+	:#0000CC'> </span><span lang=EN-US>at 10:00 a.m. includes <u>all</u> inter
+	ested colleagues.<o:p></o:p></span></p><p class=MsoNormal><span lang=EN-US
+	>Confluence page for <b>topics / questions to discuss </b>during<b> <span 
+	style='color:#0000CC'>EDC weekly extended</span></b>: <o:p></o:p></span></
+	p><ul style='margin-top:0cm' type=disc><li class=MsoNormal style='mso-list
+	:l0 level1 lfo3'><span lang=EN-US><a href="https://confluence.catena-x.net
+	/display/ARTI/EDC+Extended+Sync">https://confluence.catena-x.net/display/A
+	RTI/EDC+Extended+Sync</a><o:p></o:p></span></li></ul><p class=MsoNormal><s
+	pan lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span style
+	='color:#5F5F5F'>_________________________________________________________
+	_______________________</span> <span style='font-size:12.0pt'><o:p></o:p><
+	/span></p><div><div style='margin-top:18.0pt\;margin-bottom:15.0pt'><p cla
+	ss=MsoNormal><span style='font-size:18.0pt\;font-family:"Segoe UI"\,sans-s
+	erif\;color:#252424'>Microsoft Teams-Besprechung</span><span style='font-f
+	amily:"Segoe UI"\,sans-serif\;color:#252424'> <o:p></o:p></span></p></div>
+	<div style='margin-bottom:15.0pt'><div><p class=MsoNormal><b><span style='
+	font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Nehme
+	n Sie auf dem Computer\, in der mobilen App oder im Raumgerät teil</span>
+	</b><b><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'> <o
+	:p></o:p></span></b></p></div><p class=MsoNormal><span style='font-family:
+	"Segoe UI"\,sans-serif\;color:#252424'><a href="https://teams.microsoft.co
+	m/l/meetup-join/19%3ameeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwN
+	WRm%40thread.v2/0?context=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd
+	474ed0%22%2c%22Oid%22%3a%22a92c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d" tar
+	get="_blank"><span style='font-size:10.5pt\;font-family:"Segoe UI Semibold
+	"\,sans-serif\;color:#6264A7'>Hier klicken\, um an der Besprechung teilzun
+	ehmen</span></a> <o:p></o:p></span></p></div><div style='margin-top:15.0pt
+	\;margin-bottom:15.0pt'><div style='margin-bottom:3.0pt'><p class=MsoNorma
+	l><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'>Besprechungs-ID: </span><span style='font-family:"Segoe UI"\,san
+	s-serif\;color:#252424'>325 194 697 429</span><span style='font-size:10.5p
+	t\;font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'><br></span><span style
+	='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Pas
+	scode: </span><span style='font-family:"Segoe UI"\,sans-serif\;color:#2524
+	24'>LGP8wy <o:p></o:p></span></p><div><p class=MsoNormal><span style='font
+	-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="
+	https://www.microsoft.com/en-us/microsoft-teams/download-app" target="_bla
+	nk"><span style='color:#6264A7'>Teams herunterladen</span></a> | <a href="
+	https://www.microsoft.com/microsoft-teams/join-a-meeting" target="_blank">
+	<span style='color:#6264A7'>Im Web beitreten</span></a><o:p></o:p></span><
+	/p></div></div></div><div style='margin-bottom:3.0pt'><p class=MsoNormal><
+	b><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'>Mit einem Videokonferenzgerät teilnehmen</span></b><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style='f
+	ont-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p><
+	/o:p></span></p></div><div><p class=MsoNormal><span style='font-size:10.5p
+	t\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="mailto:merc
+	edes-benz@m.webex.com">mercedes-benz@m.webex.com</a> <o:p></o:p></span></p
+	></div><div><p class=MsoNormal><span style='font-size:10.5pt\;font-family:
+	"Segoe UI"\,sans-serif\;color:#252424'>Videokonferenz-ID: </span><span sty
+	le='font-family:"Segoe UI"\,sans-serif\;color:#252424'>128 874 434 1 </spa
+	n><span style='font-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'><o:p></o:p></span></p></div><div style='margin-bottom:15.0pt'><p
+	 class=MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sa
+	ns-serif\;color:#252424'><a href="https://www.webex.com/msteams?confid=128
+	8744341&amp\;tenantkey=mercedes-benz&amp\;domain=m.webex.com"><span style=
+	'color:#6264A7'>Alternative VTC-Anweisungen</span></a> <o:p></o:p></span><
+	/p></div><div style='margin-bottom:3.0pt'><div style='margin-bottom:3.0pt'
+	><p class=MsoNormal><b><span style='font-size:10.5pt\;font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'>Oder rufen Sie an (nur Audio)</span></b><sp
+	an style='font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span
+	 style='font-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#25242
+	4'><o:p></o:p></span></p></div><div style='margin-bottom:3.0pt'><p class=M
+	soNormal><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'><
+	a href="tel:+4969365057583\,\,705051002# "><span style='font-size:10.5pt\;
+	color:#6264A7'>+49 69 365057583\,\,705051002#</span></a> </span><span styl
+	e='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>&n
+	bsp\; Germany\, Frankfurt am Main </span><span style='font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'><o:p></o:p></span></p></div></div><p class=
+	MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-seri
+	f\;color:#252424'>Telefonkonferenz-ID: </span><span style='font-family:"Se
+	goe UI"\,sans-serif\;color:#252424'>705 051 002# <o:p></o:p></span></p><di
+	v style='margin-bottom:15.0pt'><p class=MsoNormal><span style='font-family
+	:"Segoe UI"\,sans-serif\;color:#252424'><a href="https://dialin.teams.micr
+	osoft.com/e2cdbd38-5369-4c1b-a0af-ca0e45cfce10?id=705051002" target="_blan
+	k"><span style='font-size:10.5pt\;color:#6264A7'>Lokale Nummer suchen</spa
+	n></a> | <a href="https://dialin.teams.microsoft.com/usp/pstnconferencing"
+	 target="_blank"><span style='font-size:10.5pt\;color:#6264A7'>PIN zurück
+	setzen</span></a> <o:p></o:p></span></p></div><div style='margin-top:15.0p
+	t\;margin-bottom:18.0pt'><p class=MsoNormal><span style='font-family:"Sego
+	e UI"\,sans-serif\;color:#252424'><a href="https://aka.ms/JoinTeamsMeeting
+	" target="_blank"><span style='font-size:10.5pt\;color:#6264A7'>Weitere In
+	fos</span></a> | <a href="https://teams.microsoft.com/meetingOptions/?orga
+	nizerId=a92c6916-f523-4c1d-9ab7-61b5e6eef3be&amp\;tenantId=9652d7c2-1ccf-4
+	940-8151-4a92bd474ed0&amp\;threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg
+	2N2QtNDRkYmUwNDcwNWRm@thread.v2&amp\;messageId=0&amp\;language=de-DE" targ
+	et="_blank"><span style='font-size:10.5pt\;color:#6264A7'>Besprechungsopti
+	onen</span></a> <o:p></o:p></span></p></div></div><div><p class=MsoNormal>
+	<span style='color:#5F5F5F'>______________________________________________
+	__________________________________</span> <span style='font-family:"Times 
+	New Roman"\,serif'><o:p></o:p></span></p></div><p class=MsoNormal><o:p>&nb
+	sp\;</o:p></p></div></body></html>
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20230905T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20230905T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20230905T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20230912T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20230912T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20230912T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20230926T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20230926T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20230926T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231010T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231010T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231010T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231024T090000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231024T083000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231024T083000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DESCRIPTION:UPDATE 08/18/2023\n\nAdapted the meeting time down to 30 minute
+	s due to former experiences\, can be adapted again if deemed needed in the
+	 future\n\n---------------------------------------------------------------
+	\n\n \n\nUpdate 08/14/2023\n\nAdded andreas.hess01@sap.com <mailto:andreas
+	.hess01@sap.com> \n\n \n\nUpdate 08/09/2023\n\nAdded  Jerzy.Wachowiak@supp
+	lyon.com <mailto:Jerzy.Wachowiak@supplyon.com> \n\n \n\nUpdate 08/08/2023\
+	n\nAdded Daniela Wuensch\n\n \n\n-----------------------------------------
+	----------------\n\n \n\nStarting from 6th June 2023 EDC weekly includes o
+	nly colleagues\, who are working on EDC Stories. During EDC weekly are dis
+	cussed only topics\, which were planned during PI.\n\n \n\n \n\nEDC weekly
+	 extended at 10:00 a.m. includes all interested colleagues.\n\nConfluence 
+	page for topics / questions to discuss during EDC weekly extended: \n\n*	h
+	ttps://confluence.catena-x.net/display/ARTI/EDC+Extended+Sync\n\n \n\n____
+	__________________________________________________________________________
+	__ \n\nMicrosoft Teams-Besprechung \n\nNehmen Sie auf dem Computer\, in de
+	r mobilen App oder im Raumgerät teil \n\nHier klicken\, um an der Besprec
+	hung teilzunehmen <https://teams.microsoft.com/l/meetup-join/19%3ameeting_
+	Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40thread.v2/0?context=%7b
+	%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%22%3a%22a9
+	2c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d>  \n\nBesprechungs-ID: 325 194 69
+	7 429 \nPasscode: LGP8wy \n\nTeams herunterladen <https://www.microsoft.co
+	m/en-us/microsoft-teams/download-app>  | Im Web beitreten <https://www.mic
+	rosoft.com/microsoft-teams/join-a-meeting> \n\nMit einem Videokonferenzger
+	ät teilnehmen \n\nmercedes-benz@m.webex.com <mailto:mercedes-benz@m.webex
+	.com>  \n\nVideokonferenz-ID: 128 874 434 1 \n\nAlternative VTC-Anweisunge
+	n <https://www.webex.com/msteams?confid=1288744341&tenantkey=mercedes-benz
+	&domain=m.webex.com>  \n\nOder rufen Sie an (nur Audio) \n\n+49 69 3650575
+	83\,\,705051002# <tel:+4969365057583\,\,705051002#>    Germany\, Frankfurt
+	 am Main \n\nTelefonkonferenz-ID: 705 051 002# \n\nLokale Nummer suchen <h
+	ttps://dialin.teams.microsoft.com/e2cdbd38-5369-4c1b-a0af-ca0e45cfce10?id=
+	705051002>  | PIN zurücksetzen <https://dialin.teams.microsoft.com/usp/ps
+	tnconferencing>  \n\nWeitere Infos <https://aka.ms/JoinTeamsMeeting>  | Be
+	sprechungsoptionen <https://teams.microsoft.com/meetingOptions/?organizerI
+	d=a92c6916-f523-4c1d-9ab7-61b5e6eef3be&tenantId=9652d7c2-1ccf-4940-8151-4a
+	92bd474ed0&threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDc
+	wNWRm@thread.v2&messageId=0&language=de-DE>  \n\n_________________________
+	_______________________________________________________ \n\n \n\n
+DTEND:20231031T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231031T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231031T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=Generato
+	r content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Defin
+	itions */\n@font-face\n	{font-family:Wingdings\;\n	panose-1:5 0 0 0 0 0 0 
+	0 0 0\;}\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 
+	4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 
+	4 3 2 4\;}\n@font-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2
+	 4 2 2 3\;}\n@font-face\n	{font-family:"Segoe UI Semibold"\;\n	panose-1:2 
+	11 7 2 4 2 4 2 2 3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal
+	\, div.MsoNormal\n	{margin:0cm\;\n	margin-bottom:.0001pt\;\n	font-size:11.
+	0pt\;\n	font-family:"Calibri"\,sans-serif\;\n	mso-fareast-language:EN-US\;
+	}\na:link\, span.MsoHyperlink\n	{mso-style-priority:99\;\n	color:#0563C1\;
+	\n	text-decoration:underline\;}\na:visited\, span.MsoHyperlinkFollowed\n	{
+	mso-style-priority:99\;\n	color:#954F72\;\n	text-decoration:underline\;}\n
+	p.msonormal0\, li.msonormal0\, div.msonormal0\n	{mso-style-name:msonormal\
+	;\n	mso-margin-top-alt:auto\;\n	margin-right:0cm\;\n	mso-margin-bottom-alt
+	:auto\;\n	margin-left:0cm\;\n	font-size:12.0pt\;\n	font-family:"Times New 
+	Roman"\,serif\;}\nspan.E-MailFormatvorlage18\n	{mso-style-type:personal-co
+	mpose\;\n	font-family:"Calibri"\,sans-serif\;\n	color:windowtext\;}\n.MsoC
+	hpDefault\n	{mso-style-type:export-only\;\n	font-size:10.0pt\;}\n@page Wor
+	dSection1\n	{size:612.0pt 792.0pt\;\n	margin:70.85pt 70.85pt 2.0cm 70.85pt
+	\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n/* List Definitions */\n@li
+	st l0\n	{mso-list-id:668675431\;\n	mso-list-type:hybrid\;\n	mso-list-templ
+	ate-ids:186962884 67698689 67698691 67698693 67698689 67698691 67698693 67
+	698689 67698691 67698693\;}\n@list l0:level1\n	{mso-level-number-format:bu
+	llet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-n
+	umber-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@li
+	st l0:level2\n	{mso-level-number-format:bullet\;\n	mso-level-text:o\;\n	ms
+	o-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-
+	18.0pt\;\n	font-family:"Courier New"\;}\n@list l0:level3\n	{mso-level-numb
+	er-format:bullet\;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n
+		mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Wi
+	ngdings\;}\n@list l0:level4\n	{mso-level-number-format:bullet\;\n	mso-leve
+	l-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:le
+	ft\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level5\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:
+	none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-f
+	amily:"Courier New"\;}\n@list l0:level6\n	{mso-level-number-format:bullet\
+	;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number
+	-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list
+	 l0:level7\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n
+		mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-inden
+	t:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level8\n	{mso-level-number-f
+	ormat:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:none\;\n	mso-leve
+	l-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:"Courier Ne
+	w"\;}\n@list l0:level9\n	{mso-level-number-format:bullet\;\n	mso-level-tex
+	t:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\
+	n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list l1\n	{mso-list-i
+	d:935601586\;\n	mso-list-template-ids:-1923079716\;}\n@list l1:level1\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:36.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n
+		mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level2\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:72.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n
+		mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level3\n	{m
+	so-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-
+	stop:108.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\
+	n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level4\n	{
+	mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab
+	-stop:144.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;
+	\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level5\n	
+	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-ta
+	b-stop:180.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\
+	;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level6\n
+		{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-t
+	ab-stop:216.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt
+	\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level7\
+	n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-
+	tab-stop:252.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0p
+	t\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level8
+	\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level
+	-tab-stop:288.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0
+	pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level
+	9\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-leve
+	l-tab-stop:324.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.
+	0pt\;\n	mso-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\nol\n	{margin-
+	bottom:0cm\;}\nul\n	{margin-bottom:0cm\;}\n--></style><!--[if gte mso 9]><
+	xml>\n<o:shapedefaults v:ext="edit" spidmax="1026" />\n</xml><![endif]--><
+	!--[if gte mso 9]><xml>\n<o:shapelayout v:ext="edit">\n<o:idmap v:ext="edi
+	t" data="1" />\n</o:shapelayout></xml><![endif]--></head><body lang=DE lin
+	k="#0563C1" vlink="#954F72"><div class=WordSection1><p class=MsoNormal><b>
+	<span lang=EN-US style='background:lime\;mso-highlight:lime'>UPDATE 08/18/
+	2023<o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style
+	='background:lime\;mso-highlight:lime'>Adapted the meeting time down to 30
+	 minutes due to former experiences\, can be adapted again if deemed needed
+	 in the future<o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=E
+	N-US style='background:lime\;mso-highlight:lime'>-------------------------
+	--------------------------------------<o:p></o:p></span></b></p><p class=M
+	soNormal><b><span lang=EN-US style='background:lime\;mso-highlight:lime'><
+	o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US sty
+	le='background:lime\;mso-highlight:lime'>Update 08/14/2023<o:p></o:p></spa
+	n></b></p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;m
+	so-highlight:lime'>Added </span></b><b><span lang=EN-US><a href="mailto:an
+	dreas.hess01@sap.com">andreas.hess01@sap.com</a><span style='background:li
+	me\;mso-highlight:lime'><o:p></o:p></span></span></b></p><p class=MsoNorma
+	l><b><span lang=EN-US style='background:lime\;mso-highlight:lime'><o:p>&nb
+	sp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style='bac
+	kground:lime\;mso-highlight:lime'>Update 08/09/2023<o:p></o:p></span></b><
+	/p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;mso-high
+	light:lime'>Added </span></b><b><span lang=EN-US>&nbsp\;<a href="mailto:Je
+	rzy.Wachowiak@supplyon.com">Jerzy.Wachowiak@supplyon.com</a><span style='b
+	ackground:lime\;mso-highlight:lime'><o:p></o:p></span></span></b></p><p cl
+	ass=MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:li
+	me'><o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-U
+	S style='background:lime\;mso-highlight:lime'>Update 08/08/2023<o:p></o:p>
+	</span></b></p><p class=MsoNormal><b><span lang=EN-US style='background:li
+	me\;mso-highlight:lime'>Added Daniela Wuensch</span></b><b><span lang=EN-U
+	S><o:p></o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&n
+	bsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US>---------
+	------------------------------------------------<o:p></o:p></span></b></p>
+	<p class=MsoNormal><span lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=
+	MsoNormal><span lang=EN-US>Starting from 6<sup>th</sup> June 2023 <b>EDC w
+	eekly</b> includes only <b>colleagues\, who are working on EDC Stories</b>
+	. During <b>EDC weekly</b> are discussed <b><u>only</u> topics\, which wer
+	e planned during PI</b>.<o:p></o:p></span></p><p class=MsoNormal><span lan
+	g=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span lang=EN-US><
+	o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><b><span lang=EN-US style='
+	color:#0000CC'>EDC weekly extended</span></b><span lang=EN-US style='color
+	:#0000CC'> </span><span lang=EN-US>at 10:00 a.m. includes <u>all</u> inter
+	ested colleagues.<o:p></o:p></span></p><p class=MsoNormal><span lang=EN-US
+	>Confluence page for <b>topics / questions to discuss </b>during<b> <span 
+	style='color:#0000CC'>EDC weekly extended</span></b>: <o:p></o:p></span></
+	p><ul style='margin-top:0cm' type=disc><li class=MsoNormal style='mso-list
+	:l0 level1 lfo3'><span lang=EN-US><a href="https://confluence.catena-x.net
+	/display/ARTI/EDC+Extended+Sync">https://confluence.catena-x.net/display/A
+	RTI/EDC+Extended+Sync</a><o:p></o:p></span></li></ul><p class=MsoNormal><s
+	pan lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span style
+	='color:#5F5F5F'>_________________________________________________________
+	_______________________</span> <span style='font-size:12.0pt'><o:p></o:p><
+	/span></p><div><div style='margin-top:18.0pt\;margin-bottom:15.0pt'><p cla
+	ss=MsoNormal><span style='font-size:18.0pt\;font-family:"Segoe UI"\,sans-s
+	erif\;color:#252424'>Microsoft Teams-Besprechung</span><span style='font-f
+	amily:"Segoe UI"\,sans-serif\;color:#252424'> <o:p></o:p></span></p></div>
+	<div style='margin-bottom:15.0pt'><div><p class=MsoNormal><b><span style='
+	font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Nehme
+	n Sie auf dem Computer\, in der mobilen App oder im Raumgerät teil</span>
+	</b><b><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'> <o
+	:p></o:p></span></b></p></div><p class=MsoNormal><span style='font-family:
+	"Segoe UI"\,sans-serif\;color:#252424'><a href="https://teams.microsoft.co
+	m/l/meetup-join/19%3ameeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwN
+	WRm%40thread.v2/0?context=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd
+	474ed0%22%2c%22Oid%22%3a%22a92c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d" tar
+	get="_blank"><span style='font-size:10.5pt\;font-family:"Segoe UI Semibold
+	"\,sans-serif\;color:#6264A7'>Hier klicken\, um an der Besprechung teilzun
+	ehmen</span></a> <o:p></o:p></span></p></div><div style='margin-top:15.0pt
+	\;margin-bottom:15.0pt'><div style='margin-bottom:3.0pt'><p class=MsoNorma
+	l><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'>Besprechungs-ID: </span><span style='font-family:"Segoe UI"\,san
+	s-serif\;color:#252424'>325 194 697 429</span><span style='font-size:10.5p
+	t\;font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'><br></span><span style
+	='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Pas
+	scode: </span><span style='font-family:"Segoe UI"\,sans-serif\;color:#2524
+	24'>LGP8wy <o:p></o:p></span></p><div><p class=MsoNormal><span style='font
+	-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="
+	https://www.microsoft.com/en-us/microsoft-teams/download-app" target="_bla
+	nk"><span style='color:#6264A7'>Teams herunterladen</span></a> | <a href="
+	https://www.microsoft.com/microsoft-teams/join-a-meeting" target="_blank">
+	<span style='color:#6264A7'>Im Web beitreten</span></a><o:p></o:p></span><
+	/p></div></div></div><div style='margin-bottom:3.0pt'><p class=MsoNormal><
+	b><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'>Mit einem Videokonferenzgerät teilnehmen</span></b><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style='f
+	ont-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p><
+	/o:p></span></p></div><div><p class=MsoNormal><span style='font-size:10.5p
+	t\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="mailto:merc
+	edes-benz@m.webex.com">mercedes-benz@m.webex.com</a> <o:p></o:p></span></p
+	></div><div><p class=MsoNormal><span style='font-size:10.5pt\;font-family:
+	"Segoe UI"\,sans-serif\;color:#252424'>Videokonferenz-ID: </span><span sty
+	le='font-family:"Segoe UI"\,sans-serif\;color:#252424'>128 874 434 1 </spa
+	n><span style='font-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color
+	:#252424'><o:p></o:p></span></p></div><div style='margin-bottom:15.0pt'><p
+	 class=MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sa
+	ns-serif\;color:#252424'><a href="https://www.webex.com/msteams?confid=128
+	8744341&amp\;tenantkey=mercedes-benz&amp\;domain=m.webex.com"><span style=
+	'color:#6264A7'>Alternative VTC-Anweisungen</span></a> <o:p></o:p></span><
+	/p></div><div style='margin-bottom:3.0pt'><div style='margin-bottom:3.0pt'
+	><p class=MsoNormal><b><span style='font-size:10.5pt\;font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'>Oder rufen Sie an (nur Audio)</span></b><sp
+	an style='font-family:"Segoe UI"\,sans-serif\;color:#252424'> </span><span
+	 style='font-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#25242
+	4'><o:p></o:p></span></p></div><div style='margin-bottom:3.0pt'><p class=M
+	soNormal><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'><
+	a href="tel:+4969365057583\,\,705051002# "><span style='font-size:10.5pt\;
+	color:#6264A7'>+49 69 365057583\,\,705051002#</span></a> </span><span styl
+	e='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>&n
+	bsp\; Germany\, Frankfurt am Main </span><span style='font-family:"Segoe U
+	I"\,sans-serif\;color:#252424'><o:p></o:p></span></p></div></div><p class=
+	MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-seri
+	f\;color:#252424'>Telefonkonferenz-ID: </span><span style='font-family:"Se
+	goe UI"\,sans-serif\;color:#252424'>705 051 002# <o:p></o:p></span></p><di
+	v style='margin-bottom:15.0pt'><p class=MsoNormal><span style='font-family
+	:"Segoe UI"\,sans-serif\;color:#252424'><a href="https://dialin.teams.micr
+	osoft.com/e2cdbd38-5369-4c1b-a0af-ca0e45cfce10?id=705051002" target="_blan
+	k"><span style='font-size:10.5pt\;color:#6264A7'>Lokale Nummer suchen</spa
+	n></a> | <a href="https://dialin.teams.microsoft.com/usp/pstnconferencing"
+	 target="_blank"><span style='font-size:10.5pt\;color:#6264A7'>PIN zurück
+	setzen</span></a> <o:p></o:p></span></p></div><div style='margin-top:15.0p
+	t\;margin-bottom:18.0pt'><p class=MsoNormal><span style='font-family:"Sego
+	e UI"\,sans-serif\;color:#252424'><a href="https://aka.ms/JoinTeamsMeeting
+	" target="_blank"><span style='font-size:10.5pt\;color:#6264A7'>Weitere In
+	fos</span></a> | <a href="https://teams.microsoft.com/meetingOptions/?orga
+	nizerId=a92c6916-f523-4c1d-9ab7-61b5e6eef3be&amp\;tenantId=9652d7c2-1ccf-4
+	940-8151-4a92bd474ed0&amp\;threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg
+	2N2QtNDRkYmUwNDcwNWRm@thread.v2&amp\;messageId=0&amp\;language=de-DE" targ
+	et="_blank"><span style='font-size:10.5pt\;color:#6264A7'>Besprechungsopti
+	onen</span></a> <o:p></o:p></span></p></div></div><div><p class=MsoNormal>
+	<span style='color:#5F5F5F'>______________________________________________
+	__________________________________</span> <span style='font-family:"Times 
+	New Roman"\,serif'><o:p></o:p></span></p></div><p class=MsoNormal><o:p>&nb
+	sp\;</o:p></p></div></body></html>
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231107T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231107T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231107T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231114T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231114T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231114T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231121T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231121T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231121T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231128T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231128T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231128T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231205T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231205T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231205T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20231212T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231212T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231212T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DESCRIPTION:This is the board to post questions in advance.\nHelps you to n
+	ot forget about ti\, helps us to maybe have a look in advance 😊\n\nht
+	tps://confluence.catena-x.net/pages/viewpage.action?spaceKey=ARTI&title=ED
+	C+Extended+Sync\n\n \n\n \n\nUPDATE 08/18/2023\n\nAdapted the meeting time
+	 down to 30 minutes due to former experiences\, can be adapted again if de
+	emed needed in the future\n\n---------------------------------------------
+	------------------\n\n \n\nUpdate 08/14/2023\n\nAdded andreas.hess01@sap.c
+	om <mailto:andreas.hess01@sap.com> \n\n \n\nUpdate 08/09/2023\n\nAdded  Je
+	rzy.Wachowiak@supplyon.com <mailto:Jerzy.Wachowiak@supplyon.com> \n\n \n\n
+	Update 08/08/2023\n\nAdded Daniela Wuensch\n\n \n\n-----------------------
+	----------------------------------\n\n \n\nStarting from 6th June 2023 EDC
+	 weekly includes only colleagues\, who are working on EDC Stories. During 
+	EDC weekly are discussed only topics\, which were planned during PI.\n\n \
+	n\n \n\nEDC weekly extended at 10:00 a.m. includes all interested colleagu
+	es.\n\nConfluence page for topics / questions to discuss during EDC weekly
+	 extended: \n\n*	https://confluence.catena-x.net/display/ARTI/EDC+Extended
+	+Sync\n\n \n\n____________________________________________________________
+	____________________ \n\nMicrosoft Teams-Besprechung \n\nNehmen Sie auf de
+	m Computer\, in der mobilen App oder im Raumgerät teil \n\nHier klicken\,
+	 um an der Besprechung teilzunehmen <https://teams.microsoft.com/l/meetup-
+	join/19%3ameeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40threa
+	d.v2/0?context=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2
+	c%22Oid%22%3a%22a92c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d>  \n\nBesprechu
+	ngs-ID: 325 194 697 429 \nPasscode: LGP8wy \n\nTeams herunterladen <https:
+	//www.microsoft.com/en-us/microsoft-teams/download-app>  | Im Web beitrete
+	n <https://www.microsoft.com/microsoft-teams/join-a-meeting> \n\nMit einem
+	 Videokonferenzgerät teilnehmen \n\nmercedes-benz@m.webex.com <mailto:mer
+	cedes-benz@m.webex.com>  \n\nVideokonferenz-ID: 128 874 434 1 \n\nAlternat
+	ive VTC-Anweisungen <https://www.webex.com/msteams?confid=1288744341&tenan
+	tkey=mercedes-benz&domain=m.webex.com>  \n\nOder rufen Sie an (nur Audio) 
+	\n\n+49 69 365057583\,\,705051002# <tel:+4969365057583\,\,705051002#>    G
+	ermany\, Frankfurt am Main \n\nTelefonkonferenz-ID: 705 051 002# \n\nLokal
+	e Nummer suchen <https://dialin.teams.microsoft.com/e2cdbd38-5369-4c1b-a0a
+	f-ca0e45cfce10?id=705051002>  | PIN zurücksetzen <https://dialin.teams.mi
+	crosoft.com/usp/pstnconferencing>  \n\nWeitere Infos <https://aka.ms/JoinT
+	eamsMeeting>  | Besprechungsoptionen <https://teams.microsoft.com/meetingO
+	ptions/?organizerId=a92c6916-f523-4c1d-9ab7-61b5e6eef3be&tenantId=9652d7c2
+	-1ccf-4940-8151-4a92bd474ed0&threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhL
+	Tg2N2QtNDRkYmUwNDcwNWRm@thread.v2&messageId=0&language=de-DE>  \n\n_______
+	_________________________________________________________________________ 
+	\n\n \n\n
+DTEND:20231219T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20231219T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20231219T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=Generato
+	r content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font Defin
+	itions */\n@font-face\n	{font-family:Wingdings\;\n	panose-1:5 0 0 0 0 0 0 
+	0 0 0\;}\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 
+	4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 
+	4 3 2 4\;}\n@font-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2
+	 4 2 2 3\;}\n@font-face\n	{font-family:"Segoe UI Semibold"\;\n	panose-1:2 
+	11 7 2 4 2 4 2 2 3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal
+	\, div.MsoNormal\n	{margin:0cm\;\n	font-size:11.0pt\;\n	font-family:"Calib
+	ri"\,sans-serif\;\n	mso-fareast-language:EN-US\;}\na:link\, span.MsoHyperl
+	ink\n	{mso-style-priority:99\;\n	color:#0563C1\;\n	text-decoration:underli
+	ne\;}\nspan.E-MailFormatvorlage18\n	{mso-style-type:personal-compose\;\n	f
+	ont-family:"Calibri"\,sans-serif\;\n	color:windowtext\;}\n.MsoChpDefault\n
+		{mso-style-type:export-only\;\n	font-size:10.0pt\;}\n@page WordSection1\n
+		{size:612.0pt 792.0pt\;\n	margin:70.85pt 70.85pt 2.0cm 70.85pt\;}\ndiv.Wo
+	rdSection1\n	{page:WordSection1\;}\n/* List Definitions */\n@list l0\n	{ms
+	o-list-id:668675431\;\n	mso-list-type:hybrid\;\n	mso-list-template-ids:186
+	962884 67698689 67698691 67698693 67698689 67698691 67698693 67698689 6769
+	8691 67698693\;}\n@list l0:level1\n	{mso-level-number-format:bullet\;\n	ms
+	o-level-text:\\F0B7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-posit
+	ion:left\;\n	text-indent:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level
+	2\n	{mso-level-number-format:bullet\;\n	mso-level-text:o\;\n	mso-level-tab
+	-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	
+	font-family:"Courier New"\;}\n@list l0:level3\n	{mso-level-number-format:b
+	ullet\;\n	mso-level-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-
+	number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\
+	n@list l0:level4\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0
+	B7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text
+	-indent:-18.0pt\;\n	font-family:Symbol\;}\n@list l0:level5\n	{mso-level-nu
+	mber-format:bullet\;\n	mso-level-text:o\;\n	mso-level-tab-stop:none\;\n	ms
+	o-level-number-position:left\;\n	text-indent:-18.0pt\;\n	font-family:"Cour
+	ier New"\;}\n@list l0:level6\n	{mso-level-number-format:bullet\;\n	mso-lev
+	el-text:\\F0A7\;\n	mso-level-tab-stop:none\;\n	mso-level-number-position:l
+	eft\;\n	text-indent:-18.0pt\;\n	font-family:Wingdings\;}\n@list l0:level7\
+	n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-
+	tab-stop:none\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;
+	\n	font-family:Symbol\;}\n@list l0:level8\n	{mso-level-number-format:bulle
+	t\;\n	mso-level-text:o\;\n	mso-level-tab-stop:none\;\n	mso-level-number-po
+	sition:left\;\n	text-indent:-18.0pt\;\n	font-family:"Courier New"\;}\n@lis
+	t l0:level9\n	{mso-level-number-format:bullet\;\n	mso-level-text:\\F0A7\;\
+	n	mso-level-tab-stop:none\;\n	mso-level-number-position:left\;\n	text-inde
+	nt:-18.0pt\;\n	font-family:Wingdings\;}\n@list l1\n	{mso-list-id:186909653
+	7\;\n	mso-list-template-ids:-559926960\;}\n@list l1:level1\n	{mso-level-nu
+	mber-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:36.0pt
+	\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-f
+	ont-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level2\n	{mso-level-nu
+	mber-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:72.0pt
+	\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-f
+	ont-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level3\n	{mso-level-nu
+	mber-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:108.0p
+	t\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-ansi-
+	font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level4\n	{mso-level-n
+	umber-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:144.0
+	pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-ansi
+	-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level5\n	{mso-level-
+	number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:180.
+	0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-ans
+	i-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level6\n	{mso-level
+	-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:216
+	.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-an
+	si-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level7\n	{mso-leve
+	l-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:25
+	2.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-a
+	nsi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level8\n	{mso-lev
+	el-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:2
+	88.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso-
+	ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\n@list l1:level9\n	{mso-le
+	vel-number-format:bullet\;\n	mso-level-text:\\F0B7\;\n	mso-level-tab-stop:
+	324.0pt\;\n	mso-level-number-position:left\;\n	text-indent:-18.0pt\;\n	mso
+	-ansi-font-size:10.0pt\;\n	font-family:Symbol\;}\nol\n	{margin-bottom:0cm\
+	;}\nul\n	{margin-bottom:0cm\;}\n--></style><!--[if gte mso 9]><xml>\n<o:sh
+	apedefaults v:ext="edit" spidmax="1026" />\n</xml><![endif]--><!--[if gte 
+	mso 9]><xml>\n<o:shapelayout v:ext="edit">\n<o:idmap v:ext="edit" data="1"
+	 />\n</o:shapelayout></xml><![endif]--></head><body lang=DE link="#0563C1"
+	 vlink="#954F72" style='word-wrap:break-word'><div class=WordSection1><p c
+	lass=MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:l
+	ime'>This is the board to post questions in advance.<br>Helps you to not f
+	orget about ti\, helps us to maybe have a look in advance </span></b><b><s
+	pan lang=EN-US style='font-family:"Segoe UI Emoji"\,sans-serif\;background
+	:lime\;mso-highlight:lime'>&#128522\;</span></b><b><span lang=EN-US style=
+	'background:lime\;mso-highlight:lime'><o:p></o:p></span></b></p><p class=M
+	soNormal><b><span lang=EN-US><a href="https://confluence.catena-x.net/page
+	s/viewpage.action?spaceKey=ARTI&amp\;title=EDC+Extended+Sync">https://conf
+	luence.catena-x.net/pages/viewpage.action?spaceKey=ARTI&amp\;title=EDC+Ext
+	ended+Sync</a><span style='background:lime\;mso-highlight:lime'><o:p></o:p
+	></span></span></b></p><p class=MsoNormal><b><span lang=EN-US style='backg
+	round:lime\;mso-highlight:lime'><o:p>&nbsp\;</o:p></span></b></p><p class=
+	MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:lime'>
+	<o:p>&nbsp\;</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US st
+	yle='background:lime\;mso-highlight:lime'>UPDATE 08/18/2023<o:p></o:p></sp
+	an></b></p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;
+	mso-highlight:lime'>Adapted the meeting time down to 30 minutes due to for
+	mer experiences\, can be adapted again if deemed needed in the future<o:p>
+	</o:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style='backgro
+	und:lime\;mso-highlight:lime'>--------------------------------------------
+	-------------------<o:p></o:p></span></b></p><p class=MsoNormal><b><span l
+	ang=EN-US style='background:lime\;mso-highlight:lime'><o:p>&nbsp\;</o:p></
+	span></b></p><p class=MsoNormal><b><span lang=EN-US style='background:lime
+	\;mso-highlight:lime'>Update 08/14/2023<o:p></o:p></span></b></p><p class=
+	MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:lime'>
+	Added </span></b><b><span lang=EN-US><a href="mailto:andreas.hess01@sap.co
+	m">andreas.hess01@sap.com</a><span style='background:lime\;mso-highlight:l
+	ime'><o:p></o:p></span></span></b></p><p class=MsoNormal><b><span lang=EN-
+	US style='background:lime\;mso-highlight:lime'><o:p>&nbsp\;</o:p></span></
+	b></p><p class=MsoNormal><b><span lang=EN-US style='background:lime\;mso-h
+	ighlight:lime'>Update 08/09/2023<o:p></o:p></span></b></p><p class=MsoNorm
+	al><b><span lang=EN-US style='background:lime\;mso-highlight:lime'>Added <
+	/span></b><b><span lang=EN-US>&nbsp\;<a href="mailto:Jerzy.Wachowiak@suppl
+	yon.com">Jerzy.Wachowiak@supplyon.com</a><span style='background:lime\;mso
+	-highlight:lime'><o:p></o:p></span></span></b></p><p class=MsoNormal><b><s
+	pan lang=EN-US style='background:lime\;mso-highlight:lime'><o:p>&nbsp\;</o
+	:p></span></b></p><p class=MsoNormal><b><span lang=EN-US style='background
+	:lime\;mso-highlight:lime'>Update 08/08/2023<o:p></o:p></span></b></p><p c
+	lass=MsoNormal><b><span lang=EN-US style='background:lime\;mso-highlight:l
+	ime'>Added Daniela Wuensch</span></b><b><span lang=EN-US><o:p></o:p></span
+	></b></p><p class=MsoNormal><b><span lang=EN-US><o:p>&nbsp\;</o:p></span><
+	/b></p><p class=MsoNormal><b><span lang=EN-US>----------------------------
+	-----------------------------<o:p></o:p></span></b></p><p class=MsoNormal>
+	<span lang=EN-US><o:p>&nbsp\;</o:p></span></p><p class=MsoNormal><span lan
+	g=EN-US>Starting from 6<sup>th</sup> June 2023 <b>EDC weekly</b> includes 
+	only <b>colleagues\, who are working on EDC Stories</b>. During <b>EDC wee
+	kly</b> are discussed <b><u>only</u> topics\, which were planned during PI
+	</b>.<o:p></o:p></span></p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp\
+	;</o:p></span></p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp\;</o:p></
+	span></p><p class=MsoNormal><b><span lang=EN-US style='color:#0000CC'>EDC 
+	weekly extended</span></b><span lang=EN-US style='color:#0000CC'> </span><
+	span lang=EN-US>at 10:00 a.m. includes <u>all</u> interested colleagues.<o
+	:p></o:p></span></p><p class=MsoNormal><span lang=EN-US>Confluence page fo
+	r <b>topics / questions to discuss </b>during<b> <span style='color:#0000C
+	C'>EDC weekly extended</span></b>: <o:p></o:p></span></p><ul style='margin
+	-top:0cm' type=disc><li class=MsoNormal style='mso-list:l0 level1 lfo3'><s
+	pan lang=EN-US><a href="https://confluence.catena-x.net/display/ARTI/EDC+E
+	xtended+Sync">https://confluence.catena-x.net/display/ARTI/EDC+Extended+Sy
+	nc</a><o:p></o:p></span></li></ul><p class=MsoNormal><span lang=EN-US><o:p
+	>&nbsp\;</o:p></span></p><p class=MsoNormal><span style='color:#5F5F5F'>__
+	__________________________________________________________________________
+	____</span> <span style='font-size:12.0pt'><o:p></o:p></span></p><div><div
+	 style='margin-top:18.0pt\;margin-bottom:15.0pt'><p class=MsoNormal><span 
+	style='font-size:18.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424
+	'>Microsoft Teams-Besprechung</span><span style='font-family:"Segoe UI"\,s
+	ans-serif\;color:#252424'> <o:p></o:p></span></p></div><div style='margin-
+	bottom:15.0pt'><div><p class=MsoNormal><b><span style='font-size:10.5pt\;f
+	ont-family:"Segoe UI"\,sans-serif\;color:#252424'>Nehmen Sie auf dem Compu
+	ter\, in der mobilen App oder im Raumgerät teil</span></b><b><span style=
+	'font-family:"Segoe UI"\,sans-serif\;color:#252424'> <o:p></o:p></span></b
+	></p></div><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-se
+	rif\;color:#252424'><a href="https://teams.microsoft.com/l/meetup-join/19%
+	3ameeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNWRm%40thread.v2/0?c
+	ontext=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%
+	22%3a%22a92c6916-f523-4c1d-9ab7-61b5e6eef3be%22%7d" target="_blank"><span 
+	style='font-size:10.5pt\;font-family:"Segoe UI Semibold"\,sans-serif\;colo
+	r:#6264A7'>Hier klicken\, um an der Besprechung teilzunehmen</span></a> <o
+	:p></o:p></span></p></div><div style='margin-top:15.0pt\;margin-bottom:15.
+	0pt'><div style='margin-bottom:3.0pt'><p class=MsoNormal><span style='font
+	-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Besprechu
+	ngs-ID: </span><span style='font-family:"Segoe UI"\,sans-serif\;color:#252
+	424'>325 194 697 429</span><span style='font-size:10.5pt\;font-family:"Seg
+	oe UI"\,sans-serif\;color:#252424'> </span><span style='font-family:"Segoe
+	 UI"\,sans-serif\;color:#252424'><br></span><span style='font-size:10.5pt\
+	;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Passcode: </span><span
+	 style='font-family:"Segoe UI"\,sans-serif\;color:#252424'>LGP8wy <o:p></o
+	:p></span></p><div><p class=MsoNormal><span style='font-size:10.5pt\;font-
+	family:"Segoe UI"\,sans-serif\;color:#252424'><a href="https://www.microso
+	ft.com/en-us/microsoft-teams/download-app" target="_blank"><span style='co
+	lor:#6264A7'>Teams herunterladen</span></a> | <a href="https://www.microso
+	ft.com/microsoft-teams/join-a-meeting" target="_blank"><span style='color:
+	#6264A7'>Im Web beitreten</span></a><o:p></o:p></span></p></div></div></di
+	v><div style='margin-bottom:3.0pt'><p class=MsoNormal><b><span style='font
+	-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>Mit einem
+	 Videokonferenzgerät teilnehmen</span></b><span style='font-family:"Segoe
+	 UI"\,sans-serif\;color:#252424'> </span><span style='font-size:12.0pt\;fo
+	nt-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p></span></p></d
+	iv><div><p class=MsoNormal><span style='font-size:10.5pt\;font-family:"Seg
+	oe UI"\,sans-serif\;color:#252424'><a href="mailto:mercedes-benz@m.webex.c
+	om">mercedes-benz@m.webex.com</a> <o:p></o:p></span></p></div><div><p clas
+	s=MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-se
+	rif\;color:#252424'>Videokonferenz-ID: </span><span style='font-family:"Se
+	goe UI"\,sans-serif\;color:#252424'>128 874 434 1 </span><span style='font
+	-size:12.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:
+	p></span></p></div><div style='margin-bottom:15.0pt'><p class=MsoNormal><s
+	pan style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#25
+	2424'><a href="https://www.webex.com/msteams?confid=1288744341&amp\;tenant
+	key=mercedes-benz&amp\;domain=m.webex.com"><span style='color:#6264A7'>Alt
+	ernative VTC-Anweisungen</span></a> <o:p></o:p></span></p></div><div style
+	='margin-bottom:3.0pt'><div style='margin-bottom:3.0pt'><p class=MsoNormal
+	><b><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;col
+	or:#252424'>Oder rufen Sie an (nur Audio)</span></b><span style='font-fami
+	ly:"Segoe UI"\,sans-serif\;color:#252424'> </span><span style='font-size:1
+	2.0pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p></spa
+	n></p></div><div style='margin-bottom:3.0pt'><p class=MsoNormal><span styl
+	e='font-family:"Segoe UI"\,sans-serif\;color:#252424'><a href="tel:+496936
+	5057583\,\,705051002# "><span style='font-size:10.5pt\;color:#6264A7'>+49 
+	69 365057583\,\,705051002#</span></a> </span><span style='font-size:10.5pt
+	\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>&nbsp\; Germany\, Fra
+	nkfurt am Main </span><span style='font-family:"Segoe UI"\,sans-serif\;col
+	or:#252424'><o:p></o:p></span></p></div></div><p class=MsoNormal><span sty
+	le='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'>T
+	elefonkonferenz-ID: </span><span style='font-family:"Segoe UI"\,sans-serif
+	\;color:#252424'>705 051 002# <o:p></o:p></span></p><div style='margin-bot
+	tom:15.0pt'><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-s
+	erif\;color:#252424'><a href="https://dialin.teams.microsoft.com/e2cdbd38-
+	5369-4c1b-a0af-ca0e45cfce10?id=705051002" target="_blank"><span style='fon
+	t-size:10.5pt\;color:#6264A7'>Lokale Nummer suchen</span></a> | <a href="h
+	ttps://dialin.teams.microsoft.com/usp/pstnconferencing" target="_blank"><s
+	pan style='font-size:10.5pt\;color:#6264A7'>PIN zurücksetzen</span></a> <
+	o:p></o:p></span></p></div><div style='margin-top:15.0pt\;margin-bottom:18
+	.0pt'><p class=MsoNormal><span style='font-family:"Segoe UI"\,sans-serif\;
+	color:#252424'><a href="https://aka.ms/JoinTeamsMeeting" target="_blank"><
+	span style='font-size:10.5pt\;color:#6264A7'>Weitere Infos</span></a> | <a
+	 href="https://teams.microsoft.com/meetingOptions/?organizerId=a92c6916-f5
+	23-4c1d-9ab7-61b5e6eef3be&amp\;tenantId=9652d7c2-1ccf-4940-8151-4a92bd474e
+	d0&amp\;threadId=19_meeting_Y2JmZWMzNDktNmFkMC00ZThhLTg2N2QtNDRkYmUwNDcwNW
+	Rm@thread.v2&amp\;messageId=0&amp\;language=de-DE" target="_blank"><span s
+	tyle='font-size:10.5pt\;color:#6264A7'>Besprechungsoptionen</span></a> <o:
+	p></o:p></span></p></div></div><div><p class=MsoNormal><span style='color:
+	#5F5F5F'>_________________________________________________________________
+	_______________</span> <span style='font-family:"Times New Roman"\,serif'>
+	<o:p></o:p></span></p></div><p class=MsoNormal><o:p>&nbsp\;</o:p></p></div
+	></body></html>
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20240109T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20240109T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20240109T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20240116T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20240116T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20240116T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20240130T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20240130T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20240130T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20240206T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20240206T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20240206T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240215T161359Z
+DTEND:20240213T100000Z
+DTSTAMP:20240215T161359Z
+DTSTART:20240213T093000Z
+LAST-MODIFIED:20240215T161359Z
+PRIORITY:5
+RECURRENCE-ID:20240213T093000Z
+SEQUENCE:0
+UID:040000008200E00074C5B7101A82E0080000000080F26B18F4C5D901000000000000000
+	0100000003E73F0D511A5CB4AA38B08E4DD6EA74B
+X-MICROSOFT-CDO-IMPORTANCE:1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

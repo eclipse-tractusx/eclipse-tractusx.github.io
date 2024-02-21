@@ -2,17 +2,16 @@
 title: TRG 2.03 - Repo structure
 ---
 
-| Status | Created     | Post-History                               |
-|--------|-------------|--------------------------------------------|
-| Active | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE |
-|        | 24-Nov-2022 | add FOSS/Eclipse related basic files       |
-|        | 10-Nov-2022 | Initial release                            |
+| Status | Created     | Post-History                                  |
+|--------|-------------|-----------------------------------------------|
+| Active | 06-Dec-2023 | reword Why section + highlight optional files |
+|        | 25-Nov-2022 | adjustments to DEPENDENCY, LICENSE, NOTICE    |
+|        | 24-Nov-2022 | add FOSS/Eclipse related basic files          |
+|        | 10-Nov-2022 | Initial release                               |
 
 ## Why
 
-We are part of the Eclipse Foundation which requires compliance to the Eclipse Foundation rules. This also includes open and collaborative Open Source working model.
-
-Therefore, we need to follow the Eclipse Foundation and Open Source standards.
+In order to foster consistency, collaboration and ease of navigation, adhereing to a specific repository structure is important. The structure serves a standardized framework, facilitating efficient development by providing a clear organisation of essential project components. By adopting recommended layout of files and directories, contributors can quickly locate resources such as source code, documentation and configuration files. Moreover specified repository structure aligns with industry best practices.
 
 ## Description
 
@@ -21,15 +20,20 @@ All repositories **must** contain the following files and folders:
 ```shell
 /docs
 /charts
-AUTHORS.md
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 DEPENDENCIES
 LICENSE
 NOTICE.md
 README.md
-INSTALL.md
 SECURITY.md
+```
+
+Recommended but optional:
+
+```shell
+AUTHORS.md
+INSTALL.md
 ```
 
 ### Directories
