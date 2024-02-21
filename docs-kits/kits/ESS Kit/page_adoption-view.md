@@ -166,57 +166,104 @@ Catena-X offers various semantic models depending on the specific application an
 
 The data model follows the Catena-X Standard CX-0113 (<https://catena-x.net/de/standard-library>) and is modelled following the CX-0003 Standard (<https://catena-x.net/de/standard-library>). Below, you can find an excerpt of the full data set:
 
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Attribute Name            | Description                                                                                                                          | Example                                                                                                                                                              |
-+===========================+======================================================================================================================================+======================================================================================================================================================================+
-| ESS Incident Information  |                                                                                                                                      |                                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Category and sub-category | Environmental and social standards related incident category according to Supply Chain Due Diligence Act                             | Environmental (ex: usage of mercury, usage of harmful chemicals) \| Social (ex: child labour, work safety, discrimination)                                           |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Subject and description   | Title of an incident in the context of ESS (Environmental and Social Standards) with its description                                 | Child labour in country x for product y reported. Small children under the age of 15 clean barrels with bare hands and under dubious working and payment conditions. |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Attachment(s)             | Picture(s) about the reported incident in the context of ESS (Environmental and Social Standards)                                    | Upload picture about child work in country x for product y or upload other additional documents/reports#                                                             |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Date                      | Date and time information when an incident occurred                                                                                  | 2022-08-31T00:00:00Z                                                                                                                                                 |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Product Information       |                                                                                                                                      |                                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Description               | Description of product or component affected by an incident in the context of ESS (Environmental and Social Standards)               | Natural Rubber                                                                                                                                                       |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Raw material              | Raw material that causes an incident in the context of ESS (Environmental and Social Standards)                                      | Mercury \| Cobalt \| Natural Rubber                                                                                                                                  |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Company information       |                                                                                                                                      |                                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Country subdivision       | Region within a country to which an incident in the context of ESS (Environmental and Social Standards) belongs                      | Sao Paolo                                                                                                                                                            |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Coordinates               | Exact geographic position of an incident in the context of ESS (Environmental and Social Standards)                                  | Longitude and Latitude (will be entered automatically)                                                                                                               |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Company name              | Name of a company / an organisation that is the originator of an incident in the context of ESS (Environmental and Social Standards) | ABC company                                                                                                                                                          |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Address                   | Address of ESS originator (street, zip code, city\...)                                                                               | Mainroad 1                                                                                                                                                           |
-|                           |                                                                                                                                      |                                                                                                                                                                      |
-|                           |                                                                                                                                      | 73230 Model City                                                                                                                                                     |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| BpnL / BpnS / BpnA        | BPN-L/S/A of the company that causes the incident                                                                                    | Rubbery Ltd. (BPN-L)                                                                                                                                                 |
-|                           |                                                                                                                                      |                                                                                                                                                                      |
-|                           |                                                                                                                                      | Site in Dingolfing (BPN-S)                                                                                                                                           |
-|                           |                                                                                                                                      |                                                                                                                                                                      |
-|                           |                                                                                                                                      | Dingolfing Werksstrasse 1, Tor 2.1 (BPN-A)                                                                                                                           |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Contact Information       |                                                                                                                                      |                                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| First and last Name       | Contact name of ESS incident issuer                                                                                                  | Camille Mustermensch                                                                                                                                                 |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| E-Mail Address            | E-Mail address of ESS incident issuer                                                                                                | <xyz.abc@xxx.com>                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Phone number              | Phone number of ESS incident issuer                                                                                                  | +49 89 123456789                                                                                                                                                     |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Address                   | Address of ESS incident issuer                                                                                                       | XYZ-Road                                                                                                                                                             |
-|                           |                                                                                                                                      |                                                                                                                                                                      |
-|                           |                                                                                                                                      | 73230 Kirchheim                                                                                                                                                      |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Anonymous                 | Flag that Incident issuer wants to be anonymous                                                                                      | Checkbox: ticked / not ticked                                                                                                                                        |
-+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<table>
+    <tr>
+      <th>Section</th>
+      <th>Attribute name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td rowspan="4">ESS incident information</td>
+      <td>Category and sub-category</td>
+      <td>Environmental and social standards related incident category according to Supply Chain Due Diligence Act</td>
+      <td>Environmental (ex: usage of mercury, usage of harmful chemicals) | Social (ex: child labour, work safety, discrimination)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Subject and description</td>
+      <td>Title of an incident in the context of ESS (Environmental and Social Standards) with its description</td>
+      <td>Child labour in country x for product y reported. Small children under the age of 15 clean barrels with bare hands and under dubious working and payment conditions.</td>
+    </tr>
+    <tr>
+        <td>Attachment(s)</td>
+        <td>Picture(s) about the reported incident in the context of ESS (Environmental and Social Standards)</td>
+        <td>Upload picture about child work in country x for product y or upload other additional documents/reports#</td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>Date and time information when an incident occurred</td>
+        <td>2022-08-31T00:00:00Z</td>>
+    </tr>
+    <tr>
+        <td rowspan="2">Product information</td>
+        <td>Description</td>
+        <td>Description of product or component affected by an incident in the context of ESS (Environmental and Social Standards) </td>
+        <td>Natural Rubber</td>
+    </tr>
+    <tr>
+        <td>Raw material</td>
+        <td>Raw material that causes an incident in the context of ESS (Environmental and Social Standards)</td>
+        <td>Mercury | Cobalt | Natural Rubber</td>
+    </tr>
+    <tr>
+        <td rowspan="5">Company information</td>
+        <td>Country subdivision</td>
+        <td>Region within a country to which an incident in the context of ESS (Environmental and Social Standards) belongs</td>
+        <td>Sao Paolo</td>
+    </tr>
+    <tr>
+        <td>Coordinates</td>
+        <td>Exact geographic position of an incident in the context of ESS (Environmental and Social Standards)</td>
+        <td>Longitude and Latitude (will be entered automatically)</td>
+    </tr>
+    <tr>
+        <td>Company name</td>
+        <td>Name of a company / an organisation that is the originator of an incident in the context of ESS (Environmental and Social Standards)</td>
+        <td>ABC Company</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>Address of ESS originator (street, zip code, city...)</td>
+        <td><p>Mainroad 1</p>
+            <p>73230 Model City</p></td>
+    </tr>
+    <tr>
+        <td>BpnL / BpnS / BpnA</td>
+        <td>BPN-L/S/A of the company that causes the incident</td>
+        <td><p>Rubbery Ltd. (BPN-L)</p>
+            <p>Site in Dingolfing (BPN-S)</p>
+            <p>Dingolfing Werksstrasse 1, Tor 2.1 (BPN-A)</p>
+    </tr>
+    <tr>
+        <td rowspan="5">Contact information</td>
+        <td>First and last Name</td>
+        <td>Contact name of ESS incident issuer</td>
+        <td>Camille Mustermensch</td>
+    </tr>
+    <tr>
+        <td>E-Mail Address</td>
+        <td>E-Mail address of ESS incident issuer</td>
+        <td>xyz.abc@xxx.com</td>
+    </tr>
+    <tr>
+        <td>Phone number</td>
+        <td>Phone number of ESS incident issuer</td>
+        <td>+49 89 123456789</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>Address of ESS incident issuer</td>
+        <td><p>XYZ-Road</p>
+            <p>73230 Kirchheim</p></td>
+    </tr>
+    <tr>
+        <td>Anonymous</td>
+        <td>Flag that Incident issuer wants to be anonymous</td>
+        <td>Checkbox: ticked / not ticked</td>
+    </tr>
+  </table>
+
 
 ## Business process
 
