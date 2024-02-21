@@ -182,11 +182,14 @@ The data model follows the Catena-X Standard CX-0113 (https://catena-x.net/de/st
 | Anonymous                 | Flag that Incident issuer wants to be anonymous                                                                                      | Checkbox: ticked / not ticked                                                                                                                                        |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-### Schema / Business architecture
+
+## Business process 
+
+### Business architecture
 
 ![](media/CatenaX_ESS_KitBusinessArchitecture.png){width="5.82823709536308in" height="3.076013779527559in"}
 
-### Code of conduct
+### Access & Usage Policies / Code of conduct
 
 In the Catena-X Use Case Sustainability / Environmental and Social Standards, principles are established with the aim to establish transparent and trustworthy practices within the Catena-X network. These principles are based on legal regulations such as the German Supply Chain Due Diligence Act (or LkSG) and the European Union\'s Supply Chain Due Diligence Act, as well as internationally recognized standards such as the International Bill of Human Rights, the UN Guiding Principles on Business and Human Rights, the OECD Guidelines for Multinational Enterprises, the ILO Core Labour Standards, and the principles of the UN Global Compact.
 
