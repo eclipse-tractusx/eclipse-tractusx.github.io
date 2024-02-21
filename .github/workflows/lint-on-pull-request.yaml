@@ -41,5 +41,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run markdown lint
+      - name: Run markdown lint for docs folder
         run: npm run lint-doc
+
+      - name: Run markdown lint for docs-kits folder
+        run: npm run lint-kits
