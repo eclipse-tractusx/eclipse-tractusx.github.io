@@ -9,7 +9,7 @@
  * https://www.apache.org/licenses/LICENSE-2.0.
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations
  * under the License.
@@ -19,48 +19,48 @@
 import React from 'react';
 
 export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = []}) {
-  return (
-    <section style={meetingInfo}>
-      <div style={meetingOverview}>
-        <h2 style={meetingTitle}>{title}</h2>
-        <div style={meetingSchedule}>{schedule}</div>
-      </div>
-      <div style={meetingDetails}>
-        <p>{description}</p>
+    return (
+        <section style={meetingInfo}>
+            <div style={meetingOverview}>
+                <h2 style={meetingTitle}>{title}</h2>
+                <div style={meetingSchedule}>{schedule}</div>
+            </div>
+            <div style={meetingDetails}>
+                <p>{description}</p>
 
-        <ul>
-          <li style={itemTitle}>Contact:</li>
-          <li style={itemLink}>
-            <a href={"mailto:" + contact}>{contact}</a>
-          </li>
-        </ul>
+                <ul>
+                    <li style={itemTitle}>Contact:</li>
+                    <li style={itemLink}>
+                        <a href={"mailto:" + contact}>{contact}</a>
+                    </li>
+                </ul>
 
-        <ul>
-          <li style={itemTitle}>Participation opportunities:</li>
-          {sessionLink && (
-            <li style={itemLink}>
-              <a href={sessionLink}>Join Meeting</a>
-            </li>
-          )}
-          {meetingLink && (
-            <li style={itemLink}>
-              <a href={meetingLink}>Download calendar file</a>
-            </li>
-          )}
-        </ul>
-        {additionalLinks.length > 0 && (
-          <ul>
-            <li style={itemTitle}>Additional links:</li>
-            {additionalLinks.map((link, index) => {
-                const { url, title } = link;
-                return (
-                  <li key={`${index}${url}`} style={itemLink}>
-                    <a href={url}>{title}</a>
-                  </li>
-                );
-              })}
-          </ul>
-        )}
+                <ul>
+                    <li style={itemTitle}>Participation opportunities:</li>
+                        {sessionLink && (
+                            <li style={itemLink}>
+                                <a href={sessionLink}>Join Meeting</a>
+                            </li>
+                        )}
+                        {meetingLink && (
+                            <li style={itemLink}>
+                                <a href={meetingLink}>Download calendar file</a>
+                            </li>
+                        )}
+                </ul>
+                {additionalLinks.length > 0 && (
+                <ul>
+                    <li style={itemTitle}>Additional links:</li>
+                    {additionalLinks.map((link, index) => {
+                        const { url, title } = link;
+                        return (
+                            <li key={`${index}${url}`} style={itemLink}>
+                                <a href={url}>{title}</a>
+                            </li>
+                        );
+                    })}
+                </ul>
+                )}
       </div>
     </section>
   );
