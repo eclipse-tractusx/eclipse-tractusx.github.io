@@ -25,12 +25,11 @@ title: Adoption View
 ![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 -->
 
-
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
 For more information see
 
-* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md) 
+* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md)
 * [Operation View](./page_software-operation-view.md)
 
 ### Vision & Mission
@@ -39,11 +38,11 @@ For more information see
 
 Data Governance KIT (DGK) has the objective to enable and simplify data governance within Catena-X by providing API specifications for the KIT so as to enable the application developers to create applications around these API specifications. The decentral components of the DGK enable dataspace participants to exercise control over all data governance related topics, e.g.
 
-  *	Manage data assets, policies and contracts in a convenient way, i.e. via templates/blueprints
-  *	Streamline the process of publishing data into the dataspace
-  *	Providing transparency of all data offers for a given organization
-  *	Monitor data exchange
-  *	Multi EDC Management
+*	Manage data assets, policies and contracts in a convenient way, i.e. via templates/blueprints
+*	Streamline the process of publishing data into the dataspace
+*	Providing transparency of all data offers for a given organization
+*	Monitor data exchange
+*	Multi EDC Management
 
 The decentral components of the DGK are tightly coupled with the dataspace connector (EDC) and backend data services. Together with the connector and backend data services a streamlined and trusted environment for dataspace participation can be built.
 
@@ -60,14 +59,14 @@ The Data Governance Kit will provide the API specifications which in turn will e
 ### Business Value
 
 Data sovereignty is one of the core value propositions of Catena-X. EDC contributes some core functions but it does not provide a holistic view of all data governance topics within a data provider/consumer space. Therefore, the KIT provides answers to the following questions:
+
 * How to shield the complexity of publishing data into dataspace via EDC from Backend Data Services?
 * How to ensure that Backend Data Services publish data with correct policies and under the correct contract offers?
 * How to manage multiple EDCs?
 * How to document transfers and negotiated policies in a single place?
 * How to see which policy is active and when does it expire?
 
-
-###### Data Provider
+##### Data Provider
 
 Any party who provides data (for example by a backend database or other supported Applications or Services), for example an Automotive OEM (original equipment manufacturer). Any party who wants to maintain multiple connectors and provide the data to other consumers via those connectors as well as use the governance features from Data Governance Kit.
 
@@ -77,11 +76,10 @@ Any party who wants to consume the data made available by the data providers and
 
 ### Target Group / Service/ Apps that need the enabler
 
-- All Data Providers
-- All Data Consumers
-- Any Enablement Service Provider
-- Any Business Application Provider
-
+* All Data Providers
+* All Data Consumers
+* Any Enablement Service Provider
+* Any Business Application Provider
 
 ## NOTICE
 
