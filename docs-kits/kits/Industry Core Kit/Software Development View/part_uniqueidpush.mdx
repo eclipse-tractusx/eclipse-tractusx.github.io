@@ -120,7 +120,6 @@ Here is a short overview what the receiver has to do when they want to support U
 
 For the EDC asset for receiving Unique ID Push notifications, the following conventions apply: 
 
-- The asset ID  must be "uniqueidpushnnotification-receipt".
 - The following properties must be set for this asset:
   ```json
   {
@@ -132,19 +131,15 @@ For the EDC asset for receiving Unique ID Push notifications, the following conv
     },
     "@id": "{{ _.assetId }}",
     "properties": {
-      "dct:type": { "@id": "cx-taxo:ReceiveUniqueIdPushNotification" },
-      "cx-common:version": "1.0",
-      "asset:prop:id": "uniqueidpushnnotification-receipt",
-      "asset:prop:type": "notification.trace.uniqueidpush",
-      "asset:prop:notificationtype": "uniqueidpush",
-      "asset:prop:notificationmethod": "receive"
+      "dct:type": { "@id": "cx-taxo:UniqueIdPushNotification" },
+      "cx-common:version": "2.0",
     },
     "privateProperties": {},
     "dataAddress": {}
   }
   ```
 
-  Properties "asset:prop:*" must still be added to be backward compatible with previous releases. Properties "dct:type" and "cx-common:version" are used to classify the asset and are explained in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#registration-at-edc) in more detail. 
+  Properties "dct:type" and "cx-common:version" are used to classify the asset and are explained in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#registration-at-edc) in more detail.
 
 ##### EDC Policies
 
