@@ -38,11 +38,11 @@ For more information see
 
 Data Governance KIT (DGK) has the objective to enable and simplify data governance within Catena-X by providing API specifications for the KIT so as to enable the application developers to create applications around these API specifications. The decentral components of the DGK enable dataspace participants to exercise control over all data governance related topics, e.g.
 
-*	Manage data assets, policies and contracts in a convenient way, i.e. via templates/blueprints
-*	Streamline the process of publishing data into the dataspace
-*	Providing transparency of all data offers for a given organization
-*	Monitor data exchange
-*	Multi EDC Management
+* Manage data assets, policies and contracts in a convenient way, i.e. via templates/blueprints
+* Streamline the process of publishing data into the dataspace
+* Providing transparency of all data offers for a given organization
+* Monitor data exchange
+* Multi EDC Management
 
 The decentral components of the DGK are tightly coupled with the dataspace connector (EDC) and backend data services. Together with the connector and backend data services a streamlined and trusted environment for dataspace participation can be built.
 
@@ -66,11 +66,11 @@ Data sovereignty is one of the core value propositions of Catena-X. EDC contribu
 * How to document transfers and negotiated policies in a single place?
 * How to see which policy is active and when does it expire?
 
-##### Data Provider
+#### Data Provider
 
 Any party who provides data (for example by a backend database or other supported Applications or Services), for example an Automotive OEM (original equipment manufacturer). Any party who wants to maintain multiple connectors and provide the data to other consumers via those connectors as well as use the governance features from Data Governance Kit.
 
-##### Data Consumer
+#### Data Consumer
 
 Any party who wants to consume the data made available by the data providers and use the governance features from Data Governance Kit.
 
@@ -85,6 +85,6 @@ Any party who wants to consume the data made available by the data providers and
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2021,2022, 2023, 2024 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+* SPDX-License-Identifier: CC-BY-4.0
+* SPDX-FileCopyrightText: 2021,2022, 2023, 2024 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
