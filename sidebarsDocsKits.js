@@ -169,7 +169,7 @@ const sidebars = {
                 },
                 {
                     type: 'category',
-                    label: 'Documentation',
+                    label: 'Architecture View',
                     link: {
                         type: "generated-index",
                     },
