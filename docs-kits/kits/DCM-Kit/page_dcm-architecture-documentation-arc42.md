@@ -2,7 +2,7 @@
 id: architecture-documentation-arc42
 title: Architecture documentation (arc42)
 description: Architecture documentation (arc42)
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
