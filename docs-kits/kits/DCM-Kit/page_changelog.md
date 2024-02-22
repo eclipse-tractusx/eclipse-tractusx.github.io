@@ -15,7 +15,6 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- API definitions
 - Documentation of DCM architecture (arc42)
 - Documentation versions based on Catena-X release
 

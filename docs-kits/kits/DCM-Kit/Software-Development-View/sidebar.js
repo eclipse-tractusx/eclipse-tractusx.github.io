@@ -1,1 +1,0 @@
-module.exports = [{"type":"category","label":"MaterialDemand","link":{"type":"generated-index","title":"MaterialDemand","slug":"/category/kits/DCM-Kit/Software-Development-View/material-demand"},"items":[{"type":"doc","id":"kits/DCM-Kit/Software-Development-View//receive-material-demand-information","label":"Receive material demand information","className":"api-method post"}]}];

@@ -2,7 +2,7 @@
 id: development-view
 title: Development View
 description: 'What do I have to implement?'
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)

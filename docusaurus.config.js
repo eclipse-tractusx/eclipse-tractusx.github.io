@@ -333,42 +333,6 @@ const config = {
               groupPathsBy: 'tag',
             },
           },
-          dcm_material_demand: {
-            specPath:
-              './openApi/resiliency/dcm/MaterialDemand.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/DCM-Kit/Software-Development-View/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          dcm_week_based_capacity_group: {
-            specPath:
-              './openApi/resiliency/dcm/WeekBasedCapacityGroup.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/DCM-Kit/Software-Development-View/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          dcm_request_for_update: {
-            specPath:
-              './openApi/resiliency/dcm/IdBasedRequestForUpdate.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/DCM-Kit/Software-Development-View/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          dcm_comment: {
-            specPath:
-              './openApi/resiliency/dcm/IdBasedComment.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/DCM-Kit/Software-Development-View/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
         },
       },
     ],
