@@ -1,0 +1,244 @@
+openapi: 3.0.1
+info:
+  title: Catena-X Traceability Unique ID Push Notification
+  description: API documentation for Catena-X Traceability Unique ID push notifications
+  license:
+    name: Apache License v2.0
+    url: http://apache.org/v2
+  version: 2.1.0
+servers:
+- url: /
+tags:
+- name: Catena-X Traceability Unique ID Push Notification
+  description: 'API to receive Unique ID push notifications for Catena-X Traceability.'
+paths:
+  /uniqueidpush/connect-to-parent:
+    post:
+      tags:
+      - Unique ID Push Connect-to-Parent Notification 
+      description: Receives a Traceability Unique Id push notification to connect a digital twin with its parent digital twin (bottom-up notification)
+      operationId: receiveUniqueIdPushConnectToParentNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueIdPushNotificationConnectToParentRequestBody'
+      responses:
+        "201":
+          description: Notification was received successfully
+        "400":
+          description: Request body was malformed
+        "401":
+          description: Not authorized     
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "409":
+          description: Could not accept the send notification, because a notification with that notificationId already exists
+        "422":
+          description: Could not accept the send notification even though it is syntactically correct. The notification is not accepted, because of semantic reasons (e.g., an item is not known by the receiver).
+  /uniqueidpush/connect-to-child:
+    post:
+      tags:
+      - Unique ID Push Connect-to-Child Notification
+      description: Receives a Traceability Unique Id push notification to connect a digital twin with its child digital twin (top-down notification)
+      operationId: receiveUniqueIdPushConnectToChildNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueIdPushNotificationConnectToChildRequestBody'
+      responses:
+        "201":
+          description: Notification was received successfully
+        "400":
+          description: Request body was malformed
+        "401":
+          description: Not authorized     
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "409":
+          description: Could not accept the send notification, because a notification with that notificationId already exists
+        "422":
+          description: Could not accept the send notification even though it is syntactically correct. The notification is not accepted, because of semantic reasons (e.g., an item is not known by the receiver).
+components:
+  schemas:
+    UniqueIdPushNotificationHeader:
+      type: object
+      required:
+        - notificationId
+        - senderBPN
+        - senderAddress
+        - recipientBPN
+      properties:
+        notificationId:
+          $ref: '#/components/schemas/NotificationId'
+        senderBPN:
+          example: "BPNL00000003BW3S"
+          description: The business partner number (BPN) of the sender.
+        senderAddress:
+          type: string
+          format: uri
+          example: "https://edc.company-xyz.io/BPNL00000003BW3S"
+          description: The Eclipse Dataspace Connector (EDC) URL of the sender.
+        recipientBPN:
+          type: string
+          example: "BPNL00000003BV4H"
+          description: The business partner number (BPN) of the receiver.
+    UniqueIdPushNotificationConnectToParentRequestBody:
+      required:
+        - header
+        - content
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToRequestHeader'
+        content:
+          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToParentPayload'
+    UniqueIdPushNotificationConnectToChildRequestBody:
+      required:
+        - header
+        - content
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToRequestHeader'
+        content:
+          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToChildPayload'
+    UniqueIdPushNotificationConnectToRequestHeader:
+      allOf:
+        - $ref: '#/components/schemas/UniqueIdPushNotificationHeader'
+        - type: object
+          required:
+            - digitalTwinType
+          properties:
+            digitalTwinType:
+              $ref: '#/components/schemas/DigitalTwinType'
+    UniqueIdPushNotificationConnectToParentPayload:
+      type: object
+      required:
+        - listOfItems
+      properties:
+        information:
+          type: string
+          maxLength: 1000
+          example: "Update of serialized parts, batches, and JIS parts for which digital twins were created."
+        listOfItems:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/SerializedPartItem'
+              - $ref: '#/components/schemas/BatchItem'
+              - $ref: '#/components/schemas/JISItem'
+    UniqueIdPushNotificationConnectToChildPayload:
+      type: object
+      required:
+        - listOfItems
+      properties:
+        information:
+          type: string
+          maxLength: 1000
+          example: "Update of serialized parts, batches, and JIS parts for which digital twins were created."
+        listOfItems:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/ParentChildItem'
+    DigitalTwinType:
+      type: string
+      enum:
+        - PartType, PartInstance
+      example: PartInstance
+      description: The classification defines the type of the Unique ID push notification.
+    PartItem:
+      type: object
+      required:
+        - manufacturerId
+        - manufacturerPartId
+        - catenaXId
+      properties:
+        manufacturerId:
+          type: string
+          example: "BPNL00000003BW3S"
+          description: The Business Partner Number (BPNL) of the manufacturer of the serialized part, i.e., the companies main entry.
+        manufacturerPartId:
+          type: string
+          example: "8840838-04"
+          description: The ID of the type/catalog part (of which the serialized part is an instance of) from the manufacturer.
+        customerPartId:
+          type: string
+          example: "AAX178378"
+          description: The ID of the type/catalog part (of which the serialized part is an instance of) from the customer.
+    SerializedPartItem:
+      allOf:
+        - $ref: '#/components/schemas/PartItem'
+        - type: object
+          required:
+            - partInstanceId
+          properties:
+            partInstanceId:
+              type: string
+              example: "NO-009284492099792129568369"
+              description: The serial number of the serialized part from the manufacturer. We assume here that the customer does not have or create its own serial number for a part, but just used the manufacturer's serial number.
+        - $ref: '#/components/schemas/CatenaXIdItem'
+    BatchItem:
+      allOf:
+        - $ref: '#/components/schemas/PartItem'
+        - type: object
+          required:
+          - batchId
+          properties:
+            batchId:
+              type: string
+              example: "NO-009284492099792129568369"
+              description: The serial number of the batch from the manufacturer. We assume here that the customer does not have or create its own serial number for a batch, but just used the manufacturer's serial number.'
+        - $ref: '#/components/schemas/CatenaXIdItem'
+    JISItem:
+      allOf:
+        - $ref: '#/components/schemas/PartItem'
+        - type: object
+          required:
+          - jisNumber
+          properties:
+            jisNumber:
+              type: string
+              example: "894651684"
+              description: A number that is used to identify the call-off that can be assumed unique within the specific just-in-sequence process. This is typically not the sequence number, but the call-off number.
+            jisCallDate:
+              type: string
+              example: "2022-01-24T09:13:34"
+              description: The date of the just-in-sequence call-off as stated on the call-off document itself. The value must be compliant to ISO 8601.
+            parentOrderNumber:
+              type: string
+              example: "OEM-A-F8LM95T92WJ9KNDD3HA5P"
+              description: A number identifying the just-in-sequence- part's destination parent part. The parent part is typically known upfront to the supplier for just-in-sequence parts.
+        - $ref: '#/components/schemas/CatenaXIdItem'
+    ParentChildItem:
+      type: object
+      required:
+        - catenaXIdParent
+        - catenaXIdChild
+      properties:
+        catenaXIdChild:
+          $ref: '#/components/schemas/CatenaXId'
+        catenaXIdParent:
+          $ref: '#/components/schemas/CatenaXId'
+    CatenaXIdItem:
+      type: object
+      required:
+        - catenaXId
+      properties:
+        catenaXId:
+          $ref: '#/components/schemas/CatenaXId'
+    CatenaXId:
+      type: string
+      example: "urn:uuid:d32d3b55-d222-41e9-8d19-554af53124dd"
+      description: Catena-X ID for a part instance, e.g., a serial part or a batch.
+    NotificationId:
+      type: string
+      format: uuid
+      example: "a7954026-3aff-4b6c-92bf-04671ef2fa46"
+      description: A UUIDv4 to uniquely identify a Unique ID push notification.
