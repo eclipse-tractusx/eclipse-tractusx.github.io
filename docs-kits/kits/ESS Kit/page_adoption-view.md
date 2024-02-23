@@ -83,81 +83,96 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 ### ESS Incidents personas
 
-
-<table>
-<thead>
-<tr>
-<th>Persona Title</th>
-<th>Short Description</th>
-<th>Task / Responsibilities</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Incident Issuer
-</td>
-<td> 
-<ul>
-<li>Issuer can be any person or institution</li>
-<li>Not necessarily an ESS expert</li>
-<li>Can be either internal (e.g. auditor or employee) or external (e.g. business partner, individual, NGO, automatic-detection)</li>
-<li>Uses either formal contact point (Catena-X Incident App, Catena-X Webpage, Company Webpage) or any kind of (social) media to issue ESS-related incident</li>
-<li>Potential contact to incident manager (ESS), human rights officer/ risk management specialist</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Raise ESS-related incident in a structured or unstructured manner</li>
-<li>Ambition to make ESS-related issue transparent and visible with as much information as possible</li>
-<li>Committed to provide relevant information to properly address the ESS-related incident to the right business partner/ organizational unit</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Incident Manager
-</td>
-<td>
-<ul>
-<li>Operational internal role/ central function that covers incidents as primary responsibility</li>
-<li>Follows statutory requirements and incidents through each process step until closure</li>
-<li>First contact and dispatcher for ESS-related incidents and incident status</li>
-<li>Incident-Manager to get in contact with (e.g. sustainability@...)</li>
-<li>SME/ Business Partner for human rights officer, sustainability manager product/ corporate, audit (internal, external)</li>
-<li>Potential contact to incident issuer (ESS)</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Recording of ESS-related incidents</li>
-<li>Assignment of the ESS-related incident to the correct category with as much information as possible. Categories are: Violation of environmental and/ or social standards</li>
-<li>Rejection or acceptance of ESS-related incident</li>
-<li>Assignment of ESS-incident to internal business partner</li>
-<li>Collaboration and cooperation with business partners and internal units</li>
-<li>Agreement of binding measures with relevant SMEs/ Business Partners</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>Clearing agent ESS</td>
-<td>
-<ul>
-<li>Operational internal role/ central function that covers incidents as primary responsibility</li>
-<li>First contact and dispatcher for ESS-related incidents and incident status</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>Receives incident from various sources</li>
-<li>Reduce fraud / identify fake incidents</li>
-<li>Consolidate incidents (no multiples)</li>
-<li>Set / maintain central incident status and anonymized information (respect: one-up/one-down, decentral, data-sovereign, “flag” to allow sharing)</li>
-<li>Forward information to L0 of cleared ESS incident or archive of ESS incident</li>
-<li>Transfer ESS incidents to archive</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
++-------+------------------------------+-------------------------------+
+| **Pe  | **Short Description **       | **Task / Responsibilities **  |
+| rsona |                              |                               |
+| Tit   |                              |                               |
+| le ** |                              |                               |
++=======+==============================+===============================+
+| Inc   | -   Issuer can be any person | -   Raise ESS-related         |
+| ident |     or institution           |     incident in a structured  |
+| Is    |                              |     or unstructured manner    |
+| suer  | -   Not necessarily an ESS   |                               |
+|       |     expert                   | -   Ambition to make          |
+|       |                              |     ESS-related issue         |
+|       | -   Can be either internal   |     transparent and visible   |
+|       |     (*e.g.* auditor or       |     with as much information  |
+|       |     employee) or external    |     as possible               |
+|       |     (*e.g.* business         |                               |
+|       |     partner, individual,     | -   Committed to provide      |
+|       |     NGO,                     |     relevant information to   |
+|       |     automatic-detection)     |     properly address the      |
+|       |                              |     ESS-related incident to   |
+|       | -   Uses either formal       |     the right business        |
+|       |     contact point (Catena-X  |     partner/ organizational   |
+|       |     Incident App, Catena-X   |     unit                      |
+|       |     Webpage, Company         |                               |
+|       |     Webpage) or any kind of  |                               |
+|       |     (social) media to issue  |                               |
+|       |     ESS-related incident     |                               |
+|       |                              |                               |
+|       | -   Potential contact to     |                               |
+|       |     incident manager (ESS),  |                               |
+|       |     human rights officer/    |                               |
+|       |     risk management          |                               |
+|       |     specialist               |                               |
++-------+------------------------------+-------------------------------+
+| Inc   | -   Operational internal     | -   Recording of ESS-related  |
+| ident |     role/ central function   |     incidents                 |
+| Man   |     that covers incidents as |                               |
+| ager  |     primary responsibility   | -   Assignment of the         |
+|       |                              |     ESS-related incident to   |
+|       | -   Follows statutory        |     the correct category with |
+|       |     requirements and         |     as much information as    |
+|       |     incidents through each   |     possible. Categories are: |
+|       |     process step until       |     Violation of              |
+|       |     closure                  |     environmental and/ or     |
+|       |                              |     social standards          |
+|       | -   First contact and        |                               |
+|       |     dispatcher for           | -   Rejection or acceptance   |
+|       |     ESS-related incidents    |     of ESS-related incident   |
+|       |     and incident status      |                               |
+|       |                              | -   Assignment of             |
+|       | -   Incident-Manager to get  |     ESS-incident to internal  |
+|       |     in contact with (e.g.    |     business partner          |
+|       |     sustainability@\...)     |                               |
+|       |                              | -   Collaboration &           |
+|       | -   SME/ Business Partner    |     cooperation with business |
+|       |     for human rights         |     partners and internal     |
+|       |     officer, sustainability  |     units                     |
+|       |     manager product/         |                               |
+|       |     corporate, audit         | -   Agreement of binding      |
+|       |     (internal, external)     |     measures with relevant    |
+|       |                              |     SMEs/ Business Partners   |
+|       | -   Potential contact to     |                               |
+|       |     incident issuer (ESS)    |                               |
++-------+------------------------------+-------------------------------+
+| Cle   | -   Operational internal     | -   Receives incident from    |
+| aring |     role/ central function   |     various sources           |
+| agent |     that covers incidents as |                               |
+| ESS   |     primary responsibility   | -   Reduce fraud / identify   |
+|       |                              |     fake incidents            |
+|       | -   First contact and        |                               |
+|       |     dispatcher for           | -   Consolidate incidents (no |
+|       |     ESS-related incidents    |     multiples)                |
+|       |     and incident status      |                               |
+|       |                              | -   Set / maintain central    |
+|       |                              |     incident status and       |
+|       |                              |     anonymized information    |
+|       |                              |     (respect:                 |
+|       |                              |     one-up/one-down,          |
+|       |                              |     decentral,                |
+|       |                              |     data-sovereign, "flag" to |
+|       |                              |     allow sharing)            |
+|       |                              |                               |
+|       |                              | -   Forward information to L0 |
+|       |                              |     of cleared ESS incident   |
+|       |                              |     or archive of ESS         |
+|       |                              |     incident                  |
+|       |                              |                               |
+|       |                              | -   Transfer ESS incidents to |
+|       |                              |     archive                   |
++-------+------------------------------+-------------------------------+
 
 
 ### Semantic models
@@ -166,103 +181,112 @@ Catena-X offers various semantic models depending on the specific application an
 
 The data model follows the Catena-X Standard CX-0113 (<https://catena-x.net/de/standard-library>) and is modelled following the CX-0003 Standard (<https://catena-x.net/de/standard-library>). Below, you can find an excerpt of the full data set:
 
-<table>
-    <tr>
-      <th>Section</th>
-      <th>Attribute name</th>
-      <th>Description</th>
-      <th>Example</th>
-    </tr>
-    <tr>
-      <td rowspan="4">ESS incident information</td>
-      <td>Category and sub-category</td>
-      <td>Environmental and social standards related incident category according to Supply Chain Due Diligence Act</td>
-      <td>Environmental (ex: usage of mercury, usage of harmful chemicals) | Social (ex: child labour, work safety, discrimination)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Subject and description</td>
-      <td>Title of an incident in the context of ESS (Environmental and Social Standards) with its description</td>
-      <td>Child labour in country x for product y reported. Small children under the age of 15 clean barrels with bare hands and under dubious working and payment conditions.</td>
-    </tr>
-    <tr>
-        <td>Attachment(s)</td>
-        <td>Picture(s) about the reported incident in the context of ESS (Environmental and Social Standards)</td>
-        <td>Upload picture about child work in country x for product y or upload other additional documents/reports#</td>
-    </tr>
-    <tr>
-        <td>Date</td>
-        <td>Date and time information when an incident occurred</td>
-        <td>2022-08-31T00:00:00Z</td>>
-    </tr>
-    <tr>
-        <td rowspan="2">Product information</td>
-        <td>Description</td>
-        <td>Description of product or component affected by an incident in the context of ESS (Environmental and Social Standards) </td>
-        <td>Natural Rubber</td>
-    </tr>
-    <tr>
-        <td>Raw material</td>
-        <td>Raw material that causes an incident in the context of ESS (Environmental and Social Standards)</td>
-        <td>Mercury | Cobalt | Natural Rubber</td>
-    </tr>
-    <tr>
-        <td rowspan="5">Company information</td>
-        <td>Country subdivision</td>
-        <td>Region within a country to which an incident in the context of ESS (Environmental and Social Standards) belongs</td>
-        <td>Sao Paolo</td>
-    </tr>
-    <tr>
-        <td>Coordinates</td>
-        <td>Exact geographic position of an incident in the context of ESS (Environmental and Social Standards)</td>
-        <td>Longitude and Latitude (will be entered automatically)</td>
-    </tr>
-    <tr>
-        <td>Company name</td>
-        <td>Name of a company / an organisation that is the originator of an incident in the context of ESS (Environmental and Social Standards)</td>
-        <td>ABC Company</td>
-    </tr>
-    <tr>
-        <td>Address</td>
-        <td>Address of ESS originator (street, zip code, city...)</td>
-        <td><p>Mainroad 1</p>
-            <p>73230 Model City</p></td>
-    </tr>
-    <tr>
-        <td>BpnL / BpnS / BpnA</td>
-        <td>BPN-L/S/A of the company that causes the incident</td>
-        <td><p>Rubbery Ltd. (BPN-L)</p>
-            <p>Site in Dingolfing (BPN-S)</p>
-            <p>Dingolfing Werksstrasse 1, Tor 2.1 (BPN-A)</p>
-    </tr>
-    <tr>
-        <td rowspan="5">Contact information</td>
-        <td>First and last Name</td>
-        <td>Contact name of ESS incident issuer</td>
-        <td>Camille Mustermensch</td>
-    </tr>
-    <tr>
-        <td>E-Mail Address</td>
-        <td>E-Mail address of ESS incident issuer</td>
-        <td>xyz.abc@xxx.com</td>
-    </tr>
-    <tr>
-        <td>Phone number</td>
-        <td>Phone number of ESS incident issuer</td>
-        <td>+49 89 123456789</td>
-    </tr>
-    <tr>
-        <td>Address</td>
-        <td>Address of ESS incident issuer</td>
-        <td><p>XYZ-Road</p>
-            <p>73230 Kirchheim</p></td>
-    </tr>
-    <tr>
-        <td>Anonymous</td>
-        <td>Flag that Incident issuer wants to be anonymous</td>
-        <td>Checkbox: ticked / not ticked</td>
-    </tr>
-  </table>
++--------------+------------------------+------------------------------+
+| **Attribute  | **Description **       | **Example **                 |
+| Name **      |                        |                              |
++==============+========================+==============================+
+| ESS Incident |                        |                              |
+| Information  |                        |                              |
++--------------+------------------------+------------------------------+
+| Category and | Environmental and      | Environmental (ex: usage of  |
+| s            | social standards       | mercury, usage of harmful    |
+| ub-category  | related incident       | chemicals) \| Social (ex:    |
+|              | category according to  | child labour, work safety,   |
+|              | Supply Chain Due       | discrimination)              |
+|              | Diligence Act          |                              |
++--------------+------------------------+------------------------------+
+| Subject and  | Title of an incident   | Child labour in country      |
+| description  | in the context of ESS  | x for product y reported.    |
+|              | (Environmental and     | Small children under the age |
+|              | Social Standards) with | of 15 clean barrels with     |
+|              | its description        | bare hands and under dubious |
+|              |                        | working and payment          |
+|              |                        | conditions.                  |
++--------------+------------------------+------------------------------+
+| At           | Picture(s) about the   | Upload picture about child   |
+| tachment(s)  | reported incident in   | work in country x for        |
+|              | the context of ESS     | product y or upload other    |
+|              | (Environmental and     | additional                   |
+|              | Social Standards)      | documents/reports#           |
++--------------+------------------------+------------------------------+
+| Date         | Date and time          | 2022-08-31T00:00:00Z         |
+|              | information when an    |                              |
+|              | incident occurred      |                              |
++--------------+------------------------+------------------------------+
+| Product      |                        |                              |
+| Information  |                        |                              |
++--------------+------------------------+------------------------------+
+| Description  | Description of product | Natural Rubber               |
+|              | or component affected  |                              |
+|              | by an incident in the  |                              |
+|              | context of ESS         |                              |
+|              | (Environmental and     |                              |
+|              | Social Standards)      |                              |
++--------------+------------------------+------------------------------+
+| Raw          | Raw material that      | Mercury \| Cobalt \| Natural |
+| material     | causes an incident in  | Rubber                       |
+|              | the context of ESS     |                              |
+|              | (Environmental and     |                              |
+|              | Social Standards)      |                              |
++--------------+------------------------+------------------------------+
+| Company      |                        |                              |
+| information  |                        |                              |
++--------------+------------------------+------------------------------+
+| Country      | Region within a        | Sao Paolo                    |
+| subdivision  | country to which an    |                              |
+|              | incident in the        |                              |
+|              | context of ESS         |                              |
+|              | (Environmental and     |                              |
+|              | Social Standards)      |                              |
+|              | belongs                |                              |
++--------------+------------------------+------------------------------+
+| Coordinates  | Exact geographic       | Longitude and Latitude (will |
+|              | position of an         | be entered automatically)    |
+|              | incident in the        |                              |
+|              | context of ESS         |                              |
+|              | (Environmental and     |                              |
+|              | Social Standards)      |                              |
++--------------+------------------------+------------------------------+
+| Company      | Name of a company / an | ABC company                  |
+| name         | organisation that is   |                              |
+|              | the originator of an   |                              |
+|              | incident in the        |                              |
+|              | context of ESS         |                              |
+|              | (Environmental and     |                              |
+|              | Social Standards)      |                              |
++--------------+------------------------+------------------------------+
+| Address      | Address of ESS         | Mainroad 1                   |
+|              | originator (street,    |                              |
+|              | zip code, city\...)    | 73230 Model City             |
++--------------+------------------------+------------------------------+
+| BpnL / BpnS  | BPN-L/S/A of the       | Rubbery Ltd. (BPN-L)         |
+| / BpnA       | company that causes    |                              |
+|              | the incident           | Site in Dingolfing (BPN-S)   |
+|              |                        |                              |
+|              |                        | Dingolfing Werksstrasse 1,   |
+|              |                        | Tor 2.1 (BPN-A)              |
++--------------+------------------------+------------------------------+
+| Contact      |                        |                              |
+| Information  |                        |                              |
++--------------+------------------------+------------------------------+
+| First and    | Contact name of ESS    | Camille Mustermensch         |
+| last Name    | incident issuer        |                              |
++--------------+------------------------+------------------------------+
+| E-Mail       | E-Mail address of ESS  | xyz.abc@xxx.com              |
+| Address      | incident issuer        |                              |
++--------------+------------------------+------------------------------+
+| Phone        | Phone number of ESS    | +49 89 123456789             |
+| number       | incident issuer        |                              |
++--------------+------------------------+------------------------------+
+| Address      | Address of ESS         | XYZ-Road                     |
+|              | incident issuer        |                              |
+|              |                        | 73230 Kirchheim              |
++--------------+------------------------+------------------------------+
+| Anonymous    | Flag that Incident     | Checkbox: ticked / not       |
+|              | issuer wants to be     | ticked                       |
+|              | anonymous              |                              |
++--------------+------------------------+------------------------------+
+
 
 
 ## Business process
