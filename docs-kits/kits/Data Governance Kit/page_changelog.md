@@ -42,4 +42,10 @@ All notable changes to the Data Governance KIT (=Keep It Together) will be docum
 
 ### Removed
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+* SPDX-License-Identifier: CC-BY-4.0
+* SPDX-FileCopyrightText: 2023,2024 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
