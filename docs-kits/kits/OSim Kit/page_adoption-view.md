@@ -239,7 +239,12 @@ To verify the participants Catena-X membership, the Membership verifiable creden
 
 ## Standards
 
-Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library).
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+- [CX - 0072 OSim Process and Core Business Logic](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0072-OSimProcessAndCoreBusinessLogic-v1.0.0.pdf)
+- [CX - 0073 OSim API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0073-OSimAPI-v1.0.0.pdf)
+- [CX - 0087 OSim Data Model Materialflow Simulation Result](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0087-OSimDataModelMaterialFlowSimulationResult-v1.0.0.pdf)
+- [CX - 0133 Online Control and Simulation v2.0.0](https://catena-x.net/de/standard-library)
 
 ## Notice
 
