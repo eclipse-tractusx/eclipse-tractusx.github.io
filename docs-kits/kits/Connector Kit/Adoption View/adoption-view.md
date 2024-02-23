@@ -1,7 +1,8 @@
 ---
-id: Adoption View
-description: 'Connector Kit'
 sidebar_position: 1
+title: Adoption View
+description: Adoption View
+id: connector_kit_adoption_view
 ---
 
 # Adoption View

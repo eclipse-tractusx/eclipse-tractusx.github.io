@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+title: Specifications
+description: Specifications
+id: connector_kit_development_view_specifications
 ---
-
-# Specifications
 
 The following describes the standards for implementation of the Connector Kit.
 They detail the necessary functionality of as well as the expected communication with a Connector.

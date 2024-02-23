@@ -1,5 +1,8 @@
 ---
 sidebar_position: 2
+title: Architecture
+description: Architecture
+id: connector_kit_development_view_architecture
 ---
 <!--
  * Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
@@ -19,8 +22,6 @@ sidebar_position: 2
  *
  * SPDX-License-Identifier: Apache-2.0
 -->
-
-# Architecture
 
 ## Overview
 
