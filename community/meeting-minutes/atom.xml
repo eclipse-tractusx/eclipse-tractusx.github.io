@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-02-09T00:00:00.000Z</updated>
+    <updated>2024-02-16T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Office Hour 16.02.2024]]></title>
+        <id>office-hour-2024-02-16</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-02-16"/>
+        <updated>2024-02-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Still looking for volunteers to work on QG reviews together with the system team<ul><li>Goal is to spread knowledge on how TRGs are checked</li><li>Especially interesting for committers, that already know they will stay post consortia</li></ul></li><li>Preparing an open description on our release process. Feel free to comment any suggestion or important topics, you think should be covered <a href="https://github.com/eclipse-tractusx/sig-release/pull/519" target="_blank" rel="noopener noreferrer">on this draft</a></li><li>Markdown linting will again be enabled for KITs. Findings will be collected as issue per KIT</li><li>OpenAPI plugin for docusaurus will be removed<ul><li>OpenAPI definitions will be pushed to SwaggerHub. User credentials available as org secrets</li><li>Ongoing discussions: Some definitions might be published through standard and therefore out of eclipse-tractusx</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>New TRG suggestion PR: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/681" target="_blank" rel="noopener noreferrer">eclipse-tractusx/eclipse-tractusx.github.io#681</a></li><li>Reminder: please focus on <code>eclipse-tractusx</code> instead of <code>catenax-ng</code></li><li>Please reach out to the security team, as soon as the security scans for QG checks are ready for QG review</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Election for Jim Marino open: <a href="https://projects.eclipse.org/projects/automotive.tractusx/elections/election-james-marino-committer-eclipse-tractus-x" target="_blank" rel="noopener noreferrer">https://projects.eclipse.org/projects/automotive.tractusx/elections/election-james-marino-committer-eclipse-tractus-x</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>New open meeting links available in the <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer">community section</a></li></ul>]]></content>
+        <author>
+            <name>Sebastian Bezold</name>
+            <uri>https://github.com/SebastianBezold</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Office Hour 09.02.2024]]></title>
         <id>office-hour-09-02-2024</id>
