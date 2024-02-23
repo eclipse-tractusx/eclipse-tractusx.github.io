@@ -86,5 +86,5 @@ Any party who wants to consume the data made available by the data providers and
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 * SPDX-License-Identifier: CC-BY-4.0
-* SPDX-FileCopyrightText: 2021,2022, 2023, 2024 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2023,2024 T-Systems International GmbH
 * SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
