@@ -43,5 +43,5 @@ Based on the information provided in the Data Governance KIT, it is possible to 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 * SPDX-License-Identifier: CC-BY-4.0
-* SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2023,2024 T-Systems International GmbH
 * SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
