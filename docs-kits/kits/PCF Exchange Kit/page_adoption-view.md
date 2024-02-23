@@ -94,26 +94,26 @@ This customer journey describes the exchange of PCF data in an asynchronous requ
 
 PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a data provider (e.g., supplier on tier n+1). It is basically an asynchronous request/response process that is started by the data consumer:
 
-1. The data consumer realizes that he needs the PCF for a specific component and that this data is not available in his local data (or is not of sufficient quality).
-2. With his PCF Data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X (from a technical perspective, this means that there is already a digital twin for the component and that the PCF submodel is available for this twin). If so, the tool would “fetch up” this data. If not, the user can request this data from the supplier as described in the next steps.
-3. The data consumer submits a “PCF request” (according to the standardized API [CX-0028](https://catena-x.net/de/standard-library)) to his supplier. In doing so, he asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the Catena-X PCF Rulebook ([CX-0029](https://catena-x.net/de/standard-library)).
+- The data consumer realizes that he needs the PCF for a specific component and that this data is not available in his local data (or is not of sufficient quality).
+- With his PCF Data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X (from a technical perspective, this means that there is already a digital twin for the component and that the PCF submodel is available for this twin). If so, the tool would “fetch up” this data. If not, the user can request this data from the supplier as described in the next steps.
+- The data consumer submits a “PCF request” (according to the standardized API [CX-0028](https://catena-x.net/de/standard-library)) to his supplier. In doing so, he asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the Catena-X PCF Rulebook ([CX-0029](https://catena-x.net/de/standard-library)).
 
 With this request, the process temporarily ends for the data consumer. The ball is now in the data provider's playing field.:
 
-4. The data provider receives the PCF request (message/display in his PCF data exchange tool). To answer this request, he takes the following steps:
-5. The data provider checks whether the requested data is already available (i.e., whether the PCF has already calculated in the past but has not yet been provided to the customer).
-6. If the data is not yet available, the data provider must create it first. At this point, he starts the “PCF calculation” subjourney (see [below](#customer-journey-pcf-calculation)). At the end of this subjourney, the PCF data is available, and the provider can answer the original request with the next steps.
-7. The data provider sends a PCF Response (according to the standardized API see [CX-0028](https://catena-x.net/de/standard-library)) to the data consumer. At the same time, the data is made available in Catena-X (which means from a technical perspective, that a PCF submodel is attached to the corresponding digital twin of the component).
+- The data provider receives the PCF request (message/display in his PCF data exchange tool). To answer this request, he takes the following steps:
+- The data provider checks whether the requested data is already available (i.e., whether the PCF has already calculated in the past but has not yet been provided to the customer).
+- If the data is not yet available, the data provider must create it first. At this point, he starts the “PCF calculation” subjourney (see [below](#customer-journey-pcf-calculation)). At the end of this subjourney, the PCF data is available, and the provider can answer the original request with the next steps.
+- The data provider sends a PCF Response (according to the standardized API see [CX-0028](https://catena-x.net/de/standard-library)) to the data consumer. At the same time, the data is made available in Catena-X (which means from a technical perspective, that a PCF submodel is attached to the corresponding digital twin of the component).
 
 For the data provider, the process is now over, and the consumer's request has been answered with the response. Now follow a few more steps on the consumer side.
 
-8. The data consumer, who sent the initial PCF request, now receives the PCF response (message/display in his PCF data exchange tool).
-9. With the data exchange tool, the consumer can access and “pick up” the PCF data, according to the standardized PCF data model (see [Semantic Model](#semantic-models)).
+- The data consumer, who sent the initial PCF request, now receives the PCF response (message/display in his PCF data exchange tool).
+- With the data exchange tool, the consumer can access and “pick up” the PCF data, according to the standardized PCF data model (see [Semantic Model](#semantic-models)).
 
 >**Remark:**
 >There are currently no options for data verification or acceptance/rejection of transmitted data at this stage in the process. These topics are currently still being discussed at Catena-X association level and are therefore not yet covered in the processes and tools. This will only happen with later releases.
 
-10.	The data consumer can now transfer this data to his internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
+- The data consumer can now transfer this data to his internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
 This ends this customer journey.
 
 ### Customer Journey “PCF Calculation”
@@ -498,7 +498,7 @@ The PCF Exchange KIT can be used to exchange PCF data within the Catena-X ecosys
 
 In order to ensure **interoperability**, as described in the section on [Semantic Models](#semantic-models), a standardized data model is essential. However, it's not only the data model but also the standardized interfaces (both the PCF Exchange API and the standardized API provided by the Connector Kit) that contribute to interoperability.
 
-To enable **data sovereignty**, Catena-X relies on **Self-Sovereign-Identity** (SSI). This allows data providers to precisely specify the conditions that must be met before requested data is transmitted. In the context of the PCF KIT, the "PCF Credential" and "Membership Credential" are mandatory. The PCF Credential references the [PCF Framework Agreement](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/Catena-X_UseCasePCFExchange_Beta-Phase_DE.pdf) signed by a data consumer. The Membership Credential additionally ensures that the requester is an active member of Catena-X.
+To enable **data sovereignty**, Catena-X relies on **Self-Sovereign-Identity** (SSI). This allows data providers to precisely specify the conditions that must be met before requested data is transmitted. In the context of the PCF KIT, the "PCF Credential" and "Membership Credential" are mandatory. The PCF Credential references the [PCF Framework Agreement](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) signed by a data consumer. The Membership Credential additionally ensures that the requester is an active member of Catena-X.
 
 The diagram shown here illustrates the interaction between the PCF KIT and the other Catena-X components.
 ![Business Architecture](resources/adoption-view/BusinessArchitecture.png)
@@ -521,4 +521,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2023 CCT
 - SPDX-FileCopyrightText: 2023,2023 Gris Group
 - SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/pcf-exchange-kit
+- [Source URL](https://github.com/eclipse-tractusx/pcf-exchange-kit)
