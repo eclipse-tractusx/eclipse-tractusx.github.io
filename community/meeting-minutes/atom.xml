@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-02-16T00:00:00.000Z</updated>
+    <updated>2024-02-23T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Office Hour 23.02.2024]]></title>
+        <id>office-hour-2024-02-23</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-02-23"/>
+        <updated>2024-02-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Quality Gate Reviews in progress. Please keep an eye on your issues</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>New "Read only filesystem" TRG will be introduced to the "Container" category</li><li>New "Dependabot" TRG will be worked on via <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/659" target="_blank" rel="noopener noreferrer">PR #659</a> and moved to the security section afterwards</li><li>With Release <code>24.05</code>, Veracode will no longer be part of the QGate. We move to CodeQL. Do necessary migration early on, if possible</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Ongoing discussion on usage of the Catena-X logo in Tractus-X context.</li><li>Recommendation: Watch the <a href="https://www.eclipse.org/projects/calendar/#office-hours" target="_blank" rel="noopener noreferrer">Eclipse Foundation Office Hour recording</a> about IP issue handling: </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>Automated email about upgrades to Kubernetes and PostgreSQL version: What does it mean?<ul><li>See it as a discussion starter and reminder</li><li>Potentially, the committer group can use that as a trigger for alignment on these two crucial topics</li></ul></li><li>Is there a publicly available test installation of a dataspace build from Tractus-X components<ul><li>No. Tractus-X is not maintaining any persistent installations</li><li>There are tutorials available on how to set this up yourself</li><li><a href="https://github.com/eclipse-tractusx/tutorial-resources" target="_blank" rel="noopener noreferrer">MXD tutorial</a></li><li><a href="https://eclipse-tractusx.github.io/docs/tutorials/e2e" target="_blank" rel="noopener noreferrer">E2E adopter journey</a></li></ul></li><li>Is there a possibility to enable contributors ot edit other contributors issue descriptions<ul><li>No. This is only possible with write permissions</li><li>Write permissions are only granted to the committer role</li></ul></li></ul>]]></content>
+        <author>
+            <name>Sebastian Bezold</name>
+            <uri>https://github.com/SebastianBezold</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Office Hour 16.02.2024]]></title>
         <id>office-hour-2024-02-16</id>

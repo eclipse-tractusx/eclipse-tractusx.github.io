@@ -4,10 +4,20 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/community/meeting-minutes</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 23 Feb 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Office Hour 23.02.2024]]></title>
+            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-02-23</link>
+            <guid>office-hour-2024-02-23</guid>
+            <pubDate>Fri, 23 Feb 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Office Hour meeting minutes]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Quality Gate Reviews in progress. Please keep an eye on your issues</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>New "Read only filesystem" TRG will be introduced to the "Container" category</li><li>New "Dependabot" TRG will be worked on via <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/659" target="_blank" rel="noopener noreferrer">PR #659</a> and moved to the security section afterwards</li><li>With Release <code>24.05</code>, Veracode will no longer be part of the QGate. We move to CodeQL. Do necessary migration early on, if possible</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Ongoing discussion on usage of the Catena-X logo in Tractus-X context.</li><li>Recommendation: Watch the <a href="https://www.eclipse.org/projects/calendar/#office-hours" target="_blank" rel="noopener noreferrer">Eclipse Foundation Office Hour recording</a> about IP issue handling: </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>Automated email about upgrades to Kubernetes and PostgreSQL version: What does it mean?<ul><li>See it as a discussion starter and reminder</li><li>Potentially, the committer group can use that as a trigger for alignment on these two crucial topics</li></ul></li><li>Is there a publicly available test installation of a dataspace build from Tractus-X components<ul><li>No. Tractus-X is not maintaining any persistent installations</li><li>There are tutorials available on how to set this up yourself</li><li><a href="https://github.com/eclipse-tractusx/tutorial-resources" target="_blank" rel="noopener noreferrer">MXD tutorial</a></li><li><a href="https://eclipse-tractusx.github.io/docs/tutorials/e2e" target="_blank" rel="noopener noreferrer">E2E adopter journey</a></li></ul></li><li>Is there a possibility to enable contributors ot edit other contributors issue descriptions<ul><li>No. This is only possible with write permissions</li><li>Write permissions are only granted to the committer role</li></ul></li></ul>]]></content:encoded>
+            <category>meeting-minutes</category>
+            <category>community</category>
+        </item>
         <item>
             <title><![CDATA[Office Hour 16.02.2024]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-02-16</link>
