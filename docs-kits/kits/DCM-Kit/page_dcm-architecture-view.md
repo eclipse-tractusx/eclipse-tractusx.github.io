@@ -1,7 +1,7 @@
 ---
-id: architecture-documentation-arc42
-title: Architecture documentation (arc42)
-description: Architecture documentation (arc42)
+id: architecture-view
+title: Architecture View
+description: The view from above
 sidebar_position: 4
 ---
 
@@ -20,7 +20,7 @@ Note: if you purchase commercial software from a software vendor, the vendor nee
 
 ## Prerequisites
 
-In order to participate in the Catena-X network an Eclipse Dataspace Connector (EDC) is required, as the endpoints must not be called directly but only through an EDC. 
+In order to participate in the Catena-X network an Eclipse Dataspace Connector (EDC) is required, as the endpoints must not be called directly but only through an EDC.
 
 In addition use case participants need to be boarded onto the Catena-X network.
 
