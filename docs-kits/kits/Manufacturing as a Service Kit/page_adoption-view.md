@@ -1,7 +1,7 @@
 ---
-id: Adoption View MaaS Kit
+id: Adoption View MaaS KIT
 title: Adoption View
-description: 'MaaS Kit'
+description: 'MaaS KIT'
 sidebar_position: 2
 ---
 
@@ -23,7 +23,7 @@ The reference architecture includes standardized and tested interfaces and data 
 
 Standardizing the necessary interfaces and data models of our architecture enables to exchange data with different systems and users and to extend the reference architecture with additional services, replace certain individual services with equivalent ones or to remove optional services.
 
-Within the Resiliency KiT Manufacturing as a service, two main standards were defined:
+Within the Resiliency KIT Manufacturing as a service, two main standards were defined:
 
 - Manufacturing Capability Model and API - for declaration of offered and required manufacturing capabilities
 - Request for Quotation Model and API - for manufacturing demand configuration
