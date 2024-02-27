@@ -29,7 +29,7 @@ sidebar_position: 1
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 
-## [1.0.0] - 2024-01-xx
+## [0.1.0] - 2024-03-08
 
 ### Added
 
