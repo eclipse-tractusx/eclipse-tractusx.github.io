@@ -35,14 +35,12 @@ paths:
         "405":
           description: Method not allowed
         "409":
-          description: Could not accept the send notification, because a notification with that notificationId already exists
+          description: Could not accept the send notification, because a notification with that messageId already exists
         "422":
           description: Could not accept the send notification even though it is syntactically correct. The notification is not accepted, because of semantic reasons (e.g., an item is not known by the receiver).
 components:
   schemas:
-    UniqueIdPushNotificationHeader:
-      description: Contains standardized attributes for message processing common
-        across several use cases.
+    NotificationHeader:
       $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_HeaderCharacteristic'
     UniqueIdPushNotificationConnectToParentRequestBody:
       required:
@@ -51,12 +49,9 @@ components:
       type: object
       properties:
         header:
-          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToRequestHeader'
+          $ref: '#/components/schemas/NotificationHeader'
         content:
           $ref: '#/components/schemas/UniqueIdPushNotificationConnectToParentPayload'
-    UniqueIdPushNotificationConnectToRequestHeader:
-      allOf:
-        - $ref: '#/components/schemas/UniqueIdPushNotificationHeader'
     UniqueIdPushNotificationConnectToParentPayload:
       type: object
       required:
@@ -156,11 +151,6 @@ components:
       type: string
       example: "urn:uuid:d32d3b55-d222-41e9-8d19-554af53124dd"
       description: Catena-X ID for a part instance, e.g., a serial part or a batch.
-    NotificationId:
-      type: string
-      format: uuid
-      example: "a7954026-3aff-4b6c-92bf-04671ef2fa46"
-      description: A UUIDv4 to uniquely identify a Unique ID push notification.
     # -----------------------------------------
     # Schema: io.catenax.shared.message_header
     # -----------------------------------------
