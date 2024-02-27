@@ -88,7 +88,7 @@ The Catena-X data space aims to support a parallel phase of two major versions o
   
   A data consumer must search the submodelDescriptors of a digital twin for supported semanticIds and then select the most suitable one for further processing.
 
-  - **For Notification APIs**, a separate EDC asset must be created for every major API version, e.g., for versions v1 and v2 of the API separate EDC assets must be created. The detailed API version (e.g., 1.1.5) must be documented in the `https://w3id.org/catenax/ontology/common#version` property of the EDC asset. It is not necessary to create a separate EDC asset for every minor or patch version as these versions must always be backward compatible. 
+  - **For Notification APIs**, a separate EDC asset must be created for every major API version, e.g., for versions v1 and v2 of the API separate EDC assets must be created. The API version must be documented in the `https://w3id.org/catenax/ontology/common#version` property on a minor release level (e.g., 1.1). It is not necessary to create a separate EDC asset for every minor or patch version as these versions must always be backward compatible. 
 
 More information about backward compatibility and versioning can be found here:
 - [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catana-X Standard Library,
