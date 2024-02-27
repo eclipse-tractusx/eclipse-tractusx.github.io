@@ -1,6 +1,8 @@
 ---
-sidebar_position: 1
+id: Data Governance Kit Operation View
 title: Operation View
+description: 'Data Governance Kit'
+sidebar_position: 1
 ---
 ## Data Governance KIT
 
