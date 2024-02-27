@@ -343,7 +343,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Manufacturing as a Service Kit',
+            label: 'Manufacturing as a Service KIT',
             link: {
                 type: 'generated-index',
             },
