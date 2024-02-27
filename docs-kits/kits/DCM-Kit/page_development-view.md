@@ -13,9 +13,9 @@ This page describes the most important parts for the software implementation of 
 
 This document describes the `MaterialDemand`, `WeekBasedCapacityGroup`, `IdBasedRequestForUpdate` and `IdBasedComment` semantic models and the API definitions used in the DCM Catena-X network.
 
-## ASPECT MODELS
+## Aspect Models
 
-### ASPECT MODEL "MaterialDemand"
+### Aspect Model "MaterialDemand"
 
 The material demand information MUST be sent from the customer to the supplier according to the API standard described on this page. The data format described here MUST be followed for the exchange of the material demand information.
 
@@ -80,7 +80,7 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.ma
 
 The open source command line tool of the Eclipse Semantic Modeling Framework is used for generation of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel template or a HTML documentation.
 
-### ASPECT MODEL "WeekBasedCapacityGroup"
+### Aspect Model "WeekBasedCapacityGroup"
 
 The capacity group information MUST be sent from the supplier to the customer according to the API standard described on this page. The data format described here MUST be followed for the exchange of the capacity group information.
 
@@ -145,7 +145,7 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.we
 
 The open source command line tool of the Eclipse Semantic Modeling Framework is used for generation of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel template or a HTML documentation.
 
-### ASPECT MODEL "IdBasedRequestForUpdate"
+### Aspect Model "IdBasedRequestForUpdate"
 
 A request for update can be sent from the supplier to the customer or vice versa for one or more dedicated entities according to the API standard described on this page.
 
@@ -190,7 +190,7 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id
 
 The open source command line tool of the Eclipse Semantic Modeling Framework is used for generation of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel template or a HTML documentation.
 
-### ASPECT MODEL "IdBasedComment"
+### Aspect Model "IdBasedComment"
 
 An `IdBasedComment` that refers to a `WeekBasedCapacityGroup`, it's weekly capacities, a `MaterialDemand` or it's weekly demand series can be sent from the supplier to the customer or vice versa according to the API standard described on this page.
 
@@ -237,9 +237,9 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id
 
 The open source command line tool of the Eclipse Semantic Modeling Framework is used for generation of other file formats like for example a JSON Schema, aasx for Asset Administration Shell Submodel template or a HTML documentation.
 
-## APPLICATION PROGRAMMING INTERFACES
+## Application Programming Interfaces
 
-**HEADER**
+### Header
 
 In order to exchange data with a DCM partner, the following structure of a POST request payload MUST be adhered to.
 
@@ -265,7 +265,7 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.sh
 
 The entities and characteristics of the rdf turtle itself contain the descriptions for the usage of the message header.
 
-**CATENA-X MEMBERSHIP VERIFICATION**
+### Catena-X Membership Verification
 
 Catena-X Membership MUST be verified in accordance with standard [CX-0016 Company Attribute Verification](https://catena-x.net/de/standard-library) Company Attribute Verification before any data is allowed to be exchanged via any of the following APIs
 
@@ -328,7 +328,7 @@ Each supplier MUST ensure that only their customers have access to the asset by 
 An example EDC Data Asset definition is shown below.
 
 > Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
-
+>
 > // Asset definition example for EDC management API v3 (non-normative)
 
 ```json
@@ -421,7 +421,7 @@ Each customer MUST ensure that only their suppliers have access to the asset by 
 An example EDC Data Asset definition is shown below.
 
 > Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
-
+>
 > // Asset definition example for EDC management API v3 (non-normative)
 
 ```json
@@ -563,7 +563,7 @@ Each DCM participant MUST ensure that only their business partners have access t
 An example EDC Data Asset definition is shown below.
 
 > Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
-
+>
 > // Asset definition example for EDC management API v3 (non-normative)
 
 ```json
@@ -673,7 +673,7 @@ Each DCM participant MUST ensure that only their business partners have access t
 An example EDC Data Asset definition is shown below.
 
 > Note: Expressions in double curly braces {{}} must be substituted with a corresponding value.
-
+>
 > // Asset definition example for EDC management API v3 (non-normative)
 
 ```json
@@ -707,7 +707,7 @@ An example EDC Data Asset definition is shown below.
 
 For error handling and payload validation instructions please refer to the [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library) standard.
 
-### DCM ASSET ADMINISTRATION SHELL API (AAS API)
+### DCM Asset Administration Shell API (AAS API)
 
 Data Providers MAY adopt the DCM AAS API. If they choose otherwise, none of the obligations of this section apply.
 
@@ -721,7 +721,7 @@ All Catena-X DCM participating companies, acting as a customer, MUST be able to 
 
 If a company acts both as a supplier and a customer they MUST be able to host and update both Submodels.
 
-#### API SPECIFICATION
+#### API Specification
 
 ##### API Endpoints & Resources
 
