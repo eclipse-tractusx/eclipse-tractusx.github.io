@@ -19,15 +19,6 @@ The Manufacturing-as-a-Service (MaaS) KIT defines the mechanisms and services re
 
 The reference architecture includes standardized and tested interfaces and data models that can be used for the development and implementation of Manufacturing-as-a-Service solutions (Chapter 4 of Whitepaper).
 
-### Standards
-
-Standardizing the necessary interfaces and data models of our architecture enables to exchange data with different systems and users and to extend the reference architecture with additional services, replace certain individual services with equivalent ones or to remove optional services.
-
-Within the Resiliency KIT Manufacturing as a service, two main standards were defined:
-
-- Manufacturing Capability Model and API - for declaration of offered and required manufacturing capabilities
-- Request for Quotation Model and API - for manufacturing demand configuration
-
 ### First implemented example services and applications
 
 There are several demonstrators and services that provide different building blocks within the reference architecture and support the workflow of a MaaS marketplace for customers.
@@ -88,6 +79,15 @@ The figure also depicts phases which are currently out of scope. This includes t
 *Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023)[^1]*
 
 [^1]: ```Schöppenthau, F.; Patzer, F.; Schnebel, B.; Watson, K.; Baryschnikov, N.; Obst, B.; Chauhan, Y.; Kaever, D.; Usländer, T.; Kulkarni, P. Building a Digital Manufacturing as a Service Ecosystem for Catena-X. Sensors 2023, 23, 7396. https://doi.org/10.3390/s23177396```
+
+## Standards
+
+Standardizing the necessary interfaces and data models of our architecture enables to exchange data with different systems and users and to extend the reference architecture with additional services, replace certain individual services with equivalent ones or to remove optional services.
+
+Within the Resiliency KIT Manufacturing as a service, two main standards were defined:
+
+- [CX - 0052: Manufacturing Capability Model and API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0052-AspectModelManufacturingCapability-v1.0.0.pdf) - for declaration of offered and required manufacturing capabilities
+- [CX - 0129: - 0052:Request for Quotation Model and API](https://catena-x.net/de/standard-library) - for manufacturing demand configuration
 
 ## Notice
 
