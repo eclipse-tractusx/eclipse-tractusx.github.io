@@ -1,5 +1,5 @@
 ---
-id: Changelog
+id: Data Governance Kit Changelog
 title: Changelog
 description: 'Data Governance Kit'
 sidebar_position: 1
