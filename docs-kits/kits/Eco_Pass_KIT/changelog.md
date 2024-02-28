@@ -3,26 +3,30 @@ title: Changelog
 ---
 
 ## [released]
+
 ## [1.0.0] - 2024-03-08
 
-### Added 
+### Added
+
 - Added EcoPass KIT Logo
 - Added the operation guide based on the Digital Product Pass Admin Guide
 - Added `Digital Product Pass v3.0.0` aspect and explanations
 - Added new sequence diagrams in software architecture
 - Added detailed data retrieval flow
 - Added Battery Pass Success Story
-    
+
 ### Updated
+
 - Updated battery pass model to latest version `v4.0.0`
 - Updated Business Architecture Diagram
-- Updated Software Architecture guide with descriptive documentation 
+- Updated Software Architecture guide with descriptive documentation
 
 ### Issues Fixed
+
 - Corrected links paths to absolute path
 
+## [released]
 
-## [released] 
 ## [0.1.0] - 2023-08-11
 
 ### Added
@@ -44,4 +48,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/digital-product-pass
+- Source URL: <https://github.com/eclipse-tractusx/digital-product-pass>
