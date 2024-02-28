@@ -9,17 +9,17 @@ sidebar_position: 2
 This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 - 2024 BASF SE
-- SPDX-FileCopyrightText: 2023 - 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023 - 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
-- SPDX-FileCopyrightText: 2023 - 2024 German Edge Cloud GmbH & Co. KG
-- SPDX-FileCopyrightText: 2023 - 2024 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 - 2024 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 - 2024 SAP SE
-- SPDX-FileCopyrightText: 2023 - 2024 Siemens AG
-- SPDX-FileCopyrightText: 2023 - 2024 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023 - 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 - 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
+- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
+- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 Siemens AG
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
 - Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Industry%20Core%20Kit (latest version)
 -->
 
@@ -79,7 +79,7 @@ Since the Discovery Services according to CX-0053 are not part of the Industry C
 
 ## Standards
 
-A formal definition of the Industry Core's content is given in the standards CX-ß126 and CX-0127 - first released in
+A formal definition of the Industry Core's content is given in the standards CX-0126 and CX-0127 - first released in
 CX R24-03. These two standards build on a common subset of technologies that are themselves described in Catena-X standards.
 
 The two standards share a common set of base technologies. And while the Industry Core does provide Business-relevant
@@ -98,5 +98,36 @@ integrated form the foundation for data exchange in Catena-X.
 
 All relevant standards can be downloaded from the
 official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+- Industry Core specific
+    - [CX - 0126 Industry Core Part Type 1.0.0](https://catena-x.net/de/standard-library)
+    - [CX - 0127 Industry Core Part Instance 1.0.0](https://catena-x.net/de/standard-library)
+- Interoperability Layer
+    - [CX - 0001 EDC Discovery API 1.0.2](https://catena-x.net/de/standard-library)
+    - [CX - 0002 Digital Twins in Catena-X 2.2.0](https://catena-x.net/de/standard-library)
+    - [CX - 0003 SAMM Aspect Meta Model 1.1.0](https://catena-x.net/de/standard-library)
+- Sovereignty Layer
+    - [CX - 0018 Eclipse Data Space Connector (EDC) 2.1.0](https://catena-x.net/de/standard-library)
+- Identity Layer
+    - [CX - 0013 Identity of Member Companies 1.1.0](https://catena-x.net/de/standard-library)
+    - [CX - 0014 Employees and Technical Users 1.0.1](https://catena-x.net/de/standard-library)
+    - [CX - 0015 IAM & Access Control Paradigm 1.0.1](https://catena-x.net/de/standard-library)
+    - [CX - 0016 Company Attribute Verification 1.1.0](https://catena-x.net/de/standard-library)
+    - [CX - 0017 Company Role by the Connector 1.1.0](https://catena-x.net/de/standard-library)
+    - [CX - 0050 Framework Agreement Credential 1.0.0](https://catena-x.net/de/standard-library)
+    - [CX - 0051 Summary Credential 1.0.0](https://catena-x.net/de/standard-library)
+
+_Sidenote: The following existing standards are incorporated into new standards. Please only refer to CX-0126 and CX-0127._
+
+- [CX - 0126 Industry Core Part Type 1.0.0](https://catena-x.net/de/standard-library) is the new standard based on the following existing standards:
+    - CX - 0042 Aspect Model SingleLevelBomAsPlanned
+    - CX - 0043 Aspect Model PartAsPlanned
+    - CX - 0094 Aspect Model PartSiteInformationAsPlanned
+    - CX - 0061 Triangle Traceability Data Provisioning BomAsPlanned
+- [CX - 0127 Industry Core Part Instance 1.0.0](https://catena-x.net/de/standard-library) is the new standard based on the following existing standards:
+    - CX - 0019 Aspect Model SerialPart
+    - CX - 0020 Aspect Model SingleLevelBomAsBuilt
+    - CX - 0021 Aspect Model Batch
+    - CX - 0060 Triangle Traceability - Digital Twin As-Built
 
 <Notice components={props.components} />
