@@ -41,12 +41,12 @@ As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing A
 This work is licensed under the CC-BY-4.0.
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2022, 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2022, 2024 BASF SE
-- SPDX-FileCopyrightText: 2022, 2024 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2022, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2022, 2024 SAP SE
-- SPDX-FileCopyrightText: 2022, 2024 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2022, 2024 Gris Group
-- SPDX-FileCopyrightText: 2022, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/ESS-kit
+- SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2024 BASF SE
+- SPDX-FileCopyrightText: 2024 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024 SAP SE
+- SPDX-FileCopyrightText: 2024 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2024 Gris Group
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/ESS_Kit
