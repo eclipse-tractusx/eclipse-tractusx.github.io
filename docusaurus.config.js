@@ -111,9 +111,10 @@ const config = {
             to: '/community/intro',
             from: '/community',
           },
+          // Redirect from multiple old paths to the new path
           {
             to: '/docs/release/',
-            from: '/docs/release/trg-2/trg-2-2',
+            from: ['/docs/release/trg-2/trg-2-2', '/docs/release/trg-3/trg-3-1'],
           },
         ],
       },
@@ -369,7 +370,7 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/developer',
+            to: '/Kits',
             items: [
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
@@ -531,11 +532,7 @@ const config = {
               {
                 label: "Icons used from svgrepo with CC0 License",
                 href: "https://www.svgrepo.com/",
-              },
-              {
-                to: '/docs/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Behaviour Twin RuL',
-              },
+              }
             ],
           },
           {
