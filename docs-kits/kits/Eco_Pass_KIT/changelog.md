@@ -3,7 +3,7 @@ title: Changelog
 ---
 
 ## [released]
-## [2.0.0] - 2024-03-08
+## [1.0.0] - 2024-03-08
 
 ### Added 
 - Added EcoPass KIT Logo
@@ -12,19 +12,6 @@ title: Changelog
 ### Updated
 - Updated battery pass model to latest version `v4.0.0`
 - Updated Business Architecture Diagram
-
-## [Unreleased]
-## [1.0.0] - 2023-12-15
-
-### Added
-- Initial Version from the KIT
-- Added Diagrams and Licenses
-- Setup the structure to pass quality gates with the KIT
-- Setup proper changelog structure and also repo open source organization
-
-### Updated
-- Fix metadata from the .tractusx file 
-- Outdated diagrams eliminated
 
 ## [0.1.0] - 2023-08-11
 
