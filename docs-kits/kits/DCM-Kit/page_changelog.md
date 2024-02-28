@@ -25,9 +25,9 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed
 
-- Updated DCM standard references in Adoption View
+- Updated DCM standard references in Adoption View (Merged CX-0046, CX-0047 and CX-0048 into CX-0128)
 - Updated data model references in Adoption View
-- Updated MaterialDemand data model chapter to new data models and versions
+- Updated MaterialDemand data model chapter to new data models and versions (Replaced WeekBasedMaterialDemand with MaterialDemand aspect model)
 - Updated WeekBasedCapacityGroup data model chapter to new data models and versions
 - Updated MaterialDemand API chapter to new API definitions
 - Updated WeekBasedCapacityGroup API chapter to new API definitions
