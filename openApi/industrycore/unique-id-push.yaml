@@ -237,11 +237,11 @@ components:
     # -----------------------------------------
     # Schema: urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeaderAspect
     # -----------------------------------------
-    urn_samm_io.catenax.shared.message_header_2.0.0_ContextCharacteristic:
+    urn_samm_io.catenax.shared.message_header_3.0.0_ContextCharacteristic:
       type: string
       description: Defining a string value for the context
       example: "IndustryCore-UniqueIDPush-ConnectToParent:2.0.0"
-    urn_samm_io.catenax.shared.message_header_2.0.0_SemanticVersioningTrait:
+    urn_samm_io.catenax.shared.message_header_3.0.0_SemanticVersioningTrait:
       type: string
       description: Constraint for defining a SemVer version.
       pattern: "^(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)(-(0|[1-9A-Za-z-][0-9A-Za-z-]*)(.[0-9A-Za-z-]+)*)?([0-9A-Za-z-]+(.[0-9A-Za-z-]+)*)?$"
@@ -263,7 +263,7 @@ components:
             In all other cases the value of the context field MUST follow the pattern <domain>-<subdomain>-<object>:<[major] version> (e.g. TRACE-QM-Alert:1.x.x).
             Versioning only refers to major versions in both default and fallback cases.
             Note: The version of the message's header is specified in the version field.
-          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_ContextCharacteristic'
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_ContextCharacteristic'
         sentDateTime:
           description: Time zone aware timestamp holding the date and the time the
             message was sent by the sending party. The value MUST be formatted according
@@ -295,7 +295,7 @@ components:
           description: The unique identifier of the aspect model defining the structure
             and the semantics of the message's header. The version number should reflect
             the versioning schema of aspect models in Catena-X.
-          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_SemanticVersioningTrait'
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_SemanticVersioningTrait'
       required:
       - messageId
       - context
