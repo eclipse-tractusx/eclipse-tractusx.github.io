@@ -15,13 +15,22 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Documentation of DCM architecture (arc42)
-- Documentation versions based on Catena-X release
+- Added Architecture View
+- Added IdBasedRequestForUpdate data model reference to Adoption View
+- Added IdBasedComment data model reference to Adoption View
+- Added IdBasedRequestForUpdate data model chapter to Development View
+- Added IdBasedComment data model chapter to Development View
+- Added IdBasedRequestForUpdate API chapter to Development View
+- Added IdBasedComment API chapter to Development View
 
 ### Changed
 
-- Documentation Adoption View based on Catena-X release
-- Documentation Development View based on Catena-X release
+- Updated DCM standard references in Adoption View
+- Updated data model references in Adoption View
+- Updated MaterialDemand data model chapter to new data models and versions
+- Updated WeekBasedCapacityGroup data model chapter to new data models and versions
+- Updated MaterialDemand API chapter to new API definitions
+- Updated WeekBasedCapacityGroup API chapter to new API definitions
 
 ### Removed
 
