@@ -1,17 +1,17 @@
 ---
-id: ESS Kit Development View
-title: Development View
+id: ESS Kit Documentation
+title: Documentation
 description: 'What do I have to implement?'
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-![ESS Kit Pictotogram](images/CatenaX_ESS_KitBlockDiagram.png)
+![ESS Kit Pictotogram](@site/static/kits/ESS-Kit/CatenaX_ESS_KitBlockDiagram.png)
 
 ## Building block view
 
 The following figure shows the current high-level architecture of the use case "Occasion-related tracking of ESS-related incidents".
 
-![](images/CatenaX_ESS_KitBlockDiagram.png)
+![ESS_KitBlockDiagram](@site/static/kits/ESS-Kit/CatenaX_ESS_KitBlockDiagram.png)
 
 ## Sequence view
 
@@ -33,8 +33,7 @@ The CXMemberLn is not related directly to L0, so he will receive anonymized info
 
 As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
 
-![](images/CatenaX_ESS_KitSequenceView.png)
-
+![ESS_KitSequenceView](@site/static/kits/ESS-Kit/CatenaX_ESS_KitSequenceView.svg)
 
 ## Notice
 
@@ -49,4 +48,4 @@ This work is licensed under the CC-BY-4.0.
 - SPDX-FileCopyrightText: 2024 Robert Bosch GmbH
 - SPDX-FileCopyrightText: 2024 Gris Group
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/ESS_Kit
+- Source URL: <https://github.com/eclipse-tractusx/ESS_Kit>
