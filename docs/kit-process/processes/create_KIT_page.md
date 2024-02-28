@@ -133,7 +133,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/developer',
+            to: '/Kits',
             items: [
               {
                 to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',

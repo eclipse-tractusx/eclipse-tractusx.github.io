@@ -3,6 +3,15 @@
 * and scoped locally.
 */
 
+.link_container {
+  color: #ffffff;
+}
+
+.link_container:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .roles_based_entry {
   padding: 10rem 0 0rem;
 }
