@@ -38,12 +38,12 @@ For more information see
 
 ### Quick Setup Guide for Agent-Enabled EDC (KA-EDC)
 
-Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example uses the postgresql-hashicorp variant but abstracts away from vault and SSI settings - *vaultsettings and *ssisettings as well as the persistence config, see [here](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) for more options and full details).
+Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example uses the postgresql-hashicorp variant but abstracts away from vault and SSI settings - *vaultsettings and*ssisettings as well as the persistence config, see [here](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) for more options and full details).
 
 ```yaml
    - name: agent-connector
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.10.15
+      version: 1.11.16
       alias: my-agent-connector
 ```
 
@@ -134,29 +134,29 @@ curl --location --globoff '{{controlPlaneName}}/management/v2/policydefinitions'
     "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?me=SkillPolicy",
     "policy": {
-		"@type": "Policy",
-		"odrl:permission" : [{
-			"odrl:action" : "USE",
-			"odrl:constraint" : {
-				"@type": "LogicalConstraint",
-				"odrl:or" : [{
-					"@type" : "Constraint",
-					"odrl:leftOperand" : "BusinessPartnerNumber",
-					"odrl:operator" : {
+  "@type": "Policy",
+  "odrl:permission" : [{
+   "odrl:action" : "USE",
+   "odrl:constraint" : {
+    "@type": "LogicalConstraint",
+    "odrl:or" : [{
+     "@type" : "Constraint",
+     "odrl:leftOperand" : "BusinessPartnerNumber",
+     "odrl:operator" : {
                         "@id": "odrl:eq"
                     },
-					"odrl:rightOperand" : "{{PARTNERBPNL}}"
-				},
+     "odrl:rightOperand" : "{{PARTNERBPNL}}"
+    },
                 {
-					"@type" : "Constraint",
-					"odrl:leftOperand" : "BusinessPartnerNumber",
-					"odrl:operator" : {
+     "@type" : "Constraint",
+     "odrl:leftOperand" : "BusinessPartnerNumber",
+     "odrl:operator" : {
                         "@id": "odrl:eq"
                     },
-					"odrl:rightOperand" : "{{MYBPNL}}"
-				}]
-			}
-		}]
+     "odrl:rightOperand" : "{{MYBPNL}}"
+    }]
+   }
+  }]
     }
 }
 '
@@ -201,7 +201,7 @@ PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:             <http://www.w3.org/2001/XMLSchema#>
 PREFIX json:            <https://json-schema.org/draft/2020-12/schema#> 
-PREFIX bpnl:		    <bpn:legal:>
+PREFIX bpnl:      <bpn:legal:>
 PREFIX oem:             <GraphAsset?oem=>
 PREFIX supplier:        <GraphAsset?supplier=>
 

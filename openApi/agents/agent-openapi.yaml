@@ -9,7 +9,10 @@ info:
   license:
     name: Eclipse Public License
     url: https://www.eclipse.org/legal/epl-2.0/
-  version: 1.10.15
+  version: 1.11.16
+externalDocs:
+  description: https://eclipse-tractusx.github.io/docs-kits/category/agents-kit
+  url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api
 servers:
 - url: https://knowledge.dev.demo.catena-x.net/conforming-agent/bind
   description: Development Conforming Agent for KA-BIND Profile
@@ -18,7 +21,7 @@ servers:
 - url: https://knowledge.dev.demo.catena-x.net/conforming-agent/transfer
   description: Development Conforming Agent for KA-TRANSFER Profile
 - url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/prognosis
-  description: Development Remoting Agent Prognosis Example 
+  description: Development Remoting Agent Prognosis Example
 - url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/rul
   description: Development Remoting Agent Remaining Useful Life Example
 - url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/health
@@ -39,8 +42,10 @@ servers:
   description: Development Consumer
 - url: ttps://knowledge.dev.demo.catena-x.net/oem-edc-data/BPNL00000003COJN/api
   description: Development OEM
-- url: https://knowledge.int.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api
-  description: Integration Consumer
+security:
+- ApiKeyAuth: []
+- BasicAuth: []
+- OAuth2: []
 tags:
 - name: agent
   description: Perform a SPARQL query against the dataspace
@@ -69,7 +74,7 @@ paths:
             $ref: '#/components/examples/DataspaceSkill'
       - name: runMode
         in: query
-        description: Determines the preferred execution location which may be "consumer" (in the computing environment of the endpoint agent), "provider" (in the computing environment of the remote agent providing the targetted asset) or "all" (the agent will choose the best computing environment based on contracts and policies, this is the default mode).
+        description: "Determines the preferred execution location which may be \"consumer\" (in the computing environment of the endpoint agent), \"provider\" (in the computing environment of the remote agent providing the targetted asset) or \"all\" (the agent will choose the best computing environment based on contracts and policies, this is the default mode)."
         required: false
         style: form
         explode: true
@@ -102,7 +107,7 @@ paths:
         schema:
           type: string
         examples:
-          Null:
+          "Null":
             $ref: '#/components/examples/NullText'
           Dataspace:
             $ref: '#/components/examples/Dataspace'
@@ -126,6 +131,7 @@ paths:
         style: form
         explode: true
         schema:
+          maxItems: 128
           type: array
           items:
             type: string
@@ -168,20 +174,20 @@ paths:
                       type: literal
                       value: A graph asset/offering mounting Quality data.
                     type:
-                      type: uri,
+                      type: "uri,"
                       value: https://w3id.org/catenax/ontology/common#GraphAsset
                     version:
-                      type: literal,
+                      type: "literal,"
                       value: v0.7.2
                     contentType:
-                      type: literal,
-                      value: application/json, application/xml
+                      type: "literal,"
+                      value: "application/json, application/xml"
                     isDefinedBy:
-                      type: literal,
+                      type: "literal,"
                       value: <https://w3id.org/catenax/ontology/reliability>
                     shape:
-                      type: literal,
-                      value: '@prefix : <GraphAsset?oem=Quality#> .'
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
             application/sparql-results+xml:
               schema:
                 $ref: '#/components/schemas/XmlResultset'
@@ -254,6 +260,7 @@ paths:
               style: simple
               explode: false
               schema:
+                maxItems: 64
                 type: array
                 items:
                   $ref: '#/components/schemas/CxWarning'
@@ -288,20 +295,20 @@ paths:
                       type: literal
                       value: A graph asset/offering mounting Quality data.
                     type:
-                      type: uri,
+                      type: "uri,"
                       value: https://w3id.org/catenax/ontology/common#GraphAsset
                     version:
-                      type: literal,
+                      type: "literal,"
                       value: v0.7.2
                     contentType:
-                      type: literal,
-                      value: application/json, application/xml
+                      type: "literal,"
+                      value: "application/json, application/xml"
                     isDefinedBy:
-                      type: literal,
+                      type: "literal,"
                       value: <https://w3id.org/catenax/ontology/reliability>
                     shape:
-                      type: literal,
-                      value: '@prefix : <GraphAsset?oem=Quality#> .'
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
             application/sparql-results+xml:
               schema:
                 $ref: '#/components/schemas/XmlResultset'
@@ -393,7 +400,7 @@ paths:
             $ref: '#/components/examples/DataspaceSkill'
       - name: runMode
         in: query
-        description: Determines the preferred execution location which may be "consumer" (in the computing environment of the endpoint agent), "provider" (in the computing environment of the remote agent providing the targetted asset) or "all" (the agent will choose the best computing environment based on contracts and policies, this is the default mode).
+        description: "Determines the preferred execution location which may be \"consumer\" (in the computing environment of the endpoint agent), \"provider\" (in the computing environment of the remote agent providing the targetted asset) or \"all\" (the agent will choose the best computing environment based on contracts and policies, this is the default mode)."
         required: false
         style: form
         explode: true
@@ -426,7 +433,7 @@ paths:
         schema:
           type: string
         examples:
-          Null:
+          "Null":
             $ref: '#/components/examples/NullText'
           Dataspace:
             $ref: '#/components/examples/Dataspace'
@@ -450,6 +457,7 @@ paths:
         style: form
         explode: true
         schema:
+          maxItems: 128
           type: array
           items:
             type: string
@@ -573,20 +581,20 @@ paths:
                       type: literal
                       value: A graph asset/offering mounting Quality data.
                     type:
-                      type: uri,
+                      type: "uri,"
                       value: https://w3id.org/catenax/ontology/common#GraphAsset
                     version:
-                      type: literal,
+                      type: "literal,"
                       value: v0.7.2
                     contentType:
-                      type: literal,
-                      value: application/json, application/xml
+                      type: "literal,"
+                      value: "application/json, application/xml"
                     isDefinedBy:
-                      type: literal,
+                      type: "literal,"
                       value: <https://w3id.org/catenax/ontology/reliability>
                     shape:
-                      type: literal,
-                      value: '@prefix : <GraphAsset?oem=Quality#> .'
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
             application/sparql-results+xml:
               schema:
                 $ref: '#/components/schemas/XmlResultset'
@@ -659,6 +667,7 @@ paths:
               style: simple
               explode: false
               schema:
+                maxItems: 64
                 type: array
                 items:
                   $ref: '#/components/schemas/CxWarning'
@@ -693,20 +702,20 @@ paths:
                       type: literal
                       value: A graph asset/offering mounting Quality data.
                     type:
-                      type: uri,
+                      type: "uri,"
                       value: https://w3id.org/catenax/ontology/common#GraphAsset
                     version:
-                      type: literal,
+                      type: "literal,"
                       value: v0.7.2
                     contentType:
-                      type: literal,
-                      value: application/json, application/xml
+                      type: "literal,"
+                      value: "application/json, application/xml"
                     isDefinedBy:
-                      type: literal,
+                      type: "literal,"
                       value: <https://w3id.org/catenax/ontology/reliability>
                     shape:
-                      type: literal,
-                      value: '@prefix : <GraphAsset?oem=Quality#> .'
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
             application/sparql-results+xml:
               schema:
                 $ref: '#/components/schemas/XmlResultset'
@@ -937,6 +946,7 @@ components:
           style: simple
           explode: false
           schema:
+            maxItems: 64
             type: array
             items:
               $ref: '#/components/schemas/CxWarning'
@@ -971,20 +981,20 @@ components:
                   type: literal
                   value: A graph asset/offering mounting Quality data.
                 type:
-                  type: uri,
+                  type: "uri,"
                   value: https://w3id.org/catenax/ontology/common#GraphAsset
                 version:
-                  type: literal,
+                  type: "literal,"
                   value: v0.7.2
                 contentType:
-                  type: literal,
-                  value: application/json, application/xml
+                  type: "literal,"
+                  value: "application/json, application/xml"
                 isDefinedBy:
-                  type: literal,
+                  type: "literal,"
                   value: <https://w3id.org/catenax/ontology/reliability>
                 shape:
-                  type: literal,
-                  value: '@prefix : <GraphAsset?oem=Quality#> .'
+                  type: "literal,"
+                  value: "@prefix : <GraphAsset?oem=Quality#> ."
         application/sparql-results+xml:
           schema:
             $ref: '#/components/schemas/XmlResultset'
@@ -1082,20 +1092,20 @@ components:
                   type: literal
                   value: A graph asset/offering mounting Quality data.
                 type:
-                  type: uri,
+                  type: "uri,"
                   value: https://w3id.org/catenax/ontology/common#GraphAsset
                 version:
-                  type: literal,
+                  type: "literal,"
                   value: v0.7.2
                 contentType:
-                  type: literal,
-                  value: application/json, application/xml
+                  type: "literal,"
+                  value: "application/json, application/xml"
                 isDefinedBy:
-                  type: literal,
+                  type: "literal,"
                   value: <https://w3id.org/catenax/ontology/reliability>
                 shape:
-                  type: literal,
-                  value: '@prefix : <GraphAsset?oem=Quality#> .'
+                  type: "literal,"
+                  value: "@prefix : <GraphAsset?oem=Quality#> ."
         application/sparql-results+xml:
           schema:
             $ref: '#/components/schemas/XmlResultset'
@@ -1240,6 +1250,20 @@ components:
       summary: An example contract name
       value: Contract?oem=Skill
     Ontology:
-      summary: An example reference to an ontology 
+      summary: An example reference to an ontology
       value: https://w3id.org/catenax/ontology/behaviour
-
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/auth
+          tokenUrl: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
+          scopes: {}
