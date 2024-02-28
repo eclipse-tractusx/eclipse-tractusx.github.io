@@ -3,7 +3,7 @@ title: Changelog
 ---
 
 ## [released]
-## [2.0.0] - 2024-01-12
+## [1.0.0] - 2024-03-08
 
 ### Added 
 - Added EcoPass KIT Logo
@@ -21,18 +21,6 @@ title: Changelog
 ### Issues Fixed
 - Corrected links paths to absolute path
 
-## [unreleased]
-## [1.0.0] - 2023-12-15
-
-### Added
-- Added Correct Diagrams and Licenses
-- Setup the structure to pass quality gates with the KIT
-- Created PR structure template for future PRs
-- Setup proper changelog structure and also repo open source organization
-
-### Updated
-- Fix metadata from the .tractusx file 
-- Outdated diagrams eliminated
 
 ## [released] 
 ## [0.1.0] - 2023-08-11
@@ -40,10 +28,6 @@ title: Changelog
 ### Added
 
 - move KIT to Tractus-X repository
-
-### Changed
-
-### Removed
 
 ## NOTICE
 
