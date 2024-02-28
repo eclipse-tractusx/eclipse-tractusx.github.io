@@ -3,6 +3,8 @@ id: adoption-view
 title: Adoption View
 description: 'A first impression'
 sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
@@ -44,23 +46,23 @@ The DCM standard consists of three main elements:
 - **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 - **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 
-**POWER of STANDARD**
+### POWER of STANDARD
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
 
-**DATA SOVEREIGNTY in FOCUS**
+### DATA SOVEREIGNTY in FOCUS
 
 DCM KIT keeps up with Catena X commitment to data sovereignty. This KIT has the goal to always comply with the data sovereignty principle implemented by the Eclipse Dataspace Connector. That enables all participants in the supply chain to always stay in full control of their own data.
 
 This is how sharing data is fun.
 
-**INTEROPERABILITY at its BEST**
+### INTEROPERABILITY at its BEST
 
 Application and Service Provider can reduce investments to integrate DCM data models/API specification from DCM KIT.
 
 The Kit enables the offering of value-add services and innovation based on process description of the core business logic and how a collaborative approach is a win-win-situation for customer and supplier.
 
-**COLLABORATION is KEY**
+### COLLABORATION is KEY
 
 The DCM KIT enables better and faster issue resolution. We believe that collaboration is the key to creating and maintaining strong partnerships between customers and suppliers and, at the same time, enhancing problem solving to reach a more balanced and efficient supply and demand management.
 
