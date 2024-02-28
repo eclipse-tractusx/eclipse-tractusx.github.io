@@ -239,7 +239,7 @@ The open source command line tool of the Eclipse Semantic Modeling Framework is 
 
 ## Application Programming Interfaces
 
-### Header
+**Header**
 
 In order to exchange data with a DCM partner, the following structure of a POST request payload MUST be adhered to.
 
@@ -265,7 +265,7 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.sh
 
 The entities and characteristics of the rdf turtle itself contain the descriptions for the usage of the message header.
 
-### Catena-X Membership Verification
+**Catena-X Membership Verification**
 
 Catena-X Membership MUST be verified in accordance with standard [CX-0016 Company Attribute Verification](https://catena-x.net/de/standard-library) Company Attribute Verification before any data is allowed to be exchanged via any of the following APIs
 
