@@ -98,8 +98,6 @@ In the automotive industry, a Battery Pass or digital product passport for batte
 Throughout this process, the Battery Pass serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
 For more information please read the [Battery Pass Viewer App Success Story](./Success%20Stories/BatteryPass_Viewer_App.mdx)!
 
-
-
 ### How the KIT can help
 
 The EcoPass KIT addresses the real-world problem of battery traceability and sustainability in the automotive industry by providing a standardized, easy-to-implement solution for creating and managing digital product passports. Here's how the EcoPass KIT can help and scale in this context:
@@ -139,13 +137,13 @@ Accordingly, the Battery Pass establishes the fundamental framework for digital 
 - It is extendable, therefore new information can be added without much difficulty. As a result, the Battery Pass will be able to adapt to the changing requirements of the battery sector.
 - It establishes a common semantic in Catena-X which other passes can build upon.
 
-#### Link to current model
+#### Link to current Battery Pass model
 
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.battery.battery_pass). For each version there is a separated directory containing the ttl-file and a generated samples.
 
 The latest version is the `v4.0.0` which is based on the generic Digital Product Pass `v3.0.0` model which can be found [here](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.generic.digital_product_passport)
 
-#### Example Payload
+#### Example Battery Pass Payload
 
 ```json
 {
@@ -1041,11 +1039,11 @@ By incorporating circularity parameters, the Transmission Passport aims to enhan
 It is important to note that the data model includes optional and mandatory information fields to fulfill regulatory requirements. Sharing information within the network relies on decentralized technologies and is always subject to individual decisions by each provider. The data model aligns with the newly proposed Ecodesign Regulation (ESPR-2022) and will be continuously adapted to changing circumstances. As one of the first extensions of the EcoPass KIT, more product passes are expected soon to serve the demand of data models across the automotive industry.
 Link to current model
 
-#### Link to current model
+#### Link to current Transmission Pass model
 
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/38605f6ddf19a0b4540dd483720d1d8c057ca332/io.catenax.transmission.transmission_pass). For each version there is a separated directory containing the ttl-file and a generated samples.
 
-#### Example Payload
+#### Example Transmission Pass Payload
 
 ```json
 {
@@ -1106,12 +1104,12 @@ The Digital Product Passport is the core model and can be used as the root class
 
 This data model is based on the new proposed Ecodesign Regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)) from March 30th, 2022 and is continuously adapted to the basic conditions over time. Amendments to this regulation came from the Council of the European Union ([Council Amendment](https://data.consilium.europa.eu/doc/document/ST-9014-2023-INIT/en/pdf)) from May 15th, 2023 and the European Parliament ([Parliament Amendment](https://www.europarl.europa.eu/doceo/document/TA-9-2023-0272_EN.html)) from July 12th, 2023 and is shown at specific points in the model. However, the main basis remains the version from the Committee.
 
-#### Link to current model
+#### Link to current Digital Product Pass model
 
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.generic.digital_product_passport/). For each version there is a separated directory containing the ttl-file and a generated sample. The latest version available is the `v3.0.0` which sets the base of all the other abstractactions of the Digital Product Pass at the moment like the `Battery Pass v4.0.0` that imports several aspects from the DPP Aspect.
 
+#### Example Digital Product Pass Payload
 
-#### Example Payload
 ```json
 {
   "typology": {
@@ -1605,4 +1603,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/digital-product-pass
+- Source URL: <https://github.com/eclipse-tractusx/digital-product-pass>
