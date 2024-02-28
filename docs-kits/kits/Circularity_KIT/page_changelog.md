@@ -1,13 +1,15 @@
 ---
 id: Changelog Circularity KIT
 title: Changelog
-description: 'Circularity KIT'
+description: "Circularity KIT"
 sidebar_position: 1
 ---
+
 ## [0.2.0] - 2024-03-08
 
-- general content Update
-- typo fixes
+- added: Secondary Material Chapter
+- changed: integrated SMC Chapter into other KIT content
+- removed: typos
 
 ## [0.1.0] - 2023-12-08
 
