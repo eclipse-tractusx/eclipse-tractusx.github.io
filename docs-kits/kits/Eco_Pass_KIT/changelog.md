@@ -3,7 +3,7 @@ title: Changelog
 ---
 
 ## [released]
-## [2.0.0] - 2024-01-12
+## [1.0.0] - 2024-03-08
 
 ### Added 
 - Added EcoPass KIT Logo
