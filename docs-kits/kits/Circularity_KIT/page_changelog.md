@@ -4,7 +4,7 @@ title: Changelog
 description: 'Circularity KIT'
 sidebar_position: 1
 ---
-## [0.2.0] - 2024-02-27
+## [0.2.0] - 2024-03-08
 
 - general content Update
 - typo fixes
