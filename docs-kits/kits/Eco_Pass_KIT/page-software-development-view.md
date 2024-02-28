@@ -17,28 +17,24 @@ The following Figure shows how the EcoPass KIT (represented by Digital Product P
 
 [![EcoPassKIT IT Arch Picture](./resources/development-view/ecoPassContext.svg)](./resources/development-view/ecoPassContext.svg)
 
-
-
 ## Data Retrieval Flow
+
 In order to achieve a better understanding of the EcoPass KIT data retrieval flow, we can detail a specific example where an user wants to retrieve a specific passport for a asset in Catena-X using the EcoPass KIT (reference implementation [`digital-product-pass`](https://github.com/eclipse-tractusx/digital-product-pass)).
 
 In the data retrieval flow example below we will imagine that an user wants to retrieve the data related to a Catena-X Digital Product Pass ID he has in his product as form of QR Code and ID:
 
 [![Sequence Diagramm](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
 
-
 | ID  | CX:XYZ78901:IMR18650V1 |
 | --- | ---------------------- |
 
 As defined in the standard CX-0096 Triangle Document for Digital Product Pass the search id used has the following semantic:
 
-```
+```html
 
 CX:<manufacturerPartId>:<partInstanceId>
 
 ```
-
-
 
 | ID                     | Description                                                                                                                                                                                              |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,8 +44,8 @@ CX:<manufacturerPartId>:<partInstanceId>
 
 > *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](./page-software-operation-view.md).
 
-
 ### Prerequisites
+
 In order to retrieve data in the Catena-X Network a number of services need to be available and have data register on them. Otherwise the data retrieval would simply not work because the consumer application would not "find" the specific searched asset even if it would be registered in the provider side.
 
 | Service Name          | Description                                                                                                                                                                                                             | Reference Implementation                                                                                                                                                                                                                                                                                     | [Standardized in](https://catena-x.net/de/standard-library) |
@@ -64,11 +60,9 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 
 > *Note*: The diagrams match the architecture proposed in the [Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass) reference implementation [Arc42](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md) and [Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/Data%20Retrieval%20Guide.md). Using the discovery services from Catena-X
 
-
 Here is a diagram of the data retrial flow necessary to retrieve any data from the Catena-X Network without any optimizations:
 
 [![Data Retrieval Flow](./resources/development-view/dataRetrievalFlow.svg)](./resources/development-view/dataRetrievalFlow.svg)
-
 
 ### 1. Discovery Phase
 
@@ -76,9 +70,9 @@ At the beginning we start calling the `Discovery Service` which is responsible f
 
 ### 2. Digital Twin Registry Search Phase
 
-Once we have a list of `EDCs` we need to find which of this EDCs contain the `Digital Twin Registry` component. We can filter which `EDCs` contain the `Digital Twin Registry` by simply calling for the catalog with the `type` condition of the contract that must have the `data.core.digitalTwinRegistry` standardized type. 
+Once we have a list of `EDCs` we need to find which of this EDCs contain the `Digital Twin Registry` component. We can filter which `EDCs` contain the `Digital Twin Registry` by simply calling for the catalog with the `type` condition of the contract that must have the `data.core.digitalTwinRegistry` standardized type.
 
-Once we have the list of DTRs we need to negotiate each contract retrieve in the catalog so that we can have the `Contract Agreement Id` which is given by the EDC once the contact is signed and agreed. This id will be used later to request the transfer for the `EDR` token for accessing the `Digital Twin Registry` through the `EDC Provider Data Plane Proxy`. 
+Once we have the list of DTRs we need to negotiate each contract retrieve in the catalog so that we can have the `Contract Agreement Id` which is given by the EDC once the contact is signed and agreed. This id will be used later to request the transfer for the `EDR` token for accessing the `Digital Twin Registry` through the `EDC Provider Data Plane Proxy`.
 
 ### 3. Digital Twin Search Phase
 
@@ -86,8 +80,7 @@ We need to search for the `Digital Twins` inside of the `Digital Twin Registries
 
 ### 4. Data Negotiation and Transfer Phase
 
-Once we have the submodel we are going to call the [`subprotocolBody`](#L233) url of the `endpoint interface` with name `SUBMODEL-3.0`. This will provide for us the asset id to negotiate with the EDC Provider. Once this asset is negotiated we will request for the `transfer` and `EDR` token will be sent to the backend by the EDC Provider, allowing us to query the dataplane url contained in the `href` field of the endpoint interface. And in this way we will retrieve the data using the `EDC Provider Data Plane Proxy`.
-
+Once we have the submodel we are going to call the [`subprotocolBody`] url of the `endpoint interface` with name `SUBMODEL-3.0`. This will provide for us the asset id to negotiate with the EDC Provider. Once this asset is negotiated we will request for the `transfer` and `EDR` token will be sent to the backend by the EDC Provider, allowing us to query the dataplane url contained in the `href` field of the endpoint interface. And in this way we will retrieve the data using the `EDC Provider Data Plane Proxy`.
 
 ## Technical Detailed Phases
 
@@ -106,7 +99,7 @@ After the discovery phase, the search for digital twin registries is one of the 
 
 Once the negotiation for the digital twin registries assets are done we would be able to retrieve a catalog for the user to search the serialized Id (key: partInstanceId, example value: batteryDMC_code).
 
-### Prerequisites
+### Prerequisites for Discovery Phase + Digital Twin Registry Search API
 
 The following information is required to enable the decentralized search for digital twin registries:
 
@@ -122,12 +115,11 @@ This sequence diagram represents the digital twin search and the discovery phase
 
 > **NOTE**: For learning how to register the assets and the digital twin registry and operate the EcoPass KIT visit the [Operation View](./page-software-operation-view.md)
 
-
-## 3. Digital Twin Search Phase
+## 3. Digital Twin Search Phase Details
 
 The digital twin searching phase involves searching in every digital twin registry for the desired digital twin asset. In this digital twin we will find the necessary information for requesting the contract information for the "digital twin submodels".
 
-### Prerequisites
+### Prerequisites for Digital Twin Search API
 
 The following information is required for enabling the digital twin search, in order to start the data transfer phase:
 
@@ -138,13 +130,11 @@ The following information is required for enabling the digital twin search, in o
 
 [![Digital Twin Search](./resources/development-view/ecoPassSearchSequence.svg)](./resources/development-view/ecoPassSearchSequence.svg)
 
-
-## 4. Data Negotiation and Transfer Phase
+## 4. Data Negotiation and Transfer Phase Details
 
 The **Data Negotiation and Transfer Phase** is the phase responsible for the final data transfer and negotiation. In this phase we retrieve the data using the EDC.
 
-
-### Prerequisites
+### Prerequisites for Negotiate and Transfer API
 
 The following information is required for enabling the digital twin search, in order to start the data transfer phase:
 
@@ -152,9 +142,9 @@ The following information is required for enabling the digital twin search, in o
 | ---- | ------- | ----------- |
 | Contract with Policy | [Contract Example](#contract-example) | To start the contract negotiation we need to agree on a policy for the a specific contract. This needs to be selected by the one that is requesting the data.
 
-### Sequence Diagram
-[![Negotiation and Transfer](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)
+### Sequence Diagram for Negotiate and Transfer
 
+[![Negotiation and Transfer](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)
 
 ## Authentication and Authorization
 
@@ -171,9 +161,7 @@ The EcoPass KIT has two authorization methods:
 
 > **NOTE**: The authorization can be configured in the EcoPass KIT configuration so that it matches the business interests of the operator.
 
-
-For more information on how the Authentication & Authorization is done consult the reference implementation [ `Digital Product Pass Arc42` ](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md#authentication--authorization)
-
+For more information on how the Authentication & Authorization is done consult the reference implementation [`Digital Product Pass Arc42`](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md#authentication--authorization)
 
 ## API Specification
 
@@ -181,9 +169,10 @@ For more information on how the Authentication & Authorization is done consult t
 
 The Digital Product Pass / EcoPass KIT Open API specification is available at the swagger hub from Tractus-X:
 
-[https://app.swaggerhub.com/apis/eclipse-tractusx-bot/digital-product-pass](https://app.swaggerhub.com/apis/eclipse-tractusx-bot/digital-product-pass)
+[https://app.swaggerhub.com/apis/eclipse-tractusx-bot/digital-product-pass/2.1.3](https://app.swaggerhub.com/apis/eclipse-tractusx-bot/digital-product-pass/2.1.3)
 
 ### EcoPass APIs
+
 The APIs below are the ones contained in the `Digital Product Pass Backend` reference implementation. Which can be reused for retrieving aspects from the Catena-X Network.
 
  | API                                   | Method | Description                                                                                                                                                                                                                                                                                                                                                                    | Parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -191,11 +180,10 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
  | **/api/contract/create**              | POST   | The `/api/contract/create` api is responsible for calling the `BPN Discovery` service searching for the BPN of a `manufacturerPartId` and validating if there is any `Decentral Digital Twin Registry` available for the BPN number found in the `EDC Discovery` service.                                                                                                      | [Go to Params](#apicontractcreate)
  | **/api/contract/search**              | POST   | At the **/api/contract/search**  API the user can search for a serialized Id and get its contract. The `Backend` will search for the Digital Twin and will return the contract for the first one that is found. A `sign token` (a sha256 hash) is returned also and acts like a "session token" allowing just the user that created the process to sign or decline the contract. |[Go to Params](#apicontractsearch) |
  | **/api/contract/agree**               | POST   | Once the user has the contract he can call the `/api/contract/agree` API to start the negotiation process and the transfer of the passport. This means that the user accepted the policy and the frame-contracts contained in the contract policy.                                                                                                                             | [Go to Params](#apicontractagree) |
- | **/api/contract/decline**             | POST   | The other option rather than `/agree` is the `/decline` API, that basically blocks the process and makes it invalid. This means that the user declined the specific contract that was found for this process.             |                                                                    [Go to Params](#apicontractdecline)                                                                               
- | **/api/contract/cancel**              | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                              |    [Go to Params](#apicontractcancel)                                                                                                                           
- | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                             |         [Go to Params](#apicontractstatusprocessid)                                                                                                                                                                                                         
+ | **/api/contract/decline**             | POST   | The other option rather than `/agree` is the `/decline` API, that basically blocks the process and makes it invalid. This means that the user declined the specific contract that was found for this process.             |                                                                    [Go to Params](#apicontractdecline)
+ | **/api/contract/cancel**              | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                              |    [Go to Params](#apicontractcancel)
+ | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                             |         [Go to Params](#apicontractstatusprocessid)
  | **/api/data**                         | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                          |  [Go to Params](#apidata)  |
-
 
 #### Parameters
 
@@ -206,7 +194,6 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | id        | searchIdValue    | [REQUIRED]                  |
 | type      | searchIdTypeName | manufacturerPartId          |
 
-
 ##### /api/contract/search
 
 | Parameter | Value Name            | Mandatory or Optional Value |
@@ -215,8 +202,7 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | idType    | serializedIdTypeName  | partInstanceId              |
 | processId | processIdentification | [REQUIRED]                  |
 
-
- ##### /api/contract/agree
+##### /api/contract/agree
 
 | Parameter  | Value Name             | Mandatory or Optional Value                                                     |
 |------------|------------------------|---------------------------------------------------------------------------------|
@@ -225,13 +211,12 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | policyId   | policyIdentification   | If no policyId is specified then the first policy of the contract will be taken |
 | token      | searchSessionToken     | [REQUIRED]                                                                      |
 
-##### /api/contract/decline                                                   
+##### /api/contract/decline
 
 | Parameter  | Value Name             | Mandatory or Optional Value |
 |------------|------------------------|-----------------------------|
 | processId  | processIdentification  | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
-
 
 ##### /api/contract/cancel
 
@@ -241,22 +226,19 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
 
+##### /api/contract/status/{processId}
 
-
-##### /api/contract/status/{processId}   
 | Parameter | Value Name            | Mandatory or Optional Value |
 |-----------|-----------------------|-----------------------------|
 | processId | processIdentification | [REQUIRED]                  |
-                                                                                      
 
-##### /api/data 
+##### /api/data
 
 | Parameter  | Value Name             | Mandatory or Optional Value |
 |------------|------------------------|-----------------------------|
 | processId  | processIdentification  | [REQUIRED]                  |
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
-                                                                                                                                                                                
 
 #### External API calls
 
@@ -267,7 +249,6 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | EDC Discovery Service [CX-0001]  | POST   | /api/administration/connectors/discovery/search    | `{[<Company's BPNL>]}`                     |
 | Digital Twin Registry [CX-0002]  | GET    | /lookup/shells                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
 | Digital Twin Registry [CX-0002]  | GET    | /shell-descriptors/{digitalTwinId}                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
-
 
 ## Reference Implementations
 
@@ -287,7 +268,6 @@ The following represents a collection of relevant documentation regarding the pr
 - **[Arc42 (Main Architecture Document)](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md)**
 
 - **[CX Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/DataRetrievalGuide.md)**
-
 
 ## Attachments
 
@@ -460,6 +440,7 @@ The following represents a collection of relevant documentation regarding the pr
 ```
 
 ### Contract Example
+
 ```json
 {
     "@id": "registry-asset",
@@ -511,4 +492,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/digital-product-pass
+- Source URL: <https://github.com/eclipse-tractusx/digital-product-pass>
