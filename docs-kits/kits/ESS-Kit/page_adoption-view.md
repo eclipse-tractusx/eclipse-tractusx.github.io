@@ -121,7 +121,7 @@ Catena-X offers various semantic models depending on the specific application an
 
 The data model follows the Catena-X Standard CX-0113 (<https://catena-x.net/de/standard-library>) and is modelled following the CX-0003 Standard (<https://catena-x.net/de/standard-library>). Below, you can find an excerpt of the full data set:
 
-#### ESS Incident Data Model
+#### ESS Incident Information
 
 | **Attribute Name** | **Description** | **Example** |
 |-----------------------------|-----------------------------|-----------------------------|
