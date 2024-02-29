@@ -507,11 +507,11 @@ The diagram shown here illustrates the interaction between the PCF KIT and the o
 
 The standards for release 24.03 will be published soon. Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-Product Carbon Footprint Data Model (Version 2.0.0)
-Product Carbon Footprint Request API (Version 2.0.0)
-Triangle PCF Request (Version 2.1.0)
-Product Carbon Footprint Calculation Integration (Version 1.0.0)
-Product Carbon Footprint Rulebook (Version 2.0.0)
+- Product Carbon Footprint Data Model (Version 2.0.0)
+- Product Carbon Footprint Request API (Version 2.0.0)
+- Triangle PCF Request (Version 2.1.0)
+- Product Carbon Footprint Calculation Integration (Version 1.0.0)
+- Product Carbon Footprint Rulebook (Version 2.0.0)
 
 ## NOTICE
 
