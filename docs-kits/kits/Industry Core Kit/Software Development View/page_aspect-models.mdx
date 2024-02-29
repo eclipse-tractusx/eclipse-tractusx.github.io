@@ -524,13 +524,25 @@ Aspect model in GitHub:
 
 #### Creation of Aspect Model SingleLevelUsageAsBuilt
 
-The creation of the aspect model SingleLevelUsageAsBuilt is more complicated. This aspect model contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch aspect model is created. But it also contains the Unique IDs of the built-in parts (attributes childItems.catenaXId), as shown in the example above.
+The SingleLevelUsageAsBuilt aspect can only be completed by combining supplier and customer information. Only the supplier will create and update the Usage aspects. The missing information can be provided by the customer(s) with the help of notifications.
 
-> TODO: describe creation of SingleLevelUsageAsBuilt
-> - `catenaXId` and `customers` can be filled with the manufacturer's internal data
-> - `parentItems` relies on information that is acquired by customer(s)
-> - Unique id push API provided by manufacturer (connect-to-child) is to be used by customer to transfer relevant data to manufacturer
-> - the information transferred by the customer should be based on the parent parts SingleLevelBomAsBuilt information
-> - manufacturers use information from customer(s) to fill `parentItems` as they get it, in the case of multiple customers (of a batch) manufacturers need to merge the information from multiple customers into the same aspect.
+For better understanding, simplified names "parents", "child", "customers" are used in the description.
+
+These expressions “parents”, “child” and “customers” can be translated into the attributes of the aspect model.
+
+Translation into SingleLevelUsageAsBuilt aspect:
+
+“parents” -> “catenaXId” in “parentItems”
+“child” -> overall “catenaXId” in aspect
+“customers” -> “businessPartner” in “customers”
+
+1. Supplier creates Digital Twin for his own produced part or material with corresponding “part” aspect (partInstance or similar). In addition, the supplier creates a singleLevelUsageAsBuilt aspect and attaches it to that Digital Twin. At this point of time the singleLevelUsageAsBuilt aspect cannot contain “parents” information, only “child” (unique ID of own product) and “customers” (BPNL of customers).
+2. The customer produces a new product or material and creates a Digital Twin for it. When the customer uses the supplier part or material to produce the new product, he does not create an additional Digital Twin for the supplier product. Instead, the customer sends an appropriate notification to the supplier. This could happen when creating the singleLevelBomAsBuilt aspect, because at this point of time all information is available at the sender side. The customer sends a notification to the supplier, containing the missing “parents” information for that input product (“child”), both specified by the uniqueId, plus optional additional information like quantity and dates. “Parents” is the produced product at the customer, “child” is the used product coming from the supplier.
+3. Supplier receives notification from customer and updates own singleLevelUsageAsBuilt aspect with the “parents” and additional information, if provided, like quantity and dates.
+In case of a batch, the customer can use one batch to create several products. In that case, either several notifications can be sent, or one notification may contain several “parents” relations.
+In case of a batch, parts of it can also be sold to several customers. So, the supplier has to put several “customers” into the singleLevelUsageAsBuilt aspect and has to be ready to receive notifications from several customers that result in an update of the aspect
+The customer MAY give access to the supplier for the Digital Twin, partType or similar aspect but it is not requested. The only information that is shared via notification is the catenaXID of the product that has been manufactured by the customer plus quantity and date.
+
+The customer MAY NOT give access to the singleLevelBomAsBuilt aspect that belongs to the Digital Twin of his own produced product because it may also contain information relating to other suppliers that may not be shared.
 
 <Notice components={props.components} />
