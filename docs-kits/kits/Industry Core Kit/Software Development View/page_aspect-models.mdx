@@ -32,49 +32,43 @@ Aspect models are mostly easy to create by transforming a company's internal dat
 
 <AspectModelOverview components={props.components} />
 
-### PartAsPlanned
+### PartTypeInformation
 
-PartAsPlanned represents an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version.
+A Part Type Information represents an item in the Catena-X Bill of Material (BOM) on a type level in a specific version.
+It replaces the aspect model PartAsPlanned 2.0.0 (https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/2.0.0)
 
 Aspect model in GitHub: 
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/2.0.0
-- Version 1.0.1:  https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/1.0.1
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_type_information/1.0.0
 
-#### Example: Aspect Model `PartAsPlanned 2.0.0` for a part type
+#### Example: Aspect Model `PartTypeInformation 1.0.0` for a part type
 
 ```json
 {
-  "partTypeInformation": {
-    "classification": "component",
-    "manufacturerPartId": "123-0.740-3434-A",
-    "nameAtManufacturer": "Mirror left"
+  "catenaXId" : "580d3adf-1981-44a0-a214-13d6ceed9379",
+  "partTypeInformation" : {
+    "partClassification" : [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004716",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      },
+      {
+        "classificationStandard": "OEM Part Classification 1022-102",
+        "classificationID": "Exterior mirror",
+        "classificationDescription": "OEM standard for classification of parts."
+      }
+    ],
+    "manufacturerPartId" : "123-0.740-3434-A",
+    "nameAtManufacturer" : "Mirror left"
   },
-  "partSitesInformationAsPlanned": [
+  "partSitesInformationAsPlanned" : [
     {
-      "functionValidUntil": "2023-12-05T20:53:18.826+01:00",
-      "catenaXsiteId": "BPNS1234567890ZZ",
-      "function": "production",
-      "functionValidFrom": "2023-12-05T20:53:18.826+01:00"
+      "functionValidUntil" : "2024-01-29T12:00:00.123+02:00",
+      "catenaXsiteId" : "BPNS1234567890ZZ",
+      "function" : "production",
+      "functionValidFrom" : "2024-01-29T12:00:00.123+02:00"
     }
-  ],
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
-}
-```
-
-#### Example: Aspect Model `PartAsPlanned 1.0.1` for a part type
-
-```json
-{
-  "partTypeInformation": {
-    "classification": "component",
-    "manufacturerPartId": "123-0.740-3434-A",
-    "nameAtManufacturer": "Mirror left"
-  },
-  "validityPeriod": {
-    "validFrom": "2021-06-14T06:55:29.935Z",
-    "validTo": "2022-06-14T06:55:29.935Z"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379"
+  ]
 }
 ```
 
@@ -83,79 +77,69 @@ Aspect model in GitHub:
 The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
 
 Aspect model in GitHub: 
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/2.0.0
-- Version 1.1.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/1.1.0
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/3.0.0
 
-#### Example: Aspect Model `SingleLevelBomAsPlanned 2.0.0` for a Catalog Part
+
+#### Example: Aspect Model `SingleLevelBomAsPlanned 3.0.0` for a Catalog Part
 
 ```json
 {
   "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
   "childItems": [
     {
-      "catenaXId": "urn:uuid:5daB938E-Cafa-92B3-7ca1-9aD7885e9dC8",
-      "validityPeriod" : {
-      "validFrom" : "2023-03-21T08:17:29.187+01:00",
-      "validTo" : "2024-07-01T16:10:00.000+01:00"
+      "validityPeriod": {
+        "validFrom": "2023-03-21T08:17:29.187+01:00",
+        "validTo": "2024-07-01T16:10:00.000+01:00"
       },
+      "catenaXId": "urn:uuid:055c1478-0395-47m8-94de-7cf802c5724a",
       "quantity": {
-        "quantityNumber": 2.5,
-        "measurementUnit": "unit:litre"
+        "value": 5,
+        "unit": "unit:litre"
       },
-      "createdOn": "2022-02-03T14:48:54.709Z",
       "businessPartner": "BPNL50096894aNXY",
+      "createdOn": "2022-02-03",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z"
     }
   ]
 }
-
 ```
-#### Example: Aspect Model `SingleLevelBomAsPlanned 1.1.0` for a Catalog Part
+
+### SingleLevelUsageAsPlanned
+
+The aspect provides the information in which parent part(s)/product(s)the given item is to be assembled into or used. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to a part type twin representing a generic part, e.g. a catalog part.
+If multiple versions of parent parts exist that the child part can be assembled into or used, all versions of the parent part are included in the usage list.
+
+Aspect model in GitHub: 
+- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/2.0.0
+
+
+#### Example: Aspect Model `SingleLevelUsageAsPlanned 2.0.0` for a Catalog Part
 
 ```json
 {
-  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "childParts" : [ {
-    "childCatenaXId" : "fEbdF497-B223-8365-dEbe-df4A6E67bDee",
-    "validityPeriod" : {
-      "validFrom" : "2023-03-21T08:17:29.187+01:00",
-      "validTo" : "2024-07-01T16:10:00.000+01:00"
-    },
-    "quantity" : {
-      "quantityNumber" : 2.5,
-      "measurementUnit" : "unit:litre"
-    },
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-  } ]
-}
-```
-### SingelLevelUsageAsPlanned
-
-The aspect provides the information in which parent part(s)/product(s) the given item is to be assembled into or used. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from the as planned lifecycle phase. If one input product is regarded as an alternative to another input product (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
-
-Aspect model in GitHub:
-- Version 1.1.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0
-
-
-##### Example: Submodel `SingleLevelUsageAsPlanned` for a Catalog Part
-
-```json
-{
-  "parentParts": [
+  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+  "parentItems": [
     {
-      "parentCatenaXId": "urn:uuid:c8B01D5A-ce0B-6Dd4-5bA0-A3e3fcE9cA93",
-      "quantity": {
-        "quantityNumber": 2.5,
-        "measurementUnit": "unit:litre"
+      "validityPeriod": {
+        "validFrom": "2023-03-21T08:17:29.187+01:00",
+        "validTo": "2024-07-01T16:10:00.000+01:00"
       },
-      "createdOn": "2022-02-03T14:48:54.709Z",
+      "catenaXId": "urn:uuid:055c1478-0395-47m8-94de-7cf802c5724a",
+      "quantity": {
+        "value": 2,
+        "unit": "unit:litre"
+      },
+      "businessPartner": "BPNL50096894aNXY",
+      "createdOn": "2022-02-03",
       "lastModifiedOn": "2022-02-03T14:48:54.709Z"
     }
   ],
-  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d"
+  "customers": [
+    "BPNL50096894aNXY"
+  ]
 }
 ```
+
 #### Creation of Aspect Model SingleLevelUsageAsPlanned
 
 The SingleLevelUsageAsPlanned aspect can only be completed by combining supplier and customer information. Only the supplier will create and update the Usage aspects. The missing information can be provided by the customer(s) with the help of Unique Id Push notifications.
@@ -177,137 +161,16 @@ Translation into SingleLevelUsageAsPlanned aspect:
 The customer MAY give access to the supplier for the Digital Twin and the partType aspect but it is not requested. The only information that is shared via notification is the catenaXID of the product to be used by the customer, plus quantity and date.
 
 The customer MAY NOT give access to the singleLevelBomAsPlanned aspect that belongs to the Digital Twin of his own product because it may also contain information relating to other suppliers that may not be shared.
-### PartSiteInformationAsPlanned
 
-The aspect provides site related information for a given as planned item (i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
-
-Aspect model in GitHub: 
-- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_site_information_as_planned/1.0.0
-
-#### Example: Aspect Model `PartSiteInformationAsPlanned 1.0.0` for a Component that is Produced at the Given Site
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites": [
-    {
-      "catenaXSiteId": "BPNS1234567890ZZ",
-      "functionValidUntil": "2025-11-21T11:14:30.825+01:00",
-      "function": "production",
-      "functionValidFrom": "2022-11-21T11:14:30.825+01:00"
-    }
-  ]
-}
-```
-### PartSiteInformationAsBuilt (shared aspect)
-
-The aspect provides site related information for a given item(i.e. a part type or part instance that is uniquely identifiable within Catena-X via its Catena-X ID). A site is a delimited geographical area where a legal entity does business. In this context all potentially related sites are listed including all sites where e.g. production of this part(type).
-
-Aspect model in GitHub: 
-- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.part_site_information_as_built/1.0.0
-
-
-#### Example: Aspect Model `PartSiteInformationAsBuilt 1.0.0` for a component that is produced at the given site
-
-```json
-{
-  "catenaXId" : "580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites" : [ {
-    "catenaXsiteId" : "BPNS1234567890ZZ",
-    "function" : "production"
-  } ]
-}
-```
 
 ### SerialPart
 
 A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
 Aspect model in GitHub: 
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/2.0.0
-- Version 1.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/1.0.1
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/3.0.0
 
-#### Example: Aspect Model `SerialPart 2.0.0` for a Vehicle
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "manufacturerPartId",
-      "value": "95657362-83"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "van",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites": [
-    {
-      "catenaXsiteId": "BPNS1234567890ZZ",
-      "function": "production"
-    }
-  ],
-  "partTypeInformation": {
-    "manufacturerPartID": "QX-39",
-    "classification": "product",
-    "nameAtManufacturer": "Vehicle Model A"
-  }
-}
-```
-
-#### Example: Aspect Model `SerialPart 2.0.0` for a Serialized Part (Non-Vehicle)
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "manufacturerPartId",
-      "value": "95657362-83"
-    },
-    {
-      "key": "partInstanceId",
-      "value": "NO-574868639429552535768526"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-  "sites": [
-    {
-      "catenaXsiteId": "BPNS1234567890ZZ",
-      "function": "production"
-    }
-  ],
-  "partTypeInformation": {
-    "manufacturerPartID": "95657362-83",
-    "customerPartId": "798-515297795-A",
-    "classification": "component",
-    "nameAtManufacturer": "High Voltage Battery",
-    "nameAtCustomer": "High Voltage Battery"
-  }
-}
-```
-
-#### Example: Aspect Model `SerialPart 1.0.1` for a Vehicle
+#### Example: Aspect Model `SerialPart 3.0.0` for a Vehicle
 
 ```json
 {
@@ -331,18 +194,35 @@ Aspect model in GitHub:
   ],
   "manufacturingInformation": {
     "date": "2022-02-04T14:48:54",
-    "country": "DEU"
+    "country": "DEU",
+    "sites": [
+      {
+        "catenaXsiteId": "BPNS1234567890ZZ",
+        "function": "production"
+      }
+    ]
   },
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "partTypeInformation": {
-    "manufacturerPartID": "QX-39",
-    "classification": "product",
-    "nameAtManufacturer": "Vehicle Model A"
+    "manufacturerPartId": "95657362-83",
+    "nameAtManufacturer": "Vehicle Model A",
+    "partClassification": [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004712",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      },
+      {
+        "classificationStandard": "OEM Part Classification 1022-102",
+        "classificationID": "Electric vehicle",
+        "classificationDescription": "OEM standard for classification of parts."
+      }
+    ],
   }
 }
 ```
 
-#### Example: Aspect Model `SerialPart 1.0.1` for a Serialized Part (Non-Vehicle)
+#### Example: Aspect Model `SerialPart 3.0.0` for a Serialized Part (Non-Vehicle)
 
 ```json
 {
@@ -362,15 +242,32 @@ Aspect model in GitHub:
   ],
   "manufacturingInformation": {
     "date": "2022-02-04T14:48:54",
-    "country": "DEU"
+    "country": "DEU",
+    "sites": [
+      {
+        "catenaXsiteId": "BPNS1234567890ZZ",
+        "function": "production"
+      }
+    ]
   },
   "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
   "partTypeInformation": {
-    "manufacturerPartID": "95657362-83",
+    "manufacturerPartId": "95657362-83",
     "customerPartId": "798-515297795-A",
-    "classification": "component",
     "nameAtManufacturer": "High Voltage Battery",
-    "nameAtCustomer": "High Voltage Battery"
+    "nameAtCustomer": "High Voltage Battery",
+    "partClassification": [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004713",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      },
+      {
+        "classificationStandard": "OEM Part Classification 1022-102",
+        "classificationID": "Traction Battery",
+        "classificationDescription": "OEM standard for classification of parts."
+      }
+    ],
   }
 }
 ```
@@ -384,57 +281,48 @@ The only special step in creating this aspect model is the initial creation of t
 A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID.
 
 Aspect model in GitHub: 
-- Version 2.0.1: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.1
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/2.0.0
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/3.0.0
 
-#### Example: Aspect Model `Batch 2.0.1` for a Batch of Raw Material
+#### Example: Aspect Model `Batch 3.0.0` for a Batch of Raw Material
 
-```json
+ ```json
 {
   "localIdentifiers": [
     {
       "value": "BID12345678",
       "key": "batchId"
-    }
+    },
+    {
+      "value": "123-0.740-3434-A",
+      "key": "manufacturerPartId"
+    },
   ],
   "manufacturingInformation": {
     "date": "2022-02-04T14:48:54",
-    "country": "HUR"
+    "country": "HUR",
+    "sites": [
+      {
+        "catenaXsiteId": "BPNS1234567890ZZ",
+        "function": "production"
+      }
+    ]
   },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites": [
-    {
-      "catenaXsiteId": "BPNS1234567890ZZ",
-      "function": "production"
-    }
-  ],
+  "catenaXId": "580d3adf-1981-44a0-a214-13d6ceed9379",
   "partTypeInformation": {
+    "partClassification": [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004714",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      },
+      {
+        "classificationStandard": "OEM Part Classification 1022-102",
+        "classificationID": "Two-component adhesive",
+        "classificationDescription": "OEM standard for classification of parts."
+      }
+    ],
     "manufacturerPartId": "123-0.740-3434-A",
-    "classification": "product",
-    "nameAtManufacturer": "PA66-GF30",
-  }
-}
-```
-
-#### Example: Aspect Model `Batch 2.0.0` for a Batch of Raw Material
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "value": "BID12345678",
-      "key": "batchId"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "HUR"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "partTypeInformation": {
-    "manufacturerPartId": "123-0.740-3434-A",
-    "classification": "product",
-    "nameAtManufacturer": "PA66-GF30",
+    "nameAtManufacturer": "PA66-GF30"
   }
 }
 ```
@@ -448,51 +336,9 @@ The only special step in creating this aspect model is the initial creation of t
 A just-in-sequence part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a combination of several IDs related to a just-in-sequence process.
 
 Aspect model in GitHub: 
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/2.0.0
-- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/1.0.0
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/3.0.0
 
-#### Example: Aspect Model `JustInSequencePart 2.0.0` for a non-serialized component
-
-```json
-{
-  "localIdentifiers": [
-    {
-      "key": "manufacturerId",
-      "value": "BPNL7588787849VQ"
-    },
-    {
-      "key": "jisNumber",
-      "value": "894651684"
-    },
-    {
-      "key": "parentOrderNumber",
-      "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
-    },
-    {
-      "key": "jisCallDate",
-      "value": "2022-01-24T09:13:34"
-    }
-  ],
-  "manufacturingInformation": {
-    "date": "2022-02-04T14:48:54",
-    "country": "DEU"
-  },
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "sites": [
-    {
-      "catenaXsiteId": "BPNS1234567890ZZ",
-      "function": "production"
-    }
-  ],
-  "partTypeInformation": {
-    "manufacturerPartID": "84816168424",
-    "classification": "product",
-    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B"
-  }
-}
-```
-
-#### Example: Aspect Model `JustInSequencePart 1.0.0` for a non-serialized component
+#### Example: Aspect Model `JustInSequencePart 3.0.0` for a non-serialized component
 
 ```json
 {
@@ -510,19 +356,44 @@ Aspect model in GitHub:
       "value": "OEM-A-F8LM95T92WJ9KNDD3HA5P"
     },
     {
+      "key": "manufacturerPartId",
+      "value": "84816168424"
+    },
+    {
+      "key": "nameAtManufacturer",
+      "value": "Black Leather Front Row Seat for Vehicle Model B"
+    },
+    {
       "key": "jisCallDate",
       "value": "2022-01-24T09:13:34"
     }
   ],
   "manufacturingInformation": {
     "date": "2022-02-04T14:48:54",
-    "country": "DEU"
+    "country": "DEU",
+    "sites": [
+      {
+        "catenaXsiteId": "BPNS1234567890ZZ",
+        "function": "production"
+      }
+    ]
   },
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "partTypeInformation": {
-    "manufacturerPartID": "84816168424",
-    "classification": "product",
-    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B"
+    "partClassification": [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004715",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      },
+      {
+        "classificationStandard": "OEM Part Classification 1022-102",
+        "classificationID": "Front row seat",
+        "classificationDescription": "OEM standard for classification of parts."
+      }
+    ],
+    "manufacturerPartId": "84816168424",
+    "nameAtManufacturer": "Black Leather Front Row Seat for Vehicle Model B",
   }
 }
 ```
@@ -538,86 +409,45 @@ The only special step in creating this aspect model is the initial creation of t
 The aspect provides the child parts (one structural level down) which the given object assembles.
 
 Aspect model in GitHub: 
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/2.0.0
-- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/1.0.0
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/3.0.0
 
-#### Example: Aspect Model `SingleLevelBomAsBuilt 2.0.0` for a Serialized Part
+#### Example: Aspect Model `SingleLevelBomAsBuilt 3.0.0` for a Serialized Part
 
 ```json
 {
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "childItems": [
     {
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
       "quantity": {
-        "quantityNumber": 1.0,
-        "measurementUnit": "unit:piece"
+        "value": 1.0,
+        "unit": "unit:piece"
       },
       "hasAlternatives": false,
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner": "BPNL50096894aNXY"
+      "createdOn": "2022-02-03",
+      "businessPartner": "BPNL50096894aNXY",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
     }
   ]
 }
 ```
 
-#### Aspect Model `SingleLevelBomAsBuilt 2.0.0` for a Batch
+#### Aspect Model `SingleLevelBomAsBuilt 3.0.0` for a Batch
 
 ```json
 {
   "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
   "childItems": [
     {
+      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
       "quantity": {
-        "quantityNumber": 25.0,
-        "measurementUnit": "unit:kilogram"
+        "value": 5.0,
+        "unit": "unit:kilogram"
       },
       "hasAlternatives": false,
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner": "BPNL50096894aNXY"
-    }
-  ]
-}
-```
-
-#### Example: Aspect Model `SingleLevelBomAsBuilt 1.0.0` for a Serialized Part
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childItems": [
-    {
-      "quantity": {
-        "quantityNumber": 1.0,
-        "measurementUnit": "unit:piece"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner": "BPNL50096894aNXY"
-    }
-  ]
-}
-```
-
-#### Aspect Model `SingleLevelBomAsBuilt 1.0.0` for a Batch
-
-```json
-{
-  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
-  "childItems": [
-    {
-      "quantity": {
-        "quantityNumber": 25.0,
-        "measurementUnit": "unit:kilogram"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:d60b99b0-f269-42f5-94d0-64fe0946ed04",
-      "businessPartner": "BPNL50096894aNXY"
+      "createdOn": "2022-02-03",
+      "businessPartner": "BPNL50096894aNXY",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
     }
   ]
 }
@@ -627,7 +457,7 @@ Aspect model in GitHub:
 
 The creation of the aspect model SingleLevelBomAsBuilt is more complicated. This aspect model contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch aspect model is created. But it also contains the Unique IDs of the built-in parts (attributes childItems.catenaXId), as shown in the example above.
 
-For the build-in parts (child items), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
+For the build-in parts (child items), their Unique ID is not known to the manufacturer initially. Only known are the local identifiers that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
 
 - Get all necessary local ids for the built-in part:
   - manufacturer (BPN), manufacturer part id and serial number for serialized parts
@@ -638,54 +468,69 @@ For the build-in parts (child items), their Unique ID is not known to the manufa
 
 ### SingleLevelUsageAsBuilt
 
-The aspect provides the information in which parent part instance(s)/product(s) the given item is assembled into or used. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The parent item must refer to an object from the as built lifecycle phase, the child item may refer to an object from the as built or the as planned lifecycle phase. If one input part instance is regarded as an alternative to another input part instance (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
+The aspect provides the child parts (one structural level down) which the given object assembles.
 
-Aspect model in GitHub:
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/2.0.0
+Aspect model in GitHub: 
+- Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/3.0.0
 
-##### Example: Submodel `SingleLevelUsageAsBuilt` for an Instance Part
+#### Example: Aspect Model `SingleLevelUsageAsBuilt 3.0.0` for a Serialized Part
 
 ```json
 {
-  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "customers" : [ {
-    "parentItems" : [ {
-      "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-      "quantity" : {
-        "quantityNumber" : 2.5,
-        "measurementUnit" : "unit:litre"
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "parentItems": [
+    {
+      "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+      "isOnlyPotentialParent": false,
+      "quantity": {
+        "value": 1.0,
+        "unit": "unit:piece"
       },
-      "createdOn" : "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-    } ],
-    "businessPartner" : "BPNL50096894aNXY",
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-  } ]
+      "createdOn": "2022-02-03",
+      "businessPartner": "BPNL50096894aNXY",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+    }
+  ],
+  "customers": [
+    "BPNL50096894aNXY"
+  ]
 }
 ```
 
+
+
+#### Aspect Model `SingleLevelBomAsBuilt 3.0.0` for a Batch
+
+```json
+{
+  "catenaXId": "urn:uuid:580d3adf-1981-44a0-a214-13d6ceed9379",
+  "parentItems": [
+    {
+      "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
+      "isOnlyPotentialParent": false,
+      "quantity": {
+        "value": 25.0,
+        "unit": "unit:kilogram"
+      },
+      "createdOn": "2022-02-03",
+      "businessPartner": "BPNL50096894aNXY",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+    }
+  ],
+  "customers": [
+    "BPNL50096894aNXY"
+  ]
+}
+
 #### Creation of Aspect Model SingleLevelUsageAsBuilt
 
-The SingleLevelUsageAsBuilt aspect can only be completed by combining supplier and customer information. Only the supplier will create and update the Usage aspects. The missing information can be provided by the customer(s) with the help of notifications.
+The creation of the aspect model SingleLevelUsageAsBuilt is more complicated. This aspect model contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch aspect model is created. But it also contains the Unique IDs of the built-in parts (attributes childItems.catenaXId), as shown in the example above.
 
-For better understanding, simplified names "parents", "child", "customers" are used in the description.
-
-These expressions “parents”, “child” and “customers” can be translated into the attributes of the aspect model.
-
-Translation into SingleLevelUsageAsBuilt aspect:
-
-“parents” -> “catenaXId” in “parentItems”
-“child” -> overall “catenaXId” in aspect
-“customers” -> “businessPartner” in “customers”
-
-1. Supplier creates Digital Twin for his own produced part or material with corresponding “part” aspect (partInstance or similar). In addition, the supplier creates a singleLevelUsageAsBuilt aspect and attaches it to that Digital Twin. At this point of time the singleLevelUsageAsBuilt aspect cannot contain “parents” information, only “child” (unique ID of own product) and “customers” (BPNL of customers).
-2. The customer produces a new product or material and creates a Digital Twin for it. When the customer uses the supplier part or material to produce the new product, he does not create an additional Digital Twin for the supplier product. Instead, the customer sends an appropriate notification to the supplier. This could happen when creating the singleLevelBomAsBuilt aspect, because at this point of time all information is available at the sender side. The customer sends a notification to the supplier, containing the missing “parents” information for that input product (“child”), both specified by the uniqueId, plus optional additional information like quantity and dates. “Parents” is the produced product at the customer, “child” is the used product coming from the supplier.
-3. Supplier receives notification from customer and updates own singleLevelUsageAsBuilt aspect with the “parents” and additional information, if provided, like quantity and dates.
-In case of a batch, the customer can use one batch to create several products. In that case, either several notifications can be sent, or one notification may contain several “parents” relations.
-In case of a batch, parts of it can also be sold to several customers. So, the supplier has to put several “customers” into the singleLevelUsageAsBuilt aspect and has to be ready to receive notifications from several customers that result in an update of the aspect
-The customer MAY give access to the supplier for the Digital Twin, partType or similar aspect but it is not requested. The only information that is shared via notification is the catenaXID of the product that has been manufactured by the customer plus quantity and date.
-
-The customer MAY NOT give access to the singleLevelBomAsBuilt aspect that belongs to the Digital Twin of his own produced product because it may also contain information relating to other suppliers that may not be shared.
+> TODO: describe creation of SingleLevelUsageAsBuilt
+> - `catenaXId` and `customers` can be filled with the manufacturer's internal data
+> - `parentItems` relies on information that is acquired by customer(s)
+> - Unique id push API provided by manufacturer (connect-to-child) is to be used by customer to transfer relevant data to manufacturer
+> - the information transferred by the customer should be based on the parent parts SingleLevelBomAsBuilt information
+> - manufacturers use information from customer(s) to fill `parentItems` as they get it, in the case of multiple customers (of a batch) manufacturers need to merge the information from multiple customers into the same aspect.
 
 <Notice components={props.components} />
