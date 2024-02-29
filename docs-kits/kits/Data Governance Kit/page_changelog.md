@@ -34,7 +34,6 @@ All notable changes to the Data Governance KIT (=Keep It Together) will be docum
 ### Added
 
 - First Version for Adoption View
-- First Version for Operation View
 - First Version for Development View
 - Notice
 
