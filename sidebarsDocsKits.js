@@ -268,7 +268,6 @@ const sidebars = {
             items: [
                 'kits/Data Governance Kit/Data Governance Kit Changelog',
                 'kits/Data Governance Kit/Data Governance Kit Adoption View',
-                'kits/Data Governance Kit/Data Governance Kit Operation View',
                 {
                     type: 'category',
                     label: 'Development View',
