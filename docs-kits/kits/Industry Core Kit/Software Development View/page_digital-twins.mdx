@@ -34,8 +34,11 @@ Industry Core uses digital twins to make a company's data available to other Cat
 
 In Industry Core, different types of parts, e. g. serialized parts, batches, JIS parts or catalog part, are registered in a company's DTR as digital twins.
 
-> :raised_hand: **Unique ID Push**
-> Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
+#### Regulatory Compliance and Security
+
+To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit#Regulatory-Compliance-and-Security).
+
+#### Creating Digital Twins in the DTR
 
 The following general conventions apply for all these digital twins:
 
@@ -44,7 +47,9 @@ The following general conventions apply for all these digital twins:
 
 > :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
 
-##### Property specificAssetIds
+> :raised_hand: **Unique ID Push:** Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
+
+#### Property specificAssetIds
 
 Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
@@ -112,11 +117,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 > :raised_hand: **Lookup of Digital Twins**
 > The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
 
-##### Authorization: Visbility of Specific Asset IDs in the DTR
-
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
-
-##### Submodel Descriptors
+#### Submodel Descriptors
 
 Here, we extend the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) standard with some additional conventions.
 
@@ -160,7 +161,7 @@ According to CX-0002, the backend data service identified via `href`and the filt
 
 With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
-###### Option 1: Same EDC Asset Structure as in Release 3.1
+##### Option 1: Same EDC Asset Structure as in Release 3.1
 
 Submodels of digital twins are registered in the EDC the same way as for release 3.1: One EDC asset is created for every submodel of a digital twin.
 
@@ -208,7 +209,7 @@ Here's an example how such a submodel descriptor could look like:
 
 In this example, the `path` part in the `href` is empty, as the EDC asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's EDC).
 
-###### Option 2: EDC Asset Structure on Catalog Part Level
+##### Option 2: EDC Asset Structure on Catalog Part Level
 
 A data provider can link several submodel endpoints to the same EDC asset (referenced by its id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
 
@@ -254,7 +255,7 @@ The path part of the `href` property contains the information for the backend da
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other EDC asset structure.
 
-###### Data Consumption with AAS Submodel Descriptor Endpoints
+##### Data Consumption with AAS Submodel Descriptor Endpoints
 
 The endpoint `href` in the submodel descriptor cannot be used directly to contact an EDC and access the data in Catena-X.
 
@@ -279,7 +280,7 @@ For a data consumer, there are currently the following steps where they have to 
 - The data consumer in the Traceability use case in most cases will use the Unique ID of a part to lookup the digital twin (more precisely, its AAS ID) of this part.
 - The data consumer from another use case (e.g., Circular Economy), might either use the Unique ID of a part (if known) or the local IDs of a part to lookup the part's digital twin (AAS ID) depending on what is available in the use case.
 
-##### Lookup up a Digital Twin with Local IDs
+#### Lookup up a Digital Twin with Local IDs
 
 The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
@@ -327,19 +328,19 @@ Currently, even if more than one digital twin is returned in a lookup, these dig
 
 The next section describes to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
 
-###### Unique ID Push
+### Unique ID Push
 
 Once the digital twin was created, optionally a Unique ID Push notification can be send by the manufacturer of the part to the customer of the serialized part of batch to inform the customer that information about a serialized part or batch is available as a digital twin. This is an optional process and both, the manufacturer of a part as well as the customer of the part must support Unique ID Push notifications.
 
 For more information, see [Unique ID Push Notifications](#unique-id-push-notifications)
 
-###### Query a Digital Twin Registry to find the digital twin for this built-in part
+#### Query a Digital Twin Registry to find the digital twin for this built-in part
 
-- Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
+- Querying digital twins is described in [Lookup in the Digital Twin Registry](#lookup-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
     - Currently though, no matter if you want to lookup serialized parts or batches, you can use partInstanceId (using the serial number or the batch number as search parameter value).
     - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
-  - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
+  - To understand why, take a look at how these digital twins are created, especially their [specific asset IDs](#property-specificassetids).
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPart or Batch (depending on the digital twin type).
 - Fetch the submodel SerialPart or Batch (depending on the digital twin type) from the EDC that is referenced in the corresponding Submodel Descriptor.
@@ -351,7 +352,7 @@ These steps have to be repeated for all built-in parts by the manufacturer. Afte
 
 With the changes of Release 3.2 regarding the submodel endpoints in the DTR, the actual EDC asset structure for submodels is no longer restricted by use case conventions and can be decided by the data provider.
 
-##### Data Provider Tasks
+#### Data Provider Tasks
 
 Basically, as a data provider you have to do the following
 
