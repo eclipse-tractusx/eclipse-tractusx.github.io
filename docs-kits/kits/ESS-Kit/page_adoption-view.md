@@ -188,11 +188,9 @@ To participate in the ESS Incident Management use-case, the following single sta
 - CX-0049 DID Document Schema
 - CX-0050 Framework Agreement Credential
 
-### ESS incidents Data model (CX-0113)
+### ESS incidents Data model
 
-References:
-
-<https://github.com/catenax-eV/product-standardization-prod/tree/CX-0113-AspectModelESSDatamodel-v1.0.0/standards/CX-0113-AspectModelESSDatamodel>
+- [CX-0113 Aspect Model: ESS Datamodel](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0113-AspectModelESSDatamodel-v1.0.0.pdf)
 
 ### List of all other standards used
 
