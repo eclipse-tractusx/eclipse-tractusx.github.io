@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Catena-X Traceability Unique ID Push Notification
-  description: API documentation for Catena-X Traceability Unique ID push notifications
+  title: Catena-X Unique ID Push Notification
+  description: API documentation for Catena-X Unique ID push notifications
   license:
     name: Apache License v2.0
     url: http://apache.org/v2
@@ -9,14 +9,14 @@ info:
 servers:
 - url: /
 tags:
-- name: Catena-X Traceability Unique ID Push Notification
-  description: 'API to receive Unique ID push notifications for Catena-X Traceability.'
+- name: Catena-X Unique ID Push Notification
+  description: 'API to receive Unique ID push notifications for Catena-X.'
 paths:
   /uniqueidpush/connect-to-parent:
     post:
       tags:
       - Unique ID Push Connect-to-Parent Notification 
-      description: Receives a Traceability Unique Id push notification to connect a digital twin with its parent digital twin (bottom-up notification)
+      description: Receives a Unique ID Push notification to connect a digital twin with its parent digital twin (bottom-up notification)
       operationId: receiveUniqueIdPushConnectToParentNotification
       requestBody:
         content:
