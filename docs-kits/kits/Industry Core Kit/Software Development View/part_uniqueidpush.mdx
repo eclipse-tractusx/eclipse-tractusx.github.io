@@ -97,9 +97,9 @@ TraceCust -> TraceCust: link UUID to Traceability events/material
 
 #### Schema of Unique ID Push Notifications
 
-The notifications send to inform a customer about the creating of a new digital twin for one of the parts they received have a standardized format.
+The notifications send to inform a customer about the creating of a new digital twin for one of the parts they received have a standardized format. All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push Open API specification](../../../../openApi/industrycore/unique-id-push.yaml).
 
-All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push Open API specification](../../../../openApi/industrycore/unique-id-push.yaml).
+For the `context` field in the notification header, use the following string for Unique ID Push notifications as described in this KIT: `IndustryCore-UniqueIDPush-ConnectToParent:2.0.0`.
 
 > Adding the customer part id to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding customer part id of its part though, it is required to always add the customer part id to the notification.
 
