@@ -33,7 +33,7 @@ The CXMemberLn is not related directly to L0, so he will receive anonymized info
 
 As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
 
-![ESS_KitSequenceView](@site/static/kits/ESS-Kit/CatenaX_ESS_KitSequenceView.svg)
+![ESS_KitSequenceView](@site/static/kits/ESS-Kit/CatenaX_ESS_KitSequenceView.drawio.svg)
 
 ## Notice
 
