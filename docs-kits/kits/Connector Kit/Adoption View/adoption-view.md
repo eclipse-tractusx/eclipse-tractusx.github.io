@@ -157,7 +157,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 [traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit
 [sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Circularity_KIT/page-adoption-view
 [BPDM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Business%20Partner%20Kit/Adoption%20View
-[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/DCM%20Kit/adoption-view
+[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/DCM-Kit/adoption-view
 [PURIS-url]: https://github.com/eclipse-tractusx/puris
 [digital-product-pass-url]:https://github.com/eclipse-tractusx/digital-product-pass
 [iatp-url]: https://github.com/eclipse-tractusx/identity-trust

@@ -393,7 +393,7 @@ const config = {
                 label: 'Data Chain',
               },
               {
-                to: '/docs-kits/kits/DCM%20Kit/adoption-view',
+                to: '/docs-kits/kits/DCM-Kit/adoption-view',
                 label: 'DCM KIT',
               },
               {
