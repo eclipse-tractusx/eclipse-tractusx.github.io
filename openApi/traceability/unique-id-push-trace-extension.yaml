@@ -360,20 +360,13 @@ components:
     # -----------------------------------------
     # Schema: urn:samm:io.catenax.single_level_usage_as_built:3.0.0#SingleLevelUsageAsBuilt
     # -----------------------------------------
-    urn_samm_io.catenax.single_level_usage_as_built_3.0.0_ListOfCustomersCharacteristic:
-      description: A list of customers and their related parent items.
-      type: array
-      items:
-        type: string
-        description: "The provided regular expression ensures that the BPNL is composed\
-          \ of prefix 'BPNL', 10 digits and two alphanumeric letters."
-        pattern: "^BPNL[a-zA-Z0-9]{12}$"
     urn_samm_io.catenax.single_level_usage_as_built_3.0.0_DateTimeTrait:
       type: string
       description: Regular Expression to enable UTC and Timezone formats and the possibility
         to exclude time information.
       pattern: "^-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
         .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?$"
+      example: "2007-08-31T16:47"
     urn_samm_io.catenax.single_level_usage_as_built_3.0.0_ParentData:
       description: Catena-X ID and meta data of the parent item.
       type: object
@@ -426,13 +419,6 @@ components:
           description: "The Catena-X ID of the given part (e.g. the component), valid\
             \ for the Catena-X dataspace."
           $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
-        customers:
-          description: |-
-            A list of all customers of this item. If the parent items in which this item is assembled into are known, they should be listed as well.
-
-            For serialized items the list should contain only one customer with one parent item.
-            As different subsets of a batch might be sold to different customers this is a list.
-          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_ListOfCustomersCharacteristic'
         parentItems:
           description: |-
             Set of parent items, in which the given child object is assembled in (one structural level up).
@@ -442,7 +428,6 @@ components:
           $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_SetOfParentItemsCharacteristic'
       required:
       - catenaXId
-      - customers
       - parentItems
     # -----------------------------------------
     # Schema: urn:samm:io.catenax.single_level_usage_as_planned:2.0.0#SingleLevelUsageAsPlanned
@@ -453,6 +438,7 @@ components:
         to exclude time information.
       pattern: "^-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
         .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?$"
+      example: "2007-08-31T16:47+00:00"
     urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ValidityPeriodCharacteristic:
       description: Characteristic  for a validity period defined by an (optional)start
         and an (optional)end timestamp.
@@ -504,14 +490,6 @@ components:
       items:
         $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ParentData'
       uniqueItems: true
-    urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ListOfCustomersCharacteristic:
-      description: A list of customers and their related parent items.
-      type: array
-      items:
-        type: string
-        description: "The provided regular expression ensures that the BPNL is composed\
-          \ of prefix 'BPNL', 10 digits and two alphanumeric letters."
-        pattern: "^BPNL[a-zA-Z0-9]{12}$"
     SingleLevelUsageAsPlanned:
       description: |-
         The aspect provides the information in which parent part(s)/product(s)the given item is to be assembled into or used. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from the as-planned lifecycle phase.
@@ -526,12 +504,6 @@ components:
           description: "Set of parent parts, in which the given child object will\
             \ be assembled into or used (one structural level up)."
           $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_SetOfParentItemsCharacteristic'
-        customers:
-          description: "A list of all customers of this item. If the parent items\
-            \ in which this item will be assembled into or used are known, they should\
-            \ be listed as well."
-          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ListOfCustomersCharacteristic'
       required:
       - catenaXId
       - parentItems
-      - customers
