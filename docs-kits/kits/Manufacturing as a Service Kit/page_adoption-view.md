@@ -87,7 +87,7 @@ Standardizing the necessary interfaces and data models of our architecture enabl
 Within the Resiliency KIT Manufacturing as a service, two main standards were defined:
 
 - [CX - 0052: Manufacturing Capability Model and API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0052-AspectModelManufacturingCapability-v1.0.0.pdf) - for declaration of offered and required manufacturing capabilities
-- [CX - 0129: - 0052:Request for Quotation Model and API](https://catena-x.net/de/standard-library) - for manufacturing demand configuration
+- [CX - 0129:Request for Quotation Model and API](https://catena-x.net/de/standard-library) - for manufacturing demand configuration
 
 ## Notice
 
