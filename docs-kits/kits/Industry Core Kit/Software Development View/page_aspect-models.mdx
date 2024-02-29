@@ -107,7 +107,7 @@ Aspect model in GitHub:
 ### SingleLevelUsageAsPlanned
 
 The aspect provides the information in which parent part(s)/product(s)the given item is to be assembled into or used. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to a part type twin representing a generic part, e.g. a catalog part.
-If multiple versions of parent parts exist that the child part can be assembled into or used, all versions of the parent part are included in the usage list.
+If one input product is regarded as an alternative to another input product (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
 
 Aspect model in GitHub: 
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/2.0.0
