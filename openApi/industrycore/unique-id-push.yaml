@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Catena-X Unique ID Push Notification
-  description: API documentation for Catena-X Unique ID push notifications
+  description: API documentation for Catena-X Unique ID Push notifications
   license:
     name: Apache License v2.0
     url: http://apache.org/v2
