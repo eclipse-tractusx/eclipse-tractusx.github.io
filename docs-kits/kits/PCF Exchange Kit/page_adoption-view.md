@@ -503,6 +503,16 @@ To enable **data sovereignty**, Catena-X relies on **Self-Sovereign-Identity** (
 The diagram shown here illustrates the interaction between the PCF KIT and the other Catena-X components.
 ![Business Architecture](resources/adoption-view/BusinessArchitecture.png)
 
+## STANDARDS
+
+The standards for release 24.03 will be published soon. Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+
+Product Carbon Footprint Data Model (Version 2.0.0)
+Product Carbon Footprint Request API (Version 2.0.0)
+Triangle PCF Request (Version 2.1.0)
+Product Carbon Footprint Calculation Integration (Version 1.0.0)
+Product Carbon Footprint Rulebook (Version 2.0.0)
+
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
