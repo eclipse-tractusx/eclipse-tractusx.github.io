@@ -468,7 +468,7 @@ For the build-in parts (child items), their Unique ID is not known to the manufa
 
 ### SingleLevelUsageAsBuilt
 
-The aspect provides the child parts (one structural level down) which the given object assembles.
+The aspect provides the information in which parent part instance(s)/product(s) the given item is assembled into or used. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The parent item must refer to an object from the as built lifecycle phase, the child item may refer to an object from the as built or the as planned lifecycle phase. If one input part instance is regarded as an alternative to another input part instance (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
 
 Aspect model in GitHub: 
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/3.0.0
