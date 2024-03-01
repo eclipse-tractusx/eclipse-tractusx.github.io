@@ -127,16 +127,16 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
 
 1. Make a plan: What are the different components of the PCF? Where can I get the relevant data from?
 → This structuring should be supported by an appropriate process in the calculation tool.
-1. Put the direct emissions from the production site (e.g., use of natural gas or fuels) into the calculation.
+2. Put the direct emissions from the production site (e.g., use of natural gas or fuels) into the calculation.
 → Get the raw data from internal data sources and enter them in the calculation tool.
-1. Put the indirect emissions from purchased energy into the calculation.
+3. Put the indirect emissions from purchased energy into the calculation.
 → Get the raw data (consumption values, energy mix, …) from internal data sources and from the energy supplier, and enter it in the calculation tool.
-1. Upstream emissions:
-    1. For sub-components with a (expected) relevant share on the PCF, the aim is to use real data (or primary data) for the calculation. Therefore, a PCF request is sent to the suppliers of these sub-components, to obtain appropriate real data (see subjourney ["PCF data exchange"](#customer-journey-pcf-data-exchange)). As soon as the data is available (via a PCF Response), it can be used as input for the calculation.
-    2. For other sub-components, which only make up a small proportion of the upstream emissions, there will be no request of data to the supplier. Instead, the data will be obtained from a database for secondary data.
-2. If necessary, put other emissions and further data into the calculation (e.g., transport emissions, waste, recycling quotas, ...).
-3. Put it all together and get the overall PCF.
-4. Transfer PCF to the exchange tool (or in general: make the PCF data available).
+4. Upstream emissions:
+	- For sub-components with a (expected) relevant share on the PCF, the aim is to use real data (or primary data) for the calculation. Therefore, a PCF request is sent to the suppliers of these sub-components, to obtain appropriate real data (see subjourney ["PCF data exchange"](#customer-journey-pcf-data-exchange)). As soon as the data is available (via a PCF Response), it can be used as input for the calculation.
+	- For other sub-components, which only make up a small proportion of the upstream emissions, there will be no request of data to the supplier. Instead, the data will be obtained from a database for secondary data.
+5. If necessary, put other emissions and further data into the calculation (e.g., transport emissions, waste, recycling quotas, ...).
+6. Put it all together and get the overall PCF.
+7. Transfer PCF to the exchange tool (or in general: make the PCF data available).
 
 ### PCF Personas
 
