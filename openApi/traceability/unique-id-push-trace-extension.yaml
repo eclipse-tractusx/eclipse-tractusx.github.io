@@ -128,7 +128,8 @@ components:
     DigitalTwinType:
       type: string
       enum:
-        - PartType, PartInstance
+        - PartType
+        - PartInstance
       example: PartInstance
       description: The classification defines the type of the Unique ID push notification.
     PartItem:
