@@ -4,6 +4,7 @@ title: TRG 2.06 - Dependabot
 
 | Status | Created      | Post-History    |
 |--------|--------------|-----------------|
+| Active | 12-Feb-2024  | Publish TRG     |
 | Draft  | 4-Jan-2024   | Initial release |
 
 ## Why
@@ -36,7 +37,8 @@ To enable Dependabot for version updates, create a dependabot.yml file in .githu
 
 ### Example
 
-This configuration checks for Maven, GitHub Action and Docker updates on a weekly basis and creates pull requests for up to 5 updates at a time.
+A basic example of a dependabot.yml file, demonstrating configurations for for Maven, GitHub Action and Docker ([all options](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem)), is shown below:
+Please note the interval, open pull requests limits as well as other parameters can be customized according to preferences.
 
 :::caution
 Be careful, Dependabot PR merge can lead to out of date DEPENDENCIES file.
