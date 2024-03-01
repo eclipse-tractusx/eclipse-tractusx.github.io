@@ -223,7 +223,7 @@ In case no material twin or no PCF submodel is found, EDC Asset type has to be u
 - [CX-0016 Company Attribute Verification v1.1.0](https://catena-x.net/de/standard-library)
 - [CX-0017 Company Role by the Connector v1.1.0](https://catena-x.net/de/standard-library)
 - [CX-0018 Eclipse Data Space Connector (EDC) v2.1.0](https://catena-x.net/de/standard-library)
-- [CX-0026 Product Carbon Footprint Data Model v2.0.0](https://catena-x.net/de/standard-library) 
+- [CX-0026 Product Carbon Footprint Data Model v2.0.0](https://catena-x.net/de/standard-library)
 - [CX-0028 Product Carbon Footprint Request API v2.0.0](https://catena-x.net/de/standard-library)
 - [CX-0029 Product Carbon Footprint Rulebook v2.0.0](https://catena-x.net/de/standard-library)
 - [CX-0049 DID Document Schema v1.0.0](https://catena-x.net/de/standard-library)
