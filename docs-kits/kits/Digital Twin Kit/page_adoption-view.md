@@ -41,7 +41,7 @@ With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepape
 are given the necessary tooling to format their data and APIs in a standardized manner.
 
 <!-- !Mandatory! -->
-## Business Value
+## Business Value & Business Processes
 
 Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty, 
 authorization, authentication must be agreed upon and implemented. In the Catena-X network, that is covered by the 

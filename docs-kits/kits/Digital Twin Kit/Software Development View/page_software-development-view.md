@@ -15,6 +15,10 @@ Development View of the Kit.
 ### Digital Twin KIT
 
 <!-- !Mandatory! -->
+## Architecture Overview
+
+The interplay of the Digital Twin Kit's components can be found in the [Operation View](../page_software-operation-view.md).
+
 ## API Specifications
 
 All openAPI-specifications for the Digital Twin Kit services are rendered in the section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-service-specification.info.mdx)
@@ -380,10 +384,15 @@ differences are the changed typization. `proxyPath` parameter  should be set `"t
 }
 ```
 
-### EDC Usage Policies
+### Usage Policies
 
-The decision what policies shall be implemented for the exchange of data is at the discretion of each use-case and cannot
-be standardized in the context of the semantics-standards or the DT Kit.
+For Digital Twin Registries, Data Providers are encouraged to only extend Data Offers that make no explicit checks to 
+`FrameworkAgreements`. The DTR is an Enablement Service that should only deployed once per Network Participant as it
+handles meta-data from multiple use-cases. Registering it with a `FrameworkAgreement` would require registering the same
+backend resource multiple times.
+
+For Submodel-APIs, Data Providers must follow the guidelines from their use-case-standards which will usually require
+using the `FrameworkAgreement` specific to their use-case, mapping to credentials specific to their use-case.
 
 ## Data Provisioning
 
@@ -451,7 +460,6 @@ These APIs should only be accessible by the Data Provider (for instance by intro
 or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
 as backend integration pattern is more inconvenient as the DTR must process and return reproducible IDs not only for
 the assets but also for the AAS - this is hard to realize in a pure stateless implementation.
-
 
 ## Notice
 
