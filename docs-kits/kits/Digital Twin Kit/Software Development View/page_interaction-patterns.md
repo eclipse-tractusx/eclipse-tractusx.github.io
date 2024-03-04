@@ -9,7 +9,9 @@ sidebar_position: 2
 
 The Catena-X standard CX-0002 (Digital Twins in Catena-X) defines a subset of the AAS-standard that is relevant for 
 Catena-X. However, it is concerned only with the network-facing APIs which in some cases may have to be augmented to 
-cover use-case requirements.
+cover use-case requirements. For example, resolving `specificAssetIds` against a Shell's `id` is standardized since 
+Consumers rely on a well-defined API here. However, how the Provider ingests the relevant data into the DTR usually isn't
+relevant for cross-dataspace interoperability and thus, the call isn't standardized.
 
 While the assumptions are explicitly listed, all patterns assume that both partners involved are properly onboarded to
 the Catena-X dataspace and thus have their connectors registered with the EDC Discovery Service like so:
@@ -26,6 +28,10 @@ autonumber
     end
 ```
 This happens usually when onboarding a company to the network.
+
+> Note: While this Kit explicitly uses the APIs of the EDC (Eclipse Dataspace Connector), provisioning data with
+any other implementation of the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme) 
+(DSP) is also permitted. The flows to integrate DTRs and Submodel endpoints will differ with each implementation.
 
 ### 1. Fetching a supplier's Twin
 

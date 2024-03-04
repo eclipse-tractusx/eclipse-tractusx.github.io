@@ -18,8 +18,10 @@ Digital Twins the Catena-X-way. This infrastructure empowers Data Consumers to c
 each Data Provider and facilitated by an Operating Company. They run central and decentral services that allow them to
 discover each other, exchange information and contextualize it according to a standardized semantics.
 
-The APIS for digital twins are based on the specifications of the Asset Administration Shell (AAS) as defined in
+The APIs for digital twins are based on the specifications of the Asset Administration Shell (AAS) as defined in
 CX-0002.
+
+## Deployment
 
 | Service Name          | Description                                                                                                                                       | Reference Implementation                                                                                                                                                                                        | [Standardized in](https://catena-x.net/de/standard-library) |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
@@ -32,6 +34,10 @@ CX-0002.
 
 ![High Level Architecture of an App leveraging the Digital Twin Kit](assets/img/DTKIT_high_level_arch.svg)
 
+## Setup Guide
+
+Detailed guidance on setup of the abovementioned components can be found in the repositories of their linked reference
+implementations.
 
 ## Notice
 
