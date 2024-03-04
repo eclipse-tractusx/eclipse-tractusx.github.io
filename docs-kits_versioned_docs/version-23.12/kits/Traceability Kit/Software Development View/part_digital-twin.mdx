@@ -152,7 +152,7 @@ According to CX-0002, the backend data service identified via `href`and the filt
 
 With this approach, the EDC asset structure must no longer follow the "one EDC asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create EDC assets for their digital twins and submodels based on how they use `{path}`.
 
-###### Option 1: Same Connector Asset Structure as in Release 3.1
+###### Option 1: Same EDC Asset Structure as in Release 3.1
 
 Submodels of digital twins are registered in the EDC the same way as for release 3.1: One EDC asset is created for every submodel of a digital twin.
 
@@ -200,7 +200,7 @@ Here's an example how such a submodel descriptor could look like:
 
 In this example, the `path` part in the `href` is empty, as the EDC asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's EDC).
 
-###### Option 2: Connector Asset Structure on Catalog Part Level
+###### Option 2: EDC Asset Structure on Catalog Part Level
 
 A data provider can link several submodel endpoints to the same EDC asset (referenced by its id). This allows to create only one EDC asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same EDC asset. The data provider would still need to create separate EDC assets per aspect model as in most cases different usage policies are used for aspect models.
 
