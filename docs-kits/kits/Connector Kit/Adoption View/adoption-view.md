@@ -72,6 +72,13 @@ The architecture of the EDC combines various services that are necessary for the
 
 ## Additional Resources
 
+### Tutorial & Whitepapers
+
+- There is a extensive tutorial on setting up and using an EDC in the context of the Catena-X dataspace in the [Tutorials](https://eclipse-tractusx.github.io/docs/tutorials/e2e)
+section of this website.
+- To find out more about the role of the Enablement Services (of which the Connector is one), the [Whitepaper "Enablement 
+Services 101"](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_EnablementServices.pdf) provides a very digestible high-level overview.
+
 ### Catena-X Standards
 
 The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Every data consumer and provider in Catena-X is required to comply with these standards. The [EDC][edc-url] builds on the following standards:
