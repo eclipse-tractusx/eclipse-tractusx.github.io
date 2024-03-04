@@ -165,7 +165,7 @@ According to CX-0002, the backend data service used to deliver the submodel must
 
 With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{path}`.
 
-##### Option 1: Same EDC Asset Structure as in Release 3.1
+##### Option 1: Same Connector Asset Structure as in Release 3.1
 
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
@@ -211,9 +211,9 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-In this example, the `path` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
+In this example, the `{path}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
 
-##### Option 2: EDC Asset Structure on Catalog Part Level
+##### Option 2: Connector Asset Structure on Catalog Part Level
 
 A data provider can link several submodel endpoints to the same Connector asset (referenced by its ID). This allows to create only one asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same asset. The data provider would still need to create separate assets per aspect model as in most cases different usage policies are used for aspect models.
 
@@ -255,7 +255,7 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-The path part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
+The the `{path}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other asset structure.
 
