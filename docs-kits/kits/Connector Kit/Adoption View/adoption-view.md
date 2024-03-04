@@ -60,7 +60,7 @@ The functionality required for this is bundled in the open-source project "Eclip
 
 The main difference between the EDC and the previous connectors of the [IDSA][idsa-url] is the separation of the communication into a channel for the metadata and one for the actual data exchange. The channel for the data supports various transmission protocols via so-called data plane extensions. The metadata is transmitted directly via the EDC interface, while the actual data exchange then takes place via the appropriate channel extension. In this way, a highly scalable data exchange is made possible.
 
-![EDC Architecture](images/edc_architecture.png)
+![EDC Architecture](../assets/edc_architecture.png)
 
 The architecture of the EDC combines various services that are necessary for the above principles:
 
