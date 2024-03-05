@@ -1,8 +1,8 @@
 ---
-id: Adoption View
-title: Adoption View
-description: 'Connector Kit'
 sidebar_position: 1
+title: Adoption View
+description: Adoption View
+id: connector_kit_adoption_view
 ---
 
 # Adoption View
@@ -41,7 +41,7 @@ With the [EDC][edc-url], a new communication component was introduced, which imp
 
 ## Use Case
 
-The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therefore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of a connector compliant to the [DSP](dsp-url) such as the [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required explained in subsequent Kits.
+The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therefore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of a connector compliant to the [DSP][dsp-url] such as the [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required explained in subsequent Kits.
 
 - [Sustainability][sustainability-url]
 - [Traceability][traceability-url]
@@ -83,7 +83,7 @@ The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Ev
 
 ### Terminology
 
-The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of 
+The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of
 the implementation. Most of the Domain-Model-Elements are represented by separate APIs. Please check the [Management API Walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs)
 in the tractusx-edc repository for more a reference on usage of the API.
 

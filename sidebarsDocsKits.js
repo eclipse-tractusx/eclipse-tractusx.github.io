@@ -202,13 +202,13 @@ const sidebars = {
                     },
                     collapsed: true,
                     items: [
-                        'kits/Connector Kit/Adoption View/Adoption View',
+                        'kits/Connector Kit/Adoption View/connector_kit_adoption_view',
                         {
                             type: 'category',
                             label: 'Development View',
                             link: {
                                 type: 'doc',
-                                id: 'kits/Connector Kit/Development View/specifications'
+                                id: 'kits/Connector Kit/Development View/connector_kit_development_view_specifications'
                             },
                             items: [
                                 {
@@ -217,7 +217,7 @@ const sidebars = {
                                 },
                             ]
                         },
-                        'kits/Connector Kit/Operation View/operation-view',
+                        'kits/Connector Kit/Operation View/connector_kit_operation_view',
 
                     ],
                 },
