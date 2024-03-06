@@ -90,16 +90,16 @@ The following conventions for specific asset IDs apply to all digital twins:
 
 | Key            | Availability | Description                                                                                  | Type   |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------- | :----- |
-| partInstanceId | Optional     | The serial number of the part from the manufacturer.                                         | String |
-| intrinsicId    | Mandatory    | The serial number of the part from the manufacturer.                                         | String |
+| partInstanceId | Mandatory    | The serial number of the part from the manufacturer.                                         | String |
+| intrinsicId    | Mandatory    | This the unified technical key for searching a digital twin of a part. In this case the<br/> partInstanceId is used as the intrinsicId.                                         | String |
 | van            | Optional     | **Only for vehicles:** The pseudonymized vehicle identification number (VIN) of the vehicle. | String |
 
 **For batches, additionally the following conventions apply:**
 
 | Key            | Availability | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type   |
 | :------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
-| batchId        | Optional     | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
-| intrinsicId    | Mandatory    | Also the number of the batch from the manufacturer.<br/><br/>Currently, we also use the batch number as intrinsicId. This makes looking up digital twins for serialized parts and batches easier as a data consumer only has to specify the intrinsicId no matter if they are looking up a serialized part or a batch. Otherwise, the data consumer would need to know for what type of digital twin it is looking for or it would have to look for both until a match is found. | String |
+| batchId        | Optional    | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
+| intrinsicId    | Mandatory    | This the unified technical key for searching a digital twin of a batch. In this case the<br/> batchId is used as the intrinsicId. | String |
 
 **For just-in-sequence (JIS) parts, additionally the following conventions apply:**
 
@@ -108,10 +108,15 @@ The following conventions for specific asset IDs apply to all digital twins:
 | parentOrderNumber | Optional     | A number identifying the just-in-sequence- part's destination parent part. The parent part is typically known upfront to the supplier for just-in-sequence parts.                                                                       | String |
 | jisNumber         | Mandatory    | A number that is used to identify the call-off that can be assumed unique within the specific just-in-sequence process. This is typically not the sequence number, but the call-off number.                                             | String |
 | jisCallDate       | Optional     | The date of the just-in-sequence call-off as stated on the call-off document itself. <br/>The value must be compliant to ISO 8601: `YYYY-MM-DD` or `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DDThh:mm:ss±hh:mm`                                 | Date   |
-| intrinsicId       | Mandatory    | A composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available). This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
+| intrinsicId       | Mandatory    | This the unified technical key for searching a digital twin of a just-in-sequence (JIS) part. In this case a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available) is used as the intrinsicId. This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
 
 > :raised_hand: **Lookup of Digital Twins**
 > The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
+> In order to provide a standardised way to look-up digital twins, the specificAssetIDs are extended by a unified technical key, the intrinsicId. This ensures a correct semantic filling of all other existing attributes in the specificAssetIDs, as the partInstanceId was previously used as an overarching search field, which resulted in the partInstanceId being filled with a batch number for a batch, for example.
+Nevertheless, a search for digital twins can still be used via the corresponding the primary fields from a business point of view, such as partInstanceId or batchId.
+
+standardised identification of a digital twin based on technical key attributes
+Correct semantic filling of all existing fields in the specificAssetIDs (e.g. filling of the partInstanceIDs attribute for JisParts)
 
 ##### Authorization: Visbility of Specific Asset IDs in the DTR
 
@@ -338,7 +343,8 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 
 - Querying digital twins is described in [Lookup for Digital Twins in the Digital Twin Registry](#lookup-for-digital-twins-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
-    - Currently though, no matter if you want to lookup serialized parts or batches, you can use intrinsicId (using the serial number or the batch number as search parameter value).
+    - Regardless of whether you want to search for serialised parts, batches or just-in-sequence (JIS) parts, you can currently use the intrinsicId as a standardised technical key to look up digital twins. You can find the corresponding filling of this attribute in the tables above, depending on which specification is involved.
+    - However, if you already know the specification of the digital twin you are looking for before the look up, you can also carry out a search using the corresponding key attributes, like partInstanceId, batch Id or a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available). The partInstanceId with search parameter value serial number should be used for serialised parts, the batchId (if available) with search parameter value batch number for batches and a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available) with their corresponding search parameter values for JIS parts.
     - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
   - To understand why, take a look at how these digital twins are created, especially their specific asset IDs: [Creating Submodels for Digital Twins](#creating-submodels-for-digital-twins)
   - The result of this query will be the AAS ID of the digital twin.
