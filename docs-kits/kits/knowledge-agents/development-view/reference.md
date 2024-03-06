@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Reference Implementation
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -55,15 +55,15 @@ For more information see
 
 ### Tractus-X Knowledge Agents EDC Extensions (KA-EDC)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent_edc) 
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent_edc)
 
 ### Tractus-X Knowledge Agents Reference Implementations (KA-RI)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents) and its [KA-RI Deployment](../operation-view/provider) 
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents) and its [KA-RI Deployment](../operation-view/provider)
 
 ### Tractus-X Knowledge Agents AAS Bridge (KA-AAS)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) and its [KA-AAS Deployment](../operation-view/bridge) 
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) and its [KA-AAS Deployment](../operation-view/bridge)
 
 ## Contact & Further Reading
 
