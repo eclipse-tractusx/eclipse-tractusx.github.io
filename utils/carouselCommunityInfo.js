@@ -8,7 +8,7 @@ export const carouselCommunityInfo = [
         id: 0,
         title: "Community.",
         subtitle: "Contribute.",
-        description: "Get familiar with the guidelines and governance you’ll need to contribute to this project. The Tractus-X community includes 8 products that are available.",
+        description: "Get familiar with the guidelines and governance that you’ll need to contribute to this project",
         textCard: true
     },
     {
@@ -20,19 +20,19 @@ export const carouselCommunityInfo = [
     {
         id: 2,
         title: "Community",
-        navigate: "/community",
+        navigate: "/community/intro",
         icon: communityIcon
     },
     {
         id: 3,
         title: "Contribute a KIT",
-        navigate: "/docs/kit-process/graduation-process",
+        navigate: "/developer",
         icon: contributeIcon
     },
     {
         id: 4,
         title: "FAQ",
-        navigate: "/docs/kit-process/processes/kit-faq",
+        navigate: "/docs/dev_faq",
         icon: faqIcon
     }
   ]

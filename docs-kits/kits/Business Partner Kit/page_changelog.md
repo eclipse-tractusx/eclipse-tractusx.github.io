@@ -11,6 +11,24 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [4.0.0] - 2024-02-22
+
+### Added
+
+- documentation of bpdm architecture (arc42)
+- documentation for sharing-state api endpoints on bpdm gate
+
+### Changed
+
+- documentation of gate service with new endpoints for creating and querying generic business partners
+- documentation of pool service with updated endpoints for creating and querying business partners
+- documentation of orchestrator service with updated endpoints
+- documentation of new version for bridge service
+
+### Removed
+
+- documentation of old endpoints in software development view for gate and pool servicce
+
 ## [3.0.0] -2023-11-02
 
 ### Added

@@ -11,7 +11,6 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-
 ## [0.1.1] - 2023-09-07
 
 ### Added
