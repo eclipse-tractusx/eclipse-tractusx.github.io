@@ -22,7 +22,7 @@
 import React from "react";
 import TractusXBG from "@site/static/img/tractus-x_bg-updated.svg";
 import LicensesImg from "@site/static/img/licenses-minified.png";
-
+import IFrameComponent from "../../components/IFrameComponent";
 import styles from "./styles.module.css";
 
 export default function AboutUsContent() {
@@ -73,6 +73,13 @@ export default function AboutUsContent() {
         <div className={styles.img_container}>
           <img className={styles.licenses} src={LicensesImg} /> 
         </div>
+
+        <IFrameComponent
+          link={'https://www.youtube.com/embed/iIaH71z7ENg'}
+          description={''}
+          title={''}
+          headerDescription={''}
+        />
         
       </div>
     </section>

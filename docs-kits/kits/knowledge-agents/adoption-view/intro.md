@@ -5,12 +5,12 @@ title: Adoption View
 ## Agents KIT
 
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -34,8 +34,8 @@ This document describes the foundations of the (Knowledge) Agents KIT (=Keep It 
 
 For more information see
 
-* [Architecture](../development-view/architecture) 
-* [Deployment & Conformity](../operation-view/deployment) 
+* [Architecture](../development-view/architecture)
+* [Deployment & Conformity](../operation-view/deployment)
 
 ### Vision & Mission
 
@@ -53,11 +53,11 @@ We compose specifications for invoking and performing semantic computations (inf
 
 Leveraging existing standards such as [IDS](https://internationaldataspaces.org/), [RDF](https://www.w3.org/2001/sw/wiki/RDF), [SparQL](https://www.w3.org/2001/sw/wiki/SPARQL), [OWL](https://www.w3.org/2001/sw/wiki/OWL), [SHACL](https://www.w3.org/2001/sw/wiki/SHACL) & [EClass](https://eclass.eu/), linked data and corresponding skills may be provisioned, consumed, federated and visualised across the complete dataspace (technically) and hence the complete supply chain (business-wise).
 
-Skills can be described in tractable sub-languages of well-known declarative syntaxes, such as [SparQL](https://www.w3.org/2001/sw/wiki/SPARQL) (in the future maybe also: [GraphQL](https://en.wikipedia.org/wiki/GraphQL) and [SQL](https://en.wikipedia.org/wiki/SQL)). 
+Skills can be described in tractable sub-languages of well-known declarative syntaxes, such as [SparQL](https://www.w3.org/2001/sw/wiki/SPARQL) (in the future maybe also: [GraphQL](https://en.wikipedia.org/wiki/GraphQL) and [SQL](https://en.wikipedia.org/wiki/SQL)).
 
 ##### Implementations
 
-We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../tractusx-edc/docs/kit/adoption-view/Adoption%20View) 
+We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../tractusx-edc/docs/kit/adoption-view/Adoption%20View)
 
 These components are called [`agents`](https://en.wikipedia.org/wiki/Software_agent)) because they (semi-)actively negotiate and collaborate with each other (via so-called graph and skill assets) over the dataspace in order to derive higher-level semantic knowledge from the plain, isolated data.
 
@@ -74,14 +74,16 @@ We define bridges to other digital twin approaches, such as AAS (Asset Administr
 ### Business Value
 
 The Agents KIT is the best fit for use case and applications which
-- do not focus on exchanging/analyzing static assets between two peers in the supply chain, but instead require crawling over a whole dynamic branch of the supply tree.
-- do not focus on gaining predefined schemas of digital twins, but need to perform complex search and aggregations over both catalog and assets.
-- require rapidly changing and extensible logic that should reuse existing assets which have already been built for other use cases.
-- need to securely extract & aggregate knowledge from large amounts of assets and/or large assets.
+
+* do not focus on exchanging/analyzing static assets between two peers in the supply chain, but instead require crawling over a whole dynamic branch of the supply tree.
+* do not focus on gaining predefined schemas of digital twins, but need to perform complex search and aggregations over both catalog and assets.
+* require rapidly changing and extensible logic that should reuse existing assets which have already been built for other use cases.
+* need to securely extract & aggregate knowledge from large amounts of assets and/or large assets.
 
 As a dataspace participant, adopting the Agents KIT will
-- allow you to easily bind your own data and services into the relevant use cases and applications
-- give you the means to integrate your company-internal data sources with the dataspace as one big knowledge graph
+
+* allow you to easily bind your own data and services into the relevant use cases and applications
+* give you the means to integrate your company-internal data sources with the dataspace as one big knowledge graph
 
 The following advantages play an important role.
 
@@ -97,7 +99,7 @@ Using these approaches will give you a competitive advantage which is even indep
 
 ##### Is this a replacement to the existing Aspect Meta Model (BAMM/SAMM) & Asset Administration Shell (AAS) approach?
 
-Agent technology is a complement that means that both approaches can be deployed in co-existance. 
+Agent technology is a complement that means that both approaches can be deployed in co-existance.
 
 There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which enfavour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM/SAMM & AAS approach.
 
@@ -190,22 +192,22 @@ Any party who publishes an Application, Standard or KIT based on Agent Technolog
 
 Any party who offers ready-made artifacts, packages and managed services assisting Dataspace Participants/Applications to process data using Agent technology (e.g. a Graph Database, a Virtual Graph Binding Engine, an EDC Package)
 
-### Catena-X Standards 
+### Catena-X Standards
 
 The concrete choices for how the data graphs are to be constructed (using the [Resource Description Framework](https://www.w3.org/RDF/)), how Skills are to be interpreted (using the [SPARQL](https://www.w3.org/TR/sparql11-query/) language) and which vocabulary should be applied by both approaches (using the [Web Ontology Language](https://www.w3.org/OWL/) (OWL)) is subject of the following two [Catena-X e.V. Standards](https://catena-x.net/de/standard-library):
 
-- [CX-0084 Federated Queries in Dataspaces (V1.1.0 Upcoming)](https://catena-x.net/de/standard-library) 
-- [CX-0084 Federated Queries in Dataspaces (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
-- [CX-0067 Ontology Models to Realize Federated Queries in Catena-X  (V1.0.0 Upcoming)](https://catena-x.net/de/standard-library)
+* [CX-0084 Federated Queries in Dataspaces (V1.1.0 Upcoming)](https://catena-x.net/de/standard-library)
+* [CX-0084 Federated Queries in Dataspaces (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
+* [CX-0067 Ontology Models to Realize Federated Queries in Catena-X  (V1.0.0 Upcoming)](https://catena-x.net/de/standard-library)
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2021,2023 Mercedes-Benz AG
-- SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2021,2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2021,2023 SAP SE
-- SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+* SPDX-License-Identifier: CC-BY-4.0
+* SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2021,2023 Mercedes-Benz AG
+* SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+* SPDX-FileCopyrightText: 2021,2023 ZF Friedrichshafen AG
+* SPDX-FileCopyrightText: 2021,2023 SAP SE
+* SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
