@@ -21,8 +21,8 @@ All openAPI-specifications for the Digital Twin Kit services are rendered in the
 
 ### Asset Administration Shell
 
-The Asset Administration Shell (AAS) is a specification that is released by the[Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/) 
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage). 
+The Asset Administration Shell (AAS) is a specification that is released by the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/)
+with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage).
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a value
 creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an extensive
 suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X standard 
@@ -141,13 +141,13 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
   "specificAssetIds": [
     {
       "name": "manufacturerPartId",
-      "value": "BPN:123-345-567103",
+      "value": "123-345-567103",
       "externalSubjectId": {
         "type": "ExternalReference",
         "keys": [
           {
             "type": "GlobalReference",
-            "value": "{{BPN of the a party priviledged}}"
+            "value": "{{BPN of the party privileged}}"
           }
         ]
       }
@@ -420,8 +420,8 @@ these are the layers of complexity:
 | Versioned Object   | Presence in the [DT-Discovery](#discovery-sequence) Process | Description                                                                                                                                                                          | Method to increment                                                                                  |
 |--------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | Dataspace Protocol | 12, 22                                                      | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request points to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | Unclear, under discussion in Connector Kit.                                                          |
-| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.         | Unclear, under discussion in DT Kit.                                                                 |
-| Data Model Version | 5, 21, 29                                                   | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                          | A new version of the schema requires setup of a new submodel. This includes registration at the DTR. |
+| AAS Specification  | 4, 5, 15, 25                                                | For all AAS-related EDC-Assets (styled as `dcat:Dataset` in the catalog), a property `cx-common:version` must be added referring to the major and minor version of the AAS-spec. Part 2: API      | subject to change, still under discussion in DT Kit.                                                                 |
+| Semantic Model Version | 5, 21, 29                                                   | A semantic model conformant to CX-0003 includes two different version informations: the one of the meta model used (e.g. `@prefix samm: <urn:samm:org.eclipse.esmf.samm:meta-model:2.0.0#>`) and the version of the semantic model - the aspect model - itself (e.g. `@prefix : <urn:samm:io.catenax.battery.battery_pass:4.0.0#>`). The structure of the Submodel is determined by the aspect-model's ID, the semanticId of the Submodel. As seen in the example it includes a section on versioning.                                                                          | A new major version of the aspect model requires setup of a new submodel, i.e. a Submodel with a new ID. This includes registration at the DTR for the digital twins affected. A major change on the meta model also requires a new major version of the aspect model. It is possible to register two different submodels with the same semantic ID or with two different versions of the same semantic model: however, in all of these cases the Submodel ID differs.  |
 
 Here's a list of duties for Data Providers in case they integrate a new Submodel (or version of an existing one) to an existing
 twin:
@@ -443,14 +443,12 @@ Data Providers will usually follow one of two patterns:
    convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
    mechanisms, it may not scale to industrial sizes.
 2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
-   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since it
-
-Offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
+   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
 can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
 
 ### Patterns for DTRs
 
-Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001 by
+Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001 profile of the AssetAdministrationShellRegistryService by
 means of POST endpoints, updatable with PUT and PATCH requests (
 see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
