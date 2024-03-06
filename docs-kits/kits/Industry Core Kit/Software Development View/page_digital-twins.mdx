@@ -1,8 +1,11 @@
 ---
-sidebar_class_name: hidden
+id: Digital Twins Development View Industry Core Kit
+title: Digital Twins
+description: "Industry Core KIT"
+sidebar_position: 1
 ---
 
-<!---
+<!--
 This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
@@ -17,17 +20,22 @@ This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/
 - SPDX-FileCopyrightText: 2023 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
---->
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Industry%20Core%20Kit (latest version)
+-->
 
-## Digital Twin
+import Notice from '../part_notice.mdx'
+import UniqueIDPush from './part_uniqueidpush.mdx'
+
+![Industry Core kit banner](@site/static/img/doc-industry-core_header-minified.png)
+
+Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
 
 ### Register Digital Twins
 
-In Traceability, digital twins for different types of parts are registered at a Digital Twin Registry, e. g. serialized parts, batches, JIS parts or catalog parts. Basic information about how to register digital twins in Catana-X are described in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library).
+In Industry Core, different types of parts, e. g. serialized parts, batches, JIS parts or catalog part, are registered in a company's DTR as digital twins.
 
 > :raised_hand: **Unique ID Push**
-> Once a digital twin was created, optionally a Unique ID Push notification can be send to the customer of the part of batch to inform them that a new digital twin is available.
+> Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
 
 The following general conventions apply for all these digital twins:
 
@@ -38,7 +46,7 @@ The following general conventions apply for all these digital twins:
 
 ##### Property specificAssetIds
 
-For Traceability, we define some specific asset IDs as mandatory. Mandatory specific asset IDs are used to lookup or search for digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
+Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
 The following conventions for specific asset IDs apply to all digital twins:
 
@@ -67,12 +75,12 @@ The following conventions for specific asset IDs apply to all digital twins:
     <td> String </td>
   </tr>
   <tr>
-    <td> assetLifecyclePhase </td>
+    <td> digitalTwinType </td>
     <td> Optional (for DT As-Built)<br/>Mandatory (for DT As-Planned) </td>
     <td>
-      The lifecycle phase of the asset:
-      <ul><li>For serialized parts, batches, and JIS parts, use the value "AsBuilt".</li><li>For catalog parts, use the value "AsPlanned".</li></ul>
-      assetLifecyclePhase was added to allow data consumers to search only for catalog parts by using <code>assetLifecyclePhase="AsPlanned"</code> as filter. Without this filter, a search for a particular  manufacturer part ID would not only return the digital twin of the catalog part, but also all digital twins of instances of this catalog part, i.e., of the corresponding serial parts.
+      The type of the digital twin:
+      <ul><li>"PartInstance" for serialized parts, batches, and JIS parts</li><li>"PartType" for catalog parts</li></ul>
+      digitalTwinType was added to allow data consumers to search for all digital twins of a particular type, e.g, only for catalog parts by using <code>digitalTwinType="PartType"</code> as filter. Without this filter, a search for a particular  manufacturer part ID would not only return the digital twin of the catalog part, but also all digital twins of instances of this catalog part, i.e., of the corresponding serial parts.
     </td>
     <td> Enum </td>
   </tr>
@@ -110,7 +118,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
 
 ##### Submodel Descriptors
 
-General conventions for submodel descriptors can be found in the standard [CX-0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library). This section is based on it and it is recommended to read it first. In this KIT, we extend this standard with some additional conventions.
+Here, we extend the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) standard with some additional conventions.
 
 Submodel descriptors MUST be compliant to the following additional conventions:
 
@@ -123,7 +131,7 @@ The actual access information for the EDC is part of the endpoint attribute in t
 {
     "interface": "SUBMODEL-3.0",
     "protocolInformation": {
-        "href": "https://edc.data.plane/{path}/submodel",
+        "href": "https://edc.data.plane/public/{path}/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
         "subprotocol": "DSP",
@@ -140,7 +148,7 @@ The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-  - `edc.data.plane`: Server and port of the EDC data plane that is providing the submodel.
+  - `https://edc.data.plane/public`: Address of the EDC data plane that is providing the submodel.
   - `{path}`: This `{path}` string is forwarded to the backend data service by the EDC data plane. Together with the EDC asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
   - `/submodel`: This `/submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
@@ -156,7 +164,7 @@ With this approach, the EDC asset structure must no longer follow the "one EDC a
 
 Submodels of digital twins are registered in the EDC the same way as for release 3.1: One EDC asset is created for every submodel of a digital twin.
 
-- `href` must have the following format: `http://edc.data.plane/submodel`
+- `href` must have the following format: `https://edc.data.plane/public/submodel`
 - `subprotocolBody` must have the following format: `id={edcAssetId};dspEndpoint=http://edc.control.plane`
 - edcAssetId is the id of the EDC asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
   - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
@@ -182,7 +190,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://edc.data.plane/submodel",
+          "href": "https://edc.data.plane/public/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
@@ -226,7 +234,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://edc.data.plane/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+          "href": "https://edc.data.plane/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
@@ -319,195 +327,6 @@ Currently, even if more than one digital twin is returned in a lookup, these dig
 
 The next section describes to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
 
-### Unique ID Push Notifications
-
-Unique ID Push notifications are a way for a manufacturer to notify a customer as soon as possible when a new digital twin for a part is available.
-
-The solution is based on notification assets in the EDC (which is the same approach that is used for quality alerts & investigations). The customer creates a notification asset in the EDC and the customer's suppliers send their notifications (with the Unique Id) to this notification asset. As this notification asset is a general EDC asset - as for all EDC assets - access policies, usage policies and contract definitions must be created.
-
-> :raised_hand: It is important to understand that the customer (receiver) creates EDC asset and policies, and thus, the supplier (sender) of the Unique ID push notification must check during the EDC negotiation process if the conditions the receiver offers are acceptable for the sender.
-
-##### Prerequisites and Constraints
-
-In order to be able to push Unique ID(s) of part(s) to the correct partner, it is required that the data provider (manufacturer) pushing the Unique IDs is aware of the BPN of the actual receiver of the part (i.e., the customer) or has enough data in its context to use BPDM functions to determine the BPN Number of the receiver.
-
-For actively pushing Unique IDs, an EDC is required and the data provider needs to be enabled to execute the complete process including EDC communication and HTTP Push (i.e., HTTP POST) of the payload.
-
-Secondly, EDCs are being used for the exchange and it is currently required to offer a HTTP POST API to receive the Unique IDs push at the receiver's side. This API needs to be registered in the EDC Catalog as a data offer and requires specific properties to be set to standardized values, as this allows discover-ability. Details still tbd.
-
-##### Unique ID Push Process Overview
-
-How the actual process is triggered is application specific. It is recommended to trigger the push of Unique IDs towards the customer after the Goods Issue has been booked, since commonly at that point the serial numbers/batch numbers of the parts being delivered are fixed in the logistics process and shall be contained in delivery documents, EDI Messages and/or any internal representation of the received items (non-Catena-X communication).
-
-The Unique ID push is initiated by the supplier (acting as sender) towards their customer (acting as receiver). Since the Unique ID of the asset (i.e., serial unit / batch) is unknown in the logistics process, the message needs to include local identifiers to be matched towards the information from the delivery documents and furthermore the internal data of the recipient's traceability solution.
-
-Upon receipt of the message, the customer needs to match the local identifiers with its internal traceability records and attach each Unique ID to the respective data set. How this is done is depending on the customer's internal systems:
-
-- If there is an object for incoming deliveries, this event could be updated.
-  Alternatively, if only production events are tracked, the data could be integrated at this point into the data provisioning pipeline's data structure for consumed materials.
-- In the end this enables the customer to integrate the child parts into the SingleLevelBomAsBuilt aspect.
-
-![Unique ID Push Process](../assets/unique_id_push_process.png)
-
-<!--
-The following PlantUML code is used to generate the image shown:
-
-@startuml
-autonumber
-
-box "Supplier Landscape" #Lightblue
-participant "Data Provisioning Supplier" as TraceSup order 1
-participant "EDC Supplier" as EDCSup order 2
-end box
-
-box "Catena-X Services" #grey
-participant "EDC Discovery Service" as EDCDisc order 3
-participant "BPDM API" as BPM order 4
-end box
-
-box "Customer Landscape" #lightyellow
-participant "EDC Customer" as EDCCust order 5
-participant "Data Provisioning Customer" as TraceCust order 6
-end box
-
-group optional [if BPN of Customer is not directly known]
-TraceSup -> BPM: Request Customer BPN number
-BPM -> TraceSup: BPN number
-end
-
-group optional [if EDC Adress is not directly known or buffered]
-TraceSup -> EDCDisc: Request EDC Endpoint for BPN of customer
-EDCDisc -> TraceSup: Return EDC Adress
-end
-
-TraceSup -> EDCSup: Trigger Unique ID Push to customer EDC
-
-group contract negotiation
-EDCSup -> EDCCust: Request Contract for Unique ID Push receiption endpoint
-EDCCust -> EDCSup: Return Access Token and Dataplane Endpoint
-end
-
-EDCSup -> EDCCust: Send Unique ID Push notification and Token
-EDCCust -> TraceCust: Forward Unique ID
-TraceCust -> TraceCust: link UUID to Traceability events/material
-
-@enduml
--->
-
-##### Schema of Unique ID Push Notifications
-
-The notifications send to inform a customer about the creating of a new digital twin for one of the parts they received have a standardized format.
-
-All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push API documentation](Unique%20ID%20Push%20API/unique-id-push-notification-api).
-
-> Adding the customer part id to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding customer part id of its part though, it is required to always add the customer part id to the notification.
-
-##### Notification Receiver (Customer)
-
-Here is a short overview what the receiver has to do when they want to support Unique Id Push notifications. This is an optional feature.
-
-- The receiver in this scenario is the customer of a part.
-- The receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
-- The EDC in which the notification EDC asset was created must be registered at the Discovery Service (so that the sender can find the partner's EDC which should receive notifications)
-- When the Receiver receives a Unique Id Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
-- How the Receiver processes the notification is up to them, but the following steps are recommended:
-  - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
-  - Store the notification data for later.
-  - Use this data when the digital twin for the part into which the delivered part is built into is created instead of doing a lookup to a supplier's Digital Twin Registry.
-
-###### EDC Asset
-
-The EDC asset can be created using the EDC Data Management API. The following conventions apply for the properties of this asset:
-
-```apacheconf
-"id": "uniqueidpushnnotification-receipt"
-"type": "notification.trace.uniqueidpush"
-"notificationtype": "uniqueidpush"
-"notificationmethod": "receive"
-```
-
-###### EDC Policies
-
-_More information about the Policies with detailed descriptions, payloads etc. are described on the [Adoption View](../page_adoption-view.md) page._
-
-**Access Policies**
-A data provider can decide on its own what access policies they want to define for their notification asset. Based on the purpose of the asset, all suppliers of the data provider should in general be allowed to send notifications to this asset. Therefore, either a public access policy or a BPN-based access policy (allowing all suppliers) should be used.
-
-**Usage Policies**
-In general, a data provider is free to decide which usage policies to define for its assets. For notifications, though, the data provider is actually the receiver of notifications, i.e., the usage policy here has the purpose to define what the data provider does or is allowed to do with the notifications. It's something the sender of the notification has to rely on and accept when sending its notification.
-
-Keep in mind that usage policies currently aren't technically enforced by the EDC or other components.
-
-> :raised_hand: **Usage Policy for Unique ID Push**
-> The Unique ID push notification endpoints are protected with a purpose-based usage policy and "purpose.trace.v1.aspects" as purpose.
-
-###### Backend Data Service to Process Unique ID Push Notifications
-
-The receiver must setup a backend data service that provides an HTTP Endpoint for notifications. All endpoints as well as the schema of the notification below are described in detail in the [Unique ID Push API documentation](Unique%20ID%20Push%20API/unique-id-push-notification-api).
-
-##### Notification Sender (Manufacturer, Supplier)
-
-Here is a short overview what the sender has to do when they want to support Unique Id Push notifications. This is an optional feature.
-
-- The Sender in this scenario is the manufacturer or supplier of a part.
-- When a new digital twin for a part was created, the manufacturer is responsible to send a Unique Id Push notification for this twin to the customer of this part.
-- It is recommended to send this notification as soon as possible, i.e., directly after the digital twin was created.
-
-###### Mapping BPN to EDC URL with Discovery Service API
-
-The sender must first find the EDC of the customer to which the notification should be sent to. For this, the BPN of the customer is required. With this, the Discovery Service can be used to query for all EDCs of the customer. After that, the data catalog of each of these EDCs must be queried for the notification EDC asset as described above. If this notification EDC asset is found in one of these EDCs, the notification can be sent.
-
-There should only be one EDC which provides the notification EDC asset for Unique Id Push. If more than one EDC (for the same BPN/partner) are found, this is considered a misconfiguration of the corresponding partner.
-
-### Creating Submodels
-
-Submodels for Traceability are mostly easy to create by transforming a company's internal data into the target aspect model, i.e. SerialPart or Batch. Transformations are mostly straightforward in these cases.
-
-The only special step in creating these two submodels is the initial creation of the Unique ID for the corresponding serialized parts or batches.
-
-##### Creation of Submodel SingleLevelBomAsBuilt
-
-The creation of the submodel SingleLevelBomAsBuilt is more complicated. This submodel contains the Unique ID of the manufacturer's part (attribute catenaXId) which is created - as described above - when the part's SerialPart or Batch submodel is created. But it also contains the Unique IDs of the built-in parts (attributes childItems.catenaXId), as shown in the following example:
-
-```json
-{
-  "catenaXId": "urn:uuid:d261e0fa-36f5-4128-875e-0f5735f5a535",
-  "childItems": [
-    {
-      "quantity": {
-        "quantityNumber": 1,
-        "measurementUnit": "unit:piece"
-      },
-      "hasAlternatives": false,
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:9dc1b6fb-94e7-4911-9e39-abf06c4941d2",
-      "businessPartner": "BPNL50096894aNXY"
-    },
-    {
-      "quantity": {
-        "quantityNumber": 1,
-        "measurementUnit": "unit:piece"
-      },
-      "hasAlternatives": false,
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z",
-      "catenaXId": "urn:uuid:d17bbf68-6cb7-4045-b3ae-67f41403d098",
-      "businessPartner": "BPNL50097894aNXA"
-    }
-  ]
-}
-```
-
-For the build-in parts (child items), their Unique ID is not known to the manufacturer initially. Only know are the local ids that are printed on the physical part (serialized part or batch), i.e., manufacturer (BPN), manufacturer part id and serial or batch number. To get the Unique ID of a built-in part, a data provider therefore has to do the following:
-
-- Get all necessary local ids for the built-in part:
-  - manufacturer (BPN), manufacturer part id and serial number for serialized parts
-  - manufacturer (BPN), manufacturer part id and batch number for batches
-- The next step is about getting the Unique ID of all built-in parts. There are two ways:
-  - Unique IDs might for built-in parts might already be available locally if Unique ID Push is supported by the data provider and the suppliers of the built-in parts.
-  - Query a supplier's Digital Twin Registry to find the digital twin for this built-in part
-
 ###### Unique ID Push
 
 Once the digital twin was created, optionally a Unique ID Push notification can be send by the manufacturer of the part to the customer of the serialized part of batch to inform the customer that information about a serialized part or batch is available as a digital twin. This is an optional process and both, the manufacturer of a part as well as the customer of the part must support Unique ID Push notifications.
@@ -541,3 +360,6 @@ Basically, as a data provider you have to do the following
 - The BDS must use the REST API data plan for data transmission.
 - The BDS must verify that it only returns data to the data consumer that is compliant to the EDC asset and data offer for which data is queried and authorize the request accordingly.
 
+<UniqueIDPush components={props.components} />
+
+<Notice components={props.components} />
