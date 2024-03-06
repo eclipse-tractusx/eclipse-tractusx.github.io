@@ -8,7 +8,7 @@ Vault, PostgreSQL) and a DAPS instance that both share.
 We've tested this setup with [KinD](https://kind.sigs.k8s.io/), but other runtimes such
 as [Minikube](https://minikube.sigs.k8s.io/docs/start/) may work as well, we just haven't tested them.
 
-This version of Tractus-X EDC _requires_ a running instance of the Managed Identity Wallet and KeyCloak, a connector
+This version of Tractus-X EDC _requires_ a running instance of the Managed Identity Wallet and Keycloak, a connector
 will not be able to communicate to another connector without it.
 
 Installation instructions for those are beyond the scope of this document, please refer to the respective manuals and
@@ -38,15 +38,15 @@ echo "aes_enckey_test" | base64 > plato.aes.key
 Any arbitrary string can be used for the AES key, but it has to be 16, 24, or 32 characters in length, assuming UTF-8
 encoding.
 
-### 1.2 Obtain configuration for MiW and KeyCloak
+### 1.2 Obtain configuration for MiW and Keycloak
 
 > The following information is _required_, your connectors will **not** work properly unless you
 > modify the `ssi:` section of `sokrates-values.yaml` and `plato-values.yaml` accordingly!
 
-For communication with KeyCloak we need the following information
+For communication with Keycloak we need the following information
 
 - the `tokenurl`: URL where access tokens can be obtained
-- the `client.id`: KeyCloak identifier of the connector
+- the `client.id`: Keycloak identifier of the connector
 
 Note that the OAuth2 client secret will be stored in the vault under the alias `client-secret`.
 
@@ -90,8 +90,8 @@ Tractus-X EDC checked out in your local filesystem at `<YOUR_PATH>`.
 helm install tx-sokrates <YOUR_PATH>/charts/tractusx-connector \
             -f sokrates-values.yaml \
             --dependency-update
-            
-# install plato 
+
+# install plato
 helm install tx-plato <YOUR_PATH>/charts/tractusx-connector \
             -f plato-values.yaml \
             --dependency-update
