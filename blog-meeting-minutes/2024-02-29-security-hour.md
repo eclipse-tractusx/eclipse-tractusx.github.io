@@ -13,7 +13,7 @@ tags: [meeting-minutes, community, security]
 - Security team approvals for most projects in scope of release 24.03 have been completed.
 - Upcoming changes for release 24.05 will focus on FOSS security tools, including
   - switch from Veracode to CodeQL for SAST,
-  - gitleaks for secrets scanning,
+  - switch from Gitguardian to gitleaks for secrets scanning,
   - DAST will not be part of the upcoming TRG until further notice.
 - DAST was removed from TRG due to issues with authenticated scans and SARIF report as scanning alerts in repository security section.
 
