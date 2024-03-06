@@ -185,6 +185,50 @@ a parent - child structure, similar to SingleLevelBomAsBuilt:
 Based on the DataIntegrity aspect IRS can compare the data received by a data provider with the given hash and verify
 that the data was not altered or manipulated after initial provision.
 
+## Success Stories
+
+### Circularity Dashboard Success Story
+
+Due to the large number of producers and consumers, however, the implementation of the circular economy is challenging: Information on the individual lifecycles is mostly only available locally and therefore does not provide any meaningful assessment of reuse, recycling or remanufacturing.
+
+![success](@site/static/img/irs-circularity-dashboard-successstory.png)
+
+Therefore, the circularity dashboard, gives the user information about materials of the product and of all their composites. This is only possible, if participants of the supply chain, the direct manufactures of the composites of a vehicle are sharing information about the materials used.
+The ability to access provided data in the Catena-X network could be done in two different ways. Way one is to handle each request separately, or use the IRS, which manages the retrieval of digital twins, checks and validates the results against the semantics and provides an easy-to-use API to interact with the decentral stored data.
+In the SAP Industry Network for Automotive, circularity cockpit  API specification and IRS implementation are serving as a reference.  Thus, we were able to develop IRS functionality to best fit the SAP tech stack, which we decided to use for the circularity cockpit.
+This enables us, to have a controlled access to distributed data in an interoperable setup to access data chains. To abstract the data consumption layer brings benefits in stability and resiliency to our application, because we could easily change to different providers or services of a IRS implementation.
+
+### Trace-X Success Story
+
+![Trace-X-Screenshot](@site/static/img/Trace-X/Trace-X_App-mypartsview.png)
+
+The Open-Source Traceability application is developed within the Catena-X project and enables all companies to participate in Parts Traceability.
+Trace-X offers capabilities to ingest data for serialized parts and batches as well as their child components.  Within CX, we strive to establish a standardized, data-sovereign and interoperable exchange of traceability data along the value creation chain.
+
+The application gives an overview of the supplier network and the supply chain. A high level of transparency across the supplier network enables faster intervention based on recorded events in the supply chain. Additionally, automated massages regarding Quality related incidents.
+All this saves' costs by seamlessly tracking parts as well as creates trust through clearly defined and secure data access by the companies and persons involved in the process.
+
+![success2](@site/static/img/IRS2.png)
+
+Applying and using the Item Relationship Service had the following benefits:
+
+
+- With the decision using the IRS we could speed our development of Trace-X throughout the scope of their helm charts including a running service with test data. That alone was very beneficial to have a stable environment with data
+- The IRS fulfills a high level of quality in code which provides a reliable service
+- The deployment via helm charts has been built so that it can fit in existing architecture components throughout configuration like the Digital Twin Registry, the EDC, Semantic Hub, Keycloak and others. This enabled Trace-X to configure the Service smoothly into the architecture of the application
+- The IRS abstracts the communication with partners along the supply chain, that makes it easy to build business processes on that. It abstracts a technical level to a logical level to enhance the speed of implementation of a Software Provider
+- The IRS with the standardized API provides a data interoperability level on data chains
+- The Team behind the IRS is fast in implementing and adapting  new features
+
+![Trace-XScreenshot1](@site/static/img/Trace-X/01.png)
+
+![Trace-XScreenshot2](@site/static/img/Trace-X/02.png)
+
+![Trace-XScreenshot3](@site/static/img/Trace-X/03.png)
+
+![Trace-XScreenshot4](@site/static/img/Trace-X/04.png)
+
+
 ## Logic & Schema
 
 ### Building Block Architecture Overview
@@ -262,6 +306,8 @@ The following general conditions apply:
 ## IRS Recursive
 
 The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the supply chain in a direct way, it triggers the IRS of a partner to start an IRS job to retrieve data of the sub-partners. This is done to keep the structure below intransparent to the value chain above, even though it is still possible to aggregate results; pass information along the value chain.
+
+![IRS recursive diagram](@site/static/img/irs-recursive-minified.svg)
 
 The following general conditions apply:
 

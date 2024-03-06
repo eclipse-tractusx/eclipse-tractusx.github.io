@@ -11,7 +11,6 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-
 ## [0.1.1] - 2023-12-20
 
 ### Added
@@ -25,6 +24,7 @@ All notable changes to this Kit will be documented in this file.
 ### Removed
 
 - ./.
+
 ## [0.1.0] - 2023-12-08
 
 ### Added
