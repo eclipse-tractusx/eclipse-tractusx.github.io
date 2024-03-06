@@ -5,6 +5,7 @@ import Traceability_Kit from "@site/static/img/traceabilitykit.png";
 import BehaviourTwinRuLKit from "@site/static/img/BehaviourTwinRuLKit.png";
 import DigitalTwin from "@site/static/img/DigitalTwin.png";
 import EcoPass from "@site/static/img/EcoPass.png";
+import ESS_Kit from "@site/static/kits/ESS-Kit/ESSKit.png";
 import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
 import Quality from "@site/static/img/Quality.png";
 import PCF_Kit from "@site/static/img/PCF_Kit.png";
@@ -131,5 +132,12 @@ export const kitsGallery = [
     domain: 'Sustainability',
     img: PCF_Kit,
     pageRoute: "/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View"
+  },
+  {
+    id: 16,
+    name: 'ESS Kit',
+    domain: 'Sustainability',
+    img: ESS_Kit,
+    pageRoute: "/docs-kits/next/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
   }
 ]

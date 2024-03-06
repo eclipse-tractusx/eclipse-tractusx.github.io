@@ -1,8 +1,8 @@
 ---
-id: Adoption View
-title: Adoption View
-description: 'Connector Kit'
 sidebar_position: 1
+title: Adoption View
+description: Adoption View
+id: connector_kit_adoption_view
 ---
 
 # Adoption View
@@ -41,7 +41,7 @@ With the [EDC][edc-url], a new communication component was introduced, which imp
 
 ## Use Case
 
-The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therefore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of a connector compliant to the [DSP](dsp-url) such as the [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required explained in subsequent Kits.
+The EDC is the enabling component for all use cases within Catena-X and the only component to execute the exchange of operational data to Data Space participants. The base use case is therefore the exchange of data between to partners. Value creation along the automotive value chain is tied to processing data in specific contexts. Within Catena-X exist 10 use cases companies can participate in. Active participation in given use cases always requires the use of a connector compliant to the [DSP][dsp-url] such as the [EDC][edc-url]. Depending on the use case a participant chooses to participate in, further components will be required explained in subsequent Kits.
 
 - [Sustainability][sustainability-url]
 - [Traceability][traceability-url]
@@ -60,7 +60,7 @@ The functionality required for this is bundled in the open-source project "Eclip
 
 The main difference between the EDC and the previous connectors of the [IDSA][idsa-url] is the separation of the communication into a channel for the metadata and one for the actual data exchange. The channel for the data supports various transmission protocols via so-called data plane extensions. The metadata is transmitted directly via the EDC interface, while the actual data exchange then takes place via the appropriate channel extension. In this way, a highly scalable data exchange is made possible.
 
-![EDC Architecture](images/edc_architecture.png)
+![EDC Architecture](../assets/edc_architecture.png)
 
 The architecture of the EDC combines various services that are necessary for the above principles:
 
@@ -71,6 +71,13 @@ The architecture of the EDC combines various services that are necessary for the
 - The connection of software systems on the customer and provider side
 
 ## Additional Resources
+
+### Tutorial & Whitepapers
+
+- There is a extensive tutorial on setting up and using an EDC in the context of the Catena-X dataspace in the [Tutorials](https://eclipse-tractusx.github.io/docs/tutorials/e2e)
+section of this website.
+- To find out more about the role of the Enablement Services (of which the Connector is one), the [Whitepaper "Enablement 
+Services 101"](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_EnablementServices.pdf) provides a very digestible high-level overview.
 
 ### Catena-X Standards
 
@@ -83,7 +90,7 @@ The Connector KIT builds on the [Catena-X Standards][Catena-X-Standards-url]. Ev
 
 ### Terminology
 
-The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of 
+The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of
 the implementation. Most of the Domain-Model-Elements are represented by separate APIs. Please check the [Management API Walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs)
 in the tractusx-edc repository for more a reference on usage of the API.
 

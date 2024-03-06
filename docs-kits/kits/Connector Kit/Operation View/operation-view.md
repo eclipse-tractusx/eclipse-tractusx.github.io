@@ -1,9 +1,9 @@
 ---
-title: Operation View
 sidebar_position: 1
+title: Operatation View
+description: Operatation View
+id: connector_kit_operation_view
 ---
-
-# Operation View
 
 ## Reference Implementation
 
@@ -30,14 +30,14 @@ Other configurations are available in the same repository.
 
 ### Minimum Viable Dataspace
 
-A minimal setup using [Terraform](https://developer.hashicorp.com/terraform) is available in the form of the 
+A minimal setup using [Terraform](https://developer.hashicorp.com/terraform) is available in the form of the
 [Minimum Viable Dataspace](https://github.com/eclipse-edc/MinimumViableDataspace).
 
 Documentation on it can be found [here](https://eclipse-edc.github.io/docs/#/submodule/MinimumViableDataspace/).
 
 ### Deployment Guide
 
-Specific configuration details are described more closely in the 
+Specific configuration details are described more closely in the
 [Deployment Guide](https://eclipse-tractusx.github.io/docs/tutorials/e2e/connect/deployComponents/).
 
 ## Notice

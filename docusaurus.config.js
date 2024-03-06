@@ -229,16 +229,23 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          traceability_notifications: {
-            specPath: "./openApi/traceability/notifications.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API",
+          traceability_notifications_120: {
+            specPath: "./openApi/traceability/notifications_1-2-0.yaml",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.2.0 - optional",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
           },
-          traceability_unique_id_push: {
-            specPath: "./openApi/traceability/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Unique ID Push API",
+          traceability_notifications_110: {
+            specPath: "./openApi/traceability/notifications_1-1-0.yaml",
+            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.1.0 - mandatory",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+          industrycore_unique_id_push: {
+            specPath: "./openApi/industrycore/unique-id-push.yaml",
+            outputDir: "./docs-kits/kits/Industry Core Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -262,7 +269,7 @@ const config = {
           dt_bpn_discovery: {
             specPath: "./openApi/dt/bpn-discovery-service-openapi.yaml", // Path to designated spec file
             outputDir:
-              ".docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
+              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
             sidebarOptions: {
                groupPathsBy: "tag",
             },
@@ -308,9 +315,9 @@ const config = {
               },
             },
           resiliency_osim: {
-            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
             outputDir:
               "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
+            specPath: './openApi/resiliency/osim-api.json', // Path to designated spec file
             sidebarOptions: {
               groupPathsBy: "tag",
             },
