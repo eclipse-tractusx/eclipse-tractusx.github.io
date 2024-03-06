@@ -3,12 +3,12 @@ sidebar_position: 7
 title: Detailed Architecture
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -134,36 +134,35 @@ See chapter [Layers & Modules](modules)
 
 [![Architecture High-Level](/img/knowledge-agents/knowledge_agent_architecture_small.png)](/img/knowledge-agents/knowledge_agent_architecture.png)
 
-
 ## Runtime View
 
 [![Runtime View2](/img/knowledge-agents/Runtime_View3.png)](/img/knowledge-agents/Runtime_View3.png)
 
 Sequence of actions:
 
-1. A data provider provides a self description of the piece of knowledge he likes to provide including the terms of conditions in his own data catalogue
-  * Graph assets describe means of domain ontologies the
-    * node classes
-    * relations (edges between nodes)
-    * constraints on nodes and relations (temporal, value ranges, regex patterns, ...) 
-    * constraints on the queries/skills that may be executed on the graph (e.g. allowed and denied network connections)
-  * Graph policies will restrict the following operations on graphs (based on nodes and edges, given an execution context)
-    * selection
-    * traversion
-    * storage
-    * manipulation
-    * deletion 
-    * delegation
-    (Although the diagram depicts only one single instance of the Federated Datacatalog, each EDC of each participant (Provider or Consumer) runs a Datacatalog instance. Beween those synchronisation takes place)
+1. A data provider provides a self description of the piece of knowledge he likes to provide including the terms of conditions in his own data catalogue (Although the diagram depicts only one single instance of the Federated Datacatalog, each EDC of each participant (Provider or Consumer) runs a Datacatalog instance. Beween those synchronisation takes place)
+    * Graph assets describe means of domain ontologies the
+        * node classes
+        * relations (edges between nodes)
+        * constraints on nodes and relations (temporal, value ranges, regex patterns, ...)
+        * constraints on the queries/skills that may be executed on the graph (e.g. allowed and denied network connections)
+    * Graph policies will restrict the following operations on graphs (based on nodes and edges, given an execution context)
+        * selection
+        * traversion
+        * storage
+        * manipulation
+        * deletion
+        * delegation
 2. A data provider marks particular graph assets as being visible in the federated data catalog. The federated data catalogues of the federated companies/EDCs will be automatically synchronized.
 3. Any consuming app can employ an agent with a suitable skill/query (which can be provided locally or as a remote asset, too)
-4. The agent will match the requirements in the skill with the offers in the federated data catalog to fill in the endpoints and usage policies from the self descriptions. 
+4. The agent will match the requirements in the skill with the offers in the federated data catalog to fill in the endpoints and usage policies from the self descriptions.
 5. Agreements (between XA (5.1), XC (5.2), eventually between AB (5.3)) have to be set up in such a way that the corresponding agents are allowed to communicate through the data plane.
 6. The agent delegates a sub-query/sub-skill to the respective knowledge owners (data provider C: 6.1, A: 6.2 and B: 6.3) via an instance of EDC. It annotates the sub-queries with a call context containing the EDC/agent calling sequence and the other assets to be joined with the result data. 6.3 shows that an agent can decide to delegate further down the line
 7. The data plane will validate the calling context together with the claims inside the agreement token.
-8. The agent executes the actual query by mapping to a backend data system and finally providing the result to the app 
+8. The agent executes the actual query by mapping to a backend data system and finally providing the result to the app
 
 Just as the Federated Datacatalog is a multi-instance-synchronised component, also the Federated Trust is an instance running on each EDC. All Federated Trust instances are synchronised with each other within the referring EDC ecosystem.
+
 ## Deployment View
 
 See chapter [Deployment](../operation-view/deployment).
