@@ -160,9 +160,6 @@ The following conventions apply for the endpoint:
      - `catalog/datasets/{id}` to only fetch offers for the dataset with a particular dataset ID.
   - `id=123`: The ID of the Connector asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
 
-> :raised_hand: **Backend Data Service for Submodels:**
-According to CX-0002, the backend data service used to deliver the submodel must be compliant with the Asset Administration Shell Profile SSP-003 of the Submodel Service Specification and must at least support the logical operation GetSubmodel. Only the logical parameter Content=Value must be supported via path suffix "/submodel/$value". This might change in later Catena-X releases.
-
 With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{path}`.
 
 ##### Option 1: Same Connector Asset Structure as in Release 3.1
@@ -261,15 +258,9 @@ The above options are only two examples how a submodel's endpoint can be created
 
 ##### Data Consumption with AAS Submodel Descriptor Endpoints
 
-The endpoint `href` in the submodel descriptor cannot be used directly to contact an Connector and access the data in Catena-X.
+A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
-- A data consumer must first identify the protocol that must be used to retrieve the submodel data based on the `subprotocol`. For data transfers in Catena-X, this is "DSP"
-- With `href`, the data consumer calls the local operation GetSubmodel as specified by the suffix "/submodel". As only the logical parameter "Content" must be supported in release 3.2, "/$value" must be appended to `href` by the data consumer.
-  If the `href` endpoint is called with operations or parameter values not yet supported, the error response 501 "Not Implemented" must be returned according to CX-0002.
-- Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector control plane of the data provider specified by `dspEndpoint`.
-- Finally, using the id from the contract agreement with the control plane, the data consumer initiates the data transfer with the Connector data plane of the data provider referenced in the `href`. The enriched path part of the `href` (see bullet point 2) is passed to data provider data plane by the data consumer as a parameter for the backend data service that actually executes the request and returns the submodel.
-
-All these steps must be handled by the data consumer that want to retrieve the submodel data of a digital twin.
+Further information about the data transfer of submodels can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#submodels).
 
 ### Lookup in the Digital Twin Registry
 
