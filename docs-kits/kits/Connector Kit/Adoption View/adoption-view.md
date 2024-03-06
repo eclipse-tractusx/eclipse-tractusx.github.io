@@ -60,7 +60,7 @@ The functionality required for this is bundled in the open-source project "Eclip
 
 The main difference between the EDC and the previous connectors of the [IDSA][idsa-url] is the separation of the communication into a channel for the metadata and one for the actual data exchange. The channel for the data supports various transmission protocols via so-called data plane extensions. The metadata is transmitted directly via the EDC interface, while the actual data exchange then takes place via the appropriate channel extension. In this way, a highly scalable data exchange is made possible.
 
-![EDC Architecture](images/edc_architecture.png)
+![EDC Architecture](../assets/edc_architecture.png)
 
 The architecture of the EDC combines various services that are necessary for the above principles:
 
@@ -71,6 +71,13 @@ The architecture of the EDC combines various services that are necessary for the
 - The connection of software systems on the customer and provider side
 
 ## Additional Resources
+
+### Tutorial & Whitepapers
+
+- There is a extensive tutorial on setting up and using an EDC in the context of the Catena-X dataspace in the [Tutorials](https://eclipse-tractusx.github.io/docs/tutorials/e2e)
+section of this website.
+- To find out more about the role of the Enablement Services (of which the Connector is one), the [Whitepaper "Enablement 
+Services 101"](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_EnablementServices.pdf) provides a very digestible high-level overview.
 
 ### Catena-X Standards
 
