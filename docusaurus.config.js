@@ -315,9 +315,9 @@ const config = {
               },
             },
           resiliency_osim: {
-            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
             outputDir:
               "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
+            specPath: './openApi/resiliency/osim-api.json', // Path to designated spec file
             sidebarOptions: {
               groupPathsBy: "tag",
             },
