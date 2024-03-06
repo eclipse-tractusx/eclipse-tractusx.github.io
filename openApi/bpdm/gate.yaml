@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Business Partner Data Management Gate
   description: A gate for a member to share business partner data with CatenaX
-  version: 4.1.0-SNAPSHOT
+  version: 5.0.1-SNAPSHOT
 servers:
   - url: http://localhost:8081
     description: Generated server url
@@ -73,6 +73,7 @@ paths:
           description: Operation completed successfully
         '400':
           description: Invalid data (e.g. external ID)
+      deprecated: true
   /api/catena/output/sites:
     put:
       tags:
@@ -97,6 +98,7 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed site request
+      deprecated: true
   /api/catena/output/legal-entities:
     put:
       tags:
@@ -121,6 +123,7 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed legal entity request
+      deprecated: true
   /api/catena/output/addresses:
     put:
       tags:
@@ -145,6 +148,7 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed address request
+      deprecated: true
   /api/catena/input/sites:
     get:
       tags:
@@ -179,6 +183,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoSiteGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
     put:
       tags:
         - site-controller
@@ -202,6 +207,7 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed site request
+      deprecated: true
   /api/catena/input/legal-entities:
     get:
       tags:
@@ -236,6 +242,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoLegalEntityGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
     put:
       tags:
         - legal-entity-controller
@@ -259,6 +266,7 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed legal entity request
+      deprecated: true
   /api/catena/input/business-partners:
     put:
       tags:
@@ -319,6 +327,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoAddressGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
     put:
       tags:
         - address-controller
@@ -342,6 +351,25 @@ paths:
                 $ref: '#/components/schemas/Unit'
         '400':
           description: On malformed address request
+      deprecated: true
+  /api/catena/sharing-state/ready:
+    post:
+      tags:
+        - sharing-state-controller
+      summary: Sets the given business partners into ready to be shared state
+      description: The business partners to set the ready state for are identified by their external-id. Only business partners in an initial or error state can be set to ready. If any given business partner could not be set into ready state for any reason (for example, it has not been found or it is in the wrong state) the whole request fails (all or nothing approach).
+      operationId: postSharingStateReady
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostSharingStateReadyRequest'
+        required: true
+      responses:
+        '204':
+          description: All business partners put in ready to be shared state
+        '404':
+          description: Business partners can't be put into ready state (e.g. external-ID not found, wrong sharing state)
   /api/catena/output/sites/search:
     post:
       tags:
@@ -383,6 +411,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoSiteGateOutputResponse'
         '400':
           description: On malformed pagination request
+      deprecated: true
   /api/catena/output/legal-entities/search:
     post:
       tags:
@@ -424,6 +453,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoLegalEntityGateOutputResponse'
         '400':
           description: On malformed pagination request
+      deprecated: true
   /api/catena/output/changelog/search:
     post:
       tags:
@@ -546,6 +576,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoAddressGateOutputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
   /api/catena/input/sites/search:
     post:
       tags:
@@ -588,6 +619,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoSiteGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
   /api/catena/input/legal-entities/search:
     post:
       tags:
@@ -630,6 +662,7 @@ paths:
                 $ref: '#/components/schemas/PageDtoLegalEntityGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
   /api/catena/input/changelog/search:
     post:
       tags:
@@ -753,6 +786,64 @@ paths:
                 $ref: '#/components/schemas/PageDtoAddressGateInputDto'
         '400':
           description: On malformed pagination request
+      deprecated: true
+  /api/catena/stats/{stage}/address-types:
+    get:
+      tags:
+        - stats-controller
+      operationId: countAddressTypes
+      parameters:
+        - name: stage
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - Input
+              - Output
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsAddressTypesResponse'
+  /api/catena/stats/stages:
+    get:
+      tags:
+        - stats-controller
+      operationId: countPartnersPerStage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsStagesResponse'
+  /api/catena/stats/sharing-states:
+    get:
+      tags:
+        - stats-controller
+      operationId: countPartnersBySharingState
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsSharingStatesResponse'
+  /api/catena/stats/confidence-criteria:
+    get:
+      tags:
+        - stats-controller
+      operationId: getConfidenceCriteriaStats
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsConfidenceCriteriaResponse'
   /api/catena/mermaid/:
     get:
       tags:
@@ -789,6 +880,7 @@ paths:
                 $ref: '#/components/schemas/SiteGateInputDto'
         '404':
           description: No site found under specified external ID
+      deprecated: true
   /api/catena/input/legal-entities/{externalId}:
     get:
       tags:
@@ -812,6 +904,7 @@ paths:
                 $ref: '#/components/schemas/LegalEntityGateInputDto'
         '404':
           description: No legal entity found under specified external ID
+      deprecated: true
   /api/catena/input/addresses/{externalId}:
     get:
       tags:
@@ -835,9 +928,47 @@ paths:
                 $ref: '#/components/schemas/AddressGateInputDto'
         '404':
           description: No address found under specified external ID
+      deprecated: true
 components:
   schemas:
+    AddressComponentOutputDto:
+      required:
+        - addressBpn
+        - alternativePostalAddress
+        - bpnA
+        - confidenceCriteria
+        - physicalPostalAddress
+      type: object
+      properties:
+        addressBpn:
+          type: string
+          description: The BPNA of the address, on which the business partner provides a view.
+        name:
+          type: string
+          description: The name of the address, on which the business partner provides a view. This is not according to official registers but according to the name the sharing members agree on, such as the name of a gate or any other additional names that designate the address in common parlance.
+        addressType:
+          type: string
+          description: 'One of the address types: Legal Address, Site Main Address, Legal and Site Main Address, Additional Address. '
+          enum:
+            - LegalAndSiteMainAddress
+            - LegalAddress
+            - SiteMainAddress
+            - AdditionalAddress
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
+      description: Address properties of business partner output data
     AddressGateInputDto:
+      required:
+        - externalId
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -856,9 +987,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -867,6 +998,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
@@ -878,6 +1013,13 @@ components:
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner, representing the site, that the address belongs to.
       description: In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     AddressGateInputRequest:
+      required:
+        - externalId
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -896,9 +1038,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -907,6 +1049,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
@@ -918,6 +1064,13 @@ components:
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner, representing the site, that the address belongs to.
       description: Request for creating/updating a business partner record of type address. In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     AddressGateOutputChildRequest:
+      required:
+        - bpn
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -936,9 +1089,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -947,11 +1100,23 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         bpn:
           type: string
           description: A BPNA represents and uniquely identifies an address, which can be the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates). It is important to note that only the BPNL must be used to uniquely identify a legal entity. Even in the case that the BPNA represents the legal address of the legal entity, it shall not be used to uniquely identify the legal entity.
       description: In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     AddressGateOutputDto:
+      required:
+        - bpna
+        - externalId
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -970,9 +1135,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -981,6 +1146,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
@@ -995,6 +1164,14 @@ components:
           description: A BPNA represents and uniquely identifies an address, which can be the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates). It is important to note that only the BPNL must be used to uniquely identify a legal entity. Even in the case that the BPNA represents the legal address of the legal entity, it shall not be used to uniquely identify the legal entity.
       description: In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     AddressGateOutputRequest:
+      required:
+        - bpn
+        - externalId
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -1013,9 +1190,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1024,6 +1201,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
@@ -1038,6 +1219,9 @@ components:
           description: A BPNA represents and uniquely identifies an address, which can be the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates). It is important to note that only the BPNL must be used to uniquely identify a legal entity. Even in the case that the BPNA represents the legal address of the legal entity, it shall not be used to uniquely identify the legal entity.
       description: Request for creating/updating a business partner record of type address. In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     AddressIdentifierDto:
+      required:
+        - type
+        - value
       type: object
       properties:
         value:
@@ -1047,12 +1231,38 @@ components:
           type: string
           description: The type of the identifier.
       description: An address identifier (uniquely) identifies the address, such as the Global Location Number (GLN).
+    AddressRepresentationInputDto:
+      required:
+        - alternativePostalAddress
+        - physicalPostalAddress
+      type: object
+      properties:
+        addressBpn:
+          type: string
+          description: The BPNA of the address, on which the business partner provides a view.
+        name:
+          type: string
+          description: The name of the address, on which the business partner provides a view. This is not according to official registers but according to the name the sharing members agree on, such as the name of a gate or any other additional names that designate the address in common parlance.
+        addressType:
+          type: string
+          description: 'One of the address types: Legal Address, Site Main Address, Legal and Site Main Address, Additional Address. '
+          enum:
+            - LegalAndSiteMainAddress
+            - LegalAddress
+            - SiteMainAddress
+            - AdditionalAddress
+        physicalPostalAddress:
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
+        alternativePostalAddress:
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
+      description: 'The address, on which the business partner provides a view. '
     AddressStateDto:
+      required:
+        - type
       type: object
       properties:
         description:
           type: string
-          description: The description from the original source indicating the state of the address.
         validFrom:
           type: string
           description: The date from which the state is valid.
@@ -1068,7 +1278,7 @@ components:
             - ACTIVE
             - INACTIVE
       description: An address state indicates if the address is active or inactive. This does not describe the relation between a sharing member and a business partner and whether they have active business, but it describes whether the business partner is still operating at that address.
-    AlternativePostalAddressGateDto:
+    AlternativePostalAddressDto:
       type: object
       properties:
         geographicCoordinates:
@@ -1372,26 +1582,51 @@ components:
           type: string
           description: The number indicating the delivery service endpoint of the alternative postal address to which the delivery is to be delivered, such as a P.O. box number or a private bag number.
       description: An alternative postal address describes an alternative way of delivery for example if the goods are to be picked up somewhere else.
-    BusinessPartnerIdentifierDto:
-      required:
-        - type
-        - value
+    BusinessPartnerClassificationDto:
       type: object
       properties:
         type:
           type: string
-          description: Technical key of the type to which this identifier belongs to
+          description: Type of classification.
+          enum:
+            - NACE
+            - NAF
+            - NAICS
+            - SIC
+        code:
+          type: string
+          description: The identifier of the class belonging to the classification.
         value:
           type: string
-          description: Value of the identifier
+          description: The name of the class belonging to the classification.
+    BusinessPartnerIdentifierDto:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of the identifier.
+        value:
+          type: string
+          description: The value of the identifier like “DE123465789.
         issuingBody:
           type: string
-          description: Body which issued the identifier
-      description: Identifier record for a business partner
+          description: The name of the official register, where the identifier is registered. For example, a Handelsregisternummer in Germany is only valid with its corresponding Registergericht and Registerart.
     BusinessPartnerInputDto:
       required:
+        - address
+        - bpnA
+        - bpnL
+        - createdAt
         - externalId
+        - identifiers
+        - isOwnCompanyData
+        - legalEntity
+        - nameParts
         - postalAddress
+        - roles
+        - site
+        - states
+        - updatedAt
       type: object
       properties:
         externalId:
@@ -1402,48 +1637,35 @@ components:
           description: The list of name parts to accommodate the different number of name fields in different systems.
           items:
             type: string
-        shortName:
-          type: string
-          description: Abbreviated name or shorthand.
         identifiers:
           type: array
           description: The list of identifiers of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerIdentifierDto'
-        legalName:
-          type: string
-        legalForm:
-          type: string
-          description: Technical key of the legal form.
         states:
           type: array
           description: The list of (temporary) states of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerStateDto'
-        classifications:
-          type: array
-          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/ClassificationBusinessPartnerDto'
         roles:
           type: array
-          description: Roles this business partner takes in relation to the sharing member. Sorted and duplicates removed by the service.
+          description: 'One or more of the roles, the business partner assumes with respect to the sharing member: Supplier, Customer. Sorted and duplicates removed by the service.'
           items:
             type: string
             enum:
               - SUPPLIER
               - CUSTOMER
-        postalAddress:
-          $ref: '#/components/schemas/BusinessPartnerPostalAddressDto'
-        bpnL:
-          type: string
-          description: BPNL
-        bpnS:
-          type: string
-          description: BPNS
-        bpnA:
-          type: string
-          description: BPNA
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        isOwnCompanyData:
+          type: boolean
+          description: Indicates whether the sharing member claims (in the initial upload) the business partner to belong to the company data of the sharing member.
+        legalEntity:
+          $ref: '#/components/schemas/LegalEntityRepresentationInputDto'
+        site:
+          $ref: '#/components/schemas/SiteRepresentationInputDto'
+        address:
+          $ref: '#/components/schemas/AddressRepresentationInputDto'
         createdAt:
           type: string
           description: The date when the data record has been created.
@@ -1452,13 +1674,18 @@ components:
           type: string
           description: The date when the data record has been last updated.
           format: date-time
-        ownCompanyData:
-          type: boolean
-          description: True if the sharing member declares itself as the owner of the business partner.
       description: Generic business partner with external id
     BusinessPartnerInputRequest:
       required:
+        - address
         - externalId
+        - identifiers
+        - isOwnCompanyData
+        - legalEntity
+        - nameParts
+        - roles
+        - site
+        - states
       type: object
       properties:
         externalId:
@@ -1469,58 +1696,48 @@ components:
           description: The list of name parts to accommodate the different number of name fields in different systems.
           items:
             type: string
-        shortName:
-          type: string
-          description: Abbreviated name or shorthand.
         identifiers:
           type: array
           description: The list of identifiers of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerIdentifierDto'
-        legalName:
-          type: string
-        legalForm:
-          type: string
-          description: Technical key of the legal form.
         states:
           type: array
           description: The list of (temporary) states of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerStateDto'
-        classifications:
-          type: array
-          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/ClassificationBusinessPartnerDto'
         roles:
           type: array
-          description: Roles this business partner takes in relation to the sharing member. Sorted and duplicates removed by the service.
+          description: 'One or more of the roles, the business partner assumes with respect to the sharing member: Supplier, Customer. Sorted and duplicates removed by the service.'
           items:
             type: string
             enum:
               - SUPPLIER
               - CUSTOMER
-        postalAddress:
-          $ref: '#/components/schemas/BusinessPartnerPostalAddressDto'
-        bpnL:
-          type: string
-          description: BPNL
-        bpnS:
-          type: string
-          description: BPNS
-        bpnA:
-          type: string
-          description: BPNA
-        ownCompanyData:
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        isOwnCompanyData:
           type: boolean
-          description: True if the sharing member declares itself as the owner of the business partner.
+          description: Indicates whether the sharing member claims (in the initial upload) the business partner to belong to the company data of the sharing member.
+        legalEntity:
+          $ref: '#/components/schemas/LegalEntityRepresentationInputDto'
+        site:
+          $ref: '#/components/schemas/SiteRepresentationInputDto'
+        address:
+          $ref: '#/components/schemas/AddressRepresentationInputDto'
       description: Generic business partner with external id
     BusinessPartnerOutputDto:
       required:
-        - bpnA
-        - bpnL
+        - address
+        - createdAt
         - externalId
-        - postalAddress
+        - identifiers
+        - isOwnCompanyData
+        - legalEntity
+        - nameParts
+        - roles
+        - states
+        - updatedAt
       type: object
       properties:
         externalId:
@@ -1531,48 +1748,35 @@ components:
           description: The list of name parts to accommodate the different number of name fields in different systems.
           items:
             type: string
-        shortName:
-          type: string
-          description: Abbreviated name or shorthand.
         identifiers:
           type: array
           description: The list of identifiers of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerIdentifierDto'
-        legalName:
-          type: string
-        legalForm:
-          type: string
-          description: Technical key of the legal form.
         states:
           type: array
           description: The list of (temporary) states of the business partner. Sorted and duplicates removed by the service.
           items:
             $ref: '#/components/schemas/BusinessPartnerStateDto'
-        classifications:
-          type: array
-          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/ClassificationDto'
         roles:
           type: array
-          description: Roles this business partner takes in relation to the sharing member. Sorted and duplicates removed by the service.
+          description: 'One or more of the roles, the business partner assumes with respect to the sharing member: Supplier, Customer. Sorted and duplicates removed by the service.'
           items:
             type: string
             enum:
               - SUPPLIER
               - CUSTOMER
-        postalAddress:
-          $ref: '#/components/schemas/BusinessPartnerPostalAddressDto'
-        bpnL:
-          type: string
-          description: BPNL
-        bpnS:
-          type: string
-          description: BPNS
-        bpnA:
-          type: string
-          description: BPNA
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        isOwnCompanyData:
+          type: boolean
+          description: Indicates whether the sharing member claims (in the initial upload) the business partner to belong to the company data of the sharing member.
+        legalEntity:
+          $ref: '#/components/schemas/LegalEntityRepresentationOutputDto'
+        site:
+          $ref: '#/components/schemas/SiteRepresentationOutputDto'
+        address:
+          $ref: '#/components/schemas/AddressComponentOutputDto'
         createdAt:
           type: string
           description: The date when the data record has been created.
@@ -1581,29 +1785,8 @@ components:
           type: string
           description: The date when the data record has been last updated.
           format: date-time
-        ownCompanyData:
-          type: boolean
-          description: True if the sharing member declares itself as the owner of the business partner.
       description: Generic business partner output with external id
-    BusinessPartnerPostalAddressDto:
-      type: object
-      properties:
-        addressType:
-          type: string
-          description: Type of the address
-          enum:
-            - LegalAndSiteMainAddress
-            - LegalAddress
-            - SiteMainAddress
-            - AdditionalAddress
-        physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
-        alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
-      description: Postal address of a business partner
     BusinessPartnerStateDto:
-      required:
-        - type
       type: object
       properties:
         validFrom:
@@ -1620,11 +1803,11 @@ components:
           enum:
             - ACTIVE
             - INACTIVE
-        description:
-          type: string
-          description: Denotation of the status.
-      description: A legal entity state indicates if the legal entity is active or inactive. This does not describe the relation between a sharing member and a business partner and whether they have active business, but it describes whether the legal entity is still operating.
     ChangelogGateDto:
+      required:
+        - changelogType
+        - externalId
+        - timestamp
       type: object
       properties:
         externalId:
@@ -1674,44 +1857,37 @@ components:
               - SITE
               - ADDRESS
               - GENERIC
-    ClassificationBusinessPartnerDto:
+    ConfidenceCriteriaDto:
+      required:
+        - checkedByExternalDataSource
+        - confidenceLevel
+        - lastConfidenceCheckAt
+        - nextConfidenceCheckAt
+        - numberOfBusinessPartners
+        - sharedByOwner
       type: object
       properties:
-        type:
+        sharedByOwner:
+          type: boolean
+        checkedByExternalDataSource:
+          type: boolean
+        numberOfBusinessPartners:
+          type: integer
+          format: int32
+        lastConfidenceCheckAt:
           type: string
-          description: Type of classification.
-          enum:
-            - NACE
-            - NAF
-            - NAICS
-            - SIC
-        code:
+          format: date-time
+        nextConfidenceCheckAt:
           type: string
-          description: The identifier of the class belonging to the classification.
-        value:
-          type: string
-          description: The name of the class belonging to the classification.
-      description: A legal entity classification is an assignment of the legal entity to an industry. It does not necessarily have to be the only industry the company is active in (see large companies operating in different industries). Multiple assignments to several industries are possible per classification type.
-    ClassificationDto:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Type of classification.
-          enum:
-            - NACE
-            - NAF
-            - NAICS
-            - SIC
-        code:
-          type: string
-          description: The identifier of the class belonging to the classification.
-        value:
-          type: string
-          description: The name of the class belonging to the classification.
-      description: A legal entity classification is an assignment of the legal entity to an industry. It does not necessarily have to be the only industry the company is active in (see large companies operating in different industries). Multiple assignments to several industries are possible per classification type.
+          format: date-time
+        confidenceLevel:
+          type: integer
+          format: int32
     ErrorInfoChangeLogOutputError:
       title: ErrorInfo
+      required:
+        - errorCode
+        - message
       type: object
       properties:
         errorCode:
@@ -1727,6 +1903,9 @@ components:
           description: Key (externalId) of the entity that failed
       description: Holds information about failures
     GeoCoordinateDto:
+      required:
+        - latitude
+        - longitude
       type: object
       properties:
         longitude:
@@ -1742,9 +1921,35 @@ components:
           description: Altitude, if applicable
           format: float
       description: The exact location of the physical postal address in latitude, longitude, and altitude.
+    LegalEntityClassificationDto:
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: Type of classification.
+          enum:
+            - NACE
+            - NAF
+            - NAICS
+            - SIC
+        code:
+          type: string
+          description: The identifier of the class belonging to the classification.
+        value:
+          type: string
+          description: The name of the class belonging to the classification.
+      description: A legal entity classification is an assignment of the legal entity to an industry. It does not necessarily have to be the only industry the company is active in (see large companies operating in different industries). Multiple assignments to several industries are possible per classification type.
     LegalEntityGateInputDto:
       required:
+        - classifications
         - externalId
+        - identifiers
+        - legalAddress
+        - legalNameParts
+        - roles
+        - states
       type: object
       properties:
         legalNameParts:
@@ -1772,7 +1977,7 @@ components:
           type: array
           description: The list of classifications of the legal entity, such as a specific industry.
           items:
-            $ref: '#/components/schemas/ClassificationDto'
+            $ref: '#/components/schemas/LegalEntityClassificationDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1781,6 +1986,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         legalAddress:
           $ref: '#/components/schemas/AddressGateInputDto'
         externalId:
@@ -1789,7 +1998,13 @@ components:
       description: In general, a legal entity is a juridical person that has legal rights and duties related to contracts, agreements, and obligations. The term especially applies to any kind of organization (such as an enterprise or company, university, association, etc.) established under the law applicable to a country.In Catena-X, a legal entity is a type of business partner representing a legally registered organization with its official registration information, such as legal name (including legal form, if registered), legal address and tax number.A legal entity has exactly one legal address, but it is possible to specify additional addresses that a legal entity owns. Thus, at least one address is assigned to a legal entity. A legal entity can own sites. Thus, many or no sites are assigned to a legal entity. A legal entity is uniquely identified by the BPNL.
     LegalEntityGateInputRequest:
       required:
+        - classifications
         - externalId
+        - identifiers
+        - legalAddress
+        - legalNameParts
+        - roles
+        - states
       type: object
       properties:
         legalNameParts:
@@ -1817,7 +2032,7 @@ components:
           type: array
           description: The list of classifications of the legal entity, such as a specific industry.
           items:
-            $ref: '#/components/schemas/ClassificationDto'
+            $ref: '#/components/schemas/LegalEntityClassificationDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1826,15 +2041,26 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         legalAddress:
-          $ref: '#/components/schemas/LogisticAddressGateDto'
+          $ref: '#/components/schemas/LogisticAddressDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
       description: Request for creating/updating a business partner record of type legal entity. In general, a legal entity is a juridical person that has legal rights and duties related to contracts, agreements, and obligations. The term especially applies to any kind of organization (such as an enterprise or company, university, association, etc.) established under the law applicable to a country.In Catena-X, a legal entity is a type of business partner representing a legally registered organization with its official registration information, such as legal name (including legal form, if registered), legal address and tax number.A legal entity has exactly one legal address, but it is possible to specify additional addresses that a legal entity owns. Thus, at least one address is assigned to a legal entity. A legal entity can own sites. Thus, many or no sites are assigned to a legal entity. A legal entity is uniquely identified by the BPNL.
     LegalEntityGateOutputRequest:
       required:
+        - bpn
+        - classifications
         - externalId
+        - identifiers
+        - legalAddress
+        - legalNameParts
+        - roles
+        - states
       type: object
       properties:
         legalNameParts:
@@ -1862,7 +2088,7 @@ components:
           type: array
           description: The list of classifications of the legal entity, such as a specific industry.
           items:
-            $ref: '#/components/schemas/ClassificationDto'
+            $ref: '#/components/schemas/LegalEntityClassificationDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1871,6 +2097,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         legalAddress:
           $ref: '#/components/schemas/AddressGateOutputChildRequest'
         externalId:
@@ -1882,7 +2112,14 @@ components:
       description: Request for creating/updating a business partner record of type legal entity. In general, a legal entity is a juridical person that has legal rights and duties related to contracts, agreements, and obligations. The term especially applies to any kind of organization (such as an enterprise or company, university, association, etc.) established under the law applicable to a country.In Catena-X, a legal entity is a type of business partner representing a legally registered organization with its official registration information, such as legal name (including legal form, if registered), legal address and tax number.A legal entity has exactly one legal address, but it is possible to specify additional addresses that a legal entity owns. Thus, at least one address is assigned to a legal entity. A legal entity can own sites. Thus, many or no sites are assigned to a legal entity. A legal entity is uniquely identified by the BPNL.
     LegalEntityGateOutputResponse:
       required:
+        - bpnl
+        - classifications
         - externalId
+        - identifiers
+        - legalAddress
+        - legalNameParts
+        - roles
+        - states
       type: object
       properties:
         legalNameParts:
@@ -1910,7 +2147,7 @@ components:
           type: array
           description: The list of classifications of the legal entity, such as a specific industry.
           items:
-            $ref: '#/components/schemas/ClassificationDto'
+            $ref: '#/components/schemas/LegalEntityClassificationDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1919,6 +2156,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
         legalAddress:
           $ref: '#/components/schemas/AddressGateOutputDto'
         externalId:
@@ -1929,6 +2170,9 @@ components:
           description: A BPNL represents and uniquely identifies a legal entity, which is defined by its legal name (including legal form, if registered), legal address and tax number.
       description: In general, a legal entity is a juridical person that has legal rights and duties related to contracts, agreements, and obligations. The term especially applies to any kind of organization (such as an enterprise or company, university, association, etc.) established under the law applicable to a country.In Catena-X, a legal entity is a type of business partner representing a legally registered organization with its official registration information, such as legal name (including legal form, if registered), legal address and tax number.A legal entity has exactly one legal address, but it is possible to specify additional addresses that a legal entity owns. Thus, at least one address is assigned to a legal entity. A legal entity can own sites. Thus, many or no sites are assigned to a legal entity. A legal entity is uniquely identified by the BPNL.
     LegalEntityIdentifierDto:
+      required:
+        - type
+        - value
       type: object
       properties:
         value:
@@ -1940,12 +2184,65 @@ components:
         issuingBody:
           type: string
           description: The name of the official register, where the identifier is registered. For example, a Handelsregisternummer in Germany is only valid with its corresponding Handelsregister.
+      description: A legal entity identifier (uniquely) identifies the legal entity, such as the German Handelsregisternummer, a VAT number, etc.
+    LegalEntityRepresentationInputDto:
+      required:
+        - classifications
+      type: object
+      properties:
+        legalEntityBpn:
+          type: string
+          description: The BPNL of the legal entity, on which the business partner provides a view.
+        legalName:
+          type: string
+          description: The name of the legal entity, on which the business partner provides a view, according to official registers.
+        shortName:
+          type: string
+          description: The abbreviated name of the legal entity, on which the business partner provides a view.
+        legalForm:
+          type: string
+          description: The legal form of the legal entity, on which the business partner provides a view.
+        classifications:
+          type: array
+          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
+          items:
+            $ref: '#/components/schemas/BusinessPartnerClassificationDto'
+      description: The legal entity, on which the business partner provides a view.
+    LegalEntityRepresentationOutputDto:
+      required:
+        - bpnL
+        - classifications
+        - confidenceCriteria
+        - legalEntityBpn
+      type: object
+      properties:
+        legalEntityBpn:
+          type: string
+          description: The BPNL of the legal entity, on which the business partner provides a view.
+        legalName:
+          type: string
+          description: The name of the legal entity, on which the business partner provides a view, according to official registers.
+        shortName:
+          type: string
+          description: The abbreviated name of the legal entity, on which the business partner provides a view.
+        legalForm:
+          type: string
+          description: The legal form of the legal entity, on which the business partner provides a view.
+        classifications:
+          type: array
+          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
+          items:
+            $ref: '#/components/schemas/BusinessPartnerClassificationDto'
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
+      description: Legal Entity properties of business partner output data
     LegalEntityStateDto:
+      required:
+        - type
       type: object
       properties:
         description:
           type: string
-          description: The description from the original source indicating the state of the legal entity, such as from the German Handelsregister.
         validFrom:
           type: string
           description: The date from which the state is valid.
@@ -1961,7 +2258,13 @@ components:
             - ACTIVE
             - INACTIVE
       description: A legal entity state indicates if the legal entity is active or inactive. This does not describe the relation between a sharing member and a business partner and whether they have active business, but it describes whether the legal entity is still operating.
-    LogisticAddressGateDto:
+    LogisticAddressDto:
+      required:
+        - identifiers
+        - nameParts
+        - physicalPostalAddress
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -1980,9 +2283,9 @@ components:
           items:
             $ref: '#/components/schemas/AddressIdentifierDto'
         physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressGateDto'
+          $ref: '#/components/schemas/PhysicalPostalAddressDto'
         alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressGateDto'
+          $ref: '#/components/schemas/AlternativePostalAddressDto'
         roles:
           type: array
           description: Roles this business partner takes in relation to the sharing member.
@@ -1991,8 +2294,20 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
       description: In general, an address is a collection of information to describe a physical location, using a street name with a house number and/or a post office box as reference. In addition, an address consists of several postal attributes, such as country, region (state), county, township, city, district, or postal code, which help deliver mail.In Catena-X, an address is a type of business partner representing the legal address of a legal entity, and/or the main address of a site, or any additional address of a legal entity or site (such as different gates).An address is owned by a legal entity. Thus, exactly one legal entity is assigned to an address. An address can belong to a site. Thus, one or no site is assigned to an address. An address is uniquely identified by the BPNA.
     PageChangeLogDtoChangelogGateDto:
+      required:
+        - content
+        - contentSize
+        - errors
+        - invalidEntries
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2027,6 +2342,12 @@ components:
             $ref: '#/components/schemas/ErrorInfoChangeLogOutputError'
       description: Paginated collection of results
     PageDtoAddressGateInputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2052,6 +2373,12 @@ components:
             $ref: '#/components/schemas/AddressGateInputDto'
       description: Paginated collection of results
     PageDtoAddressGateOutputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2077,6 +2404,12 @@ components:
             $ref: '#/components/schemas/AddressGateOutputDto'
       description: Paginated collection of results
     PageDtoBusinessPartnerInputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2102,6 +2435,12 @@ components:
             $ref: '#/components/schemas/BusinessPartnerInputDto'
       description: Paginated collection of results
     PageDtoBusinessPartnerOutputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2127,6 +2466,12 @@ components:
             $ref: '#/components/schemas/BusinessPartnerOutputDto'
       description: Paginated collection of results
     PageDtoLegalEntityGateInputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2152,6 +2497,12 @@ components:
             $ref: '#/components/schemas/LegalEntityGateInputDto'
       description: Paginated collection of results
     PageDtoLegalEntityGateOutputResponse:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2177,6 +2528,12 @@ components:
             $ref: '#/components/schemas/LegalEntityGateOutputResponse'
       description: Paginated collection of results
     PageDtoSharingStateDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2202,6 +2559,12 @@ components:
             $ref: '#/components/schemas/SharingStateDto'
       description: Paginated collection of results
     PageDtoSiteGateInputDto:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2227,6 +2590,12 @@ components:
             $ref: '#/components/schemas/SiteGateInputDto'
       description: Paginated collection of results
     PageDtoSiteGateOutputResponse:
+      required:
+        - content
+        - contentSize
+        - page
+        - totalElements
+        - totalPages
       type: object
       properties:
         totalElements:
@@ -2251,7 +2620,7 @@ components:
           items:
             $ref: '#/components/schemas/SiteGateOutputResponse'
       description: Paginated collection of results
-    PhysicalPostalAddressGateDto:
+    PhysicalPostalAddressDto:
       type: object
       properties:
         geographicCoordinates:
@@ -2551,7 +2920,7 @@ components:
           type: string
           description: The name of the district of the physical postal address which divides the city in several smaller areas.
         street:
-          $ref: '#/components/schemas/StreetGateDto'
+          $ref: '#/components/schemas/StreetDto'
         companyPostalCode:
           type: string
           description: The company postal code of the physical postal address, which is sometimes required for large companies.
@@ -2568,7 +2937,21 @@ components:
           type: string
           description: 'The number of a door in the building on the respective floor addressed by the physical postal address, synonyms: room, suite.'
       description: A physical postal address describes the physical location of an office, warehouse, gate, etc.
+    PostSharingStateReadyRequest:
+      required:
+        - externalIds
+      type: object
+      properties:
+        externalIds:
+          type: array
+          items:
+            type: string
+      description: Request for setting business partners into ready to be shared to golden record state
     SharingStateDto:
+      required:
+        - businessPartnerType
+        - externalId
+        - sharingStateType
       type: object
       properties:
         businessPartnerType:
@@ -2590,6 +2973,7 @@ components:
             - Success
             - Error
             - Initial
+            - Ready
         sharingErrorCode:
           type: string
           description: One of the sharing error codes in case the current sharing state type is "error".
@@ -2597,6 +2981,7 @@ components:
             - SharingProcessError
             - SharingTimeout
             - BpnNotInPool
+            - MissingTaskID
         sharingErrorMessage:
           type: string
           description: The error message in case the current sharing state type is "error".
@@ -2612,6 +2997,13 @@ components:
           description: The orchestrator task identifier that was created
       description: A sharing state entry shows the progress in the sharing process and is updated each time the progress for a business partner changes. The business partner is identified by a combination of external ID and business partner type.
     SiteGateInputDto:
+      required:
+        - externalId
+        - legalEntityExternalId
+        - mainAddress
+        - nameParts
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -2632,6 +3024,8 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
         mainAddress:
           $ref: '#/components/schemas/AddressGateInputDto'
         externalId:
@@ -2642,6 +3036,13 @@ components:
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner owning the site.
       description: In general, a site is a delimited geographical area in which an organization (such as an enterprise or company, university, association, etc.) conducts business. In Catena-X, a site is a type of business partner representing a physical location or area owned by a legal entity, where a production plant, a warehouse, or an office building is located. A site is owned by a legal entity. Thus, exactly one legal entity is assigned to a site. A site has exactly one main address, but it is possible to specify additional addresses (such as different gates), that belong to a site. Thus, at least one address is assigned to a site. A site can only be uploaded and modified by the owner (the legal entity), because only the owner knows which addresses belong to which site. A site is uniquely identified by the BPNS.
     SiteGateInputRequest:
+      required:
+        - externalId
+        - legalEntityExternalId
+        - mainAddress
+        - nameParts
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -2662,8 +3063,10 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
         mainAddress:
-          $ref: '#/components/schemas/LogisticAddressGateDto'
+          $ref: '#/components/schemas/LogisticAddressDto'
         externalId:
           type: string
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner.
@@ -2672,6 +3075,14 @@ components:
           description: The identifier which uniquely identifies (in the internal system landscape of the sharing member) the business partner owning the site.
       description: Request for creating/updating a business partner record of type site. In general, a site is a delimited geographical area in which an organization (such as an enterprise or company, university, association, etc.) conducts business. In Catena-X, a site is a type of business partner representing a physical location or area owned by a legal entity, where a production plant, a warehouse, or an office building is located. A site is owned by a legal entity. Thus, exactly one legal entity is assigned to a site. A site has exactly one main address, but it is possible to specify additional addresses (such as different gates), that belong to a site. Thus, at least one address is assigned to a site. A site can only be uploaded and modified by the owner (the legal entity), because only the owner knows which addresses belong to which site. A site is uniquely identified by the BPNS.
     SiteGateOutputRequest:
+      required:
+        - bpn
+        - externalId
+        - legalEntityExternalId
+        - mainAddress
+        - nameParts
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -2692,6 +3103,8 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
         mainAddress:
           $ref: '#/components/schemas/AddressGateOutputChildRequest'
         externalId:
@@ -2705,6 +3118,14 @@ components:
           description: A BPNS represents and uniquely identifies a site, which is where for example a production plant, a warehouse, or an office building is located.
       description: Request for creating/updating a business partner record of type site. In general, a site is a delimited geographical area in which an organization (such as an enterprise or company, university, association, etc.) conducts business. In Catena-X, a site is a type of business partner representing a physical location or area owned by a legal entity, where a production plant, a warehouse, or an office building is located. A site is owned by a legal entity. Thus, exactly one legal entity is assigned to a site. A site has exactly one main address, but it is possible to specify additional addresses (such as different gates), that belong to a site. Thus, at least one address is assigned to a site. A site can only be uploaded and modified by the owner (the legal entity), because only the owner knows which addresses belong to which site. A site is uniquely identified by the BPNS.
     SiteGateOutputResponse:
+      required:
+        - bpns
+        - externalId
+        - legalEntityExternalId
+        - mainAddress
+        - nameParts
+        - roles
+        - states
       type: object
       properties:
         nameParts:
@@ -2725,6 +3146,8 @@ components:
             enum:
               - SUPPLIER
               - CUSTOMER
+              - ONE_TIME_SUPPLIER
+              - ONE_TIME_CUSTOMER
         mainAddress:
           $ref: '#/components/schemas/AddressGateOutputDto'
         externalId:
@@ -2737,12 +3160,38 @@ components:
           type: string
           description: A BPNS represents and uniquely identifies a site, which is where for example a production plant, a warehouse, or an office building is located.
       description: In general, a site is a delimited geographical area in which an organization (such as an enterprise or company, university, association, etc.) conducts business. In Catena-X, a site is a type of business partner representing a physical location or area owned by a legal entity, where a production plant, a warehouse, or an office building is located. A site is owned by a legal entity. Thus, exactly one legal entity is assigned to a site. A site has exactly one main address, but it is possible to specify additional addresses (such as different gates), that belong to a site. Thus, at least one address is assigned to a site. A site can only be uploaded and modified by the owner (the legal entity), because only the owner knows which addresses belong to which site. A site is uniquely identified by the BPNS.
+    SiteRepresentationInputDto:
+      type: object
+      properties:
+        siteBpn:
+          type: string
+          description: The BPNS of the site, on which the business partner provides a view.
+        name:
+          type: string
+          description: The name of the site, on which the business partner provides a view. This is not according to official registers but according to the name the owner chooses.
+      description: The site, on which the business partner provides a view.
+    SiteRepresentationOutputDto:
+      required:
+        - confidenceCriteria
+        - siteBpn
+      type: object
+      properties:
+        siteBpn:
+          type: string
+          description: The BPNS of the site, on which the business partner provides a view.
+        name:
+          type: string
+          description: The name of the site, on which the business partner provides a view. This is not according to official registers but according to the name the owner chooses.
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteriaDto'
+      description: Site properties of business partner output data
     SiteStateDto:
+      required:
+        - type
       type: object
       properties:
         description:
           type: string
-          description: The description from the original source indicating the state of the site.
         validFrom:
           type: string
           description: The date from which the state is valid.
@@ -2758,7 +3207,87 @@ components:
             - ACTIVE
             - INACTIVE
       description: A site state indicates if the site is active or inactive. This does not describe the relation between a sharing member and a business partner and whether they have active business, but it describes whether the site is still operating.
-    StreetGateDto:
+    StatsAddressTypesResponse:
+      required:
+        - additionalTotal
+        - legalAndSiteTotal
+        - legalTotal
+        - siteTotal
+      type: object
+      properties:
+        legalAndSiteTotal:
+          type: integer
+          format: int32
+        legalTotal:
+          type: integer
+          format: int32
+        siteTotal:
+          type: integer
+          format: int32
+        additionalTotal:
+          type: integer
+          format: int32
+    StatsConfidenceCriteriaResponse:
+      required:
+        - checkedByExternalDataSourceTotal
+        - confidenceLevelAverage
+        - numberOfBusinessPartnersAverage
+        - sharedByOwnerTotal
+        - uniqueTotal
+      type: object
+      properties:
+        numberOfBusinessPartnersAverage:
+          type: number
+          format: float
+        uniqueTotal:
+          type: integer
+          format: int64
+        sharedByOwnerTotal:
+          type: integer
+          format: int64
+        checkedByExternalDataSourceTotal:
+          type: integer
+          format: int64
+        confidenceLevelAverage:
+          type: number
+          format: float
+    StatsSharingStatesResponse:
+      required:
+        - errorTotal
+        - initialTotal
+        - pendingTotal
+        - readyTotal
+        - successTotal
+      type: object
+      properties:
+        initialTotal:
+          type: integer
+          format: int32
+        readyTotal:
+          type: integer
+          format: int32
+        pendingTotal:
+          type: integer
+          format: int32
+        successTotal:
+          type: integer
+          format: int32
+        errorTotal:
+          type: integer
+          format: int32
+    StatsStagesResponse:
+      required:
+        - inputTotal
+        - outputTotal
+      type: object
+      properties:
+        inputTotal:
+          type: integer
+          format: int32
+        outputTotal:
+          type: integer
+          format: int32
+    StreetDto:
       type: object
       properties:
         namePrefix:
@@ -2779,6 +3308,8 @@ components:
         houseNumber:
           type: string
           description: The number representing the exact location of a building within the street.
+        houseNumberSupplement:
+          type: string
         milestone:
           type: string
           description: The number representing the exact location of an addressed object within a street without house numbers, such as within long roads.
