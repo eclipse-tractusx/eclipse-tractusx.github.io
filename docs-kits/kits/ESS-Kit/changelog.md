@@ -1,7 +1,7 @@
 ---
 id: ESS Kit Changelog
 title: Changelog
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 ## [0.1.0] - 2024-03-06

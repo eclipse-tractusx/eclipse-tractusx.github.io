@@ -2,7 +2,7 @@
 id: ESS Kit Documentation
 title: Documentation
 description: 'What do I have to implement?'
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 ![ESS Kit Icon](@site/static/kits/ESS-Kit/ess-kit-icon.png)
