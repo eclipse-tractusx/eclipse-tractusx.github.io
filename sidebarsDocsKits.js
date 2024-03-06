@@ -102,7 +102,6 @@ const sidebars = {
             items: [
                 'kits/Business Partner Kit/Changelog',
                 'kits/Business Partner Kit/Adoption View',
-                'kits/Business Partner Kit/Operation View',
                 {
                     type: 'category',
                     label: 'Development View',
@@ -154,6 +153,7 @@ const sidebars = {
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
                 },
+                'kits/Business Partner Kit/Operation View',
                 {
                     type: 'category',
                     label: 'Success Stories',
@@ -169,7 +169,7 @@ const sidebars = {
                 },
                 {
                     type: 'category',
-                    label: 'Documentation',
+                    label: 'Architecture View',
                     link: {
                         type: "generated-index",
                     },
