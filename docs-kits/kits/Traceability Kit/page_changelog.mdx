@@ -28,65 +28,61 @@ import Notice from './part_notice.mdx'
 
 ![Traceability kit banner](@site/static/img/doc-traceability_header-minified.png)
 
-### Traceability KIT
-
 All notable changes to this Kit will be documented in this file.
 
-## [3.0.0] - 2023-11-29
+## [4.0.0] - 2024-02-28
 
-Compatible for release 23.12.
+Compatible for **release 24.03**.
 
 ### Added
 
 - **Business View:**
-  - ./.
+  - Additional information about quality notifications
+
+### Changed
+
+- **General:**
+  - Migrated content related to Industry Core to new Industry Core KIT
+  - New Traceability KIT logo
+- **Business View:**
+  - Full rework with rewritten business descriptions
+- **Architecture View:**
+  - Notification state model updated
+- **Development View:**
+  - New Notification API version 1.2.0 (optional; version 1.1.0 mandatory)
+  - **Data Provider:**
+    - Usage Policies: Add more details and links about the framework agreement
+    - Usage Policies: Add information for individual contracts between two companies as purpose-based policy
+
+## [3.0.0] - 2023-11-29
+
+Compatible for **release 23.12**.
+
+### Added
+
 - **Architecture View:**
   - Added assumptions and non-functional requirements for Traceability architecture
-- **Operation View:**
-  - ./.
 - **Development View:**
   - **Data Provider:**
     - Added a description of the purpose why `assetLifecylePhase` was added as specific asset ID
-  - **App Provider:**
-    - ./.
 
 ### Changed
 
 - **General:**
   - Restructure from adoption, operation and development view to business, architecture, operation and development view
   - License KIT to CC-BY-4.0
-- **Business View:**
-  - ./.
 - **Architecture View:**
   - Update links to the latest versions of the Catena-X standards
-- **Operation View:**
-  - ./.
 - **Development View:**
   - **Data Provider:**
     - Updated aspect model SingleLevelBoMAsPlanned from version 1.1.0 to 2.0.0
     - Updated aspect model SingleLevelBomAsBuilt from version 1.0.0 to 2.0.0
     - Updated example for creation of the aspect model SingleLevelBomAsBuilt regarding version 2.0.0
     - Updated EDC asset props for unique ID push
-  - **App Provider:**
-    - ./.
-
-### Removed
-
-- **Business View:**
-  - ./.
-- **Architecture View:**
-  - ./.
-- **Operation View:**
-  - ./.
-- **Development View:**
-  - **Data Provider:**
-    - ./.
-  - **App Provider:**
-    - ./.
 
 ## [2.0.0] - 2023-09-28
 
-Compatible for release 23.09 (also known as 3.2).
+Compatible for **release 23.09 (also known as 3.2)**.
 
 ### Added
 
@@ -121,7 +117,7 @@ Compatible for release 23.09 (also known as 3.2).
 
 ## [1.0.1] - 2023-04-14
 
-Compatible for release 3.1.
+Compatible for **release 3.1**.
 
 ### Added
 
@@ -129,29 +125,12 @@ Compatible for release 3.1.
   - Traceability tutorial video
   - Customer journey
 
-### Changed
-
-- ./.
-
-### Removed
-
-- ./.
-
 ## [1.0.0] - 2023-04-12
 
-Compatible for release 3.1.
+Compatible for **release 3.1**.
 
 ### Added
 
 - Initial version of the Kit including adoption, operation and development view + two API specifications (Notification API, Unique ID Push API)
 
-### Changed
-
-- ./.
-
-### Removed
-
-- ./.
-
 <Notice components={props.components} />
-

@@ -163,7 +163,7 @@ The Address Controller is the controller that updates, creates, or retrieves bus
 
 | Address Controller |
 | :----------- |
-| [Create or update addresses (Output).](../Software%20Development%20View/Gate%20Api/put-addresses-output.api.mdx) |
+| [Create or update addresses (Output).](../Software%20Development%20View/Gate%20Api/upsert-addresses-output.api.mdx) |
 | [Get page of addresses](../Software%20Development%20View/Gate%20Api/get-addresses.api.mdx) |
 | [Create or update addresses](../Software%20Development%20View/Gate%20Api/upsert-addresses.api.mdx) |
 | [Get page of addresses. Can optionally be filtered by external ids.](../Software%20Development%20View/Gate%20Api/get-addresses-output.api.mdx) |
