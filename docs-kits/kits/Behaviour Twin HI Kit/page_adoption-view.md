@@ -5,10 +5,7 @@ description: 'Health Indicator Kit'
 sidebar_position: 2
 ---
 
-<!--
-TODO: Fix missing image
 ![Health Indicator kit banner](@site/static/img/doc-hi_header-minified.png)
--->
 
 ### Health Indicator Kit
 <!--
