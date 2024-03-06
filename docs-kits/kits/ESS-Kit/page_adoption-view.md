@@ -2,7 +2,7 @@
 id: ESS Kit Adoption View
 title: Adoption View
 description: 'Environmental and Social Standards Incident Management Kit'
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 ![ESS Kit Icon](@site/static/kits/ESS-Kit/ess-kit-icon.png)
