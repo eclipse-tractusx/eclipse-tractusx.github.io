@@ -5,7 +5,7 @@ description: 'Certificate Management Kit'
 sidebar_position: 3
 ---
 
-![Business partner kit banner](@site/static/img/Certificate_Kit_Icon.png)
+![Business partner kit banner](/img/Certificate_Kit_Icon.png)
 
 ### Certificate Management KIT
 
@@ -18,9 +18,9 @@ This local deployment is an easy installation with helm. This setup is built to 
 
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
-|![arrow down](@site/static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
-|![vector](@site/static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
-|![check](@site/static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with Services |
+|![arrow down](/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
+|![vector](/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
+|![check](/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with Services |
 
 ### Step 1: Prerequisites
 
@@ -85,7 +85,7 @@ The minikube dashboard will give you feedback on how the status of the deploymen
 
 Make sure you select the namespace **your_namespace**:
 
-![expected status](@site/static/img/Certificate_Minikube_dashboard.png)
+![expected status](/img/Certificate_Minikube_dashboard.png)
 
 #### 2. Forward ports
 
