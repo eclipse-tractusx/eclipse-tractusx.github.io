@@ -5,12 +5,12 @@ description: 'Knowledge Agent'
 sidebar_position: 1
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -33,7 +33,16 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
 
-## [1.0.0] - 2023-11-24 
+## [1.0.1] - 2024-02-21
+
+### Added
+
+### Changed
+
+- Linting of Markdown
+- References to 24.03 (1.11.16)
+
+## [1.0.0] - 2023-11-24
 
 ### Added
 
@@ -45,7 +54,7 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 - Simplified Adoption View
 - Updated Standard References, Release Dates
 
-## [0.0.1] - 2023-09-29 
+## [0.0.1] - 2023-09-29
 
 ### Added
 
@@ -55,12 +64,11 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 
 ### Changed
 
-- Pointers moved from Catena-X to Tractus-X 
+- Pointers moved from Catena-X to Tractus-X
 - Adapted to Tractus-X EDC 0.5.x and the changed EDR callback
-- Adapted all Catena-X namespaces to https://w3id.org/catenax
+- Adapted all Catena-X namespaces to <https://w3id.org/catenax>
 - Upgraded to the latest possible version of dependent libraries
 - Eclipse Tractus-X standards and migration
-
 
 ### Removed
 
