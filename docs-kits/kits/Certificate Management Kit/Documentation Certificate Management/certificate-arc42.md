@@ -5,7 +5,7 @@ description: 'Architecture documentation'
 sidebar_position: 1
 ---
 
-![Certificate Management kit banner](@site/static/img/Certificate_Kit_Icon.png)
+![Certificate Management kit banner](/img/Certificate_Kit_Icon.png)
 
 ## Certificate Management KIT
 
@@ -46,7 +46,7 @@ The following goals have been established for this system:
 
 > :warning: **Note:** Cross-Check with CACs
 
-![certificate_management_diagram](@site/static/img/Certificate_Kit_Arc.png)
+![certificate_management_diagram](/img/Certificate_Kit_Arc.png)
 
 ## Quality Goals
 
@@ -73,7 +73,7 @@ The following goals have been established for this system:
 
 The following figure depicts the business context setup for :
 
-![Certificate_business_context](@site/static/img/BPDM-CM-KIT1.png)
+![Certificate_business_context](/img/BPDM-CM-KIT1.png)
 
 The following are the various components of the business context setup:
 
@@ -93,7 +93,7 @@ The Application which offers services to Catena-X Members and Catena-X Use Cases
 
 The following high level view gives a basic overview about Components:
 
-![Certificate_business_context](@site/static/img/BPDM-CM-KIT2.png)
+![Certificate_business_context](/img/BPDM-CM-KIT2.png)
 
 ### **BPDM Certificate Management**
 

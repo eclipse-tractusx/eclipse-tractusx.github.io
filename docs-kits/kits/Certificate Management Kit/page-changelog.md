@@ -5,7 +5,7 @@ description: 'Certificate Management Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/Certificate_Kit_Icon.png)
+![Business partner kit banner](/img/Certificate_Kit_Icon.png)
 
 ### Certificate Management KIT
 

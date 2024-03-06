@@ -5,9 +5,9 @@ description: 'Certificate Management Kit'
 sidebar_position: 2
 ---
 
-![Certificate Management kit banner](@site/static/img/Certificate_Kit_Icon.png)
+![Certificate Management kit banner](/img/Certificate_Kit_Icon.png)
 
-# Certificate Management KIT
+## Certificate Management KIT
 
 ## Vision & Mission
 
@@ -21,11 +21,11 @@ In the world of business, company certificates are often mandatory for conductin
 To address this issue, a use case has been developed that provides a standardized but generic data model for company certificates. This allows companies to provide and exchange certificates on a defined standard within the scope of the Catena-X dataspace. The second part of this use case focuses on the technological aspect of providing and validating certificates via an interface.
 
 This is the main use case:
-![Certificate management use case 1](@site/static/img/BPDM-CM-KIT1.png)
+![Certificate management use case 1](/img/BPDM-CM-KIT1.png)
 
 But there is more -
 Businesses will have the ability to provide & store their company certificates in a centralized location within the data space, allowing other companies to easily access and verify the certificates through the portal. This streamlined approach to certificate management will enhance efficiency and accuracy.
-![Certificate management use case 2](@site/static/img/BPDM-CM-KIT2.png)
+![Certificate management use case 2](/img/BPDM-CM-KIT2.png)
 
 The company certificate data model is closely linked to the business partner data model, as it utilizes the business partner number (BPN) as a primary identifier to map certificates to companies or their respective sites.
 
