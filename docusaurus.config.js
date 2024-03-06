@@ -388,6 +388,10 @@ const config = {
                 label: 'Business Partner',
               },
               {
+                to: '/docs-kits/kits/Certificate%20Management%20Kit/Adoption%20View',
+                label: 'Certificate Management',
+              },
+              {
                 to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
                 label: 'Circularity',
               },
