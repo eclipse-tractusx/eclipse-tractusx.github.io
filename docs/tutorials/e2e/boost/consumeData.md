@@ -189,14 +189,9 @@ This means, that Alice can now request the data using the information received b
 
 :::info
 
-If you used webhook.site as your backend system, you can now go to [webhook.site](https://webhook.site/) and see the received token. Please skip the next command if you didn't use edr before. Jump directly to the next section.
+If you used webhook.site as your backend system, you can now go to [webhook.site](https://webhook.site/) and see the received token.
 
 :::
-
-```shell
-curl --location 'http://localhost/alice/management/edrs?assetId=3' \
---header 'X-Api-Key: password' | jq
-```
 
 ## Consume the data
 
