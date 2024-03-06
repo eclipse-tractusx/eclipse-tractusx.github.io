@@ -19,38 +19,40 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
-import Link from "@docusaurus/Link";
-import AboutUsTeaser from "@site/static/img/about-us-card-minified.png";
-
-import styles from "./styles.module.css";
-
-export default function AboutUsCard() {
-  return (
-    <section className={styles.about_us}>
-      <div className={styles.maincontainer}>
-        <div className={styles.headercontainer}>
-          <h2 className={styles.title}>Welcome to the community</h2>
-          <p className={styles.subtitle}>
-          The magic behind Eclipse Tractus-X
-          </p>
-        </div>
-        <div className={styles.container}>
-        <div className={styles.img_container}>
-          <img className={styles.img} src={AboutUsTeaser} />
-        </div>
-        <div className={styles.information_container}>
-          <p className={styles.description}>
-            <span className={styles.descriptionhighlight}> The Eclipse Tractus-X™ project</span> is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is not-for-profit corporation that it supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
-          </p>
-          <div>
-            <Link className={styles.outlinedbutton} to="/aboutus">
-              About Us
-            </Link>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-  );
-}
+ import React from "react";
+ import Link from "@docusaurus/Link";
+ import AboutUsTeaser from "@site/static/img/about-us-card-minified.png";
+ 
+ import styles from "./styles.module.css";
+ 
+ export default function AboutUsCard({ title, highlightText, description, descriptionhighlight, buttonText, link}) {
+   return (
+     <section className={styles.about_us}>
+       <div className={styles.maincontainer}>
+         <div className={styles.headercontainer}>
+           <h2 className={styles.title}>{highlightText}</h2>
+           <p className={styles.subtitle}>
+           {title}
+           </p>
+         </div>
+         <div className={styles.container}>
+         <div className={styles.img_container}>
+           <img className={styles.img} src={AboutUsTeaser} />
+         </div>
+         <div className={styles.information_container}>
+           <p className={styles.description}>
+             <span className={styles.descriptionhighlight}> {descriptionhighlight}</span>{description}
+           </p>
+           <div>
+             <Link className={styles.outlinedbutton} to={link}>
+               {buttonText}
+             </Link>
+           </div>
+         </div>
+       </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ 

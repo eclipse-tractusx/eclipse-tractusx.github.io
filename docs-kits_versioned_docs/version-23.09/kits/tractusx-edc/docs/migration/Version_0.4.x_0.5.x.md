@@ -24,8 +24,8 @@ them carefully and make sure you understand the implications.
 - every connector instance must have a
   signed [SummaryCredential](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/credentials/summary) sitting in
   the MIW. This is typically done by the Portal during participant onboarding.
-- the connector must have an account with KeyCloak and be able to obtain access tokens.
-- the connector must be able to reach both MIW and KeyCloak via HTTP
+- the connector must have an account with Keycloak and be able to obtain access tokens.
+- the connector must be able to reach both MIW and Keycloak via HTTP
 
 ### Authentication flow - quick intro
 
@@ -33,7 +33,7 @@ The basic workflow for a connector runtime to authenticate an incoming request i
 that this procedure is limited to connector-to-connector communication via the Dataspace Protocol (DSP), it does not
 relate to other APIs such as the Management API.
 
-When a request is made by the Consumer, it obtains an access token from KeyCloak, which it uses to authenticate to MIW.
+When a request is made by the Consumer, it obtains an access token from Keycloak, which it uses to authenticate to MIW.
 It then requests its SummaryCredential from MIW, which is returned in the form of a signed JWT that contains a
 VerifiablePresentation (VP). That JWT is attached to the outgoing request as authorization header.
 The Provider then decodes the JWT, validates its claims, and then uploads the VP to MIW for verification. Upon
@@ -48,8 +48,8 @@ the associated [documentation](https://github.com/eclipse-tractusx/ssi-docu/tree
 For connector onboarding, please contact the Portal Team. After that, you should receive:
 
 - the issuer BPN: this is the BPN of the MIW
-- your client id: this is the KeyCloak Client ID
-- your client secret: this the KeyCloak Client Secret. Please store this in a secure vault and remember the `alias`.
+- your client id: this is the Keycloak Client ID
+- your client secret: this the Keycloak Client Secret. Please store this in a secure vault and remember the `alias`.
   *Do not leak or publish this!*
 
 In order to establish a connection to MIW, and you are using EDC on code level, please be sure to
@@ -57,14 +57,14 @@ follow [this documentation](https://github.com/eclipse-tractusx/tractusx-edc/tre
 If you are using the official Helm charts, please check
 out [this documentation](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/charts/tractusx-connector/README.md).
 
-If you are using the MIW and KeyCloak instances deployed to `INT`, the following values apply:
+If you are using the MIW and Keycloak instances deployed to `INT`, the following values apply:
 
 - MIW Url: <https://managed-identity-wallets-new.int.demo.catena-x.net>
-- KeyCloak Token URL: <https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token>
+- Keycloak Token URL: <https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token>
 - Authority BPN: `BPNL00000003CRHK`
 
 > Please be aware that the above values are *only* valid for the Catena-X INT environment and *will* change on other
-> environments! For instructions on how to set up a local MIW + KeyCloak, please take a look
+> environments! For instructions on how to set up a local MIW + Keycloak, please take a look
 > at [this documentation](https://github.com/catenax-ng/tx-managed-identity-wallets/blob/features/java-did-web/README.md).
 
 ### Further documentation on SSI
@@ -74,15 +74,15 @@ the [SSI Documentation Repository](https://github.com/eclipse-tractusx/ssi-docu/
 
 ### Noteworthy things and Caveats
 
-- the MIWs REST API is secured with a token that can be obtained from a KeyCloak instance. This KeyCloak instance must
+- the MIWs REST API is secured with a token that can be obtained from a Keycloak instance. This Keycloak instance must
   be configured appropriately ahead of time.
-- connectors have to be able to obtain a token from KeyCloak, so it must have an account with that KeyCloak instance
-- we do **not** ship either MIW or KeyCloak nor do we provide support for either of them. Please contact the respective
+- connectors have to be able to obtain a token from Keycloak, so it must have an account with that Keycloak instance
+- we do **not** ship either MIW or Keycloak nor do we provide support for either of them. Please contact the respective
   Tractus-X projects for instructions how to set them up.
 - our official Helm charts now use SSI instead of DAPS. However, the charts do **not** include a dependency onto MIW of
-  KeyCloak, nor do they contain configuration for them. They do, however, contain a configuration section (titled `ssi`)
+  Keycloak, nor do they contain configuration for them. They do, however, contain a configuration section (titled `ssi`)
   that configures EDC.
-- our Helm charts can be installed, and the connector application will boot up, but unless MIW and KeyCloak are
+- our Helm charts can be installed, and the connector application will boot up, but unless MIW and Keycloak are
   configured properly and both can be reached over network by the connector, every DSP request to another connector will
   fail. However, the ManagementAPI can still be used to create Assets, Policies and ContractDefinitions.
 - At the time of releasing Tractus-X EDC `0.5.0`, a couple of critical issues regarding MIW are
