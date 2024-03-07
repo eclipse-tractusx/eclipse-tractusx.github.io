@@ -16,4 +16,4 @@ act -j business-test
 
 ## Run and debug Business-Tests local within IDE
 
-Please refer to [run-local documentation in docs](../docs/development/Run-business-tests-local.md)
+Please refer to [run-local documentation in docs](../../docs/development/Run-business-tests-local.md)
