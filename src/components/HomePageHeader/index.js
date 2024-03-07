@@ -35,7 +35,7 @@ export default function HomePageHeader() {
         </h1>
         <div className={styles.subtitle_box}>
           <p className={styles.subtitle}>
-          Your one-stop destination for open collaboration and insights into open source artifacts
+          Tractus-X is the official open-source project in the Catena-X data space
           </p>
         </div>
         {/* <div className={styles.btn_container}>
