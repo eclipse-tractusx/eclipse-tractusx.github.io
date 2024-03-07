@@ -27,6 +27,7 @@ All openAPI-specifications for the Digital Twin Kit services are rendered in the
 
 The Asset Administration Shell (AAS) is a specification that is released by the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/) 
 with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as IEC 63278. 
+
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a value
 creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an extensive
 suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X standard 
@@ -123,13 +124,13 @@ the submodel-descriptor should be [added to the existing shell-descriptor](#regi
   "specificAssetIds": [
     {
       "name": "manufacturerPartId",
-      "value": "BPN:123-345-567103",
+      "value": "123-345-567103",
       "externalSubjectId": {
         "type": "ExternalReference",
         "keys": [
           {
             "type": "GlobalReference",
-            "value": "{{BPN of the a party priviledged}}"
+            "value": "{{BPN of the party privileged}}"
           }
         ]
       }
@@ -446,16 +447,15 @@ Data Providers will usually follow one of two patterns:
    convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
    mechanisms, it may not scale to industrial sizes.
 2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
-   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace.
-
-Offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
-can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
+   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since offering data to the network requires mappings that are naturally dependent on the data source format. More on data integration
+   can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
 
 ### Patterns for DTRs
 
-Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the
-SSP-001 profile of the Asset Administration Shell Registry Service by means of POST endpoints, updatable with PUT and 
-PATCH requests (see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
+Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001 profile of the AssetAdministrationShellRegistryService by
+means of POST endpoints, updatable with PUT and PATCH requests (
+see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
+
 These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
 or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
 as backend integration pattern is more inconvenient as the DTR must process and return reproducible IDs not only for
