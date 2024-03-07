@@ -5,15 +5,25 @@ description: 'Health Indicator Kit'
 sidebar_position: 1
 ---
 
-<!--
-TODO: Add file/fix build
-![Health Indicator Kit banner](FILE_MISSING/static/img/doc-hi_header-minified.png)  <!-- required HI Kit logo -->
--->
+![Health Indicator kit banner](@site/static/img/doc-hi_header-minified.png)
 
 ### Health Indicator Kit
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.1.1] - 2023-12-20
+
+### Added
+
+- Kit logo.
+
+### Changed
+
+- ./.
+
+### Removed
+
+- ./.
 
 ## [0.1.0] - 2023-12-08
 
