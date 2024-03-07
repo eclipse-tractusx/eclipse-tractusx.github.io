@@ -3,6 +3,8 @@ id: adoption-view
 title: Adoption View
 description: 'A first impression'
 sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 ![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
@@ -38,11 +40,11 @@ Implementing the DCM standards will add the following core capabilities to busin
 
 ## Standards
 
-The DCM standard comprises three main elements:
+The DCM standard consists of three main elements:
 
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 3.1) [CX-0046 DCM Process & Core Business Logic](https://catena-x.net/de/standard-library)
-- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 3.1) [CX-0047 DCM Data Model Material Demand & Capacity Group](https://catena-x.net/de/standard-library)
-- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 3.1) [CX-0048 DCM API Material Demand & Capacity Group](https://catena-x.net/de/standard-library)
+- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 
 ### POWER of STANDARD
 
@@ -70,21 +72,23 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 | Semantic Model | Link to GitHub Repository |
 | ------------- | ------------- |
-| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_capacity_group>  |
-| WeekBasedMaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.week_based_material_demand> |
+| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/2.0.0/WeekBasedCapacityGroup.ttl> |
+| MaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_demand/1.0.0/MaterialDemand.ttl> |
+| IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/2.0.0/IdBasedRequestForUpdate.ttl> |
+| IdBasedComment | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_comment/1.0.0/IdBasedComment.ttl> |
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2023 SAP SE
-- SPDX-FileCopyrightText: 2023,2023 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2023 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2023,2023 BASF SE
-- SPDX-FileCopyrightText: 2023,2023 SupplyOn AG
-- SPDX-FileCopyrightText: 2023,2023 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2023,2023 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation

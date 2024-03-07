@@ -118,7 +118,7 @@ export const kitsGallery = [
     name: 'DCM Kit',
     domain: 'Resiliency',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/DCM%20Kit/adoption-view"
+    pageRoute: "/docs-kits/kits/DCM-Kit/adoption-view"
   },
   {
     id: 14,
