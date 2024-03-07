@@ -49,7 +49,7 @@ export const kitsGallery = [
     name: 'Connector Kit',
     domain: 'Network & Core Services',
     img: Connector_Kit,
-    pageRoute: "/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption View"
+    pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
   },
   {
     id: 4,
@@ -140,7 +140,7 @@ export const kitsGallery = [
     name: 'Manufacturing as a Service Kit',
     domain: 'Resiliency',
     img: Maas_Kit,
-    pageRoute: "/docs-kits/next/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
+    pageRoute: "/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
   },
   {
     id: 17,
@@ -154,6 +154,6 @@ export const kitsGallery = [
     name: 'ESS Kit',
     domain: 'Sustainability',
     img: ESS_Kit,
-    pageRoute: "/docs-kits/next/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
+    pageRoute: "/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
   }
 ]

@@ -396,7 +396,7 @@ const config = {
                 label: 'Circularity',
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view',
                 label: 'Connector',
               },
               {
@@ -405,7 +405,7 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/DCM-Kit/adoption-view',
-                label: 'DCM KIT',
+                label: 'Demand & Capacity Management',
               },
               {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
@@ -414,6 +414,10 @@ const config = {
               {
                 to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
                 label: 'Eco Pass',
+              },
+              {
+                to: '/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View',
+                label: 'Environmental & Social Standards',
               },
               {
                 to: '/docs-kits/kits/Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit',
@@ -432,7 +436,7 @@ const config = {
                 label: 'Online Simulation',
               },
               {
-                to: '/docs-kits/next/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
+                to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
                 label: 'Manufacturing as a Service',
               },
               {
