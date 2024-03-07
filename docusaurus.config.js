@@ -396,7 +396,7 @@ const config = {
                 label: 'Circularity',
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view',
                 label: 'Connector',
               },
               {

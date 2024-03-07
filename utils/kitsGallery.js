@@ -49,7 +49,7 @@ export const kitsGallery = [
     name: 'Connector Kit',
     domain: 'Network & Core Services',
     img: Connector_Kit,
-    pageRoute: "/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption View"
+    pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
   },
   {
     id: 4,
