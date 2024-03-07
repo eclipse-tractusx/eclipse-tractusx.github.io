@@ -27,7 +27,6 @@ sidebar_position: 1
 - A couple of clarifications and bugfixes for R23-12
 - Version of Kit incremented as minor revision since no breaking changes occurred.
 
-
 ## [1.0.0] - 2023-08-17
 
 ### Added
@@ -57,7 +56,6 @@ sidebar_position: 1
 
 - ./.
 
-
 ## [0.1.0] - 2023-07-12
 
 <h3>Added</h3>
@@ -71,3 +69,11 @@ sidebar_position: 1
 <h3>Removed</h3>
 
 - ./.
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
