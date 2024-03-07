@@ -432,6 +432,10 @@ const config = {
                 label: 'Online Simulation',
               },
               {
+                to: '/docs-kits/next/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
+                label: 'Manufacturing as a Service',
+              },
+              {
                 to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
                 label: 'PCF Exchange',
               },
