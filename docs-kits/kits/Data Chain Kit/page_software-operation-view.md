@@ -23,9 +23,11 @@ sidebar_position: 2
 ### Step 2: Update and build the irs-helm chart
 
 ```bash
-$ helm dependency build
+>$ helm dependency build
 ```
+
 You should see console output with messages like below:
+
 ```bash
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "irs" chart repository
@@ -36,10 +38,12 @@ Saving 1 charts
 Downloading irs-helm from repo https://eclipse-tractusx.github.io/item-relationship-service
 Deleting outdated charts
 ```
+
 Please note that irs repository has to be added to helm repo list
+
 ```bash
-$ helm repo add irs https://eclipse-tractusx.github.io/item-relationship-service
-$ helm repo list
+>$ helm repo add irs https://eclipse-tractusx.github.io/item-relationship-service
+>$ helm repo list
 NAME                    URL
 irs                     https://eclipse-tractusx.github.io/item-relationship-service
 ```
@@ -51,7 +55,7 @@ irs                     https://eclipse-tractusx.github.io/item-relationship-ser
 To deploy IRS on kubernetes with helm run
 
 ```bash
-$ helm install irs-local .
+>$ helm install irs-local .
 ```
 
 ##### 1.1 Get the Status of the deployment
@@ -59,13 +63,15 @@ $ helm install irs-local .
 Helm can give you feedback on the release status:
 
 ```bash
-$ helm list
+>$ helm list
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
 irs-local       default         1               2024-02-26 11:36:46.399546 +0100 CET    deployed        irs-helm-local-6.14.0   4.5.0
 ```
+
 Kubectl can give you feedback on how the status of the deployment currently is, there should be two pods deployed - IRS and Minio:
+
 ```bash
-$ kubectl get pods
+>$ kubectl get pods
 NAME                                 READY   STATUS    RESTARTS      AGE
 irs-local-minio-7cc78d8985-qggrx     1/1     Running   0             10m
 irs-local-irs-helm-c84f98ffb-zg59z   1/1     Running   0             10m
@@ -77,7 +83,7 @@ irs-local-irs-helm-c84f98ffb-zg59z   1/1     Running   0             10m
 When the deployment has been finished please use the command to forward the port:
 
 ```bash
-$  kubectl port-forward svc/irs-local-irs-helm 8080:8080
+>$  kubectl port-forward svc/irs-local-irs-helm 8080:8080
 ```
 
 After that you can access the Swagger UI page:
