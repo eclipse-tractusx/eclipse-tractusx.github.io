@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Business Partner Data Management Bridge Dummy
   description: Bridge between Gate and Pool as a simple replacement for a dedicated sharing service
-  version: 4.0.0-SNAPSHOT
+  version: 5.0.1-SNAPSHOT
 servers:
   - url: http://localhost:8083
     description: Generated server url
