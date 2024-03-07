@@ -89,10 +89,8 @@ For more info how specifically the Asset Administration Shell is used, consult t
 
 ### Terminology
 
-The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. It explains the realtions
-between terms used in this Kit and the domain of Digital Twins in Catena-X.
-All standards can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
-![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
+CX-0002 includes a figure on how the terms (also used in this Kit) interrelate. Check it out on page 5 of the [published
+standard](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0002-DigitalTwinsInCatenaX-v2.1.0.pdf).
 
 ## Notice
 

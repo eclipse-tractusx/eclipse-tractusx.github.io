@@ -27,6 +27,7 @@ autonumber
         CAdmin ->> EDCD: POST /api/administration/connectors <br/> with link between BPN and EDC endpoint
     end
 ```
+
 This happens usually when onboarding a company to the network.
 
 > Note: While this Kit explicitly uses the APIs of the EDC (Eclipse Dataspace Connector), provisioning data with
@@ -50,11 +51,11 @@ party - can assume that a part's supplier offers a Digital Twin if the data-exch
 - Digital Twin Registry (DTR)
   - registered in a DSP-conformant connector offering the DTR to the Dataspace.
   - registers Digital Twins (AssetAdministrationShell-descriptors - or AAS descriptor - in AAS vocabulary) with assetIds
-  including at least one that's known at both, the supplier and customer.
+including at least one that's known at both, the supplier and customer.
 - Submodels
-    - registered in a DSP-conformant connector to the Dataspace.
-    - registered to the correct AAS-descriptor in the DTR.
-    - Serving payloads from the `/$value` endpoint, in accordance with their semantic definition.
+  - registered in a DSP-conformant connector to the Dataspace.
+  - registered to the correct AAS-descriptor in the DTR.
+  - Serving payloads from the `/$value` endpoint, in accordance with their semantic definition.
 
 The Data Provider's setup is explained here:
 
@@ -125,13 +126,13 @@ to publish that exact information. As the Digital Twin is owned by the OEM of th
 even less writable, to everyone in the network. Thus, the dismantler must publish the data themselves, by deploying:
 
 - Digital Twin Registry (DTR)
-    - registered in a DSP-conformant connector offering the DTR to the Dataspace.
-    - registers Digital Twins (AAS-descriptors in AAS vocabulary) with assetIds including at least one that's
-      equivalent to one attached to the OEM's twin.
+  - registered in a DSP-conformant connector offering the DTR to the Dataspace.
+  - registers Digital Twins (AAS-descriptors in AAS vocabulary) with assetIds including at least one that's
+  equivalent to one attached to the OEM's twin.
 - Submodel (like [_Certificate of Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
-    - registered in a DSP-conformant connector to the Dataspace.
-    - registered to the correct AAS-descriptor in the DTR.
-    - Serving arbitrary but well-specified json via `GET` requests from the `/$value` endpoint.
+  - registered in a DSP-conformant connector to the Dataspace.
+  - registered to the correct AAS-descriptor in the DTR.
+  - Serving arbitrary but well-specified json via `GET` requests from the `/$value` endpoint.
 
 #### 2.1. Discovery by Convention
 
@@ -201,14 +202,14 @@ Currently, updating remote Submodels is a hypothetical example but, with the rig
 in the Catena-X dataspace. Again, the Supplier registers the twin:
 
 - Digital Twin Registry (DTR)
-    - registered in a DSP-conformant connector offering the DTR to the Dataspace.
-    - registers Digital Twins (AAS-descriptors in AAS vocabulary) with specificAssetIds including at least one that's
-      equivalent to one attached to the OEM's twin.
+  - registered in a DSP-conformant connector offering the DTR to the Dataspace.
+  - registers Digital Twins (AAS-descriptors in AAS vocabulary) with specificAssetIds including at least one that's
+  equivalent to one attached to the OEM's twin.
 - Submodel (like [_Certificate of Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
-    - registered in a DSP-conformant connector to the Dataspace.
-    - registered to the correct AAS-descriptor in the DTR.
-    - Serving arbitrary but well-specified json via GET-requests from the `/$value` endpoint.
-    - Allowing Changes to data via the PUT `submodel/submodel-elements/{{idShortPath}}` endpoint.
+  - registered in a DSP-conformant connector to the Dataspace.
+  - registered to the correct AAS-descriptor in the DTR.
+  - Serving arbitrary but well-specified json via GET-requests from the `/$value` endpoint.
+  - Allowing Changes to data via the PUT `submodel/submodel-elements/{{idShortPath}}` endpoint.
 
 So, different from the [default case](#1-fetching-a-suppliers-twin), the Data Provider invites network participants
 to provide data themselves. The PUT and POST APIs of the AAS specification are not mandatory in Catena-X. However, they
@@ -239,6 +240,7 @@ combination of the two approaches can lead to fairly complete access control but
 in the provider's catalog (i.e. very restricted EDC-Assets with a lot of proxy-parameters set `"false"`).
 
 #### 3.2. Access Control in the backend
+
 Depending on the backend's capabilities to fine-tune access control, it may be more beneficial to let the backend (like
 a Submodel Repository) decide if data will certain API-operations will be allowed. In this example, it would be possible
 to let a user update certain properties in a Submodel but only read others. This differentiation can't be made by the
