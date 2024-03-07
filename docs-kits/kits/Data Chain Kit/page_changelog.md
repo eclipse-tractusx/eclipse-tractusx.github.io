@@ -11,7 +11,13 @@ sidebar_position: 10
 
 All notable changes to this Kit will be documented in this file.
 
-## Unreleased
+
+## [3.0.0] - 2024-03-07
+
+<h3>Changed</h3>
+- Operation View: Update local deployment procedure on base of irs version 4.5.0
+
+## [2.0.0] - 2023-12-08
 
 <h3>Added</h3>
 
