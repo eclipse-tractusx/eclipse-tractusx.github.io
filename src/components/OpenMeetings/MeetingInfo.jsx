@@ -20,9 +20,12 @@ import React from 'react';
 
 export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = []}) {
     return (
-        <section style={meetingInfo}>
+        <section style={meetingInfo} id={title}>
             <div style={meetingOverview}>
-                <h2 style={meetingTitle}>{title}</h2>
+                <h2 className="anchor" style={meetingTitle}>
+                    {title}
+                    <a className="hash-link" href={`#${title}`} title="Direct link to open meeting"></a>
+                </h2>
                 <div style={meetingSchedule}>{schedule}</div>
             </div>
             <div style={meetingDetails}>
