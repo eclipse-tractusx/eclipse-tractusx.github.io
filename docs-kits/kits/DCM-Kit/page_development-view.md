@@ -277,7 +277,7 @@ All participants participating in Catena-X DCM in the role of a customer MUST be
 
 #### Data Exchange
 
-To support the exchange of `MaterialDemand` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in RFC9110. The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
+To support the exchange of `MaterialDemand` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110). The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
 
 The `MaterialDemand` data MUST be sent from the customer to the supplier using an HTTP POST request. The data format described here MUST be followed for the exchange of the material demand information.
 
@@ -315,7 +315,7 @@ If the demand in a certain week has the value `0`, it MUST be explicitly include
 
 When exchanging demand data, the usage of UUIDv4 is required in order to reduce the probability of collision as well as to eliminate certain attack vectors. For technical purposes the UUIDv4 MUST be treated as unique within the supplier-customer relationship. For the combination of attributes `supplier`, `customer` and `materialNumberCustomer` in the object `MaterialDemand` there MUST be exactly one unique UUIDv4.
 
-The UUIDv4 MUST be generated according to RFC4122.
+The UUIDv4 MUST be generated according to [RFC4122](https://www.rfc-editor.org/rfc/rfc4122).
 
 #### EDC Data Asset Structure
 
@@ -370,7 +370,7 @@ All participants participating in Catena-X DCM in the role of a supplier MUST be
 
 #### Data Exchange
 
-To support the exchange of `WeekBasedCapacityGroup` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in RFC9110. The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
+To support the exchange of `WeekBasedCapacityGroup` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110). The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
 
 The `WeekBasedCapacityGroup` data MUST be sent from the supplier to the customer using an HTTP POST request. The data format described here MUST be followed for the exchange of the capacity group information.
 
@@ -408,7 +408,7 @@ The order of the entries listed in the `linkedDemandSeries` of a `WeekBasedCapac
 
 When exchanging capacity data, the usage of UUIDv4 is required in order to reduce the probability of collision as well as to eliminate certain attack vectors. For technical purposes the UUIDv4 MUST be treated as unique within the supplier-customer relationship.
 
-The UUIDv4 MUST be generated according to RFC4122.
+The UUIDv4 MUST be generated according to [RFC4122](https://www.rfc-editor.org/rfc/rfc4122).
 
 #### EDC Data Asset Structure
 
@@ -470,7 +470,7 @@ It is RECOMMENDED that this functionality SHOULD NOT be an end-user functionalit
 
 #### Data Exchange
 
-To support RequestForUpdate, a business application MUST define a single endpoint supporting the HTTP POST request method as described in RFC9110. The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
+To support RequestForUpdate, a business application MUST define a single endpoint supporting the HTTP POST request method as described in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110). The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined on this page.
 
 The RequestForUpdate data MUST be sent from the customer to the supplier or vice versa using an HTTP POST request. The data format described here MUST be followed in order to successfully facilitate a RfU.
 
@@ -605,7 +605,7 @@ All participants participating in Catena-X DCM in the role of a supplier or a cu
 
 #### Data Exchange
 
-To support the exchange of `IdBasedComment` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in RFC9110. The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined in on this page.
+To support the exchange of `IdBasedComment` data, a business application MUST define a single endpoint supporting the HTTP POST request method as described in [RFC9110](https://www.rfc-editor.org/rfc/rfc9110). The structure of the endpoint MAY be freely chosen. The address of the endpoint MUST be provided as part of the EDC Data Asset defined in on this page.
 
 The applications of the customer and supplier MUST be able to send and receive `IdBasedComment` data using an HTTP POST request. The data format described on this page MUST be followed for the exchange of the comment information.
 
@@ -660,7 +660,7 @@ Depending on the action that must be executed on a given comment, by both receiv
 
 When exchanging comment data, the usage of UUIDv4 is required in order to reduce the probability of collision as well as to eliminate certain attack vectors. For technical purposes the UUIDv4 MUST be treated as unique within the supplier-customer relationship.
 
-The UUIDv4 MUST be generated according to RFC4122.
+The UUIDv4 MUST be generated according to [RFC4122](https://www.rfc-editor.org/rfc/rfc4122).
 
 #### EDC Data Asset Structure
 
@@ -741,7 +741,7 @@ Restrictions on the exchanged data can be retrieved from the data models. Additi
 
 When exchanging demand and capacity data, the usage of UUIDv4 is required in order to reduce the probability of collision as well as to eliminate certain attack vectors. For technical purposes the UUIDv4 MUST be treated as unique within the supplier-customer relationship. For the combination of attributes: supplier, customer and materialNumberCustomer in the object `MaterialDemand` there MUST be exactly one unique UUIDv4.
 
-The UUIDv4 MUST be generated according to RFC4122.
+The UUIDv4 MUST be generated according to [RFC4122](https://www.rfc-editor.org/rfc/rfc4122).
 
 ##### Available Data Types
 
