@@ -101,8 +101,8 @@ sequenceDiagram
     deactivate CoreEdcDiscovery
     CustomerApp ->> CustomerApp: Find correct connector via URL catalogue inspection
     CustomerApp ->> CustomerConnector: Transmit MaterialDemand
-    CustomerConnector ->> SupplierConnector: Resolve connector Endpoint and connector service catalogue into MaterialDemand API URL
     activate CustomerConnector
+    CustomerConnector ->> SupplierConnector: Resolve connector Endpoint and connector service catalogue into MaterialDemand API URL
     activate SupplierConnector
     SupplierConnector ->> CustomerConnector: Framework & Contract Negotiation
     CustomerConnector -->> SupplierConnector: Framework & Contract Negotiation
@@ -116,8 +116,8 @@ sequenceDiagram
     deactivate SupplierApp
     SupplierConnector -->> CustomerConnector: MaterialDemand received
     deactivate SupplierConnector
-    deactivate CustomerConnector
     CustomerConnector -->> CustomerApp: MaterialDemand received
+    deactivate CustomerConnector
     CustomerApp -->> Customer: MaterialDemand finalized & synchronized
     deactivate CustomerApp
 
