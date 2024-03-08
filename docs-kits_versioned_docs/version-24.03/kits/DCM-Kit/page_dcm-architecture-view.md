@@ -37,7 +37,7 @@ If you want to adapt your custom or commercial applications to work with the Cat
 3. Enable your software to call multiple REST API endpoints in order to send data
 4. Enable your software the communicate through an  Eclipse Dataspace Connector (EDC), which is to be setup separately
 
-For details, please refer to the Catena-X DCM standard CX-0128. This page provides a non-normative overview only.
+For details, please refer to the Catena-X standard [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library). This page provides a non-normative overview only.
 
 ## Solution Overview
 
@@ -120,6 +120,7 @@ sequenceDiagram
     CustomerConnector -->> CustomerApp: MaterialDemand received
     CustomerApp -->> Customer: MaterialDemand finalized & synchronized
     deactivate CustomerApp
+
     Supplier ->> SupplierApp: Create CapacityGroup
     activate SupplierApp
     SupplierApp -->> Supplier: CapacityGroup created
