@@ -65,7 +65,6 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
 | [Behavioral Twin: Model and Data processing (MDP) KIT](https://eclipse-tractusx.github.io/docs-kits/category/model-based-development-and-data-processing-mdp-kit) |                                                       n/a                                                       | [0.1.1](https://eclipse-tractusx.github.io/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Changelog%20Model%20Based%20Development%20and%20Data%20Processing%20Kit) |
 | [Behavioral Twin: Remaining useful Life (RUL) KIT](https://eclipse-tractusx.github.io/docs-kits/category/remaining-useful-life-rul-kit)                           |                                                       n/a                                                       |               [0.1.1](https://eclipse-tractusx.github.io/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Changelog%20Remaining%20Useful%20Life%20Kit)               |
 | [Circularity KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Circularity_KIT/page-adoption-view)                                                           |                                                       n/a                                                       |                            [0.2.0](https://eclipse-tractusx.github.io/docs-kits/kits/Circularity_KIT/Changelog%20Circularity%20KIT)                             |
-| [Discovery Service (BPN Finder)](https://github.com/eclipse-tractusx/sldt-bpn-discovery)                                                                          | bpndiscovery: [0.1.12](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/bpndiscovery-0.1.12) |                                       [0.2.6](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/v0.2.6)                                       |
 | [Modular Production KIT](https://eclipse-tractusx.github.io/docs-kits/category/modular-production-kit)                                                            |                                                       n/a                                                       |                  [0.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/Modular%20Production%20Kit/Modular%20Production%20Kit%20Changelog)                   |
 
 
@@ -87,7 +86,7 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
 - GeoBlocking recommended for Operations (GBaaS)
 - Security concept (overall) recommended for Operations
 
-Listed components in "untested" category were not verified in combination with the current Release package and are only compatible with Catena-X Standards as specified. Use at your own risk at this time.
+- Listed components in "Unchanged, untested" category were not verified in combination with the current Release package and are only compatible with Catena-X Standards as specified. Use at your own risk at this time.
 
 ### Runtime
 
@@ -97,6 +96,7 @@ Listed components in "untested" category were not verified in combination with t
     - Golden Record Business Partner Number (BPN) Service
     - Managed Identity Wallet (MIW)
     - Managed Service Orchestrator (MSO)
+
     Those components violate TRG 5.07 as they still operate on Postgresql DB Version 14.x (not 15), but have been successfully tested for the current Release.
 
 ### Using helm with central helm registry
