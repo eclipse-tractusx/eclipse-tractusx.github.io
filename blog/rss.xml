@@ -4,10 +4,19 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Mon, 19 Feb 2024 13:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Mar 2024 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Tractus-X 24.03 available now]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/new-release-2403</link>
+            <guid>new-release-2403</guid>
+            <pubDate>Fri, 08 Mar 2024 11:00:00 GMT</pubDate>
+            <description><![CDATA[Release Tractus-X 24.03 announcement]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="Release Image" src="/assets/images/Tractus-X_Release24.03-cd6bb1ac27e917e28faed5d1774268d4.png" width="1920" height="960" class="img_ev3q"></p><p>We are pleased to announce our first minor release in 2024!</p><p>Tractus-X Release 24.03 focuses on improving the performance and stability of our Catena-X core and onboard services, strengthening our data space foundation.</p><p>Use Cases &amp; Value Creation: With five new KITs we are introducing exciting new offerings to solve the toughest industry problems such as company certificate management, data governance, manufacturing as a service, environmental &amp; social standards (ESS).</p><p>The Industry Core is an integrative layer between the industry-agnostic dataspace foundation and the use cases. It ensures that the various applications can access common functionalities. It describes how digital twins of components, materials and vehicles can be created for the automotive industry and linked with direct business partners. </p><p>Data Space Governance: The Catena-X Automotive Network e.V. will provide the corresponding standards (<a href="https://catena-x.net/de/standard-library" target="_blank" rel="noopener noreferrer">https://catena-x.net/de/standard-library</a>).</p>]]></content:encoded>
+            <author>maximilian.ong@catena-x.net (Maximilian Ong)</author>
+        </item>
         <item>
             <title><![CDATA[Second Eclipse Tractus-X Community Days]]></title>
             <link>https://eclipse-tractusx.github.io/blog/community-days-05-2024</link>
