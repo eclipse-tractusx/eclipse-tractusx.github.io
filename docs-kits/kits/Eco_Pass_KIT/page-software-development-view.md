@@ -36,10 +36,10 @@ CX:<manufacturerPartId>:<partInstanceId>
 
 ```
 
-| ID                     | Description                                                                                                                                                                                              |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CX`                   | The "**CX**" argument is the one that indicates that this ID is a Catena-X Search Identificator.                                                                                                          |
-| `<manufacturerPartId>` | The "**manufacturerPartId**" makes reference to the id type of the product. It is the identification the manufacturer gives to a specific part he produced.                                                |
+| ID                     | Description                                                                                                                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CX`                   | The "**CX**" argument is the one that indicates that this ID is a Catena-X Search Identificator.                                                                                                             |
+| `<manufacturerPartId>` | The "**manufacturerPartId**" makes reference to the id type of the product. It is the identification the manufacturer gives to a specific part he produced.                                                  |
 | `<partInstanceId>`     | The "**partInstanceId**" stands to the specific id of the product. This id needs to be registered in the digital twin from the aspect. An example value in case of batteries would be the *batteryDMC_Code*. |
 
 > *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](./page-software-operation-view.md).
@@ -55,8 +55,8 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                                                                                                                | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]         | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
-| Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application responsible for retrieving the passports and interacting with the services listed above.                                                               | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
+| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
+| Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application responsible for retrieving the passports and interacting with the services listed above.                                                                | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
 
 > *Note*: The diagrams match the architecture proposed in the [Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass) reference implementation [Arc42](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md) and [Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/Data%20Retrieval%20Guide.md). Using the discovery services from Catena-X
 
@@ -103,10 +103,10 @@ Once the negotiation for the digital twin registries assets are done we would be
 
 The following information is required to enable the decentralized search for digital twin registries:
 
-| Name            | Example              | Description                                                                                                                                                                                                                                                                                       |
-| --------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name            | Example              | Description                                                                                                                                                                                                                                                                                                       |
+| --------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Search Id Type  | *manufacturerPartId* | The search id type is required first of all to know in which `BPN Discovery` services to search. After this same id will be introduced in the `Discovery Service` and we will obtain a list of `BPN Discovery Endpoints`. After this same id will be introduce as the *`type`* attribute in each `BPN Discovery`. |
-| Search Id Value | *XYZ78901*           | The search id value is required for searching in the `BPN Discovery` services. One example could be the `product type id` of a company, which is owned by an unique `BPN` reducing the complexity of the search.                                                                                  |
+| Search Id Value | *XYZ78901*           | The search id value is required for searching in the `BPN Discovery` services. One example could be the `product type id` of a company, which is owned by an unique `BPN` reducing the complexity of the search.                                                                                                  |
 
 ### Sequence Diagram
 
@@ -123,10 +123,10 @@ The digital twin searching phase involves searching in every digital twin regist
 
 The following information is required for enabling the digital twin search, in order to start the data transfer phase:
 
-| Name                   | Example          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                   | Example          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Specific Asset Id Type | *partInstanceId* | The specific asset id type is used to search in the `digital twin registry` for a specific digital twin. It is basically the `name` of  "specificAssetId" object located at the [`digital twin`](#aas-30-digital-twin-example) `specificAssetIds` property. The `*partInstanceId*` is used as an example most of the time, since the digital twin registry implemented a hotfix that allows companies say who can access to their `partInstanceId` fields. Now allowing the *"PUBLIC_READABLE"* property. |
-| Specific Asset Id Type | *IMR18650V1*     | The specific asset id value is added in the `digital twin lookup` when calling the `EDC Provider Proxy`. It basically points to the value of the *`Specific Asset Id Type`* property.                                                                                                                                                                                                                                                                                                                      |
+| Specific Asset Id Type | *IMR18650V1*     | The specific asset id value is added in the `digital twin lookup` when calling the `EDC Provider Proxy`. It basically points to the value of the *`Specific Asset Id Type`* property.                                                                                                                                                                                                                                                                                                                     |
 
 [![Digital Twin Search](./resources/development-view/ecoPassSearchSequence.svg)](./resources/development-view/ecoPassSearchSequence.svg)
 
@@ -138,9 +138,9 @@ The **Data Negotiation and Transfer Phase** is the phase responsible for the fin
 
 The following information is required for enabling the digital twin search, in order to start the data transfer phase:
 
-| Name | Example | Description |
-| ---- | ------- | ----------- |
-| Contract with Policy | [Contract Example](#contract-example) | To start the contract negotiation we need to agree on a policy for the a specific contract. This needs to be selected by the one that is requesting the data.
+| Name                 | Example                               | Description                                                                                                                                                   |
+| -------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Contract with Policy | [Contract Example](#contract-example) | To start the contract negotiation we need to agree on a policy for the a specific contract. This needs to be selected by the one that is requesting the data. |
 
 ### Sequence Diagram for Negotiate and Transfer
 
@@ -175,29 +175,29 @@ The Digital Product Pass / EcoPass KIT Open API specification is available at th
 
 The APIs below are the ones contained in the `Digital Product Pass Backend` reference implementation. Which can be reused for retrieving aspects from the Catena-X Network.
 
- | API                                   | Method | Description                                                                                                                                                                                                                                                                                                                                                                    | Parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
- | ------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | **/api/contract/create**              | POST   | The `/api/contract/create` api is responsible for calling the `BPN Discovery` service searching for the BPN of a `manufacturerPartId` and validating if there is any `Decentral Digital Twin Registry` available for the BPN number found in the `EDC Discovery` service.                                                                                                      | [Go to Params](#apicontractcreate)
- | **/api/contract/search**              | POST   | At the **/api/contract/search**  API the user can search for a serialized Id and get its contract. The `Backend` will search for the Digital Twin and will return the contract for the first one that is found. A `sign token` (a sha256 hash) is returned also and acts like a "session token" allowing just the user that created the process to sign or decline the contract. |[Go to Params](#apicontractsearch) |
- | **/api/contract/agree**               | POST   | Once the user has the contract he can call the `/api/contract/agree` API to start the negotiation process and the transfer of the passport. This means that the user accepted the policy and the frame-contracts contained in the contract policy.                                                                                                                             | [Go to Params](#apicontractagree) |
- | **/api/contract/decline**             | POST   | The other option rather than `/agree` is the `/decline` API, that basically blocks the process and makes it invalid. This means that the user declined the specific contract that was found for this process.             |                                                                    [Go to Params](#apicontractdecline)
- | **/api/contract/cancel**              | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                              |    [Go to Params](#apicontractcancel)
- | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                             |         [Go to Params](#apicontractstatusprocessid)
- | **/api/data**                         | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                          |  [Go to Params](#apidata)  |
+ | API                                    | Method | Description                                                                                                                                                                                                                                                                                                                                                                      | Parameters                                  |
+ | -------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+ | **/api/contract/create**               | POST   | The `/api/contract/create` api is responsible for calling the `BPN Discovery` service searching for the BPN of a `manufacturerPartId` and validating if there is any `Decentral Digital Twin Registry` available for the BPN number found in the `EDC Discovery` service.                                                                                                        | [Go to Params](#apicontractcreate)          |
+ | **/api/contract/search**               | POST   | At the **/api/contract/search**  API the user can search for a serialized Id and get its contract. The `Backend` will search for the Digital Twin and will return the contract for the first one that is found. A `sign token` (a sha256 hash) is returned also and acts like a "session token" allowing just the user that created the process to sign or decline the contract. | [Go to Params](#apicontractsearch)          |
+ | **/api/contract/agree**                | POST   | Once the user has the contract he can call the `/api/contract/agree` API to start the negotiation process and the transfer of the passport. This means that the user accepted the policy and the frame-contracts contained in the contract policy.                                                                                                                               | [Go to Params](#apicontractagree)           |
+ | **/api/contract/decline**              | POST   | The other option rather than `/agree` is the `/decline` API, that basically blocks the process and makes it invalid. This means that the user declined the specific contract that was found for this process.                                                                                                                                                                    | [Go to Params](#apicontractdecline)         |
+ | **/api/contract/cancel**               | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                                | [Go to Params](#apicontractcancel)          |
+ | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                                | [Go to Params](#apicontractstatusprocessid) |
+ | **/api/data**                          | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                             | [Go to Params](#apidata)                    |
 
 #### Parameters
 
 ##### /api/contract/create
 
 | Parameter | Value Name       | Mandatory or Optional Value |
-|-----------|------------------|-----------------------------|
+| --------- | ---------------- | --------------------------- |
 | id        | searchIdValue    | [REQUIRED]                  |
 | type      | searchIdTypeName | manufacturerPartId          |
 
 ##### /api/contract/search
 
 | Parameter | Value Name            | Mandatory or Optional Value |
-|-----------|-----------------------|-----------------------------|
+| --------- | --------------------- | --------------------------- |
 | id        | serializedIdValue     | [REQUIRED]                  |
 | idType    | serializedIdTypeName  | partInstanceId              |
 | processId | processIdentification | [REQUIRED]                  |
@@ -205,7 +205,7 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 ##### /api/contract/agree
 
 | Parameter  | Value Name             | Mandatory or Optional Value                                                     |
-|------------|------------------------|---------------------------------------------------------------------------------|
+| ---------- | ---------------------- | ------------------------------------------------------------------------------- |
 | processId  | processIdentification  | [REQUIRED]                                                                      |
 | contractId | contractIdentification | [REQUIRED]                                                                      |
 | policyId   | policyIdentification   | If no policyId is specified then the first policy of the contract will be taken |
@@ -213,15 +213,15 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 
 ##### /api/contract/decline
 
-| Parameter  | Value Name             | Mandatory or Optional Value |
-|------------|------------------------|-----------------------------|
-| processId  | processIdentification  | [REQUIRED]                  |
-| token      | searchSessionToken     | [REQUIRED]                  |
+| Parameter | Value Name            | Mandatory or Optional Value |
+| --------- | --------------------- | --------------------------- |
+| processId | processIdentification | [REQUIRED]                  |
+| token     | searchSessionToken    | [REQUIRED]                  |
 
 ##### /api/contract/cancel
 
 | Parameter  | Value Name             | Mandatory or Optional Value |
-|------------|------------------------|-----------------------------|
+| ---------- | ---------------------- | --------------------------- |
 | processId  | processIdentification  | [REQUIRED]                  |
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
@@ -229,26 +229,26 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 ##### /api/contract/status/{processId}
 
 | Parameter | Value Name            | Mandatory or Optional Value |
-|-----------|-----------------------|-----------------------------|
+| --------- | --------------------- | --------------------------- |
 | processId | processIdentification | [REQUIRED]                  |
 
 ##### /api/data
 
 | Parameter  | Value Name             | Mandatory or Optional Value |
-|------------|------------------------|-----------------------------|
+| ---------- | ---------------------- | --------------------------- |
 | processId  | processIdentification  | [REQUIRED]                  |
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
 
 #### External API calls
 
-| Service   | Method | Path                                               | Params                                     |
-| ------ | ------ | -------------------------------------------------- | ------------------------------------------ |
-| Discovery Service [CX-0053] | POST   | /api/administration/connectors/discovery/search    | key:manufacturerPartId (BPN Discovery) & key:bpn (EDC Discovery)                          |
-| BPN Discovery Service [CX-0053]  | POST   | /api/administration/connectors/bpnDiscovery/search | key:manufacturerPartId                          |
-| EDC Discovery Service [CX-0001]  | POST   | /api/administration/connectors/discovery/search    | `{[<Company's BPNL>]}`                     |
-| Digital Twin Registry [CX-0002]  | GET    | /lookup/shells                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
-| Digital Twin Registry [CX-0002]  | GET    | /shell-descriptors/{digitalTwinId}                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
+| Service                         | Method | Path                                               | Params                                                                    |
+| ------------------------------- | ------ | -------------------------------------------------- | ------------------------------------------------------------------------- |
+| Discovery Service [CX-0053]     | POST   | /api/administration/connectors/discovery/search    | key:manufacturerPartId (BPN Discovery) & key:bpn (EDC Discovery)          |
+| BPN Discovery Service [CX-0053] | POST   | /api/administration/connectors/bpnDiscovery/search | key:manufacturerPartId                                                    |
+| EDC Discovery Service [CX-0001] | POST   | /api/administration/connectors/discovery/search    | `{[<Company's BPNL>]}`                                                    |
+| Digital Twin Registry [CX-0002] | GET    | /lookup/shells                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
+| Digital Twin Registry [CX-0002] | GET    | /shell-descriptors/{digitalTwinId}                 | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
 
 ## Reference Implementations
 
