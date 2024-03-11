@@ -13,31 +13,33 @@ All notable changes to this Kit will be documented in this file.
 
 ## [3.0.0] - 2024-03-07
 
-<h3>Changed</h3>
+### Changed
+
 - Operation View: Update local deployment procedure on base of irs version 4.5.0
 
 ## [2.0.0] - 2023-12-08
 
-<h3>Added</h3>
+### Added
 
 - Adoption View: added use-case Environmental and Social Standards Top-Down
 - Adoption View: added use-case Environmental and Social Standards Bottom-UP
 - Adoption View: added use-case Data Integrity Layer
 - Adoption View: added visualization for IRS-Recursive
 
-<h3>Changed</h3>
+### Changed
 
 - Development View: Update request collection to latest state of IRS
 - Documentation: Update Arc42 and Admin guide to latest state of IRS
 - Moved Success Stories to Adoption View
 
-<h3>Fixed</h3>
+### Fixed
 
-- Update documentation: Local deployment currently requires IRS version 2.4.0. See <https://github.com/eclipse-tractusx/item-relationship-service/issues/247>.
+- Update documentation: Local deployment currently requires IRS version 2.4.0.
+  See [https://github.com/eclipse-tractusx/item-relationship-service/issues/247](https://github.com/eclipse-tractusx/item-relationship-service/issues/247).
 
 ## [1.1.0] - 2023-08-25
 
-<h3>Added</h3>
+### Added
 
 - Adoption View: added NOTICE section according to TRG 7.0.7 Legal notice for non-code (e.g. documentation)
 - Adoption View: added Vision &amp; Mission
@@ -48,12 +50,13 @@ All notable changes to this Kit will be documented in this file.
 - Adoption View: added Standards
 - Adoption View: added irs building block for decentral architecture
 
-<h3>Changed</h3>
+### Changed
+
 - Adoption View: adaption to new structure of Adoption View
 
 ## [1.0.0] - 2023-03-01
 
-<h3>Added</h3>
+### Added
 
 - documentation of the IRS API
 - documentation of adoption view
@@ -61,10 +64,10 @@ All notable changes to this Kit will be documented in this file.
 - documentation of the IRS reference implementation
 - two success stories how this Kit is used
 
-<h3>Changed</h3>
+### Changed
 
 - ./.
 
-<h3>Removed</h3>
+### Removed
 
 - ./.

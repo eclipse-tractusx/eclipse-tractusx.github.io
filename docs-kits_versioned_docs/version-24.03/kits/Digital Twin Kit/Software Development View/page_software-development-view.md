@@ -124,15 +124,15 @@ as standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
 There's three relevant inputs to discover a referenced Submodel in Catena-X:
 
 - The `subprotocolBody` contains two pieces of information, assigned with `=` and separated by `;`:
-    - `dspEndpoint` is the URL of the Control Plane where a Data Consumer can negotiate for access to this Submodel. For
-      many
-      connector-implementations, this will end on `/api/v1/dsp`. As this property will be used in the discovery sequence
-      to construct a `catalog`-request, this variable is equivalent to the `<base>`
-      in [this example](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites)
-      in the DSP-spec.
-    - When calling the /catalog API of that Control Plane, she should filter for dcat:Dataset entries that are
-      identified
-      by the `id` mentioned in the `subprotocolBody`.
+  - `dspEndpoint` is the URL of the Control Plane where a Data Consumer can negotiate for access to this Submodel. For
+    many
+    connector-implementations, this will end on `/api/v1/dsp`. As this property will be used in the discovery sequence
+    to construct a `catalog`-request, this variable is equivalent to the `<base>`
+    in [this example](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites)
+    in the DSP-spec.
+  - When calling the /catalog API of that Control Plane, she should filter for dcat:Dataset entries that are
+    identified
+    by the `id` mentioned in the `subprotocolBody`.
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data
   Plane
   of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field
