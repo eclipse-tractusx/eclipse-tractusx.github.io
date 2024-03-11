@@ -5,7 +5,7 @@ info:
   license:
     name: Apache License v2.0
     url: http://apache.org/v2
-  version: 2.0.0
+  version: 2.1.0
 servers:
 - url: /
 tags:
@@ -38,6 +38,32 @@ paths:
           description: Could not accept the send notification, because a notification with that messageId already exists
         "422":
           description: Could not accept the send notification even though it is syntactically correct. The notification is not accepted, because of semantic reasons (e.g., an item is not known by the receiver).
+  /uniqueidpush/connect-to-child:
+    post:
+      tags:
+      - Unique ID Push Connect-to-Child Notification
+      description: Receives a Unique ID Push notification to connect a digital twin with its child digital twin (top-down notification)
+      operationId: receiveUniqueIdPushConnectToChildNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueIdPushNotificationConnectToChildRequestBody'
+      responses:
+        "201":
+          description: Notification was received successfully
+        "400":
+          description: Request body was malformed
+        "401":
+          description: Not authorized     
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "409":
+          description: Could not accept the send notification, because a notification with that messageId already exists
+        "422":
+          description: Could not accept the send notification even though it is syntactically correct. The notification is not accepted, because of semantic reasons (e.g., an item is not known by the receiver).
 components:
   schemas:
     NotificationHeader:
@@ -52,6 +78,16 @@ components:
           $ref: '#/components/schemas/NotificationHeader'
         content:
           $ref: '#/components/schemas/UniqueIdPushNotificationConnectToParentPayload'
+    UniqueIdPushNotificationConnectToChildRequestBody:
+      required:
+        - header
+        - content
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/NotificationHeader'
+        content:
+          $ref: '#/components/schemas/UniqueIdPushNotificationConnectToChildPayload'
     UniqueIdPushNotificationConnectToParentPayload:
       type: object
       required:
@@ -71,6 +107,24 @@ components:
               - $ref: '#/components/schemas/SerializedPartItem'
               - $ref: '#/components/schemas/BatchItem'
               - $ref: '#/components/schemas/JISItem'
+    UniqueIdPushNotificationConnectToChildPayload:
+      type: object
+      required:
+        - digitalTwinType
+        - listOfItems
+      properties:
+        digitalTwinType:
+          $ref: '#/components/schemas/DigitalTwinType'
+        information:
+          type: string
+          maxLength: 1000
+          example: "Update about the parts into which a supplier's serialized parts, batches, and JIS parts were built into."
+        listOfItems:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/SingleLevelUsageAsBuilt'
+              - $ref: '#/components/schemas/SingleLevelUsageAsPlanned'
     DigitalTwinType:
       type: string
       enum:
@@ -304,3 +358,153 @@ components:
       - senderBpn
       - receiverBpn
       - version
+    # -----------------------------------------
+    # Schema: urn:samm:io.catenax.single_level_usage_as_built:3.0.0#SingleLevelUsageAsBuilt
+    # -----------------------------------------
+    urn_samm_io.catenax.single_level_usage_as_built_3.0.0_DateTimeTrait:
+      type: string
+      description: Regular Expression to enable UTC and Timezone formats and the possibility
+        to exclude time information.
+      pattern: "^-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?$"
+      example: "2007-08-31T16:47"
+    urn_samm_io.catenax.single_level_usage_as_built_3.0.0_ParentData:
+      description: Catena-X ID and meta data of the parent item.
+      type: object
+      properties:
+        quantity:
+          description: Quantity of which the child part is assembled into the parent
+            part. In general it is '1' for serialized parts.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.quantity_2.0.0_ItemQuantityCharacteristic'
+        createdOn:
+          description: "Timestamp when the relation between the parent part and the\
+            \ child part was created, e.g. when the given child part was assembled\
+            \ into the parent part."
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_DateTimeTrait'
+        lastModifiedOn:
+          description: Timestamp when the assembly or usage relationship between parent
+            part and child part was last modified.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_DateTimeTrait'
+        isOnlyPotentialParent:
+          description: |
+            Expresses the certainty whether the part has been used as component or input material in the produced item. If the value is false, it can be assumed that the part has been used. If the value is true, there are alternatives for that part, and it is unknown if this part item or an alternative part item has been used.
+            This is the case when, e.g. the same item is supplied by two suppliers, and the item is only tracked by a customer part ID during assembly. Thus, these items cannot be differentiated from each other.
+          $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Boolean'
+        businessPartner:
+          description: The supplier of the given child item.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait'
+        catenaXId:
+          description: "The Catena-X ID of the given part (e.g. the component), valid\
+            \ for the Catena-X dataspace."
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+      required:
+      - createdOn
+      - isOnlyPotentialParent
+      - businessPartner
+      - catenaXId
+    urn_samm_io.catenax.single_level_usage_as_built_3.0.0_SetOfParentItemsCharacteristic:
+      description: Set of parent items the given child object is assembled in (one
+        structural level up).
+      type: array
+      items:
+        $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_ParentData'
+      uniqueItems: true
+    SingleLevelUsageAsBuilt:
+      description: "The aspect provides the information in which parent part(s)/product(s)the\
+        \ given item is assembled in. Could be a 1:1 relationship in terms of an e.g.\
+        \ a brake component or 1:n for e.g. coatings. The parent item must refer to\
+        \ an object from as-built lifecycle phase, i.e. a batch or a serialized part."
+      type: object
+      properties:
+        catenaXId:
+          description: "The Catena-X ID of the given part (e.g. the component), valid\
+            \ for the Catena-X dataspace."
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        parentItems:
+          description: |-
+            Set of parent items, in which the given child object is assembled in (one structural level up).
+
+            For serialized items the list should contain only one parent item.
+            As different subsets of a batch might be used by a customer in different items this is a list.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_built_3.0.0_SetOfParentItemsCharacteristic'
+      required:
+      - catenaXId
+      - parentItems
+    # -----------------------------------------
+    # Schema: urn:samm:io.catenax.single_level_usage_as_planned:2.0.0#SingleLevelUsageAsPlanned
+    # -----------------------------------------
+    urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_DateTimeTrait:
+      type: string
+      description: Regular Expression to enable UTC and Timezone formats and the possibility
+        to exclude time information.
+      pattern: "^-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?$"
+      example: "2007-08-31T16:47+00:00"
+    urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ValidityPeriodCharacteristic:
+      description: Characteristic  for a validity period defined by an (optional)start
+        and an (optional)end timestamp.
+      type: object
+      properties:
+        validFrom:
+          description: Start date of validity period.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_DateTimeTrait'
+        validTo:
+          description: End date of validity period.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_DateTimeTrait'
+    urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ParentData:
+      description: Catena-X ID and meta data of the parent part.
+      type: object
+      properties:
+        createdOn:
+          description: Timestamp when the relation between the parent part and the
+            child part was created.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_DateTimeTrait'
+        quantity:
+          description: Quantity of which the child part will be assembled into or
+            used in the parent part.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.quantity_2.0.0_ItemQuantityCharacteristic'
+        lastModifiedOn:
+          description: Timestamp when the assembly or usage relationship between parent
+            part and child part was last modified.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_DateTimeTrait'
+        validityPeriod:
+          description: |-
+            The period of time during which the parent-child relation is valid. This relates to whether a child part can be built into or used in the production of the parent part at a given time.
+            If no validity period is given the relation is considered valid at any point in time.
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ValidityPeriodCharacteristic'
+        businessPartner:
+          description: The supplier of the given child item.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait'
+        catenaXId:
+          description: "The Catena-X ID of the given part (e.g. the component), valid\
+            \ for the Catena-X dataspace."
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+      required:
+      - createdOn
+      - quantity
+      - businessPartner
+      - catenaXId
+    urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_SetOfParentItemsCharacteristic:
+      description: Set of parent items the given child object will be assembled into
+        or used (one structural level up).
+      type: array
+      items:
+        $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_ParentData'
+      uniqueItems: true
+    SingleLevelUsageAsPlanned:
+      description: |-
+        The aspect provides the information in which parent part(s)/product(s)the given item is to be assembled into or used. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from the as-planned lifecycle phase.
+        If multiple versions of parent parts exist that the child part can be assembled into or used, all versions of the parent part are included in the usage list.
+      type: object
+      properties:
+        catenaXId:
+          description: "The Catena-X ID of the given part (e.g. the component), valid\
+            \ for the Catena-X dataspace."
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        parentItems:
+          description: "Set of parent parts, in which the given child object will\
+            \ be assembled into or used (one structural level up)."
+          $ref: '#/components/schemas/urn_samm_io.catenax.single_level_usage_as_planned_2.0.0_SetOfParentItemsCharacteristic'
+      required:
+      - catenaXId
+      - parentItems
