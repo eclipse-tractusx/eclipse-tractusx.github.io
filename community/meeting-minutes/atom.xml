@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-02-23T00:00:00.000Z</updated>
+    <updated>2024-03-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Tractus-X Office Hour 01.03.2024]]></title>
+        <id>office-hour-2024-03-01</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-03-01"/>
+        <updated>2024-03-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Tractus-X Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tractus-x-office-hour-meeting-minutes">Tractus-X Office Hour meeting minutes<a class="hash-link" href="#tractus-x-office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Docusaurus: Please use "toc_min_heading_level" and "toc_max_heading_level" to <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter" target="_blank" rel="noopener noreferrer">adjust your TOC</a></li><li>The community has to transparently describe our post-consortia release process</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li><a href="https://eclipse-tractusx.github.io/community/open-meetings/#Security%20-%20Office%20Hour" target="_blank" rel="noopener noreferrer">Security office hour</a> kick off. Meeting minutes will be provided soon.</li><li>TRG 8.0 <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/681" target="_blank" rel="noopener noreferrer">work in progress</a></li><li>Mind the support end of:<ul><li>Veracode - SAST /SCA</li><li>Invicti - DAST</li></ul></li><li>The following FOSS tools will replace the previous ones:<ul><li>CodeQL</li><li>OWASP ZAP - DAST</li><li><a href="https://github.com/eclipse-tractusx/sig-security/discussions/71" target="_blank" rel="noopener noreferrer">Git secret scanning</a></li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Reminder: please make sure to attribute your "foreign" logos correctly</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>second <a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024/" target="_blank" rel="noopener noreferrer">Eclipse Tractus-X Community days</a> will take place 16-17 May 2024:<ul><li>please provide your "wishes" for topics</li></ul></li><li>Roadmap review finished 29th Feb 2024</li><li>refinement phase will start the next days</li><li>different open meetings can now be linked directly</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul>]]></content>
+        <author>
+            <name>Harald Zierer</name>
+            <uri>https://github.com/hzierer</uri>
+        </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Office Hour 23.02.2024]]></title>
         <id>office-hour-2024-02-23</id>
@@ -18,6 +33,7 @@
             <name>Sebastian Bezold</name>
             <uri>https://github.com/SebastianBezold</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
@@ -32,6 +48,7 @@
             <name>Sebastian Bezold</name>
             <uri>https://github.com/SebastianBezold</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
@@ -46,6 +63,7 @@
             <name>Tomasz Barwicki</name>
             <uri>https://github.com/tomaszbarwicki</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
@@ -60,6 +78,7 @@
             <name>Fabian Grün</name>
             <uri>https://github.com/fagru3n</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
@@ -82,6 +101,7 @@ one versioning strategy.</li><li>An alternative for MS Teams should be found as 
             <name>Gabor Almadi</name>
             <uri>https://github.com/almadigabor</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
@@ -96,6 +116,7 @@ one versioning strategy.</li><li>An alternative for MS Teams should be found as 
             <name>Harald Zierer</name>
             <uri>https://github.com/hzierer</uri>
         </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
     </entry>
