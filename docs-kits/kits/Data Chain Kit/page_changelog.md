@@ -14,6 +14,7 @@ All notable changes to this Kit will be documented in this file.
 ## [3.0.0] - 2024-03-07
 
 ### Changed
+
 - Operation View: Update local deployment procedure on base of irs version 4.5.0
 
 ## [2.0.0] - 2023-12-08
