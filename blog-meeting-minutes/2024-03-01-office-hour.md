@@ -32,7 +32,6 @@ tags: [tractus-x-office-hour, meeting-minutes, community]
 ### Open planning / community
 
 - second [Eclipse Tractus-X Community days](https://eclipse-tractusx.github.io/blog/community-days-05-2024/) will take place 16-17 May 2024:
-
   - please provide your "wishes" for topics
 - Roadmap review finished 29th Feb 2024
 - refinement phase will start the next days
