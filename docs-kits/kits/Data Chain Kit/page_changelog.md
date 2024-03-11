@@ -11,7 +11,12 @@ sidebar_position: 10
 
 All notable changes to this Kit will be documented in this file.
 
-## Unreleased
+## [3.0.0] - 2024-03-07
+
+<h3>Changed</h3>
+- Operation View: Update local deployment procedure on base of irs version 4.5.0
+
+## [2.0.0] - 2023-12-08
 
 <h3>Added</h3>
 
@@ -28,8 +33,7 @@ All notable changes to this Kit will be documented in this file.
 
 <h3>Fixed</h3>
 
-- Update documentation: Local deployment currently requires IRS version 2.4.0. See https://github.com/eclipse-tractusx/item-relationship-service/issues/247.
-
+- Update documentation: Local deployment currently requires IRS version 2.4.0. See <https://github.com/eclipse-tractusx/item-relationship-service/issues/247>.
 
 ## [1.1.0] - 2023-08-25
 
@@ -37,13 +41,12 @@ All notable changes to this Kit will be documented in this file.
 
 - Adoption View: added NOTICE section according to TRG 7.0.7 Legal notice for non-code (e.g. documentation)
 - Adoption View: added Vision &amp; Mission
-- Adoption View: added Customer Journey 
-- Adoption View: added Business Value 
-- Adoption View: added IRS Components and Catena-X Core Services 
-- Adoption View: added Business Process 
-- Adoption View: added Standards 
+- Adoption View: added Customer Journey
+- Adoption View: added Business Value
+- Adoption View: added IRS Components and Catena-X Core Services
+- Adoption View: added Business Process
+- Adoption View: added Standards
 - Adoption View: added irs building block for decentral architecture
-
 
 <h3>Changed</h3>
 - Adoption View: adaption to new structure of Adoption View
