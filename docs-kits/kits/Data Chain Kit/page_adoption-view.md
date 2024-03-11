@@ -40,11 +40,11 @@ With the Data Chain KIT, we support the Catena-X customer journey for our adopte
 
 There are few steps for your Customer Journey:
 
-- Step 1: Inform yourself & take the decision to become part
-- Step 2: Connect your company & teams to Catena-X.
-- Step 3: Boost data readiness and governance
-- Step 4: Adopt a data driven business process and create instant value
-- Step 5: Utilize the full power of collaboration in your business team
+* Step 1: Inform yourself & take the decision to become part
+* Step 2: Connect your company & teams to Catena-X.
+* Step 3: Boost data readiness and governance
+* Step 4: Adopt a data driven business process and create instant value
+* Step 5: Utilize the full power of collaboration in your business team
 
 <!-- !Mandatory! -->
 
@@ -52,11 +52,11 @@ There are few steps for your Customer Journey:
 
 ### IRS Iterative
 
-- Application and Service provider can reduce integrate or migrate due to one API specification
-- The IRS Iterative API enables an easy interface for complex network tasks
-- Potential to scale and optimize network traffic
-- The IRS Iterative API is providing one Endpoint to access and collect widely distributed data
-- The Data Chain Kit enables interoperability for Data Chains along the value chain to extend
+* Application and Service provider can reduce integrate or migrate due to one API specification
+* The IRS Iterative API enables an easy interface for complex network tasks
+* Potential to scale and optimize network traffic
+* The IRS Iterative API is providing one Endpoint to access and collect widely distributed data
+* The Data Chain Kit enables interoperability for Data Chains along the value chain to extend
 
 ### IRS Recursive
 
@@ -66,14 +66,18 @@ There are few steps for your Customer Journey:
   supply chain
 - The solution enables interoperability with other solutions along the value chain to extend
 
+* Application and Service provider can reduce integrate or migrate due to one API specification
+* The IRS Recursive API enables an easy interface for complex network tasks
+* The IRS Recursive API enables different use cases which collect insights over distributed data by not disclosing the supply chain
+* The solution enables interoperability with other solutions along the value chain to extend
+
 <!-- !Mandatory! -->
 
 ## Use Case
 
 ### Environmental Social Responsibility (ESR)
 
-_Use Case for achieving compliance for Environmental Social Responsibility (ESR) for a component in the supply chain (
-multi-tier)_
+#### Use Case for achieving compliance for Environmental Social Responsibility (ESR) for a component in the supply chain (multi-tier)
 
 In the use case, it was assumed that a company in the supply chain is considered "compliant" if that company can show
 the ISO 14001 certificate. Presenting means that either the company itself provides it as a data provider or deposits it
@@ -105,17 +109,10 @@ This use-case facilitates the [IRS Recursive](#irs-recursive-1) approach and ena
 as planned aspect models via the Catena-X defined solution
 stack (i.e. EDC). The BoM as planned aspect models consists of three aspect models:
 
-- SingleLevelBomAsPlanned - The single-level bill of material (BoM) represents one sub-level of an assembly and does not
-  include any lower-level subassemblies. In the As-Planned lifecycle state all variants are covered ("120% BoM"). If
-  multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part
-  are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their
-  child part in the BoM.
-- PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a
-  specific version. This also includes information about the validityPeriod - the period of time during which the Part
-  is offered by the manufacturer and can be purchased by customers.
-- PartSiteInformationAsPlanned - Site related information for a given as planned item. A site is a delimited
-  geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related
-  sites are listed including all sites where e.g. production of this part (type) is planned.
+* SingleLevelBomAsPlanned - The single-level bill of material (BoM) represents one sub-level of an assembly and does not
+  include any lower-level subassemblies. In the As-Planned lifecycle state all variants are covered ("120% BoM"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
+* PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version. This also includes information about the validityPeriod - the period of time during which the Part is offered by the manufacturer and can be purchased by customers.
+* PartSiteInformationAsPlanned - Site related information for a given as planned item. A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
 
 #### Step 0: Process initiation
 
@@ -128,8 +125,8 @@ valid BPN exists for that company. The BPN (a BPNL or BPNS) can be looked up in 
 The inquiring company checks, if the company of the incident is a direct supplier of them. In order to perform this
 check, the following data must be available in the inquiring company:
 
-- Full list of direct suppliers
-- Full list of parts supplied by those direct suppliers
+* Full list of direct suppliers
+* Full list of parts supplied by those direct suppliers
 
 In case the company of the incident is a direct supplier of the inquiring company, the process ends. In case the company
 of the incident is not a direct supplier of the inquiring company, Step 2 is executed.
@@ -140,7 +137,7 @@ The incident is forwarded to all direct suppliers. Each direct supplier is sent 
 the inquiring company is impacted by the incident. The incident is enhanced with additional data by the inquiring
 company:
 
-- List of parts, that are supplied to the inquiring company by their direct supplier.
+* List of parts, that are supplied to the inquiring company by their direct supplier.
 
 Each direct supplier executes Step 1.
 
@@ -149,11 +146,9 @@ Each direct supplier executes Step 1.
 The inquiring company collects the (asynchronous) responses. The response of each direct supplier may contain the
 following results:
 
-- YES → The company of the incident was found in the supply chain of the given list of parts. In this case, the result
-  also contains the BPN of the direct supplier where the incident occurred alongside the number of hops (i.e. how many
-  levels down the chain) to where the incident occurred
-- NO → The company of the incident was not found in the supply chain of the given list of parts
-- UNKNOWN → The query timed out or some other error occurred
+* YES → The company of the incident was found in the supply chain of the given list of parts. In this case, the result also contains the BPN of the direct supplier where the incident occurred alongside the number of hops (i.e. how many levels down the chain) to where the incident occurred
+* NO → The company of the incident was not found in the supply chain of the given list of parts
+* UNKNOWN → The query timed out or some other error occurred
 
 In case at least one "YES" is received, the process step 3 ends
 
@@ -167,17 +162,9 @@ Similar to the ESS use-case Top-Down, ESS Bottom-Up focuses on notifying custome
 The difference to Top-Down is that the Bottom-Up approach only investigates on one level and does not send any
 notifications. To achieve this goal, IRS uses these aspect models:
 
-- SingleLevelUsageAsPlanned - The aspect provides the information in which parent part(s)/product(s) the given item is
-  assembled in. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The given
-  item as well as the parent item must refer to an object from as-planned lifecycle phase. If multiple versions of
-  parent parts exist that the child part can be assembled into, all versions of the parent part are included in the
-  usage list.
-- PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a
-  specific version. This also includes information about the validityPeriod - the period of time during which the Part
-  is offered by the manufacturer and can be purchased by customers.
-- PartSiteInformationAsPlanned - Site related information for a given "as planned" item. A site is a delimited
-  geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related
-  sites are listed including all sites where e.g. production of this part (type) is planned.
+* SingleLevelUsageAsPlanned - The aspect provides the information in which parent part(s)/product(s) the given item is assembled in. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from as-planned lifecycle phase. If multiple versions of parent parts exist that the child part can be assembled into, all versions of the parent part are included in the usage list.
+* PartAsPlanned - representation of an item in the Catena-X Bill of Material (BOM) in As-Planned lifecycle status in a specific version. This also includes information about the validityPeriod - the period of time during which the Part is offered by the manufacturer and can be purchased by customers.
+* PartSiteInformationAsPlanned - Site related information for a given "as planned" item. A site is a delimited geographical area where a legal entity does business. In the "as planned" lifecycle context all potentially related sites are listed including all sites where e.g. production of this part (type) is planned.
 
 For the originator company, IRS validates whether the requested BPNS is part of their PartSiteInformationAsPlanned and
 whether the provided validityTimestamp is within the validityPeriod of PartAsPlanned. If this is the case, IRS will then
@@ -286,17 +273,12 @@ access by the companies and persons involved in the process.
 
 Applying and using the Item Relationship Service had the following benefits:
 
-- With the decision using the IRS we could speed our development of Trace-X throughout the scope of their helm charts
-  including a running service with test data. That alone was very beneficial to have a stable environment with data
-- The IRS fulfills a high level of quality in code which provides a reliable service
-- The deployment via helm charts has been built so that it can fit in existing architecture components throughout
-  configuration like the Digital Twin Registry, the EDC, Semantic Hub, Keycloak and others. This enabled Trace-X to
-  configure the Service smoothly into the architecture of the application
-- The IRS abstracts the communication with partners along the supply chain, that makes it easy to build business
-  processes on that. It abstracts a technical level to a logical level to enhance the speed of implementation of a
-  Software Provider
-- The IRS with the standardized API provides a data interoperability level on data chains
-- The Team behind the IRS is fast in implementing and adapting new features
+* With the decision using the IRS we could speed our development of Trace-X throughout the scope of their helm charts including a running service with test data. That alone was very beneficial to have a stable environment with data
+* The IRS fulfills a high level of quality in code which provides a reliable service
+* The deployment via helm charts has been built so that it can fit in existing architecture components throughout configuration like the Digital Twin Registry, the EDC, Semantic Hub, Keycloak and others. This enabled Trace-X to configure the Service smoothly into the architecture of the application
+* The IRS abstracts the communication with partners along the supply chain, that makes it easy to build business processes on that. It abstracts a technical level to a logical level to enhance the speed of implementation of a Software Provider
+* The IRS with the standardized API provides a data interoperability level on data chains
+* The Team behind the IRS is fast in implementing and adapting  new features
 
 ![Trace-XScreenshot1](@site/static/img/Trace-X/01.png)
 
@@ -353,6 +335,8 @@ The DataChainKit by IRS API is being consumed by the dismantler dashboard and ot
 Catena-X network. They need to provide valid credentials issued by the Catena-X Portal/IdP. Additionally, they must
 provide a base global asset identifier to retrieve information for as well as configuration details for the view on that
 information.
+The DataChainKit by IRS API is the essential component of the business app Trace-X FOSS to be able to build data chains in upwards and downwards direction for BOM lifecycles asBuilt and asPlanned.
+The DataChainKit by IRS API is being consumed by the dismantler dashboard and other parties which are part of the Catena-X network. They need to provide valid credentials issued by the Catena-X Portal/IdP. Additionally, they must provide a base global asset identifier to retrieve information for as well as configuration details for the view on that information.
 
 ### Catena-X network
 
@@ -368,8 +352,8 @@ changed to use the consumer credentials in the future.
 Our relevant standards can be downloaded from the
 official [Catena-X Standard Library](https://catena-x.net/de/standard-library)
 
-- [CX - 0005 Item Relationship Service API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0005-ItemRelationshipServiceApi-v1.1.1.pdf)
-- [CX - 0045 Aspect Model Template Data Chain](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0045-AspectModelDataChainTemplate-v1.1.1.pdf)
+* [CX - 0005 Item Relationship Service API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0005-ItemRelationshipServiceApi-v1.1.1.pdf)
+* [CX - 0045 Aspect Model Template Data Chain](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0045-AspectModelDataChainTemplate-v1.1.1.pdf)
 
 ## Why Data Chain Kit
 
@@ -388,9 +372,9 @@ participant of the data chain.
 
 The following general conditions apply:
 
-- Access control through policies and contracts is done by the EDC
-- Direct data exchange between supply-chain partners
-- Catena-X partners of the accessible value chain are known to the data-consumer
+* Access control through policies and contracts is done by the EDC
+* Direct data exchange between supply-chain partners
+* Catena-X partners of the accessible value chain are known to the data-consumer
 
 ## IRS Recursive
 
@@ -403,36 +387,30 @@ aggregate results; pass information along the value chain.
 
 The following general conditions apply:
 
-- The IRS recursive is for use-cases, which want to apply business logic with data along the value chain. For example,
-  to summarize, or check for existence of values or certificates.
-- Each participant has the possibility to check their values, before passing them to next in line
-- Access control through policies and contracts is done by the EDC
-- Direct data exchange between supply-chain partners
-- Business logic is being applied with an extension concept
+* The IRS recursive is for use-cases, which want to apply business logic with data along the value chain. For example, to summarize, or check for existence of values or certificates.
+* Each participant has the possibility to check their values, before passing them to next in line
+* Access control through policies and contracts is done by the EDC
+* Direct data exchange between supply-chain partners
+* Business logic is being applied with an extension concept
 
-The recursive approach is based on a decentralized network in which only the next level of a relationship between two
-companies (one level down approach) is known. (Relationship: Customer - Supplier)
+The recursive approach is based on a decentralized network in which only the next level of a relationship between two companies (one level down approach) is known. (Relationship: Customer - Supplier)
 
 1. Company OEM initiate request using a consumer application.
-2. Company (supplier) is identified on the next lower level - then a message is sent to the IRS instance of this
-   supplier.
-3. After receiving the message on supplier level, the IRS determines the suppliers on the next lower level and also
-   sends a message to the IRS instances of the suppliers.
-4. This is repeated until a leaf node (a company has no more suppliers or the company is not part of the C-X network) is
-   reached.
+2. Company (supplier) is identified on the next lower level - then a message is sent to the IRS instance of this supplier.
+3. After receiving the message on supplier level, the IRS determines the suppliers on the next lower level and also sends a message to the IRS instances of the suppliers.
+4. This is repeated until a leaf node (a company has no more suppliers or the company is not part of the C-X network) is reached.
 5. In this case the leaf node is responding with a message to the customer company.
-6. The IRS on customer company level receives and aggregates the messages from all requested suppliers and responds
-   again to the customer until OEM level is reached.
+6. The IRS on customer company level receives and aggregates the messages from all requested suppliers and responds again to the customer until OEM level is reached.
 7. OEM shows result of recursive investigation according to the given use case in consumer application.
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2022, 2023 BOSCH AG
-- SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2022 ISTOS GmbH
-- SPDX-FileCopyrightText: 2021, 2023 Contributors to the Eclipse Foundation
-- Source URL: [https://github.com/eclipse-tractusx/item-relationship-service](https://github.com/eclipse-tractusx/item-relationship-service)
+* SPDX-License-Identifier: CC-BY-4.0
+* SPDX-FileCopyrightText: 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+* SPDX-FileCopyrightText: 2022, 2023 BOSCH AG
+* SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
+* SPDX-FileCopyrightText: 2022 ISTOS GmbH
+* SPDX-FileCopyrightText: 2021, 2023 Contributors to the Eclipse Foundation
+* Source URL: <https://github.com/eclipse-tractusx/item-relationship-service>
