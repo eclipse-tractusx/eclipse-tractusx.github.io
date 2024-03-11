@@ -3,7 +3,7 @@ slug: office-hour-09-02-2024
 title: Office Hour 09.02.2024
 authors: 
     - tomasz_barwicki
-tags: [meeting-minutes, community]
+tags: [tractus-x-office-hour, meeting-minutes, community]
 ---
 
 ## office hour meeting minutes
