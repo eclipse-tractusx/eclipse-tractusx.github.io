@@ -30,7 +30,7 @@ tags: [tractus-x-office-hour,meeting-minutes, community]
 - Role of the committer is being discussed, it will be presented in the next committer meeting.
   Basic role descriptions come from the Eclipse Foundation, but we want to specify in Tractus-X
   what else can be expected from a [contributor](https://www.eclipse.org/legal/ECA.php),
-  [commiter](https://www.eclipse.org/membership/become_a_member/committer.php) and project lead.
+  [commiter](https://www.eclipse.org/membership/become_a_member/committer.php) and [project lead](https://www.eclipse.org/projects/handbook/#roles-pl).
 - Association release process and Eclipse Tractus-X needs to be aligned as the first is managed by
   the association and the second should be driven by the community.
 
