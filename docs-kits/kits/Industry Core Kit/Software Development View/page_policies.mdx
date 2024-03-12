@@ -45,9 +45,65 @@ Examples including a JSON payload for single and multiple BPN are described on [
 
 ### Usage Policies / Contract Policies
 
-Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the `odrl:and` operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network.
+Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. To further define and restrict the posibilites of the ODRL language, it is recommended to create separate, more specific ODRL profiles. For Catena-X, the profile is published [here](https://github.com/catenax-eV/cx-odrl-profile)
 
-Since usage or contract policies are highly dependent on the use case, they are described by them in their associated KITs.
+A general recommenation is to focus on `permission` property to further specify the contracts' details. It is also recommended to only combine those with logical `and` until further operands are required.
+
+In general, every data provider can decide on his or her own under which conditions their data assets are shared in the network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for automation. Still, individual freedom of contract is a very high good and is still possible.
+
+Since usage or contract policies are highly dependent on the use case, they are described by them in their associated KITs and only general elements are explained in the following.
+
+In general, three main building blocks for data exchange contracts are specified:
+- FrameworkAgreement
+- ContractReference
+- UsagePurpose
+
+The list of such standardized contract building blocks / constraints will be extended with further releases.
+
+#### FrameworkAgreement
+```
+{
+    "leftOperand": "cx-policy:FrameworkAgreement",
+    "operator": "eq",
+    "rightOperand": "traceability:1.0"
+}
+```
+In general, whether to use the prefix `cx-policy` or not, depends on how the `@context` is defined. In case the context from [tractusx-profiles](https://github.com/eclipse-tractusx/tractusx-profiles/blob/main/cx/credentials/schema/context/policy.context.json) is loaded, the prefix `cx-poliy` can be omitted.
+
+In case that remote context is not loaded, the following definition needs to be made available:
+```
+"cx-policy": "https://w3id.org/catenax/policy/"
+```
+
+`FrameworkAgreement` typically do have 2-digit versions.
+
+#### ContractReference
+```
+{
+    "leftOperand": "cx-policy:ContractReference",
+    "operator": "eq",
+    "rightOperand": "x12345"
+}
+
+```
+The `rightOperand` here is a reference to an existing contract. Both party need to be able to identify a unique contract with the given reference.
+
+Beware, that in such cases it is mandatory to also set a `Access Policy` to not potentially reveal customer-supplier relationship information by e.g. the contract identifiers.
+
+`ContractReference`s typically do not contain a version.
+
+#### UsagePurpose
+```
+{
+    "leftOperand": "cx-policy:UsagePurpose",
+    "operator": "eq",
+    "rightOperand": "cx.traceability.aspects:1"
+}
+
+```
+The according `rightOperand`s for `UsagePurpose` depend highly on the use case and will be further documented in their individual KITs.
+
+Versions for `UsagePurpose` are typically 1-digit.
 
 ### Contract Definitions
 
