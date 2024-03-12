@@ -27,11 +27,11 @@ This emulates the communication over EDC, retrieving assets via a registry and b
 
 This local deployment is an easy installation with helm. This setup is built to run on a kubernetes cluster.
 
-| Step                                                                             | Action                              | Description                                                             |
-|----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
-|![arrow down](@site/static/img/arrow_down.png)| **[Install the prerequisites](#step-1-prerequisites)**| Install all necessary tools for this setup                                     |
-|![vector](@site/static/img/vector.png)    | **[Check out the Code](#step-2-check-out-the-code)**               | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster|
-|![check](@site/static/img/check.png)     | **[Installing the Service](#step-3-installing-the-services)**|Start cluster and interact with the Item Relationship Service|
+| Step                                            | Action                                                        | Description                                                                              |
+|-------------------------------------------------|---------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| ![arrow down](@site/static/img/arrow_down.png)  | **[Install the prerequisites](#step-1-prerequisites)**        | Install all necessary tools for this setup                                               |
+| ![vector](@site/static/img/vector.png)          | **[Check out the Code](#step-2-check-out-the-code)**          | Get all necessary code to deploy the service and dependencies to the kuberneetes cluster |
+| ![check](@site/static/img/check.png)            | **[Installing the Service](#step-3-installing-the-services)** | Start cluster and interact with the Item Relationship Service                            |
 
 ### Step 1: Prerequisites
 
@@ -63,7 +63,6 @@ Check out the project [Item Relationship Service](https://github.com/eclipse-tra
 of the latest version currently (this is the version compatible with IRS 2.4.0).**
 >
 > ```git clone -b 2.6.0 https://github.com/catenax-ng/tx-item-relationship-service```
-
 
 ### Step 3: Installing the services
 
@@ -162,11 +161,11 @@ You can use several approaches to interact with the IRS. One is through the **IR
 
 Use these globalAssetId's for testing:
 
-| globalAssetId | type |
-|---------------|------|
-| urn:uuid:d3c0bf85-d44f-47c5-990d-fec8a36065c6 | vehicle combustion engine |
-| urn:uuid:61a22b1c-5725-41fb-8e1e-dccaaba83838 | vehicle combustion engine |
-| urn:uuid:513d7be8-e7e4-49f4-a22b-8cd31317e454 | vehicle combustion engine |
+| globalAssetId                                  | type                       |
+|------------------------------------------------|----------------------------|
+| urn:uuid:d3c0bf85-d44f-47c5-990d-fec8a36065c6  | vehicle combustion engine  |
+| urn:uuid:61a22b1c-5725-41fb-8e1e-dccaaba83838  | vehicle combustion engine  |
+| urn:uuid:513d7be8-e7e4-49f4-a22b-8cd31317e454  | vehicle combustion engine  |
 
 ### Valid test requests for testing
 

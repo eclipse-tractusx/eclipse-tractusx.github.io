@@ -24,18 +24,13 @@ title: Changelog
 ## [0.1.0] - 2023-08-11
 
 ### Added
+
+- move KIT to Tractus-X repository
 - Updated Software Architecture guide with descriptive documentation
 
 ### Issues Fixed
 
 - Corrected links paths to absolute path
-
-## [released]
-
-## [0.1.0] - 2023-08-11
-
-### Added
-- move KIT to Tractus-X repository
 
 ## NOTICE
 

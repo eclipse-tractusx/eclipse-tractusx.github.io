@@ -3,7 +3,7 @@ slug: office-hour-2024-02-16
 title: Office Hour 16.02.2024
 authors: 
     - sebastian_bezold
-tags: [meeting-minutes, community]
+tags: [tractus-x-office-hour, meeting-minutes, community]
 ---
 
 ## Office Hour meeting minutes
