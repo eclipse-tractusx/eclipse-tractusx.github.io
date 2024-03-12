@@ -6,35 +6,35 @@ description: 'EcoPass Kit Operation View'
 
 ![EcoPass KIT Pictotogram](./resources/img/EcoPassKIT_pictogram.png)
 
-# EcoPass KIT
+## EcoPass KIT
 
 Based on the information provided in this kit, it is possible to run and program against an infrastructure of Digital Product Pass the Catena-X-way. This infrastructure empowers Data Consumers to consume the network's data as agreed with each Data Provider and facilitated by an Operating Company. They run central and decentral services that allow them to discover each other, exchange information and contextualize it according to a standardized semantics.
 
 | Service Name          | Description                                                                                                                                                                                                             | Reference Implementation                                                                                                                                                                                                                                                                                     | [Standardized in](https://catena-x.net/de/standard-library) |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| Portal/IAM            | The central component of the Catena-X network. The Federated IAM from Catena-X is provided by the portal where you can manage the users and roles for the applications.                                                                                 | [Portal](https://github.com/eclipse-tractusx/portal-backend)                                        | CX - 0015             |
+| Portal/IAM            | The central component of the Catena-X network. The Federated IAM from Catena-X is provided by the portal where you can manage the users and roles for the applications.                                                 | [Portal](https://github.com/eclipse-tractusx/portal-backend)                                                                                                                                                                                                                                                 | CX - 0015                                                   |
 | Discovery Finder      | A microservice resolving a type of identifiers against a set of BPN-Discovery Servers.  Responsible to give the search endpoints for a type of id                                                                       | [eclipse-tractusx/sldt-discovery-finder](https://github.com/eclipse-tractusx/sldt-discovery-finder)                                                                                                                                                                                                          | CX - 0053                                                   |
 | BPN Discovery         | A microservice resolving a particular assetId against the registered BPN of its owner. Responsible for indicating the BPNs for the IDs registered by the providers                                                      | [eclipse-tractusx/sldt-bpn-discover](https://github.com/eclipse-tractusx/sldt-bpn-discovery)                                                                                                                                                                                                                 | CX - 0053                                                   |
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                                                                                                                | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]         | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
-| Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application is responsible for retrieving the passports and interacting with the services listed above.                                                               | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
+| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
+| Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application is responsible for retrieving the passports and interacting with the services listed above.                                                             | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
 
 <br/>
 
-# Configuration Guide
+## Configuration Guide
 
 In order to get the Digital Product Pass working, an EDC needs to be configured and assets need to be created so that the application is able to perform the communications.
 
-> **_NOTE:_**
+> **NOTE:**
 *This documentation is based on the Digital Product Pass Admin Guide. For the complete information check the CX-0096-TriangleForDigitalProductPass Standard or the [Admin Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/admin%20guide/Admin_Guide.md)*
 
 ## EDC Provider Configuration
 
 When configuring your EDC Provider you need to take into consideration the following guidelines and formats:
 
-> **_NOTE:_**
+> **NOTE:**
 *Please take into consideration following our Postman Collection while setting your EDC Provider*
 
 ### Documentation Description
@@ -47,18 +47,18 @@ All the configurations are in JSON notation and follow the [EDC Configuration fr
 
 When configurating your EDC provider you will be able to set some assets which refer to a certain endpoint.
 
-> **_INFO:_** *All public assets must be registered in a SubModel from a Digital Twin in the Digital Twin Registry.*
+> **INFO:** *All public assets must be registered in a SubModel from a Digital Twin in the Digital Twin Registry.*
 
 #### Variables
 
-| Name                    | Description                                                                                                                      | Example Value                                                                                                                                                                                                                                                                                                                                                                                                              |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AssetId                 | Combination of Digital Twin and Sub Model UUIDs                                                                                  | **Example value for asset**: urn:uuid:0ec8cf2b-f58e-3f13-b5ef-e7dd01d15b19 <br/>**Example value for registry**: digital-twin-registry                                                                                                                                                                                                                                                          |
-| AssetType               | The type of the Asset                                                                                                            | **Example value for asset**: Asset <br/>**Example value for registry**: data.core.digitalTwinRegistry                                                                                                                                                                                                                                                                                                                          |
-| Description             | Simple description of the asset                                                                                                  | Battery Passport Test Data                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Name                    | Description                                                                                                                      | Example Value                                                                                                                                                                                                                                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AssetId                 | Combination of Digital Twin and Sub Model UUIDs                                                                                  | **Example value for asset**: urn:uuid:0ec8cf2b-f58e-3f13-b5ef-e7dd01d15b19 <br/>**Example value for registry**: digital-twin-registry                                                                                                                                                                    |
+| AssetType               | The type of the Asset                                                                                                            | **Example value for asset**: Asset <br/>**Example value for registry**: data.core.digitalTwinRegistry                                                                                                                                                                                                    |
+| Description             | Simple description of the asset                                                                                                  | Battery Passport Test Data                                                                                                                                                                                                                                                                               |
 | DataProviderEndpointUrl | URL to the endpoint which stores and serves the data, basically a Database that retrieves plain text/json data for a certain API | **Example value for asset**: [https://submodel.server.url/{{path}}/{{DigitalTwinSubmodelId}}](https://submodel.server.url/{{path}}/{{DigitalTwinSubmodelId}}) <br/> **Example value for registry**: [https://dpp-base.url/semantics/registry/api/v3.0](https://dpp-base.url/semantics/registry/api/v3.0) |
-| DigitalTwinId           | Id from the Digital Twin                                                                                                         | urn:uuid:de98db6e-8e05-5d8e-8ae8-9f702cf5c396                                                                                                                                                                                                                                                                                                                                                                                      |
-| DigitalTwinSubmodelId   | Sub Model Id registered in the Digital Twin Registry  
+| DigitalTwinId           | Id from the Digital Twin                                                                                                         | urn:uuid:de98db6e-8e05-5d8e-8ae8-9f702cf5c396                                                                                                                                                                                                                                                            |
+| DigitalTwinSubmodelId   | Sub Model Id registered in the Digital Twin Registry                                                                             |                                                                                                                                                                                                                                                                                                          |
 
 #### Format and Fields
 
@@ -67,7 +67,7 @@ When configurating your EDC provider you will be able to set some assets which r
     "@context": {},
     "asset": {
         "@type": "{{AssetType}}",
-        "@id": "{{AssetId}}", 
+        "@id": "{{AssetId}}", g
         "properties": {
             "description": "{{Description}}"
             "contenttype": "application/json"
@@ -97,21 +97,21 @@ Here we specify a simple policy with just the USAGE permission, so we are able t
 
 #### Usage Policies
 
-| Policy Name | Description |
-| ---- | -------- |
+| Policy Name             | Description                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------ |
 | Usage Permission Policy | In order to use/access the assets from the EDC Provider the Usage Policy is required |
 
-> **_NOTE:_**
+> **NOTE:**
 *At the moment only Usage Permission Policies are assigned to assets, however restriction policies could be also configured if it is required for a specific use case.*
 
 #### Variables
 
-| Name | Description | Example Value |
-| ---- | -------- | ---- |
-| PolicyId | UUID that identifies the policy in the EDC Connector | ad8d2c57-cf32-409c-96a8-be59675b6ae5 |
-| PermissionType | DID Permission Type | PolicyDefinitionRequestDto |
-| PermissionActionType | Defines the action allowed when the permission is assigned to an asset. In case of the usage policy the value "USE" is necessary | "USE" |
-| BPN                  | Consumer's Business Partner Number                                                                                               | BPNL000000000000 |
+| Name                 | Description                                                                                                                      | Example Value                        |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| PolicyId             | UUID that identifies the policy in the EDC Connector                                                                             | ad8d2c57-cf32-409c-96a8-be59675b6ae5 |
+| PermissionType       | DID Permission Type                                                                                                              | PolicyDefinitionRequestDto           |
+| PermissionActionType | Defines the action allowed when the permission is assigned to an asset. In case of the usage policy the value "USE" is necessary | "USE"                                |
+| BPN                  | Consumer's Business Partner Number                                                                                               | BPNL000000000000                     |
 
 #### Format and Fields
 
@@ -192,20 +192,20 @@ For framework agreement and membership in Catena-X configure this policy:
 
 Contract definitions allow us to expose the assets and link them to a contract policy and an access policy.
 
-> **_INFO:_** *Remember that all **policies and assets** you bind to a contract **must be defined in the same EDC Connector** and linked through their ID in the configuration from the contract.*
+> **INFO:** *Remember that all **policies and assets** you bind to a contract **must be defined in the same EDC Connector** and linked through their ID in the configuration from the contract.*
 
 #### Variables
 
-| Name | Description | Example Value                                                                                                                                 |
-| ---- | -------- |-----------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractDefinitionId | UUID that identifies the policy in the EDC Connector | 76b50bfc-ec19-457f-9911-a283f0d6d0df                                                                                                          |
-| AssetId | Combination of Digital Twin and Sub Model UUIDs | **Example value for asset**: urn:uuid:0ec8cf2b-f58e-3f13-b5ef-e7dd01d15b19 <br/> **Example value for registry**: digital-twin-registry |
-| AccessPolicyId | Policy that allows/restricts/enforces asset access constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
-| ContractPolicyId | Policy that allows/restricts/enforces contract constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                          |
+| Name                 | Description                                                    | Example Value                                                                                                                          |
+| -------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| ContractDefinitionId | UUID that identifies the policy in the EDC Connector           | 76b50bfc-ec19-457f-9911-a283f0d6d0df                                                                                                   |
+| AssetId              | Combination of Digital Twin and Sub Model UUIDs                | **Example value for asset**: urn:uuid:0ec8cf2b-f58e-3f13-b5ef-e7dd01d15b19 <br/> **Example value for registry**: digital-twin-registry |
+| AccessPolicyId       | Policy that allows/restricts/enforces asset access constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                   |
+| ContractPolicyId     | Policy that allows/restricts/enforces contract constraints     | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                   |
 
 #### Format and Fields
 
-> **_INFO:_** *For testing purposes and in order to ease the access to your assets we are going to define the **same policy as accessPolicy and as contractPolicy**. However, you are recommended to configure two separated policies and specify them adapting each one of them to your specific needs.*
+> **INFO:** *For testing purposes and in order to ease the access to your assets we are going to define the **same policy as accessPolicy and as contractPolicy**. However, you are recommended to configure two separated policies and specify them adapting each one of them to your specific needs.*
 
 ```json
 {
@@ -227,22 +227,22 @@ Contract definitions allow us to expose the assets and link them to a contract p
 
 Once you finish the configuration, to make the endpoint public configure your digital twin in the following way:
 
- > **_INFO:_** *You need to be able to request tokens for the **Catena-X Central IAM** in order to **configure Digital Twins** in the Registry.*
+ > **INFO:** *You need to be able to request tokens for the **Catena-X Central IAM** in order to **configure Digital Twins** in the Registry.*
 
 #### Variables
 
-| Name | Description | Example Value |
-| ---- | -------- | ---- |
-| DigitalTwinId | Manually generated DID that contains a UUID | 32aa72de-297a-4405-9148-13e12744028a |
-| DigitalTwinSubmodelId | Sub Model Id registered in the Digital Twin Registry | 699f1245-f57e-4d6b-acdb-ab763665554a |
-| PartInstanceId | Battery passport DMC code or the part instance Id | X123456789012X12345678901234566 |
-| manufacturerPartId | The Part Id given by the manufacturer, it idenfies the type of the product | XYZ78901 |
-| EDCProviderUrl | URL to the endpoint which contains the EDC Provider | [https://edc.control.plane/](https://edc.control.plane/) |
-| BPN | OPTIONAL: The endpoint address can include a BPN number, which shall lead to the EDC Provider, and return the contracts when called from an EDC Consumer | BPNL000000000000 |
-| SubmodelIdShort | EXACT STRING REQUIRED: The submodel id of the battery passports needs to be exactly the string: "batteryPass" | **batteryPass** |
-| BammModelVersionId | The semantic version of the asset passport model, currently the  version v4.0.0 is used | urn:samm:io.catenax.battery.battery_pass:4.0.0#BatteryPass |
+| Name                  | Description                                                                                                                                              | Example Value                                              |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| DigitalTwinId         | Manually generated DID that contains a UUID                                                                                                              | 32aa72de-297a-4405-9148-13e12744028a                       |
+| DigitalTwinSubmodelId | Sub Model Id registered in the Digital Twin Registry                                                                                                     | 699f1245-f57e-4d6b-acdb-ab763665554a                       |
+| PartInstanceId        | Battery passport DMC code or the part instance Id                                                                                                        | X123456789012X12345678901234566                            |
+| manufacturerPartId    | The Part Id given by the manufacturer, it idenfies the type of the product                                                                               | XYZ78901                                                   |
+| EDCProviderUrl        | URL to the endpoint which contains the EDC Provider                                                                                                      | [https://edc.control.plane/](https://edc.control.plane/)   |
+| BPN                   | OPTIONAL: The endpoint address can include a BPN number, which shall lead to the EDC Provider, and return the contracts when called from an EDC Consumer | BPNL000000000000                                           |
+| SubmodelIdShort       | EXACT STRING REQUIRED: The submodel id of the battery passports needs to be exactly the string: "batteryPass"                                            | **batteryPass**                                            |
+| BammModelVersionId    | The semantic version of the asset passport model, currently the  version v4.0.0 is used                                                                  | urn:samm:io.catenax.battery.battery_pass:4.0.0#BatteryPass |
 
-> **_INFO:_** *It is important that the "SubmodelIdShort" is set in the correct format and that the EDCProviderUrl points to an valid EDC Provider, that provides valid contracts configured in the structure defined here.*
+> **INFO:** *It is important that the "SubmodelIdShort" is set in the correct format and that the EDCProviderUrl points to an valid EDC Provider, that provides valid contracts configured in the structure defined here.*
 
 #### Format and Fields
 
@@ -379,7 +379,7 @@ Once you finish the configuration, to make the endpoint public configure your di
     }
 ```
 
-> **_NOTE:_**
+> **NOTE:**
 *The BPN number is not required for the configuration of the endpoint, just **make sure that the host is pointing to the EDC Provider**.*
 
 ### Digital Twin Registry Configuration
@@ -388,10 +388,10 @@ When configuring the digital twin registry behind the EDC Provider you should fo
 
 #### Variables
 
-| Name         | Description                                 | Example Value                                                 |
-|--------------|---------------------------------------------|---------------------------------------------------------------|
+| Name         | Description                                 | Example Value                             |
+| ------------ | ------------------------------------------- | ----------------------------------------- |
 | registryUrl  | The base url from the digital twin registry | <https://dpp-base.url/semantics/registry> |
-| registryName | The name from the asset for the registry    | digital-twin-registry                                         |
+| registryName | The name from the asset for the registry    | digital-twin-registry                     |
 
 #### Format and Fields
 

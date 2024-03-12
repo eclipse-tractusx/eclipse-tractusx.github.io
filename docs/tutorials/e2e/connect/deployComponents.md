@@ -11,9 +11,9 @@ once and are accessible by all participants.
 
 :::warning
 
-Since this documentation is based on a MXD version where tractusx-edc version `0.5.1` is used, there is a need to adapt the `values.yaml` inside the cloned repository **tutorial-resources**. The file is located in `tutorial-resources/mxd/modules/connector/values.yaml`
+Since this documentation is based on a MXD version where tractusx-edc version `0.5.3` is used, there is a need to adapt the `values.yaml` inside the cloned repository **tutorial-resources**. The file is located in `tutorial-resources/mxd/modules/connector/values.yaml`
 
-Instead of the `latest` tag for the **controlplane** and **dataplane** image, please use `0.5.1`.
+Instead of the `latest` tag for the **controlplane** and **dataplane** image, please use `0.5.3`.
 
 ```yaml
 # As an example for the controlplane
@@ -29,7 +29,7 @@ controlplane:
   image:
     pullPolicy: Never
     #tag: "latest"
-    tag: "0.5.1"
+    tag: "0.5.3"
 ```
 
 :::
