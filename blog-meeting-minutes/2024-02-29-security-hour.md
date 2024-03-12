@@ -20,7 +20,7 @@ tags: [meeting-minutes, community, security]
 ### Open Discussions
 
 - An overarching issue for tracking the tool shifts was discussed, as it is necessary for proper planning by teams.
-  - Teams need to estimate efforts to adjust Github workflowss
+  - Teams need to estimate efforts to adjust Github workflows
 - The PR for the new Security TRG was discussed, which includes a new requirement of remediation of findings with medium severity, but not for the 25.05 release.
   - Concerns were raised about the need for additional planned team resources for triaging these issues, and it was suggested that the TRG should be finalized and teams made aware.
 - What are best-practices for scheduling security tools Action workflows, with every PR or another frequency?
