@@ -3,7 +3,7 @@ slug: office-hour-2024-03-08
 title: Office Hour 08.03.2024
 authors: 
     - almadi_gabor
-tags: [tractus-x-office-hour,meeting-minutes, community]
+tags: [tractus-x-office-hour, meeting-minutes, community]
 ---
 
 ## Office Hour meeting minutes
