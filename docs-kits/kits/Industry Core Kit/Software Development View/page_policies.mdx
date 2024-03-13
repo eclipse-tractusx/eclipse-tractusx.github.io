@@ -45,11 +45,11 @@ Examples including a JSON payload for single and multiple BPN are described on [
 
 ### Usage Policies / Contract Policies
 
-Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. To further define and restrict the posibilites of the ODRL language, it is recommended to create separate, more specific ODRL profiles. For Catena-X, the profile is published [here](https://github.com/catenax-eV/cx-odrl-profile)
+Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. To further define and restrict the possibilities of the ODRL language, it is recommended to create separate, more specific ODRL profiles. For Catena-X, the profile is published [here](https://github.com/catenax-eV/cx-odrl-profile)
 
 A general recommenation is to focus on `permission` property to further specify the contracts' details. It is also recommended to only combine those with logical `and` until further operands are required.
 
-In general, every data provider can decide on his or her own under which conditions their data assets are shared in the network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for automation. Still, individual freedom of contract is a very high good and is still possible.
+In general, every data provider can decide on his or her own under which conditions their data datasets (assets) are shared in the network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for automation. Still, individual freedom of contract is a very high good and is still possible.
 
 Since usage or contract policies are highly dependent on the use case, they are described by them in their associated KITs and only general elements are explained in the following.
 
@@ -61,6 +61,10 @@ In general, three main building blocks for data exchange contracts are specified
 The list of such standardized contract building blocks / constraints will be extended with further releases.
 
 #### FrameworkAgreement
+A `FrameworkAgreement` refers to a legal document that is published by the Catena-X e.V.: [Governance Framework for Data Space Operations](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
+
+An organization that accepts it's content, that is typically bound to a specific use case, receives a Verifiable Credential for it. Those Verifiable Credentials can be made part of the negotiation process as part of the policy:
+
 ```
 {
     "leftOperand": "cx-policy:FrameworkAgreement",
@@ -78,6 +82,8 @@ In case that remote context is not loaded, the following definition needs to be 
 `FrameworkAgreement` typically do have 2-digit versions.
 
 #### ContractReference
+A `ContractReference` is a reference to an existing ("paper") contract.
+
 ```
 {
     "leftOperand": "cx-policy:ContractReference",
@@ -86,13 +92,13 @@ In case that remote context is not loaded, the following definition needs to be 
 }
 
 ```
-The `rightOperand` here is a reference to an existing contract. Both party need to be able to identify a unique contract with the given reference.
+Both parties need to be able to identify a unique contract with the given reference value in the `rightOperand`.
 
 Beware, that in such cases it is mandatory to also set a `Access Policy` to not potentially reveal customer-supplier relationship information by e.g. the contract identifiers.
-
 `ContractReference`s typically do not contain a version.
 
 #### UsagePurpose
+A `UsagePurpose` often depends on the use case and will be further documented in their individual KITs and legally defined in the [CX ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile). The legal definition behind the standardized value further explains part of the data usage contract and how data is allowed to be used once access has been granted.
 ```
 {
     "leftOperand": "cx-policy:UsagePurpose",
@@ -101,9 +107,8 @@ Beware, that in such cases it is mandatory to also set a `Access Policy` to not 
 }
 
 ```
-The according `rightOperand`s for `UsagePurpose` depend highly on the use case and will be further documented in their individual KITs.
 
-Versions for `UsagePurpose` are typically 1-digit.
+Versions for `UsagePurpose rightOperand`s are typically 1-digit.
 
 ### Contract Definitions
 
