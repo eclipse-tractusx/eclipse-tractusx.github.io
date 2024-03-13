@@ -44,6 +44,17 @@ A TRG could include information on where these guide should be located and in wh
             <category>community</category>
         </item>
         <item>
+            <title><![CDATA[Security Office Hour 29.02.2024]]></title>
+            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-02-29</link>
+            <guid>security-office-hour-2024-02-29</guid>
+            <pubDate>Thu, 29 Feb 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Security Office Hour meeting minutes]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a class="hash-link" href="#security-office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="announcements">Announcements<a class="hash-link" href="#announcements" title="Direct link to heading">​</a></h3><ul><li>Security team approvals for most projects in scope of release 24.03 have been completed.</li><li>Upcoming changes for release 24.05 will focus on FOSS security tools, including<ul><li>switch from Veracode to CodeQL for SAST,</li><li>switch from Gitguardian to gitleaks for secrets scanning,</li><li>DAST will not be part of the upcoming TRG until further notice.</li></ul></li><li>DAST was removed from TRG due to issues with authenticated scans and SARIF report as scanning alerts in repository security section.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>An overarching issue for tracking the tool shifts was discussed, as it is necessary for proper planning by teams.<ul><li>Teams need to estimate efforts to adjust Github workflows</li></ul></li><li>The PR for the new Security TRG was discussed, which includes a new requirement of remediation of findings with medium severity, but not for the 25.05 release.<ul><li>Concerns were raised about the need for additional planned team resources for triaging these issues, and it was suggested that the TRG should be finalized and teams made aware.</li></ul></li><li>What are best-practices for scheduling security tools Action workflows, with every PR or another frequency?<ul><li>The TRG claims at least once, this is mandatory baseline for all.</li><li>Best practice is more frequently, recommendations differ per tool (e.g. secret scanning for every PR, dependency scan on a weekly basis).</li><li>The trigger will be on push + on pull + scheduled - frequency depends on repositories activity, so the team has to decide.</li><li>Best practice recommendations will be published in the sig-security repository.</li></ul></li></ul>]]></content:encoded>
+            <category>meeting-minutes</category>
+            <category>community</category>
+            <category>security</category>
+        </item>
+        <item>
             <title><![CDATA[Office Hour 23.02.2024]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-02-23</link>
             <guid>office-hour-2024-02-23</guid>
