@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-03-08T00:00:00.000Z</updated>
+    <updated>2024-03-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Security Office Hour 14.03.2024]]></title>
+        <id>security-office-hour-2024-03-14</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-03-14"/>
+        <updated>2024-03-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Security Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a class="hash-link" href="#security-office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="announcements">Announcements<a class="hash-link" href="#announcements" title="Direct link to heading">​</a></h3><ul><li>SAST: CodeQL transition is ongoing, PRs to add corresponding workflows is ongoing. Veracode license will expire at the end of March, so everyone is encouraged to review their workflows to ensure a timely transition to CodeQL.</li><li>DAST: Invicti license will expire at the end of August and already exceeded the website limit. There will be no DAST tool required for the next Quality Gate.</li><li>Secret scanning<ul><li>Gitguardian is currently set up, but Gitleaks is a potential successor.</li><li>Testing of Github secret scanning is still in progress.</li></ul></li><li>TRG 8.0 has been published as a draft, adjustments as PR are warmly welcome.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>none</li></ul>]]></content>
+        <author>
+            <name>Daniel Dilger</name>
+            <uri>https://github.com/mm73628486283/</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+        <category label="security" term="security"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tractus-X Office Hour 08.03.2024]]></title>
         <id>office-hour-2024-03-08</id>
