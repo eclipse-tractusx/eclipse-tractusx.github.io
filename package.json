@@ -24,7 +24,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mdx-js/react": "^1.6.22",
-    "@mui/icons-material": "^5.10.16",
+    "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.10.17",
     "clsx": "^1.2.1",
     "docusaurus-plugin-openapi-docs": "^1.5.1",
