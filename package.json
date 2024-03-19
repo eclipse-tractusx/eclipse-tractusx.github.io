@@ -21,7 +21,7 @@
     "@docusaurus/plugin-client-redirects": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@docusaurus/theme-mermaid": "2.2.0",
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.10.5",
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.10.16",
