@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([[15107],{35582:t=>{t.exports=JSON.parse('{"label":"tractus-x-office-hour","permalink":"/community/meeting-minutes/tags/tractus-x-office-hour","allTagsPath":"/community/meeting-minutes/tags","count":9}')}}]);

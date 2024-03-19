@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-03-14T00:00:00.000Z</updated>
+    <updated>2024-03-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Tractus-X Office Hour 15.03.2024]]></title>
+        <id>office-hour-2024-03-18</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-03-18"/>
+        <updated>2024-03-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Collaboration call for shared Ownership for Release 24.05 we will have a tandem mode for the upcoming release and searching for responsible through the mailing list</li><li>Please review the current <a href="https://eclipse-tractusx.github.io/docs/release/trg-0/" target="_blank" rel="noopener noreferrer">Draft-TRG´s</a></li><li>Archived repositories<ul><li><a href="https://github.com/eclipse-tractusx/ssi-docu" target="_blank" rel="noopener noreferrer">ssi-docu</a></li><li><a href="https://github.com/eclipse-tractusx/daps-helm-chart" target="_blank" rel="noopener noreferrer">daps-helm-chart</a></li><li><a href="https://github.com/eclipse-tractusx/daps-registration-service" target="_blank" rel="noopener noreferrer">daps-registration-service</a></li><li><a href="https://github.com/eclipse-tractusx/managed-identity-wallets-archived" target="_blank" rel="noopener noreferrer">managed-identity-wallets-archived</a></li><li><a href="https://github.com/eclipse-tractusx/tractusx-quality-checks" target="_blank" rel="noopener noreferrer">tractusx-quality-checks</a></li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>Updates to Acceptance Criteria and that DAST (dynamic application security testing) scans will not be considered</li><li>Friendly reminder to check out the <a href="https://eclipse-tractusx.github.io/community/open-meetings#Security%20-%20Office%20Hour" target="_blank" rel="noopener noreferrer">Security Office Hours</a> and the <a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-03-14" target="_blank" rel="noopener noreferrer">Security Office Hour Minutes</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Congrats to <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan Krishnamurthy</a> as a new <a href="https://projects.eclipse.org/projects/automotive.tractusx/who" target="_blank" rel="noopener noreferrer">committer</a> in our community.</li><li>No open feedback or veto to archiving repositories that are out of purpose</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>Current planning around the <a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024" target="_blank" rel="noopener noreferrer">2. Community Days Event</a>, feel free to join</li><li>Infosession Processes, Methods Tools for next release 24.08 will present on monday planning meeting</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussions">Open Discussions<a class="hash-link" href="#open-discussions" title="Direct link to heading">​</a></h3><ul><li>Committer Matrix <a href="https://chat.eclipse.org/#/room/#tractusx-committers:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Chatroom</a> i now available for us within the Eclipse Tractus-X.</li><li>Release Day information to <a href="https://www.youtube.com/watch?v=s_uo7vvfk6k" target="_blank" rel="noopener noreferrer">release day insights (YouTube)</a><ul><li>Impressions for release process from Hanno, new standards and topics like SSI and further breaking changes</li><li>Working together with the community</li></ul></li></ul>]]></content>
+        <author>
+            <name>Fabian Grün</name>
+            <uri>https://github.com/fagru3n</uri>
+        </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Security Office Hour 14.03.2024]]></title>
         <id>security-office-hour-2024-03-14</id>
