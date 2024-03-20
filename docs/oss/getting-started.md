@@ -22,7 +22,7 @@ For contributing to the Eclipse Tractus-X project you need an Eclipse Foundation
 #### Configure
 
 - Enable two-factor authentication (2FA)
-- Set your primary e-mail address to the address you are using for your Eclipse account
+- Add your email, you are using for your Eclipse account, to your GitHub account
 
 ### Eclipse Foundation account
 
@@ -38,7 +38,7 @@ For contributing to the Eclipse Tractus-X project you need an Eclipse Foundation
 
 ## Extended Contributor Permissions
 
-There is the possibility to get some [additional rights](http://localhost:3000/docs/oss/contributor-committer#official-project-contributor) on the GitHub repositories with the official Tractus-X project contributor role.
+There is the possibility to get some [additional rights](/docs/oss/contributor-committer#official-project-contributor) on the GitHub repositories with the official Tractus-X project contributor role.
 
 - Open an issue in sig-infra via this [issue template](https://github.com/eclipse-tractusx/sig-infra/issues/new?assignees=&labels=support&projects=&template=support-add-project-contributor.md&title=New+Tractus-X+project+contributor)
 - Assign the issue to a committer from the [committer list](https://projects.eclipse.org/projects/automotive.tractusx/who) to onboard you into the Eclipse Tractus-X GitHub organization, since every committer can add project contributors

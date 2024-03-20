@@ -19,10 +19,7 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 
 ## How can I become an official Tractus-X contributor with triage role?
 
-- List of existing [project contributors](https://projects.eclipse.org/projects/automotive.tractusx/who)
-- A Tractus-X committer can add a contributor, see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors)
-- More information about [GitHub repository roles](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)
-- More information about [Eclipse roles](https://eclipse-tractusx.github.io/docs/oss/contributor-committer#official-project-contributor)
+See the [Getting Started Page](/docs/oss/getting-started#extended-contributor-permissions)
 
 ## How do I figure out the user name in Eclipse (= GitLab) and GitHub?
 
