@@ -24,6 +24,13 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 - More information about [GitHub repository roles](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)
 - More information about [Eclipse roles](https://eclipse-tractusx.github.io/docs/oss/contributor-committer#official-project-contributor)
 
-## How do I figure out the user name in Eclipse (= GitLab) ?
+## How do I figure out the user name in Eclipse (= GitLab) and GitHub?
 
-- GitLab: Use the search GitLab field
+Use the [Eclipse User Profile REST services](https://webdev.eclipse.org/docs/api/eclipsefdn-profile-api/#tag/User-Profile)
+
+```md
+- Get the profile with the Eclipse user name:
+https://api.eclipse.org/account/profile/{eclipse_username}
+- Get the profile with the GitHub user name:
+https://api.eclipse.org/github/profile/{github_username}
+```
