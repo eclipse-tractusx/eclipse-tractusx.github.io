@@ -38,14 +38,24 @@ In Industry Core, different types of parts, e. g. serialized parts, batches, JIS
 
 To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit#Regulatory-Compliance-and-Security).
 
-#### Creating Digital Twins in the DTR
+#### Unique ID for Parts
 
-The following general conventions apply for all these digital twins:
+In the Industry Core, a Unique ID uniquely identifies a particular real-world asset. Currently, these are: serialized parts (including vehicles), batches, JIS parts (Just-in-Sequence) and also catalog parts.
+
+A Unique ID is a URN and has the following format: `urn:uuid:<UUIDv4>`, i.e., the NID is "uuid" and the NSS is a UUID Version 4 (as described here: https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+The Unique ID mus be created by the manufacturer of the part. At the latest, it must be created when the digital twin for this part is created as the Unique ID is part of the digital twin information.
+
+Unique IDs are used in several places in the Industry Core, e.g., as `globalAssetId` for digital twins or as `catenaXId` in aspect models. 
+
+#### Conventions for Creating Digital Twins
+
+The following general conventions apply for all digital twins:
 
 - id: The AAS ID must be a UUIDv4 in URN format: `urn:uuid:<UUIDv4>`;
 - globalAssetId: the Unique ID of the real-world part for which a digital twin is created.
 
-> :warning: The AAS ID is not the same id as the Catena-X Unique ID, although they have the same format (UUID) and therefore look the same. A Unique ID identifies real-world parts, whereas a AAS ID identifies a digital twin of such a part. So, don't use the same value for Unique ID and AAS ID.
+> :warning: AAS ID and Unique ID are different identifiers, although they share the same format (UUID) and therefore look the same. A Unique ID identifies real-world assets, whereas a AAS ID identifies a digital twin of such an asset. Do not use the same value for Unique ID and AAS ID for a digital twin.
 
 > :raised_hand: **Unique ID Push:** Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
 
