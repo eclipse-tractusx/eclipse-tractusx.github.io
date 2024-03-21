@@ -15,6 +15,8 @@ The German Supply Chain Due Diligence Act came into force on 1 January 2023. Thi
 
 Catena-X aims to support supply chain due diligence obligations in a market environment that misses full up- and downstream transparency. This is argued to be relevant for Environmental and Social Standards (ESS) incident tracking, without compromising GAIA-X and Catena-X principles like data sovereignty, interoperability, standardization, and use of federated services.
 
+The ESS-solution enables companies to search for ESS incidents in their supply chain and thus covers the "occasion-related tracking of ESS-related incidents" for the Supply Chain Act. Basically there are two search directions: The bottom - up search starts at the Incident Originator and works downstream up to the OEM. The top - down search always looks towards the direct suppliers and works upstream.
+
 ### Vision
 
 As companies governed by environment and social standards (ESS), we would like to determine, if we are affected by an incident reported in the global supply network. Consequently, we could prove to be fully compliant with legal requirements, including but not limited to the German Supply Chain Due Diligence Act.
@@ -65,9 +67,11 @@ The Clearing Agency is prompted to **clear incidents.** This independent body ha
 
 The **investigation of the ESS-related incident** is used to determine the cause of the reported incident. All business partners involved work to identify and confirm the origin of the incident. Once the source is identified and confirmed, a decision is made by the business partners whether to accept or reject the ESS-related incident.
 
-**The trace of an incident** is operated through the decentral Catena-X supply network. The process moves from business partner to business partner in their supply chain with the incident originator as the starting point. The use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach.
+**The trace of an incident** is operated through the decentral Catena-X supply network. The process moves from business partner to business partner in their supply chain with the incident originator as the starting point for a bottom - up approach and at the OEM for a top - down approach. 
 
-This means that the transfer of information is initiated by L0 who identifies its impacted customers (L1) using the bottom-up search logic (for example Knowledge Agent). The impacted customers (L1) can then push the information up the supply chain (*i.e.* their impacted customers or L2) and so on until it arrives at the end of the chain (*i.e.* OEM).
+The use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach. This is described in the following chapters.
+
+It means that the transfer of information is initiated by L0 who identifies its impacted customers (L1) using the bottom-up search logic (for example Knowledge Agent). The impacted customers (L1) can then push the information up the supply chain (*i.e.* their impacted customers or L2) and so on until it arrives at the end of the chain (*i.e.* OEM).
 
 The trace of an incident follows previously mentioned principles along any obligations enforced by law. For any business partner in the supply chain, its access to the status/information related to a specific incident will depend on its degree of relationship with the impacted company:
 
