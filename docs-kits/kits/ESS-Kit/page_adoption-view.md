@@ -69,7 +69,7 @@ The **investigation of the ESS-related incident** is used to determine the cause
 
 **The trace of an incident** is operated through the decentral Catena-X supply network. The process moves from business partner to business partner in their supply chain with the incident originator as the starting point for a bottom - up approach and at the OEM for a top - down approach. 
 
-The use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach. This is described in the following chapters.
+The use case ESS believes that the most promising way to solve an ESS incident will be a bottom - up approach. This is described here.
 
 It means that the transfer of information is initiated by L0 who identifies its impacted customers (L1) using the bottom-up search logic (for example Knowledge Agent). The impacted customers (L1) can then push the information up the supply chain (*i.e.* their impacted customers or L2) and so on until it arrives at the end of the chain (*i.e.* OEM).
 
@@ -82,6 +82,8 @@ The trace of an incident follows previously mentioned principles along any oblig
 - **Level n (L~n~)**: those business partners have an indirect relationship with the potential incident originator (L~0~). They will receive from the previous business partner (L~n-1~) the anonymized incident information (anonymized title & description, category, status, etc.) along with the degree of relationship (*i.e.* their distance to the L~0~). The incident originator's identity (L~0~) and the path from L~0~ to L~n~ in the impacted supply chain will not be communicated, nor documented.
 
 - **Clearing Agency:** these users can see the status and the original intake of information of all incidents. The clearing agency will only be able to identify the targeted business partner (L~0~) who is handling the incident. Finally, if the incident can be closed by the L0, the clearing agency will receive a status update.
+
+**Note**: For the top - down approach with IRS recursive this is not applicable because no information about the ESS incident is transferred between Business Partners.
 
 ![ESS_KitCustomerJourney](@site/static/kits/ESS-Kit/CatenaX_ESS_KitCustomerJourney.svg)
 
@@ -186,15 +188,19 @@ To participate in the ESS Incident Management use-case, the following single sta
 - CX-0013 Identity of Member Companies
 - CX-0014 Employees and Technical Users
 - CX-0015 IAM & Access Control Paradigm
-- CX-0016 Company Attribute Verification
-- CX-0017 Company Role by the Connector
-- CX-0018 Sovereign Data Exchange
+- CX-0018 Dataspace Connectivity
 - CX-0049 DID Document Schema
-- CX-0050 Framework Agreement Credential
 
 ### ESS incidents Data model
 
 - [CX-0113 Aspect Model: ESS Datamodel](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0113-AspectModelESSDatamodel-v1.0.0.pdf)
+
+**Note:** For a top - down approach with IRS, an ESS incident does not have to exist in the form of the ESS Incident Data Model. The following parameters are sufficient for an ESS investigation:
+
+- Catena-X ID of the product whose supply chain is to be investigated
+- BPNS (Business Partner Number Site) of the company under investigation
+
+Nevertheless an investigation should be triggered only for an ESS incident occasion - related search.
 
 ### List of all other standards used
 
