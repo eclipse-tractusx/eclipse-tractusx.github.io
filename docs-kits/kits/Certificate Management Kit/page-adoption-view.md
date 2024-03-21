@@ -4,8 +4,7 @@ title: Adoption View
 description: 'Certificate Management Kit'
 sidebar_position: 2
 ---
-
-![Certificate Management kit banner](/img/Certificate_Kit_Icon.png)
+![Certificate Management kit banner](/img/kit-icons/certificate-kit-icon.svg)
 
 ## Certificate Management KIT
 
