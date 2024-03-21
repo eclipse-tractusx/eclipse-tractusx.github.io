@@ -5,6 +5,8 @@ description: Operatation View
 id: connector_kit_operation_view
 ---
 
+![Connector kit banner](/img/kit-icons/connector-kit-icon.svg)
+
 ## Reference Implementation
 
 The reference implementation for the Connector kit is the  [Eclipse Dataspace Connector](https://github.com/eclipse-edc/Connector).

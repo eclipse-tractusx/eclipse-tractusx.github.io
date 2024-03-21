@@ -1,10 +1,24 @@
 # Changelog
 
-![Connector kit banner](@site/static/img/ConnectorKitIcon.png)
+![Connector kit banner](/img/kit-icons/connector-kit-icon.svg)
 
 ## Connector KIT
 
 All notable changes to this Kit will be documented in this file.
+
+## [2.2.0] - unreleased
+
+<h3>Added</h3>
+
+- ./.
+
+<h3>Changed</h3>
+
+- Changed banner image file location and converted .png image to .svg
+
+<h3>Removed</h3>
+
+- ./.
 
 ## [2.0.0] - 2024-02-01
 
