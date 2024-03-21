@@ -5,7 +5,7 @@ description: 'Data Chain Kit'
 sidebar_position: 2
 ---
 
-![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+![Datachain kit banner](/img/kit-icons/datachain-kit-icon.svg)
 
 ### Data Chain KIT
 
