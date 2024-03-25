@@ -184,6 +184,8 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
  | **/api/contract/cancel**               | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                                | [Go to Params](#apicontractcancel)          |
  | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                                | [Go to Params](#apicontractstatusprocessid) |
  | **/api/data**                          | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                             | [Go to Params](#apidata)                    |
+ | **/api/data/request**                  | POST   | The Single API `/data/request` calls the necessary above APIs in order to retrieve the passport with auto-sign capability, it calls the create API, then search API, signs with the agree API and retrieves the data with the data API. The authentication is done with an API Key received as an HTTP header.                                                                 | [Go to Params](#apidatarequest)             |
+
 
 #### Parameters
 
@@ -239,6 +241,36 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | processId  | processIdentification  | [REQUIRED]                  |
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
+
+#### /api/data/request
+
+##### API Key
+
+Header:
+
+`X-Api-Key: <apiKeySecret>`
+> *NOTE*: This can be changed in the configuration
+
+##### API Parameters
+
+| Parameter       | Value Name             | Mandatory or Optional Value |
+|-----------------|------------------------|-----------------------------|
+| id              | searchIdValue          | [REQUIRED]                  |
+| idType          | searchIdTypeName       | manufacturerPartId          |
+| discoveryId     | serializedIdValue      | [REQUIRED]                  |
+| discoveryIdType | serializedIdTypeName   | partInstanceId              |
+| children        | searchForChildren      | true/false  [OPTIONAL]                |
+| semanticId      | semanticIdentification | semanticId             [OPTIONAL]     |
+
+##### The Single API Data Retrieval
+
+The Single API `/api/data/request` permits to get data from a Catena-X Provider by abstracting of all the separated APIs needed to do so. Authenticating with an defined API Key and with the mandatory and given serialized and discovery identifications, this API will
+create the process and check for the viability of the data retrieval, searches for a passport with the given serialized id, automatically signs the contract retrieved from provider and start negotiation, waits for the negotiation
+to be done and returns the data negotiated and transferred. In short, it's the set of the various APIs in one with auto-sign functionality to agile the data retrieval in a simple way.
+
+> [!IMPORTANT]
+>
+> The policy selection in the single api is not enabled, in this way the first contract and policy available for the asset will be selected. **Using a policy managment system is recommended**  in order to allow this API to retrieve data assuring the policies are checked and compliant with your bussiness.
 
 #### External API calls
 
@@ -422,7 +454,7 @@ The following represents a collection of relevant documentation regarding the pr
               "keys": [
                   {
                       "type": "Submodel",
-                      "value": "urn:bamm:io.catenax.generic.digital_product_passport:1.0.0#DigitalProductPassport"
+                      "value": "urn:samm:io.catenax.generic.digital_product_passport:4.0.0#DigitalProductPassport"
                   }
               ]
           },
@@ -469,10 +501,10 @@ The following represents a collection of relevant documentation regarding the pr
             "dcat:accessService": "bc491229-1b41-49a9-9101-a430a4907e6e"
         }
     ],
-    "edc:type": "data.core.digitalTwinRegistry",
-    "edc:description": "Digital Twin Registry for DPP",
-    "edc:id": "registry-asset",
-    "edc:contenttype": "application/json"
+    "asset:prop:type": "data.core.digitalTwinRegistry",
+    "description": "Digital Twin Registry for DPP",
+    "id": "registry-asset",
+    "contenttype": "application/json"
 }
 
 ```
