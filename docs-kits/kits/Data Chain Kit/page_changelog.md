@@ -5,11 +5,25 @@ description: 'Data Chain Kit Changelog'
 sidebar_position: 10
 ---
 
-![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+![Datachain kit banner](/img/kit-icons/datachain-kit-icon.svg)
 
 ### Data Chain KIT
 
 All notable changes to this Kit will be documented in this file.
+
+## [4.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
 
 ## [3.0.0] - 2024-03-07
 
