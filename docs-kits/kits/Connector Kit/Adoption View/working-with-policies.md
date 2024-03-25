@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-description: 'Guidance on best practices'
+description: 'General Information on EDC Policies'
 title: Working with Policies
 id: connector_kit_adoption_view_policies
 ---
@@ -229,8 +229,6 @@ example, the Consumer tries to negotiate for an Offer that is extended only to i
 For that, verifiable credentials (VCs) are issued during the onboarding process according to the role a Participant
 assumes in the Dataspace. These VCs are presented by Consumers to Providers when initiating data exchange in the form
 of verifiable presentations (VPs). For more on this, refer to standards CX-0018 and CX-0149.
-
-#### Example
 
 A offer containing a `odrl:Use` permission with a `odrl:Constraint` could (in a hypothetical scenario) look like this:
 
