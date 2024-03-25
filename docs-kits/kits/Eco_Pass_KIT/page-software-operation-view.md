@@ -21,7 +21,6 @@ Based on the information provided in this kit, it is possible to run and program
 | EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018 OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                          |
 | Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application is responsible for retrieving the passports and interacting with the services listed above.                                                             | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
 
-<br/>
 
 ## Configuration Guide
 
@@ -61,6 +60,12 @@ When configurating your EDC provider you will be able to set some assets which r
 
 #### Format and Fields
 
+> [!IMPORTANT]
+>
+> Follow the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)  configuration for the assets regarding the submodel server. Which shall give the url to retrieve the submodels as defined in the digital product pass standard [CX-0096]
+
+Example:
+
 ```json
 {
     "@context": {
@@ -93,6 +98,10 @@ When configurating your EDC provider you will be able to set some assets which r
 
 ### Policies Configuration
 
+> [!TIP]
+>
+> Follow the latest [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)  configuration regarding the policies! The information included here in this guide intends to show which contraints needs to be included in the policy configuration. Like example: `Membership: Active` and `FrameworkAgreement.sustainability`
+
 Policies are important for configuration the **access, prohibitions, obligations and permissions to certain assets.**
 
 A policy can have more and less configurations, depending on the restrictions you want to give to each asset.
@@ -108,7 +117,7 @@ Here we specify a simple policy with just the USAGE permission, so we are able t
 > **NOTE:**
 *At the moment only Usage Permission Policies are assigned to assets, however restriction policies could be also configured if it is required for a specific use case.*
 
-#### Variables
+#### Policies Variables
 
 | Name                 | Description                                                                                                                      | Example Value                        |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -117,7 +126,7 @@ Here we specify a simple policy with just the USAGE permission, so we are able t
 | PermissionActionType | Defines the action allowed when the permission is assigned to an asset. In case of the usage policy the value "USE" is necessary | "USE"                                |
 | BPN                  | Consumer's Business Partner Number                                                                                               | BPNL000000000000                     |
 
-#### Format and Fields
+#### Policies Format and Fields
 
 To allow partners to access information use this policy with the BPN number included:
 
@@ -198,7 +207,7 @@ Contract definitions allow us to expose the assets and link them to a contract p
 
 > **INFO:** *Remember that all **policies and assets** you bind to a contract **must be defined in the same EDC Connector** and linked through their ID in the configuration from the contract.*
 
-#### Variables
+#### Contract Definition Variables
 
 | Name                 | Description                                                    | Example Value                                                                                                                          |
 | -------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -207,7 +216,7 @@ Contract definitions allow us to expose the assets and link them to a contract p
 | AccessPolicyId       | Policy that allows/restricts/enforces asset access constraints | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                   |
 | ContractPolicyId     | Policy that allows/restricts/enforces contract constraints     | ad8d2c57-cf32-409c-96a8-be59675b6ae5                                                                                                   |
 
-#### Format and Fields
+#### Contract Definition Format and Fields
 
 > **INFO:** *For testing purposes and in order to ease the access to your assets we are going to define the **same policy as accessPolicy and as contractPolicy**. However, you are recommended to configure two separated policies and specify them adapting each one of them to your specific needs.*
 
@@ -231,11 +240,15 @@ Contract definitions allow us to expose the assets and link them to a contract p
 
 ### Digital Twin Registration
 
+> **INFO:** *You need to be able to request tokens for the **Catena-X Central IAM** in order to **configure Digital Twins** in the Registry.*
+
 Once you finish the configuration, to make the endpoint public configure your digital twin in the following way:
 
- > **INFO:** *You need to be able to request tokens for the **Catena-X Central IAM** in order to **configure Digital Twins** in the Registry.*
+> [!IMPORTANT]
+>
+> The information displayed here is just an example how to configure you digital twin registry aspect so that the DPP Application can retrieve it. For more detailed and updated guidelines check also the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)
 
-#### Variables
+#### Digital Twin Variables
 
 | Name                  | Description                                                                                                                                              | Example Value                                              |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
@@ -250,7 +263,7 @@ Once you finish the configuration, to make the endpoint public configure your di
 
 > **INFO:** *It is important that the "SubmodelIdShort" is set in the correct format and that the EDCProviderUrl points to an valid EDC Provider, that provides valid contracts configured in the structure defined here.*
 
-#### Format and Fields
+#### Digital Twin Format and Fields
 
 ```json
 {
@@ -392,14 +405,14 @@ Once you finish the configuration, to make the endpoint public configure your di
 
 When configuring the digital twin registry behind the EDC Provider you should follow this EDC Registration guidelines:
 
-#### Variables
+#### Digital Twin Registry Variables
 
 | Name         | Description                                 | Example Value                             |
 | ------------ | ------------------------------------------- | ----------------------------------------- |
 | registryUrl  | The base url from the digital twin registry | <https://dpp-base.url/semantics/registry> |
 | registryAssetId | The name from the asset for the registry    | digital-twin-registry                     |
 
-#### Format and Fields
+#### Digital Twin Registry Format and Fields
 
 ```json
 {
