@@ -8,6 +8,22 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.1.0] - 2024-05-??
+
+### Added
+
+N./A.
+
+### Changed
+
+* DT submodel structure updated
+* EDC asset structure updated
+* Policy structure updated
+
+### Removed
+
+* Deprecated EDC asset attributes removed
+
 ## [1.0.0] - 2024-03-08
 
 ### Added

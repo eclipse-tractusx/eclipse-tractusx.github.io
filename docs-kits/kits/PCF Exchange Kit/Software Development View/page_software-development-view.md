@@ -85,19 +85,23 @@ The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
     "idShort": "PCFExchangeEndpoint",
     "identification": "urn:uuid:205cf8d1-8f07-483c-9c5b-c8d706c7d05d",
     "semanticId": {
-        "value": [
-            "urn:samm:io.catenax.pcf:5.0.0#Pcf"
-        ]
+       "type": "ExternalReference",
+       "keys": [
+          {
+             "type": "GlobalReference",
+             "value": "urn:samm:io.catenax.pcf:6.0.0#Pcf"
+           }
+       ]
     },
     "endpoints": [
         {
-            "interface": "PCF-1.0.0",
+            "interface": "PCF-1.1",
             "protocolInformation": {
                 "href": "https://edc.data.plane/productIds/mat345",
                 "endpointProtocol": "HTTP",
                 "endpointProtocolVersion": ["1.1"],
                 "subprotocol": "DSP",
-                "subprotocolBody": "id=c34018ab-5820-4065-9087-416d78e1ab60;dspEndpoint=https://some.controlplane.url:7173",
+                "subprotocolBody": "id=c34018ab-5820-4065-9087-416d78e1ab60;dspEndpoint=https://some.controlplane.url:7173/api/v1/dsp",
                 "subprotocolBodyEncoding": "plain"
             }
         }
@@ -119,12 +123,10 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
     "edc:properties": {
       "rdfs:label": "PCF Data",
       "rdfs:comment": "Endpoint for PCF data",
-      "dcat:version": "1.0.0", 
-      "cx-common:version": "1.0.0", 
-      "aas-semantics:semanticId": "urn:samm:io.catenax.pcf:5.0.0#Pcf",
+      "dcat:version": "1.1", 
+      "aas-semantics:semanticId": "urn:samm:io.catenax.pcf:6.0.0#Pcf",
       "edc:contentType": "application/json",
-      "edc:type": "data.pcf.exchangeEndpoint", 
-      "dct:type": {"@id":"cx-taxo:data.pcf.exchangeEndpoint"}
+      "dct:type": {"@id":"cx-taxo:PCFExchange"}
     },
     "edc:privateProperties": null,
      
@@ -150,33 +152,32 @@ The following JSON is an policy definition including the policy "frameworkagreem
 ```json
 {
     "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/"
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
     },
-    "@type": "PolicyDefinitionRequestDto",
-    "@id": "{{POLICY_ID}}",
+    "@id": "<POLICY-ID>",
     "policy": {
-        "@type": "Policy",
-        "odrl:permission": [
+        "@context": [
+            "https://www.w3.org/ns/odrl.jsonld",
             {
-                "odrl:action": "USE",
-                "odrl:constraint": {
-                    "@type": "LogicalConstraint",
-                    "odrl:and": [
+                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+            }
+        ],
+        "@type": "Policy",
+        "profile": "cx-policy:profile2405",
+        "permission": [
+            {
+                "action": "use",
+                "constraint": {
+                    "and": [
                         {
-                            "@type": "Constraint",
-                            "odrl:leftOperand": "Membership", 
-                            "odrl:operator": {
-                                "@id": "odrl:eq"
-                            },
-                            "odrl:rightOperand": "active"
+                            "leftOperand": "cx-policy:FrameworkAgreement",
+                            "operator": "eq",
+                            "rightOperand": "pcf:1.0"
                         },
                         {
-                            "@type": "Constraint",
-                            "odrl:leftOperand": "FrameworkAgreement.pcf",
-                            "odrl:operator": {
-                                "@id": "odrl:eq"
-                            },
-                            "odrl:rightOperand": "active"
+                            "leftOperand": "cx-policy:Membership",
+                            "operator": "eq",
+                            "rightOperand": "active"
                         }
                     ]
                 }
