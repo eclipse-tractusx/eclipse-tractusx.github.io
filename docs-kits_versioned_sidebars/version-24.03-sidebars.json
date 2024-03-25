@@ -833,6 +833,7 @@
       },
       "collapsed": true,
       "items": [
+        "kits/Connector Kit/page_changelog",
         "kits/Connector Kit/Adoption View/connector_kit_adoption_view",
         {
           "type": "category",
