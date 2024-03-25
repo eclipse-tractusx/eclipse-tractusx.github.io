@@ -5,13 +5,27 @@ description: 'Certificate Management Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](/img/Certificate_Kit_Icon.png)
+![Certificate Management kit banner](/img/kit-icons/certificate-kit-icon.svg)
 
 ### Certificate Management KIT
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.1.0] - 2024-02-14
+## [2.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
+
+## [1.0.0] - 2024-02-14
 
 ### Added
 
