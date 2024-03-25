@@ -6,7 +6,7 @@
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.2.0] - unreleased
+## [3.0.0] - unreleased
 
 <h3>Added</h3>
 
