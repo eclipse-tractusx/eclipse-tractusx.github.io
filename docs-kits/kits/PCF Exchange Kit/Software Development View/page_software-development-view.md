@@ -55,7 +55,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [001](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors) (Look up EDC Endpoints) | POST   | /api/administration/Connectors/discovery/                                                            | `[<Company's BPNL>]`                                                                                              |
 | [002](https://eclipse-tractusx.github.io/docs-kits/next/kits/tractusx-edc/docs/samples/management-api-v2-walkthrough/catalog) (Look up dDTR)                                                                                                                                            | POST   | /v2/catalog/request-->Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry) |                                                                                                                   |
-| [003](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-administration-shell-ids-by-asset-link) (Lookup Twin ID)                                                                            | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"assetLifecyclePhase", "value": "AsPlanned"}}]` |
+| [003](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-administration-shell-ids-by-asset-link) (Lookup Twin ID)                                                                            | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
 | [004](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Registry/get-all-asset-administration-shell-descriptors) (Look Up PCF Submodel/EDC Asset ID)                                                                | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
 | [005](../resources/development-view/catena-x-pcf-endpoint-1_0_0.yaml) (Requesting PCF Value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
 | [006](../resources/development-view/catena-x-pcf-endpoint-1_0_0.yaml) (Sending PCF Value)                                                                                                                                                                                                                                                                 | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
@@ -70,7 +70,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the CX Standard [CX-0002](https://catena-x.net/de/standard-library) is to be followed.
 
-The digital twin id can be searched via the `manufacturerPartId` and the ``assetLifecyclePhase:"asPlanned"``. Alternatively `manufacturerPartId` and the ``digitalTwinType:"PartType"`` can be used.
+The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``. 
 
 The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
 
@@ -117,29 +117,35 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
 
 ```json
 {
-  "@type": "edc:AssetEntryDto",
-  "edc:asset": {
-    "@id": "c34018ab-5820-4065-9087-416d78e1ab60",
-    "edc:properties": {
-      "rdfs:label": "PCF Data",
-      "rdfs:comment": "Endpoint for PCF data",
-      "dcat:version": "1.1", 
-      "aas-semantics:semanticId": "urn:samm:io.catenax.pcf:6.0.0#Pcf",
-      "edc:contentType": "application/json",
-      "dct:type": {"@id":"cx-taxo:PCFExchange"}
+    "@context": {
+        "edc": "https://w3id.org/edc/v0.0.1/ns/",
+        "odrl": "http://www.w3.org/ ns/odrl/2/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dct": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cx-taxo": "https://w3id.org/catenax/taxonomy#",
+        "cx-common": "https://w3id.org/catenax/ontology/common#",
+        "aas-semantics": "https://admin-shell.io/aas/3/0/HasSemantics/"
     },
-    "edc:privateProperties": null,
-     
-  "edc:dataAddress": {
-    "edc:type": "edc:HttpData",
-    "edc:baseUrl": "https://some.url/service",
-    "edc:proxyBody": "true",
-    "edc:proxyPath": "true",
-    "edc:proxyQueryParams": "true",
-    "edc:proxyMethod": "true",
-    "edc:contentType": "application/json"
+    "@id": "c34018ab-5820-4065-9087-416d78e1ab60",
+    "@type": "edc:Asset",
+    "edc:properties": {
+        "rdfs:label": "PCF Data",
+        "rdfs:comment": "Endpoint for PCF data",
+        "cx-common:version": "1.1",
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:6.0.0#Pcf"},
+        "edc:contentType": "application/json",
+        "dct:type": {"@id":"cx-taxo:PcfExchange"}
+    },
+    "edc:dataAddress": {
+        "edc:type": "HttpData",
+        "edc:baseUrl": "https://some.url/service",
+        "edc:proxyBody": "true",
+        "edc:proxyPath": "true",
+        "edc:proxyQueryParams": "true",
+        "edc:proxyMethod": "true",
+        "edc:contentType": "application/json"
     }
-  }
 }
 ```
 
@@ -170,14 +176,14 @@ The following JSON is an policy definition including the policy "frameworkagreem
                 "constraint": {
                     "and": [
                         {
-                            "leftOperand": "cx-policy:FrameworkAgreement",
-                            "operator": "eq",
-                            "rightOperand": "pcf:1.0"
-                        },
-                        {
                             "leftOperand": "cx-policy:Membership",
                             "operator": "eq",
                             "rightOperand": "active"
+                        },
+                        {
+                            "leftOperand": "cx-policy:FrameworkAgreement",
+                            "operator": "eq",
+                            "rightOperand": "pcf:1.0"
                         }
                     ]
                 }
@@ -217,19 +223,10 @@ In case no material twin or no PCF submodel is found, EDC Asset type has to be u
 
 - [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/de/standard-library)
 - [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/de/standard-library)
-- [CX-0003 SAMMSemanticAspectMetaModel v1.0.0](https://catena-x.net/de/standard-library)
-- [CX-0006 RegistrationAndInitialOnBoarding v1.1.3](https://catena-x.net/de/standard-library)
-- [CX-0013 Identity of Member Companies v1.1.0](https://catena-x.net/de/standard-library)
-- [CX-0014 Employees and Technical Users v1.0.1](https://catena-x.net/de/standard-library)
-- [CX-0016 Company Attribute Verification v1.1.0](https://catena-x.net/de/standard-library)
-- [CX-0017 Company Role by the Connector v1.1.0](https://catena-x.net/de/standard-library)
-- [CX-0018 Eclipse Data Space Connector (EDC) v2.1.0](https://catena-x.net/de/standard-library)
-- [CX-0026 Product Carbon Footprint Data Model v2.0.0](https://catena-x.net/de/standard-library)
-- [CX-0028 Product Carbon Footprint Request API v2.0.0](https://catena-x.net/de/standard-library)
-- [CX-0029 Product Carbon Footprint Rulebook v2.0.0](https://catena-x.net/de/standard-library)
-- [CX-0049 DID Document Schema v1.0.0](https://catena-x.net/de/standard-library)
-- [CX-0050 Framework Agreement Credential v1.0.0](https://catena-x.net/de/standard-library)
-- [CX-0051 Summary Credential v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catena-x.net/de/standard-library)
+- [CX-0018 Eclipse Data Space Connector (EDC) v3.0.0](https://catena-x.net/de/standard-library)
+- [CX-0126-Industry Core: Part Type v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0136 PCF UseCase v1.0.0](https://catena-x.net/de/standard-library)
 
 ## Other Standards
 
