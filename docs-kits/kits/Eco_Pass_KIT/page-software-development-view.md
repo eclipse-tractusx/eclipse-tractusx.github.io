@@ -186,7 +186,6 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
  | **/api/data**                          | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                             | [Go to Params](#apidata)                    |
  | **/api/data/request**                  | POST   | The Single API `/data/request` calls the necessary above APIs in order to retrieve the passport with auto-sign capability, it calls the create API, then search API, signs with the agree API and retrieves the data with the data API. The authentication is done with an API Key received as an HTTP header.                                                                 | [Go to Params](#apidatarequest)             |
 
-
 #### Parameters
 
 ##### /api/contract/create
