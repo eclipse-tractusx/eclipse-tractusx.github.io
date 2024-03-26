@@ -2,20 +2,23 @@
 title: Changelog
 ---
 
-## [1.4.0] - 2024-05-15
+## [1.3.0] - 2024-05-15
 
 ### 24.05 Added
 
+- Add new route to ECO-Pass APIs
 - Add Electric Drive Passport model v1.0.0
 - Add Chemical Material Passport model v1.0.0
 
 ### 24.05 Updated
 
+- Update example JSON Objects
 - Update Figures
-- Merge Semantic Models subsections
+- Update Semantic Models sections
 - Update DPP model version to v4.0.0
 - Update BP model version to v5.0.0
 - Update Transmission pass model to v2.0.0
+- Update attribute names
 
 ### 24.05 Removed
 
@@ -23,7 +26,9 @@ title: Changelog
 
 ### 24.05 Fixed Issues
 
-- Fixed typo
+- Fix Typos
+- Fix section names
+- Fix example json objects
 
 ## [released]
 
