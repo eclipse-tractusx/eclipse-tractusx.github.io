@@ -53,9 +53,9 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 | Discovery Finder      | A microservice resolving a type of identifiers against a set of BPN-Discovery Servers.  Responsible to give the search endpoints for a type of id                                                                       | [eclipse-tractusx/sldt-discovery-finder](https://github.com/eclipse-tractusx/sldt-discovery-finder)                                                                                                                                                                                                          | CX - 0053                                                   |
 | BPN Discovery         | A microservice resolving a particular assetId against the registered BPN of its owner. Responsible for indicating the BPNs for the IDs registered by the providers                                                      | [eclipse-tractusx/sldt-bpn-discover](https://github.com/eclipse-tractusx/sldt-bpn-discovery)                                                                                                                                                                                                                 | CX - 0053                                                   |
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
-| Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                                                                                                                | CX - 0002                                                   |
+| Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)          OR [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)                                                                                                                                                                                          | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018                                                   |
+| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018   OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                                    |
 | Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application responsible for retrieving the passports and interacting with the services listed above.                                                                | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0096                                                   |
 
 > *Note*: The diagrams match the architecture proposed in the [Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass) reference implementation [Arc42](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md) and [Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/Data%20Retrieval%20Guide.md). Using the discovery services from Catena-X
@@ -184,6 +184,7 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
  | **/api/contract/cancel**               | POST   | The user can use `/cancel` to interrupt the negotiation process once it is signed by mistake if is the case. It will be only valid until the negotiation is made.                                                                                                                                                                                                                | [Go to Params](#apicontractcancel)          |
  | **/api/contract/status/`<processId>`** | GET    | After the user signs the contract he can use the `/status` API to get the process status and see when it is ready to retrieve the passport using the API `/data`.                                                                                                                                                                                                                | [Go to Params](#apicontractstatusprocessid) |
  | **/api/data**                          | POST   | The API `/data` will decrypt the passport file that is encrypted using the session token "sign token", and will delete the file so that it is returned just once to the user and can not be accessed anymore. So a new passport will be always need to be requested.                                                                                                             | [Go to Params](#apidata)                    |
+ | **/api/data/request**                  | POST   | The Single API `/data/request` calls the necessary above APIs in order to retrieve the passport with auto-sign capability, it calls the create API, then search API, signs with the agree API and retrieves the data with the data API. The authentication is done with an API Key received as an HTTP header.                                                                 | [Go to Params](#apidatarequest)             |
 
 #### Parameters
 
@@ -239,6 +240,36 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | processId  | processIdentification  | [REQUIRED]                  |
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
+
+#### /api/data/request
+
+##### API Key
+
+Header:
+
+`X-Api-Key: <apiKeySecret>`
+> *NOTE*: This can be changed in the configuration
+
+##### API Parameters
+
+| Parameter       | Value Name             | Mandatory or Optional Value |
+|-----------------|------------------------|-----------------------------|
+| id              | searchIdValue          | [REQUIRED]                  |
+| idType          | searchIdTypeName       | manufacturerPartId          |
+| discoveryId     | serializedIdValue      | [REQUIRED]                  |
+| discoveryIdType | serializedIdTypeName   | partInstanceId              |
+| children        | searchForChildren      | true/false  [OPTIONAL]                |
+| semanticId      | semanticIdentification | semanticId             [OPTIONAL]     |
+
+##### The Single API Data Retrieval
+
+The Single API `/api/data/request` permits to get data from a Catena-X Provider by abstracting of all the separated APIs needed to do so. Authenticating with an defined API Key and with the mandatory and given serialized and discovery identifications, this API will
+create the process and check for the viability of the data retrieval, searches for a passport with the given serialized id, automatically signs the contract retrieved from provider and start negotiation, waits for the negotiation
+to be done and returns the data negotiated and transferred. In short, it's the set of the various APIs in one with auto-sign functionality to agile the data retrieval in a simple way.
+
+> [!IMPORTANT]
+>
+> The policy selection in the single api is not enabled, in this way the first contract and policy available for the asset will be selected. **Using a policy managment system is recommended**  in order to allow this API to retrieve data assuring the policies are checked and compliant with your bussiness.
 
 #### External API calls
 
@@ -422,7 +453,7 @@ The following represents a collection of relevant documentation regarding the pr
               "keys": [
                   {
                       "type": "Submodel",
-                      "value": "urn:bamm:io.catenax.generic.digital_product_passport:1.0.0#DigitalProductPassport"
+                      "value": "urn:samm:io.catenax.generic.digital_product_passport:4.0.0#DigitalProductPassport"
                   }
               ]
           },
@@ -469,10 +500,10 @@ The following represents a collection of relevant documentation regarding the pr
             "dcat:accessService": "bc491229-1b41-49a9-9101-a430a4907e6e"
         }
     ],
-    "edc:type": "data.core.digitalTwinRegistry",
-    "edc:description": "Digital Twin Registry for DPP",
-    "edc:id": "registry-asset",
-    "edc:contenttype": "application/json"
+    "asset:prop:type": "data.core.digitalTwinRegistry",
+    "description": "Digital Twin Registry for DPP",
+    "id": "registry-asset",
+    "contenttype": "application/json"
 }
 
 ```
