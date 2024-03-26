@@ -2,11 +2,25 @@
 title: Changelog
 ---
 
+## [1.5.0] - 2024-05-15
+
+### 24.05 Added
+
+- Add new route to ECO-Pass API
+
+### 24.05 Updated
+
+- Update example JSON Objects
+
+### 24.05 Removed
+
+### 24.05 Fixed Issues
+
 ## [released]
 
 ## [1.0.0] - 2024-03-08
 
-### Added
+### 24.03 Added
 
 - Added EcoPass KIT Logo
 - Added `Digital Product Pass v3.0.0` aspect and explanations
@@ -16,19 +30,19 @@ title: Changelog
 - Added detailed data retrieval flow
 - Added Battery Pass Success Story
 
-### Updated
+### 24.03 Updated
 
 - Updated battery pass model to latest version `v4.0.0`
 - Updated Business Architecture Diagram
 
 ## [0.1.0] - 2023-08-11
 
-### Added
+### 23.08 Added
 
 - move KIT to Tractus-X repository
 - Updated Software Architecture guide with descriptive documentation
 
-### Issues Fixed
+### 23.08 Issues Fixed
 
 - Corrected links paths to absolute path
 
