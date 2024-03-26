@@ -112,22 +112,21 @@ By providing a standardized, scalable and easy-to-adopt solution, the EcoPass KI
 
 ## Semantic Models
 
-Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, auditability, comprehensiveness, and provision of insights to drive improvement actions. The KIT entails the main data models of a Digital Product Passport and Battery Passport, whereat both are justified with an underlying regulation. 
+Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, auditability, comprehensiveness, and provision of insights to drive improvement actions. The KIT entails the main data models of a Digital Product Passport and Battery Passport, whereat both are justified with an underlying regulation.
 
 Other specific product passports which are further described in the EcoPass KIT are the [battery](#battery-passport), [transmission](#transmission-passport), [electric drive](#electric-drive-passport) and [material](#chemical-material-passport) passport. All of them depend on the generic Digital Product Passport data model. Further data models will follow.
 
-The goal of these passports is to create unified data models that can be used and adapted across the automotive industry. These data models  are modelled according to the [CX-0003](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0003-SAMMSemanticAspectMetaModel-v.1.0.2.pdf) BAMM/SAMM Standard in Version 1.1.0 (updated link once published). For detailed information please follow the embedded links to the Catena-X Standard library.
+The goal of these passports is to create unified data models that can be used and adapted across the automotive industry. These data models are modelled according to the [CX-0003](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0003-SAMMSemanticAspectMetaModel-v.1.0.2.pdf) BAMM/SAMM Standard in Version 1.1.0 (updated link once published). For detailed information please follow the embedded links to the Catena-X Standard library.
 
 ### Digital Product Passport
 
 #### Digital Product Passport Introduction
 
-Digital Product Passports addresses three needs by the industry: First, they gather all relevant information about a product in a single, digital tool. Second, digital product passports answer increasing regulatory requirements and demand for sustainability information along the value chain of a product. And third, Digital Product Passports are an important enabler for a circular economy. 
+Digital Product Passports addresses three needs by the industry: First, they gather all relevant information about a product in a single, digital tool. Second, digital product passports answer increasing regulatory requirements and demand for sustainability information along the value chain of a product. And third, Digital Product Passports are an important enabler for a circular economy.
 The collected data is defined via standards specified by the Catena-X network and obtained from the industry. The content of the Product Passport is product-related information that is useful and necessary for the consumer, and other actors who will deal with the product till end of its life, and is limited to the required minimum of the necessary information.
-The data model in version 4.0.0 corresponds to the Digital Product Passport information required by the proposed Ecodesign Regulation ([ESPR-2022]((https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en))) from March 30th, 2022. In the future, delegated acts for specific product groups would require a product passport to be available for each product. The data model will be updated, as newer versions of the regulation will be published. The latest version of the document was the [provisional agreement](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CONSIL:ST_5147_2024_INIT) between the EU Council and the Parliament from January 9th, 2024. The text is informal, but the content of the final regulation was agreed between these two institutions.
+The data model in version 4.0.0 corresponds to the Digital Product Passport information required by the proposed Ecodesign Regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)) from March 30th, 2022. In the future, delegated acts for specific product groups would require a product passport to be available for each product. The data model will be updated, as newer versions of the regulation will be published. The latest version of the document was the [provisional agreement](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CONSIL:ST_5147_2024_INIT) between the EU Council and the Parliament from January 9th, 2024. The text is informal, but the content of the final regulation was agreed between these two institutions.
 
-
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022]((https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en))). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 The Digital Product Passport is the core model and can be used as the root class for other, specific, product models. The latest model `v.4.0.0` consists out of the following information:
 
@@ -143,285 +142,346 @@ The Digital Product Passport is the core model and can be used as the root class
 - Additional data
 
 In addition, the Digital Product Passport data model offers the following advantages:
+
 - **Self-describing**: Which means it has all the details necessary to comprehend what it includes. Different systems can easily interpret the Passport as a result.
 - **Extendable**: New information can be added without much difficulty. As a result, the Passport will be able to adapt to the changing requirements.
 - **Common semantics**: The model of a generic passport is established in Catena-X which other passes can build upon.
 
-
 #### Link to current Digital Product Passport model
+
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.generic.digital_product_passport). For each version there is a separated directory containing the ttl-file and generated samples.
 
 #### Example Digital Product Passport Payload
+
 <details>
   <summary>Payload</summary>
 
 ```json
 {
-  "metadata" : {
-    "backupReference" : "https://dummy.link",
-    "registrationIdentifier" : "https://dummy.link/ID8283746239078",
-    "economicOperatorId" : "BPNL0123456789ZZ",
-    "predecessor" : "urn:uuid:00000000-0000-0000-0000-000000000000",
-    "issueDate" : "2000-01-01",
-    "version" : "1.0.0",
-    "passportIdentifier" : "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
-    "status" : "draft",
-    "expirationDate" : "2000-01-01"
+  "metadata": {
+    "backupReference": "https://dummy.link",
+    "registrationIdentifier": "https://dummy.link/ID8283746239078",
+    "economicOperatorId": "BPNL0123456789ZZ",
+    "predecessor": "urn:uuid:00000000-0000-0000-0000-000000000000",
+    "issueDate": "2000-01-01",
+    "version": "1.0.0",
+    "passportIdentifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+    "status": "draft",
+    "expirationDate": "2000-01-01"
   },
-  "characteristics" : {
-    "generalPerformanceClass" : "A",
-    "physicalState" : "solid",
-    "physicalDimension" : {
-      "volume" : {
-        "value" : 20.0,
-        "unit" : "unit:cubicMetre"
+  "characteristics": {
+    "generalPerformanceClass": "A",
+    "physicalState": "solid",
+    "physicalDimension": {
+      "volume": {
+        "value": 20.0,
+        "unit": "unit:cubicMetre"
       },
-      "grossWeight" : {
-        "value" : 20.0,
-        "unit" : "unit:gram"
+      "grossWeight": {
+        "value": 20.0,
+        "unit": "unit:gram"
       },
-      "diameter" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "diameter": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       },
-      "grossVolume" : {
-        "value" : 20.0,
-        "unit" : "unit:cubicMetre"
+      "grossVolume": {
+        "value": 20.0,
+        "unit": "unit:cubicMetre"
       },
-      "width" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "width": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       },
-      "length" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "length": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       },
-      "weight" : {
-        "value" : 20.0,
-        "unit" : "unit:gram"
+      "weight": {
+        "value": 20.0,
+        "unit": "unit:gram"
       },
-      "height" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "height": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       }
     },
-    "lifespan" : [ {
-      "value" : 36,
-      "unit" : "unit:day",
-      "key" : "guaranteed lifetime"
-    } ]
+    "lifespan": [
+      {
+        "value": 36,
+        "unit": "unit:day",
+        "key": "guaranteed lifetime"
+      }
+    ]
   },
-  "commercial" : {
-    "placedOnMarket" : "2000-01-01"
+  "commercial": {
+    "placedOnMarket": "2000-01-01"
   },
-  "identification" : {
-    "batch" : [ {
-      "value" : "BID12345678",
-      "key" : "batchId"
-    } ],
-    "codes" : [ {
-      "value" : "8703 24 10 00",
-      "description" : "GBT",
-      "key" : "TARIC"
-    } ],
-    "type" : {
-      "manufacturerPartId" : "123-0.740-3434-A",
-      "nameAtManufacturer" : "Mirror left"
+  "identification": {
+    "batch": [
+      {
+        "value": "BID12345678",
+        "key": "batchId"
+      }
+    ],
+    "codes": [
+      {
+        "value": "8703 24 10 00",
+        "description": "GBT",
+        "key": "TARIC"
+      }
+    ],
+    "type": {
+      "manufacturerPartId": "123-0.740-3434-A",
+      "nameAtManufacturer": "Mirror left"
     },
-    "classification" : [ {
-      "classificationStandard" : "GIN 20510-21513",
-      "classificationID" : "1004712",
-      "classificationDescription" : "Generic standard for classification of parts in the automotive industry."
-    } ],
-    "serial" : [ {
-      "value" : "SN12345678",
-      "key" : "partInstanceId"
-    } ],
-    "dataCarrier" : {
-      "carrierType" : "QR",
-      "carrierLayout" : "upper-left side"
+    "classification": [
+      {
+        "classificationStandard": "GIN 20510-21513",
+        "classificationID": "1004712",
+        "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+      }
+    ],
+    "serial": [
+      {
+        "value": "SN12345678",
+        "key": "partInstanceId"
+      }
+    ],
+    "dataCarrier": {
+      "carrierType": "QR",
+      "carrierLayout": "upper-left side"
     }
   },
-  "sources" : [ {
-    "header" : "Sustainability Document Material XY",
-    "category" : "Product Specifications",
-    "type" : "URL",
-    "content" : "https://dummy.link"
-  } ],
-  "materials" : {
-    "substancesOfConcern" : {
-      "substanceOfConcern" : [ {
-        "unit" : "unit:partPerMillion",
-        "hazardClassification" : {
-          "category" : "category 1A",
-          "statement" : "Causes severe skin burns and eye damage.",
-          "class" : "Skin corrosion"
-        },
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "concentrationRange" : [ {
-          "max" : 2.6,
-          "min" : 2.1
-        } ],
-        "name" : {
-          "name" : "phenolphthalein",
-          "type" : "IUPAC"
-        },
-        "location" : "Housing",
-        "concentration" : 5.3,
-        "exemption" : "shall not apply to product x containing not more than 1,5 ml of liquid",
-        "id" : [ {
-          "type" : "CAS",
-          "id" : "201-004-7"
-        } ]
-      } ],
-      "applicable" : true
+  "sources": [
+    {
+      "header": "Sustainability Document Material XY",
+      "category": "Product Specifications",
+      "type": "URL",
+      "content": "https://dummy.link"
+    }
+  ],
+  "materials": {
+    "substancesOfConcern": {
+      "substanceOfConcern": [
+        {
+          "unit": "unit:partPerMillion",
+          "hazardClassification": {
+            "category": "category 1A",
+            "statement": "Causes severe skin burns and eye damage.",
+            "class": "Skin corrosion"
+          },
+          "documentation": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "concentrationRange": [
+            {
+              "max": 2.6,
+              "min": 2.1
+            }
+          ],
+          "name": {
+            "name": "phenolphthalein",
+            "type": "IUPAC"
+          },
+          "location": "Housing",
+          "concentration": 5.3,
+          "exemption": "shall not apply to product x containing not more than 1,5 ml of liquid",
+          "id": [
+            {
+              "type": "CAS",
+              "id": "201-004-7"
+            }
+          ]
+        }
+      ],
+      "applicable": true
     },
-    "materialComposition" : {
-      "applicable" : true,
-      "chemicalMaterial" : [ {
-        "unit" : "unit:partPerMillion",
-        "recycled" : 12.5,
-        "critical" : true,
-        "renewable" : 23.5,
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "name" : {
-          "name" : "phenolphthalein",
-          "type" : "IUPAC"
-        },
-        "concentration" : 5.3,
-        "id" : [ {
-          "type" : "CAS",
-          "id" : "201-004-7"
-        } ]
-      } ]
+    "materialComposition": {
+      "applicable": true,
+      "chemicalMaterial": [
+        {
+          "unit": "unit:partPerMillion",
+          "recycled": 12.5,
+          "critical": true,
+          "renewable": 23.5,
+          "documentation": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "name": {
+            "name": "phenolphthalein",
+            "type": "IUPAC"
+          },
+          "concentration": 5.3,
+          "id": [
+            {
+              "type": "CAS",
+              "id": "201-004-7"
+            }
+          ]
+        }
+      ]
     }
   },
-  "handling" : {
-    "spareParts" : {
-      "producer" : [ {
-        "id" : "BPNL0123456789ZZ"
-      } ],
-      "sparePart" : [ {
-        "manufacturerPartId" : "123-0.740-3434-A",
-        "nameAtManufacturer" : "Mirror left"
-      } ]
+  "handling": {
+    "spareParts": {
+      "producer": [
+        {
+          "id": "BPNL0123456789ZZ"
+        }
+      ],
+      "sparePart": [
+        {
+          "manufacturerPartId": "123-0.740-3434-A",
+          "nameAtManufacturer": "Mirror left"
+        }
+      ]
     },
-    "applicable" : true
+    "applicable": true
   },
-  "additionalData" : [ {
-    "description" : "Description of an attribute",
-    "label" : "Maximum permitted battery power",
-    "type" : {
-      "typeUnit" : "unit:volume",
-      "dataType" : "array"
-    },
-    "data" : "23",
-    "children" : [ {
-      "description" : "Description of an attribute",
-      "label" : "Maximum permitted battery power",
-      "type" : {
-        "typeUnit" : "unit:volume",
-        "dataType" : "array"
+  "additionalData": [
+    {
+      "description": "Description of an attribute",
+      "label": "Maximum permitted battery power",
+      "type": {
+        "typeUnit": "unit:volume",
+        "dataType": "array"
       },
-      "data" : "23"
-    } ]
-  } ],
-  "operation" : {
-    "import" : {
-      "importer" : {
-        "eori" : "GB123456789000",
-        "id" : "BPNL0123456789ZZ"
+      "data": "23",
+      "children": [
+        {
+          "description": "Description of an attribute",
+          "label": "Maximum permitted battery power",
+          "type": {
+            "typeUnit": "unit:volume",
+            "dataType": "array"
+          },
+          "data": "23"
+        }
+      ]
+    }
+  ],
+  "operation": {
+    "import": {
+      "importer": {
+        "eori": "GB123456789000",
+        "id": "BPNL0123456789ZZ"
       },
-      "applicable" : true
+      "applicable": true
     },
-    "manufacturer" : {
-      "facility" : [ {
-        "facility" : "BPNA1234567890AA"
-      } ],
-      "manufacturingDate" : "2000-01-31",
-      "manufacturer" : "BPNLtdiHqzA3Mtyk"
+    "manufacturer": {
+      "facility": [
+        {
+          "facility": "BPNA1234567890AA"
+        }
+      ],
+      "manufacturingDate": "2000-01-31",
+      "manufacturer": "BPNLtdiHqzA3Mtyk"
     }
   },
-  "sustainability" : {
-    "reparabilityScore" : "B",
-    "productFootprint" : {
-      "material" : [ {
-        "lifecycle" : "main product production",
-        "rulebook" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "unit" : "kg CO2 / kWh",
-        "performanceClass" : "A",
-        "manufacturingPlant" : [ {
-          "facility" : "BPNA1234567890AA"
-        } ],
-        "type" : "Climate Change Total",
-        "value" : 12.678,
-        "declaration" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
-      } ],
-      "carbon" : [ {
-        "lifecycle" : "main product production",
-        "rulebook" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "unit" : "kg CO2 / kWh",
-        "performanceClass" : "A",
-        "manufacturingPlant" : [ {
-          "facility" : "BPNA1234567890AA"
-        } ],
-        "type" : "Climate Change Total",
-        "value" : 12.678,
-        "declaration" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
-      } ],
-      "environmental" : [ {
-        "lifecycle" : "main product production",
-        "rulebook" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "unit" : "kg CO2 / kWh",
-        "performanceClass" : "A",
-        "manufacturingPlant" : [ {
-          "facility" : "BPNA1234567890AA"
-        } ],
-        "type" : "Climate Change Total",
-        "value" : 12.678,
-        "declaration" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
-      } ]
+  "sustainability": {
+    "reparabilityScore": "B",
+    "productFootprint": {
+      "material": [
+        {
+          "lifecycle": "main product production",
+          "rulebook": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "unit": "kg CO2 / kWh",
+          "performanceClass": "A",
+          "manufacturingPlant": [
+            {
+              "facility": "BPNA1234567890AA"
+            }
+          ],
+          "type": "Climate Change Total",
+          "value": 12.678,
+          "declaration": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ]
+        }
+      ],
+      "carbon": [
+        {
+          "lifecycle": "main product production",
+          "rulebook": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "unit": "kg CO2 / kWh",
+          "performanceClass": "A",
+          "manufacturingPlant": [
+            {
+              "facility": "BPNA1234567890AA"
+            }
+          ],
+          "type": "Climate Change Total",
+          "value": 12.678,
+          "declaration": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ]
+        }
+      ],
+      "environmental": [
+        {
+          "lifecycle": "main product production",
+          "rulebook": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "unit": "kg CO2 / kWh",
+          "performanceClass": "A",
+          "manufacturingPlant": [
+            {
+              "facility": "BPNA1234567890AA"
+            }
+          ],
+          "type": "Climate Change Total",
+          "value": 12.678,
+          "declaration": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ]
+        }
+      ]
     },
-    "status" : "original",
-    "durabilityScore" : "A"
+    "status": "original",
+    "durabilityScore": "A"
   }
 }
-
 ```
-</details>
 
+</details>
 
 ### Battery Passport
 
@@ -454,554 +514,665 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 The latest version is the `v5.0.0` which is based on the generic Digital Product Passport `v4.0.0` model which can be found [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.generic.digital_product_passport).
 
 #### Example Battery Passport Payload
+
 <details>
   <summary>Payload</summary>
 
 ```json
 {
-  "characteristics" : {
-    "physicalDimension" : {
-      "length" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+  "characteristics": {
+    "physicalDimension": {
+      "length": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       },
-      "width" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "width": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       },
-      "weight" : {
-        "value" : 20.0,
-        "unit" : "unit:gram"
+      "weight": {
+        "value": 20.0,
+        "unit": "unit:gram"
       },
-      "height" : {
-        "value" : 20.0,
-        "unit" : "unit:millimetre"
+      "height": {
+        "value": 20.0,
+        "unit": "unit:millimetre"
       }
     },
-    "warranty" : {
-      "lifeValue" : 36,
-      "lifeUnit" : "unit:day"
+    "warranty": {
+      "lifeValue": 36,
+      "lifeUnit": "unit:day"
     }
   },
-  "metadata" : {
-    "backupReference" : "https://dummy.link",
-    "registrationIdentifier" : "https://dummy.link/ID8283746239078",
-    "economicOperatorId" : "BPNL0123456789ZZ",
-    "predecessor" : "urn:uuid:00000000-0000-0000-0000-000000000000",
-    "issueDate" : "2000-01-01",
-    "version" : "1.0.0",
-    "passportIdentifier" : "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
-    "status" : "draft",
-    "expirationDate" : "2000-01-01"
+  "metadata": {
+    "backupReference": "https://dummy.link",
+    "registrationIdentifier": "https://dummy.link/ID8283746239078",
+    "economicOperatorId": "BPNL0123456789ZZ",
+    "predecessor": "urn:uuid:00000000-0000-0000-0000-000000000000",
+    "issueDate": "2000-01-01",
+    "version": "1.0.0",
+    "passportIdentifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+    "status": "draft",
+    "expirationDate": "2000-01-01"
   },
-  "identification" : {
-    "chemistry" : "NCM",
-    "idDmc" : "34567890",
-    "identification" : {
-      "batch" : [ {
-        "value" : "BID12345678",
-        "key" : "batchId"
-      } ],
-      "codes" : [ {
-        "value" : "8703 24 10 00",
-        "description" : "GBT",
-        "key" : "TARIC"
-      } ],
-      "type" : {
-        "manufacturerPartId" : "123-0.740-3434-A",
-        "nameAtManufacturer" : "Mirror left"
+  "identification": {
+    "chemistry": "NCM",
+    "idDmc": "34567890",
+    "identification": {
+      "batch": [
+        {
+          "value": "BID12345678",
+          "key": "batchId"
+        }
+      ],
+      "codes": [
+        {
+          "value": "8703 24 10 00",
+          "description": "GBT",
+          "key": "TARIC"
+        }
+      ],
+      "type": {
+        "manufacturerPartId": "123-0.740-3434-A",
+        "nameAtManufacturer": "Mirror left"
       },
-      "classification" : [ {
-        "classificationStandard" : "GIN 20510-21513",
-        "classificationID" : "1004712",
-        "classificationDescription" : "Generic standard for classification of parts in the automotive industry."
-      } ],
-      "serial" : [ {
-        "value" : "SN12345678",
-        "key" : "partInstanceId"
-      } ],
-      "dataCarrier" : {
-        "carrierType" : "QR",
-        "carrierLayout" : "upper-left side"
+      "classification": [
+        {
+          "classificationStandard": "GIN 20510-21513",
+          "classificationID": "1004712",
+          "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+        }
+      ],
+      "serial": [
+        {
+          "value": "SN12345678",
+          "key": "partInstanceId"
+        }
+      ],
+      "dataCarrier": {
+        "carrierType": "QR",
+        "carrierLayout": "upper-left side"
       }
     },
-    "category" : "SLI"
+    "category": "SLI"
   },
-  "performance" : {
-    "rated" : {
-      "roundTripEfficiency" : {
-        "depthOfDischarge" : 90.5,
-        "temperature" : 20.0,
-        "50PercentLife" : 89.0,
-        "initial" : 96.0
+  "performance": {
+    "rated": {
+      "roundTripEfficiency": {
+        "depthOfDischarge": 90.5,
+        "temperature": 20.0,
+        "50PercentLife": 89.0,
+        "initial": 96.0
       },
-      "selfDischargingRate" : 0.25,
-      "performanceDocument" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "testReport" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "temperature" : {
-        "lower" : -18.0,
-        "upper" : 60.0
+      "selfDischargingRate": 0.25,
+      "performanceDocument": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "testReport": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "temperature": {
+        "lower": -18.0,
+        "upper": 60.0
       },
-      "lifetime" : {
-        "report" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "cycleLifeTesting" : {
-          "temperature" : 20.0,
-          "depthOfDischarge" : 90.5,
-          "appliedDischargeRate" : 4.0,
-          "cycles" : 1500,
-          "appliedChargeRate" : 3.0
+      "lifetime": {
+        "report": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "cycleLifeTesting": {
+          "temperature": 20.0,
+          "depthOfDischarge": 90.5,
+          "appliedDischargeRate": 4.0,
+          "cycles": 1500,
+          "appliedChargeRate": 3.0
         },
-        "expectedYears" : 8
+        "expectedYears": 8
       },
-      "power" : {
-        "at20SoC" : 35000.0,
-        "temperature" : 20.0,
-        "value" : 40000.0,
-        "at80SoC" : 39000.0
+      "power": {
+        "at20SoC": 35000.0,
+        "temperature": 20.0,
+        "value": 40000.0,
+        "at80SoC": 39000.0
       },
-      "resistance" : {
-        "temperature" : 20.0,
-        "cell" : 0.025,
-        "pack" : 0.55,
-        "module" : 0.2
+      "resistance": {
+        "temperature": 20.0,
+        "cell": 0.025,
+        "pack": 0.55,
+        "module": 0.2
       },
-      "voltage" : {
-        "temperature" : 20.0,
-        "min" : 2.5,
-        "nominal" : 3.7,
-        "max" : 4.2
+      "voltage": {
+        "temperature": 20.0,
+        "min": 2.5,
+        "nominal": 3.7,
+        "max": 4.2
       },
-      "energy" : {
-        "temperature" : 20.0,
-        "value" : 0.5
+      "energy": {
+        "temperature": 20.0,
+        "value": 0.5
       },
-      "capacity" : {
-        "temperature" : 20.0,
-        "value" : 4.0,
-        "thresholdExhaustion" : 80.0
+      "capacity": {
+        "temperature": 20.0,
+        "value": 4.0,
+        "thresholdExhaustion": 80.0
       }
     },
-    "dynamic" : {
-      "selfDischargingRate" : 0.25,
-      "roundTripEfficiency" : {
-        "remaining" : {
-          "value" : 50.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+    "dynamic": {
+      "selfDischargingRate": 0.25,
+      "roundTripEfficiency": {
+        "remaining": {
+          "value": 50.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "fade" : {
-          "value" : 50.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "fade": {
+          "value": 50.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         }
       },
-      "operatingEnvironment" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "stateOfCharge" : {
-        "value" : 50.0,
-        "time" : "2023-12-07T10:39:13.576+01:00"
+      "operatingEnvironment": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "stateOfCharge": {
+        "value": 50.0,
+        "time": "2023-12-07T10:39:13.576+01:00"
       },
-      "performanceDocument" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "fullCycles" : {
-        "value" : 1500,
-        "time" : "2023-12-07T10:39:13.576+01:00"
+      "performanceDocument": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "fullCycles": {
+        "value": 1500,
+        "time": "2023-12-07T10:39:13.576+01:00"
       },
-      "power" : {
-        "remaining" : {
-          "value" : 40000.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+      "power": {
+        "remaining": {
+          "value": 40000.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "fade" : {
-          "value" : 50.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "fade": {
+          "value": 50.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         }
       },
-      "negativeEvents" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "resistance" : {
-        "increase" : {
-          "cell" : {
-            "value" : 50.0,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+      "negativeEvents": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "resistance": {
+        "increase": {
+          "cell": {
+            "value": 50.0,
+            "time": "2023-12-07T10:39:13.576+01:00"
           },
-          "pack" : {
-            "value" : 50.0,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+          "pack": {
+            "value": 50.0,
+            "time": "2023-12-07T10:39:13.576+01:00"
           },
-          "module" : {
-            "value" : 50.0,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+          "module": {
+            "value": 50.0,
+            "time": "2023-12-07T10:39:13.576+01:00"
           }
         },
-        "remaining" : {
-          "cell" : {
-            "value" : 0.3,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+        "remaining": {
+          "cell": {
+            "value": 0.3,
+            "time": "2023-12-07T10:39:13.576+01:00"
           },
-          "pack" : {
-            "value" : 0.3,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+          "pack": {
+            "value": 0.3,
+            "time": "2023-12-07T10:39:13.576+01:00"
           },
-          "module" : {
-            "value" : 0.3,
-            "time" : "2023-12-07T10:39:13.576+01:00"
+          "module": {
+            "value": 0.3,
+            "time": "2023-12-07T10:39:13.576+01:00"
           }
         }
       },
-      "capacity" : {
-        "fade" : {
-          "value" : 50.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+      "capacity": {
+        "fade": {
+          "value": 50.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "throughput" : {
-          "value" : 4.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "throughput": {
+          "value": 4.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "capacity" : {
-          "value" : 4.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "capacity": {
+          "value": 4.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         }
       },
-      "energy" : {
-        "remaining" : {
-          "value" : 0.5,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+      "energy": {
+        "remaining": {
+          "value": 0.5,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "soce" : {
-          "value" : 50.0,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "soce": {
+          "value": 50.0,
+          "time": "2023-12-07T10:39:13.576+01:00"
         },
-        "throughput" : {
-          "value" : 0.5,
-          "time" : "2023-12-07T10:39:13.576+01:00"
+        "throughput": {
+          "value": 0.5,
+          "time": "2023-12-07T10:39:13.576+01:00"
         }
       }
     }
   },
-  "sources" : [ {
-    "header" : "Sustainability Document Material XY",
-    "category" : "Product Specifications",
-    "type" : "URL",
-    "content" : "https://dummy.link"
-  } ],
-  "materials" : {
-    "hazardous" : {
-      "cadmium" : {
-        "concentration" : 5.3,
-        "location" : "Housing",
-        "critical" : true,
-        "impactOfSubstances" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "materialUnit" : "unit:partPerMillion",
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
+  "sources": [
+    {
+      "header": "Sustainability Document Material XY",
+      "category": "Product Specifications",
+      "type": "URL",
+      "content": "https://dummy.link"
+    }
+  ],
+  "materials": {
+    "hazardous": {
+      "cadmium": {
+        "concentration": 5.3,
+        "location": "Housing",
+        "critical": true,
+        "impactOfSubstances": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "materialUnit": "unit:partPerMillion",
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
       },
-      "other" : [ {
-        "materialName" : {
-          "name" : "phenolphthalein",
-          "type" : "IUPAC"
-        },
-        "critical" : true,
-        "impactOfSubstances" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "concentration" : 5.3,
-        "materialIdentification" : [ {
-          "type" : "CAS",
-          "id" : "201-004-7"
-        } ],
-        "location" : "Housing",
-        "materialUnit" : "unit:partPerMillion"
-      } ],
-      "mercury" : {
-        "concentration" : 5.3,
-        "location" : "Housing",
-        "critical" : true,
-        "impactOfSubstances" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "materialUnit" : "unit:partPerMillion",
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
+      "other": [
+        {
+          "materialName": {
+            "name": "phenolphthalein",
+            "type": "IUPAC"
+          },
+          "critical": true,
+          "impactOfSubstances": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "documentation": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ],
+          "concentration": 5.3,
+          "materialIdentification": [
+            {
+              "type": "CAS",
+              "id": "201-004-7"
+            }
+          ],
+          "location": "Housing",
+          "materialUnit": "unit:partPerMillion"
+        }
+      ],
+      "mercury": {
+        "concentration": 5.3,
+        "location": "Housing",
+        "critical": true,
+        "impactOfSubstances": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "materialUnit": "unit:partPerMillion",
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
       },
-      "lead" : {
-        "recycled" : 12.5,
-        "critical" : true,
-        "impactOfSubstances" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "location" : "Housing",
-        "concentration" : 5.3,
-        "materialUnit" : "unit:partPerMillion"
+      "lead": {
+        "recycled": 12.5,
+        "critical": true,
+        "impactOfSubstances": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "location": "Housing",
+        "concentration": 5.3,
+        "materialUnit": "unit:partPerMillion"
       }
     },
-    "active" : {
-      "nickel" : {
-        "location" : "Housing",
-        "recycled" : 12.5,
-        "critical" : true,
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
+    "active": {
+      "nickel": {
+        "location": "Housing",
+        "recycled": 12.5,
+        "critical": true,
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
       },
-      "lithium" : {
-        "location" : "Housing",
-        "recycled" : 12.5,
-        "critical" : true,
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
+      "lithium": {
+        "location": "Housing",
+        "recycled": 12.5,
+        "critical": true,
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
       },
-      "cobalt" : {
-        "location" : "Housing",
-        "recycled" : 12.5,
-        "critical" : true,
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
+      "cobalt": {
+        "location": "Housing",
+        "recycled": 12.5,
+        "critical": true,
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
       },
-      "other" : [ {
-        "materialName" : {
-          "name" : "phenolphthalein",
-          "type" : "IUPAC"
-        },
-        "location" : "Housing",
-        "materialIdentification" : [ {
-          "type" : "CAS",
-          "id" : "201-004-7"
-        } ],
-        "recycled" : 12.5,
-        "critical" : true,
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ]
-      } ],
-      "lead" : {
-        "recycled" : 12.5,
-        "critical" : true,
-        "impactOfSubstances" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "documentation" : [ {
-          "contentType" : "URL",
-          "header" : "Sustainability Document Material XY",
-          "content" : "https://dummy.link"
-        } ],
-        "location" : "Housing",
-        "concentration" : 5.3,
-        "materialUnit" : "unit:partPerMillion"
+      "other": [
+        {
+          "materialName": {
+            "name": "phenolphthalein",
+            "type": "IUPAC"
+          },
+          "location": "Housing",
+          "materialIdentification": [
+            {
+              "type": "CAS",
+              "id": "201-004-7"
+            }
+          ],
+          "recycled": 12.5,
+          "critical": true,
+          "documentation": [
+            {
+              "contentType": "URL",
+              "header": "Sustainability Document Material XY",
+              "content": "https://dummy.link"
+            }
+          ]
+        }
+      ],
+      "lead": {
+        "recycled": 12.5,
+        "critical": true,
+        "impactOfSubstances": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "location": "Housing",
+        "concentration": 5.3,
+        "materialUnit": "unit:partPerMillion"
       }
     },
-    "composition" : [ {
-      "unit" : "unit:partPerMillion",
-      "recycled" : 12.5,
-      "critical" : true,
-      "renewable" : 23.5,
-      "documentation" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "name" : {
-        "name" : "phenolphthalein",
-        "type" : "IUPAC"
-      },
-      "concentration" : 5.3,
-      "location" : "Housing",
-      "id" : [ {
-        "type" : "CAS",
-        "id" : "201-004-7"
-      } ]
-    } ]
+    "composition": [
+      {
+        "unit": "unit:partPerMillion",
+        "recycled": 12.5,
+        "critical": true,
+        "renewable": 23.5,
+        "documentation": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "name": {
+          "name": "phenolphthalein",
+          "type": "IUPAC"
+        },
+        "concentration": 5.3,
+        "location": "Housing",
+        "id": [
+          {
+            "type": "CAS",
+            "id": "201-004-7"
+          }
+        ]
+      }
+    ]
   },
-  "safety" : {
-    "usableExtinguishAgent" : [ {
-      "fireClass" : "A, B",
-      "document" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "media" : "Dry Powder"
-    } ],
-    "safeDischarging" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "meaningOfLabels" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "dismantling" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "removalFromAppliance" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "safetyMeasures" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ]
+  "safety": {
+    "usableExtinguishAgent": [
+      {
+        "fireClass": "A, B",
+        "document": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "media": "Dry Powder"
+      }
+    ],
+    "safeDischarging": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "meaningOfLabels": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "dismantling": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "removalFromAppliance": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "safetyMeasures": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ]
   },
-  "handling" : {
-    "spareParts" : {
-      "producer" : [ {
-        "id" : "BPNL0123456789ZZ"
-      } ],
-      "sparePart" : [ {
-        "manufacturerPartId" : "123-0.740-3434-A",
-        "nameAtManufacturer" : "Mirror left"
-      } ]
+  "handling": {
+    "spareParts": {
+      "producer": [
+        {
+          "id": "BPNL0123456789ZZ"
+        }
+      ],
+      "sparePart": [
+        {
+          "manufacturerPartId": "123-0.740-3434-A",
+          "nameAtManufacturer": "Mirror left"
+        }
+      ]
     },
-    "applicable" : true
+    "applicable": true
   },
-  "conformity" : {
-    "declarationOfConformityId" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "thirdPartyAssurance" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "resultOfTestReport" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "declarationOfConformity" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "dueDiligencePolicy" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ]
+  "conformity": {
+    "declarationOfConformityId": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "thirdPartyAssurance": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "resultOfTestReport": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "declarationOfConformity": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "dueDiligencePolicy": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ]
   },
-  "operation" : {
-    "intoServiceDate" : "1446-48-65",
-    "manufacturer" : {
-      "facility" : [ {
-        "facility" : "BPNA1234567890AA"
-      } ],
-      "manufacturingDate" : "2000-01-31",
-      "manufacturer" : "BPNLmANsF8W8vj3P"
+  "operation": {
+    "intoServiceDate": "1446-48-65",
+    "manufacturer": {
+      "facility": [
+        {
+          "facility": "BPNA1234567890AA"
+        }
+      ],
+      "manufacturingDate": "2000-01-31",
+      "manufacturer": "BPNLmANsF8W8vj3P"
     }
   },
-  "sustainability" : {
-    "documents" : {
-      "separateCollection" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "sustainabilityReport" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "euTaxonomyDisclosureStatement" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "wastePrevention" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ]
+  "sustainability": {
+    "documents": {
+      "separateCollection": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "sustainabilityReport": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "euTaxonomyDisclosureStatement": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ],
+      "wastePrevention": [
+        {
+          "contentType": "URL",
+          "header": "Sustainability Document Material XY",
+          "content": "https://dummy.link"
+        }
+      ]
     },
-    "carbonFootprint" : [ {
-      "lifecycle" : "main product production",
-      "rulebook" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ],
-      "unit" : "kg CO2 / kWh",
-      "performanceClass" : "A",
-      "manufacturingPlant" : [ {
-        "facility" : "BPNA1234567890AA"
-      } ],
-      "type" : "Climate Change Total",
-      "value" : 12.678,
-      "declaration" : [ {
-        "contentType" : "URL",
-        "header" : "Sustainability Document Material XY",
-        "content" : "https://dummy.link"
-      } ]
-    } ],
-    "status" : "original"
+    "carbonFootprint": [
+      {
+        "lifecycle": "main product production",
+        "rulebook": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ],
+        "unit": "kg CO2 / kWh",
+        "performanceClass": "A",
+        "manufacturingPlant": [
+          {
+            "facility": "BPNA1234567890AA"
+          }
+        ],
+        "type": "Climate Change Total",
+        "value": 12.678,
+        "declaration": [
+          {
+            "contentType": "URL",
+            "header": "Sustainability Document Material XY",
+            "content": "https://dummy.link"
+          }
+        ]
+      }
+    ],
+    "status": "original"
   }
 }
-
 ```
+
 </details>
 
 ### Transmission Passport
@@ -1037,7 +1208,7 @@ Product unspecific information incudes following information:
 - Commercial information
 - Sources (documents)
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022]((https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en))). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Transmission Passport model
 
@@ -1050,297 +1221,356 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 ```json
 {
-  "productSpecificParameters" : {
-    "serviceHistory" : [ {
-      "contentType" : "URL",
-      "header" : "Sustainability Document Material XY",
-      "content" : "https://dummy.link"
-    } ],
-    "oil" : {
-      "oilType" : [ "ZF Lifeguard Hybrid 2" ],
-      "oilCapacity" : 8.9
+  "productSpecificParameters": {
+    "serviceHistory": [
+      {
+        "contentType": "URL",
+        "header": "Sustainability Document Material XY",
+        "content": "https://dummy.link"
+      }
+    ],
+    "oil": {
+      "oilType": ["ZF Lifeguard Hybrid 2"],
+      "oilCapacity": 8.9
     },
-    "torqueConverter" : [ "NW 200 TTD" ],
-    "driveType" : [ "full hybrid" ],
-    "spreading" : 6.79,
-    "torque" : 500,
-    "power" : 300,
-    "standardGearRatio" : [ {
-      "gearRatio" : 4.1567,
-      "gear" : "1"
-    } ],
-    "speedResistance" : [ {
-      "speed" : 7800,
-      "gear" : "1"
-    } ],
-    "electricalPerformance" : {
-      "applicable" : true,
-      "electricalMachine" : {
-        "torque" : {
-          "torquePeak" : 180,
-          "torqueContinuous" : 178,
-          "time" : 10
+    "torqueConverter": ["NW 200 TTD"],
+    "driveType": ["full hybrid"],
+    "spreading": 6.79,
+    "torque": 500,
+    "power": 300,
+    "standardGearRatio": [
+      {
+        "gearRatio": 4.1567,
+        "gear": "1"
+      }
+    ],
+    "speedResistance": [
+      {
+        "speed": 7800,
+        "gear": "1"
+      }
+    ],
+    "electricalPerformance": {
+      "applicable": true,
+      "electricalMachine": {
+        "torque": {
+          "torquePeak": 180,
+          "torqueContinuous": 178,
+          "time": 10
         },
-        "power" : {
-          "powerContinuous" : 16,
-          "powerPeak" : 22,
-          "time" : 10
+        "power": {
+          "powerContinuous": 16,
+          "powerPeak": 22,
+          "time": 10
         },
-        "speed" : 16700,
-        "voltage" : 52
+        "speed": 16700,
+        "voltage": 52
       }
     }
   },
-  "productUnspecificParameters" : {
-    "characteristics" : {
-      "physicalDimension" : {
-        "volume" : {
-          "value" : 20.0,
-          "unit" : "unit:cubicMetre"
+  "productUnspecificParameters": {
+    "characteristics": {
+      "physicalDimension": {
+        "volume": {
+          "value": 20.0,
+          "unit": "unit:cubicMetre"
         },
-        "grossWeight" : {
-          "value" : 20.0,
-          "unit" : "unit:gram"
+        "grossWeight": {
+          "value": 20.0,
+          "unit": "unit:gram"
         },
-        "diameter" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
+        "diameter": {
+          "value": 20.0,
+          "unit": "unit:millimetre"
         },
-        "grossVolume" : {
-          "value" : 20.0,
-          "unit" : "unit:cubicMetre"
+        "grossVolume": {
+          "value": 20.0,
+          "unit": "unit:cubicMetre"
         },
-        "width" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
+        "width": {
+          "value": 20.0,
+          "unit": "unit:millimetre"
         },
-        "length" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
+        "length": {
+          "value": 20.0,
+          "unit": "unit:millimetre"
         },
-        "weight" : {
-          "value" : 20.0,
-          "unit" : "unit:gram"
+        "weight": {
+          "value": 20.0,
+          "unit": "unit:gram"
         },
-        "height" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
+        "height": {
+          "value": 20.0,
+          "unit": "unit:millimetre"
         }
       },
-      "warranty" : 60,
-      "lifeTime" : 500000
+      "warranty": 60,
+      "lifeTime": 500000
     },
-    "metadata" : {
-      "backupReference" : "https://dummy.link",
-      "registrationIdentifier" : "https://dummy.link/ID8283746239078",
-      "economicOperatorId" : "BPNL0123456789ZZ",
-      "predecessor" : "urn:uuid:00000000-0000-0000-0000-000000000000",
-      "issueDate" : "2000-01-01",
-      "version" : "1.0.0",
-      "passportIdentifier" : "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
-      "status" : "draft",
-      "expirationDate" : "2000-01-01"
+    "metadata": {
+      "backupReference": "https://dummy.link",
+      "registrationIdentifier": "https://dummy.link/ID8283746239078",
+      "economicOperatorId": "BPNL0123456789ZZ",
+      "predecessor": "urn:uuid:00000000-0000-0000-0000-000000000000",
+      "issueDate": "2000-01-01",
+      "version": "1.0.0",
+      "passportIdentifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+      "status": "draft",
+      "expirationDate": "2000-01-01"
     },
-    "commercial" : {
-      "placedOnMarket" : "2000-01-01"
+    "commercial": {
+      "placedOnMarket": "2000-01-01"
     },
-    "identification" : {
-      "batch" : [ {
-        "value" : "BID12345678",
-        "key" : "batchId"
-      } ],
-      "codes" : [ {
-        "value" : "8703 24 10 00",
-        "description" : "GBT",
-        "key" : "TARIC"
-      } ],
-      "type" : {
-        "manufacturerPartId" : "123-0.740-3434-A",
-        "nameAtManufacturer" : "Mirror left"
+    "identification": {
+      "batch": [
+        {
+          "value": "BID12345678",
+          "key": "batchId"
+        }
+      ],
+      "codes": [
+        {
+          "value": "8703 24 10 00",
+          "description": "GBT",
+          "key": "TARIC"
+        }
+      ],
+      "type": {
+        "manufacturerPartId": "123-0.740-3434-A",
+        "nameAtManufacturer": "Mirror left"
       },
-      "classification" : [ {
-        "classificationStandard" : "GIN 20510-21513",
-        "classificationID" : "1004712",
-        "classificationDescription" : "Generic standard for classification of parts in the automotive industry."
-      } ],
-      "serial" : [ {
-        "value" : "SN12345678",
-        "key" : "partInstanceId"
-      } ],
-      "dataCarrier" : {
-        "carrierType" : "QR",
-        "carrierLayout" : "upper-left side"
+      "classification": [
+        {
+          "classificationStandard": "GIN 20510-21513",
+          "classificationID": "1004712",
+          "classificationDescription": "Generic standard for classification of parts in the automotive industry."
+        }
+      ],
+      "serial": [
+        {
+          "value": "SN12345678",
+          "key": "partInstanceId"
+        }
+      ],
+      "dataCarrier": {
+        "carrierType": "QR",
+        "carrierLayout": "upper-left side"
       }
     },
-    "sources" : [ {
-      "header" : "Sustainability Document Material XY",
-      "category" : "Product Specifications",
-      "type" : "URL",
-      "content" : "https://dummy.link"
-    } ],
-    "materials" : {
-      "substancesOfConcern" : {
-        "substanceOfConcern" : [ {
-          "unit" : "unit:partPerMillion",
-          "hazardClassification" : {
-            "category" : "category 1A",
-            "statement" : "Causes severe skin burns and eye damage.",
-            "class" : "Skin corrosion"
-          },
-          "documentation" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ],
-          "concentrationRange" : [ {
-            "max" : 2.6,
-            "min" : 2.1
-          } ],
-          "name" : {
-            "name" : "phenolphthalein",
-            "type" : "IUPAC"
-          },
-          "location" : "Housing",
-          "concentration" : 5.3,
-          "exemption" : "shall not apply to product x containing not more than 1,5 ml of liquid",
-          "id" : [ {
-            "type" : "CAS",
-            "id" : "201-004-7"
-          } ]
-        } ],
-        "applicable" : true
+    "sources": [
+      {
+        "header": "Sustainability Document Material XY",
+        "category": "Product Specifications",
+        "type": "URL",
+        "content": "https://dummy.link"
+      }
+    ],
+    "materials": {
+      "substancesOfConcern": {
+        "substanceOfConcern": [
+          {
+            "unit": "unit:partPerMillion",
+            "hazardClassification": {
+              "category": "category 1A",
+              "statement": "Causes severe skin burns and eye damage.",
+              "class": "Skin corrosion"
+            },
+            "documentation": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ],
+            "concentrationRange": [
+              {
+                "max": 2.6,
+                "min": 2.1
+              }
+            ],
+            "name": {
+              "name": "phenolphthalein",
+              "type": "IUPAC"
+            },
+            "location": "Housing",
+            "concentration": 5.3,
+            "exemption": "shall not apply to product x containing not more than 1,5 ml of liquid",
+            "id": [
+              {
+                "type": "CAS",
+                "id": "201-004-7"
+              }
+            ]
+          }
+        ],
+        "applicable": true
       },
-      "materialComposition" : {
-        "applicable" : true,
-        "chemicalMaterial" : [ {
-          "unit" : "unit:partPerMillion",
-          "recycled" : 12.5,
-          "critical" : true,
-          "renewable" : 23.5,
-          "documentation" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ],
-          "name" : {
-            "name" : "phenolphthalein",
-            "type" : "IUPAC"
-          },
-          "concentration" : 5.3,
-          "id" : [ {
-            "type" : "CAS",
-            "id" : "201-004-7"
-          } ]
-        } ]
+      "materialComposition": {
+        "applicable": true,
+        "chemicalMaterial": [
+          {
+            "unit": "unit:partPerMillion",
+            "recycled": 12.5,
+            "critical": true,
+            "renewable": 23.5,
+            "documentation": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ],
+            "name": {
+              "name": "phenolphthalein",
+              "type": "IUPAC"
+            },
+            "concentration": 5.3,
+            "id": [
+              {
+                "type": "CAS",
+                "id": "201-004-7"
+              }
+            ]
+          }
+        ]
       }
     },
-    "handling" : {
-      "spareParts" : {
-        "producer" : [ {
-          "id" : "BPNL0123456789ZZ"
-        } ],
-        "sparePart" : [ {
-          "manufacturerPartId" : "123-0.740-3434-A",
-          "nameAtManufacturer" : "Mirror left"
-        } ]
+    "handling": {
+      "spareParts": {
+        "producer": [
+          {
+            "id": "BPNL0123456789ZZ"
+          }
+        ],
+        "sparePart": [
+          {
+            "manufacturerPartId": "123-0.740-3434-A",
+            "nameAtManufacturer": "Mirror left"
+          }
+        ]
       },
-      "applicable" : true
+      "applicable": true
     },
-    "operation" : {
-      "import" : {
-        "importer" : {
-          "eori" : "GB123456789000",
-          "id" : "BPNL0123456789ZZ"
+    "operation": {
+      "import": {
+        "importer": {
+          "eori": "GB123456789000",
+          "id": "BPNL0123456789ZZ"
         },
-        "applicable" : true
+        "applicable": true
       },
-      "manufacturer" : {
-        "facility" : [ {
-          "facility" : "BPNA1234567890AA"
-        } ],
-        "manufacturingDate" : "2000-01-31",
-        "manufacturer" : "BPNLOeWgETkaumoQ"
+      "manufacturer": {
+        "facility": [
+          {
+            "facility": "BPNA1234567890AA"
+          }
+        ],
+        "manufacturingDate": "2000-01-31",
+        "manufacturer": "BPNLOeWgETkaumoQ"
       }
     },
-    "sustainability" : {
-      "reparabilityScore" : "B",
-      "productFootprint" : {
-        "material" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ]
-        } ],
-        "carbon" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ]
-        } ],
-        "environmental" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Sustainability Document Material XY",
-            "content" : "https://dummy.link"
-          } ]
-        } ]
+    "sustainability": {
+      "reparabilityScore": "B",
+      "productFootprint": {
+        "material": [
+          {
+            "lifecycle": "main product production",
+            "rulebook": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ],
+            "unit": "kg CO2 / kWh",
+            "performanceClass": "A",
+            "manufacturingPlant": [
+              {
+                "facility": "BPNA1234567890AA"
+              }
+            ],
+            "type": "Climate Change Total",
+            "value": 12.678,
+            "declaration": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ]
+          }
+        ],
+        "carbon": [
+          {
+            "lifecycle": "main product production",
+            "rulebook": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ],
+            "unit": "kg CO2 / kWh",
+            "performanceClass": "A",
+            "manufacturingPlant": [
+              {
+                "facility": "BPNA1234567890AA"
+              }
+            ],
+            "type": "Climate Change Total",
+            "value": 12.678,
+            "declaration": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ]
+          }
+        ],
+        "environmental": [
+          {
+            "lifecycle": "main product production",
+            "rulebook": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ],
+            "unit": "kg CO2 / kWh",
+            "performanceClass": "A",
+            "manufacturingPlant": [
+              {
+                "facility": "BPNA1234567890AA"
+              }
+            ],
+            "type": "Climate Change Total",
+            "value": 12.678,
+            "declaration": [
+              {
+                "contentType": "URL",
+                "header": "Sustainability Document Material XY",
+                "content": "https://dummy.link"
+              }
+            ]
+          }
+        ]
       },
-      "status" : "original",
-      "durabilityScore" : "A"
+      "status": "original",
+      "durabilityScore": "A"
     }
   }
 }
-
 ```
-</details>
 
+</details>
 
 ### Electric Drive Passport
 
 #### Electric Drive Introduction
 
-In July 2023, the European Commission presented a proposal for a regulation addressing the whole life cycle of vehicles, from design to end-of-life, aimed at improving design and end-of-life management of vehicles for a more resource-efficient automotive sector. As preparation for the implementation of the proposed regulation and its requirements, manufacturers and OEMs within the Catena-X network decided on developing data models for the most commonly used products. As well as the transmission, the electric drive is one of such a component. 
+In July 2023, the European Commission presented a proposal for a regulation addressing the whole life cycle of vehicles, from design to end-of-life, aimed at improving design and end-of-life management of vehicles for a more resource-efficient automotive sector. As preparation for the implementation of the proposed regulation and its requirements, manufacturers and OEMs within the Catena-X network decided on developing data models for the most commonly used products. As well as the transmission, the electric drive is one of such a component.
 
 The data model corresponds to the [digital product passport](#digital-product-passport) information required by the proposed Ecodesign Regulation and describes the data that is collected and available during the lifespan of a electric drive. The consumers can see at a glance the relevant data about the electric drive which is installed in the specified vehicle. The Electric Drive Passport model `v.1.0.0` includes the following product specific information:
 
@@ -1364,9 +1594,10 @@ Product unspecific information incudes following information:
 - Commercial information
 - Sources (documents)
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022]((https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en))). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Electric Drive model
+
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.electric_drive.electric_drive_passport). For each version there is a separated directory containing the ttl-file and a generated samples.
 
 #### Example Electric Drive Payload
@@ -1392,9 +1623,7 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
       "transmissionId": "384502A54FC9",
       "gearboxStructure": "Planetary",
       "oil": {
-        "oilType": [
-          "ZF Lifeguard Hybrid 2"
-        ],
+        "oilType": ["ZF Lifeguard Hybrid 2"],
         "oilCapacity": 8.9
       }
     },
@@ -1404,13 +1633,9 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
       "softwareVersion": "2.525.b"
     },
     "generalInformation": {
-      "compatibleVehicleTypes": [
-        "battery-electric vehicle"
-      ],
+      "compatibleVehicleTypes": ["battery-electric vehicle"],
       "service": {
-        "history": [
-          "2020-02-15"
-        ],
+        "history": ["2020-02-15"],
         "lastServiceDate": "2022-03-03"
       }
     },
@@ -1776,13 +2001,12 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
   }
 }
 ```
+
 </details>
 
 ### Chemical Material Passport
 
-
 #### Chemical Material Passport Introduction
-
 
 The information in a Digital Product Passport allows stakeholders in the value chain to map information and obtain a better understanding of the composition of the product, the environmental impact of the production and use phase, and the aspect of circularity. To serve the same purpose as the Digital Passport, the Chemical Material Passport also plays an important role in providing more detailed information in terms of sustainability, safety and waste management. It can replace the current way of communication and data exchange from multi-channels by one streamlined data flow.
 
@@ -1790,15 +2014,14 @@ The information is generated and also possibly consumed by the chemical producer
 
 The Chemical Material Passport model `v.1.0.0` includes the following product specific information:
 
--	Chemical parameters
--	Material Identifications
--	Hazard assessment
--	Compliance information
--	Safety information
--	Waste management information
--	Certificate of analysis
--	Supplier questionnaires
-
+- Chemical parameters
+- Material Identifications
+- Hazard assessment
+- Compliance information
+- Safety information
+- Waste management information
+- Certificate of analysis
+- Supplier questionnaires
 
 Product unspecific information incudes following information:
 
@@ -1812,8 +2035,7 @@ Product unspecific information incudes following information:
 - Commercial information
 - Sources (documents)
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022]((https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en))). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
-
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Chemical Material Passport model
 
@@ -1827,8 +2049,8 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 ```json
 ##todo
 ```
-</details>
 
+</details>
 
 ## Business Architecture
 
