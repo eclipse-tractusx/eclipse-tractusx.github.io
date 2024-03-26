@@ -5,7 +5,7 @@ description: 'PCF Exchange Kit'
 sidebar_position: 1
 ---
 
-![Datachain kit banner](/img/kit-icons/pcf-kit-icon.svg)
+![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
 
 ## PCF Exchange KIT
 
