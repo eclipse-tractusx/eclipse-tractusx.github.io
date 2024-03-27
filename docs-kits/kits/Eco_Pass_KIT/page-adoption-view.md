@@ -2,7 +2,7 @@
 title: Adoption View
 ---
 
-![EcoPass KIT Pictotogram](./resources/img/EcoPassKIT_pictogram.png)
+![EcoPass KIT Pictotogram](/img/kit-icons/ecopass-kit-icon.svg)
 
 ## Introduction
 
