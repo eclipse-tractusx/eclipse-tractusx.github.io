@@ -5,7 +5,7 @@ description: The view from above
 sidebar_position: 4
 ---
 
-![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## Why​
 
