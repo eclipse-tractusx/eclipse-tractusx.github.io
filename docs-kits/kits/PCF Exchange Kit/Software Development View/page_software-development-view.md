@@ -151,7 +151,7 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
 
 #### Payload for EDC Policy
 
-The following JSON is an policy definition including the policy "frameworkagreement pcf" and membership. The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
+The following JSON is an policy definition including the policiy credentials for "active membership", "frameworkagreement pcf" and "pcf base usage purpose". The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
 
 ##### Payload to create a SSI based Policy
 
@@ -184,6 +184,11 @@ The following JSON is an policy definition including the policy "frameworkagreem
                             "leftOperand": "cx-policy:FrameworkAgreement",
                             "operator": "eq",
                             "rightOperand": "pcf:1.0"
+                        },
+                        {
+                            "leftOperand": "cx-policy:UsagePurpose",
+                            "operator": "eq",
+                            "rightOperand": "cx.pcf.base:1"
                         }
                     ]
                 }
