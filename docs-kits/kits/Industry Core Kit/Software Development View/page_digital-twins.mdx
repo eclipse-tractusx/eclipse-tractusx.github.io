@@ -144,11 +144,11 @@ The actual access information for the Connector is part of the endpoint attribut
 {
     "interface": "SUBMODEL-3.0",
     "protocolInformation": {
-        "href": "https://connector.data.plane/public/{path}/submodel",
+        "href": "https://connector.data.plane/{publicContextPath}/{providerPath}/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
         "subprotocol": "DSP",
-        "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=123",
+        "subprotocolBody": "dspEndpoint=https://connector.control.plane/{catalogPath};id=123",
         "subprotocolBodyEncoding": "plain",
         "securityAttributes": [
           { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -161,23 +161,23 @@ The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-  - `https://connector.data.plane/public`: Address of the Connector data plane that is providing the submodel.
-  - `{path}`: This `{path}` string is forwarded to the backend data service by the Connector data plane. Together with the Connector asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
-  - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for release 3.2, `href` must have the suffix "/submodel" representing the invokation of the GetSubmodel operation.
+  - `https://connector.data.plane/{publicContextPath}`: Address of the Connector data plane that is providing the submodel. `{publicContextPath}` is configured in the Connector settings and defaults to `/api/public`.
+  - `{providerPath}`: This string is forwarded to the backend data service by the Connector data plane. Together with the Connector asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
+  - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for this release, `href` must have the suffix `/submodel` representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `dspEndpoint`: Base URL of the [catalog service](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites) endpoint of a DSP Connector. The consumer Connector can use:
      - `catalog/request` to fetch the full catalog and search for the dataset in the catalog or
      - `catalog/datasets/{id}` to only fetch offers for the dataset with a particular dataset ID.
-  - `id=123`: The ID of the Connector asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
+  - `id`: The ID of the Connector asset for which a contract negitiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
 
-With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{path}`.
+With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{providerPath}`.
 
 ##### Option 1: Same Connector Asset Structure as in Release 3.1
 
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
-- `href` must have the following format: `https://connector.data.plane/public/submodel`
-- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/api/v1/dsp;id={connectorAssetId}`
+- `href` must have the following format: `https://connector.data.plane/{publicContextPath}/submodel`
+- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={connectorAssetId}`
 - connectorAssetId is the id of the Connector asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
   - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
   - submodelIdentifier: the id of the submodel (id property in the submodel descriptor)
@@ -202,7 +202,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://connector.data.plane/public/submodel",
+          "href": "https://connector.data.plane/api/public/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
@@ -218,7 +218,7 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-In this example, the `{path}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
+In this example, the `{providerPath}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
 
 ##### Option 2: Connector Asset Structure on Catalog Part Level
 
@@ -246,7 +246,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://connector.data.plane/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+        "href": "https://connector.data.plane/api/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
@@ -262,7 +262,7 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-The the `{path}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
+The the `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other asset structure.
 
