@@ -34,9 +34,7 @@ The following page offers a high level business view on the Industry Core KIT wi
 
 ### Vision
 
-<video controls style={{width:'100%'}} controlsList="nodownload">
-    <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/industry-core-kit/IndustryCore_Video.mp4"/>
-</video>
+<iframe width="100%" height="550" src="https://www.youtube-nocookie.com/embed/Ta83xNfARLE?si=3H3zCTWUosn74Mxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The goal of Catena-X is to empower data-driven use cases to address the current challenges of sustainability,
  resiliency, and quality. In the automotive industry, these challenges predominantly revolve around optimizing physical parts, 
@@ -69,7 +67,7 @@ Parts and vehicles at type level can be provided at the earliest when the part h
 The Industry Core KIT provides the necessary standards, aspect models, APIs, logics, and processes on how to implement the Industry Core.
 All described specifications in the KIT are based on Catena-X standards like Data Space Connector, Asset Administration Shell (AAS), and decentralised Digital Twin Registry (DTR). They refer to other Catena-X KITs like the Connector KIT (EDC), Data Chain KIT (Item Relation Ship, IRS) and Business Partner KIT to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
-![Type_Levels](assets/components.png)
+![Type_Levels](assets/ic-components.png)
 
 ## Business Value & Benefits
 ### Business Value
@@ -86,8 +84,7 @@ Catena-X use cases and solutions are based on the provision and utilisation of d
 
 The Catena-X network and the Industry Core create an industry-wide standard for data exchange by re-using central components and shared semantics.
 To do so, once is enough: Once EDC, BPN, decentralized registry, and digital twins according to standardized semantics are established, numerous use cases can be enabled by extending the tech-stack with domain specific data aspects / models.
-The goal is to facilitate simple onboarding and leverage network effects. Reusing central components and standards (especially in data provisioning) across different use cases promotes efficiency and interoperability. 
-
+The goal is to facilitate simple onboarding and leverage network effects. Reusing central components and standards (especially in data provisioning) across different use cases promotes efficiency and interoperability.
 
 ### Benefits for OEM, SME and Solution Provider
 #### OEM
@@ -116,8 +113,6 @@ With the Industry Core KIT, we support the Catena-X customer journey for our ado
 
 <BillOfMaterials components={props.components} />
 
-
-
 ### AsPlanned
 
 #### Short Introduction: What is a BoM AsPlanned?
@@ -130,7 +125,6 @@ The BoM AsPlanned is based on the concept of the digital twin PartType. The corr
 
 The complexity of generic is much higher than BoM AsBuilt. It is used for technical topics, e.g., Supply Chain Act, DCM.
 
-
 ## AsBuilt
 
 #### Short Introduction: What is a BoM AsBuilt?
@@ -142,7 +136,5 @@ Also, the BoM is called 100%, as there are no alternative parts included but onl
 The BoM AsBuilt is based on the concept of the digital twin PartInstance. The corresponding life cycle is mapped using the aspect models SingleLevelBoMAsBuilt and SingleLevelUsageAsBuilt.
 
 In Catena-X the BoM asBuilt is used for technical topics, e.g., Quality, Battery Passport (CE).
-
-
 
 <Notice components={props.components} />
