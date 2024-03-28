@@ -134,7 +134,7 @@ The actual access information for the Connector is part of the endpoint attribut
 {
     "interface": "SUBMODEL-3.0",
     "protocolInformation": {
-        "href": "https://connector.data.plane/{publicPath}/{providerPath}/submodel",
+        "href": "https://connector.data.plane/{publicContextPath}/{providerPath}/submodel",
         "endpointProtocol": "HTTP",
         "endpointProtocolVersion": ["1.1"],
         "subprotocol": "DSP",
@@ -151,7 +151,7 @@ The following conventions apply for the endpoint:
 
 - `interface`, `endpointProtocol`, `endpointProtocolVersion`, `subprotocol`, `subprotocolBodyEncoding`, and `securityAttributes` are set as defined in the CX-0002 standard.
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
-  - `https://connector.data.plane/{publicPath}`: Address of the Connector data plane that is providing the submodel. `{publicPath}` is configured in the Connector settings and defaults to `/public`.
+  - `https://connector.data.plane/{publicContextPath}`: Address of the Connector data plane that is providing the submodel. `{publicContextPath}` is configured in the Connector settings and defaults to `/api/public`.
   - `{providerPath}`: This string is forwarded to the backend data service by the Connector data plane. Together with the Connector asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
   - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for this release, `href` must have the suffix `/submodel` representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
@@ -166,7 +166,7 @@ With this approach, the Connector asset structure must no longer follow the "one
 
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
-- `href` must have the following format: `https://connector.data.plane/{publicPath}/submodel`
+- `href` must have the following format: `https://connector.data.plane/{publicContextPath}/submodel`
 - `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={connectorAssetId}`
 - connectorAssetId is the id of the Connector asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
   - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
@@ -192,7 +192,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://connector.data.plane/public/submodel",
+          "href": "https://connector.data.plane/api/public/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
@@ -236,7 +236,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-          "href": "https://connector.data.plane/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+        "href": "https://connector.data.plane/api/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
