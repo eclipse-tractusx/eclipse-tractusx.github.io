@@ -2052,6 +2052,38 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 </details>
 
+## Creation of new passports
+
+The process for the creation can be structured like following:
+- Preparation phase
+- Research phase
+- Documentation phase
+- Approval phase I.
+- Data modelling phase
+- Approval phase II.
+- Release phase
+- Communication & Standardization
+
+In case of a new proposal, the checking of the already existing passports or aspect models is necessary. If none of the already existing passports or aspect models comply with the proposed requirements a new passport must be requested.
+
+In case of request from one of the involved companies, the checking of the already existing passports or aspect models is necessary. If none of the already existing aspect models fulfil the request a new aspect model must be requested.
+
+
+Development teams should be formed and designated. The team members must be from at least two different companies, that has involvement in the production of the product which the aspect model was requested for. From each of the involved companies subject matter experts should get involved. Involvement of a legal expert is necessary. The lifecycle of the product and the related scenarios should be discovered and documented. Scenarios should be assigned to the responsible parties. All responsible parties should validate their data availability.
+
+Collection of possible data attributes must be documented in a shared file. The possible data attributes should be aligned with the already existing, related aspect models to avoid duplications. After the list of the possible attributes are agreed on by the responsible parties, for testing and validation purposes other companies should be involved.
+
+In case of a new or changed aspect model, the changes need to be submitted and requested from the association. The approval is dependent on many different factors.
+
+Linking with other already existing data models, if reasonable, is mandatory. The data model must be created with the catena-x conform modelling language.
+
+To get the approval, specific requirements have to be fulfilled. Several iterations between modelling adjustments and reviews can be made.
+
+Note: Data model creation and standardization will be supported in the association
+
+![Image: Passport Creation](./resources/adoption-view/passport_model_creation.svg)
+
+
 ## Business Architecture
 
 The Business Architecture illustrates the interaction between the EcoPass KIT and other KITs, components, data models, and artifacts used for identity and access management, illustrated by the Figure below.
