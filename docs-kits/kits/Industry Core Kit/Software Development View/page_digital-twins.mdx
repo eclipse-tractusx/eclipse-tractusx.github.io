@@ -183,10 +183,7 @@ With this approach, the Connector asset structure must no longer follow the "one
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
 - `href` must have the following format: `https://connector.data.plane/{publicContextPath}/submodel`
-- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={connectorAssetId}`
-- connectorAssetId is the id of the Connector asset for the submodel. It must have the following format "{aasIdentifier}-{submodelIdentifier}" with
-  - aasIdentifier: the id of the digital twin (id property in the AAS descriptor)
-  - submodelIdentifier: the id of the submodel (id property in the submodel descriptor)
+- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={datasetId}` with `{datasetId}` the ID of the Connector asset for the submodel. 
 
 Here's an example how such a submodel descriptor could look like:
 
@@ -212,7 +209,7 @@ Here's an example how such a submodel descriptor could look like:
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
-          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
           "subprotocolBodyEncoding": "plain",
           "securityAttributes": [
             { "type": "NONE", "key": "NONE", "value": "NONE" }
@@ -252,7 +249,7 @@ Here's an example how such a submodel descriptor could look like:
       {
         "interface": "SUBMODEL-3.0",
         "protocolInformation": {
-        "href": "https://connector.data.plane/api/public/urn%3Auuid%3A75e98d67-e09e-4388-b2f6-ea0a0a642bfe-urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+          "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
           "endpointProtocol": "HTTP",
           "endpointProtocolVersion": ["1.1"],
           "subprotocol": "DSP",
