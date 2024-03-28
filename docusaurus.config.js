@@ -424,6 +424,10 @@ const config = {
                 label: 'Health Indicator',
               },
               {
+                to: '/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit',
+                label: 'Industry Core',
+              },
+              {
                 to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
                 label: 'Model Based Development',
               },
