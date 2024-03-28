@@ -15,6 +15,7 @@
 const sidebars = {
     docs: [
         'developer',
+        'getting-started',
         {
             type: 'category',
             label: 'Open Source Development',
