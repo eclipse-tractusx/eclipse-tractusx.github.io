@@ -2,13 +2,14 @@
 title: Changelog
 ---
 
-## [1.3.0] - 2024-05-15
+## [1.4.0] - 2024-05-15
 
 ### 24.05 Added
 
 - Add new route to ECO-Pass APIs
 - Add Electric Drive Passport model v1.0.0
 - Add Chemical Material Passport model v1.0.0
+- Add passport creation instruction
 
 ### 24.05 Updated
 
