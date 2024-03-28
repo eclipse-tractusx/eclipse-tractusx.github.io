@@ -159,7 +159,7 @@ property):
                   "odrl:operator": {
                     "@id": "odrl:eq"
                   },
-                  "odrl:rightOperand": "ID 3.1 Trace"
+                  "odrl:rightOperand": "purpose.trace.v1.aspects"
                 }
               ]
             }
@@ -194,7 +194,7 @@ property):
                 "odrl:operator": {
                   "@id": "odrl:eq"
                 },
-                "odrl:rightOperand": "ID 3.1 Trace"
+                "odrl:rightOperand": "purpose.trace.v1.aspects"
               }
             ]
           },

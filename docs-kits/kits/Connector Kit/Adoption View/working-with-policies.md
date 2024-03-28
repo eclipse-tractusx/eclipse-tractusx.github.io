@@ -12,7 +12,7 @@ Protocol Specification](https://docs.internationaldataspaces.org/ids-knowledgeba
 has selected the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/) as a formalism and vocabulary to describe such offers.
 This site (and its [specialization for Catena-X](policies-in-catena.md)) exclusively cover the topic of Policies in the
 sense of the Dataspace Protocol. The EDC also uses ODRL-Policies to restrict visibility on Catalog-Entries - calling
-them "Access Policies". Selecting the right Access Policies is a matter of the individual Data Provider and not
+them [Access Policies](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md#access--usage-policies). Selecting the right Access Policies is a matter of the individual Data Provider and not
 regulated by the Dataspace. Doing it properly however is essential to comply with fundamental anti-trust and information
 security requirements.
 
