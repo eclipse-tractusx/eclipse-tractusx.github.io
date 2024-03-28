@@ -228,27 +228,6 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          traceability_notifications_120: {
-            specPath: "./openApi/traceability/notifications_1-2-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.2.0 - optional",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications_110: {
-            specPath: "./openApi/traceability/notifications_1-1-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.1.0 - mandatory",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          industrycore_unique_id_push: {
-            specPath: "./openApi/industrycore/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Industry Core Kit/Software Development View/Unique ID Push API",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
           tractusx_edc_api: {
             specPath: "./openApi/edc/tractusx-edc-0.5.1-SNAPSHOT.yaml", // Path to designated spec file
             outputDir:
