@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-03-15T00:00:00.000Z</updated>
+    <updated>2024-03-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Office Hour 2024-03-22]]></title>
+        <id>office-hour-2024-03-22</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-03-22"/>
+        <updated>2024-03-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Investigating slow <a href="https://eclipse-tractusx.github.io/" target="_blank" rel="noopener noreferrer">website</a> build times<ul><li>Local builds (and CI) take increasingly more time (~13 min for static build with empty caches)</li><li>Heap size has to be increased on some machines</li><li>Potential source: Versioning of the KITS and keeping all the versions</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>Some teams are already migrating from Veracode to CodeQL. Great! Remember to also remove Veracode workflows in this case.</li><li>PR to publish the Security TRG section will be raised</li><li>Snyk will not be part of the Security TRGs and therefore not mandatory. Best practices and how-tos will still be provided in <a href="https://github.com/eclipse-tractusx/sig-security" target="_blank" rel="noopener noreferrer">sig-security</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li><a href="https://eclipse-tractusx.github.io/docs/oss/getting-started" target="_blank" rel="noopener noreferrer">Getting started</a> guide improved<ul><li>Does make it easier for new-joiners</li><li>Please link to this guide instead of duplicating information</li><li>If anything is missing, feel free to raise a PR or open an issue</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>Tractus-X "Stammtisch Munich". <a href="https://matrix.to/#/!oXNwXGsvkbDUMiQhms:matrix.eclipse.org/$HQJu6RdRdobY62XxARHy7kRe0hIqX2fLw4A4l6x2exk?via=matrix.eclipse.org&amp;via=matrix.org&amp;via=dev-null.rocks" target="_blank" rel="noopener noreferrer">See Matrix post</a></li><li>Old consortia office hour meeting will be cancelled. Open meeting link is now well known.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a class="hash-link" href="#discussions" title="Direct link to heading">​</a></h3><ul><li>People have been receiving on- and offboarding emails for the Tractus-X contributor team in GitHub<ul><li>Unclear what triggered it</li><li>If you are committer, you don't need to also be part of the contributor group</li><li>In case you lost a necessary group assignment, please reach out</li></ul></li></ul>]]></content>
+        <author>
+            <name>Sebastian Bezold</name>
+            <uri>https://github.com/SebastianBezold</uri>
+        </author>
+        <category label="tractus-x-office-hour" term="tractus-x-office-hour"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tractus-X Office Hour 15.03.2024]]></title>
         <id>office-hour-2024-03-18</id>
