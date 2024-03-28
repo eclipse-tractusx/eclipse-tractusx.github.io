@@ -2,6 +2,24 @@
 title: Changelog
 ---
 
+![EcoPass KIT Pictotogram](/img/kit-icons/ecopass-kit-icon.svg)
+
+All notable changes to this Kit will be documented in this file.
+
+## [2.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
+
 ## [released]
 
 ## [1.0.0] - 2024-03-08
