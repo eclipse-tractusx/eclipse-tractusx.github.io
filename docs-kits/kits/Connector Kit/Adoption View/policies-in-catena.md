@@ -66,7 +66,7 @@ Here's an example from the [Framework Agreement Traceability](https://catena-x.n
 
 | Predefined Policy                  | Typically used where? | Predefined Purpose                                                                                                                                        |
 |------------------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `purpose.trace.v1.qualityanalysis` | Notification API      | The data can be used for quality analysis to identify and select affected components and to send quality notifications to affected customers or suppliers |
+| `cx.core.qualityNotifications:1` | Notification API      | The data can be used for quality analysis to identify and select affected components and to send quality notifications to affected customers or suppliers |
 
 A `odrl:Constraint` referencing this purpose looks like this:
 
@@ -79,7 +79,7 @@ A `odrl:Constraint` referencing this purpose looks like this:
   "odrl:operator": {
     "@id": "odrl:eq"
   },
-  "odrl:rightOperand": "purpose.trace.v1.qualityanalysis"
+  "odrl:rightOperand": "cx.core.qualityNotifications:1"
 }
 ```
 
@@ -142,7 +142,7 @@ property):
           "@type": "odrl:Set",
           "odrl:permission": {
             "odrl:action": {
-              "odrl:type": "http://www.w3.org/ns/odrl/2/use"
+              "@id": "http://www.w3.org/ns/odrl/2/use"
             },
             "odrl:constraint": {
               "odrl:and": [
@@ -158,7 +158,7 @@ property):
                   "odrl:operator": {
                     "@id": "odrl:eq"
                   },
-                  "odrl:rightOperand": "purpose.trace.v1.aspects"
+                  "odrl:rightOperand": "cx.core.industrycore:1"
                 }
               ]
             }
@@ -171,7 +171,7 @@ property):
           "@type": "odrl:Set",
           "odrl:permission": {
             "odrl:action": {
-              "odrl:type": "http://www.w3.org/ns/odrl/2/use"
+              "@id": "http://www.w3.org/ns/odrl/2/use"
             },
             "odrl:constraint": [
               {
@@ -193,7 +193,7 @@ property):
                 "odrl:operator": {
                   "@id": "odrl:eq"
                 },
-                "odrl:rightOperand": "purpose.trace.v1.aspects"
+                "odrl:rightOperand": "cx.core.industrycore:1"
               }
             ]
           },
@@ -225,7 +225,6 @@ property):
   },
   "participantId": "PROVIDER-BPNL"
 }
-
 ```
 
 ## Notice
