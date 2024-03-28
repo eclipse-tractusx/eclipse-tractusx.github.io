@@ -5,6 +5,8 @@ description: 'PCF-Exchange-KIT'
 sidebar_position: 3
 ---
 
+![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
+
 ## Introduction
 
 The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developer will learn how to integrate the kit into there applications and make use of the feature of exchanging PCF values via the Catena-X network.
