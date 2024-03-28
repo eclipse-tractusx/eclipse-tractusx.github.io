@@ -1284,7 +1284,7 @@ npm/npmjs/@types/parse-json/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/5.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/6.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/prop-types/15.7.5, MIT, approved, clearlydefined
-npm/npmjs/@types/qs/6.9.7, MIT, approved, clearlydefined
+npm/npmjs/@types/qs/6.9.7, MIT, approved, #13991
 npm/npmjs/@types/range-parser/1.2.4, MIT, approved, #10795
 npm/npmjs/@types/react-is/17.0.3, MIT, approved, #8424
 npm/npmjs/@types/react-redux/7.1.25, MIT, approved, #10970
