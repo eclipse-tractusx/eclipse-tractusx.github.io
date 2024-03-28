@@ -7,19 +7,22 @@ id: connector_kit_adoption_view_policies_cx
 
 ## Data Sovereignty in Catena-X
 
-In Catena-X, there's a set of conventions with regard to how Providers structure their `odrl:Offer`s. They are however
-also relevant for Enablement Service Providers building components enabling connectivity to the Dataspace (as specified
-in CX-0018). The authoritative resource for schemas is
-the [Catena-X ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile).
+In Catena-X, there's a set of conventions with regard to how Providers structure their `odrl:Offer`s.
+
+A general recommendation is to focus on `permission` property to further specify the contracts' details. In general,
+every data provider can decide on his or her own under which conditions their data datasets (assets) are shared in the
+network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its
+legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for automation. Still, individual freedom of contract is a very high good and is still possible.
+
+This guidance is however also relevant for Enablement Service Providers building components enabling connectivity to the
+Dataspace (as specified in CX-0018). The authoritative resource for schemas is the [Catena-X ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile).
 
 As mentioned in the primer on policies, Providers and Consumers must have a common
 understanding of the meaning and consequences of `odrl:Offers` and, on a more granular level, their `odrl:Constraints`.
-That's why there is a set of predefined `odrl:Constraints` - all of which have to
-be [accepted explicitly](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage)
-and
-some [checked against a Consumer's VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation)
-additionally. They are formalized in the [Catena-X ODRL profile](https://github.com/catenax-eV/cx-odrl-profile)
-which extends the regular [ODRL vocabulary](https://www.w3.org/TR/odrl-vocab/).
+That's why there is a set of predefined `odrl:Constraints` - all of which have to be [accepted explicitly](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage) and
+some [checked against a Consumer's VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation) additionally. They are formalized in the [Catena-X ODRL profile](https://github.com/catenax-eV/cx-odrl-profile)
+which extends the regular [ODRL vocabulary](https://www.w3.org/TR/odrl-vocab/). Since usage or contract policies are highly dependent on the use case,
+they are described by them in their associated KITs and only general elements are explained in the following.
 
 Here's a non-normative overview of these extensions:
 
@@ -31,13 +34,10 @@ govern the _"who, with whom, what, where from and where to, why, how, and when"_
 Framework Agreements are roughly structured along the lines of business scenarios under which a set of business partners
 want to exchange data.
 
-Each Participant commits to a set of Framework Agreements during Onboarding. They are
-granted a set of VCs as proof of that commitment. Consequently, Framework Agreement Constraints belong to the kind
-of `odrl:Constraint`s that have to
-be [checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation).
-The complete set is listed in the most current version of
-standard [CX-0050 Framework Credential](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0050-FrameworkAgreementCredential-v.1.0.0.pdf) (
-link opens pdf).
+Each Participant commits to a set of Framework Agreements during Onboarding. They are granted a set of VCs as proof of
+that commitment. Consequently, Framework Agreement Constraints belong to the kind of `odrl:Constraint`s that have to be
+[checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation). The complete set is listed in the most current version of standard
+[CX-0050 Framework Credential](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0050-FrameworkAgreementCredential-v.1.0.0.pdf) (link opens pdf).
 Framework Agreements are referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
 negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also his
 Credentials. Here's an example of an `odrl:Constraint` referencing a Framework Agreement and invoking the VC-check:
@@ -59,10 +59,9 @@ Credentials. Here's an example of an `odrl:Constraint` referencing a Framework A
 
 Purposes are usually part of a Framework Agreement and restrict the purpose the Consumer is privileged to use the
 obtained data for. Unlike a Framework Agreement Constraint, the purposes are NOT checked against VCs, thus necessary
-for a successful negotiation mechanism is
-only [the Consumer's consent to the Offer](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage).
-Here's an example from
-the [Framework Agreement Traceability](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_Traceability.pdf)
+for a successful negotiation mechanism is only [the Consumer's consent to the Offer](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage).
+Versions for UsagePurpose `rightOperand`s are typically 1-digit.
+Here's an example from the [Framework Agreement Traceability](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_Traceability.pdf)
 (link opens pdf):
 
 | Predefined Policy                  | Typically used where? | Predefined Purpose                                                                                                                                        |
