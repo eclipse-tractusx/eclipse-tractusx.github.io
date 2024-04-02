@@ -14,7 +14,7 @@ sidebar_position: 1
 
 ### Changed
 
-- Changed banner image file location and converted .png image to .svg 
+- Changed banner image file location and converted .png image to .svg
 
 ### Removed
 
