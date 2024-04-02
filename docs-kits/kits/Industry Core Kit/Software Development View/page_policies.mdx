@@ -27,95 +27,46 @@ import Notice from '../part_notice.mdx'
 
 ![Industry Core kit banner](@site/static/img/doc-industry-core_header-minified.png)
 
-The Policies are used to increase data sovereignty by limiting the access and usage of data. In the following, access and usage policies with their usage in the EDC are described.
-
-### Access Policies
-
-#### BPN Access Policy
-
-This policy allows limiting access to a data offer based on a list of specific BPNs. This translates to the following functionality:
-
-- The data offer creator will be able to create a policy listing all the BPN that can access the data offer
-- This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data sharing)
-<!-- - To fulfill the requirements of the **Supply Chain Act**, a NGO Trustee is introduced that is trusted by the complete supply chain to evaluate if an inquiring company is impacted by a specific ESS incident.
-Every Trustee is represented in the Catena-X network as a general participant with a unique BPN. Further, the Trustee is allowed to use supplier relationships and BoM data beyond the one-up/one-down principle due to the legal regulations.
-In order to grant access to the BoM as planned data assets, the Trustee's BPN must be mentioned in the policy. -->
-
-Examples including a JSON payload for single and multiple BPN are described on [this page in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/c8e9675faf417ec5cded9537964da834d49c52cb/edc-extensions/bpn-validation) or in the [Connector Kit](../../../category/connector-kit).
+The Policies are used to increase data sovereignty by limiting the access and usage of data. In the following, access
+and usage policies with their usage in the EDC are described. An explanation of Policy-handling mechanics in the EDC
+is available in the [EDC docs](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md#access--usage-policies).
+For general conventions about Usage Policies in Catena-X, check the [Connector Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/connector-kit).
 
 ### Usage Policies / Contract Policies
 
-Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way of formulating policy payloads. To further define and restrict the possibilities of the ODRL language, it is recommended to create separate, more specific ODRL profiles. For Catena-X, the profile is published [here](https://github.com/catenax-eV/cx-odrl-profile)
-
-A general recommenation is to focus on `permission` property to further specify the contracts' details. It is also recommended to only combine those with logical `and` until further operands are required.
-
-In general, every data provider can decide on his or her own under which conditions their data datasets (assets) are shared in the network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for automation. Still, individual freedom of contract is a very high good and is still possible.
-
-Since usage or contract policies are highly dependent on the use case, they are described by them in their associated KITs and only general elements are explained in the following.
-
-In general, three main building blocks for data sharing contracts are specified:
-- FrameworkAgreement
-- ContractReference
-- UsagePurpose
-
-The list of such standardized contract building blocks / constraints will be extended with further releases.
+Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-model/). This allows a standardized way
+of formulating policy payloads. To further define and restrict the possibilities of the ODRL language, it is recommended
+to create separate, more specific ODRL profiles. For Catena-X, the profile is published [here](https://github.com/catenax-eV/cx-odrl-profile).
 
 #### FrameworkAgreement
-A `FrameworkAgreement` refers to a legal document that is published by the Catena-X e.V.: [Governance Framework for Data Space Operations](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
 
-An organization that accepts it's content, that is typically bound to a specific use case, receives a Verifiable Credential for it. Those Verifiable Credentials can be made part of the negotiation process as part of the policy:
-
-```
-{
-    "leftOperand": "cx-policy:FrameworkAgreement",
-    "operator": "eq",
-    "rightOperand": "traceability:1.0"
-}
-```
-In general, whether to use the prefix `cx-policy` or not, depends on how the `@context` is defined. In case the context from [tractusx-profiles](https://github.com/eclipse-tractusx/tractusx-profiles/blob/main/cx/credentials/schema/context/policy.context.json) is loaded, the prefix `cx-poliy` can be omitted.
-
-In case that remote context is not loaded, the following definition needs to be made available:
-```
-"cx-policy": "https://w3id.org/catenax/policy/"
-```
-
-`FrameworkAgreement` typically do have 2-digit versions.
-
-#### ContractReference
-A `ContractReference` is a reference to an existing ("paper") contract.
-
-```
-{
-    "leftOperand": "cx-policy:ContractReference",
-    "operator": "eq",
-    "rightOperand": "x12345"
-}
-
-```
-Both parties need to be able to identify a unique contract with the given reference value in the `rightOperand`.
-
-Beware, that in such cases it is mandatory to also set a `Access Policy` to not potentially reveal customer-supplier relationship information by e.g. the contract identifiers.
-`ContractReference`s typically do not contain a version.
+As described in the Connector Kit, there is a Credential issued for each Use Case Framework. As the Industry Core (IC)
+is not a use-case but rather a set of foundational models and technologies, there is no specific Framework Agreement for
+it.
 
 #### UsagePurpose
-A `UsagePurpose` often depends on the use case and will be further documented in their individual KITs and legally defined in the [CX ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile). The legal definition behind the standardized value further explains part of the data usage contract and how data is allowed to be used once access has been granted.
+
+Instead, there's a set of purposes for the Industry Core. These purposes can be used in all use-cases that build on it,
+and for instance be chained with the FrameworkAgreementConstraint for the Traceability use-case.
+The complete list is formalized in the CX-ODRL-Profile. Here's an example constraint for the IC's foundational purpose:
+
 ```
 {
+    "@context": [
+             "https://www.w3.org/ns/odrl.jsonld",
+             {
+                 "cx-policy": "https://w3id.org/catenax/policy/"
+             }
+         ],
     "leftOperand": "cx-policy:UsagePurpose",
     "operator": "eq",
-    "rightOperand": "cx.traceability.aspects:1"
+    "rightOperand": "cx.core.industrycore:1"
 }
-
 ```
 
-Versions for `UsagePurpose rightOperand`s are typically 1-digit.
-
-### Contract Definitions
-
-In the EDC, every policy is connected with a data asset by a contract definition. Details about the endpoint and payload can be found in the [Transfer Data sample in the tractus-x EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/bc7a1aaf8e1d2a742f71c04e98bcdf409a274fc3/docs/samples/Transfer%20Data.md#2-setup-data-offer).
-
-### Verifiable Credentials
-
-Verifiable Credentials (VC) are part of the Self-Sovereign Identity (SSI) standard by the W3C. Details about Catena-X specific VCs can be found in the [CX - 0016 Company Attribute Verification](#standards) standard. As mentioned there, it offers a `UseCaseFrameworkConditionCX` type allowing a data provider to check if specific conditions, like a signed use case contract as introduced in the [Purpose-base Usage Policy section](#purpose-based-policy), are agreed. Further technical documentation are presented in the [SSI Docu](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture) repository.
+As the IC in turn relies on a set of other components and concepts. The `cx.core.industrycore:1` purpose however should
+only be used on offers leading to aspects, usually behind a Submodel API. Despite the fact that the Digital Twin
+Registry (as defined in the [DT Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/digital-twin-kit/) is
+a mandatory component of the Industry Core, it should be exposed only with the purpose `cx.core.digitalTwinRegistry:1`.
 
 <Notice components={props.components} />
