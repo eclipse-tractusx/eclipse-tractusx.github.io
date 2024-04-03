@@ -21,6 +21,8 @@ All notable changes to this Kit will be documented in this file.
 
 - Changed banner image file location and converted .png image to .svg
 
+#### Adaption view
+
 ### Removed
 
 - ./.
