@@ -76,7 +76,7 @@ security setup etc.). As the information contained in the DTR may be sensitive a
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET
 endpoints
 as specified in
-the [Development View](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20Kit),
+the [Development View](API%20AAS%20Registry/dotaas-part-2-http-rest-registry-service-specification.info.mdx),
 data providers may find it useful to implement other requests for registration
 on top. Either way, they are free to populate their DTR in any way they desire.
 
@@ -268,18 +268,14 @@ see [Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
 `@context` section can declare the namespaces that resources explicitly mentioned in the rest of the document belong to.
 It may also define default namespace with `@vocab` for resources without explicitly stated namespaces. Outside of
 the "@context" section, the `@type` property always defines the class that an object belongs to.
-As stated in the openAPI-specification of the EDC Management API's relevant endpoint, all entries in
-the `asset/properties`
-object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is structured depending
-on the `edc:type` property. The example below is determined by
-the [HttpDataAddress](https://github.com/eclipse-edc/Connector/blob/main/spi/common/core-spi/src/main/java/org/eclipse/edc/spi/types/domain/HttpDataAddress.java)
-class. Its parameters determine
-the behavior of the EDC's HTTP data plane at runtime. How they should be used is not subject to standardization since
-they
-aren't visible in the Dataspace. Certain values may have to be set in a certain way to enable the data exchange via
-the DT Kit.
+As stated in the openAPI-specification of the EDC Management API's relevant endpoint, all entries in the
+`asset/properties` object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is
+structured depending on the `edc:type` property. The example below is determined by the [HttpDataAddress](https://github.com/eclipse-edc/Connector/blob/main/spi/common/core-spi/src/main/java/org/eclipse/edc/spi/types/domain/HttpDataAddress.java)
+class. Its parameters determine the behavior of the EDC's HTTP data plane at runtime. How they should be used is not
+subject to standardization since they aren't visible in the Dataspace. Certain values may have to be set in a certain
+way to enable the data exchange via the DT Kit.
 
-It presents the backend resources as dcat:DataSets with properties funnelled through from the assets-API. These
+It presents the backend resources as dcat:Datasets with properties funnelled through from the assets-API. These
 properties can be freely set by the Data Provider.
 
 For successful discovery of Digital Twins, it is critical to register Submodels and Digital-Twin-Registries in a
@@ -288,7 +284,7 @@ harmonized way. The following overview shall explain how the `asset/properties` 
 - `https://purl.org/dc/terms/type` (mandatory as per CX-0018): denotes the type of Asset that is registered. The
   property
   points to an RDF resource. In the context of digital twins two predefined resources are of
-  relevance: `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry`and `https://w3id.org/catenax/taxonomy#Submodel`
+  relevance: `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry` and `https://w3id.org/catenax/taxonomy#Submodel`
 
 - `https://w3id.org/catenax/common/version` (mandatory as per CX-0002): version-string of the registered type of
   resource.
@@ -297,25 +293,20 @@ harmonized way. The following overview shall explain how the `asset/properties` 
 
 #### Digital Twin Registry as EDC Data Asset
 
-- `asset:prop:type` (mandatory as per CX-0002): denotes the type of Asset that is registered. For all AAS-registries
-  this property must be set to `data.core.digitalTwinRegistry`. This property will likely be removed in the future as
-  it was overridden by the mandate in CX-0018.
-
 ```json
 {
   "@context": {
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "cx-common": "https://w3id.org/catenax/ontology/common#",
     "cx-taxo": "https://w3id.org/catenax/taxonomy#",
-    "dct": "https://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/"
   },
   "@id": "{{ _.edcAssetId }}",
   "properties": {
     "dct:type": {
       "@id": "cx-taxo:DigitalTwinRegistry"
     },
-    "cx-common:version": "3.0",
-    "asset:prop:type": "data.core.digitalTwinRegistry"
+    "cx-common:version": "3.0"
   },
   "privateProperties": {
   },
@@ -333,6 +324,10 @@ harmonized way. The following overview shall explain how the `asset/properties` 
 }
 ```
 
+The property `asset:prop:type` (deprecated and superseded by `dct:type` - see CX-0002) denotes the type of Asset that
+is registered. For all AAS-registries this property had be set to `data.core.digitalTwinRegistry`. Providers may keep
+this redundant property for backward compatibility purposes.
+
 The HttpDataAddress above configures the following behavior:
 
 - `baseUrl`: After successful negotiation, the data plane will delegate requests here and forward the answer. For the
@@ -345,13 +340,39 @@ The HttpDataAddress above configures the following behavior:
   backend
   `http://mydtr.com/api/v3/shell-descriptors`
 - `proxyQueryParams`: This string can be either "true" or "false". If set to true, the EDC Data Plane will always
-  forward
-  query parameters to the backend. For the /lookup APIs of the registry, this is critical.
+  forward query parameters to the backend. For the /lookup APIs of the registry, this is critical.
 - `proxyMethod`: This string can be either "true" or "false". If "false", the Data Plane will change the HTTP-Verb to
-  GET
-  for all incoming requests. As there is no scenario in the Catena-X scope where a business partner manipulates data in
-  a
-  foreign DTR, it should be set to false.
+  GET for all incoming requests. As there is no scenario in the Catena-X scope where a business partner manipulates
+  data in a foreign DTR, it should be set to false.
+
+If a Data Consumer wants to filter a Data Provider's catalog (assuming both use an EDC-based connector), the following
+payload can be used against the EDC Management API's `POST /catalog/request` endpoint:
+
+```json
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "CatalogRequest",
+  "counterPartyAddress": "{{PROVIDER-DSP-ENDPOINT}}",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "offset": 0,
+    "limit": 50,
+    "filterExpression": [
+      {
+        "@context": {
+          "edc": "https://w3id.org/edc/v0.0.1/ns/"
+        },
+        "@type": "edc:Criterion",
+        "operandLeft": "'http://purl.org/dc/terms/type'.'@id'",
+        "operator": "=",
+        "operandRight": "https://w3id.org/catenax/taxonomy#DigitalTwinRegistry"
+      }
+    ]
+  }
+}
+```
 
 #### Submodel as EDC Data Asset
 
@@ -376,7 +397,7 @@ recommended and shall signify the meaning of the Submodel's payload.
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "cx-common": "https://w3id.org/catenax/ontology/common#",
     "cx-taxo": "https://w3id.org/catenax/taxonomy#",
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "aas-semantics": "https://admin-shell.io/aas/3/0/HasSemantics/"
   },
   "@id": "{{ _.assetId }}",
@@ -421,7 +442,7 @@ differences are the changed typization. `proxyPath` parameter should be set `"tr
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "cx-common": "https://w3id.org/catenax/ontology/common#",
     "cx-taxo": "https://w3id.org/catenax/taxonomy#",
-    "dct": "https://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/"
   },
   "@id": "{{ _.assetId }}",
   "properties": {
