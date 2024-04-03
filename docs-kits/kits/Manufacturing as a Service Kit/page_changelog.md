@@ -15,7 +15,8 @@ All notable changes to this KIT will be documented in this file.
 
 ### Added
 
-- ./.
+- Manufacturing Capability API
+- Request for Quotation API
 
 ### Changed
 

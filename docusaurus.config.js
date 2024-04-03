@@ -326,6 +326,24 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          resiliency_maas_manufacturing_capability: {
+            specPath:
+              './openApi/resiliency/maas/ManufacturingCapability-open-api.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Manufacturing as a Service Kit/Software Development View/Manufacturing Capability', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_maas_request_for_quotation: {
+            specPath:
+              './openApi/resiliency/maas/RfQ-openapi.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Manufacturing as a Service Kit/Software Development View/Request for Quotation', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
           resiliency_mp_provider: {
             specPath:
               './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
