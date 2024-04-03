@@ -166,10 +166,10 @@ const config = {
         // options here
         id: "discoveryFinderOpenapi",
         name: "discoveryFinder", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/discoveryfinder/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-discovery-finder/main/backend/src/main/resources/static/discovery-finder-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["discovery-finder-openapi.yaml"], // the file names to download
-        noRuntimeDownloads: false
+        noRuntimeDownloads: true
       },
     ],
     [
@@ -178,7 +178,7 @@ const config = {
         // options here
         id: "bpnDiscoveryOpenapi",
         name: "bpnDiscovery", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/bpndiscovery/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-bpn-discovery/main/backend/src/main/resources/static/bpn-discovery-service-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["bpn-discovery-service-openapi.yaml"], // the file names to download
         noRuntimeDownloads: true
