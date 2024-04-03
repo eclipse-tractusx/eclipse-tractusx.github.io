@@ -10,7 +10,8 @@ sidebar_position: 2
 The Catena-X standard CX-0002 (Digital Twins in Catena-X) defines a subset of the AAS-standard that is relevant for
 Catena-X. However, it is concerned only with the network-facing APIs which in some cases may have to be augmented to
 cover use-case requirements. For example, resolving `specificAssetIds` against a Shell's `id` is standardized since
-Consumers rely on a well-defined API here. However, how the Provider ingests the relevant data into the DTR usually isn't
+Consumers rely on a well-defined API here. However, how the Provider ingests the relevant data into the DTR usually
+isn't
 relevant for cross-dataspace interoperability and thus, the call isn't standardized.
 
 While the assumptions are explicitly listed, all patterns assume that both partners involved are properly onboarded to
@@ -31,14 +32,15 @@ autonumber
 This happens usually when onboarding a company to the network.
 
 > Note: While this Kit explicitly uses the APIs of the EDC (Eclipse Dataspace Connector), provisioning data with
-any other implementation of the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme)
+> any other implementation of
+> the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme)
 (DSP) is also permitted. The flows to integrate DTRs and Submodel endpoints will differ with each implementation.
 
 ### 1. Fetching a supplier's Twin
 
-| Scenario                                                                    | Participants                                           | Assumptions                                                                 | Links to Use-Cases                                                                               |
-|-----------------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - Industry Core (coming soon) <br/> - [Product Carbon Footprint Kit](../../PCF%20Exchange%20Kit) |
+| Scenario                                                                    | Participants                                           | Assumptions                                                                 | Links to Use-Cases                                                                                                                                                     |
+|-----------------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - [Industry Core](../../Industry%20Core%20Kit/Software%20Development%20View/page_digital-twins.mdx) <br/> - [Product Carbon Footprint Kit](../../PCF%20Exchange%20Kit) |
 
 The most common integration pattern with Digital Twins aims to offer asset-related data in expectable ways along the
 supply chain. It defines conventions that allow locating data in the network. This most basic scenario assumes that the
@@ -51,7 +53,7 @@ party - can assume that a part's supplier offers a Digital Twin if the data-exch
 - Digital Twin Registry (DTR)
   - registered in a DSP-conformant connector offering the DTR to the Dataspace.
   - registers Digital Twins (AssetAdministrationShell-descriptors - or AAS descriptor - in AAS vocabulary) with assetIds
-including at least one that's known at both, the supplier and customer.
+    including at least one that's known at both, the supplier and customer.
 - Submodels
   - registered in a DSP-conformant connector to the Dataspace.
   - registered to the correct AAS-descriptor in the DTR.
@@ -79,38 +81,40 @@ fetch the data from the right offers. The flow is specified here:
 
 ```mermaid
 sequenceDiagram
-    participant EDCD as EDC Discovery
-    participant PEDC as Provider EDC <br/>Control Plane
+    participant Con as Data Consumer
     participant CEDC as Consumer EDC <br/>Control Plane
+    participant PEDC as Provider EDC <br/>Control Plane
     participant DTR as Digital Twin Registry
     participant SM as Submodel Server
-    participant Con as Data Consumer
+    participant EDCD as EDC Discovery
+
 autonumber
     critical: Consumer-Side discovery
         Con->>EDCD: POST /api/administration/connectors/discovery with provider-bpn
         EDCD-->>Con: EDC-endpoint
-        Con->>CEDC: POST /catalog/request with filter looking for DTR
+        Con->>CEDC: POST /catalog/request with <br/>filter looking for DTR
         CEDC-->>PEDC: forward
         PEDC-->>CEDC: return
         CEDC-->>Con: dcat:Dataset for DTR
         Con->>PEDC: negotiate for DTR and retrieve token
         PEDC-->>Con: access token
-        Con->>DTR: GET /lookup/shells?assetIds=xyz
+        Con->>DTR: GET {{provider-data.plane}}/lookup/shells?assetIds=xyz
         DTR-->>Con: aas-id
-        Con->>DTR: GET /shell-descriptors/{{aas-id}} <br/> with aas-id encoded base64url
+        Con->>DTR: GET {{provider-data.plane}}/shell-descriptors/{{aas-id}} <br/> with aas-id encoded base64url
         DTR-->>Con: shell-descriptor including the  <br/> submodel's Dataset-ID (subprotocolBody)
      end
-        Con->>CEDC: POST /catalog/request with filter looking for Dataset-ID
+        Con->>CEDC: POST /catalog/request with <br/>filter looking for Dataset-ID
         CEDC-->>PEDC: forward
         PEDC-->>CEDC: return
         CEDC-->>Con: Dataset for submodel(-bundle)
         Con->>PEDC: negotiate for Dataset and retrieve token
         PEDC-->>Con: access token
-        Con->>SM: GET <br/>{{submodel-descriptor/href}}/$value
+        Con->>SM: GET {{submodel-descriptor/href}}/$value
         SM-->>Con: data
 ```
 
-If the `data` is a Bill of Material ([like this one](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.single_level_bom_as_built/2.0.0/gen/SingleLevelBomAsBuilt.json))
+If the `data` is a Bill of
+Material ([like this one](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.single_level_bom_as_built/2.0.0/gen/SingleLevelBomAsBuilt.json))
 it returns a list of `childItems` that hold for each subcomponent the information that's assumed to be present
 for the start of this very scenario (see Assumptions 1, 2). Thus, BoM and the DT deployment in combination
 enable recursive browsing of the parts-tree, collecting data along the way - given the data owners grant access.
@@ -121,15 +125,17 @@ enable recursive browsing of the parts-tree, collecting data along the way - giv
 |---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------|-----------------------|
 | A party (who is not the supplier of an part) publishes data about a previously uncovered aspect of the asset. | - Data Provider (Supplier) <br/> - Data Provider (Third Party) | 1. Third Party knows an id of the asset | - PURIS (coming soon) |
 
-Let's suppose, a car has reached it end-of-life. The object is sold to a dismantler who disassembles the vehicle and wants
+Let's suppose, a car has reached it end-of-life. The object is sold to a dismantler who disassembles the vehicle and
+wants
 to publish that exact information. As the Digital Twin is owned by the OEM of the vehicle, it will not be accessible,
 even less writable, to everyone in the network. Thus, the dismantler must publish the data themselves, by deploying:
 
 - Digital Twin Registry (DTR)
   - registered in a DSP-conformant connector offering the DTR to the Dataspace.
   - registers Digital Twins (AAS-descriptors in AAS vocabulary) with assetIds including at least one that's
-  equivalent to one attached to the OEM's twin.
-- Submodel (like [_Certificate of Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
+    equivalent to one attached to the OEM's twin.
+- Submodel (like [_Certificate of
+  Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
   - registered in a DSP-conformant connector to the Dataspace.
   - registered to the correct AAS-descriptor in the DTR.
   - Serving arbitrary but well-specified json via `GET` requests from the `/$value` endpoint.
@@ -143,13 +149,16 @@ Standards and Kits for a use-case as the default hypothesis is always that a sup
 
 For discovery of digital twins for parts, it might be useful to standardize the specific asset IDs the supplier should
 attach to its part twin. Via these `specificAssetIds` the corresponding digital twin of the part can be found by the
-OEM. If the `globalAssetId` is known to the OEM it is not necessary to defined additional specific asset IDs
+OEM. If the `globalAssetId` is known to the OEM it is not necessary to defined additional specific asset IDs. Both serve
+similar purposes and are defined in the [AAS-Specification](https://aas-core-works.github.io/aas-core-meta/v3/AssetInformation.html#properties).
 
-If multiple parties publish data on the same asset, each follows the Data Provisioning flow from [the default case](#1-fetching-a-suppliers-twin)
+If multiple parties publish data on the same asset, each follows the Data Provisioning flow
+from [the default case](#1-fetching-a-suppliers-twin)
 
 #### 2.2. Discovery by Registration
 
-If no heuristic is precise enough to expect a Submodel's location, the dismantler must signal in a [BPN-Discovery-Service](../page_software-operation-view.md)
+If no heuristic is precise enough to expect a Submodel's location, the dismantler must signal in
+a [BPN-Discovery-Service](../page_software-operation-view.md)
 that they indeed have data on said vehicle. This is the registration process:
 
 ```mermaid
@@ -167,7 +176,8 @@ autonumber
 It is followed by the regular Provisioning Process from [the default case](#1-fetching-a-suppliers-twin). That way, any
 interested Data Consumer can not only find data with the part's manufacturer but
 also all third parties returned by the BPN Discovery Service who have registered there and interacted with the part
-sometime during its lifecycle. The Consumer's workflow to retrieve the registered data is (like the registration) extended
+sometime during its lifecycle. The Consumer's workflow to retrieve the registered data is (like the registration)
+extended
 as this scenario does not make the assumption that the Consumer knows the BPN of the data they're interested in. This is
 healed by querying the previously populated discovery services to retrieve the BPN.
 
@@ -196,7 +206,8 @@ After that, [the default consumption process](#1-fetching-a-suppliers-twin) is e
 | A party (who is not the supplier of an part) updates data already covered by an existing Submodel. | - Data Provider (Supplier) <br/> - Data Provider (Third Party) | 1. Third Party knows an id of the asset | - DCM-AAS (coming soon) |
 
 There may be a scenario where a Supplier deploys a Digital Twin that holds data that will have to be updated during the
-lifecycle. A potential use-case would be the update of a particular vehicle's BoM - for instance if the engine is replaced.
+lifecycle. A potential use-case would be the update of a particular vehicle's BoM - for instance if the engine is
+replaced.
 This could be represented in a Submodel "SingleLevelBomAsMaintained".
 Currently, updating remote Submodels is a hypothetical example but, with the right tools, a pattern that can be executed
 in the Catena-X dataspace. Again, the Supplier registers the twin:
@@ -204,8 +215,9 @@ in the Catena-X dataspace. Again, the Supplier registers the twin:
 - Digital Twin Registry (DTR)
   - registered in a DSP-conformant connector offering the DTR to the Dataspace.
   - registers Digital Twins (AAS-descriptors in AAS vocabulary) with specificAssetIds including at least one that's
-  equivalent to one attached to the OEM's twin.
-- Submodel (like [_Certificate of Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
+    equivalent to one attached to the OEM's twin.
+- Submodel (like [_Certificate of
+  Destruction_](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/4889d8482fc6b233eb0f56f3ac94c5ea4004bc05/io.catenax.certificate_of_destruction/1.0.1/gen/CertificateOfDestruction.json))
   - registered in a DSP-conformant connector to the Dataspace.
   - registered to the correct AAS-descriptor in the DTR.
   - Serving arbitrary but well-specified json via GET-requests from the `/$value` endpoint.
@@ -229,7 +241,8 @@ end
 ```
 
 Serving the last call is tricky. It requires a very differentiated access control concept on the Supplier's side,
-differentiating WHO is allowed to write into WHAT part of the Submodel. Several approaches to implementation can be taken:
+differentiating WHO is allowed to write into WHAT part of the Submodel. Several approaches to implementation can be
+taken:
 
 #### 3.1. Access Control at the connector
 
@@ -254,9 +267,11 @@ Submodel Repository.
 | A new customer wants their customerPartId as specificAssetId on the twin. | - Data Provider (Supplier) <br/> - Data Provider (Third Party) | 1. Third Party knows an id of the asset | None yet           |
 
 An update to a twin is any change to the AAS-descriptor via the APIs of the AssetAdministrationShellServiceSpecification
-or DiscoveryServiceSpecification of AAS Part 2. While the relevant write-APIs are not mandatory in Catena-X, Data Providers
+or DiscoveryServiceSpecification of AAS Part 2. While the relevant write-APIs are not mandatory in Catena-X, Data
+Providers
 can implement and expose them to the dataspace. This obviously bears risks: not only can improper implementation and
-configuration lead to unauthorized access to data like in the simple read access (see [scenario 1](#1-fetching-a-suppliers-twin), [scenario 2](#2-adding-a-new-twin-for-a-given-asset)).
+configuration lead to unauthorized access to data like in the simple read access (
+see [scenario 1](#1-fetching-a-suppliers-twin), [scenario 2](#2-adding-a-new-twin-for-a-given-asset)).
 In this case, data could be manipulated and overwritten endangering the processes that build on it. That's why
 fine-grained access control for components like the DTR is a fundamental requirement to operate.
 
