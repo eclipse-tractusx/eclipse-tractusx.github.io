@@ -30,7 +30,7 @@ import Notice from '../part_notice.mdx'
 The Policies are used to increase data sovereignty by limiting the access and usage of data. In the following, access
 and usage policies with their usage in the EDC are described. An explanation of Policy-handling mechanics in the EDC
 is available in the [EDC docs](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md#access--usage-policies).
-For general conventions about Usage Policies in Catena-X, check the [Connector Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/connector-kit).
+For general conventions about Usage Policies in Catena-X, check the [Connector Kit](../../../category/connector-kit).
 
 ### Usage Policies / Contract Policies
 
@@ -50,23 +50,23 @@ Instead, there's a set of purposes for the Industry Core. These purposes can be 
 and for instance be chained with the FrameworkAgreementConstraint for the Traceability use-case.
 The complete list is formalized in the CX-ODRL-Profile. Here's an example constraint for the IC's foundational purpose:
 
-```
+```json
 {
-    "@context": [
-             "https://www.w3.org/ns/odrl.jsonld",
-             {
-                 "cx-policy": "https://w3id.org/catenax/policy/"
-             }
-         ],
-    "leftOperand": "cx-policy:UsagePurpose",
-    "operator": "eq",
-    "rightOperand": "cx.core.industrycore:1"
+  "@context": [
+     "https://www.w3.org/ns/odrl.jsonld",
+     {
+       "cx-policy": "https://w3id.org/catenax/policy/"
+     }
+  ],
+  "leftOperand": "cx-policy:UsagePurpose",
+  "operator": "eq",
+  "rightOperand": "cx.core.industrycore:1"
 }
 ```
 
 As the IC in turn relies on a set of other components and concepts. The `cx.core.industrycore:1` purpose however should
 only be used on offers leading to aspects, usually behind a Submodel API. Despite the fact that the Digital Twin
-Registry (as defined in the [DT Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/digital-twin-kit/) is
+Registry (as defined in the [DT Kit](../../../category/digital-twin-kit/)) is
 a mandatory component of the Industry Core, it should be exposed only with the purpose `cx.core.digitalTwinRegistry:1`.
 
 <Notice components={props.components} />
