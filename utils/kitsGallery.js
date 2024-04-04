@@ -16,7 +16,7 @@ import BehaviourTwinHI_Kit from "@site/static/img/BehaviourTwinHI_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import Certificate_Kit from "@site/static/img/Certificate_Kit.png"
-
+import PURIS_Kit from '@site/static/img/PURISKIT.png';
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 //************************** IMPORTANT **************************** */
@@ -155,5 +155,12 @@ export const kitsGallery = [
     domain: 'Sustainability',
     img: ESS_Kit,
     pageRoute: "/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
-  }
+  },
+  {
+    id: 19,
+    name: 'PURIS Kit',
+    domain: 'Resiliency',
+    img: PURIS,
+    pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+  },
 ]
