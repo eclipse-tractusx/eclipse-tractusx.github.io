@@ -98,7 +98,7 @@ autonumber
         CEDC-->>Con: dcat:Dataset for DTR
         Con->>PEDC: negotiate for DTR and retrieve token
         PEDC-->>Con: access token
-        Con->>DTR: GET {{provider-data.plane}}/lookup/shells?assetIds=xyz
+        Con->>DTR: GET {{provider-data.plane}}/lookup/shells?assetIds=xyz&assetIds=abc
         DTR-->>Con: aas-id
         Con->>DTR: GET {{provider-data.plane}}/shell-descriptors/{{aas-id}} <br/> with aas-id encoded base64url
         DTR-->>Con: shell-descriptor including the  <br/> submodel's Dataset-ID (subprotocolBody)
