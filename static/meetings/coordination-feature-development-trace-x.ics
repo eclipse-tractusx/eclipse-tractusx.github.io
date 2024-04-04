@@ -1,0 +1,79 @@
+BEGIN:VCALENDAR
+METHOD:PUBLISH
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:tzone://Microsoft/Utc
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN=Martin Kanal:mailto:Martin.Kanal@doubleslash.de
+DESCRIPTION:Trace-X Open Meeting\n\nVisibility: Public (Tractus-X)\nTitle: 
+ Trace-X Open Meeting\nScope: Coordination of feature development & concept
+ s\nParticipants: Core Team & Contributors\nDuration: 40 min\nFrequency: We
+ ekly\nGithub Project:\nhttps://github.com/orgs/eclipse-tractusx/projects/4
+ 5/views/5\n\nLink to repository:\nhttps://github.com/eclipse-tractusx/trac
+ eability-foss\n\nAgenda of the weeklies will be managed in the Projects Di
+ scussions:\nhttps://github.com/eclipse-tractusx/traceability-foss/discussi
+ ons\n\n___________________________________________________________________
+ ____________\nMicrosoft Teams-Besprechung\nNehmen Sie auf dem Computer\, i
+ n der mobilen App oder im Raumgerät teil\nHier klicken\, um an der Bespre
+ chung teilzunehmen<https://teams.microsoft.com/l/meetup-join/19%3ameeting_
+ MTEyNTAyNTYtY2VkOC00ZDdjLTk0NTItNWViYTJmNmJmOTlh%40thread.v2/0?context=%7b
+ %22Tid%22%3a%2226f86412-f875-4281-b566-fe6fe385e17c%22%2c%22Oid%22%3a%22db
+ 3ba521-7335-4e4f-b672-fc9f7c3f5536%22%7d>\nBesprechungs-ID: 326 272 032 68
+ \nPasscode: 6LjF9m\nTeams herunterladen<https://www.microsoft.com/en-us/mi
+ crosoft-teams/download-app> | Im Web beitreten<https://www.microsoft.com/m
+ icrosoft-teams/join-a-meeting>\n[https://www.doubleslash.de/fileadmin/doub
+ leslash/Bilder/Logo_doubleSlash/logo_doubleSlash_Sonderform_black_p_V1.jpg
+ ]\nWeitere Infos<https://aka.ms/JoinTeamsMeeting> | Besprechungsoptionen<h
+ ttps://teams.microsoft.com/meetingOptions/?organizerId=db3ba521-7335-4e4f-
+ b672-fc9f7c3f5536&tenantId=26f86412-f875-4281-b566-fe6fe385e17c&threadId=1
+ 9_meeting_MTEyNTAyNTYtY2VkOC00ZDdjLTk0NTItNWViYTJmNmJmOTlh@thread.v2&messa
+ geId=0&language=de-DE>\n__________________________________________________
+ ______________________________\n\n
+RRULE:FREQ=WEEKLY;COUNT=20;INTERVAL=1;BYDAY=TH;WKST=MO
+UID:040000008200E00074C5B7101A82E0080000000060E55CB66353DA01000000000000000
+ 01000000022D74E86EAB7A9458533696031E195CD
+SUMMARY:[TRACE-X] Trace-X Open Meeting
+DTSTART:20240208T130500Z
+DTEND:20240208T134500Z
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20240130T095443Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+LOCATION:Microsoft Teams-Besprechung
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:1
+X-MICROSOFT-SKYPETEAMSMEETINGURL:https://teams.microsoft.com/l/meetup-join/
+ 19%3ameeting_MTEyNTAyNTYtY2VkOC00ZDdjLTk0NTItNWViYTJmNmJmOTlh%40thread.v2/
+ 0?context=%7b%22Tid%22%3a%2226f86412-f875-4281-b566-fe6fe385e17c%22%2c%22O
+ id%22%3a%22db3ba521-7335-4e4f-b672-fc9f7c3f5536%22%7d
+X-MICROSOFT-SKYPETEAMSPROPERTIES:{"cid":"19:meeting_MTEyNTAyNTYtY2VkOC00ZDd
+ jLTk0NTItNWViYTJmNmJmOTlh@thread.v2"\,"private":true\,"type":0\,"mid":0\,"
+ rid":0\,"uid":null}
+X-MICROSOFT-ONLINEMEETINGINFORMATION:{"OnlineMeetingChannelId":null\,"Onlin
+ eMeetingProvider":3}
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MICROSOFT-LOCATIONDISPLAYNAME:Microsoft Teams-Besprechung
+BEGIN:VALARM
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT15M
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR

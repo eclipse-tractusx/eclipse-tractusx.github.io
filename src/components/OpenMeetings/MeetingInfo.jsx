@@ -18,16 +18,19 @@
  ********************************************************************************/
 import React from 'react';
 
-export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined}) {
+export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = []}) {
     return (
-        <section style={meetingInfo}>
+        <section style={meetingInfo} id={title}>
             <div style={meetingOverview}>
-                <h2 style={meetingTitle}>{title}</h2>
+                <h2 className="anchor" style={meetingTitle}>
+                    {title}
+                    <a className="hash-link" href={`#${title}`} title="Direct link to open meeting"></a>
+                </h2>
                 <div style={meetingSchedule}>{schedule}</div>
             </div>
             <div style={meetingDetails}>
                 <p>{description}</p>
-                
+
                 <ul>
                     <li style={itemTitle}>Contact:</li>
                     <li style={itemLink}>
@@ -37,22 +40,33 @@ export default function MeetingInfo({title, schedule, description, contact, sess
 
                 <ul>
                     <li style={itemTitle}>Participation opportunities:</li>
-                    { 
-                        sessionLink && 
+                        {sessionLink && (
                             <li style={itemLink}>
                                 <a href={sessionLink}>Join Meeting</a>
-                            </li> 
-                    }
-                    { 
-                        meetingLink &&
+                            </li>
+                        )}
+                        {meetingLink && (
                             <li style={itemLink}>
                                 <a href={meetingLink}>Download calendar file</a>
                             </li>
-                    }
+                        )}
                 </ul>
-            </div>
-        </section>
-    );
+                {additionalLinks.length > 0 && (
+                <ul>
+                    <li style={itemTitle}>Additional links:</li>
+                    {additionalLinks.map((link, index) => {
+                        const { url, title } = link;
+                        return (
+                            <li key={`${index}${url}`} style={itemLink}>
+                                <a href={url}>{title}</a>
+                            </li>
+                        );
+                    })}
+                </ul>
+                )}
+      </div>
+    </section>
+  );
 }
 
 const itemLink = {
@@ -60,44 +74,44 @@ const itemLink = {
     fontSize: '14px',
     lineHeight: '18px',
     color: '#faa023',
-    listStyleImage: 'url("/img/product_link_bullet.png")'
+    listStyleImage: 'url("/img/product_link_bullet.png")',
 }
 
 const itemTitle = {
     fontWeight: '400',
     fontSize: '14px',
     lineHeight: '18px',
-    listStyle: 'none'
-  }
+    listStyle: 'none',
+}
 
 const meetingInfo = {
     display: 'flex',
     width: '100%',
-    padding: '1rem 0 0.5rem'
+    padding: '1rem 0 0.5rem',
 }
 
 const meetingOverview = {
     width: '33%',
     margin: 'auto 0',
     padding: '2rem 0 0.5rem',
-    borderRight: '2px solid #faa023'
+    borderRight: '2px solid #faa023',
 }
 
 const meetingTitle = {
     fontWeight: '700',
     fontSize: '20px',
-    lineHeight: '25px'
+    lineHeight: '25px',
 }
 
 const meetingSchedule = {
     fontWeight: '400',
     fontSize: '12px',
     lineHeight: '16px',
-    color: '#a5a5a5'
+    color: '#a5a5a5',
 }
 
 const meetingDetails = {
     width: '67%',
     margin: 'auto 0',
-    padding: '0.5rem 1.5rem'
+    padding: '0.5rem 1.5rem',
 }

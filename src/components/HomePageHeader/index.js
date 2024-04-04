@@ -35,15 +35,14 @@ export default function HomePageHeader() {
         </h1>
         <div className={styles.subtitle_box}>
           <p className={styles.subtitle}>
-            We support service and app provider in developing applications for
-            the Catena-X ecosystem. Find documentation, APIs, SDKs and more.
+          Tractus-X is the official open-source project in the Catena-X data space
           </p>
         </div>
-        <div className={styles.btn_container}>
+        {/* <div className={styles.btn_container}>
           <Link className="button" to="/developer">
             Our Dev Kits
           </Link>
-        </div>
+        </div> */}
       </div>
       <NewsTicker />
     </header>

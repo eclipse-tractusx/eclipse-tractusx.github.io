@@ -5,11 +5,43 @@ description: 'Business Partner Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ### Business Partner KIT
 
 All notable changes to this Kit will be documented in this file.
+
+## [5.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
+
+## [4.0.0] - 2024-02-22
+
+### Added
+
+- documentation of bpdm architecture (arc42)
+- documentation for sharing-state api endpoints on bpdm gate
+
+### Changed
+
+- documentation of gate service with new endpoints for creating and querying generic business partners
+- documentation of pool service with updated endpoints for creating and querying business partners
+- documentation of orchestrator service with updated endpoints
+- documentation of new version for bridge service
+
+### Removed
+
+- documentation of old endpoints in software development view for gate and pool servicce
 
 ## [3.0.0] -2023-11-02
 

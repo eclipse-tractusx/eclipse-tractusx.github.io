@@ -11,7 +11,8 @@ export const products = [
       "https://github.com/Maximilianong"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Business Partner Data Management Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -24,10 +25,11 @@ export const products = [
       "https://github.com/eclipse-tractusx/autosetup-backend"
     ],
     committers: [
-      "https://github.com/wjost"
+    "https://github.com/wjost"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -41,7 +43,8 @@ export const products = [
       "https://github.com/wjost"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -57,27 +60,30 @@ export const products = [
       "https://github.com/jzbmw"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Item Relationship Service Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
     productName: "Portal & Marketplaces",
-    productDescription: "The project provides the entry point to the Catena-X data space for all participants such as registration and (technical) onboarding. Marketplaces enable solution providers to offer various business applications and services.",
+    productDescription: "The Portal facilitates the operations for dataspace members (companies), it includes functionalities such as registration, technical onboarding and marketplaces.",
     githubRepo: [
+      "https://github.com/eclipse-tractusx/portal",
       "https://github.com/eclipse-tractusx/portal-backend",
       "https://github.com/eclipse-tractusx/portal-frontend",
-      "https://github.com/eclipse-tractusx/portal-iam",
       "https://github.com/eclipse-tractusx/portal-frontend-registration",
-      "https://github.com/eclipse-tractusx/portal-cd",
-      "https://github.com/eclipse-tractusx/portal-assets"
+      "https://github.com/eclipse-tractusx/portal-assets",
+      "https://github.com/eclipse-tractusx/portal-iam"
     ],
     committers: [
       "https://github.com/evegufy",
       "https://github.com/ntruchsess",
-      "https://github.com/oyo"
+      "https://github.com/oyo",
+      "https://github.com/Phil91"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -95,7 +101,8 @@ export const products = [
       "https://github.com/tunacicek"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -109,7 +116,8 @@ export const products = [
       "https://github.com/ds-mkanal"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
-    hasBoard: false
+    hasBoard: false,
+    showVersion: true
   },
 
   {
@@ -123,6 +131,23 @@ export const products = [
       "https://github.com/florianrusch-zf"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
-    hasBoard: true
+    hasBoard: true,
+    showVersion: true
+  },
+
+  {
+    productName: "Policy Hub",
+    productDescription: "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth for Catena-X policies, attributes and templates for policy rules.",
+     githubRepo: [
+      "https://github.com/eclipse-tractusx/policy-hub"
+    ],
+    committers: [
+      "https://github.com/Phil91",
+      "https://github.com/ntruchsess",
+      "https://github.com/evegufy"
+    ],
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X Policy Hub Team",
+    hasBoard: false,
+    showVersion: true
   },
 ]

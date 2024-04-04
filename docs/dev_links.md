@@ -20,6 +20,7 @@ sidebar_position: 98
 
 See [examples and a detailed description](/docs/oss/issues).
 
+- [Add a Tractus-X Project Contributor](/docs/oss/getting-started#extended-contributor-permissions)
 - [Create / manage Tractus-X repositories](/docs/oss/issues#create-manage-a-repository-in-eclipse-tractusx)
 - [Tractus-X infrastructure issues](https://github.com/eclipse-tractusx/sig-infra/issues) via sig-infra
 - [Eclipse Foundation Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)

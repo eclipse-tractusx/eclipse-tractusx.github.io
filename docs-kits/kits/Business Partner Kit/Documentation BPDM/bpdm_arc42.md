@@ -5,7 +5,7 @@ description: 'Architecture documentation (arc42)'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ## Business Partner KIT
 
@@ -30,6 +30,9 @@ sidebar_position: 1
   - [Upload Business Partner (BPN-L)](#upload-business-partner-bpn-l)
   - [Upsert Generic Business Partner](#upsert-generic-business-partner)
   - [Update on Golden Record Change](#update-on-golden-record-change)
+- [Business Partner Data Records - States](#business-partner-data-records---states)
+  - [Automatically executing golden record process](#automatically-executing-golden-record-process)
+  - [Manually triggering golden record process](#manually-triggering-golden-record-process)
 - [Deployment View](#deployment-view)
   - [Applications Deployment without Kubernetes](#applications-deployment-without-kubernetes)
   - [Single Application Kubernetes Deployment](#single-application-kubernetes-deployment)
@@ -40,6 +43,7 @@ sidebar_position: 1
 - [Quality Requirements](#quality-requirements)
 - [Risks and Technical Debts](#risks-and-technical-debts)
 - [Glossary](#glossary)
+  - [NOTICE](#notice)
 
 ## Introduction and Goals
 
@@ -53,11 +57,12 @@ The BPN, as the unique identifier of the Golden Record, can be stored as a verif
 
 The Golden Record business partner data in combination with the BPN acts as the basis for a range of supplementary value-added services to optimize business partner data management. These are referred to as value-added services. Together with decentralized, self-determined identity management, they create a global, cross-industry standard for business partner data and a possible 360° view of the value chain.
 
-> ⚠️ **HINT**: A Business Partner Data cleaning as well as Golden Record Creation Process is **not** part of this reference implementation!
+> [!NOTE]
+> A Business Partner Data cleaning as well as Golden Record Creation Process is **not** part of this reference implementation!
 
 **Additional Information Material**:
 
-- Visit BPDM on the official Catena-X Website: [bpdm_catenax_website](https://catena-x.net/en/offers/bpdm)
+- Visit BPDM on the official Catena-X Website: [bpdm_catenax_website](https://catena-x.net/en/offers-standards/bpdm)
 
 ## Goals Overview
 
@@ -73,7 +78,8 @@ The following goals have been established for this system:
 
 ## Requirements Overview
 
-> :warning: **Note:** Cross-Check with CACs
+> [!IMPORTANT]
+> **Cross-Check with CACs**
 
 ![bpdm_usecase_diagram](@site/static/img/usecase_diagram.drawio.svg)
 
@@ -142,7 +148,6 @@ The Portal which provides an entry point for the Catena-X Members, to discover A
 ### **Value Added Services**
 
 - Value Added Services can be provided be either the Operator itself or by an external App/Service Provider. The Value Added Services provide data or service offers based on Catena-X Network data.
-
 - There are several value added services that can be offered in context of business partner data. For example a Fraud Prevention Dashboard/API, Country Risk Scoring and so on.
 
 ### **Catena-X Operative Environment for BPDM**
@@ -175,7 +180,7 @@ The following high level view gives a basic overview about the BPDM Components:
 
 - The BPDM Gate provides the interfaces for Catena-X Members to manage their business partner data within Catena-X.
 - Based on the network data a Golden Record Proposal is created.
--The BPDM Gate has its own persistence layer in which the business partner data of the Catena-X Members are stored.
+- The BPDM Gate has its own persistence layer in which the business partner data of the Catena-X Members are stored.
 - For the current reference implementation, multi-tenancy is realized via a 1:1 deployment for each Catena-X Member. This means that every Catena-X Member who shares his business partner data, has its own Gate and own persistence.
 
 ### **BPDM Pool**
@@ -188,11 +193,10 @@ The following high level view gives a basic overview about the BPDM Components:
 
 - Every participant in the Catena-X network shall have a unique Business Partner Number (BPN) according to the concept defined by the Catena-X BPN concept. The task of the BPN Generator is to issue such a BPN for a presented Business Partner data object. In that, the BPN Generator serves as the central issuing authority for BPNs within Catena-X.
 - Technically, it constitutes a service that is available as a singleton within the network.
-- Currently (Release 3.3) the BPN Issuer is part of the BPDM Pool. After implementing the BPDM Orchestrator, the BPN Issuer should become an independent component.
+- Currently, creation of BPNs is part of the BPDM Pool implementation. After implementing the BPDM Orchestrator, it can be considered if it should be an independent component.
 
 ### **BPDM Orchestrator**
 
-- The BPDM Orchestrator is **not** part of Release 3.2.
 - Intention of the BPDM Orchestrator is to provide a passive component that offers standardized APIs for the BPDM Gate, BPDM Pool and Data Curation and Enrichment Services to orchestrate the process of Golden Record Creation and handling the different states a business partner record can have during this process.
 
 ## Building Block View
@@ -201,7 +205,7 @@ The following high level view gives a basic overview about the BPDM Components:
 
 Due to a transmission phase there are two concepts of Business Partner Upload Models. The target is to only have the generic Business Partner on the BPDM Gate.
 
-## Architecture for Release 3.2
+![bpdm_current_architecture_LSA](@site/static/img/cx_bpdm_architecture_v3_2.drawio.svg)
 
 ### High-Level Architecture (Generic Endpoint)
 
@@ -225,15 +229,15 @@ Due to a transmission phase there are two concepts of Business Partner Upload Mo
 ```mermaid
 
 sequenceDiagram
-    participant EDC of CX Member
+    participant BPDM EDC
     participant OpenIDConnect Server
     participant BPDM Gate
 
     autonumber
 
-    EDC of CX Member-->>OpenIDConnect Server: Send Client Credentials
-    OpenIDConnect Server-->>EDC of CX Member: Respond OAuth2 Token
-    EDC of CX Member -->> BPDM Gate: Send Request with OAuth2 Token in Authorization Header
+    BPDM EDC -->>OpenIDConnect Server: Send Client Credentials
+    OpenIDConnect Server-->> BPDM EDC: Respond OAuth2 Token
+    BPDM EDC -->> BPDM Gate: Send Request with OAuth2 Token in Authorization Header
     BPDM Gate -->> OpenIDConnect Server: Validate Token
     OpenIDConnect Server -->> BPDM Gate: Confirms validity of Token
     BPDM Gate -->> BPDM Gate: Check "resource_access" section of OAuth Token
@@ -308,6 +312,10 @@ sequenceDiagram
 
 ### Upsert Generic Business Partner
 
+> [!NOTE]
+> An additional endpoint was implemented as requirements came up that required business partner data records not to be fed directly into the golden record process after an upload. Instead, this endpoint makes it possible to change the status of a business partner data record from "inital" to "ready". Only data records with the status "ready" are fed into the golden record process.
+> We are aware that the existing integration scenarios, such as with the portal team, are impacted by this. For this reason, we recommend that the gate is configured accordingly so that the status is set to "ready" by default when a data record is uploaded. The operator can configure this behavior in the gate individually based on the requirements.
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -316,13 +324,21 @@ sequenceDiagram
     Gate-->>Gate: Persist Business Partner Data Input
     Gate-->>Gate: Set Sharing State to 'Initial'
     Gate-->>Gate: Add Changelog Entry 'Create' for Business Partner Input
-    Gate->>Orchestrator: POST api/golden-record-tasks <br> Payload: Business Partner Input Data in mode 'UpdateFromSharingMember'
-    Orchestrator-->>Orchestrator: Create Golden Record Task for Business Partner Data
-    Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Pending'
-    Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Step: 'CleanAndSync' <br> StepState: 'Queued'
-    Orchestrator-->>Gate: Created Golden Record Task
-    Gate-->>Gate: Set Sharing State <br> Type: 'PENDING' <br> Task ID: Golden Record Task ID
     Gate-->>SharingMember: Upserted Business Partner
+
+    SharingMember->>Gate: POST api/catena/sharing-state/ready <br> Payload: External ID A
+    Gate-->>Gate: Set Sharing State to 'Ready'
+    Gate-->>SharingMember: OK
+
+    loop Polling for Ready Business Partners
+        Gate-->>Gate: Fetch Business Partners in State 'Ready'
+        Gate->>Orchestrator: POST api/golden-record-tasks <br> Payload: Business Partner Input Data in mode 'UpdateFromSharingMember'
+        Orchestrator-->>Orchestrator: Create Golden Record Task for Business Partner Data
+        Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Pending'
+        Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Step: 'CleanAndSync' <br> StepState: 'Queued'
+        Orchestrator-->>Gate: Created Golden Record Task
+        Gate-->>Gate: Set Sharing State <br> Type: 'PENDING' <br> Task ID: Golden Record Task ID
+    end
 
     loop Polling for Step 'CleanAndSync'
         CleaningServiceDummy->>Orchestrator: POST api/golden-record-tasks/step-reservations <br> Payload: Step 'CleanAndSync'
@@ -419,6 +435,47 @@ sequenceDiagram
     SharingMember->>Gate: POST api/catena/output/business-partners/search <br> Payload: External ID
     Gate-->>SharingMember: Business Partner Output
     
+```
+
+## Business Partner Data Records - States
+
+This sections describes the different states a business partner data record can have.
+
+### Automatically executing golden record process
+
+```mermaid
+---
+title: state diagram business partner for automatically executing golden record process
+---
+stateDiagram-v2
+    [*] --> ready: sharing member uploads bp into gate
+    note right of ready
+      Gate is configured to automatically <br> set state to ready after bp upload
+    end note
+    ready --> pending: scheduler initiates <br> the golden record process
+    state if_state <<choice>>
+    pending --> if_state: run golden record process
+    if_state --> success: if golden record process succeeded
+    if_state --> error: if golden record process failed
+```
+
+### Manually triggering golden record process
+
+```mermaid
+---
+title: state diagram business partner for manual golden record process triggering
+---
+stateDiagram-v2
+    [*] --> initial: sharing member uploads bp into gate
+    note right of initial
+      POST api/catena/sharing-state/ready <br> Payload: External ID A
+    end note
+    initial --> ready: sharing member or third-party <br> service calls separate endpoint
+    ready --> pending: scheduler initiates <br> the golden record process
+    state if_state <<choice>>
+    pending --> if_state: run golden record process
+    if_state --> success: if golden record process succeeded
+    if_state --> error: if golden record process failed
 ```
 
 ## Deployment View
@@ -565,6 +622,7 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 - 003-orchestrator_serviceApi_vs_messagebus_approach
 - 004-openapi_descriptions
 - 005-edc-usage-for-third-party-services
+- 006-bpdm-edc-asset-structuring (TBD)
 
 ## Quality Requirements
 
@@ -580,10 +638,6 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 - Will there by a Proxy EDC concept?
 - ...
 
-### **Lack on Developer Resources**
-
-- Too less developer resources in contrast to the expectations that the BPDM Product and its Golden Record will be a foundation component within Catena-X.
-
 ### **Semantic Model and SSI Integration of the Golden Record**
 
 - Not in scope.
@@ -597,6 +651,7 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 
 - How to anonymize the relations between CX-Member and its belonging Business Partner?
 - 💡 Idea: using kind of "ticket numbering"
+- ✔️ Solved via ticketing.
 
 ### **Accessability for SMEs**
 
@@ -608,3 +663,15 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 The Glossary is currently under development and will be added below after internal approval ([DRAFT](https://confluence.catena-x.net/display/CORE/BPDM+Glossary+-+Internal+-+DRAFT)).
 
 The current version you can find in the Catena-X Standards.
+
+## NOTICE
+
+This work is licensed under the [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+- SPDX-License-Identifier: Apache-2.0
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023,2024 Schaeffler AG
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)

@@ -128,7 +128,7 @@ Data driven Quality Management with Catena-X - Statements from the consortial pa
 
 ### Overview Data Model Entities
 
-Download for MS Excel: <a target="_blank" href={ require("/office/Quality_KIT_DataModelOverview_v1.0.xlsx").default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
+Download for MS Excel: <a target="_blank" href={ require("/static/img/Quality_KIT_DataModelOverview_v1.0.xlsx").default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
 
 ### Quality Task
 
@@ -426,7 +426,7 @@ all steps of the **Business Process** (described in the [Development View](https
 <!-- BROKEN LINK............... -->
 **Data Space Level**: 10 Golden Rules of Catena-X
 
-**Use Case Level**: Quality Management specific policy as MS Word download (not released yet): <a target="_blank" href={ require("/office/20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx").default } download>20230710_Catena-X_UseCasePolicy_Quality_3.0_EN.docx</a>
+**Use Case Level**: Quality Management specific policy (not released yet)
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. Content is currently in definition.
 
