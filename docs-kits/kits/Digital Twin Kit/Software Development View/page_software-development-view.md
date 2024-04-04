@@ -539,9 +539,10 @@ twin:
   if there is no such EDC-Asset, that's what a Data Provider must do: create an EDC-Asset, connect it to policies via
   the contract-
   definition-API and let consumers negotiate for it.
-- If assetIds are known, the aasId can be discovered via `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=...` as
-  specified
-  by CX-0002.
+- If assetIds are known, the aasId can be discovered via
+  `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=foo&assetIds=bar`. The query-parameters' values are base64url-
+  encoded `specificAssetId` objects. If multiple shall be logically AND-chained, a Consumer must use the query-
+  parameter-key `assetIds` multiple times.
 - `POST https://mydtr.com/api/v3.0/shell-descriptors/{{aasId}}/submodel-descriptors` with the (known or obtained) aasId
   in the path
   and the new submodel-descriptor in the body of the request. The attribute `semanticId` is mandatory for
