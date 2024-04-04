@@ -28,7 +28,7 @@ import UniqueIDPush from './part_uniqueidpush.mdx'
 
 ![Industry Core kit banner](@site/static/img/kit-icons/industry-core-kit-icon.svg)
 
-Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
+Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
 ### Register Digital Twins
 
@@ -36,7 +36,7 @@ In Industry Core, different types of parts, e. g. serialized parts, batches, JIS
 
 #### Regulatory Compliance and Security
 
-To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit#Regulatory-Compliance-and-Security).
+To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
 #### Unique ID for Parts
 
@@ -135,11 +135,11 @@ Correct semantic filling of all existing fields in the specificAssetIDs (e.g. fi
 
 #### Submodel Descriptors
 
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
 ##### Submodel Descriptors
 
-Submodel descriptors must be compliant with the guildeines from the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) as well as the following additional conventions:
+Submodel descriptors must be compliant with the guildeines from the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit) as well as the following additional conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
 - `idShort`: the name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
@@ -183,7 +183,7 @@ With this approach, the Connector asset structure must no longer follow the "one
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
 - `href` must have the following format: `https://connector.data.plane/{publicContextPath}/submodel`
-- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={datasetId}` with `{datasetId}` the ID of the Connector asset for the submodel. 
+- `subprotocolBody` must have the following format: `dspEndpoint=https://connector.control.plane/{catalogPath};id={datasetId}` with `{datasetId}` the ID of the Connector asset for the submodel.
 
 Here's an example how such a submodel descriptor could look like:
 
@@ -273,7 +273,7 @@ The above options are only two examples how a submodel's endpoint can be created
 
 A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
-Further information about the data transfer of submodels can be found in the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#submodels).
+Further information about the data transfer of submodels can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
 ### Lookup in the Digital Twin Registry
 

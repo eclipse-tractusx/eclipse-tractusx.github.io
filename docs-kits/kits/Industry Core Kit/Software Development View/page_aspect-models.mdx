@@ -37,7 +37,7 @@ Aspect models are mostly easy to create by transforming a company's internal dat
 A Part Type Information represents an item in the Catena-X Bill of Material (BOM) on a type level in a specific version.
 It replaces the aspect model PartAsPlanned 2.0.0 (https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_as_planned/2.0.0)
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.part_type_information/1.0.0
 
 #### Example: Aspect Model `PartTypeInformation 1.0.0` for a part type
@@ -76,7 +76,7 @@ Aspect model in GitHub:
 
 The single-level Bill of Material represents one sub-level of an assembly and does not include any lower-level subassemblies. In as planned lifecycle state all variants are covered (\"120% BoM\"). If multiple versions of child parts exist that can be assembled into the same parent part, all versions of the child part are included in the BoM. If there are multiple suppliers for the same child part, each supplier has an entry for their child part in the BoM.
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_planned/3.0.0
 
 
@@ -109,7 +109,7 @@ Aspect model in GitHub:
 The aspect provides the information in which parent part(s)/product(s)the given item is to be assembled into or used. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to a part type twin representing a generic part, e.g. a catalog part.
 If one input product is regarded as an alternative to another input product (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/2.0.0
 
 
@@ -167,7 +167,7 @@ The customer MAY NOT give access to the singleLevelBomAsPlanned aspect that belo
 
 A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number)
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.serial_part/3.0.0
 
 #### Example: Aspect Model `SerialPart 3.0.0` for a Vehicle
@@ -280,7 +280,7 @@ The only special step in creating this aspect model is the initial creation of t
 
 A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID.
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.batch/3.0.0
 
 #### Example: Aspect Model `Batch 3.0.0` for a Batch of Raw Material
@@ -335,7 +335,7 @@ The only special step in creating this aspect model is the initial creation of t
 
 A just-in-sequence part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a combination of several IDs related to a just-in-sequence process.
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.just_in_sequence_part/3.0.0
 
 #### Example: Aspect Model `JustInSequencePart 3.0.0` for a non-serialized component
@@ -408,7 +408,7 @@ The only special step in creating this aspect model is the initial creation of t
 
 The aspect provides the child parts (one structural level down) which the given object assembles.
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_bom_as_built/3.0.0
 
 #### Example: Aspect Model `SingleLevelBomAsBuilt 3.0.0` for a Serialized Part
@@ -470,7 +470,7 @@ For the build-in parts (child items), their Unique ID is not known to the manufa
 
 The aspect provides the information in which parent part instance(s)/product(s) the given item is assembled into or used. This could be a 1:1 relationship in terms of e.g. a brake component or 1:n for e.g. coatings. The parent item must refer to an object from the as built lifecycle phase, the child item may refer to an object from the as built or the as planned lifecycle phase. If one input part instance is regarded as an alternative to another input part instance (from same or different supplier), the relation should still be built, but marked with "IsOnlyPotentialParent".
 
-Aspect model in GitHub: 
+Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/3.0.0
 
 #### Example: Aspect Model `SingleLevelUsageAsBuilt 3.0.0` for a Serialized Part
@@ -521,6 +521,7 @@ Aspect model in GitHub:
     "BPNL50096894aNXY"
   ]
 }
+```
 
 #### Creation of Aspect Model SingleLevelUsageAsBuilt
 
