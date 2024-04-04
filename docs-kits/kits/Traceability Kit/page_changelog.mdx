@@ -36,45 +36,24 @@ Compatible for **release 24.05**.
 
 ### Added
 
-- **Business View:**
-  - ./.
-- **Architecture View:**
-  - ./.
-- **Operation View:**
-  - ./.
 - **Development View:**
-  - **Data Provider:**
-    - ./.
   - **App Provider:**
     - Created initial version for data consumer and app provider
-    - Optional quality notification API version 2.0.0
+    - Created optional quality notification API version 2.0.0
 
 ### Changed
 
-- **Business View:**
-  - ./.
-- **Architecture View:**
-  - ./.
-- **Operation View:**
-  - ./.
 - **Development View:**
-  - **Data Provider:**
-    - Changed `odrl:action` in policy payload from uppercase `USE` to lowercase `use` based on [ODRL standard](https://w3c.github.io/odrl/bp/#x1-how-to-represent-a-general-permission)
   - **App Provider:**
-    - Mandatory quality notification API version 1.2.1 (- formerly 1.2.0 -)
+    - Changed mandatory quality notification API version 1.2.1 (- formerly 1.2.0 -)
 
 ### Removed
 
-- **Business View:**
-  - ./.
-- **Architecture View:**
-  - ./.
-- **Operation View:**
-  - ./.
 - **Development View:**
-  - Removed generated Notification API documentation (know directly available as Open API file for [v1.1.0](./openapi/notifications_1-1-0.yaml) and [v1.2.0](./openapi/notifications_1-2-0.yaml))
+  - Removed generated Notification API documentation (know directly available as Open API file)
   - **Data Provider:**
-    - Removed aspects singleLevelUsageAsPlanned and singleLevelUsageAsBuilt, because thes aspects moved to the Industry Core
+    - Removed aspects SingleLevelUsageAsPlanned and SingleLevelUsageAsBuilt, because these aspects moved to the Industry Core
+    - (Re)moved policy section to the [Industry Core KIT](../Industry%20Core%20Kit/Software%20Development%20View/Policies%20Development%20View%20Industry%20Core%20Kit)
   - **App Provider:**
     - Removed quality notification API version 1.1.0
 
