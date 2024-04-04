@@ -15,6 +15,3 @@ tags: [meeting-minutes, community, security]
   -	CodeQL - Onboarding- Workflow Setup: [TRG 8.01](https://eclipse-tractusx.github.io/docs/release/trg-0/trg-8-01)
 -	DAST security scans are not part of the next release 24.05 (Updates will follow through the QG Acceptance Criteria)
 -	KICS, Trivy, GitGuardian and Dependabot tools will continue as it is.
-
-### Open Discussions
-- Cofinity-X Security contact for incident reporting - Security@cofinity-x.com
