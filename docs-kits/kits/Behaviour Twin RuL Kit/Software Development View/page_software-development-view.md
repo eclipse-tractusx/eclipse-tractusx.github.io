@@ -5,33 +5,37 @@ description: 'Remaining Useful Life Kit'
 sidebar_position: 4
 ---
 
-![Remaining Useful Life kit banner](@site/static/img/doc-rul_header-minified.png)
+![Remaining Useful Life kit banner](/img/kit-icons/behaviour-rul-kit-icon.svg)
 
 <!--
 Development View of the Kit.
 -->
 ### Remaining Useful Life Kit
 
-**This is only a preview KIT.** 
+**This is only a preview KIT.**
 
 There will be changes in the following releases.
 We plan to provide a more general RuL skill and more generalized interfaces for service
 input data. With these improvements, it will be much easier and more flexible for you to
 participate in the RuL use case.
 
-# Overview
+## Overview
+
 The RuL use case takes advantage of knowledge graphs. Therefore, every participant must support the Knowledge Agent (see Knowledge Agent KIT).
 
-## Roles
+### Roles
+
 As a developer in the Remaining Useful Life use case, you may apply to one or more
 of the following roles:
+
 - RuL consumer (RuL result requester)
 - skill provider (provider of the use case logic)
 - RuL data provider (provider of usage data, likely an OEM)
 - delegator (likely a supplier of a component that is assembled of subcomponents which are providing RuL calculation services)
 - RuL calculation service provider (likely a supplier of a part or component)
 
-## Logic
+### Logic
+
 The central logic of the RuL use case is a **RuL skill**.  
 You can use a predefined RuL skill and use it or modify it to build up a similar use
 case. It is written in SPARQL, a query language for federated knowledge graphs.  
@@ -41,7 +45,8 @@ It then collects the related usage data at the RuL data providers and calls the 
 calculation services at the RuL service providers. The result is then collected and
 transferred to the consumer.  
 
-## Your interface
+### Your interface
+
 You always need access to your **running EDC with knowledge agent components** and
 the (extensible) **ontologies of Catena-X**. In most cases, you can use them as they are.  
 
@@ -54,7 +59,8 @@ If you are a service provider, you need to have a running **remoting agent** wit
 
 For more information, see the operation view.
 
-## Mandatory components
+### Mandatory components
+
 - ontologies (semantic models)
 - usage data
 - calculation services
@@ -76,25 +82,29 @@ For more information, see the operation view.
 | calculation service                       | x |   |   |   |   |
 | remoting agent                            | x |   |   |   |   |
 
-## Knowledge graph basics
+### Knowledge graph basics
+
 Knowledge graphs are buildup of semantic triplets (subject --predicate-> object), where subject and object are nodes, the predicate is a unidirectional edge. All nodes are object instances, and the edges between them are their relations. For more information, see [W3C Resource Description Framework (RDF)](https://www.w3.org/RDF/).  
 Object types and relations are formally defined within ontologies.
 
-## Basic Architecture
+### Basic Architecture
+
 For a detailed view of the architecture with the knowledge agent see the Knowledge Agent KIT.
 Here you can see an overview over the used components and elements that must be developed:
 
 ![Remaining Useful Life architecture overview](../assets/rul_architecture_overview.png)
 
-## Ontology
+### Ontology
+
 For the Behaviour Twin (BT) RuL User Case, beside the [core](https://w3id.org/catenax/core_ontology.ttl) and [common](https://w3id.org/catenax/common_ontology.ttl) ontologies, a specific ontology was defined. For our use cases following sub-ontologies are needed:
-  - [reliability ontology](https://w3id.org/catenax/reliability_ontology.ttl)
+
+- [reliability ontology](https://w3id.org/catenax/reliability_ontology.ttl)
 - [vehicle ontology](https://w3id.org/catenax/vehicle_ontology.ttl) and
 - [behaviour ontology](https://w3id.org/catenax/behaviour_twin.ttl)
 
-All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://w3id.org/catenax/usecase/behaviour_twin.ttl.
+All needed ontologies for the RuL use case are bundled in one named on our [Behaviour Twin Kit](https://w3id.org/catenax/usecase/behaviour_twin.ttl).
 
-General information about Knowledge-Agent Semantic Models refer to the KA-KIT (https://catenax-ng.github.io/product-knowledge/docs/development-view/modules#semantic-models).  
+General information about Knowledge-Agent Semantic Models refer to the [KA-KIT](https://catenax-ng.github.io/product-knowledge/docs/development-view/modules#semantic-models).
 The specific (reliability and behaviour) ontologies are based respectively compatible with the standardized SAMM Models ([Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum) and [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)) release by  Behaviour Twin team.
 
 For the calculation of the remaining useful life for a specific component, the service needs to get the Load Spectrum data to proceed with the calculation. Hence, in the reliability ontology all needed semantic models are defined.
@@ -139,10 +149,12 @@ cx-reliability:LoadSpectrum rdf:type owl:Class ;
 ```
 
 The RuL services were designed with interoperability in mind, thus the communication in both directions (input/input) fully supports the Catena-X Notification standard. These aspects are also covered by Catena-X ontologies. The RuL Calculation can return two values:
+
 - Remaining Running Distance and
 - Remaining Operating Hours
 
 For this purpose, in the behaviour_ontology, a function is defined:
+
 ``` ttl
 ################################################################
 # Copyright (c) 2022,2023 T-Systems International GmbH
@@ -198,6 +210,7 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
 ```  
 
 The result contains the expected values:
+
 ``` ttl
 ################################################################
 # Copyright (c) 2022,2023 T-Systems International GmbH
@@ -240,14 +253,17 @@ cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
   cx-fx:dataType xsd:int.
 ```  
 
-## Standards/SAMM
+### Standards/SAMM
+
 - [Load Spectrum](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.classified_load_spectrum)
 - [Remaining Useful Life](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.rul/1.0.0/RemainingUsefulLife.ttl)
 
-# RuL Skill
+## RuL Skill
+
 Applies to: *RuL Skill provider*
 
 For the RuL calculation of a vehicle part, we have three different "roles" involved:
+
 - consumer: which request the RuL value by VIN.
 - OEM: which has the vehicle Load Spectrum data and forwards them by calling the supplier of that specific part.
 - Supplier: which provides the service for the RuL calculation for his parts.
@@ -290,7 +306,7 @@ PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:             <http://www.w3.org/2001/XMLSchema#>
 PREFIX json:            <https://json-schema.org/draft/2020-12/schema#> 
-PREFIX bpnl:		    <bpn:legal:>
+PREFIX bpnl:            <bpn:legal:>
 PREFIX oem:             <GraphAsset?oem=>
 PREFIX supplier:        <GraphAsset?supplier=>
 
@@ -378,10 +394,11 @@ SELECT DISTINCT ?vehicle ?van ?aggregate ?assembly ?supplier ?distanceKm ?timeHo
 } # SELECT
 ```
 
-## Skill usage
+### Skill usage
+
 The registered skill is available over Agent Plane API and can be called also for a list of input variables:
 
-```curl 
+```curl
 curl --location 'agentPlaneEdcUrl/api/agent?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife' \
 --header 'Content-Type: application/sparql-results+json' \
 --data '{
@@ -448,6 +465,7 @@ The RuL results for the given VAN's is provided are provided as bindings for the
 ```
 
 If the given VAN is not found on OEM side, then we get an empty binding result:
+
 ```json
 {
     "head": {
@@ -467,29 +485,35 @@ If the given VAN is not found on OEM side, then we get an empty binding result:
 }
 ```
 
-# Data bindings for relational data
+## Data bindings for relational data
+
 Applies to: *RuL data provider* and *delegator*
 
-## Overview
+### Overview
+
 In this context, data are usage data as well as delegation data (where the sill/data have to go next).  
 
 In most cases, data are provided in relational form (relational databases, data lakes, ...).
 To provide such data as part of the knowledge graph, you have to bind/map them to the underlying ontologies.
- 
-## Data mapping tool
+
+### Data mapping tool
+
 To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The software **Ontop** (see the Ontop webpage [https://ontop-vkg.org/](https://ontop-vkg.org/)), which is under the Apache 2.0 license, is our tool of choice in this case.  
   
-## Data mapping configuration
+### Data mapping configuration
+
 To configure the bindings, a config file for the Ontop software has to be created. The file is written in the Ontop mapping language and has the extension **.obda**. For more information, see the Knowledge Agent KIT.
 
-## Construction of a single data binding
+### Construction of a single data binding
+
 Each data binding consists of 3 lines in the config file.  
 The first line defines a unique mapping id (arbitrarily selectable).  
 The second line lists one or more RDF triplets (target).  
 The third line is a SQL statement on the relational data source.  
 
 A simple example from:
-``` obda 
+
+``` obda
   mappingId   partsvehicle
   target      <{gearbox_id}> cx-vehicle:isPartOf <{vehicle_id}> .
   source      SELECT vehicle_id, gearbox_id FROM vehicles
@@ -500,7 +524,8 @@ For each row in the SQL result, a triplet instance is created. If the SQL result
 The result of this example is a triplet that represents the relation between a specific vehicle its gearbox.
 
 A little more complex example:
-``` obda 
+
+``` obda
   mappingId   vehicles
   target      <{vehicle_id}> rdf:type cx-vehicle:Vehicle ; cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string; cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}; cx-vehicle:productionDate {production_date}^^xsd:date.
   source      SELECT vehicle_id, van, oem_bpnl, production_date FROM vehicles
@@ -508,6 +533,7 @@ A little more complex example:
 
 The target now consists of 4 triplets, all with the same subject (<{vehicle_id}>) and separated by a semicolon. The semicolon means, the following triplet only defines the predicate and the object while the subject from the previous triplet is reused.  
 In the example above, there are the following triplets:
+
 - *<{vehicle_id}> rdf:type cx-vehicle:Vehicle*: All objects in the database table/view "vehicles" are mapped to the type cx-vehicle:Vehicle.
 - *<{vehicle_id}> cx-vehicle:vehicleIdentificationNumber {van}^^xsd:string*: Relation between a vehicle and the related VAN. The type of VAN must be string.
 - *<{vehicle_id}> cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}*: Relation between a vehicle and its manufacturer's BPN.
@@ -515,9 +541,11 @@ In the example above, there are the following triplets:
 
 Complex types like the load spectra are composed of many triplets. If you have stored those load spectra as SAMM specified JSON strings, you may decompose them with specific JSON functions of your database system.
 
-### Full example
+#### Full example
+
 The following example shows mappings at an OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra:
-```
+
+```obda
 ################################################################
 # Copyright (c) 2022,2023 T-Systems International GmbH
 # Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
@@ -542,6 +570,7 @@ The following example shows mappings at an OEM that can be used to determine the
 # SPDX-License-Identifier: Apache-2.0
 ################################################################
 ````
+
 ```obda
   [PrefixDeclaration]
   cx-common:          https://w3id.org/catenax/ontology/common#
@@ -595,31 +624,38 @@ The following example shows mappings at an OEM that can be used to determine the
   ]]  
 ```
 
-## Graph asset for the data binding
+### Graph asset for the data binding
+
 To enable the knowledge agent's matchmaking agent to find the data bindings, a graph asset has to be registered at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
 
-```
+```shacl
 "<https://w3id.org/catenax/usecase/behaviourtwin>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/vehicle>,<https://w3id.org/catenax/ontology/reliability>",
             "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
             "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?oem=BehaviourTwinReliability#> .\n@prefix cx-tele: <https://w3id.org/catenax/ontology/reliability#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .@prefix : <urn:cx:Graph:oem:BehaviourTwin> .\n\n:OemLoadSpectrum rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:LoadSpectrum ;\n  sh:property [\n        sh:path cx-tele:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000OEM> \n    ] ;\n  sh:property [\n        sh:path cx-tele:Version ;\n        sh:hasValue \"0\"^^xsd:long \n    ] ;\n  sh:property [\n        sh:path cx-tele:component ;\n        sh:class :SupplierParts \n    ] .\n\n:SupplierParts rdf:type sh:NodeShape ;\n  sh:targetClass cx-tele:VehicleComponent ;\n  sh:property [\n        sh:path cx-tele:isProducedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL0000SUPPLIER> \n    ] .\n"
 ```
+
 For more information see the Knowledge Agent KIT.
 
-# Service Bindings
+## Service Bindings
+
 Applies to: *RuL calculation service provider*
 
-## Overview
+### Overview
+
 In most cases, services are provided via REST APIs and are using JSON as input and output format. For the RuL use case, the output format is specified by a SAMM model.  
 To include those services into the knowledge graph, you have to bind/map them to the underlying ontologies.
- 
-## Service mapping tool
+
+### Service mapping tool
+
 To bind a service to the knowledge graph, you must use a **remoting agent**, also called the **service binding agent**. The software **RDF4J** (see the RDF4J webpage [https://rdf4j.org/](https://rdf4j.org/)), which is under the Eclipse Distribution License (EDL), v1.0, is our tool of choice in this case.  
   
-## Service mapping configuration
+### Service mapping configuration
+
 For RDF4J, a configuration must be provided that formally describes the service binding.  
 The configuration is written in Turtle (Terse RDF Triple Language) and has the extension **.ttl**. For more information, see the Knowledge Agent KIT.  
 
-### RDF4J repository
+#### RDF4J repository
+
 The RDF4J repository is the basic configuration that refers to the service object and defines the callback endpoint for an asynchronous response of this service.
 
 ```ttl
@@ -662,8 +698,10 @@ The RDF4J repository is the basic configuration that refers to the service objec
 
 The callback address in this example is the callback address of the own RDF4J server.
 
-### Types to be bound
-#### cx-fx:Function
+#### Types to be bound
+
+##### cx-fx:Function
+
 Definition of the function. It defines the endpoint and describes the input and output elements (analogous to the ontology).
 
 ```ttl
@@ -729,7 +767,8 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function;
     cx-fx:result cx-behaviour:response.
 ```
 
-#### cx-fx:Argument
+##### cx-fx:Argument
+
 The input data that are received from the knowledge graph are converted to the desired JSON format that is requested by the service. Therefore, each value (input parameter) that is represented in the ontology as a separate object must be described as an argument which is related to the corresponding JSON path. The argument name represents the JSON path. Default values can be specified in case some values are not present in the knowledge graph.
 
 ```ttl
@@ -740,7 +779,8 @@ cx-behaviour:recipient rdf:type cx-fx:Argument;
   cx-fx:default "anonymous".
 ```
 
-#### cx-fx:Result
+##### cx-fx:Result
+
 The result of the service is also a JSON string. It consists of properties and output values.  
 The mapping must provide all data that are defined in the ontology.  
 The properties are of predefined types and are mapped directly (without further descriptions and attributes).  
@@ -780,7 +820,8 @@ cx-behaviour:response rdf:type cx-fx:Result;
   cx-fx:output cx-behaviour:remainingRunningDistance.
 ```
 
-#### cx-fx:ReturnValue
+##### cx-fx:ReturnValue
+
 The output values (return values) are specified with their path in the output JSON structure and their data type.
 
 ```ttl
@@ -815,7 +856,8 @@ cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue;
   cx-fx:dataType xsd:float.
 ```
 
-### Full Example
+#### Full Example
+
 In this example, an asynchronous calculation service for gearbox RuL values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the RuL logic always requires exact one input per calculation. Therefore, always the first (and only the first) item of the input list is bound.
 
 ```ttl
@@ -1072,12 +1114,14 @@ cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue;
   cx-fx:dataType xsd:int.
 ```
 
-## Graph asset for the service binding
+### Graph asset for the service binding
+
 To enable the knowledge agent's matchmaking agent to find the service binding, a graph asset has to be registered at the EDC. This asset must have a property "rdfs:isDefinedBy" that defines the shape of the provided graph.
 
-```
+```shacl
 "<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>",
             "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
             "sh:shapesGraph": "@prefix cx-common: <https://w3id.org/catenax/ontology/common#>. \n@prefix : <GraphAsset?supplier=BehaviourTwinRUL#> .\n@prefix cx-prognosis: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n\n:Tier1LifetimePrognosis rdf:type sh:NodeShape ;\n  sh:targetClass cx-prognosis:Function ;\n  sh:property [\n        sh:path cx-prognosis:provisionedBy ;\n        sh:hasValue <urn:bpn:legal:BPNL000000000000> ]."
 ```
+
 For more information see the [Knowledge Agent KIT](https://bit.ly/tractusx-agents).

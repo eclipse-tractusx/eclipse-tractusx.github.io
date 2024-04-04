@@ -5,7 +5,7 @@ description: 'Remaining Useful Life Kit'
 sidebar_position: 3
 ---
 
-![Remaining Useful Life kit banner](@site/static/img/doc-rul_header-minified.png)
+![Remaining Useful Life kit banner](/img/kit-icons/behaviour-rul-kit-icon.svg)
 
 ### Remaining Useful Life Kit
 
@@ -15,14 +15,16 @@ Documentation of the Kit.
 
 Based on the information provided in this KIT, it is possible to provide and/or consume services defined as Agent Skills based on the Behaviour Twin standards (ontology, SAMM models).
 
-Depending on the role within the RuL Use Case, different Knowledge Agent components are needed. 
+Depending on the role within the RuL Use Case, different Knowledge Agent components are needed.
 The needed information regarding Agent Kit components, their deployment and configuration, refer to the *Agent Kit Operation View Section*.
 
-# Deployment of Graph Assets
+## Deployment of Graph Assets
 
-## Data Provider Graph Asset
+### Data Provider Graph Asset
+
 If you are engaged as a data provider within the RuL KIT, you can mount your data source to the federated knowledge graph as Graph Asset.
 Beside the policy and contract definition, a Graph Asset registration is needed. It can like following example with a baseUrl set to the sparql endpoint of your provision agent:
+
 ```json
 {
   "@context": {
@@ -64,12 +66,15 @@ Beside the policy and contract definition, a Graph Asset registration is needed.
   }
 }
 ```
+
 It also provides some META-Information's, which are for example, to find a specific based on isDefinedBy property.
 
-## Service Provider Graph Asset
+### Service Provider Graph Asset
+
 The same applies for the service/function supplier. To make the service available as part of the federated knowledge graph, a Grapth Asset pointing to your Remoting Agent endpoint is needed.
 
 Such a Graph Asset for a service provider can look like following example:
+
 ```json
 {
     "@context": {
@@ -109,14 +114,16 @@ Such a Graph Asset for a service provider can look like following example:
   }
 ```
 
-# Deployment of RuL Skill
+## Deployment of RuL Skill
+
 After the skill is defined, it has to be registered.
 As described in th "KA-KIT", one have to define the Asset, Policy and Contractdefiniton as for other EDC assets.
 
 To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or better said, to register it in our agent enabled EDC. For the registration we need, as for other EDC assets, the asset, a policy and a contract definition registration.
 
-**Policy Registration**
-``` json
+### Policy Registration
+
+```json
 {
     "@context": {
         "odrl": "http://www.w3.org/ns/odrl/2/",
@@ -125,17 +132,18 @@ To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or
     "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?consumer=Asset&mode=open",
     "policy": {
-		"@type": "Policy",
-		"odrl:permission" : [{
-			"odrl:action" : "USE",
-			"odrl:constraint" : []
-		}]
+        "@type": "Policy",
+        "odrl:permission" : [{
+            "odrl:action" : "USE",
+            "odrl:constraint" : []
+        }]
     }
 } 
 ```
 
-**Contractdefiniton Registration**
-``` json
+### Contractdefiniton Registration
+
+```json
 {
     "@context": {
          "cx-common": "https://w3id.org/catenax/ontology/common#"
@@ -153,10 +161,11 @@ To bo able to invoke the sample Agent-Skill defined above, we have to deploy, or
 }
 ```
 
-**Skill Registration**  
+### Skill Registration
 
 A Skill can be registered over the AgentPlane API:
-```
+
+```curl
 curl --location 'agentPlaneEdcUrl/api/agent/skill?asset=SkillAsset%3Fconsumer%3DRemainingUsefulLife&distributionMode=PROVIDER%26contract%3DContract%3Fconsumer%3DAsset%26mode%3Dopen' \
 --header 'Content-Type: application/sparql-query' \
 --data-raw '

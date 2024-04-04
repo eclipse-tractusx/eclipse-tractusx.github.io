@@ -1,9 +1,33 @@
 ---
 id: Changelog Circularity KIT
 title: Changelog
-description: 'Circularity KIT'
+description: "Circularity KIT"
 sidebar_position: 1
 ---
+
+![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
+
+All notable changes to this Kit will be documented in this file.
+
+## [1.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
+
+## [0.2.0] - 2024-03-08
+
+- added: Secondary Material Chapter
+- changed: integrated SMC Chapter into other KIT content
+- removed: typos
 
 ## [0.1.0] - 2023-12-08
 

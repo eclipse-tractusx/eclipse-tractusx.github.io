@@ -5,7 +5,7 @@ description: ''
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ### Business Partner KIT
 
@@ -51,7 +51,7 @@ The Legal Entity Controller calls, searches, creates or updates existing busines
 | [Update existing legal entity business partners](../Software%20Development%20View/Pool%20Api/update-business-partners.api.mdx) |
 | [Create new legal entity business partners](../Software%20Development%20View/Pool%20Api/create-business-partners.api.mdx)|
 | [Confirms that the data of a legal entity business partner is still up to date.](../Software%20Development%20View/Pool%20Api/set-legal-entity-currentness.api.mdx)|
-| [Search legal entity partners by BPNLs.](../Software%20Development%20View/Pool%20Api/search-sites-1.api.mdx) |
+| [Search legal entity partners by BPNLs.](../Software%20Development%20View/Pool%20Api/search-sites.api.mdx) |
 | [Search Legal Addresses.](../Software%20Development%20View/Pool%20Api/search-legal-addresses.api.mdx)|
 | [Get legal entity business partner by identifier.](../Software%20Development%20View/Pool%20Api/get-legal-entity.api.mdx) |
 | [Get site partners of a legal entity.](../Software%20Development%20View/Pool%20Api/get-sites.api.mdx) |
@@ -72,12 +72,6 @@ The Address Controller is the controller that updates, creates, or retrieves bus
 ### 4. Open Search Controller
 
 The Open Search Controller is only used by the developers on the backend of the API. They are not relevant for the API end-users. Hyperlink in each record gives you more information about api endpoint.
-
-| Open Search Controller Apis|
-| :----------- |
-| [Fetch information about the latest OpenSearch export](../Software%20Development%20View/Pool%20Api/get-business-partners.api.mdx) |
-| [Index new business partner records on OpenSearch](../Software%20Development%20View/Pool%20Api/export.api.mdx) |
-| [Clear business partner index on OpenSearch](../Software%20Development%20View/Pool%20Api/clear.api.mdx) |
 
 ### 5. Metadata Controller
 
@@ -163,7 +157,7 @@ The Address Controller is the controller that updates, creates, or retrieves bus
 
 | Address Controller |
 | :----------- |
-| [Create or update addresses (Output).](../Software%20Development%20View/Gate%20Api/put-addresses-output.api.mdx) |
+| [Create or update addresses (Output).](../Software%20Development%20View/Gate%20Api/upsert-addresses-output.api.mdx) |
 | [Get page of addresses](../Software%20Development%20View/Gate%20Api/get-addresses.api.mdx) |
 | [Create or update addresses](../Software%20Development%20View/Gate%20Api/upsert-addresses.api.mdx) |
 | [Get page of addresses. Can optionally be filtered by external ids.](../Software%20Development%20View/Gate%20Api/get-addresses-output.api.mdx) |

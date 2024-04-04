@@ -9,7 +9,7 @@ sidebar_position: 2
 Adoption View of the Kit.
 -->
 
-![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
 
 ### Digital Twin KIT
 
@@ -18,11 +18,11 @@ Adoption View of the Kit.
 
 ### Vision
 
-The aim of the Digital Twin Kit is to trace parts and materials across the entire value chain to enable data driven use 
-cases over all n-tier levels without compromising data sovereignty. This Kit enables data and app providers to deliver 
+The aim of the Digital Twin Kit is to trace parts and materials across the entire value chain to enable data driven use
+cases over all n-tier levels without compromising data sovereignty. This Kit enables data and app providers to deliver
 solutions for building data chains and to send quality notifications on all levels and industries.
 
-The Kits purpose is to provide the Catena-X Automotive Network with a uniform infrastructure to enable data-level 
+The Kits purpose is to provide the Catena-X Automotive Network with a uniform infrastructure to enable data-level
 interoperability between Business Partners. Regardless of the data's provenance, the Kit sets the scene
 for a comprehensive landscape of distributed Digital Twins of assets (mostly parts) along the entire lifecycle of the
 supply chain.
@@ -37,21 +37,21 @@ back to the public. A priority is the seamless integration with other Catena-X d
 
 ### Customer Journey
 
-With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Model_Whitepaper_02_12_22.pdf) 
+With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Modelv2.1_final.pdf)
 are given the necessary tooling to format their data and APIs in a standardized manner.
 
 <!-- !Mandatory! -->
-## Business Value
+## Business Value & Business Processes
 
-Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty, 
-authorization, authentication must be agreed upon and implemented. In the Catena-X network, that is covered by the 
-[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the services it relies on. 
+Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty,
+authorization, authentication must be agreed upon and implemented. In the Catena-X network, that is covered by the
+[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the services it relies on.
 
-What this Kit adds is a set of technologies to reduce the integration efforts on the data level. Data Consumers can 
+What this Kit adds is a set of technologies to reduce the integration efforts on the data level. Data Consumers can
 develop their applications against data formats and interfaces that are standardized encouraging client-side reuse.
-Consequently, data providers present data agnostic to who will consume the data from. This reduces the investment necessary 
-to onboard to additional Catena-X use-cases significantly.  Consuming applications can be substituted seamlessly as 
-they are developed against the relevant Catena-X standards - further lowering the bar of entry for new applications in 
+Consequently, data providers present data agnostic to who will consume the data from. This reduces the investment necessary
+to onboard to additional Catena-X use-cases significantly.  Consuming applications can be substituted seamlessly as
+they are developed against the relevant Catena-X standards - further lowering the bar of entry for new applications in
 the ecosystem.
 
 <!-- !Mandatory! -->
@@ -68,13 +68,13 @@ expands with the scope of the model.
 - A distributed infrastructure of central and decentral components integrating hand-in-hand with backend-systems southward
 and the network northward.
 
-- Extensive meta-model to create a virtual representation of asses across their entire lifecycle.
+- Extensive meta-model to create a virtual representation of assets across their entire lifecycle.
 
 ### Example
 
-The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#logic--schema) 
-and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/Documentation/irs_arc42) 
-build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the 
+The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#logic--schema)
+and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/Documentation/irs_arc42)
+build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
 For more info how specifically the Asset Administration Shell is used, consult the Kits.
@@ -83,12 +83,19 @@ For more info how specifically the Asset Administration Shell is used, consult t
 
 ### CX-Standards
 
-- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/9_Data-Discovery-Services/CX_-_0001_EDC_DISCOVERY_API_PlatformCapabilityDS_v_1.0.1-1.pdf) 
-- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0002-DigitalTwinsInCatena-X-v.1.0.2.pdf)*(linked version 1.0.2, this KIT refers to v2.0.0, to be released in 09/23)*
-- CX - 0053 BPN Discovery Services *(v1.0.0 to be released in 09/23)*
+- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0001-EDCDiscoveryAPI_v1.0.2.pdf) *(version 1.0.2)*
+- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0002-DigitalTwinsInCatenaX-v2.1.0.pdf)*(version 2.1.0)*
+- [CX - 0053 BPN Discovery Service](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0053-BPNDiscoveryServiceAPIs-v1.0.1.pdf) *(version 1.0.1)*
 
-### Terminology 
+### Terminology
 
-The following figure is also a non-normative part of CX-0002 "Digital Twins in Catena-X" v2.0.0. When published, that 
-standard can be found in the [Catena-X standard library](https://catena-x.net/de/standard-library).
-![How words relate in the DT Kit](assets/img/DTKIT_terminology.svg)
+CX-0002 includes a figure on how the terms (also used in this Kit) interrelate. Check it out on page 5 of the [published
+standard](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0002-DigitalTwinsInCatenaX-v2.1.0.pdf).
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)

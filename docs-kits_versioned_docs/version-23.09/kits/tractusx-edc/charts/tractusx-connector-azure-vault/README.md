@@ -16,13 +16,13 @@ This chart is intended for use with an _existing_ PostgreSQL database and an _ex
 - the [Managed Identity Walled (MIW)](https://github.com/catenax-ng/tx-managed-identity-wallets) must be running and reachable via network
 - the necessary set of VerifiableCredentials for this participant must be pushed to MIW. This is typically done by the
   Portal during participant onboarding
-- KeyCloak must be running and reachable via network
-- an account with KeyCloak must be created for this BPN and the connector must be able to obtain access tokens
+- Keycloak must be running and reachable via network
+- an account with Keycloak must be created for this BPN and the connector must be able to obtain access tokens
 - the client ID and client secret corresponding to that account must be known
 
 ### Preparatory work
 
-- store your KeyCloak client secret in the Azure KeyVault. The exact procedure is as follows:
+- store your Keycloak client secret in the Azure KeyVault. The exact procedure is as follows:
 
  ```bash
  az keyvault secret set --vault-name <YOUR_VAULT_NAME> --name client-secret --value "$YOUR_CLIENT_SECRET"
@@ -36,8 +36,8 @@ Be sure to provide the following configuration entries to your Tractus-X EDC Hel
 
 - `controlplane.ssi.miw.url`: the URL
 - `controlplane.ssi.miw.authorityId`: the BPN of the issuer authority
-- `controlplane.ssi.oauth.tokenurl`: the URL (of KeyCloak), where access tokens can be obtained
-- `controlplane.ssi.oauth.client.id`: client ID for KeyCloak
+- `controlplane.ssi.oauth.tokenurl`: the URL (of Keycloak), where access tokens can be obtained
+- `controlplane.ssi.oauth.client.id`: client ID for Keycloak
 - `controlplane.ssi.oauth.client.secretAlias`: the alias under which the client secret is stored in the vault. Defaults to `client-secret`.
 
 ### Launching the application
@@ -160,9 +160,9 @@ helm install my-release tractusx-edc/tractusx-connector-azure-vault --version 0.
 | controlplane.service.type | string | `"ClusterIP"` | [Service type](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) to expose the running application on a set of Pods as a network service. |
 | controlplane.ssi.miw.authorityId | string | `""` | The BPN of the issuer authority |
 | controlplane.ssi.miw.url | string | `""` | MIW URL |
-| controlplane.ssi.oauth.client.id | string | `""` | The client ID for KeyCloak |
+| controlplane.ssi.oauth.client.id | string | `""` | The client ID for Keycloak |
 | controlplane.ssi.oauth.client.secretAlias | string | `"client-secret"` | The alias under which the client secret is stored in the vault. |
-| controlplane.ssi.oauth.tokenurl | string | `""` | The URL (of KeyCloak), where access tokens can be obtained |
+| controlplane.ssi.oauth.tokenurl | string | `""` | The URL (of Keycloak), where access tokens can be obtained |
 | controlplane.tolerations | list | `[]` |  |
 | controlplane.url.protocol | string | `""` | Explicitly declared url for reaching the dsp api (e.g. if ingresses not used) |
 | controlplane.volumeMounts | list | `[]` | declare where to mount [volumes](https://kubernetes.io/docs/concepts/storage/volumes/) into the container |

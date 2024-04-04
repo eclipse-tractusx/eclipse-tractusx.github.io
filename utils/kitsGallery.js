@@ -2,9 +2,10 @@ import Business_Kit from "@site/static/img/bpkit.png";
 import DataChain_Kit from "@site/static/img/datachainkit.png";
 import Connector_Kit from "@site/static/img/connectorkit-min.png";
 import Traceability_Kit from "@site/static/img/traceabilitykit.png";
-import BehaviourTwinRuLKit from "@site/static/img/BehaviourTwinRuLKit.png";
+import BehaviourTwinRuL_Kit from "@site/static/img/BehaviourTwinRuL_Kit.png";
 import DigitalTwin from "@site/static/img/DigitalTwin.png";
 import EcoPass from "@site/static/img/EcoPass.png";
+import ESS_Kit from "@site/static/kits/ESS-Kit/ESSKit.png";
 import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
 import Quality from "@site/static/img/Quality.png";
 import PCF_Kit from "@site/static/img/PCF_Kit.png";
@@ -13,6 +14,8 @@ import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityM
 import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import BehaviourTwinHI_Kit from "@site/static/img/BehaviourTwinHI_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
+import Maas_Kit from "@site/static/img/MaaSKIT.png";
+import Certificate_Kit from "@site/static/img/Certificate_Kit.png"
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -46,7 +49,7 @@ export const kitsGallery = [
     name: 'Connector Kit',
     domain: 'Network & Core Services',
     img: Connector_Kit,
-    pageRoute: "/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption View"
+    pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
   },
   {
     id: 4,
@@ -59,7 +62,7 @@ export const kitsGallery = [
     id: 5,
     name: 'Behaviour Twin RuL Kit',
     domain: 'PLM / Quality',
-    img: BehaviourTwinRuLKit,
+    img: BehaviourTwinRuL_Kit,
     pageRoute: "/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit"
   },
   {
@@ -116,7 +119,7 @@ export const kitsGallery = [
     name: 'DCM Kit',
     domain: 'Resiliency',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/DCM%20Kit/adoption-view"
+    pageRoute: "/docs-kits/kits/DCM-Kit/adoption-view"
   },
   {
     id: 14,
@@ -131,5 +134,26 @@ export const kitsGallery = [
     domain: 'Sustainability',
     img: PCF_Kit,
     pageRoute: "/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View"
+  },
+  {
+    id: 16,
+    name: 'Manufacturing as a Service Kit',
+    domain: 'Resiliency',
+    img: Maas_Kit,
+    pageRoute: "/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
+  },
+  {
+    id: 17,
+    name: 'Certificate Management Kit',
+    domain: 'Network & Core Services',
+    img: Certificate_Kit,
+    pageRoute: "/docs-kits/kits/Certificate Management Kit/Adoption View"
+  },
+  {
+    id: 18,
+    name: 'ESS Kit',
+    domain: 'Sustainability',
+    img: ESS_Kit,
+    pageRoute: "/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
   }
 ]
