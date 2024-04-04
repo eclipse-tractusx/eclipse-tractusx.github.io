@@ -30,35 +30,28 @@ section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-
 
 The Asset Administration Shell (AAS) is a specification that is released by
 the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/)
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage)as
+with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as
 IEC 63278.
 
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a
-value
-creation network”. As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an
-extensive
-suite of meta-model elements and APIs, Catena-X only uses a small subset. What exactly is defined in the Catena-X
-standard
-CX - 0002.
+value creation network” ([IDTA 01001-3-0](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf)
+, p.12) . As such, it is well-suited to contribute to the toolbox of Catena-X. While the Spec offers an
+extensive suite of meta-model elements and APIs, Catena-X only mandates a small subset that is defined in CX - 0002.
 
 #### Submodels
 
 An Asset Administration Shell is organized in Submodels. Each Submodel represents a self-contained aspect of an asset -
-typical examples are the *Nameplate* or *SingleLevelBomAsBuilt* (which denotes the hierarchical composition of parts
-into
-a whole). As different aspects of an Asset may be known to different parties on the value-chain, Submodels for a single
-asset
-must be capable to run independently of each other. The specification explicitly allows this, enabling easy
-cross-company
-data integration.
+typical examples are the *PartAsPlanned* or *SingleLevelBomAsBuilt* (which denotes the hierarchical composition of
+parts into a whole). All relevant Submodels for Catena-X can be are built from SAMM models and can be found on [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/).
+As different aspects of an Asset may be known to different parties on the value-chain, Submodels
+for a single asset must be capable to run independently of each other. The specification explicitly allows this,
+enabling easy cross-company data integration.
 
 Recognizing that not all use-cases require the full functionality of the AAS-Spec, Catena-X demands that Data
 Providers offer only a subset of the SubmodelServiceSpecification - namely the `$value` serialization. This is an
-abbreviated
-notation of an AAS-Submodel that is focused on data instead of context. While it is advisable to expose Submodels with
-help of
-a full-fletched AAS-server SDK that provides the content-modifiers and API-endpoints out-of-the-box, this is not yet
-mandatory.
+abbreviated notation of an AAS-Submodel that is focused on data instead of context. While it is advisable to expose
+Submodels with help of a full-fletched AAS-server SDK that provides the content-modifiers and API-endpoints
+out-of-the-box, this is not yet mandatory.
 
 #### Digital Twin Registry
 
@@ -82,7 +75,7 @@ on top. Either way, they are free to populate their DTR in any way they desire.
 
 ### Catena-X specific Services
 
-DTRs hold sensitive information: a SubmodelDescriptor may not give access to the actual Submodel-data but all in cumulo
+DTRs hold sensitive information: a submodel-descriptor may not give access to the actual Submodel-data but all in cumulo
 hint at
 production volumes as each Twin represents an asset. Therefore, Catena-X implements decentral DTRs (DDTR), each running
 with a
@@ -93,9 +86,8 @@ endorses
 none of them. Catena-X must deal with the additional complexity that stems from the interaction with the EDC.
 
 Leveraging the native capabilities of the EDC and the EDC Discovery Service, Catena-X uses a discovery pattern that has
-the
-same capability as a central [Digital Twin Registry](#digital-twin-registry) would:
-It allows to start a Discovery Process with ONLY an Asset ID.
+the same capability as a central [Digital Twin Registry](#digital-twin-registry) would:
+It allows to start a Discovery Process with only an assetId and its type (like `manufacturerPartId`).
 However, in Catena-X some of the data is deemed so sensitive that a central authority can't be
 trusted with it. Thus, a decentralized approach is implemented: each Data Provider will run their own DTR.
 This poses a challenge for discovery if the BPN of the supplier is not known by the data consumer. After all, a
@@ -130,19 +122,44 @@ There's three relevant inputs to discover a referenced Submodel in Catena-X:
     to construct a `catalog`-request, this variable is equivalent to the `<base>`
     in [this example](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites)
     in the DSP-spec.
-  - When calling the /catalog API of that Control Plane, she should filter for dcat:Dataset entries that are
-    identified
-    by the `id` mentioned in the `subprotocolBody`.
+    - When calling the /catalog API of that Control Plane, a Consumer should filter for `dcat:Dataset` entries that are
+      identified by the `id` mentioned in the `subprotocolBody`. For communication between two EDCs, the Consumer could
+      query with the following payload:
+
+      ```json
+      {
+      "@context": {
+          "edc": "https://w3id.org/edc/v0.0.1/ns/"
+      },
+      "@type": "CatalogRequest",
+      "counterPartyAddress": "{{provider-dsp-endpoint}}",
+      "protocol": "dataspace-protocol-http",
+      "querySpec": {
+          "offset": 0,
+          "limit": 50,
+          "filterExpression": [
+              {
+                  "@context": {
+                      "edc": "https://w3id.org/edc/v0.0.1/ns/"
+                  },
+                  "@type": "edc:Criterion",
+                  "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+                  "operator": "=",
+                  "operandRight": "{{assetId}}"
+              }
+          ]
+        }
+      }
+      ```
+
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data
-  Plane
-  of the given EDC to access the data. For that, she must use the URL given in the Submodel-Descriptor's `href` field
-  and
-  append the additional URL-segment `/$value`.
+  Plane of the given EDC to access the data. For that, the Provider must use the URL given in the Submodel-Descriptor's
+  `href` field and append the additional URL-segment `/$value`.
 
 #### Registering a new Twin
 
 Registration of a new twin is (at least in Catena-X) equivalent to the creation of a new twin. Thus, a Data Provider
-should always ensure that there is no shell-descriptor created for the respective assetIds yet. If there already is one,
+should always ensure that there is no AAS-descriptor created for the respective assetIds yet. If there already is one,
 the submodel-descriptor should
 be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
 
@@ -488,10 +505,10 @@ unauthorized access is not only a data leak but a potential violation of regulat
 
 That's why there are a couple shared requirements that DTR-deployments must adhere to:
 
-- If a Data Consumer has no legitimate interest, a shell-descriptor must not be returned when requested.
-- If a Data Consumer has a legitimate interest, a shell-descriptor must not include any data (like `specificAssetIds`)of
+- If a Data Consumer has no legitimate interest, a AAS-descriptor must not be returned when requested.
+- If a Data Consumer has a legitimate interest, a AAS-descriptor must not include any data (like `specificAssetIds`)of
   companies other than the involved Data Provider and Data Consumer.
-- If a Data Provider wants to share data publicly, a shell-descriptor must only contain the
+- If a Data Provider wants to share data publicly, a AAS-descriptor must only contain the
   attributes `id`, `submodelDescriptors`
   and those `specificAssetIds` that were issued by the Data Provider and contain no hints of existing business
   relationships.
