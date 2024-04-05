@@ -4,10 +4,26 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/community/meeting-minutes</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Thu, 28 Mar 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 05 Apr 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Office Hour 2024-04-05]]></title>
+            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/office-hour-2024-04-05</link>
+            <guid>office-hour-2024-04-05</guid>
+            <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Office Hour meeting minutes]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Several TRGs in Draft<ul><li>See <a href="https://eclipse-tractusx.github.io/docs/release/trg-0/" target="_blank" rel="noopener noreferrer">TRG 0</a></li><li>Dedicated PRs will be raised to gather feedback before publishing</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>Veracode license finally expired<ul><li>Dashboards still accessible</li><li>No new scans can be run</li><li>CodeQL is the replacement</li></ul></li><li>Security TRGs live. See the "TRG 8 - Security" section
+in <a href="https://eclipse-tractusx.github.io/docs/release" target="_blank" rel="noopener noreferrer">Release Guidelines</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a class="hash-link" href="#discussions" title="Direct link to heading">​</a></h3><ul><li>Dependabot PRs<ul><li>In general: keep your dependencies up to date. Keep the <code>DEPENDENCIES</code> file in mind. Ask committers for help, if you
+don't have one in your team.</li><li>Specifically Docker base images: If dependabot suggests to upgrade the base image to a new major library version,
+that you do not support. Ask a committer to tell dependabot to ignore the dependency</li><li>Specifically Chart Releaser Action: Should not be an issue, but we can investigate if the upgrade would raise
+issues (<code>1.4.1</code> to <code>1.6.0</code> in this case)</li></ul></li><li>Are there updates to API versioning<ul><li>No one in the call had an update</li><li>The <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/580" target="_blank" rel="noopener noreferrer">Discussion</a> is untouched for a
+while</li><li>If this is an issue for anyone, please push that topic again</li></ul></li></ul>]]></content:encoded>
+            <category>tractus-x-office-hour</category>
+            <category>meeting-minutes</category>
+            <category>community</category>
+        </item>
         <item>
             <title><![CDATA[Security Office Hour 28.03.2024]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-03-28</link>
