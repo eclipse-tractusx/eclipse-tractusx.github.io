@@ -110,7 +110,7 @@ From a business perspective, the material accounting KIT is characterized by the
 3. **Increased Material Recycling:** The KIT promotes the recycling of materials within the same industry, increasing sustainability.
 4. **Transparency:** It provides higher transparency regarding the availability of secondary materials.
 
-### Use Case / Domain
+### Use Case / Domain Explanation
 
 #### Material Accounting in Catena-X
 
