@@ -159,7 +159,7 @@ The user journey follows the same process during all four lifecycle stages and d
 
 There are different scenarios in which SMC Data can be exchanged. According to the semantic model framework, this implies that there is a specific data model for each purpose (scenario).
 
-In order to ensure efficiency by avoiding redundancy and maintaining multiple data models, the concept of a shared aspect model was used: This means that there is one Secondary Material “base model”, which is the SecondaryMaterialContent. This serves as an enabler for data modelling and not for data exchange itself, it is bad practice to use it for data exchange.
+To ensure efficiency by avoiding redundancy and maintaining multiple data models, the concept of a shared aspect model was used: This means that there is one Secondary Material “base model”, which is the SecondaryMaterialContent. This serves as an enabler for data modelling and not for data exchange itself, it is bad practice to use it for data exchange.
 
 Instead, SecondaryMaterialContentCalculated or SecondaryMaterialContentVerifiable should be used when exchanging SMC data, depending on the actual scenario.
 
