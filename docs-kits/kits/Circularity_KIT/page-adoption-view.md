@@ -126,7 +126,7 @@ The goal of the Material Accounting Feature inside the Catena-X consortium and a
 
 ### Introduction
 
-_Introducing the Secondary Material Framework within the Circularity KIT by Catena-X: Enhancing Sustainability and Communication in the Automotive Value Chain._
+Introducing the Secondary Material Framework within the Circularity KIT by Catena-X: Enhancing Sustainability and Communication in the Automotive Value Chain.
 
 In the pursuit of sustainability and resource efficiency, the automotive industry is continuously exploring innovative ways to incorporate secondary materials into its value chain. At the forefront of this endeavor is the secondary material framework, a pivotal component of Catena-X's Circularity KIT.
 
