@@ -12,7 +12,7 @@ title: Adoption View
 
 The Circularity KIT shall empower stakeholders to transition towards a circular economy by providing frameworks, guidelines and best practices to enhance sustainability credentials, enable data-driven decision-making and foster collaboration and innovation in the automotive industry.
 
-Secondary material content, material accounting, dismantling services, the CE-Assistant, and the secondary marketplace are the five focus topics that form the Circularity KIT as of now. The offered content and artifacts address important use cases such as sustainable materials management, waste minimization and resource efficiency, that contribute to more sustainable and circular automotive value loops.
+Secondary material content, **material** accounting, dismantling services, the CE-Assistant, and the secondary marketplace are the five focus topics that form the Circularity KIT as of now. The offered content and artifacts address important use cases such as sustainable materials management, waste minimization and resource efficiency, that contribute to more sustainable and circular automotive value loops.
 
 The overarching goals of the Circularity KIT, therefore, are to:
 
