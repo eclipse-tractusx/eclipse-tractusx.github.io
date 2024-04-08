@@ -18,7 +18,7 @@ The overarching goals of the Circularity KIT, therefore, are to:
 
 - Establish an understanding of requirements along circular value chains and how businesses can profit by implementing sustainable solutions.
 - Offer standards and guidelines for industry stakeholders.
-- Explain different circularity topics and provide tools to implement them.
+- Explain different circularity topics and provide tools to implement them. 
 
 #### Vision
 
