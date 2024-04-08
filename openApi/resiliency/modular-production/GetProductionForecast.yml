@@ -46,16 +46,16 @@ paths:
             type: string
             format: uuid4
       responses:
-        '200':
-          $ref: "#/components/responses/200"
-        '400':
-          $ref: "#/components/responses/400"
-        '401':
-          $ref: "#/components/responses/401"
-        '403':
-          $ref: "#/components/responses/403"
-        '420':
-          $ref: "#/components/responses/420"
+        "200":
+          $ref: '#/components/responses/GetProductionForecast'
+        "401":
+          $ref: '#/components/responses/ClientError'
+        "402":
+          $ref: '#/components/responses/Unauthorized'
+        "403":
+          $ref: '#/components/responses/Forbidden'
+        "404":
+          $ref: '#/components/responses/NotFoundError'
 components:
   schemas:
     ErrorResponse:
