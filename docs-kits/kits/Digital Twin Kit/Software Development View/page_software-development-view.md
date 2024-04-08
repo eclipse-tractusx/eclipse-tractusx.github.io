@@ -528,7 +528,7 @@ resources), these are the layers of complexity:
 |--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dataspace Protocol | 12, 22                               | The body of the `{{consumerControlPlane}}/v2/catalog/request`-request includes a reference to a versioned endpoint of a business partner's DSP endpoint like `{{providerControlPlane}}/api/v1/dsp` | As the design of the EDC's `/catalog/request`-API is an implementation detail, Consumers must consistently monitor its versioning. As the EDC-Management-API abstracts the DSP-messages, changes in the DSP may reflect in the Management-API but will not always do so. If a Consumer application decides to interact with the dataspace without mediation of the EDC, this changes.                                                                                                                                                                                                      |
 | AAS Specification  | 4, 5, 15, 25                         | For all AAS-related EDC-Assets (styled as dcat:Dataset in the catalog), a property cx-common:version must be added referring to the major and minor version of the AAS-spec.                       | For a major change in the AAS-spec, a new set of Catalog entries must be created by the Data Provider in accordance with the standards. For minor changes (AAS 3.x), Data Providers must signal the version in the `https://w3id.org/catenax/common#version` property of their contract offers and update it with each minor or patch update that's supported. Minor versions must also be signalled in the `submodelDescriptor`.`ìnterface`.`protocol` property. If the Submodel API increments with a major version, a new `interface` object must be added to the `submodelDescriptor`. |
-| Data Model Version | 5, 21, 29                            | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                                        | A new version of the semantic model requires either setup of a new submodel (with a new submodel ID and the new semantic ID) or update of an existing submodel descriptor (with updated semantic ID). This includes updating registration information at the DTR. Rules on backward compatibility need to be considered. It may be requested to offer two Submodel versions at the same time.                                                                                                                                                                                              |
+| Data Model Version | 5, 21, 29                            | The structure of the Submodel is determined by the aspect-model's URN. It includes a section on versioning.                                                                                        | A new version of the semantic model requires either setup of a new Submodel (with a new Submodel ID and the new semantic ID) or update of an existing submodel-descriptor (with updated semantic ID). This includes updating registration information at the DTR. Rules on backward compatibility need to be considered. It may be requested to offer two Submodel versions at the same time.                                                                                                                                                                                              |
 
 Here's a list of duties for Data Providers in case they integrate a new Submodel (or version of an existing one) to an
 existing
@@ -537,42 +537,45 @@ twin:
 - Expose a new Submodel to the Dataspace. If its URL is a subpath of one that's already registered as a EDC-Asset,
   there is no need to specifically register it as a new EDC-Asset and create a Contract Definition for it. However,
   if there is no such EDC-Asset, that's what a Data Provider must do: create an EDC-Asset, connect it to policies via
-  the contract-
-  definition-API and let consumers negotiate for it.
+  the contract-definition-API and let consumers negotiate for it.
 - If assetIds are known, the aasId can be discovered via
   `GET https://mydtr.com/api/v3.0/lookup/shells?assetIds=foo&assetIds=bar`. The query-parameters' values are base64url-
   encoded `specificAssetId` objects. If multiple shall be logically AND-chained, a Consumer must use the query-
   parameter-key `assetIds` multiple times.
-- `POST https://mydtr.com/api/v3.0/shell-descriptors/{{aasId}}/submodel-descriptors` with the (known or obtained) aasId
-  in the path
-  and the new submodel-descriptor in the body of the request. The attribute `semanticId` is mandatory for
-  submodel-descriptors in Catena-X.
-  As defined in CX-0002, semanticIds in Catena-X are aspect-model-urns (see CX-0003) including a version.
+- `POST https://mydtr.com/api/v3.0/shell-descriptors/{{aasId}}/submodel-descriptors` with the (known or obtained)
+  aasId in the path and the new submodel-descriptor in the body of the request. The attribute `semanticId` is
+  mandatory for submodel-descriptors in Catena-X. As defined in CX-0002, semanticIds in Catena-X are aspect-model-urns
+  (see CX-0003) including a version.
 
 ### Patterns for Submodel Deployment
 
 Data Providers will usually follow one of two patterns:
 
-1. Digital Twin Repository: Deploying a dedicated Repository for the persistence of digital twins and related data is
-   the most
-   convenient way to get started with the AAS. Due to the risk of data duplication and unclear initial ingestion
-   mechanisms, it may not scale to industrial sizes.
-2. Delegation: Wrapping another API or a database may deploy the Submodel API as a new facade. It delegates the incoming
-   requests to the respective backend systems. This is particularly feasible in the Catena-X dataspace since offering
-   data to the network requires mappings that are naturally dependent on the data source format. More on data
-   integration
-   can be found in the
-   corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf).
+1. Digital Twin Repository: Deploying a dedicated Repository for the persistence of digital twin submodels and related
+   data is the most convenient way to get started with the AAS. It bears the risk of data duplication and introduces
+   the necessity for synchronization mechanisms while on the other hand reducing computational load on the authoring
+   systems that the data originates from.
+2. Delegation: Wrapping an existing API with the AAS-Submodel API yields as a facade that is compliant to CX-0002.
+   The wrapper delegates the incoming requests to the respective backend system. This is feasible in the
+   Catena-X dataspace since offering data to the network requires mappings that are naturally dependent on the data's
+   source format. More on data integration can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf). Equipping each
+   Business Application with a Submodel-API-Wrapper will lead to a landscape of multiple Submodel-APIs that are
+   linked by the DTR and visible in the Dataspace via a DSP-Connector.
 
-### Patterns for DTRs
+Both approaches are architecturally valid. Data Consumers do not have to be aware about the deployment pattern employed
+by the Provider - the traversal and discovery algorithm will work either way.
+
+### Patterns for DTR Deployment
+
+While it is generally possible to equip a Business Application not only with a Submodel- but also a DTR-facade, it is
+generally bad practice. There should only be a single DTR in a Provider's catalog. If there were multiple, a Consumer
+would have no way of knowing which DTR holds the relevant data, forcing him to iterate over all DTRs. This would
+exponentially increase the number of HTTP calls necessary to retrieve the relevant data.
 
 Usually, a DTR will implement a persistence with the specified AAS-APIs for data ingestion specified in the SSP-001
-profile of the AssetAdministrationShellRegistryService by
-means of POST endpoints, updatable with PUT and PATCH requests (
-see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)).
-
-These APIs should only be accessible by the Data Provider (for instance by introduction of proper access control scopes
-or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
+profile of the AssetAdministrationShellRegistryService by means of POST endpoints, updatable with PUT and PATCH
+requests (see [reference implementation](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)). These APIs should only be accessible by the Data Provider (for instance
+by introduction of proper access control scopes or setting `proxyMethod = false`, see [registration](#digital-twin-registry-as-edc-data-asset)). Delegation
 as backend integration pattern is more inconvenient as the DTR must process and return reproducible IDs not only for
 the assets but also for the AAS - this is hard to realize in a pure stateless implementation.
 
