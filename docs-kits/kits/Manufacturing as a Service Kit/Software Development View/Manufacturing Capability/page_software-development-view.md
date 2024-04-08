@@ -7,7 +7,7 @@ sidebar_position: 4
 
 MaaS scenarios focus on connecting buyers and manufacturers. Buyers have a demand for products, which are produced by manufacturers with the required production capabilities. The Manufacturing Capability API defines how to share the manufacturing capabilities, e.g. to onboard them to a Manufacturing Network Registry. Manufacturing Network Platforms and MaaS Manufacturer Application can use the Manufacturing Capability API to onboard their manufacturing capabilities in the Manufacturing Network Registry (see figure).
 
-![1st level whitebox view of CDME](res/Whitebox%20View%20of%20CDME.jpeg)
+![Reference Architecture Manufacturing Capability](res/RefArcMC.JPG)
 
 The Manufacturing Capability API description below shows how the Manufacturing Capability Aspect Model could be used. The aspect model is designed to represent manufacturing capabilities based on the concepts of products, processes, resources and capabilities and their relations to each other.
 

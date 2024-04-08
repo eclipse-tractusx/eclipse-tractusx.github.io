@@ -12,6 +12,11 @@ servers:
 paths:
   /{api-endpoint}/request-for-quotation:
     post:
+      servers:
+      - url: https://example.com/query-api/v3
+        variables:
+          api-version:
+            default: v3
       tags:
       - RequestForQuotation
       operationId: postRequestForQuotation
@@ -23,6 +28,8 @@ paths:
         schema:
           type: string
           format: uuid
+      requestBody:
+        $ref: '#/components/requestBodies/Filter'
       responses:
         "200":
           $ref: '#/components/responses/RequestForQuotation'
@@ -62,6 +69,16 @@ components:
         code:
           type: string
           nullable: true
+    Filter:
+      type: object
+      required:
+      - filter
+      properties:
+        filter:
+          type: string
+          description: The filter to use.
+          example:
+           $ref: '#/components/schemas/RequestForQuotation'
     urn_samm_io.catenax.request_for_quotation_3.0.0_SourceCharacteristic:
       type: string
       description: "digital address of the sender (e.g.token, IP address, link, user\
@@ -762,3 +779,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RequestForQuotation'
+    Filter:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Filter'
