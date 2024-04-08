@@ -105,56 +105,55 @@ the base-specifications (like AAS) but restrict the application even further for
 ### Registration at Digital Twin Registry
 
 The Digital Twin Registry connects an asset (identified by its assetIds) with links to the Submodels. Since Catena-X
-uses
-the EDC as a gateway for all inter-company interaction, the Digital Twin Registry must account for that. By design, it
-includes the possibility to add additional context via the fields `subprotocol`, `subprotocolBody`
-and `subprotocolEncoding`.
-`subprotocol` will always be set to `DSP`, short for
-the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme)
-as standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
+uses the EDC as a gateway for all inter-company interaction, the Digital Twin Registry must account for that. By
+design, it includes the possibility to add additional context via the fields `subprotocol`, `subprotocolBody` and
+`subprotocolEncoding`. `subprotocol` will always be set to `DSP`, short for the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme) as
+standardized by the IDSA. `subprotocolEncoding`  is always set to `plain`.
 
 There's three relevant inputs to discover a referenced Submodel in Catena-X:
 
 - The `subprotocolBody` contains two pieces of information, assigned with `=` and separated by `;`:
-  - `dspEndpoint` is the URL of the Control Plane where a Data Consumer can negotiate for access to this Submodel. For
+  - *`dspEndpoint`* is the URL of the Control Plane where a Data Consumer can negotiate for access to this Submodel. For
     many
     connector-implementations, this will end on `/api/v1/dsp`. As this property will be used in the discovery sequence
     to construct a `catalog`-request, this variable is equivalent to the `<base>`
     in [this example](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites)
     in the DSP-spec.
-    - When calling the /catalog API of that Control Plane, a Consumer should filter for `dcat:Dataset` entries that are
-      identified by the `id` mentioned in the `subprotocolBody`. For communication between two EDCs, the Consumer could
-      query with the following payload:
+  - When calling the /catalog API of that Control Plane, a Consumer should filter for `dcat:Dataset` entries that are
+    identified by the *`id`* mentioned in the `subprotocolBody`. For communication between two EDCs, the Consumer could
+    query with the following payload:
 
-      ```json
-      {
-      "@context": {
-          "edc": "https://w3id.org/edc/v0.0.1/ns/"
-      },
-      "@type": "CatalogRequest",
-      "counterPartyAddress": "{{provider-dsp-endpoint}}",
-      "protocol": "dataspace-protocol-http",
-      "querySpec": {
-          "offset": 0,
-          "limit": 50,
-          "filterExpression": [
-              {
-                  "@context": {
-                      "edc": "https://w3id.org/edc/v0.0.1/ns/"
-                  },
-                  "@type": "edc:Criterion",
-                  "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
-                  "operator": "=",
-                  "operandRight": "{{assetId}}"
-              }
-          ]
-        }
+    ```json
+    {
+    "@context": {
+        "edc": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@type": "CatalogRequest",
+    "counterPartyAddress": "{{provider-dsp-endpoint}}",
+    "protocol": "dataspace-protocol-http",
+    "querySpec": {
+        "offset": 0,
+        "limit": 50,
+        "filterExpression": [
+            {
+                "@context": {
+                    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+                },
+                "@type": "edc:Criterion",
+                "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+                "operator": "=",
+                "operandRight": "{{assetId}}"
+            }
+        ]
       }
-      ```
+    }
+    ```
 
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data
   Plane of the given EDC to access the data. For that, the Provider must use the URL given in the Submodel-Descriptor's
   `href` field and append the additional URL-segment `/$value`.
+
+A full example is shown in the next section.
 
 #### Registering a new Twin
 
@@ -270,35 +269,31 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
 ### Registration at EDC
 
 Integration between the EDC and AAS-Components in the dataspace is a strict prerequisite for robust discovery and data
-access
-in the Catena-X dataspace. As all data that crosses company-boundaries must be exchanged via an EDC, CX-0002 provides
-the necessary normative statements to facilitate interoperable data exchange.
+access in the Catena-X dataspace. As all data that crosses company-boundaries must be exchanged via an EDC, CX-0002
+provides the necessary normative statements to facilitate interoperable data exchange.
 
 One relevant question is how the EDC-shielded services of this Kit should register with the Asset endpoint of the EDC
-Management API.
-While the EDC's /v3/assets endpoint is internal to the Data Provider only, the objects are also available via the
-/catalog API
-that is specified in the Dataspace Protocol.
+Management API. While the EDC's /v3/assets endpoint is internal to the Data Provider only, the objects are also
+available via the /catalog API that is specified in the Dataspace Protocol.
 
-The EDC uses json-ld. Json-ld is a serialization for RDF graphs (
-see [Resource Description Framework](https://www.w3.org/RDF/)). The json-ld
-`@context` section can declare the namespaces that resources explicitly mentioned in the rest of the document belong to.
-It may also define default namespace with `@vocab` for resources without explicitly stated namespaces. Outside of
-the "@context" section, the `@type` property always defines the class that an object belongs to.
+The EDC uses json-ld. Json-ld is a serialization for RDF graphs (see [Resource Description Framework](https://www.w3.org/RDF/)).
+The json-ld `@context` section can declare the namespaces that resources explicitly mentioned in the rest of the
+document belong to. It may also define default namespace with `@vocab` for resources without explicitly stated
+namespaces. Outside of the "@context" section, the `@type` property always defines the class that an object belongs to.
 As stated in the openAPI-specification of the EDC Management API's relevant endpoint, all entries in the
-`asset/properties` object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is
+`properties` object and the `privateProperties` object can be chosen freely. The section on the `dataAddress` is
 structured depending on the `edc:type` property. The example below is determined by the [HttpDataAddress](https://github.com/eclipse-edc/Connector/blob/main/spi/common/core-spi/src/main/java/org/eclipse/edc/spi/types/domain/HttpDataAddress.java)
 class. Its parameters determine the behavior of the EDC's HTTP data plane at runtime. How they should be used is not
 subject to standardization since they aren't visible in the Dataspace. Certain values may have to be set in a certain
 way to enable the data exchange via the DT Kit.
 
-It presents the backend resources as dcat:Datasets with properties funnelled through from the assets-API. These
+It presents the backend resources as `dcat:Dataset`s with properties funnelled through from the assets-API. These
 properties can be freely set by the Data Provider.
 
 For successful discovery of Digital Twins, it is critical to register Submodels and Digital-Twin-Registries in a
-harmonized way. The following overview shall explain how the `asset/properties` section could be used.
+harmonized way. The following overview shall explain how the `properties` section could be used.
 
-- `https://purl.org/dc/terms/type` (mandatory as per CX-0018): denotes the type of Asset that is registered. The
+- `http://purl.org/dc/terms/type` (mandatory as per CX-0018): denotes the type of Asset that is registered. The
   property
   points to an RDF resource. In the context of digital twins two predefined resources are of
   relevance: `https://w3id.org/catenax/taxonomy#DigitalTwinRegistry` and `https://w3id.org/catenax/taxonomy#Submodel`
@@ -342,7 +337,7 @@ harmonized way. The following overview shall explain how the `asset/properties` 
 ```
 
 The property `asset:prop:type` (deprecated and superseded by `dct:type` - see CX-0002) denotes the type of Asset that
-is registered. For all AAS-registries this property had be set to `data.core.digitalTwinRegistry`. Providers may keep
+is registered. For all DTRs this property had be set to `data.core.digitalTwinRegistry`. Providers may keep
 this redundant property for backward compatibility purposes.
 
 The HttpDataAddress above configures the following behavior:
@@ -393,20 +388,17 @@ payload can be used against the EDC Management API's `POST /catalog/request` end
 
 #### Submodel as EDC Data Asset
 
-A Data Provider may create
-one Data Asset per Submodel or bundle them into one - yielding a smaller catalogue hence better performance. The
-discovery-sequence,
-does not strictly require uniformity here. Not even the typization via the EDC-property `dct:type` is functionally
-necessary. The discovery-sequence is still intact since a Data Consumer will always know the Submodel's
-location relative to the Data Plane's `baseUrl` from the submodel-descriptor's `href` field.
+A Data Provider may create one Data Asset per Submodel or bundle them into one - yielding a smaller catalogue hence
+better performance. The discovery-sequence does not strictly require uniformity here. Not even the typization via the
+EDC-property `dct:type` is functionally necessary. The discovery-sequence is still intact since a Data Consumer will
+always know the Submodel's location relative to the Data Plane's `baseUrl` from the submodel-descriptor's `href` field.
 The EDC-Asset shielding the Submodel is known from the descriptor's `subprotocolBody` containing the Control-Plane-URL
-and
-id of the EDC-Asset. For more details, see
-section [Submodel Descriptor in the Digital Twin Registry](#registration-at-digital-twin-registry).
+and id of the EDC-Asset. For more details, see section [Submodel Descriptor in the Digital Twin Registry](#registration-at-digital-twin-registry).
 
 The following shows an example for registration of a single AAS-Submodel as EDC Data Asset. The
-`properties` section is analogous to that of the DTR but additionally holds `hasSemantics:semanticId`. It is
-recommended and shall signify the meaning of the Submodel's payload.
+`properties` section is analogous to that of the DTR but additionally holds `hasSemantics:semanticId` with the
+`hasSemantics`-prefix resolving to `https://admin-shell.io/aas/3/0/HasSemantics/`. It is recommended and shall signify
+the meaning of the Submodel's payload.
 
 ```json
 {
@@ -443,13 +435,10 @@ recommended and shall signify the meaning of the Submodel's payload.
 }
 ```
 
-There is no normative guidance yet on how to register multiple Submodels bundled together yet. These bundles may include
+There is no normative guidance  on how to register multiple Submodels bundled together yet. These bundles may include
 all the Submodels of a specific semanticId, all Submodels of an asset or any other arbitrary quality. This may be added
-to
-CX-0002 in future iterations. Even though the IDTA specifies a
-[Submodel Repository API](https://app.swaggerhub.com/apis/Plattform_i40/SubmodelRepositoryServiceSpecification/V3.0.1_SSP-002),
-in the context of the Catena-X architecture it is not strictly necessary to adhere to it. Submodels will be found
-regardless,
+to CX-0002 in future iterations. Even though the IDTA specifies a [Submodel Repository API](https://app.swaggerhub.com/apis/Plattform_i40/SubmodelRepositoryServiceSpecification/V3.0.1_SSP-002), in the context of the
+Catena-X architecture it is not strictly necessary to adhere to it. Submodels will be found regardless,
 given the URL-path relative to the `baseUrl` is appended correctly to the Data Plane's URL in the `href` field. The only
 differences are the changed typization. `proxyPath` parameter should be set `"true"` either way.
 
@@ -487,12 +476,53 @@ differences are the changed typization. `proxyPath` parameter should be set `"tr
 ### Usage Policies
 
 For Digital Twin Registries, Data Providers are encouraged to only extend Data Offers that make no explicit checks to
-`FrameworkAgreements`. The DTR is an Enablement Service that should only deployed once per Network Participant as it
-handles meta-data from multiple use-cases. Registering it with a `FrameworkAgreement` would require registering the same
-backend resource multiple times.
+use-case frameworks (formerly known as `FrameworkAgreements`. The DTR is an Enablement Service that should only be
+visible once to every Data Consumer in the DSP-Catalog because it is a meta-data broker for data from multiple
+use-cases. Registering it with a Constraint that's specific to a particular use-case would restrict it only to a small
+subset of the dataspace. Of course, the DTR could be registered once per use-case but that's not recommended as it
+bloats the catalog and requires a lot of consumer-side processing. That's why Offers for a DTR should always
+be extended to the dataspace using the at least two Constraints:
+
+1. Check for an active `Membership` credential. This is agnostic to use-cases but still ensures that a Consumer's VP
+   is valid and issued by a common trust-anchor.
+2. using the DTR as a roadsign in the discovery process is legitimate but requires a set of predefined behavior which
+   is why there's a `purpose` for the DTR.
+
+Here's an example
+
+````json
+{
+  "@context": [
+    "https://www.w3.org/ns/odrl.jsonld",
+    {
+      "cx-policy": "https://w3id.org/catenax/policy/"
+    }
+  ],
+  "@type": "Policy",
+  "permission": [
+    {
+      "action": "use",
+      "constraint": {
+        "and": [
+          {
+            "leftOperand": "cx-policy:Membership",
+            "operator": "eq",
+            "rightOperand": "active"
+          },
+          {
+            "leftOperand": "cx-policy:UsagePurpose",
+            "operator": "eq",
+            "rightOperand": "cx.core.digitalTwinRegistry:1"
+          }
+        ]
+      }
+    }
+  ]
+}
+````
 
 For Submodel-APIs, Data Providers must follow the guidelines from their use-case-standards which will usually require
-using the `FrameworkAgreement` specific to their use-case, mapping to credentials specific to their use-case.
+using the constraint checking for the associated use-case framework and the corresponding credentials.
 
 ## Data Provisioning
 
@@ -500,8 +530,8 @@ using the `FrameworkAgreement` specific to their use-case, mapping to credential
 
 The services of this Kit will in many instances hold sensitive data. While sound access management is a prerequisite for
 every webservice, it is especially important in case of the DTR and Submodels. As they hold competitively sensitive
-data,
-unauthorized access is not only a data leak but a potential violation of regulatory compliance such as anti-trust law.
+data,unauthorized access is not only a data leak but a potential violation of regulatory compliance such as anti-trust
+law.
 
 That's why there are a couple shared requirements that DTR-deployments must adhere to:
 
