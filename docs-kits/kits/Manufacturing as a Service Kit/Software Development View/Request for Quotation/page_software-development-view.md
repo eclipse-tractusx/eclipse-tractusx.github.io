@@ -7,12 +7,12 @@ sidebar_position: 4
 
 The Request for Quotation API description below shows how the Request for Quotation Aspect Model could be used. A Request for Quotation defines detailed requirements, deadlines and evaluation criteria for obtaining quotations from potential manufacturers for specific products or services.
 
-Depending on the use case different request paths can be implemented, based on the specific MaaS implementations. Below are two sample request options:
+![Reference Architecture Request for Quotation](resources/RefArcRfQ.JPG)
+
+Depending on the use case different request paths can be implemented, based on the specific MaaS implementations. Below is a sample request option:
 
 1. POST:/{api-endpoint}/request-for-quotation
    - Description: The API endpoint to send a request for quotation to a manufacturer.
-
-![Overview](resources/overview.png)
 
 ## Sample Data
 
