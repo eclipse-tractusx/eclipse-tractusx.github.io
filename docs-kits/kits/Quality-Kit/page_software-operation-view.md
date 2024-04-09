@@ -5,7 +5,7 @@ description: 'Quality Kit'
 sidebar_position: 3
 ---
 
-![Quality kit banner](@site/static/img/QualityKitIcon.png)
+![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
 
 ### Quality KIT
 

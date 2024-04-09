@@ -4,13 +4,17 @@ title: Changelog
 sidebar_position: 1
 ---
 
+![ESS Kit Icon](/img/kit-icons/ess-kit-icon.svg)
+
 ## [0.2.0] - 2024-04-02
 
 ### Added
-chapters for Code of Conduct in page_adoption-view
+
+- chapters for Code of Conduct in page_adoption-view
 
 ### Changed
-replace picture CatenaX_ESS_KitCustomerJourney
+
+- replace picture CatenaX_ESS_KitCustomerJourney
 
 ### Removed
 
