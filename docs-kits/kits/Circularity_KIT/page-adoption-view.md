@@ -2,6 +2,8 @@
 title: Adoption View
 ---
 
+![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
+
 ## Circularity KIT
 
 ### Vision & Mission
