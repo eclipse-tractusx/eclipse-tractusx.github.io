@@ -116,6 +116,10 @@ const config = {
             to: '/docs/release/',
             from: ['/docs/release/trg-2/trg-2-2', '/docs/release/trg-3/trg-3-1'],
           },
+          {
+            to: '/docs/getting-started',
+            from: '/docs/oss/getting-started',
+          },
         ],
       },
     ],

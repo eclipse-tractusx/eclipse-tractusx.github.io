@@ -9,7 +9,7 @@ sidebar_position: 2
 Adoption View of the Kit.
 -->
 
-![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
 
 ### Digital Twin KIT
 

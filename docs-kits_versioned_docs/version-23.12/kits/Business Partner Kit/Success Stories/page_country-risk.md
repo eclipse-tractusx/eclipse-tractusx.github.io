@@ -1,7 +1,7 @@
 ---
-id: Country Risk Score 
-title: Country Risk Score 
-description: 'Country Risk Score '
+id: Country Risk Score
+title: Country Risk Score
+description: 'Country Risk Score'
 sidebar_position: 1
 ---
 
