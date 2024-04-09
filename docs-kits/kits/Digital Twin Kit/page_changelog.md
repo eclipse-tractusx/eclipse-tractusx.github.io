@@ -5,9 +5,25 @@ description: 'Digital Twin Kit'
 sidebar_position: 1
 ---
 
-![DT Kit Pictotogram](assets/img/DTKIT_pictogram_blue.png)
+![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
 
 ### Digital Twin KIT
+
+All notable changes to this Kit will be documented in this file.
+
+## [2.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
 
 ## [1.2.0] - 2024-03-02
 
