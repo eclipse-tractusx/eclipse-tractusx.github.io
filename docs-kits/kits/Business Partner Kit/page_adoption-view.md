@@ -5,13 +5,15 @@ description: 'Business Partner Kit'
 sidebar_position: 2
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
-# Business Partner KIT
+## Business Partner KIT
 
-** Unique business partner data sets for the whole data space. **
+**Unique business partner data sets for the whole data space.**
+
 ## Vision & Mission
-** Basis for the integration of value-adding services in the area of business partner data management. **
+
+**Basis for the integration of value-adding services in the area of business partner data management.**
 
 The BusinessPartner Kit provides high-quality data records of business partners called golden record including a unique identifier and the business partner number (BPN). The BPN provides a standardized and unique identifier on legal entity, site and address level. The connected backend service removes duplicate data, adds missing information, and improves data quality from different data sources so-called sharing member.
 
@@ -26,23 +28,24 @@ The BusinessPartner Kit provides high-quality data records of business partners 
 
 ## Business Value
 
-** One open data model **
-Application and service providers reduce investments to integrate due to one data model / API specification and open interface. The pool API enables the integration and offering of value-added services and innovation based on high-quality master data. 
+**One open data model**
+Application and service providers reduce investments to integrate due to one data model / API specification and open interface. The pool API enables the integration and offering of value-added services and innovation based on high-quality master data.
 
-** Access to new market potentials **
-Potential to scale customer group and access new market potentials via Catena-X marketplace and shared service network. The BP Kit enables an interoperable foundation for value-added services. 
+**Access to new market potentials**
+Potential to scale customer group and access new market potentials via Catena-X marketplace and shared service network. The BP Kit enables an interoperable foundation for value-added services.
 
-** The unique identifier **
-BPN is the unique number to identify and find partners in the Catena-X network. It will also provide high quality data sets from business partners, their legal unit, sites and addresses. 
+**The unique identifier**
+BPN is the unique number to identify and find partners in the Catena-X network. It will also provide high quality data sets from business partners, their legal unit, sites and addresses.
 
-** The industry’s largest golden record collection **
+**The industry’s largest golden record collection**
 as a shared and cost-optimized service (quality tested by the biggest players).
 
 ---
 <br/>
 
 ## Use Case
-** Status Quo **
+
+**Status Quo**
 **Todays challenge for automotive companies**
 
 Most of today’s automotive companies have to invest a significant amount of resources to keep their individual partner master data updated and correct, since outdated or incorrect data records result in federal fines and wrong claims / billing processes. The industry spends a vast amount into an area that is non differentiating, regulated and executed redundantly across the partners.
@@ -66,13 +69,14 @@ Solution Provider:
 - Potential to scale customer group and access new market potentials via marketplace and shared service network.
 
 ## Standards
+
 The standards for release 3.2 will be published soon.
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Business Partner Number (Version 2.0.0)
- 
+
 - Business Partner Pool API (Version 2.0.0)
- 
+
 - Business Partner Gate API (Version 2.0.0)
 
 ## NOTICE
@@ -89,4 +93,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 BASF SE
 - SPDX-FileCopyrightText: 2023,2024 Schaeffler AG
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/bpdm
+- Source URL: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
