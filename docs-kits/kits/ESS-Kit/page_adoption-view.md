@@ -5,7 +5,7 @@ description: 'Environmental and Social Standards Incident Management Kit'
 sidebar_position: 2
 ---
 
-![ESS Kit Icon](@site/static/kits/ESS-Kit/ess-kit-icon.png)
+![ESS Kit Icon](/img/kit-icons/ess-kit-icon.svg)
 
 ## Vision & Mission
 
