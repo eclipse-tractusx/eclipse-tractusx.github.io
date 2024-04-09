@@ -557,9 +557,9 @@ The Product Passport aspect model could provide reliable details on the product 
 
 | Term |Definition|Source|
 | -    | -        | -    |
-| Allocation | Partitioning the input or output flows of a process or a product system betweenthe product system under study and one or more other product systems | DIN EN ISO 14040 |
-| Attributable process | Thoseprocesses thatconsistsofall service, materialand energy flows that become, make and carry a product throughout its life cycle.       | WBCSD Pathfinder|
-| Bio-based Materials | Material of biological origin excluding material embedded in geological formations and/or fossilised | European Commission, Categorisation System for the Circular Economy, doi:10.2777/172132, P. 9 |
+| Allocation | Partitioning the input or output flows of a process or a product system between the product system under study and one or more other product systems | DIN EN ISO 14040 |
+| Attributable process | Those processes that consists of all service, material and energy flows that become, make and carry a product throughout its life cycle.       | WBCSD Pathfinder|
+| Bio-based Materials | Material of biological origin (biomass excluding material embededded in geological formations and / or fossilised) | European Commission, Categorisation System for the Circular Economy, doi:10.2777/172132, P. 9 |
 | Bio-based products | wholly or partly derived from materials of biological origin, excluding materials embedded in geological formations and/or fossilised. | |
 | Biomass | Material of biological origin, excluding material embedded in geological formations or transformed material of biological origin, excluding material embedded in geological formations or transformed to fossilized material and excluding peat          | DIN ISO 14021 |
 | By-Product | Substance or object, resulting from a production process, the primary aim of which is not the production of that item, and does not constitute waste (as defined in Directive 2008/98/E on waste) | Art. 5 No. 1 WFD (Waste framework directive 2008/98/EC) |
