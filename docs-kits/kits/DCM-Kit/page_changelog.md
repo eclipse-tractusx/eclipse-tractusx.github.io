@@ -13,6 +13,23 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.3.0] - 2024-05-29
+
+### Added
+
+- Added [DCM Guidelines for Solution Adoption](page_dcm-guidelines-solution-adoption.md)
+
+### Changed
+
+- Updated aspect models in [Adoption View](page_adoption-view.md) to new versions
+- Updated aspect models and API definitions in [Development View](page_development-view.md) to new versions
+- Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
+- Updated choice of words and writing pattern throughout the documentation
+
+### Removed
+
+n/a
+
 ## [0.2.0] - 2024-03-08
 
 ### Added
