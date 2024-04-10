@@ -42,9 +42,9 @@ Implementing the DCM standards will add the following core capabilities to busin
 
 The DCM standard consists of three main elements:
 
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 1.0.0** (Release 24.03) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
+- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 
 ### POWER of STANDARD
 
@@ -72,9 +72,9 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 | Semantic Model | Link to GitHub Repository |
 | ------------- | ------------- |
-| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/2.0.0/WeekBasedCapacityGroup.ttl> |
-| MaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_demand/1.0.0/MaterialDemand.ttl> |
-| IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/2.0.0/IdBasedRequestForUpdate.ttl> |
+| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/3.0.0/WeekBasedCapacityGroup.ttl> |
+| WeekBasedMaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_material_demand/3.0.0/WeekBasedMaterialDemand.ttl> |
+| IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/3.0.0/IdBasedRequestForUpdate.ttl> |
 | IdBasedComment | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_comment/1.0.0/IdBasedComment.ttl> |
 
 ## Notice
