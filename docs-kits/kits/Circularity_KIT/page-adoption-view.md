@@ -22,7 +22,7 @@ The overarching goals of the Circularity KIT, therefore, are to:
 
 #### Vision
 
-Vision Catch Phrase: "Closing the Loop, by harnessing the power of Circularity"
+Vision Catch Phrase: "Closing the Loop, by harnessing the power of Circularity" 
 
 Context: Our vision is to create a future where resources are intelligently and efficiently utilized, enabling industries and communities to minimize waste, embrace R-strategies, and foster a circular economy that leads to a sustainable and prosperous world.
 
