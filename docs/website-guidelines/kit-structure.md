@@ -1,19 +1,10 @@
 ---
-title: Create KIT website
+title: KIT Structure
+sidebar_position: 8
 ---
-
-
-```md
-    **********************************************
-    ** DISCLAIMER                               **
-    ** THIS PROCESS IS STILL UNDER DEVELOPMENT  **
-    ** FEEDBACK IS APPRECIATED                  **
-    **********************************************
-```
-
 ## Project Structure
 
-Following our project structure, the collection of our KITs documentation is developed in the `./docs-kits/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The `Data Chain KIT`, for example, is defined here: `./docs-kits/kits/Data Chain Kit`.
+Following our project structure, the collection of our KITs documentation is developed in the `./docs-kits/kits` folder, where each KIT is a subfolder called by its name for organisation purposes. The name / naming convention of the folder for the KIT needs to follow [kebab-case](https://juniortoexpert.com/en/naming-convention/).
 
 Each folder/KIT's content is structured in at least four pages/subfolders:
 
@@ -22,7 +13,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
 - Documentation -> `page_documentation.md`
 - Software Development View/
   - Specification -> `page_software-development-view.md`
-  - OpenAPI definition/
+  - OpenAPI link to SwaggerHub
   - Another OpenAPI definition/
   - ...
 
@@ -70,7 +61,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                 └── page_documentation.md
     ```
 
-5. Inside the `NewKIT` folder, add a `Software Development View` folder that contains a `page_software-development-view.md` file with the content that suits your use case
+5. Inside the `NewKIT` folder, add a `SoftwareDevelopmentView` folder that contains a `page_software-development-view.md` file with the content that suits your use case
 
     ```md
     root
@@ -84,11 +75,32 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     └──page_software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please consult the [Plugins section](/docs/website-guidelines/wiki#plugins) to configure your instance of the `Docusaurus-OpenAPI-Docs` in the `docusaurus.config.js`.
+6. To generate the `OpenAPI` based documentation of your KIT, please publish the API on SwaggerHub
 
-7. Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
+**For KITs without reference implementation:**
 
-    ```javascript
+After evaluation, a "semi-automated" or "manual" solution is not considered effective.
+Please place the openAPI.yaml file directly in your KIT folder and link it to the appropriate location in your .md file.
+Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api/agent/agent-get/).
+Future: Standardized APIs will be released with yaml file in the Standard library. KIT links to standard and yaml published by the Catena-X e.V.
+
+**For KITs with reference implementation:**
+
+Please use (or adapt existing) automated workflows to publish on SwaggerHub. Maintain your openAPI.yaml and the publishing workflow in the repository of the reference implementation. Remove everything related to that from the website repo and only link to SwaggerHub in your KIT from now on. We utilize a user provided by the Eclipse Foundation to publish on SwaggerHub. Credentials for this user can be used through in the eclipse-tractusx GitHub org secrets and can be utilized in automated workflows. Pay special attention to the "swaggerHub" CLI commands. The location where the openAPI file is maintained may vary. The BPDM example showcases how the application is initiated to download and publish the current file from that location.
+
+SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
+      SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+
+Examples:
+[BPDM Certificate Management](https://github.com/eclipse-tractusx/bpdm-certificate-management/blob/main/.github/workflows/publish-swagger-hub.yaml)
+[Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/.github/workflows/publish-swagger-hub.yaml)
+[Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/.github/workflows/publish-swaggerhub.yaml)
+
+If you have any questions, please use our [“Tractus-X community call”](https://eclipse-tractusx.github.io/community/open-meetings) and prepare accordingly before merging.
+
+7.Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
+
+```javascript
     const sidebars = {
     // other sidebars
     kits: [
@@ -133,7 +145,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/Kits',
+            to: '/developer',
             items: [
               {
                 to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
