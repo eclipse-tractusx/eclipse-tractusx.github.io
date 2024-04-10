@@ -429,7 +429,6 @@ This is precisely where the CE-Assistant can help by supporting a user-centered 
 
 ### Business Context
 
-Business Context
 The CE-Assistant provides decision support and circular strategies, enabling several key features for businesses:
 
 1. **Component-Level Decision Support:** The KIT provides decision support for selecting circular strategies at the component level.
