@@ -7,13 +7,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## DCM KIT Changelog
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.3.0] - 2024-05-29
+## [1.0.0] - unreleased
 
 ### Added
 
@@ -21,6 +21,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed
 
+- Changed banner image file location and converted .png image to .svg
 - Updated aspect models in [Adoption View](page_adoption-view.md) to new versions
 - Updated aspect models and API definitions in [Development View](page_development-view.md) to new versions
 - Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
@@ -28,7 +29,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Removed
 
-n/a
+- ./.
 
 ## [0.2.0] - 2024-03-08
 
