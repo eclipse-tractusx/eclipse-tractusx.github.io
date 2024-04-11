@@ -5,7 +5,7 @@ description: 'What do I have to implement?'
 sidebar_position: 3
 ---
 
-![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 This page describes the most important parts for the software implementation of the DCM standards. For the full
 technical specification, please refer to the

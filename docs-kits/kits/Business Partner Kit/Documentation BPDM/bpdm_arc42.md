@@ -5,7 +5,7 @@ description: 'Architecture documentation (arc42)'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ## Business Partner KIT
 

@@ -5,7 +5,7 @@ description: 'Modular Production Kit'
 sidebar_position: 4
 ---
 
-![mp kit banner](@site/static/img/MPKitIcon.png)
+![mp kit banner](/img/kit-icons/modular-production-kit-icon.svg)
 
 The following example shows the payload used for exchange
 
