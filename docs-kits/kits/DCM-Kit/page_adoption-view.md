@@ -7,7 +7,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## Vision & Mission
 
