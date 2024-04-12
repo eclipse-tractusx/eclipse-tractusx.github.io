@@ -468,7 +468,7 @@ This aspect model has the following semantic id:
 }
 ```
 
-### 2. Short-Term Material Demand v2.0.0
+### 2. Short-Term Material Demand v1.0.0
 
 GitHub link to semantic data model in RDF turtle format: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.short_term_material_demand/1.0.0/ShortTermMaterialDemand.ttl>
 This aspect model has the following semantic id:

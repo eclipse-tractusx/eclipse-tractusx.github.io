@@ -215,14 +215,18 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 | Standard                   | Standard Name | Version |
 | -------------------------- | ------------- | :-----: |
-| Delivery Information       | CX-0118       |  1.0.0  |
-| Short-Term Material Demand | CX-0120       |  1.0.0  |
-| Planned Production Output  | CX-0121       |  1.0.0  |
-| Item Stock                 | CX-0122       |  1.0.0  |
+| Delivery Information       | CX-0118       | v2.0.0  |
+| Short-Term Material Demand | CX-0120       | v2.0.0  |
+| Planned Production Output  | CX-0121       | v2.0.0  |
+| Item Stock                 | CX-0122       | v2.0.0  |
 
 ## Notice
 
 This work is licensed under the CC-BY-4.0
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 Contributors of the Eclipse Foundation
+- SPDX-FileCopyrightText: 2024,Contributors of the Eclipse Foundation
+- SPDX-FileCopyrightText: 2024,ISTOS GmbH (a member of the DMG Mori Group)
+- SPDX-FileCopyrightText: 2024,Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
+- SPDX-FileCopyrightText: 2024,TRUMPF Werkzeugmaschinen SE + Co. KG
+- SPDX-FileCopyrightText: 2024,Volkswagen AG
