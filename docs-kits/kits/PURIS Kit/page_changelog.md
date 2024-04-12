@@ -9,6 +9,21 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.2.0] - Unreleased
+
+### Added​
+
+- documentation of the adoption view
+- documentation of the development view
+
+### Changed​
+
+-
+
+### Removed​
+
+-
+
 ## [0.1.0] - 2023-11-29
 
 ### Added
