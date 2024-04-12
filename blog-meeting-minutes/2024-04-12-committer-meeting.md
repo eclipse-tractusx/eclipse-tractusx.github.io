@@ -3,7 +3,7 @@ slug: committer-meeting-12-04-2024
 title: Commiter Meeting 12.04.2024
 authors: 
     - stephan_bauer
-tags: [meeting-minutes, community, tractus-x-committer-meeting]
+tags: [meeting-minutes, community, committer-meeting]
 ---
 
 ## Committer meeting - meeting minutes
