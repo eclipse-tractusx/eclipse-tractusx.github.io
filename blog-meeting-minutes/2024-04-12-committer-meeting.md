@@ -12,11 +12,13 @@ tags: [meeting-minutes, community, committer-meeting]
 
 The open planning is one of the most important meetings. i think 14 (of 41) committers were present, but only two used their voice ;) what about the others?
 
+=> Maybe we should talk more beforehand, about the importence of the meeting. Responsibilities ans expectations of attendence.
+
 ### Labelstructure
 
 The labels on the features are very important for dependencies and filtering. Yes we have a lot, but we need more ;) but on the other hand we can also delete some ;)
 
-Suggestions
+**Suggestions:**
 
 #### New needed
 
@@ -26,8 +28,11 @@ Suggestions
 - policy-registry
 - issuer-component
 - authority-registry
+
+=> discussed -> create the labels
+
 - open-discussions (color: red)
-- Prep-P14 -> maybe Prep-R2412
+- Prep-P14 -> maybe Prep-R2412 -> do we need the specific prep label?
 - Prep-P15
 - Standards (marks tickets which have impact on standards)
 - Breaking Change (marks breaking change tickets)
@@ -52,16 +57,36 @@ Suggestions
 - All Product labels - ocean blue
 - All Prep-Pxx label – grey
 - All highlight labels – red
-- All UseCase labels – green
+- All UseCase labels – green -> can we delete this?
 - All Expert group labels - yellow
+
+=> HTML color code is used
 
 ### Clean Board
 
 My feeling is, we will have round about 60 features for 24.08 -> all good. Happy about it. But on the board itself we have more than 200. I undesrtand its good to have some features in inbox/backlog... but i think the gap is to big ... and i think a lot of them could be deleted ;(
 
+=> discussed and decided: Friendly reminder -> after a specific amount ot time the issues are deleted automaticly
+
+### Views an project board
+
+The views (tabs) should be cleaned up) which views are still needed?
+
+- Feature view (issuetype `feature`) -> for Expert Groups / Committeess / Developer
+- QGate View (issuetype `realease_ac`)
+- ???
+
+### Future workingmodel
+
+Instead of miro we could work with GitHub Project as agenda/issuetracking. e.g. [example board](https://github.com/orgs/eclipse-tractusx/projects/61)
+
+=> lets try it
+
 ### Custom Attribute
 
 Since we work together e.V/Open Source it would be benefitial if we could map the features to the related expert (groups) therefore i would like to discuss a custom attribute, which holds the related committee/expertgroup (dedicated list) -> This would help to filter and also get a better feeling
+
+=> prepare a poc -> Tom , Stephan
 
 ### Featurequality
 
@@ -71,3 +96,6 @@ Since sometimes the quality (how is a feature described, did you clearify your d
 - \[ \] i have talked to my committers
 - \[ \] i will contribute on this features
 - ...
+
+-> mention the release process via link in the template, keep the template simple
+-> link the contribution guidelines
