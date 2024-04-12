@@ -11,13 +11,13 @@ sidebar_position: 2
 
 ### Vision
 
-***Revolutionizing the Global Supply Chain Ecosystem with Integrated, Proactive Data Sharing and Collaboration**.*
+***Revolutionizing the Global Supply Chain Ecosystem with Integrated, Proactive Data Sharing and Collaboration***
 
 The introduction of the **P**redictive **U**nit **R**eal-Time **I**nformation **S**ervice (PURIS) enriches a company's resilience strategy through enhanced data sharing, giving stakeholders heightened transparency and comprehensive information. This clarity allows PURIS users to detect supply chain issues earlier, initiate solution-finding more swiftly, and access a wider array of options, leading to more effective, cost-efficient, and environmentally friendly outcomes. By facilitating proactive anticipation, concurrent management, and reactive recovery, PURIS supports the supply chain across pre-, during-, and post-disruption phases, thereby improving operational efficiency and resilience within the Catena-X network.
 
 ### Mission
 
-***Empowering Stakeholders with Real-time, Predictive Insights for Proactive Supply Chain Management**.*
+***Empowering Stakeholders with Real-time, Predictive Insights for Proactive Supply Chain Management***
 
 Building on a robust foundation, PURIS is redefining the paradigms of supply chain by establishing necessary standards and guidelines that ensure a comprehensive and compliant exchange of information. This initiative is not just about data exchange; it's about transforming the very fabric of supply chain interactions to foster and enable a proactive, rather than reactive, management approach.
 
@@ -33,7 +33,7 @@ By considering these principles, PURIS is not just enhancing current supply chai
 
 #### Example Use Case
 
-***Empowering Stakeholders with Predictive Insights for Proactive Supply Chain Management**.*
+***Empowering Stakeholders with Predictive Insights for Proactive Supply Chain Management***
 
 The rapid growth of the Electric Vehicle (EV) market has presented several significant supply chain challenges for automotive manufacturers. One of the critical issues involves managing the intricate supply chain for EV batteries, which are composed of various components such as lithium, cobalt, and nickel, sourced globally. This supply chain is not only highly complex but also highly volatile, with frequent fluctuations in demand and supply affecting production schedules, inventory levels, and ultimately, delivery times to consumers.
 
@@ -63,7 +63,7 @@ The benefits of adopting PURIS and the KIT for suppliers and customers include:
 
 By integrating PURIS KIT, service providers in the CATENA-X data space are not just responding to digital advancements but are actively defining the future of automotive supply chain management, emphasizing efficiency, resilience, and innovation.
 
-## Use Case /Domain explanation
+## Use Case / Domain explanation
 
 Given the context of the automotive industry and the integration of PURIS within the Catena-X network, let's delve into a specific use case domain: Optimization of supply chain visibility for electric vehicle (EV) production. This use case aims to address the challenges of electric vehicle manufacturing, which requires a complex network of suppliers and a high degree of component diversity.
 
@@ -89,7 +89,7 @@ Opportunities
 - **For Small and Medium-sized Enterprises (SMEs)**: Currently companies often need to integrate to different customers' solutions to provide data or do it manually. Being part of a standardized, transparent network levels the playing field, giving SMEs the opportunity to showcase their capabilities and integrate more effectively into the supply chains of larger OEMs. It also reduces the barriers to entry for new markets and facilitates access to critical information that can drive operational improvements and innovation.
 - **For Solution Providers**: Solution providers should align with Catena-X by offering interoperable, standardized services for the supply chain. This includes predictive analytics and collaborative platforms, enhancing innovation without risking lock-in, and promoting a competitive ecosystem.
 
-### Use case conclusion
+### Use Case Conclusion
 
 Addressing the challenge of optimizing supply chain visibility for EV production through the Catena-X network and KIT system provides tangible benefits for all stakeholders involved, from reducing operational inefficiencies and costs to fostering sustainability and innovation. The collaboration facilitated by this ecosystem encourages sharing of best practices, co-development of standards, and joint efforts in solving industry-wide challenges, ultimately leading to a more coherent, resilient, and sustainable automotive sector.
 
@@ -97,12 +97,12 @@ Addressing the challenge of optimizing supply chain visibility for EV production
 
 The information about the provided PURIS standardization objects is detailed in this section. It's used in ongoing business relationships and build-to-order (BTO) contexts, not for build-to-stock (BTS) situations without existing business ties.
 
-| Semantic Model                             | Version | Link to GitHub Repository                                                                                                                                                                                                         |
-| ------------------------------------------ | :-----: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Item Stock (Release 24.05)                 | v.2.0.0 | [sldt-semantic-models/io.catenax.item_stock at main · eclipse- tractusx/sldt-semantic-models (github.com)](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.item_stock)                              |
-| Short-Term Material Demand (Release 24.05) | v.2.0.0 | [sldt-semantic-models/io.catenax.material_demand at main · eclipse-tractusx/sldt-semantic-models (github.com)](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_demand)                     |
-| Planned Production Output (Release 24.05)  | v.2.0.0 | [sldt-semantic-models/io.catenax.planned_production_output at main · eclipse-tractusx/sldt-semantic-models (github.com)](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.planned_production_output) |
-| Delivery Information (Release 24.05)       | v.2.0.0 | [https://github.com/eclipse-tractusx/sldt-semantic-models/ tree/main/io.catenax.delivery_information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.delivery_information)                         |
+| Semantic Model                             | Version | Link to GitHub Repository                                                                                                                       |
+| ------------------------------------------ | :-----: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Item Stock (Release 24.05)                 | v.2.0.0 | [io.catenax.item_stock](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.item_stock)                               |
+| Short-Term Material Demand (Release 24.05) | v.1.0.0 | [io.catenax.material_demand](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_demand)                     |
+| Planned Production Output (Release 24.05)  | v.2.0.0 | [io.catenax.planned_production_output](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.planned_production_output) |
+| Delivery Information (Release 24.05)       | v.2.0.0 | [io.catenax.delivery_information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.delivery_information)           |
 
 ### Item Stock
 
@@ -215,10 +215,10 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 | Standard                   | Standard Name | Version |
 | -------------------------- | ------------- | :-----: |
-| Item Stock                 | CX-0122       |         |
-| Short-Term Material Demand | CX-0120       |         |
-| Planned Production Output  | CX-0121       |         |
-| Delivery Information       | CX-0118       |         |
+| Delivery Information       | CX-0118       |  1.0.0  |
+| Short-Term Material Demand | CX-0120       |  1.0.0  |
+| Planned Production Output  | CX-0121       |  1.0.0  |
+| Item Stock                 | CX-0122       |  1.0.0  |
 
 ## Notice
 
