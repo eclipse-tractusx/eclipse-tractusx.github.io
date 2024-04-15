@@ -10,11 +10,11 @@ tags: [meeting-minutes, community, committer-meeting]
 
 ### Open Planning Participation of committers
 
-The open planning is one of the most important meetings. i think 14 (of 41) committers were present, but only two used their voice ;) what about the others?
+The open planning is one of the most important meetings. I think 14 (of 41) committers were present, but only two used their voice ;) what about the others?
 
-=> Maybe we should talk more beforehand, about the importence of the meeting. Responsibilities ans expectations of attendence.
+=> Maybe we should talk more beforehand, about the importance of the meeting. Responsibilities and expectations of attendance.
 
-### Labelstructure
+### Label structure
 
 The labels on the features are very important for dependencies and filtering. Yes we have a lot, but we need more ;) but on the other hand we can also delete some ;)
 
@@ -64,15 +64,15 @@ The labels on the features are very important for dependencies and filtering. Ye
 
 ### Clean Board
 
-My feeling is, we will have round about 60 features for 24.08 -> all good. Happy about it. But on the board itself we have more than 200. I undesrtand its good to have some features in inbox/backlog... but i think the gap is to big ... and i think a lot of them could be deleted ;(
+My feeling is, we will have round about 60 features for 24.08 -> all good. Happy about it. But on the board itself we have more than 200. I understand its good to have some features in inbox/backlog... but i think the gap is to big ... and i think a lot of them could be deleted ;(
 
-=> discussed and decided: Friendly reminder -> after a specific amount ot time the issues are deleted automaticly
+=> discussed and decided: Friendly reminder -> after a specific amount ot time the issues are deleted automatically
 
 ### Views an project board
 
 The views (tabs) should be cleaned up) which views are still needed?
 
-- Feature view (issuetype `feature`) -> for Expert Groups / Committeess / Developer
+- Feature view (issuetype `feature`) -> for Expert Groups / Committees / Developer
 - QGate View (issuetype `realease_ac`)
 - ???
 
@@ -84,13 +84,13 @@ Instead of miro we could work with GitHub Project as agenda/issuetracking. e.g. 
 
 ### Custom Attribute
 
-Since we work together e.V/Open Source it would be benefitial if we could map the features to the related expert (groups) therefore i would like to discuss a custom attribute, which holds the related committee/expertgroup (dedicated list) -> This would help to filter and also get a better feeling
+Since we work together e.V/Open Source it would be beneficial if we could map the features to the related expert (groups) therefore i would like to discuss a custom attribute, which holds the related committee/expertgroup (dedicated list) -> This would help to filter and also get a better feeling
 
 => prepare a poc -> Tom , Stephan
 
 ### Featurequality
 
-Since sometimes the quality (how is a feature described, did you clearify your depenedencies, did you talk to your committer, is the time allocated) i would like to extend the feature template to guide a little bit more. For example a checklist like:
+Since sometimes the quality (how is a feature described, did you clarify your dependencies, did you talk to your committer, is the time allocated) i would like to extend the feature template to guide a little bit more. For example a checklist like:
 
 - \[ \] i have talked to dependent components
 - \[ \] i have talked to my committers
