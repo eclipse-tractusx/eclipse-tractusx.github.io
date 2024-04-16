@@ -341,7 +341,7 @@ To calculate the average portion of, for instance, the amount of mechanical recy
 
 #### D. Data Models and Github
 
-The relevant data models can be found GitHub:
+The relevant data models can be found on GitHub:
 
 - [Secondary Material Content](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.secondary_material_content)
 - [Secondary Material Content Calculated](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.secondary_material_content_calculated)
