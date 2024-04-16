@@ -315,7 +315,7 @@ _Definition of post-consumer material:_
 
 ![Reutilization content Equation](resources/adoption-view/equation_Reutilization_content.svg)
 
-**Definition of reutilization**
+_Definition of reutilization_
 
 “Reutilization of materials such as rework, regrind, or scrap materials generated within the process and capable of being reused within the same process that generated it. Any operation by which products or components that are not waste are used again for the same purpose for which they were originally intended. Reutilization allows waste to be reduced and materials can be kept in cycle.”
 
