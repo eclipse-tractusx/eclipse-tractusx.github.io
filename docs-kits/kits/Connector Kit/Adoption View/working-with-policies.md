@@ -22,7 +22,7 @@ with it (like "Structures may be semantically equivalent even though, schematica
 enables a Provider to be very specific when it comes to the usage of data: What may a consumer do with it? What
 obligations does a consumer incur when accepting the offer?
 
-The first time the Consumer encounters a Policy is when evaluating a Provider's [Catalog](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.protocol). These four Offers are
+The first time the Consumer encounters a Policy is when evaluating a Provider's [Catalog](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.protocol). It contains Offers are
 of `@type` `odrl:Set` which is a [subclass](https://www.w3.org/TR/odrl-model/#policy-set) of `odrl:Policy`.
 All terms can be used interchangeably, Offer is most common. Their content is contained in the
 `odrl:permission`, `odrl:prohibition` and `odrl:obligation` properties. They hold `odrl:Rules` that have to be
@@ -35,10 +35,10 @@ Firstly, when transmitting a [`ContractRequestMessage`](https://docs.internation
 Consumer must signify consent to the Offer by including it in the Request and adding the `odrl:target` property on the
 level of an `odrl:Offer`. It is a very, very bad idea to simply copy the next-best Offer from the Catalog and replay it
 to the Provider. Instead, Consumers must perform internal checks which (if any) Offer proposes terms that they want to
-agree to. It is possible (though not usual) to encode pricing information in an `odrl:Offer`. Sending a
-`ContractRequestMessage` echoing the pricing information would represent a legally binding agreement in accordance to
-the conditions proposed by the Provider's Offer. Thus, selecting an offer extended by a Provider company should thus be
-handled with appropriate care.
+agree to. It is possible (though not usual) to encode obligations in the in an `odrl:Offer` that a Consumer must
+satisfy. Returning a `ContractRequestMessage` to the Provider, echoing the pricing information, would represent a
+legally binding agreement in accordance to the conditions proposed by the Provider's Offer. Thus, selecting an offer
+extended by a Provider company should thus be handled with appropriate care.
 
 The Provider will usually accept the ContractRequest only if the extended Offer is semantically equivalent to his own
 as distributed via the Catalog.
@@ -47,7 +47,7 @@ as distributed via the Catalog.
 
 In addition to checking the Offer's structure (as above), Providers' Connectors have the chance to query the Consumer's
 Verifiable Presentation (VP). A VP is a set of Verifiable Credentials (VCs) that a Consumer may have been issued by a
-trusted third party. In this PR, a Provider may find additional information if a Consumer is eligible to pass a certain
+trusted third party. In this VC, a Provider may find additional information if a Consumer is eligible to pass a certain
 `odrl:Constraint`.
 
 If, for example, the Consumer tries to negotiate for an Offer that is extended only to interested
@@ -67,7 +67,9 @@ A offer containing a `odrl:Use` permission with a `odrl:Constraint` could (in a 
   "@type": "odrl:Set",
   "odrl:permission": {
     "odrl:action": {
-      "odrl:type": "http://www.w3.org/ns/odrl/2/use"
+      "odrl:type": {
+        "@id": "http://www.w3.org/ns/odrl/2/use"
+      }
     },
     "odrl:constraint": {
       "odrl:and": [
