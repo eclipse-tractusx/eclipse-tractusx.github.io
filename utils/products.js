@@ -109,8 +109,7 @@ export const products = [
     productName: "Trace-X",
     productDescription: "The project provides a business application for tracking parts along the supply chain. A high level of transparency across the supplier network enables faster intervention based on a recorded event in the supply chain.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/traceability-foss-backend",
-      "https://github.com/eclipse-tractusx/traceability-foss-frontend"
+      "https://github.com/eclipse-tractusx/traceability-foss",
     ],
     committers: [
       "https://github.com/ds-mkanal"
