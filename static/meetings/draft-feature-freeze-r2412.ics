@@ -1,0 +1,71 @@
+BEGIN:VCALENDAR
+METHOD:PUBLISH
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:tzone://Microsoft/Utc
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN=Stephan Bauer:mailto:stephan.bauer@catena-x.net
+DESCRIPTION:Please have a look at https://eclipse-tractusx.github.io/blog f
+ or detailed information about the Release Planning for 24.12\n\n__________
+ ______________________________________________________________________\nMi
+ crosoft Teams Benötigen Sie Hilfe?<https://aka.ms/JoinTeamsMeeting?omkt=d
+ e-DE>\nJetzt an der Besprechung teilnehmen<https://teams.microsoft.com/l/m
+ eetup-join/19%3ameeting_YmRhMWViMmUtOTAzYS00YjNmLTgwMDMtMDJhOGZiOGUwOWQ0%4
+ 0thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce8838
+ 0%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d>\nBesprec
+ hungs-ID: 339 266 968 799\nKennung: oGwMWP\n______________________________
+ __\nFür Organisatoren: Besprechungsoptionen<https://teams.microsoft.com/m
+ eetingOptions/?organizerId=a8b7a5ee-66ff-4695-afa2-08f893d8aaf6&tenantId=1
+ ad22c6d-2f08-4f05-a0ba-e17f6ce88380&threadId=19_meeting_YmRhMWViMmUtOTAzYS
+ 00YjNmLTgwMDMtMDJhOGZiOGUwOWQ0@thread.v2&messageId=0&language=de-DE> | Ein
+ wahl-PIN zurücksetzen<https://dialin.teams.microsoft.com/usp/pstnconferen
+ cing>\n___________________________________________________________________
+ _____________\n
+UID:040000008200E00074C5B7101A82E008000000002F6D5A2FD08FDA01000000000000000
+ 01000000009C8655129D2E84B811AD33D4B685D9A
+SUMMARY:Draft Feature Freeze - Release 24.12
+DTSTART:20240712T070500Z
+DTEND:20240712T100000Z
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20240416T073210Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+LOCATION:Microsoft Teams Meeting
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-SKYPETEAMSMEETINGURL:https://teams.microsoft.com/l/meetup-join/
+ 19%3ameeting_YmRhMWViMmUtOTAzYS00YjNmLTgwMDMtMDJhOGZiOGUwOWQ0%40thread.v2/
+ 0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22O
+ id%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d
+X-MICROSOFT-SKYPETEAMSPROPERTIES:{"cid":"19:meeting_YmRhMWViMmUtOTAzYS00YjN
+ mLTgwMDMtMDJhOGZiOGUwOWQ0@thread.v2"\,"rid":0\,"mid":0\,"uid":null\,"priva
+ te":true\,"type":0}
+X-MICROSOFT-ONLINEMEETINGEXTERNALLINK:
+X-MICROSOFT-ONLINEMEETINGINFORMATION:{"OnlineMeetingChannelId":null\,"Onlin
+ eMeetingProvider":3}
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MICROSOFT-LOCATIONDISPLAYNAME:Microsoft Teams Meeting
+BEGIN:VALARM
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT15M
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR
