@@ -21,21 +21,21 @@ end
 group Invoke PCF Submodel of Material Twin
 PCF_Client -> PCF_Client: Extract Endpoint from submodel via 'idShort'
 PCF_Client -> PCF_Client: Rewrite endpoint URL for call through own API Wrapper
-PCF_Client -> Client_API_Wapper: Invoke asset with reqID, BPN & comment
+PCF_Client -> Client_API_Wapper: Invoke asset with reqID & comment
 note right
-GET https://clientApiWrapperUrl/api/service/c34018ab-5820-4065-9087-416d78e1ab60/productIds/mat345?providerUrl=https://some.controlplane.url:7173&requestId=123&BPN=<Client's BPN>&comment=...
+GET https://clientApiWrapperUrl/api/service/c34018ab-5820-4065-9087-416d78e1ab60/productIds/mat345?providerUrl=https://some.controlplane.url:7173&requestId=123&comment=...
 end note
 Client_API_Wapper -> Client_EDC: Negotiate access to asset and enable proxy transfer
 Client_EDC -> Company_EDC: Negotiate access to asset and enable proxy transfer
 Company_EDC -> Client_EDC: Agreement & EndpointDataReference
 Client_EDC -> Client_API_Wapper: Agreement & EndpointDataReference
-Client_API_Wapper -> Client_EDC: PCF endpoint call incl. req.ID, BPN & comment
-Client_EDC -> Company_EDC: PCF endpoint call incl. req.ID, BPN & comment
+Client_API_Wapper -> Client_EDC: PCF endpoint call incl. req.ID & comment
+Client_EDC -> Company_EDC: PCF endpoint call incl. req.ID & comment
 note right
 Using PCF API through EDC via HTTP Proxy:
-GET https://{someURL}/productIds/mat345?requestId=123&BPN=<Client's BPN>&comment=...
+GET https://{someURL}/productIds/mat345?requestId=123&comment=...
 end note
-Company_EDC -> Company_PCF_App: PCF endpoint call incl. req.ID, BPN & comment
+Company_EDC -> Company_PCF_App: PCF endpoint call incl. req.ID, BPN (Header) & comment
 note right
 Can we use existing
 PCF API directly?
@@ -69,7 +69,7 @@ end
 
 group Lookup Clients PCF Receive Asset
 Company_PCF_App -> Company_EDC: Lookup Client's Receive Asset\n(via Company's EDC URL)
-Company_EDC -> Client_EDC: Lookup Asset in Catalog\n(EDC asset type "data.pcf.exchangeEndpoint")
+Company_EDC -> Client_EDC: Lookup Asset in Catalog\n(EDC asset type '{"@id":"cx-taxo:PcfExchange"}')
 note right
 There could be multiple EDC URLs, but
 only one with a PCF Exchange Asset
@@ -79,21 +79,21 @@ Company_EDC -> Company_PCF_App: PCF Asset ID
 end
 
 group Push PCF to Client
-Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID, BPN & comment
+Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID
 note right
-PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123&BPN=<Company's BPN>&
+PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123
 end note
 Company_API_Wapper -> Company_EDC: Negotiate access to asset and enable proxy transfer
 Company_EDC -> Client_EDC: Negotiate access to asset and enable proxy transfer
 Client_EDC -> Company_EDC: Agreement & EndpointDataReference
 Company_EDC -> Company_API_Wapper: Agreement & EndpointDataReference
-Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID & BPN
-Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID & BPN
+Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID
+Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID
 note right
 Using PCF API through EDC via HTTP Proxy:
-PUT https://{someURL}/productIds/mat345?requestId=123&BPN=<Company's BPN>
+PUT https://{someURL}/productIds/mat345?requestId=123
 end note
-Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID, BPN & comment
+Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID & BPN (Header)
 PCF_Client -> Client_EDC: OK
 Client_EDC -> Company_EDC: OK
 Company_EDC -> Company_API_Wapper: OK

@@ -47,7 +47,7 @@ In case no matching material twin or PCF submodel exists, the flow falls back to
 
 The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for assets that have been previously requested at least once, as demonstrated in [PCF Request](#sequence-view). Proactive updates without a prior request are not achievable with the current version.
 
-![PCF Update](../resources/development-view/PCFUpdatepushthroughEDC.png)
+![PCF Update](../resources/development-view/PCFUpdatePushedThroughEDC.png)
 
 #### API Calls
 
