@@ -292,26 +292,31 @@ For a data consumer, there are currently the following steps where they have to 
 
 The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
-All Asset identifier key-value-pairs used as parameter to this lookup function are combined using AND. An example query would look like this: `https://URL/registry/lookup/shells?assetIds=%5B%7B%22key%22%3A%20%22manufacturerId%22,%22value%22%3A%20%22BPNL7588787849VQ%22%7D,%7B%22key%22%3A%20%22manufacturerPartId%22,%22value%22%3A%20%2295657362-83%22%7D,%7B%22key%22%3A%20%22partInstanceId%22,%22value%22%3A%20%22NO-574868639429552535768526%22%7D%5D`
+All Asset identifier key-value-pairs used as parameter to this lookup function are passed to the API separately via the parameter `assetIds` in Base64 format. An example query would look like this: `/lookup/shells?assetIds=ewogICJuYW1lIjogIm1hbnVmYWN0dXJlcklkIiwKICAidmFsdWUiOiAiQlBOTDc1ODg3ODc4NDlWUSIKfQ==&assetIds=ewogICJuYW1lIjogIm1hbnVmYWN0dXJlclBhcnRJZCIsCiAgInZhbHVlIjogIjk1NjU3MzYyLTgzIgp9&assetIds=ewogICJuYW1lIjogInBhcnRJbnN0YW5jZUlkIiwKICAidmFsdWUiOiAiTk8tNTc0ODY4NjM5NDI5NTUyNTM1NzY4NTI2Igp9`
 
 **The assetIds value looks like this unencoded (but with additional spaces and linebreaks):**
 
-```json
-[
+- First `assetIds` parameter:
+  ```json
   {
-    "key": "manufacturerId",
+    "name": "manufacturerId",
     "value": "BPNL7588787849VQ"
-  },
+  }
+  ```
+- Second `assetIds` parameter:
+  ```json
   {
-    "key": "manufacturerPartId",
+    "name": "manufacturerPartId",
     "value": "95657362-83"
-  },
+  }
+  ```
+- Third `assetIds` parameter:
+  ```json
   {
-    "key": "partInstanceId",
+    "name": "partInstanceId",
     "value": "NO-574868639429552535768526"
   }
-]
-```
+  ```
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
