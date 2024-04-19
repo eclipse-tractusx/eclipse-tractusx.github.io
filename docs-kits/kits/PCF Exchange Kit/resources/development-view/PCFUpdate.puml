@@ -39,7 +39,7 @@ Company_EDC -> Company_PCF_App: PCF Asset ID
 end
 
 group Push PCF to Client
-Company_PCF_App -> Company_API_Wapper: Invoke asset with sender's BPN
+Company_PCF_App -> Company_API_Wapper: Invoke asset
 note right
 PUT https://clientApiWrapperUrl/api/service/722b7ea2-3bc6-4f9e-a106-b8650d206b69/productIds/mat345?providerUrl=https://client.controlplane.url:8384
 {
