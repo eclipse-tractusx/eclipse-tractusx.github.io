@@ -520,32 +520,36 @@ const config = {
             title: 'Eclipse Foundation',
             items: [
               {
-                label: "Main Eclipse Foundation website",
+                label: "About",
                 href: "http://www.eclipse.org",
               },
               {
-                label: "Privacy policy",
+                label: "Privacy Policy",
                 href: "http://www.eclipse.org/legal/privacy.php",
               },
               {
-                label: "Website terms of use",
+                label: "Terms of Use",
                 href: "http://www.eclipse.org/legal/termsofuse.php",
               },
               {
-                label: "Copyright agent",
-                href: "http://www.eclipse.org/legal/copyright.php",
+                label: "Compliance",
+                href: "https://www.eclipse.org/legal/compliance/",
               },
               {
-                label: "Legal",
+                label: "Legal Resources",
                 href: "http://www.eclipse.org/legal",
+              },
+              {
+                label: "Contact",
+                href: "https://www.eclipse.org/org/foundation/contact.php",
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Eclipse Tractus-X',
             items: [
               {
-                label: "Eclipse Foundation project",
+                label: "Eclipse Project",
                 href: "https://projects.eclipse.org/projects/automotive.tractusx",
               },
               {
@@ -557,21 +561,25 @@ const config = {
                 href: "https://catena-x.net/",
               },
               {
-                label: "Icons used from svgrepo with CC0 License",
-                href: "https://www.svgrepo.com/",
-              }
+                label: "Mailing List",
+                href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
+              },
+              {
+                label: "Report a Bug",
+                href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
             ],
           },
           {
-            title: 'Useful Links',
+            title: 'More',
             items: [
               {
-                label: "Report a Bug",
-                href: "https://bugs.eclipse.org/bugs",
+                label: "Code of Conduct",
+                href: "https://www.eclipse.org/org/documents/Community_Code_of_Conduct.php",
               },
               {
-                label: "Documentation",
-                href: "https://help.eclipse.org/latest/index.jsp",
+                label: "Report a Vulnerability",
+                href: "https://github.com/eclipse-tractusx/sig-security/issues/new/choose",
               },
               {
                 label: "How to Contribute",
@@ -582,8 +590,8 @@ const config = {
                 href: "https://accounts.eclipse.org/mailing-list",
               },
               {
-                label: "Forums",
-                href: "https://www.eclipse.org/forums/",
+                label: "Matrix Chat",
+                href: "https://chat.eclipse.org/#/home/",
               },
             ],
           },
