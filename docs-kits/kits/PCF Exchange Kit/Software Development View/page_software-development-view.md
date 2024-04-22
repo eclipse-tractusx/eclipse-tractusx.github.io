@@ -68,7 +68,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 ##### Payload for Requesting PCF Sub Model
 
-The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the CX Standard [CX-0002](https://catena-x.net/de/standard-library) is to be followed.
+The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the CX Standard [CX-0002](https://catena-x.net/en/standard-library) is to be followed.
 
 The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``. 
 
@@ -226,12 +226,12 @@ In case no material twin or no PCF submodel is found, EDC Asset type has to be u
 
 ### Used CX Standards
 
-- [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/de/standard-library)
-- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/de/standard-library)
-- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catena-x.net/de/standard-library)
-- [CX-0018 Eclipse Data Space Connector (EDC) v3.0.0](https://catena-x.net/de/standard-library)
-- [CX-0126-Industry Core: Part Type v1.0.0](https://catena-x.net/de/standard-library)
-- [CX-0136 PCF UseCase v1.0.0](https://catena-x.net/de/standard-library)
+- [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/en/standard-library)
+- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/en/standard-library)
+- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catena-x.net/en/standard-library)
+- [CX-0018 Eclipse Data Space Connector (EDC) v3.0.0](https://catena-x.net/en/standard-library)
+- [CX-0126-Industry Core: Part Type v1.0.0](https://catena-x.net/en/standard-library)
+- [CX-0136 PCF UseCase v1.0.0](https://catena-x.net/en/standard-library)
 
 ## Other Standards
 
