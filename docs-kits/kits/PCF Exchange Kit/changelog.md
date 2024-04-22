@@ -8,7 +8,7 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.1.0] - 2024-05-??
+## [1.1.0] - 2024-05-01
 
 ### Added
 
@@ -19,6 +19,8 @@ N./A.
 * DT submodel structure updated
 * EDC asset structure updated
 * Policy structure updated
+* Sample data updated
+* Minor bugfixes
 
 ### Removed
 
