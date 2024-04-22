@@ -75,7 +75,18 @@ const config = {
         docLayoutComponent: "@theme/DocPage",
         docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
-    ],
+  ],
+  // -- documentation-kits --
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'docs-documentation',
+      path: 'documentation',
+      routeBasePath: 'documentation',
+      editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
+      sidebarPath: './sidebarsDocumentation.js',
+    },
+  ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
@@ -383,6 +394,11 @@ const config = {
             position: 'left',
             to: '/Kits',
             items: [
+              {
+                to: '/Kits',
+                label: 'Kits General',
+              },
+
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Agents',
