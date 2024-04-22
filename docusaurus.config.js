@@ -395,6 +395,11 @@ const config = {
             to: '/Kits',
             items: [
               {
+                to: '/Kits',
+                label: 'Kits General',
+              },
+
+              {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Agents',
               },
