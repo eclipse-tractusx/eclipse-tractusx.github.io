@@ -1,6 +1,6 @@
 ---
 slug: security-office-hour-2024-04-11
-title: Security Office Hour 11.04.2024
+title: Security Office Hour 2024-04-11
 authors: 
     - rohan_krishnamurthy
 tags: [meeting-minutes, community, security]
