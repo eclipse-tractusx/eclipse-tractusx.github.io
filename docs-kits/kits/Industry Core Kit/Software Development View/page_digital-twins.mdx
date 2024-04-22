@@ -113,7 +113,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 
 | Key            | Availability | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type   |
 | :------------- | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
-| batchId        | Optional    | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
+| batchId        | Mandatory    | The number of the batch from the manufacturer.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String |
 | intrinsicId    | Mandatory    | This the unified technical key for searching a digital twin of a batch. In this case the<br/> batchId is used as the intrinsicId. | String |
 
 **For just-in-sequence (JIS) parts, additionally the following conventions apply:**
@@ -292,26 +292,31 @@ For a data consumer, there are currently the following steps where they have to 
 
 The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
-All Asset identifier key-value-pairs used as parameter to this lookup function are combined using AND. An example query would look like this: `https://URL/registry/lookup/shells?assetIds=%5B%7B%22key%22%3A%20%22manufacturerId%22,%22value%22%3A%20%22BPNL7588787849VQ%22%7D,%7B%22key%22%3A%20%22manufacturerPartId%22,%22value%22%3A%20%2295657362-83%22%7D,%7B%22key%22%3A%20%22partInstanceId%22,%22value%22%3A%20%22NO-574868639429552535768526%22%7D%5D`
+All Asset identifier key-value-pairs used as parameter to this lookup function are passed to the API separately via the parameter `assetIds` in Base64 format. An example query would look like this: `/lookup/shells?assetIds=ewogICJuYW1lIjogIm1hbnVmYWN0dXJlcklkIiwKICAidmFsdWUiOiAiQlBOTDc1ODg3ODc4NDlWUSIKfQ==&assetIds=ewogICJuYW1lIjogIm1hbnVmYWN0dXJlclBhcnRJZCIsCiAgInZhbHVlIjogIjk1NjU3MzYyLTgzIgp9&assetIds=ewogICJuYW1lIjogInBhcnRJbnN0YW5jZUlkIiwKICAidmFsdWUiOiAiTk8tNTc0ODY4NjM5NDI5NTUyNTM1NzY4NTI2Igp9`
 
 **The assetIds value looks like this unencoded (but with additional spaces and linebreaks):**
 
-```json
-[
+- First `assetIds` parameter:
+  ```json
   {
-    "key": "manufacturerId",
+    "name": "manufacturerId",
     "value": "BPNL7588787849VQ"
-  },
+  }
+  ```
+- Second `assetIds` parameter:
+  ```json
   {
-    "key": "manufacturerPartId",
+    "name": "manufacturerPartId",
     "value": "95657362-83"
-  },
+  }
+  ```
+- Third `assetIds` parameter:
+  ```json
   {
-    "key": "partInstanceId",
+    "name": "partInstanceId",
     "value": "NO-574868639429552535768526"
   }
-]
-```
+  ```
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
 
@@ -347,8 +352,7 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 - Querying digital twins is described in [Lookup in the Digital Twin Registry](#lookup-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
     - Regardless of whether you want to search for serialised parts, batches or just-in-sequence (JIS) parts, you can currently use the intrinsicId as a standardised technical key to look up digital twins. You can find the corresponding filling of this attribute in the tables above, depending on which specification is involved.
-    - However, if you already know the specification of the digital twin you are looking for before the look up, you can also carry out a search using the corresponding key attributes, like partInstanceId, batch Id or a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available). The partInstanceId with search parameter value serial number should be used for serialised parts, the batchId (if available) with search parameter value batch number for batches and a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available) with their corresponding search parameter values for JIS parts.
-    - For Batch digital twins, the key batchId might be provided optionally. As this key is not mandatory currently, you cannot rely on this key being available when looking for Batch digital twins.
+    - However, if you already know the specification of the digital twin you are looking for before the look up, you can also carry out a search using the corresponding key attributes, like partInstanceId, batchId or a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available). The partInstanceId with search parameter value serial number should be used for serialised parts, the batchId with search parameter value batch number for batches and a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available) with their corresponding search parameter values for JIS parts.
   - To understand why, take a look at how these digital twins are created, especially their [specific asset IDs](#property-specificassetids).
   - The result of this query will be the AAS ID of the digital twin.
 - Use this AAS ID to get the AAS Descriptor including all Submodel Descriptors of this digital twin. The AAS Descriptor contains the Submodel Descriptor SerialPart or Batch (depending on the digital twin type).
