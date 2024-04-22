@@ -144,15 +144,15 @@ KIT documentation works under the CC-BY-4.0 license. Therefore you need to add t
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2023 SAP SE
-- SPDX-FileCopyrightText: 2023,2023 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2023 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2023,2023 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2023,2023 BASF SE
-- SPDX-FileCopyrightText: 2023,2023 Schaeffler AG
-- SPDX-FileCopyrightText: 2023,2023 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023,2024 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 Schaeffler AG
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
 - Source URL: [BPDM GitHub repository](https://github.com/eclipse-tractusx/bpdm)
 
 ## Development View
@@ -206,5 +206,5 @@ Deliverables:
 
 ## Architecture View
 
-The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks. It can be extended with more architecture documentation like an ARC42.
-[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#scope-and-context)
+The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
+[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
