@@ -6,21 +6,8 @@ sidebar_position: 1
 ---
 
 ![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
+
 All notable changes to this Kit will be documented in this file.
-
-## [1.1.0] - 15.05.2024
-
-### Added
-
-- add references to PCF Content
-
-### Changed
-
-- change glossary to unified version
-
-### Removed
-
-- remove duplicate content from PCF KIT
 
 ## [1.0.0] - unreleased
 
