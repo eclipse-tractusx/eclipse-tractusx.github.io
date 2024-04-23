@@ -152,8 +152,12 @@ There's three relevant inputs to discover a referenced Submodel in Catena-X:
 - After having successfully negotiated for a Data Offer associated with the `id`, the Data Consumer can query the Data
   Plane of the given EDC to access the data. For that, the Provider must use the URL given in the Submodel-Descriptor's
   `href` field and append the additional URL-segment `/$value`.
+- In some circumstances (such as the [PCF Kit](../../PCF%20Exchange%20Kit/Software%20Development%20View/page_software-development-view.md#payload-for-requesting-pcf-sub-model))
+  the `submodelDescriptors[i]/endpoints[j]/interface` property may be used to signify that the payload of the Submodel
+  must be retrieved using an API that's not the subset of Submodel-API defined in CX-0002. This leaves the scope of the
+  DT Kit and must be specified by subsequent standards.
 
-A full example is shown in the next section.
+A full example on the default case is shown in the next section.
 
 #### Registering a new Twin
 
