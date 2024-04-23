@@ -5,9 +5,25 @@ description: 'Quality Kit'
 sidebar_position: 1
 ---
 
-![Quality kit banner](@site/static/img/QualityKitIcon.png)
+![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
 
 ### Quality KIT
+
+All notable changes to this Kit will be documented in this file.
+
+## [2.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
 
 ## [1.2.0] - 2024-03-08
 

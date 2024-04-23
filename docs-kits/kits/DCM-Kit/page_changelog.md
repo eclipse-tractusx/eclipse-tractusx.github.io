@@ -7,11 +7,25 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-![DCM kit banner](@site/static/img/DCMKitLogoIcon-min.png)
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## DCM KIT Changelog
 
 All notable changes to this Kit will be documented in this file.
+
+## [1.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
 
 ## [0.2.0] - 2024-03-08
 

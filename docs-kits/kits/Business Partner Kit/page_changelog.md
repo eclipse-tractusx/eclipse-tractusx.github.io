@@ -5,11 +5,25 @@ description: 'Business Partner Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](@site/static/img/BPKitIcon.png)
+![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ### Business Partner KIT
 
 All notable changes to this Kit will be documented in this file.
+
+## [5.0.0] - unreleased
+
+### Added
+
+- ./.
+
+### Changed
+
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- ./.
 
 ## [4.0.0] - 2024-02-22
 
