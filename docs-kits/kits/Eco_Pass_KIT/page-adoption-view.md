@@ -2004,10 +2004,10 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 </details>
 
-
 ## Creation of new passports
 
 The process for the creation can be structured like following:
+
 - Preparation phase
 - Research phase
 - Documentation phase
@@ -2020,7 +2020,6 @@ The process for the creation can be structured like following:
 In case of a new proposal, the checking of the already existing passports or aspect models is necessary. If none of the already existing passports or aspect models comply with the proposed requirements a new passport must be requested.
 
 In case of request from one of the involved companies, the checking of the already existing passports or aspect models is necessary. If none of the already existing aspect models fulfil the request a new aspect model must be requested.
-
 
 Development teams should be formed and designated. The team members must be from at least two different companies, that has involvement in the production of the product which the aspect model was requested for. From each of the involved companies subject matter experts should get involved. Involvement of a legal expert is necessary. The lifecycle of the product and the related scenarios should be discovered and documented. Scenarios should be assigned to the responsible parties. All responsible parties should validate their data availability.
 
@@ -2035,7 +2034,6 @@ To get the approval, specific requirements have to be fulfilled. Several iterati
 Note: Data model creation and standardization will be supported in the association
 
 ![Image: Passport Creation](./resources/adoption-view/passport_model_creation.svg)
-
 
 ## Business Architecture
 
