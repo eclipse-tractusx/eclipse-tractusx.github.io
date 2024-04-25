@@ -355,6 +355,23 @@ A guide for using this configuration add-on can be found [here](https://github.c
   "idShort": "Battery_BAT-XYZ789",
   "id": "urn:uuid:3d050cd8-cdc7-4d65-9f37-70a65d5f53f5",
   "specificAssetIds": [
+    {
+          "name": "manufacturerId",
+          "value": "BPNL000000000000",
+          "externalSubjectId": {
+              "type": "ExternalReference",
+              "keys": [
+                  {
+                      "type": "GlobalReference",
+                      "value": "BPNL000000000000"
+                  },
+                  {
+                      "type": "GlobalReference",
+                      "value": "PUBLIC_READABLE"
+                  }
+              ]
+          }
+      },
       {
           "name": "manufacturerPartId",
           "value": "XYZ78901",
@@ -384,6 +401,14 @@ A guide for using this configuration add-on can be found [here](https://github.c
                   }
               ]
           }
+      },
+      {
+        "key" : "assetLifecyclePhase",
+        "value": "AsBuilt"
+      },
+      {
+        "key" : "digitalTwinType",
+        "value": "PartInstance"
       }
   ],
   "submodelDescriptors": [
@@ -512,12 +537,41 @@ A guide for using this configuration add-on can be found [here](https://github.c
 
 ```json
 {
-    "@id": "registry-asset",
+    "@id": "dpp-asset",
     "@type": "dcat:Dataset",
     "odrl:hasPolicy": {
         "@id": "ZGVmYXVsdC1jb250cmFjdC1kZWZpbml0aW9u:cmVnaXN0cnktYXNzZXQ=:MTIxMjYzMzgtYzhkMC00MGQ4LTkxYWMtZmY2ZTY0ZTQ5ZmM0",
         "@type": "odrl:Set",
-        "odrl:permission": [],
+        "odrl:permission": [
+            {
+                "odrl:action": "USE",
+                "odrl:constraint": {
+                    "odrl:and": [
+                        {
+                            "odrl:leftOperand": "cx-policy:Membership",
+                            "odrl:operator": {
+                                "@id": "odrl:eq"
+                            },
+                            "odrl:rightOperand": "active"
+                        },
+                        {
+                            "odrl:leftOperand": "cx-policy:FrameworkAgreement",
+                            "odrl:operator": {
+                                "@id": "odrl:eq"
+                            },
+                            "odrl:rightOperand": "circulareconomy:1.0"
+                        },
+                        {
+                            "odrl:leftOperand": "cx-policy:UsagePurpose",
+                            "odrl:operator": {
+                                "@id": "odrl:eq"
+                            },
+                            "odrl:rightOperand": "cx.circular.dpp:1"
+                        }
+                    ]
+                }
+            }
+        ],
         "odrl:prohibition": [],
         "odrl:obligation": [],
         "odrl:target": "registry-asset"
