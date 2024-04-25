@@ -300,6 +300,41 @@ The following represents a collection of relevant documentation regarding the pr
 
 - **[CX Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/DataRetrievalGuide.md)**
 
+## Add-ons
+
+The digital product pass reference implementation can have a series of add-ons that enhance the experience of the applicaiton by using other components from Catena-X.
+
+### Item Relationship Service Add-on
+
+The Digital Product Pass applicaiton can be integrated with the Item Relationship Service (IRS). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which childs in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
+
+### Digital Product Pass Verification Add-on
+
+The Digital Product Passport Verification add-on is basically a concept for Certifying data in Catena-X as a auditor, how to provider certify data enabeling the verification as a data provider and how consumers verify this same data when retriving them from their data providers.
+
+The focus is on proving a process, artifacts and technologies based on the SSI concept in order to enable Certification/Verification processes in Catena-X using wallets.
+
+The documentation from the Digital Product Pass Verification Add-on is available [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and will be released as a official whitepaper in R24.08.
+
+The implementation is also planned for R24.08 and it is a PoC for data certification and verification for any other aspect models in Catena-X.
+
+### Business Partner Data Management Add-on
+
+When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation.
+
+> [!IMPORTANT]
+>
+> Companies need to be onboarded in the portal and the information needs to be visible in the Central BPDM Pool Service, where the company information like address is found.
+>
+> *Additionally*: Technical User credentials must be provided in order to enable the access to the service.
+
+### Data Sovereignty Add-on
+
+In order to retrieve data following the Catena-X Data Sovereighnty guidelines, and addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
+
+A guide using this configuration addon can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
+
+
 ## Attachments
 
 ### AAS 3.0 Digital Twin Example
