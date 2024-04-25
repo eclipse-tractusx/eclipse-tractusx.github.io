@@ -32,6 +32,7 @@ title: Changelog
 - Fix Typos
 - Fix section names
 - Fix example json objects
+- Fixed points related to digital twin and policy configuration in software dev view
 
 ## [released]
 

@@ -337,7 +337,6 @@ In order to retrieve data following the Catena-X Data Sovereighnty guidelines, a
 
 A guide for using this configuration add-on can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
 
-
 ## Attachments
 
 ### AAS 3.0 Digital Twin Example
