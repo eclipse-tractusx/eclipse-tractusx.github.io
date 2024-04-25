@@ -306,17 +306,20 @@ The digital product pass reference implementation can have a series of add-ons t
 
 ### Item Relationship Service Add-on
 
-The Digital Product Pass applicaiton can be integrated with the Item Relationship Service (IRS). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which childs in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
+The Digital Product Pass applicaiton can be integrated with the [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which childs in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
+
+The configuration details can be found in the [Operation View](./page-software-operation-view.md).
 
 ### Digital Product Pass Verification Add-on
 
 The Digital Product Passport Verification add-on is basically a concept for Certifying data in Catena-X as a auditor, how to provider certify data enabeling the verification as a data provider and how consumers verify this same data when retriving them from their data providers.
 
-The focus is on proving a process, artifacts and technologies based on the SSI concept in order to enable Certification/Verification processes in Catena-X using wallets.
+The focus is on proving a process, artifacts and technologies, based on the existing SSI concept, aiming to enable Certification/Verification processes in Catena-X using wallets.
 
-The documentation from the Digital Product Pass Verification Add-on is available [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and will be released as a official whitepaper in R24.08.
+The documentation from the Digital Product Pass Verification Add-on is available [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and is planned to be released as an official Catena-X whitepaper in R24.08.
 
-The implementation is also planned for R24.08 and it is a PoC for data certification and verification for any other aspect models in Catena-X.
+> [!TIP]
+> The implementation is **NOT YET AVAILABLE**, it is planned for R24.08 and it is a **PoC** for data certification and verification for any other aspect model in Catena-X. Keep an eye on the [`Digital Product Pass Repository`](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) for further updates.
 
 ### Business Partner Data Management Add-on
 
@@ -330,9 +333,9 @@ When passports are retrieved from the data providers not all the company data is
 
 ### Data Sovereignty Add-on
 
-In order to retrieve data following the Catena-X Data Sovereighnty guidelines, and addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
+In order to retrieve data following the Catena-X Data Sovereighnty guidelines, an addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
 
-A guide using this configuration addon can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
+A guide for using this configuration add-on can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
 
 
 ## Attachments
