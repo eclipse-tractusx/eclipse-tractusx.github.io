@@ -17,7 +17,11 @@ automation. Still, individual freedom of contract is a very high good and is sti
 
 This guidance is however also relevant for Enablement Service Providers building components enabling connectivity to the
 Dataspace (as specified in CX-0018). The authoritative resource for schemas is
-the [Catena-X ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile).
+the [Catena-X ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile). It is also available via the [Policy Hub](https://github.com/eclipse-tractusx/policy-hub/blob/main/docs/technical-documentation/requests/example-requests.md)
+that is operated centrally. The API is documented in this Repository and can be accessed with an access token to the
+Portal. It's a convenience feature for the negotiating parties to check if a given offer matches the policy constraints
+agreed by the Catena-X association - for instance by keeping a definite list of valid `rightOperands` to a particular
+`leftOperand` in a `Constraint`.
 
 As mentioned in the primer on policies, Providers and Consumers must have a common
 understanding of the meaning and consequences of `odrl:Offers` and, on a more granular level, their `odrl:Constraints`.
@@ -123,7 +127,7 @@ Constraints that are supposed to be checked with a logical OR should be publishe
 ## Example
 
 This specific Catalog contains one single `dcat:Dataset`, called "json-1-paper". It is the only entry in the top-level
-`dcat:dataset` property. To access this Dataset, the Consumer can choose between four Offers (see the `odrl:hasPolicy`
+`dcat:dataset` property. To access this Dataset, the Consumer can choose between two Offers (see the `odrl:hasPolicy`
 property):
 
 - `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5"`
