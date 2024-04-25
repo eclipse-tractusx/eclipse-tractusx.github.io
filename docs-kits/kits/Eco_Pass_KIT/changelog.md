@@ -10,6 +10,8 @@ title: Changelog
 - Add Electric Drive Passport model v1.0.0
 - Add Chemical Material Passport model v1.0.0
 - Add passport creation instruction
+- Added reference to the digital product pass verification feature coming in 24.05
+- Added description of digital product pass addons
 
 ### 24.05 Updated
 
