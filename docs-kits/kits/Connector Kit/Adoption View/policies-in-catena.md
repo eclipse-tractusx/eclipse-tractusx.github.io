@@ -7,9 +7,11 @@ id: connector_kit_adoption_view_policies_cx
 
 ## Data Sovereignty in Catena-X
 
-In Catena-X, there's a set of conventions with regard to how Providers structure their `odrl:Offer`s.
+This page extends on the previous section's fundamentals and introduces conventions specific to the Catena-X Dataspace.
+It assumes basic knowledge on `Policies` and their processing. Please go back to [the fundamentals](working-with-policies.md)
+if that's unfamiliar.
 
-A general recommendation is to focus on `permission` property to further specify the contracts' details. In general,
+Catena-X recommends to focus on `permission` property to further specify the contracts' details. In general,
 every data provider can decide on his or her own under which conditions their data datasets (assets) are shared in the
 network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its
 legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for
