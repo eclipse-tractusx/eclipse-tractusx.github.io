@@ -7,6 +7,9 @@ id: connector_kit_adoption_view_policies
 
 ## Working with Policies
 
+This section includes some general remarks on the concept of `Policies` and how they are treated in the EDC. The entire
+page is independent of the conventions in the Catena-X Dataspace. For that, please check [Policies in Catena-X](policies-in-catena.md).
+
 Policies are a formalization of the terms under which a Provider extends an offer to the Dataspace. The [Dataspace
 Protocol Specification](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol)
 has selected the [Open Digital Rights Language (ODRL)](https://www.w3.org/TR/odrl-model/) as a formalism and vocabulary to describe such offers.
@@ -22,7 +25,7 @@ with it (like "Structures may be semantically equivalent even though, schematica
 enables a Provider to be very specific when it comes to the usage of data: What may a consumer do with it? What
 obligations does a consumer incur when accepting the offer?
 
-The first time the Consumer encounters a Policy is when evaluating a Provider's [Catalog](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.protocol). It contains Offers are
+The first time the Consumer encounters a Policy is when evaluating a Provider's [Catalog](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.protocol). It contains Offers
 of `@type` `odrl:Set` which is a [subclass](https://www.w3.org/TR/odrl-model/#policy-set) of `odrl:Policy`.
 All terms can be used interchangeably, Offer is most common. Their content is contained in the
 `odrl:permission`, `odrl:prohibition` and `odrl:obligation` properties. They hold `odrl:Rules` that have to be
@@ -48,7 +51,8 @@ as distributed via the Catalog.
 In addition to checking the Offer's structure (as above), Providers' Connectors have the chance to query the Consumer's
 Verifiable Presentation (VP). A VP is a set of Verifiable Credentials (VCs) that a Consumer may have been issued by a
 trusted third party. In this VC, a Provider may find additional information if a Consumer is eligible to pass a certain
-`odrl:Constraint`.
+`odrl:Constraint`. Transfer of VPs is handled automatically between the Participants' Identity Wallets by means of the
+[IATP VPP](https://github.com/eclipse-tractusx/identity-trust/blob/main/specifications/verifiable.presentation.protocol.md).
 
 If, for example, the Consumer tries to negotiate for an Offer that is extended only to interested
 parties from civil society (like an NGO), simply pretending to be an NGO shouldn't be enough. It has to be verified and
