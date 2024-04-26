@@ -3,7 +3,7 @@ slug: community-office-hour-2024-02-02
 title: Community Office Hour 2024-02-02
 authors: 
     - fabian_gruen
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## office hour meeting minutes

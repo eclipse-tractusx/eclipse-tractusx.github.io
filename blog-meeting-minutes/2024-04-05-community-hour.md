@@ -3,7 +3,7 @@ slug: community-office-hour-2024-04-05
 title: Community Office Hour 2024-04-05
 authors:
   - sebastian_bezold
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 
 ---
 

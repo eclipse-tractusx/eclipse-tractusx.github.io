@@ -3,7 +3,7 @@ slug: security-office-hour-2024-03-14
 title: Security Office Hour 2024-03-14
 authors: 
     - daniel_dilger
-tags: [meeting-minutes, community, security]
+tags: [security, meeting-minutes]
 ---
 
 ## Security Office Hour meeting minutes
