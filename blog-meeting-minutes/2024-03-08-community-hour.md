@@ -3,7 +3,7 @@ slug: community-office-hour-2024-03-08
 title: Community Office Hour 2024-03-08
 authors: 
     - almadi_gabor
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## Office Hour meeting minutes

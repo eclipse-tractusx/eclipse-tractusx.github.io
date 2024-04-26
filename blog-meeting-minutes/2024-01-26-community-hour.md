@@ -3,7 +3,7 @@ slug: community-office-hour-2024-01-26
 title: Community Office hour 2024-01-26
 authors: 
     - almadi_gabor
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## office hour meeting minutes

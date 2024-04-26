@@ -3,7 +3,7 @@ slug: community-office-hour-2024-01-19
 title: Community Office hour 2024-01-19
 authors: 
     - harald_zierer
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## office hour meeting minutes
