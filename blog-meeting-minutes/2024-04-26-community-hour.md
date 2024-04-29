@@ -1,5 +1,5 @@
 ---
-slug: community-office-hour-2024-04-29
+slug: community-office-hour-2024-04-26
 title: Community Office Hour 2024-04-26
 authors:
     - fabian_gruen
