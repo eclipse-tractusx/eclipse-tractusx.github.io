@@ -9,7 +9,7 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.2.0] - Unreleased
+## [0.2.0] - 2024-05-29
 
 ### Added​
 
@@ -18,11 +18,11 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed​
 
--
+- ./.
 
 ### Removed​
 
--
+- ./.
 
 ## [0.1.0] - 2023-11-29
 
