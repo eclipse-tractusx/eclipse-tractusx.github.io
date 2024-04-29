@@ -9,15 +9,14 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Community Office Hour 12.04.2024]]></title>
+            <title><![CDATA[Community Office Hour 2024-04-12]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-12</link>
             <guid>community-office-hour-2024-04-12</guid>
             <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Number of previous KIT versions of the home page have been <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/840" target="_blank" rel="noopener noreferrer">reduced</a>. (this speeds up the compile process by 3,5x)</li><li>System team is working on collecting the OpenAPI specs (as alternative to SwaggerHub)</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>Invicti <a href="https://www.invicti.com/learn/dynamic-application-security-testing-dast/" target="_blank" rel="noopener noreferrer">DAST</a> scans are available now. They are not part of the next QG.</li><li>Heads up regarding the <em>XZ backdoor awareness mail</em> on the mailing list</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Committer elections are important to prevent hostile project takeover (especially in the wake of the <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-3094" target="_blank" rel="noopener noreferrer">XZ Utils backdoor</a> )</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a class="hash-link" href="#discussions" title="Direct link to heading">​</a></h3><ul><li>Reminder that there will be a "tandem mode" review for next QGate:<ul><li>one reviewer from System team and one committer from the projects for each QG Check</li><li>the "project committer" can not review his/her one project</li></ul></li></ul>]]></content:encoded>
-            <category>community-office-hour</category>
-            <category>meeting-minutes</category>
             <category>community</category>
+            <category>meeting-minutes</category>
         </item>
         <item>
             <title><![CDATA[Security Office Hour 2024-04-11]]></title>

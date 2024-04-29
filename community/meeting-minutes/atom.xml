@@ -8,7 +8,7 @@
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Community Office Hour 12.04.2024]]></title>
+        <title type="html"><![CDATA[Community Office Hour 2024-04-12]]></title>
         <id>community-office-hour-2024-04-12</id>
         <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-12"/>
         <updated>2024-04-12T00:00:00.000Z</updated>
@@ -18,9 +18,8 @@
             <name>Harald Zierer</name>
             <uri>https://github.com/hzierer</uri>
         </author>
-        <category label="community-office-hour" term="community-office-hour"/>
-        <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Security Office Hour 2024-04-11]]></title>
