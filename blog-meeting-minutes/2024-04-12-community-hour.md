@@ -1,9 +1,9 @@
 ---
 slug: community-office-hour-2024-04-12
-title: Community Office Hour 12.04.2024
+title: Community Office Hour 2024-04-12
 authors: 
     - harald_zierer
-tags: [community-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## Office Hour meeting minutes
