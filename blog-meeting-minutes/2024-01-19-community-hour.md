@@ -1,9 +1,9 @@
 ---
-slug: office-hour-19-01-2024
-title: Office hour 19.01.2024
+slug: community-office-hour-2024-01-19
+title: Community Office hour 2024-01-19
 authors: 
     - harald_zierer
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## office hour meeting minutes

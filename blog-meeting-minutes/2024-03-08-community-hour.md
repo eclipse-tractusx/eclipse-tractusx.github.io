@@ -1,9 +1,9 @@
 ---
-slug: office-hour-2024-03-08
-title: Tractus-X Office Hour 08.03.2024
+slug: community-office-hour-2024-03-08
+title: Community Office Hour 2024-03-08
 authors: 
     - almadi_gabor
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## Office Hour meeting minutes

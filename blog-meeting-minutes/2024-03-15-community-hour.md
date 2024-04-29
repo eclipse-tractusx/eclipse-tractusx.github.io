@@ -1,9 +1,9 @@
 ---
-slug: office-hour-2024-03-18
-title: Tractus-X Office Hour 15.03.2024
+slug: community-office-hour-2024-03-15
+title: Community Office Hour 2024-03-15
 authors:
     - fabian_gruen
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## Office Hour meeting minutes
