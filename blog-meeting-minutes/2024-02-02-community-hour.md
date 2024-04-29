@@ -1,9 +1,9 @@
 ---
-slug: office-hour-02-02-2024
-title: Office Hour 02.02.2024
+slug: community-office-hour-2024-02-02
+title: Community Office Hour 2024-02-02
 authors: 
     - fabian_gruen
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## office hour meeting minutes

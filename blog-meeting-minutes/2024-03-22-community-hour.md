@@ -1,9 +1,9 @@
 ---
-slug: office-hour-2024-03-22
-title: Office Hour 2024-03-22
+slug: community-office-hour-2024-03-22
+title: Community Office Hour 2024-03-22
 authors:
     - sebastian_bezold
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 ---
 
 ## Office Hour meeting minutes

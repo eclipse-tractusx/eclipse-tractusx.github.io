@@ -1,9 +1,9 @@
 ---
-slug: office-hour-2024-04-05
-title: Office Hour 2024-04-05
+slug: community-office-hour-2024-04-05
+title: Community Office Hour 2024-04-05
 authors:
   - sebastian_bezold
-tags: [tractus-x-office-hour, meeting-minutes, community]
+tags: [community, meeting-minutes]
 
 ---
 
