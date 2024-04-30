@@ -20,7 +20,7 @@ tags: [community, meeting-minutes]
 
 ### FOSS
 
-- Committer Elections to [Arno Weiß](https://github.com/arnoweiss)  open for [voting](https://projects.eclipse.org/projects/automotive.tractusx/elections/election-arno-wei%C3%9F-committer-eclipse-tractus-x)
+- Committer Election for [Arno Weiß](https://github.com/arnoweiss)  open for [voting](https://projects.eclipse.org/projects/automotive.tractusx/elections/election-arno-wei%C3%9F-committer-eclipse-tractus-x)
 - Please check out the statements to the "Use of AI" in one of our Eclipse Office Hour [sessions](https://www.eclipse.org/projects/calendar/#2024-04-11)
 - OCX Conference - Call for speakers is open! Submit your talk [here](https://ocx.eclipse.org/2024/cfp)
 - Friendly reminder to the Eclipse Office hours about the process and shared information see [here](https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&itemId=61090283)
