@@ -16,7 +16,7 @@ tags: [community, meeting-minutes]
 ### Security team
 
 - [Rohan](https://github.com/RoKrish14) will resume work on Monday, 13-May Alternate contact: [Lokesh Gujre](https://github.com/ZFLokesh) , [Tim Herres](https://github.com/BANANAS1337)
-- Bug bounty program is still in the work, but we are making progress on it see [issue](https://github.com/orgs/eclipse-tractusx/projects/61?pane=issue&itemId=61110062)
+- Bug bounty program is still in the works, but we are making progress on it see [issue](https://github.com/orgs/eclipse-tractusx/projects/61?pane=issue&itemId=61110062)
 
 ### FOSS
 
