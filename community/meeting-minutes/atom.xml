@@ -22,6 +22,25 @@
         <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Community Office Hour 2024-04-19]]></title>
+        <id>community-office-hour-2024-04-19</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-19"/>
+        <updated>2024-04-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>An updated list of Security related TRGs are available after <a href="https://github.com/eclipse-tractusx/.github/pull/22" target="_blank" rel="noopener noreferrer">this PR</a> has been merged</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>The footer of the <a href="https://eclipse-tractusx.github.io/" target="_blank" rel="noopener noreferrer">Eclipse Tractus-X website</a> have been updated</li><li>Community days are getting closer, more info can be found on <a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024" target="_blank" rel="noopener noreferrer">this page</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>New dates with blockers will be added to the website for release 24.12 soon, keep an eye on them! There will be a news entry when they are available</li><li>Starting with the next release (24.05) QG4 reviews will be mandatory to do in pairs every
+committer can get familiar with the process. A committer can't review their "own" products</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a class="hash-link" href="#discussions" title="Direct link to heading">​</a></h3><ul><li>You can read about Eclipse roles and how to become one <a href="https://eclipse-tractusx.github.io/docs/oss/contributor-committer#committer" target="_blank" rel="noopener noreferrer">here</a></li><li>There is a <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1#" target="_blank" rel="noopener noreferrer">new board work in progress</a> on GitHub that could be a replacement for the current
+Miro board we use for the Office Hour</li><li>Kubernetes 1.30 is available now, but consortia clusters are still on 1.27 (which is the LTS
+version). This should be aligned as <a href="https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-10#description" target="_blank" rel="noopener noreferrer">TRG5.10</a> describes our goal otherwise.</li><li>For release 24.05 you can <a href="https://github.com/eclipse-tractusx/sig-security/issues/new/choose" target="_blank" rel="noopener noreferrer">open an issue for security assessment</a> in the sig-security repository.
+This support won't be available starting with release 24.08</li><li>There is a problem currently with the calendar files on the website for. It is
+being investigated and an update will be provided soon.</li></ul>]]></content>
+        <author>
+            <name>Gabor Almadi</name>
+            <uri>https://github.com/almadigabor</uri>
+        </author>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+        <category label="community" term="community"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-04-12]]></title>
         <id>community-office-hour-2024-04-12</id>
         <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-12"/>
