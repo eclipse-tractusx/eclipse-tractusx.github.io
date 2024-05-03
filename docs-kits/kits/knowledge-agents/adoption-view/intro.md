@@ -66,9 +66,9 @@ Knowledge agents introduce an ecosystem of efficient services (for data handling
 We also define bridges to other digital twin approaches, such as AAS (Asset Administration Shell), such that data and service provisioning into multiple use cases will be as effortless as possible.
 
 Our Implementations can be accessed as [Eclipse Tractus-X Repositories](https://github.com/eclipse-tractusx):
-* [Agent Plane(s) for EDC](https://github.com/eclipse-tractusx/knowledge-agents-edc) see also [Operation View](../operation-view/agent_edc)
-* [Binding Agent(s) for Providers](https://github.com/eclipse-tractusx/knowledge-agents) see also [Operation View](../operation-view/provider)
-* [Agent Bridges for AAS](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) see also [Operation View](../operation-view/bridge)
+* [Agent Plane(s) for EDC (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) see also [KA-EDC Operation View](../operation-view/agent_edc)
+* [Binding Agent(s) for Providers (KA-RI)](https://github.com/eclipse-tractusx/knowledge-agents) see also [KA-RI Operation View](../operation-view/provider)
+* [Agent Bridges for AAS (KA-AAS)](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) see also [KA-AAS Operation View](../operation-view/bridge)
 
 ### Support
 
