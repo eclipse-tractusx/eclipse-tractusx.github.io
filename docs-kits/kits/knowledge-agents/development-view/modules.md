@@ -31,6 +31,7 @@ For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [High-Level Architecture](architecture)
+* The [Ontology](modelling) modelling guide
 * The [ARC42](Arc42) documentation
 * An [API](api) specification
 * Our [Reference Implementation](reference)

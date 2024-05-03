@@ -30,6 +30,7 @@ This document describes the Reference Implementation of Agents Standard and Kit.
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
+* The [Ontology](modelling) modelling guide
 * The [Layers & Modules](modules) Architecture
 * Our [Build](build) instructions
 * The [Deployment](../operation-view/deployment) guide

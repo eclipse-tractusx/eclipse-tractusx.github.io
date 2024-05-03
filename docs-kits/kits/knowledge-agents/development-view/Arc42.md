@@ -26,16 +26,18 @@ title: Detailed Architecture
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-### Agents KIT
+## Agents KIT
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-This document describes the detailed Architecture of the (Knowledge) Agents KIT (=Keep It Together) based on ARC42 recommendations.
+
+**Arc42 for federated queries over the whole data space.**
 
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [High-Level](architecture) architecture
+* The [Ontology](modelling) modelling guide
 * An [API](api) specification
 * The [Layers & Modules](modules) Architecture
 * Our [Reference Implementation](reference)

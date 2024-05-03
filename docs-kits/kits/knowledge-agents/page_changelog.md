@@ -27,11 +27,18 @@ sidebar_position: 1
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-### Agents KIT
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
+All notable changes to the (Knowledge) Agents KIT will be documented in this file.
+
+## [1.1.0] - 2024-04-30
+
+### Added
+
+### Changed
+
+- References to 24.05 (1.12.19)
 
 ## [1.0.1] - 2024-02-21
 
