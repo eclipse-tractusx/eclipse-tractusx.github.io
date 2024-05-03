@@ -55,6 +55,7 @@ const sidebars = {
                   items: [
                       'kits/knowledge-agents/development-view/architecture',
                       'kits/knowledge-agents/development-view/Arc42',
+                      'kits/knowledge-agents/development-view/modelling',
                       'kits/knowledge-agents/development-view/modules',
                       'kits/knowledge-agents/development-view/reference',
                       {
