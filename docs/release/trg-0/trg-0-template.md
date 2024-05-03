@@ -16,8 +16,15 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 ## Why
 
-Describe in this section why the TRG exist. For example because it's a legal requirement or it makes it much easier for others to use or it's an industry standard.
+Provide reasoning behind the release guideline. Why does Eclipse Tractus-X align on this quality criteria.
+The reasons can range from legal requirements to industry standards or simple alignments, that we did as Tractus-X project.
 
 ## Description
 
-Describe the TRG on how to do the TRG. Provide a golden path: In best case with code example or/and step by step guide.
+Provide guidance on how to comply with the release guideline. If there is configuration or workflows, that could be used
+as golden path, consider adding it to the TRG description, or link to proper documentation.
+In best case, anyone, who is working on compliance with your TRG can follow a step-by-step guide.
+
+## Best Practices and Examples
+
+Consider providing best practices, that are related to your TRG, even though it is not necessarily needed for compliance.
