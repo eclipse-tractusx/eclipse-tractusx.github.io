@@ -23,6 +23,12 @@ title: TRG 0 - Changelog & Drafts
 | 23-Feb-2023  | Add draft "Helm Action"                                                                                                                                                                                                                                                                              |
 | 13-Sept-2022 | Initial contribution                                                                                                                                                                                                                                                                                 |
 
+## Dropped / Rejected Release Guideline proposals
+
+| PR  | Proposal description |
+|-----|----------------------|
+|     |                      |
+
 ## Index by Category
 
 ```mdx-code-block

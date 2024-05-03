@@ -1,43 +1,65 @@
 # Release Guidelines
 
-## Introduction
-
-Welcome to Tractus-X Release Guidelines, known as TRGs. TRG numbers are assigned by the TRG
-editors, and once assigned never changed. The version control history of the TRG texts represent their historical
-record. The TRGs are indexed by topic for specialist subjects.
-
-You find the overarching Changelog [here](release/trg-0) to see when new TRGs have been added.
+Welcome to Eclipse Tractus-X Release Guidelines, known as TRGs. With Release Guidelines, we are defining quality
+criteria for our repositories, products and artifacts in general. TRGs are numbered and grouped into sections, to
+provide an easy-to-use overview. The git history of the TRGs can be use to browse changes made throughout the project
+history. You can also conduct the [TRG Changelog](release/trg-0) to see when new TRGs have been added.
 
 ## Process
 
-This TRG process is open for all and has the main goal of providing reasonable defaults for workflows and requirements on being able to easily contribute, maintain and run products/components across Eclipse Tractus-X.
+The process of introducing or altering a TRG is straight-forward. It consists of the following phases and events:
 
-### Create new draft
+1. A proposal is created.
+2. The proposal is improved by providing feedback
+3. The committer group is deciding to accept or deny the proposed changes
 
-- Create a draft version under release/trg-0
-  - Reserve the TRG number already
-- Create a pull request for merging the draft version (IF it helps to visualize / present the draft on the website) and get an approval
-- Announce the new Draft TRG on developer mailinglist
+More details in the following sections
 
-#### Release fast or slow
+### Proposal
 
-If you now have a small change, like a typo or updating description you do a fast release. If you create a new and big TRG (which takes time to do) you do a slow release.
+A new TRG, or a change to an existing one is proposed by raising a PR. This can be done by any contributor or committer.
+The PR is raised against the `main` branch
+of [eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/).
+Changes can be done by directly updating the existing Markdown files. New TRGs should already be put to a matching
+section. In case a new TRG does not fit do an existing section, a new section can be proposed or asked for by reviewers.
 
-- **Fast**
-  - Create new Pull Request for moving the draft version to its final location
-  - Address all issues in the PR and merge
-  - Announce the new TRG on the developer mailinglist
-- **Slow**
-  - Create new Pull Request for moving the draft version as a PRERELEASE version in its final location
-  - Add a hint on when the TRG becomes mandatory
-  - Address all issues in the PR and merge
-  - Announce the new TRG on the developer mailinglist
-  - When the TRG mandatory date is due, remove the hint and move it from PRERELEASE to normal (as all other TRGs)
+As soon as a proposal is ready for committer review, it has to be announced
+via [Tractus-X mailing list](https://accounts.eclipse.org/mailing-list/tractusx-dev). Additionally, the committer group
+is mentioned directly on the PR by tagging `@automotive-tractusx-committers`.
 
-### Update existing TRG
+### Review
 
-The critical difference is that you do the same thing with slow and fast release of new draft but instead of creating a new draft, you copy and paste the existing TRG (the TRG to change) into the draft folder.
+Feedback to announced proposals is welcome by everybody. It should be provided by using the review functionality of
+GitHub. Reviews are especially needed from Tractus-X committers, since they are the ones who are accepting or dropping
+proposals.
 
-### Deprecated existing TRG
+During review, the following things could be paid special attention to:
 
-Create a new PR which already deprecates the TRG without a draft state. Deprecation means updating the post history and marking as much as possible with strikethrough markdown.
+- Does the TRG focus on a single topic? If not, consider splitting to multiple TRGs
+- Is it clear, how to comply with the TRG, or is there a lot of room for interpretation?
+- Would it be a lot of effort to comply with the TRG. Consider introducing a "mandatory from" date.
+
+### Accept / Drop
+
+A new TRG, or changes to an existing TRG are __accepted__, if all the following is true:
+
+- at least 7 committers did approve the change
+- the proposal PR is open for at least 2 weeks, to give everyone a fair amount of time to provide feedback or request
+  changes
+- All requested changes are addressed. Not necessarily every requested change has to be implemented, if there is a
+  consensus in the committer round, that the original proposal is good enough.
+
+If the mentioned criteria is met, the PR is merged and the release guideline is mandatory for all Tractus-X products and
+repositories. There might be cases, where complying with a new or changed release guideline takes considerable effort,
+so that proper planning should be done. In these cases, a "mandatory from" date should be discussed in the review phase
+and the actual date highlighted at the beginning of the TRG.
+
+A release guideline proposal is __dropped__, if there are too many changes requested and a consensus cannot be found
+across the committer group on how to alter the proposal to an acceptable state. Dropped, or rejected release guideline
+proposals are documented by listing the PR and a short description of the proposed change
+in [Changelog & Drafts](release/trg-0/trg-0.md).
+
+### Deprecating TRGs
+
+Proposals to deprecate existing TRGs are also introduced via PR. To keep the list of TRGs small and easy to read,
+deprecating TRGs is done by simply deleting it and mention the deleting in [Changelog & Drafts](release/trg-0/trg-0.md).
