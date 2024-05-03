@@ -44,9 +44,9 @@ For more information see
 
 ## Compute-To-Data
 
-We describe a semantically-driven and state-of-the-art compute-to-data architecture for automotive use cases (and beyond), the so-called Knowledge Agents (KA) approach. 
+We describe a semantically-driven and state-of-the-art compute-to-data architecture for automotive use cases (and beyond), the so-called Knowledge Agents (KA) approach.
 
-It builds on well-established standards and best practices around [GAIA-X](https://gaia-x.eu), [W3C](https://www.w3.org/) and [Big Data](https://en.wikipedia.org/wiki/Big_data) in order to empower powerful queries to the data space (Skills). Those Skills can be used to answer business questions directly (comparable to a search engine) or they can be embedded in apps to include query results (Knowledge) into workflows with more advanced visualization etc. 
+It builds on well-established standards and best practices around [GAIA-X](https://gaia-x.eu), [W3C](https://www.w3.org/) and [Big Data](https://en.wikipedia.org/wiki/Big_data) in order to empower powerful queries to the data space (Skills). Those Skills can be used to answer business questions directly (comparable to a search engine) or they can be embedded in apps to include query results (Knowledge) into workflows with more advanced visualization etc.
 
 To reach this aim, full semantic integration, search and query with focus on relations between entities and data sovereignty is focused. In contrast to a simple file-based data transfer, this shifts the responsibility for the
 
@@ -64,7 +64,7 @@ The App in the figure serves the consumer by gathering, analyzing, and presentin
 
 ### Skill
 
-To help collecting the data over the network, Skills are introduced. A Skill is a pre-formulated query (or: procedure) with limited scope such as: List all vehicle series that contain ``material`` produced in ``location``. The Skill is used to access all federated data instances via the tenant (=authentication and authorization scope) of the caller. 
+To help collecting the data over the network, Skills are introduced. A Skill is a pre-formulated query (or: procedure) with limited scope such as: List all vehicle series that contain ``material`` produced in ``location``. The Skill is used to access all federated data instances via the tenant (=authentication and authorization scope) of the caller.
 
 A skill receives input in the form of a data set (we use a JSON notation in the following example):
 
@@ -85,7 +85,7 @@ which drives the control flow, the filtering and aggregating  of the information
 
 In order to obtain the correct results in a federated system, all the participants of the skill execution need to have common understanding (Semantic Model, in KA this is mechanized by a Federated Catalogue based on the Web Ontology Language  OWL) over the vocabulary (Data Model, in KA this is represented generically by sets, i.e., graphs of Resource Description Framework RDF triples). A guideline for how this vocabulary should be formulated can be found [here](modelling).
 
-Relying on these conventions, a Skill executor can calculate which Providers are able to contribute or yield the necessary information in which sequence such that the resulting distributed operation will be performant. 
+Relying on these conventions, a Skill executor can calculate which Providers are able to contribute or yield the necessary information in which sequence such that the resulting distributed operation will be performant.
 
 ### Matchmaking Agent
 
@@ -93,7 +93,7 @@ This coordinating job is taken over by the Matchmaking Agent, an endpoint that i
 
 In turn, upon successful transfer of the Sub-Skill, the Provider-Side Matchmaking Agent(s) will be activated by their respective EDC. The precondition for this activation is of course that the Provider EDC first needs to offer a so-called Graph Asset:
 
-### Graph Assets 
+### Graph Assets
 
 are a variant of ordinary Data Assets in the Catena-X EDC Standard; while Data Assets typically refer to an actual backend system (e.g., an Blob in an Object Store, an AAS server, a REST endpoint), Graph Assets introduce another intermediary instance, the so-called Binding Agent.
 
@@ -103,11 +103,11 @@ In turn, upon successful transfer of the Sub-Skill, the Provider-Side Matchmakin
 
 Simply put, the **Binding Agent** is a restricted version of the Matchmaking Agent (which speaks a profile, i.e., a subset of SPARQL specification, see the ANNEX) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.) into proper SQL- or REST based backend system calls. This scheme has several advantages:
 
-- For different types of backend systems, business domains and usage scenarios, different Binding Agent implementations (Caching Graph Store, SQL Binding Engine, REST Binding Engine) can be switched-in without affecting both the shared dataspace/semantic model and the mostly immutable backend systems/data models as well.
-- Access to the backend systems can be optimized by JIT compilation technology.
-- The same backend system/data model can be used in various Graph Assets/Use Cases and different roles and policies.
-- Access to the backend system is decoupled by another layer of security, such that additional types of policies (role-based row-level and attribute-level access) can be implemented in the interplay of Matchmaking and Binding Agents.
-- There is a clear distinction between advanced graph operations (including type inference and transitive/recursive traversal also via EDC) on the Matchmaking Level and efficient, but more restricted and secure graph operations on the Binding/Data Level.
+* For different types of backend systems, business domains and usage scenarios, different Binding Agent implementations (Caching Graph Store, SQL Binding Engine, REST Binding Engine) can be switched-in without affecting both the shared dataspace/semantic model and the mostly immutable backend systems/data models as well.
+* Access to the backend systems can be optimized by JIT compilation technology.
+* The same backend system/data model can be used in various Graph Assets/Use Cases and different roles and policies.
+* Access to the backend system is decoupled by another layer of security, such that additional types of policies (role-based row-level and attribute-level access) can be implemented in the interplay of Matchmaking and Binding Agents.
+* There is a clear distinction between advanced graph operations (including type inference and transitive/recursive traversal also via EDC) on the Matchmaking Level and efficient, but more restricted and secure graph operations on the Binding/Data Level.
 
 ### Federated Catalogue
 

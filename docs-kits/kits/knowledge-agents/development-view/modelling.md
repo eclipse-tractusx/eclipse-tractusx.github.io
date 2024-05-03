@@ -54,17 +54,17 @@ This document gives fundamental guidelines to create ontology models for being u
 
 ## Semantics & Ontology
 
-Semantics is the art and science of understanding what data means. In the context of Catena-X this topic has a significant importance in the sense that data provider and consumer need to have the same understanding what data needs to be shared (see also [FAIR data](https://en.wikipedia.org/wiki/FAIR_data)). 
+Semantics is the art and science of understanding what data means. In the context of Catena-X this topic has a significant importance in the sense that data provider and consumer need to have the same understanding what data needs to be shared (see also [FAIR data](https://en.wikipedia.org/wiki/FAIR_data)).
 
-In the knowledge agent approach, ontologies are used to describe the semantics of data. Ontologies are similar to data models or data schemas in which the semantics and structure of data are described. In addition, ontologies provide a high degree of semantic expressiveness, e.g. by supporting inference on data like "p-123" is_a part & part is_a physical object => "p-123" is_a physical object. Such inference enables strong typing of data. This way a machine, an hence the dataspace participants, can understand the meaning of the vocabulary 'part', that it is a physical object and not a document part or a design model part. 
+In the knowledge agent approach, ontologies are used to describe the semantics of data. Ontologies are similar to data models or data schemas in which the semantics and structure of data are described. In addition, ontologies provide a high degree of semantic expressiveness, e.g. by supporting inference on data like "p-123" is_a part & part is_a physical object => "p-123" is_a physical object. Such inference enables strong typing of data. This way a machine, an hence the dataspace participants, can understand the meaning of the vocabulary 'part', that it is a physical object and not a document part or a design model part.
 
-It could be that similar vocabularies are used for different things in the business partners sovereign data models. Hence the formal semantics of ontologies prevents such misunderstandings in data caused by synonymity or homonymity, etc. and lead to better collaboration and interoperability among data space participants. 
+It could be that similar vocabularies are used for different things in the business partners sovereign data models. Hence the formal semantics of ontologies prevents such misunderstandings in data caused by synonymity or homonymity, etc. and lead to better collaboration and interoperability among data space participants.
 
 On the other hand, the ontology-based approach represents the underlying data in assets as a generlized graph structure. This allows flexible querying of typed and linked data - no matter of its physical storage and retrieval. In applying the ontology-based data modelling in Catena-X, the following fundamentals should be achieved:
 
-- Maximise Semantics
-- Reduce Complexity
-- Minimise Redundancy
+* Maximise Semantics
+* Reduce Complexity
+* Minimise Redundancy
 
 ### Accessing Catena-X Ontology and Taxonomy
 
@@ -73,35 +73,34 @@ On the other hand, the ontology-based approach represents the underlying data in
 * The current Catena-X Ontology can be found under the namespace [https://w3id.org/catenax/ontology](https://w3id.org/catenax/ontology)
 * The current Catena-X Taxonomy can be found under the namespace [https://w3id.org/catenax/taxonomy](https://w3id.org/catenax/taxonomy)
 * Older versions of ontologies and taxonomies can also be referenced:
-  - [https://w3id.org/catenax/v24.03/ontology](https://w3id.org/catenax/v24.03/ontology)
-  - [https://w3id.org/catenax/v24.03/taxonomy](https://w3id.org/catenax/v24.03/taxonomy)
-  - [https://w3id.org/catenax/v23.09/ontology](https://w3id.org/catenax/v23.09/ontology)
-  - [https://w3id.org/catenax/v23.09/taxonomy](https://w3id.org/catenax/v23.09/taxonomy)
+  * [https://w3id.org/catenax/v24.03/ontology](https://w3id.org/catenax/v24.03/ontology)
+  * [https://w3id.org/catenax/v24.03/taxonomy](https://w3id.org/catenax/v24.03/taxonomy)
+  * [https://w3id.org/catenax/v23.09/ontology](https://w3id.org/catenax/v23.09/ontology)
+  * [https://w3id.org/catenax/v23.09/taxonomy](https://w3id.org/catenax/v23.09/taxonomy)
 * Upcoming versions of ontologies and taxonomies can also be referenced:
-  - [https://w3id.org/catenax/next/ontology](https://w3id.org/catenax/next/ontology)
-  - [https://w3id.org/catenax/next/taxonomy](https://w3id.org/catenax/next/taxonomy)
-
+  * [https://w3id.org/catenax/next/ontology](https://w3id.org/catenax/next/ontology)
+  * [https://w3id.org/catenax/next/taxonomy](https://w3id.org/catenax/next/taxonomy)
 
 ## Concept
 
-Th concept of ontology-based data modelling of the knowledge agent approach is based on the following building blocks:
+The concept of ontology-based data modelling of the knowledge agent approach is based on the following building blocks:
 
-- [OWL 2 QL Profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_QL) for modelling ontologies,
-- [OWL 2 RL Profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_QL) for modelling common dataspace assets,
-- [SKOS](https://www.w3.org/2004/02/skos/) for vocabularies,
-- [RML](https://rml.io/specs/rml/) & [R2RML](https://www.w3.org/TR/2012/REC-r2rml-20120927/) for mapping data source model to asset model to provide data in an asset,
-- [SHACL](https://www.w3.org/TR/shacl/) for data quality check and for describing which data is available in the asset and in which form,
-- [RDF](https://www.w3.org/TR/rdf12-concepts/) for description and exchange of graph data,
-- [Turtle](https://www.w3.org/TR/turtle/) for persisting,
-- [SPARQL](https://www.w3.org/TR/sparql11-query/) profiles for transferring logic and querying catalogues, data and functions.
+* [OWL 2 QL Profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_QL) for modelling ontologies,
+* [OWL 2 RL Profile](https://www.w3.org/TR/owl2-profiles/#OWL_2_QL) for modelling common dataspace assets,
+* [SKOS](https://www.w3.org/2004/02/skos/) for vocabularies,
+* [RML](https://rml.io/specs/rml/) & [R2RML](https://www.w3.org/TR/2012/REC-r2rml-20120927/) for mapping data source model to asset model to provide data in an asset,
+* [SHACL](https://www.w3.org/TR/shacl/) for data quality check and for describing which data is available in the asset and in which form,
+* [RDF](https://www.w3.org/TR/rdf12-concepts/) for description and exchange of graph data,
+* [Turtle](https://www.w3.org/TR/turtle/) for persisting,
+* [SPARQL](https://www.w3.org/TR/sparql11-query/) profiles for transferring logic and querying catalogues, data and functions.
 
 In the Knowledge Agent approach, the data is modelled with the Semantic Web Ontology language [OWL](https://www.w3.org/TR/2012/REC-owl2-primer-20121211/). This enables object-oriented modelling of domains with classes, attributes and relationships. Object-oriented modelling allows the modelling of a domain from general to specific by creating subclasses. The first step is to define the main classes that describe the domain. In the case of Catena-X, five main classes were defined.
 
-- Activity: This class comprises actions that are intentionally performed by instances of the actor over the course of the product life cycle and result in state changes in physical and conceptual objects.
-- Actor: This class comprises organization, device or people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible.
-- Physical object: This class includes objects of a material nature, which are documentation units and have physical boundaries.
-- Conceptual object: This class includes non-material products, human-produced data related to physical objects. The production of such information may have been supported by the use of technical tools.
-- Place: The class Place is determined by reference to the position of objects such as buildings, cities, or special geographic markers.
+* Activity: This class comprises actions that are intentionally performed by instances of the actor over the course of the product life cycle and result in state changes in physical and conceptual objects.
+* Actor: This class comprises organization, device or people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible.
+* Physical object: This class includes objects of a material nature, which are documentation units and have physical boundaries.
+* Conceptual object: This class includes non-material products, human-produced data related to physical objects. The production of such information may have been supported by the use of technical tools.
+* Place: The class Place is determined by reference to the position of objects such as buildings, cities, or special geographic markers.
 
 [![Modelling Concept](/img/knowledge-agents/modelling_concept.jpg)](/img/knowledge-agents/modelling_concept.jpg)
 
@@ -109,14 +108,14 @@ In the Knowledge Agent approach, the data is modelled with the Semantic Web Onto
 
 A well-known approach is the activity-centered or event-based modelling. The [CIDOC CRM](https://www.cidoc-crm.org/) ontology provides this idea and the main classes based on this concept. In this approach the classes actor, place, physical object and conceptual object are connected through activities. Instead of assigning all information to the physical object. This distributed representation has several advantages:
 
-- The life cycles of products and documents are represented separately and clearly.
-- The activities have a start and end date so that the data can be queried chronologically.
-- The data can be viewed and queried from different perspectives.
-  - Identifies all actors (e.g. companies) involved in an activity (e.g. manufacturing).
-  - Identifies all activities performed on a physical object (vehicle).
-  - Finds all activities that have been performed at a place.
-  - Searches for all physical objects (e.g. material) used in an activity (e.g. manufacturing).
-  - Search for conceptual objects related to a physical object in an activity.
+* The life cycles of products and documents are represented separately and clearly.
+* The activities have a start and end date so that the data can be queried chronologically.
+* The data can be viewed and queried from different perspectives.
+  * Identifies all actors (e.g. companies) involved in an activity (e.g. manufacturing).
+  * Identifies all activities performed on a physical object (vehicle).
+  * Finds all activities that have been performed at a place.
+  * Searches for all physical objects (e.g. material) used in an activity (e.g. manufacturing).
+  * Search for conceptual objects related to a physical object in an activity.
 
 [![Activity-Centered Model](/img/knowledge-agents/modelling_activity.jpg)](/img/knowledge-agents/modelling_activity.jpg)
 
@@ -126,16 +125,16 @@ The concept described above is the basic modelling pattern in Knowledge Agent. W
 
 Benefits of the basic modelling pattern:
 
-- Easy for domain experts to understand and create new domain ontologies.
-- Data is represented in datasets using the same pattern.
-- Data can be queried with general queries such as 'Get All Actors' or specific queries such as 'Get Manufacturer'.
+* Easy for domain experts to understand and create new domain ontologies.
+* Data is represented in datasets using the same pattern.
+* Data can be queried with general queries such as 'Get All Actors' or specific queries such as 'Get Manufacturer'.
 
 [![Modelling Domains](/img/knowledge-agents/modelling_domain.jpg)](/img/knowledge-agents/modelling_domain.jpg)
 
 * The current (merged) Catena-X Ontology can be found under the namespace [https://w3id.org/catenax/ontology](https://w3id.org/catenax/ontology)
-*  The current Catena-X Core Ontology can be found under the namespace [https://w3id.org/catenax/ontology/core](https://w3id.org/catenax/ontology/core)
+* The current Catena-X Core Ontology can be found under the namespace [https://w3id.org/catenax/ontology/core](https://w3id.org/catenax/ontology/core)
 * The current Catena-X Common Ontology (caring about dataspace entities and catalogues) can be found under the namespace [https://w3id.org/catenax/ontology/common](https://w3id.org/catenax/ontology/common)
-*  For more domain ontologies, see the complete namespace [https://w3id.org/catenax](https://w3id.org/catenax)
+* For more domain ontologies, see the complete namespace [https://w3id.org/catenax](https://w3id.org/catenax)
 
 ## Data Serialization as a Graph
 
@@ -147,7 +146,7 @@ The RDF graphs are stored in [RDF databases](https://www.w3.org/wiki/LargeTriple
 
 Serialization of data based on Turtle syntax:
 
-```
+```ttl
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -180,9 +179,9 @@ Although using a different representation and API, this concept is similar to th
 
 ## Taxonomy
 
-A taxonomy is a collection of terms and their meaning. The terms are structured in a hierarchical form, whereby the relationships become broader and narrower. Taxonomies can be seen as a dictionary that ensures the correct use of terms. Ontologies use the terms to describe a domain. Domain ontologies can grow very quickly and become confusing. Therefore, it is not recommended to define classes for all types of a domain in an ontology. Instead of defining new subclasses, the instances can be typed using terms from the taxonomy. For this purpose, a Catena-X taxonomy is created with SKOS, which can be extended based on the classes of the core ontology. For example, the class Vehicle in the Vehicle Ontology describes vehicles. A small car is a special type of vehicle for which there it is not necessary to create a separate class. Instead, the term can be included in the taxonomy and the instances can be specified from there. 
+A taxonomy is a collection of terms and their meaning. The terms are structured in a hierarchical form, whereby the relationships become broader and narrower. Taxonomies can be seen as a dictionary that ensures the correct use of terms. Ontologies use the terms to describe a domain. Domain ontologies can grow very quickly and become confusing. Therefore, it is not recommended to define classes for all types of a domain in an ontology. Instead of defining new subclasses, the instances can be typed using terms from the taxonomy. For this purpose, a Catena-X taxonomy is created with SKOS, which can be extended based on the classes of the core ontology. For example, the class Vehicle in the Vehicle Ontology describes vehicles. A small car is a special type of vehicle for which there it is not necessary to create a separate class. Instead, the term can be included in the taxonomy and the instances can be specified from there.
 
-```
+```ttl
 
 @prefix dct: <https://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -223,12 +222,11 @@ The current Catena-X Asset Ontology (caring about dataspace terms) can be found 
 
 For more taxonomies, see the complete namespace [https://w3id.org/catenax](https://w3id.org/catenax)
 
-
 ## Asset Content Description
 
 The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data, what form the data has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration.
 
-```
+```ttl
 
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -270,7 +268,7 @@ exp:VehicleShape a sh:NodeShape ;
 
 In the Knowledge Agent approach, in addition to publishing static data, it is also possible to offer services that perform calculations. These services can be called as functions with parameters. The functions can be modelled using the ontology function. The function parameters are defined by the cx-fx:argument. The ontology also contains function configuration properties that are required to configure the service.
 
-```
+```ttl
 
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -296,7 +294,7 @@ exp:ModelYear rdf:type cx-fx:Result;
 
 Functions are defined in a similar way to data in SHACL. In addition, the **cx-sh:hasAsArgument** property can be used to define which data property is required for a function argument to execute the function.
 
-```
+```ttl
 
 # Function Ontology 
 
@@ -319,7 +317,7 @@ The RDF graphs can be accessed using the SPARQL query language via a SPARQL HTTP
 
 General query example: Returns all physical objects and their name and activities.
 
-```
+```sparql
 PREFIX cx: <https://w3id.org/catenax/ontology/core#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX exp: <http://www.example.com#>
@@ -377,7 +375,7 @@ The same result (for mime-type "application/sparql-results+json"):
 
 Specific query example: Returns all vehicles and their name and manufacturing activities.
 
-```
+```sparql
 
 PREFIX cx: <https://w3id.org/catenax/ontology/core#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -407,15 +405,11 @@ Query result is the same as the first one:
 
 An important advantage of SPARQL is that multiple repositories can be accessed from a single query. This feature gives Catena-X the great advantage of being able to query distributed data in different assets at the same time.
 
-<br/>
-<div align="center"  width="100%">
-  <img src="src/example.jpg" alt="image" width="1000" height="auto" />
-</div>
-<br/>
+[![Federated Query Example](/img/knowledge-agents/modelling_federated.jpg)](/img/knowledge-agents/modelling_federated.jpg)
 
 Federated query example: Returns all vehicle names from OEM Asset and for the same vehicles the names of the diagnosis results from Service Asset.
 
-```
+```sparql
 
 PREFIX cx: <https://w3id.org/catenax/ontology/core#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -455,10 +449,11 @@ Federated Query result (for mime-type "text/csv"):
 
 ## Skill
 
-A Skill in the Knowledge Agent approach is any Data/Federated Query which 
-- is parameterizable by a set of input variables
-- is published in the dataspace as a contractible asset with a unique id
-- maybe invoked either on consumer-side (by downloading the query test) or provider-side (by execution of the query)
+A Skill in the Knowledge Agent approach is any Data/Federated Query which
+
+* is parameterizable by a set of input variables
+* is published in the dataspace as a contractible asset with a unique id
+* maybe invoked either on consumer-side (by downloading the query test) or provider-side (by execution of the query)
 
 For example, above federated query could be invoked under the assetname `SkillAsset?supplier=ListDiagnosis` and the following input parameter set (using contenttype "application/sparql-results+json")
 
