@@ -30,7 +30,6 @@ title: Detailed Architecture
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-
 **Arc42 for federated queries over the whole data space.**
 
 For more information see
