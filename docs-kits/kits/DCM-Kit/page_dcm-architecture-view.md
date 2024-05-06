@@ -35,7 +35,7 @@ If you want to adapt your custom or commercial applications to work with the Cat
 1. Modify the source code of your application
 2. Enable your software to offer multiple REST API endpoints in order to receive data
 3. Enable your software to call multiple REST API endpoints in order to send data
-4. Enable your software the communicate through an Eclipse Dataspace Connector (EDC), or a similar solution, which is to be setup separately
+4. Enable your software to communicate through an Eclipse Dataspace Connector (EDC), or a similar solution, which is to be setup separately
 
 For details, please refer to the Catena-X DCM standard [CX-0128](https://catena-x.net/de/standard-library). This page provides a non-normative overview only.
 
