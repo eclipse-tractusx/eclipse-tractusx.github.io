@@ -5,11 +5,11 @@ description: 'Model Based Development and Data Processing Kit'
 sidebar_position: 2
 ---
 
-![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
+![Model Based Development and Data Processing Kit banner](/images/BehaviourTwinMDP_Kit.svg)
 
 ### Model Based Development and Data Processing Kit
 <!--
-Adoption View of the Kit.
+Development View of the Kit.
 -->
 
 ## Vision & Mission
@@ -60,7 +60,7 @@ Nowadays exchange of simulation models across company boundaries in the design p
 
 Virtual testing of components (based on digital twins, e.g. FMUs) is already state of the art. However, the representativeness is often limited due to the availability of real customer data. In addition cross company testing procedures are also limited to interoperability and processing complexity boundaries.
 
-### Today’s challenge
+### Today’s Challenge
 
 Simulation models contain critical information about the intellectual properties of a company. This makes it difficult for companies to share their models with their suppliers or customers. In addition building simulation models compatible with those of suppliers or customers requires agreements on how the model should be built and the data format to use.
 
@@ -95,7 +95,7 @@ The architecture image describes the interaction between the model/data provider
 
 ## Business Process
 
-### Collaborative model and data based system development
+### Collaborative Model and Data Based System Development
 
 A car manufacturer is starting the **development** of a follow-up car model.
 Some parameters of the new car model are already fixed (mass, engine power) but no prototype yet exists.
@@ -145,7 +145,7 @@ performance with the new car-model.
 
 To decide which company has access to the data assets, access policies should be used. It is maybe possible to skip access policies, but this would make all data assets publicly available in the Catena-X network and is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN). This is possible using an existing extension for the EDC documented here. In the near future, other access policies will be introduced like a company role and attribute based policy.
 
-### Usage policies
+### Usage Policies
 
 Use case specific credentials exist and will be mandatory. Their documentation will be available after SSI release. A Behavior Twin "Use Case Framework" which covers the business process of the app will be available after SSI release. This Framework document can be referenced in the usage policies, and therefore limit Data & Service access to Behavior Twin participants.
 
@@ -153,19 +153,19 @@ Use case specific credentials exist and will be mandatory. Their documentation w
 <!-- ## Semantic Models & Standards -->
 ## Standards
 
-The  Standard CX-0102-Functional-Mock-Up has been submitted for standardization and will soon be linked here.
+The Standard CX-0102-Functional-Mock-Up has been submitted for standardization and will soon be linked here.
 
 The Standard aims at using the exisiting FMI industry standard as a Catena-X standard.
 
 The Functional Mock-up Interface (FMI) is a free standard that defines a container and an interface to exchange dynamic simulation models using a combination of XML files, binaries and C code, distributed as a ZIP file. It is supported by 170+ tools and maintained as a Modelica Association Project. The FMI implementation by a software modelling tool enables the creation of simulation models that can be interconnected. The file format of the FMI standard is called Functional Mock-up Unit (FMU)(source: <https://fmi-standard.org/>).
 
-### Guidelines for generating FMU
+### Guidelines for Generating FMU
 
 The FMU/FMI format allows a high degree of flexibility in generating an FMU model. On the one hand, this allows the format to be used for a large variety of use cases and of tools. On the other hand, interoperability between FMUs is not always guaranteed.
 
 The list of guidelines below have the goal to guide the modeling expert in the creation of an FMU for the Model and Data Processing use cases.
 
-**Guidelines**:
+### General Guideline
 
 - generate a license-free FMU so that it can be imported in any software,
 - generate a co-simulation FMU so that solver is included in the FMU and can be directly executed,
@@ -173,7 +173,7 @@ The list of guidelines below have the goal to guide the modeling expert in the c
 - embedd all needed tables and files while creating the FMU,
 - expose only numerical parameters to the user for changing.
 
-### Guidelines for assigning asset properties to FMU and services
+### Guideline for Assigning Asset Properties to FMU and Services
 
 To ensure an unity and to keep assets like FMU and/or services retrievable, a certain set of properties as FMU/service description is recommended.
 
@@ -189,7 +189,16 @@ The following list of potential properties along with some examples shall be see
 - Producer/Publisher (ZF, Siemens,...)
 - Version (1.4,...)
 - Release date (2023-09-18,...)
-Some properties could be selected from a pre-defined list (and not be free text) in order to ensure a certain standardization during asset registration
+
+Some properties could be selected from a pre-defined list (and not be free text) in order to ensure a certain standardization during asset registration.
+
+It is recommended to use existing meta data models for the asset properties. The following list of meta data models provides a guideline:
+
+- FMU Model Description (modelDescription.xml): Following a flat scheme, capable of providing the basic asset data. Supported by most of the FMU generation tools.
+- Asset Administration Shell (AAS), Submodel "Provision of Simulation Models": Structured in many fields with deep hierarchies. Has been designed within the context of industrial applications and fits very well to usage in the automotive domain.
+- Model Identity Card (MIC): Strucutured in many fields with deep hierarchies. Broader context than AAS, less focused on industrial applications/automotive industry.
+
+Similarly to the FMU Model Description, for both AAS and MIC, it is recommended to use XML serialization for the FMU asset properties, since it is a simple format with easy access and usage. Furthermore, it is recommended to provide this XML file within the FMU package.
 
 ## NOTICE
 
