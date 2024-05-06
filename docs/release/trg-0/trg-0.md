@@ -25,9 +25,9 @@ title: TRG 0 - Changelog & Drafts
 
 ## Dropped / Rejected Release Guideline proposals
 
-| PR  | Proposal description |
-|-----|----------------------|
-|     |                      |
+| PR  | Proposal description | Reason for dropping |
+|-----|----------------------|---------------------|
+|     |                      |                     |
 
 ## Index by Category
 
