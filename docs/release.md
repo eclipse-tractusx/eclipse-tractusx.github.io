@@ -25,7 +25,7 @@ section. In case a new TRG does not fit do an existing section, a new section ca
 
 As soon as a proposal is ready for committer review, it has to be announced
 via [Tractus-X mailing list](https://accounts.eclipse.org/mailing-list/tractusx-dev). Additionally, the committer group
-is mentioned directly on the PR by tagging `@automotive-tractusx-committers`.
+is mentioned directly on the PR by tagging `@eclipse-tractusx/automotive-tractusx-committers`.
 
 ### Review
 
