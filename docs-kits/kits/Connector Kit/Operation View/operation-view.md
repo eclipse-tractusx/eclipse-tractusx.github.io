@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: Operatation View
-description: Operatation View
+title: Operation View
+description: Operation View
 id: connector_kit_operation_view
 ---
 
