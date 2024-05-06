@@ -1,9 +1,9 @@
 ---
 slug: security-office-hour-2024-02-29
-title: Security Office Hour 29.02.2024
+title: Security Office Hour 2024-02-29
 authors: 
     - daniel_dilger
-tags: [meeting-minutes, community, security]
+tags: [security, meeting-minutes]
 ---
 
 ## Security Office Hour meeting minutes
