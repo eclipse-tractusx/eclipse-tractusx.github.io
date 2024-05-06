@@ -47,26 +47,6 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'KIT Guidelines',
-
-            collapsed: true,
-            items: [
-                "kit-process/graduation-process",
-                "kit-process/versioning",
-                "kit-process/artefacts",
-                {
-                    type: 'category',
-                    label: 'Documentation',
-                    collapsed: true,
-                    items: [
-                        "kit-process/processes/update-documentation",
-                        "kit-process/processes/create_KIT_page",
-                    ]
-                },
-                "kit-process/processes/kit-faq"
-            ],
-        }, {
-            type: 'category',
             label: 'Website Admin Guidelines',
             link: {
                 type: 'doc',
@@ -79,6 +59,7 @@ const sidebars = {
                 "website-guidelines/update-and-integrate-react-components",
                 "website-guidelines/update-news-page",
                 "website-guidelines/automate-kit-doc-update",
+                "website-guidelines/kit-structure",
             ],
         },
         'github-checks',
