@@ -39,6 +39,14 @@ the [central Tractus-X Helm repository](https://eclipse-tractusx.github.io/chart
 To get the GitHub Chart Releaser Action working, the following prerequisites must be met:
 
 - A branch named `gh-pages` in your repository
+- Change the GitHub Pages source branch to `gh-pages` in your repository settings. Submit request via Otterdog, ensure following are set:
+
+  ```json
+    gh_pages_build_type:"legacy",
+    gh_pages_source_branch:"gh-pages",
+    gh_pages_source_path:"/",
+  ```
+
 - Helm charts must be located in folder `/charts`
 - A GitHub Actions Workflow (see section [Implementaion](#implementation))
 

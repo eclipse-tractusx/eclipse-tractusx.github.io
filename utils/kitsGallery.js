@@ -17,6 +17,8 @@ import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import Certificate_Kit from "@site/static/img/Certificate_Kit.png"
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
+import Industry_Kit from "@site/static/img/Industry_Kit.png"
+
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 //************************** IMPORTANT **************************** */
@@ -158,6 +160,13 @@ export const kitsGallery = [
   },
   {
     id: 19,
+    name: "Industry Core Kit",
+    domain: 'Network & Core Services',
+    img: Industry_Kit,
+    pageRoute: "/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit"
+  },
+  {
+    id: 20,
     name: 'PURIS Kit',
     domain: 'Resiliency',
     img: PURIS,
