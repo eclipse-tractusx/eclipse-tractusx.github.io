@@ -16,7 +16,7 @@ Proposed release date: "mandatory after": 19th of May 2023
 
 ## Why
 
-Provide reasoning behind the release guideline. Why does Eclipse Tractus-X align on this quality criteria.
+This section must provide insights and reason behind the release guideline and a description why Eclipse Tractus-X has to align on this quality criteria.
 The reasons can range from legal requirements to industry standards or simple alignments, that we did as Tractus-X project.
 
 ## Description
