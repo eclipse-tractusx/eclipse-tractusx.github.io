@@ -32,7 +32,7 @@ One of these use cases has been utilized to build the main scenario of CDME. Thi
 
 ![Marketplace Use Cases](resources/MarketplaceUseCases.png)
 
-*Figure - Marketplace use case overview. (Schoeppenthau et al. 2023)*
+*Figure - Marketplace use case overview. (Schoeppenthau et al. 2023).*
 
 | Stakeholder              | Description                                                                                                                                                                                                                                                                                                                         |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,15 +45,15 @@ One of these use cases has been utilized to build the main scenario of CDME. Thi
 
 The following diagram covers the general business process addressed in the CDME.
 
-![](resources/image-2023-11-2_13-54-35.png)
+![Figure - Business process considered for CDME. Out of scope steps have not been elaborated and are therefore not covered by the technical architecture. (Schoeppenthau et al. 2023).](resources/image-2023-11-2_13-54-35.png)
 
-*Figure - Business process considered for CDME. Out of scope steps have not been elaborated and are therefore not covered by the technical architecture. (Schoeppenthau et al. 2023)*
+*Figure - Business process considered for CDME. Out of scope steps have not been elaborated and are therefore not covered by the technical architecture. (Schoeppenthau et al. 2023).*
 
 #### 3.1.3 System Context
 
-![](resources/System%20Scope.png)
+![Figure - System context view. (Schoeppenthau et al. 2023)](resources/System%20Scope.png)
 
-*Figure - System context view. (Schoeppenthau et al. 2023)*
+*Figure - System context view. (Schoeppenthau et al. 2023).*
 
 | Actor                             | Description                                                                                                                                                                           |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +79,7 @@ The CDME architecture covers all stakeholder roles as defined in ***[Building a 
 
 ![Stakeholders](resources/image-2023-11-2_14-7-37.png)
 
-*Figure - Key Roles in CDME. Eco system roles for governance are not addressed by the technological architecture. (Schoeppenthau et al. 2023)*
+*Figure - Key Roles in CDME. Eco system roles for governance are not addressed by the technological architecture. (Schoeppenthau et al. 2023).*
 
 | **Role** | **Description** |
 | IT/Engineering Service Broker | Application which consumes IT or engineering services in order to cover user journeys, offering business logics and workflows for IT/Engineering Service Users. |
@@ -92,16 +92,17 @@ The CDME architecture covers all stakeholder roles as defined in ***[Building a 
 
 The following diagram visualizes an examplary allocation of roles to MaaS stakeholders and applications.
 
-![](resources/image-2023-11-2_15-54-33.png)
-*Figure - Example allocation of roles to stakeholders and applications. (Schoeppenthau et al. 2023)*
+![Example allocation of roles to stakeholders and applications](resources/image-2023-11-2_15-54-33.png)
+
+*Figure - Example allocation of roles to stakeholders and applications. (Schoeppenthau et al. 2023).*
 
 ### 3.2 Technical Context
 
 The CDME supports five types of interfaces, including two interface types to communicate via dataspaces, one for the management of the respective connectors, and another covering data consumer and provider interfaces, usually containing backend adapters. As the CDME deploys a market for digital services, the services’ interfaces, usually HTTP-based APIs, like REST or GraphQL, are covered by CDME as well. Moreover, the CDME does not require such interfaces to communicate via dataspace connectors, since it is not restricted to dataspace usage. The use of a dataspace is the result of the data owner's decisions on what data should be protected by what type of technology and governance. Since Manufacturing-as-a-Service in general covers the entire production within any global supply chain, CDME must also follow an open design approach without a lock-in effect.
 
-![](resources/Reference%20Architecture%20-%20Functional%20Layer.png)
+![CDME interfaces](resources/Reference%20Architecture%20-%20Functional%20Layer.png)
 
-*Figure - CDME interfaces. (Schoeppenthau et al. 2023)*
+*Figure - CDME interfaces. (Schoeppenthau et al. 2023).*
 
 ## 4 Solution Strategy
 
@@ -113,7 +114,7 @@ In order to reduce the hurdle of market entry, the Catena-X MaaS digital ecosyst
 
 ### 5.1 1st Level Whitebox
 
-![](resources/1st%20level%20whitebox%20marketplace%20use%20case.png)
+![1st level whitebox view of CDME](resources/1st%20level%20whitebox%20marketplace%20use%20case.png)
 
 *Figure - 1st level whitebox view of CDME.*
 
@@ -177,7 +178,7 @@ As illustrated in the deployment view, the software components of this whitebox 
 
 #### 5.2.1 Manufacturing Network Registry
 
-![](resources/Whitebox%20CDME-2nd%20level%20WB%20Manufacturing%20Network%20Registry.png)
+![Whitebox view of Manufacturing Network Registry](resources/Whitebox%20CDME-2nd%20level%20WB%20Manufacturing%20Network%20Registry.png)
 
 *Figure - Whitebox view of Manufacturing Network Registry.*
 
@@ -196,16 +197,16 @@ Further information on the following components of the Manufacturing Network Reg
 
 The Siemens MaaS Portal is the prototypical implementation of a federated marketplace in CDME. It is a cloud-based Mendix application and connects offer and demand within a manufacturing network of networks. The prototypical environment also acts as the MaaS Buyer Application. A user account management organizes the access and menu workflow. The MaaS Portal further offers a request configuration, including a user account-specific request history. After searching for potential suppliers, the graphical user interface plots a list of suppliers or shows them in a map view, including all filter criteria information for supplier selection and quotation request. In addition, users can obtain information about the network partners and the onboarding process. The idea is to also offer a marketplace for digital services, supporting the order management and execution process.
 
-![](resources/maasPortal.png)
+![MaaS Portal](resources/maasPortal.png)
 
-| component             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | picture                                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| User management       | The user management handles the registration of users and administrates their account and login information. It is supporting different user roles like, buyer, supplier and service provider. Currently the buyer usage view has a more detailed and sophisticated workflow with functionality behind, as decribed in the following components for Request management, Request Broker and Result Management. For suppliers, there is an information page with link to onboarding with "SFW Connector". For service provider currently this is just an information page.                                                                                                                    | ![](resources/image-2024-3-12_11-16-17.png)<br/> ![](resources/image-2024-3-12_16-39-0.png)                      |
-| Request management    | The request management supports the user (buyer) in the request configuration. The grapical user interface follows a workflow to receive all necessary information to formulate a manufacturing request. To support this process, further services such as the Process Derivation Service (PDS) can be used to generate the required manufacturing process steps (as a workplan or bill of process). Here the Catena-X standard model "Bill of Process" (BoP) can be used. All the request information is formatted to the Catena-X standard model "Request for Quotation" (RFQ).All configured requests of a user are stored in a request history overview and can be reworked or tracked. | ![](resources/image-2024-3-12_16-8-26-1.png)  <br/> ![Additive Request](resources/image-2024-3-12_11-29-3-1.png) |
-| Request Broker        | The request broker spreads the manufacturing request with its required capabilities (BoP) to be matched with the capabilities from onboarded suppliers and to filter, who would be able to fulfill the manufacturing request. This matchmaking is possible through the "Manufacturing Network Registry" (cf. Section 5.2.1).The request broker is then collecting the responses with all information about the matched suppliers and with the decision criteria to be listed as potential suppliers. Therefore the Catena-X standard model "Manufacturing Capability Model" can be used.                                                                                                    |                                                                                                                  |
-| Result Management     | The result management plots the matched and potential suppliers with all information about the suppliers' request related resources, related capabilities, location, and additional information (e.g. carbon footprint), as a tabled list or on a map. The user (buyer) is able compare the decision criteria, choose his favorite supplier and send his request for quotation to him via the Catena-X standard "Request for Quotation" API.                                                                                                                                                                                                                                                | ![](resources/image-2024-3-12_16-21-12-1.png)  <br/> ![](resources/image-2024-3-12_16-21-24-1.png)               |
-| Onboarding management | The onboarding management could manage a list of supplier ids. This could be used for spreading the request for searching and matchmaking, or for listing the request matched potential suppliers, or for sending the request for quotation . Currently the onboarding of new suppliers, single manufacturers or manufacturer networks, is covered by the "Manufacturing Network Registry". Suppliers can therefore use the link to the "SFW Connector" or onboard directly via the API of the Asset Management Service (AMS)                                                                                                                                                               | ![](resources/image-2024-3-12_16-46-38.png)                                                                      |
-| App management        | The idea of the app management is to host digital services, supporting the order management and execution process. Every service provider could upload apps, like the services developed in Catena-X MaaS (e.g. Process Derivation Service, Asset Management Service, Search Engine, Supply Chain Sustainability Service, STEP File splitting service,...) to be validated and to be ready for download. Idea is to couple this with the Catena-X App Store.Currently it is just an information page without any functionality.                                                                                                                                                             | ![](resources/image-2024-3-12_16-48-15.png)                                                                      |
+| component             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | picture                                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| User management       | The user management handles the registration of users and administrates their account and login information. It is supporting different user roles like, buyer, supplier and service provider. Currently the buyer usage view has a more detailed and sophisticated workflow with functionality behind, as decribed in the following components for Request management, Request Broker and Result Management. For suppliers, there is an information page with link to onboarding with "SFW Connector". For service provider currently this is just an information page.                                                                                                                    | ![ ](resources/image-2024-3-12_11-16-17.png)<br/> ![ ](resources/image-2024-3-12_16-39-0.png)                     |
+| Request management    | The request management supports the user (buyer) in the request configuration. The grapical user interface follows a workflow to receive all necessary information to formulate a manufacturing request. To support this process, further services such as the Process Derivation Service (PDS) can be used to generate the required manufacturing process steps (as a workplan or bill of process). Here the Catena-X standard model "Bill of Process" (BoP) can be used. All the request information is formatted to the Catena-X standard model "Request for Quotation" (RFQ).All configured requests of a user are stored in a request history overview and can be reworked or tracked. | ![ ](resources/image-2024-3-12_16-8-26-1.png)  <br/> ![Additive Request](resources/image-2024-3-12_11-29-3-1.png) |
+| Request Broker        | The request broker spreads the manufacturing request with its required capabilities (BoP) to be matched with the capabilities from onboarded suppliers and to filter, who would be able to fulfill the manufacturing request. This matchmaking is possible through the "Manufacturing Network Registry" (cf. Section 5.2.1).The request broker is then collecting the responses with all information about the matched suppliers and with the decision criteria to be listed as potential suppliers. Therefore the Catena-X standard model "Manufacturing Capability Model" can be used.                                                                                                    |                                                                                                                   |
+| Result Management     | The result management plots the matched and potential suppliers with all information about the suppliers' request related resources, related capabilities, location, and additional information (e.g. carbon footprint), as a tabled list or on a map. The user (buyer) is able compare the decision criteria, choose his favorite supplier and send his request for quotation to him via the Catena-X standard "Request for Quotation" API.                                                                                                                                                                                                                                                | ![ ](resources/image-2024-3-12_16-21-12-1.png)  <br/> ![ ](resources/image-2024-3-12_16-21-24-1.png)              |
+| Onboarding management | The onboarding management could manage a list of supplier ids. This could be used for spreading the request for searching and matchmaking, or for listing the request matched potential suppliers, or for sending the request for quotation . Currently the onboarding of new suppliers, single manufacturers or manufacturer networks, is covered by the "Manufacturing Network Registry". Suppliers can therefore use the link to the "SFW Connector" or onboard directly via the API of the Asset Management Service (AMS)                                                                                                                                                               | ![ ](resources/image-2024-3-12_16-46-38.png)                                                                      |
+| App management        | The idea of the app management is to host digital services, supporting the order management and execution process. Every service provider could upload apps, like the services developed in Catena-X MaaS (e.g. Process Derivation Service, Asset Management Service, Search Engine, Supply Chain Sustainability Service, STEP File splitting service,...) to be validated and to be ready for download. Idea is to couple this with the Catena-X App Store.Currently it is just an information page without any functionality.                                                                                                                                                             | ![ ](resources/image-2024-3-12_16-48-15.png)                                                                      |
 
 #### 5.2.3 Digital Service - Process Derivation Service
 
@@ -255,15 +256,15 @@ The Supplier Knowledge Base contains several levels of onologies. The implementa
 
 The first ontology level consist of general concepts required within an MaaS ecosystem.
 
-![](resources/image-2023-11-2_11-9-8.png)
+![First-level ontology applied to the Supplier Knowledge Base](resources/image-2023-11-2_11-9-8.png)
 
-*Figure - First-level ontology applied to the Supplier Knowledge Base. (Schoeppenthau et al. 2023)*
+*Figure - First-level ontology applied to the Supplier Knowledge Base. (Schoeppenthau et al. 2023).*
 
 The second ontology level is specific for certain aspects within MaaS. E.g. there are representations of interpretations of supply chains and digital product passports.
 
-![](resources/image-2023-11-2_11-9-27.png)
+![One of the mid-level ontologies applied to the Supplier Knowledge Base](resources/image-2023-11-2_11-9-27.png)
 
-*Figure - One of the mid-level ontologies applied to the Supplier Knowledge Base. (Schoeppenthau et al. 2023)*
+*Figure - One of the mid-level ontologies applied to the Supplier Knowledge Base. (Schoeppenthau et al. 2023).*
 
 ## 6 Runtime View
 
@@ -289,7 +290,7 @@ In any case, the MBA will have process alternatives available in step 14 and can
 
 **If the supplier decides to use the Instant Quoting Service,** the instant quoting process will be started and calculates a price for the production of the requested part. The result can be used by the MaaS Manufacturer Application (MMA) to start an individual RFQ generation process and to submit an offer to the customer more quickly. This could be a workflow of an ODM platform or an entirely manual workflow within the administration of a SME. (steps 36-39)
 
-![](resources/Unbenanntes%20Diagramm.drawio.png)
+![Swim lane diagram of a buyer journey in the Federated Marketplace use case](resources/Unbenanntes%20Diagramm.drawio.png)
 
 *Figure - Swim lane diagram of a buyer journey in the Federated Marketplace use case.*
 
@@ -299,19 +300,19 @@ Note that the buyer as the data owner always acts as the data provider and does 
 
 For manufacturer onboarding, a Manufacturing Capability Digital Twin (DT) has to be provisioned (cf. following Figure step 0). Next, a BPN and asset ID has to be registered at the MNR. This step (step 1) can be covered by multiple alternative solutions and is therefore not described in more detail. A possible solution would be a GUI of the Manufacturing Network Registry (MNR) where Manufacturers can insert the two identifiers. However, depending on the type of provisioning, the BPN can refer to a Manufacturing Network Platform's operator or the Manufacturer itself (see Manufacturing Capability DT Provisioning for more details). In any case, in step 2, the MNR resolves the EDC for the BPN and starts the negotiation for the DTR asset. If the negotiation was successful, the MNR retrieves the Manufacturing Capability DT (for this the DTR is queried to get the respective submodel endpoint). Finally, the MNR registers the data from the DT in step 4 and the onboarding is complete.
 
-![](resources/Swim%20Lane%20Diagrams%20Federated%20Marketplace-Manufacturer%20Onboarding.png)
+![Swim lane diagram of the manufacturer onboarding](resources/Swim%20Lane%20Diagrams%20Federated%20Marketplace-Manufacturer%20Onboarding.png)
 
 *Figure - Swim lane diagram of the manufacturer onboarding.*
 
 The Manufacturing Capability DT Provisioning, depicted in the following figure, depends on whether a Manufacturing Capability DT is already available and if so, whether it should be registered at a Manufacturing Network Platform (MNP) or not. In case it is available and should be registered, the manufacturer's BPN and the DT's asset ID will be stored in the MNP (steps 4 and 5). If there is no DT available yet, the Manufacturer has to decide whether it should be self-hosted or not. If the DT should be self-hosted, the Manufacturer uses the MMA's user interface to manually add the required data or connect the MaaS Manufacturer Application (MMA) to the respective data sources (steps 0-1). The MMA has to be able to transform that data into a Manufacturing Capability Digital Twin, host the DT and add it to the Manufacturer's DTR wich in turn will be registered at the Manufacturer's EDC (steps 1-3). Alternatively, the MNP can be used to create and host the DT (if the MNP supports this feature, cf. steps 6 and 7). If the MNP hosts the DT, the MNP BPN and the DT's asset ID will be provided to the manufacturer (step 8). If there is a DT available, the manufacturer can also decide against hosting it at an MNP and use it directly, e.g. for Manufacturer Onboarding at the Manufacturing Network Registry.
 
-![](resources/Swim%20Lane%20Diagrams%20Federated%20Marketplace-Manufacturing%20Capability%20DT%20Provisioning.png)
+![ ](resources/Swim%20Lane%20Diagrams%20Federated%20Marketplace-Manufacturing%20Capability%20DT%20Provisioning.png)
 
 *Figure - Swim lane diagram of the Manufacturing Capability DT provisioning needed for manufacturer onboarding.*
 
 ## 7 Deployment View
 
-![](resources/Deployment%20View.png)
+![ ](resources/Deployment%20View.png)
 
 *Figure - Deployment view of CDME which allocates corporate borders to the components to demonstrate that all components can an will most likely be operated by different companies.*
 
@@ -357,7 +358,7 @@ An aspect model representing manufacturing capabilities, based on the concepts f
 
 Link to the semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufacturing_capability/3.1.0>
 
-**Sample Data**
+**Sample Data:**
 
 ```json
 {
@@ -637,7 +638,7 @@ Link to the semantic data model: <https://github.com/eclipse-tractusx/sldt-seman
 
 This is the current standardized version of the model.
 
-![](resources/Manufacturing_Capability_Model.png)
+![Manufacturing Capability Model](resources/Manufacturing_Capability_Model.png)
 
 *Figure - Manufacturing Capability Model [Version 3.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufacturing_capability/3.1.0)*
 
@@ -647,7 +648,7 @@ An aspect model defining detailed requirements, deadlines and evaluation criteri
 
 Link to the semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.request_for_quotation/3.0.0>
 
-**Sample Data**
+**Sample Data:**
 
 ```json
 {
@@ -770,7 +771,7 @@ Link to the semantic data model: <https://github.com/eclipse-tractusx/sldt-seman
 }
 ```
 
-![](resources/RFQ.png)
+![RFQ](resources/RFQ.png)
 
 ### 8.2.3 Bill of Process Model
 
@@ -778,13 +779,13 @@ The Manufacturing Capability Model as well as the Request For Quotation Model re
 
 Link to the semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.bill_of_process/1.1.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.request_for_quotation/3.0.0)
 
-![](resources/bill_of_process_datamodel.drawio.png)
+![Bill of Process data model](resources/bill_of_process_datamodel.drawio.png)
 
 ### 8.2.4 Manufacturer Sets
 
 The Manufacturing Network Registry responds to queries with manufacturers matching the request. These manufacturers are clustered in manufacturer sets. One manufacturer set can meet the requirements of the request together, although single manufacturers within that group couldn't. The manufacturers within a set are modeled using the Manufacturing Capability Model (cf. section 8.2.1).
 
-**Sample Data (response of the Search Engine)**
+**Sample Data (response of the Search Engine):**
 
 ```json
 {
