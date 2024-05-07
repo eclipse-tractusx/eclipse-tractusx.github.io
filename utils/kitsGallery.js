@@ -169,7 +169,7 @@ export const kitsGallery = [
     id: 20,
     name: 'PURIS Kit',
     domain: 'Resiliency',
-    img: PURIS,
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+    img: PURIS_Kit,
   },
 ]
