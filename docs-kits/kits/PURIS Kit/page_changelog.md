@@ -14,7 +14,7 @@ All notable changes to this Kit will be documented in this file.
 ### Added​
 
 - documentation of the adoption view
-- documentation of the development view
+- documentation of the software development view
 
 ### Changed​
 
