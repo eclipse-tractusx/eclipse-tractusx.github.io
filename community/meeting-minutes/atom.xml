@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-04-26T00:00:00.000Z</updated>
+    <updated>2024-05-03T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2024-05-03]]></title>
+        <id>community-office-hour-2024-05-03</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-05-03"/>
+        <updated>2024-05-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a class="hash-link" href="#system-team" title="Direct link to heading">​</a></h3><ul><li>Support needed for overarching <code>CHANGELOG</code> creation for release 24.05. If interested, please get in contact with Stephan Bauer</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>n/a</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Committer Election for <a href="https://github.com/arnoweiss" target="_blank" rel="noopener noreferrer">Arno Weiß</a> concluded successfully. Congratulations!</li><li><a href="https://projects.eclipse.org/projects/automotive.tractusx/elections/election-lucas-capellino-committer-eclipse-tractus-x" target="_blank" rel="noopener noreferrer">Committer Election</a> for <a href="https://github.com/ds-lcapellino" target="_blank" rel="noopener noreferrer">Lucas Capellino</a> open for voting</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>We are looking for committers to help with the Release QG Check Review for the upcoming release. Please reach out to <a href="https://github.com/RolaH1t" target="_blank" rel="noopener noreferrer">Roland</a> and <a href="https://github.com/Siegfriedk" target="_blank" rel="noopener noreferrer">Siegfried</a> if you are interested.</li><li>Check out the meeting <a href="https://eclipse-tractusx.github.io/community/open-meetings/#one-time-meetings" target="_blank" rel="noopener noreferrer">invitations for open meetings</a> regarding planning for release 24.12</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a class="hash-link" href="#discussions" title="Direct link to heading">​</a></h3><ul><li>Are there defined deadlines for release 24.08 -&gt; No one in the meeting did know of one yet</li><li>Interoperability and Thread Modelling checks in 24.05?<ul><li>You can approach the Security Team via issue on <a href="https://github.com/eclipse-tractusx/sig-security" target="_blank" rel="noopener noreferrer">sig-security</a></li><li>Checks, that have been documented in a Consorita Confluence instance, could still take place, but a transparent format should be considered.
+Some Teams already documented on GitHub.</li></ul></li></ul>]]></content>
+        <author>
+            <name>Sebastian Bezold</name>
+            <uri>https://github.com/SebastianBezold</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-04-26]]></title>
         <id>community-office-hour-2024-04-26</id>
