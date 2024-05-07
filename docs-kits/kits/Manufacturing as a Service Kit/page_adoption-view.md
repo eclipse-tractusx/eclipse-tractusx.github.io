@@ -62,7 +62,7 @@ The goal is a federated marketplace for Manufacturing-as-a-Service, connecting s
 
 ![Marketplace use case overview (Schoeppenthau et al. 2023)](resources/MarketplaceUseCases.png)
 
-*Marketplace use case overview (Schoeppenthau et al. 2023)[^1]*
+*Marketplace use case overview (Schoeppenthau et al. 2023)[^1].*
 
 ## Whitepaper
 
@@ -72,7 +72,7 @@ The journal article “Building a Digital Manufacturing as a Service Ecosystem f
 
 ![Link to the journal paper: <https://www.researchgate.net/publication/ 373383262_Building_a_Digital_Manufacturing_as_a_Service_Ecosystem_for_Catena-X>](resources/Architekturteaser.png)
 
-*Building a Digital Manufacturing as a Service Ecosystem for Catena-X[^1]*
+*Building a Digital Manufacturing as a Service Ecosystem for Catena-X[^1].*
 
 ## Semantic Models
 
@@ -98,7 +98,7 @@ The figure also depicts phases which are currently out of scope.
 
 ![Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023](resources/image-2023-11-2_13-54-35.png)
 
-*Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023)[^1]*
+*Phases of a capability matchmaking MaaS use case (Schoeppenthau et al. 2023)[^1].*
 
 [^1]: ```Schöppenthau, F.; Patzer, F.; Schnebel, B.; Watson, K.; Baryschnikov, N.; Obst, B.; Chauhan, Y.; Kaever, D.; Usländer, T.; Kulkarni, P. Building a Digital Manufacturing as a Service Ecosystem for Catena-X. Sensors 2023, 23, 7396. https://doi.org/10.3390/s23177396```
 
