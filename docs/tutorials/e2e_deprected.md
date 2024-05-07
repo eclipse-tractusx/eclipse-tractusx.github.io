@@ -1,13 +1,11 @@
 ---
-title: End-to-End Adopter Journey
+title: End-to-End Adopter Journey (deprecated)
 sidebar_position: 1
 ---
 
 :::danger
 
-This tutorial is still `work in progress`. With this new tutorial we are switching from [tutorial-resources](https://github.com/eclipse-tractusx/tutorial-resources) to [tractus-x-umbrella](https://github.com/eclipse-tractusx/tractus-x-umbrella).
-
-The [old tutorial](e2e_deprected.md) will be deleted after the new one is life.
+This tutorial will be deleted after the new [tutorial](./e2e.md) is life. Right n ow the old tutorial is still available for reference, cause the new one is not finished yet.
 
 :::
 
