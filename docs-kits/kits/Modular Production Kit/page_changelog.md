@@ -15,7 +15,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Extension of Shop Floor Information Service um Production Tracking
+- Extension of Shop Floor Information Service with Production Tracking
 - BoM semantic model
 
 ### Changed
