@@ -35,9 +35,9 @@ proposals.
 
 During review, the following things could be paid special attention to:
 
-- Does the TRG focus on a single topic? If not, consider splitting to multiple TRGs
-- Is it clear, how to comply with the TRG, or is there a lot of room for interpretation?
-- Would it be a lot of effort to comply with the TRG. Consider introducing a "mandatory from" date.
+- Does the TRG focus on a single topic? If not, consider splitting to multiple TRGs.
+- Is it clear, how to comply with the TRG? Avoid room for interpretation, where possible.
+- Would it be a lot of effort to comply with the TRG? Consider introducing a "mandatory from" date.
 
 ### Accept / Drop
 
