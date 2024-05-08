@@ -10,7 +10,7 @@ new/changed/deprecated TRGs.
 
 The process of introducing or altering a TRG is straight-forward. It consists of the following phases and events:
 
-1. A proposal is created.
+1. A proposal is created
 2. The proposal is improved by providing feedback
 3. The committer group is deciding to accept or deny the proposed changes
 
@@ -36,9 +36,9 @@ proposals.
 
 During review, the following things could be paid special attention to:
 
-- Does the TRG focus on a single topic? If not, consider splitting to multiple TRGs.
-- Is it clear, how to comply with the TRG? Avoid room for interpretation, where possible.
-- Would it be a lot of effort to comply with the TRG? Consider introducing a "mandatory from" date.
+- Does the TRG focus on a single topic? If not, consider splitting to multiple TRGs
+- Is it clear, how to comply with the TRG? Avoid room for interpretation, where possible
+- Would it be a lot of effort to comply with the TRG? Consider introducing a "mandatory from" date
 
 ### Accept / Drop
 
