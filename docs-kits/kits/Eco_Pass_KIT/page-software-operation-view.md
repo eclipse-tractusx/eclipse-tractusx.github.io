@@ -77,8 +77,8 @@ Example:
     "properties": {
         "description": "{{Description}}",
         "contenttype": "application/json",
-        "type": {
-          "@id": "SubmodelServerAspect"
+"dct:type": {
+          "@id": "cx-taxo:Submodel"
         }
     },
     "dataAddress": {
