@@ -3,7 +3,8 @@
 Welcome to Eclipse Tractus-X Release Guidelines, known as TRGs. With Release Guidelines, we are defining quality
 criteria for our repositories, products and artifacts in general. TRGs are numbered and grouped into sections, to
 provide an easy-to-use overview. The git history of the TRGs can be use to browse changes made throughout the project
-history. You can also conduct the [TRG Changelog](release/trg-0) to see when new TRGs have been added.
+history. You can also check the [TRG Changelog](release/trg-0) to get a better view on the history of
+new/changed/deprecated TRGs.
 
 ## Process
 
