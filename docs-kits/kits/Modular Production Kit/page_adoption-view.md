@@ -153,7 +153,7 @@ The left side shows the different request possibilities of customers. The right 
 
 #### Technical requirements for a CATENA-X
 
-![](res/SIS_ProductionTrackingData_SequenceChart_Border30.svg)
+![SIS_ProductionTrackingData_SequenceChart](res/SIS_ProductionTrackingData_SequenceChart_Border30.svg)
 
 Both partners, the customer and the Modular Production, must be members of the Catena X network to communicate with each other. By registering a Modular Production in advance with the Discovery Service, a customer can find it via a so-called Business Partner Number (BPN). With the help of SSI (Self Sovereign Identity) the correct identity is guaranteed. Customers are using the *GetProductionTrackingData* call to request production tracking information, as specified in CX-0142. The Modular Production, which has collected this data during the production, fetches the data from the database and answers accordingly by calling *ProvideProductionTrackingData* as specified in CX-0142.
 
