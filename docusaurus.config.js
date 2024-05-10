@@ -337,18 +337,36 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          resiliency_mp_provider: {
+          resiliency_mp_provider_getProductionForecast: {
             specPath:
-              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
+              './openApi/resiliency/modular-production/GetProductionForecast.yml', // Path to designated spec file
             outputDir:
               './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
           },
-          resiliency_mp_consumer: {
+          resiliency_mp_provider_getProductionTracking: {
             specPath:
-              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
+              './openApi/resiliency/modular-production/GetProductionTracking.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionForecast: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionForecast.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionTracking: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionTracking.yml', // Path to designated spec file
             outputDir:
               './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
             sidebarOptions: {
