@@ -32,13 +32,17 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
 
-## [1.1.0] - 2024-04-30
+## [1.1.0] - 2024-05-13
 
 ### Added
+
+- Modelling Development
 
 ### Changed
 
 - References to 24.05 (1.12.19)
+- Advanced Skills
+- Data Sovereignity Discussion
 
 ## [1.0.1] - 2024-02-21
 
@@ -127,4 +131,4 @@ All notable changes to the (Knowledge) Agents KIT will be documented in this fil
 
 ### Removed
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

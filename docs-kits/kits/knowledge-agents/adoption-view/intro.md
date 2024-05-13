@@ -169,7 +169,7 @@ a part of its work to other Business Partners/Agents and hence to bring the comp
 
 [![Dataspace Roles](/img/knowledge-agents/dataspace_roles_small.png)](/img/knowledge-agents/dataspace_roles.png)
 
-The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Remaining Useful Life KIT](../../Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit) and the [Health Indicator KIT](../../Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit).
+The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Behaviour Twin KIT](../../Behaviour%20Twin%20Kit/page_adoption-view).
 
 We distinguish between Dataspace Participants and other parties (who support the Dataspace Participants).
 
@@ -219,7 +219,7 @@ Any party who offers ready-made artifacts, packages and managed services assisti
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 * SPDX-License-Identifier: CC-BY-4.0
-* SPDX-FileCopyrightText: 2021,2023 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2021,2024 T-Systems International GmbH
 * SPDX-FileCopyrightText: 2021,2023 Mercedes-Benz AG
 * SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 * SPDX-FileCopyrightText: 2021,2023 ZF Friedrichshafen AG

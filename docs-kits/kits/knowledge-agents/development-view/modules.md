@@ -305,4 +305,4 @@ technological APIs in specific, transaction-oriented formats.
 As a special case of backend systems, we also regard existing AAS servers and databases as valid data sources
 to form a semantic dataspace.
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
