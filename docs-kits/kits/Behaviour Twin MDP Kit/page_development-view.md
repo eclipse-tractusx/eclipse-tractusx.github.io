@@ -33,23 +33,23 @@ In order to make assets discoverable by potential users, metadata should be asso
 
 The code below shows an example on how to assign asset properties to my asset of type Asset and with ID equals 2.
 
-The name of the asset properties should always start with "asset:". The value of the property is interpreted as a string.
+The name of the asset properties should always start with “asset:”. The value of the property is interpreted as a string.
 
 ```json
 
 "asset": {
 
-        "@type" : "Asset",
+        "@type": "Asset",
 
-        "@id: "2",
+        "@id": "2",
 
-        "properties"{
+        "properties": {
 
         "asset:prop:id": "2",
 
-        "asset:prop:description: "FMU thermal model of powertrain ABXYZ"
+        "asset:prop:description": "FMU thermal model of powertrain ABXYZ",
 
-        "asset:ToolVersion":"3.5"
+        "asset:ToolVersion": "3.5"
 
         }
 
@@ -77,7 +77,7 @@ For retrieving an asset with a specific asset property the following filter expr
 
 ```
 
-For having a broader search the "like" operator can be used coupled with the "%" symbol. In the example below, all assets with a description containing the word "powertrain" are returned.
+For having a broader search the “like” operator can be used coupled with the “%” symbol. In the example below, all assets with a description containing the word “powertrain” are returned.
 
 ```json
 
@@ -99,7 +99,7 @@ For having a broader search the "like" operator can be used coupled with the "%"
 
 ## Guideline for Implementing an FMU Interoperability Checker
 
-Meta models for asset propoerties like AAS "Provision of Simulation Models" or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
+Meta models for asset propoerties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
 
 ### Use Cases
 
@@ -134,7 +134,7 @@ The FMU Interoperability Checker shall implement three levels of checks with adv
 
 In Level 1 “Visualization”, corresponding meta data fields of the different FMU shall be shown side by side such that a human reader is able to easily assess the interoperability by comparing the information provided in the different categories.
 
-Level 2 “Direct Comparison“ is suited for fields, where the content is not highly dependent on the provider of the meta data (no free text string fields). For instance, variable definitions (format type, causality, units, validity domains) are suited for such a check. Still, it is essential that these fields are provided using standards (which is neither the case in the FMU modelDescription.xml as often used today nor required by the specifications of AAS Submodel “Provision of Simulation Models” and MIC). For free text string fields that come with a basic choice of entries, Level 2 checks are possible as long as only entries from the basic choice are selected.
+Level 2 “Direct Comparison” is suited for fields, where the content is not highly dependent on the provider of the meta data (no free text string fields). For instance, variable definitions (format type, causality, units, validity domains) are suited for such a check. Still, it is essential that these fields are provided using standards (which is neither the case in the FMU modelDescription.xml as often used today nor required by the specifications of AAS Submodel “Provision of Simulation Models” and MIC). For free text string fields that come with a basic choice of entries, Level 2 checks are possible as long as only entries from the basic choice are selected.
 
 Level 3 “Similarity Check” is suited for fields, where the content can be extended by the user. Most of the fields falling into this category, are fields that can be used for model characterization, such as simulation purpose, type of model, etc. Often, the meta data models provide suggestions for field content (basic choice), but most of the fields are “open”, i.e., are in principle free text.
 
@@ -181,7 +181,7 @@ In the following table, all fields of the meta data model AAS “Provision of Si
 |ModelFile.ModelFileVersion.DigitalFile||||||
 |ModelFile.ModelFileVersion.ModelFileReleaseNotesTxt|||x|||
 |ModelFile.ModelFileVersion.ModelFileReleaseNotesFile||||||
-|ParamMethod|by using "technical data" of asset;<br/>by using "technical data" and user;<br/>by user interface;<br/>by setting file;<br/>not necessary;<br/>by documentation file;<br/>pre-parametrized|open|x|||
+|ParamMethod|by using “technical data” of asset;<br/>by using “technical data” and user;<br/>by user interface;<br/>by setting file;<br/>not necessary;<br/>by documentation file;<br/>pre-parametrized|open|x|||
 |ParamFile||||||
 |InitStateMethod|not necessary;<br/>by user interface;<br/>by setting file;<br/>set states within simulation environment;<br/>integrated in model;<br/>by documentation file|open|x|||
 |InitStateFile||||||
@@ -268,15 +268,15 @@ In the following table, all fields of the meta data model MIC are listed togethe
 |content-and-computation.modelling-choice.explicative-text|||x||x|
 |content-and-computation.modelling-choice.formalization||||||
 |content-and-computation.modelling-choice.formalization.modelling-field|“Solid mechanics”,<br/>“Mechanics of materials”,<br/>“Fluid mechanics”,<br/>“Acoustics and vibrations”,<br/>“Electromagnetics”,<br/>“Thermal”,<br/>“Chemistry”,<br/>“Optics”,<br/>“Biology”,<br/>“Sociology”<br/>|open|x|(x)|x|
-|content-and-computation.modelling-choice.formalization.type-of-choice|“model",<br/>"neglect”| closed|x|x||
+|content-and-computation.modelling-choice.formalization.type-of-choice|“model”,<br/>“neglect”| closed|x|x||
 |content-and-computation.modelling-choice.formalization.time-scale|||x||x|
 |content-and-computation.behavior||||||
 |content-and-computation.behavior.behavior-specification|||x||x|
-|content-and-computation.behavior.model-type|“Discrete",<br/>"Continuous",<br/>"Deterministic",<br/>"Stochastic",<br/>"Static",<br/>"Dynamic",<br/>"Causal",<br/>"Acausal",<br/>"Bond graph",<br/>"Block diagram",<br/>"Transfer function",<br/>"State Machine diagram",<br/>"Neural network",<br/>"Empirical data” |open|x|(x)|x|
+|content-and-computation.behavior.model-type|“Discrete”,<br/>“Continuous”,<br/>“Deterministic”,<br/>“Stochastic”,<br/>“Static”,<br/>“Dynamic”,<br/>“Causal”,<br/>“Acausal”,<br/>“Bond graph”,<br/>“Block diagram”,<br/>“Transfer function”,<br/>“State Machine diagram”,<br/>“Neural network”,<br/>“Empirical data” |open|x|(x)|x|
 |content-and-computation.default-solver||||||
 |content-and-computation.default-solver.solver-name|||x|||
 |content-and-computation.default-solver.step-size|||x|||
-|content-and-computation.default-solver.embedded| “Yes",<br/>"No”| closed|x|x||
+|content-and-computation.default-solver.embedded| “Yes”,<br/>“No”| closed|x|x||
 |ports-internal-variables-and-parameters||||||
 |ports-internal-variables-and-parameters.ports||||||
 |ports-internal-variables-and-parameters.ports.variable||||||
@@ -285,7 +285,7 @@ In the following table, all fields of the meta data model MIC are listed togethe
 |ports-internal-variables-and-parameters.ports.variable.type|Not provided by specification but using a standard should be agreed.||x|x||
 |ports-internal-variables-and-parameters.ports.variable.unit|Not provided by specification but using a standard should be agreed.||x|x||
 |ports-internal-variables-and-parameters.ports.variable.default-value|||x|||
-|ports-internal-variables-and-parameters.ports.variable.in-out|“In",<br/>"Out”|closed|x|x||
+|ports-internal-variables-and-parameters.ports.variable.in-out|“In”,<br/>“Out”|closed|x|x||
 |ports-internal-variables-and-parameters.ports.variable.validity-domain|Not provided by specification but using a standard should be agreed. For outputs, this field should be used in the sense of a result range.||x|x||
 |ports-internal-variables-and-parameters.ports.port||||||
 |ports-internal-variables-and-parameters.ports.port.name||||||
