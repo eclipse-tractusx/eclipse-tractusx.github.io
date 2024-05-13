@@ -26,7 +26,7 @@ title: Agent-Enabled Dataspace Connector
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-For participating in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, we recommend deploying an [Agent-Enabled Tractus-X EDC](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md)
+For participating in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, we recommend deploying an [Agent-Plane](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) alongside of an existing [Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/README.md)
 
 For more information see
 
@@ -41,79 +41,142 @@ For more information see
 Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example uses the postgresql-hashicorp variant but abstracts away from vault and SSI settings - *vaultsettings and*ssisettings as well as the persistence config, see [here](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) for more options and full details).
 
 ```yaml
-   - name: agent-connector
+    - name: tractusx-connector
+      alias: my-connector
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.11.16
-      alias: my-agent-connector
+      version: 0.7.0
+    - name: agent-plane
+      alias: my-agent-plane
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 1.12.19
 ```
 
 Then configure the connector in the values.yaml
 
 ```yaml
-my-agent-connector:
+my-connector:
   participant:
-    id: {{MYBPNL}}
-  nameOverride: my-agent-connector
-  fullnameOverride: "my-agent-connector"
-  vault: *vaultsettings
-  controlplane:
-    image: 
-      pullPolicy: Always
-    ssi: *ssisettings
-    endpoints: 
+    id: *customerBpn
+  iatp:
+    id: *customerDid
+    trustedIssuers:
+     - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+    sts:
+      dim:
+        url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+      oauth:
+        token_url: *customerOauth
+        client:
+          id: *customerOauthClient
+          secret_alias: *customerOauthSecret
+  postgresql:
+    jdbcUrl: *customerDbUrl
+    auth:
+      database: *customerDbName
+      username: *customerDbUser
+      password: *customerDbPass
+  vault: 
+    azure: *azureVault
+  controlplane: &myControlPlane
+    endpoints:
       management:
-        authKey: "{{EDC_API_KEY}}"
-    ## Ingress declaration to expose the network service.
+        authKey: *customerApiKey
+    bdrs:
+      server:
+        url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
     ingresses:
-      - enabled: true
-        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "{{controlPlaneName}}"
-        # -- EDC endpoints exposed by this ingress resource
-        endpoints:
-          - protocol
-          - management
-          - control
-        # -- Enables TLS on the ingress resource
-        tls:
-          enabled: true
-  dataplanes:
-    dataplane:
-      configs: 
-        dataspace.ttl: |-
-          ################################################
-          # Catena-X Agent Bootstrap
-          ################################################
-          @prefix : <GraphAsset?local=Dataspace> .
-          @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
-          @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
-          @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-          @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-          @prefix bpnl: <bpn:legal:> .
-          @base <GraphAsset?local=Dataspace> .
+     - enabled: true
+       hostname: *customerConnectorHost
+       endpoints:
+         - protocol
+         - management
+         - api
+       tls:
+        enabled: true
+       certManager:
+        clusterIssuer: *clusterIssuer
+    env:
+      EDC_DATAPLANE_SELECTOR_AGENTPLANE_URL: http://*customerRelease-my-agent-plane:8087/api/signaling/v1/dataflows
+      EDC_DATAPLANE_SELECTOR_AGENTPLANE_SOURCETYPES: cx-common:Protocol?w3c:http:SPARQL,cx-common:Protocol?w3c:http:SKILL
+      EDC_DATAPLANE_SELECTOR_AGENTPLANE_TRANSFERTYPES: HttpData-PULL
+      EDC_DATAPLANE_SELECTOR_AGENTPLANE_DESTINATIONTYPES: HttpProxy
+      EDC_DATAPLANE_SELECTOR_AGENTPLANE_PROPERTIES: '{ "publicApiUrl": "https://*customerAgentHost/api/public/" }'
+      EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+  dataplane:
+    token:
+      signer:
+        privatekey_alias: *customerTokenKey
+      verifier:
+        publickey_alias: *customerTokenCert
+    env:
+      EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
 
-          bpnl:{{PARTNERBPNL}} cx-common:hasBusinessPartnerNumber "{{PARTNERBPNL}}"^^xsd:string;
-                               cx-common:hasConnector <edcs://{{partnerControlPlanePublic}}>.
+my-agent-plane:
+  url: 
+    public: ""
+  participant:
+    id: *customerBpn
+  iatp:
+    id: *customerDid
+    trustedIssuers:
+     - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+    sts:
+      dim:
+        url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+      oauth:
+        token_url: *customerOauth
+        client:
+          id: *customerOauthClient
+          secret_alias: *customerOauthSecret
+  postgresql:
+    jdbcUrl: *customerDbUrl
+    auth:
+      database: *customerDbName
+      username: *customerDbUser
+      password: *customerDbPass
+  vault: 
+    azure: *azureVault
+  connector: my-connector
+  controlplane: *consumerControlPlane
+  token:
+    signer:
+      privatekey_alias: *customerTokenKey
+    verifier:
+      publickey_alias: *customerTokenCert
+  auth: {}
+  ingresses:
+   - enabled: true
+     hostname: *customerAgentHost
+     endpoints:
+      - public
+      - default
+     tls:
+      enabled: true
+     certManager:
+      clusterIssuer: *clusterIssuer
+  configs: 
+    dataspace.ttl: |-
+        ################################################
+        # Catena-X Agent Bootstrap
+        ################################################
+        @prefix : <GraphAsset?local=Dataspace> .
+        @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+        @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+        @prefix bpnl: <bpn:legal:> .
+        @base <GraphAsset?local=Dataspace> .
 
-          bpnl:{{MYBPNL}}      cx-common:hasBusinessPartnerNumber "MYBPNL"^^xsd:string;
-                               cx-common:hasConnector <edcs://{{controlPlaneName}}>.
-      agent:
-        synchronization: 60000
-        connectors:
-          - [https://{{controlPlaneName}}]https://{{partnerControlPlanePublic}}
+        bpnl:{{PARTNERBPNL}} cx-common:hasBusinessPartnerNumber "{{PARTNERBPNL}}"^^xsd:string;
+                            cx-common:hasConnector <edcs://{{partnerConnectorHost}}>.
 
-      ## Ingress declaration to expose the network service.
-      ingresses:
-        - enabled: true
-          hostname: "{{agentPlaneName}}"
-          # -- EDC endpoints exposed by this ingress resource
-          endpoints:
-            - public
-            - default
-            - control
-            - callback
-          # -- Enables TLS on the ingress resource
-          tls:
-            enabled: true
+        bpnl:{{MYBPNL}}      cx-common:hasBusinessPartnerNumber "MYBPNL"^^xsd:string;
+                            cx-common:hasConnector <edcs://{{controlPlaneName}}>.
+  agent:
+    synchronization: 360000
+    connectors: 
+      PARTNERBPNL: https://{{partnerConnectorHost}}
+      MYBPNL: https://{{customerConnectorHost}}
 ```
 
 ### Quick Setup Guide for Registering A Skill
@@ -123,40 +186,41 @@ We demonstrate the steps by interacting with the EDC Control Plane Management AP
 #### Register A Skill Policy
 
 ```console
-curl --location --globoff '{{controlPlaneName}}/management/v2/policydefinitions' \
+curl --location --globoff 'https://{{customerConnectorHost}}/management/v2/policydefinitions' \
 --header 'X-Api-Key: {{EDC_API_KEY}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/",
-        "cx-common": "https://w3id.org/catenax/ontology/common#"
-    },
-    "@type": "PolicyDefinitionRequestDto",
-    "@id": "Policy?me=SkillPolicy",
-    "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : {
-    "@type": "LogicalConstraint",
-    "odrl:or" : [{
-     "@type" : "Constraint",
-     "odrl:leftOperand" : "BusinessPartnerNumber",
-     "odrl:operator" : {
-                        "@id": "odrl:eq"
-                    },
-     "odrl:rightOperand" : "{{PARTNERBPNL}}"
-    },
-                {
-     "@type" : "Constraint",
-     "odrl:leftOperand" : "BusinessPartnerNumber",
-     "odrl:operator" : {
-                        "@id": "odrl:eq"
-                    },
-     "odrl:rightOperand" : "{{MYBPNL}}"
-    }]
-   }
-  }]
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+    "cx-common": "https://w3id.org/catenax/ontology/common#"
+  },
+  "@id": "Policy?oem=Skill",
+  "policy": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "https://w3id.org/catenax/ontology/common#Policy?oem=Skill",
+    "permission": [
+      {
+        "target": "https://w3id.org/catenax/ontology/common#SkillAsset?oem=",
+        "action": "USE",
+        "constraint": {
+					"@type": "LogicalConstraint",
+					"or" : [
+                        {
+												"@type" : "Constraint",
+												"leftOperand" : "BusinessPartnerNumber",
+												"operator" :"eq",
+												"rightOperand" : "{{PARTNERBPNL}}"
+						},
+                        {
+												"@type" : "Constraint",
+												"leftOperand" : "BusinessPartnerNumber",
+												"operator" :"eq",
+												"rightOperand" : "{{MYBPNL}}"
+						}
+                    ]
+                }
+     }]
     }
 }
 '
@@ -165,7 +229,7 @@ curl --location --globoff '{{controlPlaneName}}/management/v2/policydefinitions'
 #### Register A Skill Contract
 
 ```console
-curl --location --globoff '{{controlPlaneName}}/management/v2/policydefinitions' \
+curl --location --globoff 'https://{{customerConnectorHost}}/management/v2/policydefinitions' \
 --header 'X-Api-Key: {{EDC_API_KEY}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -290,7 +354,7 @@ We demonstrate the steps by interacting with the EDC Data Plane Agent Endpoint
 #### Calling A Local Skill
 
 ```console
-curl --location --globoff '{{agentPlaneName}}/api/agent?asset=SkillAsset%3Fsupplier%3DRemainingUsefulLife' \
+curl --location --globoff 'https://{{customerAgentHost}}/api/agent?asset=SkillAsset%3Fsupplier%3DRemainingUsefulLife' \
 --header 'Content-Type: application/sparql-results+json' \
 --header 'Accept: application/json' \
 --header '{{DATA_PLANE_KEY}}: {{DATA_PLANE_TOKEN}}' \
@@ -328,7 +392,7 @@ curl --location --globoff '{{agentPlaneName}}/api/agent?asset=SkillAsset%3Fsuppl
 #### Calling A Remote Skill
 
 ```console
-curl --location --globoff '{{agentPlaneName}}/api/agent?asset={{URLENCODED_PARTNER_CONTROL_PLANE}}%23SkillAsset%3Fsupplier%3DRemainingUsefulLife' \
+curl --location --globoff 'https://{{customerAgentHost}}/api/agent?asset={{URLENCODED_PARTNER_CONTROL_PLANE}}%23SkillAsset%3Fsupplier%3DRemainingUsefulLife' \
 --header 'Content-Type: application/sparql-results+json' \
 --header 'Accept: application/json' \
 --header '{{DATA_PLANE_KEY}}: {{DATA_PLANE_TOKEN}}' \
