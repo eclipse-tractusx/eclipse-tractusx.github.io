@@ -75,4 +75,4 @@ see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-age
 * Our [Build](build) instructions
 * The [Deployment](../operation-view/deployment) guide
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

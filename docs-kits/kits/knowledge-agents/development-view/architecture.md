@@ -128,4 +128,4 @@ To summarize, the Knowledge Agent standard shall achieve the following abilities
 * the ability to define domain/use case-based ontologies which form the vocabulary used in the skill definitions.
 * the ability to visualize and develop the ontologies and skills in appropriate SDKs and User Experience components.
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

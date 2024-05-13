@@ -3,11 +3,8 @@ sidebar_position: 1
 title: Ontology Modelling
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
+ * Copyright (c) 2024 T-Systems International GmbH
+ * Copyright (c) 2024 Mercedes-Benz AG
  * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
@@ -494,4 +491,4 @@ Skill invocation result (for mime-type "text/csv"):
 
 <br/>
 
-<sub><sup>(C) 2023,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

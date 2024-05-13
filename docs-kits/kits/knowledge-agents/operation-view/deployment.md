@@ -26,14 +26,11 @@ title: Deployment
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-### Agents KIT
-
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-This document describes the deployment of the (Knowledge) Agents KIT (=Keep It Together) depending on the role that the respective tenant/business partner has.
-It also provides a runbook for deploying a minimal stable environment for testing purposes.
+## Agents KIT
 
-For more information see
+**Operating federated queries over the whole data space.**
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../development-view/architecture) documentation
@@ -90,38 +87,38 @@ As a function provider, you want to
 
 ### Sub-Role: As A Twin Provider
 
-As a function provider, you want to
+As a twin provider, you want to
 
 * [bridge](bridge) between the Knowledge Agent and Asset Administration Shell APIs.
 
 ## Runbook For Deploying and Smoke-Testing Knowledge Agents (Stable)
 
+The Stable Environment is a minimal example environment exhibiting all roles and capabilities of the Tractus-X/Catena-X dataspace.
+
 Knowledge Agents on Stable is deployed on the following two tenants
 
 * App Provider 1 (BPNL000000000001)
-  * Agent-Enabled Dataspace Connector
-    * In-Memory Hashicorp-Vault Control Plane
-    * Hashicorp-Vault Agent Data Plane
+  * Dataspace Connector (Postgresl, Hashicorp-Vault)
+  * Agent-Plane (Postgresql, Hashicorp-Vault)
   * Provisioning Agent incl. Local Database
-  * Remoting Agent
+  * Remoting Agent (against a Public WebService)
 * App Consumer 4 (BPNL0000000005VV)
-  * Agent-Enabled Dataspace Connector
-    * In-Memory Hashicorp-Vault Control Plane
-    * Hashicorp-Vault Agent Data Plane
+  * Dataspace Connector (Postgresl, Hashicorp-Vault)
+  * Agent-Plane (Postgresql, Hashicorp-Vault)
 
 ### 1. Prepare the Two Tenants
 
-As a first step, we installed two technical users for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
+As a first step, we install two technical users for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
 
 * App Provider 1: sa4
 * App Consumer 4: sa5
 
-The generated secrets have been installed under <https://vault.demo.catena-x.net/ui/vault/secrets/knowledge>
+The generated secrets should be installed under <https://vault.demo.catena-x.net/ui/vault/secrets/knowledge>
 
-* stable-provider-miw
-* stable-consumer-miw
+* stable-provider-dim
+* stable-consumer-dim
 
-Further secrets have been installed
+Further secrets should be installed
 
 * oem-cert
 * oem-key
@@ -130,21 +127,21 @@ Further secrets have been installed
 * consumer-key
 * consumer-symmetric-key
 
-Finally an access token has been generated.
+Finally, an access token to the vault has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following two applications have been installed.
+Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following three applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
-#### App Provider 1 Datspace Connector Manifest
+#### App Provider 1 Dataspace Connector Manifest
 
 ```yaml
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 0.7.0
   plugin:
     env:
       - name: HELM_VALUES
@@ -167,29 +164,36 @@ source:
               transferProxyTokenSignerPrivateKey: oem-key
               transferProxyTokenSignerPublicKey: oem-cert
               transferProxyTokenEncryptionAesKey: oem-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL000000000001
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl000000000001-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa4
+                  secret_alias: stable-provider-dim
+          postgresql:
+              name: agent-postgresql
+              jdbcUrl: jdbc:postgresql://agent-postgresql:5432/provider
+              auth:
+                 database: provider
+                 username: provider_user
+                 password: ****
           controlplane:
             securityContext:
               readOnlyRootFilesystem: false
             image:
               pullPolicy: Always
-            ssi:
-              miw:
-                # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
-                # -- The BPN of the issuer authority
-                authorityId: "BPNL00000003CRHK"
-              oauth:
-                # -- The URL (of Keycloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
-                client:
-                  # -- The client ID for Keycloak
-                  id: "sa4"
-                  # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-provider-miw"
             endpoints:
               management:
                 authKey: ****
-            ## Ingress declaration to expose the network service.
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
@@ -198,55 +202,137 @@ source:
                 endpoints:
                   - protocol
                   - management
-                  - control
+                  - api
                 # -- Enables TLS on the ingress resource
                 tls:
                   enabled: true
-          dataplanes:
-            dataplane:
-              securityContext:
-                readOnlyRootFilesystem: false
-              image:
-                pullPolicy: Always
-              configs:
-                dataspace.ttl: |-
-                  ################################################
-                  # Catena-X Agent Bootstrap
-                  ################################################
-                  @prefix : <GraphAsset?local=Dataspace> .
-                  @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
-                  @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
-                  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-                  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-                  @prefix bpnl: <bpn:legal:> .
-                  @base <GraphAsset?local=Dataspace> .
+            env:
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_URL: http://agent-plane-provider:8087/api/signaling/v1/dataflows
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_SOURCETYPES: cx-common:Protocol?w3c:http:SPARQL,cx-common:Protocol?w3c:http:SKILL
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_TRANSFERTYPES: HttpData-PULL
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_DESTINATIONTYPES: HttpProxy
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_PROPERTIES: '{ "publicApiUrl": "https://provider-agent.stable.demo.catena-x.net/api/public/" }'
+               EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+          dataplane:
+            token:
+              signer:
+                privatekey_alias: consumer-key
+              verifier:
+                publickey_alias: consumer-cert
+            env:
+              EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+  chart: tractusx-connector
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
 
-                  bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+#### App Provider 1 Agent Plane Manifest
 
-                  bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
-              agent:
-                #synchronization: 360000
-                connectors:
-                  - https://agent-provider-cp.stable.demo.catena-x.net
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.12.19
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          participant:
+            id: BPNL000000000001
+          nameOverride: agent-plane-provider
+          fullnameOverride: agent-plane-provider
+          vault:
+            hashicorp:
+              enabled: true
+              url: https://vault.demo.catena-x.net
+              token: ****
+              healthCheck:
+                enabled: false
+                standbyOk: true
+              paths:
+                secret: /v1/knowledge
+            secretNames:
+              transferProxyTokenSignerPrivateKey: oem-key
+              transferProxyTokenSignerPublicKey: oem-cert
+              transferProxyTokenEncryptionAesKey: oem-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL000000000001
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl000000000001-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa4
+                  secret_alias: stable-provider-dim
+          postgresql:
+              name: agent-postgresql
+              jdbcUrl: jdbc:postgresql://agent-postgresql:5432/provider
+              auth:
+                 database: provider
+                 username: provider_user
+                 password: ****
+          controlplane:
+            endpoints:
+              management:
+                authKey: ****
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+            ingresses:
+              - enabled: true
+                # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+                hostname: "agent-provider-cp.stable.demo.catena-x.net"
+                # -- EDC endpoints exposed by this ingress resource
+                endpoints:
+                  - protocol
+                  - management
+                  - api
+                # -- Enables TLS on the ingress resource
+                tls:
+                  enabled: true
+          token:
+            signer:
+              privatekey_alias: oem-key
+            verifier:
+              publickey_alias: oem-cert
+          auth: {}
+          ingresses:
+           - enabled: true
+             hostname: "provider-agent.stable.demo.catena-x.net"
+             endpoints:
+              - public
+              - default
+             tls:
+               enabled: true
+          configs:
+            dataspace.ttl: |-
+              ################################################
+              # Catena-X Agent Bootstrap
+              ################################################
+              @prefix : <GraphAsset?local=Dataspace> .
+              @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
+              @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+              @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+              @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+              @prefix bpnl: <bpn:legal:> .
+              @base <GraphAsset?local=Dataspace> .
 
-              ## Ingress declaration to expose the network service.
-              ingresses:
-                - enabled: true
-                  hostname: "agent-provider-dp.stable.demo.catena-x.net"
-                  # -- EDC endpoints exposed by this ingress resource
-                  endpoints:
-                    - public
-                    - default
-                    - control
-                    - callback
-                  # -- Enables TLS on the ingress resource
-                  tls:
-                    enabled: true
-  chart: agent-connector-memory
+              bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
+                                    cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
+                                    cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+
+              bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
+                                    cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
+                                    cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+          agent:
+            synchronization: 360000
+            connectors: 
+              BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
+  chart: agent-plane
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: product-knowledge
@@ -258,7 +344,7 @@ destination:
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 0.7.0
   plugin:
     env:
       - name: HELM_VALUES
@@ -281,29 +367,36 @@ source:
               transferProxyTokenSignerPrivateKey: consumer-key
               transferProxyTokenSignerPublicKey: consumer-cert
               transferProxyTokenEncryptionAesKey: consumer-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL0000000005VV
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl0000000005VV-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa5
+                  secret_alias: stable-consumer-dim
+          postgresql:
+              name: agent-postgresql2
+              jdbcUrl: jdbc:postgresql://agent-postgresql2:5432/consumer
+              auth:
+                 database: consumer
+                 username: consumer_user
+                 password: ****
           controlplane:
             securityContext:
               readOnlyRootFilesystem: false
             image:
               pullPolicy: Always
-            ssi:
-              miw:
-                # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
-                # -- The BPN of the issuer authority
-                authorityId: "BPNL00000003CRHK"
-              oauth:
-                # -- The URL (of Keycloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
-                client:
-                  # -- The client ID for Keycloak
-                  id: "sa5"
-                  # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-consumer-miw"
             endpoints:
               management:
-                authKey: ***
-            ## Ingress declaration to expose the network service.
+                authKey: ****
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
@@ -312,55 +405,138 @@ source:
                 endpoints:
                   - protocol
                   - management
-                  - control
+                  - api
                 # -- Enables TLS on the ingress resource
                 tls:
                   enabled: true
-          dataplanes:
-            dataplane:
-              securityContext:
-                readOnlyRootFilesystem: false
-              image:
-                pullPolicy: Always
-              configs:
-                dataspace.ttl: |-
-                  ################################################
-                  # Catena-X Agent Bootstrap
-                  ################################################
-                  @prefix : <GraphAsset?local=Dataspace> .
-                  @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
-                  @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
-                  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-                  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-                  @prefix bpnl: <bpn:legal:> .
-                  @base <GraphAsset?local=Dataspace> .
+            env:
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_URL: http://agent-plane-consumer:8087/api/signaling/v1/dataflows
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_SOURCETYPES: cx-common:Protocol?w3c:http:SPARQL,cx-common:Protocol?w3c:http:SKILL
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_TRANSFERTYPES: HttpData-PULL
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_DESTINATIONTYPES: HttpProxy
+               EDC_DATAPLANE_SELECTOR_AGENTPLANE_PROPERTIES: '{ "publicApiUrl": "https://consumer-agent.stable.demo.catena-x.net/api/public/" }'
+               EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+          dataplane:
+            token:
+              signer:
+                privatekey_alias: consumer-key
+              verifier:
+                publickey_alias: consumer-cert
+            env:
+              EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+  chart: tractusx-connector
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
 
-                  bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+#### App Consumer 4 Agent Plane Manifest
 
-                  bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
-              agent:
-                # synchronization: 360000
-                connectors:
-                  - https://agent-provider-cp.stable.demo.catena-x.net
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.12.19
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          participant:
+            id: BPNL0000000005VV
+          nameOverride: agent-plane-consumer
+          fullnameOverride: agent-plane-consumer
+          vault:
+            hashicorp:
+              enabled: true
+              url: https://vault.demo.catena-x.net
+              token: ****
+              healthCheck:
+                enabled: false
+                standbyOk: true
+              paths:
+                secret: /v1/knowledge
+            secretNames:
+              transferProxyTokenSignerPrivateKey: consumer-key
+              transferProxyTokenSignerPublicKey: consumer-cert
+              transferProxyTokenEncryptionAesKey: consumer-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL0000000005VV
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl0000000005VV-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa5
+                  secret_alias: stable-consumer-dim
+          postgresql:
+              name: agent-postgresql2
+              jdbcUrl: jdbc:postgresql://agent-postgresql2:5432/consumer
+              auth:
+                 database: consumer
+                 username: consumer_user
+                 password: ****
+          controlplane:
+            endpoints:
+              management:
+                authKey: ****
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+            ingresses:
+              - enabled: true
+                # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+                hostname: "agent-consumer-cp.stable.demo.catena-x.net"
+                # -- EDC endpoints exposed by this ingress resource
+                endpoints:
+                  - protocol
+                  - management
+                  - api
+                # -- Enables TLS on the ingress resource
+                tls:
+                  enabled: true
+          token:
+            signer:
+              privatekey_alias: consumer-key
+            verifier:
+              publickey_alias: consumer-cert
+          auth: {}
+          ingresses:
+           - enabled: true
+             hostname: "consumer-agent.stable.demo.catena-x.net"
+             endpoints:
+              - public
+              - default
+             tls:
+               enabled: true
+          configs:
+            dataspace.ttl: |-
+              ################################################
+              # Catena-X Agent Bootstrap
+              ################################################
+              @prefix : <GraphAsset?local=Dataspace> .
+              @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
+              @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+              @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+              @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+              @prefix bpnl: <bpn:legal:> .
+              @base <GraphAsset?local=Dataspace> .
 
-              ## Ingress declaration to expose the network service.
-              ingresses:
-                - enabled: true
-                  hostname: "agent-consumer-dp.stable.demo.catena-x.net"
-                  # -- EDC endpoints exposed by this ingress resource
-                  endpoints:
-                    - public
-                    - default
-                    - control
-                    - callback
-                  # -- Enables TLS on the ingress resource
-                  tls:
-                    enabled: true
-  chart: agent-connector-memory
+              bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
+                                    cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
+                                    cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+
+              bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
+                                    cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
+                                    cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+          agent:
+            synchronization: 360000
+            connectors: 
+              BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
+              BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
+  chart: agent-plane
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: product-knowledge
@@ -377,7 +553,7 @@ Therefore, some of the following settings are specific to stable and will not be
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 1.12.19
   plugin:
     env:
       - name: HELM_VALUES
@@ -452,7 +628,7 @@ For simplicity, the remoting agent exposes a simply public API as a graph.
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 1.12.19
   plugin:
     env:
       - name: HELM_VALUES
@@ -525,7 +701,7 @@ destination:
 
 ### 5. Perform Smoke Tests
 
-We provide a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-f11c5dda-cc04-444f-b38b-3deb3c098478?action=share&creator=2757771&ctx=documentation&active-environment=2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
+We provide a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-04658655-9019-4f1c-9de0-eeaf6245b9b6?action=share&source=copy-link&creator=2757771&ctx=documentation) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
 
 It consists of the following steps:
 
@@ -542,4 +718,4 @@ It consists of the following steps:
 * Query Data Graph Asset (Consumer)
 * Query Function Graph Asset (Consumer)
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
