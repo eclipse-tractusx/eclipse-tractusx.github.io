@@ -2,9 +2,10 @@
 sidebar_position: 2
 title: Agent-Enabled Dataspace Connector
 ---
+
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
@@ -30,25 +31,25 @@ For participating in Semantic-Web Driven Dataspace Applications following the Ca
 
 For more information see
 
-* Our [Adoption](../adoption-view/intro) guidelines
-* The [Implementation](../development-view/architecture) documentation
-* The [Deployment](deployment) overview
-* The [Conformity](testbed) testbed
-* A [Data Sovereignity & Graph Policy](policy) discussion
+- Our [Adoption](../adoption-view/intro) guidelines
+- The [Implementation](../development-view/architecture) documentation
+- The [Deployment](deployment) overview
+- The [Conformity](testbed) testbed
+- A [Data Sovereignity & Graph Policy](policy) discussion
 
 ### Quick Setup Guide for Agent-Enabled EDC (KA-EDC)
 
 Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example uses the postgresql-hashicorp variant but abstracts away from vault and SSI settings - *vaultsettings and*ssisettings as well as the persistence config, see [here](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) for more options and full details).
 
 ```yaml
-    - name: tractusx-connector
-      alias: my-connector
-      repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 0.7.0
-    - name: agent-plane
-      alias: my-agent-plane
-      repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.12.19
+- name: tractusx-connector
+  alias: my-connector
+  repository: https://eclipse-tractusx.github.io/charts/dev
+  version: 0.7.0
+- name: agent-plane
+  alias: my-agent-plane
+  repository: https://eclipse-tractusx.github.io/charts/dev
+  version: 1.12.19
 ```
 
 Then configure the connector in the values.yaml
@@ -75,7 +76,7 @@ my-connector:
       database: *customerDbName
       username: *customerDbUser
       password: *customerDbPass
-  vault: 
+  vault:
     azure: *azureVault
   controlplane: &myControlPlane
     endpoints:
@@ -112,7 +113,7 @@ my-connector:
       EDC_IAM_TRUSTED-ISSUER_0-ISSUER_ID: did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
 
 my-agent-plane:
-  url: 
+  url:
     public: ""
   participant:
     id: *customerBpn
@@ -134,7 +135,7 @@ my-agent-plane:
       database: *customerDbName
       username: *customerDbUser
       password: *customerDbPass
-  vault: 
+  vault:
     azure: *azureVault
   connector: my-connector
   controlplane: *consumerControlPlane
@@ -154,7 +155,7 @@ my-agent-plane:
       enabled: true
      certManager:
       clusterIssuer: *clusterIssuer
-  configs: 
+  configs:
     dataspace.ttl: |-
         ################################################
         # Catena-X Agent Bootstrap
@@ -174,7 +175,7 @@ my-agent-plane:
                             cx-common:hasConnector <edcs://{{controlPlaneName}}>.
   agent:
     synchronization: 360000
-    connectors: 
+    connectors:
       PARTNERBPNL: https://{{partnerConnectorHost}}
       MYBPNL: https://{{customerConnectorHost}}
 ```
@@ -204,22 +205,22 @@ curl --location --globoff 'https://{{customerConnectorHost}}/management/v2/polic
         "target": "https://w3id.org/catenax/ontology/common#SkillAsset?oem=",
         "action": "USE",
         "constraint": {
-					"@type": "LogicalConstraint",
-					"or" : [
-                        {
-												"@type" : "Constraint",
-												"leftOperand" : "BusinessPartnerNumber",
-												"operator" :"eq",
-												"rightOperand" : "{{PARTNERBPNL}}"
-						},
-                        {
-												"@type" : "Constraint",
-												"leftOperand" : "BusinessPartnerNumber",
-												"operator" :"eq",
-												"rightOperand" : "{{MYBPNL}}"
-						}
-                    ]
-                }
+           "@type": "LogicalConstraint",
+           "or" : [
+              {
+                "@type" : "Constraint",
+                "leftOperand" : "BusinessPartnerNumber",
+                "operator" :"eq",
+                "rightOperand" : "{{PARTNERBPNL}}"
+              },
+              {
+                "@type" : "Constraint",
+                "leftOperand" : "BusinessPartnerNumber",
+                "operator" :"eq",
+                "rightOperand" : "{{MYBPNL}}"
+              }
+            ]
+        }
      }]
     }
 }
@@ -264,7 +265,7 @@ PREFIX cx-behaviour:    <https://w3id.org/catenax/ontology/behaviour#>
 PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:             <http://www.w3.org/2001/XMLSchema#>
-PREFIX json:            <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX json:            <https://json-schema.org/draft/2020-12/schema#>
 PREFIX bpnl:      <bpn:legal:>
 PREFIX oem:             <GraphAsset?oem=>
 PREFIX supplier:        <GraphAsset?supplier=>
@@ -272,22 +273,22 @@ PREFIX supplier:        <GraphAsset?supplier=>
 ################################################################
 # Sample for a Federated (Consumer-Deployed) SparQL Skill which
 #  - Jumps into an OEM-owned reliability asset given a set of candidate VANs
-#  - Feeds the gathered data back into the respective supplier connector/agent 
-#.   to perform a health indication 
+#  - Feeds the gathered data back into the respective supplier connector/agent
+#.   to perform a health indication
 # Author: cgjung
 # (c) 2023 Catena-X assocation
 ################################################################
 
 SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?lc ?operatingTime ?mileage ?recordDate ?ls_type ?ls_name ?ls_value ?ls_unit ?ls_method ?ls_channels ?ls_classes ?ls_values ?distanceKm ?timeHours WHERE {
 
-  VALUES (?van ?aggregate ?ls_type) { 
-      ("@van"^^xsd:string "Differential Gear"^^xsd:string "GearOil"^^xsd:string) 
+  VALUES (?van ?aggregate ?ls_type) {
+      ("@van"^^xsd:string "Differential Gear"^^xsd:string "GearOil"^^xsd:string)
   }
 
   bpnl:BPNL00000003AYRE cx-common:hasConnector ?oemEDC.
   ?oemEDC cx-common:offers [ rdfs:isDefinedBy <https://w3id.org/catenax/ontology/reliability>; cx-common:id ?reliabilityAssetId].
-  
-  SERVICE ?oemEDC {  
+
+  SERVICE ?oemEDC {
       GRAPH ?reliabilityAssetId {
         ?vehicle rdf:type cx-vehicle:Vehicle;
             cx-vehicle:vehicleIdentificationNumber ?van.
@@ -296,7 +297,7 @@ SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?lc ?operatingTime ?mileage 
             cx-vehicle:name ?aggregate;
             cx-vehicle:isPartOf ?vehicle;
             cx-vehicle:supplier ?supplier.
-            
+
         ?teleAnalysis rdf:type cx-reliability:Analysis;
             cx-reliability:analysedObject ?assembly;
             cx-reliability:operatingHoursOfVehicle ?operatingTime;
@@ -338,7 +339,7 @@ SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?lc ?operatingTime ?mileage 
                     cx-behaviour:bodyCountsList ?ls_values;
                     cx-behaviour:remainingOperatingHours ?timeHours;
                     cx-behaviour:remainingRunningDistance ?distanceKm.
-        } # SUPPLIER#GRAPH          
+        } # SUPPLIER#GRAPH
     } # SUPPLIER#CATALOG
 
   } # OEM#CATALOG
@@ -383,7 +384,7 @@ curl --location --globoff 'https://{{customerAgentHost}}/api/agent?asset=SkillAs
                     "type": "literal",
                     "value": "DVAJDTLJMKKZGY"
                 }
-            }   
+            }
         ]
     }
 }'
@@ -421,7 +422,7 @@ curl --location --globoff 'https://{{customerAgentHost}}/api/agent?asset={{URLEN
                     "type": "literal",
                     "value": "DVAJDTLJMKKZGY"
                 }
-            }   
+            }
         ]
     }
 }'
