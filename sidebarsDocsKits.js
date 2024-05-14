@@ -53,7 +53,6 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/development-view/architecture',
                       'kits/knowledge-agents/development-view/Arc42',
                       'kits/knowledge-agents/development-view/modelling',
                       'kits/knowledge-agents/development-view/modules',
@@ -83,7 +82,6 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/operation-view/deployment',
                       'kits/knowledge-agents/operation-view/agent_edc',
                       'kits/knowledge-agents/operation-view/provider',
                       'kits/knowledge-agents/operation-view/bridge',
