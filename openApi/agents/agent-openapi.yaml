@@ -9,7 +9,7 @@ info:
   license:
     name: Eclipse Public License
     url: https://www.eclipse.org/legal/epl-2.0/
-  version: 1.11.16
+  version: 1.12.19
 externalDocs:
   description: https://eclipse-tractusx.github.io/docs-kits/category/agents-kit
   url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api
@@ -785,15 +785,15 @@ paths:
         "500":
           description: Fatal error
   /skill:
-    post:
+    get:
       tags:
       - agent
-      summary: Register a Skill
-      operationId: postSkill
+      summary: Get a Skill
+      operationId: getSkill
       parameters:
       - name: asset
         in: query
-        description: The Target Asset of the Query (targets the complete dataspace if empty)
+        description: The Asset Id of the Skill
         required: true
         style: form
         explode: true
@@ -804,6 +804,86 @@ paths:
             $ref: '#/components/examples/DataspaceSkill'
           LifetimeSkill:
             $ref: '#/components/examples/LifetimeSkill'
+      responses:
+        "200":
+          description: Skill has been found
+          content:
+            application/sparql-query:
+              schema:
+                type: string
+              examples:
+                Dataspace:
+                  $ref: '#/components/examples/Dataspace'
+                Lifetime:
+                  $ref: '#/components/examples/AuthorsWithLimits'
+        "400":
+          description: Skill has not been found
+        "500":
+          description: Fatal error
+    post:
+      tags:
+      - agent
+      summary: Register a Skill
+      operationId: postSkill
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Skill
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          DataspaceSkill:
+            $ref: '#/components/examples/DataspaceSkill'
+          LifetimeSkill:
+            $ref: '#/components/examples/LifetimeSkill'
+      - name: assetName
+        in: query
+        description: The Asset Name of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Example Skill
+      - name: assetVersion
+        in: query
+        description: The Version of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 1.0.5
+      - name: assetDescription
+        in: query
+        description: The Description of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Performs a sample operation on the dataspace.
+      - name: allowServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are allowed during execution.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: edcs://.*
+      - name: denyServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are forbidden during execution.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: https?://.*
       - name: distributionMode
         in: query
         description: The distribution mode under which to publish the skill
@@ -866,6 +946,159 @@ paths:
           description: Skill has been updated
         "400":
           description: Bad request or malformed SPARQL
+        "500":
+          description: Fatal error
+  /graph:
+    post:
+      tags:
+      - graph
+      summary: Upload a Graph
+      operationId: postGraph
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Graph
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          GraphAsset:
+            $ref: '#/components/examples/GraphAsset'
+      - name: assetName
+        in: query
+        description: The Asset Name of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Example Graph
+      - name: assetVersion
+        in: query
+        description: The Version of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 3.2.1
+      - name: assetDescription
+        in: query
+        description: The Description of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Contains freshly uploaded traceability data.
+      - name: allowServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are allowed when traversing this graph.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: edcs://.*
+      - name: denyServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are forbidden when travering this graph.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: https?://.*
+      - name: contract
+        in: query
+        description: The contract under which the graph should be published
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Contract'
+      - name: shape
+        in: query
+        description: "The shape of the asset if it is known,."
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Shape:
+            $ref: '#/components/examples/Shape'
+      - name: isFederated
+        in: query
+        description: Whether the graph should be visible in the Federated Catalogue
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+      - name: ontology
+        in: query
+        description: Multiple references to ontologies which are referenced in the graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Ontology'
+      requestBody:
+        description: The body either contains rdf in TTL (terse triple language) syntax or CSV
+        content:
+          text/turtle:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/GraphTtl'
+          text/csv:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/GraphCsv'
+        required: true
+      responses:
+        "200":
+          description: Graph has been registered
+        "204":
+          description: Graph has been updated
+        "400":
+          description: Bad request or malformed CSV/TTL
+        "500":
+          description: Fatal error
+    delete:
+      tags:
+      - graph
+      summary: Delete a Graph (Asset)
+      operationId: deleteGraph
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Graph
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          GraphAsset:
+            $ref: '#/components/examples/GraphAsset'
+      responses:
+        "200":
+          description: Graph has been deleted
+        "400":
+          description: Graph has not been found
         "500":
           description: Fatal error
 components:
@@ -1184,6 +1417,9 @@ components:
     LifetimeSkill:
       summary: Predefined Skill to Perform a Lifetime Prognosis
       value: SkillAsset?consumer=RemainingUsefulLife
+    GraphAsset:
+      summary: Sample Graph Asset Name
+      value: GraphAsset?provider=Traceability
     Vehicle1:
       summary: Vehicle Parameter
       value: WBAAL31029PZ00001
@@ -1252,6 +1488,62 @@ components:
     Ontology:
       summary: An example reference to an ontology
       value: https://w3id.org/catenax/ontology/behaviour
+    GraphTtl:
+      summary: An example graph in TTL syntax
+      value: |-
+        #################################################################
+        # Graph Asset in TTL/RDF/OWL FORMAT
+        # See copyright notice in the top folder
+        # See authors file in the top folder
+        # See license file in the top folder
+        #################################################################
+
+        @prefix : <GraphAsset?consumer=Upload> .
+        @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+        @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+        @prefix cx-supply: <https://w3id.org/catenax/ontology/supply-chain#> .
+        @prefix cx-mat: <https://w3id.org/catenax/taxonomy/material#> .
+        @prefix bpnl: <urn:bpn:legal:> .
+        @prefix bpns: <urn:bpn:site:> .
+        @prefix bpna: <urn:bpn:address:> .
+        @prefix bpnl: <urn:bpn:legal:> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+        @prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+        :Chain1 rdf:type cx-supply:SupplyRelationship;
+                cx-supply:material cx-mat:Rubber;
+                cx-supply:consumer bpna:BPNL00000003COJN;
+                cx-supply:supplier bpns:BPNL00000003CPIY.
+    GraphCsv:
+      summary: An example graph in CSV syntax
+      value: |-
+        IRI,http://www.w3.org/1999/02/22-rdf-syntax-ns#type,https://w3id.org/catenax/ontology/supply-chain#material,https://w3id.org/catenax/ontology/supply-chain#consumer,https://w3id.org/catenax/ontology/supply-chain#supplier
+        :Chain1,<https://w3id.org/catenax/ontology/supply-chain#SupplyRelationship>,<https://w3id.org/catenax/taxonomy/material#Rubber>,<urn:bpn:address:BPNL00000003COJN>,<urn:bpn:site:BPNL00000003CPIY>
+    Shape:
+      summary: An example shape in TTL syntax
+      value: |-
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix owl: <http://www.w3.org/2002/07/owl#> .
+        @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+        @prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .
+        @prefix sh: <http://www.w3.org/ns/shacl#> .
+        @prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?provider=Traceability&shapeObject=>
+        # Asset content description (exp:vehicleShapeGraph)
+        :VehicleShape a sh:NodeShape ;
+          sh:targetClass cx-vehicle:Vehicle ;
+          sh:property [
+            sh:path cx-vehicle:vehicleIdentificationNumber ;
+            sh:pattern "[A-Z0-9]{17}";
+            sh:minCount 1 ;
+          ] ;
+          sh:property [
+            sh:path cx-core:name ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+          ] .
   securitySchemes:
     BasicAuth:
       type: http

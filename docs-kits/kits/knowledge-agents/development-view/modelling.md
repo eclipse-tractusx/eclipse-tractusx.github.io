@@ -224,7 +224,6 @@ For more taxonomies, see the complete namespace [https://w3id.org/catenax](https
 The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data. Finally it may also sketch what form the data (shape) has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration. In the dataspace, this information (meta-graph) is usually not kept at a single, central location. Instead, each participant offers self-descriptions of the graphs and skills (see below) according to the dataspace standards through its [Agent-Enabled Connector](../operation-view/agent_edc). There is a builtin synchronization capability of each such connector to contact the other connectors in its surrounding, regulary obtain catalogues of graph/skill offers and federate them into a tenant-specific meta-graph (the so-called federated data catalogue).
 
 ```ttl
-
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
