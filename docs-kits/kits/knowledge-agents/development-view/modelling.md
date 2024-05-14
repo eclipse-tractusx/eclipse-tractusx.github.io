@@ -221,7 +221,7 @@ For more taxonomies, see the complete namespace [https://w3id.org/catenax](https
 
 ## Asset Content Description
 
-The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data, what form the data has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration.
+The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data. Finally it may also sketch what form the data (shape) has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration. In the dataspace, this information (meta-graph) is usually not kept at a single, central location. Instead, each participant offers self-descriptions of the graphs and skills (see below) according to the dataspace standards through its [Agent-Enabled Connector](../operation-view/agent_edc). There is a builtin synchronization capability of each such connector to contact the other connectors in its surrounding, regulary obtain catalogues of graph/skill offers and federate them into a tenant-specific meta-graph (the so-called federated data catalogue).
 
 ```ttl
 
@@ -243,7 +243,6 @@ exp:asset_1 rdf:type cx-common:Asset;
 
 exp:dataAddress_1 rdf:type cx-common:DataAddress;
   cx-common:baseUrl "http://provisioning-agent:8080/sparql";
-
 
 # Asset content description (exp:vehicleShapeGraph)
 exp:VehicleShape a sh:NodeShape ;
@@ -368,8 +367,6 @@ The same result (for mime-type "application/sparql-results+json"):
 
 ```
 
-<br/>
-
 Specific query example: Returns all vehicles and their name and manufacturing activities.
 
 ```sparql
@@ -388,15 +385,11 @@ where {
 
 ```
 
-<br/>
-
 Query result is the same as the first one:
 
 | ?activity   | ?physicalObject |?name|
 | ----------- | ----------- | ----------- |
 |exp:manufacturing_1|exp:vehicle_1|"Goggomobil"|
-
-<br/>
 
 ## Federated Query
 
@@ -441,8 +434,6 @@ Federated Query result (for mime-type "text/csv"):
 |"Goggomobil"| "ABCDEFG1HI2J34567" |"Cylinder misfire"|
 |"Fliewatüüt"| "0815" |"Rotor breakdown"|
 |"Herbie"| "4711" |"Low Oil Pressure"|
-
-<br/>
 
 ## Skill
 
@@ -489,6 +480,263 @@ Skill invocation result (for mime-type "text/csv"):
 |"Goggomobil"| "ABCDEFG1HI2J34567" |"Cylinder misfire"|
 |"Herbie"| "4711" |"Low Oil Pressure"|
 
-<br/>
+## A Realistic Sample of Asset Content and Inference
+
+In the following, we like to demonstrate the SHACL (Shapes)-Description of three graphs/assets (one data graph/asset carrying telematics data and two function graph/assets carrying different prognosis functions). These examples are used in the [Behaviour Twin Kit/Use Case](../../behaviour-twin-kit/overview). Afterwards, we develop a (part) of a Skill which aligns these graphs/assets such that their federation will produce the desired output. It is used in the final [Behaviour Prognosis Skill](../operation-view/agent_edc).
+
+In the following example, we map existing API backends to the [Behaviour Ontology](https://w3id.org/catenax/ontology/behaviour), the [Reliability Ontology](https://w3id.org/catenax/ontology/reliability), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Function Ontology](https://w3id.org/catenax/ontology/function), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
+
+### Shape of a Telematics Data Asset
+
+The following shape describes the telematics graph to contain load spectra analyses of three types (cx-taxo:GearOil, cx-taxo:GearSet and cx-taxo:Clutch). It maybe extended to
+further constrain the associated vehicles (like by a verhicle series and production date range). Basically, all classes and predicates from the corresponding ontologies should be
+"listed" even if there is no constraint on their properties known. This also allows to check whether the participant has fulfilled its role in the use case (which also has a list of mandatory and optional classes and properties as a kind of specification).
+
+```ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+@prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+@prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .
+@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .
+@prefix cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#> .
+@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#> .
+@prefix cx-sh: <https://w3id.org/catenax/ontology/schema#> .
+@prefix cx-taxo: <https://w3id.org/catenax/taxonomy#> .
+@prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?provider=BehaviourTwinReliability&shapeObject=> .
+
+:LoadSpectrumShape a sh:NodeShape ;
+    sh:targetClass  cx-reliability:LoadSpectrum;
+    sh:property :observationOfShape, 
+                :countingValueShape, 
+                :countingUnitShape, 
+                :countingMethodShape, 
+                :channelsShape, 
+                :classesShape, 
+                :valuesShape.
+
+:observationOfShape a sh:PropertyShape;
+    sh:path cx-reliability:observationOf;
+    sh:in (cx-taxo:GearOil cx-taxo:GearSet cx-taxo:Clutch).
+
+:countingValueShape a sh:PropertyShape;
+    sh:path cx-reliability:countingValue.
+
+:countingUnitShape a sh:PropertyShape;
+    sh:path cx-reliability:countingUnit.
+
+:countingMethodShape a sh:PropertyShape;
+    sh:path cx-reliability:countingMethod.
+
+:countingMethodShape a sh:PropertyShape;
+    sh:path cx-reliability:countingMethod.
+
+:channelsShape a sh:PropertyShape;
+    sh:path cx-reliability:channels.
+
+:classesShape a sh:PropertyShape;
+    sh:path cx-reliability:classes.
+
+:valuesShape a sh:PropertyShape;
+    sh:path cx-reliability:values.
+```
+
+### Shape of Prognosis Function Assets
+
+The following shapes describe two different prognosis functions (one computing the Remaining Useful Lifetime and one computing a Health Indicator) which each take a different set of load spectra analyses as their input (cx-taxo:GearOil and cx-taxo:GearSet versus cx-taxo:Clutch). and produce a different output.
+
+```ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+@prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+@prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .
+@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .
+@prefix cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#> .
+@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#> .
+@prefix cx-sh: <https://w3id.org/catenax/ontology/schema#> .
+@prefix cx-taxo: <https://w3id.org/catenax/taxonomy#> .
+@prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?provider=BehaviourTwinRUL&shapeObject=> .
+
+# Prognosis Function
+:PrognosisFunctionShape rdf:type sh:NodeShape ;
+    sh:targetClass cx-behaviour:PrognosisFunction;
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingMethod;
+        sh:path cx-behaviour:countingMethod;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingValue;
+        sh:path cx-behaviour:countingValue;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingUnit;
+        sh:path cx-behaviour:countingUnit;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:channels;
+        sh:path cx-behaviour:headerChannels;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:classes;
+        sh:path cx-behaviour:bodyClasses;
+    ].
+
+:RemainingUsefulLifeShape rdf:type sh:NodeShape ;
+    cx-sh:extensionOf :PrognosisFunctionShape;
+    sh:targetClass cx-behaviour:RemainingUsefulLife ;
+      sh:property[
+        cx-sh:hasAsArgument cx-reliability:observationOf;
+        sh:path cx-behaviour:observationType;
+        sh:in ( cx-taxo:GearSet cx-taxo:GearOil );
+    ];
+    sh:property :RemainingUsefulLifeResultShape.
+
+:RemainingUsefulLifeResult rdf:type sh:PropertyShape;
+    cx-sh:outputOf :RemainingUsefulLifeShape;
+    sh:path cx-behaviour:RemainingUsefulLifeResult .
+```
+
+```ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+@prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+@prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .
+@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .
+@prefix cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#> .
+@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#> .
+@prefix cx-sh: <https://w3id.org/catenax/ontology/schema#> .
+@prefix cx-taxo: <https://w3id.org/catenax/taxonomy#> .
+@prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?supplier=BehaviourTwinHI&shapeObject=> .
+
+# Prognosis Function
+:PrognosisFunctionShape rdf:type sh:NodeShape ;
+    sh:targetClass cx-behaviour:PrognosisFunction;
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingMethod;
+        sh:path cx-behaviour:countingMethod;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingValue;
+        sh:path cx-behaviour:countingValue;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:countingUnit;
+        sh:path cx-behaviour:countingUnit;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:channels;
+        sh:path cx-behaviour:headerChannels;
+    ];
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:classes;
+        sh:path cx-behaviour:bodyClasses;
+    ].
+
+    # Prognosis Function
+    :PrognosisFunctionShape a sh:NodeShape ;
+        sh:targetClass cx-behaviour:PrognosisFunction;
+        sh:property[
+            cx-sh:hasAsArgument cx-reliability:countingMethod;
+            sh:path cx-behaviour:countingMethod;
+        ];
+        sh:property[
+            cx-sh:hasAsArgument cx-reliability:countingValue;
+            sh:path cx-behaviour:countingValue;
+        ];
+        sh:property[
+            cx-sh:hasAsArgument cx-reliability:countingUnit;
+            sh:path cx-behaviour:countingUnit;
+        ];
+        sh:property[
+            cx-sh:hasAsArgument cx-reliability:channels;
+            sh:path cx-behaviour:headerChannels;
+        ];
+        sh:property[
+            cx-sh:hasAsArgument cx-reliability:classes;
+            sh:path cx-behaviour:bodyClasses;
+        ].
+    
+:HealthIndicationShape a sh:NodeShape ;
+    cx-sh:extensionOf :PrognosisFunctionShape;
+    sh:targetClass cx-behaviour:HealthIndication;
+    sh:property [
+        cx-sh:hasAsArgument cx-reliability:observationOf;
+        sh:path cx-behaviour:observationType;
+        sh:in ( cx-taxo:Clutch );
+    ];
+    sh:property :HealthIndicationResultShape.
+    
+:HealthIndicationResultShape a sh:PropertyShape;
+    cx-sh:outputOf :HealthIndicationShape;
+    sh:path cx-behaviour:HealthIndicationResult .
+```
+
+### A Sparql to Align/Federate Assets based on Desired Output
+
+```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX cx-sh: <https://w3id.org/catenax/ontology/schema#>
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-core: <https://w3id.org/catenax/ontology/core#>
+PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#> 
+PREFIX cx-schema: <https://w3id.org/catenax/ontology/schema#>
+PREFIX cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#>
+PREFIX cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#>
+PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
+
+################################################################
+# Sample for a Goal-Oriented SparQL Skill (Pattern) which
+#  - Depending on the targetted result
+#  - Finds the right supplier prognosis asset and its preconditions
+#  - identifies the right OEM-owned reliability asset to obtain the required data
+# Author: cgjung
+# (c) 2023-2024 Catena-X assocation
+################################################################
+
+SELECT DISTINCT ?resultType ?functionConnector ?functionAsset ?dataConnector ?dataAsset WHERE {
+
+  VALUES (?result_type) { 
+      (<https://w3id.org/catenax/ontology/behaviour#RemainingUsefulLifeResult> <https://w3id.org/catenax/ontology/behaviour#HealthIndicationResult>) 
+  }
+
+  # Determine the prognosis assets and calculate the required loadspectrum types
+  ?output sh:path ?result_type.
+  ?output cx-sh:outputOf ?functionShape. 
+  ?assetFunction cx-sh:shapeObject ?functionShape.
+  ?functionConnector cx-common:offers ?assetFunction.
+  ?functionShape cx-sh:extensionOf* ?parentFunctionShape.
+  ?functionShape sh:targetClass ?function.
+  ?parentFunctionShape sh:property ?functionProperty.
+  ?functionProperty cx-sh:hasAsArgument ?argument.
+  ?functionProperty sh:in ?parameters.
+  ?parameters rdf:rest*/rdf:first ?ls_type.
+
+  # Determine the data asset which hosts the ls type
+  ?assetData cx-sh:shapeObject ?nodeShape.
+  ?dataConnector cx-common:offers ?assetData.
+  ?nodeShape sh:property ?propertyShape.
+  ?propertyShape sh:path ?argument. 
+  ?propertyShape sh:in ?parameters_target.
+  ?parameters_target rdf:rest*/rdf:first ?ls_type.
+```
 
 <sub><sup>(C) 2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

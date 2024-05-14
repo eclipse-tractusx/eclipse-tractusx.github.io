@@ -158,14 +158,14 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "cx-common": "https://w3id.org/catenax/ontology/common#"
   },
-  "@id": "Policy?oem=Skill",
+  "@id": "Policy?me=Skill",
   "policy": {
     "@context": "http://www.w3.org/ns/odrl.jsonld",
     "@type": "Set",
-    "uid": "https://w3id.org/catenax/ontology/common#Policy?oem=Skill",
+    "uid": "https://w3id.org/catenax/ontology/common#Policy?me=Skill",
     "permission": [
       {
-        "target": "https://w3id.org/catenax/ontology/common#SkillAsset?oem=",
+        "target": "https://w3id.org/catenax/ontology/common#SkillAsset?me=",
         "action": "USE",
         "constraint": {
            "@type": "LogicalConstraint",
@@ -206,10 +206,10 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
     "@context": {
          "cx-common": "https://w3id.org/catenax/ontology/common#"
     },
-    "@id": "cx-common:Contract?me=SkillContract",
+    "@id": "Contract?me=Skill",
     "@type": "ContractDefinition",
-    "accessPolicyId": "Policy?me=SkillPolicy",
-    "contractPolicyId": "Policy?me=SkillPolicy",
+    "accessPolicyId": "Policy?me=Skill",
+    "contractPolicyId": "Policy?me=Skill",
     "assetsSelector" : [
      {
         "@type" : "CriterionDto",
@@ -246,8 +246,6 @@ PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:             <http://www.w3.org/2001/XMLSchema#>
 PREFIX json:            <https://json-schema.org/draft/2020-12/schema#>
 PREFIX bpnl:            <bpn:legal:>
-PREFIX oem:             <GraphAsset?oem=>
-PREFIX supplier:        <GraphAsset?supplier=>
 
 ################################################################
 # Sample for a Federated (Consumer-Deployed) SparQL Skill which
