@@ -20,9 +20,10 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 - Cloud Environment (AWS/Azure) or a local machine with at least 2 CPUs, 16GB RAM, 20GB free storage
 - Docker
 - Kubernetes
-- Kind (for local systems)
-- Helm (will be installed by Terraform)
-- Terraform
+- Kubectl
+- Minikube
+- Helm
+
 
 ## Chosing your environment
 
