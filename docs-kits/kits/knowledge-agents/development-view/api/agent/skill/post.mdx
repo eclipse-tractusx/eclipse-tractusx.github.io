@@ -34,13 +34,18 @@ POST /agent/skill
 
 ## Parameters
 
-| name             | in    | type    | required | description                                                             |
-| ---------------- | ----- | ------- | -------- | ----------------------------------------------------------------------- |
-| asset            | query | string  | true     | The Target Asset of the Query (targets the complete dataspace if empty) |
-| distributionMode | query | string  | false    | The distribution mode under which to publish the skill                  |
-| contract         | query | string  | false    | The contract under which the skill should be published                  |
-| isFederated      | query | boolean | false    | Whether the skill should be visible in the Federated Catalogue          |
-| ontology         | query | string  | false    | Multiple references to ontologies which are referenced in the skill     |
+| name                | in    | type    | required | description                                                                    |
+| ------------------- | ----- | ------- | -------- | ------------------------------------------------------------------------------ |
+| asset               | query | string  | true     | The Asset Id of the Skill                                                      |
+| assetName           | query | string  | false    | The Asset Name of the Skill                                                    |
+| assetDescription    | query | string  | false    | The Asset Description of the Skill                                             |
+| assetVersion        | query | string  | false    | The Asset Version of the Skill                                                 |
+| distributionMode    | query | string  | false    | The distribution mode under which to publish the skill                         |
+| contract            | query | string  | false    | The contract under which the skill should be published                         |
+| isFederated         | query | boolean | false    | Whether the skill should be visible in the Federated Catalogue                 |
+| ontology            | query | string  | false    | Multiple references to ontologies which are referenced in the skill            |
+| allowServicePattern | query | string  | false    | A regex indicating which external SERVICE Iris are allowed during execution.   |
+| denyServicePattern  | query | string  | false    | A regex indicating which external SERVICE Iris are forbidden during execution. |
 
 ## Request Body
 
@@ -48,16 +53,34 @@ POST /agent/skill
 | ------------ | ------------------------ |
 | content-type | application/sparql-query |
 
-```json title="Example request"
-"string"
+```sparql title="Example request"
+SELECT DISTINCT ?luogo ?indirizzo ?comune WHERE {
+  ?x a cis:CulturalInstituteOrSite ;
+  cis:institutionalCISName ?luogo ;
+  cis:hasSite ?site .
+  ?site cis:siteAddress ?address .
+  ?address clvapit:fullAddress ?indirizzo ;
+          clvapit:hasCity [rdfs:label ?comune] .
+  FILTER regex(str(?comune), "Vinci", "i")
+}  ORDER BY ?luogo LIMIT 100
 ```
 
 ## Code Snippets
 
 ```shell title="Shell + Curl"
 curl --request POST \
-  --url 'https://knowledge.dev.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api/agent/skill?asset=SOME_STRING_VALUE&distributionMode=SOME_STRING_VALUE&contract=SOME_STRING_VALUE&isFederated=SOME_BOOLEAN_VALUE&ontology=SOME_STRING_VALUE' \
-  --header 'content-type: application/sparql-query'
+  --url 'https://knowledge.dev.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api/agent/skill?asset=SkillAsset%3Fconsumer%3DDataspace&assetName=Sample%20Skill&assetVersion=1.0.5&assetDescription=Performs%20some%20sample%20operations.&distributionMode=ALL&contract=Contract%3Fconsumer%3DSkill&isFederated=true&allowedServicePattern=edcs%3F%3A%2F%2F.*' \
+  --header 'content-type: application/sparql-query' \
+  --data 'SELECT DISTINCT ?luogo ?indirizzo ?comune WHERE {
+  ?x a cis:CulturalInstituteOrSite ;
+  cis:institutionalCISName ?luogo ;
+  cis:hasSite ?site .
+  ?site cis:siteAddress ?address .
+  ?address clvapit:fullAddress ?indirizzo ;
+          clvapit:hasCity [rdfs:label ?comune] .
+  FILTER regex(str(?comune), "Vinci", "i")
+}  ORDER BY ?luogo LIMIT 100
+'
 ```
 
 ## Responses
@@ -78,4 +101,4 @@ Bad request or malformed SPARQL
 
 Fatal error
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

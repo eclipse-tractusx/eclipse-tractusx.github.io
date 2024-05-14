@@ -74,17 +74,21 @@ The CAB may use the following Policy Definitions and Contract Definitions in its
 ```json
 {
     "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "cx-common": "https://w3id.org/catenax/ontology/common#"
     },
-    "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?cab=Asset&mode=open",
     "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : []
-  }]
+        "@context": "http://www.w3.org/ns/odrl.jsonld",
+        "@type": "Set",
+        "uid": "https://w3id.org/catenax/ontology/common#Policy?oem=Graph",
+        "permission": [
+            {
+                "target": "https://w3id.org/catenax/ontology/common#GraphAsset?oem=",
+                "action": "USE",
+                "constraint": []
+            }
+        ]
     }
 }
 ```
@@ -94,24 +98,26 @@ The CAB may use the following Policy Definitions and Contract Definitions in its
 ```json
 {
     "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "cx-common": "https://w3id.org/catenax/ontology/common#"
     },
-    "@type": "PolicyDefinitionRequestDto",
     "@id": "Policy?cab=Asset&mode=closed",
     "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : {
-    "@type" : "Constraint",
-    "odrl:leftOperand" : "BusinessPartnerNumber",
-     "odrl:operator" : {
-                        "@id": "odrl:eq"
-                    },
-    "odrl:rightOperand" : "{{cabBPNL}}"
-   }
-  }]
+        "@context": "http://www.w3.org/ns/odrl.jsonld",
+        "@type": "Set",
+        "uid": "https://w3id.org/catenax/ontology/common#Policy?oem=Graph",
+        "permission": [
+            {
+                "target": "https://w3id.org/catenax/ontology/common#GraphAsset?oem=",
+                "action": "USE",
+                "constraint": {
+                    "@type": "Constraint",
+                    "leftOperand": "BusinessPartnerNumber",
+                    "operator": "eq",
+                    "rightOperand": "{{cabBPNL}}"
+                }
+            }
+        ]
     }
 }
 ```
@@ -165,30 +171,31 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "GraphAsset?cab=Conforming&mode=open", 
-        "properties": {
-            "name": "Open Conforming Asset.",
-            "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
-            "rdf:type": "cx-common:GraphAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
-            "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=open#> .\n",
-            "cx-common:isFederated": "true^^xsd:boolean"
-        }
+    "@id": "GraphAsset?cab=Conforming&mode=open",
+    "properties": {
+        "cx-common:name": "Open Conforming Asset.",
+        "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
+        "dct:type": "cx-taxo:GraphAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+        "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=open#> .\n",
+        "cx-common:isFederated": "true^^xsd:boolean"
     },
+    "privateProperties": {},
     "dataAddress": {
-        "id": "GraphAsset?cab=Conforming&mode=open", 
+        "id": "GraphAsset?cab=Conforming&mode=open",
         "@type": "DataAddress",
         "baseUrl": "{{cabConformingAgent}}/bind",
         "type": "cx-common:Protocol?w3c:http:SPARQL",
@@ -205,30 +212,31 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "GraphAsset?cab=Conforming&mode=closed", 
-        "properties": {
-            "name": "Closed Conforming Asset.",
-            "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
-            "rdf:type": "cx-common:GraphAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
-            "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=closed#> .\n",
-            "cx-common:isFederated": "true^^xsd:boolean"
-        }
+    "@id": "GraphAsset?cab=Conforming&mode=closed",
+    "properties": {
+        "cx-common:name": "Closed Conforming Asset.",
+        "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
+        "dct:type": "cx-taxo:GraphAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+        "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=closed#> .\n",
+        "cx-common:isFederated": "true^^xsd:boolean"
     },
+    "privateProperties": {},
     "dataAddress": {
-        "id": "GraphAsset?cab=Conforming&mode=closed", 
+        "id": "GraphAsset?cab=Conforming&mode=closed",
         "@type": "DataAddress",
         "baseUrl": "{{cabConformingAgent}}/bind",
         "type": "cx-common:Protocol?w3c:http:SPARQL",
@@ -245,30 +253,31 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "GraphAsset?cab=Conforming&mode=unfederated", 
-        "properties": {
-            "name": "Unfederated Conforming Asset.",
-            "description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Graph&mode=open",
-            "rdf:type": "cx-common:GraphAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
-            "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=unfederated#> .\n",
-            "cx-common:isFederated": "false^^xsd:boolean"
-        }
+    "@id": "GraphAsset?cab=Conforming&mode=unfederated",
+    "properties": {
+        "cx-common:name": "Unfederated Conforming Asset.",
+        "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Graph&mode=open",
+        "dct:type": "cx-taxo:GraphAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+        "sh:shapesGraph": "@prefix : <GraphAsset?cab=Conforming&mode=unfederated#> .\n",
+        "cx-common:isFederated": "false^^xsd:boolean"
     },
+    "privateProperties": {},
     "dataAddress": {
-        "id": "GraphAsset?cab=Conforming&mode=unfederated", 
+        "id": "GraphAsset?cab=Conforming&mode=unfederated",
         "@type": "DataAddress",
         "baseUrl": "{{cabConformingAgent}}/bind",
         "type": "cx-common:Protocol?w3c:http:SPARQL",
@@ -289,32 +298,33 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "SkillAsset?cab=Conforming&mode=open", 
-        "properties": {
-            "name": "Open Skill",
-            "description": "A conformity assessment skill.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
-            "rdf:type": "cx-common:SkillAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
-            "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
-            "cx-common:isFederated": "true^^xsd:boolean"
-        },
-        "privateProperties": {
-            "cx-common:query":"# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
-        }
+    "@id": "SkillAsset?cab=Conforming&mode=open",
+    "properties": {
+        "cx-common:name": "Open Skill",
+        "cx-common:description": "A conformity assessment skill.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
+        "dct:type": "cx-taxo:SkillAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
+        "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
+        "cx-common:isFederated": "true^^xsd:boolean"
+    },
+    "privateProperties": {
+        "cx-common:query": "# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
     },
     "dataAddress": {
-        "id":"SkillAsset?cab=Conforming&mode=open",
+        "id": "SkillAsset?cab=Conforming&mode=open",
         "@type": "DataAddress",
         "type": "cx-common:Protocol?w3c:http:SKILL",
         "proxyPath": "false",
@@ -323,7 +333,6 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
         "proxyBody": "true"
     }
 }
-
 ```
 
 ### Closed Skill Asset
@@ -331,32 +340,33 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "SkillAsset?cab=Conforming&mode=closed", 
-        "properties": {
-            "name": "Closed Skill",
-            "description": "A conformity assessment skill.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
-            "rdf:type": "cx-common:SkillAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
-            "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
-            "cx-common:isFederated": "false^^xsd:boolean"
-        },
-        "privateProperties": {
-            "cx-common:query":"# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=closed> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
-        }
+    "@id": "SkillAsset?cab=Conforming&mode=closed",
+    "properties": {
+        "cx-common:name": "Closed Skill",
+        "cx-common:description": "A conformity assessment skill.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
+        "dct:type": "cx-taxo:SkillAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
+        "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
+        "cx-common:isFederated": "false^^xsd:boolean"
+    },
+    "privateProperties": {
+        "cx-common:query": "# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=closed> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
     },
     "dataAddress": {
-        "id":"SkillAsset?cab=Conforming&mode=closed",
+        "id": "SkillAsset?cab=Conforming&mode=closed",
         "@type": "DataAddress",
         "type": "cx-common:Protocol?w3c:http:SKILL",
         "proxyPath": "false",
@@ -372,32 +382,33 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "SkillAsset?cab=Conforming&mode=provider", 
-        "properties": {
-            "name": "Provider-Forced Skill",
-            "description": "A conformity assessment skill.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
-            "rdf:type": "cx-common:SkillAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
-            "cx-common:distributionMode": "cx-common:SkillDistribution?run=provider",
-            "cx-common:isFederated": "true^^xsd:boolean"
-        },
-        "privateProperties": {
-            "cx-common:query":"# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
-        }
+    "@id": "SkillAsset?cab=Conforming&mode=provider",
+    "properties": {
+        "cx-common:name": "Provider-Forced Skill",
+        "cx-common:description": "A conformity assessment skill.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
+        "dct:type": "cx-taxo:SkillAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
+        "cx-common:distributionMode": "cx-common:SkillDistribution?run=provider",
+        "cx-common:isFederated": "true^^xsd:boolean"
+    },
+    "privateProperties": {
+        "cx-common:query": "# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
     },
     "dataAddress": {
-        "id":"SkillAsset?cab=Conforming&mode=provider",
+        "id": "SkillAsset?cab=Conforming&mode=provider",
         "@type": "DataAddress",
         "type": "cx-common:Protocol?w3c:http:SKILL",
         "proxyPath": "false",
@@ -413,32 +424,33 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "SkillAsset?cab=Conforming&mode=consumer", 
-        "properties": {
-            "name": "Consumer-Forced Skill",
-            "description": "A conformity assessment skill.",
-            "version": "1.11.16",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
-            "rdf:type": "cx-common:SkillAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
-            "cx-common:distributionMode": "cx-common:SkillDistribution?run=consumer",
-            "cx-common:isFederated": "true^^xsd:boolean"
-        },
-        "privateProperties": {
-            "cx-common:query":"# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
-        }
+    "@id": "SkillAsset?cab=Conforming&mode=consumer",
+    "properties": {
+        "cx-common:name": "Consumer-Forced Skill",
+        "cx-common:description": "A conformity assessment skill.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
+        "dct:type": "cx-taxo:SkillAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
+        "cx-common:distributionMode": "cx-common:SkillDistribution?run=consumer",
+        "cx-common:isFederated": "true^^xsd:boolean"
+    },
+    "privateProperties": {
+        "cx-common:query": "# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
     },
     "dataAddress": {
-        "id":"SkillAsset?cab=Conforming&mode=consumer",
+        "id": "SkillAsset?cab=Conforming&mode=consumer",
         "@type": "DataAddress",
         "type": "cx-common:Protocol?w3c:http:SKILL",
         "proxyPath": "false",
@@ -454,32 +466,33 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 ```json
 {
     "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cx-common": "https://w3id.org/catenax/ontology/common#",
-        "sh": "http://www.w3.org/ns/shacl#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dct": "https://purl.org/dc/terms/"
     },
-    "asset": {
-        "@type": "Asset",
-        "@id": "SkillAsset?cab=Conforming&mode=unfederated", 
-        "properties": {
-            "name": "Unfederated Skill",
-            "description": "A conformity assessment skill.",
-            "version": "1.9.4-SNAPSHOT",
-            "contenttype": "application/json, application/xml",
-            "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
-            "rdf:type": "cx-common:SkillAsset",
-            "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
-            "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
-            "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
-            "cx-common:isFederated": "false^^xsd:boolean"
-        },
-        "privateProperties": {
-            "cx-common:query":"# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
-        }
+    "@id": "SkillAsset?cab=Conforming&mode=unfederated",
+    "properties": {
+        "cx-common:name": "Unfederated Skill",
+        "cx-common:description": "A conformity assessment skill.",
+        "cx-common:version": "1.9.4-SNAPSHOT",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
+        "dct:type": "cx-taxo:SkillAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/core>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SKILL",
+        "cx-common:distributionMode": "cx-common:SkillDistribution?run=all",
+        "cx-common:isFederated": "false^^xsd:boolean"
+    },
+    "privateProperties": {
+        "cx-common:query": "# Sample Skill accessing a graph\n\nSELECT ?subject ?predicate ?object WHERE { \n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \n            ?subject ?predicate ?object. \n        }\n    } \n}"
     },
     "dataAddress": {
-        "id":"SkillAsset?cab=Conforming&mode=unfederated",
+        "id": "SkillAsset?cab=Conforming&mode=unfederated",
         "@type": "DataAddress",
         "type": "cx-common:Protocol?w3c:http:SKILL",
         "proxyPath": "false",
@@ -490,4 +503,4 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 }
 ```
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

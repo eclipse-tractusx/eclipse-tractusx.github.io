@@ -68,7 +68,10 @@ const sidebars = {
                           items: [
                               'kits/knowledge-agents/development-view/api/agent/getAgent',
                               'kits/knowledge-agents/development-view/api/agent/postAgent',
-                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
+                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
+                              'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
+                              'kits/knowledge-agents/development-view/api/graph/postGraph',
+                              'kits/knowledge-agents/development-view/api/graph/deleteGraph',
                           ],
                       }
                   ],
