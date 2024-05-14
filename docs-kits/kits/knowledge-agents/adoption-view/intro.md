@@ -70,7 +70,7 @@ Our Implementations can be accessed as [Eclipse Tractus-X Repositories](https://
 
 ### Support
 
-The team supports use case consumers, app developers, data providers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback. For that purpose, please meet us in the [Tractus-X Community](/community).
+The team supports use case consumers, app developers, data providers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback. For that purpose, please meet us in the [Tractus-X Community](/community/intro).
 
 ## Business Value
 
