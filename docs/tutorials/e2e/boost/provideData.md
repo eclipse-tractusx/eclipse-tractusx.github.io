@@ -430,13 +430,13 @@ Let´s see if Alice can finally see the Asset.
 Action (Alice): Execute the request again using the following `curl` command:
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
 --header 'Content-Type: application/json' \
---header 'X-Api-Key: password' \
+--header 'X-Api-Key: TEST1' \
 --data-raw '{
     "@context": {},
     "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://bob-controlplane:8084/api/v1/dsp",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
     "querySpec": {
         "offset": 0,
         "limit": 100
