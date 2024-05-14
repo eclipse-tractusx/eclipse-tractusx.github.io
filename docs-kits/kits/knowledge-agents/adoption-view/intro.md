@@ -169,7 +169,7 @@ a part of its work to other Business Partners/Agents and hence to bring the comp
 
 [![Dataspace Roles](/img/knowledge-agents/dataspace_roles_small.png)](/img/knowledge-agents/dataspace_roles.png)
 
-The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Behaviour Twin KIT](../../Behaviour%20Twin%20Kit/page_adoption-view).
+The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Behaviour Twin KIT](../../behaviour-twin-kit/overview).
 
 We distinguish between Dataspace Participants and other parties (who support the Dataspace Participants).
 
