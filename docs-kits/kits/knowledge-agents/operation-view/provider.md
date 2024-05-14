@@ -26,9 +26,9 @@ title: Provisioning
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-For Providing Data and/or Functions in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, we recommend deploying a [Tractus-X Binding Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/README.md)
+For Providing Data and/or Functions in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, this KIT recommends deploying a [Tractus-X Binding Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/README.md)
 
-More specifically, we recommend to deploy
+More specifically, this KIT recommends to deploy
 
 * the [Tractus-X Provisioning Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/provisioning/README.md) for relational or virtualized data sources.
 * the [Tractus-X Remoting Agent](https://github.com/eclipse-tractusx/knowledge-agents/blob/main/remoting/README.md) for REST-based API functions.
@@ -61,7 +61,7 @@ subgraphs (or 'node surroundings') in the graph. Using these mappings, the provi
 
 Each mapping will then be presented by its own endpoint (= graph). Each graph usually corresponds to a use case role, such as the OEM providing telematics data for vehicle components in a Behaviour Twin Prognosis. The use case role will determine the ontology concepts which the use case participant may need to provide/map or consume in its skills. In the following example, we map an existing datalake schema with telematics data to the [Reliablity Ontology](https://w3id.org/catenax/ontology/reliability), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
 
-The below mapping resource is written in the [OBDA Mapping Definition Language](https://ontop-vkg.org/tutorial/mapping/). Note that the network interface is not supposed to be public (hence we do not use authentication there), but should only be visible to the [Agent Plane](agent_edc).
+The below mapping resource is written in the [OBDA Mapping Definition Language](https://ontop-vkg.org/tutorial/mapping/). Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
 
 ```yaml
 my-provider-agent: 
@@ -327,7 +327,7 @@ Then configure the remoting agent in the values.yaml - especially you introduce 
 
 Each binding will then be presented by its own repository (= graph). Each graph usually corresponds to a use case role, such as the SUPPLIER providing either RUL or HI prognosis function in a Behaviour Twin Prognosis. The use case role will determine the ontology concepts which the use case participant may need to provide/map or consume in its skills. In the following example, we map existing API backends to the [Behaviour Ontology](https://w3id.org/catenax/ontology/behaviour), the [Reliability Ontology](https://w3id.org/catenax/ontology/reliability), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Function Ontology](https://w3id.org/catenax/ontology/function), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
 
-The below binding resources are written in a [Terse Triple Language - TTL](https://www.w3.org/TR/turtle/) syntax suitable for [RDF4J](https://rdf4j.org/documentation/tools/repository-configuration/) repositories. Note that the network interface is not supposed to be public (hence we do not use authentication there), but should only be visible to the [Agent Plane](agent_edc).
+The below binding resources are written in a [Terse Triple Language - TTL](https://www.w3.org/TR/turtle/) syntax suitable for [RDF4J](https://rdf4j.org/documentation/tools/repository-configuration/) repositories. Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
 
 ```yaml
 my-remoting-agent: 
@@ -999,7 +999,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
 The following contract definition exposes upcoming (skill) assets under the previously installed (skill) policy.
 It does that for both catalogue/offer requests (access policy) and actual agent-based transfers (contract policy). Usually,
 this makes sense as the party being able to receive and offer should also be able to negotiate a transfer to (here: execute) it.
-Note that we foresee a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explictely "assigned"
+Note that the definition foresees a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explictely "assigned"
 to a contract.
 
 ```console

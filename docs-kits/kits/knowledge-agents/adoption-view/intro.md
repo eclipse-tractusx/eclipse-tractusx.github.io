@@ -35,13 +35,13 @@ title: Adoption View
 
 ## Vision & Mission
 
-We want to specify a semantically-driven and state-of-the-art compute-to-data architecture for (not only) automotive use cases based on the best [GAIA-X](https://gaia-x.eu/), [W3C](https://www.w3.org/2001/sw/wiki/Main_Page) and [Big Data](https://en.wikipedia.org/wiki/Big_data) practices.
+This KIT specifies a semantically-driven and state-of-the-art compute-to-data architecture for (not only) automotive use cases based on the best [GAIA-X](https://gaia-x.eu/), [W3C](https://www.w3.org/2001/sw/wiki/Main_Page) and [Big Data](https://en.wikipedia.org/wiki/Big_data) practices.
 
 [![Agent-Oriented Dataspace](/img/knowledge-agents/dataspace_agent_small.png)](/img/knowledge-agents/dataspace_agent.png)
 
 ### Specifications & Standards
 
-We compose standards for invoking and performing semantic computations (inferences or `skills`) based on normalized and linked data representations (`knowledge graph` described as RDF triples) over the `dataspace`.
+This KIT refers to standards for invoking and performing semantic computations (inferences or `skills`) based on normalized and linked data representations (`knowledge graph` described as RDF triples) over the `dataspace`.
 
 Leveraging existing standards such as [IDS](https://internationaldataspaces.org/), [RDF](https://www.w3.org/2001/sw/wiki/RDF), [SparQL](https://www.w3.org/2001/sw/wiki/SPARQL), [OWL](https://www.w3.org/2001/sw/wiki/OWL), [SHACL](https://www.w3.org/2001/sw/wiki/SHACL) & [EClass](https://eclass.eu/), linked data and corresponding skills may be provisioned, consumed, federated and visualised across the complete dataspace (technically) and hence the complete supply chain (business-wise).
 
@@ -57,13 +57,13 @@ Our specifications have been published as  [Catena-X e.V. Standards](https://cat
 
 ### Implementations
 
-We provide open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../Connector%20Kit/Adoption%20View/connector_kit_adoption_view)
+This KIT aggregates open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../Connector%20Kit/Adoption%20View/connector_kit_adoption_view)
 
 These components are called [`agents`](https://en.wikipedia.org/wiki/Software_agent)) because they (semi-)actively negotiate and collaborate with each other (via so-called graph and skill assets) over the dataspace in order to derive higher-level semantic knowledge from the plain, isolated data.
 
 Knowledge agents introduce an ecosystem of efficient services (for data handling, compute, skill orchestration and frontend components) where an optimal matchmaking between those services needs to be reached.
 
-We also define bridges to other digital twin approaches, such as AAS (Asset Administration Shell), such that data and service provisioning into multiple use cases will be as effortless as possible.
+This KIT also defines bridges to other digital twin approaches, such as AAS (Asset Administration Shell), such that data and service provisioning into multiple use cases will be as effortless as possible.
 
 Our Implementations can be accessed as [Eclipse Tractus-X Repositories](https://github.com/eclipse-tractusx):
 
@@ -73,7 +73,7 @@ Our Implementations can be accessed as [Eclipse Tractus-X Repositories](https://
 
 ### Support
 
-We support use case consumers, app developers, data providers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback.
+The team supports use case consumers, app developers, data providers, service providers and IT/domain consultants in order to operate as economically and well-informed as possible by giving them first-class tools, documentation and feedback. For that purpose, please meet us in the [Tractus-X Community](/community).
 
 ## Business Value
 
@@ -138,9 +138,9 @@ A Skill request from a non-authorized chain of computation would not be able to 
 
 Furthermore, you would not expose your backend directly, but rather introduce a [virtualization layer](../development-view/architecture) between the Agent and your data source. This introduces another (role-based) security domain by appropriate sub-schemas and filters. So different contracts can be mapped to different security principals/data views in the backend.
 
-We do not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the [SPARQL](../development-view/sparql) standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
+This KIT does not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the [SPARQL](../development-view/sparql) standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
 
-Finally, we are investigating a form of differential privacy which introduces noise between your data source and its graph representation such that original values can be effectively hidden from the reporting output.
+Finally, the team is investigating a form of differential privacy which introduces noise between your data source and its graph representation such that original values can be effectively hidden from the reporting output.
 
 ### Easy Deployment
 
@@ -171,7 +171,7 @@ a part of its work to other Business Partners/Agents and hence to bring the comp
 
 The Agents KIT is the basis for other, use-case specific Agent-enabled KITs, services and applications, such as the [Behaviour Twin KIT](../../behaviour-twin-kit/overview).
 
-We distinguish between Dataspace Participants and other parties (who support the Dataspace Participants).
+It distinguishes between Dataspace Participants and other parties (who support the Dataspace Participants).
 
 ### Dataspace Participants
 
@@ -184,7 +184,7 @@ Any party who wants to use data and logic using Agent Technology (for example by
 
 #### Provider
 
-We distinguish Providers whether they want to publish data or logic using Agent Technology
+The Agents KIT distinguish Providers whether they want to publish data or logic using Agent Technology
 
 ##### Data Provider
 

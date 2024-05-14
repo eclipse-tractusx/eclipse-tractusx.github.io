@@ -27,7 +27,7 @@ title: Agent-Enabled Dataspace Connector
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-For participating in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, we recommend deploying an [Agent-Plane](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) alongside of an existing [Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/README.md)
+For participating in Semantic-Web Driven Dataspace Applications following the Catena-X Knowledge Agents Standard, it is recommended to deploy an [Agent-Plane](https://github.com/eclipse-tractusx/knowledge-agents-edc/tree/main/docs/README.md) alongside of an existing [Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/README.md)
 
 For more information see
 
@@ -142,7 +142,7 @@ my-agent-plane:
 
 ## Quick Setup Guide for Registering A Skill
 
-A skill is a "stored" dataspace procedure that is offered and executed by agent (planes). We demonstrate the steps to register one by interacting with the EDC Control Plane Management API and the EDC Data Plane Agent Endpoint
+A skill is a "stored" dataspace procedure that is offered and executed by agent (planes). In the following, we demonstrate the steps to register one by interacting with the EDC Control Plane Management API and the EDC Data Plane Agent Endpoint
 
 ### 1. Register A Skill Policy
 
@@ -195,7 +195,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
 The following contract definition exposes upcoming (skill) assets under the previously installed (skill) policy.
 It does that for both catalogue/offer requests (access policy) and actual agent-based transfers (contract policy). Usually,
 this makes sense as the party being able to receive and offer should also be able to negotiate a transfer to (here: execute) it.
-Note that we foresee a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explictely "assigned"
+Note that this contract foresees a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explictely "assigned"
 to a contract.
 
 ```console
@@ -225,7 +225,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
 ### 3. Register a Skill Asset
 
 In the next step, we install a stored procedure which traverses the dataspace from the consumer (=skill executor) over an partner oem (providing telematics data and connecting to its suppliers) to a yet unknown supplier (providing a functional graph to perform a prognosis).
-This skill is the so-called Remaining Useful Life Skill - see the other concrete Graph definitions in this section of the Kit. It requires the partner oem to offer (and federate) at least one corresponding [(Data) Graph Asset](provider) to the consumer. It also requires a supplier to offer (and federate) at least one corresponding [(Function) Graph Asset](provider) to the partner oem. Correspondence in this regard means that we constrain the assets to implement certain ontologies (rdfs:isDefinedBy <https://w3id.org/catenax/ontology/reliability>). We will show a more advanced way of asset binding/constraining in the following.
+This skill is the so-called Remaining Useful Life Skill - see the other concrete Graph definitions in this section of the Kit. It requires the partner oem to offer (and federate) at least one corresponding [(Data) Graph Asset](provider) to the consumer. It also requires a supplier to offer (and federate) at least one corresponding [(Function) Graph Asset](provider) to the partner oem. Correspondence in this regard means that the definition claims the assets to implement certain ontologies (rdfs:isDefinedBy <https://w3id.org/catenax/ontology/reliability>). We will show a more advanced way of asset binding/constraining in the following.
 
 Note that we use the "distributionMode=ALL" parameter to annotate that this skill may be executed both by the "my-agent.domain" (in the so-called PROVIDER mode - see below) as well as by any remotely executing business partner's agent (in the so-called CONSUMER mode see below).
 Note that we use the "contract=Contract%3Fme%3DSkill" parameter to assign this skill to above contract (and policy).
@@ -371,7 +371,7 @@ curl --location --globoff 'https://my-agent.domain/api/agent?asset=cx-taxo%3ASki
 
 ### Calling A Skill (on the Provider Side)
 
-If we assume that the skill has not been registered/stored in our connector, but in a partner/provider connector, we can use a "global" asset id
+If assuming that the skill has not been registered/stored in our connector, but in a partner/provider connector, we can use a "global" asset id
 which starts with the URL of the partner connector's dsp endpoint. Furthermore, we are able to
 choose a run mode by the parameter "runMode=provider". In this case, the consumer agent will negotiate with the provider agent to
 execute the skill in the provider connector. When we choose "runMode=consumer" instead, the consumer agent will try to "download" the skill

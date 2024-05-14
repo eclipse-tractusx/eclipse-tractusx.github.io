@@ -108,7 +108,7 @@ Knowledge Agents on Stable is deployed on the following two tenants
 
 ### 1. Prepare the Two Tenants
 
-As a first step, we install two technical users for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
+As a first step, two technical users are installed for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
 
 * App Provider 1: sa4
 * App Consumer 4: sa5
@@ -701,7 +701,7 @@ destination:
 
 ### 5. Perform Smoke Tests
 
-We provide a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-04658655-9019-4f1c-9de0-eeaf6245b9b6?action=share&source=copy-link&creator=2757771&ctx=documentation) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
+This KIT provides a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-04658655-9019-4f1c-9de0-eeaf6245b9b6?action=share&source=copy-link&creator=2757771&ctx=documentation) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
 
 It consists of the following steps:
 
