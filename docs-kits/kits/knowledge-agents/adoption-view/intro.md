@@ -49,11 +49,8 @@ Skills can be described in tractable sub-languages of well-known declarative syn
 
 Our specifications have been published as  [Catena-X e.V. Standards](https://catena-x.net/de/standard-library):
 
-* [CX-0084 Federated Queries in Dataspaces (V1.2.0 Upcoming)](https://catena-x.net/de/standard-library)
-* [CX-0084 Federated Queries in Dataspaces (V1.1.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0084-FederatedQueriesInDataSpaces-v1.1.0.pdf)
-* [CX-0084 Federated Queries in Dataspaces (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September_2023/CX-0084-FederatedQueriesInDataSpaces-v1.0.0.pdf)
-* [CX-0067 Ontology Models to Realize Federated Queries in Catena-X  (V1.1.0 Upcoming)](https://catena-x.net/de/standard-library)
-* [CX-0067 Ontology Models to Realize Federated Queries in Catena-X  (V1.0.0 Superseded)](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0067-OntologyModelsinCatenaX-v1.0.0.pdf)
+* [CX-0084 Federated Queries in Dataspaces (V1.2.0)](https://catena-x.net/de/standard-library/Update_Mai_2024/CX-0084-FederatedQueriesInDataSpaces-v1.2.0.pdf)
+* [CX-0067 Ontology Models to Realize Federated Queries in Catena-X  (V1.1.0)](https://catena-x.net/de/standard-library/Update_Mai_2024/CX-0067-OntologyModelsinCatenaX-v1.1.0.pdf)
 
 ### Implementations
 
