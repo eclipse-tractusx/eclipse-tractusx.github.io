@@ -44,7 +44,7 @@ For more information see
 
 ## Compute-To-Data
 
-We describe a semantically-driven and state-of-the-art compute-to-data architecture for automotive use cases (and beyond), the so-called Knowledge Agents (KA) approach.
+This KIT describes a semantically-driven and state-of-the-art compute-to-data architecture for automotive use cases (and beyond), the so-called Knowledge Agents (KA) approach.
 
 It builds on well-established standards and best practices around [GAIA-X](https://gaia-x.eu), [W3C](https://www.w3.org/) and [Big Data](https://en.wikipedia.org/wiki/Big_data) in order to empower powerful queries to the data space (Skills). Those Skills can be used to answer business questions directly (comparable to a search engine) or they can be embedded in apps to include query results (Knowledge) into workflows with more advanced visualization etc.
 
@@ -111,7 +111,7 @@ Simply put, the **Binding Agent** is a restricted version of the Matchmaking Age
 
 ### Federated Catalogue
 
-As mentioned earlier, essential for the realization of the idea is the creation, governance and discoverability of a well-defined semantic catalogue, which forms together with the data a Federated Knowledge Graph. In this context, the definition of a Knowledge Graph (KG) as "a multi relational graph composed of entities and relations which are regarded as nodes and different types of edges, respectively" is extended with aspect of federation. We see a Federated KG as a KG where entities and relations reside physically distributed over multiple systems connected through a network and a common query language. We see semantic metadata as structural information to scope the entities and relations of the KG based on ontological principles. This is the agreement, necessary for the successful interplay of the distributed parties within the data space.
+As mentioned earlier, essential for the realization of the idea is the creation, governance and discoverability of a well-defined semantic catalogue, which forms together with the data a Federated Knowledge Graph. In this context, the definition of a Knowledge Graph (KG) as "a multi relational graph composed of entities and relations which are regarded as nodes and different types of edges, respectively" is extended with aspect of federation. This KIT defines a Federated KG as a KG where entities and relations reside physically distributed over multiple systems connected through a network and a common query language. This KIT defines semantic metadata as structural information to scope the entities and relations of the KG based on ontological principles. This is the agreement, necessary for the successful interplay of the distributed parties within the data space.
 
 ## Abilities
 

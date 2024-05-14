@@ -106,34 +106,34 @@ Behaviour Twin Framework Agreement (in verson 1) and the Traceability Agreement 
 }
 ```
 
-For the purpose of this investigation, we now assume that we have to publish a single backend (=database, datalake schema or API endpoint) into multiple use cases.
-And we discuss in the following the different levels of tailoring access (by authentication, by configuration, by publishing/policying) that we can use to govern this scenario.
+For the purpose of this investigation, let us now assume that we have to publish a single backend (=database, datalake schema or API endpoint) into multiple use cases.
+In the following the different levels of tailoring access (by authentication, by configuration, by publishing/policying) are discussed that can be used to govern this scenario.
 
 ![Data Sovereignity Through Offering and Policy Validation](/img/knowledge-agents/graph_asset.png)
 
 ## Data Sovereignity Through Backend Authentication
 
-On this level, we can introduce technical roles in the backend systems (technical users) for the different use cases. Each technical user would only be allowed to
+On this level, technical roles can be introduced in the backend systems (technical users) for the different use cases. Each technical user would only be allowed to
 manipulate (read, update, delete) the relevant part of the API or data schema.
 
-We would then introduce different RDF endpoints which may share the same binding but use a different technical user to access the single backend. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
+Then different RDF endpoints are created which may share the same binding but use a different technical user to access the single backend. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
 
 ## Data Sovereignity Through Bindings
 
-On this level, we introduce different RDF endpoints which use the same technical user to access the single backend, but we use different bindings to map only a part of the SPARQL protocol to a part of the backend protocols. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
+On this level, different RDF endpoints are introduced which use the same technical user to access the single backend, but they make use of different bindings to map only a part of the SPARQL protocol to a part of the backend protocols. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
 
 ## Data Sovereignity Through Asset Descriptions
 
-On this level, we use a single RDF endpoint which is mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies. For this purpose, a "shape-filter" (not yet implemented) could become active in the Agent Plane/Matchmaking Agent which rewrites or checks the
+On this level, a single RDF endpoint is introduced which is mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies. For this purpose, a "shape-filter" (not yet implemented) could become active in the Agent Plane/Matchmaking Agent which rewrites or checks the
 incoming SPARQL context before delegating it to the binding agent.
 
 ## Data Sovereignity Through Contracts
 
-On this level, we use a single asset description which is embedded into different contracts with different policies.
+On this level, a single asset description is used which is embedded into different contracts with different policies.
 
 ## Data Sovereignity Through Combined Policies
 
-On this level, we use a single contract with a combined policy
+On this level,a single contract is used with a combined policy
 
 ```json
 {

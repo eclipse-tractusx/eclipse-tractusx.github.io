@@ -25,7 +25,7 @@ title: Bridging
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-For Bridging between Knowledge Agents API and AAS, we recommend deploying the [Tractus-X Knowledge Agents AAS Bridge (KA-AAS)](https://github.com/eclipse-tractusx/knowledge-agents-aas-api)
+For Bridging between Knowledge Agents API and AAS, this KIT recommends deploying the [Tractus-X Knowledge Agents AAS Bridge (KA-AAS)](https://github.com/eclipse-tractusx/knowledge-agents-aas-api)
 
 For more information see
 
