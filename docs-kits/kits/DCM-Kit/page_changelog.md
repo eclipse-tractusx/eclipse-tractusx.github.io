@@ -17,7 +17,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added [DCM Guidelines for Solution Adoption](page_dcm-guidelines-solution-adoption.md)
+- Added [DCM Operation View](page_operation-view.md)
 
 ### Changed
 
