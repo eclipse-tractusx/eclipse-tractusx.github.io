@@ -166,27 +166,29 @@ curl -i -X POST "${bdsBaseUrl}/data/${id}" -H "Content-Type: application/json" -
 
 Bob has now stored his submodel on the BDS. However, because he wants to preserve data sovereignty over his data, he cannot directly provide access to the BDS. Instead, the data exchange shall take place via the EDC.
 
-Therefore Bob needs to create an according contract definition. This follows the same three steps as explained in "Create DTR Asset" of creating an data asset, creating a policy and finally creating the contract definition. 
+Therefore Bob needs to create an according contract definition. This follows the same three steps as explained in "Create DTR Asset" of creating an data asset, creating a policy and finally creating the contract definition.
 
 Info:
 
-edcManagementBaseUrl="http://localhost/bob/management"
+edcManagementBaseUrl="<http://localhost/bob/management>"
 edcApiKey="password"
 
-#Asset
-#assetId="$(uuidgen)"
+```bash
+# Asset
+# assetId="$(uuidgen)"
 assetId="0bc6a8af-8682-4dba-86b1-0433f9762e42"
 clusterInternalBdsBaseUrl="http://bobs-bds-bds:8080"
 bdsDataId="bobs-data"
 assetUrl="${clusterInternalBdsBaseUrl}/data/${bdsDataId}"
 
-#Policy
-#policyId="$(uuidgen)"
+# Policy
+# policyId="$(uuidgen)"
 policyId="1bc6a8af-8682-4dba-86b1-0433f9762e42"
 
-#Contract Definition
-#contractDefinitionId="$(uuidgen)"
+# Contract Definition
+# contractDefinitionId="$(uuidgen)"
 contractDefinitionId="2bc6a8af-8682-4dba-86b1-0433f9762e42"
+```
 
 Action (Bob): Create a data asset with the following commands:
 
@@ -204,6 +206,7 @@ curl -i -X POST "${edcManagementBaseUrl}/v3/assets" -H "X-Api-Key: ${edcApiKey}"
     }
 }" | jq
 ```
+
 Action (Bob): Create a Policy with the following commands:
 
 ```curl
@@ -225,6 +228,7 @@ curl -i -X POST "${edcManagementBaseUrl}/v2/policydefinitions" -H "X-Api-Key: ${
     }
 }" | jq
 ```
+
 Action (Bob): Create a contract definition with the following commands:
 
 ```curl
@@ -374,7 +378,7 @@ In response, Alice receives the AAS descriptor she needs. This contains the subm
 
 ![Step3](assets/Step3.png)
 
-Now the process is repeating itself. Alice performs a catalog request again and can now use the dataset IDs as a filter. 
+Now the process is repeating itself. Alice performs a catalog request again and can now use the dataset IDs as a filter.
 
 Action (Alice): Use the following API POST to receive Bob's catalog with the Dataset-ID as a filter:
 
@@ -399,7 +403,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 sovity GmbH
 - SPDX-FileCopyrightText: 2024 msg systems AG
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+- Source URL: <https://github.com/eclipse-tractusx/eclipse-tractusx.github.io>
 
 [dt-kit]: https://eclipse-tractusx.github.io/docs-kits/kits/Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-software-development-view/
 [sldt-dtr]: https://github.com/eclipse-tractusx/sldt-digital-twin-registry/tree/main/docs
