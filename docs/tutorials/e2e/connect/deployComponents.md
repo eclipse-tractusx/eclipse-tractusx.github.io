@@ -20,7 +20,7 @@ This chapter is not yet updated and refers to an older implemenation of the tuto
 
 If you are using the user accounts on the VMs provided by ARENA2036, please be aware of that you are working in a multi-user environment.
 
-**Your minikube cluster will not be the only one running in your VM, therefore:​**
+Your minikube cluster will not be the only one running in your VM, therefore
 
 - Use specific names for your cluster profile and namespaces for helm​
 

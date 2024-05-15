@@ -17,7 +17,7 @@ You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or loc
 
 As mentioned in the introduction, no preliminary knowledge about Catena-X is required. However, to complete the tutorial you will have to work with the following technical software stack. A basic understanding of those technologies is advised.
 
-- Cloud Environment (AWS/Azure) or a local machine 
+- Cloud Environment (AWS/Azure) or a local machine
 - Docker
 - Kubernetes
 - Kubectl
