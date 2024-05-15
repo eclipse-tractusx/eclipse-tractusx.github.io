@@ -232,6 +232,7 @@ const sidebars = {
             items: [
                 'kits/Circularity_KIT/Changelog Circularity KIT',
                 'kits/Circularity_KIT/page-adoption-view',
+                'kits/Circularity_KIT/page-glossary',
             ]
         },
         {
