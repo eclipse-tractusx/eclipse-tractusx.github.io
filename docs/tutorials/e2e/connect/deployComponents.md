@@ -11,6 +11,49 @@ once and are accessible by all participants.
 
 :::warning
 
+This chapter is not yet updated and refers to an older implemenation of the tutorial. Please used the README for the Tractus-X umbrella charts following the link:  
+https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md 
+
+:::
+
+:::note
+
+### Special Hint for the Second Tractus-X Community Days: 
+
+If you are using the user accounts on the VMs provided by ARENA2036, please be aware of that you are working in a multi-user environment.
+
+**Your minikube cluster will not be the only one running in your VM, therefore:​**
+
+- Use specific names for your cluster profile and namespaces for helm​
+
+  - Proposed name for the cluster profile: “minikube-$USER”​
+
+  - Proposed name for the umbrella namespace: “umbrella-$USER)" ​
+
+- Ensure you are using the option **-p**, everytime you calling minikube ​
+
+```bash
+minikube –p minikube-$USER  …                             ​
+```
+
+Ensure you are using the option **–n**, everytime you calling helm​
+
+```bash
+helm ...    –n umbrella-$USER                              ​
+```
+
+Before you enable ingress enter:​
+
+```bash
+minikube profile minikube-$USER​
+```
+
+This will ensure that ingress is working in the correct environment of your cluster profile.
+
+:::
+
+:::warning
+
 Since this documentation is based on a MXD version where tractusx-edc version `0.5.3` is used, there is a need to adapt the `values.yaml` inside the cloned repository **tutorial-resources**. The file is located in `tutorial-resources/mxd/modules/connector/values.yaml`
 
 Instead of the `latest` tag for the **controlplane** and **dataplane** image, please use `0.5.3`.
