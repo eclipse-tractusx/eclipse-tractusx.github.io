@@ -14,7 +14,7 @@ CLI tools (`curl`) for this, but feel free to use graphical tools such as Postma
 Alice acts here as a data consumer and Bob as a data provider.
 
 - Bob -> <http://dataprovider-controlplane.tx.test>
-- Alice -> <>
+- Alice -> <http://dataconsumer-1-controlplane.tx.test>
 
 :::
 

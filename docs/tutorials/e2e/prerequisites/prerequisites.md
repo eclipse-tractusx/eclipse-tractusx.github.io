@@ -9,7 +9,7 @@ The components and tools that are described here are to be understood as a propo
 
 :::info
 
-You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or locally. If you choose to run the tutorial locally, make sure that your machine fulfils the minimal performance requirements. 
+You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or locally. If you choose to run the tutorial locally, make sure that your machine fulfils the minimal performance requirements.
 
 :::
 
@@ -25,7 +25,6 @@ As mentioned in the introduction, no preliminary knowledge about Catena-X is req
 - Helm
 - X-Environment (xterm)
 - a browser (we will use google-chrome) to be used for the minikube dashboard and the portal
-
 
 ## Chosing your environment
 
@@ -146,6 +145,7 @@ The port http (80) should not be used, but it will. You can apply the above hint
 For the [MXD], which is running locally, you only need secure shell access, which means port 22 should be open.
 
 #### Further ports
+
 Opening further ports is not required for the tutorial, as the setup is designed to work within a cluster. Once you want to modify the setup, allowing EDCs and services to communicate between different locations, you need to open additional ports and use ingress for port mapping. (This will be described in a later version)
 
 ### Install the basic tools (on Ubuntu 22.x and higher)
@@ -172,13 +172,13 @@ sudo apt update && sudo apt upgrade
 sudo apt install kubernetes
 ```
 
-#### Install kubectl  
+#### Install kubectl
 
 ```bash
 sudo snap install kubectl --classic
 ```
 
-Occasionally snap will fail with an error message "Access forbidden", alternativly you may try to install Kubectl using the native pakage as follows. Please check https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ for further information.
+Occasionally snap will fail with an error message "Access forbidden", alternativly you may try to install Kubectl using the native pakage as follows. Please check <https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/> for further information.
 
 ```bash
 sudo apt-get update
@@ -192,7 +192,6 @@ Download the public signing key for the Kubernetes package repositories. The sam
 
 In Ubuntu 22.04, folder /etc/apt/keyrings does not exist by default, and it should be created before the curl command. If the folder `/etc/apt/keyrings` does not exist, it should be created before the curl command.
 
-
 ```bash
 sudo mkdir -p -m 755 /etc/apt/keyrings
 ```
@@ -205,6 +204,7 @@ Now use the curl command to download the release keys.
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | \
 sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
+
 To allow unprivileged APT programs to read this keyring also change the file permissions.
 
 ```bash
@@ -235,15 +235,19 @@ Check that kubectl is properly configured by getting the cluster state:
 ```bash
 kubectl cluster-info
 ```
+
 #### Install Minkube
-To install minikube just download the executable from the reposotory. (Please check also https://kubernetes.io/de/docs/tasks/tools/install-minikube/)
+
+To install minikube just download the executable from the reposotory. (Please check also <https://kubernetes.io/de/docs/tasks/tools/install-minikube/>)
 
 ```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
 &&chmod +x minikube
 ```
+
 #### Install helm
-helm will be installed with snap. 
+
+helm will be installed with snap.
 
 ::: note
 
@@ -265,6 +269,7 @@ If not already installed, install xterm and a webbroser like firefox or google-c
 :::
 
 Install xterm with apt.
+
 ```bash
 sudo apt install xterm
 ```
@@ -281,7 +286,9 @@ To enusre that the X11forwaring is working for ssh -X, add to your .bashrc
 # ensure google-chrome and other garphic apps find the X-Authorisation file
 export XAUTHORITY=$HOME/.Xauthority
 ```
+
 and in /etc/ssh/sshd_config set the following variables to yes.
+
 ```bash
 X11Forwarding yes
 X11UseLocalhost yes
@@ -292,19 +299,23 @@ Then you should be able to run xterm and the webrowser locally to open the links
 If you want to install google-chrome, do as follows, you may use any other Browser. Download the latest Google Chrome Debian package via the following command:
 
 ```bash
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
-Install the package 
+
+Install the package
+
 ```bash
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
+
  In the event you encounter any dependency issues, resolve them using
 
 ```bash
-sudo apt-get install -f 
+sudo apt-get install -f
 ```
 
 #### Install insomnia
+
 If you want a powerful API client that simplifies the process of building, debugging, and testing APIs, you may want to install Insomnia. (An other alternativ ist Postmann). However for the tutorial we currently do not need the an APIU client, as we will use curl. ut if you want you can just install Insomnia as follows:
 
 ```bash
