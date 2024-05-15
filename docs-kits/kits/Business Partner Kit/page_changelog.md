@@ -20,6 +20,8 @@ All notable changes to this Kit will be documented in this file.
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
+- Updated changes in Gate, Pool and Orchestrator Open API documents.
+- Updated development view
 
 ### Removed
 
