@@ -397,8 +397,8 @@ For installation details, please see the referenced Repositories / Releases.
 ### Known knowns
 
 - Relevant components and interfaces developed considering [Gaia-X](https://gaia-x.eu/) Trust Framework - 22.10
-Connection to an external Clearing House service for the entire Catena-X ecosystem required.
-The [Gaia-X](https://gaia-x.eu/) compliance service should generally be capable to recognize all companies that are able to register with the Catena-X Portal.
+  Connection to an external Clearing House service for the entire Catena-X ecosystem required.
+  The [Gaia-X](https://gaia-x.eu/) compliance service should generally be capable to recognize all companies that are able to register with the Catena-X Portal.
 - FOSS components developed and pre-tested to TRL6 with artificial test data only
 - No crosscheck of functionality in verification environment (Pre-PROD)
 - No execution of Load-, Performance- or Penetration Tests
@@ -477,7 +477,7 @@ For installation details, please see the referenced Repositories / Releases.
 
 - Developed considering [Gaia-X](https://gaia-x.eu/) Trust Framework - 22.04
 - FOSS components developed and pre-tested to TRL6 with artificial test data only
-- Restricted crosscheck of functionality in verification environment:  
+- Restricted crosscheck of functionality in verification environment:
   Smoke-tests did not verify
   - Approval of company registration
   - Mutiple user onboarding
@@ -506,7 +506,7 @@ For installation details, please see the referenced Repositories / Releases.
 - No execution of Load-, Performance- or Penetration Tests
 - No assignment of Export Control Classification Numbers (ECCN) to FOSS components
 - GeoBlocking recommended for Operations (GBaaS)
-- Portal (Registration) as well as Managed Identity Wallet scope required for full functionality; yet both are unreleased 
+- Portal (Registration) as well as Managed Identity Wallet scope required for full functionality; yet both are unreleased
   at this point in time and can be expected with Release 2.1.0
 - Released Helm Chart missing for EDC v0.1.2; can be expected with Release 2.1.0
 

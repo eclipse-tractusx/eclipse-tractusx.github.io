@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
-title: Operatation View
-description: Operatation View
+title: Operation View
+description: Operation View
 id: connector_kit_operation_view
 ---
+
+![Connector kit banner](/img/kit-icons/connector-kit-icon.svg)
 
 ## Reference Implementation
 
