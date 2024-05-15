@@ -129,7 +129,7 @@ To verify the participants Catena-X membership, the Membership verifiable cred
 
 #### Framework Agreement Policy​
 
-To verify if a participant accepted the framework agreement of a specific use case created by the [Catena-X association](https://catena-x.net/en/about-us/the-association), the `FrameworkAgreement.puris` verifiable credential can be used for the PURIS framework agreement. In case of a policy, the data can only be used from accepted and verified PURIS framework agreement members. This is shown in the second constraint-part of the example above.
+To verify if a participant accepted the framework agreement of a specific use case created by the [Catena-X association](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations), the `FrameworkAgreement.puris` verifiable credential can be used for the PURIS framework agreement. In case of a policy, the data can only be used from accepted and verified PURIS framework agreement members. This is shown in the second constraint-part of the example above.
 
 ```json
 {
