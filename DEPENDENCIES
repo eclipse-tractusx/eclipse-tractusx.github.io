@@ -641,7 +641,7 @@ npm/npmjs/-/path-to-regexp/1.8.0, MIT, approved, clearlydefined
 npm/npmjs/-/path-to-regexp/2.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/path-type/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/path/0.12.7, MIT, approved, clearlydefined
-npm/npmjs/-/picocolors/1.0.0, ISC, approved, clearlydefined
+npm/npmjs/-/picocolors/1.0.0, ISC, approved, #14718
 npm/npmjs/-/picomatch/2.3.1, MIT, approved, clearlydefined
 npm/npmjs/-/pirates/4.0.5, MIT, approved, #680
 npm/npmjs/-/pkg-dir/4.2.0, MIT, approved, clearlydefined
