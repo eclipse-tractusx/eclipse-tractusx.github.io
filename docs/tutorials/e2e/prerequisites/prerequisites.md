@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Preface
 
-The components and tools that are described here are to be understood as a proposal and not as standards that must be used. Using the proposed software stack of this tutorial will make it easier to complete it. Nevertheless, if your company policy requires e.g. the use of open stack, or you can't use docker containers or kubernetes, the Catena-X components will also work, you might just need a little extra effort.
+The components and tools that are described here are to be understood as a proposal and not as standard that must be used. Using the proposed software stack of this tutorial will make it easier to complete it. Nevertheless, if your company policy requires e.g. the use of open stack, or you can't use docker containers or kubernetes, the Catena-X components will also work, you might just need a little extra effort.
 
 :::info
 
@@ -17,7 +17,7 @@ You can either complete the tutorial in a cloud space (e.g. AWS or Azure) or loc
 
 As mentioned in the introduction, no preliminary knowledge about Catena-X is required. However, to complete the tutorial you will have to work with the following technical software stack. A basic understanding of those technologies is advised.
 
-- Cloud Environment (AWS/Azure) or a local machine with at least 4 CPUs, 10GB RAM, 20GB free storage
+- Cloud Environment (AWS/Azure) or a local machine 
 - Docker
 - Kubernetes
 - Kubectl
@@ -38,7 +38,7 @@ In case you want to install Tractus-X components or [Kits] directly on your loca
 - One local server instance, either a physical server or a virtual machine with at least 4 CPUs, 10 GB [RAM] and 20 GB storage
 - Your local system should run a Linux Version (Debian or Ubuntu 22.04 or higher are recommended)
 - You need super user privileges (either root access or the right to use sudo)
-- The above tools should be installed (Docker, Kubernetes, Kubectl, Minikube, Helm and Browser)
+- The above tools should be installed (Docker, Kubernetes, Kubectl, Minikube, Helm and Browser, X-Environment)
 
 ### Access to the Internet
 
@@ -138,7 +138,7 @@ export NO_PROXY="localhost,127.0.0.1,::1"
 
 #### http (80)
 
-The port http (80) should not be used, but it will. You can apply the above hints for https (port 443) just by replacing https by http.
+The port http (80) will not be used in production, but for the tutorial it will, avoiding a more complex setup with SSL. You can apply the above hints for https (port 443) just by replacing https by http.
 
 #### ssh (22)
 
@@ -242,7 +242,7 @@ To install minikube just download the executable from the reposotory. (Please ch
 
 ```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
-&&chmod +x minikube
+&& chmod +x minikube
 ```
 
 #### Install helm
@@ -316,7 +316,7 @@ sudo apt-get install -f
 
 #### Install insomnia
 
-If you want a powerful API client that simplifies the process of building, debugging, and testing APIs, you may want to install Insomnia. (An other alternativ ist Postmann). However for the tutorial we currently do not need the an APIU client, as we will use curl. ut if you want you can just install Insomnia as follows:
+If you want a powerful API client that simplifies the process of building, debugging, and testing APIs, you may want to install Insomnia. (An other alternativ ist Postmann). However for the tutorial we currently do not need an API client, as we will use curl. But if you want you can just install Insomnia as follows:
 
 ```bash
 sudo apt-get update
