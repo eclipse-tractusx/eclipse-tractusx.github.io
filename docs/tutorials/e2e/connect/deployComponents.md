@@ -10,15 +10,13 @@ shared Postgres server, where each of them has a database. MIW and Keycloak are 
 once and are accessible by all participants.
 
 :::warning
-
 This chapter is not yet updated and refers to an older implemenation of the tutorial. Please used the README for the Tractus-X umbrella charts following the link:  
-https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md 
-
+<https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
 :::
 
 :::note
 
-### Special Hint for the Second Tractus-X Community Days: 
+### Special Hint for the Second Tractus-X Community Days
 
 If you are using the user accounts on the VMs provided by ARENA2036, please be aware of that you are working in a multi-user environment.
 
@@ -27,19 +25,18 @@ If you are using the user accounts on the VMs provided by ARENA2036, please be a
 - Use specific names for your cluster profile and namespaces for helm​
 
   - Proposed name for the cluster profile: “minikube-$USER”​
-
   - Proposed name for the umbrella namespace: “umbrella-$USER)" ​
 
 - Ensure you are using the option **-p**, everytime you calling minikube ​
 
 ```bash
-minikube –p minikube-$USER  …                             ​
+minikube –p minikube-$USER <command> <options>                             ​
 ```
 
 Ensure you are using the option **–n**, everytime you calling helm​
 
 ```bash
-helm ...    –n umbrella-$USER                              ​
+helm <command> <options> –n umbrella-$USER                              ​
 ```
 
 Before you enable ingress enter:​
