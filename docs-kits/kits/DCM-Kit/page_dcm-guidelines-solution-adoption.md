@@ -1,6 +1,6 @@
 ---
-id: solution-adoption-view
-title: DCM Guidelines for Solution Adoption
+id: operation-view
+title: Operation View
 description: Your first steps
 sidebar_position: 5
 ---
