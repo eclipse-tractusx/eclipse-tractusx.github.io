@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Data Sovereignity & Policies
+title: Data Sovereignity, Policies and Upgradability
 ---
 <!--
  * Copyright (c) 2021,2024 T-Systems International GmbH
@@ -26,7 +26,7 @@ title: Data Sovereignity & Policies
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-This document describes how Data Sovereignity can be reached in publishing Graphs and Skills while employing appropriate Policies.
+This document describes how Data Sovereignity and Upgradability can be reached in publishing Graphs and Skills by employing appropriate Policies and Versioning strategies.
 
 For more information see
 
@@ -37,11 +37,111 @@ For more information see
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
 
-The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent_edc). The RDF endpoints (=binding agents, as they are active components that do not contain data, but simply transform queries into the backend protocols) themselves stay in an "internal" network (as the backends they interface) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network. Although the EDC network is technically based on public interfaces,
-it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participations and proven certificates).
+The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent_edc). The RDF endpoints (called binding *agents*, because they are active components that do not contain data, but simply transform queries into the backend protocols) stay in an "internal" network (as the data- and logic-carrying backends that they interface/transform into) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network.
 
-On the other hand, being free to define policies at will gives partipants a tremendous burden not to (unintendedly) breaking the deep data chains (in the knowledge agent case: deep nested executions) for the most valuable use cases. Therefore, Catena-X introduces so-called policy profiles which ensure that no constraints are used which cannot be foreseen or implemented by the
-participants at runtime.
+Although the EDC network is technically based on public interfaces, it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participations and proven certificates).
+
+Although the EDC transfer protocols are used to "tunnel" more specific application protocols and endpoints, it is by the flexible description and filtering of those endpoints as data catalogue offers with extensible properties that any application can infer the correct target asset to interact with.  
+
+On the other hand, being free/sovereign to define these policies and properties at will gives the partipants a tremendous burden not to (unintendedly) breaking the deep data chains (in the knowledge agent case: deep nested executions) for the most valuable use cases. That is because these "hickups" will only occur data-driven at runtime by empty catalogue offers or failed transfers in unforeseeable places.
+
+## Catena-X Asset Property Standards
+
+To mitigate this problem, Catena-X requires two specific mandatory asset/offer properties:
+
+* "cx-common:protocol" should refer to a known transfer protocol ("cx-common:" is an abbreviation for <https://w3id.org/catenax/ontology/common#>)
+* "dct:type" should refer to a concept from the Catena-X Asset Taxonomy ("dct:" is an abbreviation for <https://purl.org/dc/terms/>; "cx-taxo:" is an abbreviation for <https://w3id.org/catenax/taxonomy#>).
+* "cx-common:version" should carry a version string
+
+For our purpose, the Agents KIT distinguishes two protocols:
+
+* "cx-common:Protocol?w3c:http:SPARQL" which describes querying with SPARQL over HTTP (POST or GET)
+* "cx-common:Protocol?w3c:http:SKILL" which describes invoking and binding SKILLs over HTTP (POST or GET)
+
+The Agents KIT introduces two asset concepts accordingly:
+
+* "cx-taxo:GraphAsset" for Graph-based Assets (pointing to binding agents)
+* "cx-taxo:SkillAsset" for Skill Assets (containing parameterizable SPARQL queries)
+
+Finally, we suggest to use semantic versioning in the version property where the versions should be aligned with the use case KIT versions.
+
+* "[0-9]+.[0-9]+.[0-9]+(-SNAPSHOT)?"
+
+A Skill which is depending on a particular (minimal, maximal, exact) version of the Catena-X ontology (and its use-case relevant domain ontologies) to be realised could use the builtin SPARQL functions to filter the appropriate assets from the federated data catalogue. In the following example, we list all the found assets (together with their connectors) ordered by the highest version.
+
+```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
+PREFIX dct: <https://purl.org/dc/terms/>
+
+# This query filters the federated data catalogue for 'production' behavioural graphs 
+# in versions between 1.11 (inclusive) and 2 (exclusive)
+
+select ?connector ?asset ?version where {      
+    ?connector cx-common:offers ?asset.
+    ?asset dct:type cx-taxo:GraphAsset;
+           rdfs:isDefinedBy <https://w3id.org/catenax/ontology/behaviour>;
+               cx-common:version ?version.
+
+        FILTER (!strends(?version, 'SNAPSHOT')).
+        FILTER (?version >= '1.11').
+        FILTER (?version < '2.').
+} ORDER BY DESC(?version)
+```
+
+A result from would look like this
+
+```json
+{
+    "head": {
+        "vars": [
+            "connector",
+            "asset",
+            "version"
+        ]
+    },
+    "results": {
+        "bindings": [
+            {
+                "connector": {
+                    "type": "uri",
+                    "value": "edcs://knowledge.dev.demo.catena-x.net/tiera-edc-control/BPNL00000003CPIY"
+                },
+                "asset": {
+                    "type": "uri",
+                    "value": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL"
+                },
+                "version": {
+                    "type": "literal",
+                    "value": "1.12.19"
+                }
+            },
+            {
+                "connector": {
+                    "type": "uri",
+                    "value": "edcs://knowledge.dev.demo.catena-x.net/tiera-edc-control/BPNL00000003CPIY"
+                },
+                "asset": {
+                    "type": "uri",
+                    "value": "cx-taxo:GraphAsset?supplier=HealthIndicatorGearbox"
+                },
+                "version": {
+                    "type": "literal",
+                    "value": "1.11.16"
+                }
+            }
+        ]
+    }
+}
+```
+
+## Catena-X Policy Profiles
+
+Furthermore, Catena-X introduces so-called policy profiles which ensure that only pre-negotiatable and predictable constraints are used in the permissions, duties and obligations.
 
 Two examples for such use-case specific policies following the Catena-X profile and being based on separated signed (and technicall attested) framework agreements are the
 Behaviour Twin Framework Agreement (in verson 1) and the Traceability Agreement (in version 3).
