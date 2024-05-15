@@ -28,7 +28,7 @@ The solution is based on notification assets in the EDC (which is the same appro
 
 > :raised_hand: It is important to understand that the receiver creates EDC asset and policies, and thus, the sender of the Unique ID push notification must check during the EDC negotiation process if the conditions the receiver offers are acceptable for the sender.
 
-Currently there are two types of Unique Id Push Notifications available: "Connect to Parent" and "Connect to Child".
+Currently there are two types of Unique ID Push Notifications available: "Connect to Parent" and "Connect to Child".
 
 ##### Connect to Parent
 
@@ -129,7 +129,7 @@ The Unique ID Push notifications have a standardized format. Schemas of these no
 
 - For the `context` field in the notification header, use the following string for Unique ID Push notifications as described in this KIT: `IndustryCore-UniqueIDPush-ConnectToParent:<API version>`.
 
-- Adding the customer part id to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, in case the manufacturer knows the customer and the corresponding customer part id of its part though, it is required to always add the customer part id to the notification.
+- Adding the customer part ID to the notification is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part ID for their parts. But, in case the manufacturer knows the customer and the corresponding customer part ID of its part though, it is required to always add the customer part ID to the notification.
 
 ##### Connect to Child
 
@@ -137,13 +137,13 @@ The Unique ID Push notifications have a standardized format. Schemas of these no
 
 #### Notification Receiver
 
-Here is a short overview what the receiver has to do when they want to support Unique Id Push notifications. This is an optional feature.
+Here is a short overview what the receiver has to do when they want to support Unique ID Push notifications. This is an optional feature.
 
 - ** Connect to Parent ** The receiver in this scenario is the customer of a part.
 - ** Connect to Child ** The receiver in this scenario is the supplier of a part.
 - The receiver must create a EDC asset in their EDC that works as the endpoint for receiving notifications. Also, access & usage policies as described below must be configured.
 - The EDC in which the notification EDC asset was created must be registered at the EDC Discovery (so that the sender can find the partner's EDC which should receive notifications)
-- When the Receiver receives a Unique Id Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
+- When the Receiver receives a Unique ID Push notification, it must process this notification after it was received by the EDC (in a Backend Data Service)
 - How the Receiver processes the notification is up to them, but the following steps are recommended:
   - Verify the correctness of the data in the notification (i.e., the receiver is actually the customer of this part).
   - Store the notification data for later.
@@ -197,16 +197,16 @@ The receiver must setup a backend data service that provides an HTTP Endpoint fo
 
 #### Notification Sender
 
-Here is a short overview what the sender has to do when they want to support Unique Id Push notifications. This is an optional feature.
+Here is a short overview what the sender has to do when they want to support Unique ID Push notifications. This is an optional feature.
 
 ##### Connect to Parent (Sender = Supplier)
 - The Sender in this scenario is the manufacturer or supplier of a part.
-- When a new digital twin for a part was created, the manufacturer is responsible to send a Unique Id Push notification for this twin to the customer of this part.
+- When a new digital twin for a part was created, the manufacturer is responsible to send a Unique ID Push notification for this twin to the customer of this part.
 - It is recommended to send this notification as soon as possible, i.e., directly after the digital twin was created.
 
 ##### Connect to Child (Sender = Customer)
 - The Sender in this scenario is the consumer of the supplied part.
-- When the supplied part is used in the production or assembly at the customer side, the customer is responsible to send a Unique Id Push notification for the twin of the used part to the supplier of this part. This is known by the customer when the singleLevelBom aspect is created or updated.
+- When the supplied part is used in the production or assembly at the customer side, the customer is responsible to send a Unique ID Push notification for the twin of the used part to the supplier of this part. This is known by the customer when the singleLevelBom aspect is created or updated.
 - This notification can be sent immediately or collected to be sent when convenient, e.g. once a day or once a week, depending on the use case.
 
 ##### Mapping BPN to EDC URL with EDC Discovery API
@@ -217,7 +217,7 @@ Here is a short overview what the sender has to do when they want to support Uni
 
 With this, the EDC Discovery can be used to query for all EDCs of the receiver. After that, the data catalog of each of these EDCs must be queried for the notification EDC asset as described above. If this notification EDC asset is found in one of these EDCs, the notification can be sent.
 
-There should only be one EDC which provides the notification EDC asset for Unique Id Push. If more than one EDC (for the same BPN/partner) are found, this is considered a misconfiguration of the corresponding partner.
+There should only be one EDC which provides the notification EDC asset for Unique ID Push. If more than one EDC (for the same BPN/partner) are found, this is considered a misconfiguration of the corresponding partner.
 
 
 

@@ -66,9 +66,12 @@ Specific asset IDs are used to identify digital twins when looking up or searchi
 The following conventions for specific asset IDs apply to all digital twins:
 
 <table>
+  <thead>
   <tr>
     <th> Key </th> <th> Availability </th> <th> Description </th> <th> Type </th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td> manufacturerId </td>
     <td> Mandatory </td>
@@ -99,6 +102,7 @@ The following conventions for specific asset IDs apply to all digital twins:
     </td>
     <td> String </td>
   </tr>
+  </tbody>
 </table>
 
 **For serialized parts, additionally the following conventions apply:**
@@ -126,7 +130,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 | intrinsicId       | Mandatory    | This the unified technical key for searching a digital twin of a just-in-sequence (JIS) part. In this case a composition of `jisNumber`, `parentOrderNumber` (if available), `jisCallDate` (if available) is used as the intrinsicId. This information is typically known upfront to the supplier `jisNumber`, `partOrderNumber` and `jisCallDate` for just-in-sequence parts. | String |
 
 > :raised_hand: **Lookup of Digital Twins**
-> The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part id will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
+> The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part ID will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
 > In order to provide a standardised way to look-up digital twins, the specificAssetIDs are extended by a unified technical key, the intrinsicId. This ensures a correct semantic filling of all other existing attributes in the specificAssetIDs, as the partInstanceId was previously used as an overarching search field, which resulted in the partInstanceId being filled with a batch number for a batch, for example.
 Nevertheless, a search for digital twins can still be used via the corresponding the primary fields from a business point of view, such as partInstanceId or batchId.
 
@@ -135,7 +139,7 @@ Correct semantic filling of all existing fields in the specificAssetIDs (e.g. fi
 
 #### Submodel Descriptors
 
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-links-by-id).
 
 ##### Submodel Descriptors
 
@@ -318,12 +322,12 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
   }
   ```
 
-The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part id (manufacturerPartId or manufacturerPartId).
+The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part ID (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part id to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part id for their parts. But, if they know it, it is recommended to always add the customer part id to the specifiAssetId property for easier lookup (by customers).
-- A customer that wants to do a lookup for a supplier's digital twin, must first decide what id they want to use for the lookup. This depends on the information that is available to them.
-  - If the customer knows the manufacturer part id, they should use the manufacturer part id for the lookup as the manufacturer part id is guaranteed to be available in the digital twin (as the manufacturer part id is a mandatory property).
-  - If the customer does not know the manufacturer part id, they must use the customer part id (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part id is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
+- For a digital twin, adding the customer part ID to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part ID for their parts. But, if they know it, it is recommended to always add the customer part ID to the specifiAssetId property for easier lookup (by customers).
+- A customer that wants to do a lookup for a supplier's digital twin, must first decide what ID they want to use for the lookup. This depends on the information that is available to them.
+  - If the customer knows the manufacturer part id, they should use the manufacturer part ID for the lookup as the manufacturer part ID is guaranteed to be available in the digital twin (as the manufacturer part ID is a mandatory property).
+  - If the customer does not know the manufacturer part id, they must use the customer part ID (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part ID is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.
 
 As a result, the AAS ID of the digital twin with this local IDs is returned. The AAS ID can then be used to retrieve details about the digital twin, i.e. the digital twin's AAS descriptor including submodel descriptors.
 
