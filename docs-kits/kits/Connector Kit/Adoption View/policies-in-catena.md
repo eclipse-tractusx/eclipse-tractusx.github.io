@@ -49,8 +49,7 @@ Each Participant commits to a set of Use Case Frameworks during Onboarding. They
 that commitment. Consequently, Use Case Framework Constraints belong to the kind of `odrl:Constraint`s that have to be
 [checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation). The
 complete set is listed in the most current version of standard
-[CX-0050 Framework Credential](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0050-FrameworkAgreementCredential-v.1.0.0.pdf) (
-link opens pdf).
+[CX-0050 Framework Credential](https://catena-x.net/de/standard-library).
 Use Case Frameworks are referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
 negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also his
 Credentials. Here's an example of an `odrl:Constraint` referencing a Use Case Framework and invoking the VC-check:
