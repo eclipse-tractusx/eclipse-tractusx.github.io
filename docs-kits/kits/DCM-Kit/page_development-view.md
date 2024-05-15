@@ -332,7 +332,7 @@ The `unitOfMeasure` property MUST be set to one of the predefined values from [C
 Multiple `WeekBasedMaterialDemand` aspects MAY be provided in one transfer as a JSON list. If only one `WeekBasedMaterialDemand` aspect is provided, it MUST be as list with one entry.
 
 The current week is denominated as N=0, the next week as N=1, the week after the next week as N=2 and so on.
-The data series in the `WeekBasedMaterialDemand` SHOULD start from week N=2. The dataset MUST include at least one week, where N>1 and MUST NOT contain duplicate weeks. Weeks N=0 and N=1 MAY be included. If demand changes, the entire dataset MUST be provided again, avoiding inconsistent or incomplete data. The new dataset might contain additional data or less data then the previous version of the same dataset. This includes the possibility that a `demandSeries` might have been removed entirely. Each `WeekBasedMaterialDemand` object MUST be unique for a given `supplier`, `customer` and `materialNumberCustomer` combination. This means that customers need to agregate demands from all their factories before providing them to suppliers as a single `WeekBasedMaterialDemand`.
+The data series in the `WeekBasedMaterialDemand` SHOULD start from week N=2. The dataset MUST include at least one week, where N>1 and MUST NOT contain duplicate weeks. Weeks N=0 and N=1 MAY be included. If demand changes, the entire dataset MUST be provided again, avoiding inconsistent or incomplete data. The new dataset might contain additional data or less data then the previous version of the same dataset. This includes the possibility that a `demandSeries` might have been removed entirely. Each `WeekBasedMaterialDemand` object MUST be unique for a given `supplier`, `customer` and `materialNumberCustomer` combination. This means that customers need to aggregate demands from all their factories before providing them to suppliers as a single `WeekBasedMaterialDemand`.
 
 If a week's demand is zero (value = `0`), it MUST be explicitly stated and included in the `WeekBasedMaterialDemand`, unknown demands (value = `null`) SHOULD be omitted.
 
@@ -544,7 +544,7 @@ Suppliers use `startReferenceDateTime` to define the start of the demand volatil
 
 In order to get the start of any subsequent measurement intervals the value of `measurementInterval` needs to be converted from integer to weeks and added to `startReferenceDateTime`.
 
-Once demand volatility metric calculation has been initiliazed `startReferenceDateTime` MUST maintain its value.
+Once demand volatility metric calculation has been initialized `startReferenceDateTime` MUST maintain its value.
 
 If the value of `startReferenceDateTime` or `measurementInterval`  changes this is considered another initialization.
 
@@ -716,7 +716,7 @@ The `IdBasedRequestForUpdate` object (RfU) is used to request updates of some or
 
 Customers and Supplier MUST be able to consume and process a RfU. Being able to provide a RfU is RECOMMENDED.
 
-To properly proccess a RfU, the following steps MUST be executed:
+To properly process a RfU, the following steps MUST be executed:
 
 1. Response: Answering with the appropriate HTTP status code
 2. Action: If that status code is `200 OK`: Providing the requested material demands and capacity groups via `WeekBasedMaterialDemand` API or `WeekBasedCapacityGroup` API respectively.
@@ -888,7 +888,7 @@ When consuming a payload, that contains unknown properties not described within 
 
 Attributes that are strings MUST be formatted correctly. For example, `expectedSupplierLocation` MUST be formatted as a BPNS. The `listOfReferenceDates` collection MUST represent the calendar week's Mondays in the format YYYY-MM-DD as described in ISO8601.
 
-Certain properties, such as `author`, `objectId`, `listOfReferenceDates` and `objectType`, have specific requirements for their values. `author` MUST contain a valid emailadress or BPNL if anonymity is preferred. `objectId`, MUST be the UUID of either the `WeekBasedMaterialDemand` or `WeekBasedCapacityGroup` the comments is referencing. `objectType` MUST be as a Catena-X aspect model unique identifier without a version.
+Certain properties, such as `author`, `objectId`, `listOfReferenceDates` and `objectType`, have specific requirements for their values. `author` MUST contain a valid email address or BPNL if anonymity is preferred. `objectId`, MUST be the UUID of either the `WeekBasedMaterialDemand` or `WeekBasedCapacityGroup` the comments is referencing. `objectType` MUST be as a Catena-X aspect model unique identifier without a version.
 
 Multiple `IdBasedComment` aspects MAY be provided in one transfer as a JSON list. If only one `IdBasedComment` aspect is provided, it MUST be as a list with one entry.
 
