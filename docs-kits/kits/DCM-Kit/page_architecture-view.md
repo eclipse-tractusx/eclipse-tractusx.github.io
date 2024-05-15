@@ -20,7 +20,7 @@ If none of this applies to you or you are unsure, please refer to [Operation Vie
 
 ## Prerequisites
 
-In order to participate in the Catena-X network an Eclipse Dataspace Connector (EDC), or a similar connector fulfilling the Dataspace Protocoll, is required, as the endpoints must not be called directly but only through a Data Asset/Contract Offer.
+In order to participate in the Catena-X network an Eclipse Dataspace Connector (EDC), or a similar connector fulfilling the Dataspace Protocol, is required, as the endpoints must not be called directly but only through a Data Asset/Contract Offer.
 
 In addition use case participants need to be boarded onto the Catena-X network.
 

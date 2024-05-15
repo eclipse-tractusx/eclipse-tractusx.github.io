@@ -32,7 +32,7 @@ Data providers or data consumers that want to enable your custom software for Ca
 
 1. register for the Catena-X Ecosystem
 2. be technically onboarded in the Catena-X Network and take care of an organizational onboarding within your Company
-3. setup the neccesary IT parts for the go-live
+3. setup the necessary IT parts for the go-live
 4. receive a Business Partner Number (BPN)
 5. accept the DCM Framework Agreement/Use Case Policy
 6. sign necessary contract(s), e.g. the Data Exchange Contract(s) with your partner(s)
@@ -80,6 +80,6 @@ Please refer to the [Catena-X Library](https://catena-x.net/de/standard-library)
 
 ## Onboarding steps for Business Application Providers
 
-Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including nexts steps & contacts).
+Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including next steps & contacts).
 
 Please refer to the [Catena-X Library](https://catena-x.net/de/standard-library) for the newest version of the  DCM as well as other standards.
