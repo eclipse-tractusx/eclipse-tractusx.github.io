@@ -236,7 +236,7 @@ To clearly identify the order and relevant material, the order number _(orderNum
 
 #### B. Chain of Custody Models
 
-Disclaimer: For information regarding the calculation of a PCF on basis of the Chain of Custody Models please see the Catena-X [(PCF) Rulebook.](https://catena-x.net/de/standard-library
+Disclaimer: For information regarding the calculation of a PCF on basis of the Chain of Custody Models please see the Catena-X [(PCF) Rulebook.](https://catena-x.net/de/standard-library)
 
 Chain of custody is an administrative process by which information about materials is transferred, monitored, and controlled as those materials move through supply chains [ISO 22095:2020]. There are in principle four chains of custody models possible, illustrated in the figure below. Their common objective is to guarantee correct bookkeeping and to corroborate a link between in-going content, e.g., ‘sustainable’, ‘recycled’ or ‘organic’ by harmonized definitions, and the finally out-going product. They differ regarding physical or administrative links. Furthermore, they differ on the set of rules for balancing, and the possibility to keep materials streams segregated or not.
 
