@@ -14,13 +14,13 @@ To see Bob's data offerings, Alice must request access to his catalog. The catal
 So Alice requests Bob's catalog using the following `curl` commands:
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
 --header 'Content-Type: application/json' \
---header 'X-Api-Key: password' \
+--header 'X-Api-Key: TEST1' \
 --data-raw '{
     "@context": {},
     "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://bob-controlplane:8084/api/v1/dsp",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
     "querySpec": {
         "offset": 0,
         "limit": 100
@@ -34,22 +34,26 @@ Alice finds the Asset with the ID 3 and the description "Product EDC Demo Asset 
 
 ## Negotiate a contract
 
+:::info
+Dont forget to change the `offerId`with the one you received in the previous step in your catalog request.
+:::
+
 But before she can transfer the data, she must negotiate the contract with Bob. To do this, she uses the following `curl` command:
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/contractnegotiations' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations' \
 --header 'Content-Type: application/json' \
---header 'X-Api-Key: password' \
+--header 'X-Api-Key: TEST1' \
 --data-raw '{
  "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
  },
  "@type": "NegotiationInitiateRequestDto",
- "connectorAddress": "http://bob-controlplane:8084/api/v1/dsp",
+ "connectorAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
  "protocol": "dataspace-protocol-http",
- "providerId": "BPNL000000000002",
+ "providerId": "BPNL00000003AYRE",
  "offer": {
-    "offerId": "Mw==:Mw==:ODRkYjJhZjQtZjMxOC00ZjgyLThjMjktODQwZThjYjBjNjVl",
+    "offerId": "Mw==:Mw==:NTYzYWRkYTItNmEzMy00YTNhLWFmOTQtYjVjOWM0ZDMyODA1",
     "assetId": "3",
     "policy": {
         "@type": "odrl:Set",
@@ -62,15 +66,39 @@ curl --location 'http://localhost/alice/management/v2/contractnegotiations' \
 }' | jq
 ```
 
-In the response, Alice gets a UUID. This is the ID of the created contract negotiation. Alice can now use this ID to see the current status of the negotiation and - if the negotiation was successful - the ID of the created contract agreement.
+The response should look like this:
+
+```json
+{
+  "@type": "edc:IdResponse",
+  "@id": "65356596-dd7c-4ad4-8fc6-8512be6f0ec2",
+  "edc:createdAt": 1715669329095,
+  "@context": {
+    "dct": "https://purl.org/dc/terms/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "dspace": "https://w3id.org/dspace/v0.8/"
+  }
+}
+```
+
+In the response, Alice gets a UUID (attribute is `@id`). This is the ID of the created contract negotiation. Alice can now use this ID to see the current status of the negotiation and - if the negotiation was successful - the ID of the created contract agreement.
 
 :::tip
-Make sure to replace `<ID>` in the URL with the UUID you just received.
+Make sure to replace `<ID>` in the URL with the UUID you just received. in the current case the UUID is `65356596-dd7c-4ad4-8fc6-8512be6f0ec2`. So the curl command should look like this:
+
+```shell
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations/65356596-dd7c-4ad4-8fc6-8512be6f0ec2' \
+--header 'X-Api-Key: TEST1' | jq
+```
+
 :::
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/contractnegotiations/<ID>' \
---header 'X-Api-Key: password' | jq
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations/<ID>' \
+--header 'X-Api-Key: TEST1' | jq
 ```
 
 - If the negotiation was **successful**, Alice will see an ouput as shown below.
@@ -79,15 +107,15 @@ curl --location 'http://localhost/alice/management/v2/contractnegotiations/<ID>'
 ```json
 {
   "@type": "edc:ContractNegotiation",
-  "@id": "4e74a632-94bc-4bfb-acf5-230f7d18b080",
+  "@id": "65356596-dd7c-4ad4-8fc6-8512be6f0ec2",
   "edc:type": "CONSUMER",
   "edc:protocol": "dataspace-protocol-http",
   "edc:state": "FINALIZED",
-  "edc:counterPartyId": "BPNL000000000002",
-  "edc:counterPartyAddress": "http://bob-controlplane:8084/api/v1/dsp",
+  "edc:counterPartyId": "BPNL00000003AYRE",
+  "edc:counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
   "edc:callbackAddresses": [],
-  "edc:createdAt": 1702989093837,
-  "edc:contractAgreementId": "Mw==:Mw==:NmY5MDA4OGEtOWY1ZC00YmYyLWFiZjMtMjRiNzY0YzEyOTk4",
+  "edc:createdAt": 1715669329095,
+  "edc:contractAgreementId": "Mw==:Mw==:N2RhZGI3OGMtYzUxNC00OTkzLWI3MzktNDE3YmJhMDNkMDU4",
   "@context": {
     "dct": "https://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
@@ -107,7 +135,7 @@ Alice wants to send the data to her backend application ("<http://backend:8080>"
 
 :::warning
 
-For testing purposes, you should replace `backend:8080` with your own test API or use [webhook.site](https://webhook.site/) as your backend system.
+For testing purposes, you should replace `<backend>` with your own test API or use [webhook.site](https://webhook.site/) as your backend system.
 If you do not change this, you will not be able to view the received token, which is required for requesting the data!
 If you are using webhook.site, please make sure that you use "Your unique URL" and that you do not transfer any sensitive information to webhook.
 
@@ -115,22 +143,22 @@ Replace `<contractAgreementId>` with the contract agreement ID you received in t
 :::
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/transferprocesses' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses' \
 --header 'Content-Type: application/json' \
---header 'X-Api-Key: password' \
+--header 'X-Api-Key: TEST1' \
 --data-raw '{
     "@context": {
         "odrl": "http://www.w3.org/ns/odrl/2/"
     },
     "assetId": "3",
-    "connectorAddress": "http://bob-controlplane:8084/api/v1/dsp",
-    "connectorId": "BPNL000000000002",
+    "connectorAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "connectorId": "BPNL00000003AYRE",
     "contractId": "<contractAgreementId>",
     "dataDestination": {
         "type": "HttpProxy"
     },
     "privateProperties": {
-        "receiverHttpEndpoint": "http://backend:8080"
+        "receiverHttpEndpoint": "<backend:8080>"
     },
     "protocol": "dataspace-protocol-http",
     "transferType": {
@@ -140,17 +168,41 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses' \
 }' | jq
 ```
 
+The response in this case looks like this:
+
+```json
+{
+  "@type": "edc:IdResponse",
+  "@id": "9d6a0507-25f5-4a81-8885-a47bc3809451",
+  "edc:createdAt": 1715669899367,
+  "@context": {
+    "dct": "https://purl.org/dc/terms/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "dcat": "https://www.w3.org/ns/dcat/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "dspace": "https://w3id.org/dspace/v0.8/"
+  }
+}
+```
+
 Just to make sure everything worked, Alice uses another `curl` command to check if the transfer was successful.
 
 In the response, Alice gets a UUID. This is the ID of the created transfer. Alice can now use this ID to see the current status of the transfer.
 
 :::tip
-Make sure to replace `<ID>` in the URL with the UUID you just received.
+Make sure to replace `<ID>` in the URL with the UUID you just received. In our case, the UUID is `9d6a0507-25f5-4a81-8885-a47bc3809451`. So the curl command should look like this:
+
+```shell
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses/9d6a0507-25f5-4a81-8885-a47bc3809451' \
+--header 'X-Api-Key: TEST1' | jq
+```
+
 :::
 
 ```shell
-curl --location 'http://localhost/alice/management/v2/transferprocesses/<ID>' \
---header 'X-Api-Key: password' | jq
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses/<ID>' \
+--header 'X-Api-Key: TEST1' | jq
 ```
 
 - If the transfer was **successful**, Alice will see an ouput as shown below.
@@ -158,20 +210,20 @@ curl --location 'http://localhost/alice/management/v2/transferprocesses/<ID>' \
 
 ```json
 {
-  "@id": "6d6bca4e-4da5-4ed3-9fe5-2b98623d9a59",
+  "@id": "9d6a0507-25f5-4a81-8885-a47bc3809451",
   "@type": "edc:TransferProcess",
-  "edc:correlationId": "6d6bca4e-4da5-4ed3-9fe5-2b98623d9a59",
+  "edc:correlationId": "9d6a0507-25f5-4a81-8885-a47bc3809451",
   "edc:state": "STARTED",
-  "edc:stateTimestamp": 1702990026966,
+  "edc:stateTimestamp": 1715669901450,
   "edc:type": "CONSUMER",
   "edc:assetId": "3",
-  "edc:contractId": "Mw==:Mw==:NmY5MDA4OGEtOWY1ZC00YmYyLWFiZjMtMjRiNzY0YzEyOTk4",
+  "edc:contractId": "Mw==:Mw==:N2RhZGI3OGMtYzUxNC00OTkzLWI3MzktNDE3YmJhMDNkMDU4",
   "edc:callbackAddresses": [],
   "edc:dataDestination": {
     "@type": "edc:DataAddress",
     "edc:type": "HttpProxy"
   },
-  "edc:connectorId": "BPNL000000000002",
+  "edc:connectorId": "BPNL00000003AYRE",
   "@context": {
     "dct": "https://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
@@ -201,10 +253,10 @@ In her backend (as already mentioned [webhook.site](https://webhook.site/)) you 
 
 ```json
 {
-  "id": "841e3cd7-add0-47fd-adef-ea8074ec50af",
-  "endpoint": "http://bob-tractusx-connector-dataplane:8081/api/public",
+  "id": "9d6a0507-25f5-4a81-8885-a47bc3809451",
+  "endpoint": "http://dataprovider-dataplane.tx.test/api/public",
   "authKey": "Authorization",
-  "authCode": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MTE5MTIzMDgsImRhZCI6IktaamRBV3ZSV0xpS3V5akNwSjRIdEgwT2lqOEdQRno2SVdXcWxMMEFFZUloS25wOU5mZll2R1Q0M0N4dURZVHhUK3lRaXhrcWU1dVN1Sk5JR09GTi9kRlQ4R29WNGFHZ3FpdzhXMXBLT2ZLMUdtM1NkeFRIeWR0QTlnTnZoZFJ6T05RclpxbUlwNGxwZVBRaS9CSGVNTEYycEVsRVUvcExzU3dTbDh3eUplY3lSM2thTnJiUUw0a3RnajNMeDBjWUp3ZHZlS2h3OUdMYjF1UnBDa3I0RE5sOG4zQlprZ1ZEK1RYUGtIaGhXVWNpck1Tc3FBZHdyN3kvRFE0Nlp5S09GbldtTmVkdEVaempLWmRRRUlWMkcyV2d2cXFya25WdkNvTzhPZWpXZU1MaXUvdnl2cWdTZmp2dkk4cHhIOTRzYS90LzdGazB2YlRuMmpNMjQ3TFZQUlcvMk9wRElZWTA0dVRYY2p2T0h2L1UvcU5heURnR09uaitBbjcyZnNiOUZhWVZLMzQ4TzRYKzFDMkRvUjBwem9nQmJyRGMzSzRNQzBSdjcvVT0iLCJjaWQiOiJNdz09Ok13PT06WTJJelpHTXdaR1l0WVRNeVlpMDBZamM1TFdFNFkyTXROVE5rWWpVeU5tWXpNR0ZpIn0._2G-2eVzIQrTh-JW0Dx_P9nG2bAElPFllYtpN_s7MXk6R-F5jdMyCblMD6uJDw-H7J0SMiW5IAYExcZkMn-65w",
+  "authCode": "eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE3MTU2NzA1MDEsImRhZCI6IjFFQ29ReDRBTy9acmJ6dXEwUlpSY0tYd1hQeW81UmdPZndyRWtIWnpZSStQVGhIUmFuelczeGpXcU5vTzFJa3ZOWUV6SGpEWU5iVEJ5VDgzbzdtVlVsUWZhYUpKSm5CMVJGbFQ1SXM0NHpZQ0RJYWZKNHhmQzZTOFNKaWxjV0x1WURoc24xRjdha2xSZllnemRIMjR3WnJycS9JU0pPZjFzVHNQSHNtcE9PaWZ2S2ZyaElFemtJSEs3OFZUTFBMd0krWmNEK3VZc1FCQkt5NlEvZFBCSkZodWsyMXFiOVU1V3dZWWpPYkZSQjdzUmpZYkNsSlpyaTZzVWFXQU1WOXVsQ2JGS2NPM2xxMERPaWRuQjNqSXJ4blh4Y3JjVHl3MEkzV3JjN2k2ZG1nejlXMTFvYTR5VUpJWU92R1lkdWNXdk1pemk3b01mck5SdXE0SVJ1djR6ai9Cemcxb2NZalB5Y0RvK2I2M0RheWpyWmVNS1c4OGNRUnlvUDdpbExsMVNVVmFlRUxZQ3lieitCYUxpd2x1d0lpcWxFckJrTDNlOXptNGpJYz0iLCJjaWQiOiJNdz09Ok13PT06TjJSaFpHSTNPR010WXpVeE5DMDBPVGt6TFdJM016a3ROREUzWW1KaE1ETmtNRFU0In0.AOt6rXbcK44RD7XNCMN16zjvurzdkMNCki3HkvZ_VJ43eDkCDDbquDSvW0SmEnp9cqhjMbUqnO-iGJheI4TbkIc9dxFouJGtHvKFAjOG7LFSErwvH0yNXus1TPN41BCp_jP1tpH63s3PuRqgdzzn1axkJ57aGo9ibqnKRm7ZhM8pgkReWQpHwlFz3QuOMFWHNmPm_HMePPsUxZM7OpARwgShGMqATHEJmoIff2S1yLLeN0k97JT4BzL7xwM9VB-Yssq1rWxBp3GITcBta5R1EVjzaEZseYn_wxFFmVlXQtu_lkvbgihEsvCgtXI_c-EGZl_gTVe9DMfq4cM2XXfE8A",
   "properties": {}
 }
 ```
@@ -222,7 +274,19 @@ In this example, we can not use the endpoint URL as is, because we are working w
 In this example, this results in the following request:
 
 ```shell
-curl -X GET -H 'Authorization: eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MTE5MTIzMDgsImRhZCI6IktaamRBV3ZSV0xpS3V5akNwSjRIdEgwT2lqOEdQRno2SVdXcWxMMEFFZUloS25wOU5mZll2R1Q0M0N4dURZVHhUK3lRaXhrcWU1dVN1Sk5JR09GTi9kRlQ4R29WNGFHZ3FpdzhXMXBLT2ZLMUdtM1NkeFRIeWR0QTlnTnZoZFJ6T05RclpxbUlwNGxwZVBRaS9CSGVNTEYycEVsRVUvcExzU3dTbDh3eUplY3lSM2thTnJiUUw0a3RnajNMeDBjWUp3ZHZlS2h3OUdMYjF1UnBDa3I0RE5sOG4zQlprZ1ZEK1RYUGtIaGhXVWNpck1Tc3FBZHdyN3kvRFE0Nlp5S09GbldtTmVkdEVaempLWmRRRUlWMkcyV2d2cXFya25WdkNvTzhPZWpXZU1MaXUvdnl2cWdTZmp2dkk4cHhIOTRzYS90LzdGazB2YlRuMmpNMjQ3TFZQUlcvMk9wRElZWTA0dVRYY2p2T0h2L1UvcU5heURnR09uaitBbjcyZnNiOUZhWVZLMzQ4TzRYKzFDMkRvUjBwem9nQmJyRGMzSzRNQzBSdjcvVT0iLCJjaWQiOiJNdz09Ok13PT06WTJJelpHTXdaR1l0WVRNeVlpMDBZamM1TFdFNFkyTXROVE5rWWpVeU5tWXpNR0ZpIn0._2G-2eVzIQrTh-JW0Dx_P9nG2bAElPFllYtpN_s7MXk6R-F5jdMyCblMD6uJDw-H7J0SMiW5IAYExcZkMn-65w' http://localhost/bob/api/public
+curl -X GET -H 'Authorization: eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE3MTU2NzA1MDEsImRhZCI6IjFFQ29ReDRBTy9acmJ6dXEwUlpSY0tYd1hQeW81UmdPZndyRWtIWnpZSStQVGhIUmFuelczeGpXcU5vTzFJa3ZOWUV6SGpEWU5iVEJ5VDgzbzdtVlVsUWZhYUpKSm5CMVJGbFQ1SXM0NHpZQ0RJYWZKNHhmQzZTOFNKaWxjV0x1WURoc24xRjdha2xSZllnemRIMjR3WnJycS9JU0pPZjFzVHNQSHNtcE9PaWZ2S2ZyaElFemtJSEs3OFZUTFBMd0krWmNEK3VZc1FCQkt5NlEvZFBCSkZodWsyMXFiOVU1V3dZWWpPYkZSQjdzUmpZYkNsSlpyaTZzVWFXQU1WOXVsQ2JGS2NPM2xxMERPaWRuQjNqSXJ4blh4Y3JjVHl3MEkzV3JjN2k2ZG1nejlXMTFvYTR5VUpJWU92R1lkdWNXdk1pemk3b01mck5SdXE0SVJ1djR6ai9Cemcxb2NZalB5Y0RvK2I2M0RheWpyWmVNS1c4OGNRUnlvUDdpbExsMVNVVmFlRUxZQ3lieitCYUxpd2x1d0lpcWxFckJrTDNlOXptNGpJYz0iLCJjaWQiOiJNdz09Ok13PT06TjJSaFpHSTNPR010WXpVeE5DMDBPVGt6TFdJM016a3ROREUzWW1KaE1ETmtNRFU0In0.AOt6rXbcK44RD7XNCMN16zjvurzdkMNCki3HkvZ_VJ43eDkCDDbquDSvW0SmEnp9cqhjMbUqnO-iGJheI4TbkIc9dxFouJGtHvKFAjOG7LFSErwvH0yNXus1TPN41BCp_jP1tpH63s3PuRqgdzzn1axkJ57aGo9ibqnKRm7ZhM8pgkReWQpHwlFz3QuOMFWHNmPm_HMePPsUxZM7OpARwgShGMqATHEJmoIff2S1yLLeN0k97JT4BzL7xwM9VB-Yssq1rWxBp3GITcBta5R1EVjzaEZseYn_wxFFmVlXQtu_lkvbgihEsvCgtXI_c-EGZl_gTVe9DMfq4cM2XXfE8A' http://dataprovider-dataplane.tx.test/api/public  | jq
+```
+
+:::info
+Currently the response for this curl commoand is
+
+```json
+{
+  "userId": 1,
+  "id": 3,
+  "title": "fugiat veniam minus",
+  "completed": false
+}
 ```
 
 ## Notice
