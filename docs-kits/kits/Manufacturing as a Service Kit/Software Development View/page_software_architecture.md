@@ -856,9 +856,3 @@ The Manufacturing Network Registry responds to queries with manufacturers matchi
 | Sovereignty | The buyer as the data owner always acts as the data provider as well and does not have to allow the transfer of data to third parties. Therefore, service brokers (e.g. marketplaces) build queries to digital services, for buyer applications, instead of querying the services directly and transferring the buyer's data to them.                                                                                           |
 | Federation  | The manufacturing capabilities are stored within the Manufacturing Network Registry instead of following a complete distributed approach. For the scientific background of this decision the reader is referred to ***[Building a Digital Manufacturing as a Service Ecosystem for Catena-X](https://doi.org/10.3390/s23177396).***                                                                                             |
 | Dataspace   | CDME is a Catena-X embedding of the dataspace-agnostic Smart Factory Web reference architecture. As such, it supports the Catena-X technology stack, but can also be connected to other dataspaces. This is necessary, because CDME is supposed to support the full range of manufacturing supply chains. Therefore, lock-in effects have to be omitted and suppliers commited to other dataspaces have to be included as well. |
-
-## 10 Quality
-
-## 11 Risks and Technical Dept
-
-## 12 Glossary
