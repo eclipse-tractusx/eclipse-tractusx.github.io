@@ -14,4 +14,3 @@ description: Behaviour Twin KIT
 Behaviour Twin KIT -- Remaining useful Life
   </div>
 </div>
-

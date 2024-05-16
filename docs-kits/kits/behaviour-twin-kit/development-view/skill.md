@@ -149,9 +149,6 @@ SELECT DISTINCT ?vehicle ?van ?aggregate ?assembly ?supplier ?distanceKm ?timeHo
 } # SELECT
 ```
 
-
-
-
 The registered skill is available over Agent Plane API and can be called also for a list of input variables:
 
 ```curl

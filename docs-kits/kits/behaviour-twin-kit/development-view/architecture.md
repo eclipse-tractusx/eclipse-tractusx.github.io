@@ -27,13 +27,6 @@ case. Skills are written in SPARQL, a query language for federated knowledge gra
 
 ## DETAILLED DRAWINGS
 
-
-
-
-
-
-
-
 ## YOUR INTERFACE
 
 You always need access to your **running connector (EDC) with knowledge agent components** and

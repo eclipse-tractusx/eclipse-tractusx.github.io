@@ -21,7 +21,7 @@ Behaviour Twin KIT -- Remaining useful Life
 
 Calculating Remaining Useful Life is a business.
 
-The *Behaviour Twin KIT*  aims at novel business models based on the calculation of Remaining Useful Life. The wide range of possible applications starts with product development and finally extends to recycling: the entire product life cycle offers potential. 
+The *Behaviour Twin KIT*  aims at novel business models based on the calculation of Remaining Useful Life. The wide range of possible applications starts with product development and finally extends to recycling: the entire product life cycle offers potential.
 
 The *Behaviour Twin KIT* provides efficient support in planning, designing, building, using and operating Remaining Useful Life Services and applications based on them.
 

@@ -52,8 +52,7 @@ In Behaviour Twin use cases, the fist step into the federated logic is usually t
 
 0. **0.1 Register skill asset, 0.2 sync federated catalog:** <BR /> The predefined skill is registered as an asset at the data provider's EDC connector. The federated catalogs are synchronized periodically.
 
-1. **Invoke skill asset:** <BR /> The consumer invokes the skill by calling the agents API at its own EDC connector. The partner's EDC connector 
-address must be known. To resolve this address is up to the use case. A prognosis function result type and a component or vehicle id (e.g. VIN) is set as parameter for the skill.
+1. **Invoke skill asset:** <BR /> The consumer invokes the skill by calling the agents API at its own EDC connector. The partner's EDC connector address must be known. To resolve this address is up to the use case. A prognosis function result type and a component or vehicle id (e.g. VIN) is set as parameter for the skill.
 
 2. **Request skill asset:** <BR /> The skill is invoked by requesting the skill asset at the data provider via EDC connectors.
 
