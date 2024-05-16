@@ -62,7 +62,7 @@ export const kitsGallery = [
     id: 5,
     name: 'Behaviour Twin Kit',
     domain: 'PLM / Quality',
-    img: behaviourtwinkit,
+    img: BehaviourTwin_Kit,
     pageRoute: "/docs-kits/next/kits/behaviour-twin-kit/overview"
   },
   {
