@@ -99,7 +99,7 @@ For having a broader search the “like” operator can be used coupled with the
 
 ## Guideline for Implementing an FMU Interoperability Checker
 
-Meta models for asset propoerties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
+Meta models for asset properties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
 
 ### Use Cases
 
@@ -107,11 +107,11 @@ The FMU Interoperability Checker shall support the following two use cases.
 
 - Use Case 1: Connection Use Case. Given two FMU, FMU1 and FMU2, the FMU Interoperability Checker shall check, based on the FMU asset properties, if the two FMU can be connected in a co-simulation as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC1.png" alt="UC1" width=600></img>
+<img src="images/Pic_IntCheckUC1.png" alt="UC1" width="70%"></img>
 
 - Use Case 2: Replacement Use Case. Given a co-simulation of two FMU, FMU1a and FMU2, the FMU Interoperability Checker shall check based on the FMU asset properties, if FMU1a can be replaced by FMU1b as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC2.png" alt="UC2" width=600></img>
+<img src="images/Pic_IntCheckUC2.png" alt="UC2" width="70%"></img>
 
 ### Workflow
 
@@ -142,7 +142,7 @@ Level 3 “Similarity Check” is suited for fields, where the content can be ex
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **FormTitle**| **FormChoices** | **FormChoices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |
@@ -219,7 +219,7 @@ In the following table, all fields of the meta data model AAS “Provision of Si
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **Field**| **(Basic) Choices** | **Choices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |

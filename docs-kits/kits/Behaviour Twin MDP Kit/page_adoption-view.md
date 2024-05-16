@@ -5,7 +5,7 @@ description: 'Model Based Development and Data Processing Kit'
 sidebar_position: 2
 ---
 
-![Model Based Development and Data Processing Kit banner](/images/BehaviourTwinMDP_Kit.svg)
+![Model Based Development and Data Processing Kit banner](images/BehaviourTwinMDP_Kit.svg)
 
 ### Model Based Development and Data Processing Kit
 <!--
