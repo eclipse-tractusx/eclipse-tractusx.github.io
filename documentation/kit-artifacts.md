@@ -5,7 +5,7 @@ title: KIT Artifacts
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
 
-This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.02](docs/release/trg-0/trg-9-02.md). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
+This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](@site/docs/release/trg-0/trg-9-01.md). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
 
 ## CHANGELOG
 
