@@ -222,7 +222,7 @@ property):
           "dct:format": {
             "@id": "HttpData-PULL"
           },
-          "dcat:accessService": "911f5da0-c9ee-4259-9a95-39428d08f767"
+          "dcat:accessService": "911f5da0-c9ee-4259-9a95-39428d08f777"
         }
       ],
       "version": 1.0,
@@ -233,7 +233,7 @@ property):
     }
   ],
   "dcat:service": {
-    "@id": "911f5da0-c9ee-4259-9a95-39428d08f767",
+    "@id": "911f5da0-c9ee-4259-9a95-39428d08f777",
     "@type": "dcat:DataService",
     "dct:terms": "connector",
     "dct:endpointUrl": "https://provider-dsp-end.point/api/v1/dsp"
