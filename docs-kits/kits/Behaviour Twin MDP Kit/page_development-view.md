@@ -5,7 +5,7 @@ description: 'Model Based Development and Data Processing Kit'
 sidebar_position: 3
 ---
 
-![Model Based Development and Data Processing Kit banner](images/BehaviourTwinMDP_Kit.svg)
+![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
 
 ### Model Based Development and Data Processing Kit
 <!--
@@ -107,11 +107,11 @@ The FMU Interoperability Checker shall support the following two use cases.
 
 - Use Case 1: Connection Use Case. Given two FMU, FMU1 and FMU2, the FMU Interoperability Checker shall check, based on the FMU asset properties, if the two FMU can be connected in a co-simulation as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC1.png" alt="UC1" width=600>
+<img src="images/Pic_IntCheckUC1.png" alt="UC1" width=600></img>
 
 - Use Case 2: Replacement Use Case. Given a co-simulation of two FMU, FMU1a and FMU2, the FMU Interoperability Checker shall check based on the FMU asset properties, if FMU1a can be replaced by FMU1b as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC2.png" alt="UC2" width=600>
+<img src="images/Pic_IntCheckUC2.png" alt="UC2" width=600></img>
 
 ### Workflow
 
