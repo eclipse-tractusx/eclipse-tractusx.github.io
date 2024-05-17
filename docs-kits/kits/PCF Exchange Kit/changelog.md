@@ -8,11 +8,11 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.1.0] - 2024-05-01
+## [1.1.0] - 2024-05-17
 
 ### Added
 
-N./A.
+* SDE as available FOSS implementation
 
 ### Changed
 
