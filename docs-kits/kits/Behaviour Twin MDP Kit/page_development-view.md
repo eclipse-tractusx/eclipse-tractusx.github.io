@@ -99,7 +99,7 @@ For having a broader search the “like” operator can be used coupled with the
 
 ## Guideline for Implementing an FMU Interoperability Checker
 
-Meta models for asset properties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
+Meta models for asset propoerties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
 
 ### Use Cases
 
@@ -142,84 +142,84 @@ Level 3 “Similarity Check” is suited for fields, where the content can be ex
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **FormTitle**| **FormChoices** | **FormChoices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |
 |Summary|||x|||
 |SimPurpose||||||
-|SimPurpose.PosSimPurpose|Concept evaluation;<br/>Sizing;<br/>Control design;<br/>Behaviour in fault condition;<br/>Validation and testing;<br/>Virtual commissioning;<br/>Condition monitoring;<br/>Predictive maintenance;<br/>Operator Training;<br/>Teaching|open|x|(x)|x|
-|SimPurpose.NegSimPurpose|Concept evaluation;<br/>Sizing;<br/>Control design;<br/>Behaviour in fault condition;<br/>Validation and testing;<br/>Virtual commissioning;<br/>Condition monitoring;<br/>Predictive maintenance;<br/>Operator Training;<br/>Teaching|open|x|(x)|x|
+|SimPurpose.<br/>PosSimPurpose|Concept evaluation;<br/>Sizing;<br/>Control design;<br/>Behaviour in fault condition;<br/>Validation and testing;<br/>Virtual commissioning;<br/>Condition monitoring;<br/>Predictive maintenance;<br/>Operator Training;<br/>Teaching|open|x|(x)|x|
+|SimPurpose.<br/>NegSimPurpose|Concept evaluation;<br/>Sizing;<br/>Control design;<br/>Behaviour in fault condition;<br/>Validation and testing;<br/>Virtual commissioning;<br/>Condition monitoring;<br/>Predictive maintenance;<br/>Operator Training;<br/>Teaching|open|x|(x)|x|
 |TypeOfModel|Linear model;<br/>Nonlinear model;<br/>Data-driven model;<br/>Lumped element model;<br/>Fixed causality model;<br/>Acausal model|open|x|(x)|x|
 |ScopeOfModel|Logic and timing behaviour;<br/>Geometry;<br/>Kinematics;<br/>Dynamics;<br/>Distribution networks;<br/>Network communication;<br/>Visualization|open|x|(x)|x|
 |LicenseModel|free;<br/>perpetual;<br/>subscription;<br/>volume-based|open|x|x|(x)|
 |EngineeringDomain|Hydraulic Engineering;<br/>Electrical Engineering;<br/>Pneumatic Engineering;<br/>Mechanical Engineering;<br/>Material Flow;<br/>Robotics;<br/>Image Processing;<br/>Data Engineering;<br/>Process Engineering;<br/>Workflow Engineering;<br/>HMI Engineering;<br/>Control Engineering |open|x|(x)|x|
 |Environment||||||
-|Environment.OperatingSystem|||x|x||
-|Environment.ToolEnvironment|||x|||
-|Environment.DependencyEnvironment|||x|||
-|Environment.VisualizationInformation|separately;<br/>integrated;<br/>none|closed|x|||
-|Environment.SimulationTool||||||
-|Environment.SimulationTool.SimToolName|||x|||
-|Environment.SimulationTool.DependencySimTool|||x|||
-|Environment.SimulationTool.Compiler|||x|||
-|Environment.SimulationTool.SolverAndTolerances||||||
-|Environment.SimulationTool.SolverAndTolerances.StepSizeControlNeeded|||x|||
-|Environment.SimulationTool.SolverAndTolerances.FixedStepSize|||x|||
-|Environment.SimulationTool.SolverAndTolerances.StiffSolverNeeded|||x|||
-|Environment.SimulationTool.SolverAndTolerances.SolverIncluded|||x|x||
-|Environment.SimulationTool.SolverAndTolerances.TestedToolSolverAlgorithm||||||
-|Environment.SimulationTool.SolverAndTolerances.TestedToolSolverAlgorithm.SolverAlgorithm|||x|||
-|Environment.SimulationTool.SolverAndTolerances.TestedToolSolverAlgorithm.ToolSolverFurtherDescription|||x|||
-|Environment.SimulationTool.SolverAndTolerances.TestedToolSolverAlgorithm.Tolerance|||x|||
+|Environment.<br/>OperatingSystem|||x|x||
+|Environment.<br/>ToolEnvironment|||x|||
+|Environment.<br/>DependencyEnvironment|||x|||
+|Environment.<br/>VisualizationInformation|separately;<br/>integrated;<br/>none|closed|x|||
+|Environment.<br/>SimulationTool||||||
+|Environment.<br/>SimulationTool.<br/>SimToolName|||x|||
+|Environment.<br/>SimulationTool.<br/>DependencySimTool|||x|||
+|Environment.<br/>SimulationTool.<br/>Compiler|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances||||||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>StepSizeControlNeeded|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>FixedStepSize|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>StiffSolverNeeded|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>SolverIncluded|||x|x||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>TestedToolSolverAlgorithm||||||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>TestedToolSolverAlgorithm.<br/>SolverAlgorithm|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>TestedToolSolverAlgorithm.<br/>ToolSolverFurtherDescription|||x|||
+|Environment.<br/>SimulationTool.<br/>SolverAndTolerances.<br/>TestedToolSolverAlgorithm.<br/>Tolerance|||x|||
 |RefSimDocumentation||||||
 |ModelFile||||||
-|ModelFile.ModelFileType|||x|x||
-|ModelFile.ModelFileVersion||||||
-|ModelFile.ModelFileVersion.ModelVersionId|||x|||
-|ModelFile.ModelFileVersion.ModelPreviewImage||||||
-|ModelFile.ModelFileVersion.DigitalFile||||||
-|ModelFile.ModelFileVersion.ModelFileReleaseNotesTxt|||x|||
-|ModelFile.ModelFileVersion.ModelFileReleaseNotesFile||||||
+|ModelFile.<br/>ModelFileType|||x|x||
+|ModelFile.<br/>ModelFileVersion||||||
+|ModelFile.<br/>ModelFileVersion.<br/>ModelVersionId|||x|||
+|ModelFile.<br/>ModelFileVersion.<br/>ModelPreviewImage||||||
+|ModelFile.<br/>ModelFileVersion.<br/>DigitalFile||||||
+|ModelFile.<br/>ModelFileVersion.<br/>ModelFileReleaseNotesTxt|||x|||
+|ModelFile.<br/>ModelFileVersion.<br/>ModelFileReleaseNotesFile||||||
 |ParamMethod|by using “technical data” of asset;<br/>by using “technical data” and user;<br/>by user interface;<br/>by setting file;<br/>not necessary;<br/>by documentation file;<br/>pre-parametrized|open|x|||
 |ParamFile||||||
 |InitStateMethod|not necessary;<br/>by user interface;<br/>by setting file;<br/>set states within simulation environment;<br/>integrated in model;<br/>by documentation file|open|x|||
 |InitStateFile||||||
 |DefaultSimTime|||x|||
 |SimModManufacturingInformation||||||
-|SimModManufacturingInformation.Company|||x|||
-|SimModManufacturingInformation.Language|||x|||
-|SimModManufacturingInformation.Email||||||
-|SimModManufacturingInformation.Email.TypeOfEmailAddress|||x|||
-|SimModManufacturingInformation.Email.EmailAddress|||x|||
-|SimModManufacturingInformation.Email.TypeOfPublicKey|||x|||
-|SimModManufacturingInformation.Email.PublicKey|||x|||
-|SimModManufacturingInformation.Phone||||||
-|SimModManufacturingInformation.Phone.TypeOfTelephone|||x|||
-|SimModManufacturingInformation.Phone.TelephoneNumber||||||
-|SimModManufacturingInformation.Phone.AvailableTime|||x|||
+|SimModManufacturingInformation.<br/>Company|||x|||
+|SimModManufacturingInformation.<br/>Language|||x|||
+|SimModManufacturingInformation.<br/>Email||||||
+|SimModManufacturingInformation.<br/>Email.<br/>TypeOfEmailAddress|||x|||
+|SimModManufacturingInformation.<br/>Email.<br/>EmailAddress|||x|||
+|SimModManufacturingInformation.<br/>Email.<br/>TypeOfPublicKey|||x|||
+|SimModManufacturingInformation.<br/>Email.<br/>PublicKey|||x|||
+|SimModManufacturingInformation.<br/>Phone||||||
+|SimModManufacturingInformation.<br/>Phone.<br/>TypeOfTelephone|||x|||
+|SimModManufacturingInformation.<br/>Phone.<br/>TelephoneNumber||||||
+|SimModManufacturingInformation.<br/>Phone.<br/>AvailableTime|||x|||
 |Ports||||||
-|Ports.PortsConnector||||||
-|Ports.PortsConnector.PortsConnectorName|||x|||
-|Ports.PortsConnector.PortsConDescription|||x|||
-|Ports.PortsConnector.Variable||||||
-|Ports.PortsConnector.Variable.VariableName|||x|x|(x)|
-|Ports.PortsConnector.Variable.Range|||x|x||
-|Ports.PortsConnector.Variable.VariableType|Real;<br/>Integer;<br/>Boolean;<br/>String;<br/>ENUM|open|x|x||
-|Ports.PortsConnector.Variable.VariableDescription|||x||x|
-|Ports.PortsConnector.Variable.UnitList|s;<br/>m;<br/>kg;<br/>N;<br/>m/s;<br/>m/s^2;<br/>V;<br/>A;<br/>K;<br/>none|open|x|x||
-|Ports.PortsConnector.Variable.UnitDescription|||x|||
-|Ports.PortsConnector.Variable.VariableCausality|input;<br/>output;<br/>acausal|closed|x|x||
-|Ports.PortsConnector.Variable.VariablePrefix|Flow;<br/>Stream|closed<br/>(only for acausal variables)|x|x||
-|Ports.BinaryConnector||||||
-|Ports.BinaryConnector.BinaryConName|||x|||
-|Ports.BinaryConnector.BinaryConDescription|||x|||
+|Ports.<br/>PortsConnector||||||
+|Ports.<br/>PortsConnector.<br/>PortsConnectorName|||x|||
+|Ports.<br/>PortsConnector.<br/>PortsConDescription|||x|||
+|Ports.<br/>PortsConnector.<br/>Variable||||||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>VariableName|||x|x|(x)|
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>Range|||x|x||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>VariableType|Real;<br/>Integer;<br/>Boolean;<br/>String;<br/>ENUM|open|x|x||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>VariableDescription|||x||x|
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>UnitList|s;<br/>m;<br/>kg;<br/>N;<br/>m/s;<br/>m/s^2;<br/>V;<br/>A;<br/>K;<br/>none|open|x|x||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>UnitDescription|||x|||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>VariableCausality|input;<br/>output;<br/>acausal|closed|x|x||
+|Ports.<br/>PortsConnector.<br/>Variable.<br/>VariablePrefix|Flow;<br/>Stream|closed<br/>(only for acausal variables)|x|x||
+|Ports.<br/>BinaryConnector||||||
+|Ports.<br/>BinaryConnector.<br/>BinaryConName|||x|||
+|Ports.<br/>BinaryConnector.<br/>BinaryConDescription|||x|||
 
 #### MIC meta model
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **Field**| **(Basic) Choices** | **Choices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |
