@@ -2,12 +2,12 @@ openapi: 3.0.1
 info:
   title: Business Partner Data Management Orchestrator
   description: Orchestrator component acts as a passive component and offers for each processing steps individual endpoints
-  version: 5.0.1-SNAPSHOT
+  version: 6.0.0
 servers:
   - url: http://localhost:8085
     description: Generated server url
 paths:
-  /api/golden-record-tasks:
+  /v6/golden-record-tasks:
     post:
       tags:
         - Task Client
@@ -29,7 +29,7 @@ paths:
                 $ref: '#/components/schemas/TaskCreateResponse'
         '400':
           description: On malformed task create requests or reaching upsert limit
-  /api/golden-record-tasks/step-results:
+  /v6/golden-record-tasks/step-results:
     post:
       tags:
         - Task Worker
@@ -47,7 +47,7 @@ paths:
           description: If the results could be processed
         '400':
           description: On malformed requests, reaching upsert limit or posting results for tasks which are missing or in the wrong step queue
-  /api/golden-record-tasks/step-reservations:
+  /v6/golden-record-tasks/step-reservations:
     post:
       tags:
         - Task Worker
@@ -69,7 +69,7 @@ paths:
                 $ref: '#/components/schemas/TaskStepReservationResponse'
         '400':
           description: On malformed task create requests or reaching upsert limit
-  /api/golden-record-tasks/state/search:
+  /v6/golden-record-tasks/state/search:
     post:
       tags:
         - Task Client
@@ -93,504 +93,92 @@ paths:
           description: On malformed task search requests
 components:
   schemas:
-    AddressIdentifierDto:
+    AlternativeAddress:
       required:
-        - type
-        - value
-      type: object
-      properties:
-        value:
-          type: string
-          description: The value of the identifier like "0847976000005".
-        type:
-          type: string
-          description: The type of the identifier.
-    AddressRepresentation:
-      type: object
-      properties:
-        addressBpn:
-          type: string
-          description: The BPNA of the address, on which the business partner provides a view.
-        name:
-          type: string
-          description: The name of the address, on which the business partner provides a view. This is not according to official registers but according to the name the sharing members agree on, such as the name of a gate or any other additional names that designate the address in common parlance.
-        addressType:
-          type: string
-          description: 'One of the address types: Legal Address, Site Main Address, Legal and Site Main Address, Additional Address. '
-          enum:
-            - LegalAndSiteMainAddress
-            - LegalAddress
-            - SiteMainAddress
-            - AdditionalAddress
-        physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressDto'
-        alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressDto'
-        confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: 'The address, on which the business partner provides a view. '
-    AddressStateDto:
-      required:
-        - type
-      type: object
-      properties:
-        validFrom:
-          type: string
-          description: The date from which the state is valid.
-          format: date-time
-        validTo:
-          type: string
-          description: The date until the state is valid.
-          format: date-time
-        type:
-          type: string
-          description: 'One of the state types: active, inactive.'
-          enum:
-            - ACTIVE
-            - INACTIVE
-    AlternativePostalAddressDto:
+        - geographicCoordinates
       type: object
       properties:
         geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinateDto'
+          $ref: '#/components/schemas/GeoCoordinate'
         country:
           type: string
-          description: The 2-digit country code of the physical postal address according to ISO 3166-1.
-          enum:
-            - UNDEFINED
-            - AC
-            - AD
-            - AE
-            - AF
-            - AG
-            - AI
-            - AL
-            - AM
-            - AN
-            - AO
-            - AQ
-            - AR
-            - AS
-            - AT
-            - AU
-            - AW
-            - AX
-            - AZ
-            - BA
-            - BB
-            - BD
-            - BE
-            - BF
-            - BG
-            - BH
-            - BI
-            - BJ
-            - BL
-            - BM
-            - BN
-            - BO
-            - BQ
-            - BR
-            - BS
-            - BT
-            - BU
-            - BV
-            - BW
-            - BY
-            - BZ
-            - CA
-            - CC
-            - CD
-            - CF
-            - CG
-            - CH
-            - CI
-            - CK
-            - CL
-            - CM
-            - CN
-            - CO
-            - CP
-            - CR
-            - CS
-            - CU
-            - CV
-            - CW
-            - CX
-            - CY
-            - CZ
-            - DE
-            - DG
-            - DJ
-            - DK
-            - DM
-            - DO
-            - DZ
-            - EA
-            - EC
-            - EE
-            - EG
-            - EH
-            - ER
-            - ES
-            - ET
-            - EU
-            - EZ
-            - FI
-            - FJ
-            - FK
-            - FM
-            - FO
-            - FR
-            - FX
-            - GA
-            - GB
-            - GD
-            - GE
-            - GF
-            - GG
-            - GH
-            - GI
-            - GL
-            - GM
-            - GN
-            - GP
-            - GQ
-            - GR
-            - GS
-            - GT
-            - GU
-            - GW
-            - GY
-            - HK
-            - HM
-            - HN
-            - HR
-            - HT
-            - HU
-            - IC
-            - ID
-            - IE
-            - IL
-            - IM
-            - IN
-            - IO
-            - IQ
-            - IR
-            - IS
-            - IT
-            - JE
-            - JM
-            - JO
-            - JP
-            - KE
-            - KG
-            - KH
-            - KI
-            - KM
-            - KN
-            - KP
-            - KR
-            - KW
-            - KY
-            - KZ
-            - LA
-            - LB
-            - LC
-            - LI
-            - LK
-            - LR
-            - LS
-            - LT
-            - LU
-            - LV
-            - LY
-            - MA
-            - MC
-            - MD
-            - ME
-            - MF
-            - MG
-            - MH
-            - MK
-            - ML
-            - MM
-            - MN
-            - MO
-            - MP
-            - MQ
-            - MR
-            - MS
-            - MT
-            - MU
-            - MV
-            - MW
-            - MX
-            - MY
-            - MZ
-            - NA
-            - NC
-            - NE
-            - NF
-            - NG
-            - NI
-            - NL
-            - 'NO'
-            - NP
-            - NR
-            - NT
-            - NU
-            - NZ
-            - OM
-            - PA
-            - PE
-            - PF
-            - PG
-            - PH
-            - PK
-            - PL
-            - PM
-            - PN
-            - PR
-            - PS
-            - PT
-            - PW
-            - PY
-            - QA
-            - RE
-            - RO
-            - RS
-            - RU
-            - RW
-            - SA
-            - SB
-            - SC
-            - SD
-            - SE
-            - SF
-            - SG
-            - SH
-            - SI
-            - SJ
-            - SK
-            - SL
-            - SM
-            - SN
-            - SO
-            - SR
-            - SS
-            - ST
-            - SU
-            - SV
-            - SX
-            - SY
-            - SZ
-            - TA
-            - TC
-            - TD
-            - TF
-            - TG
-            - TH
-            - TJ
-            - TK
-            - TL
-            - TM
-            - TN
-            - TO
-            - TP
-            - TR
-            - TT
-            - TV
-            - TW
-            - TZ
-            - UA
-            - UG
-            - UK
-            - UM
-            - US
-            - UY
-            - UZ
-            - VA
-            - VC
-            - VE
-            - VG
-            - VI
-            - VN
-            - VU
-            - WF
-            - WS
-            - XI
-            - XU
-            - XK
-            - YE
-            - YT
-            - YU
-            - ZA
-            - ZM
-            - ZR
-            - ZW
         administrativeAreaLevel1:
           type: string
-          description: The 2-digit country subdivision code according to ISO 3166-2, such as a region within a country.
         postalCode:
           type: string
-          description: The alphanumeric identifier (sometimes including spaces or punctuation) of the physical postal address for the purpose of sorting mail, synonyms:postcode, post code, PIN or ZIP code.
         city:
           type: string
-          description: 'The name of the city of the physical postal address, synonyms: town, village, municipality.'
         deliveryServiceType:
           type: string
-          description: 'One of the alternative postal address types: P.O. box, private bag, boite postale.'
           enum:
             - PO_BOX
             - PRIVATE_BAG
             - BOITE_POSTALE
         deliveryServiceQualifier:
           type: string
-          description: The qualifier uniquely identifying the delivery service endpoint of the alternative postal address in conjunction with the delivery service number. In some countries for example, entering a P.O. box number, postal code and city is not sufficient to uniquely identify a P.O. box, because the same P.O. box number is assigned multiple times in some cities.
         deliveryServiceNumber:
           type: string
-          description: The number indicating the delivery service endpoint of the alternative postal address to which the delivery is to be delivered, such as a P.O. box number or a private bag number.
-      description: The alternative postal address of the address, on which the business partner provides a view, for example if the goods are to be picked up somewhere else.
-    BpnReferenceDto:
-      required:
-        - referenceType
-        - referenceValue
+    BpnReference:
       type: object
       properties:
         referenceValue:
           type: string
-          description: The value by which the BPN is referenced
+        desiredBpn:
+          type: string
         referenceType:
           type: string
-          description: The type by which to reference the BPN with
           enum:
             - Bpn
             - BpnRequestIdentifier
-      description: A reference to the BPN of a business partner. Either by the BPN value itself or a BPN request identifier
-    BusinessPartnerClassificationDto:
+    BusinessPartner:
       required:
-        - type
-      type: object
-      properties:
-        type:
-          type: string
-          description: Type of classification.
-          enum:
-            - NACE
-            - NAF
-            - NAICS
-            - SIC
-        code:
-          type: string
-          description: The identifier of the class belonging to the classification.
-        value:
-          type: string
-          description: The name of the class belonging to the classification.
-    BusinessPartnerFullDto:
-      required:
-        - generic
-      type: object
-      properties:
-        generic:
-          $ref: '#/components/schemas/BusinessPartnerGenericDto'
-        legalEntity:
-          $ref: '#/components/schemas/LegalEntityDto'
-        site:
-          $ref: '#/components/schemas/SiteDto'
-        address:
-          $ref: '#/components/schemas/LogisticAddressDto'
-      description: Business partner data in full representation, consisting of generic data as well as its L/S/A representation.
-    BusinessPartnerGenericDto:
-      required:
-        - address
-        - identifiers
         - legalEntity
         - nameParts
-        - roles
-        - site
-        - states
+        - uncategorized
       type: object
       properties:
         nameParts:
           type: array
-          description: The list of name parts to accommodate the different number of name fields in different systems.
           items:
-            type: string
-        identifiers:
-          type: array
-          description: The list of identifiers of the business partner. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/BusinessPartnerIdentifierDto'
-        states:
-          type: array
-          description: The list of (temporary) states of the business partner. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/BusinessPartnerStateDto'
-        roles:
-          type: array
-          description: 'One or more of the roles, the business partner assumes with respect to the sharing member: Supplier, Customer. Sorted and duplicates removed by the service.'
-          items:
-            type: string
-            enum:
-              - SUPPLIER
-              - CUSTOMER
-              - ONE_TIME_SUPPLIER
-              - ONE_TIME_CUSTOMER
-        legalEntity:
-          $ref: '#/components/schemas/LegalEntityRepresentation'
-        site:
-          $ref: '#/components/schemas/SiteRepresentation'
-        address:
-          $ref: '#/components/schemas/AddressRepresentation'
-        ownerBpnL:
+            $ref: '#/components/schemas/NamePart'
+        owningCompany:
           type: string
-          description: The BPNL of the company sharing and claiming this business partner as its own
-      description: Generic business partner with external id
-    BusinessPartnerIdentifierDto:
-      type: object
-      properties:
+        uncategorized:
+          $ref: '#/components/schemas/UncategorizedProperties'
+        legalEntity:
+          $ref: '#/components/schemas/LegalEntity'
+        site:
+          $ref: '#/components/schemas/Site'
+        additionalAddress:
+          $ref: '#/components/schemas/PostalAddress'
         type:
           type: string
-          description: Technical key of the type to which this identifier belongs to
-        value:
-          type: string
-          description: Value of the identifier
-        issuingBody:
-          type: string
-          description: Body which issued the identifier
-    BusinessPartnerStateDto:
+          enum:
+            - LegalEntity
+            - Site
+            - Address
+    BusinessState:
       type: object
       properties:
         validFrom:
           type: string
-          description: Date since when the status is/was valid.
           format: date-time
         validTo:
           type: string
-          description: Date until the status was valid, if applicable.
           format: date-time
         type:
           type: string
-          description: The type of this specified status.
           enum:
             - ACTIVE
             - INACTIVE
-    ConfidenceCriteriaDto:
-      required:
-        - checkedByExternalDataSource
-        - confidenceLevel
-        - lastConfidenceCheckAt
-        - nextConfidenceCheckAt
-        - numberOfBusinessPartners
-        - sharedByOwner
+    ConfidenceCriteria:
       type: object
       properties:
         sharedByOwner:
           type: boolean
         checkedByExternalDataSource:
           type: boolean
-        numberOfBusinessPartners:
+        numberOfSharingMembers:
           type: integer
           format: int32
         lastConfidenceCheckAt:
@@ -602,578 +190,187 @@ components:
         confidenceLevel:
           type: integer
           format: int32
-    GeoCoordinateDto:
-      required:
-        - latitude
-        - longitude
+    GeoCoordinate:
       type: object
       properties:
         longitude:
           type: number
-          description: Longitude coordinate
           format: float
         latitude:
           type: number
-          description: Latitude coordinate
           format: float
         altitude:
           type: number
-          description: Altitude, if applicable
           format: float
-      description: The exact location of the physical postal address in latitude, longitude, and altitude.
-    LegalEntityClassificationDto:
-      required:
-        - type
-      type: object
-      properties:
-        type:
-          type: string
-          description: Type of classification.
-          enum:
-            - NACE
-            - NAF
-            - NAICS
-            - SIC
-        code:
-          type: string
-          description: The identifier of the class belonging to the classification.
-        value:
-          type: string
-          description: The name of the class belonging to the classification.
-      description: A legal entity classification is an assignment of the legal entity to an industry. It does not necessarily have to be the only industry the company is active in (see large companies operating in different industries). Multiple assignments to several industries are possible per classification type.
-    LegalEntityDto:
-      required:
-        - classifications
-        - identifiers
-        - states
-      type: object
-      properties:
-        bpnLReference:
-          $ref: '#/components/schemas/BpnReferenceDto'
-        hasChanged:
-          type: boolean
-          description: Whether this legal entity data is different from its golden record counterpart in the Pool
-        legalName:
-          type: string
-          description: The name of the legal entity according to official registers.
-        legalShortName:
-          type: string
-          description: The abbreviated name of the legal entity.
-        identifiers:
-          type: array
-          description: The list of identifiers of the legal entity.
-          items:
-            $ref: '#/components/schemas/LegalEntityIdentifierDto'
-        legalForm:
-          type: string
-          description: The legal form of the legal entity.
-        states:
-          type: array
-          description: The list of (temporary) states of the legal entity.
-          items:
-            $ref: '#/components/schemas/LegalEntityStateDto'
-        classifications:
-          type: array
-          description: The list of classifications of the legal entity, such as a specific industry.
-          items:
-            $ref: '#/components/schemas/LegalEntityClassificationDto'
-        legalAddress:
-          $ref: '#/components/schemas/LogisticAddressDto'
-        confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: The legal entity part of this business partner data
-    LegalEntityIdentifierDto:
-      required:
-        - type
-        - value
+    Identifier:
       type: object
       properties:
         value:
           type: string
-          description: The value of the identifier like "DE123465789".
         type:
           type: string
-          description: The type of the identifier.
         issuingBody:
           type: string
-          description: The name of the official register, where the identifier is registered. For example, a Handelsregisternummer in Germany is only valid with its corresponding Handelsregister.
-    LegalEntityRepresentation:
+    LegalEntity:
       required:
-        - classifications
-      type: object
-      properties:
-        legalEntityBpn:
-          type: string
-          description: The BPNL of the legal entity, on which the business partner provides a view.
-        legalName:
-          type: string
-          description: The name of the legal entity, on which the business partner provides a view, according to official registers.
-        shortName:
-          type: string
-          description: The abbreviated name of the legal entity, on which the business partner provides a view.
-        legalForm:
-          type: string
-          description: The legal form of the legal entity, on which the business partner provides a view.
-        classifications:
-          type: array
-          description: The list of classifications of the business partner, such as a specific industry. Sorted and duplicates removed by the service.
-          items:
-            $ref: '#/components/schemas/BusinessPartnerClassificationDto'
-        confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: The legal entity, on which the business partner provides a view.
-    LegalEntityStateDto:
-      required:
-        - type
-      type: object
-      properties:
-        validFrom:
-          type: string
-          description: The date from which the state is valid.
-          format: date-time
-        validTo:
-          type: string
-          description: The date until the state is valid.
-          format: date-time
-        type:
-          type: string
-          description: 'One of the state types: active, inactive.'
-          enum:
-            - ACTIVE
-            - INACTIVE
-    LogisticAddressDto:
-      required:
+        - bpnReference
+        - confidenceCriteria
         - identifiers
+        - legalAddress
         - states
       type: object
       properties:
-        bpnAReference:
-          $ref: '#/components/schemas/BpnReferenceDto'
-        hasChanged:
-          type: boolean
-          description: Whether this address data is different from its golden record counterpart in the Pool
-        name:
+        bpnReference:
+          $ref: '#/components/schemas/BpnReference'
+        legalName:
           type: string
-          description: The name of the address. This is not according to official registers but according to the name the sharing member chooses.
-        states:
-          type: array
-          description: The list of (temporary) states of the address.
-          items:
-            $ref: '#/components/schemas/AddressStateDto'
+        legalShortName:
+          type: string
+        legalForm:
+          type: string
         identifiers:
           type: array
-          description: The list of identifiers of the address.
           items:
-            $ref: '#/components/schemas/AddressIdentifierDto'
-        physicalPostalAddress:
-          $ref: '#/components/schemas/PhysicalPostalAddressDto'
-        alternativePostalAddress:
-          $ref: '#/components/schemas/AlternativePostalAddressDto'
+            $ref: '#/components/schemas/Identifier'
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessState'
         confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: The address part of this business partner data
-    PhysicalPostalAddressDto:
+          $ref: '#/components/schemas/ConfidenceCriteria'
+        isCatenaXMemberData:
+          type: boolean
+        hasChanged:
+          type: boolean
+        legalAddress:
+          $ref: '#/components/schemas/PostalAddress'
+    NamePart:
+      required:
+        - name
+        - type
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - LegalName
+            - ShortName
+            - LegalForm
+            - SiteName
+            - AddressName
+    PhysicalAddress:
+      required:
+        - geographicCoordinates
+        - street
       type: object
       properties:
         geographicCoordinates:
-          $ref: '#/components/schemas/GeoCoordinateDto'
+          $ref: '#/components/schemas/GeoCoordinate'
         country:
           type: string
-          description: The 2-digit country code of the physical postal address according to ISO 3166-1.
-          enum:
-            - UNDEFINED
-            - AC
-            - AD
-            - AE
-            - AF
-            - AG
-            - AI
-            - AL
-            - AM
-            - AN
-            - AO
-            - AQ
-            - AR
-            - AS
-            - AT
-            - AU
-            - AW
-            - AX
-            - AZ
-            - BA
-            - BB
-            - BD
-            - BE
-            - BF
-            - BG
-            - BH
-            - BI
-            - BJ
-            - BL
-            - BM
-            - BN
-            - BO
-            - BQ
-            - BR
-            - BS
-            - BT
-            - BU
-            - BV
-            - BW
-            - BY
-            - BZ
-            - CA
-            - CC
-            - CD
-            - CF
-            - CG
-            - CH
-            - CI
-            - CK
-            - CL
-            - CM
-            - CN
-            - CO
-            - CP
-            - CR
-            - CS
-            - CU
-            - CV
-            - CW
-            - CX
-            - CY
-            - CZ
-            - DE
-            - DG
-            - DJ
-            - DK
-            - DM
-            - DO
-            - DZ
-            - EA
-            - EC
-            - EE
-            - EG
-            - EH
-            - ER
-            - ES
-            - ET
-            - EU
-            - EZ
-            - FI
-            - FJ
-            - FK
-            - FM
-            - FO
-            - FR
-            - FX
-            - GA
-            - GB
-            - GD
-            - GE
-            - GF
-            - GG
-            - GH
-            - GI
-            - GL
-            - GM
-            - GN
-            - GP
-            - GQ
-            - GR
-            - GS
-            - GT
-            - GU
-            - GW
-            - GY
-            - HK
-            - HM
-            - HN
-            - HR
-            - HT
-            - HU
-            - IC
-            - ID
-            - IE
-            - IL
-            - IM
-            - IN
-            - IO
-            - IQ
-            - IR
-            - IS
-            - IT
-            - JE
-            - JM
-            - JO
-            - JP
-            - KE
-            - KG
-            - KH
-            - KI
-            - KM
-            - KN
-            - KP
-            - KR
-            - KW
-            - KY
-            - KZ
-            - LA
-            - LB
-            - LC
-            - LI
-            - LK
-            - LR
-            - LS
-            - LT
-            - LU
-            - LV
-            - LY
-            - MA
-            - MC
-            - MD
-            - ME
-            - MF
-            - MG
-            - MH
-            - MK
-            - ML
-            - MM
-            - MN
-            - MO
-            - MP
-            - MQ
-            - MR
-            - MS
-            - MT
-            - MU
-            - MV
-            - MW
-            - MX
-            - MY
-            - MZ
-            - NA
-            - NC
-            - NE
-            - NF
-            - NG
-            - NI
-            - NL
-            - 'NO'
-            - NP
-            - NR
-            - NT
-            - NU
-            - NZ
-            - OM
-            - PA
-            - PE
-            - PF
-            - PG
-            - PH
-            - PK
-            - PL
-            - PM
-            - PN
-            - PR
-            - PS
-            - PT
-            - PW
-            - PY
-            - QA
-            - RE
-            - RO
-            - RS
-            - RU
-            - RW
-            - SA
-            - SB
-            - SC
-            - SD
-            - SE
-            - SF
-            - SG
-            - SH
-            - SI
-            - SJ
-            - SK
-            - SL
-            - SM
-            - SN
-            - SO
-            - SR
-            - SS
-            - ST
-            - SU
-            - SV
-            - SX
-            - SY
-            - SZ
-            - TA
-            - TC
-            - TD
-            - TF
-            - TG
-            - TH
-            - TJ
-            - TK
-            - TL
-            - TM
-            - TN
-            - TO
-            - TP
-            - TR
-            - TT
-            - TV
-            - TW
-            - TZ
-            - UA
-            - UG
-            - UK
-            - UM
-            - US
-            - UY
-            - UZ
-            - VA
-            - VC
-            - VE
-            - VG
-            - VI
-            - VN
-            - VU
-            - WF
-            - WS
-            - XI
-            - XU
-            - XK
-            - YE
-            - YT
-            - YU
-            - ZA
-            - ZM
-            - ZR
-            - ZW
         administrativeAreaLevel1:
           type: string
-          description: The 2-digit country subdivision code according to ISO 3166-2, such as a region within a country.
         administrativeAreaLevel2:
           type: string
-          description: The name of the locally regulated secondary country subdivision of the physical postal address, such as county within a country.
         administrativeAreaLevel3:
           type: string
-          description: The name of the locally regulated tertiary country subdivision of the physical address, such as townships within a country.
         postalCode:
           type: string
-          description: The alphanumeric identifier (sometimes including spaces or punctuation) of the physical postal address for the purpose of sorting mail, synonyms:postcode, post code, PIN or ZIP code.
         city:
           type: string
-          description: 'The name of the city of the physical postal address, synonyms: town, village, municipality.'
         district:
           type: string
-          description: The name of the district of the physical postal address which divides the city in several smaller areas.
         street:
-          $ref: '#/components/schemas/StreetDto'
+          $ref: '#/components/schemas/Street'
         companyPostalCode:
           type: string
-          description: The company postal code of the physical postal address, which is sometimes required for large companies.
         industrialZone:
           type: string
-          description: 'The industrial zone of the physical postal address, designating an area for industrial development, synonym: industrial area.'
         building:
           type: string
-          description: The alphanumeric identifier of the building addressed by the physical postal address.
         floor:
           type: string
-          description: 'The number of a floor in the building addressed by the physical postal address, synonym: level.'
         door:
           type: string
-          description: 'The number of a door in the building on the respective floor addressed by the physical postal address, synonyms: room, suite.'
-      description: The physical postal address of the address, on which the business partner provides a view, such as an office, warehouse, gate, etc.
-    SiteDto:
+    PostalAddress:
       required:
+        - bpnReference
+        - confidenceCriteria
+        - identifiers
+        - physicalAddress
         - states
       type: object
       properties:
-        bpnSReference:
-          $ref: '#/components/schemas/BpnReferenceDto'
-        hasChanged:
-          type: boolean
-          description: Whether this site data is different from its golden record counterpart in the Pool
-        name:
+        bpnReference:
+          $ref: '#/components/schemas/BpnReference'
+        addressName:
           type: string
-          description: The name of the site. This is not according to official registers but according to the name the owner chooses.
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
         states:
           type: array
-          description: The list of the (temporary) states of the site.
           items:
-            $ref: '#/components/schemas/SiteStateDto'
-        mainAddress:
-          $ref: '#/components/schemas/LogisticAddressDto'
+            $ref: '#/components/schemas/BusinessState'
         confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: The site part of this business partner data
-    SiteRepresentation:
-      type: object
-      properties:
-        siteBpn:
-          type: string
-          description: The BPNS of the site, on which the business partner provides a view.
-        name:
-          type: string
-          description: The name of the site, on which the business partner provides a view. This is not according to official registers but according to the name the owner chooses.
-        confidenceCriteria:
-          $ref: '#/components/schemas/ConfidenceCriteriaDto'
-      description: The site, on which the business partner provides a view.
-    SiteStateDto:
+          $ref: '#/components/schemas/ConfidenceCriteria'
+        physicalAddress:
+          $ref: '#/components/schemas/PhysicalAddress'
+        alternativeAddress:
+          $ref: '#/components/schemas/AlternativeAddress'
+        hasChanged:
+          type: boolean
+    Site:
       required:
-        - type
+        - bpnReference
+        - confidenceCriteria
+        - siteMainIsLegalAddress
+        - states
       type: object
       properties:
-        validFrom:
+        bpnReference:
+          $ref: '#/components/schemas/BpnReference'
+        siteName:
           type: string
-          description: The date from which the state is valid.
-          format: date-time
-        validTo:
-          type: string
-          description: The date until the state is valid.
-          format: date-time
-        type:
-          type: string
-          description: 'One of the state types: active, inactive.'
-          enum:
-            - ACTIVE
-            - INACTIVE
-    StreetDto:
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessState'
+        confidenceCriteria:
+          $ref: '#/components/schemas/ConfidenceCriteria'
+        hasChanged:
+          type: boolean
+        siteMainAddress:
+          $ref: '#/components/schemas/PostalAddress'
+        siteMainIsLegalAddress:
+          type: boolean
+    Street:
       type: object
       properties:
         name:
           type: string
-          description: The name of the street.
         houseNumber:
           type: string
-          description: The number representing the exact location of a building within the street.
         houseNumberSupplement:
           type: string
         milestone:
           type: string
-          description: The number representing the exact location of an addressed object within a street without house numbers, such as within long roads.
         direction:
           type: string
-          description: The cardinal direction describing where the exit to the location of the addressed object on large highways / motorways is located, such as Highway 101 South.
         namePrefix:
           type: string
-          description: The street related information, which is usually printed before the official street name on an address label.
         additionalNamePrefix:
           type: string
-          description: The additional street related information, which is usually printed before the official street name on an address label.
         nameSuffix:
           type: string
-          description: The street related information, which is usually printed after the official street name on an address label.
         additionalNameSuffix:
           type: string
-          description: The additional street related information, which is usually printed after the official street name on an address label.
     TaskClientStateDto:
       required:
+        - businessPartnerResult
         - processingState
         - taskId
       type: object
@@ -1181,7 +378,7 @@ components:
         taskId:
           type: string
         businessPartnerResult:
-          $ref: '#/components/schemas/BusinessPartnerGenericDto'
+          $ref: '#/components/schemas/BusinessPartner'
         processingState:
           $ref: '#/components/schemas/TaskProcessingStateDto'
       description: The golden record task's processing state together with optional business partner data in case processing is done
@@ -1201,7 +398,7 @@ components:
           type: array
           description: The list of business partner data to be processed
           items:
-            $ref: '#/components/schemas/BusinessPartnerGenericDto'
+            $ref: '#/components/schemas/BusinessPartner'
       description: Request object to specify for which business partner data tasks should be created and in which mode
     TaskCreateResponse:
       required:
@@ -1304,6 +501,7 @@ components:
     TaskStepReservationEntryDto:
       required:
         - businessPartner
+        - requestKey
         - taskId
       type: object
       properties:
@@ -1311,7 +509,7 @@ components:
           type: string
           description: The identifier of the reserved task
         businessPartner:
-          $ref: '#/components/schemas/BusinessPartnerFullDto'
+          $ref: '#/components/schemas/BusinessPartner'
         requestKey:
           type: string
       description: Task reservation entry
@@ -1352,6 +550,7 @@ components:
       description: Response object for giving a list of reserved tasks
     TaskStepResultEntryDto:
       required:
+        - businessPartner
         - errors
         - taskId
       type: object
@@ -1360,7 +559,7 @@ components:
           type: string
           description: The identifier of the task for which this is a result
         businessPartner:
-          $ref: '#/components/schemas/BusinessPartnerFullDto'
+          $ref: '#/components/schemas/BusinessPartner'
         errors:
           type: array
           description: Errors that occurred during processing of this task
@@ -1385,3 +584,24 @@ components:
           items:
             $ref: '#/components/schemas/TaskStepResultEntryDto'
       description: Request object for posting step results of previously reserved tasks
+    UncategorizedProperties:
+      required:
+        - identifiers
+        - nameParts
+        - states
+      type: object
+      properties:
+        nameParts:
+          type: array
+          items:
+            type: string
+        identifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessState'
+        address:
+          $ref: '#/components/schemas/PostalAddress'
