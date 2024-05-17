@@ -323,7 +323,7 @@ The documentation from the Digital Product Pass Verification Add-on is available
 
 ### Business Partner Data Management Add-on
 
-When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation.
+When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation. This add-on will be implemented in R24.08.
 
 > [!IMPORTANT]
 >
@@ -336,6 +336,22 @@ When passports are retrieved from the data providers not all the company data is
 In order to retrieve data following the Catena-X Data Sovereighnty guidelines, an addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
 
 A guide for using this configuration add-on can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
+
+## Want to know more about Catena-X Digital Product Passes?
+
+### Digital Product Pass Tutorial
+
+For the Second Tractus-X Community Days there was prepared a tutorial for understanding and using the Digital Product Pass application.
+
+You can find it [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial), there you will find information and guides on how to:
+
+- Deploy the Application
+- Create Digital Product Pass Aspect Models
+- Create Digital Twins for Digital Product Passports
+- Understand how to consume data
+- Learn how to create digital product passport QR codes.
+
+
 
 ## Attachments
 
