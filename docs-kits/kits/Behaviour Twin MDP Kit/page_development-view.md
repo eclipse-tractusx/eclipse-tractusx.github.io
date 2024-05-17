@@ -107,11 +107,11 @@ The FMU Interoperability Checker shall support the following two use cases.
 
 - Use Case 1: Connection Use Case. Given two FMU, FMU1 and FMU2, the FMU Interoperability Checker shall check, based on the FMU asset properties, if the two FMU can be connected in a co-simulation as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC1.png" alt="UC1" width="70%"></img>
+![UC1](images/Pic_IntCheckUC1.png)
 
 - Use Case 2: Replacement Use Case. Given a co-simulation of two FMU, FMU1a and FMU2, the FMU Interoperability Checker shall check based on the FMU asset properties, if FMU1a can be replaced by FMU1b as depicted in the following figure.
 
-<img src="images/Pic_IntCheckUC2.png" alt="UC2" width="70%"></img>
+![UC2](images/Pic_IntCheckUC2.png)
 
 ### Workflow
 
