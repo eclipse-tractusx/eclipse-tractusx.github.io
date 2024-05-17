@@ -1,14 +1,18 @@
-### Behaviour Twin MDP Application Success Story
-<!--
-Adoption View of the Kit.
--->
+---
+id: mdp_application
+title: MDP Application
+description: Behaviour Twin MDP Application Success Story
+---
+
+![Model Based Development and Data Processing Kit banner](@site/static/img/kit-icons/behaviour-mdp-kit-icon.svg)
+
+### Model Based Development and Data Processing Kit
 
 ## Introduction to the Use Case
 
 The Behaviour Twin MDP (Model based development and Data Processing) Application was developed within the framework of the Catena-X initiative, to enable collaborative utilization of behavioural digital twins in the automotive industry. This innovative application is poised to define the workflow and the tool chain for the model-based system development and data processing, leveraging Catena-X technology and collaborative principles. The mission of the Behaviour Twin MDP Application is to provide a comprehensive framework for the selection, integration, and utilization of behavioural digital twins. Through adherence to Catena-X standards and principles, we strive to ensure secure data exchange, interoperability, and compatibility, laying the foundation for seamless collaboration and efficiency in innovation.
 
-The objective is to enhance model-based design and data processing using models coming from component suppliers (for example: the OEM gets the models of the gear box, the brakes and the battery from the respective Tier1s), by facilitating model exchange between Tier1s and OEM or between Tier2s and Tier1. This is done using the industry standard FMU (which is a black box model, so the intellectual property is protected) and performing the exchange over EDC. The MDP KIT defines the functionality of the software applications needed for the MDP use cases, that is to combine the models into a simulation architecture and perform parametric studies, but also to do field data processing based on evaluation models of the component suppliers. 
-
+The objective is to enhance model-based design and data processing using models coming from component suppliers (for example: the OEM gets the models of the gear box, the brakes and the battery from the respective Tier1s), by facilitating model exchange between Tier1s and OEM or between Tier2s and Tier1. This is done using the industry standard FMU (which is a black box model, so the intellectual property is protected) and performing the exchange over EDC. The MDP KIT defines the functionality of the software applications needed for the MDP use cases, that is to combine the models into a simulation architecture and perform parametric studies, but also to do field data processing based on evaluation models of the component suppliers.
 
 ## General Information Display: BehBehaviouravior Twin MDP Application
 
@@ -51,7 +55,7 @@ The Model Integration and Qualification page is a pivotal component of the appli
 
 ## Execution: HEEDS
 
-Model Execution (using Simcenter HEEDs): to perform parametric studies and compare different designs. 
+Model Execution (using Simcenter HEEDs): to perform parametric studies and compare different designs.
 The Model Execution page stands as a cornerstone within the application, facilitating seamless execution of optimization tasks using the Simcenter HEEDS software. This integration empowers users to harness the advanced optimization capabilities of Simcenter HEEDS directly within the application environment, enhancing their design exploration and decision-making processes.
 
 ![Overview FMU HEEDS](../images/Pic_AppStory6.png)
@@ -59,13 +63,12 @@ The Model Execution page stands as a cornerstone within the application, facilit
 ## Data Processing: Simcenter TestLab
 
 Data Analysis (utilizing Simcenter TestLab Neo): Conduct comprehensive data analysis including statistical calculations.
-The Data Processing section seamlessly integrates with Simcenter TestLab Neo software, empowering users to leverage its advanced capabilities directly within the application environment. This integration enhances data processing and automation processes, streamlining analytical workflows for sophisticated data analysis tasks, offering users intuitive access to Simcenter TestLab Neo's powerful features. 
+The Data Processing section seamlessly integrates with Simcenter TestLab Neo software, empowering users to leverage its advanced capabilities directly within the application environment. This integration enhances data processing and automation processes, streamlining analytical workflows for sophisticated data analysis tasks, offering users intuitive access to Simcenter TestLab Neo's powerful features.
 
 ![Overview FMU TestLab](../images/Pic_AppStory6a.png)
 
 ## Behaviour Twin MDP Application - Configuration
 
-The Behaviour Twin MDP (Model and Data Processing) Application - Configuration page serves as a central hub for users to configure and customize various aspects of the application according to their specific needs and preferences. This page offers a range of tools and settings that empower users to tailor the application to suit their unique requirements, ensuring optimal functionality and performance. 
+The Behaviour Twin MDP (Model and Data Processing) Application - Configuration page serves as a central hub for users to configure and customize various aspects of the application according to their specific needs and preferences. This page offers a range of tools and settings that empower users to tailor the application to suit their unique requirements, ensuring optimal functionality and performance.
 
 ![Overview FMU Configuration](../images/Pic_AppStory7.png)
-
