@@ -11,11 +11,21 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - unreleased
+## [2.0.0] - 2024-05-29
 
 ### Added
+#### Adaption view
 
-- ./.
+- New optional functionality "Early warning notifications"
+- New optional functionality "Failure pattern"
+
+Area Tutorials
+- Onboarding guide with Do*s and Don'ts added
+
+#### Development view
+
+- Added S3 adresses details
+- Added properties details
 
 ### Changed
 
@@ -23,9 +33,54 @@ All notable changes to this Kit will be documented in this file.
 
 #### Adaption view
 
+Area Vision:
+- Cosmetic update of the picture "Fast facts"
+- Listing of early warning notification 
+- Listing of failure pattern
+
+Area Customer Journey:
+- Updated overall description 
+- Added traceability as supporting reference
+
+Area Benefits:
+- Success stories added
+
+Area Sematic model:
+- Adjustment of all sematic models to new version & additional models for failure pattern and notification
+
+Area Logic & Schema
+- Business logic for notifications added
+- Description for failure pattern added
+
+Area Standards
+- Added standard CX-123 as replacement for standards 
+CX - 0036 Semantic Model Quality Task
+CX - 0037 Semantic Model Vehicle Product Description
+CX - 0038 Semantic Model Fleet Diagnostic Data
+CX - 0039 Semantic Model Fleet Claim Data
+CX - 0040 Semantic Model Parts Analyses
+CX - 0041 Semantic Model Manufactured Parts Quality Information
+CX - 0071 Triangle Quality Early Warning Field and Root Cause)
+CX - 0091 Aspect Model Fleet Vehicles
+CX - 0092 Aspect Model Quality Task Attachment
+
+Area Notice:
+- Added license for 2024
+
+#### Operation view
+
+- Movement of properties and S3 data address from development view 
+- Property for delta load added according to CX - 0123 standard
+
+#### Development view
+
+- Movement of properties and S3 data address fo development view
+
 ### Removed
 
-- ./.
+Area Benefits:
+- Double information on picture  "Advantages"
+- Picture "Advantage of early warning an root cause analysis in active field observation" - double with description
 
 ## [1.2.0] - 2024-03-08
 
