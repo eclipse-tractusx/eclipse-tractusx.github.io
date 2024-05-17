@@ -1,8 +1,7 @@
 ---
-id: Changelog Model Based Development and Data Processing Kit
+id: page_changelog
 title: Changelog
-description: 'Model Based Development and Data Processing Kit'
-sidebar_position: 1
+description: Model Based Development and Data Processing Kit
 ---
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
