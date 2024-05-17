@@ -1,7 +1,7 @@
 ---
 id: page_adoption-view
 title: Adoption View
-description: 'Model Based Development and Data Processing Kit'
+description: Model Based Development and Data Processing Kit
 ---
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
