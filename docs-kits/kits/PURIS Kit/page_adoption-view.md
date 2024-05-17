@@ -207,7 +207,7 @@ PURIS enables data exchange between partners (one-up/one-down) within Catena-X u
 - PURIS allows organizations to exchange material flow-related data with contractual partners (one-up, one-down)
 - PURIS respects the data sovereignty of each participant with regard to its own data or data owner
 
-[PURIS communicates and exchanges data within Catena-X using the EDC.](resources/PURIS_logic.pdf)
+![PURIS communicates and exchanges data within Catena-X using the EDC.](resources/PURIS_logic.png)
 
 ## Standards
 
