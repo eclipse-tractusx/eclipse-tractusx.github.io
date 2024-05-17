@@ -1,16 +1,12 @@
 ---
-id: Adoption View Model Based Development and Data Processing Kit
+id: page_adoption-view
 title: Adoption View
 description: 'Model Based Development and Data Processing Kit'
-sidebar_position: 2
 ---
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
 
 ### Model Based Development and Data Processing Kit
-<!--
-Development View of the Kit.
--->
 
 ## Vision & Mission
 

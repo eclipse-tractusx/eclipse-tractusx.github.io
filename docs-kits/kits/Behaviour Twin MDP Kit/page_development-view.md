@@ -1,16 +1,12 @@
 ---
-id: Development View Model Based Development and Data Processing Kit
+id: page_development-view
 title: Development View
-description: 'Model Based Development and Data Processing Kit'
-sidebar_position: 3
+description: Model Based Development and Data Processing Kit
 ---
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
 
 ### Model Based Development and Data Processing Kit
-<!--
-Development View of the Kit.
--->
 
 ## MDP Development Video
 
