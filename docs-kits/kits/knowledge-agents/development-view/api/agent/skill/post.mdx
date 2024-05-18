@@ -71,15 +71,34 @@ SELECT DISTINCT ?luogo ?indirizzo ?comune WHERE {
 curl --request POST \
   --url 'https://knowledge.dev.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api/agent/skill?asset=SkillAsset%3Fconsumer%3DDataspace&assetName=Sample%20Skill&assetVersion=1.0.5&assetDescription=Performs%20some%20sample%20operations.&distributionMode=ALL&contract=Contract%3Fconsumer%3DSkill&isFederated=true&allowedServicePattern=edcs%3F%3A%2F%2F.*' \
   --header 'content-type: application/sparql-query' \
-  --data 'SELECT DISTINCT ?luogo ?indirizzo ?comune WHERE {
-  ?x a cis:CulturalInstituteOrSite ;
-  cis:institutionalCISName ?luogo ;
-  cis:hasSite ?site .
-  ?site cis:siteAddress ?address .
-  ?address clvapit:fullAddress ?indirizzo ;
-          clvapit:hasCity [rdfs:label ?comune] .
-  FILTER regex(str(?comune), "Vinci", "i")
-}  ORDER BY ?luogo LIMIT 100
+  --data 'PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX sh: <http://www.w3.org/ns/shacl#> 
+
+SELECT ?connector ?asset 
+       ?name
+       (MIN(?adescription) AS ?description) 
+       ?type
+       (MAX(?aversion) AS ?version) 
+       (GROUP_CONCAT(DISTINCT ?acontentType;SEPARATOR=",") AS ?contentType) 
+       ?protocol
+       (CONCAT("<",GROUP_CONCAT(?aontology;SEPARATOR=">,<"),">") AS ?isDefinedBy) 
+       (MIN(?ashape) AS ?shape)
+ WHERE { 
+     ?connector cx-common:offers ?asset. 
+     ?asset cx-common:contentType ?acontentType; 
+            cx-common:name ?name; 
+            rdf:type ?type; 
+            rdfs:isDefinedBy ?aontology; 
+            cx-common:version ?aversion; 
+            cx-common:description ?adescription;
+            cx-common:implementsProtocol ?protocol. 
+
+    OPTIONAL {
+        ?asset sh:shapesGraph ?ashape
+    }
+} GROUP BY ?connector ?asset ?name ?type ?protocol
 '
 ```
 
