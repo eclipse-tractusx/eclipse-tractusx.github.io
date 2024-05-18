@@ -641,30 +641,6 @@ The following shapes describe two different prognosis functions (one computing t
         cx-sh:hasAsArgument cx-reliability:classes;
         sh:path cx-behaviour:bodyClasses;
     ].
-
-    # Prognosis Function
-    :PrognosisFunctionShape a sh:NodeShape ;
-        sh:targetClass cx-behaviour:PrognosisFunction;
-        sh:property[
-            cx-sh:hasAsArgument cx-reliability:countingMethod;
-            sh:path cx-behaviour:countingMethod;
-        ];
-        sh:property[
-            cx-sh:hasAsArgument cx-reliability:countingValue;
-            sh:path cx-behaviour:countingValue;
-        ];
-        sh:property[
-            cx-sh:hasAsArgument cx-reliability:countingUnit;
-            sh:path cx-behaviour:countingUnit;
-        ];
-        sh:property[
-            cx-sh:hasAsArgument cx-reliability:channels;
-            sh:path cx-behaviour:headerChannels;
-        ];
-        sh:property[
-            cx-sh:hasAsArgument cx-reliability:classes;
-            sh:path cx-behaviour:bodyClasses;
-        ].
     
 :HealthIndicationShape a sh:NodeShape ;
     cx-sh:extensionOf :PrognosisFunctionShape;
