@@ -1003,7 +1003,7 @@ Note that the definition foresees a "custom" asset property "cx-common:published
 to a contract.
 
 ```console
-curl --location --globoff 'https://my-connector-control.domain/management/v2/policydefinitions' \
+curl --location --globoff 'https://my-connector-control.domain/management/v2/contractdefinitions' \
 --header 'X-Api-Key: {{customerApiKey}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1034,7 +1034,7 @@ The asset can also be "federated". That means that its meta-data can be regularl
 (see the "cx-common:isFederated" public property). That also means that a skill can traverse the asset to move on its computation further to a set of other allowed connectors/assets (see the "cx-common:allowServicePattern" dataaddress property).
 
 ```console
-curl --location --globoff 'https://my-connector-control.domain/management/v2/policydefinitions' \
+curl --location --globoff 'https://my-connector-control.domain/management/v3/assets' \
 --header 'X-Api-Key: {{customerApiKey}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1080,13 +1080,107 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
 }'
 ```
 
-Note that there are two mechanisms inside the Graph Asset Description with which a skill
+Note that there are two mechanisms inside the Graph Asset Description with which a skill (which basically is a graph matching language) can "search" for the right asset without using hardcoded asset ids (see also [our modelling guide](../development-view/modelling)).
 
-For more information see
+The "rdfs:isDefinedBy" property resolves into a full-fledged predicate inside the federated catalogue. By constraining the ontologies that an asset should implement, we can ensure that definitions (classes, properties, relations) that the skill requires are all available and the skill will run in principle.
 
-* Our [Adoption](../adoption-view/intro) guidelines
-* The [Implementation](../development-view/architecture) documentation
-* The [Deployment](deployment) overview
-* A [Data Sovereignity & Graph Policy](policy) discussion
+The "sh:shapesGraph" property resolves into a full-fledged sub-graph under the asset node in the federated catalogue. By constraining the domains of classes, properties and relations that the asset should provide, the skill can even find out whether the provided data is complete (maybe it just represents a single partition) or whether it fits with the types of other assets that the skill must combine.
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+To demonstrate this alignment, we have already listed the shapes of three interacting assets, a data graph and two function graphsin the [our modelling guide](../development-view/modelling). We have also sketched the SPARQL by which a skill can do such an asset alignment.
+
+For completeness purposes, we give the two (function) graph registrations in the following
+
+#### Federated (Function) Graph Assets
+
+```console
+curl --location --globoff 'https://my-connector-control.domain/management/v3/assets' \
+--header 'X-Api-Key: {{customerApiKey}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cx-common": "https://w3id.org/catenax/ontology/common#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dc": "https://purl.org/dc/terms/"
+    },
+    "@id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+    "properties": {
+        "cx-common:name": "Lifetime Prognosis Service for Gearboxes",
+        "cx-common:description": "A sample graph asset/offering referring to a specific prognosis resource.",
+        "cx-common:description@de": "Ein Beispielasset für eine Prognosefunktion.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?supplier=Graph",
+        "dc:type": "cx-taxo:GraphAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>,<https://w3id.org/catenax/ontology/behaviour>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+        "sh:shapesGraph": "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix schema: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .\n@prefix cx-common: <https://w3id.org/catenax/ontology/common#> .\n@prefix cx-core: <https://w3id.org/catenax/ontology/core#> .\n@prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#> .\n@prefix cx-sh: <https://w3id.org/catenax/ontology/schema#> .\n@prefix cx-taxo: <https://w3id.org/catenax/taxonomy#> .\n@prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?supplier=BehaviourTwinRUL&shapeObject=> .\n\n# Prognosis Function\n:PrognosisFunctionShape rdf:type sh:NodeShape ;\n    sh:targetClass cx-behaviour:PrognosisFunction;\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingMethod;\n        sh:path cx-behaviour:countingMethod;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingValue;\n        sh:path cx-behaviour:countingValue;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingUnit;\n        sh:path cx-behaviour:countingUnit;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:channels;\n        sh:path cx-behaviour:headerChannels;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:classes;\n        sh:path cx-behaviour:bodyClasses;\n    ].\n\n:RemainingUsefulLifeShape rdf:type sh:NodeShape ;\n    cx-sh:extensionOf :PrognosisFunctionShape;\n    sh:targetClass cx-behaviour:RemainingUsefulLife ;\n      sh:property[\n        cx-sh:hasAsArgument cx-reliability:observationOf;\n        sh:path cx-behaviour:observationType;\n        sh:in ( cx-taxo:GearSet cx-taxo:GearOil );\n    ];\n    sh:property :RemainingUsefulLifeResultShape.\n\n:RemainingUsefulLifeResult rdf:type sh:PropertyShape;\n    cx-sh:outputOf :RemainingUsefulLifeShape;\n    sh:path cx-behaviour:RemainingUsefulLifeResult .\n",
+        "cx-common:isFederated": "true^^xsd:boolean"
+    },
+    "dataAddress": {
+        "id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+        "@type": "DataAddress",
+        "baseUrl": "https://my-remoting-agent.domain/rdf4j-server/repositories/rul",
+        "type": "cx-common:Protocol?w3c:http:SPARQL",
+        "proxyPath": "false",
+        "proxyMethod": "true",
+        "proxyQueryParams": "true",
+        "proxyBody": "true",
+        "authKey": "Authorization",
+        "authCode": "••••••",
+        "cx-common:allowServicePattern": "https://my-remoting-agent.domain/rdf4j-server/repositories/rul"
+    }
+  }
+'
+```
+
+```console
+curl --location --globoff 'https://my-connector-control.domain/management/v3/assets' \
+--header 'X-Api-Key: {{customerApiKey}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cx-common": "https://w3id.org/catenax/ontology/common#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "cs-taxo": "https://w3id.org/catenax/taxonomy#",
+        "dc": "https://purl.org/dc/terms/"
+    },
+    "@id": "cx-taxo:GraphAsset?supplier=HealthIndicatorGearbox",
+    "properties": {
+        "cx-common:name": "Health Prognosis Service for Gearboxes",
+        "cx-common:description": "A second sample graph asset/offering referring to a specific prognosis resource.",
+        "cx-common:description@de": "Ein weiteres Beispielasset für eine Prognosefunktion.",
+        "cx-common:version": "1.12.19",
+        "cx-common:contenttype": "application/json, application/xml",
+        "cx-common:publishedUnderContract": "Contract?supplier=Graph",
+        "dc:type": "cx-taxo:GraphAsset",
+        "rdfs:isDefinedBy": "<https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>,<https://w3id.org/catenax/ontology/behaviour>",
+        "cx-common:implementsProtocol": "cx-common:Protocol?w3c:http:SPARQL",
+        "sh:shapesGraph": "    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix schema: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .\n@prefix cx-common: <https://w3id.org/catenax/ontology/common#> .\n@prefix cx-core: <https://w3id.org/catenax/ontology/core#> .\n@prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .\n@prefix cx-fx: <https://w3id.org/catenax/ontology/function#> .\n@prefix cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#> .\n@prefix cx-reliability: <https://w3id.org/catenax/ontology/reliability#> .\n@prefix cx-sh: <https://w3id.org/catenax/ontology/schema#> .\n@prefix cx-taxo: <https://w3id.org/catenax/taxonomy#> .\n@prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?supplier=BehaviourTwinHI&shapeObject=> .\n\n# Prognosis Function\n:PrognosisFunctionShape rdf:type sh:NodeShape ;\n    sh:targetClass cx-behaviour:PrognosisFunction;\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingMethod;\n        sh:path cx-behaviour:countingMethod;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingValue;\n        sh:path cx-behaviour:countingValue;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:countingUnit;\n        sh:path cx-behaviour:countingUnit;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:channels;\n        sh:path cx-behaviour:headerChannels;\n    ];\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:classes;\n        sh:path cx-behaviour:bodyClasses;\n    ].\n\n    # Prognosis Function\n    :PrognosisFunctionShape a sh:NodeShape ;\n        sh:targetClass cx-behaviour:PrognosisFunction;\n        sh:property[\n            cx-sh:hasAsArgument cx-reliability:countingMethod;\n            sh:path cx-behaviour:countingMethod;\n        ];\n        sh:property[\n            cx-sh:hasAsArgument cx-reliability:countingValue;\n            sh:path cx-behaviour:countingValue;\n        ];\n        sh:property[\n            cx-sh:hasAsArgument cx-reliability:countingUnit;\n            sh:path cx-behaviour:countingUnit;\n        ];\n        sh:property[\n            cx-sh:hasAsArgument cx-reliability:channels;\n            sh:path cx-behaviour:headerChannels;\n        ];\n        sh:property[\n            cx-sh:hasAsArgument cx-reliability:classes;\n            sh:path cx-behaviour:bodyClasses;\n        ].\n    \n:HealthIndicationShape a sh:NodeShape ;\n    cx-sh:extensionOf :PrognosisFunctionShape;\n    sh:targetClass cx-behaviour:HealthIndication;\n    sh:property [\n        cx-sh:hasAsArgument cx-reliability:observationOf;\n        sh:path cx-behaviour:observationType;\n        sh:in ( cx-taxo:Clutch );\n    ];\n    sh:property :HealthIndicationResultShape.\n    \n:HealthIndicationResultShape a sh:PropertyShape;\n    cx-sh:outputOf :HealthIndicationShape;\n    sh:path cx-behaviour:HealthIndicationResult .",
+        "cx-common:isFederated": "true^^xsd:boolean"
+    },
+    "dataAddress": {
+        "id": "cx-taxo:GraphAsset?supplier=HealthIndicatorGearbox",
+        "@type": "DataAddress",
+        "baseUrl": "https://my-remoting-agent.domain/rdf4j-server/repositories/health",
+        "type": "cx-common:Protocol?w3c:http:SPARQL",
+        "proxyPath": "false",
+        "proxyMethod": "true",
+        "proxyQueryParams": "true",
+        "proxyBody": "true",
+        "authKey": "Authorization",
+        "authCode": "••••••",
+        "cx-common:allowServicePattern": "https://my-remoting-agent.domain/rdf4j-server/repositories/health"
+    }
+}'
+```
+
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

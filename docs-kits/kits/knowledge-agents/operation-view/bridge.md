@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Bridging
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
+ * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -25,14 +25,7 @@ title: Bridging
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
+
 For Bridging between Knowledge Agents API and AAS, this KIT recommends deploying the [Tractus-X Knowledge Agents AAS Bridge (KA-AAS)](https://github.com/eclipse-tractusx/knowledge-agents-aas-api)
 
-For more information see
-
-* Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
-* The [Deployment](deployment) overview
-* The [Conformity](testbed) testbed
-* A [Data Sovereignity & Graph Policy](policy) discussion
-
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
