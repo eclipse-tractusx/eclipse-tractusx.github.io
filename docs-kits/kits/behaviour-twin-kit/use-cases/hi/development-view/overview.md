@@ -19,7 +19,19 @@ Behaviour Twin KIT -- Health Indicator
 
 ## CONTENTS
 
-- [Architecture](./architecture)
-- [Data Bindings](./data-bindings)
-- [Service Bindings](./service-bindings)
-- [Skill](./skill)
+- [Data Bindings](./data-bindings) (applies to role *HI data provider*)
+  - configuring data bindings
+  - registering graph asset for data bindings
+
+<br/>
+
+- [Service Bindings](./service-bindings) (applies to role *HI calculation service provider*)
+  - configuring a service binding
+  - registering a graph asset for a service binding
+
+<br/>
+
+- [Skill](./skill) (applies to roles *HI skill provider* and *HI consumer*)
+  - configuring a service binding
+  - registering a skill assets
+  - invoke skills

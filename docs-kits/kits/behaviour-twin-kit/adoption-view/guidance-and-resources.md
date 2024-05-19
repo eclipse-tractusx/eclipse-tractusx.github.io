@@ -34,4 +34,4 @@ Catena-X-Standards regarding Knowledge Agents are:
 
 A great resource for support might be the [Tractus-X Community](/community/intro).
 
-For further guidance, refer to the [Catena-X Association ![(external link)](../assets/external-link.svg)](https://catena-x.net/). Topics like Knowledge Agent and ontologies (also ontology extensions) are by the Technical Committee for Modelling (see [Organization of Catena-X Automotive Network e.V. ![(external link)](../assets/external-link.svg)](https://catena-x.net/en/about-us/the-association/organization-of-the-association)).
+For further guidance, refer to the [Catena-X Association ![(external link)](../assets/external-link.svg)](https://catena-x.net/). Topics like Knowledge Agent and ontologies (also ontology extensions) are managed by the Technical Committee for Modelling (see [Organization of Catena-X Automotive Network e.V. ![(external link)](../assets/external-link.svg)](https://catena-x.net/en/about-us/the-association/organization-of-the-association)).

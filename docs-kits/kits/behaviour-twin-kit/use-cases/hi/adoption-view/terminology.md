@@ -15,8 +15,14 @@ Behaviour Twin KIT -- Health Indicator
   </div>
 </div>
 
-## NON USE CASE SPECIFIC
+## NON-USE-CASE-SPECIFIC
 
 For terminology that is not related to the Health Indicator use case, see the general [Terminology](../../../adoption-view/terminology) section.
 
-## USE CASE SPECIFIC
+## USE-CASE-SPECIFIC
+
+|Term|Description|Comment|
+|---|---|---|
+|HI|Health Indicator||
+|health monitoring|continuously observing the condition or state of a technical component via health indicator values|try to detect and diagnose potential issues or degradation|
+|health indicator value|interpretable state or condition of a technical component|typically calculated on basis of component usage data|

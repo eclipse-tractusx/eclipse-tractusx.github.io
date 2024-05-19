@@ -15,11 +15,28 @@ Behaviour Twin KIT
   </div>
 </div>
 
-## DISCLAIMER
-
 ## CONTENTS
 
-- [Architecture](./architecture)
-- [Data Bindings](./data-bindings)
-- [Service Bindings](./service-bindings)
-- [Skill](./skill)
+- [Contracts and Policies](./contracts-and-policies) (applies to roles *skill provider*, *data provider*, *calculation service provider* and *delegator*)
+  - policies for graph assets
+  - contracts for graph assets
+  - policies for skill assets
+  - contracts for skill assets
+
+- [Data Bindings](./data-bindings) (applies to roles *data provider* and *delegator*)
+  - configuring data bindings
+  - registering graph asset for data bindings
+
+<br/>
+
+- [Service Bindings](./service-bindings) (applies to role *calculation service provider*)
+  - configuring a service binding
+  - registering a graph asset for a service binding
+
+<br/>
+
+- [Skill](./skill) (applies to roles *skill provider* and *consumer*)
+  - configuring a service binding
+  - registering a skill assets
+  - invoke skills
+  

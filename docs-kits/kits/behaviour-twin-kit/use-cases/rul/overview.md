@@ -8,9 +8,15 @@ description: Behaviour Twin KIT
 
 ![Behaviour Twin KIT -- Remaining useful Life banner](@site/static/img/kit-icons/behaviour-twin-rul-kit-icon.svg)
 
+## DISCLAIMER
+
+![caution](../../assets/caution.drawio.svg) This is only a template use case. It is not to be used as is, but provides a great starting building block for further implementation of a concrete use case.
+
 ## PURPOSE
 
-Provide and get remaining-useful-life values for technical systems.
+The business logic of the Remaining useful Life use case is to provide and get remaining-useful-life (RuL) values for technical systems.
+
+This template shows a use case where an external consumer defines a skill, where the schema of the calculation services' input parameter is known to the skill provider (consumer). But consumer has no knowledge about the actual calculation service provider(s).
 
 ## CONTENTS
 
