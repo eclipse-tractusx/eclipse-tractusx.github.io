@@ -98,3 +98,17 @@
     height: fit-content;
   }
 }
+
+@media screen and (min-width: 2200px) {
+  .about_header {
+    margin: auto;
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .about_header {
+    margin: auto;
+    width: 60vw;
+  }
+}
