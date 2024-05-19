@@ -14,3 +14,11 @@ description: Behaviour Twin KIT
 Behaviour Twin KIT -- Remaining useful Life
   </div>
 </div>
+
+Applies to role: *RuL data provider*
+
+## DATA BINDING FOR RELATIONAL DATA
+
+The usage data for different use cases like [*Health Indicator*](../../hi/overview), *Remaining useful Life* and others utlilize the same data sources and data types (load spectra). The load spectrum types may vary, but all the different types consists of the same structure and data types. Because of that, they all can be provided by the same data (graph) asset. The provisioning is described in the [general Data Bindings section](../../../development-view/data-bindings).
+
+More details about how to bind and provide data can be found at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).

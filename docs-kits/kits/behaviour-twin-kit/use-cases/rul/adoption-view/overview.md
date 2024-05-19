@@ -15,10 +15,6 @@ Behaviour Twin KIT -- Remaining useful Life
   </div>
 </div>
 
-RuL-KIT-logo?
-
-## DISCLAIMER
-
 ## CONTENTS
 
 - [Introduction](./introduction)

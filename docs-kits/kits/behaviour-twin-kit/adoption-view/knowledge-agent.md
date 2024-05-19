@@ -60,18 +60,18 @@ For the Behaviour Twin use case, the following ontology is defined:
 
 ### OWN ONTOLOGIES FOR TEST OF NEW OR EXTENSION OF EXISTING USE CASES
 
-Private ore extended ontologies (e.g. for only two partners) can be added to the Knowledge Agent configuration. There are two options:
+Private or extended ontologies (e.g. for only two partners) can be added to the Knowledge Agent configuration. There are two options:
 
 - Defining a public accessible storage location where all participating partners can refer to.
 - Mounting the ontology file into the Knowledge Agent container.
 
-In each case, the configuration is statically and must be done within the deployment scripts of the Knowledge Agent. For the changes to take effect, the Knowledge Agent must be restarted.
+In each case, the configuration is static and must be done within the deployment scripts of the Knowledge Agent. For the changes to take effect, the Knowledge Agent must be restarted.
 
 ## DATA SOVEREIGNTY THROUGH BINDINGS
 
 Data and service bindings bring an extra layer of security. Only mapped data and services can be accessed. They are offered through graph assets. These assets are bound to policies which on the other hand are bound to a framework agreement. Using graph assets, all communication is handled by EDC connectors and this ensures data sovereignty.
 
-Bindings are configured statically. The binding configurations For the changes to take effect, the related Binding Agent must be restarted. New graph assets can be added dynamically.
+Bindings are configured statically. For the changes of the binding configurations to take effect, the related Binding Agent must be restarted. New graph assets can be added dynamically.
 
 ## TEST
 
@@ -79,5 +79,5 @@ Currently, there is no ready-to-use test environment. If you want to test your u
 you still have options:
 
 - Have a look at the [Agents KIT](../../knowledge-agents/adoption-view/intro), maybe there is already something regarding testing.
-- Do research at your operating company's website or contact them.
+- Search at your operating company's website or contact them.
 - Build up your own test environment. As a basis, you could use the official Tractus-X [MXD test environment on GitHub ![(external link)](../assets/external-link.svg)](https://github.com/eclipse-tractusx/tutorial-resources). Unfortunately, the Knowledge Agent components are not included into the MXD deployment scripts until release of the current KIT version.

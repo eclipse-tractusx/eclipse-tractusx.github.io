@@ -128,7 +128,7 @@ const sidebars = {
                          id: 'kits/behaviour-twin-kit/development-view/overview',
                     },
                     items: [
-                        'kits/behaviour-twin-kit/development-view/architecture',
+                        'kits/behaviour-twin-kit/development-view/contracts-and-policies',
                         'kits/behaviour-twin-kit/development-view/data-bindings',
                         'kits/behaviour-twin-kit/development-view/service-bindings',
                         'kits/behaviour-twin-kit/development-view/skill',
@@ -171,7 +171,6 @@ const sidebars = {
                                          id: 'kits/behaviour-twin-kit/use-cases/rul/development-view/overview',
                                     },
                                     items: [
-                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/architecture',
                                         'kits/behaviour-twin-kit/use-cases/rul/development-view/data-bindings',
                                         'kits/behaviour-twin-kit/use-cases/rul/development-view/service-bindings',
                                         'kits/behaviour-twin-kit/use-cases/rul/development-view/skill',
@@ -208,7 +207,6 @@ const sidebars = {
                                          id: 'kits/behaviour-twin-kit/use-cases/hi/development-view/overview',
                                     },
                                     items: [
-                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/architecture',
                                         'kits/behaviour-twin-kit/use-cases/hi/development-view/data-bindings',
                                         'kits/behaviour-twin-kit/use-cases/hi/development-view/service-bindings',
                                         'kits/behaviour-twin-kit/use-cases/hi/development-view/skill',

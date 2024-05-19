@@ -40,6 +40,8 @@ In general, the supply chain is not fully visible to the companies involved. The
 
 To engage additional actors in the supply chain, the framework agreements and other requirements must be propagated through the chain.
 
+When writing skills, keep in mind that all referenced assets are accessible in the current context (query scope/service level). An asset is accessible, if its in the federated catalog of the (level). In the example diagram above, assets of Tier 4 are hidden to the Knowledge Agent of Tier 2. Within the skill, a *SERVICE* at Tier 3 must be called that can resolve the missing data from Tier 4.
+
 ## DATA QUALITY
 
 Data quality depends on many factors. In some use cases, a minimum data quality must be ensured. Currently, there is no general concept for this. Some aspects should be kept in mind:

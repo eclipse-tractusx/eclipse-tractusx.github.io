@@ -37,7 +37,7 @@ It is always guaranteed that a version is provided/supported from end of rollout
 
 ![caution](../assets/caution.drawio.svg) Take into account that other components (like your own EDCs and your partners' components), may not be updated to their corresponding new version before end of rollout. Therefore, you can only rely on the previous version.
 
-This release procedure may affect you only if you have breaking changes within your use cases, or the Knowledge Agent interface changes in a breaking way. In most cases, the use case specific components are not affected.
+This release procedure may affect you only if you have breaking changes within your use cases, or the Knowledge Agent interface changes in a breaking way. In most cases, the use-case-specific components are not affected.
 
 ## VERSIONING ASSETS
 
