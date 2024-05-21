@@ -30,19 +30,32 @@ import Notice from './part_notice.mdx'
 
 All notable changes to this Kit will be documented in this file.
 
-## [5.0.0] - unreleased
+## [5.0.0] - 2024-05-06
+
+Compatible for **release 24.05**.
 
 ### Added
 
-- ./.
+- **Development View:**
+  - **App Provider:**
+    - Created initial version for data consumer and app provider
+    - Created optional quality notification API version 2.0.0
 
 ### Changed
 
-- Changed banner image file location and converted .png image to .svg
+- **Development View:**
+  - **App Provider:**
+    - Changed mandatory quality notification API version 1.2.1 (- formerly 1.2.0 -)
 
 ### Removed
 
-- ./.
+- **Development View:**
+  - Removed generated Notification API documentation (know directly available as Open API file)
+  - **Data Provider:**
+    - Removed aspects SingleLevelUsageAsPlanned and SingleLevelUsageAsBuilt, because these aspects moved to the Industry Core
+    - (Re)moved policy section to the [Industry Core KIT](../Industry%20Core%20Kit/Software%20Development%20View/Policies%20Development%20View%20Industry%20Core%20Kit)
+  - **App Provider:**
+    - Removed quality notification API version 1.1.0
 
 ## [4.0.0] - 2024-02-28
 
