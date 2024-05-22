@@ -109,17 +109,17 @@ Additionally, respective usage policies MAY include the following policy rule:
 ```json
 {
   "@context": {
-    "@vocab": " https://w3id.org/edc/v0.0.1/ns/"
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
    },
    "@id": "<POLICY-ID>",
    "policy": {
      "@context": [
        "http://www.w3.org/ns/odrl.jsonld",
          {
-           "cx-policy": " https://w3id.org/catenax/policy/v1.0.0/"
+           "cx-policy": "https://w3id.org/catenax/policy/"
          }
       ],
-        "@type": "Policy",
+        "@type": "Set",
         "profile": "cx-policy:profile2405",
         "permission": [
       {
@@ -129,12 +129,12 @@ Additionally, respective usage policies MAY include the following policy rule:
             {
               "leftOperand": "cx-policy:FrameworkAgreement",
               "operator": "eq",
-              "rightOperand": "traceability:1.0"
+              "rightOperand": "Traceability:1.0"
             },
             {
               "leftOperand": "cx-policy:UsagePurpose",
               "operator": "eq",
-              "rightOperand": "qualityNotifications:1"
+              "rightOperand": "cx.core.qualityNotifications:1"
             }
           ]
         }
