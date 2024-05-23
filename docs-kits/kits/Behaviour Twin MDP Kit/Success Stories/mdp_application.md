@@ -10,11 +10,11 @@ description: Behaviour Twin MDP Application Success Story
 
 ## Introduction to the Use Case
 
-The Behaviour Twin MDP (Model based development and Data Processing) Application was developed within the framework of the Catena-X initiative, to enable collaborative utilization of behavioural digital twins in the automotive industry. This innovative application is poised to define the workflow and the tool chain for the model-based system development and data processing, leveraging Catena-X technology and collaborative principles. The mission of the Behaviour Twin MDP Application is to provide a comprehensive framework for the selection, integration, and utilization of behavioural digital twins. Through adherence to Catena-X standards and principles, we strive to ensure secure data exchange, interoperability, and compatibility, laying the foundation for seamless collaboration and efficiency in innovation.
+The Behaviour Twin MDP (Model based development and Data Processing) Application was developed as proof-of-concept within the framework of the Catena-X initiative, to demonstrate collaborative utilization of behavioural digital twins in the automotive industry. This innovative application is poised to define the workflow and the tool chain for the model-based system development and data processing, leveraging Catena-X technology and collaborative principles. The mission of the Behaviour Twin MDP Application is to provide a comprehensive framework for the selection, integration, and utilization of behavioural digital twins. Through adherence to Catena-X standards and principles, we strive to ensure secure data exchange, interoperability, and compatibility, laying the foundation for seamless collaboration and efficiency in innovation.
 
-The objective is to enhance model-based design and data processing using models coming from component suppliers (for example: the OEM gets the models of the gear box, the brakes and the battery from the respective Tier1s), by facilitating model exchange between Tier1s and OEM or between Tier2s and Tier1. This is done using the industry standard FMU (which is a black box model, so the intellectual property is protected) and performing the exchange over EDC. The MDP KIT defines the functionality of the software applications needed for the MDP use cases, that is to combine the models into a simulation architecture and perform parametric studies, but also to do field data processing based on evaluation models of the component suppliers.
+The objective is to enhance model-based design and data processing using models coming from component suppliers (for example: the OEM gets the models of the gear box, the brakes and the battery from the respective Tier1s), by facilitating model exchange between Tier1s and OEM or between Tier2s and Tier1. This is done using the industry standard FMU ([Catena-X standard CX - 0102 Functional Mock-Up](https://catena-x.net/de/standard-library)) and performing the exchange over EDC. The MDP KIT defines the functionality of the software applications needed for the MDP use cases, that is to combine the models into a simulation architecture and perform parametric studies, but also to do field data processing based on evaluation models of the component suppliers.
 
-## General Information Display: BehBehaviouravior Twin MDP Application
+## General Information Display: Behaviour Twin MDP Application
 
 The General Information Display of the Behaviour Twin MDP (Model and Data Processing) Application offers users a user-friendly interface to visualize essential information about behavioural digital twins and their components. Whether users are analyzing the behaviour of a component within a vehicle or maintaining a system, this feature provides easy access to valuable insights.
 
@@ -34,11 +34,11 @@ The Projects Overview page serves as a hub for managing and monitoring all proje
 
 ![Overview FMU Checker](../images/Pic_AppStory2.png)
 
-### FMU Checker - Results of Comliance Check
+### FMU Checker - Results of Compliance Check
 
 The FMU Checker - Results of Compliance Check page is a vital component of the application, providing users with detailed insights into the compliance status of Functional Mock-up Units (FMUs). This page serves as a comprehensive tool for ensuring adherence to standards and regulations, enabling users to verify the compliance of FMUs with ease and efficiency.
 
-![Overview FMU Comliance](../images/Pic_AppStory3.png)
+![Overview FMU Compliance](../images/Pic_AppStory3.png)
 
 ### FMU Checker - Results of Smoke Test
 
@@ -72,3 +72,14 @@ The Data Processing section seamlessly integrates with Simcenter TestLab Neo sof
 The Behaviour Twin MDP (Model and Data Processing) Application - Configuration page serves as a central hub for users to configure and customize various aspects of the application according to their specific needs and preferences. This page offers a range of tools and settings that empower users to tailor the application to suit their unique requirements, ensuring optimal functionality and performance.
 
 ![Overview FMU Configuration](../images/Pic_AppStory7.png)
+
+## MDP Development Video
+
+This video demonstrates the necessary software application functionality for implementing the MDP Use Cases:
+
+- A guidance app, such as the MDP App shown in the video, should be provided to assist users in collaborative model-based development or model-based data processing workflows.
+- In the video the two use cases are showcased with software applications from the Siemens Simcenter portfolio. Namely with Simcenter System Architect for the Model Integration step, Simcenter HEEDS for the Model Execution step and in the 2nd use case with Simcenter Testlab Neo for the Data Processing step. These Apps have been chosen for illustrative purposes.
+
+<video controls style={{width:'100%'}} controlsList="nodownload">
+    <source src="images/mdp_kit_v1.0.mp4"/>
+</video>
