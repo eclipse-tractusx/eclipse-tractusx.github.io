@@ -5,7 +5,7 @@ description: 'Environmental and Social Standards Incident Management Kit'
 sidebar_position: 2
 ---
 
-![ESS Kit Icon](@site/static/kits/ESS-Kit/ess-kit-icon.png)
+![ESS Kit Icon](@site/kits/ESS-Kit/assets/ess-kit-icon.png)
 
 ## Vision & Mission
 
@@ -85,7 +85,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 **Note:** For the top - down approach with IRS recursive this is not applicable because no information about the ESS incident is transferred between Business Partners. See [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) for further details.
 
-![ESS_KitCustomerJourney](@site/static/kits/ESS-Kit/CatenaX_ESS_KitCustomerJourney.svg)
+![ESS_KitCustomerJourney](@site/kits/ESS-Kit/assets/CatenaX_ESS_KitCustomerJourney.svg)
 
 **Note:** There will be an explanatory you tube video, which will be available after IP clearance. [ESS video](<https://bcgcatenax.sharepoint.com/:v:/r/sites/ARTV/Shared%20Documents/ESS%20(Environment%20and%20Social%20Standards)/ESS%20KIT/Film/CX-full%20process%20demo%20v5.mp4?csf=1&web=1&e=nVeYZ6>)
 
@@ -169,7 +169,7 @@ The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/
 
 ### Business architecture
 
-![ESS_KitBusinessArchitecture](@site/static/kits/ESS-Kit/CatenaX_ESS_KitBusinessArchitecture.png)
+![ESS_KitBusinessArchitecture](@site/kits/ESS-Kit/assets/CatenaX_ESS_KitBusinessArchitecture.png)
 
 ### Access & Usage Policies / Code of Conduct
 
@@ -365,8 +365,8 @@ To participate in the ESS Incident Management use-case, the following single sta
 
 **Note:** For a top - down approach with IRS, an ESS incident does not have to exist in the form of the ESS Incident Data Model. The following parameters are sufficient for an ESS investigation:
 
-- Catena-X ID of the product whose supply chain is to be investigated
-- BPNS (Business Partner Number Site) of the company under investigation
+- Catena-X ID of the product whose supply chain is to be investigated [Industry Standard KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/industry-core-kit)
+- BPNS (Business Partner Number Site) of the company under investigation [Business Partner KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/business-partner-kit)
 
 Nevertheless an investigation should be triggered only for an ESS incident occasion - related search.
 
