@@ -73,14 +73,14 @@ All partners need the same semantic models for a common understanding of the inf
 
 The *GetProductionTrackingData* is sent from a partner to Modular Production with a HTTP request to receive production tracking information. The *ProvideProductionTrackingData* model is containing the relevant information like *processParameterName*, *processParameterValue* and *processParameterQuality*
 
-The semantic model can be found here:
+The semantic model can be found in as part of the [Catena-X Standard Library](#standards) and as Aspect Models in GitHub:
 
 - [io.catenax.shopfloor_information.get_production_tracking](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shopfloor_information.get_production_tracking)
 - [io.catenax.shopfloor_information.provide_production_tracking](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shopfloor_information.provide_production_tracking)
 
 The *GetProductionTrackingData* model must be implemented by all participants who wish to use the production tracing aspect of the Shop-Floor-Information-Service as a Modular Production, a customer or a participating third party. Companies, which use the Shop-Floor-Information-Service as a customer or third party must be able to send *GetProductionTrackingData* request, whereas partners using the Shop-Floor-Information-Service as a Modular Production must be able to receive the *GetProductionTrackingData* request.
 
-![SIS.Tracking-Parameter](res/SIS.Tracking-Parameter.svg)
+![SIS Tracking Parameter](res/SIS.Tracking-Parameter.svg)
 
 To exchange data between Modular Production and the customer it is necessary that both agree on a common understanding of the product and the production process. Therefore, for identifying the product it is necessary either to use the serial number *partInstanceId* in case of an individual component or the batch number batch to identify the product batch. The use of a defined bomID is also possible. In order to identify the production step, there are also several possibilities as well. In the case of a commonly known BoP the *BoPId* and the corresponding *processStep* can be used. As an alternative it is also possible to refer to a capability to identify a specific process step. For further identification the bomElementId of the bomId is used to refer to the manufactured part, or the serial number of the part if known. Finally, the required process parameters like “temperature”, or “torque” will be selected by a list of process pairs containing the ProcessParameterId and its processParameterSemantic.
 
