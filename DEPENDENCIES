@@ -58,7 +58,7 @@ npm/npmjs/-/boxen/5.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/boxen/6.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/brace-expansion/1.1.11, MIT, approved, clearlydefined
 npm/npmjs/-/brace-expansion/2.0.1, MIT, approved, clearlydefined
-npm/npmjs/-/braces/3.0.2, MIT, approved, clearlydefined
+npm/npmjs/-/braces/3.0.2, MIT, approved, #14866
 npm/npmjs/-/browserslist/4.21.4, MIT, approved, #7034
 npm/npmjs/-/buffer-from/1.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/buffer/6.0.3, MIT, approved, clearlydefined
