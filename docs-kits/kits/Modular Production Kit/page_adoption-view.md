@@ -55,7 +55,7 @@ All partners need the same semantic models for a common understanding of the inf
 
 The *GetProductionForecastData* is sent from a partner to Modular Production with a HTTP request to receive a production forecast. The *ProvideProductionForecastData* model contains the orders, the estimated production date and a state describing whether the order is planned, in progress or done and the creation date of the information.
 
-The semantic model can be found here:
+The semantic model can be found in as part of the [Catena-X Standard Library](#standards) and as Aspect Models in GitHub:
 
 - [io.catenax.shopfloor_information.get_production_forecast](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shopfloor_information.get_production_forecast)
 - [io.catenax.shopfloor_information.provide_production_forecast](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shopfloor_information.provide_production_forecast)
@@ -161,7 +161,7 @@ The *GetProductionTrackingData* as well as the *ProvideProductionTrackingData* i
 
 ## Standards
 
-The standards for release 3.2 will be published soon. Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - CX-0142 Shop-Floor-Information-Service API v.1.0.0
 
