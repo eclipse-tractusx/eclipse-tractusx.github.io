@@ -10,8 +10,8 @@ sidebar_position: 1
 chapters for Code of Conduct in page_adoption-view
 
 ### Changed
-replace picture CatenaX_ESS_KitCustomerJourney
-moved pictures from folder static to asset within ESS-Kit
+- replace picture CatenaX_ESS_KitCustomerJourney
+- moved pictures from folder static to asset within ESS-Kit
 
 ### Removed
 
