@@ -8,7 +8,7 @@ description: Model Based Development and Data Processing Kit
 
 ### Model Based Development and Data Processing Kit
 
-A video included under Success Stories illustrates software application functionality realizing the MDP Use Cases based on practical implementation examples.
+The video included under Success Stories illustrates software application functionality realizing the MDP Use Cases based on practical implementation examples.
 
 ## Asset discovery
 
