@@ -60,7 +60,7 @@ Virtual testing of components (based on digital twins, e.g. FMUs) is already sta
 
 Simulation models contain critical information about the intellectual properties of a company. This makes it difficult for companies to share their models with their suppliers or customers. In addition building simulation models compatible with those of suppliers or customers requires agreements on how the model should be built and the data format to use.
 
-Provide representative (behavioural) digital twins of components or even vehicles. This includes on the one hand the digital twin as a virtual model, but also the behaviour and usage, i.e. the data which drives the model. The challenge is the combination of both while intellectual properties of all companies are kep
+Provide representative (behavioural) digital twins of components or even vehicles. This includes on the one hand the digital twin as a virtual model, but also the behaviour and usage, i.e. the data which drives the model. The challenge is the combination of both while intellectual properties of all companies are kept protected.
 
 ### Benefits
 
@@ -149,9 +149,11 @@ Use case specific credentials exist and will be mandatory. Their documentation w
 <!-- ## Semantic Models & Standards -->
 ## Standards
 
-The Standard CX-0102-Functional-Mock-Up has been submitted for standardization and will soon be linked here.
+Our relevant standard can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-The Standard aims at using the exisiting FMI industry standard as a Catena-X standard.
+- [CX - 0102 Functional Mock-Up](https://catena-x.net/de/standard-library)
+
+The Standard aims at using the existing FMI industry standard as a Catena-X standard.
 
 The Functional Mock-up Interface (FMI) is a free standard that defines a container and an interface to exchange dynamic simulation models using a combination of XML files, binaries and C code, distributed as a ZIP file. It is supported by 170+ tools and maintained as a Modelica Association Project. The FMI implementation by a software modelling tool enables the creation of simulation models that can be interconnected. The file format of the FMI standard is called Functional Mock-up Unit (FMU)(source: <https://fmi-standard.org/>).
 
@@ -166,7 +168,7 @@ The list of guidelines below have the goal to guide the modeling expert in the c
 - generate a license-free FMU so that it can be imported in any software,
 - generate a co-simulation FMU so that solver is included in the FMU and can be directly executed,
 - assign units of measure to each port as far as physically meaningful. Depending on the software, the connection of two ports is only allowed if the unit of measure is the same or if the unit of measure is empty. The second case can lead to mismatching,
-- embedd all needed tables and files while creating the FMU,
+- embed all needed tables and files while creating the FMU,
 - expose only numerical parameters to the user for changing.
 
 ### Guideline for Assigning Asset Properties to FMU and Services
@@ -192,7 +194,7 @@ It is recommended to use existing meta data models for the asset properties. The
 
 - FMU Model Description (modelDescription.xml): Following a flat scheme, capable of providing the basic asset data. Supported by most of the FMU generation tools.
 - Asset Administration Shell (AAS), Submodel "Provision of Simulation Models": Structured in many fields with deep hierarchies. Has been designed within the context of industrial applications and fits very well to usage in the automotive domain.
-- Model Identity Card (MIC): Strucutured in many fields with deep hierarchies. Broader context than AAS, less focused on industrial applications/automotive industry.
+- Model Identity Card (MIC): Structured in many fields with deep hierarchies. Broader context than AAS, less focused on industrial applications/automotive industry.
 
 Similarly to the FMU Model Description, for both AAS and MIC, it is recommended to use XML serialization for the FMU asset properties, since it is a simple format with easy access and usage. Furthermore, it is recommended to provide this XML file within the FMU package.
 

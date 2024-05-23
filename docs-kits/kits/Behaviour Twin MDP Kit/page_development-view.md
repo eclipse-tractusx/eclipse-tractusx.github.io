@@ -8,16 +8,7 @@ description: Model Based Development and Data Processing Kit
 
 ### Model Based Development and Data Processing Kit
 
-## MDP Development Video
-
-This video demonstrates the necessary software application functionality for implementing the MDP Use Cases:
-
-- A guidance app, such as the MDP App shown in the video, should be provided to assist users in collaborative model-based development or model-based data processing workflows.
-- In the video the two use cases are showcased with software applications from the Siemens Simcenter portfolio. Namely with Simcenter System Architect for the Model Integration step, Simcenter HEEDS for the Model Execution step and in the 2nd use case with Simcenter Testlab Neo for the Data Processing step. These Apps have been chosen for illustrative purposes.
-
-<video controls style={{width:'100%'}} controlsList="nodownload">
-    <source src="images/mdp_kit_v1.0.mp4"/>
-</video>
+A video included under Success Stories illustrates software application functionality realizing the MDP Use Cases based on practical implementation examples.
 
 ## Asset discovery
 
@@ -95,7 +86,7 @@ For having a broader search the “like” operator can be used coupled with the
 
 ## Guideline for Implementing an FMU Interoperability Checker
 
-Meta models for asset propoerties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
+Meta models for asset properties like AAS “Provision of Simulation Models” or MIC can be used to assess the interoperability of FMU. In the following, a guideline for implementing such an FMU Interoperability Checker is given.
 
 ### Use Cases
 
@@ -138,7 +129,7 @@ Level 3 “Similarity Check” is suited for fields, where the content can be ex
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model AAS “Provision of Simulation Models” are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **FormTitle**| **FormChoices** | **FormChoices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |
@@ -215,7 +206,7 @@ In the following table, all fields of the meta data model AAS “Provision of Si
 
 *Open or closed FormChoices, means that the field can be extended by the user or not.
 
-In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierachies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
+In the following table, all fields of the meta data model MIC are listed together with the proposed check level for an FMU Interoperability Checker integration. Container hierarchies do not have associated checks. All fields, that are not containers, are in principle suited for Level 1 “Visualization”.
 
 | **Field**| **(Basic) Choices** | **Choices<br/>open or closed*** | **Level 1<br/>Visualization** | **Level 2<br/>Direct Comparison** | **Level 3<br/>Similarity Check** |
 | --- | --- | --- | --- | --- | --- |
