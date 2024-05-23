@@ -34,4 +34,4 @@ To build up the use case, follow the following steps:
 
 The [Use Case Templates](../use-cases/overview) within this KIT can be used as starting point for the technical development.
 
-For further guidance, refer also to [Guidance And Resources](./guidance-and-resources).
+For further guidance, refer also to [Guidance And Resources](../development-view/guidance-and-resources) in the Development View.

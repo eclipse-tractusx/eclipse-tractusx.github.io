@@ -46,16 +46,16 @@ Each participant in a Behaviour Twin use cases applies to one or more of the fol
 
 ### KNOWLEDGE AGENT
 
-The architecture is based on so called Knowledge Agents that consists of:
+The architecture is based on so-called Knowledge Agents that consists of:
 
 - Matchmaking Agent
 - Binding Agents (Provisioning Agent/Remoting Agent)
 - Federated Catalog
 - Bindings (configurations of binding agents)
 
-The components are federated over all participants. All data (and services) are represented together as a federated knowledge graph. The processing logic for the agents is defined in so called *skills*. All communication is handled by EDC connectors.
+The components are federated over all participants. All data (and services) are represented together as a federated knowledge graph. The processing logic for the agents is defined in so-called *skills*. All communication is handled by EDC connectors.
 
-A detailed view of how a Knowledge Agent works is given in the section [Knowledge Agent](./knowledge-agent) (which comes next to this section).
+A detailed view of how *Knowledge Agents* and *skills* work is given in the section [Knowledge Agent](./knowledge-agent) (which comes next to this section).
 
 ### BUSINESS PROCESS
 
@@ -153,48 +153,66 @@ The use cases can be divided depending on which roles coincide. When writing a s
 
 The roles *data provider* and *calculation service provider* can occur more than once. There are many combinations of the roles possible, but following are the more common ones.
 
+#### SKILL PROVIDER IS NEUTRAL ENTITY
+
+![combination skill provider is neutral entity](assets/combination-skill-provider-is-neutral-entity.drawio.svg)
+
+There may be reasons why the *skill provider* is not the consumer, as well as not one of the other roles:
+
+- The skill provider invents new skills and offers them.
+- The skill provider is a trustee, it has knowledge over relations that others don't have.
+
 #### CONSUMER IS SKILL PROVIDER
+
+![combination consumer is skill provider.drawio](assets/combination-consumer-is-skill-provider.drawio.svg)
 
 Often the consumer is also the skill provider. It knows what to ask for and how to process the data to get the desired results.
 
 #### DATA PROVIDER IS CALCULATION SERVICE PROVIDER
 
-If the *data provider* is also the *calculation service provider*, from the caller's point of view, it's like they're different entities that have full access to each other.
+![combination data provider is service provider](assets/combination-data-provider-is-service-provider.drawio.svg)
+
+If the *data provider* is also the *calculation service provider*, from the caller's point of view, it's like they're different entities that have full access to each other. The *skill provider* is a neutral entity.
 
 #### DATA PROVIDER IS SKILL PROVIDER
+
+![combination data provider is skill provider](assets/combination-data-provider-is-skill-provider.drawio.svg)
 
 In some cases, *data provider* provides a skill that can process its data in a data sovereign way. Through this, it has the full control over how its data can be processed.
 
 #### CALCULATION SERVICE PROVIDER IS SKILL PROVIDER
 
+![combination service provider is skill provider](assets/combination-service-provider-is-skill-provider.drawio.svg)
+
 If the *calculation service provider* provides a skill, from the caller's point of view, it's like a data asset that can be parameterized.
 
 #### CONSUMER IS SKILL PROVIDER AND IS DATA PROVIDER
+
+![combination consumer is skill and data provider](assets/combination-consumer-is-skill-and-data-provider.drawio.svg)
 
 With this combination, a *consumer* can utilize its own data in any way it wants to by using external calculation services.
 
 #### CONSUMER IS SKILL PROVIDER AND IS CALCULATION SERVICE PROVIDER
 
+![combination consumer is skill and service provider](assets/combination-consumer-is-skill-and-service-provider.drawio.svg)
+
 With this combination, a *consumer* can parameterize its own calculation service with data of partners in any way it wants to.
 
 #### CONSUMER IS SKILL PROVIDER AND DATA PROVIDER IS CALCULATION SERVICE PROVIDER
 
+![combination consumer is skill provider and data provider is service provider](assets/combination-consumer-is-skill-provider-and-data-provider-is-service-provider.drawio.svg)
+
 If the *data provider* is also the *calculation service provider*, from the caller's point of view, it's like they're different entities that have full access to each other. When using its own skill, the consumer has control over how the data is processed.
 
 #### ALL ROLES COINCIDE
+
+![combination all roles coincide](assets/combination-all-roles-coincide.drawio.svg)
 
 With this combination, a *consumer* can utilize its own data in any way it wants to.
 
 #### MORE COMBINATIONS
 
 All combinations above may be extended by additional, separate data and/or calculation service providers.
-
-#### SKILL PROVIDER IS NEUTRAL ENTITY
-
-There may be reasons why the *skill provider* is not the consumer, as well as not one of the other roles:
-
-- The skill provider invents new skills and offers them.
-- The skill provider is a trustee, it has knowledge over relations that others don't have.
 
 ### SKILL EXECUTION
 

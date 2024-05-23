@@ -116,7 +116,6 @@ const sidebars = {
                         'kits/behaviour-twin-kit/adoption-view/versioning',
                         'kits/behaviour-twin-kit/adoption-view/to-be-considered',
                         'kits/behaviour-twin-kit/adoption-view/new-use-cases',
-                        'kits/behaviour-twin-kit/adoption-view/guidance-and-resources',
                         'kits/behaviour-twin-kit/adoption-view/terminology',
                     ]
                 },
@@ -132,6 +131,7 @@ const sidebars = {
                         'kits/behaviour-twin-kit/development-view/data-bindings',
                         'kits/behaviour-twin-kit/development-view/service-bindings',
                         'kits/behaviour-twin-kit/development-view/skill',
+                        'kits/behaviour-twin-kit/development-view/guidance-and-resources',
                     ]
                 },
                 {

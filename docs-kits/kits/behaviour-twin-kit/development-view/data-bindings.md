@@ -23,12 +23,12 @@ The usage data for different use cases like [*Health Indicator*](../use-cases/hi
 
 ### OVERVIEW
 
-In most cases, data are provided in relational form (relational databases, data lakes, ...). To provide such data as part of the knowledge graph, you have to bind/map them.
+In most cases, data are provided in (semi-)structured form (relational databases, data lakes, ...). To provide such data as part of the knowledge graph, you have to bind/map them.
 
 ### DATA MAPPING TOOL
 
-To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](../assets/external-link.svg)](https://ontop-vkg.org/).  
-  
+To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](../assets/external-link.svg)](https://ontop-vkg.org/).
+
 ### DATA MAPPING CONFIGURATION
 
 To configure the bindings, a config file for the provisioning agent software has to be created. The file is written in the [OBDA Mapping Language ![(external link)](../assets/external-link.svg)](https://ontop-vkg.org/tutorial/mapping/). For some detailed information, have a look at the Knowledge [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
@@ -45,8 +45,8 @@ A simple example:
   source      SELECT vehicle_id, gearbox_id FROM vehicles
 ```
 
-The target is described as a triple with two variables: `gearbox_id` and `vehicle_id`. The exact same variables must occur in the result of the source SQL statement. The SQL result is then mapped to the variables in the target triplets.  
-For each row in the SQL result, a triplet instance is created. If the SQL result is empty, no triplet instances are created.  
+The target is described as a triple with two variables: `gearbox_id` and `vehicle_id`. The exact same variables must occur in the result of the source SQL statement. The SQL result is then mapped to the variables in the target triplets.
+For each row in the SQL result, a triplet instance is created. If the SQL result is empty, no triplet instances are created.
 The result of this example is a triplet that represents the relation between a specific vehicle its gearbox.
 
 A little more complex example:
@@ -57,7 +57,7 @@ A little more complex example:
   source      SELECT vehicle_id, vin, oem_bpnl, production_date FROM vehicles
 ```
 
-The target now consists of 4 triplets, all with the same subject (`<{vehicle_id}>`) and are separated by a semicolon. The semicolon means, the following triplet only defines the predicate and the object while the subject from the previous triplet is reused.  
+The target now consists of 4 triplets, all with the same subject (`<{vehicle_id}>`) and are separated by a semicolon. The semicolon means, the following triplet only defines the predicate and the object while the subject from the previous triplet is reused.
 In the example above, there are the following triplets:
 
 - *`<{vehicle_id}> rdf:type cx-vehicle:Vehicle`*: All objects in the database table/view "vehicles" are mapped to the type `cx-vehicle:Vehicle`.
@@ -103,7 +103,7 @@ source    SELECT "catenaXId", "childCatenaXId" FROM  "HI_TEST_OEM"."CX_RUL_Assem
 
 mappingId parts
 target    uuid:{catenaXId} rdf:type cx-vehicle:Part ; cx-vehicle:id {localIdentifiers_partInstanceId}^^xsd:string ; cx-vehicle:name {partTypeInformation_nameAtManufacturer}^^xsd:string ; cx-vehicle:number {partTypeInformation_manufacturerPartId}^^xsd:string ; cx-vehicle:supplier bpnl:{localIdentifiers_manufacturerId} ; cx-vehicle:productionDate {manufacturingInformation_date}^^xsd:date .
-source    SELECT "catenaXId", "localIdentifiers_partInstanceId", "partTypeInformation_nameAtManufacturer", "partTypeInformation_manufacturerPartId", "localIdentifiers_manufacturerId", "manufacturingInformation_date" FROM "HI_TEST_OEM"."CX_RUL_SerialPartTypization_Component" parts 
+source    SELECT "catenaXId", "localIdentifiers_partInstanceId", "partTypeInformation_nameAtManufacturer", "partTypeInformation_manufacturerPartId", "localIdentifiers_manufacturerId", "manufacturingInformation_date" FROM "HI_TEST_OEM"."CX_RUL_SerialPartTypization_Component" parts
 
 mappingId partAnalysis
 target    uuid:{catenaXId}/{targetComponentId} cx-reliability:analysedObject uuid:{targetComponentId}.
@@ -200,12 +200,12 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
 
 :LoadSpectrumShape a sh:NodeShape ;
     sh:targetClass  cx-reliability:LoadSpectrum ;
-    sh:property :observationOfShape, 
-                :countingValueShape, 
-                :countingUnitShape, 
-                :countingMethodShape, 
-                :channelsShape, 
-                :classesShape, 
+    sh:property :observationOfShape,
+                :countingValueShape,
+                :countingUnitShape,
+                :countingMethodShape,
+                :channelsShape,
+                :classesShape,
                 :valuesShape .
 
 :observationOfShape a sh:PropertyShape ;

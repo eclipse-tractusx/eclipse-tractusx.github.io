@@ -21,7 +21,7 @@ Applies to role: *skill provider* and *consumer*
 
 Skills, even for the same logic, can be defined in a variety of ways. Depending on the requirements of a use case, some approaches may be beneficial.
 
-For the template use cases [Remaining useful Life](../use-cases/rul/overview) and [Health Indicator](../use-cases/hi/overview), there are two different approaches shown:
+For the [template use cases](../use-cases/overview), there are different approaches shown:
 
 - The **more straight forward approach** is shown in the [Remaining useful Life use case](../use-cases/rul/development-view/skill). There, **the skill knows the calculation function's type and its parameters**.
 
@@ -34,12 +34,21 @@ It the skill should be provided, it has to be registered over the *Agent Plane A
 ```curl
 curl --location '{{consumerAgentPlane}}/api/agent/skill?asset=SkillAsset?consumer=RemainingUsefulLife&distributionMode=CONSUMER&isFederated=false' \
 --header 'Content-Type: application/sparql-query' \
---data-raw '
-{{SPARQL_AGENT_SKILL_QUERY}}
+--data-raw 'SELECT ?vehicle ?vin ?aggregate ?assembly ?supplier ?distanceKm ?timeHours WHERE {
+
+  VALUES (?vin ?aggregate ?ls_type) {
+      ("@vin"^^xsd:string "Differential Gear"^^xsd:string "GearOil"^^xsd:string)
+  }
+
+  bpnl:BPNL000000000OEM cx-common:hasConnector ?oemEDC .
+  ?oemEDC cx-common:offers [ rdfs:isDefinedBy <https://w3id.org/catenax/ontology/reliability> ; cx-common:id ?reliabilityAssetId ] .
+
+  SERVICE ?oemEDC {
+      GRAPH ?reliabilityAssetId {
+
+        ...
 '
 ```
-
-Hereby, `SPARQL_AGENT_SKILL_QUERY` is the skill definition, written in SPARQL.
 
 ## SKILL INVOCATION
 
