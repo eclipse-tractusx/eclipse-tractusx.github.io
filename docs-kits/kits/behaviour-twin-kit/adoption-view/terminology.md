@@ -61,6 +61,7 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 |Semantic Web|Concept of a machine-readable world wide web|(Web 3.0)|
 |Asset|A requestable data set|A formal described data set, that can be requested via EDC|
 |Graph Asset|A special type of asset that describes a graph|The graph description is written in SHACL|
+|Shapes Graph|A separate graph that defines the rules and constraints for the data. It acts like a template describing the expected structure and properties.||
 |Ontology|Semantic model for concepts and in a specific domain|Defines classes, properties and their relations|
 |Skill|The logic behind a use case|E.g. how to find data or calculation services|
 |Skill Provider|Provider of the use case logic|E.g. the knowledge of how to find, access, and process data|

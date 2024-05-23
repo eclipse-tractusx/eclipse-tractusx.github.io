@@ -21,7 +21,7 @@ Behaviour Twin KIT -- Remaining useful Life
 
 An external consumer wants to know the remaining useful life of its component (e.g. a vehicle). It uses a RuL Consuming App (e.g. with a web interface) for this. At the data provider (likely an OEM), usage data is collected continuously with the consent and on behalf of the consumer. The usage history and all dependent components that can provide RuL values are known on the data provider's side. The data provider itself doesn't even have to know which components can provide RuL services/values. Its registed suppliers provide that information in their catalogs which are synchronized periodically. The data provider only must bind the usage data to the knowledge graph.
 
-This approach is not limited only to OEMs and vehicles. Every system that provides usage data can utilize this approach, like tools/machines, production lines, building facilities, vending machines, computers, roads and so on.
+This approach is not limited only to OEMs and vehicles. Any system that provides usage data can utilize this approach, like tools/machines, production lines, building facilities, vending machines, computers, roads and so on.
 
 ### ROLES
 

@@ -21,7 +21,7 @@ Behaviour Twin KIT -- Health Indicator
 
 A data provider (likely an OEM; can, but does not have to, share the data) wants to calculate health indicators of its component (e.g. a vehicle). It may use a Dashboard or some other App to consume the results. Usage data is collected continuously with the consent of the data owners. The usage history and all dependent components that can provide health values are known on the data provider's side. The data provider itself doesn't even have to know which components can provide health services/values. Its registered suppliers provide that information in their catalogs which are synchronized periodically. The data provider only must bind the usage data to the knowledge graph.
 
-This approach is not limited only to OEMs and vehicles. Every system that provides usage data can utilize this approach, like tools/machines, production lines, building facilities, vending machines, computers, roads and so on.
+This approach is not limited only to OEMs and vehicles. Any system that provides usage data can utilize this approach, like tools/machines, production lines, building facilities, vending machines, computers, roads and so on.
 
 It is also possible that a third party is consuming the HI values. In this case, it must have access to the data provider's and the calculation provider's graph assets. The skill itself would be the same.
 

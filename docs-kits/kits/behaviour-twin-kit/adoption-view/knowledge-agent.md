@@ -25,9 +25,7 @@ Semantic models are instantiated by semantic triplets. Those triplets are consis
 
 ![triplet](assets/triplet.drawio.svg)
 
-Classes, properties and relations may be can be instantiated zero, once or multiple times. All instances of triplets together form the **knowledge graph**.
-
-The shape of the knowledge graph depends on its triplet instances. Shapes can also be described formally and can be enriched with constraints. This can be used to find matching instances of the described shape (sub-graphs). In federated graphs, this can also be used to describe the shape of queryable sub-graphs outside the current scope (graph assets that are hosted at other EDC connectors than the current one).
+Classes, properties and relations can be instantiated zero, once or multiple times. All instances of triplets together form the **knowledge graph**.
 
 ## ONTOLOGIES AND TAXONOMIES
 
@@ -67,11 +65,21 @@ Private or extended ontologies (e.g. for only two partners) can be added to the 
 
 In each case, the configuration is static and must be done within the deployment scripts of the Knowledge Agent. For the changes to take effect, the Knowledge Agent must be restarted.
 
+## SHAPES GRAPH
+
+Ontologies and taxonomies describe nodes and edges (triplets) as a semantic model (schema). The actual instances (data) form the knowledge graph itself.
+
+The *shapes graph* is a separate graph written in the [Shapes Constraint Language (SHACL) ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/shacl/#part1) that defines the rules and constraints for the data. It acts like a template describing the expected structure and properties.
+
 ## DATA SOVEREIGNTY THROUGH BINDINGS
 
 Data and service bindings bring an extra layer of security. Only mapped data and services can be accessed. They are offered through graph assets. These assets are bound to policies which on the other hand are bound to a framework agreement. Using graph assets, all communication is handled by EDC connectors and this ensures data sovereignty.
 
 Bindings are configured statically. For the changes of the binding configurations to take effect, the related Binding Agent must be restarted. New graph assets can be added dynamically.
+
+## SKILLS
+
+A *skill* is a query which is parameterizable by a set of input variables and executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/development-view/modelling#skill).
 
 ## TEST
 

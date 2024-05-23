@@ -19,7 +19,7 @@ Applies to roles: *skill provider*, *data provider*, *calculation service provid
 
 ## OVERVIEW
 
-*Data* and *calculation services* must be bound to the knowledge graph by *binding agents*. To make the bindings accessible to the Knowledge Agents, they must be registered as a *graph assets* at the EDC connector. In addition, when providing a skill, this must be registered as a *skill asset* at the EDC connector. For both cases, policiy and contract definitions are also needed.
+*Data* and *calculation services* must be bound to the knowledge graph by *binding agents*. To make the bindings accessible to the Knowledge Agents, they must be registered as a *graph assets* at the EDC connector. In addition, when providing a skill, this must be registered as a *skill asset* at the EDC connector. For both cases, policies and contract definitions are also needed.
 
 ## GRAPH ASSETS
 

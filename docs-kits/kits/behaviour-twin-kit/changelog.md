@@ -24,26 +24,16 @@ Behaviour Twin KIT
 - Initial version of the (generalized) Behaviour Twin KIT.
 - This KIT additionally contains the use cases [Remaining useful Life](use-cases/rul/overview) and [Health Indicator](use-cases/hi/overview), see section [Use Cases](use-cases/overview). The dedicated KITs of these use cases (Remaining useful Life KIT and Health Indicator KIT) are hereby deprecated.
 
-#### USE CASES
-
-- ./.
+<!-- #### USE CASES -->
 
 ### CHANGED
 
-#### GENERAL KIT
+<!-- #### GENERAL KIT -->
 
-- ./.
-
-#### USE CASES
-
-- ./.
+<!-- #### USE CASES -->
 
 ### REMOVED
 
-#### GENERAL KIT
+<!-- #### GENERAL KIT -->
 
-- ./.
-
-#### USE CASES
-
-- ./.
+<!-- #### USE CASES -->

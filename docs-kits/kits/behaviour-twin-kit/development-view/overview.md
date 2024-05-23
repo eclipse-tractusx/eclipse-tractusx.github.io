@@ -23,6 +23,8 @@ Behaviour Twin KIT
   - policies for skill assets
   - contracts for skill assets
 
+<br/>
+
 - [Data Bindings](./data-bindings) (applies to roles *data provider* and *delegator*)
   - configuring data bindings
   - registering graph asset for data bindings
@@ -39,4 +41,23 @@ Behaviour Twin KIT
   - configuring a service binding
   - registering a skill assets
   - invoke skills
-  
+
+<br/>
+
+- [Guidance And Resources](./guidance-and-resources)
+  - knowledge agent (used technologies and standards)
+  - further guidance
+
+<br/>
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
+- SPDX-FileCopyrightText: 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2021-2024 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2021-2023 Mercedes-Benz AG
+- SPDX-FileCopyrightText: 2022-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2022-2024 Contributors to the Eclipse Foundation
