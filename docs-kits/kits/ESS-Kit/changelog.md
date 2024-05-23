@@ -4,13 +4,14 @@ title: Changelog
 sidebar_position: 1
 ---
 
-## [0.2.0] - 2024-04-02
+## [0.2.0] - 2024-05-23
 
 ### Added
 chapters for Code of Conduct in page_adoption-view
 
 ### Changed
 replace picture CatenaX_ESS_KitCustomerJourney
+moved pictures from folder static to asset within ESS-Kit
 
 ### Removed
 
