@@ -25,7 +25,7 @@ Aggregating real-world usage data of technical products is state-of-the-art. But
 
 ### MISSION
 
-The Behaviour Twin KIT aims to facilitate the development of scalable and interoperable solutions for connecting service customers, data providers and service providers across organizational boundaries in a generic way. The KIT allows a Behaviour-Twin-oriented entry to state-of-the-art Knowledge Agent technology. It guides business and software developers by explaining key concepts and by directing them to relevant technical resources and examples. 
+The Behaviour Twin KIT aims to facilitate the development of scalable and interoperable solutions for connecting service customers, data providers and service providers across organizational boundaries in a generic way. The KIT allows a Behaviour-Twin-oriented entry to state-of-the-art Knowledge Agent technology. It guides business and software developers by explaining key concepts and by directing them to relevant technical resources and examples.
 
 ## STATUS QUO & CHALLENGE
 
@@ -72,7 +72,7 @@ In summary, building a use case upon the Behavior Twin KIT accelerates developme
 
 - Supports handling data protection, governance, IP rights, and high data sovereignty standards when enabling secure data sharing across complex supply chains. This ensures compliance and builds trust.
 
-- Offers guidance to Knowledge Agent technology. This enables efficient scalability for additional use cases and participants. 
+- Offers guidance to Knowledge Agent technology. This enables efficient scalability for additional use cases and participants.
 
 - Guides business and software developers by explaining key concepts and directing them to relevant technical resources and examples. This speeds up understanding and development.
 
