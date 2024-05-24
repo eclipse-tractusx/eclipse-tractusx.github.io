@@ -29,12 +29,12 @@ In this example, an asynchronous calculation service for gearbox RuL values is b
 
 ```ttl
 ################################################################
-# Copyright (c) 2022,2023 T-Systems International GmbH
-# Copyright (c) 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
-# Copyright (c) 2022,2023 ZF Friedrichshafen AG
-# Copyright (c) 2023 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
-# Copyright (c) 2022,2023 Mercedes-Benz AG
-# Copyright (c) 2022,2023 Contributors to the Catena-X Association
+# Copyright (c) 2022-2024 T-Systems International GmbH
+# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022-2024 ZF Friedrichshafen AG
+# Copyright (c) 2023-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
+# Copyright (c) 2022-2024 Mercedes-Benz AG
+# Copyright (c) 2022-2024 Contributors to the Catena-X Association
 #
 # See the NOTICE file(s) distributed with this work for additional
 # information regarding copyright ownership.

@@ -31,7 +31,7 @@ The Behaviour Twin KIT aims to facilitate the development of scalable and intero
 
 ### STATUS QUO
 
-Within company limits, the aggregation of usage data, monitoring them, e.g. by calculation of health indicators or component damage based on internally available data and models, is already state of the art. However, across company boundaries, there are only individual, complex and not generally available solutions. Often, additional use cases or  participants require repetitive efforts to implement instances for connecting data and calculation services.
+Within company limits, the aggregation of usage data, monitoring them, e.g. by calculation of health indicators or component damage based on internally available data and models, is already state-of-the-art. However, across company boundaries, there are only individual, complex and not generally available solutions. Often, additional use cases or  participants require repetitive efforts to implement instances for connecting data and calculation services.
 
 ### TODAY'S CHALLENGE
 

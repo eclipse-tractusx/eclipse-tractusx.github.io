@@ -15,10 +15,6 @@ Behaviour Twin KIT -- Health Indicator
   </div>
 </div>
 
-HI-KIT-logo?
-
-## DISCLAIMER
-
 ## CONTENTS
 
 - [Introduction](./introduction)

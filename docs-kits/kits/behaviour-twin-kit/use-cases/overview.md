@@ -15,12 +15,9 @@ Behaviour Twin KIT
   </div>
 </div>
 
-## USE CASES
+*This section contains dedicated use cases within the overarching Behaviour Twin use case. These can be considered as examples, further references, and templates for the development of new use cases.*
 
-This section contains dedicated use cases within the overarching Behaviour Twin use case.
-These can be considered as examples, further references, and templates for the development of new use cases.
-
-The former KITs for those use cases (*Remaining useful Life KIT* and *Health Indicator KIT*) are hereby deprecated.
+*The former KITs for those use cases (**Remaining useful Life KIT** and **Health Indicator KIT**) are hereby deprecated.*
 
 ## CONTENTS
 

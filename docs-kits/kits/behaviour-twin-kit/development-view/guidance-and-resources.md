@@ -27,8 +27,10 @@ The Behaviour Twin KIT builds up on top of the [Agents KIT](../../knowledge-agen
 
 Catena-X-Standards regarding Knowledge Agents are:
 
-- [CX-0084 Federated Queries in Dataspaces (V1.2.0) ![(external link)](../assets/external-link.svg)](https://catena-x.net/de/standard-library/Update_Mai_2024/CX-0084-FederatedQueriesInDataSpaces-v1.2.0.pdf)
-- [CX-0067 Ontology Models to Realize Federated Queries in Catena-X (V1.1.0) ![(external link)](../assets/external-link.svg)](https://catena-x.net/de/standard-library/Update_Mai_2024/CX-0067-OntologyModelsinCatenaX-v1.1.0.pdf)
+- CX-0084 Federated Queries in Dataspaces (V1.2.0)
+- CX-0067 Ontology Models to Realize Federated Queries in Catena-X (V1.1.0)
+
+These standards can be found in the [Catena-X standard library ![(external link)](../assets/external-link.svg)](https://catena-x.net/de/standard-library/).
 
 ## FURTHER GUIDANCE
 
