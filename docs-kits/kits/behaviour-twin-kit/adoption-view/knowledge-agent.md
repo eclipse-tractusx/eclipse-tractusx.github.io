@@ -79,7 +79,7 @@ Bindings are configured statically. For the changes of the binding configuration
 
 ## SKILLS
 
-A *skill* is a query which is parameterizable by a set of input variables and executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/development-view/modelling#skill).
+A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/development-view/modelling#skill).
 
 ## BENEFITS
 
@@ -110,7 +110,7 @@ This approach shifts complexity to the Knowledge Agent (KA-EDC), which is a well
 | without Knowledge Agent | with Knowledge Agent |
 | --- | --- |
 | *Consumers* must negotiate contracts with the *data providers*. | Negotiation is done by the *Knowledge Agent*. |
-| *Consumers* call the logic at data provider through APIs of the *Coordination Services*. *Data providers* define/implement the logic per use case. | *Consumer* define the logic (*skills*) and invoke it. |
+| *Consumers* call the logic at *data providers* through APIs of the *Coordination Services*. *Data providers* define/implement the logic per use case. | *Consumer* define the logic (*skills*) and invoke it. |
 | *Data providers* maintain *Coordination Services* to dispatch the consumers' requests. This services are fetching data, negotiating contracts with the *service providers*, calling the service providers' APIs and delegating the results back to the requesting *consumers*. | *Data providers* bind their data to the *knowledge graph* through static configuration files. The rest is done by the *Knowledge Agent*. |
 | *Service providers* expose their services' APIs. | *Service providers* don't expose their services' APIs, but bind the services  to the *knowledge graph* through static configuration files. The input and output parameters are formally described, so that the *Knowledge Agent* can do the rest. |
 

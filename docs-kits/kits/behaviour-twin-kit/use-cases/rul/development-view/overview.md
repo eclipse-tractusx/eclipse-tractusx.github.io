@@ -30,6 +30,6 @@ Behaviour Twin KIT -- Remaining useful Life
 <br/>
 
 - [Skill](./skill) (applies to roles *RuL skill provider* and *RuL consumer*)
-  - configuring a service binding
-  - registering a skill assets
+  - developing skills
+  - registering skill assets
   - invoke skills

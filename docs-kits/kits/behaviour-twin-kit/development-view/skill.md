@@ -29,7 +29,7 @@ For the [template use cases](../use-cases/overview), there are different approac
 
 ## SKILL REGISTRATION
 
-It the skill should be provided, it has to be registered over the *Agent Plane API*. The registration is done by posting a parametrized SPARQL query as a string, and set the skill name.
+It a skill should be provided, it has to be registered over the *Agent Plane API*. The registration is done by posting a parametrized SPARQL query as a string, and set the skill name.
 
 ```curl
 curl --location '{{consumerAgentPlane}}/api/agent/skill?asset=SkillAsset?consumer=RemainingUsefulLife&distributionMode=CONSUMER&isFederated=false' \
@@ -67,7 +67,7 @@ curl --location '{{consumerAgentPlane}}/api/agent?asset=SkillAsset?consumer=Rema
 }'
 ```
 
-The results for the given VINs are provided as bindings for the requested variables in the skill itself and look like:
+The results for the given VINs of the above example are provided as bindings for the requested variables in the skill itself and look like:
 
 ```json
 {

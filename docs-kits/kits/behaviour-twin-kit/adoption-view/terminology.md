@@ -52,8 +52,8 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 
 |Term|Description|Comment|
 |---|---|---|
-|Knowledge Graph|A semantic graph|Describes relation between subjects and objects|
-|Knowledge Agent||see [Agents KIT](../../knowledge-agents/adoption-view/intro)|
+|Knowledge Graph|A semantic graph, representing real data|Describes relation between subjects and objects|
+|Knowledge Agent|Components to operate on knowledge graphs across the dataspace|see [Agents KIT](../../knowledge-agents/adoption-view/intro)|
 |Matchmaking Agent|Resolves federated sub-graphs for the Knowledge Agent|Fits requested sub-graphs with existing graph assets|
 |Binding Agent|A component that binds instances to the knowledge graph|Binds instances of data or services to the knowledge graph|
 |Provisioning Agent|Binding agent for data bindings|Binds instances of data to the knowledge graph|
@@ -63,8 +63,8 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 |Graph Asset|A special type of asset that describes a graph|The graph description is written in SHACL|
 |Shapes Graph|A separate graph that defines the rules and constraints for the data. It acts like a template describing the expected structure and properties.||
 |Ontology|Semantic model for concepts and in a specific domain|Defines classes, properties and their relations|
-|Skill|The logic behind a use case|E.g. how to find data or calculation services|
-|Skill Provider|Provider of the use case logic|E.g. the knowledge of how to find, access, and process data|
+|Skill|The overarching logic behind a use case|E.g. how to find and link data or calculation services to produce the desired result|
+|Skill Provider|Provider of the use case logic (skill)|Hosts a skill that can be executed|
 
 ## TECHNOLOGIES
 

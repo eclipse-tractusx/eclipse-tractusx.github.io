@@ -32,6 +32,6 @@ Behaviour Twin KIT -- Health Indicator
 <br/>
 
 - [Skill](./skill) (applies to roles *HI skill provider* and *HI consumer*)
-  - configuring a service binding
-  - registering a skill assets
+  - developing skills
+  - registering skill assets
   - invoke skills

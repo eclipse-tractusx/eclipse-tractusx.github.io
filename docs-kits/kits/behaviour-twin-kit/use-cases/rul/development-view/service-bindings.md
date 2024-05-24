@@ -83,8 +83,8 @@ In this example, an asynchronous calculation service for gearbox RuL values is b
   ] .
 
 cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function ;
-  dcterms:description "Remaining Useful Life is an asynchronous batch invocation."@en ;
-  dcterms:title "Remaining Useful Life" ;
+  dcterms:description "Remaining useful Life is an asynchronous batch invocation."@en ;
+  dcterms:title "Remaining useful Life" ;
   cx-fx:targetUri "http://service-backend:5005/api/rul2" ;
   cx-fx:invocationMethod "POST-JSON" ;
 #  cx-common:authenticationKey "Authorization" ;
@@ -267,14 +267,14 @@ cx-behaviour:RemainingUsefulLifeResult rdf:type cx-fx:Result ;
   cx-fx:output cx-behaviour:remainingRunningDistance .
 
 cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue ;
-  dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
-  dcterms:title "Remaining Useful Life Operating Hours" ;
+  dcterms:description "Predicted Operating Hours of Remaining useful Life Response"@en ;
+  dcterms:title "Remaining useful Life Operating Hours" ;
   cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours" ;
   cx-fx:dataType xsd:float.
 
 cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue ;
-  dcterms:description "Predicted Distance of Remaining Useful Life Response"@en ;
-  dcterms:title "Remaining Useful Life Distance" ;
+  dcterms:description "Predicted Distance of Remaining useful Life Response"@en ;
+  dcterms:title "Remaining useful Life Distance" ;
   cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance" ;
   cx-fx:dataType xsd:int .
 ```
@@ -282,8 +282,6 @@ cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue ;
 ### GRAPH ASSET FOR THE SERVICE BINDINGS
 
 To enable the knowledge agent's matchmaking agent to utilize the service binding, a graph asset has to be registered at the calculation service provider's EDC connector. This asset must have a property `rdfs:isDefinedBy` for ontology references and a property `sh:shapesGraph` that defines the shape of the provided graph.
-
-All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).
 
 #### GRAPH ASSET DEFINITION
 
@@ -388,3 +386,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
     cx-sh:outputOf :RemainingUsefulLifeShape ;
     sh:path cx-behaviour:RemainingUsefulLifeResult .
 ```
+
+#### POLICY AND CONTRACT FOR THE GRAPH ASSET
+
+All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).

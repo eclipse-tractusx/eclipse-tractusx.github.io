@@ -25,7 +25,7 @@ The *consumer* is also the *skill proivder* and, in the special HI case, the *da
 
 The *skill provider* (in this example also the OEM), has to implement the skill and register it over the *Agent Plane API* or call it ad hoc.
 
-In the current example, a HI skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that the query is split into three parts, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, function assets (in the supplier's catalog/OEM's federated catalog) are resolved by the desired result type. Then, OEM-owned reliability assets are resolved by the required function arguments of resolved function assets. In the second part (at the OEM), the vehicle, subsequent the part of interest, the related load data asset and the supplier of the part are resolved. In the third part (at the supplier), the gathered data is fed back into the respective supplier EDC connector/agent to perform a HI calculation.
+In the current example, a HI skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that the query is split into three parts: One general part, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, function assets (in the supplier's catalog/OEM's federated catalog) are resolved by the desired result type. Then, OEM-owned reliability assets are resolved by the required function arguments of resolved function assets. In the second part (at the OEM), the vehicle, subsequent the part of interest, the related load data asset and the supplier of the part are resolved. In the third part (at the supplier), the gathered data is fed back into the respective supplier EDC connector/agent to perform a HI calculation.
 
 For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/agent_edc).
 
@@ -163,7 +163,7 @@ The parameter `vin` (list of VINs for vehicles of interest) is the central exter
 
 #### FUNCTION ASSET RESOLUTION
 
-All funciton assets with the desired output type within the consumer's federated catalog are resolved. With the assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
+All funciton assets with the desired output type within the consumer's federated catalog are resolved. With these assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
 
 ```sparql
   # Determine the prognosis assets
@@ -195,7 +195,7 @@ All data assets that are related to the function assets (same shape and load spe
 
 #### RESOLVING VEHICLE, PART OF INTEREST, ITS SUPPLIER AND THE RELATED LOAD DATA
 
-The resolved connector must be the OEM's connector. There, the graph asset for the usage data is requested. Doing so, a sub-skill is transferred to the OEM's Knowledge Agent (if the consumer is not the OEM). At the OEM, the vehicle is resolved by its VIN. Then, the part of interrest (assembly) and its supplier are resolved by the parts name. At the end, the load for that part can be resolved by the component of interest (assembly) and the load spectrum types that are required by the function arguments.
+The resolved connector must be the OEM's connector. There, the graph asset for the usage data is requested. Doing so, a sub-skill is transferred to the OEM's Knowledge Agent (if the consumer is not the OEM). At the OEM, the vehicle is resolved by its VIN. Then, the part of interrest (assembly) and its supplier are resolved by the part's name. At the end, the load for that part can be resolved by the component of interest (assembly) and the load spectrum types that are required by the function arguments.
 
 ```sparql
   SERVICE ?dataConnector {
