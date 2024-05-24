@@ -15,11 +15,12 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- ./.
-
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
+- Adopted the changes to R24-05. Breaking changes:
+  - replacing the property `"asset:prop:type": "data.core.digitalTwinRegistry` with `"http://purl.org/dc/terms/type":"https://w3id.org/catenax/taxonomy#DigitalTwinRegistry`
+- Corrected multiple minor inconsistencies and feature requests
 
 ### Removed
 

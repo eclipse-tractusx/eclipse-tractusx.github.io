@@ -17,31 +17,15 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 ORGANIZER;CN=Stephan Bauer:mailto:stephan.bauer@catena-x.net
-DESCRIPTION:Open hour meeting for Eclipse Tractus-X committers. The goal of
-  the meeting is to discuss and share specific committer tasks/responsibili
- ties.\n\n_________________________________________________________________
- _______________\nMicrosoft Teams meeting\nJoin on your computer\, mobile a
- pp or room device\nClick here to join the meeting<https://teams.microsoft.
- com/l/meetup-join/19%3ameeting_ZjlmNTc5MjMtN2Y2YS00YjliLTg3NTItNWE1MmMzMWU
- zNmYw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f
- 6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d>\n
- Meeting ID: 332 054 435 962\nPasscode: bDwMjb\nDownload Teams<https://www.
- microsoft.com/en-us/microsoft-teams/download-app> | Join on the web<https:
- //www.microsoft.com/microsoft-teams/join-a-meeting>\nLearn More<https://ak
- a.ms/JoinTeamsMeeting> | Meeting options<https://teams.microsoft.com/meeti
- ngOptions/?organizerId=a8b7a5ee-66ff-4695-afa2-08f893d8aaf6&tenantId=1ad22
- c6d-2f08-4f05-a0ba-e17f6ce88380&threadId=19_meeting_ZjlmNTc5MjMtN2Y2YS00Yj
- liLTg3NTItNWE1MmMzMWUzNmYw@thread.v2&messageId=0&language=en-GB>\n________
- ________________________________________________________________________\n
-RRULE:FREQ=WEEKLY;UNTIL=20241230T230000Z;INTERVAL=2;BYDAY=FR;WKST=MO
-UID:040000008200E00074C5B7101A82E0080000000051BBCDCF435BDA01000000000000000
- 010000000F334FB7EDA04724AA775688B06788E20
+RRULE:FREQ=WEEKLY;UNTIL=20241229T230000Z;INTERVAL=2;BYDAY=FR;WKST=MO
+UID:040000008200E00074C5B7101A82E00800000000BEC23346A689DA01000000000000000
+ 0100000005B5619B57D8ABD45AA6CC43444A08EF3
 SUMMARY:Committer Meeting
-DTSTART:20240216T130500Z
-DTEND:20240216T140000Z
+DTSTART:20240412T120500Z
+DTEND:20240412T130000Z
 CLASS:PUBLIC
 PRIORITY:5
-DTSTAMP:20240216T131141Z
+DTSTAMP:20240408T111709Z
 TRANSP:OPAQUE
 STATUS:CONFIRMED
 LOCATION:Microsoft Teams Meeting

@@ -23,15 +23,16 @@
 }
 
 .container {
-  width: 60vw;
+  width: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 0rem;
+  gap: 4rem;
+  margin: auto;
 }
 
 .img_container {
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +45,7 @@
 }
 
 .information_container {
-  width: 100%;
+  width: 25%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -141,5 +142,19 @@
 
   .outlinedbutton {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .about_us {
+    width: 60vw;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .about_us {
+    width: 40vw;
+    margin: auto;
   }
 }
