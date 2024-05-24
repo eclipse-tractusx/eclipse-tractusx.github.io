@@ -10,6 +10,8 @@ title: Changelog
 - Add Electric Drive Passport model v1.0.0
 - Add Chemical Material Passport model v1.0.0
 - Add passport creation instruction
+- Added reference to the digital product pass verification feature coming in 24.05
+- Added description of digital product pass addons
 
 ### 24.05 Updated
 
@@ -30,6 +32,7 @@ title: Changelog
 - Fix Typos
 - Fix section names
 - Fix example json objects
+- Fixed points related to digital twin and policy configuration in software dev view
 
 ## [released]
 
@@ -58,6 +61,7 @@ title: Changelog
 - Updated Software Architecture guide with descriptive documentation
 
 ### 23.08 Issues Fixed
+
 
 - Corrected links paths to absolute path
 

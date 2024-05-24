@@ -76,7 +76,7 @@ security setup etc.). As the information contained in the DTR may be sensitive a
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET
 endpoints
 as specified in
-the [Development View](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20Kit),
+the [Development View](API%20AAS%20Registry/dotaas-part-2-http-rest-registry-service-specification.info.mdx),
 data providers may find it useful to implement other requests for registration
 on top. Either way, they are free to populate their DTR in any way they desire.
 

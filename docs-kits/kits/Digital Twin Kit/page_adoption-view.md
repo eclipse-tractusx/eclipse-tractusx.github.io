@@ -62,11 +62,11 @@ the ecosystem.
 This Kit's aim is not to solve a dedicated business problem. It is an infrastructure component, critical for scalable
 data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage, namely:
 
-- Well-defined API structures extensible by domain models. Each use case will want to share different data and the API
-expands with the scope of the model.
+- Well-defined API structures extensible by domain models. Each use case will want to share different data but make it
+available in a shared manner. (see [Submodel API](./Software%20Development%20View/API%20Submodel))
 
-- A distributed infrastructure of central and decentral components integrating hand-in-hand with backend-systems southward
-and the network northward.
+- A distributed infrastructure of central and decentral components integrating on the one hand with backend-systems
+in existing enterprise IT and on other hand with the Dataspace.
 
 - Extensive meta-model to create a virtual representation of assets across their entire lifecycle.
 
@@ -77,14 +77,17 @@ and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Data%
 build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
-For more info how specifically the Asset Administration Shell is used, consult the Kits.
+For more information how specifically the Asset Administration Shell is used, consult the Kits.
 
 ## Additional Resources
 
 ### CX-Standards
 
+Links open PDFs.
+
 - [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0001-EDCDiscoveryAPI_v1.0.2.pdf) *(version 1.0.2)*
-- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0002-DigitalTwinsInCatenaX-v2.1.0.pdf)*(version 2.1.0)*
+- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library)*(version 2.2.0, public release pending)*
+- [CX - 0003 Semantic Aspect Meta-Model](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Maerz_2024/CX-0003-SAMMSemanticAspectMetaModel-v1.1.0.pdf)*(version 1.1.0)*
 - [CX - 0053 BPN Discovery Service](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0053-BPNDiscoveryServiceAPIs-v1.0.1.pdf) *(version 1.0.1)*
 
 ### Terminology
