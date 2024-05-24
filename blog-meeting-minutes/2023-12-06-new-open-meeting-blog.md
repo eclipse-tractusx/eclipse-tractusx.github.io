@@ -3,7 +3,7 @@ slug: new-open-meeting-blog
 title: New Open Meeting blog
 authors: 
     - sebastian_bezold
-tags: [meeting-minutes, community]
+tags: [meeting-minutes]
 ---
 
 ## New home for open meeting minutes

@@ -1,9 +1,9 @@
 ---
 slug: security-office-hour-2024-03-28
-title: Security Office Hour 28.03.2024
+title: Security Office Hour 2024-03-28
 authors: 
     - rohan_krishnamurthy
-tags: [meeting-minutes, community, security]
+tags: [security, meeting-minutes]
 ---
 
 ## Security Office Hour meeting minutes

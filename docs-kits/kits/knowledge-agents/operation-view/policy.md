@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Data Sovereignity & Policies
+title: Data Sovereignity, Policies and Upgradability
 ---
 <!--
  * Copyright (c) 2021,2024 T-Systems International GmbH
@@ -26,7 +26,7 @@ title: Data Sovereignity & Policies
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-This document (WIP) describes how Data Sovereignity can be reached in publishing Graphs and Skills while employing appropriate Policies.
+This document describes how Data Sovereignity and Upgradability can be reached in publishing Graphs and Skills by employing appropriate Policies and Versioning strategies.
 
 For more information see
 
@@ -37,97 +37,240 @@ For more information see
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
 
-The core ingredient to the KA Semantic Dataspace Architecture is that a business partner (the Provider) offers an RDF-based query endpoint (Graph Asset) over her Connector.
+The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent_edc). The RDF endpoints (called binding *agents*, because they are active components that do not contain data, but simply transform queries into the backend protocols) stay in an "internal" network (as the data- and logic-carrying backends that they interface/transform into) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network.
+
+Although the EDC network is technically based on public interfaces, it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participations and proven certificates).
+
+Although the EDC transfer protocols are used to "tunnel" more specific application protocols and endpoints, it is by the flexible description and filtering of those endpoints as data catalogue offers with extensible properties that any application can infer the correct target asset to interact with.  
+
+On the other hand, being free/sovereign to define these policies and properties at will gives the partipants a tremendous burden not to (unintendedly) breaking the deep data chains (in the knowledge agent case: deep nested executions) for the most valuable use cases. That is because these "hickups" will only occur data-driven at runtime by empty catalogue offers or failed transfers in unforeseeable places.
+
+## Catena-X Asset Property Standards
+
+To mitigate this problem, Catena-X requires two specific mandatory asset/offer properties:
+
+* "cx-common:protocol" should refer to a known transfer protocol ("cx-common:" is an abbreviation for <https://w3id.org/catenax/ontology/common#>)
+* "dct:type" should refer to a concept from the Catena-X Asset Taxonomy ("dct:" is an abbreviation for <https://purl.org/dc/terms/>; "cx-taxo:" is an abbreviation for <https://w3id.org/catenax/taxonomy#>).
+* "cx-common:version" should carry a version string
+
+For our purpose, the Agents KIT distinguishes two protocols:
+
+* "cx-common:Protocol?w3c:http:SPARQL" which describes querying with SPARQL over HTTP (POST or GET)
+* "cx-common:Protocol?w3c:http:SKILL" which describes invoking and binding SKILLs over HTTP (POST or GET)
+
+The Agents KIT introduces two asset concepts accordingly:
+
+* "cx-taxo:GraphAsset" for Graph-based Assets (pointing to binding agents)
+* "cx-taxo:SkillAsset" for Skill Assets (containing parameterizable SPARQL queries)
+
+Finally, we suggest to use semantic versioning in the version property where the versions should be aligned with the use case KIT versions.
+
+* "[0-9]+.[0-9]+.[0-9]+(-SNAPSHOT)?"
+
+A Skill which is depending on a particular (minimal, maximal, exact) version of the Catena-X ontology (and its use-case relevant domain ontologies) to be realised could use the builtin SPARQL functions to filter the appropriate assets from the federated data catalogue. In the following example, we list all the found assets (together with their connectors) ordered by the highest version.
+
+```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
+PREFIX dct: <https://purl.org/dc/terms/>
+
+# This query filters the federated data catalogue for 'production' behavioural graphs 
+# in versions between 1.11 (inclusive) and 2 (exclusive)
+
+select ?connector ?asset ?version where {      
+    ?connector cx-common:offers ?asset.
+    ?asset dct:type cx-taxo:GraphAsset;
+           rdfs:isDefinedBy <https://w3id.org/catenax/ontology/behaviour>;
+               cx-common:version ?version.
+
+        FILTER (!strends(?version, 'SNAPSHOT')).
+        FILTER (?version >= '1.11').
+        FILTER (?version < '2.').
+} ORDER BY DESC(?version)
+```
+
+A result from would look like this
+
+```json
+{
+    "head": {
+        "vars": [
+            "connector",
+            "asset",
+            "version"
+        ]
+    },
+    "results": {
+        "bindings": [
+            {
+                "connector": {
+                    "type": "uri",
+                    "value": "edcs://knowledge.dev.demo.catena-x.net/tiera-edc-control/BPNL00000003CPIY"
+                },
+                "asset": {
+                    "type": "uri",
+                    "value": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL"
+                },
+                "version": {
+                    "type": "literal",
+                    "value": "1.12.19"
+                }
+            },
+            {
+                "connector": {
+                    "type": "uri",
+                    "value": "edcs://knowledge.dev.demo.catena-x.net/tiera-edc-control/BPNL00000003CPIY"
+                },
+                "asset": {
+                    "type": "uri",
+                    "value": "cx-taxo:GraphAsset?supplier=HealthIndicatorGearbox"
+                },
+                "version": {
+                    "type": "literal",
+                    "value": "1.11.16"
+                }
+            }
+        ]
+    }
+}
+```
+
+## Catena-X Policy Profiles
+
+Furthermore, Catena-X introduces so-called policy profiles which ensure that only pre-negotiatable and predictable constraints are used in the permissions, duties and obligations.
+
+Two examples for such use-case specific policies following the Catena-X profile and being based on separated signed (and technicall attested) framework agreements are the
+Behaviour Twin Framework Agreement (in verson 1) and the Traceability Agreement (in version 3).
+
+```json
+{
+    "@context": [
+        "http://www.w3.org/ns/odrl.jsonld", 
+        {
+            "edc": "https://w3id.org/edc/v0.0.1/ns/"
+        },
+        {
+            "cx-policy": "https://w3id.org/catenax/policy/"
+        }
+    ],
+    "@type": "PolicyDefinitionRequestDto",
+    "@id": "GraphAsset?me=Policy&useCase=BehaviourTwin",
+    "edc:policy": {
+        "@type": "Set",
+        "profile": "cx-policy:profile2405",
+        "permission": [
+            {
+                "action": "use",
+                "constraint": {
+                    "leftOperand": "cx-policy:FrameworkAgreement",
+                    "operator": "eq",
+                    "rightOperand": "behaviourtwin:1.0"
+                }
+            }
+        ]
+    }
+}
+```
+
+```json
+{
+    "@context": [
+        "http://www.w3.org/ns/odrl.jsonld", 
+        {
+            "edc": "https://w3id.org/edc/v0.0.1/ns/"
+        },
+        {
+            "cx-policy": "https://w3id.org/catenax/policy/"
+        }
+    ],
+    "@type": "PolicyDefinitionRequestDto",
+    "@id": "GraphAsset?me=Policy&useCase=Trace",
+    "edc:policy": {
+        "@type": "Set",
+        "profile": "cx-policy:profile2405",
+        "permission": [
+            {
+                "action": "use",
+                "constraint": {
+                    "leftOperand": "cx-policy:FrameworkAgreement",
+                    "operator": "eq",
+                    "rightOperand": "traceability:3.0"
+                }
+            }
+        ]
+    }
+}
+```
+
+For the purpose of this investigation, let us now assume that we have to publish a single backend (=database, datalake schema or API endpoint) into multiple use cases.
+In the following the different levels of tailoring access (by authentication, by configuration, by publishing/policying) are discussed that can be used to govern this scenario.
 
 ![Data Sovereignity Through Offering and Policy Validation](/img/knowledge-agents/graph_asset.png)
 
-## Data Sovereignity Through Backend Authentication/Authorization and Offering Policies
+## Data Sovereignity Through Backend Authentication
 
-A single endpoint (=Complete Graph) may be offered in different Graph Assets (=endpoint reference including a fixed parameterization, e.g. authorization header). By configuring different service principals/authentication tokens the Provider may realize different permissions/visibilities in the Complete Graph.
+On this level, technical roles can be introduced in the backend systems (technical users) for the different use cases. Each technical user would only be allowed to
+manipulate (read, update, delete) the relevant part of the API or data schema.
 
-Since the Connector is checking the so-called Offering Policy associated to the assets, it is ensured that only proven business partners (Consumer) are able to negotiate a transfer to the respective Graph Asset (and hence the respective excerpt of the Complete Graph).
+Then different RDF endpoints are created which may share the same binding but use a different technical user to access the single backend. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
 
-This method is easy to implement from the Connector side (the Consumers only see their dedicated assets), but maybe hard to realise on the Backend side.
+## Data Sovereignity Through Bindings
 
-## Data Sovereignity Through Access Policies
+On this level, different RDF endpoints are introduced which use the same technical user to access the single backend, but they make use of different bindings to map only a part of the SPARQL protocol to a part of the backend protocols. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
 
-Not all backend endpoints will allow an expressive authorization scheme. Therefore we would like to propose an advanced and fine-grained approach to that using the so-called Access Policies of the Connector.
+## Data Sovereignity Through Asset Descriptions
 
-### Access Policies for Graph Queries
+On this level, a single RDF endpoint is introduced which is mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies. For this purpose, a "shape-filter" (not yet implemented) could become active in the Agent Plane/Matchmaking Agent which rewrites or checks the
+incoming SPARQL context before delegating it to the binding agent.
 
-An Access Policy has a set of Constraints which may be Permissions, Obligations or Duties. For validating the Query-Based Access, we currently focus on Permission Constraints. At a later point, we may revisit Obligations and Duties related to the validation of ResultSets.
+## Data Sovereignity Through Contracts
 
-The following is an example of a permission which allows query to SELECT (and traverse) any edge of the graph where we can *prove in advance* that the mandatory predicate is hasMaterialProperty, the optional subject will be an instance of owl class RawMaterial and that the optional object will be an instance of type MaterialProperty. We call the set of triples which match the constraint pattern the constraint triples.  
+On this level, a single asset description is used which is embedded into different contracts with different policies.
 
-``
+## Data Sovereignity Through Combined Policies
+
+On this level,a single contract is used with a combined policy
+
+```json
 {
-  "id": "urn:io.catenax.knowledge.dataspace.policy:SamplePolicy",
-  "policy": {
-      "permissions": [
+    "@context": [
+        "http://www.w3.org/ns/odrl.jsonld", 
         {
-        "action": {
-            "type": "SELECT"
+            "edc": "https://w3id.org/edc/v0.0.1/ns/"
         },
-        "pattern": {
-            "subject": "urn:io.catenax.knowledge.ontology:cx#RawMaterial",
-            "predicate": "urn:io.catenax.knowledge.ontology:cx#hasMaterialProperty",
-            "object":"urn:io.catenax.knowledge.ontology:cx#MaterialProperty"
-        },
-        "edctype": "dataspaceconnector:permission"
+        {
+            "cx-policy": "https://w3id.org/catenax/policy/"
         }
     ],
-    "@type": {
-        "@policytype": "set"
+    "@type": "PolicyDefinitionRequestDto",
+    "@id": "GraphAsset?me=Policy&useCase=Trace&useCase=BehaviourTwin",
+    "edc:policy": {
+        "@type": "Set",
+        "profile": "cx-policy:profile2405",
+        "permission": [
+            {
+                "action": "use",
+                "constraint": {
+                  "@type": "LogicalConstraint",
+                  "or" : [{
+                      "leftOperand": "cx-policy:FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "behaviourtwin:1.0"
+                      },
+                      {
+                      "leftOperand": "cx-policy:FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "traceability:3.0"
+                      }]
+                }
+            }
+        ]
     }
-  }
 }
-``
+```
 
-We may introduce the abbreviation where only "subject" is bound, this is quivalent to "predicate":"rdf:type","object":"?subject".
-
-The different action types related to graph queries are:
-
-* CONFIRM The constraint triples may be matched (variables need already bound by other SELECT or TRAVERSE permissions)
-* SELECT The constraint triples may be returned (variables may be bound, aggregated and given back
-  out of the
-  query context) or traversed (subsequent statements may use the bound information to access further edges of the graph).
-* SELECT_SUBJECT The object needs to be alrady bound by other SELECT permision)
-* SELECT_OBJECT The subject needs to be already bound by another SELECT permssion
-* TRAVERSE The constraint triples may be traversed (subsequent statements may use the bound
-  information (or an anonmous node) to access further edges of the graph), but not returned (any bound variables may not be passed or aggregated).
-* TRAVERSE_SUBJECT The constraint triples may be traversed on the subject side only (subsequent statements may use the bound
-  information or anonymous nodes to access further edges of the graph), but not returned (any bound variables may not be passed or aggregated).
-* TRAVERSE_OBJECT The constraint triples may be traversed on the object side only (subsequent statements may use the bound
-  information or anonymous nodes to access further edges of the graph), but not returned (any bound variables may not be passed or aggregated).
-* AGGREGATE The constraint triples be returned only in aggregated form (that is the variables may not
-  be grouped by). They may be traversed (subsequent statements may use the bound
-  information to access further edges of the graph).
-* AGGREGATE_SUBJECT The constraint triples be returned only on the subject side in aggregated form (that is the variables may not
-  be grouped by). They may be traversed (subsequent statements may use the bound
-  information to access further edges of the graph).
-* AGGREGATE_OBJECT The constraint triples be returned only on the object side in aggregated form (that is the variables may not
-  be grouped by). They may be traversed (subsequent statements may use the bound
-  information to access further edges of the graph).
-* AGGREGATE_PRIVATE The constraint triples be returned only in aggregated, noisy form (that is the
-  variables may not be grouped by and must be processed using a noise function). They may be traversed (subsequent statements may use the bound information to access further edges of the graph).
-* AGGREGATE_PRIVATE_SUBJECT The constraint triples be returned only in aggregated, noisy form (that is the
-  variables may not be grouped by and must be processed using a noise function). They may be traversed (subsequent statements may use the bound information to access further edges of the graph).
-* AGGREGATE_PRIVATE_OBJECT The constraint triples be returned only in aggregated, noisy form (that is the
-  variables may not be grouped by and must be processed using a noise function). They may be traversed (subsequent statements may use the bound information to access further edges of the graph).
-* INSERT The constraint triples may be inserted into the graph.
-* SELECT_SUBJECT_TRAVERSE_OBJECT
-* SELECT_OBJECT_TRAVERSE_SUBJECT
-* SELECT_SUBJECT_AGGREGATE_OBJECT
-* SELECT_OBJECT_AGGREGATE_SUBJECT
-* SELECT_SUBJECT_AGGREGATE_PRIVATE_OBJECT
-* SELECT_OBJECT_AGGREGATE_PRIVATE_SUBJECT
-* TRAVERSE_SUBJECT_AGGREGATE_OBJECT
-* TRAVERSE_OBJECT_AGGREGATE_SUBJECT
-* TRAVERSE_SUBJECT_AGGREGATE_PRIVATE_OBJECT
-* TRAVERSE_OBJECT_AGGREGATE_PRIVATE_SUBJECT
-* AGGREGATE_SUBJECT_AGGREGATE_PRIVATE_OBJECT
-* AGGREGATE_OBJECT_AGGREGATE_PRIVATE_SUBJECT
-* TRAVERSE_AGGREGATE
-* DELETE The constraint triples may be deleted from the graph.
-
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
