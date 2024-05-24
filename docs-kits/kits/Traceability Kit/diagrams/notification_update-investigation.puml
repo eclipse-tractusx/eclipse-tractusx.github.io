@@ -42,8 +42,9 @@ NAdapter -> NAdapter: Find and Select Contract
 rnote right NAdapter
 Find the correct contract offer with:
 
-"asset:prop:notificationtype": "qualityinvestigation",
-"asset:prop:notificationmethod": "update"
+"dct:type": {
+      "@id": "cx-taxo:UpdateQualityInvestigationNotification"
+    }"
 end rnote
 deactivate NAdapter
 NAdapter -> SEDC: Intiatiate Contract Negotiation

@@ -85,3 +85,20 @@
     line-height: 16px;
   }
 }
+
+@media screen and (min-width: 2200px) {
+  .heroBanner {
+    width: 70vw;
+    margin: auto;
+    display: flex;
+  }
+}
+
+
+@media screen and (min-width: 3200px) {
+  .heroBanner {
+    width: 60vw;
+    margin: auto;
+    display: flex;
+  }
+}

@@ -8,6 +8,20 @@
   background: #1E1E1E;
 }
 
+@media screen and (min-width: 2200px) {
+  .conmmunity_info {
+    width: 70vw;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .conmmunity_info {
+    width: 60vw;
+    margin: auto;
+  }
+}
+
 .text_card_container {
   margin-left: 210px;
   width: 400px;
