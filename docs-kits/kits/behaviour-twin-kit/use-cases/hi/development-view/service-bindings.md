@@ -52,7 +52,7 @@ In this example, an asynchronous calculation service for gearbox HI values is bo
 # SPDX-License-Identifier: Apache-2.0
 ################################################################
 #
-# Rdf4j configuration for a RuL-specific remoting
+# Rdf4j configuration for a HI-specific remoting
 #
 @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
@@ -71,21 +71,21 @@ In this example, an asynchronous calculation service for gearbox HI values is bo
 @prefix cx-behaviour:   <https://w3id.org/catenax/ontology/behaviour#> .
 
 [] rdf:type rep:Repository ;
-  rep:repositoryID "rul" ;
-  rdfs:label "Remainig Useful Life Functions Repository" ;
+  rep:repositoryID "hi" ;
+  rdfs:label "Health Indicator Functions Repository" ;
   rep:repositoryImpl [
       rep:repositoryType "openrdf:SailRepository" ;
       sr:sailImpl [
         sail:sailType "org.eclipse.tractusx.agents:Remoting" ;
-        cx-fx:supportsInvocation cx-behaviour:RemainingUsefulLife ;
+        cx-fx:supportsInvocation cx-behaviour:HealthIndicator ;
         cx-fx:callbackAddress <https://my-remoting-agent.domain/rdf4j-server/callback> ;
       ]
   ] .
 
-cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function ;
-  dcterms:description "Remaining Useful Life is an asynchronous batch invocation."@en ;
-  dcterms:title "Remaining Useful Life" ;
-  cx-fx:targetUri "http://service-backend:5005/api/rul2" ;
+cx-behaviour:HealthIndicator rdf:type cx-fx:Function ;
+  dcterms:description "Health Indicator is an asynchronous batch invocation."@en ;
+  dcterms:title "Health Indicator" ;
+  cx-fx:targetUri "http://service-backend:5005/api/hi" ;
   cx-fx:invocationMethod "POST-JSON" ;
 #  cx-common:authenticationKey "Authorization" ;
 #  cx-common:authenticationCode "Basic TOKEN" ;
@@ -116,7 +116,7 @@ cx-behaviour:RemainingUsefulLife rdf:type cx-fx:Function ;
   cx-fx:input cx-behaviour:headerChannels ;
   cx-fx:input cx-behaviour:bodyClasses ;
   cx-fx:input cx-behaviour:bodyCountsList ;
-  cx-fx:result cx-behaviour:RemainingUsefulLifeResult .
+  cx-fx:result cx-behaviour:HealthIndicatorResult .
 
 cx-behaviour:notification rdf:type cx-fx:Argument ;
   dcterms:description "A default notification output template."@en ;
@@ -181,7 +181,7 @@ cx-behaviour:classification rdf:type cx-fx:Argument ;
   dcterms:title "Notification Classification" ;
   cx-fx:argumentName "header.classification" ;
   cx-fx:dataType xsd:string ;
-  cx-fx:default "RemainingUsefulLifePredictor" .
+  cx-fx:default "HealthIndicatorService" .
 
 cx-behaviour:component rdf:type cx-fx:Argument ;
   dcterms:description "Component of the Predicition."@en ;
@@ -258,32 +258,37 @@ cx-behaviour:bodyCountsList rdf:type cx-fx:Argument ;
   cx-fx:dataType json:Object ;
   cx-fx:argumentName "content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.body.counts.countsList" .
 
-cx-behaviour:RemainingUsefulLifeResult rdf:type cx-fx:Result ;
-  dcterms:description "The asynchronous notification response."@en ;
-  dcterms:title "Asynchronous notification response." ;
-  cx-fx:callbackProperty "header.referencedNotificationID" ;
-  cx-fx:outputProperty "content.endurancePredictorOutputs" ;
-  cx-fx:output cx-behaviour:remainingOperatingHours ;
-  cx-fx:output cx-behaviour:remainingRunningDistance .
+cx-behaviour:HealthIndicatorResult rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf cx-fx:returnValue ;
+                                   rdfs:comment "Health Indicator Values are percentages."@en ;
+                                   rdfs:label "Health Indicator Values"@en ;
+                                   cx-fx:dataType json:Object ;
+                                   cx-fx:valuePath "HealthIndicatorResult" ;
+                                   rdfs:domain cx-behaviour:HealthIndicatorResult ;
+                                   rdfs:range json:Object .
 
-cx-behaviour:remainingOperatingHours rdf:type cx-fx:ReturnValue ;
-  dcterms:description "Predicted Operating Hours of Remaining Useful Life Response"@en ;
-  dcterms:title "Remaining Useful Life Operating Hours" ;
-  cx-fx:valuePath "0.remainingUsefulLife.remainingOperatingHours" ;
-  cx-fx:dataType xsd:float.
+cx-behaviour:indicatorVersion rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf cx-fx:returnValue ;
+                              rdfs:comment "Version of the health indicator calculation."@en ;
+                              rdfs:label "Health Indicator Calculation Version" ;
+                              cx-fx:dataType xsd:string ;
+                              cx-fx:valuePath "version" ;
+                              rdfs:domain cx-behaviour:HealthIndicatorResult ;
+                              rdfs:range xsd:string .
 
-cx-behaviour:remainingRunningDistance rdf:type cx-fx:ReturnValue ;
-  dcterms:description "Predicted Distance of Remaining Useful Life Response"@en ;
-  dcterms:title "Remaining Useful Life Distance" ;
-  cx-fx:valuePath "0.remainingUsefulLife.remainingRunningDistance" ;
-  cx-fx:dataType xsd:int .
+cx-behaviour:responseComponentId rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf cx-fx:returnValue ;
+                                 rdfs:comment "Component Id of the health indicator calculation."@en ;
+                                 rdfs:label "Health Indicator Calculation Component Id"@en ;
+                                 cx-fx:dataType xsd:string ;
+                                 cx-fx:valuePath "componentId" ;
+                                 rdfs:domain cx-behaviour:HealthIndicatorResult ;
+                                 rdfs:range xsd:string .
 ```
 
 ### GRAPH ASSET FOR THE SERVICE BINDINGS
 
 To enable the knowledge agent's matchmaking agent to utilize the service binding, a graph asset has to be registered at the calculation service provider's EDC connector. This asset must have a property `rdfs:isDefinedBy` for ontology references and a property `sh:shapesGraph` that defines the shape of the provided graph.
-
-All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).
 
 #### GRAPH ASSET DEFINITION
 
@@ -331,7 +336,7 @@ The following example is a full asset description, that can be registered at the
 }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Remaining useful Life function and its output:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Health Indicator function and its output:
 
 ```shacl
 <https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>,<https://w3id.org/catenax/ontology/behaviour>",
@@ -390,3 +395,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
     cx-sh:outputOf :HealthIndicationShape ;
     sh:path cx-behaviour:HealthIndicationResult .
 ```
+
+#### POLICY AND CONTRACT FOR THE GRAPH ASSET
+
+All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).

@@ -28,9 +28,9 @@ This approach is not limited only to OEMs and vehicles. Any system that provides
 Each participant in the Remaining useful Life (RuL) Behaviour Twin use case applies to one or more of the following roles:
 
 - **RuL consumer** (result requester)
-- **skill provider** (Consumer, provider of the use case logic)
+- **skill provider** (which is also the RuL consumer, provider of the use case logic)
 - **data provider** (OEM, provider of usage data)
-- **RuL service provider** (a component supplier, e.g. a gearbox supplier)
+- **RuL service provider** (a component supplier, e.g. for gearboxes)
 
 One of the special cases would be that the data provider is also the RuL consumer and/or RuL service provider and/or skill provider.
 
@@ -38,7 +38,7 @@ One of the special cases would be that the data provider is also the RuL consume
 
 ### BUSINESS PROCESS
 
-*For better readability will be on this page from now on assuming that the **data provider** is always an **OEM**.*
+*For better readability, it is assumed on this page that the **data provider** is always an **OEM**/vehicle manufacturer.*
 
 The first addressee of a RuL skill must be the OEM since it has access to its suppliers who can provide RuL values.
 
@@ -56,7 +56,7 @@ The first addressee of a RuL skill must be the OEM since it has access to its su
 
 5. **Resolve RuL prognosis function assets:** <br/> The Knowledge Agent resolves all prognosis function assets from the federated catalog with type `RemainingUsefulLife` and the correct input type of load spectra. This type is infered by the usage data asset.
 
-6. **Fetch load data:** <br/> The data (parameter for the RuL prognosis functions) are fetched from the data provider's bound data source. They are translated into graph representation by a provisioning agent (data binding agent).
+6. **Fetch load data:** <br/> The data (parameters for the RuL prognosis functions) are fetched from the data provider's bound data source. They are translated into graph representation by a provisioning agent (data binding agent).
 
 7. **Transfer load data and deploy sub-skill:** <br/> The fetched data and a sub-skill (logic for calling the RuL calculation service) are transferred to the RuL calculation service provider's Knowledge Agent via EDC connectors.
 

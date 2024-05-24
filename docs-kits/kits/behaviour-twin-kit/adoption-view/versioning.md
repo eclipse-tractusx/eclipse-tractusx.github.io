@@ -17,7 +17,7 @@ Behaviour Twin KIT
 
 ## CATENA-X RELEASES
 
-For information about the Catena-X release management, refer to [Catena-X website ![(external link)](../assets/external-link.svg)](https://catena-x.net/). Implications for Behaviour Twin use cases are mentioned in the section [To Be Considered](./to-be-considered#versioning-and-breaking-changes).
+For information about the Catena-X release management, refer to the [Catena-X website ![(external link)](../assets/external-link.svg)](https://catena-x.net/). Implications for Behaviour Twin use cases are mentioned in the section [To Be Considered](./to-be-considered#versioning-and-breaking-changes).
 
 ## VERSIONING ASSETS
 

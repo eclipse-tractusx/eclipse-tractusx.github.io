@@ -15,7 +15,7 @@ Behaviour Twin KIT
   </div>
 </div>
 
-If you start to build up an very new use case within the overarching Behaviour Twin use case, you may first read the [Adoption View](./overview) of this KIT. It provides additional information for quick understanding of the used technologies. In particular, see also the [To Be Considered](./to-be-considered) section.
+If you start to build up a very new use case within the overarching Behaviour Twin use case, you may first read the [Adoption View](./overview) of this KIT. It provides additional information for quick understanding of the used technologies. In particular, see also the [To Be Considered](./to-be-considered) section.
 
 To build up the use case, follow the following steps:
 

@@ -19,7 +19,7 @@ Behaviour Twin KIT
 
 ### OVERVIEW
 
-A use case consists of data and calculation services. In addition, a logic is required, that defines how data and services must interact to produce the desired result. This logic is called "skill". It must be invoked directly or indirectly by the consumer.
+A Behaviour Twin use case consists of data and calculation services. In addition, a logic is required, that defines how data and services must interact to produce the desired result. This logic is called *skill*. It must be invoked directly or indirectly by the consumer.
 
 ![logic](assets/logic.drawio.svg)
 
@@ -27,19 +27,19 @@ Data and services are federated over the dataspace:
 
 ![dataspace](assets/dataspace.drawio.svg)
 
-A use case may consist of multiple data source and calculation service:
+A use case may consist of multiple data sources and calculation services:
 
 ![dataspace-complex](assets/dataspace-complex.drawio.svg)
 
 ### ROLES
 
-Each participant in a Behaviour Twin use cases applies to one or more of the following roles:
+Each participant in a Behaviour Twin use case applies to one or more of the following roles:
 
 - **consumer** (result requester)
 - **skill provider** (provider of the use case logic)
 - **data provider** (provider of usage data, likely an OEM)
 - **delegator** (delegates data to calculation services, likely a supplier of a component that
-  is assembled of subcomponents which are providing calculation services)
+  is assembled of sub-components which are providing calculation services)
 - **calculation service provider** (likely a supplier of a part or component)
 
 ## DETAILED ARCHITECTURE
@@ -48,9 +48,9 @@ Each participant in a Behaviour Twin use cases applies to one or more of the fol
 
 The architecture is based on so-called Knowledge Agents that consists of:
 
+- Federated Catalog
 - Matchmaking Agent
 - Binding Agents (Provisioning Agent/Remoting Agent)
-- Federated Catalog
 - Bindings (configurations of binding agents)
 
 The components are federated over all participants. All data (and services) are represented together as a federated knowledge graph. The processing logic for the agents is defined in so-called *skills*. All communication is handled by EDC connectors.
@@ -59,13 +59,13 @@ A detailed view of how *Knowledge Agents* and *skills* work is given in the sect
 
 ### BUSINESS PROCESS
 
-In Behaviour Twin use cases, the fist step into the federated logic is usually the data provider. There, dependencies of the targeted vehicle or component are known. Therefore, registering predefined skills at the data provider is a common option. Such skills then can be initiated by external partners as well as internally. As an alternative, skills can be hosted externally (at the consumer or a third party). In every case, especially if the skill is not located at the data provider, the skill must be written in a way that the relation between the usage data and the calculation services is resolved at the data provider or any other party, that has all the required information in its federated catalog (see [To Be Considered](./to-be-considered#data-sovereignty)).
+In Behaviour Twin use cases, the fist step into the federated logic is usually the data provider. There, dependencies of the targeted main-component (e.g. a vehicle) are known. Therefore, registering predefined skills at the data provider is a common option. Such skills then can be initiated by external partners as well as internally. As an alternative, skills can be hosted externally (at the consumer or a third party). In every case, especially if the skill is not located at the data provider, the skill must be written in a way that the relation between the usage data and the calculation services is resolved at the data provider or any other party, that has all the required information in its federated catalog (see [To Be Considered](./to-be-considered#data-sovereignty)).
 
 The following business process is only an example. Depending on how the skill is written, the process can vary.
 
 ![business-process](assets/business-process.drawio.svg)
 
-0. **0.1 Register skill asset, 0.2 sync federated catalog:** <br/> The predefined skill is registered as an asset at the data provider's EDC connector. The federated catalogs are synchronized periodically.
+0. **Register skill asset (0.1) and sync federated catalog (0.2):** <br/> The predefined skill is registered as an asset at the data provider's EDC connector. The federated catalogs are synchronized periodically.
 
 1. **Invoke skill asset:** <br/> The consumer invokes the skill by calling the agents API at its own EDC connector. The partner's EDC connector address must be known. To resolve this address is up to the use case. A prognosis function result type and a component or vehicle ID (e.g. VIN) is set as parameter for the skill.
 
@@ -77,11 +77,11 @@ The following business process is only an example. Depending on how the skill is
 
 5. **Resolve actual usage data and service provider by component ID:** <br/> The Knowledge Agent resolves the sub-component of interest, its supplier and the actual related data by the component's ID.
 
-6. **Fetch data:** <br/> The data (parameter for prognosis functions) are fetched from the data provider's bound data source. They are transferred into graph representation by a provisioning agent (data binding agent).
+6. **Fetch data:** <br/> The data (parameters for prognosis functions) are fetched from the data provider's bound data source. They are transferred into graph representation by a provisioning agent (data binding agent).
 
 7. **Transfer data and deploy sub-skill:** <br/> The fetched data and a sub-skill (logic for calling the calculation service) are transferred to the calculation service provider's Knowledge Agent via EDC connectors.
 
-8. **Calls service and fetch result:** <br/> The calculation service (prognosis functions) is called. The data (parameter for the prognosis function) are translated into the format the service requires. This is automatically done by an remoting agent (service binding agent), which is statically configured by service bindings. The result of the service then is translated back into graph format by the remoting agent.
+8. **Call service and fetch result:** <br/> The calculation service (prognosis function) is called. The data (parameters for the prognosis function) are translated into the format the service requires. This is automatically done by an remoting agent (service binding agent), which is statically configured by service bindings. The result of the service then is translated back into graph format by the remoting agent.
 
 9. **Return result:** <br/> The result is transferred to the invoker of the sub-skill (here, it is the data provider) via EDC connectors.
 
@@ -106,7 +106,7 @@ To have a common understanding of how to interpret and translate elements in the
 |Subsystem|Description|
 |---------|-----------|
 |Matchmaking Agent|This component supports SPARQL (skills/sub-skills) to traverse the federated data space as a large data structure. It interacts with the EDC connector. <br/> A **provider's Matchmaking Agent** will be activated by its EDC connector. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the related Catena-X standards). <br/> A **consumer's Matchmaking Agent** interacts with its EDC to negotiate and perform the transfer of sub-skills to other dataspace participants. <br/> The Matchmaking Agents are matching the (sub-)graphs and negotiate appropriated graph assets with the partner EDCs.|
-|Binding Agent|The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SPARQL, e.g., without federation) which is just focused on translating Sub-Skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.) into proper SQL- or REST based backend system calls. <br/>Binding agents for data bindings are called **Provisioning Agent**. <br/>Binding agents for service bindings are called **Remoting Agent**. |
+|Binding Agent|The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SPARQL, e.g., without federation) which is just focused on translating sub-skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.) into proper SQL- or REST based backend system calls. <br/>Binding agents for data bindings are called **Provisioning Agent**. <br/>Binding agents for service bindings are called **Remoting Agent**. |
 |Binding|A Binding is part of the configuration of a Binding Agent. It defines the binding (translation form/into graph representation) for specific data/service instances.|
 |Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR/> It must be hosted in a way that all participants can access it.|
 |Skill/Sub-Skill|The Skill describes, what to do (which data have to be connected, transferred, processed ...).|
@@ -128,7 +128,7 @@ Depending on your role, you need a combination of the following components:
 - ontologies (semantic models)
 - usage data
 - calculation services
-- matchmaking agent: Mapping ontology to knowledge graph, integrated into KA-dataplane
+- matchmaking agent: mapping ontology to knowledge graph, integrated into KA-dataplane
 - binding agents:
   - provisioning agent: provide data
   - remoting agent: bind service to graph
@@ -145,13 +145,13 @@ Depending on your role, you need a combination of the following components:
 
 ## USE CASE TYPES
 
-Depending on how roles coincide and where skills are executed, the use case architecture, graph assets and skills must be adapted. Detailed information about how to write dedicated skills can be found in the [Agents KIT's Operation View](knowledge-agents/operation-view/agent_edc).
+Depending on how roles coincide and where skills are executed, the use case architecture, graph assets and skills must be adapted. Detailed information about how to write dedicated skills can be found in the [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent_edc).
 
 ### COMBINATION OF ROLES
 
 The use cases can be divided depending on which roles coincide. When writing a skill, you always have to keep in mind who has access to whose resources and how to write the skill correctly and safely.
 
-The roles *data provider* and *calculation service provider* can occur more than once. There are many combinations of the roles possible, but following are the more common ones.
+The roles *data provider* and *calculation service provider* can occur more than once. There are many combinations of the roles possible, but the following ones are the more common ones.
 
 #### SKILL PROVIDER IS NEUTRAL ENTITY
 
@@ -178,7 +178,7 @@ If the *data provider* is also the *calculation service provider*, from the call
 
 ![combination data provider is skill provider](assets/combination-data-provider-is-skill-provider.drawio.svg)
 
-In some cases, *data provider* provides a skill that can process its data in a data sovereign way. Through this, it has the full control over how its data can be processed.
+In some cases, the *data provider* provides a skill that can process its data in a data sovereign way. Through this, it has the full control over how its data can be processed.
 
 #### CALCULATION SERVICE PROVIDER IS SKILL PROVIDER
 
@@ -221,6 +221,6 @@ There are different options where and how the skill is executed initially:
 - at consumer side or at provider side
 - ad hoc or as a registered skill
 
-Allowed variants may be dependent of a *framework agreement*.
+Allowed variants may be dependent on a *framework agreement*.
 
-For more information, see [Agents KIT's Operation View](knowledge-agents/operation-view/agent_edc).
+For more information, see [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent_edc).

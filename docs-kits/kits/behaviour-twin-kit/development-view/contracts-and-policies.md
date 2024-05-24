@@ -25,7 +25,7 @@ Applies to roles: *skill provider*, *data provider*, *calculation service provid
 
 ### GRAPH ASSET POLICY
 
-The graph asset policy can be used by more than one graph asset. There may be more requirements for policies within a use case.
+The graph asset policy can be used by more than one graph asset. The policy refers to a *Use Case Framework Agreement*. There may be more requirements for policies within a use case.
 
 ```json
 {

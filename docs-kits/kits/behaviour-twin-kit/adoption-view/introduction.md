@@ -31,7 +31,7 @@ The Behaviour Twin KIT aims to facilitate the development of scalable and intero
 
 ### STATUS QUO
 
-Within company limits, the aggregation of usage data, monitoring them, e.g. by calculation of health indicators or component damage based on internally available data and models, is already state-of-the-art. However, across company boundaries, there are only individual, complex and not generally available solutions. Often, additional use cases or  participants require repetitive efforts to implement instances for connecting data and calculation services.
+Within company boundaries, the aggregation of usage data, monitoring them, e.g. by calculation of health indicators or component damage based on internally available data and models, is already state-of-the-art. However, across these boundaries, there are only individual, complex and not generally available solutions. Often, additional use cases or  participants require repetitive efforts to implement instances for connecting data and calculation services.
 
 ### TODAY'S CHALLENGE
 
@@ -50,11 +50,11 @@ Typical scenarios comprise stakeholders acting during a certain phase in the pro
 
 - **OEM, TIER-X @ Early product development phase:** Components can be optimally designed using digital prototypes and simulations based on usage data and models.
 
-- **OEM, TIER-X @ Offer phase:** Suppliers can enhance their products with value-added services like health monitoring and remaining useful life calculation making them more attractive for their customers.
+- **OEM, TIER-X @ Offer phase:** Suppliers can enhance their products with value-added services like health monitoring and Remaining useful Life calculation making them more attractive for their customers.
 
 - **OEM, TIER-X @ Usage phase:** Precise monitoring of product health and residuals value helps enable predictive maintenance, optimized operations and end-of-life decision making.
 
-- **Car dealers and automotive clubs @ usage phase:** Further interpreting the Remaining Useful Life calculation for a vehicle evaluation and offer it as vehicle-related services for their end customers and fleet operators.
+- **Car dealers and automotive clubs @ usage phase:** Further interpreting the Remaining useful Life calculation for a vehicle evaluation and offer it as vehicle-related services for their end customers and fleet operators.
 
 - **Car dealers and automotive clubs @ Recycling phase:** An accurate residual value analysis allows optimal dismantling, reuse and recycling.
 
@@ -64,7 +64,7 @@ In summary, building a use case upon the Behavior Twin KIT accelerates developme
 
 Benefits in more detail:
 
-- Offers guidance to build solutions on Knowledge Agent technology. This enables efficient scalability for additional use cases and participants. For further details how scalability is gained, and complexity is reduced, see section [Knowledge Agent](./knowledge-agent#benefits).
+- Offers guidance to build solutions on Knowledge Agent technology. This enables efficient scalability for additional use cases and participants. For further details how scalability is gained, and complexity is reduced, see the section [Knowledge Agent](./knowledge-agent#benefits).
 
 - Enables scalable and interoperable solutions for connecting different stakeholders like service customers, data providers, and service providers across organizational boundaries. This allows for collaboration and data sharing.
 

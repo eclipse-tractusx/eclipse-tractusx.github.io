@@ -35,7 +35,7 @@ To configure the bindings, a config file for the provisioning agent software has
 
 #### CONSTRUCTION OF A SINGLE DATA BINDING
 
-Each data binding consists of 3 lines in the config file. The first line defines a unique mapping ID (arbitrarily selectable). The second line lists one or more RDF triplets (target). The third line is a SQL statement on the relational data source.
+Each data binding consists of 3 lines in the config file. The first line defines a unique mapping ID (arbitrarily selectable). The second line lists one or more RDF triplets (target). The third line is, for example, a SQL statement on the relational data source.
 
 A simple example:
 
@@ -65,11 +65,11 @@ In the example above, there are the following triplets:
 - *`<{vehicle_id}> cx-vehicle:worldManufaturerId bpnl:{oem_bpnl}`*: Relation between a vehicle and its manufacturer's BPN.
 - *`<{vehicle_id}> cx-vehicle:productionDate {production_date}^^xsd:date`*: Relation between a vehicle and it's date of production. The type of production_date must be date.
 
-Complex types like the load spectra are composed of many triplets. If you have stored those load spectra as complex JSON strings, you may decompose them with specific JSON functions of your database system.
+Complex types like the load spectra are composed of many triplets. If you have stored those load spectra as complex JSON strings, you may decompose them with specific (built-in) JSON functions of your database system.
 
 #### FULL EXAMPLE
 
-The following (full) example shows mappings at an OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra. The example applies for the use cases [Remaining useful Life](../use-cases/rul/overview) and [Health Indicator](../use-cases/hi/overview). This perfectly demonstrates, that the data only have to be bound once and can be used for many use cases.
+The following (full) example shows mappings at an OEM that can be used to determine the vehicle object by a given VIN, find the related gearbox and the associated gearbox load spectra. The example applies for the use cases [Remaining useful Life](../use-cases/rul/overview) and [Health Indicator](../use-cases/hi/overview). This perfectly demonstrates, that the data only have to be bound once and can be re-used for many use cases.
 
 ```obda
 [PrefixDeclaration]
@@ -125,9 +125,7 @@ source    SELECT "catenaXId", "targetComponentId", "metadata_projectDescription"
 
 ### GRAPH ASSET FOR THE DATA BINDINGS
 
-To enable the knowledge agent's matchmaking agent to utilize the data bindings, a graph asset has to be registered at the data provider's EDC connector. This asset must have a property `rdfs:isDefinedBy` for ontology references and a property `sh:shapesGraph` that defines the shape of the provided graph.
-
-All assets, including graph assets, must have a related policy and contract definition. All assets, including graph assets, must have a related policy and contract definition. These are described in the section [Contracts And Policies](contracts-and-policies).
+To enable the knowledge agent's matchmaking agent to utilize the data bindings, a graph asset has to be registered at the data provider's EDC connector. This asset must have a property `rdfs:isDefinedBy` for ontology references and a property `sh:shapesGraph` that defines the shape of the provided graph (data).
 
 #### GRAPH ASSET DEFINITION
 
@@ -238,4 +236,4 @@ In this description, the load spectrum type can be either `cx-taxo:GearOil`, `cx
 
 #### POLICY AND CONTRACT FOR THE GRAPH ASSET
 
-Policy and contract are described in the section [Contracts And Policies](./contracts-and-policies).
+All assets, including graph assets, must have a related policy and contract definition. These are described in the section [Contracts And Policies](./contracts-and-policies).

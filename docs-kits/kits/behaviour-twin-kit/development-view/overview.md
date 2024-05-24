@@ -38,8 +38,8 @@ Behaviour Twin KIT
 <br/>
 
 - [Skill](./skill) (applies to roles *skill provider* and *consumer*)
-  - configuring a service binding
-  - registering a skill assets
+  - developing skills
+  - registering skill assets
   - invoke skills
 
 <br/>

@@ -32,7 +32,7 @@ Each participant in the Health Indicator (HI) Behaviour Twin use case applies to
 - **HI consumer** (result requester)
 - **skill provider** (OEM, provider of the use case logic)
 - **data provider** (OEM, provider of usage data)
-- **HI service provider** (a component supplier, e.g. a gearbox supplier)
+- **HI service provider** (a component supplier, e.g. for gearboxes)
 
 One common case is that the data provider is also the HI consumer and skill provider. Calculation services may also be located at the data provider.
 
@@ -40,19 +40,18 @@ One common case is that the data provider is also the HI consumer and skill prov
 
 ### BUSINESS PROCESS
 
-*For better readability will be on this page from now on assuming that the **HI consumer** which is also the **data provider** is an **OEM**.*
+*For better readability, it is assumed on this page that the **data provider** is always an **OEM**/vehicle manufacturer.*
 
 The skill is initially executed at the OEM. There it may be registered as an asset or used ad hoc. If the consumer is also the skill provider, it is his free choice which way to go. In the following description, the skill is registered.
 
 ![business-process](assets/business-process.drawio.svg)
 
-0. **Register skill asset: (0.1)** <br/> The skill is registered as an asset at the OEM's EDC connector. <br />
-   **sync federated catalog: (0.2)** <br/> The federated catalogs are synchronized periodically. As a result, the OEM can resolve HI calculation function assets that are located at the supplier.
+0. **Register skill asset (0.1) and sync federated catalog (0.2):** <br/> The skill is registered as an asset at the OEM's EDC connector. The federated catalogs are synchronized periodically. As a result, the OEM can resolve HI calculation function assets that are located at the supplier.
 
 1. **Invoke HI skill:** <br/> The consumer invokes the skill by calling the agents API at its own EDC connector (ad hoc or as predefined asset). There are three parameters that must be set:
    - **vehicle ID** (VIN)
    - **component type** (type of component for which the HI values should be calculated)
-   - **result type** (For HI, the result type may always be `HealthIndicationResult`. Note: The exact same skill could be used to calculate Remaining useful Life values by using result type `RemainingUsefulLifeResult`.)
+   - **result type** (for HI, the result type may always be `HealthIndicationResult`. Note: The exact same skill could be used to calculate Remaining useful Life values by using result type `RemainingUsefulLifeResult`.)
 
 2. **Resolve HI calculation function assets by result type HealthIndicatorResut:** <br/> The Knowledge Agent resolves all calculation functions by the given result type `HealthIndicationResult`. These can be located at different suppliers and is independent of the vehicle ID and the component of interest.
 
@@ -60,7 +59,7 @@ The skill is initially executed at the OEM. There it may be registered as an ass
 
 4. **Resolve vehicle part of interest, supplier and actual HI calculation function for this part:** <br/> At the data provider, the Knowledge Agent resolves the vehicle, its component of interest, the related supplier and the actual usage data.
 
-5. **Fetch load data:** <br/> The actual usage data (parameter for the HI calculation functions) are fetched from the data provider's bound data source. They are translated into graph representation by a provisioning agent (data binding agent).
+5. **Fetch load data:** <br/> The actual usage data (parameters for the HI calculation functions) are fetched from the data provider's bound data source. They are translated into graph representation by a provisioning agent (data binding agent).
 
 6. **Transfer load data and deploy sub-skill:** <br/> The fetched data and a sub-skill (logic for calling the HI calculation service) are transferred to the HI calculation service provider's Knowledge Agent via EDC connectors.
 
@@ -78,7 +77,7 @@ To have a common understanding of how to interpret and translate elements in the
 |---------|-----------|
 |HI Dashboard|This component is the app that is hosted at the *consumer* and provides the end user interface.|
 |Usage Data|A data source at the *data provider* that provides usage data that are required for HI calculation services. <BR/> It can be accessed by the Knowledge Agent via data bindings.|
-|HI Service|A calculation service at the *Supplier*. It accepts a load spectrum as parameter, and calculates the health indicator result values and returns them.|
+|HI Service|A calculation service at the *Supplier*. It accepts a load spectrum as parameter, calculates the health indicator result values and returns them.|
 
 #### KNOWLEDGE AGENT COMPONENTS AND CATENA-X CORE SERVICES
 
