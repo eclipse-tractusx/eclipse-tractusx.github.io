@@ -86,7 +86,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 **Note:** For the top - down approach with IRS recursive this is not applicable because no information about the ESS incident is transferred between Business Partners. See [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) for further details.
 
-![ESS_KitCustomerJourney](@site/kits/ESS-Kit/assets/CatenaX_ESS_KitCustomerJourney.svg)
+![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
 
 **Note:** There will be an explanatory youtube video, which will be available after IP clearance. [ESS video](<https://bcgcatenax.sharepoint.com/:v:/r/sites/ARTV/Shared%20Documents/ESS%20(Environment%20and%20Social%20Standards)/ESS%20KIT/Film/CX-full%20process%20demo%20v5.mp4?csf=1&web=1&e=nVeYZ6>)
 
@@ -170,7 +170,7 @@ The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/
 
 ### Business architecture
 
-![ESS_KitBusinessArchitecture](@site/kits/ESS-Kit/assets/CatenaX_ESS_KitBusinessArchitecture.png)
+![ESS_KitBusinessArchitecture](assets/CatenaX_ESS_KitBusinessArchitecture.png)
 
 ### Access & Usage Policies / Code of Conduct
 
