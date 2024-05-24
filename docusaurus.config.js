@@ -461,6 +461,10 @@ const config = {
                 label: 'Manufacturing as a Service',
               },
               {
+                to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+                label: 'PURIS',
+              },
+              {
                 to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
                 label: 'PCF Exchange',
               },
