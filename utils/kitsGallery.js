@@ -5,7 +5,7 @@ import Traceability_Kit from "@site/static/img/traceabilitykit.png";
 import BehaviourTwinRuL_Kit from "@site/static/img/BehaviourTwinRuL_Kit.png";
 import DigitalTwin from "@site/static/img/DigitalTwin.png";
 import EcoPass from "@site/static/img/EcoPass.png";
-import ESS_Kit from "@site/static/kits/ESS-Kit/ESSKit.png";
+import ESS_Kit from "@site/static/img/ESSKit.png";
 import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
 import Quality from "@site/static/img/Quality.png";
 import PCF_Kit from "@site/static/img/PCF_Kit.png";
