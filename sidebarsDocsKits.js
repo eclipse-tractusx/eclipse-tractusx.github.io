@@ -53,8 +53,8 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/development-view/architecture',
                       'kits/knowledge-agents/development-view/Arc42',
+                      'kits/knowledge-agents/development-view/modelling',
                       'kits/knowledge-agents/development-view/modules',
                       'kits/knowledge-agents/development-view/reference',
                       {
@@ -68,7 +68,10 @@ const sidebars = {
                           items: [
                               'kits/knowledge-agents/development-view/api/agent/getAgent',
                               'kits/knowledge-agents/development-view/api/agent/postAgent',
-                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
+                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
+                              'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
+                              'kits/knowledge-agents/development-view/api/graph/postGraph',
+                              'kits/knowledge-agents/development-view/api/graph/deleteGraph',
                           ],
                       }
                   ],
@@ -82,7 +85,6 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/operation-view/deployment',
                       'kits/knowledge-agents/operation-view/agent_edc',
                       'kits/knowledge-agents/operation-view/provider',
                       'kits/knowledge-agents/operation-view/bridge',

@@ -262,6 +262,10 @@ SERVICE ?oemConnector {
 } ORDER BY ?remainingDistance LIMIT 5'
 ```
 
+### Return a Skill
+
+see the [SKILL GET](api/agent/skill/getSkill) method specification
+
 ### Invoke an Ad-hoc Query
 
 see the [AGENT POST](api/agent/postAgent) method specification
@@ -286,5 +290,13 @@ SELECT ?partType ?description WHERE {
         
 } 
 ```
+
+### Upload Graph Data (Only Matchmaking Agent Standalone)
+
+see the [GRAPH POST](api/graph/postGraph) method specification
+
+### Delete Graph Data (Only Matchmaking Agent Standalone)
+
+see the [GRAPH DELETE](api/graph/deleteGraph) method specification
 
 <sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

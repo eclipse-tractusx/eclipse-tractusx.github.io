@@ -26,16 +26,17 @@ title: Detailed Architecture
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-### Agents KIT
+## Agents KIT
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-This document describes the detailed Architecture of the (Knowledge) Agents KIT (=Keep It Together) based on ARC42 recommendations.
+**Arc42 for federated queries over the whole data space.**
 
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [High-Level](architecture) architecture
+* The [Ontology](modelling) modelling guide
 * An [API](api) specification
 * The [Layers & Modules](modules) Architecture
 * Our [Reference Implementation](reference)
@@ -167,4 +168,4 @@ Just as the Federated Datacatalog is a multi-instance-synchronised component, al
 
 See chapter [Deployment](../operation-view/deployment).
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
