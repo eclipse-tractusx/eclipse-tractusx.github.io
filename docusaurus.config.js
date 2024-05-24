@@ -75,7 +75,18 @@ const config = {
         docLayoutComponent: "@theme/DocPage",
         docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
-    ],
+  ],
+  // -- documentation-kits --
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'docs-documentation',
+      path: 'documentation',
+      routeBasePath: 'documentation',
+      editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
+      sidebarPath: './sidebarsDocumentation.js',
+    },
+  ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
@@ -166,10 +177,10 @@ const config = {
         // options here
         id: "discoveryFinderOpenapi",
         name: "discoveryFinder", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/discoveryfinder/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-discovery-finder/main/backend/src/main/resources/static/discovery-finder-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["discovery-finder-openapi.yaml"], // the file names to download
-        noRuntimeDownloads: false
+        noRuntimeDownloads: true
       },
     ],
     [
@@ -178,7 +189,7 @@ const config = {
         // options here
         id: "bpnDiscoveryOpenapi",
         name: "bpnDiscovery", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/bpndiscovery/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-bpn-discovery/main/backend/src/main/resources/static/bpn-discovery-service-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["bpn-discovery-service-openapi.yaml"], // the file names to download
         noRuntimeDownloads: true
@@ -229,27 +240,6 @@ const config = {
           irs: {
             specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications_120: {
-            specPath: "./openApi/traceability/notifications_1-2-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.2.0 - optional",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications_110: {
-            specPath: "./openApi/traceability/notifications_1-1-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.1.0 - mandatory",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          industrycore_unique_id_push: {
-            specPath: "./openApi/industrycore/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Industry Core Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -326,7 +316,42 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          resiliency_maas_manufacturing_capability: {
+          resiliency_mp_provider_getProductionForecast: {
+            specPath:
+              './openApi/resiliency/modular-production/GetProductionForecast.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_provider_getProductionTracking: {
+            specPath:
+              './openApi/resiliency/modular-production/GetProductionTracking.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionForecast: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionForecast.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionTracking: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionTracking.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },resiliency_maas_manufacturing_capability: {
             specPath:
               './openApi/resiliency/maas/ManufacturingCapability-open-api.yaml', // Path to designated spec file
             outputDir:
@@ -340,24 +365,6 @@ const config = {
               './openApi/resiliency/maas/RfQ-openapi.yaml', // Path to designated spec file
             outputDir:
               './docs-kits/kits/Manufacturing as a Service Kit/Software Development View/Request for Quotation', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          resiliency_mp_provider: {
-            specPath:
-              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          resiliency_mp_consumer: {
-            specPath:
-              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -401,6 +408,11 @@ const config = {
             position: 'left',
             to: '/Kits',
             items: [
+              {
+                to: '/Kits',
+                label: 'Kits General',
+              },
+
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Agents',
@@ -446,6 +458,10 @@ const config = {
                 label: 'Health Indicator',
               },
               {
+                to: '/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit',
+                label: 'Industry Core',
+              },
+              {
                 to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
                 label: 'Model Based Development',
               },
@@ -460,6 +476,10 @@ const config = {
               {
                 to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
                 label: 'Manufacturing as a Service',
+              },
+              {
+                to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+                label: 'PURIS',
               },
               {
                 to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
@@ -534,32 +554,36 @@ const config = {
             title: 'Eclipse Foundation',
             items: [
               {
-                label: "Main Eclipse Foundation website",
+                label: "About",
                 href: "http://www.eclipse.org",
               },
               {
-                label: "Privacy policy",
+                label: "Privacy Policy",
                 href: "http://www.eclipse.org/legal/privacy.php",
               },
               {
-                label: "Website terms of use",
+                label: "Terms of Use",
                 href: "http://www.eclipse.org/legal/termsofuse.php",
               },
               {
-                label: "Copyright agent",
-                href: "http://www.eclipse.org/legal/copyright.php",
+                label: "Compliance",
+                href: "https://www.eclipse.org/legal/compliance/",
               },
               {
-                label: "Legal",
+                label: "Legal Resources",
                 href: "http://www.eclipse.org/legal",
+              },
+              {
+                label: "Contact",
+                href: "https://www.eclipse.org/org/foundation/contact.php",
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Eclipse Tractus-X',
             items: [
               {
-                label: "Eclipse Foundation project",
+                label: "Eclipse Project",
                 href: "https://projects.eclipse.org/projects/automotive.tractusx",
               },
               {
@@ -571,21 +595,25 @@ const config = {
                 href: "https://catena-x.net/",
               },
               {
-                label: "Icons used from svgrepo with CC0 License",
-                href: "https://www.svgrepo.com/",
-              }
+                label: "Mailing List",
+                href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
+              },
+              {
+                label: "Report a Bug",
+                href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
             ],
           },
           {
-            title: 'Useful Links',
+            title: 'More',
             items: [
               {
-                label: "Report a Bug",
-                href: "https://bugs.eclipse.org/bugs",
+                label: "Code of Conduct",
+                href: "https://www.eclipse.org/org/documents/Community_Code_of_Conduct.php",
               },
               {
-                label: "Documentation",
-                href: "https://help.eclipse.org/latest/index.jsp",
+                label: "Report a Vulnerability",
+                href: "https://github.com/eclipse-tractusx/sig-security/issues/new/choose",
               },
               {
                 label: "How to Contribute",
@@ -596,8 +624,8 @@ const config = {
                 href: "https://accounts.eclipse.org/mailing-list",
               },
               {
-                label: "Forums",
-                href: "https://www.eclipse.org/forums/",
+                label: "Matrix Chat",
+                href: "https://chat.eclipse.org/#/home/",
               },
             ],
           },

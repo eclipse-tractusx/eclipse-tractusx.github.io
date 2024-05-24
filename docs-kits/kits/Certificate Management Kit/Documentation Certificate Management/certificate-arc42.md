@@ -5,7 +5,7 @@ description: 'Architecture documentation'
 sidebar_position: 1
 ---
 
-![Certificate Management kit banner](/img/Certificate_Kit_Icon.png)
+![Certificate Management kit banner](/img/kit-icons/certificate-kit-icon.svg)
 
 ## Certificate Management KIT
 

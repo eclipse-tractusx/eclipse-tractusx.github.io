@@ -1,8 +1,7 @@
 ---
-id: Changelog Model Based Development and Data Processing Kit
+id: page_changelog
 title: Changelog
-description: 'Model Based Development and Data Processing Kit'
-sidebar_position: 1
+description: Model Based Development and Data Processing Kit
 ---
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
@@ -15,10 +14,14 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- ./.
+- Added development view page including video.
+- Added asset discovery to development view.
+- Added guideline for Implementing an FMU Interoperability Checker to development view.
+- Added success stories section with MDP Application page.
 
 ### Changed
 
+- Changed the adoption view guideline for Assigning Asset Properties to FMU and Services to include meta data models for asset properties.
 - Changed banner image file location and converted .png image to .svg
 
 ### Removed

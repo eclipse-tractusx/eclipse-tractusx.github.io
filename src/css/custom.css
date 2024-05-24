@@ -308,3 +308,19 @@
   content: "head";
   background-color: var(--ifm-color-secondary-darkest);
 }
+
+/* Media Queries */
+@media screen and (min-width: 2200px) {
+  .navbar {
+    width: 70vw;
+    margin: auto;
+  }
+}
+
+
+@media screen and (min-width: 3200px) {
+  .navbar {
+    width: 60vw;
+    margin: auto;
+  }
+}

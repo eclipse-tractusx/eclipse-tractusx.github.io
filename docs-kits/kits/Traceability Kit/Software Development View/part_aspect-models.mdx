@@ -22,38 +22,9 @@ This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/
 
 import AspectModelOverview from './../../Industry Core Kit/Software Development View/part_aspect-model-overview.mdx'
 
-## Aspect Models
-
 Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model. Transformations are mostly straightforward in these cases. If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
 
 <AspectModelOverview components={props.components} />
-
-### SingelLevelUsageAsPlanned
-
-The aspect provides the information in which parent part(s)/product(s) the given item is assembled in. This could be a 1:1 relationship in terms of a e.g. a brake component or 1:n for e.g. coatings. The given item as well as the parent item must refer to an object from as planned lifecycle phase. If multiple versions of parent parts exist that the child part can be assembled into, all versions of the parent part are included in the usage list.
-
-Aspect model in GitHub:
-- Version 1.1.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_planned/1.1.0
-
-
-##### Example: Submodel `SingleLevelUsageAsPlanned` for a Catalog Part
-
-```json
-{
-  "parentParts": [
-    {
-      "parentCatenaXId": "urn:uuid:c8B01D5A-ce0B-6Dd4-5bA0-A3e3fcE9cA93",
-      "quantity": {
-        "quantityNumber": 2.5,
-        "measurementUnit": "unit:litre"
-      },
-      "createdOn": "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
-    }
-  ],
-  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d"
-}
-```
 
 ### TractionBatteryCode
 
@@ -126,32 +97,5 @@ Aspect model in GitHub:
       ]
     }
   ]
-}
-```
-
-### SingleLevelUsageAsBuilt
-
-Aspect model in GitHub:
-- Version 2.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built/2.0.0
-
-##### Example: Submodel `SingleLevelUsageAsBuilt` for a Instance Part
-
-```json
-{
-  "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-  "customers" : [ {
-    "parentItems" : [ {
-      "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-      "quantity" : {
-        "quantityNumber" : 2.5,
-        "measurementUnit" : "unit:litre"
-      },
-      "createdOn" : "2022-02-03T14:48:54.709Z",
-      "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-    } ],
-    "businessPartner" : "BPNL50096894aNXY",
-    "createdOn" : "2022-02-03T14:48:54.709Z",
-    "lastModifiedOn" : "2022-02-03T14:48:54.709Z"
-  } ]
 }
 ```

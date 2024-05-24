@@ -16,6 +16,20 @@
   padding: 10rem 0 0rem;
 }
 
+@media screen and (min-width: 2200px) {
+  .roles_based_entry {
+    width: 70vw;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .roles_based_entry {
+    width: 60vw;
+    margin: auto;
+  }
+}
+
 .card_container {
   width: 380px;
   height: 172px;

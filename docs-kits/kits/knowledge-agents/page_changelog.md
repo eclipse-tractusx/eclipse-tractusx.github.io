@@ -27,11 +27,22 @@ sidebar_position: 1
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-### Agents KIT
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be documented in this file.
+All notable changes to the (Knowledge) Agents KIT will be documented in this file.
+
+## [1.1.0] - 2024-05-13
+
+### Added
+
+- Modelling Development
+
+### Changed
+
+- References to 24.05 (1.12.19)
+- Advanced Skills
+- Data Sovereignity Discussion
 
 ## [1.0.1] - 2024-02-21
 
@@ -120,4 +131,4 @@ All notable changes to the (Knowledge) Agents KIT (=Keep It Together) will be do
 
 ### Removed
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

@@ -15,7 +15,7 @@ export const carouselKitdeepdive = [
         id: 3,
         title: "KIT Creation",
         description: "How to create a KIT?",
-        navigate: "/docs/kit-process/graduation-process"
+        navigate: "/documentation/kit-getting-started"
     }
   ]
   
