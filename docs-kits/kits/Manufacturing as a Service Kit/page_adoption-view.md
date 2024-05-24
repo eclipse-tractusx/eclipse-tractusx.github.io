@@ -35,8 +35,8 @@ The reference architecture includes standardized and tested interfaces and data 
 Standardizing the necessary interfaces and data models of our architecture enables to exchange data with different systems and users and to extend the reference architecture with additional services, replace certain individual services with equivalent ones or to remove optional services.
 Within the Manufacturing-as-a-Service KIT, two main standards were defined:
 
-- Manufacturing Capability Model and API - for declaration of offered and required manufacturing capabilities
-- Request for Quotation Model and API - for manufacturing demand configuration
+- [Manufacturing Capability Model and API](#standards-1) - for declaration of offered and required manufacturing capabilities
+- [Request for Quotation Model and API](#standards-1) - for manufacturing demand configuration
 
 ### First implemented example services and applications
 
