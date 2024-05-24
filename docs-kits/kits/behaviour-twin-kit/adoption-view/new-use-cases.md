@@ -1,6 +1,6 @@
 ﻿---
 id: new-use-cases
-title: New Use-Cases
+title: New Use Cases
 description: Behaviour Twin KIT
 ---
 

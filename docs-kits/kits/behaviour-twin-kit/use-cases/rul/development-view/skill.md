@@ -33,12 +33,12 @@ For more information regarding skill development, registration and invocation op
 
 ```sparql
 ################################################################
-# Copyright (c) 2022 - 2024 T-Systems International GmbH
-# Copyright (c) 2022 - 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-# Copyright (c) 2022 - 2024 ZF Friedrichshafen AG
-# Copyright (c) 2022 - 2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
-# Copyright (c) 2022 - 2024 Mercedes-Benz AG
-# Copyright (c) 2022 - 2024 Contributors to the Catena-X Association
+# Copyright (c) 2022-2024 T-Systems International GmbH
+# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+# Copyright (c) 2022-2024 ZF Friedrichshafen AG
+# Copyright (c) 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
+# Copyright (c) 2022-2024 Mercedes-Benz AG
+# Copyright (c) 2022-2024 Contributors to the Catena-X Association
 #
 # See the NOTICE file(s) distributed with this work for additional
 # information regarding copyright ownership.
@@ -60,7 +60,7 @@ For more information regarding skill development, registration and invocation op
 #  - Feeds the gathered data back into the respective supplier connector/agent
 #.   to perform a health indication
 # Author: cgjung
-# (c) 2023 Catena-X association
+# (c) 2023-2024 Catena-X association
 ################################################################
 
 PREFIX cx-common:       <https://w3id.org/catenax/ontology/common#>
@@ -80,7 +80,7 @@ PREFIX bpnl:            <bpn:legal:>
 #  - Feeds the gathered data back into the respective supplier connector/agent
 #.   to perform a health indication
 # Author: cgjung
-# (c) 2023 Catena-X association
+# (c) 2023-2024 Catena-X association
 ################################################################
 
 SELECT ?vehicle ?vin ?aggregate ?assembly ?supplier ?lc ?operatingTime ?mileage ?recordDate ?ls_type ?ls_name ?ls_value ?ls_unit ?ls_method ?ls_channels ?ls_classes ?ls_values ?distanceKm ?timeHours WHERE {
