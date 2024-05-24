@@ -15,11 +15,13 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- ./.
+- Extension of Shop Floor Information Service with Production Tracking
+- BoM semantic model
 
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
+- Semantic models including dependencies
 
 ### Removed
 
