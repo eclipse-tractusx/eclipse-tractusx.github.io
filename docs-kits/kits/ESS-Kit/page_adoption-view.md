@@ -174,7 +174,7 @@ The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/
 
 ### Access & Usage Policies / Code of Conduct
 
-**Code of Conduct of the Catena-X Use Case Sustainability / Environmental and Social standards**
+#### Code of Conduct of the Catena-X Use Case Sustainability / Environmental and Social standards
 
 In the Catena-X use case sustainability / environmental and social standards, principles are established with the aim of establishing transparent and trustworthy practices within the Catena-X network.
 The Code of Conduct will be published on the Catena-X webpage soon.
