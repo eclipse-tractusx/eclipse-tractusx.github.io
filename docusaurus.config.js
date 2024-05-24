@@ -308,6 +308,7 @@ const config = {
                 groupPathsBy: "tag",
               },
             },
+          // Online Simulation and Control (OSim)
           resiliency_osim: {
             outputDir:
               "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
@@ -316,6 +317,7 @@ const config = {
               groupPathsBy: "tag",
             },
           },
+          // Modular Production (MP)
           resiliency_mp_provider_getProductionForecast: {
             specPath:
               './openApi/resiliency/modular-production/GetProductionForecast.yml', // Path to designated spec file
@@ -351,7 +353,9 @@ const config = {
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
-          },resiliency_maas_manufacturing_capability: {
+          },
+          // Manufacturing as a Service (MaaS)
+          resiliency_maas_manufacturing_capability: {
             specPath:
               './openApi/resiliency/maas/ManufacturingCapability-open-api.yaml', // Path to designated spec file
             outputDir:
