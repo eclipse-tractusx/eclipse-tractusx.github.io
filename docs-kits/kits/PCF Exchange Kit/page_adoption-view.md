@@ -496,7 +496,7 @@ The diagram shown here illustrates the interaction between the PCF KIT and the o
 
 ## STANDARDS
 
-The standards this release will be published soon. Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+The standards of this release will be published soon. The relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Product Carbon Footprint UseCase (Version 1.0.0)
 - Product Carbon Footprint Rulebook (Version 2.0.0)

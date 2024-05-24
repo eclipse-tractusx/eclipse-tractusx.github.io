@@ -12,7 +12,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-* SDE as available FOSS implementation
+* Simple Data Exchanger (SDE) as available open-source reference implementation
 
 ### Changed
 
