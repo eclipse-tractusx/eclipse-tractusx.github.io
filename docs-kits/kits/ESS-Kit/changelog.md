@@ -18,7 +18,6 @@ sidebar_position: 1
 - replace picture CatenaX_ESS_KitCustomerJourney
 - corrected typos e.g. youtube, respectively
 - adjusted all links to images of ESS-Kit moved to folder assets within ESS-Kit
-  
 
 ### Removed
 
