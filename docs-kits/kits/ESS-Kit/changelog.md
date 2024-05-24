@@ -6,15 +6,19 @@ sidebar_position: 1
 
 ![ESS Kit Icon](/img/kit-icons/ess-kit-icon.svg)
 
-## [0.2.0] - 2024-04-02
+## [0.2.0] - 2024-05-24
 
 ### Added
 
-- chapters for Code of Conduct in page_adoption-view
+- information about Code of Conduct in Adoption View
+- added link to BPNL-Kit and to Industry Core Kit
 
 ### Changed
 
 - replace picture CatenaX_ESS_KitCustomerJourney
+- corrected typos e.g. youtube, respectively
+- adjusted all links to images of ESS-Kit moved to folder assets within ESS-Kit
+  
 
 ### Removed
 
