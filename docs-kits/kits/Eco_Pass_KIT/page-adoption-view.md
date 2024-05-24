@@ -116,7 +116,7 @@ Depending on the use case and related KIT, Catena-X provides different semantic 
 
 Other specific product passports which are further described in the EcoPass KIT are the [battery](#battery-passport), [transmission](#transmission-passport) and [electric drive](#electric-drive-passport). All of them depend on the generic Digital Product Passport data model. Further data models will follow.
 
-The goal of these passports is to create unified data models that can be used and adapted across the automotive industry. These data models are modelled according to the [CX-0003](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0003-SAMMSemanticAspectMetaModel-v.1.0.2.pdf) BAMM/SAMM Standard in Version 1.1.0 (updated link once published). For detailed information please follow the embedded links to the Catena-X Standard library.
+The goal of these passports is to create unified data models that can be used and adapted across the automotive industry. These data models are modelled according to the [CX-0003](https://catena-x.net/en/standard-library) SAMM Standard in Version 1.1.0 (updated link once published). For detailed information please follow the embedded links to the Catena-X Standard library.
 
 ### Digital Product Passport
 
