@@ -5,7 +5,7 @@ description: 'What do I have to implement?'
 sidebar_position: 3
 ---
 
-![ESS Kit Icon](img/kit-icons/ess-kit-icon.svg)
+![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
 ## Building block view
 
