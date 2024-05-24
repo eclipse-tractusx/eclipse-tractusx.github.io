@@ -54,6 +54,7 @@ This an overview - for the details and examples please check the TRG 8.03 - KIT 
 Legend:
 Mandatory ✓
 Optional ✓ *
+
 | Artifact / Stage  | Sandbox | Incubating | Graduated | Additional Info  |
 |---|---|---|---|---|
 |  Changelog |  | ✓ | ✓ |   |
