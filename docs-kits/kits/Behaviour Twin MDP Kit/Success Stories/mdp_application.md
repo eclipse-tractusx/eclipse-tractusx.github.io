@@ -80,6 +80,7 @@ This video demonstrates the necessary software application functionality for imp
 - A guidance app, such as the MDP App shown in the video, should be provided to assist users in collaborative model-based development or model-based data processing workflows.
 - In the video the two use cases are showcased with software applications from the Siemens Simcenter portfolio. Namely with Simcenter System Architect for the Model Integration step, Simcenter HEEDS for the Model Execution step and in the 2nd use case with Simcenter Testlab Neo for the Data Processing step. These Apps have been chosen for illustrative purposes.
 
-<video controls style={{width:'100%'}} controlsList="nodownload">
-    <source src="images/mdp_kit_v1.0.mp4"/>
-</video>
+<div>
+  <iframe style={{width:'100%', height:'100%', aspectRatio:'1280/720'}} width="1280" height="720" src="https://www.youtube.com/embed/QHgl45IM6uc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe>
+</div>
