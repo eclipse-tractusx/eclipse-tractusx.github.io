@@ -619,3 +619,12 @@ For installation details, please see the referenced Repositories / Releases.
 
 - Tested on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.24.3`
 - Tested with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `14`
+
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022, 2023, 2024 Contributors of the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)
