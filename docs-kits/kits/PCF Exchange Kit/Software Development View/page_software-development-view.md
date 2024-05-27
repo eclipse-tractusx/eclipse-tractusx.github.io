@@ -72,7 +72,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the CX Standard [CX-0002](https://catena-x.net/en/standard-library) is to be followed.
 
-The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``. 
+The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``.
 
 The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
 
