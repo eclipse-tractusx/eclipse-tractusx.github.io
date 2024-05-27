@@ -4,21 +4,22 @@ title: Changelog
 sidebar_position: 1
 ---
 
-![ESS Kit Icon](/img/kit-icons/ess-kit-icon.svg)
+![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
-## [1.0.0] - Unreleased
+## [0.2.0] - 2024-05-24
 
 ### Added
 
-- ./.
+- information about Code of Conduct in Adoption View
+- added link to BPNL-Kit and to Industry Core Kit
 
 ### Changed
 
-- Changed banner image file location and converted .png image to .svg
+- replace picture CatenaX_ESS_KitCustomerJourney
+- corrected typos e.g. youtube, respectively
+- adjusted all links to images of ESS-Kit moved to folder assets within ESS-Kit
 
 ### Removed
-
-- ./.
 
 ## [0.1.0] - 2024-03-06
 
