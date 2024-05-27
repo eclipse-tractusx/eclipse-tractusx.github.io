@@ -7,6 +7,6 @@ sidebar_position: 4
 
 ![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
 
->**Note**
->
-> At the moment there is no open source soultion available implementing PCF exchange. Therefore no central operation information is provided here.
+In addition to certified commercial solutions, there is now also an open-source reference implementation available for the first time to support the CX PCF Use Case Standard (data model, API,...). Further information regarding this Simple Data Exchanger (usage, configuration and deployment) are published on GitHub:
+- [SDE Frontend GitHub Repository](https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend)
+- [SDE Backend GitHub Repository](https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend)
