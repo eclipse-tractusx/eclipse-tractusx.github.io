@@ -17,11 +17,15 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- ./.
+- Added [DCM Operation View](page_operation-view.md)
 
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
+- Updated aspect models in [Adoption View](page_adoption-view.md) to new versions
+- Updated aspect models and API definitions in [Development View](page_development-view.md) to new versions
+- Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
+- Updated choice of words and writing pattern throughout the documentation
 
 ### Removed
 
