@@ -4,6 +4,9 @@ title: Changelog
 description: 'PCF Exchange Kit'
 sidebar_position: 1
 ---
+
+![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
+
 ## PCF Exchange KIT
 
 All notable changes to this Kit will be documented in this file.
@@ -21,6 +24,7 @@ All notable changes to this Kit will be documented in this file.
 * Policy structure updated
 * Sample data updated
 * Minor bugfixes
+* Changed banner image file location and converted .png image to .svg
 
 ### Removed
 
