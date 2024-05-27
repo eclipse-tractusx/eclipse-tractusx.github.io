@@ -62,7 +62,6 @@ title: Changelog
 
 ### 23.08 Issues Fixed
 
-
 - Corrected links paths to absolute path
 
 ## NOTICE
