@@ -632,10 +632,7 @@ const sidebars = {
                 type: 'doc',
                 id: 'kits/Resiliency/resiliency'
             },
-            items: [
-                'kits/Resiliency/maas',
-                'kits/Resiliency/PURIS'
-            ]
+            items: []
         },
     ]
 };
