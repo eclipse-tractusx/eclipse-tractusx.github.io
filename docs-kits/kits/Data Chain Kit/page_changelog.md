@@ -11,7 +11,7 @@ sidebar_position: 10
 
 All notable changes to this Kit will be documented in this file.
 
-## [3.0.1] - unreleased
+## [3.0.1] - 2024-05-28
 
 ### Added
 
