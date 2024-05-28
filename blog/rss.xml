@@ -4,10 +4,19 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Tue, 16 Apr 2024 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 May 2024 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Tractus-X 24.05 available now]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/new-release-2405</link>
+            <guid>new-release-2405</guid>
+            <pubDate>Tue, 28 May 2024 10:00:00 GMT</pubDate>
+            <description><![CDATA[Release Tractus-X 24.05 announcement]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="Release Image" src="/assets/images/Tractus-X_Release24.05-0b3f995e124f845266938d30c84971f2.png" width="1920" height="930" class="img_ev3q"></p><p>We are excited to announce the release of Tractus-X 24.05! This release builds the foundation for one of the most significant updates to our Catena-X data space to date. Highlights include an update to the Multi-Opco solutions, the full implementation of the Industry Core KIT as well as the advancement of Self Sovereign Identity concepts. Conjointly, it makes several improvements to the user-friendliness of KITs based on feedback received to date, making Tractus-X overall more accessible and welcoming to newcomers and veterans alike. A big thank you to all contributors and committers for bringing this milestone to life and keep Tractus-X as one of the most significant open-source projects in the automotive industry.</p><p>With Release 24.05, the Catena-X Association will also introduce significant advancements in its operating model including an update to its regulatory framework, an update to its roles, improvements to the overall release management and compatibility schemes as well as for the first time, interoperability criteria. Stay tuned for an official release on the Catena-X website at the end of June 2024.</p><p>Enjoy diving into the all new Tractus-X Release!</p>]]></content:encoded>
+            <author>hanno.focken@catena-x.net (Hanno Focken)</author>
+        </item>
         <item>
             <title><![CDATA[Tractus-X Open Planning R24.12]]></title>
             <link>https://eclipse-tractusx.github.io/blog/open-planning-r24-12</link>
