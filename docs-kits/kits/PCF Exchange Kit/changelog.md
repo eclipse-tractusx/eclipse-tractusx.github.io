@@ -11,19 +11,24 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - unreleased
+## [1.1.0] - 2024-05-17
 
 ### Added
 
-* ./.
+* Simple Data Exchanger (SDE) as available open-source reference implementation
 
 ### Changed
 
+* DT submodel structure updated
+* EDC asset structure updated
+* Policy structure updated
+* Sample data updated
+* Minor bugfixes
 * Changed banner image file location and converted .png image to .svg
 
 ### Removed
 
-* ./.
+* Deprecated EDC asset attributes removed
 
 ## [1.0.0] - 2024-03-08
 
