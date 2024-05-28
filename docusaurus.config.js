@@ -430,10 +430,6 @@ const config = {
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Certificate%20Management%20Kit/Adoption%20View',
-                label: 'Certificate Management',
-              },
-              {
                 to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
                 label: 'Circularity',
               },
@@ -466,7 +462,7 @@ const config = {
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
+                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
                 label: 'Model Based Development',
               },
               {

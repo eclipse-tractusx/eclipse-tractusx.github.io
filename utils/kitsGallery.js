@@ -14,7 +14,6 @@ import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityM
 import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
-import Certificate_Kit from "@site/static/img/Certificate_Kit.png"
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
 import Industry_Kit from "@site/static/img/Industry_Kit.png"
 
@@ -138,27 +137,20 @@ export const kitsGallery = [
   },
   {
     id: 16,
-    name: 'Certificate Management Kit',
-    domain: 'Network & Core Services',
-    img: Certificate_Kit,
-    pageRoute: "/docs-kits/kits/Certificate Management Kit/Adoption View"
-  },
-  {
-    id: 17,
     name: 'ESS Kit',
     domain: 'Sustainability',
     img: ESS_Kit,
     pageRoute: "/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
   },
   {
-    id: 18,
+    id: 17,
     name: "Industry Core Kit",
     domain: 'Network & Core Services',
     img: Industry_Kit,
     pageRoute: "/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit"
   },
   {
-    id: 20,
+    id: 18,
     name: 'PURIS Kit',
     domain: 'Resiliency',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
