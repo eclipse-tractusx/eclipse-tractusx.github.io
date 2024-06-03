@@ -25,7 +25,7 @@ Additionally, there is a npm script `lint-doc`, that will lint all the markdown 
 This script is also run as a pre-commit hook, set up via [husky](https://www.npmjs.com/package/husky).
 You can also run the linting step manually by running `npm run lint-doc` or `npm run lint-kits`.
 
-## Licence Checks
+## 3rd Party dependeny checks
 
 This repository enforces licence compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
 Follow these steps if your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash)`:
