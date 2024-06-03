@@ -53,8 +53,8 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/development-view/architecture',
                       'kits/knowledge-agents/development-view/Arc42',
+                      'kits/knowledge-agents/development-view/modelling',
                       'kits/knowledge-agents/development-view/modules',
                       'kits/knowledge-agents/development-view/reference',
                       {
@@ -68,7 +68,10 @@ const sidebars = {
                           items: [
                               'kits/knowledge-agents/development-view/api/agent/getAgent',
                               'kits/knowledge-agents/development-view/api/agent/postAgent',
-                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill'
+                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
+                              'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
+                              'kits/knowledge-agents/development-view/api/graph/postGraph',
+                              'kits/knowledge-agents/development-view/api/graph/deleteGraph',
                           ],
                       }
                   ],
@@ -82,7 +85,6 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
-                      'kits/knowledge-agents/operation-view/deployment',
                       'kits/knowledge-agents/operation-view/agent_edc',
                       'kits/knowledge-agents/operation-view/provider',
                       'kits/knowledge-agents/operation-view/bridge',
@@ -91,6 +93,132 @@ const sidebars = {
                     ],
               },
             ],
+        },
+        {
+            type: 'category',
+            label: 'Behaviour Twin KIT',
+			link: {
+				 type: 'doc',
+				 id: 'kits/behaviour-twin-kit/overview',
+			},
+            collapsed: true,
+            items: [
+                'kits/behaviour-twin-kit/changelog',
+                {
+                    type: 'category',
+                    label: 'Adoption View',
+                    link: {
+                         type: 'doc',
+                         id: 'kits/behaviour-twin-kit/adoption-view/overview',
+                    },
+                    items: [
+                        'kits/behaviour-twin-kit/adoption-view/introduction',
+                        'kits/behaviour-twin-kit/adoption-view/architecture',
+                        'kits/behaviour-twin-kit/adoption-view/knowledge-agent',
+                        'kits/behaviour-twin-kit/adoption-view/versioning',
+                        'kits/behaviour-twin-kit/adoption-view/to-be-considered',
+                        'kits/behaviour-twin-kit/adoption-view/new-use-cases',
+                        'kits/behaviour-twin-kit/adoption-view/terminology',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Development View',
+                    link: {
+                         type: 'doc',
+                         id: 'kits/behaviour-twin-kit/development-view/overview',
+                    },
+                    items: [
+                        'kits/behaviour-twin-kit/development-view/contracts-and-policies',
+                        'kits/behaviour-twin-kit/development-view/data-bindings',
+                        'kits/behaviour-twin-kit/development-view/service-bindings',
+                        'kits/behaviour-twin-kit/development-view/skill',
+                        'kits/behaviour-twin-kit/development-view/guidance-and-resources',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    link: {
+                         type: 'doc',
+                         id: 'kits/behaviour-twin-kit/use-cases/overview',
+                    },
+                    items: [
+                        {
+                            type: 'category',
+                            label: 'Remaining useful Life',
+                            link: {
+                                 type: 'doc',
+                                 id: 'kits/behaviour-twin-kit/use-cases/rul/overview',
+                            },
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'Adoption View',
+                                    link: {
+                                         type: 'doc',
+                                         id: 'kits/behaviour-twin-kit/use-cases/rul/adoption-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/introduction',
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/architecture',
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/terminology',
+                                    ]
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Development View',
+                                    link: {
+                                         type: 'doc',
+                                         id: 'kits/behaviour-twin-kit/use-cases/rul/development-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/data-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/service-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/skill',
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            type: 'category',
+                            label: 'Health Indicator',
+                            link: {
+                                 type: 'doc',
+                                 id: 'kits/behaviour-twin-kit/use-cases/hi/overview',
+                            },
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'Adoption View',
+                                    link: {
+                                         type: 'doc',
+                                         id: 'kits/behaviour-twin-kit/use-cases/hi/adoption-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/introduction',
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/architecture',
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/terminology',
+                                    ]
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Development View',
+                                    link: {
+                                         type: 'doc',
+                                         id: 'kits/behaviour-twin-kit/use-cases/hi/development-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/data-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/service-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/skill',
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+            ]
         },
         {
             type: 'category',
@@ -184,46 +312,6 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Certificate Management KIT',
-            link: {
-                type: 'generated-index'
-            },
-            items: [
-                'kits/Certificate Management Kit/Changelog',
-                'kits/Certificate Management Kit/Adoption View',
-                'kits/Certificate Management Kit/Operation View',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: "generated-index",
-                    },
-                    items: [
-                        'kits/Certificate Management Kit/Software Development View/Specification',
-                        {
-                            type: 'link',
-                            label: 'API',
-                            href: 'https://app.swaggerhub.com/apis/eclipse-tractusx-bot/bpdm-certificate-management'
-                        }
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Documentation',
-                    link: {
-                        type: "generated-index",
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Certificate Management Kit/Documentation Certificate Management'
-                        }
-                    ]
-                },
-            ]
-        },
-        {
-            type: 'category',
             label: 'Circularity KIT',
             link: {
                 type: 'doc',
@@ -232,6 +320,7 @@ const sidebars = {
             items: [
                 'kits/Circularity_KIT/Changelog Circularity KIT',
                 'kits/Circularity_KIT/page-adoption-view',
+                'kits/Circularity_KIT/page-glossary',
             ]
         },
         {
@@ -243,7 +332,20 @@ const sidebars = {
             collapsed: true,
             items: [
                 'kits/Connector Kit/page_changelog',
-                'kits/Connector Kit/Adoption View/connector_kit_adoption_view',
+                {
+                    type: 'category',
+                    label: 'Adoption View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/Connector Kit/Adoption View/connector_kit_adoption_view'
+                    },
+                    items: [
+                        {
+                            type: 'autogenerated',
+                            dirName: 'kits/Connector Kit/Adoption View',
+                        },
+                    ]
+                },
                 {
                     type: 'category',
                     label: 'Development View',
@@ -381,20 +483,6 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Health Indicator (HI) KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Behaviour Twin HI Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
             label: 'Industry Core KIT',
             link: {
                 type: 'generated-index',
@@ -465,6 +553,20 @@ const sidebars = {
         },
         {
             type: 'category',
+            label: 'PURIS Kit',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/PURIS Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
             label: 'PCF Exchange KIT',
             link: {
                 type: 'generated-index',
@@ -506,20 +608,6 @@ const sidebars = {
                 {
                     type: 'autogenerated',
                     dirName: 'kits/Quality-Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Remaining Useful Life (RuL) KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Behaviour Twin RuL Kit',
                 },
             ],
         },
