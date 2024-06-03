@@ -27,8 +27,8 @@ You can also run the linting step manually by running `npm run lint-doc` or `npm
 
 ## Licence Checks
 
-This repository enforces licence compatibility checks on all Pull Requests. Follow these steps if
-your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash)`:
+This repository enforces licence compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
+Follow these steps if your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash)`:
 
 1. Make sure the error-message is not `[main] ERROR Error response from XYZ HTTP 524` or anything else pointing to
   failures in remote services. If that happens, try again tomorrow. If not, continue.
@@ -40,4 +40,4 @@ your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash
 6. Execute `java -jar ./org.eclipse.dash.licenses-1.1.0.jar package-lock.json -project automotive.tractusx -summary ./DEPENDENCIES`
   Adjust the version of the jar if necessary. You should see logs saying `[main] INFO Querying X for license data for Y items.`
   and`[main] INFO Found Z items.`
-7. Commit the changed DEPENDENCIES file and push to your branch again.
+7. Commit the changed `DEPENDENCIES` file and push to your branch again.
