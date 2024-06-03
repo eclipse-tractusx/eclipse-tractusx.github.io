@@ -66,19 +66,20 @@ export const products = [
 
   {
     productName: "Portal & Marketplaces",
-    productDescription: "The project provides the entry point to the Catena-X data space for all participants such as registration and (technical) onboarding. Marketplaces enable solution providers to offer various business applications and services.",
+    productDescription: "The Portal facilitates the operations for dataspace members (companies), it includes functionalities such as registration, technical onboarding and marketplaces.",
     githubRepo: [
+      "https://github.com/eclipse-tractusx/portal",
       "https://github.com/eclipse-tractusx/portal-backend",
       "https://github.com/eclipse-tractusx/portal-frontend",
-      "https://github.com/eclipse-tractusx/portal-iam",
       "https://github.com/eclipse-tractusx/portal-frontend-registration",
-      "https://github.com/eclipse-tractusx/portal-cd",
-      "https://github.com/eclipse-tractusx/portal-assets"
+      "https://github.com/eclipse-tractusx/portal-assets",
+      "https://github.com/eclipse-tractusx/portal-iam"
     ],
     committers: [
       "https://github.com/evegufy",
       "https://github.com/ntruchsess",
-      "https://github.com/oyo"
+      "https://github.com/oyo",
+      "https://github.com/Phil91"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team",
     hasBoard: false,
@@ -108,8 +109,7 @@ export const products = [
     productName: "Trace-X",
     productDescription: "The project provides a business application for tracking parts along the supply chain. A high level of transparency across the supplier network enables faster intervention based on a recorded event in the supply chain.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/traceability-foss-backend",
-      "https://github.com/eclipse-tractusx/traceability-foss-frontend"
+      "https://github.com/eclipse-tractusx/traceability-foss",
     ],
     committers: [
       "https://github.com/ds-mkanal"
@@ -131,6 +131,22 @@ export const products = [
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
     hasBoard: true,
+    showVersion: true
+  },
+
+  {
+    productName: "Policy Hub",
+    productDescription: "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth for Catena-X policies, attributes and templates for policy rules.",
+     githubRepo: [
+      "https://github.com/eclipse-tractusx/policy-hub"
+    ],
+    committers: [
+      "https://github.com/Phil91",
+      "https://github.com/ntruchsess",
+      "https://github.com/evegufy"
+    ],
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X Policy Hub Team",
+    hasBoard: false,
     showVersion: true
   },
 ]

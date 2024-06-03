@@ -58,7 +58,7 @@ npm/npmjs/-/boxen/5.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/boxen/6.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/brace-expansion/1.1.11, MIT, approved, clearlydefined
 npm/npmjs/-/brace-expansion/2.0.1, MIT, approved, clearlydefined
-npm/npmjs/-/braces/3.0.2, MIT, approved, clearlydefined
+npm/npmjs/-/braces/3.0.2, MIT, approved, #14866
 npm/npmjs/-/browserslist/4.21.4, MIT, approved, #7034
 npm/npmjs/-/buffer-from/1.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/buffer/6.0.3, MIT, approved, clearlydefined
@@ -641,7 +641,7 @@ npm/npmjs/-/path-to-regexp/1.8.0, MIT, approved, clearlydefined
 npm/npmjs/-/path-to-regexp/2.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/path-type/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/path/0.12.7, MIT, approved, clearlydefined
-npm/npmjs/-/picocolors/1.0.0, ISC, approved, clearlydefined
+npm/npmjs/-/picocolors/1.0.0, ISC, approved, #14718
 npm/npmjs/-/picomatch/2.3.1, MIT, approved, clearlydefined
 npm/npmjs/-/pirates/4.0.5, MIT, approved, #680
 npm/npmjs/-/pkg-dir/4.2.0, MIT, approved, clearlydefined
@@ -1284,7 +1284,7 @@ npm/npmjs/@types/parse-json/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/5.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/6.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/prop-types/15.7.5, MIT, approved, clearlydefined
-npm/npmjs/@types/qs/6.9.7, MIT, approved, clearlydefined
+npm/npmjs/@types/qs/6.9.7, MIT, approved, #13991
 npm/npmjs/@types/range-parser/1.2.4, MIT, approved, #10795
 npm/npmjs/@types/react-is/17.0.3, MIT, approved, #8424
 npm/npmjs/@types/react-redux/7.1.25, MIT, approved, #10970

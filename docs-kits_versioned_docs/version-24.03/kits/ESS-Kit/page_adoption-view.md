@@ -5,7 +5,7 @@ description: 'Environmental and Social Standards Incident Management Kit'
 sidebar_position: 2
 ---
 
-![ESS Kit Icon](@site/static/kits/ESS-Kit/ess-kit-icon.png)
+![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
 ## Vision & Mission
 
@@ -79,7 +79,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 - **Clearing Agency:** these users can see the status and the original intake of information of all incidents. The clearing agency will only be able to identify the targeted business partner (L~0~) who is handling the incident. Finally, if the incident can be closed by the L0, the clearing agency will receive a status update.
 
-![ESS_KitCustomerJourney](@site/static/kits/ESS-Kit/CatenaX_ESS_KitCustomerJourney.png)
+![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.png)
 
 ### ESS Incidents personas
 
@@ -161,7 +161,7 @@ The data model follows the Catena-X Standard CX-0113 (<https://catena-x.net/de/s
 
 ### Business architecture
 
-![ESS_KitBusinessArchitecture](@site/static/kits/ESS-Kit/CatenaX_ESS_KitBusinessArchitecture.png)
+![ESS_KitBusinessArchitecture](assets/CatenaX_ESS_KitBusinessArchitecture.png)
 
 ### Access & Usage Policies / Code of conduct
 
