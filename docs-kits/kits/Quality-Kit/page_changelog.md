@@ -11,7 +11,7 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - unreleased
+## [1.2.1] - unreleased
 
 ### Added
 

@@ -1,5 +1,10 @@
 export const newsTitles = [
   {
+    date: "28.05.2024",
+    title: "Tractus-X 24.05 is available now",
+    blogLink: "/blog/new-release-2405"
+  },  
+  {
     date: "31.07.2024",
     title: "Tractus-X Open Planning R24.12",
     blogLink: "/blog/open-planning-r24-12"

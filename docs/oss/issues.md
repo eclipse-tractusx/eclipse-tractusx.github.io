@@ -44,7 +44,7 @@ OR
 :::
 
 There is the Otterdog self-service to manage the repositories in our organization.
-Otterdog is a tool to manage GitHub organizations at scale using a configuration as code approach. It is actively developed by the Eclipse Foundation and used to manage its numerous projects hosted on GitHub, see [here](https://gitlab.eclipse.org/eclipsefdn/security/otterdog).
+Otterdog is a tool to manage GitHub organizations at scale using a configuration as code approach. It is actively developed by the Eclipse Foundation and used to manage its numerous projects hosted on GitHub, see [here](https://github.com/eclipse-csi/otterdog).
 
 See the [Otterdog Dashboard](https://eclipse-tractusx.github.io/.eclipsefdn/) with the tabs for the overview, the current configuration and the playground.
 
