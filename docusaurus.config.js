@@ -177,10 +177,10 @@ const config = {
         // options here
         id: "discoveryFinderOpenapi",
         name: "discoveryFinder", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/discoveryfinder/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-discovery-finder/main/backend/src/main/resources/static/discovery-finder-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["discovery-finder-openapi.yaml"], // the file names to download
-        noRuntimeDownloads: false
+        noRuntimeDownloads: true
       },
     ],
     [
@@ -189,7 +189,7 @@ const config = {
         // options here
         id: "bpnDiscoveryOpenapi",
         name: "bpnDiscovery", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/bpndiscovery/", // the base url for the markdown (gets prepended to all of the documents when fetching)
+        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/sldt-bpn-discovery/main/backend/src/main/resources/static/bpn-discovery-service-openapi.yaml", // the base url for the markdown (gets prepended to all of the documents when fetching)
         outDir: "openApi/dt", // the base directory to output to.
         documents: ["bpn-discovery-service-openapi.yaml"], // the file names to download
         noRuntimeDownloads: true
@@ -240,27 +240,6 @@ const config = {
           irs: {
             specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications_120: {
-            specPath: "./openApi/traceability/notifications_1-2-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.2.0 - optional",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications_110: {
-            specPath: "./openApi/traceability/notifications_1-1-0.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API/v1.1.0 - mandatory",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          industrycore_unique_id_push: {
-            specPath: "./openApi/industrycore/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Industry Core Kit/Software Development View/Unique ID Push API",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -329,6 +308,7 @@ const config = {
                 groupPathsBy: "tag",
               },
             },
+          // Online Simulation and Control (OSim)
           resiliency_osim: {
             outputDir:
               "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
@@ -337,20 +317,58 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          resiliency_mp_provider: {
+          // Modular Production (MP)
+          resiliency_mp_provider_getProductionForecast: {
             specPath:
-              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
+              './openApi/resiliency/modular-production/GetProductionForecast.yml', // Path to designated spec file
             outputDir:
               './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
           },
-          resiliency_mp_consumer: {
+          resiliency_mp_provider_getProductionTracking: {
             specPath:
-              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
+              './openApi/resiliency/modular-production/GetProductionTracking.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionForecast: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionForecast.yml', // Path to designated spec file
             outputDir:
               './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_mp_consumer_provideProductionTracking: {
+            specPath:
+              './openApi/resiliency/modular-production/ProvideProductionTracking.yml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          // Manufacturing as a Service (MaaS)
+          resiliency_maas_manufacturing_capability: {
+            specPath:
+              './openApi/resiliency/maas/ManufacturingCapability-open-api.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Manufacturing as a Service Kit/Software Development View/Manufacturing Capability', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          resiliency_maas_request_for_quotation: {
+            specPath:
+              './openApi/resiliency/maas/RfQ-openapi.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/Manufacturing as a Service Kit/Software Development View/Request for Quotation', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -404,12 +422,12 @@ const config = {
                 label: 'Agents',
               },
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
-                label: 'Business Partner',
+                to: '/docs-kits/next/kits/behaviour-twin-kit/overview',
+                label: 'Behaviour Twin',
               },
               {
-                to: '/docs-kits/kits/Certificate%20Management%20Kit/Adoption%20View',
-                label: 'Certificate Management',
+                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                label: 'Business Partner',
               },
               {
                 to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
@@ -440,15 +458,11 @@ const config = {
                 label: 'Environmental & Social Standards',
               },
               {
-                to: '/docs-kits/kits/Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit',
-                label: 'Health Indicator',
-              },
-              {
                 to: '/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit',
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
+                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
                 label: 'Model Based Development',
               },
               {
@@ -464,16 +478,16 @@ const config = {
                 label: 'Manufacturing as a Service',
               },
               {
+                to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+                label: 'PURIS',
+              },
+              {
                 to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
                 label: 'PCF Exchange',
               },
               {
                 to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
                 label: 'Quality',
-              },
-              {
-                to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Remaining Useful Life',
               },
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
