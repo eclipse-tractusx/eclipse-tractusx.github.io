@@ -99,7 +99,7 @@ Please refer to the [Digital Twin KIT](../../../category/digital-twin-kit) for m
 For general guidelines for policy creation, please refer to [Industry Core KIT](../../../category/industry-core-kit) and [Connector KIT](../../../category/connector-kit).
 It is possible to restrict visibility of data offer for notification API with access policy either for members of Catena-X (“Membership”) and one or several Data Consumers identified by a specific business partner number ("BusinessPartnerNumber").
 As for usage policy, participants and related services must restrict the data usage for notification endpoints by using the following policy rules:
-- Use Case Framework (“FrameworkAgreement”) – The official agreement is published on [Catena-X website](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
+- Data Exchange Governance (leftOperand: “FrameworkAgreement”) – The official "Data Exchange Governance" is published on [Catena-X website](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
 - at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile).
 
 Additionally, respective usage policies MAY include the following policy rule:
@@ -129,7 +129,7 @@ Additionally, respective usage policies MAY include the following policy rule:
             {
               "leftOperand": "cx-policy:FrameworkAgreement",
               "operator": "eq",
-              "rightOperand": "Traceability:1.0"
+              "rightOperand": "DataExchangeGovernance:1.0"
             },
             {
               "leftOperand": "cx-policy:UsagePurpose",
