@@ -7,6 +7,7 @@ sidebar_position: 1
 
 ![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
 All notable changes to this Kit will be documented in this file.
+
 ## [1.2.0] - 15.08.2024
 
 ### Added
