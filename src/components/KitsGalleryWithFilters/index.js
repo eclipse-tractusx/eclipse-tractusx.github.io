@@ -28,8 +28,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from "./styles.module.css";
 
+
 export default function KitsGalleryWithFilters({itemsArray, title, description}) {
   const [selectedDomain, setSelectedDomain] = useState('All Domains');
+  const [selectedMaturityLevel, setSelectedMaturityLevel] = useState('Maturity Levels');
   const [filteredAndSortedKits, setFilteredAndSortedKits] = useState(itemsArray);
   const [sortOrder, setSortOrder] = useState('asc');
 
@@ -41,15 +43,25 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
 
   // In charge of filter the cards by domain, keeping the selected sorted order
   const handleDomainChange = (event) => {
-    const selectedDomain = event.target.value;
-    setSelectedDomain(selectedDomain);
-  
+    setSelectedDomain(event.target.value);
+  };
+
+  // In charge of filter the cards by maturity levels
+  const handleMaturityLevelChange = (event) => {
+    setSelectedMaturityLevel(event.target.value);
+  };
+
+  useEffect(() => {
     let filteredKits = itemsArray;
-    if (selectedDomain !== 'All Domains') {
-      filteredKits = itemsArray.filter((kit) => kit.domain === selectedDomain);
-    }
-  
     let sortedKits = filteredKits;
+    if(selectedDomain !== 'All Domains') {
+      filteredKits = itemsArray.filter((kit) => kit.domain === selectedDomain);
+      if(selectedMaturityLevel !== 'Maturity Levels') {
+        sortedKits = filteredKits.filter((kit) => kit.maturityLevel === selectedMaturityLevel);
+      } else {
+        sortedKits = filteredKits
+      }
+    }
     if (sortOrder === 'asc') {
       sortedKits.sort((a, b) => a.name.localeCompare(b.name));
     } else {
@@ -57,7 +69,7 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
     }
   
     setFilteredAndSortedKits(sortedKits);
-  };
+  },[selectedDomain,selectedMaturityLevel])
 
   // In charge of switch the sorted order by name from "asc" to "des" and vice versa
   const handleSort = () => {
@@ -146,6 +158,51 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 <MenuItem value={'PLM / Quality'}>PLM / Quality</MenuItem>
                 <MenuItem value={'Sustainability'}>Sustainability</MenuItem>
                 <MenuItem value={'Resiliency'}>Resiliency</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl
+              size="small"
+            >
+              <Select
+                labelId="domain-label"
+                id="domain-options"
+                value={selectedMaturityLevel}
+                onChange={handleMaturityLevelChange}
+                sx={
+                  {
+                    color: '#fff',
+                    padding: '0 0.5rem',
+                    '& .MuiSvgIcon-root': {
+                      color: '#faa023',
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#faa023'
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#c37304',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#ed8c05',
+                    }
+                  }
+                }
+                inputProps={{
+                  MenuProps: {
+                    MenuListProps: {
+                      sx: {
+                        backgroundColor: '#1f1f1f',
+                        color: '#fff',
+                      }
+                    },
+                  }
+                }}
+              >
+                <MenuItem value={'Maturity Levels'}>Maturity Levels</MenuItem>
+                <MenuItem value={'Sandbox'}>Sandbox</MenuItem>
+                <MenuItem value={'Incubating'}>Incubating</MenuItem>
+                <MenuItem value={'Graduated'}>Graduated</MenuItem>
               </Select>
             </FormControl>
           </Box>

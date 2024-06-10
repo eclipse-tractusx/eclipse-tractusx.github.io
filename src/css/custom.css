@@ -324,3 +324,8 @@
     margin: auto;
   }
 }
+
+img[src$="#block"] {
+  position: absolute;
+  margin-top: 5px;
+}
