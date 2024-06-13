@@ -3,7 +3,7 @@ title: Understand the overarching architecture
 sidebar_position: 2
 ---
 
-This section contains more information than is currently implemented in the MXD. However, it is intended to provide a general overview of the Catena-X architecture. However, not all components are listed here.
+This section provides a general overview of the Catena-X architecture. However, not all Catena-X components are used in the Tractus-X Data Space (TXD). Only the components of the TXD are listed and explained here.
 
 ## The journey starts
 
@@ -11,48 +11,50 @@ The first thing you need is a BPN (Business Partner Number) because this is used
 
 :::info
 
-Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the onboarding / regirstraion process [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
+In this tutorial the BPNs are preconfigured in the TXD setup. In the real world you will receive your BPN via the onboarding / registration process [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
 
 :::
 
-The BPN is also used to restrict the access and usage of your provided data assets. This is done via policies. Some example policies are also part of this tutorial.
+The BPN is also used in access and usage policies to restrict the access and usage of your provided data assets. Some example policies are also part of this tutorial.
 
-A data asset is the metadata for the data that is intended to be provided or consumed. This data asset is the element in the ecosystem for which policies are defined to build a contract offer which can be agreed and consumed by a consumer.
+A data asset contains the data address and metadata for the data that is intended to be provided or consumed. This data asset is the element in the ecosystem for which policies are defined to build a contract definition which can be agreed and consumed by a consumer.
 
 One of the key components of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC) as one implementation of the [Dataspace Protocol](https://docs.internationaldataspaces.org/dataspace-protocol/). This component is used to exchange data between participants. This includes:
 
-- Publish data offers and to discover data offers from other participants.
-- Negotiate data offers and come to an agreement on how to data is allowed to be used (Usage Policies)
-- Transfer data based on a previously negotiated agreement.
+- Provide data to other participants in the data space.
+- Discover data offerings from other participants.
+- Negotiate contract definitions and transfer data according to the definied policies.
 
 With the EDC you are always in control of your data.
 
-:::note
+Control of your data means on the one hand, that you can decide who can access your data and who can not. On the other hand you can decide under which constraints the data may be used by the data consumer after providing access. This is achieved via policies and sovereign data provisioning (in Catena-X you have the opportunity to freely decide where and by whom the data is stored and offered). This is called **data sovereignty**.
 
-Control of your data means on the one hand, that you can decide who can access your data and who can not. On the other hand you can decide under which constraints the data may be used by the data consumer after providing access. This is achieved via policies and sovereign deployment of data provisioning (in Catena-X you have the opportunity to freely decide where and by whom the data is stored and offered). This is called **data sovereignty**.
-
-:::
-
-In our setup we already configured two EDCs. **Alice** and **Bob** and also the related databases (to persist the assets, policies aso.) are ready to use.
+Registering an EDC is part of the onboarding process of Catena-X and is done in the portal.
 
 :::info
 
-Registering an EDC is part of the onboarding process and is done in the portal. In our setup the EDCs are already registered and technical users are already created in the Keycloak instance.
+In the tutorial setup, two EDCS are already configured. **Alice** and **Bob** as well as the associated databases (to persist the assets, policies, etc.) are ready to use. The EDCs are already registered in the TXD setup and the technical users are created in the Keycloak instance.
+
+This represents the minimal Setup for data exchange in a data space.
 
 :::
-
-The minimal Setup for data exchange is in place. Now you are able to provide and exchange data.
 
 ## What language does Catena-X speak? / Asset Administration Shell with Aspect Models define the language in Catena-X
 
 Since Catena-X is more than just a data exchange the next level of key to success is to exchange data in a structured and defined way. This helps to speak the same language to leverage business value of data.
 
-This is realized with [Asset Administration Shell](https://eclipse-tractusx.github.io) (Digital Twins) and Aspect models. The AAS is the vehicle to transport the semantic, which is modeled in Aspect Models.
+This is realized with the [Asset Administration Shell](https://eclipse-tractusx.github.io) (AAS). The AAS represents a vehicle to transport data of an real asset in a standardized and interoperable manner. This digital representation of the asset is called digital twin and is implemented in an AAS. To describe the different aspects of the asset  with the AAS in a common language, so called aspect models are defined in the data space. These aspect models define the semantics for the respective aspect of the digital twin. A submodel is then an implementation of an aspect of the digital twin. For a more detailled explaination see [Digital Twin KIT](https://tractus-x-community-days.github.io/eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
 
-With that you are able to speak Catena-X.
+By utilizing the right aspect models, you are able to "speak Catena-X".
 
-When it comes to data exchange, it as an utmost concern to be able to find the desired data on the one hand and to understand the structure and meaning of the data on the other hand.
-Finding and understanding data is a typical challenge, if you want to provide or consume data to or from an audience you are not in direct contact in advance.
+:::info
+
+The tutorial setup provides dummy submodels for the data exchange in the tutorial steps explained in Chapter boost. These dummy submodels do not apply Catena-X aspect models but work just fine for the demonstration and learing purpose of the tutorial.
+
+:::
+
+When it comes to exchanging data in a data space, finding the data you want and understanding the structure and meaning of the data are of paramount importance.
+Finding and understanding data is a typical challenge when you want to provide or consume data to or from an audience with whom you have no prior direct contact.
 
 To tackle these concerns the Industry-Standard for Digital Twins, the [Asset Administration Shell](https://industrialdigitaltwin.org) is referenced.
 
