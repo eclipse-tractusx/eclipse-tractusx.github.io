@@ -120,7 +120,7 @@ This ends this customer journey.
 
 ### Customer Journey “PCF Calculation”
 
-This customer journey describes the calculation of a [CX Rulebook-compliant PCF](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Standard_PDF_Feb._2023/1_Sustainability_v1.0/CX_-_0029_PCF_Rulebook_UseCaseSustainability_v_1.0.0.pdf), with some of the required data obtained via the Catena-X network.
+This customer journey describes the calculation of a PCF as compliant with the Catena-X PCF Rulebook ([CX-0029](https://catena-x.net/de/standard-library)), with some of the required data obtained via the Catena-X network.
 
 ![PCF Calculation](resources/adoption-view/PCFCalculation.png)
 
@@ -393,16 +393,16 @@ In an era defined by growing environmental consciousness and sustainability impe
 
 As the global community grapples with the impacts of climate change, consumers, businesses, and governments are seeking actionable ways to mitigate their carbon emissions. The need for a consistent and universally accepted method of quantifying these emissions from diverse products has given rise to the significance of a Standardized Product Carbon Footprint Data Model. This model acts as a lingua franca, enabling stakeholders to communicate and analyze carbon footprint information transparently and comprehensively.
 
-For this KIT only the data model PCF is used. The data model follows the Catena-X Standard [CX-0136](https://catena-x.net/de/standard-library) and is modeled following the [CX-0003](https://catena-x.net/de/standard-library) Standard.
+For this KIT only the data model PCF is used. The data model follows the Catena-X Standard [CX-0136](https://catena-x.net/de/standard-library) and is implemented in compliance the [CX-0003](https://catena-x.net/de/standard-library) Standard.
 
 #### Example Payload
 
-The following json shows a example payload for a requested pcf value.
+The following json shows a example payload for a requested PCF value.
 
 ```json
 {
-  "specVersion" : "2.0.1-20230314",
-  "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "urn:id:56789"],
+  "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
+  "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt", "http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt" ],
   "extWBCSD_productCodeCpc" : "011-99000",
   "created" : "2022-05-22T21:47:32Z",
   "companyName" : "My Corp",
@@ -462,16 +462,16 @@ The following json shows a example payload for a requested pcf value.
     "extWBCSD_packagingEmissionsIncluded" : true,
     "extWBCSD_fossilCarbonContent" : 0.1,
     "crossSectoralStandardsUsed" : [ {
-      "crossSectoralStandard" : "GHG Protocol Product standard"
+      "crossSectoralStandard" : "ISO Standard 14067"
     } ],
     "extTFS_distributionStageDlucGhgEmissions" : 1.0,
     "distributionStagePcfIncludingBiogenic" : 0.0,
     "carbonContentBiogenic" : 0.0
   },
   "partialFullPcf" : "Cradle-to-gate",
-  "productIds" : [ "urn:id:98765", "urn:id:cx:12345" ],
+  "productIds" : [ "urn:gtin:4712345060507", "http://www.wikipedia.org", "telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt" ],
   "validityPeriodStart" : "2022-01-01T00:00:01Z",
-  "comment" : "Comment for version 42.",
+  "comment" : "Additional explanatory information not reflected by other attributes",
   "id" : "3893bb5d-da16-4dc1-9185-11d97476c254",
   "validityPeriodEnd" : "2022-12-31T23:59:59Z",
   "pcfLegalStatement" : "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
@@ -483,7 +483,7 @@ The following json shows a example payload for a requested pcf value.
 ```
 
 The entire data model is available as open source through following the link:
-[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/5.0.0)
+[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/7.0.0)
 
 ## Business Architecture
 
@@ -500,8 +500,17 @@ The diagram shown here illustrates the interaction between the PCF KIT and the o
 
 The standards of this release will be published soon. The relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-- Product Carbon Footprint UseCase (Version 1.0.0)
-- Product Carbon Footprint Rulebook (Version 2.0.0)
+- CX-0136 Product Carbon Footprint UseCase (Version 2.0.0)
+- CX-0029 Product Carbon Footprint Rulebook (Version 3.0.0)
+
+## REFERENCE IMPLEMENTATIONS
+
+Currently there is no reference FOSS (Free and Open-Source Software) implementation. Several COTS (Commercial Of-The-Shelf) solutions are available, e.g. offered by the following providers:
+
+- [SiGREEN (Siemens)](https://www.siemens.com/de/de/unternehmen/themenfelder/product-carbon-footprint.html)
+- [SDX (SAP)](https://www.sap.com/sustainability/climate-action.html)
+- [SPF (SupplyOn)](https://www.supplyon.com/de/product-footprint)
+- [SDE (T-Systems)](https://dih.telekom.com/de/catena-x)
 
 ## NOTICE
 
