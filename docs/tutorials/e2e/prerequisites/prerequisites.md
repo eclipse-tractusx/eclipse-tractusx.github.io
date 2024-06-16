@@ -323,7 +323,7 @@ Check if you can access your system by using for a remote location (or you may a
 ssh -X <your username>@<your systemname>
 ```
 
-after having loggin enter
+after having logged in enter
 
 ```bash
 xterm &
