@@ -227,6 +227,11 @@ For the tutorial we first select a subset of components for the dataexchange bet
 
 We chosing a predefined subset of the E2E adopter journey which provies the above selecteion.
 
+#### Moved to the Umbrella dircetory with the config files
+```bash
+cd <your original working directory>/tractus-x-umbrella/charts/umbrella
+```
+
 :::Note
 
 skip the next paragraph, if you are running the only one minikube cluster on your system
@@ -322,7 +327,7 @@ kubectl apply -f kubectl-apply-in
 
 ```
 
-#### Now we install the perdefiend setup for our tutorial
+#### Now we install the perdefined setup for our tutorial
 
 Getting dependencies from Repo ...
 
@@ -336,7 +341,16 @@ Installing the Tutorial chart as part of th E2E journey.
 helm install -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella[-$USER] --create-namespace
 ```
 
+Enable second dataconsumer EDC "dataconsumerTwo" by setting it true in values-adopter-data-exchange.yaml and then executing an upgrade:
 
+```bash
+dataconsumerTwo:
+  enabled: true
+```
+
+```bash
+helm upgrade -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella
+```
 
 ## Inspect 
 
@@ -367,7 +381,7 @@ minikube [-p minikube-$USER] dashboard                   # if -p option is used,
 ```
 
 :::Note
-This chapter refers to a subset of the E2E Journey describes in the README for the Tractus-X umbrella charts. Please follow the link:  <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>. There you will find a lot more information on how you can extend the setup bay adding furterh components, such as a poirtal to increase your experince. You also find hints how to use the Umbrella Helm Chart on Window or MAC. We will continue to add more content to the tutorial. 
+This chapter refers to a subset of the E2E Journey described in the README for the Tractus-X umbrella charts. Please follow the link:  <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>. There you will find a lot more information on how you can extend the setup by adding further components, such as a portal, to increase your experience. You also find hints on how to use the Umbrella Helm Chart on Windows or MAC. We will continue to add more content to the tutorial. 
 :::
 
 ## Notice
