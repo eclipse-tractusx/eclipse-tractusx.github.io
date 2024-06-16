@@ -55,7 +55,7 @@ You may need the support of your local IT department. Once you are confident to 
 
 ### URL Whitelist
 
-#### Specific URLs​, required for [MXD]
+#### Specific URLs​, required for [TXD]
 
 ```bash
 .download.docker.com​
@@ -143,7 +143,7 @@ The port http (80) will not be used in production, but for the tutorial it will,
 
 #### ssh (22)
 
-For the [MXD], which is running locally, you only need secure shell access, which means port 22 should be open.
+For the [TXD], which is running locally, you only need secure shell access, which means port 22 should be open.
 
 #### Further ports
 
