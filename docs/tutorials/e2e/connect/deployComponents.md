@@ -3,29 +3,33 @@ title: Deploy components
 sidebar_position: 2
 ---
 
-The "MXD" dataspace initially consists of several components: `Alice` and `Bob` (two Tractus-X EDC connectors),
+The [TXD] dataspace initially consists of several components: `Alice` and `Bob` (two Tractus-X EDC connectors),
 a Vault instance each, a Postgres database, a Managed Identity Wallet app, a Keycloak instance. `Alice` and `Bob` will
 be our dataspace participants. Each of them stores their secrets in their respective vault instances, and there is a
 shared Postgres server, where each of them has a database. MIW and Keycloak are central components, they only exist
 once and are accessible by all participants.
 
-:::warning
-This chapter is not yet updated and refers to an older implemenation of the tutorial. Please used the README for the Tractus-X umbrella charts following the link:  
+
+:::note
+This chapter refers to also to the README for the Tractus-X umbrella charts following the link:  
 <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
 :::
 
-:::note
+:::Warning
+If you are [not] the only user on your system working with the turorial, means you are working in a multi-user environment, please ensure, that you understand your impact on other minikube profiles of other users and Umbralla namespaces. Please check, if other user are working on the same system by checking the existance of other minikube profiles with the command:
 
-### Special Hint for the Second Tractus-X Community Days
+```bash
+minkube profile list
+```
 
-If you are using the user accounts on the VMs provided by ARENA2036, please be aware of that you are working in a multi-user environment.
+Please ensure you are using a different profile name f and[never] using options like **--all**. To avoid disturbing other we use the environment varaible [$USER] any time whne we specify a name for a minkube profile of an Umbrella namespace.
 
-Your minikube cluster will not be the only one running in your VM, therefore
+So if your minikube cluster will not be the only one running in your system, please
 
-- Use specific names for your cluster profile and namespaces for helm​
+- use specific names for your cluster profile and namespaces for helm​
 
-  - Proposed name for the cluster profile: “minikube-$USER”​
-  - Proposed name for the umbrella namespace: “umbrella-$USER)" ​
+  - Proposed name for the cluster profile: **minikube-$USER**
+  - Proposed name for the umbrella namespace: **umbrella-$USER** ​
 
 - Ensure you are using the option **-p**, everytime you calling minikube ​
 
@@ -49,30 +53,10 @@ This will ensure that ingress is working in the correct environment of your clus
 
 :::
 
-:::warning
-
-Since this documentation is based on a MXD version where tractusx-edc version `0.5.3` is used, there is a need to adapt the `values.yaml` inside the cloned repository **tutorial-resources**. The file is located in `tutorial-resources/mxd/modules/connector/values.yaml`
-
-Instead of the `latest` tag for the **controlplane** and **dataplane** image, please use `0.5.3`.
-
-```yaml
-# As an example for the controlplane
-controlplane:
-  debug:
-    enabled: true
-    port: 1044
-  service:
-    type: NodePort
-  endpoints:
-    management:
-      authKey: password
-  image:
-    pullPolicy: Never
-    #tag: "latest"
-    tag: "0.5.3"
-```
 
 :::
+
+
 
 For the most bare-bones installation of the dataspace, execute the following commands in a shell:
 
@@ -82,13 +66,13 @@ git clone  https://github.com/eclipse-tractusx/tutorial-resources.git
 ```
 
 ```shell
-# will install the mxd directory under <current working directory>/tutorial-resources/mxd
+# will install the TXD directory under <current working directory>/tutorial-resources/TXD
 # the directory should contain the config file for kind: kind.config.yaml
-cd <path/of/mxd>
+cd <path/of/TXD>
 ```
 
 ```shell
-kind create cluster -n mxd --config kind.config.yaml
+kind create cluster -n TXD --config kind.config.yaml
 ```
 
 ```shell
