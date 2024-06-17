@@ -10,7 +10,7 @@ shared Postgres server, where each of them has a database. MIW and Keycloak are 
 once and are accessible by all participants.
 
 :::note
-This chapter refers to also to the README for the Tractus-X umbrella charts following the link:  
+This chapter refers to also to the README for the Tractus-X umbrella charts following the link:
 <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
 :::
 
@@ -53,9 +53,11 @@ This will ensure that ingress is working in the correct environment of your clus
 :::
 
 ## Using Umbrella Helm Charts for the Deployment
+
 This Tutorial will be deployed by using an umbrella chart, which provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network consisting of Tractus-X OSS components. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running, see above warning). If several clusters are riunninh we need to adjsut a few configartion files.
 
 The currently available components availbe by the Umbrella Helm Chart are following:
+
 - portal
 - centralidp
 - sharedidp
@@ -71,6 +73,7 @@ The currently available components availbe by the Umbrella Helm Chart are follow
 ### Starting with the Deployment of [TXD] , our own local dataspace
 
 We now start to deploy the TXD, our own dataspace. We will start by downloading the sources from Github into our local environment. Then we will step by step
+
 - get the source
 - start minikube bringing up the cluster (profile)
 - enabling Ingress for local access using the addon for Minikube
@@ -80,6 +83,7 @@ We now start to deploy the TXD, our own dataspace. We will start by downloading 
 - checking their liveness
 
 ### Get the source from the Tractus-X Github
+
 For the most bare-bones installation of the dataspace, execute the following commands in a shell:
 
 ```bash
@@ -94,6 +98,7 @@ cd tractus-x-umbrella
 ```
 
 ### Start the minkube cluster (profile)
+
 To start the cluster we just call **minikube start**, if we have morethen one instance, we use -p option to set the profile name minikube-$USER, we use the othe roptions to request the appropiate resources.
 
 ```bash
@@ -113,13 +118,14 @@ minikube [-p minikube-$USER] dashboard                   # if -p option is used,
 ```
 
 ### Seting up the local internal netwok
+
 in order to enable the local access via ingress, use the according addon for Minikube:
 
 ```bash
 minikube [-p minikube-$USER] addons enable ingress                 # if -p option is used, with the profile name minikube-$USER
 ```
 
-You will be fine by just enabling ingress, if you now add a few hostnames into  /etc/hosts. You shoul densure that you have access, the /etc/hosts file group entry should be assigend to the group **docker**. check with 
+You will be fine by just enabling ingress, if you now add a few hostnames into  /etc/hosts. You shoul densure that you have access, the /etc/hosts file group entry should be assigend to the group **docker**. check with
 
 ```bash
 ls -al /etc/hosts                  # Output should be like:  "-rw-r--r-- 1 root docker 414 Jun 16 14:34 /etc/hosts"
@@ -152,9 +158,10 @@ search test
 nameserver 192.168.99.169
 timeout 5
 ```
+
 ::note
 
-Replace 192.168.99.169 with the output of minikube ip. If you are not the only one running the tutorial on your system replace **tx**with your username stored in **$USER**. 
+Replace 192.168.99.169 with the output of minikube ip. If you are not the only one running the tutorial on your system replace **tx**with your username stored in **$USER**.
 
 :::
 
@@ -196,7 +203,7 @@ They should all return the saem IP adresse (the one of Minikube [-p minikube.$US
 Understanding the role of helm install and upgrade
 
 helm install is used to install a chart in Kubernetes using Helm.
-  
+
   --set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true Enables the components by setting their respective enabled values to true.
 
   **umbrella** is the release name for the chart.
@@ -207,7 +214,7 @@ helm install is used to install a chart in Kubernetes using Helm.
 
   --create-namespace create a namespace with the name umbrella
 
-**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]** 
+**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]**
 
 :::
 
@@ -218,6 +225,7 @@ helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 ```
 
 For the tutorial we first select a subset of components for the dataexchange between a dataconsumer (Alice) and a dataprovider (Bob). The needed components are the following:
+
 - centralidp
 - managed-identity-wallet
 - dataconsumerOne (tractusx-edc, vault)
@@ -228,6 +236,7 @@ For the tutorial we first select a subset of components for the dataexchange bet
 We chosing a predefined subset of the E2E adopter journey which provies the above selecteion.
 
 #### Moved to the Umbrella dircetory with the config files
+
 ```bash
 cd <your original working directory>/tractus-x-umbrella/charts/umbrella
 ```
@@ -238,7 +247,8 @@ skip the next paragraph, if you are running the only one minikube cluster on you
 
 :::
 
-#### Adjusting the Config files for multi user usage 
+#### Adjusting the Config files for multi user usage
+
 In case we have to modify the values within the configuartion files as we run in a multi use enviromnet, we need adjust the domians names within the configuration files.A simple way is to update the file by using **sed** as line editor.
 
 ```bash
@@ -270,9 +280,7 @@ cp init-container/iam/sharedidp/CX-Operator-users-0.json init-container/iam/shar
 cat init-container/iam/sharedidp/CX-Operator-users-0.json.orig | sed s/tx.test/$DOMAIN_NAME/ > init-container/iam/sharedidp/CX-Operator-users-0.json
 ```
 
-
-
-#### Run the helm install command to install the cert-manager chart in the same namespace where the umbrella chart will be located." 
+#### Run the helm install command to install the cert-manager chart in the same namespace where the umbrella chart will be located."
 
 ```bash
 helm install cert-manager jetstack/cert-manager --namespace umbrella[-$USER] --create-namespace --version v1.14.4 --se
@@ -352,7 +360,7 @@ dataconsumerTwo:
 helm upgrade -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella
 ```
 
-## Inspect 
+## Inspect
 
 After the `helm` command has successfully completed, it will output a few configuration and setup values
 that we will need in later steps. Please note that some values will be different on your local system.
@@ -381,7 +389,7 @@ minikube [-p minikube-$USER] dashboard                   # if -p option is used,
 ```
 
 :::Note
-This chapter refers to a subset of the E2E Journey described in the README for the Tractus-X umbrella charts. Please follow the link:  <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>. There you will find a lot more information on how you can extend the setup by adding further components, such as a portal, to increase your experience. You also find hints on how to use the Umbrella Helm Chart on Windows or MAC. We will continue to add more content to the tutorial. 
+This chapter refers to a subset of the E2E Journey described in the README for the Tractus-X umbrella charts. Please follow the link:  <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>. There you will find a lot more information on how you can extend the setup by adding further components, such as a portal, to increase your experience. You also find hints on how to use the Umbrella Helm Chart on Windows or MAC. We will continue to add more content to the tutorial.
 :::
 
 ## Notice

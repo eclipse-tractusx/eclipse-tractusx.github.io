@@ -39,7 +39,7 @@ In case you want to install Tractus-X components or [Kits] directly on your loca
 - Your local system should run a Linux Version (Debian or Ubuntu 22.04 or higher are recommended)
 - You need super user privileges (either root access or the right to use sudo)
 - The above tools should be installed (Docker, Kubernetes, Kubectl, Minikube, Helm and Browser, X-Environment)
-- To enbale users to run the tutorial after you ave installed the required enviroment setup the environmemt as described in the last section. 
+- To enbale users to run the tutorial after you ave installed the required enviroment setup the environmemt as described in the last section.
 
 ### Access to the Internet
 
@@ -174,7 +174,8 @@ The user group docker shoild be created, check if it exists.
 ```bash
 grep docker /etc/group
 ```
-Response should be: 
+
+Response should be:
 
 ```bash
 docker:x:120:
@@ -191,7 +192,8 @@ As before, ensure you have the latest versions for your release.
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-and the install kubernetes 
+
+and the install kubernetes
 
 ```bash
 sudo apt install kubernetes
@@ -199,7 +201,7 @@ sudo apt install kubernetes
 
 #### Install kubectl
 
-kubectl will be installed with snap, we need to use snap security policy "classic" instead of the default policy "strict" to allow snap full access to the system.  
+kubectl will be installed with snap, we need to use snap security policy "classic" instead of the default policy "strict" to allow snap full access to the system.
 
 ```bash
 sudo snap install kubectl --classic
@@ -266,14 +268,13 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 && chmod +x minikube
 ```
 
-The chmod command is used to ensure minikube is executable. If you want other users to have access, you should copy the executable to /usr/bin/ or nother comparable location which is used by all users. Ensure that all members of the group "docker" have access. 
+The chmod command is used to ensure minikube is executable. If you want other users to have access, you should copy the executable to /usr/bin/ or nother comparable location which is used by all users. Ensure that all members of the group "docker" have access.
 
 ```bash
 sudo cp ./minikube /usr/bin
 chgrp docker /usr/bin/minikube
 chmod 750 /usr/bin/minikube
 ```
-
 
 #### Install helm
 
@@ -303,6 +304,7 @@ To install and configure the X11 environment use apt.
 ```bash
 sudo apt install xterm
 ```
+
 Ensure that the X11 forwarding is working for ssh -X, add to your .bashrc
 
 ```bash
@@ -364,13 +366,14 @@ sudo apt-get install insomnia
 
 You do not need full system access to proceed with the following steps of tutorial (even not for the deployment). Further you may allow several users to deploy their environment at the same time on the same system. But there are a few critical aspects, you need to consider. But first we begin with setting up the appropriate permissions for a user.
 
-:::note 
+:::note
 
 We use as example the username [tx01].
 
 :::
 
 The user tx01 needs the following permissions to be able to successfully complete the tutorial.
+
 - if has to be a member of the group docker.
 - He needs write access to /etc/hosts
 So we run the following commands, assuming the user already exists:
@@ -378,9 +381,10 @@ So we run the following commands, assuming the user already exists:
 ```bash
 sudo addusr tx01 docker               # adds the user to the group docker
 sudo chgrp docker /etc/hosts          # change the group permissin from root to docker
-sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts 
+sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts
 ```
-You should brief your user regarding their responsiblity when theri are editing /etc/hosts. 
+
+You should brief your user regarding their responsiblity when theri are editing /etc/hosts.
 
 :::Warning
 

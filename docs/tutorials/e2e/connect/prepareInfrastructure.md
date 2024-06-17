@@ -8,7 +8,7 @@ sidebar_position: 1
 In order to run the TXD on your local machine, please make sure the following
 preconditions are met.
 
-- Have a local Kubernetes runtime ready. 
+- Have a local Kubernetes runtime ready
 - Have kubectl installed
 - Minkube is installed
 - you have a web browser
@@ -19,9 +19,9 @@ preconditions are met.
   Not mandatory of course, but all screenshots in this doc are created off of Lens.
 - [Optional] a graphical tool to inspect Postgres databases, such as [PgAdmin](https://www.pgadmin.org/). Screenshots in
   this guide are created off of PgAdmin.
-- [Optional] a graphical tool to send REST requests, such as [insomnia] ( https://insomnia.rest/) or [Postman](https://www.postman.com/). This sample will include Postman collections that can be imported.
+- [Optional] a graphical tool to send REST requests, such as [insomnia] ( <https://insomnia.rest/>) or [Postman](https://www.postman.com/). This sample will include Postman collections that can be imported.
 
-See Chapter [prerequisites] (https://eclipse-tractusx.github.io/docs/tutorials/e2e/prerequisites/) on how to prepare your system.
+See Chapter [prerequisites] (<https://eclipse-tractusx.github.io/docs/tutorials/e2e/prerequisites/>) on how to prepare your system.
 
 ## Notice
 
