@@ -3,14 +3,14 @@ title: Understand the overarching architecture
 sidebar_position: 2
 ---
 
-This section provides an overview of the Tractus-X Data Space (TXD) architecture. In short, the TXD is a simplified version of the Catena-X data space for local deployment. Not all components of Catena-X are used in the TXD.
+This section provides an overview of the Tractus-X Data Space (TXD) architecture. In short, the TXD is a simplified version of the Catena-X data space for local deployment. Not all components of Catena-X are currently used in the TXD.
 
 The tutorial is under continuous development. The [TXD architecture](#the-tractus-x-data-space-architecture) shows all current and planned components of the TDX.
 
 ## Components of the Tractus-X Data Space
 
 ### EDC
-The key component of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC). **This component is used to exchange data between participants**. This includes:
+A key component of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC). **This component is used to exchange data between participants**. This includes:
 
 - Provide data to other participants in the data space.
     - connect data sources to the EDC
@@ -70,7 +70,7 @@ In Catena-X digital twins are realized with the [Asset Administration Shell](htt
 The Digital Twin Registry (DTR) is a decentralized component that can be registered as a contract definition in an EDC. It serves a function similar to the index in a book. With the DTR, a data consumer can get an overview of WHAT to find, HOW and WHERE to access it. The registry contains submodel descriptors that point to the endpoint of submodels of a digital twin.
 
 ### AAS-Server
-The AAS-Server or Submodel Server is used to store submodels or also called digital twin aspects.
+The AAS-Server or Submodel Server is used to store submodels.
 
 :::info
 
