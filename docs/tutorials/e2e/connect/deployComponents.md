@@ -214,7 +214,7 @@ helm install is used to install a chart in Kubernetes using Helm.
 
   --create-namespace create a namespace with the name umbrella
 
-**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]**
+**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]!**
 
 :::
 
