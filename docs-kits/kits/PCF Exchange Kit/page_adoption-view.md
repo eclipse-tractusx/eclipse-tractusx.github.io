@@ -402,7 +402,7 @@ The following json shows a example payload for a requested PCF value.
 ```json
 {
   "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
-  "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt", "http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt" ],
+  "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "urn:vat:id:DE123456789"],
   "extWBCSD_productCodeCpc" : "011-99000",
   "created" : "2022-05-22T21:47:32Z",
   "companyName" : "My Corp",
@@ -469,7 +469,7 @@ The following json shows a example payload for a requested PCF value.
     "carbonContentBiogenic" : 0.0
   },
   "partialFullPcf" : "Cradle-to-gate",
-  "productIds" : [ "urn:gtin:4712345060507", "http://www.wikipedia.org", "telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt" ],
+  "productIds" : [ "urn:gtin:4712345060507", "urn:id:9587654", "urn:uuid4:id:9885a472-2cbf-4f89-9650-e83a44e7bdf1" ],
   "validityPeriodStart" : "2022-01-01T00:00:01Z",
   "comment" : "Additional explanatory information not reflected by other attributes",
   "id" : "3893bb5d-da16-4dc1-9185-11d97476c254",
