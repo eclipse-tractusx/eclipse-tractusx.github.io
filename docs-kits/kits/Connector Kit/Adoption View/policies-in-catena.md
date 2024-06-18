@@ -37,22 +37,22 @@ they are described by them in their associated KITs and only general elements ar
 
 Here's a non-normative overview of these extensions:
 
-### Use Case Framework Constraints
+### Data Exchange Governance
 
-Use Case Framework Constraints are references to legally binding documents set up by the Catena-X association. They
-govern the _"who, with whom, what, where from and where to, why, how, and when"_ of Data Sharing in Catena-X Use-Cases
+The FrameworkAgreement references the legally binding Data Exchange Governance document set up by the Catena-X association. It
+governs the _"who, with whom, what, where from and where to, why, how, and when"_ of Data Sharing in Catena-X
 ([Source](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)).
-Use Case Frameworks are roughly structured along the lines of business scenarios under which a set of business partners
+It is roughly structured along the lines of business scenarios under which a set of business partners
 want to exchange data.
 
-Each Participant commits to a set of Use Case Frameworks during Onboarding. They are granted a set of VCs as proof of
-that commitment. Consequently, Use Case Framework Constraints belong to the kind of `odrl:Constraint`s that have to be
+Each Participant commits to the Data Exchange Governance during Onboarding. They are granted a set of VCs as proof of
+that commitment. Consequently, the FrameworkAgreement Constraint belongs to the kind of `odrl:Constraint`s that have to be
 [checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation). The
-complete set is listed in the most current version of standard
+details are listed in the most current version of standard
 [CX-0050 Framework Credential](https://catena-x.net/de/standard-library).
-Use Case Frameworks are referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
-negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also his
-Credentials. Here's an example of an `odrl:Constraint` referencing a Use Case Framework and invoking the VC-check:
+The Governance Framwork is referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
+negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also their
+Credentials. Here's an example of an `odrl:Constraint` referencing the Data Exchange Governance and invoking the VC-check:
 
 ```json
 {
@@ -63,20 +63,18 @@ Credentials. Here's an example of an `odrl:Constraint` referencing a Use Case Fr
   "odrl:operator": {
     "@id": "odrl:eq"
   },
-  "odrl:rightOperand": "traceability:1.0"
+  "odrl:rightOperand": "DataExchangeGovernance:1.0"
 }
 ```
 
 ### Usage Purposes
 
-Purposes are usually part of a Use Case Framework and restrict the purpose the Consumer is privileged to use the
+Purposes are published in [CX ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile) and restrict the purpose the Consumer is privileged to use the
 obtained data for. Unlike a Use Case Framework Constraint, the purposes are NOT checked against VCs, thus necessary
 for a successful negotiation mechanism is
 only [the Consumer's consent to the Offer](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage).
-Versions for UsagePurpose `rightOperand`s are typically 1-digit. The complete list of usage purposes in Catena-X is
-publicly available in the [CX ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile). The corresponding documents
-are linked on
-the [Catena-X e.V. homepage](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations).
+Versions for UsagePurpose `rightOperand`s are typically 1-digit.
+
 Here's an example from the Use Case Framework Traceability:
 
 | Predefined Policy                | Typically used where? | Predefined Purpose                                                                                                                                        |
@@ -166,7 +164,7 @@ property):
                   "odrl:operator": {
                     "@id": "odrl:eq"
                   },
-                  "odrl:rightOperand": "traceability:1.0"
+                  "odrl:rightOperand": "DataExchangeGovernance:1.0"
                 },
                 {
                   "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
@@ -194,7 +192,7 @@ property):
                 "odrl:operator": {
                   "@id": "odrl:eq"
                 },
-                "odrl:rightOperand": "traceability:1.0"
+                "odrl:rightOperand": "DataExchangeGovernance:1.0"
               },
               {
                 "odrl:leftOperand": "https://w3id.org/catenax/policy/ContractReference",
