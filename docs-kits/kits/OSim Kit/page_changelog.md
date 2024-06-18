@@ -46,3 +46,12 @@ Additionally to the “simulation flow” released in the version 1.0.0 this ver
 ### Removed
 
 - ./.
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Factory Operation and Automation IFF
+- SPDX-FileCopyrightText: 2024,Siemens AG
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

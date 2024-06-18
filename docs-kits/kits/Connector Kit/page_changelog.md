@@ -6,6 +6,10 @@
 
 All notable changes to this Kit will be documented in this file.
 
+## [3.0.0] - 2024-06-07
+
+- Replace use case specific FrameworkAgreement rightOperand with the new, consolidated DataExchangeGovernance released with 2408
+
 ## [2.1.0] - 2024-05-29
 
 - Added new page on policies in general
