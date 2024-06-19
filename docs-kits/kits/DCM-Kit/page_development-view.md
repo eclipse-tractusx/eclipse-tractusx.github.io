@@ -13,34 +13,87 @@ standard [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 
 ## Introduction
 
-This document describes the `WeekBasedMaterialDemand`, `WeekBasedCapacityGroup`, `IdBasedRequestForUpdate` and `IdBasedComment`
-semantic models and the API definitions used in the DCM Catena-X network.
+This document provides developers with ressources to accelerate the development of apps and services.
 
-## Aspect Models
+## Capabilities of a DCM application
+[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] describes the following capabilities:
+
+|Capability|Category|Related Aspect Models|Related APIs|
+|-|-|-|-|
+|Providing and consuming demand data|Core|WeekBasedMaterialDemand|WeekBasedMaterialDemand API|
+|Providing and consuming capacity data|Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
+|Comparing demand and capacity data|Core|WeekBasedMaterialDemand<br>WeekBasedCapacityGroup|N/A|
+|Demand volatility metrics|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
+|Simulated delta production|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
+|Load factors|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
+|Digital twins|Extended|WeekBasedMaterialDemand<br>WeekBasedCapacity Group|DCM Asset Administration Shell API|
+|Request for update|Extended|IdBasedRequestForUpdate|IdBasedRequestForUpdate AP|
+|Comments|Extended|IdBasedComment|IdBasedComment API|
+|Supply chain disruption notifications|Extended|demandAndCapacityNotification|DemandAndCapacityNotification API|
+
+- Core capabilities are mandatory within the standard.
+- Outer core capabilities share APIs and aspect models with core capabilities, but are optional.
+- Extended capabilities introduce aspect models or APIs beyond the core and are optional.
+
+A MVP approach can be followed when developing software, implementing CX-0128, by taking care of core capabilities first, followed by outer core and finishing with extended capabilities.
+
+## Roles and rights of a DCM application
+
+[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] describes the business roles customer and supplier. In addition an admin role might be a sensible addition to any application. Most companies within a supply chain will have need of both business roles. Individual users within a company might need access to both business roles.
+
+|Role|Capabilities|
+|-|-|
+|Customer|Modify WeekBasedMaterialDemand<br>Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Utilize comments<br>Utilize supply chain disruption notification|
+|Supplier|Modify WeekBasedCapacityGroup<br>Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Link WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Utilize comments<br>Utilize supply chain disruption notification|
+|Admin|Configure Request for update|
+
+## Aspect models utilized by a DCM application
 
 ### Aspect Model "WeekBasedMaterialDemand"
 
-For the exchange of material demand information, customers MUST provide data to suppliers. The data format specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] MUST be conformed to.
+Demand information is represented as `WeekBasedMaterialDemand` aspect models. Only customers are allowed to create and modify a `WeekBasedMaterialDemand`.
 
-Customers and suppliers MUST implement the `WeekBasedMaterialDemand` data model.
+The structure of a `WeekBasedMaterialDemand` looks like this:
 
-Suppliers MUST be able to consume and process material demand information.
+```mermaid
+block-beta
+columns 6
+A("WeekBasedMaterialDemand"):6
+B1("Supplier")
+B2("Customer")
+B3("changedAt")
+B4("DemandSeries"):3
+C1("MaterialDescriptionCustomer")
+C2("MaterialNumberCustomer")
+C3("MaterialDemandID")
+C4("MaterialNumberCustomer")
+C5("DemandCategory")
+C6("CustomerLocation")
+D1("InactiveFlag")
+D2("UnitOfMeasure")
+D3(" ")
+D4("PointInTime")
+D5("DemandQuantity")
+D6(" ")
 
-Customers MUST be able to provide and process material demand information.
+classDef Demand_must fill:#FFA600,stroke:#FFFFFF,color:#000000
+classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
+classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#000000
+classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#000000
 
-Data providers of `WeekBasedMaterialDemand` data MUST ensure that it aligns with the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+classDef Invis fill:#000000,stroke:#000000,color:#000000,opacity:0
+class A,B1,B2,B3,B4,C1,C2,C3,C4,C5,C6,D4,D5 Demand_must
+class D1,D2 Demand_optional
+class D3,D6 Invis
+```
 
-The unique identifier for the semantic model, as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary], MUST be used to define the meaning of the data being transferred.
+```mermaid
+block-beta
+A["Demand data (MUST)"] style A fill:#FFA600,color:#F4F2F3
+B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
+```
 
-Business applications utilizing `WeekBasedMaterialDemand` data MUST consume this data, conforming to the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-Within the Catena-X data space `WeekBasedMaterialDemand` data MUST be requested and exchanged using a connector, conforming to the standards [CX-0018][StandardLibrary] and [CX-0002][StandardLibrary].
-
-The JSON Payload provided by data providers MUST comply with the JSON schema as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-The characteristics BPNL and BPNS MUST be used, conforming with [CX-0010][StandardLibrary].
-
-#### Sample Data
+As a serialized json payload it looks like this:
 
 ```json
 {
@@ -69,45 +122,58 @@ The characteristics BPNL and BPNS MUST be used, conforming with [CX-0010][Standa
 }
 ```
 
-The semantic model has the unique identifier
-
-```text
-urn:samm:io.catenax.week_based_material_demand:3.0.0
-```
-
-Data providers MUST use this identifier to clearly define the semantics of the data they are transferring.
-
-All other file format and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
+All file formats and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
 
 ```text
 https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_material_demand/3.0.0/WeekBasedMaterialDemand.ttl
 ```
 
-The open source command line tool of the Eclipse Semantic Modeling Framework is used to generate other file formats such as JSON schema, AASX for Asset Administration Shell Submodel template or HTML documentation.
+For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+
 
 ### Aspect Model "WeekBasedCapacityGroup"
 
-For the exchange of capacity group information, suppliers MUST provide data to customers. The data format specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] MUST be conformed to.
+Capacity information is represented as `WeekBasedCapacityGroup` aspect models. Only suppliers are allowed to create and modify a `WeekBasedCapacityGroup`.
 
-Customers and suppliers MUST implement the `WeekBasedCapacityGroup` data model.
+The structure of a `WeekBasedCapacityGroup` looks like this:
 
-Suppliers MUST be able to provide and process capacity group information.
+```mermaid
+block-beta
+columns 7
+A("WeekBasedCapacityGroup"):7
+B1("Supplier")
+B2("Customer")
+B3("CapacityGroupID")
+B4("changedAt")
+B5("Calendar Week"):3
+C1("Inactive flag")
+C2("UnitOfMeasure")
+space
+C4("CapacityGroupName")
+C5("ActualCapacity")
+C6("MaximumCapacity")
+C7("AgreedCapacity")
+space:4
+D5("quantity")
+D6("quantity")
+D7("quantity")
 
-Customers MUST be able to consume and process capacity group information.
+classDef Demand_must fill:#FFA600,stroke:#FFFFFF,color:#000000
+classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
+classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#000000
+classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#000000
+class A,B1,B2,B3,B4,B5,C1,C2,C4,C5,C6,D1,D5,D6 Capacity_must
+class C1,C2,C7,D7 Capacity_optional
+```
 
-Data providers of `WeekBasedCapacityGroup` data MUST ensure that it aligns with the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+```mermaid
+block-beta
+A["Capacity data (MUST)"] style A fill:#B3CB2D,color:#F4F2F3
+B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
+```
 
-The unique identifier for the semantic model, as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary], MUST be used to define the meaning of the data being transferred.
 
-Business applications utilizing `WeekBasedCapacityGroup` data MUST consume this data, conforming to the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-Within the Catena-X data space `WeekBasedCapacityGroup` data MUST be requested and exchanged using a connector, conforming to the standards [CX-0018][StandardLibrary] and [CX-0002][StandardLibrary].
-
-The JSON Payload provided by data providers MUST comply with the JSON schema as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-The characteristics BPNL and BPNS MUST be used, conforming with [CX-0010][StandardLibrary].
-
-#### Sample Data
+As a serialized json payload it looks like this:
 
 ```json
 {
@@ -152,43 +218,44 @@ The characteristics BPNL and BPNS MUST be used, conforming with [CX-0010][Standa
 }
 ```
 
-The semantic model has the unique identifier
-
-```text
-urn:samm:io.catenax.week_based_capacity_group:3.0.0
-```
-
-Data providers MUST use this identifier to clearly define the semantics of the data they are transferring.
-
-All other file format and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
+All file formats and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
 
 ```text
 https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/3.0.0/WeekBasedCapacityGroup.ttl
 ```
 
-The open source command line tool of the Eclipse Semantic Modeling Framework is used to generate other file formats such as JSON schema, AASX for Asset Administration Shell Submodel template or HTML documentation.
+For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ### Aspect Model "IdBasedRequestForUpdate"
 
-`IdBasedRequestForUpdate` can be exchanged between customer and supplier conforming to the API standard described in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]. The data format specified in this standard MUST be conformed to.
+`IdBasedRequestForUpdate` aspect models can be used to request data synchronization with a business partner. Both customer and supplier can make use of `IdBasedRequestForUpdate` to request the synchronization of `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup`.
 
-Customers and suppliers MUST implement the `IdBasedRequestForUpdate` data model.
+The structure of a `IdBasedRequestForUpdate` looks like this:
 
-Customers and suppliers MUST be able to consume and process a request for update.
+```mermaid
+block-beta
+columns 4
+A("RequestforUpdate"):4
+B1("WeekBasedMaterialDemand"):2
+B3("WeekBasedCapacityGroup"):2
+C1("changedAt")
+C2("MaterialDemandID")
+C3("changedAt")
+C4("CapacityGroupID")
 
-Providing an `IdBasedRequestForUpdate` is OPTIONAL. It is RECOMMENDED to be both capable of providing and consuming a request for update.
 
-Providers of an `IdBasedRequestForUpdate` MUST ensure that it aligns with the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+classDef RfU_must fill:#219dd4,stroke:#FFFFFF,color:#F4F2F3
+classDef RfU_optional fill:#046b99,stroke:#FFFFFF,color:#F4F2F3
+class A RfU_must
+class B1,B3,C1,C2,C3,C4 RfU_optional
+```
+```mermaid
+block-beta
+A["Request for Update data (MUST)"] style A fill:#219dd4,color:#F4F2F3
+B["Request for Update data (optional)"] style B fill:#046b99,color:#F4F2F3
+```
 
-The unique identifier for the semantic model, as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary], MUST be used to define the meaning of the data being transferred.
-
-Business applications utilizing `IdBasedRequestForUpdate` data MUST consume this data, conforming to the semantic model specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-Within the Catena-X data space `IdBasedRequestForUpdate` data MUST be requested and exchanged using a connector, conforming to the standards [CX-0018][StandardLibrary] and [CX-0002][StandardLibrary].
-
-The JSON Payload provided by data providers MUST comply with the JSON schema as specified in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
-#### Sample Data
+As a serialized json payload it looks like this:
 
 ```json
 {
@@ -203,21 +270,14 @@ The JSON Payload provided by data providers MUST comply with the JSON schema as 
 }
 ```
 
-The semantic model has the unique identifier
-
-```text
-urn:samm:io.catenax.id_based_request_for_update:3.0.0
-```
-
-Data providers MUST use this identifier to clearly define the semantics of the data they are transferring.
-
-All other file format and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
+All file formats and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
 
 ```text
 https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/3.0.0/IdBasedRequestForUpdate.ttl
 ```
 
-The open source command line tool of the Eclipse Semantic Modeling Framework is used to generate other file formats such as JSON schema, AASX for Asset Administration Shell Submodel template or HTML documentation.
+For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+
 
 ### Aspect Model "IdBasedComment"
 
