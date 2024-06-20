@@ -91,7 +91,7 @@ The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:6.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:7.0.0#Pcf"
            }
        ]
     },
@@ -135,7 +135,7 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:6.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:7.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },
@@ -153,7 +153,12 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
 
 #### Payload for EDC Policy
 
-The following JSON is an policy definition including the policiy credentials for "active membership", "frameworkagreement pcf" and "pcf base usage purpose". The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
+The following JSON is an policy definition including the *mandatory* policy constraints for "active membership", "signed frameworkagreement" and "pcf base usage purpose". The [frameworkagreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and are available via the Catena-X homepage. The membership credential is automatically created after finishing successfully the onboarding process.
+
+In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless will it be checked on a syntactical level during contract negotiation. If such a contract refererence should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
+
+>**Note**
+> The here mentioned *FrameworkAgreement Pcf* is only valid until Oct. 16th 2024. It will be replaced by a new more generic *Framework DataExchangeGovernance* on Oct. 17th 2024. More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
 
 ##### Payload to create a SSI based Policy
 
@@ -162,7 +167,7 @@ The following JSON is an policy definition including the policiy credentials for
     "@context": {
         "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
     },
-    "@id": "<POLICY-ID>",
+    "@id": "a343fcbf-99fc-4ce8-8e9b-148c97605aab",
     "policy": {
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
@@ -178,14 +183,19 @@ The following JSON is an policy definition including the policiy credentials for
                 "constraint": {
                     "and": [
                         {
-                            "leftOperand": "cx-policy:Membership",
+                            "leftOperand": "cx-policy:ContractReference",
                             "operator": "eq",
-                            "rightOperand": "active"
+                            "rightOperand": "<OptionalBilateralContractReferenceNumber>"
                         },
                         {
                             "leftOperand": "cx-policy:FrameworkAgreement",
                             "operator": "eq",
-                            "rightOperand": "pcf:1.0"
+                            "rightOperand": "Pcf:1.0"
+                        },
+                        {
+                            "leftOperand": "cx-policy:Membership",
+                            "operator": "eq",
+                            "rightOperand": "active"
                         },
                         {
                             "leftOperand": "cx-policy:UsagePurpose",
@@ -199,6 +209,8 @@ The following JSON is an policy definition including the policiy credentials for
     }
 }
 ```
+>**Note**
+Be aware that - due to an open issue in EDC version 0.7.x - all criterias must be added in fixed (alphabetical) order!
 
 For more examples how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
@@ -207,7 +219,7 @@ For more examples how to define policies with SSI have a look [here](https://git
 ```json
 {
     "@id": "54ef3326-42b2-4221-8c5a-3a6270d54db8",
-    "edc:accessPolicyId": "a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+    "edc:accessPolicyId": "7cb20eb1-08db-4532-bd74-ad480f551654",
     "edc:contractPolicyId": "a343fcbf-99fc-4ce8-8e9b-148c97605aab",
     "edc:assetsSelector":[
         {
@@ -217,6 +229,59 @@ For more examples how to define policies with SSI have a look [here](https://git
             "edc:operandRight": "c34018ab-5820-4065-9087-416d78e1ab60"
         }
     ]
+}
+```
+
+Inside the contract definition an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given [here](#payload-to-create-a-ssi-based-policy). 
+
+The content of the access policy depends on the criterias used within the usage policy:
+- _No bilateral contract_ reference criteria _is used_ in usage policy => an empty access policy can be used:
+```json
+{
+    "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@id": "7cb20eb1-08db-4532-bd74-ad480f551654",
+    "policy": {
+        "@context": [
+            "https://www.w3.org/ns/odrl.jsonld",
+            {
+                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+            }
+        ],
+        "@type": "Policy",
+        "profile": "cx-policy:profile2405",
+        "permission": []
+  }
+}
+```
+- A _bilateral contract_ reference criteria _is used_ in usage policy => an access policy restricting access to the contract partners BPNL *MUST* be used:
+```json
+{
+    "@context": {
+        "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@id": "7cb20eb1-08db-4532-bd74-ad480f551654",
+    "policy": {
+        "@context": [
+            "https://www.w3.org/ns/odrl.jsonld",
+            {
+                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+            }
+        ],
+        "@type": "Policy",
+        "profile": "cx-policy:profile2405",
+        "permission": [
+            {
+                "action": "use",
+                "constraint": {
+                    "leftOperand": "BusinessPartnerNumber",
+                    "operator": "eq",
+                    "rightOperand": "BPNL00000000XXXX"
+                }
+            }
+        ]
+    }
 }
 ```
 
@@ -257,4 +322,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 CCT
 - SPDX-FileCopyrightText: 2023, 2024 Gris Group
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- [Source URL](https://github.com/eclipse-tractusx/pcf-exchange-kit)
+- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/PCF%20Exchange%20Kit)
