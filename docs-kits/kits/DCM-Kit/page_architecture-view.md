@@ -70,96 +70,112 @@ The overall interaction between partners is illustrated by the following sequenc
 
 ```mermaid
 sequenceDiagram
-    box rgb(80,80,80) Customer
-    participant Customer
+    box rgb(97,97,97) Customer
+    actor Customer
     participant CustomerApp as Customer App
     participant CustomerConnector as Customer connector
     end
-    box rgb(80,80,80) Core Services
+    box rgb(97,97,97) Core Services
     participant CoreBpnlDiscovery as Core BPNL Discovery
     participant CoreEdcDiscovery as Core EDC discovery
     end
-    box rgb(80,80,80) Supplier
+    box rgb(97,97,97) Supplier
     participant SupplierConnector as Supplier connector
     participant SupplierApp as Supplier App
-    participant Supplier
+    actor Supplier
     end
-
-    Customer ->> CustomerApp: Create MaterialDemand
-    activate CustomerApp
-    CustomerApp -->> Customer: MaterialDemand created
-    deactivate CustomerApp
-    Customer ->> CustomerApp: Finalize MaterialDemand
-    activate CustomerApp
-    CustomerApp ->> CoreBpnlDiscovery: Resolve Supplier Base Data into BPNL
-    activate CoreBpnlDiscovery
-    CoreBpnlDiscovery -->> CustomerApp: Supplier BPNL
-    deactivate CoreBpnlDiscovery
-    CustomerApp ->> CoreEdcDiscovery: Resolve Supplier BPNL into connector URL catalogue
-    activate CoreEdcDiscovery
-    CoreEdcDiscovery -->> CustomerApp: Connector URL catalogue
-    deactivate CoreEdcDiscovery
-    CustomerApp ->> CustomerApp: Find correct connector via URL catalogue inspection
-    CustomerApp ->> CustomerConnector: Transmit MaterialDemand
+    rect rgb(255,166,0)
+        note right of Customer: Customer creates MaterialDemand locally
+        Customer ->> CustomerApp: Create MaterialDemand
+        activate CustomerApp
+        CustomerApp -->> Customer: MaterialDemand created
+        deactivate CustomerApp
+        Customer ->> CustomerApp: Finalize MaterialDemand
+    end
+    rect rgb(33,157,212)
+        note right of CustomerApp: Customer App finds endpoint of Supplier
+        activate CustomerApp
+        CustomerApp ->> CoreBpnlDiscovery: Resolve Supplier Base Data into BPNL
+        activate CoreBpnlDiscovery
+        CoreBpnlDiscovery -->> CustomerApp: Supplier BPNL
+        deactivate CoreBpnlDiscovery
+        CustomerApp ->> CoreEdcDiscovery: Resolve Supplier BPNL into connector URL catalogue
+        activate CoreEdcDiscovery
+        CoreEdcDiscovery -->> CustomerApp: Connector URL catalogue
+        deactivate CoreEdcDiscovery
+        CustomerApp ->> CustomerApp: Find correct connector via URL catalogue inspection
     activate CustomerConnector
-    CustomerConnector ->> SupplierConnector: Resolve connector Endpoint and connector service catalogue into MaterialDemand API URL
-    activate SupplierConnector
-    SupplierConnector ->> CustomerConnector: Framework & Contract Negotiation
-    CustomerConnector -->> SupplierConnector: Framework & Contract Negotiation
-    SupplierConnector -->> CustomerConnector: MaterialDemand API URL
-    CustomerConnector ->> SupplierConnector: Transmit MaterialDemand
-    SupplierConnector ->> SupplierApp: Transmit MaterialDemand
-    activate SupplierApp
-    SupplierApp ->> Supplier: Transmit MaterialDemand
-    Supplier -->> SupplierApp: MaterialDemand received
-    SupplierApp -->> SupplierConnector: MaterialDemand received
-    deactivate SupplierApp
-    SupplierConnector -->> CustomerConnector: MaterialDemand received
-    deactivate SupplierConnector
-    CustomerConnector -->> CustomerApp: MaterialDemand received
-    deactivate CustomerConnector
-    CustomerApp -->> Customer: MaterialDemand finalized & synchronized
-    deactivate CustomerApp
-
-    Supplier ->> SupplierApp: Create CapacityGroup
-    activate SupplierApp
-    SupplierApp -->> Supplier: CapacityGroup created
-    deactivate SupplierApp
-    Supplier ->> SupplierApp: Link Demands to CapacityGroup
-    activate SupplierApp
-    SupplierApp -->> Supplier: Demands Linked
-    deactivate SupplierApp
-    Supplier ->> SupplierApp: Finalize CapacityGroup
-    activate SupplierApp
-    SupplierApp ->> CoreBpnlDiscovery: Resolve Customer Base Data into BPNL
-    activate CoreBpnlDiscovery
-    CoreBpnlDiscovery -->> SupplierApp: Customer BPNL
-    deactivate CoreBpnlDiscovery
-    SupplierApp ->> CoreEdcDiscovery: Resolve Customer BPNL into connector URL catalogue
-    activate CoreEdcDiscovery
-    CoreEdcDiscovery -->> SupplierApp: connector URL catalogue
-    deactivate CoreEdcDiscovery
-    SupplierApp ->> SupplierApp: Find correct connector via URL catalogue inspection
-    SupplierApp ->> SupplierConnector: Transmit CapacityGroup
-    activate SupplierConnector
-    SupplierConnector ->> CustomerConnector: Resolve connector Endpoint and connector service catalogue into CapacityGroup API URL
-    activate CustomerConnector
-    CustomerConnector ->> SupplierConnector: Framework & Contract Negotiation
-    SupplierConnector -->> CustomerConnector: Framework & Contract Negotiation
-    CustomerConnector -->> SupplierConnector: CapacityGroup API Endpoint
-    SupplierConnector ->> CustomerConnector: Transmit CapacityGroup
-    CustomerConnector ->> CustomerApp: Transmit CapacityGroup
-    activate CustomerApp
-    CustomerApp ->> Customer: Transmit CapacityGroup
-    Customer -->> CustomerApp: CapacityGroup received
-    CustomerApp -->> CustomerConnector: CapacityGroup received
-    deactivate CustomerApp
-    CustomerConnector -->> SupplierConnector: CapacityGroup received
-    deactivate CustomerConnector
-    SupplierConnector -->> SupplierApp: CapacityGroup received
-    deactivate SupplierConnector
-    SupplierApp -->> Supplier: CapacityGroupfinalized & synchronized
-    deactivate SupplierApp
+        CustomerConnector ->> SupplierConnector: Resolve connector Endpoint and connector service catalogue into MaterialDemand API URL
+        activate SupplierConnector
+        SupplierConnector ->> CustomerConnector: Framework & Contract Negotiation
+        CustomerConnector -->> SupplierConnector: Framework & Contract Negotiation
+        SupplierConnector -->> CustomerConnector: MaterialDemand API URL
+    end
+    rect rgb(255,166,0)
+        note right of Customer: Exchange Material Demand
+        CustomerApp ->> CustomerConnector: Transmit MaterialDemand        
+        CustomerConnector ->> SupplierConnector: Transmit MaterialDemand
+        SupplierConnector ->> SupplierApp: Transmit MaterialDemand
+        activate SupplierApp
+        SupplierApp ->> Supplier: Transmit MaterialDemand
+        Supplier -->> SupplierApp: MaterialDemand received
+        SupplierApp -->> SupplierConnector: MaterialDemand received
+        deactivate SupplierApp
+        SupplierConnector -->> CustomerConnector: MaterialDemand received
+        deactivate SupplierConnector
+        CustomerConnector -->> CustomerApp: MaterialDemand received
+        deactivate CustomerConnector
+        CustomerApp -->> Customer: MaterialDemand finalized & synchronized
+        deactivate CustomerApp
+    end
+    rect rgb(179,203,45)
+    note left of Supplier: Supplier creates CapacityGroup locally
+        Supplier ->> SupplierApp: Create CapacityGroup
+        activate SupplierApp
+        SupplierApp -->> Supplier: CapacityGroup created
+        deactivate SupplierApp
+        Supplier ->> SupplierApp: Link Demands to CapacityGroup
+        activate SupplierApp
+        SupplierApp -->> Supplier: Demands Linked
+        deactivate SupplierApp
+        Supplier ->> SupplierApp: Finalize CapacityGroup
+    end
+    rect rgb(33,157,212)
+        note left of SupplierApp: Supplier App finds endpoint of Customer
+        activate SupplierApp
+        SupplierApp ->> CoreBpnlDiscovery: Resolve Customer Base Data into BPNL
+        activate CoreBpnlDiscovery
+        CoreBpnlDiscovery -->> SupplierApp: Customer BPNL
+        deactivate CoreBpnlDiscovery
+        SupplierApp ->> CoreEdcDiscovery: Resolve Customer BPNL into connector URL catalogue
+        activate CoreEdcDiscovery
+        CoreEdcDiscovery -->> SupplierApp: connector URL catalogue
+        deactivate CoreEdcDiscovery
+        SupplierApp ->> SupplierApp: Find correct connector via URL catalogue inspection
+        SupplierApp ->> SupplierConnector: Transmit CapacityGroup
+        activate SupplierConnector
+        SupplierConnector ->> CustomerConnector: Resolve connector Endpoint and connector service catalogue into CapacityGroup API URL
+        activate CustomerConnector
+        CustomerConnector ->> SupplierConnector: Framework & Contract Negotiation
+        SupplierConnector -->> CustomerConnector: Framework & Contract Negotiation
+        CustomerConnector -->> SupplierConnector: CapacityGroup API Endpoint
+    end 
+    rect rgb(179,203,45)
+        note left of Supplier: Exchange Material Demand
+        SupplierConnector ->> CustomerConnector: Transmit CapacityGroup
+        CustomerConnector ->> CustomerApp: Transmit CapacityGroup
+        activate CustomerApp
+        CustomerApp ->> Customer: Transmit CapacityGroup
+        Customer -->> CustomerApp: CapacityGroup received
+        CustomerApp -->> CustomerConnector: CapacityGroup received
+        deactivate CustomerApp
+        CustomerConnector -->> SupplierConnector: CapacityGroup received
+        deactivate CustomerConnector
+        SupplierConnector -->> SupplierApp: CapacityGroup received
+        deactivate SupplierConnector
+        SupplierApp -->> Supplier: CapacityGroupfinalized & synchronized
+        deactivate SupplierApp
+    end
 ```
 
 Note that the supplier does not need to immediately reply with capacity group after receiving demand information, although a timely reply is appreciated, there can be a considerable time in between instead.
