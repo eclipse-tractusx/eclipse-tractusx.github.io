@@ -10,9 +10,9 @@ preconditions are met.
 
 - Have a local Kubernetes runtime ready
 - Have kubectl installed
-- Minkube is installed
+- Minikube is installed
 - you have a web browser
-- a POSIX-compliant shell, e.g. `bash` or `zsh` unless stated otherwise. The tutorial conatins examples for `bash`.
+- a POSIX-compliant shell, e.g. `bash` or `zsh` unless stated otherwise. The tutorial contains examples for `bash`.
 - basic knowledge about Helm and Kubernetes
 - [Optional] a cli tool to easily print logs of a K8S deployment, such as [`stern`](https://github.com/stern/stern)
 - [Optional] a graphical tool to inspect your Kubernetes environment, such as [Lens](https://k8slens.dev/).

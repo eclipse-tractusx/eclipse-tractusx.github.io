@@ -376,7 +376,7 @@ Action (Alice): Use the following API POST to find Bob's DTR Asset.
 
 You will receive the `dcat:Dataset for Bob's DTR`. A negotiation for the DTR can now take place. You retrieve a token for this, which you get back in return if the negotiation is successful.
 
-![Step1](assets/Step1.png)
+![Step1](/tutorials/e2e/dtr-access-token.png)
 
 In the second step, Alice can use this access token to access Bob's DTR directly and perform a lookup there. As feedback, she receives the AAS IDs that she is authorised to see.
 
@@ -386,7 +386,7 @@ Action (Alice): Use the following API GET to receive the provided AAS Ids:
 
 Alice receives a list of AAS Ids that she is allowed to see. This should include the digital twin created in the previous tutorial steps.
 
-![Step2](assets/Step2.png)
+![Step2](/tutorials/e2e/dtr-get-aas-ids.png)
 
 Now Alice can get the AAS descriptors because she now has the AAS IDs.
 
@@ -396,7 +396,7 @@ Action (Alice): Use the following API GET to the shell descriptors for the AAS I
 
 In response, Alice receives the AAS descriptor she needs. This contains the submodel descriptors. These contain the location of the submodels.
 
-![Step3](assets/Step3.png)
+![Step3](/tutorials/e2e/dtr-get-descriptor.png)
 
 Now the process is repeating itself. Alice performs a catalog request again and can now use the dataset IDs as a filter.
 
@@ -406,13 +406,13 @@ Action (Alice): Use the following API POST to receive Bob's catalog with the Dat
 
 A negotiation for the Submodel Server can now take place. Alice retrieves a token for this, which she gets back in return if the negotiation is successful.
 
-![Step4](assets/Step4.png)
+![Step4](/tutorials/e2e/dtr-get-token.png)
 
 The relevant endpoint on the submodel server can now be accessed directly, which returns the actual data in response.
 
 Action (Alice): Use the following API GET to receive the data:
 
-![Step5](assets/Step5.png)
+![Step5](/tutorials/e2e/dtr-get-data.png)
 
 **Congratulations, you've got a first digital twin from a customer!!!**
 
