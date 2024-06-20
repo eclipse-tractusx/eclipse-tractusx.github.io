@@ -2,8 +2,8 @@
   "openapi": "3.0.1",
   "info": {
     "title": "OSim API",
-    "description": "OSim API for requesting and receiving simulation results as well as for interactions related to scenario management.",
-    "version": "2.0.0"
+    "description": "OSim API for requesting and receiving simulation results",
+    "version": "3.0.0"
   },
   "servers": [
     {
@@ -26,13 +26,17 @@
     {
       "name": "receiveScenarioFeedback",
       "description": "Receive Scenario Feedback"
+    },
+    {
+      "name": "pushScenarioState",
+      "description": "Push Scenario State"
     }
   ],
   "paths": {
     "/api/requestLatestSimulationResult/bpns/{bpns}/requestId/{requestId}/simulationRunId/{simulationRunId}": {
       "get": {
-        "tags": ["requestLatestSimulationResult"],
         "operationId": "requestLatestSimulationResult",
+        "tags": ["requestLatestSimulationResult"],
         "description": "Request latest simulation result by referring the latest simulation run id available in own OSim Manager",
         "parameters": [
           {
@@ -223,18 +227,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/requestId_requestId_body"
-              },
-              "examples": {
-                "0": {
-                  "value": "{ \n  \"owner\": { \"id\": \"BPNS00000007OTZ3\" }, \n  \"dataQuality\": 1, \n  \"description\": \"Daily standard simulation\", \n  \"comment\": \"successful simulation\", \n  \"expirationTimestamp\": \"2023-03-24T09:15:24.000Z\", \n  \"runId\": \"0fece48b-c8d1-4180-1a9caca6d67e\", \n  \"shipments\": [ \n    { \n      \"handlingUnits\": [ \n       { \n          \"name\": \"Palette\", \n          \"volume\": 1, \n          \"weight\": 189, \n          \"batches\": [ \n            { \n              \"unitOfMeasurement\": \"KG\", \n              \"materialName\": \"KK1000GR-Gehäuse-Rot\", \n              \"quantity\": 50, \n              \"materialNumber\": \"KK1000GR\", \n              \"batchOrderId\": \"Order-0001\", \n              \"batchId\": \"Batch_1\", \n              \"hazardousGoods\": false, \n              \"batchExpirationTimestamp\": \"2023-08-22T16:00:00.000Z\", \n              \"batchNumber\": \"45\" \n            } \n          ], \n          \"handlingUnitId\": \"HUT_1\", \n          \"amount\": 1 \n        } \n      ], \n      \"shipmentId\": \"DE51515151\", \n      \"recipientTimestampPlanned\": \"2023-04-19T09:00:00.000Z\", \n      \"destination\": { \"id\": \"BPNS00000007OTZ3\" }, \n      \"recipient\": { \"id\": \"BPNS00000007OTZ4\" }, \n      \"logistics\": { \"id\": \"BPNS00000007OS0H\" }, \n      \"preceding\": {}, \n      \"splittingAllowed\": true, \n      \"destinationTimestamp\": \"2023-03-19T09:00:00.000Z\" \n    } \n  ], \n  \"timestamp\": \"2023-03-09T14:13:42.806Z\" \n}"
-                }
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/MaterialFlowSimulationResultAspect"
         },
         "responses": {
           "200": {
@@ -362,8 +355,8 @@
     },
     "/api/requestScenarioFeedback/bpns/{bpns}": {
       "post": {
-        "tags": ["requestScenarioFeedback"],
         "operationId": "requestScenarioFeedback",
+        "tags": ["requestScenarioFeedback"],
         "description": "The requestScenarioFeedback is a request from a OSim partner for feedback on the possible fulfillment of the described scenario.",
         "parameters": [
           {
@@ -379,18 +372,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bpns_bpns_body"
-              },
-              "examples": {
-                "0": {
-                  "value": "{\n  \"materialFlowScenarioRequest\" : {\n    \"scenarioSimResults\" : {\n      \"resultOwnId\" : \"916b5688-8bd8-4d7e-83b9-e0d40939274e\",\n      \"resultOwnSimRunInitial\" : {\n        \"owner\" : { },\n        \"dataQuality\" : 0,\n        \"description\" : \"Please simulate asap\",\n        \"comment\" : \"successful simulation \",\n        \"expirationTimestamp\" : \"2023-03-24T09:15:24.000Z\",\n        \"runId\" : \"0fece48b-c8d1-4180-1a9caca6d67e\",\n        \"shipments\" : [ {\n          \"handlingUnits\" : [ {\n            \"name\" : \"Palette\",\n            \"volume\" : 1.0,\n            \"weight\" : 189.0,\n            \"batches\" : [ {\n              \"unitOfMeasurement\" : \"KG\",\n              \"materialName\" : \"KK1000GR-Gehäuse-Rot\",\n              \"quantity\" : 50.0,\n              \"materialNumber\" : \"KK1000GR\",\n              \"materialHazardousGoods\" : false,\n              \"batchOrderId\" : \"Order-0001\",\n              \"batchId\" : \"Batch_1\",\n              \"batchExpirationTimestamp\" : \"2023-08-22T16:00:00.000Z\",\n              \"batchNumber\" : \"45\"\n            } ],\n            \"handlingUnitId\" : \"HUT_1\",\n            \"amount\" : 1\n          } ],\n          \"shipmentId\" : \"DE51515151\",\n          \"recipientTimestampPlanned\" : \"2023-04-19T09:00:00.000Z\",\n          \"destination\" : { },\n          \"recipient\" : { },\n          \"logistics\" : { },\n          \"preceding\" : { },\n          \"splittingAllowed\" : true,\n          \"destinationTimestamp\" : \"2023-03-19T09:00:00.000Z\"\n        } ],\n        \"timestamp\" : \"2023-03-09T14:13:42.806Z\"\n      },\n      \"resultOwnSimRunUpdated\" : {\n        \"owner\" : { },\n        \"dataQuality\" : 0,\n        \"description\" : \"Please simulate asap\",\n        \"comment\" : \"successful simulation \",\n        \"expirationTimestamp\" : \"2023-03-24T09:15:24.000Z\",\n        \"runId\" : \"0fece48b-c8d1-4180-1a9caca6d67e\",\n        \"shipments\" : [ {\n          \"handlingUnits\" : [ {\n            \"name\" : \"Palette\",\n            \"volume\" : 1.0,\n            \"weight\" : 189.0,\n            \"batches\" : [ {\n              \"unitOfMeasurement\" : \"KG\",\n              \"materialName\" : \"KK1000GR-Gehäuse-Rot\",\n              \"quantity\" : 50.0,\n              \"materialNumber\" : \"KK1000GR\",\n              \"materialHazardousGoods\" : false,\n              \"batchOrderId\" : \"Order-0001\",\n              \"batchId\" : \"Batch_1\",\n              \"batchExpirationTimestamp\" : \"2023-08-22T16:00:00.000Z\",\n              \"batchNumber\" : \"45\"\n            } ],\n            \"handlingUnitId\" : \"HUT_1\",\n            \"amount\" : 1\n          } ],\n          \"shipmentId\" : \"DE51515151\",\n          \"recipientTimestampPlanned\" : \"2023-04-19T09:00:00.000Z\",\n          \"destination\" : { },\n          \"recipient\" : { },\n          \"logistics\" : { },\n          \"preceding\" : { },\n          \"splittingAllowed\" : true,\n          \"destinationTimestamp\" : \"2023-03-19T09:00:00.000Z\"\n        } ],\n        \"timestamp\" : \"2023-03-09T14:13:42.806Z\"\n      }\n    },\n    \"scenarioParameter\" : {\n      \"unitOfMeasurement\" : \"KG\",\n      \"parameterScenario\" : \"8d464b8b-6977-4952-8a22-0489067ca081\",\n      \"parameterComment\" : \"updated Delivery Date\",\n      \"materialName\" : \"KK1000GR-Gehäuse-Rot\",\n      \"parameterQuantityUpdated\" : 1.0,\n      \"parameterId\" : \"847c71e5-614a-468b-a3a0-674bf2af3004\",\n      \"materialNumber\" : \"KK1000GR\",\n      \"parameterDeliveryDateUpdated\" : \"2023-10-10T09:00:00.000Z\",\n      \"parameterDeliveryDateInitial\" : \"2023-10-09T10:00:00.000Z\",\n      \"parameterOrderId\" : \"OID-011123456\",\n      \"parameterQuantityInitial\" : 1.0\n    },\n    \"scenarioHeader\" : {\n      \"scenarioOwnerRole\" : \"Customer\",\n      \"scenarioCreationTimestamp\" : \"2023-10-04T09:10:00.000Z\",\n      \"scenarioExpirationTimestamp\" : \"2023-10-07T09:10:00.000Z\",\n      \"scenarioOwner\" : \"BPNS0000007OTZ3\",\n      \"scenarioDescription\" : \"Changes in Delivery Date\",\n      \"scenarioId\" : \"8d464b8b-6977-4952-8a22-0489067ca081\",\n      \"scenarioTitle\" : \"Delivery Modification\"\n    }\n  }\n}"
-                }
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/MaterialFlowScenarioRequestAspect"
         },
         "responses": {
           "200": {
@@ -496,9 +478,8 @@
     },
     "/api/receiveScenarioFeedback/bpns/{bpns}/scenarioId/{scenarioId}/feedback/{feedback}": {
       "get": {
-        "tags": ["receiveScenarioFeedback"],
         "operationId": "receiveScenarioFeedback",
-
+        "tags": ["receiveScenarioFeedback"],
         "description": "The receiveScenarioFeedback enables the requestor to transmit the result of his scenario-based evaluation to the requestor",
         "parameters": [
           {
@@ -661,10 +642,9 @@
       ]
     },
     "/api/pushScenarioState/bpns/{bpns}/scenarioId/{scenarioId}/state/{state}": {
-      "get": {
-        "tags": ["pushScenarioState"],
+      "post": {
         "operationId": "pushScenarioState",
-
+        "tags": ["pushScenarioState"],
         "description": "The pushScenarioState enables distribution of a new scenario status and thus a notification of the procedure with the planned scenario",
         "parameters": [
           {
@@ -702,6 +682,15 @@
             "example": "InRealization"
           }
         ],
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -829,146 +818,254 @@
   },
   "components": {
     "schemas": {
-      "apireceiveLatestSimulationResultrequestIdrequestId_owner": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        }
+      "Text": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc.",
+        "x-samm-aspect-model-urn": "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text"
       },
-      "apireceiveLatestSimulationResultrequestIdrequestId_batches": {
+      "Timestamp": {
+        "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?",
+        "type": "string",
+        "description": "Describes a Property which contains the date and time with an optional timezone.",
+        "x-samm-aspect-model-urn": "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Timestamp"
+      },
+      "BpnsTrait": {
+        "pattern": "^BPNS[a-zA-Z0-9]{12}$",
+        "type": "string",
+        "description": "The provided regular expression ensures that the BPNS is composed of prefix 'BPNS', 10 digits and two alphanumeric letters.",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.shared.business_partner_number:2.0.0#BpnsTrait"
+      },
+      "ScenarioOwnerCharacteristic": {
+        "required": ["bpnsProperty"],
         "type": "object",
         "properties": {
-          "unitOfMeasurement": {
-            "type": "string"
+          "bpnsProperty": {
+            "$ref": "#/components/schemas/BpnsTrait"
+          }
+        },
+        "description": "Characteristic describing the Scenario Owner",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioOwnerCharacteristic"
+      },
+      "ScenarioOwnerRoleCharacteristic": {
+        "type": "string",
+        "description": "Characteristic describing possible values for the role of the scenario owner",
+        "enum": [
+          "Customer",
+          "Supplier",
+          "LogisticianReceiving",
+          "LogisticianSending"
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioOwnerRoleCharacteristic"
+      },
+      "ScenarioHeaderCharacteristic": {
+        "required": [
+          "scenarioCreationTimestamp",
+          "scenarioExpirationTimestamp",
+          "scenarioId",
+          "scenarioOwner",
+          "scenarioOwnerRole",
+          "scenarioTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "scenarioId": {
+            "$ref": "#/components/schemas/Text"
           },
-          "materialName": {
-            "type": "string"
+          "scenarioTitle": {
+            "$ref": "#/components/schemas/Text"
           },
-          "quantity": {
-            "type": "integer"
+          "scenarioCreationTimestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "scenarioExpirationTimestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "scenarioOwner": {
+            "$ref": "#/components/schemas/ScenarioOwnerCharacteristic"
+          },
+          "scenarioOwnerRole": {
+            "$ref": "#/components/schemas/ScenarioOwnerRoleCharacteristic"
+          },
+          "scenarioDescription": {
+            "$ref": "#/components/schemas/Text"
+          }
+        },
+        "description": "Characteristic describing the parameter for a scenario header",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioHeaderCharacteristic"
+      },
+      "QuantityCharacteristic": {
+        "type": "number",
+        "description": "Describes a property which is a Float",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#QuantityCharacteristic"
+      },
+      "Text0": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc.",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#Text"
+      },
+      "UnitOfMeasurementCharacteristic": {
+        "type": "string",
+        "description": "Possible options for units of measurement",
+        "enum": ["KG", "Liter", "Piece"],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#UnitOfMeasurementCharacteristic"
+      },
+      "ScenarioParameter": {
+        "required": [
+          "materialName",
+          "materialNumber",
+          "parameterComment",
+          "parameterDeliveryDateInitial",
+          "parameterDeliveryDateUpdated",
+          "parameterId",
+          "parameterOrderId",
+          "parameterQuantityInitial",
+          "parameterQuantityUpdated",
+          "unitOfMeasurement"
+        ],
+        "type": "object",
+        "properties": {
+          "parameterId": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "parameterDeliveryDateInitial": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "parameterDeliveryDateUpdated": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "parameterQuantityInitial": {
+            "$ref": "#/components/schemas/QuantityCharacteristic"
+          },
+          "parameterQuantityUpdated": {
+            "$ref": "#/components/schemas/QuantityCharacteristic"
+          },
+          "parameterOrderId": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "parameterComment": {
+            "$ref": "#/components/schemas/Text"
           },
           "materialNumber": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
           },
-          "batchOrderId": {
-            "type": "string"
+          "materialName": {
+            "$ref": "#/components/schemas/Text0"
           },
-          "batchId": {
-            "type": "string"
-          },
-          "hazardousGoods": {
-            "type": "boolean"
-          },
-          "batchExpirationTimestamp": {
-            "type": "string"
-          },
-          "batchNumber": {
-            "type": "string"
+          "unitOfMeasurement": {
+            "$ref": "#/components/schemas/UnitOfMeasurementCharacteristic"
           }
-        }
+        },
+        "description": "Parameters which are used to describe a material flow scenario request",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioParameter"
       },
-      "apireceiveLatestSimulationResultrequestIdrequestId_handlingUnits": {
+      "ScenarioParameterCharacteristic": {
+        "type": "array",
+        "description": "Characteristic describing the scenario parameter",
+        "items": {
+          "$ref": "#/components/schemas/ScenarioParameter"
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioParameterCharacteristic"
+      },
+      "BusinessPartnerSite": {
+        "required": ["bpnsProperty"],
         "type": "object",
         "properties": {
-          "volume": {
-            "type": "integer"
-          },
-          "batches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_batches"
-            }
-          },
-          "handlingUnitId": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "weight": {
-            "type": "integer"
+          "bpnsProperty": {
+            "$ref": "#/components/schemas/BpnsTrait"
           }
-        }
+        },
+        "description": "Characteristic describing the Scenario Owner",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioOwnerCharacteristic"
       },
-      "apireceiveLatestSimulationResultrequestIdrequestId_shipments": {
+      "OwnerCharacteristic": {
         "type": "object",
-        "properties": {
-          "handlingUnits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_handlingUnits"
-            }
-          },
-          "shipmentId": {
-            "type": "string"
-          },
-          "recipientTimestampPlanned": {
-            "type": "string"
-          },
-          "destination": {
-            "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_owner"
-          },
-          "recipient": {
-            "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_owner"
-          },
-          "logistics": {
-            "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_owner"
-          },
-          "preceding": {
-            "type": "object",
-            "properties": {}
-          },
-          "splittingAllowed": {
-            "type": "boolean"
-          },
-          "destinationTimestamp": {
-            "type": "string"
+        "description": "Site identifier of the simulation originator",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessPartnerSite"
           }
-        }
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#OwnerCharacteristic"
       },
-      "requestId_requestId_body": {
+      "DataQualityOptions": {
+        "minimum": 0,
+        "type": "number",
+        "description": "Possible values determining data quality",
+        "enum": [0, 1, 2, 3, 4, 5],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#DataQualityOptions"
+      },
+      "DestinationCharacteristic": {
         "type": "object",
-        "properties": {
-          "owner": {
-            "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_owner"
-          },
-          "dataQuality": {
-            "type": "integer"
-          },
-          "description": {
-            "type": "string"
-          },
-          "comment": {
-            "type": "string"
-          },
-          "expirationTimestamp": {
-            "type": "string"
-          },
-          "runId": {
-            "type": "string"
-          },
-          "shipments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apireceiveLatestSimulationResultrequestIdrequestId_shipments"
-            }
-          },
-          "timestamp": {
-            "type": "string"
+        "description": "Address where the shipment is immediately delivered to (by logistician) or provided for pickup (by producer)",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessPartnerSite"
           }
-        }
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#DestinationCharacteristic"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_batches": {
+      "RecipientCharacteristic": {
+        "type": "object",
+        "description": "Location identifier of the final recipient of the shipment",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessPartnerSite"
+          }
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#RecipientCharacteristic"
+      },
+      "Boolean": {
+        "type": "boolean",
+        "description": "Represents a boolean value (i.e. a \"flag\").",
+        "x-samm-aspect-model-urn": "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Boolean"
+      },
+      "LogisticsCharacteristic": {
+        "type": "object",
+        "description": "Site identifier of the logistician executing the shipment",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessPartnerSite"
+          }
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#LogisticsCharacteristic"
+      },
+      "PrecedingCharacteristic": {
+        "type": "object",
+        "description": "Reference of preceding shipments",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessPartnerSite"
+          }
+        ],
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#PrecedingCharacteristic"
+      },
+      "VolumeCharacteristic": {
+        "type": "number",
+        "description": "Volumetric value determining the volume of the handling unit",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#VolumeCharacteristic"
+      },
+      "WeightCharacteristic": {
+        "type": "number",
+        "description": "Amount of weight of the handling unit",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#WeightCharacteristic"
+      },
+      "AmountCharacteristic": {
+        "minimum": 1,
+        "type": "number",
+        "description": "Number describing handling units with identical pieces",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#AmountCharacteristic"
+      },
+      "QuantityCharacteristic0": {
+        "type": "number",
+        "description": "Number of materials contained within a handling unit",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#QuantityCharacteristic"
+      },
+      "MaterialBatch": {
         "required": [
           "batchExpirationTimestamp",
-          "batchId",
           "batchNumber",
           "batchOrderId",
+          "batchSerialNumber",
           "materialHazardousGoods",
           "materialName",
           "materialNumber",
@@ -977,36 +1074,46 @@
         ],
         "type": "object",
         "properties": {
-          "unitOfMeasurement": {
-            "type": "string"
-          },
-          "materialName": {
-            "type": "string"
-          },
-          "quantity": {
-            "type": "number"
+          "batchSerialNumber": {
+            "$ref": "#/components/schemas/Text0"
           },
           "materialNumber": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
+          },
+          "materialName": {
+            "$ref": "#/components/schemas/Text0"
           },
           "materialHazardousGoods": {
-            "type": "boolean"
-          },
-          "batchOrderId": {
-            "type": "string"
-          },
-          "batchId": {
-            "type": "string"
+            "$ref": "#/components/schemas/Boolean"
           },
           "batchExpirationTimestamp": {
-            "type": "string"
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/QuantityCharacteristic0"
+          },
+          "unitOfMeasurement": {
+            "$ref": "#/components/schemas/UnitOfMeasurementCharacteristic"
           },
           "batchNumber": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
+          },
+          "batchOrderId": {
+            "$ref": "#/components/schemas/Text0"
           }
-        }
+        },
+        "description": "Material Batches are part of a handling unit",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#MaterialBatch"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_handlingUnits": {
+      "BatchList": {
+        "type": "array",
+        "description": "List of material batches",
+        "items": {
+          "$ref": "#/components/schemas/MaterialBatch"
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#BatchList"
+      },
+      "HandlingUnit": {
         "required": [
           "amount",
           "batches",
@@ -1017,30 +1124,37 @@
         ],
         "type": "object",
         "properties": {
+          "handlingUnitId": {
+            "$ref": "#/components/schemas/Text0"
+          },
           "name": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
           },
           "volume": {
-            "type": "number"
+            "$ref": "#/components/schemas/VolumeCharacteristic"
           },
           "weight": {
-            "type": "number"
-          },
-          "batches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_batches"
-            }
-          },
-          "handlingUnitId": {
-            "type": "string"
+            "$ref": "#/components/schemas/WeightCharacteristic"
           },
           "amount": {
-            "type": "integer"
+            "$ref": "#/components/schemas/AmountCharacteristic"
+          },
+          "batches": {
+            "$ref": "#/components/schemas/BatchList"
           }
-        }
+        },
+        "description": "Handling Unit is the smallest shipment unit and cannot be divided into several shipments",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#HandlingUnit"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_shipments": {
+      "HandlingUnitList": {
+        "type": "array",
+        "description": "List of handling units included in the shipment",
+        "items": {
+          "$ref": "#/components/schemas/HandlingUnit"
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#HandlingUnitList"
+      },
+      "Shipment": {
         "required": [
           "destination",
           "destinationTimestamp",
@@ -1054,39 +1168,46 @@
         ],
         "type": "object",
         "properties": {
-          "handlingUnits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_handlingUnits"
-            }
-          },
           "shipmentId": {
-            "type": "string"
-          },
-          "recipientTimestampPlanned": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text"
           },
           "destination": {
-            "type": "object"
-          },
-          "recipient": {
-            "type": "object"
-          },
-          "logistics": {
-            "type": "object"
-          },
-          "preceding": {
-            "type": "object"
-          },
-          "splittingAllowed": {
-            "type": "boolean"
+            "$ref": "#/components/schemas/DestinationCharacteristic"
           },
           "destinationTimestamp": {
-            "type": "string"
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "recipient": {
+            "$ref": "#/components/schemas/RecipientCharacteristic"
+          },
+          "recipientTimestampPlanned": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "splittingAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "logistics": {
+            "$ref": "#/components/schemas/LogisticsCharacteristic"
+          },
+          "preceding": {
+            "$ref": "#/components/schemas/PrecedingCharacteristic"
+          },
+          "handlingUnits": {
+            "$ref": "#/components/schemas/HandlingUnitList"
           }
-        }
+        },
+        "description": "Delivery item from a sender to a recipient containing goods",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#Shipment"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial": {
+      "ShipmentList": {
+        "type": "array",
+        "description": "List of shipments contained in the simulation",
+        "items": {
+          "$ref": "#/components/schemas/Shipment"
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_simulation_result:3.0.0#ShipmentList"
+      },
+      "SimResult": {
         "required": [
           "comment",
           "dataQuality",
@@ -1099,165 +1220,310 @@
         ],
         "type": "object",
         "properties": {
-          "owner": {
-            "type": "object"
-          },
-          "dataQuality": {
-            "type": "integer"
-          },
           "description": {
-            "type": "string"
-          },
-          "comment": {
-            "type": "string"
-          },
-          "expirationTimestamp": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
           },
           "runId": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text0"
+          },
+          "comment": {
+            "$ref": "#/components/schemas/Text0"
+          },
+          "expirationTimestamp": {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/OwnerCharacteristic"
+          },
+          "dataQuality": {
+            "$ref": "#/components/schemas/DataQualityOptions"
           },
           "shipments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial_shipments"
-            }
+            "$ref": "#/components/schemas/ShipmentList"
           },
           "timestamp": {
-            "type": "string"
+            "$ref": "#/components/schemas/Timestamp"
           }
-        }
+        },
+        "description": "Characteristic describing the property for a Material Flow Simulation Result",
+        "example": {
+          "materialFlowSimulationResult": {
+            "owner": {
+              "bpnsProperty": "BPNS0123456789ZZ"
+            },
+            "dataQuality": 0,
+            "description": "Please simulate asap",
+            "comment": "successful simulation ",
+            "expirationTimestamp": "2023-03-24T09:15:24.000Z",
+            "runId": "0fece48b-c8d1-4180-1a9caca6d67e",
+            "shipments": [
+              {
+                "handlingUnits": [
+                  {
+                    "name": "Palette",
+                    "volume": 1,
+                    "weight": 189,
+                    "batches": [
+                      {
+                        "unitOfMeasurement": "KG",
+                        "materialName": "KK1000GR-Gehäuse-Rot",
+                        "quantity": 50,
+                        "materialNumber": "KK1000GR",
+                        "materialHazardousGoods": false,
+                        "batchSerialNumber": "Batch_1",
+                        "batchOrderId": "Order-0001",
+                        "batchExpirationTimestamp": "2023-08-22T16:00:00.000Z",
+                        "batchNumber": "45"
+                      }
+                    ],
+                    "handlingUnitId": "HUT_1",
+                    "amount": 1
+                  }
+                ],
+                "shipmentId": "DE51515151",
+                "recipientTimestampPlanned": "2023-04-19T09:00:00.000Z",
+                "destination": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "recipient": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "logistics": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "preceding": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "splittingAllowed": true,
+                "destinationTimestamp": "2023-03-19T09:00:00.000Z"
+              }
+            ],
+            "timestamp": "2023-03-09T14:13:42.806Z"
+          }
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#SimResult"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults": {
-        "required": [
-          "resultOwnId",
-          "resultOwnSimRunInitial",
-          "resultOwnSimRunUpdated"
-        ],
+      "ScenarioSimResultsCharacteristic": {
+        "required": ["resultOwnId"],
         "type": "object",
         "properties": {
           "resultOwnId": {
-            "type": "string"
+            "$ref": "#/components/schemas/Text"
           },
           "resultOwnSimRunInitial": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial"
+            "$ref": "#/components/schemas/SimResult"
           },
           "resultOwnSimRunUpdated": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults_resultOwnSimRunInitial"
+            "$ref": "#/components/schemas/SimResult"
           }
-        }
+        },
+        "description": "Characteristic for simulation results",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#ScenarioSimResultsCharacteristic"
       },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioParameter": {
-        "required": [
-          "materialName",
-          "materialNumber",
-          "parameterComment",
-          "parameterDeliveryDateInitial",
-          "parameterDeliveryDateUpdated",
-          "parameterId",
-          "parameterOrderId",
-          "parameterQuantityInitial",
-          "parameterQuantityUpdated",
-          "parameterScenario",
-          "unitOfMeasurement"
-        ],
+      "MaterialFlowScenarioRequestCharacteristic": {
+        "required": ["scenarioHeader", "scenarioSimResults"],
         "type": "object",
         "properties": {
-          "unitOfMeasurement": {
-            "type": "string"
-          },
-          "parameterScenario": {
-            "type": "string"
-          },
-          "parameterComment": {
-            "type": "string"
-          },
-          "materialName": {
-            "type": "string"
-          },
-          "parameterQuantityUpdated": {
-            "type": "number"
-          },
-          "parameterId": {
-            "type": "string"
-          },
-          "materialNumber": {
-            "type": "string"
-          },
-          "parameterDeliveryDateUpdated": {
-            "type": "string"
-          },
-          "parameterDeliveryDateInitial": {
-            "type": "string"
-          },
-          "parameterOrderId": {
-            "type": "string"
-          },
-          "parameterQuantityInitial": {
-            "type": "number"
-          }
-        }
-      },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioHeader": {
-        "required": [
-          "scenarioCreationTimestamp",
-          "scenarioDescription",
-          "scenarioExpirationTimestamp",
-          "scenarioId",
-          "scenarioOwner",
-          "scenarioOwnerRole",
-          "scenarioTitle"
-        ],
-        "type": "object",
-        "properties": {
-          "scenarioOwnerRole": {
-            "type": "string"
-          },
-          "scenarioCreationTimestamp": {
-            "type": "string"
-          },
-          "scenarioExpirationTimestamp": {
-            "type": "string"
-          },
-          "scenarioOwner": {
-            "type": "string"
-          },
-          "scenarioDescription": {
-            "type": "string"
-          },
-          "scenarioId": {
-            "type": "string"
-          },
-          "scenarioTitle": {
-            "type": "string"
-          }
-        }
-      },
-      "apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest": {
-        "required": [
-          "scenarioHeader",
-          "scenarioParameter",
-          "scenarioSimResults"
-        ],
-        "type": "object",
-        "properties": {
-          "scenarioSimResults": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioSimResults"
+          "scenarioHeader": {
+            "$ref": "#/components/schemas/ScenarioHeaderCharacteristic"
           },
           "scenarioParameter": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioParameter"
+            "$ref": "#/components/schemas/ScenarioParameterCharacteristic"
           },
-          "scenarioHeader": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest_scenarioHeader"
+          "scenarioSimResults": {
+            "$ref": "#/components/schemas/ScenarioSimResultsCharacteristic"
           }
-        }
+        },
+        "description": "Characteristic describing the aspect Material Flow Scenario Request",
+        "example": {
+          "materialFlowScenarioRequest": {
+            "scenarioSimResults": {
+              "resultOwnId": "916b5688-8bd8-4d7e-83b9-e0d40939274e",
+              "resultOwnSimRunInitial": {
+                "owner": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "dataQuality": 0,
+                "description": "Please simulate asap",
+                "comment": "successful simulation ",
+                "expirationTimestamp": "2023-03-24T09:15:24.000Z",
+                "runId": "0fece48b-c8d1-4180-1a9caca6d67e",
+                "shipments": [
+                  {
+                    "handlingUnits": [
+                      {
+                        "name": "Palette",
+                        "volume": 1,
+                        "weight": 189,
+                        "batches": [
+                          {
+                            "unitOfMeasurement": "KG",
+                            "materialName": "KK1000GR-Gehäuse-Rot",
+                            "quantity": 50,
+                            "materialNumber": "KK1000GR",
+                            "materialHazardousGoods": false,
+                            "batchSerialNumber": "Batch_1",
+                            "batchOrderId": "Order-0001",
+                            "batchExpirationTimestamp": "2023-08-22T16:00:00.000Z",
+                            "batchNumber": "45"
+                          }
+                        ],
+                        "handlingUnitId": "HUT_1",
+                        "amount": 1
+                      }
+                    ],
+                    "shipmentId": "DE51515151",
+                    "recipientTimestampPlanned": "2023-04-19T09:00:00.000Z",
+                    "destination": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "recipient": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "logistics": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "preceding": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "splittingAllowed": true,
+                    "destinationTimestamp": "2023-03-19T09:00:00.000Z"
+                  }
+                ],
+                "timestamp": "2023-03-09T14:13:42.806Z"
+              },
+              "resultOwnSimRunUpdated": {
+                "owner": {
+                  "bpnsProperty": "BPNS0123456789ZZ"
+                },
+                "dataQuality": 0,
+                "description": "Please simulate asap",
+                "comment": "successful simulation ",
+                "expirationTimestamp": "2023-03-24T09:15:24.000Z",
+                "runId": "0fece48b-c8d1-4180-1a9caca6d67e",
+                "shipments": [
+                  {
+                    "handlingUnits": [
+                      {
+                        "name": "Palette",
+                        "volume": 1,
+                        "weight": 189,
+                        "batches": [
+                          {
+                            "unitOfMeasurement": "KG",
+                            "materialName": "KK1000GR-Gehäuse-Rot",
+                            "quantity": 50,
+                            "materialNumber": "KK1000GR",
+                            "materialHazardousGoods": false,
+                            "batchSerialNumber": "Batch_1",
+                            "batchOrderId": "Order-0001",
+                            "batchExpirationTimestamp": "2023-08-22T16:00:00.000Z",
+                            "batchNumber": "45"
+                          }
+                        ],
+                        "handlingUnitId": "HUT_1",
+                        "amount": 1
+                      }
+                    ],
+                    "shipmentId": "DE51515151",
+                    "recipientTimestampPlanned": "2023-04-19T09:00:00.000Z",
+                    "destination": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "recipient": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "logistics": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "preceding": {
+                      "bpnsProperty": "BPNS0123456789ZZ"
+                    },
+                    "splittingAllowed": true,
+                    "destinationTimestamp": "2023-03-19T09:00:00.000Z"
+                  }
+                ],
+                "timestamp": "2023-03-09T14:13:42.806Z"
+              }
+            },
+            "scenarioParameter": [
+              {
+                "unitOfMeasurement": "KG",
+                "parameterComment": "updated Delivery Date",
+                "materialName": "KK1000GR-Gehäuse-Rot",
+                "parameterQuantityUpdated": 1,
+                "parameterId": "847c71e5-614a-468b-a3a0-674bf2af3004",
+                "materialNumber": "KK1000GR",
+                "parameterDeliveryDateUpdated": "2023-10-10T09:00:00.000Z",
+                "parameterDeliveryDateInitial": "2023-10-09T10:00:00.000Z",
+                "parameterOrderId": "OID-011123546",
+                "parameterQuantityInitial": 1
+              }
+            ],
+            "scenarioHeader": {
+              "scenarioOwnerRole": "Customer",
+              "scenarioCreationTimestamp": "2023-10-04T09:10:00.000Z",
+              "scenarioExpirationTimestamp": "2023-10-07T09:10:00.000Z",
+              "scenarioOwner": {
+                "bpnsProperty": "BPNS0123456789ZZ"
+              },
+              "scenarioDescription": "Changes in Delivery Date",
+              "scenarioId": "8d464b8b-6977-4952-8a22-0489067ca081",
+              "scenarioTitle": "Delivery Modification"
+            }
+          }
+        },
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#MaterialFlowScenarioRequestCharacteristic"
       },
-      "bpns_bpns_body": {
+      "MaterialFlowScenarioRequestAspect": {
         "required": ["materialFlowScenarioRequest"],
         "type": "object",
         "properties": {
           "materialFlowScenarioRequest": {
-            "$ref": "#/components/schemas/apirequestScenarioFeedbackbpnsbpns_materialFlowScenarioRequest"
+            "$ref": "#/components/schemas/MaterialFlowScenarioRequestCharacteristic"
+          }
+        },
+        "description": "Aspect model describing the Material Flow Scenario Request",
+        "x-samm-aspect-model-urn": "urn:samm:io.catenax.material_flow_scenario_request:2.0.0#MaterialFlowScenarioRequestAspect"
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "The requesting user or client is not authenticated."
+      },
+      "Forbidden": {
+        "description": "The requesting user or client is not authorized to access resources for the given tenant."
+      },
+      "NotFoundError": {
+        "description": "The requested Twin has not been found."
+      },
+      "MaterialFlowScenarioRequestAspect": {
+        "description": "The request was successful.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaterialFlowScenarioRequestAspect"
+            }
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "MaterialFlowScenarioRequestAspect": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MaterialFlowScenarioRequestAspect"
+            }
+          }
+        }
+      },
+      "MaterialFlowSimulationResultAspect": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SimResult"
+            }
           }
         }
       }
