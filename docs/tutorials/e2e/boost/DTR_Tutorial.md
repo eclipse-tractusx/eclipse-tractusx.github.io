@@ -249,6 +249,26 @@ curl -i -X POST "${edcManagementBaseUrl}/v2/contractdefinitions" -H "X-Api-Key: 
 
 The submodel is now stored at the BDS and made available through a contract definition at the EDC.
 
+### Access control to Digital Twins Based on the BPN (Business Partner Number)/ TenantId
+The digital twin registry offers two functionalities for managing access control to digital twins (Shells) based on the Business Partner Number (BPN).
+On application start, the provider can configure which kind of access control will be activated.
+
+1. Classic implementation (default is true). This implementation is used for this tutorial:
+   1. The visibility of `specificAssetIds` in the Digital Twin Registry based on the Business Partner Number (BPN) (Which is send via header Edc-Bpn) can be controlled with the attribute `externalSubjectId`. Hence, the `externalSubjectId` is identified with the BPN.
+   2. The communication between consumer and provider is via EDC. Before the provider EDC sends the request to the DTR, the property Edc-Bpn with the BPN of the consumer will be set by the provider EDC.
+2. Granular access control implementation:
+   1. The granular access control implementation is provided as an alternative option to enforce visibility rules of the *Digital Twin* details. These can be:
+      1. The visibility of the *Digital Twin* as a whole
+      2. The visibility of certain `specificAssetId` names and values of the *Digital Twin*
+      3. The visibility of certain `submodelDescriptors` of the *Digital Twin*
+      4. Restricting access to *Digital Twin* details which are `"PUBLIC_READABLE"`
+         (only showing the `id`, the public readable `specificAssetId` names and values, the `createdDate` and the filtered `submodelDescriptors` )
+      5. To enable granular access control (instead of the classic implementation), the `registry.useGranularAccessControl` configuration HELM chart property must be set to `"true"`.
+
+For more details see: [DTR Access control to Digital Twins Based on the BPN (Business Partner Number)/ TenantId](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/blob/main/docs/README.md#:~:text=dev%40eclipse.org-,Access,-control%20to%20Digital)
+
+
+
 #### Register/create a Digital Twin at the DTR
 
 Now that Bob has stored his submodel at the BDS and offered it at the EDC for sovereign data exchange, he wants to make it findable via the DTR. This contains two steps:
@@ -292,13 +312,13 @@ In order to reference the submodel in the digital twin, submodel descriptors can
 
 When adding a submodel to an existing digital twin, it is important to use the correct AAS-Id. This has to be added for the parameter "id", e.g. "id": "e5c96ab5-896a-482c-8761-efd74777ca97".
 
-To reference the endoint of the submodel we use the DSP protocol. Thus you have to provide the subprotocolBody with the Id of the contract definition/asset (?) as well as the dspEndpoint of the EDC.
+To reference the endoint of the submodel we use the DSP protocol. Thus you have to provide the subprotocolBody with the Id of the asset as well as the dspEndpoint of the EDC.
 
 ```curl
 POST /shell-descriptors/{{aasId}}
 
 {
-  "id": "e5c96ab5-896a-482c-8761-efd74777ca97",  
+  "id": "e5c96ab5-896a-482c-8761-efd74777ca97",
   "semanticId": {
     "type": "ExternalReference",
     "keys": [
