@@ -4,9 +4,9 @@ sidebar_position: 2
 ---
 
 The [TXD] dataspace initially consists of several components: `Alice` and `Bob` (two Tractus-X EDC connectors),
-a Vault instance each, a Postgres database, a Managed Identity Wallet app, a Keycloak instance. `Alice` and `Bob` will
+a Vault instance each, a Postgres database, a Managed Identity Wallet app, a keycloak instance. `Alice` and `Bob` will
 be our dataspace participants. Each of them stores their secrets in their respective vault instances, and there is a
-shared Postgres server, where each of them has a database. MIW and Keycloak are central components, they only exist
+shared Postgres server, where each of them has a database. MIW and keycloak are central components, they only exist
 once and are accessible by all participants.
 
 :::note
@@ -15,13 +15,13 @@ This chapter refers to also to the README for the Tractus-X umbrella charts foll
 :::
 
 :::Warning
-If you are [not] the only user on your system working with the turorial, means you are working in a multi-user environment, please ensure, that you understand your impact on other minikube profiles of other users and Umbralla namespaces. Please check, if other user are working on the same system by checking the existance of other minikube profiles with the command:
+If you are [not] the only user on your system working with the tutorial, means you are working in a multi-user environment, please ensure, that you understand your impact on other minikube profiles of other users and umbrella namespaces. Please check, if other user are working on the same system by checking the existence of other minikube profiles with the command:
 
 ```bash
-minkube profile list
+minikube profile list
 ```
 
-Please ensure you are using a different profile name f and[never] using options like **--all**. To avoid disturbing other we use the environment varaible [$USER] any time whne we specify a name for a minkube profile of an Umbrella namespace.
+Please ensure you are using a different profile name f and[never] using options like **--all**. To avoid disturbing other we use the environment variable [$USER] any time when we specify a name for a minikube profile of an Umbrella namespace.
 
 So if your minikube cluster will not be the only one running in your system, please
 
@@ -30,13 +30,13 @@ So if your minikube cluster will not be the only one running in your system, ple
   - Proposed name for the cluster profile: **minikube-$USER**
   - Proposed name for the umbrella namespace: **umbrella-$USER** ​
 
-- Ensure you are using the option **-p**, everytime you calling minikube ​
+- Ensure you are using the option **-p**, every time you calling minikube ​
 
 ```bash
 minikube –p minikube-$USER <command> <options>                             ​
 ```
 
-Ensure you are using the option **–n**, everytime you calling helm​
+Ensure you are using the option **–n**, every time you calling helm​
 
 ```bash
 helm <command> <options> –n umbrella-$USER                              ​
@@ -54,9 +54,9 @@ This will ensure that ingress is working in the correct environment of your clus
 
 ## Using Umbrella Helm Charts for the Deployment
 
-This Tutorial will be deployed by using an umbrella chart, which provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network consisting of Tractus-X OSS components. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running, see above warning). If several clusters are riunninh we need to adjsut a few configartion files.
+This Tutorial will be deployed by using an umbrella chart, which provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network consisting of Tractus-X OSS components. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running, see above warning). If several clusters are running we need to adjust a few configuration files.
 
-The currently available components availbe by the Umbrella Helm Chart are following:
+The currently available components available by the Umbrella Helm Chart are following:
 
 - portal
 - centralidp
@@ -77,8 +77,8 @@ We now start to deploy the TXD, our own dataspace. We will start by downloading 
 - get the source
 - start minikube bringing up the cluster (profile)
 - enabling Ingress for local access using the addon for Minikube
-- adjusting the configurationb files for the Umbrella Helm Chart (this is not required, if you are the only user on a system)
-- bringing uo the certifacation manager
+- adjusting the configuration files for the Umbrella Helm Chart (this is not required, if you are the only user on a system)
+- bringing uo the certification manager
 - Using helm to install our first dataprovider and consumer EDCs
 - checking their liveness
 
@@ -91,15 +91,15 @@ For the most bare-bones installation of the dataspace, execute the following com
 git clone  [https://github.com/eclipse-tractusx/tutorial-resources.git](https://github.com/eclipse-tractusx/tractus-x-umbrella.git")
 ```
 
-We now will find under your current working directory the directory [tractus-x-umbrella], change into this drectory:
+We now will find under your current working directory the directory [tractus-x-umbrella], change into this directory:
 
 ```bash
 cd tractus-x-umbrella
 ```
 
-### Start the minkube cluster (profile)
+### Start the minikube cluster (profile)
 
-To start the cluster we just call **minikube start**, if we have morethen one instance, we use -p option to set the profile name minikube-$USER, we use the othe roptions to request the appropiate resources.
+To start the cluster we just call **minikube start**, if we have more then one instance, we use -p option to set the profile name minikube-$USER, we use the other options to request the appropriate resources.
 
 ```bash
 minikube start [-p minikube-$USER] --cpus=4 --memory 6gb   # Start the cluster, if -p option is used with the profile name minikube-$USER
@@ -111,7 +111,7 @@ We now switch the context to minikube profile, this is required to ensure Ingres
 minikube profile minikube-$USER                           # Switch the context to minikube profile
 ```
 
-You can check you minikube cluster any time by starting the Minkube dashboard:
+You can check you minikube cluster any time by starting the minikube dashboard:
 
 ```bash
 minikube [-p minikube-$USER] dashboard                   # if -p option is used, with the profile name minikube-$USER
@@ -125,17 +125,17 @@ in order to enable the local access via ingress, use the according addon for Min
 minikube [-p minikube-$USER] addons enable ingress                 # if -p option is used, with the profile name minikube-$USER
 ```
 
-You will be fine by just enabling ingress, if you now add a few hostnames into  /etc/hosts. You shoul densure that you have access, the /etc/hosts file group entry should be assigend to the group **docker**. check with
+You will be fine by just enabling ingress, if you now add a few hostnames into  /etc/hosts. You should ensure that you have access, the /etc/hosts file group entry should be assigned to the group **docker**. check with
 
 ```bash
 ls -al /etc/hosts                  # Output should be like:  "-rw-r--r-- 1 root docker 414 Jun 16 14:34 /etc/hosts"
 ```
 
-Alternatively confugire the DNS Service to be enabled for Ingress.
+Alternatively configure the DNS Service to be enabled for Ingress.
 
 :::note
 
- Ths requires that you have an DNS on your system running and that you have **root accees** via **sudo**
+ Ths requires that you have an DNS on your system running and that you have **root access** via **sudo**
 
 :::
 
@@ -143,7 +143,7 @@ Alternatively confugire the DNS Service to be enabled for Ingress.
 minikube [-p minikube-$USER] addons enable ingress-dns                # if -p option is used, with the profile name minikube-$USER
 ```
 
-Find out the IP  Address of your minikube clsuter by entering:
+Find out the IP  Address of your minikube cluster by entering:
 
 ```bash
 minikube [-p minikube-$USER] ip                                       # if -p option is used, with the profile name minikube-$USER
@@ -172,7 +172,7 @@ sudo resolvconf -u
 systemctl disable --now resolvconf.service
 ```
 
-Check if the dns reasolving is working by requesting the IP addresses for the differnt service
+Check if the dns resolving is working by requesting the IP addresses for the different service
 
 ```bash
 nslookup centralidp.tx.test
@@ -180,7 +180,7 @@ nslookup dataconsumer-1-dataplane.tx.test
 nslookup dataprovider-dataplane.tx.test
 ```
 
-They should all return the saem IP adresse (the one of Minikube [-p minikube.$USER ip ]. If you face issues in resolving the address, add the following hosts entries into your /etc/hosts file, and replace the IP address with your value and **tx** by your choosen name:
+They should all return the same IP address (the one of Minikube [-p minikube.$USER ip ]. If you face issues in resolving the address, add the following hosts entries into your /etc/hosts file, and replace the IP address with your value and **tx** by your chosen name:
 
 ```bash
 192.168.49.2    centralidp.tx.test
@@ -214,7 +214,7 @@ helm install is used to install a chart in Kubernetes using Helm.
 
   --create-namespace create a namespace with the name umbrella
 
-**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]!**
+**If we have more than one instance of the minikube clusters running, we also should modify the namespace [umbrella] to [umbrella-$USER]!**
 
 :::
 
@@ -224,7 +224,7 @@ We start with ensuring that we are using the released charts.
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 ```
 
-For the tutorial we first select a subset of components for the dataexchange between a dataconsumer (Alice) and a dataprovider (Bob). The needed components are the following:
+For the tutorial we first select a subset of components for the data exchange between a dataconsumer (Alice) and a dataprovider (Bob). The needed components are the following:
 
 - centralidp
 - managed-identity-wallet
@@ -233,9 +233,9 @@ For the tutorial we first select a subset of components for the dataexchange bet
 
 ### Using a preconfigured configraution file [values-adopter-data-exchange.yaml]
 
-We chosing a predefined subset of the E2E adopter journey which provies the above selecteion.
+We chose a predefined subset of the E2E adopter journey which provides the above selection.
 
-#### Moved to the Umbrella dircetory with the config files
+#### Moved to the Umbrella directory with the config files
 
 ```bash
 cd <your original working directory>/tractus-x-umbrella/charts/umbrella
@@ -249,7 +249,7 @@ skip the next paragraph, if you are running the only one minikube cluster on you
 
 #### Adjusting the Config files for multi user usage
 
-In case we have to modify the values within the configuartion files as we run in a multi use enviromnet, we need adjust the domians names within the configuration files.A simple way is to update the file by using **sed** as line editor.
+In case we have to modify the values within the configuration files as we run in a multi use environment, we need adjust the domains names within the configuration files.A simple way is to update the file by using **sed** as line editor.
 
 ```bash
 # adjust values.yaml
@@ -335,7 +335,7 @@ kubectl apply -f kubectl-apply-in
 
 ```
 
-#### Now we install the perdefined setup for our tutorial
+#### Now we install the predefined setup for our tutorial
 
 Getting dependencies from Repo ...
 
@@ -382,7 +382,7 @@ curl -X GET http://dataconsumer-1-controlplane.$DOMAIN_NAME/api/check/liveness |
 Please be aware, that all services and applications that were deployed in the previous step, are **not** accessible from
 outside the Kubernetes cluster. That means, for example, the Postgres database cannot be reached out-of-the-box.
 
-As mnentioned above you can use the minikube dashboard to inspect your cluster:
+As mentioned above you can use the minikube dashboard to inspect your cluster:
 
 ```bash
 minikube [-p minikube-$USER] dashboard                   # if -p option is used, with the profile name minikube-$USER
