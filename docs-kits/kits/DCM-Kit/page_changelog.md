@@ -13,7 +13,22 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.0.0] - unreleased
+## [1.1.0] - unreleased
+
+### Added
+
+- Added multiple diagrams to [Development View](page_development-view.md)  
+
+### Changed
+
+- Restructured [Development View](page_development-view.md)
+- Recolored sequence diagram in [Architecture View](page_architecture-view.md)  
+
+### Removed
+
+N/A
+
+## [1.0.0] - 2024-05-24
 
 ### Added
 
