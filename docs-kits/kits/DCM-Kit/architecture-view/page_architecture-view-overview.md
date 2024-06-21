@@ -1,8 +1,7 @@
 ---
-id: architecture-view
+id: overview
 title: Architecture View
 description: The view from above
-sidebar_position: 4
 ---
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
