@@ -1,45 +1,68 @@
 ---
-title: Deploy components
-sidebar_position: 2
+title: Deploying the components
+sidebar_position: 1
 ---
 
-The [TXD] dataspace initially consists of several components: `Alice` and `Bob` (two Tractus-X EDC connectors),
-a Vault instance each, a Postgres database, a Managed Identity Wallet app, a Keycloak instance. `Alice` and `Bob` will
-be our dataspace participants. Each of them stores their secrets in their respective vault instances, and there is a
-shared Postgres server, where each of them has a database. MIW and Keycloak are central components, they only exist
-once and are accessible by all participants.
+## Preconditions
 
-:::note
-This chapter refers to also to the README for the Tractus-X umbrella charts following the link:
-<https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
+:::info
+
+Make sure that you have understood and carried out all the steps in the `Prerequisites chapter` before you start deploying the components.
+
 :::
 
-:::Warning
+### Mandatory
+
+- Local Kubernetes runtime ready
+- `Kubectl`, `helm` and `minikube` installed
+- A POSIX-compliant shell, e.g. `bash` or `zsh` unless stated otherwise. The tutorial conatins examples for `bash`.
+
+### Optional
+
+- Cli tool to easily print logs of a K8S deployment, such as [`stern`](https://github.com/stern/stern)
+- Graphical tool to inspect your Kubernetes environment, such as [Lens](https://k8slens.dev/).
+- Graphical tool to inspect Postgres databases, such as [PgAdmin](https://www.pgadmin.org/). Screenshots in
+  this guide are created off of PgAdmin.
+- Graphical tool to send REST requests, such as [insomnia] ( <https://insomnia.rest/>) or [Postman](https://www.postman.com/).
+
+## The Deployment
+
+### Using Umbrella Helm Charts
+
+The components (listed in the table in the `Connect chapter`) will be deployed by using an umbrella chart. It consists of Tractus-X OSS components and provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running (see above warning). If several clusters are running, you need to adjsut a few configuration files.
+
+:::note
+
+This chapter aligns with the README for the Tractus-X umbrella charts following the link:
+<https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
+
+:::
+
+:::warning
 If you are [not] the only user on your system working with the turorial, means you are working in a multi-user environment, please ensure, that you understand your impact on other minikube profiles of other users and Umbralla namespaces. Please check, if other user are working on the same system by checking the existance of other minikube profiles with the command:
 
 ```bash
-minkube profile list
+minikube profile list
 ```
 
-Please ensure you are using a different profile name f and[never] using options like **--all**. To avoid disturbing other we use the environment varaible [$USER] any time whne we specify a name for a minkube profile of an Umbrella namespace.
+Please ensure you are explicitly defining the profile with the `-f` parameter and [never] using options like **--all**. To avoid disturbing other we use the environment variable [$USER] any time we specify a name for a minikube profile of an Umbrella namespace.
 
 So if your minikube cluster will not be the only one running in your system, please
 
 - use specific names for your cluster profile and namespaces for helm​
-
   - Proposed name for the cluster profile: **minikube-$USER**
   - Proposed name for the umbrella namespace: **umbrella-$USER** ​
 
-- Ensure you are using the option **-p**, everytime you calling minikube ​
+- Ensure you are using the option `-p`, everytime you calling minikube ​
 
 ```bash
-minikube –p minikube-$USER <command> <options>                             ​
+minikube –p minikube-$USER <command> <options>  ​
 ```
 
 Ensure you are using the option **–n**, everytime you calling helm​
 
 ```bash
-helm <command> <options> –n umbrella-$USER                              ​
+helm <command> <options> –n umbrella-$USER
 ```
 
 Before you enable ingress enter:​
@@ -52,35 +75,17 @@ This will ensure that ingress is working in the correct environment of your clus
 
 :::
 
-## Using Umbrella Helm Charts for the Deployment
+### Overview
 
-This Tutorial will be deployed by using an umbrella chart, which provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network consisting of Tractus-X OSS components. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running, see above warning). If several clusters are riunninh we need to adjsut a few configartion files.
+Now we start to deploy the TXD by carrying out the following steps:
 
-The currently available components availbe by the Umbrella Helm Chart are following:
-
-- portal
-- centralidp
-- sharedidp
-- bpndiscovery
-- discoveryfinder
-- sdfactory
-- managed-identity-wallet
-- semantic-hub
-- dataconsumerOne (tractusx-edc, vault)
-- tx-data-provider (tractusx-edc, digital-twin-registry, vault, simple-data-backend)
-- dataconsumerTwo (tractusx-edc, vault)
-
-### Starting with the Deployment of [TXD] , our own local dataspace
-
-We now start to deploy the TXD, our own dataspace. We will start by downloading the sources from Github into our local environment. Then we will step by step
-
-- get the source
-- start minikube bringing up the cluster (profile)
-- enabling Ingress for local access using the addon for Minikube
-- adjusting the configurationb files for the Umbrella Helm Chart (this is not required, if you are the only user on a system)
-- bringing uo the certifacation manager
-- Using helm to install our first dataprovider and consumer EDCs
-- checking their liveness
+- Get the source
+- Start `minikube` bringing up the cluster (profile)
+- Enable `Ingress` for local access using the addon for Minikube
+- Adjust the configuration files for the Umbrella Helm Chart (this is not required, if you are the only user on a system)
+- Use the certifacation manager
+- Use helm to deploy the ecosystem
+- Check their liveness
 
 ### Get the source from the Tractus-X Github
 
@@ -88,168 +93,132 @@ For the most bare-bones installation of the dataspace, execute the following com
 
 ```bash
 # get the tutorial including the config file for the cluster by cloning the repository locally
-git clone  [https://github.com/eclipse-tractusx/tutorial-resources.git](https://github.com/eclipse-tractusx/tractus-x-umbrella.git")
+git clone [https://github.com/eclipse-tractusx/tractus-x-umbrella.git](https://github.com/eclipse-tractusx/tractus-x-umbrella.git")
 ```
 
-We now will find under your current working directory the directory [tractus-x-umbrella], change into this drectory:
+Now we will find the directory [tractus-x-umbrella] under your current working directory. Change into this directory:
 
 ```bash
 cd tractus-x-umbrella
 ```
 
-### Start the minkube cluster (profile)
+### Start the minikube cluster (profile)
 
-To start the cluster we just call **minikube start**, if we have morethen one instance, we use -p option to set the profile name minikube-$USER, we use the othe roptions to request the appropiate resources.
-
-```bash
-minikube start [-p minikube-$USER] --cpus=4 --memory 6gb   # Start the cluster, if -p option is used with the profile name minikube-$USER
-```
-
-We now switch the context to minikube profile, this is required to ensure Ingress get the correct data of the cluster, but it is not needed, if you run only one minikube cluster on your system.
+To start the cluster we just call **minikube start**. If we have more than one instance, we use -p option to set the profile name minikube-$USER. We use the other options to request the appropiate resources.
 
 ```bash
-minikube profile minikube-$USER                           # Switch the context to minikube profile
+minikube start [-p minikube-$USER] --cpus=4 --memory 6gb
+# Start the cluster, if -p option is used with the profile name minikube-$USER
 ```
 
-You can check you minikube cluster any time by starting the Minkube dashboard:
+We now switch the context to minikube profile. This is required to ensure Ingress gets the correct data of the cluster. But it is not needed, if you run only one minikube cluster on your system.
 
 ```bash
-minikube [-p minikube-$USER] dashboard                   # if -p option is used, with the profile name minikube-$USER
+minikube profile minikube-$USER
+# Switch the context to minikube profile
 ```
 
-### Seting up the local internal netwok
-
-in order to enable the local access via ingress, use the according addon for Minikube:
+You can check your minikube cluster any time by starting the Minikube dashboard:
 
 ```bash
-minikube [-p minikube-$USER] addons enable ingress                 # if -p option is used, with the profile name minikube-$USER
+minikube [-p minikube-$USER] dashboard
+# if -p option is used, with the profile name minikube-$USER
 ```
 
-You will be fine by just enabling ingress, if you now add a few hostnames into  /etc/hosts. You shoul densure that you have access, the /etc/hosts file group entry should be assigend to the group **docker**. check with
+### Setting up the local internal netwok
+
+In order to enable the local access via ingress, use the according addon for Minikube:
 
 ```bash
-ls -al /etc/hosts                  # Output should be like:  "-rw-r--r-- 1 root docker 414 Jun 16 14:34 /etc/hosts"
+minikube [-p minikube-$USER] addons enable ingress
+# if -p option is used, with the profile name minikube-$USER
 ```
 
-Alternatively confugire the DNS Service to be enabled for Ingress.
+Now add a few hostnames into your /etc/hosts. You should ensure that you have access and the /etc/hosts file group entry should be assigend to the group **docker**. Check this with following commands:
+
+```bash
+ls -al /etc/hosts 
+# Output should be like: "-rw-r--r-- 1 root docker 414 Jun 16 14:34 /etc/hosts"
+```
+
+Alternatively configure the DNS Service to be enabled for Ingress.
 
 :::note
 
- Ths requires that you have an DNS on your system running and that you have **root accees** via **sudo**
+ This requires that you have an DNS on your system running and that you have **root accees** via **sudo**
 
 :::
 
 ```bash
-minikube [-p minikube-$USER] addons enable ingress-dns                # if -p option is used, with the profile name minikube-$USER
+minikube [-p minikube-$USER] addons enable ingress-dns 
+# if -p option is used, with the profile name minikube-$USER
 ```
 
-Find out the IP  Address of your minikube clsuter by entering:
+Find out the IP  Address of your minikube cluster by entering:
 
 ```bash
-minikube [-p minikube-$USER] ip                                       # if -p option is used, with the profile name minikube-$USER
+minikube [-p minikube-$USER] ip
+# if -p option is used, with the profile name minikube-$USER
 ```
 
-This return your IP Address which you now use as follows:
+In the following steps, replace `192.168.49.2` with your `minikube ip` if it differs.
 
-Update the file /etc/resolvconf/resolv.conf.d/base to have the following contents.
+#### Linux & Mac
 
-```bash
-search test
-nameserver 192.168.99.169
+Create a file in /etc/resolver/minikube-test with the following contents.
+
+```properties
+domain arena.test
+nameserver 192.168.49.2
+search_order 1
 timeout 5
 ```
 
-::note
+If you still face DNS issues, add the hosts to your /etc/hosts file:
 
-Replace 192.168.99.169 with the output of minikube ip. If you are not the only one running the tutorial on your system replace **tx**with your username stored in **$USER**.
-
-:::
-
- Then run the following commands:
-
-```bash
-sudo resolvconf -u
-systemctl disable --now resolvconf.service
+```properties
+192.168.49.2    centralidp.arena.test
+192.168.49.2    sharedidp.arena.test
+192.168.49.2    portal.arena.test
+192.168.49.2    portal-backend.arena.test
+192.168.49.2    managed-identity-wallets.arena.test
+192.168.49.2    semantics.arena.test
+192.168.49.2    sdfactory.arena.test
+192.168.49.2    dataconsumer-1-dataplane.arena.test
+192.168.49.2    dataconsumer-1-controlplane.arena.test
+192.168.49.2    dataprovider-dataplane.arena.test
+192.168.49.2    dataconsumer-2-dataplane.arena.test
+192.168.49.2    dataconsumer-2-controlplane.arena.test
 ```
 
-Check if the dns reasolving is working by requesting the IP addresses for the differnt service
+Additional network setup for Mac:
 
-```bash
-nslookup centralidp.tx.test
-nslookup dataconsumer-1-dataplane.tx.test
-nslookup dataprovider-dataplane.tx.test
+- Install and start [Docker Mac Net Connect](https://github.com/chipmk/docker-mac-net-connect#installation).
+
+We also recommend to execute the usage example after install to check proper setup.
+
+#### Windows
+
+For Windows edit the hosts file under `C:\Windows\System32\drivers\etc\hosts`:
+
+```properties
+192.168.49.2    centralidp.arena.test
+192.168.49.2    sharedidp.arena.test
+192.168.49.2    portal.arena.test
+192.168.49.2    portal-backend.arena.test
+192.168.49.2    managed-identity-wallets.arena.test
+192.168.49.2    semantics.arena.test
+192.168.49.2    sdfactory.arena.test
+192.168.49.2    dataconsumer-1-dataplane.arena.test
+192.168.49.2    dataconsumer-1-controlplane.arena.test
+192.168.49.2    dataprovider-dataplane.arena.test
+192.168.49.2    dataconsumer-2-dataplane.arena.test
+192.168.49.2    dataconsumer-2-controlplane.arena.test
 ```
-
-They should all return the saem IP adresse (the one of Minikube [-p minikube.$USER ip ]. If you face issues in resolving the address, add the following hosts entries into your /etc/hosts file, and replace the IP address with your value and **tx** by your choosen name:
-
-```bash
-192.168.49.2    centralidp.tx.test
-192.168.49.2    sharedidp.tx.test
-192.168.49.2    portal.tx.test
-192.168.49.2    portal-backend.tx.test
-192.168.49.2    managed-identity-wallets.tx.test
-192.168.49.2    semantics.tx.test
-192.168.49.2    sdfactory.tx.test
-192.168.49.2    dataconsumer-1-dataplane.tx.test
-192.168.49.2    dataconsumer-1-controlplane.tx.test
-192.168.49.2    dataprovider-dataplane.tx.test
-192.168.49.2    dataconsumer-2-dataplane.tx.test
-192.168.49.2    dataconsumer-2-controlplane.tx.test
-```
-
-### Install the first setup
-
-:::Note
-Understanding the role of helm install and upgrade
-
-helm install is used to install a chart in Kubernetes using Helm.
-
-  --set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true Enables the components by setting their respective enabled values to true.
-
-  **umbrella** is the release name for the chart.
-
-  tractusx-dev/umbrella specifies the chart to install, with tractusx-dev being the repository name and umbrella being the chart name.
-
-  --namespace umbrella specifies the namespace in which to install the chart.
-
-  --create-namespace create a namespace with the name umbrella
-
-**If we have more than one instance of the minikube clusters running, we also should modfiy the namespace [umbrella] to [umbrella-$USER]!**
-
-:::
-
-We start with ensuring that we are using the released charts.
-
-```bash
-helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
-```
-
-For the tutorial we first select a subset of components for the dataexchange between a dataconsumer (Alice) and a dataprovider (Bob). The needed components are the following:
-
-- centralidp
-- managed-identity-wallet
-- dataconsumerOne (tractusx-edc, vault)
- -tx-data-provider (tractusx-edc, digital-twin-registry, vault, simple-data-backend)
-
-### Using a preconfigured configraution file [values-adopter-data-exchange.yaml]
-
-We chosing a predefined subset of the E2E adopter journey which provies the above selecteion.
-
-#### Moved to the Umbrella dircetory with the config files
-
-```bash
-cd <your original working directory>/tractus-x-umbrella/charts/umbrella
-```
-
-:::Note
-
-skip the next paragraph, if you are running the only one minikube cluster on your system
-
-:::
 
 #### Adjusting the Config files for multi user usage
 
-In case we have to modify the values within the configuartion files as we run in a multi use enviromnet, we need adjust the domians names within the configuration files.A simple way is to update the file by using **sed** as line editor.
+In case we have to modify the values within the configuartion files as we run in a multi use enviromnet, we need to adjust the domians names within the configuration files. A simple way is to update the file by using **sed** as line editor.
 
 ```bash
 # adjust values.yaml
@@ -280,17 +249,449 @@ cp init-container/iam/sharedidp/CX-Operator-users-0.json init-container/iam/shar
 cat init-container/iam/sharedidp/CX-Operator-users-0.json.orig | sed s/tx.test/$DOMAIN_NAME/ > init-container/iam/sharedidp/CX-Operator-users-0.json
 ```
 
-#### Run the helm install command to install the cert-manager chart in the same namespace where the umbrella chart will be located."
+### Install Helm Charts
+
+:::warning
+
+- Due to resource restrictions, it's **not recommended** to install the helm chart with all components enabled.
+
+- It is to be expected that some pods - which run as post-install hooks, like for instance the **portal-migrations job - will run into errors until another component**, like for instance a database, is ready to take connections.
+Those jobs will recreate pods until one run is successful.
+- **Persistance is disabled by default** but can be configured in a custom values file.
+
+:::
+
+#### Use released chart
 
 ```bash
-helm install cert-manager jetstack/cert-manager --namespace umbrella[-$USER] --create-namespace --version v1.14.4 --se
-t installCRDs=true
+helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 ```
 
-Configure the self-signed certificate and issuer to be used by the ingress resources
+##### :grey_question: Command explanation
+
+:::info
+
+`helm install` is used to install a chart in Kubernetes using Helm.
+
+- `--set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true` Enables the components by setting their respective enabled values to true.
+- `umbrella` is the release name for the chart.
+- `tractusx-dev/umbrella` specifies the chart to install, with *tractusx-dev* being the repository name and *umbrella* being the chart name.
+- `--namespace umbrella` specifies the namespace in which to install the chart.
+- `--create-namespace` create a namespace with the name `umbrella`.
+
+:::
+
+##### Option 1
+
+Install with your chosen components enabled:
 
 ```bash
-cat <<EOF > kubectl-apply-in
+helm install \
+  --set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true,COMPONENT_3.enabled=true \
+  umbrella tractusx-dev/umbrella \
+  --namespace umbrella \
+  --create-namespace
+```
+
+##### Option 2
+
+Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
+
+###### Data Exchange Subset
+
+```bash
+helm install \
+  --set centralidp.enabled=true,managed-identity-wallet.enabled=true,dataconsumerOne.enabled=true,tx-data-provider.enabled=true \
+  umbrella tractusx-dev/umbrella \
+  --namespace umbrella \
+  --create-namespace
+```
+
+###### Optional
+
+Enable `dataconsumerTwo` at upgrade:
+
+```bash
+helm install \
+  --set centralidp.enabled=true,managed-identity-wallet.enabled=true,dataconsumerOne.enabled=true,tx-data-provider.enabled=true,dataconsumerTwo.enabled=true \
+  umbrella tractusx-dev/umbrella \
+  --namespace umbrella
+```
+
+###### Portal Subset
+
+```bash
+helm install \
+  --set portal.enabled=true,centralidp.enabled=true,sharedidp.enabled=true \
+  umbrella tractusx-dev/umbrella \
+  --namespace umbrella \
+  --create-namespace
+```
+
+To set your own configuration and secret values, install the helm chart with your own values file:
+
+```bash
+helm install -f your-values.yaml umbrella tractusx-dev/umbrella --namespace umbrella --create-namespace
+```
+
+#### Use local repository
+
+Make sure to clone the [tractus-x-umbrella](https://github.com/eclipse-tractusx/tractus-x-umbrella) repository beforehand.
+
+Then navigate to the chart directory:
+
+```bash
+cd charts/umbrella/
+```
+
+Download the chart dependencies:
+
+```bash
+helm dependency update
+```
+
+##### grey_question: Command explanation
+
+> `helm install` is used to install a Helm chart.
+> > `-f your-values.yaml` | `-f values-*.yaml` specifies the values file to use for configuration.
+> ---
+> > `umbrella` is the release name for the Helm chart.
+> ---
+> > `.` specifies the path to the chart directory.
+> ---
+> > `--namespace umbrella` specifies the namespace in which to install the chart.
+> ---
+> > `--create-namespace` create a namespace with the name `umbrella`.
+
+##### Option 1
+
+Install your chosen components by having them enabled in a `your-values.yaml` file:
+
+```bash
+helm install -f your-values.yaml umbrella . --namespace umbrella --create-namespace
+```
+
+> In general, all your specific configuration and secret values should be set by installing with an own values file.
+
+##### Option 2
+
+Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
+
+###### Data Exchange Subset
+
+```bash
+helm install -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella --create-namespace
+```
+
+**Optional:**
+
+Enable `dataconsumerTwo` by setting it true in `values-adopter-data-exchange.yaml` and then executing an upgrade:
+
+```bash
+dataconsumerTwo:
+  enabled: true
+```
+
+```bash
+helm upgrade -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella
+```
+
+###### Portal Subset
+
+```bash
+helm install -f values-adopter-portal.yaml umbrella . --namespace umbrella --create-namespace
+```
+
+#### Get to know the Portal
+
+Perform first login and send out an invitation to a company to join the network (SMTP account required to be configured in custom values.yaml file).
+
+Proceed with the login to the <http://portal.arena.test> to verify that everything is setup as expected.
+
+Credentials to log into the initial example realm (CX-Operator):
+
+```sh
+cx-operator@arena.test
+```
+
+```sh
+tractusx-umbr3lla!
+```
+
+```mermaid
+%%{
+  init: {
+    'flowchart': { 'diagramPadding': '10', 'wrappingWidth': '', 'nodeSpacing': '', 'rankSpacing':'', 'titleTopMargin':'10', 'curve':'basis'},
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#b3cb2d',
+      'primaryBorderColor': '#ffa600',
+      'lineColor': '#ffa600',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+        graph TD
+          classDef stroke stroke-width:2px
+          classDef addext fill:#4cb5f5,stroke:#b7b8b6,stroke-width:2px
+          iam1(IAM: centralidp Keycloak):::stroke
+          iam2(IAM: sharedidp Keycloak):::stroke
+          portal(Portal):::stroke
+          subgraph Login Flow
+              iam1 --- portal & iam2
+            end
+          linkStyle 0,1 stroke:lightblue
+```
+
+The relevant hosts are the following:
+
+- <http://centralidp.arena.test/auth/>
+- <http://sharedidp.arena.test/auth/>
+- <http://portal-backend.arena.test>
+- <http://portal.arena.test>
+
+In case that you have TLS enabled (see [Self-signed TLS setup (Optional)](#self-signed-tls-setup-optional)), make sure to accept the risk of the self-signed certificates for all the hosts before performing the first login:
+
+- <https://centralidp.arena.test/auth/>
+- <https://sharedidp.arena.test/auth/>
+- <https://portal-backend.arena.test>
+- <https://portal.arena.test>
+
+### Uninstall Helm Charts
+
+To teardown your setup, run:
+
+```shell
+helm delete umbrella --namespace umbrella
+```
+
+:::warning
+
+If persistance for one or more components is enabled, the persistent volume claims (PVCs) and connected persistent volumes (PVs) need to be removed manually even if you deleted the release from the cluster.
+
+:::
+
+### Ingresses
+
+Currently enabled ingresses:
+
+- [centralidp.arena.test/auth](http://centralidp.arena.test/auth/)
+- [sharedidp.arena.test/auth](http://sharedidp.arena.test/auth/)
+- [portal-backend.arena.test](http://portal-backend.arena.test)
+  - [portal-backend.arena.test/api/administration/swagger/index.html](http://portal-backend.arena.test/api/administration/swagger/index.html)
+  - [portal-backend.arena.test/api/registration/swagger/index.html](http://portal-backend.arena.test/api/registration/swagger/index.html)
+  - [portal-backend.arena.test/api/apps/swagger/index.html](http://portal-backend.arena.test/api/apps/swagger/index.html)
+  - [portal-backend.arena.test/api/services/swagger/index.html](http://portal-backend.arena.test/api/services/swagger/index.html)
+  - [portal-backend.arena.test/api/notification/swagger/index.html](http://portal-backend.arena.test/api/notification/swagger/index.html)
+- [portal.arena.test](http://portal.arena.test)
+- [managed-identity-wallets.arena.test/ui/swagger-ui/index.html](http://managed-identity-wallets.arena.test/ui/swagger-ui/index.html)
+- [semantics.arena.test/discoveryfinder/swagger-ui/index.html](http://semantics.arena.test/discoveryfinder/swagger-ui/index.html)
+- [dataconsumer-1-controlplane.arena.test](http://dataconsumer-1-controlplane.arena.test)
+- [dataconsumer-1-dataplane.arena.test](http://dataconsumer-1-dataplane.arena.test)
+- [dataprovider-dataplane.arena.test](http://dataprovider-dataplane.arena.test)
+- [dataconsumer-2-controlplane.arena.test](http://dataconsumer-2-controlplane.arena.test)
+- [dataconsumer-2-dataplane.arena.test](http://dataconsumer-2-dataplane.arena.test)
+- [pgadmin4.arena.test](http://pgadmin4.arena.test)
+
+### Database Access
+
+This chart also contains a pgadmin4 instance for easy access to the deployed Postgres databases which are only available from within the Kubernetes cluster.
+
+pgadmin4 is by default enabled with in the predefined subsets for data exchange and portal.
+
+Address: [pgadmin4.arena.test](http://pgadmin4.arena.test)
+
+Credentials to login into pgadmin4:
+
+```sh
+pgadmin4@txtest.org
+```
+
+```sh
+tractusxpgdamin4
+```
+
+:::info
+
+The database server connections need to be added manually to pgadmin4.
+
+:::
+
+Default username for all connections:
+
+```sh
+postgres
+```
+
+Default user for all connections:
+
+```sh
+5432
+```
+
+In the following some of the available connections:
+
+- portal
+
+Host:
+
+```sh
+portal-backend-postgresql
+```
+
+Password:
+
+```sh
+dbpasswordportal
+```
+
+- centralidp
+
+Host:
+
+```sh
+umbrella-centralidp-postgresql
+```
+
+Password:
+
+```sh
+dbpasswordcentralidp
+```
+
+- sharedidp
+
+Host:
+
+```sh
+umbrella-sharedidp-postgresql
+```
+
+Password:
+
+```sh
+dbpasswordsharedidp
+```
+
+- miw
+
+Host:
+
+```sh
+umbrella-miw-postgres
+```
+
+Password:
+
+```sh
+dbpasswordmiw
+```
+
+- dataprovider
+
+Host:
+
+```sh
+umbrella-dataprovider-db
+```
+
+Password:
+
+```sh
+dbpasswordtxdataprovider
+```
+
+- dataconsumer-1
+
+Host:
+
+```sh
+umbrella-dataconsumer-1-db
+```
+
+Password:
+
+```sh
+dbpassworddataconsumerone
+```
+
+- dataconsumer-2
+
+Host:
+
+```sh
+umbrella-dataconsumer-2-db
+```
+
+Password:
+
+```sh
+dbpassworddataconsumertwo
+```
+
+### Keycloak Admin Console
+
+Access to admin consoles:
+
+- [http://centralidp.arena.test/auth/](http://sharedidp.arena.test/auth/)
+- [http://sharedidp.arena.test/auth/](http://sharedidp.arena.test/auth/)
+
+Default username for centralidp and sharedidp:
+
+```sh
+admin
+```
+
+Password centralidp:
+
+```sh
+adminconsolepwcentralidp
+```
+
+Password sharedidp:
+
+```sh
+adminconsolepwsharedidp
+```
+
+### Seeding
+
+See [Overall Seeding](../../concept/seeds-overall-data.md).
+
+### Self-signed TLS setup (Optional)
+
+Some of the components are prepared to be configured with TLS enabled (see "uncomment the following line for tls" comments in [values.yaml](./values.yaml)).
+
+If you'd like to make use of that, make sure to to execute this step beforehand.
+
+Install cert-manager chart in the same namespace where the umbrella chart will be located.
+
+```bash
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+```
+
+```bash
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace umbrella \
+  --create-namespace \
+  --version v1.14.4 \
+  --set installCRDs=true
+```
+
+Configure the self-signed certificate and issuer to be used by the ingress resources.
+
+If you have the repository checked out you can run:
+
+```bash
+kubectl apply -f ./charts/umbrella/cluster-issuer.yaml
+```
+
+or otherwise you can run:
+
+```bash
+kubectl apply -f - <<EOF
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -302,10 +703,10 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: my-selfsigned-ca
-  namespace: $NAMESPACE
+  namespace: umbrella
 spec:
   isCA: true
-  commonName: $DOMAIN_NAME
+  commonName: arena.test
   secretName: root-secret
   privateKey:
     algorithm: RSA
@@ -330,67 +731,18 @@ spec:
   ca:
     secretName: root-secret
 EOF
-
-kubectl apply -f kubectl-apply-in
-
 ```
 
-#### Now we install the perdefined setup for our tutorial
+See [cert-manager self-signed](https://cert-manager.io/docs/configuration/selfsigned) for reference.
 
-Getting dependencies from Repo ...
+### Precondition for Semantic Hub
 
-```bash
-helm dependency update
-```
+In case of enabling `semantic-hub` the fuseki docker image must be built.
+Build fuseki docker image by following the below steps:
 
-Installing the Tutorial chart as part of th E2E journey.
-
-```bash
-helm install -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella[-$USER] --create-namespace
-```
-
-Enable second dataconsumer EDC "dataconsumerTwo" by setting it true in values-adopter-data-exchange.yaml and then executing an upgrade:
-
-```bash
-dataconsumerTwo:
-  enabled: true
-```
-
-```bash
-helm upgrade -f values-adopter-data-exchange.yaml umbrella . --namespace umbrella
-```
-
-## Inspect
-
-After the `helm` command has successfully completed, it will output a few configuration and setup values
-that we will need in later steps. Please note that some values will be different on your local system.
-
-Checking liveness of dataprovider ...
-
-```bash
-curl -X GET http://dataprovider-controlplane.$DOMAIN_NAME/api/check/liveness | jq
-```
-
-Checking liveness of dataconsumer ...
-
-```bash
-curl -X GET http://dataconsumer-1-controlplane.$DOMAIN_NAME/api/check/liveness | jq
-```
-
-## Inspect the databases
-
-Please be aware, that all services and applications that were deployed in the previous step, are **not** accessible from
-outside the Kubernetes cluster. That means, for example, the Postgres database cannot be reached out-of-the-box.
-
-As mnentioned above you can use the minikube dashboard to inspect your cluster:
-
-```bash
-minikube [-p minikube-$USER] dashboard                   # if -p option is used, with the profile name minikube-$USER
-```
-
-:::Note
-This chapter refers to a subset of the E2E Journey described in the README for the Tractus-X umbrella charts. Please follow the link:  <https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>. There you will find a lot more information on how you can extend the setup by adding further components, such as a portal, to increase your experience. You also find hints on how to use the Umbrella Helm Chart on Windows or MAC. We will continue to add more content to the tutorial.
-:::
+- Download [jena-fuseki-docker-4.7.0.zip](https://repo1.maven.org/maven2/org/apache/jena/jena-fuseki-docker/4.7.0/jena-fuseki-docker-4.7.0.zip)
+- Unzip the jena-fuseki-docker-4.7.0.zip.
+- Build the docker image by running the command - `docker build --build-arg JENA_VERSION=4.7.0 -t jena-fuseki-docker:4.7.0 --platform linux/amd64 .`
 
 ## Notice
 
