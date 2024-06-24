@@ -13,7 +13,7 @@ This page is relevant for you, if one of the following cases applies:
 1. You want to participate in the demand and capacity usecase as either a customer or a supplier and intend to adapt your existing custom application landscape to Catena-X DCM.
 2. You want to offer business solutions to the aforementioned customers and suppliers by adapting your commercial software product for Catena-X DCM.
 
-If none of this applies to you or you are unsure, please refer to [Operation View](page_operation-view.md) first.
+If none of this applies to you or you are unsure, please refer to [Operation View](../operation-view.md) first.
 
 > Note: If you purchase commercial software from a software vendor, the vendor needs to adopt their software for you. Please refer your vendor to this page.
 
