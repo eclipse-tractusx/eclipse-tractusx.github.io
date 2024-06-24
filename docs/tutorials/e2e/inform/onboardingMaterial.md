@@ -38,7 +38,7 @@ To enable the use cases, Catena-X builds a decentral data space. In a data space
 
 :::note
 
-For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>  
+For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>
 The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: <https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf>
 
 :::

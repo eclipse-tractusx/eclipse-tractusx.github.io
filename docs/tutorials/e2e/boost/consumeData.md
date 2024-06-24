@@ -249,7 +249,7 @@ If you used webhook.site as your backend system, you can now go to [webhook.site
 
 In her backend (as already mentioned [webhook.site](https://webhook.site/)) you will now find the following (as an example) entry
 
-![Consume data backend](@site/static/tutorials/e2e/consume_data_backend.png)
+![Consume data backend](/tutorials/e2e/consume_data_backend.png)
 
 ```json
 {

@@ -59,7 +59,7 @@ So if your minikube cluster will not be the only one running in your system, ple
 minikube –p minikube-$USER <command> <options>  ​
 ```
 
-Ensure you are using the option **–n**, everytime you calling helm​
+Ensure you are using the option **–n**, every time you calling helm​
 
 ```bash
 helm <command> <options> –n umbrella-$USER

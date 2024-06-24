@@ -39,7 +39,7 @@ In case you want to install Tractus-X components or [Kits] directly on your loca
 - Your local system should run a Linux Version (Debian or Ubuntu 22.04 or higher are recommended)
 - You need super user privileges (either root access or the right to use sudo)
 - The above tools should be installed (Docker, Kubernetes, Kubectl, Minikube, Helm and Browser, X-Environment)
-- To enbale users to run the tutorial after you ave installed the required enviroment setup the environmemt as described in the last section.
+- To enable users to run the tutorial after you ave installed the required environment setup the environment as described in the last section.
 
 ### Access to the Internet
 
@@ -109,7 +109,7 @@ The above list is currently a candidate for changes, especially as long as the u
 
 #### https (443)
 
-You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment which is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the envionment variabale "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
+You will need https (port 443) as open port for getting access to the above repositories. If you do not have direct access from your system, you most likely work in an environment which is using proxy forwarding for https. An easy way to configure your system to use the proxy server is by setting the environment variable "https_proxy". For example with the command below (bash), if the port 8080 is used for the forwarding:
 
 ```bash
 export https_proxy=http://[proxy-web-or-IP-address]:8080
@@ -123,7 +123,7 @@ export https_proxy=http://[username]:[password]@ [proxy-web-or-IP-address]:[port
 
 :::tip
 
-The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is permant, you may want to add the above command in your .bashrc or /etc/environment. Further you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf:
+The above URLs then will be passed only if your proxy server is configured to forward the above whitelist of URLs. To ensure your setting is persisted, you may want to add the above command in your .bashrc or /etc/environment. Further you can configure apt to use the proxy by entering the following into the configuration file /etc/apt/apt.conf:
 
 ```bash
 Acquire::https::Proxy "http://[username]:[password]@ [proxy-web-or-IP-address]:[port-number]";
@@ -151,11 +151,11 @@ Opening further ports is not required for the tutorial, as the setup is designed
 
 ### Install the basic tools (on Ubuntu 22.x and higher)
 
-Within this section we briefly describe how to install the required tools on an Ubuntu system. We have tested this on 22.04.3 LTS (GNU/Linux 5.15.0-86-generic x86_64). Please check the online availabe documentation for further details.
+Within this section we briefly describe how to install the required tools on an Ubuntu system. We have tested this on 22.04.3 LTS (GNU/Linux 5.15.0-86-generic x86_64). Please check the online available documentation for further details.
 
 #### Install docker
 
-Ensure that you are up to date with your release (for Ubuntu we use atp, which needs to run with root priveledges):
+Ensure that you are up to date with your release (for Ubuntu we use atp, which needs to run with root privileges):
 
 ```bash
 sudo apt update && sudo apt upgrade
@@ -169,7 +169,7 @@ sudo apt install docker.io
 
 :::note
 
-The user group docker shoild be created, check if it exists.
+The user group docker should be created, check if it exists.
 
 ```bash
 grep docker /etc/group
@@ -268,7 +268,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 && chmod +x minikube
 ```
 
-The chmod command is used to ensure minikube is executable. If you want other users to have access, you should copy the executable to /usr/bin/ or nother comparable location which is used by all users. Ensure that all members of the group "docker" have access.
+The chmod command is used to ensure minikube is executable. If you want other users to have access, you should copy the executable to /usr/bin/ or another comparable location which is used by all users. Ensure that all members of the group "docker" have access.
 
 ```bash
 sudo cp ./minikube /usr/bin
@@ -380,11 +380,11 @@ So we run the following commands, assuming the user already exists:
 
 ```bash
 sudo addusr tx01 docker               # adds the user to the group docker
-sudo chgrp docker /etc/hosts          # change the group permissin from root to docker
+sudo chgrp docker /etc/hosts          # change the group permission from root to docker
 sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts
 ```
 
-You should brief your user regarding their responsiblity when theri are editing /etc/hosts.
+You should brief your user regarding their responsibility when they are editing /etc/hosts.
 
 :::Warning
 
