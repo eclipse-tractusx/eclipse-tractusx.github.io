@@ -49,10 +49,10 @@ A MVP approach can be followed when developing software, implementing CX-0128, b
 
 ## Aspect models utilized by a DCM application
 
-- [WeekBasedMaterialDemand](page_development-view-model-material-demand.md)
-- [WeekBasedCapacityGroup](page_development-view-model-capacity-group.md)
-- [IdBasedRequestForUpdate](page_development-view-model-rfu.md)
-- [IdBasedComment](page_development-view-model-comment.md)
+- [WeekBasedMaterialDemand](model-material-demand.md)
+- [WeekBasedCapacityGroup](model-capacity-group.md)
+- [IdBasedRequestForUpdate](model-rfu.md)
+- [IdBasedComment](model-comment.md)
 
 ## Application Programming Interfaces
 
@@ -122,10 +122,10 @@ For further information on the APIs and how to use them in order to facilitate d
 
 ## APIs utilized by a DCM application
 
-- [WeekBasedMaterialDemand API](page_development-view-api-material-demand.md)
-- [WeekBasedCapacityGroup API](page_development-view-api-capacity-group.md)
-- [RequestForUpdate API](page_development-view-api-rfu.md)
-- [IdBasedComment API](page_development-view-api-comment.md)
-- [DCM Asset Administration Shell API (AAS API)](page_development-view-api-aas.md)
+- [WeekBasedMaterialDemand API](api-material-demand.md)
+- [WeekBasedCapacityGroup API](api-capacity-group.md)
+- [RequestForUpdate API](api-rfu.md)
+- [IdBasedComment API](api-comment.md)
+- [DCM Asset Administration Shell API (AAS API)](api-aas.md)
 
 [StandardLibrary]: https://catena-x.net/de/standard-library
