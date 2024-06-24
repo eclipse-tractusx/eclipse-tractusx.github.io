@@ -2,7 +2,6 @@
 id: changelog
 title: Changelog
 description: 'What has changed recently?'
-sidebar_position: 1
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
@@ -17,12 +16,12 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added multiple diagrams to [Development View](page_development-view.md)  
+- Added multiple diagrams to [Development View](development-view/page_development-view-overview.md)  
 
 ### Changed
 
-- Restructured [Development View](page_development-view.md)
-- Recolored sequence diagram in [Architecture View](page_architecture-view.md)  
+- Restructured [Development View](development-view/page_development-view-overview.md)
+- Recolored sequence diagram in [Architecture View](architecture-view/page_architecture-view-overview.md) 
 
 ### Removed
 
@@ -37,8 +36,8 @@ N/A
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
-- Updated aspect models in [Adoption View](page_adoption-view.md) to new versions
-- Updated aspect models and API definitions in [Development View](page_development-view.md) to new versions
+- Updated aspect models in [Architecture View](architecture-view/page_architecture-view-overview.md) to new versions
+- Updated aspect models and API definitions in [Development View](development-view/page_development-view-overview.md)) to new versions
 - Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
 - Updated choice of words and writing pattern throughout the documentation
 

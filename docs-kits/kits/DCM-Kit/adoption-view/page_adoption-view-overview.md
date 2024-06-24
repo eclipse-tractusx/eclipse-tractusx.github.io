@@ -1,8 +1,7 @@
 ---
-id: adoption-view
+id: overview
 title: Adoption View
 description: 'A first impression'
-sidebar_position: 2
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---

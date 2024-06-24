@@ -1,8 +1,7 @@
 ---
-id: development-view
+id: overview
 title: Development View
 description: 'What do I have to implement?'
-sidebar_position: 3
 ---
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
@@ -16,17 +15,18 @@ standard [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 This document provides developers with ressources to accelerate the development of apps and services.
 
 ## Capabilities of a DCM application
+
 [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] describes the following capabilities:
 
 |Capability|Category|Related Aspect Models|Related APIs|
 |-|-|-|-|
 |Providing and consuming demand data|Core|WeekBasedMaterialDemand|WeekBasedMaterialDemand API|
 |Providing and consuming capacity data|Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
-|Comparing demand and capacity data|Core|WeekBasedMaterialDemand<br>WeekBasedCapacityGroup|N/A|
+|Comparing demand and capacity data|Core|WeekBasedMaterialDemand - WeekBasedCapacityGroup|N/A|
 |Demand volatility metrics|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
 |Simulated delta production|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
 |Load factors|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
-|Digital twins|Extended|WeekBasedMaterialDemand<br>WeekBasedCapacity Group|DCM Asset Administration Shell API|
+|Digital twins|Extended|WeekBasedMaterialDemand - WeekBasedCapacity Group|DCM Asset Administration Shell API|
 |Request for update|Extended|IdBasedRequestForUpdate|IdBasedRequestForUpdate AP|
 |Comments|Extended|IdBasedComment|IdBasedComment API|
 |Supply chain disruption notifications|Extended|demandAndCapacityNotification|DemandAndCapacityNotification API|
@@ -43,8 +43,8 @@ A MVP approach can be followed when developing software, implementing CX-0128, b
 
 |Role|Capabilities|
 |-|-|
-|Customer|Modify WeekBasedMaterialDemand<br>Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Utilize comments<br>Utilize supply chain disruption notification|
-|Supplier|Modify WeekBasedCapacityGroup<br>Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Link WeekBasedMaterialDemand to WeekBasedCapacityGroup<br>Utilize comments<br>Utilize supply chain disruption notification|
+|Customer|Modify WeekBasedMaterialDemand - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup - Utilize comments - Utilize supply chain disruption notification|
+|Supplier|Modify WeekBasedCapacityGroup - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup - Link WeekBasedMaterialDemand to WeekBasedCapacityGroup - Utilize comments - Utilize supply chain disruption notification|
 |Admin|Configure Request for update|
 
 ## Aspect models utilized by a DCM application
@@ -57,46 +57,10 @@ Customer provide suppliers demand data as `WeekBasedMaterialDemand` aspect model
 
 |Role / Right|Create|Change|Read|
 |-|-|-|-|
-|Customer|X|X|X
+|Customer|X|X|X|
 |Supplier|||X|
 
 #### Structure of a WeekBasedMaterialDemand
-
-```mermaid
-block-beta
-columns 6
-A("WeekBasedMaterialDemand"):6
-B1("Supplier")
-B2("Customer")
-B3("changedAt")
-B4("DemandSeries"):3
-C1("MaterialDescriptionCustomer")
-C2("MaterialNumberCustomer")
-C3("MaterialDemandID")
-C4("MaterialNumberCustomer")
-C5("DemandCategory")
-C6("CustomerLocation")
-D1("InactiveFlag")
-D2("UnitOfMeasure")
-D3(" ")
-D4("PointInTime")
-D5("DemandQuantity")
-D6(" ")
-
-classDef Demand_must fill:#FFA600,stroke:#FFFFFF,color:#000000
-classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#F4F2F3
-
-classDef Invis fill:#000000,stroke:#000000,color:#000000,opacity:0
-class A,B1,B2,B3,B4,C1,C2,C3,C4,C5,C6,D4,D5 Demand_must
-class D1,D2 Demand_optional
-class D3,D6 Invis
-```
-
-```mermaid
-block-beta
-A["Demand data (mandatory)"] style A fill:#FFA600,color:#000000
-B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
-```
 
 #### Example data
 
@@ -135,7 +99,6 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.we
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-
 ### Aspect Model "WeekBasedCapacityGroup"
 
 Suppliers provide customers capacity data as `WeekBasedCapacityGroup` aspect models. Suppliers also link demand data to `WeekBasedCapacityGroup` aspect models.
@@ -148,39 +111,6 @@ Suppliers provide customers capacity data as `WeekBasedCapacityGroup` aspect mod
 |Supplier|X|X|X|
 
 #### Structure of a WeekBasedCapacityGroup
-
-```mermaid
-block-beta
-columns 7
-A("WeekBasedCapacityGroup"):7
-B1("Supplier")
-B2("Customer")
-B3("CapacityGroupID")
-B4("changedAt")
-B5("Calendar Week"):3
-C1("Inactive flag")
-C2("UnitOfMeasure")
-space
-C4("CapacityGroupName")
-C5("ActualCapacity")
-C6("MaximumCapacity")
-C7("AgreedCapacity")
-space:4
-D5("quantity")
-D6("quantity")
-D7("quantity")
-
-classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
-classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#F4F2F3
-class A,B1,B2,B3,B4,B5,C1,C2,C4,C5,C6,D1,D5,D6 Capacity_must
-class C1,C2,C7,D7 Capacity_optional
-```
-
-```mermaid
-block-beta
-A["Capacity data (mandatory)"] style A fill:#B3CB2D,color:#000000
-B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
-```
 
 #### Example data
 
@@ -248,29 +178,6 @@ Customer and suppliers provide each other `IdBasedRequestForUpdate` aspect model
 
 #### Structure of a IdBasedRequestForUpdate
 
-```mermaid
-block-beta
-columns 4
-A("RequestforUpdate"):4
-B1("WeekBasedMaterialDemand"):2
-B3("WeekBasedCapacityGroup"):2
-C1("changedAt")
-C2("MaterialDemandID")
-C3("changedAt")
-C4("CapacityGroupID")
-
-
-classDef RfU_must fill:#219dd4,stroke:#FFFFFF,color:#000000
-classDef RfU_optional fill:#046b99,stroke:#FFFFFF,color:#F4F2F3
-class A RfU_must
-class B1,B3,C1,C2,C3,C4 RfU_optional
-```
-```mermaid
-block-beta
-A["Request for Update data (mandatory)"] style A fill:#219dd4,color:#000000
-B["Request for Update data (optional)"] style B fill:#046b99,color:#F4F2F3
-```
-
 #### Example data
 
 ```json
@@ -294,42 +201,18 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-
 ### Aspect Model "IdBasedComment"
 
 Customer and suppliers provide each other `IdBasedComment` aspect models in order to exchange additional information on `WeekBasedCapacityGroup` and `WeekBasedMaterialDemand`.
-
 
 #### Roles and Rights
 
 |Role / Right|Create|Change|Read|
 |-|-|-|-|
-|Customer|X|X|X
+|Customer|X|X|X|
 |Supplier|X|X|X|
 
 #### Structure of a IdBasedComment
-
-```mermaid
-block-beta
-columns 6
-A("IdBasedComment"):6
-B1("listOfReferenceDates"):1
-B2("commentType"):1
-B3("commentText"):1
-B4("requestDelete"):1
-B5("objectId"):1
-B6("objectType"):1
-
-classDef Comment_must fill:#219dd4,stroke:#FFFFFF,color:#000000
-classDef Comment_optional fill:#046b99,stroke:#FFFFFF,color:#F4F2F3
-class A,B5,B6 Comment_must
-class B1,B2,B3,B4 Comment_optional
-```
-```mermaid
-block-beta
-A["Comment data (mandatory)"] style A fill:#219dd4,color:#000000
-B["Comment data (optional)"] style B fill:#046b99,color:#F4F2F3
-```
 
 #### Example data
 
@@ -363,30 +246,31 @@ https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id
 The data consumer registers one data-asset per API with his own EDC. Those data-assets need a `dataAddress` with a `baseURL` pointing to the URI of the API endpoint. The same `dataAddress` needs to be setup to use the consumers EDC as a proxy, utilizing the different proxy related properties within the `dataAddress` object.
 
 #### Asset example
-```
-	{
-		"@id": "capacitygroup-prod",
-		"@type": "Asset",
-		"properties": {
-			"http://purl.org/dc/terms/type": {
-				"@id": "https://w3id.org/catenax/taxonomy#DcmWeekBasedCapacityGroup"
-			},
-			"https://w3id.org/catenax/ontology/common#version": "2.0",
-			"id": "capacitygroup-prod"
-		},
-		"dataAddress": {
-			"@type": "DataAddress",
-			"proxyPath": "false",
-			"oauth2:clientId": {{clientID}},
-			"oauth2:tokenUrl": {{tokenUrl}},
-			"type": "HttpData",
-			"proxyMethod": "true",
-			"oauth2:clientSecretKey": "dcm-api-client-secret",
-			"oauth2:scope": "roles",
-			"proxyQueryParams": "true",
-			"proxyBody": "true",
-			"baseUrl": "https://myDCMapp.mycompany.com/catx/apis/weekbasedcapacitygroup"
-		},
+
+```json
+{
+  "@id": "capacitygroup-prod",
+  "@type": "Asset",
+  "properties": {
+    "http://purl.org/dc/terms/type": {
+      "@id": "https://w3id.org/catenax/taxonomy#DcmWeekBasedCapacityGroup"
+    },
+    "https://w3id.org/catenax/ontology/common#version": "2.0",
+    "id": "capacitygroup-prod"
+  },
+  "dataAddress": {
+    "@type": "DataAddress",
+    "proxyPath": "false",
+    "oauth2:clientId": {{clientID}},
+    "oauth2:tokenUrl": {{tokenUrl}},
+    "type": "HttpData",
+    "proxyMethod": "true",
+    "oauth2:clientSecretKey": "dcm-api-client-secret",
+    "oauth2:scope": "roles",
+    "proxyQueryParams": "true",
+    "proxyBody": "true",
+    "baseUrl": "https://myDCMapp.mycompany.com/catx/apis/weekbasedcapacitygroup"
+  },
 ```
 
 ### Data exchange
@@ -422,6 +306,7 @@ Within the RDF turtle file, you will find detailed descriptions for how to use t
 For further information on the APIs and how to use them in order to facilitate data exchange, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] and [CX-0018 Dataspace Connectivity][StandardLibrary]
 
 ### WeekBasedMaterialDemand API
+
 The WeekBasedMaterialDemand API is owned and registered as an EDC asset by the customer. The supplier provides material demand data to the API via POST request.
 
 #### Data Exchange
@@ -506,6 +391,7 @@ sequenceDiagram
 The RequestForUpdate API is owned and registered as an EDC asset by both customer and supplier. The corresponding business partner (supplier and customer) provides request for update data to the API via POST request.
 
 #### Data Exchange
+
 ```mermaid
 sequenceDiagram
     actor c as Customer 
