@@ -3,7 +3,7 @@ title: "Chapter 2: Connect"
 sidebar_position: 4
 ---
 
-The `Connect Chapter` describes step by step **how to setup your local enviroment** of your own data space including a kubernetes cluster, services, networking and security.
+The `Connect Chapter` describes step by step **how to setup your local environment** of your own data space including a kubernetes cluster, services, networking and security.
 
 :::info
 
@@ -55,7 +55,7 @@ We now will start with the next section `Deploying the Components` where you wil
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 sovity GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
-- SPDX-FileCopyrightText: 2023 msg systems AG
+- SPDX-FileCopyrightText: 2024 sovity GmbH
+- SPDX-FileCopyrightText: 2024 SAP SE
+- SPDX-FileCopyrightText: 2024 msg systems AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
