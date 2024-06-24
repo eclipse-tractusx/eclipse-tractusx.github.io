@@ -19,7 +19,7 @@ Make sure that you have understood and carried out all the steps in the `Prerequ
 
 ### Optional
 
-- Cli tool to easily print logs of a K8S deployment, such as [`stern`](https://github.com/stern/stern)
+- CLI tool to easily print logs of a K8S deployment, such as [`stern`](https://github.com/stern/stern)
 - Graphical tool to inspect your Kubernetes environment, such as [Lens](https://k8slens.dev/).
 - Graphical tool to inspect Postgres databases, such as [PgAdmin](https://www.pgadmin.org/). Screenshots in
   this guide are created off of PgAdmin.
@@ -29,7 +29,7 @@ Make sure that you have understood and carried out all the steps in the `Prerequ
 
 ### Using Umbrella Helm Charts
 
-The components (listed in the table in the `Connect chapter`) will be deployed by using an umbrella chart. It consists of Tractus-X OSS components and provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network. The Chart aims for a completely automated setup of a fully functional network, that does not require manual setup steps, as long as only one instance (minikube cluster) is running (see above warning). If several clusters are running, you need to adjsut a few configuration files.
+The components (listed in the table in the `Connect chapter`) are deployed using an umbrella chart. It consists of Tractus-X OSS components and provides a basis for running end-to-end tests or creating a sandbox environment of the Catena-X automotive dataspace network. The Chart aims for a completely automated setup of a fully functional network that requires no manual setup steps, as long as only one instance (minikube cluster) is running (see warning above). If several clusters are running, you will need to adjust so configuration files.
 
 :::note
 
@@ -77,7 +77,7 @@ This will ensure that ingress is working in the correct environment of your clus
 
 ### Overview
 
-Now we start to deploy the TXD by carrying out the following steps:
+Perform the following steps to begin deploying the TXD:
 
 - Get the source
 - Start `minikube` bringing up the cluster (profile)
@@ -134,7 +134,7 @@ minikube [-p minikube-$USER] addons enable ingress
 # if -p option is used, with the profile name minikube-$USER
 ```
 
-Now add a few hostnames into your /etc/hosts. You should ensure that you have access and the /etc/hosts file group entry should be assigend to the group **docker**. Check this with following commands:
+Now add these hostnames to your /etc/hosts. You should ensure that you have access and the /etc/hosts file group entry should be assigend to the group **docker**. Check this with the following commands:
 
 ```bash
 ls -al /etc/hosts 
@@ -145,7 +145,7 @@ Alternatively configure the DNS Service to be enabled for Ingress.
 
 :::note
 
- This requires that you have an DNS on your system running and that you have **root accees** via **sudo**
+ This requires that you have a DNS on your system running and that you have **root accees** via **sudo**
 
 :::
 
@@ -218,7 +218,7 @@ For Windows edit the hosts file under `C:\Windows\System32\drivers\etc\hosts`:
 
 #### Adjusting the Config files for multi user usage
 
-In case we have to modify the values within the configuartion files as we run in a multi use enviromnet, we need to adjust the domians names within the configuration files. A simple way is to update the file by using **sed** as line editor.
+In case we have to modify the values within the configuartion files as we run in a multi use environment, we need to adjust the domians names within the configuration files. A simple way is to update the file by using **sed** as line editor.
 
 ```bash
 # adjust values.yaml
@@ -749,7 +749,7 @@ Build fuseki docker image by following the below steps:
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 sovity GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
-- SPDX-FileCopyrightText: 2023 msg systems AG
+- SPDX-FileCopyrightText: 2024 sovity GmbH
+- SPDX-FileCopyrightText: 2024 SAP SE
+- SPDX-FileCopyrightText: 2024 msg systems AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
