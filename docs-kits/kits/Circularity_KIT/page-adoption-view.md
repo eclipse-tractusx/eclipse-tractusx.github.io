@@ -113,14 +113,24 @@ Ultimately, our efforts provide essential support for the digitalization and aut
 
 The "Data Journey" represents the entire process of dismantling an End-of-Life (EoL) vehicle. Each process step is accompanied by CX data models that would be necessary for digitally representing the individual process steps. This enables us to elevate the data journey for the dismantling process to a digital level and to gain an understanding of which data attributes and aspect models are required for each process step. It forms the foundation for the creation of digital EoL-solutions and the use of robotics.
 
-##### Figure 3
+##### Figure 3 End-of-Life
 
-![Data Journey - End of LIfe](resources/adoption-view/figure_dataJourney_EOF.svg)
+##### 3.1
 
 ![Data Journey - End fo Life 1](resources/adoption-view/figure_dataJourney_EOF1.svg)
+
+##### 3.2
+
 ![Data Journey - End fo Life 2](resources/adoption-view/figure_dataJourney_EOF2.svg)
+
+##### 3.3
+
 ![Data Journey - End fo Life 3](resources/adoption-view/figure_dataJourney_EOF3.svg)
+
+##### 3.4
+
 ![Data Journey - End fo Life 4](resources/adoption-view/figure_dataJourney_EOF4.svg)
+
 Future additions include data models for the following topics:
 
 - Decommissioning Certificate
