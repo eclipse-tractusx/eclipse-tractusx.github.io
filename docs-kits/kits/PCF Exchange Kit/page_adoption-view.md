@@ -399,6 +399,9 @@ For this KIT only the data model PCF is used. The data model follows the Catena-
 
 The following json shows a example payload for a requested PCF value.
 
+<details>
+  <summary>Payload</summary>
+
 ```json
 {
   "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
@@ -481,6 +484,7 @@ The following json shows a example payload for a requested PCF value.
   } ]
 }
 ```
+</details>
 
 The entire data model is available as open source through following the link:
 [Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/7.0.0)
