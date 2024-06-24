@@ -250,6 +250,7 @@ curl -i -X POST "${edcManagementBaseUrl}/v2/contractdefinitions" -H "X-Api-Key: 
 The submodel is now stored at the BDS and made available through a contract definition at the EDC.
 
 ### Access control to Digital Twins Based on the BPN (Business Partner Number)/ TenantId
+
 The digital twin registry offers two functionalities for managing access control to digital twins (Shells) based on the Business Partner Number (BPN).
 On application start, the provider can configure which kind of access control will be activated.
 
@@ -266,8 +267,6 @@ On application start, the provider can configure which kind of access control wi
       5. To enable granular access control (instead of the classic implementation), the `registry.useGranularAccessControl` configuration HELM chart property must be set to `"true"`.
 
 For more details see: [DTR Access control to Digital Twins Based on the BPN (Business Partner Number)/ TenantId](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/blob/main/docs/README.md#:~:text=dev%40eclipse.org-,Access,-control%20to%20Digital)
-
-
 
 #### Register/create a Digital Twin at the DTR
 
