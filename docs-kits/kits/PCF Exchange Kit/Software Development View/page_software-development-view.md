@@ -75,6 +75,8 @@ The following JSON shows the structure of a registered PCF submodel in the DTR. 
 The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``.
 
 The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
+<details>
+  <summary>PCFExchange Endpoint of a DigitalTwin (JSON)</summary>
 
 ```json
 {
@@ -110,12 +112,15 @@ The sub-model PCF must be registered with the ``idshort: PCFExchangeEndpoint``.
     ]
 }
 ```
+</details>
 
 #### Payloads for EDC Asset
 
 ##### Payload for EDC Data Asset PCF
 
 The following JSON shows the the EDC Asset for PCF defined in the EDC using the asset bundling mentioned under [Payload for Requesting PCF Sub Model](#api-calls).
+<details>
+  <summary>PCFExchange Asset Definition (JSON)</summary>
 
 ```json
 {
@@ -150,6 +155,7 @@ The following JSON shows the the EDC Asset for PCF defined in the EDC using the 
     }
 }
 ```
+</details>
 
 #### Payload for EDC Policy
 
@@ -161,6 +167,8 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 > The here mentioned *FrameworkAgreement Pcf* is only valid until Oct. 16th 2024. It will be replaced by a new more generic *Framework DataExchangeGovernance* on Oct. 17th 2024. More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
 
 ##### Payload to create a SSI based Policy
+<details>
+  <summary>SSI based Policy (JSON)</summary>
 
 ```json
 {
@@ -209,12 +217,15 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
     }
 }
 ```
+</details>
 >**Note**
 Be aware that - due to an open issue in EDC version 0.7.x - all criterias must be added in fixed (alphabetical) order!
 
 For more examples how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
 #### Payload Contract Definition
+<details>
+  <summary>Sample Contract (JSON)</summary>
 
 ```json
 {
@@ -231,12 +242,17 @@ For more examples how to define policies with SSI have a look [here](https://git
     ]
 }
 ```
+</details>
 
 Inside the contract definition an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given [here](#payload-to-create-a-ssi-based-policy). 
 
 The content of the access policy depends on the criterias used within the usage policy:
 - _No bilateral contract_ reference criteria _is used_ in usage policy => an empty access policy can be used:
-```json
+
+  <details>
+    <summary>Empty Access Policy (JSON)</summary>
+
+  ```json
 {
     "@context": {
         "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -254,9 +270,15 @@ The content of the access policy depends on the criterias used within the usage 
         "permission": []
   }
 }
-```
+  ```
+  </details>
+
 - A _bilateral contract_ reference criteria _is used_ in usage policy => an access policy restricting access to the contract partners BPNL *MUST* be used:
-```json
+
+  <details>
+    <summary>BPN restricted Access Policy (JSON)</summary>
+
+  ```json
 {
     "@context": {
         "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -283,7 +305,8 @@ The content of the access policy depends on the criterias used within the usage 
         ]
     }
 }
-```
+  ```
+  </details>
 
 ## Error Handling
 
