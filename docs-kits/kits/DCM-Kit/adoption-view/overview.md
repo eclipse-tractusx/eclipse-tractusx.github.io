@@ -61,6 +61,26 @@ The DCM KIT enables better and faster issue resolution. We believe that collabor
 
 Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
 
+## Use Case
+
+The DCM use case can be split into the following topics:
+
+- [Core business process]()
+  - Material demand
+  - Capacity group
+  - Comparing demand and capacity
+- [Demand volatility metrics]()
+  - Demand deviation
+- [Simulated delta production]()
+  - Post production
+  - Pre production
+- [Load factors]()
+  - Load factors
+  - Conversion factors
+- [Request for update]()
+- [Comments]()
+- [Supply chain disruption notification]()
+
 ## Semantic Models
 
 | Semantic Model | Link to GitHub Repository |
