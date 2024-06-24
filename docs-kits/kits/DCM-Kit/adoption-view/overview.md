@@ -37,13 +37,7 @@ Implementing the DCM standards will add the following core capabilities to busin
 - Provisioning and consumption of capacity data in a sovereign manner.
 - Discovery of bottlenecks and surplus capacity situations by employing a unified calculation logic.
 
-## Standards
 
-The DCM standard consists of three main elements:
-
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
 
 ### POWER of STANDARD
 
@@ -76,6 +70,57 @@ Of course, by realizing efficiency through improved collaboration all involved p
 | IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/3.0.0/IdBasedRequestForUpdate.ttl> |
 | IdBasedComment | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_comment/1.0.0/IdBasedComment.ttl> |
 
+## Logic / Schema
+
+The core of the DCM business process is about exchange demand and capacity information, identifying problems and solving those problems.
+
+```mermaid
+sequenceDiagram
+    actor c as Customer 
+    actor s as Supplier
+activate c
+rect rgb(221,130,0)
+c->>c: Manage own material demands
+c->>s: Provide supplier with WeekBasedMaterialDemand
+deactivate c
+activate s
+s->>s: Consume WeekBasedMaterialDemand
+end
+rect rgb(128,149,00)
+s->>s: Manage own capacities
+s->>s: Link consumed material demands to capacities within a WeekBasedCapacityGroup
+s->>c: Provide Customer with WeekBasedCapacityGroup
+activate c
+c->>c: Consume WeekBasedCapacityGroup
+end
+rect rgb(04,107,153)
+c->>c: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+s->>s: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+c->>c: Identify bottlenecks
+s->>s: Identify bottlenecks
+c->>s: Resolve bottlenecks
+s->>c: Resolve bottlenecks
+deactivate c
+deactivate s
+end
+```
+
+## Business Process
+
+### Business Architecture
+
+### Access and Usage Policies
+
+## Standards
+
+The DCM standard consists of three main elements:
+
+- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
+- **Aspect models** – to align the structure of the shared information and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
+- **APIs** – to make sure that data is provided and consumed properly as well as identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
+
+
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
@@ -91,3 +136,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+
+[StandardLibrary]: https://catena-x.net/de/standard-library
