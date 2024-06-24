@@ -43,7 +43,7 @@ In case no matching material twin or PCF submodel exists, the flow falls back to
 ![PCF Request without Twin or Submodel](../resources/development-view/PCFRequestWithoutTwinOrSubmodel.png)
 
 >**Note**
-> The API Wrapper shown in the sequence diagrams is optional. The management API of the EDC can also be used directly.
+>The API Wrapper shown in the sequence diagrams is optional. The management API of the EDC can also be used directly.
 
 ### PCF Update
 
@@ -164,7 +164,7 @@ The following JSON is an policy definition including the *mandatory* policy cons
 In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless will it be checked on a syntactical level during contract negotiation. If such a contract refererence should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
 
 >**Note**
-> The here mentioned *FrameworkAgreement Pcf* is only valid until Oct. 16th 2024. It will be replaced by a new more generic *Framework DataExchangeGovernance* on Oct. 17th 2024. More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
+>The here mentioned *FrameworkAgreement Pcf* is only valid until Oct. 16th 2024. It will be replaced by a new more generic *Framework DataExchangeGovernance* on Oct. 17th 2024. More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
 
 ##### Payload to create a SSI based Policy
 <details>
@@ -218,8 +218,9 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 }
 ```
 </details>
+
 >**Note**
-Be aware that - due to an open issue in EDC version 0.7.x - all criterias must be added in fixed (alphabetical) order!
+>Be aware that - due to an open issue in EDC version 0.7.x - all criterias must be added in fixed (alphabetical) order!
 
 For more examples how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
