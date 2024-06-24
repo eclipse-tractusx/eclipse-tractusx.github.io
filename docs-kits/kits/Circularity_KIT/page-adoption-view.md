@@ -117,6 +117,10 @@ The "Data Journey" represents the entire process of dismantling an End-of-Life (
 
 ![Data Journey - End of LIfe](resources/adoption-view/figure_dataJourney_EOF.svg)
 
+![Data Journey - End fo Life 1](resources/adoption-view/figure_dataJourney_EOF1.svg)
+![Data Journey - End fo Life 2](resources/adoption-view/figure_dataJourney_EOF2.svg)
+![Data Journey - End fo Life 3](resources/adoption-view/figure_dataJourney_EOF3.svg)
+![Data Journey - End fo Life 4](resources/adoption-view/figure_dataJourney_EOF4.svg)
 Future additions include data models for the following topics:
 
 - Decommissioning Certificate
