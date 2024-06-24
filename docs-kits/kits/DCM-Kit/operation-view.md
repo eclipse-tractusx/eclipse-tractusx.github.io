@@ -10,7 +10,7 @@ description: Your first steps
 >
 > On this page we will document the steps required to adopt a DCM solution and pre-requisites to start activities with DCM partners.
 >
-> For more detailed technical information, please refer to: [Architecture View](architecture-view/page_architecture-view-overview.md).
+> For more detailed technical information, please refer to: [Architecture View](architecture-view/overview.md).
 
 ## Audience & Scope
 
@@ -63,7 +63,7 @@ Strategy 3
 
 - adopt and integrate the business logic, API and data models according to the Catena-X DCM standard into an existing software solution (e.g. self-developed software)
   - here you then need to make sure that the application developed is conform to the DCM standard.
-- in this case, refer to the document DCM [Architecture View](architecture-view/page_architecture-view-overview.md) for further technical details related to your next steps
+- in this case, refer to the document DCM [Architecture View](architecture-view/overview.md) for further technical details related to your next steps
 
 Please refer to the [Catena-X Library](https://catena-x.net/de/standard-library) for the newest version of the  DCM as well as other standards.
 
@@ -74,7 +74,7 @@ Please refer to the [Catena-X Library](https://catena-x.net/de/standard-library)
 3. Get a DCM App. There are now three different options:
     1. Buy a certified commercial DCM App. See the Catena-X market place for offers.
     2. Use a open source solution for DCM.
-    3. Modify or develop your own software to work with Catena-X. See DCM [Architecture View](architecture-view/page_architecture-view-overview.md) for details.
+    3. Modify or develop your own software to work with Catena-X. See DCM [Architecture View](architecture-view/overview.md) for details.
 4. Start exchanging data with your partner companies
 
 ## Onboarding steps for Business Application Providers
