@@ -624,19 +624,7 @@ const sidebars = {
                     dirName: 'kits/Traceability Kit',
                 },
             ],
-        },
-        {
-            type: 'category',
-            label: 'Upcoming KITs',
-            link: {
-                type: 'doc',
-                id: 'kits/Resiliency/resiliency'
-            },
-            items: [
-                'kits/Resiliency/maas',
-                'kits/Resiliency/PURIS'
-            ]
-        },
+        }
     ]
 };
 module.exports = sidebars;
