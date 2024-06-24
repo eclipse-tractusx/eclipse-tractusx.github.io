@@ -109,7 +109,19 @@ end
 
 ### Business Architecture
 
+![IdBasedComment Structure Legend](resources/business-architecture.svg)
+
 ### Access and Usage Policies
+
+Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective the EDC data assets do not require extra protection beyond the what is defined by [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]. 
+
+| Category | Policy Name | Description |Usage recommendation|
+|:---------|:------------|:------------|:-------------------|
+| **Access Policy** | BPN-restricted Data Usage | Limit access to the data offered to a list of specified BPNs (to the connectors with the BPN attribute listed in the policy) |Limit access to asset to all your known business partners.|
+| **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
+| **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
+
+# 7 REFERENCES
 
 ## Standards
 
@@ -118,6 +130,8 @@ The DCM standard consists of three main elements:
 - **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 - **Aspect models** – to align the structure of the shared information and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 - **APIs** – to make sure that data is provided and consumed properly as well as identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
+
+
 
 
 
