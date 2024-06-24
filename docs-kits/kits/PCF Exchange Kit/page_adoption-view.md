@@ -389,15 +389,15 @@ Depending on the use case and related KIT, Catena-X provides different semantic 
 
 #### Introduction PCF Data Model
 
-In an era defined by growing environmental consciousness and sustainability imperatives, the concept of measuring and reducing carbon footprints has become paramount across industries. A pivotal key in this pursuit is a aligned and standardized Product Carbon Footprint Data Model. This data model not only facilitates the systematic calculation and comparison of carbon footprints but also offers a structured approach to managing environmental impact data.
+In an era defined by growing environmental consciousness and sustainability imperatives, the concept of measuring and reducing carbon footprints has become paramount across industries. A pivotal key in this pursuit is a aligned and standardized Product Carbon Footprint data model. This data model not only facilitates the systematic calculation and comparison of carbon footprints but also offers a structured approach to managing environmental impact data.
 
-As the global community grapples with the impacts of climate change, consumers, businesses, and governments are seeking actionable ways to mitigate their carbon emissions. The need for a consistent and universally accepted method of quantifying these emissions from diverse products has given rise to the significance of a Standardized Product Carbon Footprint Data Model. This model acts as a lingua franca, enabling stakeholders to communicate and analyze carbon footprint information transparently and comprehensively.
+As the global community grapples with the impacts of climate change, consumers, businesses, and governments are seeking actionable ways to mitigate their carbon emissions. The need for a consistent and universally accepted method of quantifying these emissions from diverse products has given rise to the significance of a standardized Product Carbon Footprint data model. This model acts as a lingua franca, enabling stakeholders to communicate and analyze carbon footprint information transparently and comprehensively.
 
-For this KIT only the data model PCF is used. The data model follows the Catena-X Standard [CX-0136](https://catena-x.net/de/standard-library) and is implemented in compliance the [CX-0003](https://catena-x.net/de/standard-library) Standard.
+For this KIT only the data model PCF is used. The data model follows the Catena-X standard [CX-0136](https://catena-x.net/de/standard-library) and is implemented in compliance the [CX-0003](https://catena-x.net/de/standard-library) standard.
 
 #### Example Payload
 
-The following json shows a example payload for a requested PCF value.
+The following json shows an examplary payload for a requested PCF value.
 
 <details>
   <summary>Payload</summary>
