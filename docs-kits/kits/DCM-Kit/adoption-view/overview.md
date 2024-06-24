@@ -65,21 +65,21 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 The DCM use case can be split into the following topics:
 
-- [Core business process]()
+- [Core business process](./use-case/business-process.md)
   - Material demand
   - Capacity group
   - Comparing demand and capacity
-- [Demand volatility metrics]()
+- [Demand volatility metrics](./use-case/demand-volatility.md)
   - Demand deviation
-- [Simulated delta production]()
+- [Simulated delta production](./use-case/delta-production.md)
   - Post production
   - Pre production
-- [Load factors]()
+- [Load factors](./use-case/load-factors.md)
   - Load factors
   - Conversion factors
-- [Request for update]()
-- [Comments]()
-- [Supply chain disruption notification]()
+- [Request for update](./use-case/rfu.md)
+- [Comments](./use-case/comments.md)
+- [Supply chain disruption notification](./use-case/disruption-notification.md)
 
 ## Semantic Models
 
