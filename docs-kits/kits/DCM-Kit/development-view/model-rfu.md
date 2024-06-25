@@ -18,8 +18,10 @@ Customer and suppliers provide each other `IdBasedRequestForUpdate` aspect model
 |Supplier|X||X|
 
 ### Structure of a IdBasedRequestForUpdate
-![IdBasedRequestforUpdate Structure](resources/model-rfu_structure.svg)
-![IdBasedRequestforUpdate Structure Legend](resources/model-rfu_legend.svg)
+
+![IdBasedRequestforUpdate Structure](./resources/model-rfu_structure.svg)
+![IdBasedRequestforUpdate Structure Legend](./resources/model-rfu_legend.svg)
+
 <!--
 ```mermaid
 block-beta
@@ -31,7 +33,6 @@ C1("changedAt")
 C2("MaterialDemandID")
 C3("changedAt")
 C4("CapacityGroupID")
-
 
 classDef RfU_must fill:#219dd4,stroke:#FFFFFF,color:#000000
 classDef RfU_optional fill:#046b99,stroke:#FFFFFF,color:#F4F2F3

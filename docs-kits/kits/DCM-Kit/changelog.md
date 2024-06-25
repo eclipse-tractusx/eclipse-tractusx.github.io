@@ -16,12 +16,12 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added multiple diagrams to [Development View](development-view/overview.md)  
+- Added multiple diagrams to [Development View](./development-view/overview.md)  
 
 ### Changed
 
-- Restructured [Development View](development-view/overview.md)
-- Recolored sequence diagram in [Architecture View](architecture-view/overview.md)
+- Restructured [Development View](./development-view/overview.md)
+- Recolored sequence diagram in [Architecture View](./architecture-view/overview.md)
 
 ### Removed
 
@@ -31,13 +31,13 @@ N/A
 
 ### Added
 
-- Added [DCM Operation View](operation-view.md)
+- Added [DCM Operation View](./operation-view.md)
 
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
-- Updated aspect models in [Architecture View](architecture-view/overview.md) to new versions
-- Updated aspect models and API definitions in [Development View](development-view/overview.md)) to new versions
+- Updated aspect models in [Architecture View](./architecture-view/overview.md) to new versions
+- Updated aspect models and API definitions in [Development View](./development-view/overview.md)) to new versions
 - Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
 - Updated choice of words and writing pattern throughout the documentation
 
