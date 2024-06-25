@@ -21,7 +21,8 @@ tags: [community, meeting-minutes]
 
 ### FOSS
 
-- Committer Election for [Lucas Capellino(https://github.com/arnoweiss)
+- Committer Election for [Lucas Capellino](https://github.com/arnoweiss), please vote if you are a committer!
+- [Evelyn Gurschler](https://github.com/evegufy) election to project lead concluded successfully, congratulations to our new project lead!
 - [Committer Election](https://projects.eclipse.org/projects/automotive.tractusx/elections/election-lucas-capellino-eclipse-tractus-x) for [Lucas Capellino](https://github.com/ds-lcapellino) open for voting again
 - Don't forget to update the legal docs regarding CC-BY-4.0 for documentation! Close the tickets in your repositories if its done: [eclipse-tractusx/sig-infra#477](https://github.com/eclipse-tractusx/sig-infra/issues/477)
 - 1.000 Lines of code in PRs for non-contributors require project Ip check: https://www.eclipse.org/projects/handbook/#ip-project-content
