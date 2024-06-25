@@ -19,8 +19,8 @@ Suppliers provide customers capacity data as `WeekBasedCapacityGroup` aspect mod
 
 ### Structure of a WeekBasedCapacityGroup
 
-![WeekBasedCapacityGroup Structure](resources/model-capacity-group_structure.svg)
-![WeekBasedCapacityGroup Structure Legend](resources/model-capacity-group_legend.svg)
+![WeekBasedCapacityGroup Structure](./resources/model-capacity-group_structure.svg)
+![WeekBasedCapacityGroup Structure Legend](./resources/model-capacity-group_legend.svg)
 
 <!--
 ```mermaid

@@ -20,7 +20,7 @@ In order to keep things orderly some restrictions to this graph apply:
 - Catena-X standards can be identified by their ID (e.g. CX-0011).
 - Non Catena-X standards are never resolved further.
 
-![Dependency Graph](resources\dependencies_dependency-graph.svg)
+![Dependency Graph](./resources\dependencies_dependency-graph.svg)
 
 <!--
 ```mermaid

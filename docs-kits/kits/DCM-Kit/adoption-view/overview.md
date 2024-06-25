@@ -37,8 +37,6 @@ Implementing the DCM standards will add the following core capabilities to busin
 - Provisioning and consumption of capacity data in a sovereign manner.
 - Discovery of bottlenecks and surplus capacity situations by employing a unified calculation logic.
 
-
-
 ### POWER of STANDARD
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
@@ -129,11 +127,11 @@ end
 
 ### Business Architecture
 
-![IdBasedComment Structure Legend](resources/business-architecture.svg)
+![IdBasedComment Structure Legend](./resources/business-architecture.svg)
 
 ### Access and Usage Policies
 
-Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective the EDC data assets do not require extra protection beyond the what is defined by [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]. 
+Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective the EDC data assets do not require extra protection beyond the what is defined by [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 | Category | Policy Name | Description |Usage recommendation|
 |:---------|:------------|:------------|:-------------------|
@@ -141,19 +139,15 @@ Because of the way that communication within CX-0128 is defined companies are no
 | **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
 | **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
 
-# 7 REFERENCES
+## References
 
-## Standards
+### Standards
 
 The DCM standard consists of three main elements:
 
 - **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 - **Aspect models** – to align the structure of the shared information and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 - **APIs** – to make sure that data is provided and consumed properly as well as identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
-
-
-
-
 
 ## Notice
 

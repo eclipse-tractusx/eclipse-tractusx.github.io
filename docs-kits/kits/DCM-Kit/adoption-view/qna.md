@@ -34,5 +34,6 @@ description: Questions and Answers
 |--|--|
 
 ### Practical - Supplier related
+
 |Question|Answer|
 |--|--|

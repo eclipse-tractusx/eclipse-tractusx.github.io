@@ -14,12 +14,14 @@ Customer provide suppliers demand data as `WeekBasedMaterialDemand` aspect model
 
 |Role / Right|Create|Change|Read|
 |-|-|-|-|
-|Customer|X|X|X
+|Customer|X|X|X|
 |Supplier|||X|
 
 ### Structure of a WeekBasedMaterialDemand
-![WeekBasedMaterialDemand Structure](resources/model-material-demand_structure.svg)
-![WeekBasedMaterialDemand Structure Legend](resources/model-material-demand_legend.svg)
+
+![WeekBasedMaterialDemand Structure](./resources/model-material-demand_structure.svg)
+![WeekBasedMaterialDemand Structure Legend](./resources/model-material-demand_legend.svg)
+
 <!--
 ```mermaid
 block-beta
