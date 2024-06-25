@@ -37,8 +37,6 @@ Implementing the DCM standards will add the following core capabilities to busin
 - Provisioning and consumption of capacity data in a sovereign manner.
 - Discovery of bottlenecks and surplus capacity situations by employing a unified calculation logic.
 
-
-
 ### POWER of STANDARD
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
@@ -113,7 +111,9 @@ end
 
 A supply network can be divided into supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
 
-![IdBasedComment Structure Legend](resources/business-architecture.svg)
+A supply network can be divided into supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
+
+![IdBasedComment Structure Legend](./resources/business-architecture.svg)
 
 ### Access and Usage Policies
 
@@ -127,7 +127,7 @@ Because of the way that communication within CX-0128 is defined companies are no
 | **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
 | **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
 
-## Standards
+### Standards
 
 |Content|Standard|Version|Sections|Description|
 |-|-|-|-|-|

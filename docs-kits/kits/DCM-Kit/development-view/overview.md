@@ -22,11 +22,11 @@ This document provides developers with ressources to accelerate the development 
 |-|-|-|-|
 |Providing and consuming demand data|Core|WeekBasedMaterialDemand|WeekBasedMaterialDemand API|
 |Providing and consuming capacity data|Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
-|Comparing demand and capacity data|Core|WeekBasedMaterialDemand - WeekBasedCapacityGroup|N/A|
+|Comparing demand and capacity data|Core|WeekBasedMaterialDemand <br/> WeekBasedCapacityGroup|N/A|
 |Demand volatility metrics|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
 |Simulated delta production|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
 |Load factors|Outer Core|WeekBasedCapacityGroup|WeekBasedCapacityGroup API|
-|Digital twins|Extended|WeekBasedMaterialDemand - WeekBasedCapacity Group|DCM Asset Administration Shell API|
+|Digital twins|Extended|WeekBasedMaterialDemand <br/> WeekBasedCapacity Group|DCM Asset Administration Shell API|
 |Request for update|Extended|IdBasedRequestForUpdate|IdBasedRequestForUpdate AP|
 |Comments|Extended|IdBasedComment|IdBasedComment API|
 |Supply chain disruption notifications|Extended|demandAndCapacityNotification|DemandAndCapacityNotification API|
@@ -43,16 +43,16 @@ A MVP approach can be followed when developing software, implementing CX-0128, b
 
 |Role|Capabilities|
 |-|-|
-|Customer|Modify WeekBasedMaterialDemand - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup - Utilize comments - Utilize supply chain disruption notification|
-|Supplier|Modify WeekBasedCapacityGroup - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup - Link WeekBasedMaterialDemand to WeekBasedCapacityGroup - Utilize comments - Utilize supply chain disruption notification|
-|Admin|Configure Request for update|
+|Customer| - Modify WeekBasedMaterialDemand <br/> - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Utilize comments <br/> - Utilize supply chain disruption notification|
+|Supplier| - Modify WeekBasedCapacityGroup <br/> - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Link WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Utilize comments <br/> - Utilize supply chain disruption notification|
+|Admin| - Configure Request for update|
 
 ## Aspect models utilized by a DCM application
 
-- [WeekBasedMaterialDemand](model-material-demand.md)
-- [WeekBasedCapacityGroup](model-capacity-group.md)
-- [IdBasedRequestForUpdate](model-rfu.md)
-- [IdBasedComment](model-comment.md)
+- [WeekBasedMaterialDemand](./model-material-demand.md)
+- [WeekBasedCapacityGroup](./model-capacity-group.md)
+- [IdBasedRequestForUpdate](./model-rfu.md)
+- [IdBasedComment](./model-comment.md)
 
 ## Application Programming Interfaces
 
@@ -122,10 +122,10 @@ For further information on the APIs and how to use them in order to facilitate d
 
 ## APIs utilized by a DCM application
 
-- [WeekBasedMaterialDemand API](api-material-demand.md)
-- [WeekBasedCapacityGroup API](api-capacity-group.md)
-- [RequestForUpdate API](api-rfu.md)
-- [IdBasedComment API](api-comment.md)
-- [DCM Asset Administration Shell API (AAS API)](api-aas.md)
+- [WeekBasedMaterialDemand API](./api-material-demand.md)
+- [WeekBasedCapacityGroup API](./api-capacity-group.md)
+- [RequestForUpdate API](./api-rfu.md)
+- [IdBasedComment API](./api-comment.md)
+- [DCM Asset Administration Shell API (AAS API)](./api-aas.md)
 
 [StandardLibrary]: https://catena-x.net/de/standard-library

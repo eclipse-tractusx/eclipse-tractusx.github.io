@@ -14,13 +14,14 @@ Customer and suppliers provide each other `IdBasedComment` aspect models in orde
 
 |Role / Right|Create|Change|Read|
 |-|-|-|-|
-|Customer|X|X|X
+|Customer|X|X|X|
 |Supplier|X|X|X|
 
 ### Structure of a IdBasedComment
 
-![IdBasedComment Structure](resources/model-comment_structure.svg)
-![IdBasedComment Structure Legend](resources/model-comment_legend.svg)
+![IdBasedComment Structure](./resources/model-comment_structure.svg)
+![IdBasedComment Structure Legend](./resources/model-comment_legend.svg)
+
 <!--
 ```mermaid
 block-beta
