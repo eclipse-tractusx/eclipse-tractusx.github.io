@@ -88,7 +88,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 ![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
 
-**Note:** There will be an explanatory youtube video, which will be available after IP clearance. [ESS video](<https://bcgcatenax.sharepoint.com/:v:/r/sites/ARTV/Shared%20Documents/ESS%20(Environment%20and%20Social%20Standards)/ESS%20KIT/Film/CX-full%20process%20demo%20v5.mp4?csf=1&web=1&e=nVeYZ6>)
+**Note:** There is an explanatory video published on youtube. [ESS video](<https://youtu.be/ySsy6v9_bsM>)
 
 ### Customer Journey: Occasion-related tracking in broken supply chains
 
