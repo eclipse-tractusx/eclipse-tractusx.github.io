@@ -10,6 +10,6 @@ tags: [security, meeting-minutes]
 
 ### Announcements
 
-- Reminder about Catenax-ng
-- Reminder to remove any test credentials/sensitive that are present in catenax-ng
-- Reminder to look for the results of the security scans after migration to tractus-x
+- Reminder about former GitHub Organisation Catenax-ng
+- Reminder to remove any test credentials/sensitive that are present in Catenax-ng
+- Reminder to look for the results of the security scans after migration to Eclipse Tractus-x
