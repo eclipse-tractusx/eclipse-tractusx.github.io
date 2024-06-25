@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generiert durch Microsoft Visio, SVG Export Business Architektur.svg Zeichenblatt-1 -->
+<!-- Generiert durch Microsoft Visio, SVG Export business-architecture.svg Zeichenblatt-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
 		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="8.36672in" height="3.28621in"
 		viewBox="0 0 602.404 236.607" xml:space="preserve" color-interpolation-filters="sRGB" class="st35">
@@ -9,7 +9,9 @@
 			<v:ud v:nameU="visTLShowProps" v:prompt="" v:val="VT0(0):26"/>
 		</v:userDefs>
 	</v:documentProperties>
-<style>svg { background-color: white; }</style>
+<style>svg { background-color: black; }</style>
+
+
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -35,16 +37,16 @@
 		.st21 {fill:url(#grad10-119);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st22 {fill:#ffffff;stroke:#39749f;stroke-linecap:butt;stroke-width:0.5625}
 		.st23 {fill:url(#grad10-133);stroke:#39a3c1;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.375}
-		.st24 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st25 {fill:#000000;font-family:Calibri;font-size:1.00001em}
-		.st26 {marker-end:url(#mrkr13-504);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st27 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
-		.st28 {fill:#ffffff;stroke:none;stroke-linecap:butt}
-		.st29 {fill:#000000;font-family:Calibri;font-size:0.666664em}
-		.st30 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
-		.st31 {stroke:#000000;stroke-dasharray:3,1.5;stroke-linecap:butt;stroke-width:0.75}
-		.st32 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st33 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
+		.st24 {fill:none;stroke:#f4f2f3;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st25 {fill:#f4f2f3;font-family:Calibri;font-size:1.00001em}
+		.st26 {marker-end:url(#mrkr13-504);stroke:#f4f2f3;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st27 {fill:#f4f2f3;fill-opacity:1;stroke:#f4f2f3;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st28 {fill:#000000;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st29 {fill:#f4f2f3;font-family:Calibri;font-size:0.666664em}
+		.st30 {fill:#000000;stroke:none;stroke-linecap:butt}
+		.st31 {stroke:#f4f2f3;stroke-dasharray:3,1.5;stroke-linecap:butt;stroke-width:0.75}
+		.st32 {stroke:#f4f2f3;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st33 {fill:#000000;stroke:#f4f2f3;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
 		.st34 {font-size:1em}
 		.st35 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -1362,22 +1364,22 @@
 				<v:textRect cx="39.685" cy="236.607" width="38.27" height="22.4037"/>
 				<text x="25.91" y="240.21" class="st25" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Tier 3</text>			</g>
 		</g>
-		<g id="shape236-499" v:mID="236" v:groupContext="shape" v:layerMember="0" transform="translate(73.3567,-110.535)">
+		<g id="shape236-499" v:mID="236" v:groupContext="shape" v:layerMember="0" transform="translate(63.5713,-122.051)">
 			<title>Dynamischer Verbinder</title>
 			<desc>Demand</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="54.9457" cy="229.521" width="40" height="17.6036"/>
-			<path d="M0 229.52 C24.5 229.52 70.85 229.52 100.08 229.52" class="st26"/>
-			<rect v:rectContext="textBkgnd" x="41.1802" y="224.721" width="27.5309" height="9.59985" class="st28"/>
-			<text x="41.18" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Demand</text>		</g>
-		<g id="shape237-507" v:mID="237" v:groupContext="shape" v:layerMember="0" transform="translate(192.448,-87.5037)">
+			<v:textRect cx="63.7403" cy="229.521" width="40" height="17.6036"/>
+			<path d="M0 229.52 C28.87 229.52 83.88 229.52 117.67 229.52" class="st26"/>
+			<rect v:rectContext="textBkgnd" x="49.9747" y="224.721" width="27.5309" height="9.59985" class="st28"/>
+			<text x="49.97" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Demand</text>		</g>
+		<g id="shape237-507" v:mID="237" v:groupContext="shape" v:layerMember="0" transform="translate(185.819,-93.2616)">
 			<title>Dynamischer Verbinder.237</title>
 			<desc>Capacity</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-65.8801" cy="229.521" width="40" height="17.6036"/>
-			<path d="M0 229.52 C-29.93 229.52 -87.05 229.52 -121.95 229.52" class="st26"/>
-			<rect v:rectContext="textBkgnd" x="-79.706" y="224.721" width="27.652" height="9.59985" class="st30"/>
-			<text x="-79.71" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Capacity</text>		</g>
+			<v:textRect cx="-57.5891" cy="229.521" width="40" height="17.6036"/>
+			<path d="M0 229.52 C-25.81 229.52 -74.76 229.52 -105.37 229.52" class="st26"/>
+			<rect v:rectContext="textBkgnd" x="-71.4151" y="224.721" width="27.652" height="9.59985" class="st30"/>
+			<text x="-71.42" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Capacity</text>		</g>
 		<g id="shape238-514" v:mID="238" v:groupContext="shape" v:layerMember="0" transform="translate(243.435,-110.535)">
 			<title>Dynamischer Verbinder.238</title>
 			<desc>Demand</desc>
@@ -1392,7 +1394,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-65.8801" cy="229.521" width="40" height="17.6036"/>
 			<path d="M0 229.52 C-29.93 229.52 -87.05 229.52 -121.95 229.52" class="st26"/>
-			<rect v:rectContext="textBkgnd" x="-79.706" y="224.721" width="27.652" height="9.59985" class="st30"/>
+			<rect v:rectContext="textBkgnd" x="-79.706" y="224.721" width="27.652" height="9.59985" class="st28"/>
 			<text x="-79.71" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Capacity</text>		</g>
 		<g id="shape240-528" v:mID="240" v:groupContext="shape" v:layerMember="0" transform="translate(413.514,-110.535)">
 			<title>Dynamischer Verbinder.240</title>
@@ -1400,7 +1402,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="54.9457" cy="229.521" width="40" height="17.6036"/>
 			<path d="M0 229.52 C24.5 229.52 70.85 229.52 100.08 229.52" class="st26"/>
-			<rect v:rectContext="textBkgnd" x="41.1802" y="224.721" width="27.5309" height="9.59985" class="st30"/>
+			<rect v:rectContext="textBkgnd" x="41.1802" y="224.721" width="27.5309" height="9.59985" class="st28"/>
 			<text x="41.18" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Demand</text>		</g>
 		<g id="shape241-535" v:mID="241" v:groupContext="shape" v:layerMember="0" transform="translate(532.605,-87.5037)">
 			<title>Dynamischer Verbinder.241</title>
@@ -1408,7 +1410,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-65.8801" cy="229.521" width="40" height="17.6036"/>
 			<path d="M0 229.52 C-29.93 229.52 -87.05 229.52 -121.95 229.52" class="st26"/>
-			<rect v:rectContext="textBkgnd" x="-79.706" y="224.721" width="27.652" height="9.59985" class="st28"/>
+			<rect v:rectContext="textBkgnd" x="-79.706" y="224.721" width="27.652" height="9.59985" class="st30"/>
 			<text x="-79.71" y="231.92" class="st29" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Capacity</text>		</g>
 		<g id="group248-542" transform="translate(0.75,-137.464)" v:mID="248" v:groupContext="group">
 			<v:custProps>
@@ -1420,16 +1422,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Relationship A)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -1495,10 +1497,6 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M-0 236.61 A9.6833 12.9111 0 0 1 8.5 223.85 L119.06 223.85 A10.7126 14.2835 -180 0 0 127.56 215.35 A10.7126
 							 14.2835 -180 0 0 136.06 223.85 L246.61 223.85 A9.6833 12.9111 0 0 1 255.12 236.61" class="st32"/>
@@ -1516,19 +1514,11 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape254-556" v:mID="254" v:groupContext="shape" transform="translate(127.559,-51.0236)">
 				<title>Tabelle.254</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -1564,10 +1554,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="40.4167" cy="236.607" width="80.84" height="0"/>
@@ -1594,10 +1580,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="24.2749" cy="229.556" width="48.55" height="14.1036"/>
@@ -1613,16 +1595,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Relationship B)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -1688,10 +1670,6 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M-0 236.61 A9.6833 12.9111 0 0 1 8.5 223.85 L119.06 223.85 A10.7126 14.2835 -180 0 0 127.56 215.35 A10.7126
 							 14.2835 -180 0 0 136.06 223.85 L246.61 223.85 A9.6833 12.9111 0 0 1 255.12 236.61" class="st32"/>
@@ -1709,19 +1687,11 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape276-580" v:mID="276" v:groupContext="shape" transform="translate(127.559,-51.0236)">
 				<title>Tabelle.276</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -1757,10 +1727,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="40.4167" cy="236.607" width="80.84" height="0"/>
@@ -1787,10 +1753,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="24.1362" cy="229.556" width="48.28" height="14.1036"/>
@@ -1806,16 +1768,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Relationship C)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -1881,10 +1843,6 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M-0 236.61 A9.6833 12.9111 0 0 1 8.5 223.85 L119.06 223.85 A10.7126 14.2835 -180 0 0 127.56 215.35 A10.7126
 							 14.2835 -180 0 0 136.06 223.85 L246.61 223.85 A9.6833 12.9111 0 0 1 255.12 236.61" class="st32"/>
@@ -1902,19 +1860,11 @@
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape287-604" v:mID="287" v:groupContext="shape" transform="translate(127.559,-51.0236)">
 				<title>Tabelle.287</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -1950,10 +1900,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="40.4167" cy="236.607" width="80.84" height="0"/>
@@ -1980,10 +1926,6 @@
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(0):5"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.097941412353516):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>
 				<v:textRect cx="24.0933" cy="229.556" width="48.19" height="14.1036"/>
@@ -1999,16 +1941,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Demand A1 .. An&#10;Capacity A1.. An)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -2078,10 +2020,6 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M0 236.61 A10.259 13.6787 -180 0 0 8.5 246.53 L119.06 246.53 A10.7126 14.2835 0 0 1 127.56 255.03 A10.7126
 							 14.2835 0 0 1 136.06 246.53 L246.61 246.53 A10.259 13.6787 -180 0 0 255.12 236.61" class="st32"/>
@@ -2103,19 +2041,11 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape302-628" v:mID="302" v:groupContext="shape" transform="translate(127.559,22.6772)">
 				<title>Tabelle.302</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -2152,10 +2082,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(-0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
@@ -2184,10 +2110,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>
@@ -2205,16 +2127,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Demand B1 .. An&#10;Capacity B1.. An)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -2284,10 +2206,6 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M0 236.61 A10.259 13.6787 -180 0 0 8.5 246.53 L119.06 246.53 A10.7126 14.2835 0 0 1 127.56 255.03 A10.7126
 							 14.2835 0 0 1 136.06 246.53 L246.61 246.53 A10.259 13.6787 -180 0 0 255.12 236.61" class="st32"/>
@@ -2309,19 +2227,11 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape314-653" v:mID="314" v:groupContext="shape" transform="translate(127.559,22.6772)">
 				<title>Tabelle.314</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -2358,10 +2268,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(-0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
@@ -2390,10 +2296,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>
@@ -2411,16 +2313,16 @@
 				<v:cp v:nameU="visName" v:lbl="Aufgabenname" v:type="0" v:invis="true" v:langID="1031"
 						v:val="VT4(Intervallbeschreibung)"/>
 				<v:cp v:nameU="visIntervalBegin" v:lbl="Anfang" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-06-24T00:00:00):39"/>
+						v:val="VT17(2024-06-25T00:00:00):39"/>
 				<v:cp v:nameU="visIntervalEnd" v:lbl="Schließend" v:type="5" v:format="c" v:invis="true" v:langID="1031"
-						v:val="VT17(2024-07-01T00:00:00):39"/>
+						v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:cp v:nameU="visName" v:lbl="" v:prompt="" v:type="0" v:format="" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1031" v:cal="0" v:val="VT4(Relationship A)"/>
 			</v:custProps>
 			<v:userDefs>
 				<v:ud v:nameU="LCID" v:val="VT0(1033):26"/>
-				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-24T00:00:00):39"/>
-				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-01T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalBegin" v:val="VT17(2024-06-25T00:00:00):39"/>
+				<v:ud v:nameU="visIntervalEnd" v:val="VT17(2024-07-02T00:00:00):39"/>
 				<v:ud v:nameU="visIntervalPict" v:val="VT0(200):26"/>
 				<v:ud v:nameU="visAutoUpdate"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -2490,10 +2392,6 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 				<path d="M0 236.61 A10.259 13.6787 -180 0 0 8.5 246.53 L119.06 246.53 A10.7126 14.2835 0 0 1 127.56 255.03 A10.7126
 							 14.2835 0 0 1 136.06 246.53 L246.61 246.53 A10.259 13.6787 -180 0 0 255.12 236.61" class="st32"/>
@@ -2515,19 +2413,11 @@
 					<v:ud v:nameU="visGroupHeight" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="ctrlYLoc" v:prompt="" v:val="VT0(-0.31496062992126):24"/>
 					<v:ud v:nameU="GeoHeight" v:prompt="" v:val="VT0(0.25590551181102):24"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 				</v:userDefs>
 			</g>
 			<g id="shape325-678" v:mID="325" v:groupContext="shape" transform="translate(127.559,22.6772)">
 				<title>Tabelle.325</title>
 				<v:userDefs>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
 					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
@@ -2564,10 +2454,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(-0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,0,0.5,0)" v:tabSpace="42.5197"/>
@@ -2596,10 +2482,6 @@
 					<v:ud v:nameU="visAboveMarker" v:prompt="" v:val="VT0(0):26"/>
 					<v:ud v:nameU="visMaxCalc" v:prompt="" v:val="VT0(0.16460782470703):1"/>
 					<v:ud v:nameU="visDisplayDate" v:prompt="" v:val="VT0(0):5"/>
-					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#ffffff)"/>
-					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
-					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
 					<v:ud v:nameU="FlipX" v:prompt="" v:val="VT0(1):5"/>
 				</v:userDefs>
 				<v:textBlock v:margins="rect(0.5,0,4,0)" v:tabSpace="42.5197"/>

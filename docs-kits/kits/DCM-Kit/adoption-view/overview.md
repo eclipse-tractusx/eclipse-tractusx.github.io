@@ -61,25 +61,7 @@ The DCM KIT enables better and faster issue resolution. We believe that collabor
 
 Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
 
-## Use Case
-
-The DCM use case can be split into the following topics:
-
-- [Core business process](./use-case/business-process.md)
-  - Material demand
-  - Capacity group
-  - Comparing demand and capacity
-- [Demand volatility metrics](./use-case/demand-volatility.md)
-  - Demand deviation
-- [Simulated delta production](./use-case/delta-production.md)
-  - Post production
-  - Pre production
-- [Load factors](./use-case/load-factors.md)
-  - Load factors
-  - Conversion factors
-- [Request for update](./use-case/rfu.md)
-- [Comments](./use-case/comments.md)
-- [Supply chain disruption notification](./use-case/disruption-notification.md)
+n/use-case/disruption-notification.md)
 
 ## Semantic Models
 
@@ -129,31 +111,30 @@ end
 
 ### Business Architecture
 
+A supply network can be divided into supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
+
 ![IdBasedComment Structure Legend](resources/business-architecture.svg)
 
 ### Access and Usage Policies
 
-Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective the EDC data assets do not require extra protection beyond the what is defined by [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]. 
+Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective data has to be actively provided, further ensuring data sovereignty.
+
+ Conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] the following policies have to be applied.
 
 | Category | Policy Name | Description |Usage recommendation|
 |:---------|:------------|:------------|:-------------------|
-| **Access Policy** | BPN-restricted Data Usage | Limit access to the data offered to a list of specified BPNs (to the connectors with the BPN attribute listed in the policy) |Limit access to asset to all your known business partners.|
+| **Access Policy** | BPN-restricted Data Usage | Limit access to the data offered to a list of specified BPNs (to the connectors with the BPN attribute listed in the policy) |Limit access to assets to all your known business partners.|
 | **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
 | **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
 
-# 7 REFERENCES
-
 ## Standards
 
-The DCM standard consists of three main elements:
-
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
-- **Aspect models** – to align the structure of the shared information and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
-- **APIs** – to make sure that data is provided and consumed properly as well as identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
-
-
-
-
+|Content|Standard|Version|Sections|Description|
+|-|-|-|-|-|
+|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|5|Focuses on a common understanding of the DCM processes among participants.|
+|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
+|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
+|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, were to the impact cannot be expressed precisely quantified yet.
 
 ## Notice
 

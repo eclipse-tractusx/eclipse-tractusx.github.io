@@ -6,7 +6,7 @@ description: API - IdBasedRequestForUpdate
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
-## RequestForUpdate API
+## IdBasedRequestforUpdate API
 
 The RequestForUpdate API is owned and registered as an EDC asset by both customer and supplier. The corresponding business partner (supplier and customer) provides request for update data to the API via POST request.
 
@@ -68,6 +68,12 @@ sequenceDiagram
     end
   
 ```
+
+### Open API documentation
+
+|API|Link|
+|-|-|
+|IdBasedRequestforUpdate|<https://fill.me>|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

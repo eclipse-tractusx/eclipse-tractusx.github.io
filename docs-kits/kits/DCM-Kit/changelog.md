@@ -17,10 +17,13 @@ All notable changes to this Kit will be documented in this file.
 ### Added
 
 - Added multiple diagrams to [Development View](development-view/overview.md)  
+- Added Use Case to [Adoption View](adoption-view/overview.md)
+
 
 ### Changed
 
 - Restructured [Development View](development-view/overview.md)
+- Restructured [Adoption View](adoption-view/overview.md)
 - Recolored sequence diagram in [Architecture View](architecture-view/overview.md)
 
 ### Removed

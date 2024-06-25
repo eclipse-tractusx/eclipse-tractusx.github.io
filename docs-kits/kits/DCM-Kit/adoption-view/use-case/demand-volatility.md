@@ -1,7 +1,8 @@
 ---
 id: demand-volatility
 title: Demand Volatility Metrics
-description: Measure deviations in demand 
+description: Create transparency regarding data volatility and strife for a solution
+sidebar_position: 2
 ---
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)

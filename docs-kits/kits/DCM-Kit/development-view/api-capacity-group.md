@@ -47,7 +47,11 @@ sequenceDiagram
   
 ```
 
+### Open API documentation
 
+|API|Link|
+|-|-|
+|WeekBasedCapacityGroup|<https://fill.me>|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

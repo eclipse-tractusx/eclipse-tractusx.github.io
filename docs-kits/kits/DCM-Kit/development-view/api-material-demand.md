@@ -46,7 +46,11 @@ sequenceDiagram
     end
 ```
 
+### Open API documentation
 
+|API|Link|
+|-|-|
+|WeekBasedMaterialDemand|<https://fill.me>|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
