@@ -59,8 +59,6 @@ The DCM KIT enables better and faster issue resolution. We believe that collabor
 
 Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
 
-n/use-case/disruption-notification.md)
-
 ## Semantic Models
 
 | Semantic Model | Link to GitHub Repository |
@@ -134,7 +132,7 @@ Because of the way that communication within CX-0128 is defined companies are no
 |DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|5|Focuses on a common understanding of the DCM processes among participants.|
 |DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
 |DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
-|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, were to the impact cannot be expressed precisely quantified yet.
+|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, were to the impact cannot be expressed precisely quantified yet.|
 
 ## Notice
 

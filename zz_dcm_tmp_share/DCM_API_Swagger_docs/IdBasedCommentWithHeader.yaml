@@ -239,10 +239,7 @@ components:
           description: Property to collect all transferred business objects.
           $ref: '#/components/schemas/InformationObject'
     IdBasedCommentWithHeader:
-      description: An entity made up of the weekly actual and maximum capacities for
-        a specific customer in a given time period. A capacity group is used to compare
-        demand and capacity data for one or several similar bundled materials in a
-        defined unit of measure.
+      description: An entity that combines the IdBasedComment with the message header data model in order to be compliant with the DCM standard for the exchange of a comment.
       type: object
       properties:
         messageHeader:
