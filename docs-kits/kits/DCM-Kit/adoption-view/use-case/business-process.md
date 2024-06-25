@@ -682,7 +682,83 @@ In case a bottleneck or surplus is identified, a DCM collaborative alignment bet
 
 In an alignment situation the exchange of comments is a key collaborative feature, enabling a dialogue between customers and suppliers. For more information, refer to Chapter 5.9 within the CX-0128 DCM Standard document (link to be included) or to the relevant section in this KIT (link to be included).
 
+## Collaboration
+
+
+```mermaid
+block-beta
+columns 4
+block:Customer:2
+A1[["One-Up (Customer)")
+end
+block:Supplier:2
+A3("One-Down(Supplier)")
+end
+B1<["Manage"]>(down)
+space:2
+B4<["Manage"]>(down)
+C1("Demand"):1
+C2((" ")):1
+C3((" ")):1
+C4("Capacity"):1
+space:4
+space:1
+E2("Match & Comparison"):2
+space:1
+space:4
+G1((" "))
+G2("Collaboration"):2
+G4((" "))
+
+C1-->C2
+C2-->E2
+C3-->E2
+C4-->C3
+E2-->G2
+G1-->C1
+G2-->G1
+G2-->G4
+G4-->C4
+
+classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
+classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
+classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
+classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
+classDef Highlite  stroke:#FF0000,stroke-width:4px
+class A1,C1 Demand
+class A3,C4 Capacity
+class E2,G2 DemCap
+class B1,B4,C2,C3,G1,G4 Frame
+class G2 Highlite
+```
+
 ## User Journey
+
+```mermaid
+journey
+    title My working day
+ section Exchange demand
+        Manage demand:4: Customer
+        Provide demand data:4: Customer
+        Consume demand data:4: Supplier
+section Exchange capacities
+        Manage capacity:4: Supplier
+        Link demand and capacity:4: Supplier
+        Provide capacity data:4: Supplier
+        Consume capacity data:4: Customer
+section Match and Compare
+        Match demand and capacity:4: Customer, Supplier
+        Compare demand and capacity:4: Customer, Supplier
+        Identitfy bottlenecks:4: Customer, Supplier
+        Identifiy surplus:4: Customer, Supplier
+section Collaborate
+        Propose sulutions:4: Customer, Supplier
+        Evaluate solutions:4: Customer, Supplier
+        Simulate solutions:4: Customer, Supplier
+        Decide on Measures:4: Customer, Supplier
+        Solve problems:4: Customer, Supplier
+```
+
 
 ### Personas
 
@@ -738,55 +814,6 @@ After analyzing the situation of the capacity group the DCM customer user evalua
 The following description is not covered by the DCM standard. However, it describes a value adding in-app feature that was discussed within the DCM working group and was found to be useful for adoption. It is therefore shared within the KIT:
 The demand and capacity data will be first kept internal within the organization of the business partner, visible just for the responsible user (i.e. the visibility status is "internal private"). It can be shared with colleagues within the business partner organization (i.e. visibility status is “internal”). Eventually, it can follow the main path of collaborative demand and capacity management which means, the demand or capacity data can be set to "shared". With the status set at "shared" both partners of a collaboration, the supplier and customer respectively, can see the demand or capacity data.
 
-## Collaboration
-
-
-```mermaid
-block-beta
-columns 4
-block:Customer:2
-A1[["One-Up (Customer)")
-end
-block:Supplier:2
-A3("One-Down(Supplier)")
-end
-B1<["Manage"]>(down)
-space:2
-B4<["Manage"]>(down)
-C1("Demand"):1
-C2((" ")):1
-C3((" ")):1
-C4("Capacity"):1
-space:4
-space:1
-E2("Match & Comparison"):2
-space:1
-space:4
-G1((" "))
-G2("Collaboration"):2
-G4((" "))
-
-C1-->C2
-C2-->E2
-C3-->E2
-C4-->C3
-E2-->G2
-G1-->C1
-G2-->G1
-G2-->G4
-G4-->C4
-
-classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
-classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
-classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
-classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
-classDef Highlite  stroke:#FF0000,stroke-width:4px
-class A1,C1 Demand
-class A3,C4 Capacity
-class E2,G2 DemCap
-class B1,B4,C2,C3,G1,G4 Frame
-class G2 Highlite
-```
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
