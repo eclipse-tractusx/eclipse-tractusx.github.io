@@ -61,6 +61,21 @@ B["Request for Update data (optional)"] style B fill:#046b99,color:#F4F2F3
 ```
 -->
 
+### Example data
+
+```json
+{
+  "weekBasedMaterialDemand" : [ {
+    "materialDemandId" : "0157ba42-d2a8-4e28-8565-7b07830c3456",
+    "changedAt" : "2023-03-10T12:27:11.320Z"
+  } ],
+  "weekBasedCapacityGroup" : [ {
+    "capacityGroupId" : "0157ba42-d2a8-4e28-8565-7b07830c1110",
+    "changedAt" : "2023-03-10T12:27:11.320Z"
+  } ]
+}
+```
+
 All file formats and serializations are derived from a RDF turtle file. It is the source for the Semantic Aspect Meta Model. You can access the RDF turtle file at the following URL:
 
 ```text
