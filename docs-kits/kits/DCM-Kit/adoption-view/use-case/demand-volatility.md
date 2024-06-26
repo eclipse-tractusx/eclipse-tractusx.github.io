@@ -42,7 +42,7 @@ rect rgb(64,74,00)
 s->>c: I will begin measuring demand volatility, using the following parameters:
 s-->>c: Increase limited to 5%
 s-->>c: Decrease limited to 100 units
-s->>c: Measurement starts in week 5, using subhorizons of length (4,8,16,32) 
+s-->>c: Measurement starts in week 5, using subhorizons of length (4,8,16,32) 
 end
 
 ```
