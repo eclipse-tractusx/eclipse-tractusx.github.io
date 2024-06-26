@@ -34,7 +34,6 @@ s->>s: It is solvable via pre-production in weeks 48 and 49
 rect rgb(64,74,00)
 s->>c: Provide WeekBasedCapacityGroup
 end
-
 ```
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
