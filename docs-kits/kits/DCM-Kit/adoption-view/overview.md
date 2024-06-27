@@ -134,6 +134,10 @@ Because of the way that communication within CX-0128 is defined companies are no
 |DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
 |Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, were to the impact cannot be expressed precisely quantified yet.|
 
+## Frequently asked Questions
+
+In case of further questions, feel free to visit our [FAQ](google.com).
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
