@@ -7,9 +7,18 @@ sidebar_position: 1
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
+## TABLE OF CONTENTS
+- [Business Roles and Functions](#business-roles-and-functions)
+- [Material Demand](#material-demand)
+- [Capacity Group](#capacity-group)
+- [Match and Comparison of Demand and Capacity](#match-and-comparison-of-demand-and-capacity)
+- [Collaboration](#collaboration)
+- [User Journy](#user-journey)
+
+
 ## Business Roles and Functions
 
-The core DCM business process uses two APIs and two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
+The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
@@ -19,7 +28,7 @@ The core DCM business process uses two APIs and two aspect models. The customer 
 |Link demand and capacity||X|
 |Inform customer about capacity||X|
 |Compare demand to capacity|X|X|
-|Resolve bottlenecks|X|X|
+|Collaborate to resolve bottlenecks|X|X|
 
 ## Material Demand
 
@@ -76,62 +85,19 @@ class C1 Highlite
 
 -->
 
-A Material Demand reflects the need for a particular product or part or component for a certain period of time in a specified quantity.  
+A material demand represents the need for a particular product, part, component or material over a certain time period in a specified quantity. Demand quantities must refer to a time period of one calendar week (weekly buckets).
 
-Demand quantities must refer to a period of one calendar week (weekly buckets) and could be illustrated in an application as follows:
+The customer is responsible for publishing material demands to their supplier for upcoming time periods and it is strongly recommended to:
 
-![Demand Example](./resources/business-process_ExampleDemand.svg)
+- Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
+- Provide material demand data for at least nine months into the future to ensure that DCM participants have sufficient information to work with.
+- Implement a rolling demand plan by continuously updating the planning horizon with recent data.
+- Refresh the data at a minimum of once every four weeks.
+- Align, ideally within a contract, the unit of measure for demand quantities (e.g., pieces, kilograms, metric tons) with the supplier before providing the demand.
 
-<!--
-```mermaid
----
-   config:
-    xyChart:
-        width: 1200
-        height: 700
-        titlePadding: 10
-        titleFontSize: 20
-        showTitle: true
-        plotReservedSpacePercent: 50 
-    themeVariables:
-        xyChart:
-            backgroundColor: "#000000"
-            titleColor: "#F4F2F3"
-            xAxisLabelColor: "#F4F2F3"
-            xAxisTitleColor: "#F4F2F3"
-            xAxisTickColor: "#F4F2F3"
-            xAxisLineColor: "#F4F2F3"
-            yAxisLabelColor: "#F4F2F3"
-            yAxisTitleColor: "#F4F2F3"
-            yAxisTickColor: "#F4F2F3"
-            yAxisLineColor: "#F4F2F3"
-            plotColorPalette: "#FFA600,#B3CB2D,#809500,#219dd4"
+The supplier must have the capability to consume the material demand data from the customer.
 
----
-    xychart-beta
-    title "Example: Demand Data"
-    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
- 
- ##### FIX THE ARROW BELOW and remove this LOC to get mermaid working   
-    
-    y-axis 0 -> 6000
-    bar [3000, 3000, 3000, 3000, 4000, 4000, 4000, 5000]
-```
--->
-
-The customer owns and must publish its own Material Demand with its supplier for a future time period and it is highly recommended to:
-
-- avoid any data gaps as far as possible (i.e. interruptions should be avoided and consistency should be established)  
-- share Material Demand data at least until month 9 in the future, to ensure DCM participants to have also sufficient data to work with
-- use a rolling demand plan (i.e. move the planning horizon forward to new periods by adding recent data)
-- update the data at least once every 4 weeks
-- Align with the one-down the unit of measure for demanded quantities (e.g. pieces, kg, mt,...) before forwarding demand (ideally stipulated within contract).
-
-The supplier must be able to receive the Material Demand from the customer.
-
-## Details
-
-### Simple visualization of components of Material Demand
+### Material Demand Structure
 
 ![Material Demand Structure](./resources/business-process_MDstructure.svg)
 ![Material Demand Structure Legend](./resources/business-process_MDstructure_Legend.svg)
@@ -172,6 +138,47 @@ class D3,D6 Invis
 block-beta
 A["Demand data (MUST)"] style A fill:#FFA600,color:#F4F2F3
 B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
+```
+-->
+
+### Visualization Example
+
+![Demand Example](./resources/business-process_ExampleDemand.svg)
+
+<!--
+```mermaid
+---
+   config:
+    xyChart:
+        width: 1200
+        height: 700
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50 
+    themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#B3CB2D,#809500,#219dd4"
+
+---
+    xychart-beta
+    title "Example: Demand Data"
+    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
+ 
+ ##### FIX THE ARROW BELOW and remove this LOC to get mermaid working   
+    
+    y-axis 0 -> 6000
+    bar [3000, 3000, 3000, 3000, 4000, 4000, 4000, 5000]
 ```
 -->
 
@@ -229,40 +236,20 @@ class C4 Highlite
 ```
 -->
 
-The supplier must publish capacity data to the customer, referring to material demand data shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.  
+A capacity groups represents the answer to one ore more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
 
-The customer must be able to receive the capacity group incl. the capacity information.
+The customer is responsible for publishing capacity groups to their customer and it is strongly recommended to:
 
-There are several types of capacity – for a detailed description of these capacity definitions please refer to chapter 4.1 in this document or chapter 1.5 - TERMINOLOGY in the CX-0128 Standard document.
+- Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
+- Provide capacity data for every calendar week that has associated demand data.
+- Refresh the data at a minimum of once every four weeks.
+- Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the customer and utilize lead factors as conversion factors, if applicable.
 
-For further technical details refer to API standard document CX-0048 DCM API Material Demand & Capacity Group chapter “3.2.2 Data Exchange”.  
+The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.  
 
-## Recommendations  
+The customer must have the capability to consume the capacity group data from the supplier.
 
-The following details are meant as a wider explanation in addition to the DCM standards that could be used for the Adoption View and therefore will be used for the KIT on Tractus-X.
-
-### Visualization tips
-
-The different capacities may be pictured with the use of different types of lines:
-
-- The solid line illustrates the actual capacity  
-- The dotted line illustrates the maximum capacity  
-- The difference between the two lines is understood as "flexible capacity"
-
-For specific examples see the chapter “Details” below.
-
-## Details
-
-Different types of Capacity
-
-There are several possibilities to define capacity information. Only the following are currently defined as standards (Rel. 24.05) and, as such, must be used as described:  
-
-- the **actual capacity** is the planned available capacity of a supplier
-- and the **maximum capacity** is the maximum releasable capacity of a supplier (it may be equal, or may be larger than the “actual capacity” but must not be smaller than actual capacity)  
-- When the maximum capacity is larger than the “actual capacity”, the difference is called **flexible capacity**
-- **Agreed capacity** represents the agreed capacity of a supplier for a specific customer material(s) within a capacity group. It must not constitute a legal obligation to deliver. Using the agreed capacity is  optional and has purely informative character. The agreed capacity  may be greater than, less than or equal to the actual or maximum capacity of the supplier. It may be used for a time frame shorter than the whole time series.
-
-### Capacity Group structure
+### Capacity Group Structure
 
 The Capacity Group is the entity where Material Demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the Capacity Group builds the common view on the data exchanged between a customer and a supplier.  
 
@@ -307,7 +294,71 @@ A["Capacity data (MUST)"] style A fill:#B3CB2D,color:#F4F2F3
 B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
 -->
+
+### Example Visualization
+
+![Capacity Example](./resources/business-process_ExampleCapacity.svg)
+
+<!--
+```mermaid
+---
+   config:
+    xyChart:
+        width: 1200
+        height: 700
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50 
+    themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#B3CB2D,#809500,#219dd4"
+
+---
+    xychart-beta
+    title "Example: Capacity"
+    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
+##### FIX ARROW BELOW AND remove this LOC to get mermaid to work
+    y-axis 0 -> 6000
+    line Actual Capacity [3000, 3000, 4000, 4000, 3000, 3000, 3000, 3000]
+    line Maximum Capacity [3000, 4000, 4000, 5000, 3000, 4000, 5000, 3000]
+    line Agreed Capacity [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000]
+```
+
+-->
+
+![Capacity Visualization Legend](./resources/business-process_visCapacity_Legend.svg)
+<!--
+```mermaid
+block-beta
+B["Actual Capacity"] style B fill:#B3CB2D,color:#F4F2F3
+C["Maximum Capacity"] style C fill:#809500,color:#F4F2F3
+D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
+```
+-->
+
+### Details
+
+Embedded into the WeekBasedCapacityGroup are
+
+- **actual capacity** as the  planned available capacity of a supplier
+- **maximum capacity** as the maximum releasable capacity of a supplier
+- **agreed capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
+
+In addition the difference between actual capacity and maximum capacity is commonly understood as **flexible capacity**.
+
 A Capacity Group dataset comprises the following basic components:
+
 |Properties|Description|
 |-|-|
 |Supplier|The Business Partner Number (BPNL) of the party providing materials to a customer|
@@ -322,6 +373,7 @@ A Capacity Group dataset comprises the following basic components:
 |Unit of Measure is Omitted|Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
+
 |Properties|Description|
 |-|-|
 |Actual Capacity|The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
@@ -335,8 +387,7 @@ For a functional Capacity Group, the supplier must link either directly or indir
 - **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand (this way of linking Capacity Groups to Material Demand is considered as "**Nesting**" of Capacity Groups). For more details see chapter “nesting”
 
 **Capacity Group direct linking**
-![Direct Linking](./resources/business-process_DirectLinking.svg
-)
+![Direct Linking](./resources/business-process_DirectLinking.svg)
 ![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
 
 <!--
@@ -404,65 +455,7 @@ If there’s no complete match between supplier and customer data, it’s recomm
 
 The supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. the capacity is obsolete), in this case the capacity will not be considered in the demand-capacity matching. However, the WeekBasedCapacityGroup can be reactivated again.
 
-### Example of visualization of Capacity Data
-
-The picture below is meant to illustrate and exemplifies the different capacity information as follows:  
-
-- The light green line represents actual capacity
-- The dark green line represents maximum capacity
-- The blue line represents agreed capacity
-- The area between the light and dark green lines represents flexible capacity
-
-![Capacity Example](./resources/business-process_ExampleCapacity.svg)
-
-<!--
-```mermaid
----
-   config:
-    xyChart:
-        width: 1200
-        height: 700
-        titlePadding: 10
-        titleFontSize: 20
-        showTitle: true
-        plotReservedSpacePercent: 50 
-    themeVariables:
-        xyChart:
-            backgroundColor: "#000000"
-            titleColor: "#F4F2F3"
-            xAxisLabelColor: "#F4F2F3"
-            xAxisTitleColor: "#F4F2F3"
-            xAxisTickColor: "#F4F2F3"
-            xAxisLineColor: "#F4F2F3"
-            yAxisLabelColor: "#F4F2F3"
-            yAxisTitleColor: "#F4F2F3"
-            yAxisTickColor: "#F4F2F3"
-            yAxisLineColor: "#F4F2F3"
-            plotColorPalette: "#B3CB2D,#809500,#219dd4"
-
----
-    xychart-beta
-    title "Example: Capacity"
-    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
-##### FIX ARROW BELOW AND remove this LOC to get mermaid to work
-    y-axis 0 -> 6000
-    line Actual Capacity [3000, 3000, 4000, 4000, 3000, 3000, 3000, 3000]
-    line Maximum Capacity [3000, 4000, 4000, 5000, 3000, 4000, 5000, 3000]
-    line Agreed Capacity [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000]
-```
-
--->
-
-![Capacity Visualization Legend](./resources/business-process_visCapacity_Legend.svg)
-<!--
-```mermaid
-block-beta
-B["Actual Capacity"] style B fill:#B3CB2D,color:#F4F2F3
-C["Maximum Capacity"] style C fill:#809500,color:#F4F2F3
-D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
-```
--->
-### Building the n-tier chain via capacity groups
+#### Building the n-tier chain via capacity groups
 
 Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to really collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
 
@@ -790,7 +783,6 @@ class G2 Highlite
 ## User Journey
 
 ```mermaid
-
 journey
     title Basic DCM User Journey
  section Exchange demand
