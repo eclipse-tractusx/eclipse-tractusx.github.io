@@ -17,13 +17,6 @@ Supply chain disruption notifications  use their own aspect model and API. Suppl
 |Detail pre-existing disruption notification|X|X|
 |Resolve disruption|X|X|
 
-|Function / Role|Customer|Supplier|
-|-|-|-|
-|Identify demand or capacity data that is not recent|X|X|
-|Inform business partner about data that needs updating|X|X|
-|Provide business partner with fresh data|X|X|
-|Show users how fresh the data is |X|X|
-
 ## Sequence Diagram
 
 ```mermaid
@@ -35,7 +28,7 @@ c->>s: One of my production plants is negatively impacted by a strike
 c-->>s: This affects the demand of the following materials: {Toy 1, Toy2, Toy3}
 end
 rect rgb(4,107,153) 
-c->>s: The disruption (strike) is over
+c->>s: The disruption (strike) has ended
 end
 ```
 

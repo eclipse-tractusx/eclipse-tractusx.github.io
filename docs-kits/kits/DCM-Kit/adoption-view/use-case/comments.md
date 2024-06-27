@@ -41,55 +41,47 @@ end
 ```
 
 ## Details
+Collaboration is a critical element in Demand and Capacity Management. It enables alignment and cooperation between customers and suppliers within their respective business relationships. This interaction is facilitated by the exchange of comments, which are messages or texts related to data objects – either Material Demand or Capacity Group. These objects are identified by an "ObjectID," which matches the UUID of either a WeekBasedMaterialDemand or a WeekBasedCapacityGroup.
 
-The collaboration aspect is a fundamental component for Demand and Capacity Management. By the exchange of comments, a capability is provided supporting the alignment and collaboration between customer and supplier in their individual one-up and one-down business relationship.  
+Each comment, formally known as an IdBasedComment, within the business relationship is uniquely identified by a CommentID.
 
-A comment is a kind of message or text which refers to a data object exchanged between the two business partners, i.e. either to a Material Demand or a Capacity Group. The referred object is thereby identified via an "ObjectID", which corresponds either to the UUID of a WeekBasedMaterialDemand or to the UUID of a WeekBasedCapacityGroup.  
+This functionality allows users to integrate all data, including communications with their business partners, into the core process. This integration fosters a unified source of truth within the DCM process and enhances efficient decision-making. Comments can also be directed toward specific periods within the exchanged time series data to improve the precision of collaboration.
 
-A comment can be uniquely identified within a business relationship by a CommentID, therefore the formal term of a comment is IdBasedComment.
+Comments consist solely of text exchanges, without the transfer of documents or attachments.
 
-With this feature users benefit by having all data - even the communication with their business partners - embedded in the core process enabling a common point of truth within the DCM process and more efficient decision making. In addition, a comment can refer to specific period in times of the exchanged time series data to make the collaboration more precise.  
+Comments must be formatted according to the Catena-X data standards and processed through the specified API.
 
-Please note that in this KIT only the sovereign and interoperable exchange of comments is described.  additional descriptions for instance regarding the visualization of comments within a user interface, the creation and deletion process and respective authorizations or internal visibility modes etc. can be used as ideas or examples for the development of  in-app functionalities.
+Both customers and suppliers must be able to send and receive comments regarding a capacity group object. Similarly, exchanging comments on a material demand object is strongly advised to enhance collaborative efforts in Demand and Capacity Management.
 
-A comment is based on an exchange of text information. No documents or attachments will be exchanged.
+To aid in the interpretation of received comments, a comment type must be specified during its creation. Each comment must align with one of the defined types in the standard. The consumer of the comment is responsible for determining the appropriate actions in response to the comment type.
 
-A comment must follow the standardized data format according to the valid Catena-X standards and must be processed via the described API accordingly.  
+The provider of a comment can freely write their message in a designated text field, as outlined in the corresponding data model. Any editing of comments, such as changes to content, date, or time, does not alter the CommentID.
 
-Both business partners, a customer as well as a supplier, must be able to send and must be able to receive a comment for the object of a capacity group. The exchange of comments to the object of a material demand is a highly recommended component for collaborative Demand and Capacity Management. Therefore, it is highly recommended that both business partners, a customer as well as a supplier, should be able to send and to receive comments also for the object of a material demand.  
+Additionally, comments may include references to specific calendar weeks of the time series data for clarity.
 
-For a better interpretation of a received comment, a comment type must be provided during the creation process of a comment. Each comment must refer to one of the comment types defined in the standard. It is the responsibility of the comment receiver, which actions are triggered according to the comment type.  
+### Enriching comments
 
-The creator of a comment writes a message in a free text field without predefined texts, as described in the corresponding data model. The result of editing of comments (e.g. change in content, date and/or time) does not change the commentID.
+Every comment should have the following data embedded into it:
 
-In a comment a reference to specific calendar weeks of the time series data can be provided.  
+- The identity of the comment creator, which could be their first and last name, email address, or the Business Partner Number of their company (BPNL).
+  - Adherence to the General Data Protection Regulation (GDPR) must be ensured, especially regarding the treatment of comments and user data following the withdrawal of the individual or their company. This includes compliance with decisions agreed upon by partner companies.
+  - The comment creator should have the option to remain anonymous if desired, utilizing only the BPNL.
+- The data and time when the comment was created.
 
-## Major aspects of defined comment use case types
+As a general guideline, the ability to modify an existing comment should be restricted solely to the individual who originally authored the comment. This ensures that the integrity of the comment is maintained and that any changes reflect the creator's current views or corrections.
 
-In general, every comment should contain following information automatically:
+### Linking comments
 
-- Comment creator, i.e. first/last name or email address or BPNL
-  - Note:
-    - consider personal data protection (e.g. what happens with comments and user data after his or his company withdrawal) à Follow GDPR regulations and/or decisions aligned by partner companies
-    - the comment creator must have the option to create a comment as anonymous (therefore the option to use only the BPNL)
-    - apply the need-to-know principle
-    - applications must follow Catena-X policies in terms of on-/off-boarding
-    - see also handover topic for participants
-- Date of creation
-- Time of creation
+It should be possible to create comments in the following manner:
 
-In general, changes to an existing comment shall be allowed only by the creator of the comment (besides general admin role which is not defined yet and outside of this context).  
+- Pertaining to a specific capacity group
+  - General comments, detached from specific calendar weeks
+  - Comments attached to one or multiple calendar weeks
+- Pertaining to a specific material demand
+  - General comments, detached from specific calendar weeks
+  - Comments attached to one or multiple calendar weeks
 
-**Level of comments**  
-
-In general, it shall be possible to create comments as follows:
-
-- For one specific capacity group
-  - without time period relation (general comment)
-  - with relation to one or multiple time periods
-- For a specific material demand  
-
-Preferably all comments can be reviewed within a dedicated area of the UI (general and time period related ones), and the time period related comments are also visible/accessible from the individual time period(s) they refer to.  
+Since users will typically interact with a graphical user interface (UI) that displays an aggregation of a specific capacity group along with all its associated material demands and other capacity groups, it is logical to aggregate comments in a corresponding manner. This approach would allow users to view comments in the context of the specific data they are associated with, streamlining the user experience and enhancing the relevance of the comments in relation to the aggregated data being reviewed.
 
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].

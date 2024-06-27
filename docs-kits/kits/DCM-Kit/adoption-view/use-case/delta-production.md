@@ -25,14 +25,15 @@ sequenceDiagram
 Participant c as Customer
 Participant s as Supplier
 rect rgb(157,93,00) 
-c->>s: Provide WeekBasedMaterialDemand
+c->>s: I need 100 blue toys each in weeks 47, 48, 49 and 50
 end
 s->>s: Manage Capacities
 s->>s: There is a bottleneck in week 50
 s->>s: It is solvable via pre-production in weeks 48 and 49  
 
 rect rgb(64,74,00)
-s->>c: Provide WeekBasedCapacityGroup
+s-->>c: I can produce 100 in week 47, 0 in week 50 and 150 in weeks 48 and 49
+s->>c: 50 each in weeks 48 und 49 are pre-produced to cover the demand in week 50
 end
 ```
 
