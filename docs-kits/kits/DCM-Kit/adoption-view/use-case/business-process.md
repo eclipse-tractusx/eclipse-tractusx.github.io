@@ -8,13 +8,13 @@ sidebar_position: 1
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## TABLE OF CONTENTS
+
 - [Business Roles and Functions](#business-roles-and-functions)
 - [Material Demand](#material-demand)
 - [Capacity Group](#capacity-group)
 - [Match and Comparison of Demand and Capacity](#match-and-comparison-of-demand-and-capacity)
 - [Collaboration](#collaboration)
 - [User Journy](#user-journey)
-
 
 ## Business Roles and Functions
 
@@ -29,6 +29,76 @@ The core DCM business process is executed by two roles and uses two APIs as well
 |Inform customer about capacity||X|
 |Compare demand to capacity|X|X|
 |Collaborate to resolve bottlenecks|X|X|
+
+## User Journey
+
+![User Journey](./resources/business-process_UserJourney.svg)
+*Figure: Basic DCM user journey*
+
+<!--
+```mermaid
+journey
+    title Basic DCM User Journey
+ section Exchange demand
+        Manage demand:3: Customer
+        Provide demand data:3: Customer
+        Consume demand data:3: Supplier
+section Exchange capacities
+        Manage capacity:3: Supplier
+        Link demand and capacity:3: Supplier
+        Provide capacity data:3: Supplier
+        Consume capacity data:3: Customer
+section Match and Compare
+        Match and compare demand and capacity:4: Customer, Supplier
+        Identifiy problems:5: Customer, Supplier
+section Collaborate
+        Propose sulutions:6: Customer, Supplier
+        Evaluate solutions:6: Customer, Supplier
+        Simulate solutions:6: Customer, Supplier
+        Decide on Measures:6: Customer, Supplier
+        Solve problems:9: Customer, Supplier
+```
+-->
+### Personas
+
+The basic DCM user journey encompasses two key personas, each with distinct roles and responsibilities that highlight their value within the supply chain.
+
+#### Customer
+
+ Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of managing material demand and ensuring that supply aligns with their forecasted needs. The value of DCM for the customer lies in the capability to provide clear visibility into future demand and to facilitate efficient communication and alignment with suppliers.
+
+The responsibilities of the customer include:
+
+- safeguarding sufficient capacity of his suppliers for required materials and prevent bottleneck situations
+- allocation of production capacity on customer side
+- production rough cut planning
+- material allocation
+
+#### Supplier
+
+Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of providing capacity data in response to the customer's material demand. The value of DCM for the supplier lies in the capability to receive material demand data, which enables them to plan and allocate resources effectively, ensuring they can meet the customer's demands.
+
+The responsibilities of the supplier include:
+
+- allocation of production capacity
+- production rough cut planning
+- material allocation
+- communication to a customer business partner regarding capacity figures in a mid to - long term horizon
+- resolving bottleneck situations
+
+### User Journey Description
+
+The starting point within the DCM user journey is the exchange of demand data, which is provided by the customer and consumed by the supplier as WeekBasedMaterialDemand. For an effective demand and capacity management the data needs to be of a certain quality. This includes sorting the demand into weekly buckets, extending the demand data 24 months into the future and subsequently keeping it up to data. Whether the customer has to manually prepare the demand data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards.
+
+The exchange of demand data is followed by the exchange of capacity data, which is provided by the supplier und consumed by the customer. For an effective demand and capacity management the data needs to be of a certain quality. This included linking material demands to the capacity group ,providing a capacity quantity for every calendar week the customer provided demand quantities for, matching unit of measures correctly and utilizing advanced features like load factors and delta production in order to model demand and capacity management as closely to real life as possible. Whether the supplier has to manually prepare the capacity data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards. However matching material numbers and linking material demands to capacity groups will most likely required human intervention at some point.
+
+After exchanging demand and capacity data  both customer and supplier do have the same view of the current situation and can begin matching and comparing the data. This is something that usually happening locally within the respective DCM application. Ideally the whole process of finding problems (bottleneck or surplus) is automated.
+
+If either customer or supplier identify a problem they can collaborate by exchanging comments as described by the DCM standard or by communicating outside the Catena-X dataspace using email or online-meetings. Regardless of how communication is initiated and maintained solving an identified problem is always the result of proposing, evaluating and simulating potential solutions. Customers and supplier discuss potential measures, modify their demand and capacity respectively and exchange the modified data until a solution that works for both sides has been found.
+
+Tools available to the customer for solving problems are fairly limited. They can increase or decrease demand quantities.
+
+The supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use flexible capacity, load factors and delta production.
 
 ## Material Demand
 
@@ -101,6 +171,7 @@ The supplier must have the capability to consume the material demand data from t
 
 ![Material Demand Structure](./resources/business-process_MDstructure.svg)
 ![Material Demand Structure Legend](./resources/business-process_MDstructure_Legend.svg)
+*Figure: Material demand structure*
 <!--
 ```mermaid
 block-beta
@@ -144,7 +215,7 @@ B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
 ### Visualization Example
 
 ![Demand Example](./resources/business-process_ExampleDemand.svg)
-
+*Figure: Visualizing demand quantities as bars*
 <!--
 ```mermaid
 ---
@@ -255,9 +326,9 @@ The Capacity Group is the entity where Material Demand and capacity information 
 
 The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
-The basic structure of a Capacity Group can be depicted as follows:
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
 ![Capacity Group Structure Legend](./resources/business-process_CGstructure_Legend.svg)
+*Figure: Capacity group structure*
 <!--
 ```mermaid
 block-beta
@@ -298,7 +369,8 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ### Example Visualization
 
 ![Capacity Example](./resources/business-process_ExampleCapacity.svg)
-
+![Capacity Visualization Legend](./resources/business-process_visCapacity_Legend.svg)
+*Figure: Visualizing capacity quantities as lines*
 <!--
 ```mermaid
 ---
@@ -337,7 +409,6 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 
 -->
 
-![Capacity Visualization Legend](./resources/business-process_visCapacity_Legend.svg)
 <!--
 ```mermaid
 block-beta
@@ -347,7 +418,7 @@ D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 ```
 -->
 
-### Details
+### Capacity Types
 
 Embedded into the WeekBasedCapacityGroup are
 
@@ -356,6 +427,8 @@ Embedded into the WeekBasedCapacityGroup are
 - **agreed capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
 
 In addition the difference between actual capacity and maximum capacity is commonly understood as **flexible capacity**.
+
+### WeekBasedCapacityGroup Properties
 
 A Capacity Group dataset comprises the following basic components:
 
@@ -381,14 +454,18 @@ Further properties are added at lower level below the “Capacities” property.
 |Maximum Capacity|The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a supplier maximum capacity minus actual capacity|
 |Point in Time|ISO Calendar Week of the given time series entry. UstIt must be given as a date of the Monday in the week.|
 
+### Linking Capacity Groups to Material Demands
+
 For a functional Capacity Group, the supplier must link either directly or indirectly Material Demand:
 
 - **Direct linking** means that the Capacity Group links at least one Material Demand  
 - **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand (this way of linking Capacity Groups to Material Demand is considered as "**Nesting**" of Capacity Groups). For more details see chapter “nesting”
 
-**Capacity Group direct linking**
+#### Direct Linking
+
 ![Direct Linking](./resources/business-process_DirectLinking.svg)
 ![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
+*Figure: Capacity group structure with linked material demand*
 
 <!--
 ```mermaid
@@ -455,11 +532,11 @@ If there’s no complete match between supplier and customer data, it’s recomm
 
 The supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. the capacity is obsolete), in this case the capacity will not be considered in the demand-capacity matching. However, the WeekBasedCapacityGroup can be reactivated again.
 
-#### Building the n-tier chain via capacity groups
+### Building n-tier chains via capacity groups
 
-Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to really collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
+Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
 
-In the following, building the n-tier chain via capacity groups is illustrated for example materials:  
+The following figure illustrates how plastic granulate ends up being used in the housing of a control unit and how this would be viewed from a birds eye perspective.
 
 ```mermaid
 flowchart BT
@@ -491,7 +568,9 @@ style cg3Material fill:#FFFFFF,color:#707070
 style cg31DOWN fill:#575757,color:#ffffff
 ```
 
-Example N-Tier Linking via Capacity Groups
+*Figure: A small supply chain built by three capacity groups*
+
+The following figure illustrates the flow of demand and capacity data through the supply network. Capacity and demand blocks are placed according to responsibility. Data exchange that is happening within the Catena-X dataspace is denoted by arrows with "Provide" written on them.
 
 ```mermaid
 flowchart LR
@@ -567,7 +646,8 @@ class car Car
 ```
 
 ![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
-business-process_nTierLinking_Legend.svg
+*Figure: A small supply network built by seven capacity groups*
+
 <!--
 ```mermaid
 block-beta
@@ -635,35 +715,24 @@ class E2 Highlite
 
 -->
 
-### Matching Results and Resolution
+Both customer and supplier need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
 
-Based on the WeekBasedCapacityGroup and WeekBasedMaterialDemand aspect models, each supplier and customer know what data to share. When they compare the demand with the corresponding capacity values they must apply the same logic to ensure that the matching results are interpreted in the same way.  
+The standard describes exactly which scenario leads to the three possible matching results:
 
-For a better understanding, the table below describes all comparison scenarios that may apply in a business context focused on one single week. Comparison over a longer period (i.e. several weeks) is currently not covered in the standard or in this KIT and may be defined individually by each partner as in-app solution.
+- Zero deviation
+- Surplus
+- Bottleneck
 
-Business application provider, data provider or data consumer must enable their DCM system to recognize the matching situation based on the table below and must be able to interpret the matching result accordingly. The DCM system may visualize the matching result in a respective color as well, based on the illustration below.
+Within a DCM application those three matching results are commonly represented as a traffic light status, with zero deviation and surplus being green and bottleneck being orange or red, depending on whether demand is higher than maximum capacity or just actual capacity.
 
-|Scenario and Week|Matching situation (must)|Matching result (must)|Color (may)|Hex Code (may)|
-|-|-|-|-|-|
-|1|Demand = actual capacity = maximum capacity|Zero deviation|Green|#809500|
-|2|Demand = actual capacity < maximum capacity|Zero deviation|Green|#809500|
-|3|Demand < actual capacity = maximum capacity|Surplus|Green|#809500|
-|4|Demand < actual capacity < maximum capacity|Surplus|Green|#809500|
-|5|Demand > actual capacity = maximum capacity|Bottleneck|Red|#D91E18|
-|6|Actual capacity < demand = maximum capacity|Bottleneck|Orange|#FFA600|
-|7|Actual capacity < demand < maximum capacity|Bottleneck|Orange|#FFA600|
-|8|Actual capacity < maximum capacity < demand|Bottleneck|Red|#D91E18|
+While customers might not feel impacted by a surplus, because the demand is matched, it still represents capacity that the supplier could better utilize.
 
-**Note:**
-
-- If Supplier Flexible Capacity is not available (i.e. actual and maximum capacity are equal values), there is only RED or GREEN bars and no YELLOW.
-- As per its definition in the DCM standard context, the agreed capacity is a value agreed by business partners and to be used optionally. Therefore, it is not considered for comparison purposes and has no influence on the recognition of bottleneck situations.
-- Inactive WeekBasedMaterialDemand data and its related demandSeries data must not be considered when comparing the demand with the corresponding capacity values.
-- Inactive WeekBasedCapacityGroup data must not be considered at all for comparison purposes.
-
-The figure below provides an example for a better understanding of how the matching situations described in the table above can be displayed in a DCM system:
+For ease of use demand and capacity data should be shown on the same graph and colored in appropriately, within a DCM application.
 
 ![Capacity Match and Compare](./resources/business-process_ExampleMatchCompare.svg)
+![Match and Compare Legend](./resources/business-process_MatchCompare_Legend.svg)
+*Figure: Visualizing the comparison of demand and capacity quantities*
+
 <!--
 ```mermaid
 ---
@@ -704,7 +773,6 @@ The figure below provides an example for a better understanding of how the match
 
 -->
 
-![Match and Compare Legend](./resources/business-process_MatchCompare_Legend.svg)
 <!--
 ```mermaid
 block-beta
@@ -717,12 +785,6 @@ E["Maximum Capacity"] style E fill:#046b99,color:#000000
 F["Agreed Capacity"] style F fill:#219dd4,color:#000000
 ```
 -->
-
-*Visualized example of Demand and Capacity Data Matching and Comparison*
-
-In case a bottleneck or surplus is identified, a DCM collaborative alignment between customer and supplier is highly recommended. For a detailed process description, please refer to the illustrations in ANNEXES of the CX-0128 DCM Standard document (link to be included).  
-
-In an alignment situation the exchange of comments is a key collaborative feature, enabling a dialogue between customers and suppliers. For more information, refer to Chapter 5.9 within the CX-0128 DCM Standard document (link to be included) or to the relevant section in this KIT (link to be included).
 
 ## Collaboration
 
@@ -780,84 +842,9 @@ class G2 Highlite
 ```
 -->
 
-## User Journey
+Collaboration is key within the DCM process. It is the final part of the DCM user journey, where actual solutions for problems (surplus and bottlenecks) are proposed, discussed and finally deployed.
 
-```mermaid
-journey
-    title Basic DCM User Journey
- section Exchange demand
-        Manage demand:3: Customer
-        Provide demand data:3: Customer
-        Consume demand data:3: Supplier
-section Exchange capacities
-        Manage capacity:3: Supplier
-        Link demand and capacity:3: Supplier
-        Provide capacity data:3: Supplier
-        Consume capacity data:3: Customer
-section Match and Compare
-        Match and compare demand and capacity:4: Customer, Supplier
-        Identifiy problems:5: Customer, Supplier
-section Collaborate
-        Propose sulutions:6: Customer, Supplier
-        Evaluate solutions:6: Customer, Supplier
-        Simulate solutions:6: Customer, Supplier
-        Decide on Measures:6: Customer, Supplier
-        Solve problems:9: Customer, Supplier
-```
-
-### Personas
-
-The user journey considers two general personas: The so called ‚DCM Customer user‘ and ‚DCM Supplier user‘. Both users might have different role titles, depending on their respective organizational structures. However, both have specific responsibilities and requirements which drives for them the value of the DCM App:
-
-#### DCM Customer user
-
-DCM Customer is a representative of a business partner that provides a demand forecast to and receives goods from his supplier. As such the persona "DCM Customer" is responsible for:
-
-- safeguarding sufficient capacity of his suppliers for required materials and prevent bottleneck situations
-- allocation of production capacity on customer side
-- production rough cut planning
-- material allocation
-- communication to a supplier business partner with regard to material demands in a mid to long term horizon
-- potentially: communication to a customer business partner with regard to capacity figures in a mid to long term horizon
-
-#### DCM Supplier user
-
-DCM Supplier is a representative of a business partner that supplies goods to his customer. As such the persona "DCM Supplier" is responsible for:
-
-- allocation of production capacity
-- production rough cut planning
-- material allocation
-- communication to a customer business partner regarding capacity figures in a mid to long term horizon
-- resolving bottleneck situations
-
-### User Journey Description
-
-As a starting point of the user journey within any Catena-X based DCM App, the users need to provide either their demand data (on the side of the ‘DCM customer user’) or capacity data (on the side of the ‘DCM supplier user’).  A pre-requisite is that a customer-supplier business partner relationship is established in the Catena-X platform.  
-
-The ‚ DCM customer user‘ creates or uploads and publishes a planned demand in weekly buckets for the next up to 24 months, starting from week+2.
-
-To do so, the ‚DCM customer user either logs into any Catena-X based DCM App and creates a demand for a material, or creates the demand via a system integration from an external system. The creation within a DCM App can be done manually.
-
-Subsequently, the user maintains the demands through a manual input or via a system integration from an external system.
-
-The ‚DCM supplier user‘ logs into a DCM app and views the material demands received from the customers. In case of a new demand which is not yet linked to a capacity group, the ‚DCM supplier user‘ either assigns the demand to an existing capacity group, or has to create a new capacity group and maps the relevant demand series to this new capacity group. As a result, the weekly demands of all demand series related to a capacity group are automatically accumulated and displayed. The capacity group can also be created via an external system integration.
-
-For the capacity groups the ‚DCM supplier user‘ maintains the weekly capacities accordingly via integration of an external system or manually within a DCM App.
-
-A key motivation for users to use the DCM app is for the ‚DCM customer user‘  to check, whether his/her demand plan might result in bottleneck situations on the capacity side. After logging into a DCM app or via an external system integration the ‚DCM customer user‘ can identify demand/capacity imbalances and is able to view relevant related details.
-
-A visualization capturing in weekly buckets the capacity provided by the supplier and the related demand for a material allows the user to quickly analyze imbalances.  
-
-Upon the collaboration being triggered outside any DCM app the ‚DCM supplier user‘ can log-into a DCM app to review the capacity group. In order to solve ana bottleneck or surplus situation the ‚DCM supplier user‘ evaluates different options in the supporting local systems and outside any Catena-X based DCM app. Any decision the ‚DCM supplier user‘ takes has to consider in turn the impact on the own material demands, i.e. whether an adjusted capacity plan results in a feasible demand plan towards the next level supplier. Where required the ‚DCM supplier user‘ might trigger a collaboration with his/her own material suppliers. By adapting to the situation, the ‘DCM supplier user’ changes and releases the relevant weekly capacity values.
-
-Another key motivation for users to utilize the DCM App is the collaboration triggered from the supplier side to inform his/her customer about changes to the capacity which results in a bottleneck or surplus situation. The ‚DCM supplier user‘ updates the capacity after logging-into any Catena-X based DCM App or via an integrated local system.  
-
-After analyzing the situation of the capacity group the DCM customer user evaluates -supported by local systems and outside any Catena-X based DCM App- possible options and decides on the action to solve or mitigate any imbalance. Based on the decision the ‚DCM customer user‘ can update the demand in a DCM App. If this does not resolve the situation the ‘DCM customer user‘ might initiate a collaboration process with the supplier.
-
-### Additional recommended non-standard feature
-
-The following description is not covered by the DCM standard. However, it describes a value adding in-app feature that was discussed within the DCM working group and was found to be useful for adoption. It is therefore shared within the KIT:
-The demand and capacity data will be first kept internal within the organization of the business partner, visible just for the responsible user (i.e. the visibility status is "internal private"). It can be shared with colleagues within the business partner organization (i.e. visibility status is “internal”). Eventually, it can follow the main path of collaborative demand and capacity management which means, the demand or capacity data can be set to "shared". With the status set at "shared" both partners of a collaboration, the supplier and customer respectively, can see the demand or capacity data.
+In order to facilitate collaboration with the Catena-X dataspace the DCM standards describes the exchange of comments, using an own aspect model and API. Communication features outside the Catena-X dataspace, such as eMail, phone calls, online meetings, etc. are not prohibited and should be used as the individual customers and suppliers see fit.
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
