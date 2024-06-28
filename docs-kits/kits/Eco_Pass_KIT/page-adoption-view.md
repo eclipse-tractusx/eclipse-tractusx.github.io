@@ -466,7 +466,6 @@ It is important to note that the data model contains information/data fields, wh
 
 The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.battery.battery_pass). For each version there is a separated directory containing the ttl-file and a generated samples.
 
-
 #### Example Battery Passport Payload
 
 <details>
@@ -1379,7 +1378,6 @@ References to shared aspects are the following:
 - urn:samm:io.catenax.transmission.transmission_pass:3.0.0
 - urn:samm:io.catenax.shared.quantity:2.0.0
 - and indirect references from the above mentioned aspects
-
 
 It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
