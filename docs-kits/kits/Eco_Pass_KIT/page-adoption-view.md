@@ -142,6 +142,7 @@ The Digital Product Passport is the core model and can be used as the root class
 - Additional data
 
 References to shared aspects are the following:
+
 - urn:samm:io.catenax.batch:3.0.0
 - urn:samm:io.catenax.shared.part_classification:1.0.0
 - urn:samm:io.catenax.part_type_information:1.0.0
@@ -455,8 +456,9 @@ The Battery Passport is a standardized data model that will enable stakeholders 
 - Performance information
 
 References to shared aspects are the following:
- - urn:samm:io.catenax.generic.digital_product_passport:5.0.0
- - and indirect references from the above mentioned aspect
+
+- urn:samm:io.catenax.generic.digital_product_passport:5.0.0
+- and indirect references from the above mentioned aspect
 
 It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([(EU) 2023/1542](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
@@ -1042,8 +1044,9 @@ Product unspecific information incudes following information:
 - Sources (documents)
 
 References to shared aspects are the following:
- - urn:samm:io.catenax.generic.digital_product_passport:5.0.0
- - and indirect references from the above mentioned aspect
+
+- urn:samm:io.catenax.generic.digital_product_passport:5.0.0
+- and indirect references from the above mentioned aspect
 
 It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
@@ -1371,10 +1374,11 @@ Product unspecific information incudes following information:
 - Sources (documents)
 
 References to shared aspects are the following:
- - urn:samm:io.catenax.generic.digital_product_passport:5.0.0
- - urn:samm:io.catenax.transmission.transmission_pass:3.0.0
- - urn:samm:io.catenax.shared.quantity:2.0.0
- - and indirect references from the above mentioned aspects
+
+- urn:samm:io.catenax.generic.digital_product_passport:5.0.0
+- urn:samm:io.catenax.transmission.transmission_pass:3.0.0
+- urn:samm:io.catenax.shared.quantity:2.0.0
+- and indirect references from the above mentioned aspects
 
 
 It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](<(https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)>)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
