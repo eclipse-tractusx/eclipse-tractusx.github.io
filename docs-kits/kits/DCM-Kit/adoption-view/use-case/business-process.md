@@ -33,6 +33,7 @@ The core DCM business process is executed by two roles and uses two APIs as well
 ## User Journey
 
 ![User Journey](./resources/business-process_UserJourney.svg)
+
 *Figure: Basic DCM user journey*
 
 <!--
@@ -171,6 +172,7 @@ The supplier must have the capability to consume the material demand data from t
 
 ![Material Demand Structure](./resources/business-process_MDstructure.svg)
 ![Material Demand Structure Legend](./resources/business-process_MDstructure_Legend.svg)
+
 *Figure: Material demand structure*
 <!--
 ```mermaid
@@ -215,6 +217,7 @@ B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
 ### Visualization Example
 
 ![Demand Example](./resources/business-process_ExampleDemand.svg)
+
 *Figure: Visualizing demand quantities as bars*
 <!--
 ```mermaid
@@ -327,7 +330,7 @@ The Capacity Group is the entity where Material Demand and capacity information 
 The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
-![Capacity Group Structure Legend](./resources/business-process_CGstructure_Legend.svg)
+
 *Figure: Capacity group structure*
 <!--
 ```mermaid
@@ -369,7 +372,7 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ### Example Visualization
 
 ![Capacity Example](./resources/business-process_ExampleCapacity.svg)
-![Capacity Visualization Legend](./resources/business-process_visCapacity_Legend.svg)
+
 *Figure: Visualizing capacity quantities as lines*
 <!--
 ```mermaid
@@ -456,15 +459,16 @@ Further properties are added at lower level below the “Capacities” property.
 
 ### Linking Capacity Groups to Material Demands
 
-For a functional Capacity Group, the supplier must link either directly or indirectly Material Demand:
+For a functional Capacity Group, the supplier must link it directly or indirectly to a Material Demand:
 
 - **Direct linking** means that the Capacity Group links at least one Material Demand  
-- **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand (this way of linking Capacity Groups to Material Demand is considered as "**Nesting**" of Capacity Groups). For more details see chapter “nesting”
+- **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand. This is also refered to as **nesting**.
 
 #### Direct Linking
 
 ![Direct Linking](./resources/business-process_DirectLinking.svg)
 ![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
+
 *Figure: Capacity group structure with linked material demand*
 
 <!--
@@ -646,6 +650,7 @@ class car Car
 ```
 
 ![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
+
 *Figure: A small supply network built by seven capacity groups*
 
 <!--
@@ -730,7 +735,7 @@ While customers might not feel impacted by a surplus, because the demand is matc
 For ease of use demand and capacity data should be shown on the same graph and colored in appropriately, within a DCM application.
 
 ![Capacity Match and Compare](./resources/business-process_ExampleMatchCompare.svg)
-![Match and Compare Legend](./resources/business-process_MatchCompare_Legend.svg)
+
 *Figure: Visualizing the comparison of demand and capacity quantities*
 
 <!--
