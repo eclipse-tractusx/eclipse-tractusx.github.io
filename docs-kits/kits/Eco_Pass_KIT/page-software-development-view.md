@@ -326,7 +326,6 @@ Additionally the simple wallet contains a extension for creating JSON-LD @contex
 
 ![Verification Addon Screenshot](./resources/development-view/verificationAddon.png)
 
-
 ### Business Partner Data Management Add-on
 
 When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation.
