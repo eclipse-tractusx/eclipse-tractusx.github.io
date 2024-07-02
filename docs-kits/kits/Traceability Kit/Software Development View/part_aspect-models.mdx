@@ -99,3 +99,58 @@ Aspect model in GitHub:
   ]
 }
 ```
+
+### SoftwareInformation
+The software information aspect model contains the essential information of all software components that have been implemented or flashed in an instantiated part (e.g. serialized part). 
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.software_information/1.0.0
+
+##### Example: Submodel `SoftwareInformation`
+```json
+{
+  "catenaXId": "urn:uuid:454ffa8e-f88d-4ad1-be45-06981756aeb1",
+  "softwareInformation": [
+    {
+     "name": "ECU Software XY12345",
+      "softwareId": "SW123456789",
+      "version": "1.2.0",
+      "lastModifiedOn": "2023-03-21T08:17:29.187+01:00"
+    },
+    {
+      "name": "Controller-SW",
+      "softwareId": "SW987654321",
+      "version": "3.0.0",
+      "lastModifiedOn": "2024-04-30T08:17:29.187+01:00"
+    }
+  ]
+}
+```
+
+### CertificateSigningRequests
+The Certificate Signing Requests aspect model contains the essential information needed to request specific certificates for a unique ECU component via a Certificate Signing Request (CSR) and to validate and certificate the ECU against this data.
+
+A CSR (Certificate Signing Request) is a 64-based PEM formatted and encrypted message to request a (digital) certificate. The CSR validates the information required by a specific certification authority (CA) to issue the associated certificate.
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.certificate_signing_requests/1.0.0
+
+##### Example: Submodel `CertificateSigningRequests`
+```json
+{
+    "certificateSigningRequestList": [
+        {
+            "certificateSigningRequest": "MIIC2TCCAToCAQAwgZwxEzARBgNVBAgTClByb2R1Y3Rpb24xDDAKBgNVBAcMA0FUTTESMBAGA1UEChMJQk1XIEdyb3VwMRcwFQYDVQQLEw5WZWhpY2xlUEtJLUVDVTEXMBUGA1UEAxMOSVBzZWMtaW50ZXJuYWwxMTAvBgNVBAUTKEVDVS1VSUQ6QzAwMDgyNDI3MUREQTYwMDAwMDAwMDAwMjdBQTg0MjQwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAShNm4y5Mdzu4b9xDW3TfBZr",
+            "subjectLocality": "ATM--02",
+            "subjectCommonName": "ID",
+            "subjectSerialNumber": "SN12345678"
+        },
+        {
+            "certificateSigningRequest": "MII3tbCCAToCAQAwgZwxEzARBgNVBAgTClByb2R1Y3Rpb24xDDAKBgNVBAcMA0FUTTESMBAGA1UEChMJQk1XIEdyb3VwMRcwFQYDVQQLEw5WZWhpY2xlUEtJLUVDVTEXMBUGA1UEAxMOSVBzZWMtaW50ZXJuYWwxMTAvBgNVBAUTKEVDVS1VSUQ6QzAwMDgyNDI3MUREQTYwMDAwMDAwMDAwMjdBQTg0MjQwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAShNm4y5Mdzu4b9xDW3TfBZr",
+            "subjectLocality": "ATM--02",
+            "subjectCommonName": "IPsec-Internal",
+            "subjectSerialNumber": "SN12345678"
+        }
+    ]
+}
+```
