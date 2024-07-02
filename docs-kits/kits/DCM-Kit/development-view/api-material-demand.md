@@ -50,7 +50,7 @@ sequenceDiagram
 
 |API|Link|
 |-|-|
-|WeekBasedMaterialDemand|<https://fill.me>|
+|WeekBasedMaterialDemand|[Find here](./plugin-generated-material-demand-api/post-week-based-material-demand.api.mdx)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
