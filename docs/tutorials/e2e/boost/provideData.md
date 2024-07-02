@@ -289,7 +289,7 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policyde
 }' | jq
 ```
 
-The polica was successfully created, if the response is something like this
+The policy was successfully created, if the response is something like this
 
 ```json
 {

@@ -137,7 +137,7 @@ minikube [-p minikube-$USER] addons enable ingress
 Now add these hostnames to your /etc/hosts. You should ensure that you have access and the /etc/hosts file group entry should be assigend to the group **docker**. Check this with the following commands:
 
 ```bash
-ls -al /etc/hosts 
+ls -al /etc/hosts
 # Output should be like: "-rw-r--r-- 1 root docker 414 Jun 16 14:34 /etc/hosts"
 ```
 
@@ -150,7 +150,7 @@ Alternatively configure the DNS Service to be enabled for Ingress.
 :::
 
 ```bash
-minikube [-p minikube-$USER] addons enable ingress-dns 
+minikube [-p minikube-$USER] addons enable ingress-dns
 # if -p option is used, with the profile name minikube-$USER
 ```
 
@@ -656,7 +656,7 @@ adminconsolepwsharedidp
 
 ### Seeding
 
-See [Overall Seeding](../../concept/seeds-overall-data.md).
+See [Overall Seeding](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/concept/seeds-overall-data.md).
 
 ### Self-signed TLS setup (Optional)
 
