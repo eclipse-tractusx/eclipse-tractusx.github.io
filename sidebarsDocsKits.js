@@ -451,9 +451,41 @@ const sidebars = {
                         'kits/DCM-Kit/development-view/model-IdBasedRequestForUpdate',
                         'kits/DCM-Kit/development-view/model-IdBasedComment',
                         'kits/DCM-Kit/development-view/api-WeekBasedMaterialDemand',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/DCM-Kit/development-view/plugin-generated-material-demand-api/sidebar.js'),
+                        },
                         'kits/DCM-Kit/development-view/api-WeekBasedCapacityGroup',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/DCM-Kit/development-view/plugin-generated-capacity-group-api/sidebar.js'),
+                        },
                         'kits/DCM-Kit/development-view/api-IdBasedRequestForUpdate',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/DCM-Kit/development-view/plugin-generated-rfu-api/sidebar.js'),
+                        },
                         'kits/DCM-Kit/development-view/api-IdBasedComment',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/DCM-Kit/development-view/plugin-generated-comment-api/sidebar.js'),
+                        },
                         'kits/DCM-Kit/development-view/api-aas',
                     ]
                 },

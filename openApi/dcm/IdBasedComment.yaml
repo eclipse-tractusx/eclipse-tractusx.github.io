@@ -1,9 +1,8 @@
----
 openapi: 3.0.3
 info:
   title: Catena-X DCM Id Based Comment
   description: Open API documentation for the Catena-X DCM Id Based Comment
-  version: v1
+  version: 3.0.0
 paths:
   /internal-dcm-application-id-based-comment-post-endpoint:
     post:

@@ -51,7 +51,7 @@ sequenceDiagram
 
 |API|Link|
 |-|-|
-|WeekBasedCapacityGroup|<https://fill.me>|
+|WeekBasedCapacityGroup|[Find here](./plugin-generated-capacity-group-api/post-week-based-capacity-group.api.mdx)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
