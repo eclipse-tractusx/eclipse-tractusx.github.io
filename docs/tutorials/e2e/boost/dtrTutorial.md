@@ -1,4 +1,7 @@
-# DTR Tutorial
+---
+title: DTR Tutorial
+sidebar_position: 5
+---
 
 ## Tutorial Goal
 
