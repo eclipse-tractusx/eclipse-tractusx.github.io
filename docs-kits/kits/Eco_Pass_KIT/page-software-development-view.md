@@ -324,6 +324,9 @@ The documentation from the Digital Product Pass Verification Add-on is available
 
 Additionally the simple wallet contains a extension for creating JSON-LD @contexts using Catena-X SAMM Models Schemas. This allows the verifiable credentials with the semantic models to be valid JSON-LDs documents and enables the context of the existing and future modeled documents.
 
+![Verification Addon Screenshot](./resources/development-view/verificationAddon.png)
+
+
 ### Business Partner Data Management Add-on
 
 When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation.
