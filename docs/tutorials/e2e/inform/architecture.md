@@ -3,76 +3,95 @@ title: Understand the overarching architecture
 sidebar_position: 2
 ---
 
-This section contains more information than is currently implemented in the MXD. However, it is intended to provide a general overview of the Catena-X architecture. However, not all components are listed here.
+This section provides an overview of the Tractus-X Data Space (TXD) architecture. In short, the TXD is a simplified version of the Catena-X data space for local deployment. Not all components of Catena-X are currently used in the TXD.
 
-## The journey starts
+The tutorial is under continuous development. The [TXD architecture](#the-tractus-x-data-space-architecture) shows all current and planned components of the TDX.
 
-The first thing you need is a BPN (Business Partner Number) because this is used within the network to identify yourself against other participants. This tells the network in a trusted manner who you are.
+## Components of the Tractus-X Data Space
 
-:::info
+### EDC
 
-Even if the BPN is already configured and used in the MXD setup, its just a dummy. In the real world you will receive your BPN via the onboarding / regirstraion process [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
+A key component of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC). **This component is used to exchange data between participants**. This includes:
 
-:::
+- Provide data to other participants in the data space.
+  - connect data sources to the EDC
+  - define policies for the data consumption
+  - create contract definitions for souvereign data exchange
 
-The BPN is also used to restrict the access and usage of your provided data assets. This is done via policies. Some example policies are also part of this tutorial.
-
-A data asset is the metadata for the data that is intended to be provided or consumed. This data asset is the element in the ecosystem for which policies are defined to build a contract offer which can be agreed and consumed by a consumer.
-
-One of the key components of the Catena-X architecture is the [Eclipse Data Space Connector](https://github.com/eclipse-tractusx/tractusx-edc) (EDC) as one implementation of the [Dataspace Protocol](https://docs.internationaldataspaces.org/dataspace-protocol/). This component is used to exchange data between participants. This includes:
-
-- Publish data offers and to discover data offers from other participants.
-- Negotiate data offers and come to an agreement on how to data is allowed to be used (Usage Policies)
-- Transfer data based on a previously negotiated agreement.
-
-With the EDC you are always in control of your data.
-
-:::note
-
-Control of your data means on the one hand, that you can decide who can access your data and who can not. On the other hand you can decide under which constraints the data may be used by the data consumer after providing access. This is achieved via policies and sovereign deployment of data provisioning (in Catena-X you have the opportunity to freely decide where and by whom the data is stored and offered). This is called **data sovereignty**.
-
-:::
-
-In our setup we already configured two EDCs. **Alice** and **Bob** and also the related databases (to persist the assets, policies aso.) are ready to use.
+- Consume data offerings from other participants.
+  - Request data catalogs
+  - negotiate contract offers
+  - transfer the data
 
 :::info
 
-Registering an EDC is part of the onboarding process and is done in the portal. In our setup the EDCs are already registered and technical users are already created in the Keycloak instance.
+The tutorial setup includes two EDCs: **Alice** and **Bob**. The EDCs are already registered in the TXD setup and the technical users are created in the keycloak instance.
+
+This represents the minimal Setup for data exchange in a data space.
 
 :::
 
-The minimal Setup for data exchange is in place. Now you are able to provide and exchange data.
+### Managed Identity Wallet (MIW)
 
-## What language does Catena-X speak? / Asset Administration Shell with Aspect Models define the language in Catena-X
+The Managed Identity Wallet (MIW) provides a service where you can **store your Verifiable Credentials (VC) for any Catena-X services** in a safe place. This is only an intermediate step before self hosted wallets are supported and organizations have the choice to either use a managed service or store their VCs in their own wallets.
 
-Since Catena-X is more than just a data exchange the next level of key to success is to exchange data in a structured and defined way. This helps to speak the same language to leverage business value of data.
+### Identity Access Management (IAM) - keycloak
 
-This is realized with [Asset Administration Shell](https://eclipse-tractusx.github.io) (Digital Twins) and Aspect models. The AAS is the vehicle to transport the semantic, which is modeled in Aspect Models.
+keycloak is used to **manage access to central components**, e.g. the MIW and some of the discovery services with typical OAuth Client Credentials flow.
 
-With that you are able to speak Catena-X.
+### Portal
 
-When it comes to data exchange, it as an utmost concern to be able to find the desired data on the one hand and to understand the structure and meaning of the data on the other hand.
-Finding and understanding data is a typical challenge, if you want to provide or consume data to or from an audience you are not in direct contact in advance.
+The Portal as an overall product is a complex composition of several interacting solution building blocks. It is generally designed to work with the IAM. For the tutorial relevant parts of the Portal are:
 
-To tackle these concerns the Industry-Standard for Digital Twins, the [Asset Administration Shell](https://industrialdigitaltwin.org) is referenced.
+- BPDM-Pool
+- Semantic Hub
 
-**Discovery finder** is used to identify which services are available to search for dedicated characteristics of a digital twin (e.g. Serialnumber discovery, Product type discovery,...)
+### BPDM
 
-**Discovery service** maintains a catalog of all entries that can be looked up and may be operated by any operating company. All twins that want to be able to be found within that search have to register/be registered in the corresponding service with its logical ID (and a reference to the Digital Twin registry).
+BPDM is an acronym for **business partner data management**. It serves two main purposes:
 
-**Digital Twin registry** is used to lookup the logical ID of the desired Twin and stores the endpoint address to access the Server that stores the Digital Twin Data - the AAS-Server.
+- Provide services for querying and sharing business partner information
+- Establish an infrastructure for realizing the Golden Record process which turns business partner information from sharing members to Golden Records, that is cleaned and enriched business partner data uniquely identified by a business partner number (BPN).
 
-**AAS-Server** is used to provide the API for the desired data - which are implemented as `Submodels` or also called "Digital twin aspects", that can either implement a dedicated persistence and gather copies of information in the desired quality or by access the corresponding business systems directly. These Submodels are semantically described (structure and meaning) by semantic models which are centrally managed in the
+The BPNs are also used in access and usage policies.
 
-**Semantic Hub** which stores all semantic models that may be described in a Semantic Aspect Meta Model (SAMM) compliant format to be able to inform about requirements for an API providing that kind of data or validate information that is transferred via AAS-API.
+:::info
 
-## What else is needed
+In the current TXD setup the two participants (Alice and Bob) have pre configured BPNs. Therefore the initial registration process is not part of the tutorial. In the real world you will receive your BPN via the onboarding / registration process [onboarding process](https://catena-x.net/en/catena-x-introduce-implement/onboarding).
 
-The **Managed Identity Wallet (MIW)** provides a service where you can store your Verifiable Credentials (VC) for any Catena-X services in a safe place. This is only an intermediate step before self hosted wallets are supported and organizations have the choice to either use a managed service or store their VCs in their own wallets.
+:::
 
-**Keycloak** is used to manage access to central components, e.g. the MIW and some of the discovery services with typical OAuth Client Credentials flow.
+### Semantic Hub
 
-## The different components
+The Semantic Hub **manages and stores all semantic model definitions** within the data space. It is a key component for achieving a common understanding of data within the ecosystem.
+
+### Discovery Services
+
+In a fundamentally decentralized system, it is important to find other participants and their "address" for data exchange. This can be achieved with the Discovery Services.
+
+- The Discovery Finder is responsible for finding a matching BPN Discovery for a given type -  e.g., "bpid", "oen".
+- The BPN Discovery is responsible for finding the corresponding BPNs for a given type.
+- The EDC Discovery is responsible for finding the corresponding EDC endpoint against a given BPN.
+
+## Digital Twins in Catena-X
+
+In Catena-X digital twins are realized with the [Asset Administration Shell](https://industrialdigitaltwin.org/) (AAS). The AAS represents a vehicle to transport data of a real asset in a standardized and interoperable manner. This digital representation of the asset is called digital twin and is implemented in an AAS. To describe the different aspects of the asset  with the AAS in a common language, so called aspect models are defined in the data space. These aspect models define the semantics for the respective aspect of the digital twin. A submodel is then an implementation of an aspect of the digital twin. For a more detailed explanation see [Digital Twin KIT](https://tractus-x-community-days.github.io/eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
+
+### Digital Twin Registry
+
+The Digital Twin Registry (DTR) is a decentralized component that can be registered as a contract definition in an EDC. It serves a function similar to the index in a book. With the DTR, a data consumer can get an overview of WHAT to find, HOW and WHERE to access it. The registry contains submodel descriptors that point to the endpoint of submodels of a digital twin.
+
+### AAS-Server
+
+The AAS-Server or Submodel Server is used to store submodels.
+
+:::info
+
+The tutorial setup provides dummy submodels for the data exchange in the tutorial steps explained in Chapter boost. These dummy submodels do not apply Catena-X aspect models but work just fine for the demonstration and learning purpose of the tutorial.
+
+:::
+
+## The Tractus-X Data Space Architecture
 
 ![cx_architecture](@site/static/img/architecture.drawio.svg)
 

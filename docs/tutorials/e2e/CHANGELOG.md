@@ -4,6 +4,17 @@
 
 All notable changes to this tutorial will be documented in this file.
 
+## [1.0.0] - 2024-06-24
+
+### Added
+
+- Digital twin registry (dtr) as component and related description "how to use it" as a provider
+- Example for restrictions via different policies
+
+### Changed
+
+- Deployable local dataspace via umbrella helm charts
+
 ## [0.1.0] - 2023-11-28
 
 ### Added
