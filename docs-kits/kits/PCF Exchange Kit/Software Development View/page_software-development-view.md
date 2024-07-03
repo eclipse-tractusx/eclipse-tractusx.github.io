@@ -320,9 +320,9 @@ In case no material twin or no PCF submodel is found, EDC asset type has to be u
 - [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/en/standard-library)
 - [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/en/standard-library)
 - [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catena-x.net/en/standard-library)
-- [CX-0018 Eclipse Data Space Connector (EDC) v3.0.0](https://catena-x.net/en/standard-library)
-- [CX-0126-Industry Core: Part Type v2.0.0](https://catena-x.net/en/standard-library)
-- [CX-0136 PCF UseCase v1.0.0](https://catena-x.net/en/standard-library)
+- [CX-0018 Dataspace Connectivity v3.1.0](https://catena-x.net/en/standard-library)
+- [CX-0126 Industry Core: Part Type v2.0.0](https://catena-x.net/en/standard-library)
+- [CX-0136 PCF UseCase v2.0.0](https://catena-x.net/en/standard-library)
 
 ## Other Standards
 
