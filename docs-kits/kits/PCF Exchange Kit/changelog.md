@@ -11,7 +11,7 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [x.x.x] - 2024-07-xx
+## [1.2.0] - 2024-08-01
 
 ### Added
 
