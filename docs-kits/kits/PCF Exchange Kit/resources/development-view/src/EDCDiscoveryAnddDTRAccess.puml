@@ -71,7 +71,7 @@ Showing submodel only to ease readability!
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:6.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:7.0.0#Pcf"
            }
        ]
     },
