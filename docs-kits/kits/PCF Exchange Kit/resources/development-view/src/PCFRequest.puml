@@ -1,8 +1,4 @@
-<<<<<<< HEAD:docs-kits/kits/PCF Exchange Kit/resources/development-view/PCFRequestWithoutTwinOrSubmodel.puml
-@startuml "PCF Request with missing Twin or Submodel"
-=======
 @startuml "PCF Request through AAS"
->>>>>>> feature/PCF-Kit-Update_Rel-24-05:docs-kits/kits/PCF Exchange Kit/resources/development-view/src/PCFRequest.puml
 
 participant PCF_Client
 participant Client_API_Wapper
@@ -73,11 +69,7 @@ end
 
 group Lookup Clients PCF Receive Asset
 Company_PCF_App -> Company_EDC: Lookup Client's Receive Asset\n(via Company's EDC URL)
-<<<<<<< HEAD:docs-kits/kits/PCF Exchange Kit/resources/development-view/PCFRequestWithoutTwinOrSubmodel.puml
-Company_EDC -> Client_EDC: Lookup Asset in Catalog\n(EDC asset type "data.pcf.exchangeEndpoint")
-=======
 Company_EDC -> Client_EDC: Lookup Asset in Catalog\n(EDC asset type '{"@id":"cx-taxo:PcfExchange"}')
->>>>>>> feature/PCF-Kit-Update_Rel-24-05:docs-kits/kits/PCF Exchange Kit/resources/development-view/src/PCFRequest.puml
 note right
 There could be multiple EDC URLs, but
 only one with a PCF Exchange Asset
@@ -87,29 +79,14 @@ Company_EDC -> Company_PCF_App: PCF Asset ID
 end
 
 group Push PCF to Client
-<<<<<<< HEAD:docs-kits/kits/PCF Exchange Kit/resources/development-view/PCFRequestWithoutTwinOrSubmodel.puml
-Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID, BPN & comment
-note right
-PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123&BPN=<Company's BPN>&
-=======
 Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID
 note right
 PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123
->>>>>>> feature/PCF-Kit-Update_Rel-24-05:docs-kits/kits/PCF Exchange Kit/resources/development-view/src/PCFRequest.puml
 end note
 Company_API_Wapper -> Company_EDC: Negotiate access to asset and enable proxy transfer
 Company_EDC -> Client_EDC: Negotiate access to asset and enable proxy transfer
 Client_EDC -> Company_EDC: Agreement & EndpointDataReference
 Company_EDC -> Company_API_Wapper: Agreement & EndpointDataReference
-<<<<<<< HEAD:docs-kits/kits/PCF Exchange Kit/resources/development-view/PCFRequestWithoutTwinOrSubmodel.puml
-Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID & BPN
-Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID & BPN
-note right
-Using PCF API through EDC via HTTP Proxy:
-PUT https://{someURL}/productIds/mat345?requestId=123&BPN=<Company's BPN>
-end note
-Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID, BPN & comment
-=======
 Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID
 Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID
 note right
@@ -117,7 +94,6 @@ Using PCF API through EDC via HTTP Proxy:
 PUT https://{someURL}/productIds/mat345?requestId=123
 end note
 Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID & BPN (Header)
->>>>>>> feature/PCF-Kit-Update_Rel-24-05:docs-kits/kits/PCF Exchange Kit/resources/development-view/src/PCFRequest.puml
 PCF_Client -> Client_EDC: OK
 Client_EDC -> Company_EDC: OK
 Company_EDC -> Company_API_Wapper: OK
