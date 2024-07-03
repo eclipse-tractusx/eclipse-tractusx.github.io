@@ -33,6 +33,8 @@ All notable changes to this Kit will be documented in this file.
 * Development View
   - PCF Exchange API to Rel. 24.08 (e.g. data format)
   - Several illustrations to reflect latest changes in Rel. 24.08
+  - Policy adapted to latest standards (incl. new Framework Agreement and bilateral contracts)
+  - Referenced standard updated
 
 ## [1.1.0] - 2024-05-17
 
