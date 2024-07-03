@@ -70,7 +70,7 @@ export const kitsGallery = [
     domain: 'PLM / Quality',
     maturityLevel: 'Graduated',
     img: BehaviourTwin_Kit,
-    pageRoute: "/docs-kits/next/kits/behaviour-twin-kit/overview"
+    pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview"
   },
   {
     id: 6,
