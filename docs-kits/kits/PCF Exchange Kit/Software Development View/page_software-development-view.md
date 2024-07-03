@@ -164,7 +164,7 @@ The following JSON is a policy definition including the *mandatory* policy const
 In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless it will be checked on a syntactical level during contract negotiation. If such a contract refererence should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
 
 >**Note**
->The mentioned *FrameworkAgreement Pcf* is only valid until Oct. 16th 2024. It will be replaced by a new more generic *Framework DataExchangeGovernance* on Oct. 17th 2024. More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
+>More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
 
 ##### Payload to create a SSI based Policy
 <details>
@@ -198,7 +198,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
                         {
                             "leftOperand": "cx-policy:FrameworkAgreement",
                             "operator": "eq",
-                            "rightOperand": "Pcf:1.0"
+                            "rightOperand": "DataExchangeGovernance:1.0"
                         },
                         {
                             "leftOperand": "cx-policy:Membership",
