@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ### Added
 
-- add link to Code of Conduct published on Web page
+- add reference to Code of Conduct that will be published on Web page
 - add description of Occasion-related tracking in broken supply chains
 
 ### Changed
