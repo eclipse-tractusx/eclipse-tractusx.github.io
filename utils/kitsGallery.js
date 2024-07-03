@@ -15,7 +15,8 @@ import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
-import Industry_Kit from "@site/static/img/Industry_Kit.png"
+import Industry_Kit from "@site/static/img/Industry_Kit.png";
+import MDP_Kit from "@site/static/img/mdp_image.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -174,5 +175,13 @@ export const kitsGallery = [
     maturityLevel: 'Incubating',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
     img: PURIS_Kit,
+  },
+  {
+    id: 19,
+    name: 'MDP Kit',
+    domain: 'Resiliency',
+    maturityLevel: 'Incubating',
+    pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+    img: MDP_Kit,
   },
 ]
