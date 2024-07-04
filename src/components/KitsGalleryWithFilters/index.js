@@ -55,12 +55,12 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
     let filteredKits = itemsArray;
     let sortedKits = filteredKits;
     if(selectedDomain !== 'All Domains') {
-      filteredKits = itemsArray.filter((kit) => kit.domain === selectedDomain);
-      if(selectedMaturityLevel !== 'Maturity Levels') {
-        sortedKits = filteredKits.filter((kit) => kit.maturityLevel === selectedMaturityLevel);
-      } else {
-        sortedKits = filteredKits
-      }
+      filteredKits = itemsArray.filter((kit) => kit.domain === selectedDomain); 
+    }
+    if(selectedMaturityLevel !== 'Maturity Levels') {
+      sortedKits = filteredKits.filter((kit) => kit.maturityLevel === selectedMaturityLevel);
+    } else {
+      sortedKits = filteredKits
     }
     if (sortOrder === 'asc') {
       sortedKits.sort((a, b) => a.name.localeCompare(b.name));

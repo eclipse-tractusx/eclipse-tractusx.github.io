@@ -327,5 +327,8 @@
 
 img[src$="#block"] {
   position: absolute;
-  margin-top: 5px;
+  margin-top: 15px;
+  height: 40px;
+  width: auto;
+  margin-left: 10px;
 }

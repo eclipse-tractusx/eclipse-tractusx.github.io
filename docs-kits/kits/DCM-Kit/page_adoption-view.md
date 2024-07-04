@@ -7,6 +7,8 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## Vision & Mission

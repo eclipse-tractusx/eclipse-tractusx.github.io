@@ -2,6 +2,8 @@
 title: Adoption View
 ---
 
+# Adoption View ![Block image](/img/graduated-dots.png#block)
+
 ![EcoPass KIT Pictotogram](/img/kit-icons/ecopass-kit-icon.svg)
 
 ## Introduction

@@ -5,6 +5,8 @@ description: 'Digital Twin Kit'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/graduated-dots.png#block)
+
 <!--
 Adoption View of the Kit.
 -->
