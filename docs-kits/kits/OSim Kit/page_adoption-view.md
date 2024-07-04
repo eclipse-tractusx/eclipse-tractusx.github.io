@@ -92,7 +92,7 @@ One *MaterialFlowSimulationResult* refers to one or more Shipments.
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/2.0.0>
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/3.0.0>
 
 ### Materialflow Scenario Request (MaterialFlowScenarioRequest)
 
@@ -121,7 +121,7 @@ The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/1.0.0>
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/2.0.0>
 
 ## Logic & Schema
 
@@ -241,10 +241,13 @@ To verify the participants Catena-X membership, the Membership verifiable creden
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-- [CX - 0072 OSim Process and Core Business Logic v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0072-OSimProcessAndCoreBusinessLogic-v1.0.0.pdf)
-- [CX - 0073 OSim API v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0073-OSimAPI-v1.0.0.pdf)
-- [CX - 0087 OSim Data Model Materialflow Simulation Result v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0087-OSimDataModelMaterialFlowSimulationResult-v1.0.0.pdf)
-- [CX - 0133 Online Control and Simulation v1.0.0](https://catena-x.net/de/standard-library)
+- [CX - 0133 Online Control and Simulation v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0133-OnlineControlandSimulation)
+
+## Product Documentation
+
+A deeper understanding of the basic Online Control and Simulation use case can be gained from the following linked document. While in the OSIM-KIT only the standardized partner interface of OSim is considered, the OSim product documentation represents the complete technical specification of the use case.
+
+- [OSim - Product Documentation_EN](./OSim-Product-Documentation-EN.pdf)
 
 ## Notice
 
