@@ -458,7 +458,7 @@ const config = {
                 label: 'Agents',
               },
               {
-                to: '/docs-kits/next/kits/behaviour-twin-kit/overview',
+                to: '/docs-kits/kits/behaviour-twin-kit/overview',
                 label: 'Behaviour Twin',
               },
               {
