@@ -175,5 +175,13 @@ export const kitsGallery = [
     maturityLevel: 'Incubating',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
     img: PURIS_Kit,
-  }
+  },
+  {
+    id: 19,
+    name: 'MDP Kit',
+    domain: 'Resiliency',
+    maturityLevel: 'Incubating',
+    pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
+    img: MDP_Kit,
+  },
 ]

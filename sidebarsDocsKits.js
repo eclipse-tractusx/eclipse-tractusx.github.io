@@ -38,7 +38,8 @@ const sidebars = {
             type: 'category',
             label: 'Agents Kit',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/knowledge-agents/adoption-view/intro'
             },
             collapsed: true,
             items: [
@@ -224,7 +225,8 @@ const sidebars = {
             type: 'category',
             label: 'Business Partner KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Business Partner Kit/Adoption View'
             },
             collapsed: true,
             items: [
@@ -327,7 +329,8 @@ const sidebars = {
             type: 'category',
             label: 'Connector KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Connector Kit/Adoption View/connector_kit_adoption_view',
             },
             collapsed: true,
             items: [
@@ -368,7 +371,8 @@ const sidebars = {
             type: 'category',
             label: 'Data Chain KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Data Chain Kit/Adoption View Data Chain Kit'
             },
             collapsed: true,
             items: [
@@ -405,7 +409,8 @@ const sidebars = {
             type: "category",
             label: "DCM KIT",
             link: {
-              type: "generated-index"
+              type: 'doc',
+                id: 'kits/DCM-Kit/adoption-view'
             },
             collapsed: true,
             items: [
@@ -419,7 +424,8 @@ const sidebars = {
             type: 'category',
             label: 'Data Governance Kit',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Data Governance Kit/Data Governance Kit Adoption View'
             },
             collapsed: true,
             items: [
@@ -445,7 +451,8 @@ const sidebars = {
             type: 'category',
             label: 'Digital Twin KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Digital Twin Kit/Adoption View Digital Twin Kit'
             },
             collapsed: true,
             items: [
@@ -459,7 +466,8 @@ const sidebars = {
             type: 'category',
             label: 'Eco Pass KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Eco_Pass_KIT/page-adoption-view'
             },
             collapsed: true,
             items: [{
@@ -472,7 +480,8 @@ const sidebars = {
             type: 'category',
             label: 'ESS KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/ESS-Kit/ESS Kit Adoption View'
             },
             collapsed: true,
             items: [{
@@ -485,7 +494,8 @@ const sidebars = {
             type: 'category',
             label: 'Industry Core KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Industry Core Kit/Business View Industry Core Kit'
             },
             collapsed: true,
             items: [
@@ -499,7 +509,8 @@ const sidebars = {
             type: 'category',
             label: 'Model Based Development and Data Processing (MDP) KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Behaviour Twin MDP Kit/page_adoption-view'
             },
             collapsed: true,
             items: [
@@ -513,7 +524,8 @@ const sidebars = {
             type: 'category',
             label: 'Modular Production Kit',
             link: {
-              type: 'generated-index',
+             type: 'doc',
+                id: 'kits/Modular Production Kit/Adoption View Modular Production Kit'
             },
             collapsed: true,
             items: [
@@ -527,7 +539,8 @@ const sidebars = {
             type: 'category',
             label: 'Manufacturing as a Service KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Manufacturing as a Service Kit/Adoption View MaaS KIT'
             },
             collapsed: true,
             items: [
@@ -541,7 +554,8 @@ const sidebars = {
             type: 'category',
             label: 'OSim Kit',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/OSim Kit/Adoption View OSim Kit'
             },
             collapsed: true,
             items: [
@@ -555,7 +569,8 @@ const sidebars = {
             type: 'category',
             label: 'PURIS Kit',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/PURIS Kit/Adoption View PURIS Kit'
             },
             collapsed: true,
             items: [
@@ -569,7 +584,8 @@ const sidebars = {
             type: 'category',
             label: 'PCF Exchange KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/PCF Exchange Kit/Adoption View'
             },
             collapsed: true,
             items: [
@@ -601,7 +617,8 @@ const sidebars = {
             type: 'category',
             label: 'Quality KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Quality-Kit/Adoption View Quality Kit'
             },
             collapsed: true,
             items: [
@@ -615,7 +632,8 @@ const sidebars = {
             type: 'category',
             label: 'Traceability KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/Traceability Kit/Business View Traceability Kit'
             },
             collapsed: true,
             items: [
