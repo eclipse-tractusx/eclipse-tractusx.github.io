@@ -23,6 +23,8 @@ description: Questions and Answers
 |Who can support me with my onboarding?|The operating company provides [service](https://www.cofinity-x.com/service-marketplace/) and [application](https://www.cofinity-x.com/app-marketplace/) marketplaces where support is offered in form of certified services and certified business applications respectively.|
 |How much does it cost to use DCM?|In order to evaluate the actual cost of participating in the DCM use case you have to compare cost vs gain.<br/><br/> Consider the following gains:<br/>- Increased capacity utilization rate<br/>- Reduced round trip times for information exchange<br/>- Emerging network effects <br/>- Common technical and business semantics<br/>- Increased resiliency in the supply network<br/><br/> Consider the following costs:<br/>- Onboarding with an operating company <br/>- Reoccurring fees<br/>- Adopting the DCM processes<br/>- Adopting a DCM compatible application<br/>- Adopting Catena-X dataspace compatible core infrastructure<br/><br/>The [Catena-X FAQ](https://catena-x.net/en/faq) has some insights into this as well.|
 
+<br/><br/><br/><br/>
+
 ## Accessibility
 
 |Question|Answer|
@@ -34,6 +36,8 @@ description: Questions and Answers
 |I participate in another Catena-X use case, will it simplify my access to the DCM use case and maybe even reduce my onboarding costs?|Yes, it will. Nearly all Catena-X use cases share a common infrastructure. Having an EDC in place and being already registered with an operating company,having assigned BPNL and BPNS, as well as a working wallet will reduce the on-boarding time and cost for DCM|
 |How often are Catena-X standards and in particular the DCM standard updated?|Catena-X standards can be updated on a quarterly basis, with breaking changes being allowed once a year. The DCM expert group is committed to introducing new features to the DCM standard without incurring breaking changes.|
 |When a new version of the DCM standard is released, do I as a user need to re-install anything or implement any technical changes?|Usually standards are released six months before they are rolled out into the Catena-X dataspace. Within those six months infrastructure, applications etc. need to be updated, if a breaking change was introduced. However this is not handled by individual users, but rather by IT-departments and applications providers.|
+
+<br/><br/><br/><br/>
 
 ## Practical - General
 
@@ -50,7 +54,9 @@ description: Questions and Answers
 |Am I allowed to store demand and capacity data shared via the Catena-X dataspace in my local backend systems and am I allowed to work with the data?|You can store, forward and transform the data as long as you ensure enforcement of the attached policies and contracts, guaranteeing data sovereignty within Catena-X.|
 |How does DCM ensure data quality?|The standard defines mandatory properties and payload validation for `WeekBasedMaterialDemand` and `WeekBasedCapacityGroup` as well as an aligned business process that pushes for quality. In combination with framework agreements and only allowing certified companies as well solutions into the Catena-X dataspace data quality can be considered a given. In addition suppliers can make use of the feature demand volatility metric to educate twitchy customers.|
 
-## Practical: Customer specific
+<br/><br/><br/><br/>
+
+## Practical - Customer specific
 
 |Question|Answer|
 |--|--|
@@ -59,6 +65,8 @@ description: Questions and Answers
 |Do I have to share my demands part by part or is some kind of batch upload possible?|From a business perspective: <br/>As a customer you share your material demands on a material number basis, meaning that if you want to communicate the demand for twelve material numbers you need to provide your supplier with twelve `WeekBasedMaterialDemand` objects. However this is just what happens under the hood. If you utilize a business application tailored to your needs, batch processing is feasible, especially if you ensure that there are no gaps in the demand time series.<br/><br/>From a technical perspective:<br/>A single data transfer can contain multiple information objects of the same type, such as `WeekBasedMaterialDemand`. Interfacing DCM with your demand planning software should allow for a highly automated data exchange pipeline, greatly reducing the amount of manual data interaction, business has to execute.|
 |My suppliers are only willing to share customer specific capacity data such as allocations. Can I still use DCM?| From a business perspective:<br/>Yes, you can. Within DCM data is exchanged only within direct business relationships and only between two companies anyways. If your demand is higher than the capacity allocated by your suppliers this is considered a bottleneck and should result in collaboration. <br/> <br/>From a technical perspective:<br/>Suppliers can share actual, maximum and agreed capacity with their customers. The shared values are always customer specific. <br/><br/>|
 
+<br/><br/><br/><br/>
+
 ## Practical - Material Demand specific
 
 |Question|Answer|
@@ -66,7 +74,9 @@ description: Questions and Answers
 |How often do I need to share my demand data?|It is recommended to provide your suppliers with an updated `WeekBasedMaterialDemand` every time your demand changes. How often that is entirely depends on your internal processes, but the standards recommends to send an updated `WeekBasedMaterialDemand` at least monthly, even if the demand quantities themselves did not change.|
 |Do I have to include a demand category?|Demand category is a mandatory property and needs to be included with every `WeekBasedMaterialDemand`. However you can simply set it to the value `default` without further elaboration. |
 
-## Practical: Supplier specific
+<br/><br/><br/><br/>
+
+## Practical - Supplier specific
 
 |Question|Answer|
 |--|--|
@@ -79,6 +89,8 @@ description: Questions and Answers
 |I am going to add another production line, expanding my output. How should I reflect this within DCM?| This increase in potential output should lead to an increase in maximum capacity, starting from the date the increased output is available. It may as well be reflected in the actual capacity, if the demand justifies to utilize this newly increased potential output.|
 |Does the standard allow me to submit structured action plans to my customers? | The standard allows for the exchange of capacity data as well as comments. By combining both you can for example introduce pre-production as well as a weekend-shifts and comment into the specific weeks the remaining details. Actual action plans are considered mostly customer specific and are more likely to be managed in a customer specific portal.|
 |Some of my customers are direct competitors. How should this situation be reflected in DCM?|From a legal perspective:<br/>Ask a corporate lawyer familiar with every jurisdiction that applies to your specific case.<br/><br/> From a business perspective:<br/>Data exchanged within DCM is always happening in a direct one to one business relationship. There is no situation, where more than two companies share the same information objects (`WeekBasedCapacityGroup`, `WeekBasedMaterialDemand`). As a supplier you provide your customer A the capacity data he needs within the business relationship `You - Customer A` and customer B with the data needs within the business relationship `You - Customer B`, meaning you keep them completely separate.|
+
+<br/><br/><br/><br/>
 
 ## Practical - Capacity Group specific
 
