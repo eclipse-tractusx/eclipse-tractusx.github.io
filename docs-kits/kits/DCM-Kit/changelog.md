@@ -18,6 +18,7 @@ All notable changes to this Kit will be documented in this file.
 
 - Added multiple diagrams to [Development View](./development-view/overview.md)  
 - Added Use Case to [Adoption View](./adoption-view/overview.md)
+- Added Q&A to [Adoption View](./adoption-view/overview.md)
 
 ### Changed
 
@@ -27,7 +28,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Removed
 
-N/A
+- Moved Operation View content to [Adoption View](./adoption-view/overview.md)
 
 ## [1.0.0] - 2024-05-24
 
