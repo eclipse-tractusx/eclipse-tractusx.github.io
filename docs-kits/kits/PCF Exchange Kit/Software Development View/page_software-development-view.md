@@ -249,14 +249,14 @@ Inside the contract definition, an access policy and a usage policy must be refe
 
 The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog. 
 
-The following lists gives options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
-- If _no bilateral contract_ reference criteria are used _in any usage policy_ attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
-  ![Tier1Supplier without bilateral contracts](../resources/development-view/Tier1AOpenUP.png)
+The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
+If _no bilateral contract_ reference criteria are used _in any usage policy_ attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
+![Tier1Supplier without bilateral contracts](../resources/development-view/Tier1AOpenUP.png)
   
-  <details>
+<details>
     <summary>Empty Access Policy (JSON)</summary>
 
-  ```json
+```json
 {
     "@context": {
         "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -274,16 +274,16 @@ The following lists gives options how to achieve this. These options can always 
         "permission": []
     }
 }
-  ```
-  </details>
+```
+</details>
 
-- If a _bilateral contract_ reference criteria is used _in a usage policy_, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
-  ![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCOnlyUP.png)
+If a _bilateral contract_ reference criteria is used _in a usage policy_, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
+![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCOnlyUP.png)
 
-  <details>
+<details>
     <summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
 
-  ```json
+```json
 {
     "@context": {
         "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -310,17 +310,17 @@ The following lists gives options how to achieve this. These options can always 
         ]
     }
 }
-  ```
-  </details>
+```
+</details>
 
-- If _bilateral contract reference_ criterias are used _in usage policies_ and _in addition_ a usage policy _without bilateral contract references_ should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If _bilateral contract reference_ criterias are used _in usage policies_ and _in addition_ a usage policy _without bilateral contract references_ should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
 ![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCUP.png)
  <p> The following example uses BusinessPartnerGroups to achieve this:</p>
 
-  <details>
+<details>
     <summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>
 
-  ```json
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
@@ -344,8 +344,8 @@ The following lists gives options how to achieve this. These options can always 
     ]
   }
 }
-  ```
-  </details>
+```
+</details>
 
 ## Error Handling
 
