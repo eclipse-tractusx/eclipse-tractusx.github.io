@@ -112,6 +112,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
     ]
 }
 ```
+
 </details>
 
 #### Payloads for EDC Asset
@@ -155,6 +156,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
     }
 }
 ```
+
 </details>
 
 #### Payload for EDC Policy
@@ -217,6 +219,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
     }
 }
 ```
+
 </details>
 
 >**Note**
@@ -243,6 +246,7 @@ For more examples on how to define policies with SSI have a look [here](https://
     ]
 }
 ```
+
 </details>
 
 Inside the contract definition, an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given in the [section above](#payload-to-create-a-ssi-based-policy). 
@@ -250,7 +254,7 @@ Inside the contract definition, an access policy and a usage policy must be refe
 The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog. 
 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
-If _no bilateral contract_ reference criteria are used _in any usage policy_ attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
+If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
 ![Tier1Supplier without bilateral contracts](../resources/development-view/Tier1AOpenUP.png)
   
 <details>
@@ -275,9 +279,10 @@ If _no bilateral contract_ reference criteria are used _in any usage policy_ att
     }
 }
 ```
+
 </details>
 
-If a _bilateral contract_ reference criteria is used _in a usage policy_, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
+If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
 ![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCOnlyUP.png)
 
 <details>
@@ -311,9 +316,10 @@ If a _bilateral contract_ reference criteria is used _in a usage policy_, an acc
     }
 }
 ```
+
 </details>
 
-If _bilateral contract reference_ criterias are used _in usage policies_ and _in addition_ a usage policy _without bilateral contract references_ should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If *bilateral contract reference* criterias are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
 ![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCUP.png)
  <p> The following example uses BusinessPartnerGroups to achieve this:</p>
 
@@ -345,6 +351,7 @@ If _bilateral contract reference_ criterias are used _in usage policies_ and _in
   }
 }
 ```
+
 </details>
 
 ## Error Handling

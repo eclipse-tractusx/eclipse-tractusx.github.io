@@ -596,6 +596,7 @@ The following json shows an exemplary payload for a requested PCF value.
   } ]
 }
 ```
+
 </details>
 
 The entire PCF data model is available as open source through the following link:
