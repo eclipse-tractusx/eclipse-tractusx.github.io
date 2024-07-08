@@ -3,7 +3,7 @@ openapi: 3.0.3
 info:
   title: Catena-X DCM Week Based Material Demand
   description: Open API documentation for the Catena-X DCM Week Based Material Demand
-  version: v3
+  version: 3.0.0
 paths:
   /internal-dcm-application-week-based-material-demand-post-endpoint:
     post:

@@ -3,7 +3,7 @@ openapi: 3.0.3
 info:
   title: Catena-X DCM Week Based Capacity Group
   description: Open API documentation for the Catena-X DCM Week Based Capacity Group
-  version: v3
+  version: 3.0.0
 paths:
   /internal-dcm-application-week-based-capacity-group-post-endpoint:
     post:

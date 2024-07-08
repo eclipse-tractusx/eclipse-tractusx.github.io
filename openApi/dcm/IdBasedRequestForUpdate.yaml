@@ -3,7 +3,7 @@ openapi: 3.0.3
 info:
   title: Catena-X DCM ID Based Request For Update
   description: Open API documentation for the Catena-X DCM ID Based Request For Update
-  version: v3
+  version: 3.0.0
 paths:
   /internal-dcm-application-id-based-request-for-update-post-endpoint:
     post:
