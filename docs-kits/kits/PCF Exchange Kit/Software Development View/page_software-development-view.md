@@ -169,6 +169,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 >More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
 
 ##### Payload to create a SSI based Policy
+
 <details>
   <summary>SSI based Policy (JSON)</summary>
 
@@ -228,6 +229,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
 #### Payload Contract Definition
+
 <details>
   <summary>Sample Contract (JSON)</summary>
 
@@ -249,9 +251,9 @@ For more examples on how to define policies with SSI have a look [here](https://
 
 </details>
 
-Inside the contract definition, an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given in the [section above](#payload-to-create-a-ssi-based-policy). 
+Inside the contract definition, an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given in the [section above](#payload-to-create-a-ssi-based-policy).
 
-The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog. 
+The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
 If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
