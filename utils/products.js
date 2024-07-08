@@ -144,8 +144,9 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "digital-product-pass",
-    productDescription: "digital product pass",
+    productName: "Digital Product Pass",
+    productDescription: 
+    "The Digital Product Pass (DPP) Application provides an easy way to request and visualize product passports from a economic operator using the Catena-X Network. By scanning a QR code or introducing a manufacturerPartId and partInstanceId (productId) passports can be displayed for different products like Batteries (Battery Pass), Transmissions (Transmision Pass) and any other product by simply using the Generic Digital Product Passport Model. Additionally components like the dpp-backend have the power to retrieve any aspect submodel content registered in a Digital Twin using the Catena-X Network and the dpp-verification add-on enables certification and verification of Catena-X Instance/Type Aspect Models",
     githubRepo: ["https://github.com/eclipse-tractusx/digital-product-pass"],
     committers: [
       "https://github.com/matbmoser",
@@ -153,7 +154,7 @@ export const products = [
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request digital-product-pass Team",
-    hasBoard: false,
+    hasBoard: true,
     showVersion: true,
   },
   {
@@ -187,19 +188,6 @@ export const products = [
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request eclipse-tractusx.github.io.largefiles Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "eco-pass-kit",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/eco-pass-kit"],
-    committers: [
-      "https://github.com/matbmoser",
-      "https://github.com/saudkhan116",
-      "https://github.com/tomaszbarwicki",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request eco-pass-kit Team",
     hasBoard: false,
     showVersion: true,
   },
