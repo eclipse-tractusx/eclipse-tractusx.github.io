@@ -50,3 +50,15 @@ Please refer to the [Catena-X Library](https://catena-x.net/en/standard-library)
 https://catena-x.net/en/tractus-x-1
 
 https://github.com/eclipse-tractusx/
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023,2024 BearingPoint GmbH
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation

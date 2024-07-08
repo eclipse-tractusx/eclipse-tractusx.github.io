@@ -142,7 +142,7 @@ Because of the way that communication within CX-0128 is defined companies are no
 
 ## Frequently asked Questions
 
-In case of further questions, feel free to visit our [FAQ](google.com).
+In case of further questions, feel free to visit our [FAQ](./qna.md).
 
 ## Notice
 

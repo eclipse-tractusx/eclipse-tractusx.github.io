@@ -180,3 +180,19 @@ sequenceDiagram
 Note that the supplier does not need to immediately reply with capacity group after receiving demand information, although a timely reply is appreciated, there can be a considerable time in between instead.
 
 Digital Twins can also be used to reference parts, but are not shown in the sequence diagram for simplicity.
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation

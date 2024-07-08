@@ -99,3 +99,15 @@ description: Questions and Answers
 |How often do I need to share my capacity data?|It is recommended to provide your customers with an updated `WeekBasedCapacityGroup` every time your capacity changes. How often that is entirely depends on your internal processes.|
 |Should there be one capacity group for every individual material demand?|The supplier has full flexibility when it comes to linking material demands to capacity groups. If the supplier has one dedicated assembly line per part, than the most likely scenario is one capacity group per part. However even then, logistics might be a common bottleneck for all assembly lines and therefore parts, resulting in one capacity group for all parts. Suppliers should structure capacity groups to reflect their real life bottleneck situation for the greatest benefit.|
 |Should there be one capacity group with all material demands linked to it?|The supplier has full flexibility when it comes to linking material demands to capacity groups. If all parts manufactured by the supplier share a common bottleneck (e.g. the painting station), then the most likely scenario is one capacity group for all parts. However, even then, the painting station might have a throughout so high, that it is no bottleneck at all, resulting in a different capacity group makeup. Suppliers should structure capacity groups to reflect their real life bottleneck situation for the greatest benefit.|
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 CatX Service GmbH
+- SPDX-FileCopyrightText: 2023,2024 Stellantis N.V.
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
