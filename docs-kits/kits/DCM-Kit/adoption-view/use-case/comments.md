@@ -41,6 +41,7 @@ end
 ```
 
 ## Details
+
 Collaboration is a critical element in Demand and Capacity Management. It enables alignment and cooperation between customers and suppliers within their respective business relationships. This interaction is facilitated by the exchange of comments, which are messages or texts related to data objects – either Material Demand or Capacity Group. These objects are identified by an "ObjectID," which matches the UUID of either a WeekBasedMaterialDemand or a WeekBasedCapacityGroup.
 
 Each comment, formally known as an IdBasedComment, within the business relationship is uniquely identified by a CommentID.
@@ -82,7 +83,6 @@ It should be possible to create comments in the following manner:
   - Comments attached to one or multiple calendar weeks
 
 Since users will typically interact with a graphical user interface (UI) that displays an aggregation of a specific capacity group along with all its associated material demands and other capacity groups, it is logical to aggregate comments in a corresponding manner. This approach would allow users to view comments in the context of the specific data they are associated with, streamlining the user experience and enhancing the relevance of the comments in relation to the aggregated data being reviewed.
-
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

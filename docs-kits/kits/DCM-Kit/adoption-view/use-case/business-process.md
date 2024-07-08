@@ -34,7 +34,7 @@ The core DCM business process is executed by two roles and uses two APIs as well
 
 ![User Journey](./resources/business-process_UserJourney.svg)
 
-*Figure: Basic DCM user journey*
+Figure: *Basic DCM user journey*
 
 <!--
 ```mermaid
@@ -173,7 +173,7 @@ The supplier must have the capability to consume the material demand data from t
 ![Material Demand Structure](./resources/business-process_MDstructure.svg)
 ![Material Demand Structure Legend](./resources/business-process_MDstructure_Legend.svg)
 
-*Figure: Material demand structure*
+Figure: *Material demand structure*
 <!--
 ```mermaid
 block-beta
@@ -218,7 +218,7 @@ B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
 
 ![Demand Example](./resources/business-process_ExampleDemand.svg)
 
-*Figure: Visualizing demand quantities as bars*
+Figure: *Visualizing demand quantities as bars*
 <!--
 ```mermaid
 ---
@@ -331,7 +331,7 @@ The entity Capacity Group may be used, i.e. to combine capacities related to one
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
 
-*Figure: Capacity group structure*
+Figure: *Capacity group structure*
 <!--
 ```mermaid
 block-beta
@@ -373,7 +373,7 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 
 ![Capacity Example](./resources/business-process_ExampleCapacity.svg)
 
-*Figure: Visualizing capacity quantities as lines*
+Figure: *Visualizing capacity quantities as lines*
 <!--
 ```mermaid
 ---
@@ -469,7 +469,7 @@ For a functional Capacity Group, the supplier must link it directly or indirectl
 ![Direct Linking](./resources/business-process_DirectLinking.svg)
 ![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
 
-*Figure: Capacity group structure with linked material demand*
+Figure: *Capacity group structure with linked material demand*
 
 <!--
 ```mermaid
@@ -572,7 +572,7 @@ style cg3Material fill:#FFFFFF,color:#707070
 style cg31DOWN fill:#575757,color:#ffffff
 ```
 
-*Figure: A small supply chain built by three capacity groups*
+Figure: *A small supply chain built by three capacity groups*
 
 The following figure illustrates the flow of demand and capacity data through the supply network. Capacity and demand blocks are placed according to responsibility. Data exchange that is happening within the Catena-X dataspace is denoted by arrows with "Provide" written on them.
 
@@ -651,7 +651,7 @@ class car Car
 
 ![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
 
-*Figure: A small supply network built by seven capacity groups*
+Figure: *A small supply network built by seven capacity groups*
 
 <!--
 ```mermaid
@@ -736,7 +736,7 @@ For ease of use demand and capacity data should be shown on the same graph and c
 
 ![Capacity Match and Compare](./resources/business-process_ExampleMatchCompare.svg)
 
-*Figure: Visualizing the comparison of demand and capacity quantities*
+Figure: *Visualizing the comparison of demand and capacity quantities*
 
 <!--
 ```mermaid

@@ -109,13 +109,13 @@ end
 
 ![Supply network](./resources/business-architecture_network.svg)
 
-*Figure: Supply network*
+Figure: *Supply network*
 
 A supply network can be divided into a multitude of interlinking supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
 
 ![Supply chain](./resources/business-architecture_chain.svg)
 
-*Figure: Supply chain*
+Figure: *Supply chain*
 
 DCM allows for demand and capacity information to be exchanged only within the individual business relationship. However, because within a supply chain mist companies act as a "one-up" in one business relationship, while acting as a "one-down" withing the next business relationship, the impact of increasing or decreasing demand or capacity anywhere in the supply chain can safely travel through the chain, reaching every single impacted company. This is how DCM builds chains, while at the same time ensuring data sovereignty.
 

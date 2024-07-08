@@ -47,9 +47,9 @@ Please refer to the [Catena-X Library](https://catena-x.net/en/standard-library)
 
 ### Software Developers
 
-https://catena-x.net/en/tractus-x-1
+<https://catena-x.net/en/tractus-x-1>
 
-https://github.com/eclipse-tractusx/
+<https://github.com/eclipse-tractusx/>
 
 ## Notice
 
