@@ -168,8 +168,8 @@ The business process facilitated by PURIS enables partners in the Catena-X netwo
 This work is licensed under the CC-BY-4.0
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024,Contributors of the Eclipse Foundation
-- SPDX-FileCopyrightText: 2024,ISTOS GmbH (a member of the DMG Mori Group)
-- SPDX-FileCopyrightText: 2024,Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
-- SPDX-FileCopyrightText: 2024,TRUMPF Werkzeugmaschinen SE + Co. KG
-- SPDX-FileCopyrightText: 2024,Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
