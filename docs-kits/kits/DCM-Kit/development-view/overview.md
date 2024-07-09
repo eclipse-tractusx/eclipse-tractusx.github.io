@@ -128,7 +128,7 @@ For further information on the APIs and how to use them in order to facilitate d
 - [IdBasedComment API](./api-comment.md)
 - [DCM Asset Administration Shell API (AAS API)](./api-aas.md)
 
-[StandardLibrary]: https://catena-x.net/de/standard-library
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
 
 ## Notice
 

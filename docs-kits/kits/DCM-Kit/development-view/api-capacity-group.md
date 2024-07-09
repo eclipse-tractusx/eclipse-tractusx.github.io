@@ -55,7 +55,7 @@ sequenceDiagram
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-[StandardLibrary]: https://catena-x.net/de/standard-library
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
 
 ## Notice
 

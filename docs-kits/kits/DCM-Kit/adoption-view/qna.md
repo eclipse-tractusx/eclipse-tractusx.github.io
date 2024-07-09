@@ -11,7 +11,7 @@ description: Questions and Answers
 |#|Question|Answer|
 |--|--|--|
 |1|What is DCM?| DCM stands for Demand and Capacity Management. The Catena-X DCM standard describes a process for exchanging demand and capacity information as well as definition on how to exchange demand and capacity data electronically between companies.|
-|2|Where can I read about DCM?|<https://catena-x.net/en/standard-library> contains the released standards. The DCM standard has the ID CX-0128.|
+|2|Where can I read about DCM?|<https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange> contains the released standards. The DCM standard has the ID CX-0128.|
 |3|Are there translations of the DCM standard?|There are no official translations. Only the original standard, written in English, is normative.|
 |4|Is there a standard “easy to read” DCM presentation available?|No, however the standard contains an abstract, which provides a management overview. The KIT itself is receiving regular updates.|
 |5|What is the benefit of using DCM within the Catena-X DataSpace instead of using my individual own process?| Adopting DCM, as defined by Catena-X, has the unique benefit of eliminating the need for defining process and technical interfaces individually with every one of your business partners. This allows you to execute demand and capacity management with every single one of your business partners in an identical manner, greatly reducing overhead.|

@@ -35,7 +35,7 @@ If you are interested in utilizing DCM within the Catena-X dataspace you can fol
 |-|-|-|
 |1|COTS|Purchase a certified **C**ommercial **O**ff **T**he **S**helf solution via the Catena-X marketplace, accessible through your operating company (e.g. [Cofinity-X Marketplace](https://www.cofinity-x.com/app-marketplace/))|
 |2|FOSS|Adopt, customize and deploy an existing **F**ree and **O**pen **S**ource **S**oftware **S**olution|
-|3|CUSTOM|Adopt and integrate the business logic, aspect models and APIs, as described in the [DCM standard](https://catena-x.net/en/standard-library), yourself |
+|3|CUSTOM|Adopt and integrate the business logic, aspect models and APIs, as described in the [DCM standard][StandardLibrary], yourself |
 
 ### Business Application Providers
 
@@ -43,7 +43,7 @@ If you are interested in utilizing DCM within the Catena-X dataspace you can fol
 
 Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including next steps & contacts).
 
-Please refer to the [Catena-X Library](https://catena-x.net/en/standard-library) for the newest version of the DCM as well as other standards.
+Please refer to the [Catena-X Library][StandardLibrary] for the newest version of the DCM as well as other standards.
 
 ### Software Developers
 
@@ -62,3 +62,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 BearingPoint GmbH
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
