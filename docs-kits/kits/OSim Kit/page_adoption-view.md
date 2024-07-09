@@ -254,7 +254,8 @@ A deeper understanding of the basic Online Control and Simulation use case can b
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024,Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPA & Fraunhofer IFF)
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Manufacturing Engineering and Automation IPA
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Factory Operation and Automation IFF
 - SPDX-FileCopyrightText: 2024,German Edge Cloud GmbH & Co.KG
 - SPDX-FileCopyrightText: 2024,Siemens AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
