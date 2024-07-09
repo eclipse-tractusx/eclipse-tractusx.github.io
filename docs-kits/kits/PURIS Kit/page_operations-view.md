@@ -2,7 +2,7 @@
 id: Operations View PURIS Kit
 title: Operations View
 description: 'PURIS Kit Operations View'
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 ![PURIS kit banner](/img/kit-icons/puris-kit-icon.svg)
