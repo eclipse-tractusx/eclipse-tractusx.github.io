@@ -172,7 +172,7 @@ sequenceDiagram
         deactivate CustomerConnector
         SupplierConnector -->> SupplierApp: CapacityGroup received
         deactivate SupplierConnector
-        SupplierApp -->> Supplier: CapacityGroupfinalized & synchronized
+        SupplierApp -->> Supplier: CapacityGroup finalized & synchronized
         deactivate SupplierApp
     end
 ```

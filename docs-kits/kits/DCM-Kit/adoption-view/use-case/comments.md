@@ -24,7 +24,7 @@ sequenceDiagram
 Participant c as Customer
 Participant s as Supplier
 rect rgb(4,107,153)
-s->>c: The demand in weeks 23 and 24 seems extraordinarely high. Can you please have a look at it. 
+s->>c: The demand in weeks 23 and 24 seems extraordinarily high. Can you please have a look at it. 
 end
 rect rgb(4,107,153) 
 c->>s: This is not an error. My demand actually is that high.

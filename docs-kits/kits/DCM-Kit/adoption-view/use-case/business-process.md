@@ -14,7 +14,7 @@ sidebar_position: 1
 - [Capacity Group](#capacity-group)
 - [Match and Comparison of Demand and Capacity](#match-and-comparison-of-demand-and-capacity)
 - [Collaboration](#collaboration)
-- [User Journy](#user-journey)
+- [User Journey](#user-journey)
 
 ## Business Roles and Functions
 
@@ -462,7 +462,7 @@ Further properties are added at lower level below the “Capacities” property.
 For a functional Capacity Group, the supplier must link it directly or indirectly to a Material Demand:
 
 - **Direct linking** means that the Capacity Group links at least one Material Demand  
-- **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand. This is also refered to as **nesting**.
+- **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand. This is also referred to as **nesting**.
 
 #### Direct Linking
 
