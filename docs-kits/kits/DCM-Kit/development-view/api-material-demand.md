@@ -70,4 +70,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
 
-[StandardLibrary]: https://catena-x.net/de/standard-library
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange

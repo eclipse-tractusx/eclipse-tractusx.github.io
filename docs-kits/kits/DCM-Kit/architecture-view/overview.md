@@ -36,7 +36,7 @@ If you want to adapt your custom or commercial applications to work with the Cat
 3. Enable your software to call multiple REST API endpoints in order to send data
 4. Enable your software to communicate through an Eclipse Dataspace Connector (EDC), or a similar solution, which is to be setup separately
 
-For details, please refer to the Catena-X DCM standard [CX-0128](https://catena-x.net/de/standard-library). This page provides a non-normative overview only.
+For details, please refer to the Catena-X DCM standard [CX-0128][StandardLibrary]. This page provides a non-normative overview only.
 
 ## Solution Overview
 
@@ -196,3 +196,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
