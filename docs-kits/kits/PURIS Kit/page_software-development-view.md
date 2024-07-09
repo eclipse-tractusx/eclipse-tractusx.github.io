@@ -2,7 +2,7 @@
 id: Software Development PURIS Kit
 title: Software Development View
 description: 'PURIS Kit'
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ![puris kit banner](/img/kit-icons/puris-kit-icon.svg)
