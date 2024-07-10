@@ -12,7 +12,7 @@ standard [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 
 ## Introduction
 
-This document provides developers with ressources to accelerate the development of apps and services.
+This document provides developers with resources to accelerate the development of apps and services.
 
 ## Capabilities of a DCM application
 

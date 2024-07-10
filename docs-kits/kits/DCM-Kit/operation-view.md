@@ -12,15 +12,15 @@ A free and open source software (FOSS) implementing the Catena-X standard CX-012
 
 ### Prerequisites
 
-Furter information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
+Further information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
 
 ### Authorization information
 
-Furter information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
+Further information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
 
 ### Deployment
 
-Furter information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
+Further information can be found in the [GitHub repository](https://github.com/eclipse-tractusx/demand-capacity-mgmt)
 
 ## Notice
 

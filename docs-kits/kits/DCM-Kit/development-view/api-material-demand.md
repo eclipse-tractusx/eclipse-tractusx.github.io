@@ -39,9 +39,9 @@ sequenceDiagram
     end
     se->>ce: Provide WeekBasedMaterialDemand
     ce->>+a: Provide WeekBasedMaterialDemand
-    a->>-ce: WeekbasedMaterialDemand consumed
-    ce->>-se: WeekbasedMaterialDemand consumed
-    se->>-s: WeekbasedMaterialDemand consumed
+    a->>-ce: WeekBasedMaterialDemand consumed
+    ce->>-se: WeekBasedMaterialDemand consumed
+    se->>-s: WeekBasedMaterialDemand consumed
     
     end
 ```
