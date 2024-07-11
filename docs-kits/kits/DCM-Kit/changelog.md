@@ -2,7 +2,6 @@
 id: changelog
 title: Changelog
 description: 'What has changed recently?'
-sidebar_position: 1
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
@@ -13,17 +12,33 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.0.0] - unreleased
+## [1.1.0] - unreleased
 
 ### Added
 
-- Added [DCM Operation View](page_operation-view.md)
+- Added multiple diagrams to [Development View](./development-view/overview.md)  
+- Added APIs to [Development View](./development-view/overview.md)
+- Added Use Case to [Adoption View](./adoption-view/overview.md)
+- Added Q&A to [Adoption View](./adoption-view/overview.md)
+
+### Changed
+
+- Restructured [Development View](./development-view/overview.md)
+- Restructured [Adoption View](./adoption-view/overview.md)
+- Recolored sequence diagram in [Architecture View](./architecture-view/overview.md)
+- Moved onboarding content from [Operation View](./operation-view.md) to [Adoption View](./adoption-view/overview.md)
+
+## [1.0.0] - 2024-05-24
+
+### Added
+
+- Added [DCM Operation View](./operation-view.md)
 
 ### Changed
 
 - Changed banner image file location and converted .png image to .svg
-- Updated aspect models in [Adoption View](page_adoption-view.md) to new versions
-- Updated aspect models and API definitions in [Development View](page_development-view.md) to new versions
+- Updated aspect models in [Architecture View](./architecture-view/overview.md) to new versions
+- Updated aspect models and API definitions in [Development View](./development-view/overview.md) to new versions
 - Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
 - Updated choice of words and writing pattern throughout the documentation
 
@@ -70,3 +85,19 @@ n/a
 ### Removed
 
 n/a
+
+## Notice
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
