@@ -1,19 +1,19 @@
 ---
 id: Adoption View PURIS-DCM Supply Chain Disruption Notifications
 title: Adoption View
-description: 'PURIS-DCM Supply Chain Disruption Notifications'
+description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 2
 ---
 
 ## Vision
 
-***Elevating Robustness and Flexibility in the Supply Chains through Disruption Notifications***
+**_Elevating Robustness and Flexibility in the Supply Chains through Disruption Notifications_**
 
 The Supply Chain Disruption Notifications within the Catena-X framework embodies a transformative approach to fortify supply chains. This notification holds significant relevance beyond the automotive supply chain and can be effectively applied to other industries characterized by an n-tier supplier structure. By establishing a standardized, rapid communication for supply chain disruption notifications, this notification empowers stakeholders across the value chain to act swiftly and effectively in the face of challenges. Enhanced transparency and timely information exchange enable members to anticipate disruptions, streamline decision-making processes, and mitigate potential impacts. This proactive and collaborative framework not only elevates operational resilience but also drives cost efficiencies, reduces production downtime, and promotes a more sustainable and responsive supply chain ecosystem. By fostering rapid information flow, the Supply Chain Disruption Notifications is a significant step toward a more interconnected and resilient automotive industry.
 
 ## Mission
 
-***Enhancing Proactive Resilience in Supply Chains through Effective Disruption Notifications***
+**_Enhancing Proactive Resilience in Supply Chains through Effective Disruption Notifications_**
 
 The Supply Chain Disruption Notification marks an important step in advancing industries' capability to preemptively manage supply chain risks. By instituting a standardized, efficient communication for disruption notifications, this standard is transforming how stakeholders anticipate, communicate, and respond to supply chain disruptions. It's not merely about relaying information; it's about redefining the essence of collaborative supply chain management to be anticipatory and strategic rather than merely responsive.
 
@@ -41,7 +41,7 @@ For both scenarios, the recipient of this notification reviews the content and a
 In this context, the "Supply Chain Disruption Notifications" plays a significant role in addressing these challenges by facilitating swift and standardized communication of supply chain disruptions.
 
 ![Process](res/Process2SCDN.jpg)
-*Figure 1: Visualisation of Example Use Case*
+_Figure 1: Visualisation of example use case_
 
 #### Implementation Example
 
@@ -108,7 +108,7 @@ Addressing the challenges of disruption management in the automotive supply chai
 
 ## Semantic Models
 
-Currently the standard *Supply Chain Disruption Notifications* provides one semantic model *Demand and Capacity Notification.*
+Currently the standard _Supply Chain Disruption Notifications_ provides one semantic model _Demand and Capacity Notification._
 
 | Semantic Model                                   | Version | Link to GitHub Repository                                                                                        |
 | ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -186,9 +186,13 @@ By adopting this business architecture, stakeholders in the automotive supply ch
 To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 2 company sends a notification to its customers and a supplier.
 
 ![Logic & Schema](res/image-2024-3-5_15-22-27-1.png)
-*Figure 2: *Visualisation of the Notifications Process**
+_Figure 2: Visualisation of the notifications process_
 
 ## Standards
+
+The relevant standards can be found in the [Catena-X Association Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
+
+- [CX-0146 Supply Chain Disruption Notifications 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
 
 ### Normative References
 
