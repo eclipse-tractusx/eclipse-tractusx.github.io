@@ -1,7 +1,7 @@
 ---
 id: Software Development PURIS Kit
 title: Software Development View
-description: 'PURIS Kit'
+description: "PURIS Kit"
 sidebar_position: 3
 ---
 
@@ -36,7 +36,7 @@ in Catena-X. The architecture in this figure only applies to standards that are 
 Catena-X ([Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-interaction-patterns)).
 
 ![PURIS Conceptual Levels](resources/PURIS-R2405-architecture-sketch.png)
-*Figure 1: high-level architecture of the submodel exchange in the Catena-X*
+_Figure 1: High-level architecture of the submodel exchange in the Catena-X dataspace_
 
 ### Component Architecture (Conceptual Whitebox View)
 
@@ -45,7 +45,7 @@ following diagram show which participant deploys which components. Identificatio
 simplicity reasons.
 
 ![Whitebox View](resources/whitebox-view.png)
-*Figure 2: Whitebox View on a PURIS System.*
+_Figure 2: Whitebox view on a PURIS system_
 
 The PURIS App is a software application that allows to exchange relevant data with partners. It's meant to
 
@@ -59,7 +59,7 @@ The following components are needed for the communication based on the PURIS sta
 - PURIS App: Component orchestrating the Data Exchange following this KIT (as explained above) while providing business
   value.
 - Connector: Component that manages data and API as assets to enable the sovereign data exchange (see Connector KIT)
-- Digital Twin Registry: Component that provides AAS Registry and AAS Discovery API implemenations (see Digital Twin
+- Digital Twin Registry: Component that provides AAS Registry and AAS Discovery API implementations (see Digital Twin
   KIT)
 - Data Provisioning & Transformation: Proprietary component allowing to use OWN data or to use PURIS data in internal
   systems.
@@ -83,11 +83,11 @@ The orange submodels are the submodels used within this standard's context.
 
 The grey submodels are used within
 the [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/industry-core-kit) (
-*PartTypeInformation, SingleLevelBomAsPlanned, SingleLevelUsageAsPlanned*). Besides PartTypeInformation on
+_PartTypeInformation, SingleLevelBomAsPlanned, SingleLevelUsageAsPlanned_). Besides PartTypeInformation on
 supplier-side, no other models are mandatory. The Bill Of Material (BOM) and usage models can be used to build data
 chains, if the partners align to (
 see [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/industry-core-kit)). This KIT relies
-on the "*Part Type*" life cycle of the Industry Core representing catalog items after sourcing.
+on the "_Part Type_" life cycle of the Industry Core representing catalog items after sourcing.
 
 The blue dashed lines show the references between DTs based on Catena-X UUIDs and BPNL information that may be resolved
 by the Item Relationship Service (
@@ -99,7 +99,7 @@ sovereignty by provisioning the aspect on on the owning partner's side creating 
 asset approach is needed whenever the customer provides data for a part type digital twin. The following implications
 apply:
 
-- The supplier generates the Catena-X ID and provides the aspect model *PartTypeInformation* while the customer reuses
+- The supplier generates the Catena-X ID and provides the aspect model _PartTypeInformation_ while the customer reuses
   the generated Catena-X ID for his digital twin representation (see Industry Core KIT).
 - If only the supplier would provide the Planned Production Output, no digital twin representation would be needed on
   the customer-side.
@@ -112,7 +112,7 @@ Note: from business point of view a quid-pro-quo principle of exchanged informat
 production for demand, delivery information as needed based inco term, days of supply for days of supply).
 
 ![Conceptual Levels](resources/drawio-backup-PURIS-Conceptual-levels-R2405-rev-1.png)
-*Figure 3: Conceptual levels of provisioning digital twins in the shared asset approach.*
+_Figure 3: Conceptual levels of provisioning digital twins in the shared asset approach_
 
 ## Policies
 
@@ -165,47 +165,55 @@ containing three different constraints is shown and described in the following:
 
 ```json
 {
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "edc" : "https://w3id.org/edc/v0.0.1/ns/",
-    "cx-policy" : "https://w3id.org/catenax/policy/"
-  } ],
-  "@type" : "PolicyDefinitionRequestDto",
+  "@context": [
+    "http://www.w3.org/ns/odrl.jsonld",
+    {
+      "edc": "https://w3id.org/edc/v0.0.1/ns/",
+      "cx-policy": "https://w3id.org/catenax/policy/"
+    }
+  ],
+  "@type": "PolicyDefinitionRequestDto",
   "@id": "<POLICY-ID>", // Important for the contract definition
-  "edc:policy" : {
-    "@type" : "Set",
-    "profile" : "cx-policy:profile2405",
-    "permission" : [ {
-      "action" : "use",
-      "constraint" : {
-        "@type" : "LogicalConstraint",
-        "and" : [ {
-          "@type" : "LogicalConstraint",
-          "leftOperand" : "cx-policy:FrameworkAgreement",
-          "operator" : "eq",
-          "rightOperand" : "Puris:1.0"
-        }, {
-          "@type" : "LogicalConstraint",
-          "leftOperand" : "cx-policy:UsagePurpose",
-          "operator" : "eq",
-          "rightOperand" : "cx.puris.base:1"
-        },
-  {
-    "@type" : "LogicalConstraint",
-          "leftOperand": "cx-policy:ContractReference",
-          "operator": "eq",
-          "rightOperand": "x12345"
-        } ]
+  "edc:policy": {
+    "@type": "Set",
+    "profile": "cx-policy:profile2405",
+    "permission": [
+      {
+        "action": "use",
+        "constraint": {
+          "@type": "LogicalConstraint",
+          "and": [
+            {
+              "@type": "LogicalConstraint",
+              "leftOperand": "cx-policy:FrameworkAgreement",
+              "operator": "eq",
+              "rightOperand": "Puris:1.0"
+            },
+            {
+              "@type": "LogicalConstraint",
+              "leftOperand": "cx-policy:UsagePurpose",
+              "operator": "eq",
+              "rightOperand": "cx.puris.base:1"
+            },
+            {
+              "@type": "LogicalConstraint",
+              "leftOperand": "cx-policy:ContractReference",
+              "operator": "eq",
+              "rightOperand": "x12345"
+            }
+          ]
+        }
       }
-    } ]
+    ]
   }
 }
 ```
 
 PURIS relies on the usage purpose [cx.puris.base:1](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md),
-used in the example above. It's purpose is related to "*Optimizing processes, which includes, without limitation,
+used in the example above. It's purpose is related to "_Optimizing processes, which includes, without limitation,
 regular exchange of data to prevent and/or solve shortages in the supply chain, conducting plausibility checks against
 other sources and/or collecting information to facilitate sound decision making, all of the above in the context of
-predictive unit real-time information relating to production and/or logistics.*"
+predictive unit real-time information relating to production and/or logistics._"
 
 More information can be found in
 the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view_policies_cx/).
@@ -223,16 +231,16 @@ the `contractPolicyId` key in the contract definition.
 
 ```json
 {
-    "id": "{{CONTRACT_DEFINITION_ID}}",
-    "criteria": [
-        {
-            "operandLeft": "asset:prop:id",
-            "operator": "=",
-            "operandRight": "{{ASSET_ID}}"
-        }
-    ],
-    "accessPolicyId": "{{ACCESS_POLICY_ID}}",
-    "contractPolicyId": "{{CONTRACT_POLICY_ID}}"
+  "id": "{{CONTRACT_DEFINITION_ID}}",
+  "criteria": [
+    {
+      "operandLeft": "asset:prop:id",
+      "operator": "=",
+      "operandRight": "{{ASSET_ID}}"
+    }
+  ],
+  "accessPolicyId": "{{ACCESS_POLICY_ID}}",
+  "contractPolicyId": "{{CONTRACT_POLICY_ID}}"
 }
 ```
 
@@ -269,11 +277,10 @@ The structure is as follows:
   },
   "@id": "{{CONNECTOR_ASSET_ID}}", // defined by yourself
   "properties": {
-    "dct:type": {"@id": "cx-taxo:DigitalTwinRegistry"},
+    "dct:type": { "@id": "cx-taxo:DigitalTwinRegistry" },
     "cx-common:version": "3.0"
   },
-  "privateProperties": {
-  },
+  "privateProperties": {},
   "dataAddress": {
     "@type": "DataAddress",
     "type": "HttpData",
@@ -281,12 +288,12 @@ The structure is as follows:
     "proxyQueryParams": "true",
     "proxyBody": "false",
     "proxyPath": "true",
-    "proxyMethod": "false",
+    "proxyMethod": "false"
   }
 }
 ```
 
-The property ***@id*** must uniquely identify the connector data asset.
+The property **_@id_** must uniquely identify the connector data asset.
 
 Other fields are predetermined by the used standard and protocol.
 
@@ -308,15 +315,16 @@ actual data.
     "cx-taxo": "https://w3id.org/catenax/taxonomy#",
     "dct": "http://purl.org/dc/terms/",
     "aas-semantics": "https://admin-shell.io/aas/3/0/HasSemantics/"
-   },
+  },
   "@id": "{{CONNECTOR_ASSET_ID}}", // defined by yourself
   "properties": {
-    "dct:type": {"@id": "cx-taxo:Submodel"},
+    "dct:type": { "@id": "cx-taxo:Submodel" },
     "cx-common:version": "3.0",
-    "aas-semantics:semanticId": {"@id":  "urn:samm:io.catenax.item_stock:2.0.0#ItemStock"}
-   },
-  "privateProperties": {
+    "aas-semantics:semanticId": {
+      "@id": "urn:samm:io.catenax.item_stock:2.0.0#ItemStock"
+    }
   },
+  "privateProperties": {},
   "dataAddress": {
     "@type": "DataAddress",
     "type": "HttpData",
@@ -324,12 +332,12 @@ actual data.
     "proxyQueryParams": "false",
     "proxyBody": "false",
     "proxyPath": "true",
-    "proxyMethod": "false",
+    "proxyMethod": "false"
   }
 }
 ```
 
-The property ***@id*** must uniquely identify the connector data asset.
+The property **_@id_** must uniquely identify the connector data asset.
 
 Other fields are predetermined by the used standard and protocol.
 
@@ -340,7 +348,7 @@ the asset.
 ### Shell Descriptors
 
 The Shell Descriptor defines the metadata of the Industry Core Part Type Twin. The following example Shell Descriptor
-represents a the Shell Descriptor of a supplier who provides access to an "*Item Stock*" submodel (
+represents a the Shell Descriptor of a supplier who provides access to an "_Item Stock_" submodel (
 see [GitHub](https://github.com/eclipse-tractusx/sldt-semantic-models)) for two customers using the legacy access
 control in the Digital Twin Registry reference implementation. For further information on the creation of Part Type
 Twins, refer to
@@ -370,14 +378,14 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
             "value": "{{SUPPLIER_BPNL}}"
           },
           {
-            "type":"GlobalReference",
-            "value":"{{CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{CUSTOMER_BPNL}}"
           },
           {
-             "type":"GlobalReference",
-             "value":"{{OTHER_CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{OTHER_CUSTOMER_BPNL}}"
           }
-          ]
+        ]
       }
     },
     {
@@ -387,16 +395,16 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
         "type": "ExternalReference",
         "keys": [
           {
-              "type": "GlobalReference",
-              "value": "{{SUPPLIER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{SUPPLIER_BPNL}}"
           },
           {
-              "type":"GlobalReference",
-              "value":"{{CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{CUSTOMER_BPNL}}"
           },
           {
-             "type":"GlobalReference",
-             "value":"{{OTHER_CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{OTHER_CUSTOMER_BPNL}}"
           }
         ]
       }
@@ -412,12 +420,12 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
             "value": "{{SUPPLIER_BPNL}}"
           },
           {
-            "type":"GlobalReference",
-            "value":"{{CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{CUSTOMER_BPNL}}"
           },
           {
-            "type":"GlobalReference",
-            "value":"{{OTHER_CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{OTHER_CUSTOMER_BPNL}}"
           }
         ]
       }
@@ -433,8 +441,8 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
             "value": "{{SUPPLIER_BPNL}}"
           },
           {
-            "type":"GlobalReference",
-            "value":"{{CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{CUSTOMER_BPNL}}"
           }
         ]
       }
@@ -450,8 +458,8 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
             "value": "{{SUPPLIER_BPNL}}"
           },
           {
-            "type":"GlobalReference",
-            "value":"{{OTHER_CUSTOMER_BPNL}}"
+            "type": "GlobalReference",
+            "value": "{{OTHER_CUSTOMER_BPNL}}"
           }
         ]
       }
@@ -475,9 +483,7 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
           "protocolInformation": {
             "href": "{{SUPPLIER_CONNECTOR_DATAPLANE_PUBLIC_API}}/{{PATH_IF_NEEDED}}",
             "endpointProtocol": "HTTP",
-            "endpointProtocolVersion": [
-              "1.1"
-            ],
+            "endpointProtocolVersion": ["1.1"],
             "subprotocol": "DSP",
             "subprotocolBody": "id={{CONNECTOR_ASSET_ID}};dspEndpoint={{SUPPLIER_CONNECTOR_DSP_ENDPOINT}}",
             "subprotocolBodyEncoding": "plain",
@@ -509,9 +515,7 @@ The relevant Submodel can be identified based on the semantic Id (see Sample Dat
           "protocolInformation": {
             "href": "{{SUPPLIER_CONNECTOR_DATAPLANE_PUBLIC_API}}/{{PATH_IF_NEEDED}}",
             "endpointProtocol": "HTTP",
-            "endpointProtocolVersion": [
-              "1.1"
-            ],
+            "endpointProtocolVersion": ["1.1"],
             "subprotocol": "DSP",
             "subprotocolBody": "id={{CONNECTOR_ASSET_ID}};dspEndpoint={{SUPPLIER_CONNECTOR_DSP_ENDPOINT}}",
             "subprotocolBodyEncoding": "plain",
@@ -554,23 +558,27 @@ direction "INBOUND".
 ```json
 {
   "materialGlobalAssetId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "positions": [ {
-    "orderPositionReference": {
-      "supplierOrderId": "M-Nbr-4711",
-      "customerOrderId": "C-Nbr-4711",
-      "customerOrderPositionId": "PositionId-01"
-    },
-    "allocatedStocks": [ {
-      "isBlocked": false,
-      "stockLocationBPNA": "BPNA1234567890ZZ",
-      "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
-      "quantityOnAllocatedStock": {
-        "value": 20.0,
-        "unit": "unit:piece"
+  "positions": [
+    {
+      "orderPositionReference": {
+        "supplierOrderId": "M-Nbr-4711",
+        "customerOrderId": "C-Nbr-4711",
+        "customerOrderPositionId": "PositionId-01"
       },
-      "stockLocationBPNS": "BPNS1234567890ZZ"
-    } ]
-  } ],
+      "allocatedStocks": [
+        {
+          "isBlocked": false,
+          "stockLocationBPNA": "BPNA1234567890ZZ",
+          "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
+          "quantityOnAllocatedStock": {
+            "value": 20.0,
+            "unit": "unit:piece"
+          },
+          "stockLocationBPNS": "BPNS1234567890ZZ"
+        }
+      ]
+    }
+  ],
   "direction": "INBOUND"
 }
 ```
@@ -644,7 +652,7 @@ This aspect model has the following semantic id:
 urn:samm:io.catenax.delivery_information:2.0.0#DeliveryInformation
 ```
 
-The JSONs snippets below provide an example of the value-only serialization of the "*DeliveryInformation*" aspect model
+The JSONs snippets below provide an example of the value-only serialization of the "_DeliveryInformation_" aspect model
 for three different delivery situations:
 
 1. A not yet departed delivery - estimated departure and arrival dates
@@ -657,40 +665,46 @@ departure and arrival (see transitEvents property). This is an example of estima
 ```json
 {
   "materialGlobalAssetId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "positions": [ {
-    "orderPositionReference": {
-      "supplierOrderId": "M-Nbr-4711",
-      "customerOrderId": "C-Nbr-4711",
-      "customerOrderPositionId": "PositionId-01"
-    },
-    "deliveries": [ {
-      "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
-      "deliveryQuantity": {
-        "value": 20.0,
-        "unit": "unit:piece"
+  "positions": [
+    {
+      "orderPositionReference": {
+        "supplierOrderId": "M-Nbr-4711",
+        "customerOrderId": "C-Nbr-4711",
+        "customerOrderPositionId": "PositionId-01"
       },
-      "transitEvents": [ {
-          "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
-         "eventType": "estimated-departure"
-        },
+      "deliveries": [
         {
-          "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
-          "eventType": "estimated-arrival"
-        } ],
-      "trackingNumber": "1Z9829WDE02128",
-      "incoterm": "EXW",
-      "transitLocations": {
-        "destination": {
-          "bpnsProperty": "BPNS0000000410ZZ",
-          "bpnaProperty": "BPNA0000002082ZZ"
-        },
-        "origin": {
-          "bpnsProperty": "BPNS0000000185ZZ",
-          "bpnaProperty": "BPNA0000001982ZZ"
+          "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
+          "deliveryQuantity": {
+            "value": 20.0,
+            "unit": "unit:piece"
+          },
+          "transitEvents": [
+            {
+              "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
+              "eventType": "estimated-departure"
+            },
+            {
+              "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
+              "eventType": "estimated-arrival"
+            }
+          ],
+          "trackingNumber": "1Z9829WDE02128",
+          "incoterm": "EXW",
+          "transitLocations": {
+            "destination": {
+              "bpnsProperty": "BPNS0000000410ZZ",
+              "bpnaProperty": "BPNA0000002082ZZ"
+            },
+            "origin": {
+              "bpnsProperty": "BPNS0000000185ZZ",
+              "bpnaProperty": "BPNA0000001982ZZ"
+            }
+          }
         }
-      }
-    } ]
-  } ]
+      ]
+    }
+  ]
 }
 ```
 
@@ -700,40 +714,46 @@ arrival values (see transitEvents property).
 ```json
 {
   "materialGlobalAssetId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "positions": [ {
-    "orderPositionReference": {
-      "supplierOrderId": "M-Nbr-4711",
-      "customerOrderId": "C-Nbr-4711",
-      "customerOrderPositionId": "PositionId-01"
-    },
-    "deliveries": [ {
-      "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
-      "deliveryQuantity": {
-        "value": 20.0,
-        "unit": "unit:piece"
+  "positions": [
+    {
+      "orderPositionReference": {
+        "supplierOrderId": "M-Nbr-4711",
+        "customerOrderId": "C-Nbr-4711",
+        "customerOrderPositionId": "PositionId-01"
       },
-      "transitEvents": [ {
-          "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
-          "eventType": "actual-departure"
-        },
+      "deliveries": [
         {
-          "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
-          "eventType": "estimated-arrival"
-        } ],
-      "trackingNumber": "1Z9829WDE02128",
-      "incoterm": "EXW",
-      "transitLocations": {
-        "destination": {
-    "bpnsProperty": "BPNS0000000410ZZ",
-          "bpnaProperty": "BPNA0000002082ZZ"
-  },
-        "origin": {
-          "bpnsProperty": "BPNS0000000185ZZ",
-          "bpnaProperty": "BPNA0000001982ZZ"
+          "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
+          "deliveryQuantity": {
+            "value": 20.0,
+            "unit": "unit:piece"
+          },
+          "transitEvents": [
+            {
+              "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
+              "eventType": "actual-departure"
+            },
+            {
+              "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
+              "eventType": "estimated-arrival"
+            }
+          ],
+          "trackingNumber": "1Z9829WDE02128",
+          "incoterm": "EXW",
+          "transitLocations": {
+            "destination": {
+              "bpnsProperty": "BPNS0000000410ZZ",
+              "bpnaProperty": "BPNA0000002082ZZ"
+            },
+            "origin": {
+              "bpnsProperty": "BPNS0000000185ZZ",
+              "bpnaProperty": "BPNA0000001982ZZ"
+            }
+          }
         }
-      }
-    } ]
-  } ]
+      ]
+    }
+  ]
 }
 ```
 
@@ -743,40 +763,46 @@ example of a completed delivery.
 ```json
 {
   "materialGlobalAssetId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "positions": [ {
-    "orderPositionReference": {
-      "supplierOrderId": "M-Nbr-4711",
-      "customerOrderId": "C-Nbr-4711",
-      "customerOrderPositionId": "PositionId-01"
-    },
-    "deliveries": [ {
-      "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
-      "deliveryQuantity": {
-        "value": 20.0,
-        "unit": "unit:piece"
+  "positions": [
+    {
+      "orderPositionReference": {
+        "supplierOrderId": "M-Nbr-4711",
+        "customerOrderId": "C-Nbr-4711",
+        "customerOrderPositionId": "PositionId-01"
       },
-      "transitEvents": [ {
-           "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
-           "eventType": "actual-departure"
-        },
+      "deliveries": [
         {
-          "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
-          "eventType": "actual-arrival"
-      } ],
-      "trackingNumber": "1Z9829WDE02128",
-      "incoterm": "EXW",
-      "transitLocations": {
-        "destination": {
-          "bpnsProperty": "BPNS0000000410ZZ",
-          "bpnaProperty": "BPNA0000002082ZZ"
-        },
-        "origin": {
-          "bpnsProperty": "BPNS0000000185ZZ",
-          "bpnaProperty": "BPNA0000001982ZZ"
+          "lastUpdatedOnDateTime": "2023-04-28T14:23:00.123456+14:00",
+          "deliveryQuantity": {
+            "value": 20.0,
+            "unit": "unit:piece"
+          },
+          "transitEvents": [
+            {
+              "dateTimeOfEvent": "2023-04-01T14:23:00+01:00",
+              "eventType": "actual-departure"
+            },
+            {
+              "dateTimeOfEvent": "2023-04-05T14:23:00+01:00",
+              "eventType": "actual-arrival"
+            }
+          ],
+          "trackingNumber": "1Z9829WDE02128",
+          "incoterm": "EXW",
+          "transitLocations": {
+            "destination": {
+              "bpnsProperty": "BPNS0000000410ZZ",
+              "bpnaProperty": "BPNA0000002082ZZ"
+            },
+            "origin": {
+              "bpnsProperty": "BPNS0000000185ZZ",
+              "bpnaProperty": "BPNA0000001982ZZ"
+            }
+          }
         }
-      }
-    } ]
-  } ]
+      ]
+    }
+  ]
 }
 ```
 
@@ -791,7 +817,7 @@ This aspect model has the following semantic id:
 urn:samm:io.catenax.planned_production_output:2.0.0#PlannedProductionOutput
 ```
 
-**Example:** The *Planned Production Output* quantities for three consecutive days in two different sites (BPNS) for a
+**Example:** The _Planned Production Output_ quantities for three consecutive days in two different sites (BPNS) for a
 material with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df".
 
 ```json
@@ -847,10 +873,10 @@ This aspect model has the following semantic id:
 urn:samm:io.catenax.days_of_supply:2.0.0#DaysOfSupply
 ```
 
-**Example 1:** The *Days of Supply* for a material with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df" for
+**Example 1:** The _Days of Supply_ for a material with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df" for
 one specific date. This data object is send from a customer to its supplier. The direction INBOUND (or incoming)
-specifies that the value of days of supply refers to the amount of days in which the customer's *Item Stock* (material
-stock) is sufficient for the customer's *Short-Term Material Demand*.
+specifies that the value of days of supply refers to the amount of days in which the customer's _Item Stock_ (material
+stock) is sufficient for the customer's _Short-Term Material Demand_.
 
 ```json
 {
@@ -872,10 +898,10 @@ stock) is sufficient for the customer's *Short-Term Material Demand*.
 }
 ```
 
-**Example 2**: The *Days of Supply* for a product with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df" for
+**Example 2**: The _Days of Supply_ for a product with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df" for
 three specific dates. This data object is send from a supplier to its customer. The direction OUTBOUND (or outgoing)
-specifies that the value of days of supply refers to the amount of days in which the supplier's *Item Stock* (product
-stock) is sufficient for the supplier's scheduled deliveries (see *Delivery Information* standard).
+specifies that the value of days of supply refers to the amount of days in which the supplier's _Item Stock_ (product
+stock) is sufficient for the supplier's scheduled deliveries (see _Delivery Information_ standard).
 
 ```json
 {
