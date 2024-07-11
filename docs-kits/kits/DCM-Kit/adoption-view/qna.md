@@ -111,3 +111,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Stellantis N.V.
 - SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+
