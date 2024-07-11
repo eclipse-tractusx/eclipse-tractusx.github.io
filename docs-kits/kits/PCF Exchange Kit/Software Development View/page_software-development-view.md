@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ## Introduction
 
-The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developers will learn how to integrate the kit into their applications and make use of the feature of exchanging PCF values via the Catena-X network.
+The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developers will learn how to integrate the KIT into their applications and make use of the feature of exchanging PCF values via the Catena-X network.
 IT-administrators will learn how they need to provide PCF data and which components are required.
 
 This KIT covers various aspects, starting from how to utilize the available API endpoints, the used data models and how to make them available to the Catena-X network.
@@ -26,13 +26,13 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 ### EDC Discovery and dDTR Access
 
-In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catena-x.net/de/standard-library) EDC Discovery API standard. Therefor, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
+In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefor, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
 ![EDCDiscoveryAndDTRAccess](../resources/development-view/EDCDiscoveryanddDTRAccess.png)
 
 ### PCF Request
 
-In order to request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefor, the decentralized Digital Twin Registry (dDTR) is used. Data providers must register their dDTR(s) as EDC assets following the [CX-0002](https://catena-x.net/de/standard-library) Digital Twins in Catena-X standard. After identifying the dDTR, the digital twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
+In order to request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefor, the decentralized Digital Twin Registry (dDTR) is used. Data providers must register their dDTR(s) as EDC assets following the [CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) Digital Twins in Catena-X standard. After identifying the dDTR, the digital twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
@@ -70,7 +70,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 ##### Payload for Requesting PCF Sub Model
 
-The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the [CX-0002](https://catena-x.net/en/standard-library) Digital Twins in Catena-X standard needs to be followed.
+The following JSON shows the structure of a registered PCF submodel in the DTR. The subprotocolBody is used for asset bundling. For this, the [CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) Digital Twins in Catena-X standard needs to be followed.
 
 The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``.
 
@@ -161,7 +161,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
 
 #### Payload for EDC Policy
 
-The following JSON is a policy definition including the *mandatory* policy constraints for "active membership", "signed frameworkagreement" and "pcf base usage purpose". The [framework agreement document](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) is published via the association and available via the Catena-X homepage. The membership credential is automatically created after successfully finishing the onboarding process.
+The following JSON is a policy definition including the *mandatory* policy constraints for "active membership", "signed frameworkagreement" and "pcf base usage purpose". The [framework agreement document](https://catenax-ev.github.io/docs/next/regulatory-framework/20000ft/use-case-pcf-exchange) is published via the association and available via the Catena-X homepage. The membership credential is automatically created after successfully finishing the onboarding process.
 
 In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless it will be checked on a syntactical level during contract negotiation. If such a contract refererence should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
 
@@ -364,12 +364,12 @@ In case no material twin or no PCF submodel is found, EDC asset type has to be u
 
 ### Used CX Standards
 
-- [CX-0001 EDC Discovery API v1.0.2](https://catena-x.net/en/standard-library)
-- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catena-x.net/en/standard-library)
-- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catena-x.net/en/standard-library)
-- [CX-0018 Dataspace Connectivity v3.1.0](https://catena-x.net/en/standard-library)
-- [CX-0126 Industry Core: Part Type v2.0.0](https://catena-x.net/en/standard-library)
-- [CX-0136 PCF UseCase v2.0.0](https://catena-x.net/en/standard-library)
+- [CX-0001 EDC Discovery API v1.0.2](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI)
+- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
+- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)
+- [CX-0018 Dataspace Connectivity v3.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity)
+- [CX-0126 Industry Core: Part Type v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType)
+- [CX-0136 PCF UseCase v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
 
 ## Other Standards
 
