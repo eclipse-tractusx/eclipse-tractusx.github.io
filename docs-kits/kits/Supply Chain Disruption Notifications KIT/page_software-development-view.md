@@ -1,7 +1,7 @@
 ---
 id: Software Development View PURIS-DCM Supply Chain Disruption Notifications
 title: Software Development View
-description: 'PURIS-DCM Supply Chain Disruption Notifications'
+description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 3
 ---
 
@@ -17,12 +17,14 @@ order to communicate with each other. With the help of the Identity Access Manag
 authenticate itself, verify the identity of the requesting party and decide whether to authorize the request.
 
 ![Architecture Sketch](res/PURIS-R2408-architecture-sketch.png)
+_Figure 1: High-level architecture of the notification exchange in the Catena-X dataspace_
 
 From conceptual point of view the system consists of different building blocks. These building blocks in the following
 diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity
 reasons.
 
 ![System Architecture](res/PURIS-R2408-system-architecture%20sketch.png)
+_Figure 2: Whitebox view on a PURIS system_
 
 ## Policies
 
@@ -202,8 +204,8 @@ This asset can then be contracted by senders of notifications.
 
 The semantic models in the business context are defined in the Adoption View of this KIT. This chapter gives additional
 information for each aspect model by providing the example data objects in JSON format, link to the RDF turtle file on
-GitHub and unique semantic id of the aspect model. Currently the standard *Supply Chain Disruption Notifications*
-provides one semantic model *Demand and Capacity Notification*.
+GitHub and unique semantic id of the aspect model. Currently the standard _Supply Chain Disruption Notifications_
+provides one semantic model _Demand and Capacity Notification_.
 
 ### 1. Demand and Capacity Notification
 
@@ -214,26 +216,18 @@ This aspect model has the following semantic id:
 
 `urn:samm:io.catenax.demand_and_capacity_notification:2.0.0#DemandAndCapacityNotification`
 
-The following JSON provides an example of the value-only serialization of the *Supply Chain Disruption Notification*
+The following JSON provides an example of the value-only serialization of the _Supply Chain Disruption Notification_
 aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site
 resulting in a demand reduction between 12.12.2023 and 17.12.2023.
 
 ```json
 {
-  "affectedSitesSender": [
-    "BPNS7588787849VQ"
-  ],
-  "affectedSitesRecipient": [
-    "BPNS6666787765VQ"
-  ],
-  "materialNumberSupplier": [
-    "MNR-8101-ID146955.001"
-  ],
+  "affectedSitesSender": ["BPNS7588787849VQ"],
+  "affectedSitesRecipient": ["BPNS6666787765VQ"],
+  "materialNumberSupplier": ["MNR-8101-ID146955.001"],
   "contentChangedAt": "2023-12-13T15:00:00+01:00",
   "startDateOfEffect": "2023-12-13T15:00:00+01:00",
-  "materialNumberCustomer": [
-    "MNR-7307-AU340474.002"
-  ],
+  "materialNumberCustomer": ["MNR-7307-AU340474.002"],
   "leadingRootCause": "strike",
   "effect": "demand-reduction",
   "notificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
@@ -261,20 +255,12 @@ the [RDF turtle file of the message header](https://github.com/eclipse-tractusx/
   },
   "content": {
     "demandAndCapacityNotification": {
-      "affectedSitesSender": [
-        "BPNS7588787849VQ"
-      ],
-      "affectedSitesRecipient": [
-        "BPNS6666787765VQ"
-      ],
-      "materialNumberSupplier": [
-        "MNR-8101-ID146955.001"
-      ],
+      "affectedSitesSender": ["BPNS7588787849VQ"],
+      "affectedSitesRecipient": ["BPNS6666787765VQ"],
+      "materialNumberSupplier": ["MNR-8101-ID146955.001"],
       "contentChangedAt": "2023-12-13T15:00:00+01:00",
       "startDateOfEffect": "2023-12-13T15:00:00+01:00",
-      "materialNumberCustomer": [
-        "MNR-7307-AU340474.002"
-      ],
+      "materialNumberCustomer": ["MNR-7307-AU340474.002"],
       "leadingRootCause": "strike",
       "effect": "demand-reduction",
       "notificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
