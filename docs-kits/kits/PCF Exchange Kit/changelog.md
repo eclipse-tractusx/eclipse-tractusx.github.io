@@ -40,6 +40,12 @@ All notable changes to this Kit will be documented in this file.
 * Policy adapted to latest standards (incl. new Framework Agreement and bilateral contracts)
 * Referenced standard updated
 
+### Removed
+
+#### Development View
+
+* Inlined Open-API (MDX) removed
+
 ## [1.1.0] - 2024-05-17
 
 ### Added
