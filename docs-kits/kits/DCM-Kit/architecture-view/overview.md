@@ -83,7 +83,7 @@ sequenceDiagram
     participant SupplierApp as Supplier App
     actor Supplier
     end
-    rect rgb(255,166,0)
+    rect rgb(221,130,0)
         note right of Customer: Customer creates MaterialDemand locally
         Customer ->> CustomerApp: Create MaterialDemand
         activate CustomerApp
@@ -91,7 +91,7 @@ sequenceDiagram
         deactivate CustomerApp
         Customer ->> CustomerApp: Finalize MaterialDemand
     end
-    rect rgb(33,157,212)
+    rect rgb(4,107,153)
         note right of CustomerApp: Customer App finds endpoint of Supplier
         activate CustomerApp
         CustomerApp ->> CoreBpnlDiscovery: Resolve Supplier Base Data into BPNL
@@ -110,7 +110,7 @@ sequenceDiagram
         CustomerConnector -->> SupplierConnector: Framework & Contract Negotiation
         SupplierConnector -->> CustomerConnector: MaterialDemand API URL
     end
-    rect rgb(255,166,0)
+    rect rgb(221,130,0)
         note right of Customer: Exchange Material Demand
         CustomerApp ->> CustomerConnector: Transmit MaterialDemand        
         CustomerConnector ->> SupplierConnector: Transmit MaterialDemand
@@ -127,7 +127,7 @@ sequenceDiagram
         CustomerApp -->> Customer: MaterialDemand finalized & synchronized
         deactivate CustomerApp
     end
-    rect rgb(179,203,45)
+    rect rgb(128,149,0)
     note left of Supplier: Supplier creates CapacityGroup locally
         Supplier ->> SupplierApp: Create CapacityGroup
         activate SupplierApp
@@ -139,7 +139,7 @@ sequenceDiagram
         deactivate SupplierApp
         Supplier ->> SupplierApp: Finalize CapacityGroup
     end
-    rect rgb(33,157,212)
+    rect rgb(4,107,153)
         note left of SupplierApp: Supplier App finds endpoint of Customer
         activate SupplierApp
         SupplierApp ->> CoreBpnlDiscovery: Resolve Customer Base Data into BPNL
@@ -159,7 +159,7 @@ sequenceDiagram
         SupplierConnector -->> CustomerConnector: Framework & Contract Negotiation
         CustomerConnector -->> SupplierConnector: CapacityGroup API Endpoint
     end 
-    rect rgb(179,203,45)
+    rect rgb(128,149,0)
         note left of Supplier: Exchange Material Demand
         SupplierConnector ->> CustomerConnector: Transmit CapacityGroup
         CustomerConnector ->> CustomerApp: Transmit CapacityGroup
