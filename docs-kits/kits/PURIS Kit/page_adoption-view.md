@@ -1,7 +1,7 @@
 ---
 id: Adoption View PURIS Kit
 title: Adoption View
-description: 'PURIS Kit'
+description: "PURIS Kit"
 sidebar_position: 2
 ---
 
@@ -13,7 +13,7 @@ sidebar_position: 2
 
 ### Vision
 
-***Revolutionizing the Global Supply Chain Ecosystem with Integrated, Proactive Data Sharing and Collaboration***
+**_Revolutionizing the Global Supply Chain Ecosystem with Integrated, Proactive Data Sharing and Collaboration_**
 
 The introduction of the **P**redictive **U**nit **R**eal-Time **I**nformation **S**ervice (PURIS) enriches a company's resilience strategy through standardized data sharing, giving stakeholders heightened transparency and comprehensive information. This clarity allows PURIS users to detect supply chain issues earlier, initiate solution-finding more swiftly, and access a wider array of options, leading to more effective, cost-efficient, and environmentally friendly outcomes. By facilitating proactive anticipation, concurrent management, and reactive recovery, PURIS supports the supply chain across pre-, during-, and post-disruption phases, thereby improving operational efficiency and resilience within the Catena-X network.
 
@@ -28,9 +28,9 @@ The introduction of the **P**redictive **U**nit **R**eal-Time **I**nformation **
 
 ## Mission
 
-***Empowering Stakeholders with Real-time, Predictive Insights for Proactive Supply Chain Management***
+**_Empowering Stakeholders with Real-time, Predictive Insights for Proactive Supply Chain Management_**
 
-The PURIS KIT provides the necessary standards, aspect models, interfaces, logics, and processes to implement a comprehensive and compliant exchange of short term suppy chain key information between business partners. It intends to enhance the foundation of supply chain interactions, encouraging a proactive management approach over a reactive one.
+The PURIS KIT provides the necessary standards, aspect models, interfaces, logics, and processes to implement a comprehensive and compliant exchange of short term supply chain key information between business partners. It intends to enhance the foundation of supply chain interactions, encouraging a proactive management approach over a reactive one.
 
 The core is the exchange of supply chain key information between partners within a horizon of up to four weeks, including:
 
@@ -45,11 +45,12 @@ With PURIS, supply chain partners can anticipate, adapt, and align their operati
 The PURIS service enriches companies' resilience strategy by improving data sharing and providing key information between supply chain partners on demand. This enables users to identify and manage supply chain issues with enlarged foresight. The result is that \(from a process perspective\) downstream services, systems or applications can detect critical bottlenecks at an earlier stage.
 
 ![Overview](assets/overview.png)
+_Figure 1: PURIS information exchange between partners_
 
 Key aspects of PURIS are:
 
 - **Standardized information exchange**: Base for a fast and effective handling of shortages and enhances early detection capabilities for optimized supply chain decision-making.
-- **Short-term focus:** PURIS tagets a period of 0-4 weeks, although longer periods are not technically restricted.
+- **Short-term focus:** PURIS targets a period of 0-4 weeks, although longer periods are not technically restricted.
 - **Collaborative approach**: Equal and fair data exchange \(quid-pro-quo\) between partners \(1-up / 1-down\), leading to a more transparent, predictable, and resilient supply chain ecosystem.
 - **Data usage control and compliance**: PURIS employs the Catena-X data space to ensure the required level of data security and sovereignty for all participants.
 - **Accessibility**: PURIS provides a FOSS \(Free and Open-Source Software\) reference implementation that aims to keep the entry threshold for participating in PURIS as low as possible, making it easier for smaller businesses to participate and take advantage of the benefits.
@@ -129,6 +130,7 @@ In the following example, a Supply Chain Manager uses a tool similar to the PURI
 - This means for me less stress and work load.
 
 ![Example Use Case](assets/example-use-case.png)
+_Figure 2: Use case for standardized information exchange via PURIS_
 
 ## Semantic Models
 
