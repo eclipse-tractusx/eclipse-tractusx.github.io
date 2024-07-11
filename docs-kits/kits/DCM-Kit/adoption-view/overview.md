@@ -1,8 +1,7 @@
 ---
-id: adoption-view
+id: overview
 title: Adoption View
 description: 'A first impression'
-sidebar_position: 2
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
@@ -38,14 +37,6 @@ Implementing the DCM standards will add the following core capabilities to busin
 - Provisioning and consumption of capacity data in a sovereign manner.
 - Discovery of bottlenecks and surplus capacity situations by employing a unified calculation logic.
 
-## Standards
-
-The DCM standard consists of three main elements:
-
-- **Core Business logic** – to focus on a **common understanding** of the **DCM processes** among the participants. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **Data model** – to align the structure of the shared data and enable the adoption of the core business logic without misinterpretation. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-- **APIs** – to make sure that data are transmitted and consumed properly as well as are identically interpreted across companies. **Version 2.0.0** (Release 24.05) [CX-0128 Demand and Capacity Management Data Exchange](https://catena-x.net/de/standard-library)
-
 ### POWER of STANDARD
 
 Standards create trust. Customer and Supplier can form new partnerships confidently. Knowing that integration in the network will be dramatically simplified. Standardization can help reduce costs by eliminating redundancies and streamlining processes. By adopting a common set of practices and technologies, businesses can avoid the need to develop their own proprietary systems, which can be expensive and time-consuming.
@@ -77,6 +68,82 @@ Of course, by realizing efficiency through improved collaboration all involved p
 | IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/3.0.0/IdBasedRequestForUpdate.ttl> |
 | IdBasedComment | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_comment/1.0.0/IdBasedComment.ttl> |
 
+## Logic / Schema
+
+The core of the DCM business process is about exchange demand and capacity information, identifying problems and solving those problems.
+
+```mermaid
+sequenceDiagram
+    actor c as Customer 
+    actor s as Supplier
+activate c
+rect rgb(221,130,0)
+c->>c: Manage own material demands
+c->>s: Provide supplier with WeekBasedMaterialDemand
+deactivate c
+activate s
+s->>s: Consume WeekBasedMaterialDemand
+end
+rect rgb(128,149,00)
+s->>s: Manage own capacities
+s->>s: Link consumed material demands to capacities within a WeekBasedCapacityGroup
+s->>c: Provide Customer with WeekBasedCapacityGroup
+activate c
+c->>c: Consume WeekBasedCapacityGroup
+end
+rect rgb(04,107,153)
+c->>c: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+s->>s: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+c->>c: Identify bottlenecks
+s->>s: Identify bottlenecks
+c->>s: Resolve bottlenecks
+s->>c: Resolve bottlenecks
+deactivate c
+deactivate s
+end
+```
+
+## Business Process
+
+### Business Architecture
+
+![Supply network](./resources/business-architecture_network.svg)
+
+Figure: *Supply network*
+
+A supply network can be divided into a multitude of interlinking supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
+
+![Supply chain](./resources/business-architecture_chain.svg)
+
+Figure: *Supply chain*
+
+DCM allows for demand and capacity information to be exchanged only within the individual business relationship. However, because within a supply chain mist companies act as a "one-up" in one business relationship, while acting as a "one-down" withing the next business relationship, the impact of increasing or decreasing demand or capacity anywhere in the supply chain can safely travel through the chain, reaching every single impacted company. This is how DCM builds chains, while at the same time ensuring data sovereignty.
+
+### Access and Usage Policies
+
+Because of the way that communication within CX-0128 is defined companies are not exposing data but rather API endpoints for their business partners to push data to. These API endpoints are registered as EDC data assets. This means that from an information protection perspective data has to be actively provided, further ensuring data sovereignty.
+
+ Conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] the following policies have to be applied.
+
+| Category | Policy Name | Description |Usage recommendation|
+|:---------|:------------|:------------|:-------------------|
+| **Access Policy** | BPN-restricted Data Usage | Limit access to the data offered to a list of specified BPNs (to the connectors with the BPN attribute listed in the policy) |Limit access to assets to all your known business partners.|
+| **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
+| **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
+
+### Standards
+
+|Content|Standard|Version|Sections|Description|
+|-|-|-|-|-|
+|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|5|Focuses on a common understanding of the DCM processes among participants.|
+|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
+|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
+|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, where the impact cannot be precisely quantified yet.|
+
+## Frequently asked Questions
+
+In case of further questions, feel free to visit our [FAQ](./qna.md).
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
@@ -92,3 +159,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
