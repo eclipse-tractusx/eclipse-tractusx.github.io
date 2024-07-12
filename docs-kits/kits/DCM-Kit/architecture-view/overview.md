@@ -160,7 +160,7 @@ sequenceDiagram
         CustomerConnector -->> SupplierConnector: CapacityGroup API Endpoint
     end 
     rect rgb(128,149,0)
-        note left of Supplier: Exchange Material Demand
+        note left of Supplier: Exchange Capacity Group
         SupplierConnector ->> CustomerConnector: Transmit CapacityGroup
         CustomerConnector ->> CustomerApp: Transmit CapacityGroup
         activate CustomerApp
