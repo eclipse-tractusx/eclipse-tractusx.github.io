@@ -165,6 +165,16 @@ PURIS orchestrates a set of business processes within the Catena-X network, enha
 
 The business process facilitated by PURIS enables partners in the Catena-X network to swiftly act on up-to-date information, adapt to the fluidity of market conditions, and develop a well-rounded view of supply chain operations. This comprehensive approach not only encourages collaborative partnerships but also advances risk mitigation strategies and bolsters the overall resilience of the supply chain ecosystem.
 
+## Standards
+
+The relevant standards can be found in the [Catena-X Association Standard Library](https://catenax-ev.github.io/docs/next/standards/overview)\:
+
+- [CX-0118 Delivery Information Exchange 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0118-ActualDeliveryInformationExchange)
+- [CX-0120 Short-Term Material Demand Exchange 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0120-ShortTermMaterialDemandExchange)
+- [CX-0121 Planned Production Output Exchange](https://catenax-ev.github.io/docs/next/standards/CX-0121-PlannedProductionOutputExchange)
+- [CX-0122 Item Stock Exchange 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0122-ItemStockExchange)
+- [CX-0145 Days of Supply Exchange 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange)
+
 ## Notice
 
 This work is licensed under the CC-BY-4.0
