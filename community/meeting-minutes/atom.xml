@@ -36,6 +36,20 @@
         <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Security Office Hour 2024-06-20]]></title>
+        <id>security-office-hour-2024-06-20</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-06-20"/>
+        <updated>2024-06-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Security Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a class="hash-link" href="#security-office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="announcements">Announcements<a class="hash-link" href="#announcements" title="Direct link to heading">​</a></h3><ul><li>Reminder about former GitHub Organisation Catenax-ng</li><li>Reminder to remove any test credentials/sensitive that are present in Catenax-ng</li><li>Reminder to look for the results of the security scans after migration to Eclipse Tractus-x</li></ul>]]></content>
+        <author>
+            <name>Rohan Krishnamurthy</name>
+            <uri>https://github.com/RoKrish14</uri>
+        </author>
+        <category label="security" term="security"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-05-03]]></title>
         <id>community-office-hour-2024-05-03</id>
         <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-05-03"/>
