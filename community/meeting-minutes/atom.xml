@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-06-28T00:00:00.000Z</updated>
+    <updated>2024-07-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2024-07-05]]></title>
+        <id>community-office-hour-2024-07-05</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05"/>
+        <updated>2024-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a class="hash-link" href="#infrastructure" title="Direct link to heading">​</a></h3><ul><li>Info from Test / Infrastructure Management CX Association by <a href="https://github.com/ds-hzimmer" target="_blank" rel="noopener noreferrer">Harald</a>:<ul><li>SAP DIM follow up meeting with on 8.7.2024 together with Christian Lahmer (SAP) and Evelyn Gurschler and DoubleSlash Net-Business GmbH</li><li>Work-in-progress with SDE team and importing of test cases</li><li>Access is currently limited –&gt; would be great to make it accessible and available within Tractus-X</li></ul></li><li><a href="https://github.com/tomaszbarwicki" target="_blank" rel="noopener noreferrer">Tomasz</a> -	Presented about how do you need to publish your API using .tractusx metafile and publish via GitHub pages - <a href="https://github.com/eclipse-tractusx/api-hub" target="_blank" rel="noopener noreferrer">API Hub</a>.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>Info from security team by <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a>:<ul><li>Reminder about replacement of GitGuardian with TruffleHog, see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer">#950</a></li><li>Reminder about updates to Trivy workflow , see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/949" target="_blank" rel="noopener noreferrer">#949</a></li><li>Reminder about about absence of security team members from August 2024</li><li>Security tools walkthrough in the Committers Meeting of July 5, 2024 (about 20 minutes) - <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a> will announce the walkthrough next week on the TX mailing list while sending out a reminder for the meeting</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Don't forget to update the legal docs!! Close the tickets in your repositories if its done: <a href="https://github.com/eclipse-tractusx/sig-infra/issues/477" target="_blank" rel="noopener noreferrer">eclipse-tractusx/sig-infra#477</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>Info by community manager <a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer">Stephan</a> about the Tractus-X/Catena-X working model and the refinement phase for the 24.12 release</li><li><a href="https://eveeno.com/126949167" target="_blank" rel="noopener noreferrer">Registration</a> is open for the Third Eclipse Tractus-X Community Days on December 05 and 06, 2024, ARENA2036 in Stuttgart!</li></ul>]]></content>
+        <author>
+            <name>Rohan Krishnamurthy</name>
+            <uri>https://github.com/RoKrish14</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-06-28]]></title>
         <id>community-office-hour-2024-06-28</id>
