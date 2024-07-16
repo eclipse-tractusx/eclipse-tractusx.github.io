@@ -256,14 +256,6 @@ const sidebars = {
                         },
                         {
                             type: "category",
-                            label: "Bridge Dummy API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api/sidebar.js'),
-                        },
-                        {
-                            type: "category",
                             label: "Cleaning Dummy API",
                             link: {
                                 type: "generated-index",
