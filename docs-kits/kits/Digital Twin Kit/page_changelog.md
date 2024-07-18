@@ -11,7 +11,17 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - unreleased
+## [2.0.1] - 2024-08-01
+
+### Changed
+
+- updated links and bugfixes
+
+### Removed
+
+- rendered openApi Docs
+
+## [2.0.0] - 2024-05-02
 
 ### Added
 
