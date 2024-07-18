@@ -30,8 +30,8 @@ section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-
 
 The Asset Administration Shell (AAS) is a specification that is released by
 the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/)
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as
-IEC 63278.
+and already partly adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as
+[IEC 63278](https://webstore.iec.ch/en/publication/65628).
 
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a
 value creation network” ([IDTA 01001-3-0](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf)
