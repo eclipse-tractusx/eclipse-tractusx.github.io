@@ -23,8 +23,8 @@ the [Operation View](../page_software-operation-view.md).
 
 ## API Specifications
 
-All openAPI-specifications for the Digital Twin Kit services are rendered in the
-section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-service-specification.info.mdx)
+All openAPI-specifications for the Digital Twin Kit services are stored in the [openApi section](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/openApi/dt) of this repo.
+Please note that these are non-normative replicas from the original standards and their normative references.
 
 ### Asset Administration Shell
 
@@ -69,7 +69,7 @@ security setup etc.). As the information contained in the DTR may be sensitive a
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET
 endpoints
 as specified in
-the [Development View](API%20AAS%20Registry/dotaas-part-2-http-rest-registry-service-specification.info.mdx),
+the [Development View](../../../../openApi/dt/registry-service-ssp002-openapi.yaml),
 data providers may find it useful to implement other requests for registration
 on top. Either way, they are free to populate their DTR in any way they desire.
 

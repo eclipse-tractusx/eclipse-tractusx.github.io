@@ -63,7 +63,7 @@ This Kit's aim is not to solve a dedicated business problem. It is an infrastruc
 data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage, namely:
 
 - Well-defined API structures extensible by domain models. Each use case will want to share different data but make it
-available in a shared manner. (see [Submodel API](./Software%20Development%20View/API%20Submodel))
+available in a shared manner. (see [Submodel API](../../../openApi/dt/submodel-service-ssp003-openapi.yaml))
 
 - A distributed infrastructure of central and decentral components integrating on the one hand with backend-systems
 in existing enterprise IT and on other hand with the Dataspace.
