@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Business Partner Data Management Orchestrator
   description: Orchestrator component acts as a passive component and offers for each processing steps individual endpoints
-  version: 6.0.0
+  version: 6.1.0
 servers:
   - url: http://localhost:8085
     description: Generated server url
@@ -157,6 +157,7 @@ components:
             - LegalEntity
             - Site
             - Address
+      description: The business partner data to be processed
     BusinessState:
       type: object
       properties:
@@ -294,6 +295,8 @@ components:
           type: string
         door:
           type: string
+        taxJurisdictionCode:
+          type: string
     PostalAddress:
       required:
         - bpnReference
@@ -372,11 +375,15 @@ components:
       required:
         - businessPartnerResult
         - processingState
+        - recordId
         - taskId
       type: object
       properties:
         taskId:
           type: string
+        recordId:
+          type: string
+          description: The identifier of the gate record for which this task has been created
         businessPartnerResult:
           $ref: '#/components/schemas/BusinessPartner'
         processingState:
@@ -384,8 +391,8 @@ components:
       description: The golden record task's processing state together with optional business partner data in case processing is done
     TaskCreateRequest:
       required:
-        - businessPartners
         - mode
+        - requests
       type: object
       properties:
         mode:
@@ -394,12 +401,22 @@ components:
           enum:
             - UpdateFromSharingMember
             - UpdateFromPool
-        businessPartners:
+        requests:
           type: array
-          description: The list of business partner data to be processed
+          description: The list of tasks to create
           items:
-            $ref: '#/components/schemas/BusinessPartner'
+            $ref: '#/components/schemas/TaskCreateRequestEntry'
       description: Request object to specify for which business partner data tasks should be created and in which mode
+    TaskCreateRequestEntry:
+      required:
+        - businessPartner
+      type: object
+      properties:
+        recordId:
+          type: string
+          description: The unique identifier for this record which was previously issued by the Orchestrator
+        businessPartner:
+          $ref: '#/components/schemas/BusinessPartner'
     TaskCreateResponse:
       required:
         - createdTasks
@@ -501,6 +518,7 @@ components:
     TaskStepReservationEntryDto:
       required:
         - businessPartner
+        - recordId
         - requestKey
         - taskId
       type: object
@@ -508,6 +526,9 @@ components:
         taskId:
           type: string
           description: The identifier of the reserved task
+        recordId:
+          type: string
+          description: The identifier of the gate record for which this task has been created
         businessPartner:
           $ref: '#/components/schemas/BusinessPartner'
         requestKey:
