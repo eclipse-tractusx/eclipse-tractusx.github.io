@@ -69,7 +69,7 @@ security setup etc.). As the information contained in the DTR may be sensitive a
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET
 endpoints
 as specified in
-the [Development View](../../../../openApi/dt/registry-service-ssp002-openapi.yaml),
+the [Standard CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX),
 data providers may find it useful to implement other requests for registration
 on top. Either way, they are free to populate their DTR in any way they desire.
 
