@@ -63,7 +63,7 @@ This Kit's aim is not to solve a dedicated business problem. It is an infrastruc
 data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage, namely:
 
 - Well-defined API structures extensible by domain models. Each use case will want to share different data but make it
-available in a shared manner. (see [Submodel API](../../../openApi/dt/submodel-service-ssp003-openapi.yaml))
+available in a shared manner. (see [Submodel API](https://eclipse-tractusx.github.io/api-hub/))
 
 - A distributed infrastructure of central and decentral components integrating on the one hand with backend-systems
 in existing enterprise IT and on other hand with the Dataspace.
