@@ -216,13 +216,6 @@ const config = {
               groupPathsBy: "tag",
             },
           },
-          bpdm_bridge: {
-            specPath: "./openApi/bpdm/bridge-dummy.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
           bpdm_cleaning: {
             specPath: "./openApi/bpdm/cleaning-dummy.yaml",
             outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
