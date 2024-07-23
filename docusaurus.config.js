@@ -496,10 +496,6 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
                 label: 'Traceability',
-              },
-              {
-                to: 'docs-kits/kits/Resiliency/',
-                label: 'Upcoming KITs',
               }
             ],
           },
