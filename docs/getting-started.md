@@ -40,7 +40,7 @@ For contributing to the Eclipse Tractus-X project you need an Eclipse Foundation
 
 There is the possibility to get some [additional rights](/docs/oss/contributor-committer#official-project-contributor) on the GitHub repositories with the official Tractus-X project contributor role.
 
-- contact Tractus-X project lead or the committers via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org)
+- Contact Tractus-X project leads or the committers via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org)
 - Accept the email invitation from GitHub to join the [automotive-tractusx-contributors team at GitHub](https://github.com/orgs/eclipse-tractusx/teams)
 
 ## Communication channels
