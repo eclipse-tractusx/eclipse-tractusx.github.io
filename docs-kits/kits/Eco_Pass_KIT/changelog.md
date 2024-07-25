@@ -2,6 +2,13 @@
 title: Changelog
 ---
 
+## [1.5.0] - 2024-07-25
+
+### 24.08 Added
+- Added Digital Product Pass Verification Section
+- Added Digital Product Pass Tutorial Section
+
+
 ## [1.4.0] - 2024-05-15
 
 ### 24.05 Added
