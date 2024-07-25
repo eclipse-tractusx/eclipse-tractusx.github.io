@@ -1765,6 +1765,14 @@ It is used to discover digital twins and exchange actual usage data. The registr
 To control access to both usage and meta data, the EcoPass KIT relies on the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View/). Interactions between two parties occur exclusively peer-to-peer via the standardized interfaces of the Connector KIT, based on the International Data Space Protocol.
 Data sovereignty is enabled by so-called verifiable credentials. These rely on the technology of Self-Sovereign Identity (SSI) and are enabled through the Connector KIT. In short, consumers must present their signed credentials, defined by a data provider, before a data contract (and thus a data exchange) can take place. It should be mentioned that this concept is still in the prototype phase as of Release 3.2 and will be expanded in future releases.
 
+## Tutorials
+
+The Digital Product Pass Reference Implementation: [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass) offers a tutorial for understanding the E2E journey of the EcoPass KIT. This tutorial was presented at the Second Tractus-X Community Days at the Digital Product Pass Introduction Workstream, it contains valuable and technical explanations on how to configure the Digital Twins and the Passport Aspects at the submodel server, easing the learning process of the adopters:
+
+[eclipse-tractusx/digital-product-pass/dpp-tutorial](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial)
+
+For more information about the Reference Implementation and how the KIT can be adoped consult the [Software Development View](./page-software-development-view.md).
+
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
