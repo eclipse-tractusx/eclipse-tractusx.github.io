@@ -1765,6 +1765,27 @@ It is used to discover digital twins and exchange actual usage data. The registr
 To control access to both usage and meta data, the EcoPass KIT relies on the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View/). Interactions between two parties occur exclusively peer-to-peer via the standardized interfaces of the Connector KIT, based on the International Data Space Protocol.
 Data sovereignty is enabled by so-called verifiable credentials. These rely on the technology of Self-Sovereign Identity (SSI) and are enabled through the Connector KIT. In short, consumers must present their signed credentials, defined by a data provider, before a data contract (and thus a data exchange) can take place. It should be mentioned that this concept is still in the prototype phase as of Release 3.2 and will be expanded in future releases.
 
+## Digital Product Pass Verification
+
+The Digital Product Pass Reference Implementation has a concept and implementation for the Certification and Verification of Data Aspects in Catena-X. This concept may help adopters from the EcoPass KIT, containing guidelines on how to verify data integrity, after it has been retrieved from the EDC.
+
+This Catena-X Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Catena-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
+
+The concept is the First Aspect Model Verification/Certification Concept in Catena-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Catena-X using SAMM Aspect Models.
+It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Catena-X Architecture:
+
+- [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification)
+
+Furthermore, it gives guidance and ready to use components for verifying the data received from their Data Providers. The Digital Product Pass Add-on offers the consumers components like the simple-wallet, an MVP decentral wallet able to issue and verify aspect model Verifiable Credential Documents. It also provides a proof of concept (PoC) in the dpp-backend and dpp-frontend components for complete data payloads to be verified.
+
+## Tutorials
+
+The Digital Product Pass Reference Implementation: [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass) offers a tutorial for understanding the E2E journey of the EcoPass KIT. This tutorial was presented at the Second Tractus-X Community Days at the Digital Product Pass Introduction Workstream, it contains valuable and technical explanations on how to configure the Digital Twins and the Passport Aspects at the submodel server, easing the learning process of the adopters:
+
+- [eclipse-tractusx/digital-product-pass/dpp-tutorial](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial)
+
+For more information about the Reference Implementation and how the KIT can be adoped consult the [Software Development View](./page-software-development-view.md).
+
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
