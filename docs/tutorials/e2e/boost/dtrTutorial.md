@@ -5,7 +5,7 @@ sidebar_position: 5
 
 ## Tutorial Goal
 
-Alongside the connector, the Digital Twin Registry (DTR) is another central component in a data ecosystem when it comes to exchanging digital twins. Anyone who provides digital twins in Catena-X must register them in a DTR so that they can be found by other parties.
+Alongside the connector, the Digital Twin Registry (DTR) is an important decentral component deployed by each data provider exchanging digital twins in Catena-X. They must register them in a DTR so that consumers can find relevant data in the provider's data offers.
 
 This tutorial focuses on the working with the DTR. You will learn what the DTR is, how to deploy it and go through a complete use case scenario by depositing a DTR in the EDC, registering a digital twin in the DTR, and showing how external parties can find and consume the digital twin.
 
