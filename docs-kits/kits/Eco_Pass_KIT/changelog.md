@@ -2,6 +2,21 @@
 title: Changelog
 ---
 
+## [1.5.0] - 2024-07-25
+
+### 24.08 Added
+
+- Added Digital Product Pass Verification Section in adoption view
+- Added Digital Product Pass Tutorial Section adoption view & software view
+- Added Digital Product Passport as Enabler for Circular Economy Whitepaper reference
+
+### 24.08 Updated
+
+- Updated DPP model to version v5.0.0
+- Updated BatteryPass to v6.0.0
+- Updated TransmissionPass to v3.0.0
+- Updated DPP Verification add-on in the software development view.
+
 ## [1.4.0] - 2024-05-15
 
 ### 24.05 Added
