@@ -8,6 +8,12 @@ sidebar_position: 1
 ![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
 All notable changes to this Kit will be documented in this file.
 
+## [1.2.0] - 23.07.2024
+
+### Added
+
+- add Informational Requirements at End of Life
+
 ## [1.1.0] - 15.05.2024
 
 ### Added
