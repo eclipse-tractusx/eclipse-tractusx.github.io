@@ -11,7 +11,26 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [5.0.0] - unreleased
+## [6.0.0] - 2024-07-16
+
+### Added
+
+- BPDM Gate api endpoint: Post endpoint to upload business partner input data using csv file.
+- BPDM Gate api endpoint: GET endpoint to download the csv file template for business partner upload.
+- BPDM Apps: New attribute Tax Jurisdiction Code to the physical address of a business partner
+- BPDM Orchestrator: New attribute Record Id to tasks. Now tasks come with a gate record identifier.
+
+### Changed
+
+- Documentation of gate service with new endpoints
+- Documentation of orchestrator service with updated endpoints
+- Documentation of pool service with updated endpoints for newly added attributes.
+
+### Removed
+
+- Documentation of BPDM Bridge Dummy service.
+
+## [5.0.0] - 2024-05-15
 
 ### Added
 
