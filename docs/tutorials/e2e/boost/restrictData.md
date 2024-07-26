@@ -69,7 +69,8 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policyde
 }' | jq
 ```
 
-The policydefinitioon is created with the ID `41`
+The policydefinition is created with the ID `41`
+
 
 ```json
 {
