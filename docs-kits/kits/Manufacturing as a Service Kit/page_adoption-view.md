@@ -5,6 +5,8 @@ description: 'MaaS KIT'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ![Maas kit banner](/img/kit-icons/manufacturing-kit-icon.svg)
 
 ### Manufacturing as a Service KIT

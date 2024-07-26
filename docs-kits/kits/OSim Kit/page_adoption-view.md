@@ -5,6 +5,8 @@ description: 'OSim Kit'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ![osim kit banner](@site/static/img/OSimKitIcon.svg)
 
 ### OSim Kit

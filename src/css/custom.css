@@ -324,3 +324,21 @@
     margin: auto;
   }
 }
+
+img[src$="#block"] {
+  position: absolute;
+  margin-top: 15px;
+  height: 40px;
+  width: auto;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  img[src$="#block"] {
+    position: absolute;
+    margin-top: 8px;
+    height: 30px;
+    width: auto;
+    margin-left: 10px;
+  }
+}

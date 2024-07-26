@@ -3,6 +3,8 @@ sidebar_position: 1
 title: Adoption View
 ---
 
+# Adotoption View ![Block image](/img/graduated-dots.png#block)
+
 <!--
  * Copyright (c) 2021,2024 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 

@@ -5,6 +5,8 @@ description: 'Data Chain Kit'
 sidebar_position: 1
 ---
 
+# Adoption View ![Block image](/img/graduated-dots.png#block)
+
 ![Datachain kit banner](/img/kit-icons/datachain-kit-icon.svg)
 
 ### Data Chain Kit

@@ -5,6 +5,8 @@ description: 'PURIS Kit'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ### PURIS Kit
 
 ## Vision & Mission

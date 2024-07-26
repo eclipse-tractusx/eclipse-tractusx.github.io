@@ -5,6 +5,8 @@ description: 'Business Partner Kit'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/graduated-dots.png#block)
+
 ![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
 ## Business Partner KIT
