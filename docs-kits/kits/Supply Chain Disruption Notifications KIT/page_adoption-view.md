@@ -203,10 +203,9 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX-0006  | Registration and initial onboarding |
 | CX-0010  | Business Partner Number (BPN)       |
 | CX-0015  | IAM & Access Control Paradigm       |
-| CX-0016  | Company Attribute Verification      |
-| CX-0017  | Company Role By Connector           |
 | CX-0018  | Dataspace Connectivity              |
 | CX-0126  | Industry Core: Part Type            |
+| CX-0149  | Verified Company Identity           |
 
 ### Non-Normative References
 
