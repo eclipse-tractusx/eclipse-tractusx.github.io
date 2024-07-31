@@ -63,7 +63,7 @@ Action (Bob): Create a data asset using the following command:
       "baseUrl":"{{BACKEND_SERVICE}}",
       "proxyPath":"true",
       "proxyBody":"true",
-      "proxyMethod":"true",
+      "proxyMethod":"false",
       "proxyQueryParams":"true",
       "oauth2:clientId":"satest02",
       "oauth2:clientSecretKey":"{{REGISTRY_CLIENT_SECRET_KEY}}",
