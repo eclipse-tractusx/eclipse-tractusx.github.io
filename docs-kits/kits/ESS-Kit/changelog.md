@@ -6,18 +6,29 @@ sidebar_position: 1
 
 ![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
-## [0.2.0] - 2024-05-24
+## [0.3.0] - 2024-07-11
 
 ### Added
 
-- information about Code of Conduct in Adoption View
-- added link to BPNL-Kit and to Industry Core Kit
+- add reference to Code of Conduct that will be published on Web page
+- add description of Occasion-related tracking in broken supply chains
+
+### Changed
+
+- changed link to video about ESS customer journey
+
+### Removed
+
+## [0.2.0] - 2024-05-23
+
+### Added
+
+chapters for Code of Conduct in Adoption View
 
 ### Changed
 
 - replace picture CatenaX_ESS_KitCustomerJourney
-- corrected typos e.g. youtube, respectively
-- adjusted all links to images of ESS-Kit moved to folder assets within ESS-Kit
+- moved pictures from folder static to folder asset within ESS-Kit
 
 ### Removed
 

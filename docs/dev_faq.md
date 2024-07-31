@@ -19,7 +19,7 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#resources-github)
 
 ## How can I become an official Tractus-X contributor with triage role?
 
-See the [Getting Started Page](/docs/oss/getting-started#extended-contributor-permissions)
+See the [Getting Started Page](getting-started.md#extended-contributor-permissions)
 
 ## How do I figure out the user name in Eclipse (= GitLab) and GitHub?
 
