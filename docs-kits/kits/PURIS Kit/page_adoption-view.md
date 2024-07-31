@@ -44,7 +44,8 @@ With PURIS, supply chain partners can anticipate, adapt, and align their operati
 
 The PURIS service enriches companies' resilience strategy by improving data sharing and providing key information between supply chain partners on demand. This enables users to identify and manage supply chain issues with enlarged foresight. The result is that \(from a process perspective\) downstream services, systems or applications can detect critical bottlenecks at an earlier stage.
 
-![Overview](assets/overview.png)
+![Overview](assets/PURIS_KIT_overview.svg)
+
 _Figure 1: PURIS information exchange between partners_
 
 Key aspects of PURIS are:
@@ -129,7 +130,7 @@ In the following example, a Supply Chain Manager uses a tool similar to the PURI
 - I no longer need to circulate Excel spreadsheets and fill them in manually.
 - This means for me less stress and work load.
 
-![Example Use Case](assets/example-use-case.png)
+![Example Use Case](assets/example-use-case.svg)
 _Figure 2: Use case for standardized information exchange via PURIS_
 
 ## Semantic Models
