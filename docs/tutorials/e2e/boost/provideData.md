@@ -68,7 +68,7 @@ The result shows the already existing assets and the newly created asset.
       "edc:baseUrl": "http://umbrella-dataprovider-dtr:8080/api/v3.0"
     },
     "@context": {
-      "dct": "https://purl.org/dc/terms/",
+      "dct": "http://purl.org/dc/terms/",
       "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
       "edc": "https://w3id.org/edc/v0.0.1/ns/",
       "dcat": "https://www.w3.org/ns/dcat/",
@@ -93,7 +93,7 @@ The result shows the already existing assets and the newly created asset.
       "edc:baseUrl": "http://umbrella-dataprovider-submodelserver:8080"
     },
     "@context": {
-      "dct": "https://purl.org/dc/terms/",
+      "dct": "http://purl.org/dc/terms/",
       "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
       "edc": "https://w3id.org/edc/v0.0.1/ns/",
       "dcat": "https://www.w3.org/ns/dcat/",
@@ -114,7 +114,7 @@ The result shows the already existing assets and the newly created asset.
       "edc:baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
     },
     "@context": {
-      "dct": "https://purl.org/dc/terms/",
+      "dct": "http://purl.org/dc/terms/",
       "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
       "edc": "https://w3id.org/edc/v0.0.1/ns/",
       "dcat": "https://www.w3.org/ns/dcat/",
@@ -251,7 +251,7 @@ The requested catalog looks like this:
   },
   "edc:participantId": "BPNL00000003AYRE",
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -297,7 +297,7 @@ The policy was successfully created, if the response is something like this
   "@id": "3-1",
   "edc:createdAt": 1715627034106,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -375,7 +375,7 @@ And again the policy was successfully created
   "@id": "3-2",
   "edc:createdAt": 1715627218849,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -414,7 +414,7 @@ As a check, the result should look like this:
   "@id": "3",
   "edc:createdAt": 1715627302307,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",

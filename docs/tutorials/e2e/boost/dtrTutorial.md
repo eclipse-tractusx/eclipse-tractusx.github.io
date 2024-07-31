@@ -49,7 +49,7 @@ Action (Bob): Create a data asset using the following command:
       "edc":"https://w3id.org/edc/v0.0.1/ns/",
       "cx-common":"https://w3id.org/catenax/ontology/common#",
       "cx-taxo":"https://w3id.org/catenax/taxonomy#",
-      "dct":"https://purl.org/dc/terms/"
+      "dct":"http://purl.org/dc/terms/"
    },
    "@id":"{{ASSET_ID}}",
    "properties":{
