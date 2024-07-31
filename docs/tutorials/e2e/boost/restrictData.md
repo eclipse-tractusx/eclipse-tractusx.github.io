@@ -71,14 +71,13 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policyde
 
 The policydefinition is created with the ID `41`
 
-
 ```json
 {
   "@type": "edc:IdResponse",
   "@id": "41",
   "edc:createdAt": 1715674423858,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -138,7 +137,7 @@ The response should be something like this
   "@id": "42",
   "edc:createdAt": 1715674546763,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -180,7 +179,7 @@ A response should look like this
   "@id": "4",
   "edc:createdAt": 1715674670136,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -346,7 +345,7 @@ The response doesnt include the cataolog entry for the asset/offer with id4
   },
   "edc:participantId": "BPNL00000003AYRE",
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",

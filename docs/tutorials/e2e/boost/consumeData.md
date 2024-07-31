@@ -74,7 +74,7 @@ The response should look like this:
   "@id": "65356596-dd7c-4ad4-8fc6-8512be6f0ec2",
   "edc:createdAt": 1715669329095,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -117,7 +117,7 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contra
   "edc:createdAt": 1715669329095,
   "edc:contractAgreementId": "Mw==:Mw==:N2RhZGI3OGMtYzUxNC00OTkzLWI3MzktNDE3YmJhMDNkMDU4",
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -176,7 +176,7 @@ The response in this case looks like this:
   "@id": "9d6a0507-25f5-4a81-8885-a47bc3809451",
   "edc:createdAt": 1715669899367,
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
@@ -225,7 +225,7 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transf
   },
   "edc:connectorId": "BPNL00000003AYRE",
   "@context": {
-    "dct": "https://purl.org/dc/terms/",
+    "dct": "http://purl.org/dc/terms/",
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
