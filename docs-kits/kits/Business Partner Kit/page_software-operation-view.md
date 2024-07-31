@@ -13,7 +13,8 @@ sidebar_position: 3
 
 BPDM is an acronym for business partner data management. This project provides core services for querying, adding and changing business partner base information in the Eclipse Tractus-X landscape. BPDM project is SpringBoot Kotlin software project managed by Maven and consists of three microservices. This section contains information on how to configure and run the BPDM application.
 
-This local deployment is an easy installation with helm. This setup is built to run on a kubernetes cluster.
+This local deployment is an easy installation with helm charts. This setup is built to run on a kubernetes cluster.
+Installation of BPDM applications with the Helm Charts has the most software requirements but is the qickest way to set up a running system. If you want to do local deployment without helm chart then you can refer [installation steps](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#local-installation) from [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file on bpdm repository. Which will guide you about prerequisites, default installation steps and also guide you for quick installation steps in which security is not necessary by using the provided `no-auth` profile when running the BPDM applications.
 
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
@@ -47,7 +48,7 @@ Check out the project [BPDM](https://github.com/eclipse-tractusx/bpdm) or downlo
 
 ### Step 3: Installing the services
 
-#### 1. Start the cluster
+#### 1.0 Start the cluster
 
 To deploy the services on kubernetes using helm charts, run
 
@@ -70,17 +71,18 @@ helm dependency build ./charts/bpdm/
 
 This can take up to **5 minutes**.
 
-When the deployment is finished you can expect that 3 deployments can be seen in the minikube dashboard:
+When the deployment is finished you can expect that 4 deployments can be seen in the minikube dashboard:
 
-* bpdm-bridge-dummy
 * bpdm-gate
 * bpdm-pool
 * bpdm-cleaning-dummy
 * bpdm-orchestrator
+* bpdm-keycloak
+* bpdm-postgres
 
-Also in total 5 Pods are up and running.
+Also in total 6 Pods are up and running.
 
-##### 1.1 Get the status of the deployment
+#### 1.1 Get the status of the deployment
 
 The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
@@ -88,11 +90,9 @@ The minikube dashboard will give you feedback on how the status of the deploymen
   minikube dashboard 
 ```
 
-Make sure you select the namespace **your_namespace**:
+Make sure you select the namespace **your_namespace**
 
-![expected status](@site/static/img/minikube-bpdm-dashboard-overview.png)
-
-#### 2. Forward ports
+#### 1.2 Forward ports
 
 When the deployment has been finished, you can for port forwarding using k9s. Also, if k9s tool is not installed the you can use [installer](https://k9scli.io/topics/install/)
 
@@ -108,459 +108,89 @@ kubectl port-forward <pod-name> <locahost-port>:<pod-port>
 
 After that you can access the:
 
-* **bpdm-bridge-dummy:** [http://localhost:8083](http://localhost:8083)
 * **bpdm-gate:** [http://localhost:8081](http://localhost:8081)
 * **bpdm-pool:** [http://localhost:8080](http://localhost:8080)
 
-## Deploy Individual Service
+This will install the BPDM applications with its own Postgres and Keycloak in default values.
+Please keep in mind that these steps will also install the applications with default passwords.
 
-### 1. BPDM Pool
+### Step 4: Override Default Secrets
 
-The [prerequisites](#step-1-prerequisites) for running this service. In an existing Kubernetes cluster the application can be deployed with the following command:
-
-```bash
-helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace
-```
-
-This will install a new release of the BPDM Pool in the given namespace.On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry. The application is run on default profile (without authorization).
-Additionally, the Helm deployment contains a PostgreSQL database and Opensearch instance which the BPDM Pool connects to.
-
-On the default values deployment no further action is needed to make the BPDM Pool deployment run.
-However, per default, ingress as well as authentication for endpoints are disabled.
-
-By giving your own values file you can configure the Helm deployment of the BPDM Pool freely:
+It is good practice to overwrite the default secrets and passwords that are used in the BPDM Charts.
+For this, you can first define a bunch of environment variables holding new secret values and use them later during deployment:
 
 ```bash
-helm install release_name ./charts/bpdm/bpdm-pool --namespace your_namespace -f ./path/to/your/values.yaml
+helm install your_namespace \
+    --set-value postgres.auth.password=$BPDM_POSTGRES \
+    --set-value keycloak.auth.adminPassword=$BPDM_KEYCLOAK_ADMIN \
+    --set-value keycloak.bpdm.realm.clientSecrets.cleaningDummyOrchestrator=$BPDM_DUMMY_ORCH_CLIENT_SECRET \
+    --set-value keycloak.bpdm.realm.clientSecrets.poolOrchestrator=$BPDM_POOL_ORCH_CLIENT_SECRET \
+    --set-value keycloak.bpdm.realm.clientSecrets.gateOrchestrator=$BPDM_GATE_ORCH_CLIENT_SECRET \
+    --set-value keycloak.bpdm.realm.clientSecrets.gatePool=$BPDM_GATE_POOL_CLIENT_SECRET \
+    --set-value bpdm-gate.applicationSecrets.bpdm.client.orchestrator.registration=$BPDM_GATE_ORCH_CLIENT_SECRET \
+    --set-value bpdm-gate.applicationSecrets.bpdm.client.pool.registration=$BPDM_GATE_POOL_CLIENT_SECRET \
+    --set-value bpdm-pool.applicationSecrets.bpdm.client.orchestrator.registration=$BPDM_POOL_ORCH_CLIENT_SECRET \
+    --set-value bpdm-cleaning-service-dummy.applicationSecrets.bpdm.client.orchestrator.registration=$BPDM_DUMMY_ORCH_CLIENT_SECRET\
+ ./charts/bpdm
 ```
 
-In the following sections you can have a look at the most important configuration options.
+### Step 5: Installation without authentication
 
-#### Image Tag
-
-Per default, the Helm deployment references a certain BPDM Pool release version where the newest Helm release points to the newest Pool version.
-This is a stable tag pointing to a fixed release version of the BPDM Pool.
-For your deployment you might want to follow the latest application releases instead.
-
-In your values file you can overwrite the default tag:
-
-```yaml
-image:
-  tag: "latest"
-```
-
-#### Profiles
-
-You can also activate Spring profiles in which the BPDM Pool should be run.
-In case you want to run the Pool with authorization enabled you can write the following:
-
-```yaml
-springProfiles:
-  - auth
-```
-
-#### Ingress
-
-You can specify your own ingress configuration for the Helm deployment to make the BPDM Pool available over Ingress.
-Note that you need to have the appropriate Ingress controller installed in your cluster first.
-For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
-An Ingress configuration for the Pool deployment could look like this:
-
-```yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-  hosts:
-    - host: business-partners.your-domain.net
-      paths:
-        - path: /pool
-          pathType: Prefix
-```
-
-#### Pool Configuration
-
-The Helm deployment comes with the ability to configure the BPDM Pool application directly over the values file.
-This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
-Consider that you would need to turn on `auth`  profile first before overwriting any property in the corresponding properties file could take effect.
-Overwriting configuration properties can be useful to connect to a remote service:
-
-```yaml
-applicationConfig:
-  bpdm:
-    security:
-      auth-server-url: https://remote.keycloak.domain.com
-      realm: CUSTOM_REALM
-      client-id: POOL_CLIENT
-```
-
-In this example above a Pool with authenticated activated connects to a remote Keycloak instance and uses its custom realm and resource.
-
-Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
-This can be a problem if you want to overwrite configuration properties with secrets.
-Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
-Content of this value is written in a Kubernetes secret instead.
-If you want to specify a custom database password for example:
-
-```yaml
-applicationSecrets:
-  spring:
-    datasource:
-      password: your_database_secret
-```
-
-#### Helm Dependencies
-
-On default, the Helm deployment also contains a PostgreSQL and Opensearch deployment.
-You can configure these deployments in your value file as well.
-For this, consider the documentation of the correspondent dependency [PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql/11.9.13)
-or [Opensearch](https://opensearch.org/docs/latest/dashboards/install/helm/).
-In case you want to use an already deployed database or Opensearch instance you can also disable the respective dependency and overwrite the default host
-address in the `applicationConfig`:
-
-```yaml
-applicationConfig:
-  spring:
-    datasource:
-      url: jdbc:postgresql://remote.host.net:5432/bpdm
-postgres:
-  enabled: false
-```
-
-### 2. BPDM Gate
-
-The [prerequisites](#step-1-prerequisites) for running this service is same except this service need running BPDM Pool instance.
-
-In an existing Kubernetes cluster the application can be deployed with the following command:
+For non-production purposes you may want to install BPDM applications that are not authenticated.
+All BPDM applications offer a Spring profile to quickly remove all authentication configuration for their APIs and client connections.
+In this case you can also disable the Keycloak dependency from being deployed.
 
 ```bash
-helm install release_name ./charts/bpdm/bpdm-gate --namespace your_namespace -f /path/to/my_release-values.yaml
+helm install your_namespace \
+    --set-value keycloak.enabled=false
+    --set-value bpdm-gate.profiles=["no-auth"] \
+    --set-value bpdm-orchestrator.profiles=["no-auth"] \
+    --set-value bpdm-pool.profiles=["no-auth"] \
+    --set-value bpdm-cleaning-service-dummy.profiles=["no-auth"] 
+ ./charts/bpdm
 ```
 
-This will install a new release of the BPDM Gate in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
-The application is run on default profile (without authorization for its own endpoints or BPDM Pool endpoints).
-This deployment requires a BPDM Pool deployment to be reachable under host name `bpdm-pool` on port `8080`.
+You can also more fine-granulary remove authentication on APIs and BPDM client connections.
+You can refer to the no-auth profile configurations (for example that of the [BPDM Gate(without authentication)](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-gate/src/main/resources/application-no-auth.yml)) as a documentation.
 
-By giving your own values file you can configure the Helm deployment of the BPDM Gate freely.
-In the following sections you can have a look at the most important configuration options.
+### Use External Dependencies
 
-#### Image Tag
+The BPDM Charts deploy their own PostgreSQL and Keycloak dependencies.
+However, for production it is recommended to host dedicated Postgres and Keycloak instances with which the BPDM applications should connect to.
 
-Per default, the Helm deployment references the latest BPDM gate release tagged as `main`.
-This tag follows the latest version of the Gate and contains the newest features and bug fixes.
-You might want to switch to a more stable release tag instead for your deployment.
-In your values file you can overwrite the default tag:
+#### Additional Requirements
 
-```yaml
-image:
-  tag: "latest"
-```
+* Postgres (15.4.0 supported)
+* Keycloak (22.0.3 supported)
 
-#### Profiles
+#### Installation
 
-You can also activate Spring profiles in which the BPDM Gate should be run.
-In case you want to run the Gate with authorization and oAuth Pool client enabled you can write the following:
-
-```yaml
-springProfiles:
-  - auth
-  - pool-auth
-```
-
-#### Ingress
-
-You can specify your own ingress configuration for the Helm deployment to make the BPDM Gate available over Ingress.
-Note that you need to have the appropriate Ingress controller installed in your cluster first.
-For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
-An Ingress configuration for the Gate deployment could look like this:
-
-```yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-  hosts:
-    - host: business-partners.your-domain.net
-      paths:
-        - path: /companies/test-company
-          pathType: Prefix
-```
-
-#### Gate Configuration
-
-For the default deployment you already need to overwrite the configuration properties of the application.
-The Helm deployment comes with the ability to configure the BPDM Gate application directly over the values file.
-This way you are able to overwrite any configuration property of the `application.properties`,  `application-auth.properties`
-and  `application-pool-auth.properties` files.
-Consider that you would need to turn on `auth` and `pool-auth` profile first before overwriting any property in the corresponding properties file could take
-effect.
-Overwriting configuration properties can be useful for connecting to a remotely hosted BPDM Pool instance:
-
-```yaml
-applicationConfig:
-  bpdm:
-    pool:
-      base-url: http://remote.domain.net/api/catena
-```
-
-Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
-This can be a problem if you want to overwrite configuration properties with secrets.
-Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
-Content of this value is written in a Kubernetes secret instead.
-If you want to specify a keycloak client secret for example:
-
-```yaml
-applicationSecrets:
-  bpdm:
-    security:
-      credentials:
-        secret: your_client_secret
-```
-
-### 3. BPDM Bridge Dummy
-
-The [prerequisites](#step-1-prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
+In this case, you can disable the dependencies and configure the connection to external systems in the application configuration.
 
 ```bash
-helm install release_name ./charts/bpdm/bpdm-bridge-dummy --namespace your_namespace -f /path/to/my_release-values.yaml
+helm install your_namespace \
+    --set-value keycloak.enabled=false
+    --set-value postgres.enabled=false
+    --set-value bpdm-gate.applicationConfig.bpdm.datasource.host=external-db \
+    --set-value bpdm-gate.applicationConfig.bpdm.security.auth-server-url=http://external-keycloak \
+    --set-value bpdm-pool.applicationConfig.bpdm.datasource.host=external-db \
+    --set-value bpdm-pool.applicationConfig.bpdm.security.auth-server-url=http://external-keycloak \
+    --set-value bpdm-orchestrator.applicationConfig.bpdm.security.auth-server-url=http://external-keycloak \
+    --set-value bpdm-cleaning-service-dummy.applicationConfig.bpdm.client.orchestrator.provider.issuer-uri= http://external-keycloak/realms/CX-Central \
+ ./charts/bpdm
 ```
 
-This will install a new release of the BPDM Bridge Dummy in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
+### Fine-granular Configuration
 
-By giving your own values file you can configure the Helm deployment of the BPDM Bridge Dummy freely.
-In the following sections you can have a look at the most important configuration options.
+You can configure all BPDM applications over Helm values more fine-granulary via the `applicationConfig` and `applicationSecrets`.
+Values under these groups are directly injected as application properties in the deployed containers.
 
-#### Image Tag
+As a reference of what can be changed have a look at the respective application properties files of each application:
 
-Per default, the Helm deployment references the latest BPDM Bridge Dummy release tagged as `main`.
-This tag follows the latest version of the Bridge Dummy and contains the newest features and bug fixes.
-You might want to switch to a more stable release tag instead for your deployment.
-In your values file you can overwrite the default tag:
-
-```yaml
-image:
-  tag: "latest"
-```
-
-#### Profiles
-
-You can also activate Spring profiles in which the BPDM Bridge Dummy should be run.
-In case you want to run the Bridge Dummy with authorization enabled you can write the following:
-
-```yaml
-springProfiles:
-  - auth
-```
-
-#### Ingress
-
-You can specify your own ingress configuration for the Helm deployment to make the BPDM Bridge Dummy available over Ingress.
-Note that you need to have the appropriate Ingress controller installed in your cluster first.
-For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
-An Ingress configuration for the Bridge Dummy deployment could somehow look like this:
-
-```yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-  hosts:
-    - host: business-partners.your-domain.net
-      paths:
-        - path: /bridge
-          pathType: Prefix
-```
-
-#### Bridge Dummy Configuration
-
-For the default deployment you already need to overwrite the configuration properties of the application.
-The Helm deployment comes with the ability to configure the BPDM Bridge Dummy application directly over the values file.
-This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
-Consider that you would need to turn on `auth` profile first before overwriting any property in the corresponding properties file could take
-effect.
-Overwriting configuration properties can be useful for connecting to a remotely hosted BPDM Gate and Pool instance:
-
-```yaml
-applicationConfig:
-  bpdm:
-    pool:
-      base-url: http://remote.domain.net/api/catena
-    gate:
-      base-url: http://remote.domain.net/api/catena
-```
-
-Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
-This can be a problem if you want to overwrite configuration properties with secrets.
-Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
-Content of this value is written in a Kubernetes secret instead.
-If you want to specify a keycloak client secret for example:
-
-```yaml
-applicationSecrets:
-  bpdm:
-    security:
-      credentials:
-        secret: your_client_secret
-```
-
-### 4. BPDM Cleaning Dummy
-
-The [prerequisites](#step-1-prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
-
-```bash
-helm install release_name ./charts/bpdm/bpdm-cleaning-service-dummy --namespace your_namespace -f /path/to/my_release-values.yaml
-```
-
-This will install a new release of the BPDM Cleaning Dummy in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
-
-By giving your own values file you can configure the Helm deployment of the BPDM Cleaning Dummy freely.
-In the following sections you can have a look at the most important configuration options.
-
-#### Image Tag
-
-Per default, the Helm deployment references the latest BPDM Cleaning Dummy release tagged as `main`.
-This tag follows the latest version of the Cleaning Dummy and contains the newest features and bug fixes.
-You might want to switch to a more stable release tag instead for your deployment.
-In your values file you can overwrite the default tag:
-
-```yaml
-image:
-  tag: "latest"
-```
-
-#### Profiles
-
-You can also activate Spring profiles in which the BPDM Cleaning Dummy should be run.
-In case you want to run the Cleaning Dummy with authorization enabled you can write the following:
-
-```yaml
-springProfiles:
-  - auth
-```
-
-#### Ingress
-
-You can specify your own ingress configuration for the Helm deployment to make the BPDM Cleaning Dummy available over Ingress.
-Note that you need to have the appropriate Ingress controller installed in your cluster first.
-For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
-An Ingress configuration for the Cleaning Dummy deployment could somehow look like this:
-
-```yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-  hosts:
-    - host: business-partners.your-domain.net
-      paths:
-        - path: /cleaning
-          pathType: Prefix
-```
-
-#### Cleaning Dummy Configuration
-
-For the default deployment you already need to overwrite the configuration properties of the application.
-The Helm deployment comes with the ability to configure the BPDM Cleaning Dummy application directly over the values file.
-This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
-Consider that you would need to turn on `auth` profile first before overwriting any property in the corresponding properties file could take effect.
-
-Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
-This can be a problem if you want to overwrite configuration properties with secrets.
-Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
-Content of this value is written in a Kubernetes secret instead.
-If you want to specify a keycloak client secret for example:
-
-```yaml
-applicationSecrets:
-  bpdm:
-    security:
-      credentials:
-        secret: your_client_secret
-```
-
-### 5. BPDM Orchestrator
-
-The [prerequisites](#step-1-prerequisites) for running this service is same. In an existing Kubernetes cluster the application can be deployed with the following command:
-
-```bash
-helm install release_name ./charts/bpdm/bpdm-orchestrator --namespace your_namespace -f /path/to/my_release-values.yaml
-```
-
-This will install a new release of the BPDM Orchestrator in the given namespace.
-On default values this release deploys the latest image tagged as `main` from the repository's GitHub Container Registry.
-
-By giving your own values file you can configure the Helm deployment of the BPDM Orchestrator freely.
-In the following sections you can have a look at the most important configuration options.
-
-#### Image Tag
-
-Per default, the Helm deployment references the latest BPDM Orchestrator release tagged as `main`.
-This tag follows the latest version of the Orchestrator and contains the newest features and bug fixes.
-You might want to switch to a more stable release tag instead for your deployment.
-In your values file you can overwrite the default tag:
-
-```yaml
-image:
-  tag: "latest"
-```
-
-#### Profiles
-
-You can also activate Spring profiles in which the BPDM Orchestrator should be run.
-In case you want to run the Orchestrator with authorization enabled you can write the following:
-
-```yaml
-springProfiles:
-  - auth
-```
-
-#### Ingress
-
-You can specify your own ingress configuration for the Helm deployment to make the BPDM Orchestrator available over Ingress.
-Note that you need to have the appropriate Ingress controller installed in your cluster first.
-For example, consider a Kubernetes cluster with an [Ingress-Nginx](https://kubernetes.github.io/ingress-nginx/) installed.
-An Ingress configuration for the Orchestrator deployment could somehow look like this:
-
-```yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-  hosts:
-    - host: business-partners.your-domain.net
-      paths:
-        - path: /cleaning
-          pathType: Prefix
-```
-
-#### Orchestrator Configuration
-
-For the default deployment you already need to overwrite the configuration properties of the application.
-The Helm deployment comes with the ability to configure the BPDM Orchestrator application directly over the values file.
-This way you are able to overwrite any configuration property of the `application.properties` and `application-auth.properties` files.
-Consider that you would need to turn on `auth` profile first before overwriting any property in the corresponding properties file could take effect.
-
-Entries in the "applicationConfig" value are written directly to a configMap that is part of the Helm deployment.
-This can be a problem if you want to overwrite configuration properties with secrets.
-Therefore, you can specify secret configuration values in a different Helm value `applicationSecrets`.
-Content of this value is written in a Kubernetes secret instead.
-If you want to specify a keycloak client secret for example:
-
-```yaml
-applicationSecrets:
-  bpdm:
-    security:
-      credentials:
-        secret: your_client_secret
-```
+1. [BPDM Gate](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-gate/src/main/resources/application.yml)
+2. [BPDM Pool](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-pool/src/main/resources/application.yml)
+3. [BPDM Orchestrator](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-orchestrator/src/main/resources/application.yml)
+4. [BPDM Cleaning Service Dummy](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-cleaning-service-dummy/src/main/resources/application.yml)
 
 ## Stopping the cluster
 
