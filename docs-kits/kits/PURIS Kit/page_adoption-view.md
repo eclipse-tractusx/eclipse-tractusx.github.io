@@ -46,7 +46,7 @@ The PURIS service enriches companies' resilience strategy by improving data shar
 
 ![Overview](assets/PURIS_KIT_overview.svg)
 
-_Figure 1: PURIS information exchange between partners_
+_Figure 1: PURIS information exchange between partners_.
 
 Key aspects of PURIS are:
 
