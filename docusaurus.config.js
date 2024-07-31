@@ -366,6 +366,42 @@ const config = {
               groupPathsBy: 'tag',
             },
           },
+          dcm_id_based_comment: {
+            specPath:
+              './openApi/dcm/IdBasedComment.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-comment-api', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          dcm_id_based_request_for_update: {
+            specPath:
+              './openApi/dcm/IdBasedRequestForUpdate.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-rfu-api', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          dcm_week_based_capacity_group: {
+            specPath:
+              './openApi/dcm/WeekBasedCapacityGroup.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-capacity-group-api', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          dcm_week_based_material_demand: {
+            specPath:
+              './openApi/dcm/WeekBasedMaterialDemand.yaml', // Path to designated spec file
+            outputDir:
+              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-material-demand-api', // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
         },
       },
     ],
