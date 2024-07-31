@@ -11,7 +11,7 @@ This tutorial focuses on the working with the DTR. You will learn what the DTR i
 
 ## Introduction
 
-Catena-X uses the Asset Administration Shell (AAS) to represent digital twins. Such a digital twin is basically a shell with an ID in UUID-format that makes it uniquely identifiable. Also it contains IDs ("specificAssetIds") that connect the shell with the original asset it represents (e.g. the "manufacturerPartId"). The shell also contains SubmodelDescriptors which reference to submodels that contain the actual data of specific aspects of the asset.
+Catena-X uses the Asset Administration Shell (AAS) to represent digital twins. Such a digital twin is basically a shell with an ID (usually a UUID) that makes it uniquely identifiable. Also it contains IDs ("specificAssetIds") that connect the shell with the original asset it represents (e.g. the "manufacturerPartId"). The shell also contains SubmodelDescriptors which reference to submodels that contain the actual data of specific aspects of the asset.
 
 The Digital Twin Registry (DTR) contains a list of all registered digital twins of the owner and therefore acts as an address book for Digital Twins. With the DTR of a data provider, a data consumer can therefore find digital twin and also get directed to the desired submodels of the twin.
 
