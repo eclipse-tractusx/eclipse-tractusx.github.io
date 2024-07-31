@@ -35,7 +35,7 @@ the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Di
 in Catena-X. The architecture in this figure only applies to standards that are based on the Digital Twins in
 Catena-X ([Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-interaction-patterns)).
 
-![PURIS Conceptual Levels](resources/PURIS-R2405-architecture-sketch.png)
+![PURIS Conceptual Levels](resources/PURIS-R2405-architecture-sketch.svg)
 _Figure 1: High-level architecture of the submodel exchange in the Catena-X dataspace_
 
 ### Component Architecture (Conceptual Whitebox View)
@@ -44,7 +44,7 @@ From conceptual point of view a PURIS system consists of different building bloc
 following diagram show which participant deploys which components. Identification and Access Management is omitted for
 simplicity reasons.
 
-![Whitebox View](resources/whitebox-view.png)
+![Whitebox View](resources/PURIS-KIT-24.08-Whitebox.svg)
 _Figure 2: Whitebox view on a PURIS system_
 
 The PURIS App is a software application that allows to exchange relevant data with partners. It's meant to
@@ -111,7 +111,7 @@ apply:
 Note: from business point of view a quid-pro-quo principle of exchanged information is recommended (stock for stock,
 production for demand, delivery information as needed based inco term, days of supply for days of supply).
 
-![Conceptual Levels](resources/drawio-backup-PURIS-Conceptual-levels-R2405-rev-1.png)
+![Conceptual Levels](resources/PURIS-Conceptual-levels-R2405.svg)
 _Figure 3: Conceptual levels of provisioning digital twins in the shared asset approach_
 
 ## Policies
