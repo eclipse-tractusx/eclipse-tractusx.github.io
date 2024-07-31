@@ -88,7 +88,14 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 ![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
 
-**Note:** There will be an explanatory youtube video, which will be available after IP clearance. [ESS video](<https://bcgcatenax.sharepoint.com/:v:/r/sites/ARTV/Shared%20Documents/ESS%20(Environment%20and%20Social%20Standards)/ESS%20KIT/Film/CX-full%20process%20demo%20v5.mp4?csf=1&web=1&e=nVeYZ6>)
+**Note:** There is an explanatory video published on youtube. [ESS video](<https://youtu.be/ySsy6v9_bsM>)
+
+### Customer Journey: Occasion-related tracking in broken supply chains
+
+If no Catena-X member can be identified within the Catena-X network, other external sources could be used to identify the missing suppliers and fill the gaps that are relevant for this ESS incident.
+
+For each supplier that could be found, the Clearing Agency would need to check against the Catena-X network if a BPN is available or not. The identified supplier (there could be more than one), who is a member of the Catena-X network, will be assigned as the ESS incident moderator for this ESS incident. The incident moderator can be addressed via the EDC endpoint of the Business Partner and is most likely the incident manager of this Business Partner.
+Now, the tracing of an ESS incident can continue as described above. The ESS incident moderator shall trace the supply chain both upstream (towards his suppliers) and downstream (towards his customers). For Business Partners, that are members of the supply chain, the Catena-X network and its services can be utilized, for Business Partners, that are not in the Catena-X network other means of communication must be used.
 
 ### ESS Incidents personas
 
@@ -177,7 +184,7 @@ The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/
 #### Code of Conduct of the Catena-X Use Case Sustainability / Environmental and Social standards
 
 In the Catena-X use case sustainability / environmental and social standards, principles are established with the aim of establishing transparent and trustworthy practices within the Catena-X network.
-The Code of Conduct will be published on the Catena-X webpage soon.
+The [Code of Conduct will be published on the Catena-X webpage](https://catenax-ev.github.io/docs/next/non-functional-requirements/assets/CX-NFR-ESS-Codex_v.1.0_EN.pdf)
 
 ## Standards
 
