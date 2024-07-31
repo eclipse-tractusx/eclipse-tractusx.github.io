@@ -316,14 +316,19 @@ The Digital Product Passport Verification add-on is basically a concept for Cert
 
 The focus is on proving a process, artifacts and technologies, based on the existing SSI concept, aiming to enable Certification/Verification processes in Catena-X using wallets.
 
-The documentation from the Digital Product Pass Verification Add-on is available [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and is planned to be released as an official Catena-X whitepaper in R24.08.
+The documentation from the Digital Product Pass Verification Add-on is available [here](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification). The concept enables the verification of the Data in the Reference Implementation using a [simple wallet](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification/simple-wallet), a functional wallet that can:
 
-> [!TIP]
-> The implementation is **NOT YET AVAILABLE**, it is planned for R24.08 and it is a **PoC** for data certification and verification for any other aspect model in Catena-X. Keep an eye on the [`Digital Product Pass Repository`](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) for further updates.
+- Sign verifiable credentials with JsonWebSignature2020 proofs
+- Verify verifiable credentials with JsonWebSignature2020 proofs
+- Manage private and public keys, providing via DID Documents public keys in JsonWebKey2020 format
+
+Additionally the simple wallet contains a extension for creating JSON-LD @contexts using Catena-X SAMM Models Schemas. This allows the verifiable credentials with the semantic models to be valid JSON-LDs documents and enables the context of the existing and future modeled documents.
+
+![Verification Addon Screenshot](./resources/development-view/verificationAddon.png)
 
 ### Business Partner Data Management Add-on
 
-When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation. This add-on will be implemented in R24.08.
+When passports are retrieved from the data providers not all the company data is available to be visualized and shown. In order to eliminate the need to maintain models which contain references to companies in Catena-X the new models contain the `BPNS` and `BPNL` from the companies. Which can be translated into Address and Company information using the [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm) reference implementation.
 
 > [!IMPORTANT]
 >
