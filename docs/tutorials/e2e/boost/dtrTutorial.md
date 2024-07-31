@@ -72,7 +72,7 @@ Action (Bob): Create a data asset using the following command:
    }
 }'
 ```
-
+As per the current standards, there is no need to proxy the HTTP method. If there is (for instance due to a proprietary query endpoint), the data provider must ensure thatthat the technical user that the registered credentials abstract does NOT have the power to manipulate the DTR's data (for instance via the `PUT /shell-descriptors/{{aasId}}` API. 
 #### Create a policy
 
 After Bob has created an data asset, he must define a BPN-restrictive policy in order to give Alice access to the asset. This policy is not standardized and can be chosen according to its needs. Bob wants to define the policy that only Alice can see the DTR Asset.
