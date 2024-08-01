@@ -435,9 +435,9 @@ companies (one level down approach) is known. (Relationship: Customer - Supplier
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 * SPDX-License-Identifier: CC-BY-4.0
-* SPDX-FileCopyrightText: 2021, 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+* SPDX-FileCopyrightText: 2021, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 * SPDX-FileCopyrightText: 2022, 2023 BOSCH AG
 * SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
 * SPDX-FileCopyrightText: 2022 ISTOS GmbH
-* SPDX-FileCopyrightText: 2021, 2023 Contributors to the Eclipse Foundation
+* SPDX-FileCopyrightText: 2021, 2024 Contributors to the Eclipse Foundation
 * Source URL: <https://github.com/eclipse-tractusx/item-relationship-service>
