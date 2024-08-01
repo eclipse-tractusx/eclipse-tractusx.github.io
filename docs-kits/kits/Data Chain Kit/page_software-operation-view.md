@@ -44,6 +44,7 @@ Helm can give you feedback on the release status:
 ```bash
 helm list
 ```
+
 ```bash
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 irs-local       default         1               2024-08-01 10:24:46.8811785 +0200 CEST  deployed        item-relationship-service-7.4.0 5.4.0
