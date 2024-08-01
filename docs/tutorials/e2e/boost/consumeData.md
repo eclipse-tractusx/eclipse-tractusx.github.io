@@ -35,7 +35,7 @@ Alice finds the Asset with the ID 3 and the description "Product EDC Demo Asset 
 ## Negotiate a contract
 
 :::info
-Dont forget to change the `offerId`with the one you received in the previous step in your catalog request.
+Don't forget to change the `offerId` with the one you received in the previous step in your catalog request.
 :::
 
 But before she can transfer the data, she must negotiate the contract with Bob. To do this, she uses the following `curl` command:
@@ -78,8 +78,7 @@ The response should look like this:
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
 ```
@@ -101,7 +100,7 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contra
 --header 'X-Api-Key: TEST1' | jq
 ```
 
-- If the negotiation was **successful**, Alice will see an ouput as shown below.
+- If the negotiation was **successful**, Alice will see an output as shown below.
 - If the negotiation was **unsuccessful**, the negotiation state (`edc:state`) will be `TERMINATED` and no contract agreement ID will be present.
 
 ```json
@@ -121,8 +120,7 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contra
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
 ```
@@ -180,8 +178,7 @@ The response in this case looks like this:
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
 ```
@@ -229,8 +226,7 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transf
     "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
 ```
@@ -278,7 +274,7 @@ curl -X GET -H 'Authorization: eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE3MTU2NzA1MDEsImRh
 ```
 
 :::info
-Currently the response for this curl commoand is
+Currently the response for this curl command is
 
 ```json
 {

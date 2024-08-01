@@ -39,7 +39,7 @@ To ensure that Bob's DTR becomes visible for Alice and to start the data exchang
 
 Action (Bob): Create a data asset using the following command:
 
-(note: that the "asset:prop:type" is standardized with "data.core.digitalTwinRegistry" for the Digital Twin Registry.)
+(note: that the "http://purl.org/dc/terms/type" property is standardized with "https://w3id.org/catenax/taxonomy#DigitalTwinRegistry" for the Digital Twin Registry.)
 
 ```curl --location 'http://dataprovider-controlplane.tx.test/management/v3/assets' \
 --header 'Content-Type: application/json' \
@@ -73,11 +73,11 @@ Action (Bob): Create a data asset using the following command:
 }'
 ```
 
-As per the current standards, there is no need to proxy the HTTP method. If there is (for instance due to a proprietary query endpoint), the data provider must ensure thatthat the technical user that the registered credentials abstract does NOT have the power to manipulate the DTR's data (for instance via the `PUT /shell-descriptors/{{aasId}}` API.
+As per the current standards, there is no need to proxy the HTTP method. If there is (for instance due to a proprietary query endpoint), the data provider must ensure that the technical user that the registered credentials abstract does NOT have the power to manipulate the DTR's data (for instance via the `PUT /shell-descriptors/{{aasId}}` API.
 
 #### Create a policy
 
-After Bob has created an data asset, he must define a BPN-restrictive policy in order to give Alice access to the asset. This policy is not standardized and can be chosen according to its needs. Bob wants to define the policy that only Alice can see the DTR Asset.
+After Bob has created a data asset, he must define a BPN-restrictive policy in order to give Alice access to the asset. This policy is not standardized and can be chosen according to its needs. Bob wants to define the policy that only Alice can see the DTR Asset.
 
 Action (Bob): Defines the access policy using the following command:
 
@@ -86,24 +86,25 @@ Action (Bob): Defines the access policy using the following command:
     "@context": {
         "odrl": "http://www.w3.org/ns/odrl/2/"
     },
-    "@type": "PolicyDefinitionRequestDto",
+    "@type": "PolicyDefinition",
     "@id": "{{POLICY_ID}}",
     "policy": {
-  "@type": "Policy",
-  "odrl:permission" : [{
-   "odrl:action" : "USE",
-   "odrl:constraint" : {
-    "@type": "LogicalConstraint",
-    "odrl:or" : [{
-     "@type" : "Constraint",
-     "odrl:leftOperand" : "BusinessPartnerNumber",
-     "odrl:operator" : {
-                        "@id": "odrl:eq"
-                    },
-     "odrl:rightOperand" : "{{CONSUMER_BPN}}"
-    }]
-   }
-  }]
+      "@type": "Policy",
+      "odrl:permission" : [{
+       "odrl:action" : "USE",
+       "odrl:constraint" : {
+        "@type": "LogicalConstraint",
+        "odrl:or" : [{
+         "@type" : "Constraint",
+         "odrl:leftOperand" : "BusinessPartnerNumber",
+         "odrl:operator" :
+            {
+               "@id": "odrl:eq"
+            },
+         "odrl:rightOperand" : "{{CONSUMER_BPN}}"
+        }]
+       }
+      }]
     }
 }
 ```
@@ -122,7 +123,7 @@ Action (Bob): Create the contract policy using the following command:
     "accessPolicyId": "{{ACCESS_POLICY_ID}}",
     "contractPolicyId": "{{CONTRACT_POLICY_ID}}",
     "assetsSelector" : {
-        "@type" : "CriterionDto",
+        "@type" : "Criterion",
         "operandLeft": "{{EDC_NAMESPACE}}id",
         "operator": "=",
         "operandRight": "{{ASSET_ID}}"
@@ -215,11 +216,11 @@ curl -i -X POST "${edcManagementBaseUrl}/v3/assets" -H "X-Api-Key: ${edcApiKey}"
 Action (Bob): Create a Policy with the following commands:
 
 ```curl
-curl -i -X POST "${edcManagementBaseUrl}/v2/policydefinitions" -H "X-Api-Key: ${edcApiKey}" -H "Content-Type: application/json" --data-raw "{
+curl -i -X POST "${edcManagementBaseUrl}/v3/policydefinitions" -H "X-Api-Key: ${edcApiKey}" -H "Content-Type: application/json" --data-raw "{
     \"@context\": {
         \"odrl\": \"http://www.w3.org/ns/odrl/2/\"
     },
-    \"@type\": \"PolicyDefinitionRequestDto\",
+    \"@type\": \"PolicyDefinition\",
     \"@id\": \"${policyId}\",
     \"policy\": {
         \"@type\": \"Policy\",
@@ -237,14 +238,14 @@ curl -i -X POST "${edcManagementBaseUrl}/v2/policydefinitions" -H "X-Api-Key: ${
 Action (Bob): Create a contract definition with the following commands:
 
 ```curl
-curl -i -X POST "${edcManagementBaseUrl}/v2/contractdefinitions" -H "X-Api-Key: ${edcApiKey}" -H "Content-Type: application/json" --data-raw "{
+curl -i -X POST "${edcManagementBaseUrl}/v3/contractdefinitions" -H "X-Api-Key: ${edcApiKey}" -H "Content-Type: application/json" --data-raw "{
     \"@context\": {},
     \"@id\": \"${contractDefinitionId}\",
     \"@type\": \"ContractDefinition\",
     \"accessPolicyId\": \"${policyId}\",
     \"contractPolicyId\": \"${policyId}\",
     \"assetsSelector\" : {
-        \"@type\" : \"CriterionDto\",
+        \"@type\" : \"Criterion\",
         \"operandLeft\": \"https://w3id.org/edc/v0.0.1/ns/id\",
         \"operator\": \"=\",
         \"operandRight\": \"${assetId}\"

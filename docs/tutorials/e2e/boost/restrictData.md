@@ -36,14 +36,14 @@ Now that the asset has been created, Bob creates an access policy that defines w
 Action (Bob): Create the access policy using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
+curl --location 'http://dataprovider-controlplane.tx.test/management/v3/policydefinitions' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST2' \
 --data-raw '{
   "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
-  "@type": "PolicyDefinitionRequestDto",
+  "@type": "PolicyDefinition",
   "@id": "41",
   "policy": {
     "@type": "Policy",
@@ -96,14 +96,14 @@ Since an access policy has already been created, a contract policy must be creat
 Action (Bob): Create the contract policy using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
+curl --location 'http://dataprovider-controlplane.tx.test/management/v3/policydefinitions' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST2' \
 --data-raw '{
   "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
-  "@type": "PolicyDefinitionRequestDto",
+  "@type": "PolicyDefinition",
   "@id": "42",
   "policy": {
     "@type": "Policy",
@@ -153,7 +153,7 @@ Lastly, the asset and the access policy must be linked in a contract definition.
 Action (Bob): Create a contract definition including the asset and the policies you have created. For this, use the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/contractdefinitions' \
+curl --location 'http://dataprovider-controlplane.tx.test/management/v3/contractdefinitions' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST2' \
 --data-raw '{
@@ -163,7 +163,7 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/contract
     "accessPolicyId": "41",
     "contractPolicyId": "42",
     "assetsSelector" : {
-        "@type" : "CriterionDto",
+        "@type" : "Criterion",
         "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
         "operator": "=",
         "operandRight": "4"
@@ -196,7 +196,7 @@ Let´s see if Alice can see the Asset.
 Action (Alice): Execute a request using the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v3/catalog/request' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST1' \
 --data-raw '{
