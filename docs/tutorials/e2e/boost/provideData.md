@@ -43,7 +43,7 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v3/assets' 
 Just to be sure, that the asset was created succesfully, Bob can check the asset using the following `curl` command:
 
 ```shell
-curl -X POST http://dataprovider-controlplane.tx.test/management/v3/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
+curl -X POST http://dataprovider-controlplane.tx.test/management/v2/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
 ```
 
 The result shows the already existing assets and the newly created asset.
@@ -132,7 +132,7 @@ Bob tells Alice, that he created an asset, and she should now be able to request
 Action (Alice): Execute a request using the following `curl` commands:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v3/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST1' \
 --data-raw '{
@@ -274,7 +274,7 @@ Alice calls Bob and says she can´t see the asset. Bob remembers that he did not
 Action (Bob): Create the access policy using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v3/policydefinitions' \
+curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST2' \
 --data-raw '{
@@ -314,7 +314,7 @@ Now that Bob created an access policy, Alice can once again try to access Bob's 
 Action (Alice): Execute the request again using the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v3/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST1' \
 --data-raw '{
@@ -352,7 +352,7 @@ Since an access policy has already been created, a contract policy must be creat
 Action (BoB): Create the contract policy using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v3/policydefinitions' \
+curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST2' \
 --data-raw '{
@@ -430,7 +430,7 @@ Let´s see if Alice can finally see the Asset.
 Action (Alice): Execute the request again using the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v3/catalog/request' \
+curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
 --header 'Content-Type: application/json' \
 --header 'X-Api-Key: TEST1' \
 --data-raw '{
