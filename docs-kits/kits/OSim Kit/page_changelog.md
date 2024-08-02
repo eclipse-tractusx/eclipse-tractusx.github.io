@@ -11,6 +11,25 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [3.0.0] - 2024-08-01
+
+### Added
+
+- Adoption View:
+  - Added new Chapter Product documentation with a link to the document.
+
+### Changed
+
+- Adoption View:
+  - Updated the aspect model references to the newest version.
+- Development View:
+  - Updated the API descriptions in accordance with the newest OSim standardization document CX-133
+
+### Removed
+
+- Adoption View:
+  - References to the obsolete OSim Standards.
+
 ## [2.0.0] – 2024-03-08
 
 ### Added

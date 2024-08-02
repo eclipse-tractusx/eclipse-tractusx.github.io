@@ -1,7 +1,7 @@
 ---
 id: Adoption View OSim Kit
 title: Adoption View
-description: 'OSim Kit'
+description: "OSim Kit"
 sidebar_position: 2
 ---
 
@@ -12,6 +12,7 @@ sidebar_position: 2
 ## Vision & Mission
 
 <!--VISION of the Kit-->
+
 **Gain increased supply chain transparency through collaborative simulation across all stakeholders**.
 
 **Combine simulations of plants internally with simulations of external logistics over multiple tiers**.
@@ -22,7 +23,7 @@ An open architecture for integrating partners of all kinds together with standar
 
 **Integrate any supply chain partner**.
 
-Even partners that do  not use any simulation tool can contribute to the overall transparency through the well-defined information requirements.
+Even partners that do not use any simulation tool can contribute to the overall transparency through the well-defined information requirements.
 
 **Integrate any simulation tool**.
 
@@ -69,9 +70,9 @@ See also the following publications for more detailed description of the process
 
 The Semantic Model MaterialFlowSimulationResult summarizes simulation results of the individual partners and is used for data exchange along the supply chain.
 
-The *MaterialFlowSimulationResult* object will be sent by OSim partner to another OSim partner on a higher tier level. OSim partner can be a producing company as well as a logistics company.
+The _MaterialFlowSimulationResult_ object will be sent by OSim partner to another OSim partner on a higher tier level. OSim partner can be a producing company as well as a logistics company.
 
-Every *MaterialFlowSimulationResult* includes information about delivery readiness of packaged material goods, like material identifier, amount, delivery time and destination.
+Every _MaterialFlowSimulationResult_ includes information about delivery readiness of packaged material goods, like material identifier, amount, delivery time and destination.
 
 #### Structure of the Materialflow Simulation Result
 
@@ -82,7 +83,7 @@ The MaterialFlowSimulationResult semantic model contains 4 hierarchical entities
 - HandlingUnit
 - MaterialBatch
 
-One *MaterialFlowSimulationResult* refers to one or more Shipments.
+One _MaterialFlowSimulationResult_ refers to one or more Shipments.
 
 **Shipment** describes a delivery approach with information about source, destination and delivery time. One Shipment refers to one or more HandlingUnits.
 
@@ -92,19 +93,19 @@ One *MaterialFlowSimulationResult* refers to one or more Shipments.
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/2.0.0>
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/3.0.0>
 
 ### Materialflow Scenario Request (MaterialFlowScenarioRequest)
 
-The Semantic Model *MaterialFlowScenarioRequest* includes scenario related information of the individual partners and is used for data exchange along the supply chain in regard to “What-If” scenarios.
+The Semantic Model _MaterialFlowScenarioRequest_ includes scenario related information of the individual partners and is used for data exchange along the supply chain in regard to “What-If” scenarios.
 
-The *MaterialFlowScenarioRequest* object will be sent by OSim partner to another OSim partner (possible in both directions: up and down). OSim partner can be a producing company as well as a logistics company.
+The _MaterialFlowScenarioRequest_ object will be sent by OSim partner to another OSim partner (possible in both directions: up and down). OSim partner can be a producing company as well as a logistics company.
 
-Every *MaterialFlowScenarioRequest* includes information about the scenario description, scenario parameters (optional) and two simulation results analogues to the MaterialFlowSimulationResult (one with the unchanged and another one with the changed situation, allowing verification of scenario impact through comparison).
+Every _MaterialFlowScenarioRequest_ includes information about the scenario description, scenario parameters (optional) and two simulation results analogues to the MaterialFlowSimulationResult (one with the unchanged and another one with the changed situation, allowing verification of scenario impact through comparison).
 
 #### Structure of the Materialflow Scenario Request
 
-The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
+The _MaterialFlowScenarioRequest_ semantic model contains 4 entities:
 
 - Scenario Header
 - Scenario Parameters (optional)
@@ -121,7 +122,7 @@ The *MaterialFlowScenarioRequest* semantic model contains 4 entities:
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/1.0.0>
+Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/2.0.0>
 
 ## Logic & Schema
 
@@ -228,12 +229,12 @@ To verify the participants Catena-X membership, the Membership verifiable creden
 
 ```json
 {
- "@type": "Constraint",
- "odrl:leftOperand": "Membership",
- "odrl:operator": {
- "@id": "odrl:eq"
- },
- "odrl:rightOperand": "active"
+  "@type": "Constraint",
+  "odrl:leftOperand": "Membership",
+  "odrl:operator": {
+    "@id": "odrl:eq"
+  },
+  "odrl:rightOperand": "active"
 }
 ```
 
@@ -241,16 +242,21 @@ To verify the participants Catena-X membership, the Membership verifiable creden
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
-- [CX - 0072 OSim Process and Core Business Logic v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0072-OSimProcessAndCoreBusinessLogic-v1.0.0.pdf)
-- [CX - 0073 OSim API v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0073-OSimAPI-v1.0.0.pdf)
-- [CX - 0087 OSim Data Model Materialflow Simulation Result v1.0.0](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0087-OSimDataModelMaterialFlowSimulationResult-v1.0.0.pdf)
-- [CX - 0133 Online Control and Simulation v1.0.0](https://catena-x.net/de/standard-library)
+- [CX - 0133 Online Control and Simulation v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0133-OnlineControlandSimulation)
+
+## Product Documentation
+
+A deeper understanding of the basic Online Control and Simulation use case can be gained from the following linked document. While in the OSIM-KIT only the standardized partner interface of OSim is considered, the OSim product documentation represents the complete technical specification of the use case.
+
+- [OSim - Product Documentation_EN](./OSim-Product-Documentation-EN.pdf)
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Manufacturing Engineering and Automation IPA
 - SPDX-FileCopyrightText: 2024,Fraunhofer Institute for Factory Operation and Automation IFF
+- SPDX-FileCopyrightText: 2024,German Edge Cloud GmbH & Co.KG
 - SPDX-FileCopyrightText: 2024,Siemens AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
