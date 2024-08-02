@@ -23,7 +23,7 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
 | [BPDM Kit](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit) | n/a | [6.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/Business%20Partner%20Kit/Changelog) |
-| [BPN DID Resolution Service (BDRS)](https://github.com/eclipse-tractusx/bpn-did-resolution-service) | [0.5.2](https://github.com/eclipse-tractusx/bpn-did-resolution-service/releases/tag/0.5.2) | [0.5.2](https://github.com/eclipse-tractusx/bpn-did-resolution-service/releases/tag/0.5.2) |
+| [BPN DID Resolution Service (BDRS)](https://github.com/eclipse-tractusx/bpn-did-resolution-service) | bdrs: [0.5.2](https://github.com/eclipse-tractusx/bpn-did-resolution-service/releases/tag/0.5.2) | [0.5.2](https://github.com/eclipse-tractusx/bpn-did-resolution-service/releases/tag/0.5.2) |
 | [Circularity Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Circularity_KIT/page-adoption-view) | n/a | [1.2.0](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/data%20chain%20kit%20changelog) |
 | [DCM Kit](https://eclipse-tractusx.github.io/docs-kits/category/dcm-kit) | n/a | [1.1.0](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/changelog) |
 | [Digital Product Pass (DPP)](https://github.com/eclipse-tractusx/digital-product-pass) | digital-product-pass: [4.0.1](https://github.com/eclipse-tractusx/digital-product-pass/releases/tag/digital-product-pass-4.0.1) | [v4.0.1](https://github.com/eclipse-tractusx/digital-product-pass/releases/tag/v4.0.1) |
@@ -31,7 +31,7 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
 | [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry) | digital-twin-registry: [0.5.2](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/digital-twin-registry-0.5.2) | [v0.5.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/v0.5.0) |
 | [Discovery Finder](https://github.com/eclipse-tractusx/sldt-discovery-finder) | discoveryfinder: [0.3.1](https://github.com/eclipse-tractusx/sldt-discovery-finder/releases/tag/discoveryfinder-0.3.1) | [v0.4.0](https://github.com/eclipse-tractusx/sldt-discovery-finder/releases/tag/v0.4.0) |
 | [Discovery Service (BPN Finder)](https://github.com/eclipse-tractusx/sldt-bpn-discovery) | bpndiscovery: [0.3.1](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/bpndiscovery-0.3.1) | [v0.4.0](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/v0.4.0) |
-| [Eclipse Data Space Connector (Tractus-X EDC)](https://github.com/eclipse-tractusx/tractusx-edc) | [0.7.3](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.7.3) | [0.7.3](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.7.3) |
+| [Eclipse Data Space Connector (Tractus-X EDC)](https://github.com/eclipse-tractusx/tractusx-edc) | tractusx-connector: [0.7.3](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.7.3) | [0.7.3](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.7.3) |
 | [EcoPass Kit](https://eclipse-tractusx.github.io/docs-kits/category/eco-pass-kit) | n/a | [1.5.0](https://eclipse-tractusx.github.io/docs-kits/kits/Eco_Pass_KIT/changelog) |
 | [ESS Kit](https://eclipse-tractusx.github.io/docs-kits/category/ess-kit) | n/a | [0.3.0](https://eclipse-tractusx.github.io/docs-kits/kits/ESS-Kit/ESS%20Kit%20Changelog) |
 | [Golden Record Business Partner Number (BPN) Service](https://github.com/eclipse-tractusx/bpdm) | bpdm: [5.1.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/bpdm-5.1.0) | [v6.1.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/v6.1.0) |
@@ -58,8 +58,13 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
 
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
-| [Managed Identity Wallet (MIW)](https://github.com/eclipse-tractusx/managed-identity-wallet)     | managed-identity-wallet: [0.5.0](https://github.com/eclipse-tractusx/managed-identity-wallet/releases/tag/v0.5.0) | [v0.5.0](https://github.com/eclipse-tractusx/managed-identity-wallet/releases/tag/v0.5.0) |
 | [Country Risk](https://github.com/eclipse-tractusx/vas-country-risk) | country-risk: [4.0.2](https://github.com/eclipse-tractusx/vas-country-risk/releases/tag/country-risk-4.0.2) | [1.3.1](https://github.com/eclipse-tractusx/vas-country-risk/releases/tag/v1.3.1) |
+
+### Incompatible
+
+| Component | Helm Chart (s) | App-/KIT Version (s) |
+| :-------- | :-------------: | :------------------: |
+| [Managed Identity Wallet (MIW)](https://github.com/eclipse-tractusx/managed-identity-wallet)     | managed-identity-wallet: [0.5.0](https://github.com/eclipse-tractusx/managed-identity-wallet/releases/tag/v0.5.0) | [v0.5.0](https://github.com/eclipse-tractusx/managed-identity-wallet/releases/tag/v0.5.0) |
 
 ### Known Knowns
 
@@ -72,7 +77,6 @@ For known knowns of unchanged/untested components, please refer to previous chan
 Conformity to [Asset Administration Shell (AAS) API v3.0](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01002-3-0_SpecificationAssetAdministrationShell_Part2_API.pdf) and bugfix v3.0.1 is given. Fine granular access control introduced for optional use.
 - This Tractus-X release does not include a Managed Identity Wallet (MIW). The development team decided on a temporary bridging solution, based on a commercial application, to test and ship Release 24.08. Without implementing this interim solution, participants will not be able to fully utilize this Tractus-X release in consequence.
 - For E2E Testing, the [1.2.0](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v1.2.0) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not.
-- The Tractus-X EDC has undergone significant changes in its Management API, communication with external services and internal APIs.
 - Documentation content (e.g. architecture, manuals etc) and folder structure have not explicitly been checked for this Release, as relevant TRGs are not yet in force. The vast majority of components are evolutions of previous Releases, with a thorough review undergone. This leads to a high confidence in the quality of existing documentation within the product repositories.
 - FOSS components developed and pre-tested to TRL6 with artificial test data only
 - No crosscheck of functionality in verification environment
@@ -80,7 +84,8 @@ Conformity to [Asset Administration Shell (AAS) API v3.0](https://industrialdigi
 - No assignment of Export Control Classification Numbers (ECCN) to FOSS components
 - GeoBlocking recommended for Operations (GBaaS)
 - Security concept (overall) recommended for Operations
-- Listed components in "Unchanged, untested" category were not verified in combination with the current Release package and are only compatible with Catena-X Standards as specified. Use at your own risk at this time.
+- Listed components in "Unchanged, untested" category were not verified in combination with the current release package and are only compatible with Catena-X standards as specified. Use at your own risk at this time.
+- Listed components in "Incompatible" category are not compatible with the current release package and the latest standards.
 - BPDM has some Known Knowns regarding Portal integration listed in detail [here](https://github.com/eclipse-tractusx/bpdm/blob/release/6.1.x/docs/architecture/11_Risks_And_Technical_Debts.md)
 - BPDM standard configuration not compatible with Portal's Central-IDP configuration  
 - Portal's Partner Network page does not currently show business partner member data due to an authorization issue  
@@ -96,18 +101,16 @@ The release has been tested
 
 Note: Tractus-X EDC has been tested on both Postgresql versions: 15.x and 16.x
 
-The following violations of TRG 5.07 apply:
-
-- Country Risk deploys a Postgresql version 15 per helm chart. Yet, the test has been successfully performed on version 14.x.
-
 ### Using helm with central helm registry
 
 You can search all released helm charts with the following commands:
+
 ```shell
 helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
 helm repo update tractusx-dev
 helm search repo tractusx-dev --versions
 ```
+
 For installation details, please see the referenced Repositories / Releases.
 
 ## [24.05] - 2024-05-29
