@@ -15,7 +15,8 @@ import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
-import Industry_Kit from "@site/static/img/Industry_Kit.png"
+import Industry_Kit from "@site/static/img/Industry_Kit.png";
+import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SupplyChainsDisruptionNotifications_kit.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -161,5 +162,6 @@ export const kitsGallery = [
     name: 'Supply Chain Disruption Notifications KIT',
     domain: 'Resiliency',
     pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
+    img: SupplyChainsDisruptionNotifications_Kit,
   },
 ]
