@@ -1,0 +1,441 @@
+openapi: 3.0.1
+info:
+  title: Notification API
+  description: Notification API
+  license:
+    name: Apache License v2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  version: 2.0.0
+servers:
+  - url: /
+tags:
+  - name: Notification API
+    description: 'Api to receive, update and fetch a notification. At the moment, quality notifications are supported. Those support two types of quality notifications: quality investigations and quality alerts.'
+paths:
+  /qualitynotifications/receive:
+    post:
+      tags:
+        - Quality notification
+      description: Receives a new quality notification
+      operationId: receiveQualityNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualityNotificationReceiveRequestBody'
+      responses:
+        "201":
+          description: Quality notification was received successfully
+        "400":
+          description: Request body was malformed
+        "401":
+          description: Not authorized
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "409":
+          description: Could not accept the send quality notification, because a quality notification with that notificationId already exists
+        "422":
+          description: Could not accept the send quality notification even though it is syntactically correct. The quality notification is not accepted, because of semantic reasons (e.g., an affected item is not known by the receiver).
+  /qualitynotifications/update:
+    post:
+      tags:
+        - Quality notification
+      description: Updates a quality notification
+      operationId: updateQualityNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualityNotificationUpdateRequestBody'
+      responses:
+        "200":
+          description: Quality notification was updated successfully
+        "400":
+          description: Request body was malformed
+        "401":
+          description: Not authorized
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "404":
+          description: Could not update the quality notification, because a quality notification with that notificationId does not exist
+        "422":
+          description: Could not update the quality notification even though the request is syntactically correct. The quality notification update is not accepted, because of semantic reasons (e.g., status cannot be changed).
+components:
+  schemas:
+    StandardNotificationHeader:
+      $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_HeaderCharacteristic'  
+    StandardNotificationConnectToRequestHeader:
+      allOf:
+        - $ref: '#/components/schemas/StandardNotificationHeader'
+    QualityNotificationReceivePayload:
+      type: object
+      required:
+        - notificationId
+        - status
+        - severity
+      properties:
+        notificationId:
+          type: string
+          pattern: "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
+          description: A message can have several notifications, which are exchanged between the supply chain partners. Each notification shall be identifiable, and thus, has an unique notification id. This notification id is automatically generated for each notification that is sent. Every time a HTTP POST is send a new notification ID is generated. A UUIDv4 to uniquely identify an individual quality notification message. In case of an initial sending of a message the notificationId has to be a newly generated UUIDv4. 
+
+        status:
+          $ref: '#/components/schemas/QualityStatus'
+        severity:
+          $ref: '#/components/schemas/QualitySeverity'
+        information:
+          type: string
+          maxLength: 1000
+          example: "Gear boxes loose oil while driving."
+          description: A text that e.g. describes the quality alert or the quality investigation. Recommendations or counter actions can be added by the receiver when ACCECPTED or DECLINED the notification.
+        relatedQualityTaskId:
+          type: string
+          maxLength: 255
+          example: "Q-Task 123"
+          description: A unique ID referencing to another quality process that triggered this quality investigation/alert, e.g. an early warning project.
+        senderAttachments:
+          type: array
+          items:
+              $ref: '#/components/schemas/AttachmentPayload'
+          description: This is the list of attachments that are provided by the initiator (i.e., sender) of a notification. An attachment is a reference to an EDC data offer. In this offer different kinds of files with additional information about the quality issue can be offered. This can be for example a picture of the affected part or an error list.
+        listOfAffectedItems:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:uuid:57e4e3c1-a6f0-46a0-90df-1fb17cbc157d"
+            - "urn:uuid:e4da568b-8cf1-4f5f-a96a-cf26265b2c72"
+          description: Items are added by the initiator (i.e., sender) of a notification. Once the notification is not in the status CREATED (e.g., it has been sent) the array cannot be changed.
+        populationFilterList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationFilter'
+          description: A set of populationFilters that when applied to the data set exchanged in an early warning project will describe the affected population.
+            
+            
+            Each population filter consists of a combination of
+            
+            
+            - a reference to an aspect model defined for the early warning use case
+            
+            - a reference to a property in the referenced aspect model the data type of the property
+            
+            - a list of values or a range (from ... to) of values
+    QualityNotificationUpdatePayload:
+      required:
+        - notificationId
+      type: object
+      properties:
+        notificationId:
+          type: string
+          pattern: "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
+          description: A message can have several notifications, which are exchanged between the supply chain partners. Each notification shall be identifiable, and thus, has an unique notification id. This notification id is automatically generated for each notification that is sent. Every time a HTTP POST is send a new notification ID is generated. A UUIDv4 to uniquely identify an individual quality notification message. In case of an initial sending of a message the notificationId has to be a newly generated UUIDv4.
+        status:
+          $ref: '#/components/schemas/QualityStatus'
+        severity:
+          $ref: '#/components/schemas/QualitySeverity'
+        information:
+          type: string
+          maxLength: 1000
+          example: "Gear boxes loose oil while driving."
+          description: A text that e.g. describes the quality alert or the quality investigation. Recommendations or counter actions can be added by the receiver when ACCECPTED or DECLINED the notification.
+        relatedQualityTaskId:
+          type: string
+          maxLength: 255
+          example: "Q-Task 123"
+          description: A unique ID referencing to another quality process that triggered this quality investigation/alert, e.g. an early warning project.
+        senderAttachments:
+          type: array
+          items:
+              $ref: '#/components/schemas/AttachmentPayload'
+          description: This is the list of attachments that are provided by the initiator (i.e., sender) of a notification. An attachment is a reference to an EDC data offer. In this offer different kinds of files with additional information about the quality issue can be offered. This can be for example a picture of the affected part or an error list.
+        receiverAttachments:
+          type: array
+          items:
+              $ref: '#/components/schemas/AttachmentPayload'
+          description: This is the list of attachments that are provided by the recipient of a notification. An attachment is a reference to an EDC data offer. In this offer different kinds of files with additional information about the quality issue can be offered. This can be for example a picture of the affected part or an error list.
+    QualityNotificationReceiveRequestBody:
+      required:
+        - header
+        - content
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/StandardNotificationConnectToRequestHeader'
+        content:
+          $ref: '#/components/schemas/QualityNotificationReceivePayload'
+    QualityNotificationUpdateRequestBody:
+      required:
+        - header
+        - content
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/StandardNotificationConnectToRequestHeader'
+        content:
+          $ref: '#/components/schemas/QualityNotificationUpdatePayload'
+    QualitySeverity:
+      type: string
+      enum:
+        - MINOR
+        - MAJOR
+        - CRITICAL
+        - LIFE-THREATENING
+      example: CRITICAL
+      description: The severity of the quality notification describes its criticality. The severity is set by the initiator of a quality notification. The following entries are supported and allowed
+        
+        
+        - MINOR
+        This is the case if the quality issue(s) is/are not affecting any functionalities of the serialized parts/batch e.g., aesthetical issue.
+        
+        
+        - MAJOR
+        This is the case if the quality issue(s) is/are so critical that the functionality of the serialized parts/batch is partially not given. This is also the case if the serialized part / batch is no longer functional, but the missing functionality
+        
+        (a) can be compensated by other parts of a superordinate system or
+        (b) has a relatively low significance / benefit
+        
+        
+        - CRITICAL
+        This is the case if the quality issue(s) is/are so critical that the basic functionality of the serialized parts/batch is no longer given.
+        
+        
+        - LIFE-THREATENING
+        This is the case if the quality issue(s) is/are so critical that it even endangers human lives e.g., the airbag or break is not working.
+    QualityStatus:
+      type: string
+      enum:
+        - CREATED
+        - SENT
+        - RECEIVED
+        - ACKNOWLEDGED
+        - ACCEPTED
+        - DECLINED
+        - CLOSED
+      example: SENT
+      description: The status of the quality notification. The following entries are supported and allowed
+
+
+        - CREATED
+        This status is an internal status and is used after the initial creation of a notification. It is not communicated to an other CX/business partner.
+
+
+        - SENT
+        This status means that the notification has been sent out. This status is shown on the sender side (and not on the receiver side).
+
+
+        - RECEIVED
+        This status means that the notification has been received by the receiver. The status is shown on sender and receiver side. It is not communicated to another CX/business partner.
+
+
+        - ACKNOWLEDGED
+        Defines that a user has confirmed that the notification has been received. This does NOT mean that the user accepted the notification in the sense of an admission of guilt or the like. However, it means that the notification gets processed by the user (or the organization behind).
+
+
+        - ACCEPTED
+        The status expresses that the received agrees on the quality investigation/alert. Recommendations, counter actions, and the like can be conveyed in the payload field information.
+
+
+        - DECLINED
+        The status expresses that the received does not agree on the quality investigation/alert. Recommendations, counter actions, and the like can be conveyed in the payload field information.
+
+
+        - CLOSED
+        This status is set by the initiator of the notification either to regularly close the notification (i.e., after the receiver has set the status to ACCEPTED or DECLINED) or to abort the processing of the notification (e.g., because the notification is not relevant anymore).
+    AttachmentPayload:
+      required:
+        - attachmentName
+        - fileExtension
+        - contractOfferId
+      type: object
+      properties:
+        attachmentName:
+          type: string
+          maxLength: 255
+          example: "Error picture gear box"
+          description: "This is the name of the attachment"
+        fileExtension:
+          type: string
+          maxLength: 255
+          example: "png"
+          description: "The file extension for this attachment"
+        contractOfferId:
+          type: string
+          maxLength: 255
+          example: "urn:uuid:46e4e3c1-a6f0-46a0-90df-1fb17cbc455d"
+          description: This is the id of the data offer under which the attachment is offered. This could be - but not must be - an uuid or any other form of an data offer id.
+    PopulationFilter:
+        anyOf:
+         - $ref: '#/components/schemas/PopulationFilterStringArrayPayload'
+         - $ref: '#/components/schemas/PopulationFilterRangePayload'
+    PopulationFilterStringArrayPayload:
+      required:
+        - aspect-model
+        - property
+        - dataType
+        - values
+      type: object
+      properties:
+        aspect-model:
+          type: string
+          maxLength: 1000
+          example: "urn:samm:io.catenax.manufactured_parts_quality_information:2.0.0"
+          description: "This is the name and the version of an aspect model for the quality use case."
+        property:
+          type: string
+          maxLength: 1000
+          example: "manufacturerPartNumber"
+          description: "This is a property that is defined in the semantic-model."
+        values:
+          type: array
+          items:
+            type: string
+          example:
+            - "123-0.740-3434-A"
+            - "123-0.740-3434-B"
+          description: Items are added by the initiator (i.e., sender) of a notification. Once the notification is not in the status CREATED (e.g., it has been sent) the array cannot be changed
+    PopulationFilterRangePayload:
+      required:
+        - aspect-model
+        - property
+        - dataType
+        - values
+      type: object
+      properties:
+        aspect-model:
+          type: string
+          maxLength: 1000
+          example: "urn:bamm:io.catenax.vehicle_productdescription:1.0.0"
+          description: "This is the name and the version of an aspect model for the quality use case."
+        property:
+          type: string
+          maxLength: 1000
+          example: "production.productionDate"
+          description: "This is a property that is defined in the semantic-model."
+        rangeFrom:
+          type: string
+          example: "2024-02-20T17:32:28Z"
+          description: A start value for the value range in the  specified by the property.
+        rangeTo:
+          type: string
+          example: "2024-02-27T12:31:28Z"
+          description: An end value for the value range in the  specified by the property.
+    # -----------------------------------------
+    # Schema: io.catenax.shared.message_header
+    # -----------------------------------------
+    urn_samm_io.catenax.shared.uuid_1.0.0_UuidV4Trait:
+      type: string
+      description: "The provided regular expression ensures that the UUID is composed\
+        \ of five groups of characters separated by hyphens, in the form 8-4-4-4-12\
+        \ for a total of 36 characters (32 hexadecimal characters and 4 hyphens),\
+        \ optionally prefixed by \"urn:uuid:\" to make it an IRI."
+      pattern: "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
+    urn_samm_io.catenax.shared.message_header_2.0.0_ContextCharacteristic:
+      type: string      
+      enum:
+        - Traceability-QualityNotification-Investigation:2.0.0
+        - Traceability-QualityNotification-Alert:2.0.0
+      description:  The context defines the type of quality notification. The context is chosen by the initiator of a quality notification. The QM-Investigation describes a quality issue top-down when it's sent towards the supplier. The QM-Alert describes a quality issue bottom-up when it's sent towards the customer.
+        
+        
+        Traceability-QualityNotification-Investigation:2.0.0
+        
+        
+        A quality investigation is used to try and technically narrow down the cause of a suspected problem with a serialized part / batch. To achieve this, a customer who has purchased serialized parts/ batches can request his supplier to investigate the affected serialized parts / batches regarding the suspected problem.
+        
+        
+        Traceability-QualityNotification-Alert:2.0.0
+        
+        
+        A quality alert is sent by a supplier to a customer and describes identified quality issue(s) in one or more serialized parts/ batches delivered to that customer. Thus, the quality alert - besides other information - contains a list of the affected serialized parts/ batches and a description of the quality issue(s). In the worst case the quality alert can result in a recall of the affected serialized parts/ batches.
+        
+        
+        The value MUST consist of two parts -- an identifier of the context (e.g. business domain, etc.) followed by a version number. Both the identifier and the version number MUST correspond to the content of the message. Versioning only refers to major versions in both default and fallback cases. Note -- The version of the message's header is specified in the version field.
+      example: "Traceability-QualityNotification-Alert:2.0.0"
+    urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp:
+      type: string
+      pattern: "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+      description: Describes a Property which contains the date and time with an optional
+        timezone. The value MUST be formatted according to the ISO 8601 standard.
+      example: "2007-08-31T16:47+00:00"
+    urn_samm_io.catenax.shared.business_partner_number_1.0.0_BpnlTrait:
+      type: string
+      description: The provided regular expression ensures that the BPNL is composed of prefix 'BPNL', 10 digits and two uppercase letters.The value MUST be a valid BPN. BPNA and BPNS are not allowed. Applicable constraints are defined in the corresponding standard.
+      pattern: "^BPNL[0-9]{8}[a-zA-Z0-9]{4}$"
+    urn_samm_io.catenax.shared.message_header_2.0.0_SemanticVersioningTrait:
+      type: string
+      description: Constraint for defining a SemVer version.
+      pattern: "^(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)(-(0|[1-9A-Za-z-][0-9A-Za-z-]*)(.[0-9A-Za-z-]+)*)?([0-9A-Za-z-]+(.[0-9A-Za-z-]+)*)?$"
+      example: "urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeaderAspect"
+    urn_samm_io.catenax.shared.message_header_2.0.0_HeaderCharacteristic:
+      description: Characteristic describing the common shared aspect Message Header
+      type: object
+      properties:
+        messageId:
+          description: Unique ID identifying the message. The purpose of the ID is\
+            \ to uniquely identify a single message, therefore it MUST not be reused.
+            
+            In case of traceability quality notifications this means the following.
+            
+            A UUIDv4 to uniquely identify a quality notification. This unique ID gets generated by the initiator of a quality notification. The sender and receiver of a quality notification use this unique ID to reference a quality notification.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_1.0.0_UuidV4Trait'
+        context:
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_ContextCharacteristic'
+        sentDateTime:
+          description: Time zone aware timestamp holding the date and the time the
+            message was sent by the sending party.
+          $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp'
+        senderBpn:
+          description: The Business Partner Number of the sending party.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_1.0.0_BpnlTrait'
+        receiverBpn:
+          description: The Business Partner Number of the receiving party.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_1.0.0_BpnlTrait'
+        expectedResponseBy:
+          description: Time zone aware timestamp holding the date and time by which
+            the sending party expects a certain type of response from the receiving
+            party. The meaning and interpretation of the fields's value are context-bound
+            and MUST therefore be defined by any business domain or platform capability
+            making use of it.
+          $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp'
+        relatedMessageId:
+          description: Unique ID identifying a message somehow related to the current
+            one
+            
+            In case of traceability quality notifications this means the following.
+            
+            A UUIDv4 to uniquely identify a related quality notification. This field is not about mapping the internal references between quality notifications. This field should only reference the quality notifications that
+            
+            
+            (a) the recipient can basically understand in his business context and
+            
+            
+            (b) that are of concern to the recipient
+            
+            
+            That means, that in most instances, the sender and receiver of both quality notifications (i.e., the send one and the referenced one) are the same.
+            
+            
+            Example
+            
+            
+            Due to an QM-Investigation an QM-Alert is created and referencing to the QM-Investigation.
+            An QM-Investigation is followed by another QM-Investigation that is referencing to the same quality issue.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_1.0.0_UuidV4Trait'
+        version:
+          description: The unique identifier of the aspect model defining the structure
+            and the semantics of the message's header. The version number should reflect
+            the versioning schema of aspect models in Catena-X.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_2.0.0_SemanticVersioningTrait'
+      required:
+      - messageId
+      - context
+      - sentDateTime
+      - senderBpn
+      - receiverBpn
+      - version
