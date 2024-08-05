@@ -90,6 +90,7 @@ For known knowns of unchanged/untested components, please refer to previous chan
 - Portal's Partner Network page does not currently show business partner member data due to an authorization issue  
 - Currently not possible to add company's site and address business partners over the Portal due to authorization issue  
 - Security concern about exposed technical users when subscribing BPDM services over the Portal
+- DTR introduces the DTR-EDC Access Control extension. The goal of this EDC extension is to enforce authorized access to submodel implementations according to AAS and Catena-X concluded contracts. It is a Maven artifact that can be used for building their own EDC dataplane image with the extension. For more details, see  [here](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/tree/main/libraries/edc-extension).
 
 ### Runtime
 
