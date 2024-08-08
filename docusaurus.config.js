@@ -475,7 +475,7 @@ const config = {
                 label: 'Data Governance',
               },
               {
-                to: '/docs-kits/kits/DCM-Kit/adoption-view',
+                to: '/docs-kits/kits/DCM-Kit/adoption-view/overview',
                 label: 'Demand & Capacity Management',
               },
               {
