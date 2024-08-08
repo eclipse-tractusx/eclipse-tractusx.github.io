@@ -151,8 +151,8 @@ PURIS orchestrates a set of business processes within the Catena-X network, enha
 
 ### Actors and Roles
 
-- **Data Provider:** Act as data consumers needing information on customers' production output and material demand.
-- **Data Consumer:** Act as data providers, offering detailed information about their material demand and production plans to suppliers.
+- **Data Consumer:** Act as data consumers needing information on customers' production output and material demand.
+- **Data Provider:** Act as data providers, offering detailed information about their material demand and production plans to suppliers.
 
 ### Key Processes
 
