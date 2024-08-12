@@ -471,6 +471,10 @@ const config = {
                 label: 'Data Chain',
               },
               {
+                to: 'docs-kits/kits/Data%20Governance%20Kit/Data%20Governance%20Kit%20Adoption%20View',
+                label: 'Data Governance',
+              },
+              {
                 to: '/docs-kits/kits/DCM-Kit/adoption-view',
                 label: 'Demand & Capacity Management',
               },
@@ -525,10 +529,6 @@ const config = {
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
                 label: 'Traceability',
-              },
-              {
-                to: 'docs-kits/kits/Resiliency/',
-                label: 'Upcoming KITs',
               }
             ],
           },
