@@ -1,6 +1,9 @@
 product: "eclipse-tractusx.github.io"
 leadingRepository: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
+repoCategory: "support"
 repositories:
 - name: "eclipse-tractusx.github.io"
   usage: "Eclipse-tractusx website repository"
   url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
+openApiSpecs:
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/kit_digital-twin-kit-submodel-api_openAPI.yaml"

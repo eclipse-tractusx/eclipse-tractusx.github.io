@@ -1,12 +1,27 @@
 export const newsTitles = [
   {
-    date: "10.02.2023",
-    title: "Eclipse Tractus-X Developer Portal is LIVE!",
-    blogLink: "/blog/portal-is-live"
+    date: "28.05.2024",
+    title: "Tractus-X 24.05 is available now",
+    blogLink: "/blog/new-release-2405"
+  },  
+  {
+    date: "31.07.2024",
+    title: "Tractus-X Open Planning R24.12",
+    blogLink: "/blog/open-planning-r24-12"
   },
   {
-    date: "26.05.2023",
-    title: "Tractus-X 3.1 is available now",
-    blogLink: "/blog/new-release-3-1-0"
+    date: "08.03.2024",
+    title: "Tractus-X 24.03 available now",
+    blogLink: "/blog/new-release-2403"
   },
+  {
+    date: "19.02.2024",
+    title: "Tractus-X Open Planning R24.08",
+    blogLink: "/blog/open-planning-r24-08"
+  },
+  {
+    date: "19.02.2024",
+    title: "Second Eclipse Tractus-X Community Days",
+    blogLink: "/blog/community-days-05-2024"
+  }
 ]

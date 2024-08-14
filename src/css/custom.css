@@ -222,6 +222,10 @@
   background-color: var(--ifm-background-color);
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1250px) {
   .navbar__items {
@@ -341,4 +345,20 @@
 .head > .menu__link::before {
   content: "head";
   background-color: var(--ifm-color-secondary-darkest);
+}
+
+/* Media Queries */
+@media screen and (min-width: 2200px) {
+  .navbar {
+    width: 70vw;
+    margin: auto;
+  }
+}
+
+
+@media screen and (min-width: 3200px) {
+  .navbar {
+    width: 60vw;
+    margin: auto;
+  }
 }
