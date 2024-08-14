@@ -89,7 +89,15 @@ Benefits for OEMs, SMEs, and Solution Providers:
    - Access new market opportunities and scale their customer base through a circularity network and shared services.
    - Leverage the collective wisdom of industry stakeholders to drive continuous improvement and innovation.
 
-## End of Life / Dismantling Services
+### Informational Requirements at End of Life
+
+The regulatory movement and the industry trend towards circularity demand concerted action of all the industry participants addressing the R-strategies. Within the CE community of the Catena-x federation, two working groups with broad industry representation have been addressing the particular data requirements of the three R- strategies: Reuse, Remanufacturing and Recycle.
+
+The following whitepaper addresses the data parameters required to enable dismantlers to effectively support form-preserving R-strategies at the end-of-life stage, with a special focus on reuse and remanufacturing. By identifying the critical data elements for informed decision-making in the management of end-of-life vehicles, this paper aims to promote a more sustainable and economically viable approach to component utilization in the automotive industry: [Informational Requirements at Dismantling to enable form preserving R-Strategies](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/2407_Reuse_Reman_Use_Case_WP_v1.pdf)
+
+Addressing the challenging task of closing the loop for materials from an end-of-life vehicle to a new car component of a modern vehicle, has been attempted within the recycling working group, initially focusing on a few promising components and materials, but with the clear perspective to extend to more materials and their data requirements in further iterations and subsequent refinement of data models. Status of the whitepaper and its addressed examples can be found here: [Data requirements for recycling of ELVs](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/2407_Material_Recycling_WP_v1.pdf).
+
+## Material Accounting
 
 ### Introduction
 
