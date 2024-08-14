@@ -14,7 +14,7 @@ To complete this tutorial you will **not** need to read through all the informat
 
 ## 1. Catena-X
 
-Catena-X is an open, secure, and standardized data ecosystem for the automotive industry. It is a collaborative initiative of automotive manufacturers, suppliers, and other stakeholders from across the value chain. Catena-X aims to enable the secure and efficient exchange of data across the entire value chain, from the development of new vehicles to the end-of-life recycling of components.
+Catena-X is an open, secure, and interoperable data ecosystem for the automotive industry. It is a collaborative initiative of automotive manufacturers, suppliers, and other stakeholders from across the value chain. Catena-X aims to enable the secure and efficient exchange of data across the entire value chain, from the development of new vehicles to the end-of-life recycling of components.
 
 :::note
 
@@ -24,7 +24,7 @@ More information on the Catena-X initiative can be found at the visions and goal
 
 ## 2. Use-Cases
 
-Catena-X is organized around ten initial use-cases. If your company decided to become part of Catena-X, it has chosen at least one use-case it want's to benefit from. Participation in a use-case usually includes the provisioning of data according to a shared semantic and standardized technology stack that shall enable interoperability and data sovereignty.
+Catena-X is organized around ten initial use cases. If your company decided to become part of Catena-X, it has chosen at least one use case it wants to benefit from. Participation in an use case usually includes the provisioning of data according to a shared semantic and standardized technology stack that shall enable interoperability and data sovereignty.
 
 :::note
 
@@ -34,18 +34,18 @@ The list of the ten initial use-cases as well as a description of each of them c
 
 ## 3. The Data Space
 
-To enable the use-cases, Catena-X builds a decentral data space. In a data space, data is directly exchanged between data provider and data consumer, without an intermediary. A data space requires data providers and consumers to use certain components either as managed services or as self-hosted. Furthermore, "core components" are needed within the network to ensure Identity & Trust, provide Data Discovery mechanisms or a Marketplace to find and purchase business applications that can be used to consume the data and generate value.
+To enable the use cases, Catena-X builds a decentral data space. In a data space, data is directly exchanged between data provider and data consumer, without an intermediary. A data space requires data providers and consumers to use certain components either as managed services or as self-hosted. Furthermore, "core components" are needed within the network to ensure Identity & Trust, provide Data Discovery mechanisms or a Marketplace to find and purchase business applications that can be used to consume the data and generate value.
 
 :::note
 
-For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>  
+For an in depth description of data spaces and the conceptual model behind Catena-X, read the Industrial Data Spaces Association (IDSA) Reference Architecture Model 4.0: <https://docs.internationaldataspaces.org/ids-ram-4/>
 The Catena-X Operating Whitepaper describes how the Catena-X data space is operated: <https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf>
 
 :::
 
 ## 4. The Onboarding Journey
 
-Your task to setup the technical components is part of a larger onboarding journey that also includes a registration in the network, a use-case selection, setting up a data governance structure and engagement of the various business departments. The onboarding journey varies depending on your companies decision on how to participate in which use-cases. As you've already read, in case your company only intends to buy a fully managed SAAS business application, you won't need to operate the Catena-X components yourself.
+Your task to setup the technical components is part of a larger onboarding journey that also includes a registration in the network, a use case selection, setting up a data governance structure and engagement of the various business departments. The onboarding journey varies depending on your companies decision on how to participate in which use cases. As you've already read, in case your company only intends to buy a fully managed SAAS business application, you won't need to operate the Catena-X components yourself.
  The Catena-X association provides extensive onboarding material such as an onboarding guide or an onboarding status tracker. Both can be found on the association homepage.
 
 :::note

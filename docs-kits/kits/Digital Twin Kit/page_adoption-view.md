@@ -65,7 +65,7 @@ This Kit's aim is not to solve a dedicated business problem. It is an infrastruc
 data sharing and integration. It does however deliver a broad set of capabilities that the use cases can leverage, namely:
 
 - Well-defined API structures extensible by domain models. Each use case will want to share different data but make it
-available in a shared manner. (see [Submodel API](./Software%20Development%20View/API%20Submodel))
+available in a shared manner. (see [Submodel API](https://eclipse-tractusx.github.io/api-hub/))
 
 - A distributed infrastructure of central and decentral components integrating on the one hand with backend-systems
 in existing enterprise IT and on other hand with the Dataspace.
@@ -85,17 +85,16 @@ For more information how specifically the Asset Administration Shell is used, co
 
 ### CX-Standards
 
-Links open PDFs.
+Links open html.
 
-- [CX - 0001 EDC Discovery API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0001-EDCDiscoveryAPI_v1.0.2.pdf) *(version 1.0.2)*
-- [CX - 0002 Digital Twins in Catena-X](https://catena-x.net/de/standard-library)*(version 2.2.0, public release pending)*
-- [CX - 0003 Semantic Aspect Meta-Model](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Maerz_2024/CX-0003-SAMMSemanticAspectMetaModel-v1.1.0.pdf)*(version 1.1.0)*
-- [CX - 0053 BPN Discovery Service](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0053-BPNDiscoveryServiceAPIs-v1.0.1.pdf) *(version 1.0.1)*
+- [CX - 0001 EDC Discovery API](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) *(version 1.0.2)*
+- [CX - 0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)*(version 2.2.0)*
+- [CX - 0003 Semantic Aspect Meta-Model](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)*(version 1.1.0)*
+- [CX - 0053 BPN Discovery Service](https://catenax-ev.github.io/docs/next/standards/CX-0053-BPNDiscoveryServiceAPIs) *(version 1.1.0)*
 
 ### Terminology
 
-CX-0002 includes a figure on how the terms (also used in this Kit) interrelate. Check it out on page 5 of the [published
-standard](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_Januar_2024/CX-0002-DigitalTwinsInCatenaX-v2.1.0.pdf).
+CX-0002 includes a figure on how the terms (also used in this Kit) interrelate. Check it out [here](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#123-asset-administration-shell)
 
 ## Notice
 

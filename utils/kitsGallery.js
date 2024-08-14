@@ -184,4 +184,10 @@ export const kitsGallery = [
     pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
     img: MDP_Kit,
   },
+  {
+    id: 20,
+    name: 'Supply Chain Disruption Notifications KIT',
+    domain: 'Resiliency',
+    pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
+  },
 ]
