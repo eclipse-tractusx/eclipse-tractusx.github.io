@@ -97,10 +97,6 @@ The following whitepaper addresses the data parameters required to enable disman
 
 Addressing the challenging task of closing the loop for materials from an end-of-life vehicle to a new car component of a modern vehicle, has been attempted within the recycling working group, initially focusing on a few promising components and materials, but with the clear perspective to extend to more materials and their data requirements in further iterations and subsequent refinement of data models. Status of the whitepaper and its addressed examples can be found here: [Data requirements for recycling of ELVs](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/2407_Material_Recycling_WP_v1.pdf).
 
-## Material Accounting
-
-### Introduction
-
 #### Closing Loops, Preserving Resources: Creating tomorrow's EoL landscape and empower the circularity
 
 As part of the Circularity KIT, we are committed to developing services for the future of the circular economy in the end-of-life (EoL) sector of vehicles. This phase represents an important stage where decisions are made regarding the fate of vehicles and their components after their initial use. Recognizing the immense value of the world's limited resources, we are dedicated to minimizing waste and maximizing resource efficiency.
