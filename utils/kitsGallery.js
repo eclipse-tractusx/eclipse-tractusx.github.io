@@ -63,7 +63,7 @@ export const kitsGallery = [
     name: 'Behaviour Twin Kit',
     domain: 'PLM / Quality',
     img: BehaviourTwin_Kit,
-    pageRoute: "/docs-kits/next/kits/behaviour-twin-kit/overview"
+    pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview"
   },
   {
     id: 6,
@@ -155,5 +155,11 @@ export const kitsGallery = [
     domain: 'Resiliency',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
     img: PURIS_Kit,
+  },
+  {
+    id: 19,
+    name: 'Supply Chain Disruption Notifications KIT',
+    domain: 'Resiliency',
+    pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
   },
 ]

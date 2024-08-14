@@ -88,7 +88,7 @@ Benefits for OEMs, SMEs, and Solution Providers:
    - Develop and market innovative technologies, products, and services that support circular economy principles in the automotive industry.
    - Access new market opportunities and scale their customer base through a circularity network and shared services.
    - Leverage the collective wisdom of industry stakeholders to drive continuous improvement and innovation.
-
+   
 ## End of Life / Dismantling Services
 
 ### Introduction
@@ -613,4 +613,10 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - Copyright (c) 2023,2024 LRP Auto-Recycling Leipzig GmbH
 - Copyright (c) 2023,2024 Robert Bosch GmbH
 - Copyright (c) 2023,2024 tec4U-Ingenieurgesellschaft mbH
+- Copyright (c) 2023,2024 TÜV Süd AG
+- Copyright (c) 2023,2024 Valeo SA
+- Copyright (c) 2023,2024 Volvo Group Aktiebolag
+- Copyright (c) 2023,2024 Volvo Car Aktiebolag
+- Copyright (c) 2023,2024 Brain of Materials AG
+- Copyright (c) 2023,2024 thyssenkrupp Material Services GmbH
 - Copyright (c) 2023,2024 Contributors to the Eclipse Foundation
