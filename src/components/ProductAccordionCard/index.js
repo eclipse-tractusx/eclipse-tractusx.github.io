@@ -27,17 +27,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import styles from "./styles.module.css";
 
-export default function ProductAccordionCard({productName, productDescription, githubRepo, committers, mailTo, hasBoard}) {
+export default function ProductAccordionCard({ productName, productDescription, githubRepo, committers, mailTo, hasBoard, subTitle, showVersion = false }) {
   const [release, setRelease] = useState()
-  const [accordionOpen, setAccordionOpen] = useState(false);
-  
-  // Obtaining leading repo from passed array
+
   let furtherRepos = [...githubRepo]
-  let leadingRepo = furtherRepos.splice(0 ,1).toString()
-  
-  // Obtaining owner and repo-name from leading repository, email address obtained from mailTo passed property
+  let leadingRepo = furtherRepos.splice(0, 1).toString()
+
   let owner = leadingRepo.split('/')[3]
   let repo = leadingRepo.split('/')[4]
+
   let emailAddress = mailTo.split('?')[0];
 
   // Defining max amount of characters that is been passed to condiotionally render the productDescription string
@@ -45,12 +43,12 @@ export default function ProductAccordionCard({productName, productDescription, g
 
   // Fetching the latest release of passed leading repository and setting it as the "release" state 
   useEffect(() => {
-  fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/vnd.github.html+json'
-    }
+    fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.html+json'
+      }
     }).then((res) => res.json())
       .then((data) => {
         setRelease(data.name)
@@ -68,121 +66,119 @@ export default function ProductAccordionCard({productName, productDescription, g
 
   return (
     <>
-    <div className={styles.product_accordion_card}>
-      <Accordion
-        expanded={accordionOpen}
-        className={styles.accordion}
-        elevation={0}
-      >
-        <AccordionSummary
-          expandIcon={
-            <ExpandMoreIcon
-              style={{cursor: 'pointer'}} 
-              sx={{color: '#FAA023', fontSize: '2rem'}}
-              onClick={()=> setAccordionOpen(!accordionOpen)}
-            />
-          }
-          sx={{paddingBottom: '0.5rem', cursor: 'unset !important'}}
+      <div className={styles.product_accordion_card}>
+        <Accordion
+          expanded={accordionOpen}
+          className={styles.accordion}
         >
-          <section className={styles.summary_container}>
-            {/* Title & Version Section */}
-            <div className={styles.product_title_container}>
-              <h2 className={styles.product_title}>{productName}</h2>
-              {
-                release != undefined ? 
-                <p className={styles.version}>Version:{handleVersionString(release)}</p> : 
-                <p className={styles.no_display}></p>
-              }
-            </div>
-
-            {/* Leading Repository & Contact Section  */}
-            <div className={styles.repo_contact_container}>
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Leading Repository:</li>
-                <li className={styles.item_link}>
-                  <a href={leadingRepo}>{leadingRepo.substring(19, (leadingRepo.length))}</a>
-                </li>
-              </ul>
-
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Contact:</li>
-                <li className={styles.item_link}>
-                  <a href={`mailto:${mailTo}`}>
-                    {emailAddress}
-                  </a>
-                </li>
-              </ul>
-            </div>
-        </section>
-        </AccordionSummary>
-        <AccordionDetails
-          sx={{paddingBottom: '2rem'}}
-        >
-          <section className={styles.details_container}>
-            <div className={styles.repo_details_container}>
-              {/* Further Repositories Section */}
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Further Repositories:</li>
-                {
-                  furtherRepos.length > 0 ?
-                  furtherRepos.map((repository, index)=> {
-                    return (
-                      <li 
-                        key={index}
-                        className={styles.item_link}
-                      >
-                        <a href={repository}>{repository.substring(19, (repository.length))}</a>
-                      </li>
-                    )
-                  }) :
-                  <li className={styles.no_more_content}>No more repositories</li>
-                }
-              </ul>
-
-              {/* Committers Section */}
-              <ul className={styles.repo_contact_item}>
-                <li className={styles.item_title}>Committers:</li>
-                {
-                  committers.length > 0 ?
-                  committers.map((committer, index)=> {
-                    return (
-                      <li 
-                        key={index}
-                        className={styles.item_link}
-                      >
-                        <a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a>
-                      </li>
-                    )
-                  }) :
-                  <li className={styles.no_more_content}>No committers provided</li>
-                }
-              </ul>
-
-              {/* Board Section - Conditional rendering when provided */}
-              {
-                hasBoard ? 
-                <ul className={styles.repo_contact_item}>
-                  <li className={styles.item_title}>Board:</li>
-                  <li className={styles.item_link}>
-                    <a href={`${leadingRepo}/discussions`}>{`${leadingRepo.substring(19, (leadingRepo.length))}/discussions`}</a>
-                  </li>
-                </ul> :
-                <ul className={styles.no_display}></ul>
-              }
-
-              {/* Description Section */}
-              <div className={styles.description_container}>
-                {
-                  productDescription.length > MAX_LENGTH ? 
-                  <p className={styles.description}>{productDescription.substring(0, MAX_LENGTH)}...</p> :
-                  <p className={styles.description}>{productDescription}</p>
-                }
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon
+                style={{ cursor: 'pointer' }}
+                sx={{ color: '#FAA023', fontSize: '2rem' }}
+                onClick={() => setAccordionOpen(!accordionOpen)}
+              />
+            }
+            sx={{ backgroundColor: '#000', color: '#fff', paddingBottom: '0.5rem', cursor: 'unset !important' }}
+          >
+            <section className={styles.summary_container}>
+              <div className={styles.product_title_container}>
+                <h2 className={styles.product_title}>{productName}</h2>
+                {subTitle && (
+                  <p className={styles.version}>{subTitle}</p>
+                )}
+                {showVersion && release != undefined ? (
+                  <p className={styles.version}>Version:{handleVersionString(release)}</p>
+                ) : (
+                  <p className={styles.no_display}></p>
+                )}
               </div>
-            </div>
-          </section>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+
+
+              <div className={styles.repo_contact_container}>
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Leading Repository:</li>
+                  <li className={styles.item_link}>
+                    <a href={leadingRepo}>{leadingRepo.substring(19, (leadingRepo.length))}</a>
+                  </li>
+                </ul>
+                {mailTo != '' && (
+                  <ul className={styles.repo_contact_item}>
+                    <li className={styles.item_title}>Contact:</li>
+                    <li className={styles.item_link}>
+                      <a href={`mailto:${mailTo}`}>
+                        {emailAddress}
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </section>
+          </AccordionSummary>
+          <AccordionDetails
+            sx={{ backgroundColor: '#000', color: '#fff', paddingBottom: '2rem' }}
+          >
+            <section className={styles.details_container}>
+              <div className={styles.repo_details_container}>
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Further Repositories:</li>
+                  {
+                    furtherRepos.length > 0 ?
+                      furtherRepos.map((repository, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className={styles.item_link}
+                          >
+                            <a href={repository}>{repository.substring(19, (repository.length))}</a>
+                          </li>
+                        )
+                      }) :
+                      <li className={styles.no_more_content}>No more repositories</li>
+                  }
+                </ul>
+
+                <ul className={styles.repo_contact_item}>
+                  <li className={styles.item_title}>Committers:</li>
+                  {
+                    committers.length > 0 ?
+                      committers.map((committer, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className={styles.item_link}
+                          >
+                            <a href={committer}>{`@${committer.substring(19, (committer.length))}`}</a>
+                          </li>
+                        )
+                      }) :
+                      <li className={styles.no_more_content}>No committers provided</li>
+                  }
+                </ul>
+
+                {
+                  hasBoard ?
+                    <ul className={styles.repo_contact_item}>
+                      <li className={styles.item_title}>Board:</li>
+                      <li className={styles.item_link}>
+                        <a href={`${leadingRepo}/discussions`}>{`${leadingRepo.substring(19, (leadingRepo.length))}/discussions`}</a>
+                      </li>
+                    </ul> :
+                    <ul className={styles.no_display}></ul>
+                }
+
+                <div className={styles.description_container}>
+                  {
+                    productDescription.length > MAX_LENGTH ?
+                      <p className={styles.description}>{productDescription.substring(0, MAX_LENGTH)}...</p> :
+                      <p className={styles.description}>{productDescription}</p>
+                  }
+                </div>
+              </div>
+            </section>
+          </AccordionDetails>
+        </Accordion>
+      </div>
 
     </>
   );

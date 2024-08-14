@@ -1,0 +1,95 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+BEGIN:STANDARD
+DTSTART:16011028T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010325T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20240619T122822Z
+DESCRIPTION:Hello all\,\n\n \n\nThis meeting is s
+	et up for the greater Catena-X community to get in touch with the EDC deve
+	lopment team in order to ask questions or discuss issues around the Tractu
+	s-X EDC.\n\n \n\nTo raise questions in advance of the meeting\, please go
+	to the EDC repo:  https://github.com/eclipse-tractusx/tractusx-edc/discuss
+	ions <https://github.com/eclipse-tractusx/tractusx-edc/discussions> \n\n \
+	n\nAnd create a question:\n\n1.	Create a new discussion on the repo’s di
+	scussion tab\n2.	Select the Q&A category for the issue\n3.	Start the title
+	 with the prefix [Extended Sync]…your title goes here\n\n \n\nPoint 3 en
+	sures we are able to filter accordingly and find your questions fast and e
+	asy.\n\n \n\nIf you have any questions\, please get back to me or contact
+	the team via the matrix channel and we will try to help as fast as possibl
+	e.\n\n \n\nThanks and have a nice day\,\n\nLars\n\n\nJoin Zoom Meeting\nht
+	tps://eclipse.zoom.us/j/85945828202?pwd=YODkCen20BOQV9WNJEeNFM8zaOlxo9.1 <
+	https://eclipse.zoom.us/j/85945828202?pwd=YODkCen20BOQV9WNJEeNFM8zaOlxo9.1
+	> \n\nMeeting ID: 859 4582 8202\nPasscode: 186934\n\n---\n\nOne tap mobile
+	\n+17193594580\,\,85945828202# US\n+12532050468\,\,85945828202# US\n\n---\
+	n\nDial by your location\n• +1 719 359 4580 US\n• +1 253 205 0468 US\n
+	• +1 253 215 8782 US (Tacoma)\n• +1 301 715 8592 US (Washington DC)\n
+	• +1 305 224 1968 US\n• +1 309 205 3325 US\n• +1 312 626 6799 US (Ch
+	icago)\n• +1 346 248 7799 US (Houston)\n• +1 360 209 5623 US\n• +1 3
+	86 347 5053 US\n• +1 507 473 4847 US\n• +1 564 217 2000 US\n• +1 646
+	 876 9923 US (New York)\n• +1 646 931 3860 US\n• +1 669 444 9171 US\n
+	• +1 669 900 6833 US (San Jose)\n• +1 689 278 1000 US\n• +1 647 558
+	0588 Canada\n• +1 778 907 2071 Canada\n• +1 780 666 0144 Canada\n• +
+	1 204 272 7920 Canada\n• +1 438 809 7799 Canada\n• +1 587 328 1099 Can
+	ada\n• +1 647 374 4685 Canada\n• +33 1 7095 0350 France\n• +33 1 869
+	9 5831 France\n• +33 1 7037 2246 France\n• +33 1 7037 9729 France\n•
+	 +33 1 7095 0103 France\n• +49 695 050 2596 Germany\n• +49 69 7104 992
+	2 Germany\n• +49 69 3807 9883 Germany\n• +49 69 3807 9884 Germany\n•
+	 +49 69 5050 0951 Germany\n• +49 69 5050 0952 Germany\n• +44 208 080 6
+	591 United Kingdom\n• +44 208 080 6592 United Kingdom\n• +44 330 088 5
+	830 United Kingdom\n• +44 131 460 1196 United Kingdom\n• +44 203 481 5
+	237 United Kingdom\n• +44 203 481 5240 United Kingdom\n• +44 203 901 7
+	895 United Kingdom\n• +41 43 210 71 08 Switzerland\n• +41 44 529 92 72
+	 Switzerland\n• +41 22 591 00 05 Switzerland\n• +41 22 591 01 56 Switz
+	erland\n• +41 31 528 09 88 Switzerland\n• +41 43 210 70 42 Switzerland
+	\n• +46 8 5052 0017 Sweden\n• +46 850 539 728 Sweden\n• +46 8 4468 2
+	488 Sweden\n• +46 8 5016 3827 Sweden\n• +46 8 5050 0828 Sweden\n• +4
+	6 8 5050 0829 Sweden\n• +45 47 37 25 75 Denmark\n• +45 89 88 37 88 Den
+	mark\n• +45 32 70 12 06 Denmark\n• +45 32 71 31 57 Denmark\n• +45 32
+	 72 80 10 Denmark\n• +45 32 72 80 11 Denmark\n• +31 20 794 7345 Nether
+	lands\n• +31 707 006 526 Netherlands\n• +31 20 241 0288 Netherlands\n
+	• +31 20 794 0854 Netherlands\n• +31 20 794 6519 Netherlands\n• +31
+	20 794 6520 Netherlands\n\nMeeting ID: 859 4582 8202\n\nFind your local nu
+	mber: https://eclipse.zoom.us/u/kitPLq9X0 <https://eclipse.zoom.us/u/kitPL
+	q9X0> \n\n
+DTEND;TZID="W. Europe Standard Time":20240625T110000
+DTSTAMP:20240619T095755Z
+DTSTART;TZID="W. Europe Standard Time":20240625T103000
+LAST-MODIFIED:20240619T122822Z
+LOCATION:https://eclipse.zoom.us/j/85945828202?pwd=YODkCen20BOQV9WNJEeNFM8z
+	aOlxo9.1
+ORGANIZER;CN="Lars Geyer-Blaumeiser":mailto:lars.blaumeiser@cofinity-x.com
+PRIORITY:5
+RRULE:FREQ=WEEKLY;COUNT=53;BYDAY=TU
+SEQUENCE:2
+SUMMARY:EDC Weekly | Extended
+TRANSP:OPAQUE
+UID:ZOOM85945828202
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTLASTSEQUENCE:2
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

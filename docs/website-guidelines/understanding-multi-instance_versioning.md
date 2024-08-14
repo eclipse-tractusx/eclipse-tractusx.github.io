@@ -11,7 +11,6 @@ We have structured our documentation i a way that it's divided in 3 instances/fo
 
 - `./docs` -> dedicated to the `Developer Hub` content (not versioned)
 - `./docs-kits` -> dedicated to the `KITs` content (versioned)
-- `./docs-products` -> dedicated to the `products` content (not in use yet)
 
 With this structure we are able to have a better control and organisation of the code, and also allow us to have separated versions for each `instance` if needed.
 
@@ -19,7 +18,6 @@ Each instance/folder's sidebar is also defined in a separate file, like follows:
 
 - `./docs` -> `sidebars.js`
 - `./docs-kits` -> `sidebarsDocskits.js`
-- `./docs-products` -> `sidebarsDocsProducts.js`
 
 To understand and know more about the multi-instance [setup](https://docusaurus.io/docs/2.2.0/docs-multi-instance#setup) check the official documentation.
 
