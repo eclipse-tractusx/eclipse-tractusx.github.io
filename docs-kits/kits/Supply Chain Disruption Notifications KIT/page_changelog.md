@@ -5,6 +5,7 @@ description: 'Supply Chain Disruption Notifications'
 sidebar_position: 1
 ---
 
+![Supply Chain Disruption Notifications kit banner](/img/kit-icons/scdn-kit-icon.svg)
 
 ### Supply Chain Disruption Notifications
 

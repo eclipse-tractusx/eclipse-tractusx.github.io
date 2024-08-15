@@ -5,6 +5,8 @@ description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 2
 ---
 
+![Supply Chain Disruption Notifications kit banner](/img/kit-icons/scdn-kit-icon.svg)
+
 ## Vision
 
 **_Elevating Robustness and Flexibility in the Supply Chains through Disruption Notifications_**
