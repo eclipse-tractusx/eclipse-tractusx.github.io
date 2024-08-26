@@ -214,7 +214,7 @@ The following high level view gives a basic overview about the BPDM Components:
 
 #### **SME**
 
--Currently there is no SME Application available
+- Currently there is no SME Application available
 
 ## Runtime View
 
@@ -486,7 +486,7 @@ UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 
 ## Crosscutting Concepts
 
-### Authentication & Autorization
+## Authentication & Autorization
 
 ### Roles, Rights, Permissions
 
@@ -525,9 +525,9 @@ Sync'.
 
 12.Orchestrator Pool Task Processor: Reserve and resolve Golden Record Tasks in step 'Pool'.
 
-### Permissions
+#### Permissions
 
-Permissions as client resources
+##### Permissions as client resources
 
 | BPDM Pool                                 | BPDM Gate                                 | BPDM Orchestrator                          |
 |-------------------------------------------|-------------------------------------------|--------------------------------------------|
@@ -540,7 +540,7 @@ Permissions as client resources
 | • write_metadata                          | • write_sharing_state                     | • create_reservation_poolSync              |
 |                                            | • read_stats                              | • create_result_poolSync                   |
 
-#### Permissions by permission group
+##### Permissions by permission group
 
 Gate Permission
 
@@ -564,15 +564,9 @@ Gate Permission
 
 #### Orchestrator Permissions
 
-| Admin                    | Task Creator                        | Clean And Sync Task Processor            | Clean Task Processor                      | Pool Task Processor                       |
-|--------------------------|-------------------------------------|------------------------------------------|-------------------------------------------|-------------------------------------------|
-
-| All of BPDM Orchestrator         |                                      |
-|----------------------------------|--------------------------------------|
-| create_task                       | read_task                            |
-| create_reservation_clean          | create_result_clean                  |
-| create_reservation_cleanAndSync   | create_result_cleanAndSync           |
-| create_reservation_poolSync       | create_result_poolSync               |
+| Admin                   | Task Creator                    | Clean And Sync Task Processor               | Clean Task Processor            | Pool Task Processor              |
+|-------------------------|---------------------------------|---------------------------------------------|---------------------------------|----------------------------------|
+| All of BPDM Orchestrator | • create_task • read_task      |  •create_reservation_cleanAndSync • create_result_cleanAndSync | • create_reservation_clean  •create_result_clean |  • create_reservation_poolSync • create_result_poolSync |
 
 #### Mapping to Portal user roles for all companies (for all Catena-X members)
 
@@ -1062,7 +1056,7 @@ In this scenario the operating environment itself operates a backend service or 
 
 - see: [Quality Goals](#quality-goals-quality-goals)
 
-## Risks and Technical Debts  
+## Risks and Technical Debts
 
 ### **Open EDC Questions**
 
