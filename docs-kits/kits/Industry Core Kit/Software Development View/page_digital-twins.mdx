@@ -142,9 +142,6 @@ The following conventions for specific asset IDs apply to all digital twins:
 > In order to provide a standardised way to look-up digital twins, the specificAssetIDs are extended by a unified technical key, the intrinsicId. This ensures a correct semantic filling of all other existing attributes in the specificAssetIDs, as the partInstanceId was previously used as an overarching search field, which resulted in the partInstanceId being filled with a batch number for a batch, for example.
 Nevertheless, a search for digital twins can still be used via the corresponding the primary fields from a business point of view, such as partInstanceId or batchId.
 
-standardised identification of a digital twin based on technical key attributes
-Correct semantic filling of all existing fields in the specificAssetIDs (e.g. filling of the partInstanceIDs attribute for JisParts)
-
 #### Submodel Descriptors
 
 To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-links-by-id).
