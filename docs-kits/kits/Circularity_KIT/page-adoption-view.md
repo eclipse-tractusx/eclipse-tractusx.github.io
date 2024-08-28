@@ -48,7 +48,7 @@ The Circularity KIT provides business opportunities for service providers in var
 
 #### Circularity KIT Wheel
 
-In its first version the KIT covers 5 focus topics along an automotive value loop.
+In its first version, the KIT covers 5 focus topics along an automotive value loop.
 
 1. **Secondary Material Content:** promotes the use of secondary materials in the automotive industry by providing a standardized data model for data exchange and a calculation framework.
 2. **Material Accounting:** provides standardized scrap/waste and secondary material data exchange for the ecosystem partners to create transparency about recycling activities and verifiable closed loops.
