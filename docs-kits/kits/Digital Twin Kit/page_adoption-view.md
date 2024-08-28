@@ -1,6 +1,5 @@
 ---
 id: Adoption View Digital Twin Kit
-title: Adoption View
 description: 'Digital Twin Kit'
 sidebar_position: 2
 ---
@@ -13,7 +12,7 @@ Adoption View of the Kit.
 
 ![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
 
-### Digital Twin KIT
+## Digital Twin KIT
 
 <!-- !Mandatory! -->
 ## Vision & Mission

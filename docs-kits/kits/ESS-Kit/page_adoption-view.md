@@ -1,6 +1,5 @@
 ---
 id: ESS Kit Adoption View
-title: Adoption View
 description: 'Environmental and Social Standards Incident Management Kit'
 sidebar_position: 2
 ---

@@ -1,6 +1,5 @@
 ---
 id: Adoption View Modular Production Kit
-title: Adoption View
 description: 'Modular Production Kit'
 sidebar_position: 2
 ---
@@ -9,7 +8,7 @@ sidebar_position: 2
 
 ![mp kit banner](/img/kit-icons/modular-production-kit-icon.svg)
 
-### Modular Production Kit
+## Modular Production Kit
 
 ## Vision & Mission
 

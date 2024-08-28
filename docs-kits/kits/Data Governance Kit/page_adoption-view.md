@@ -1,6 +1,5 @@
 ---
 id: Data Governance Kit Adoption View
-title: Adoption View
 description: 'Data Governance Kit'
 sidebar_position: 2
 ---

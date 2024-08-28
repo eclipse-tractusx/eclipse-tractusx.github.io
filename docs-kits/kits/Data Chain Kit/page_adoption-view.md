@@ -1,6 +1,5 @@
 ---
 id: Adoption View Data Chain Kit
-title: Adoption View
 description: 'Data Chain Kit'
 sidebar_position: 1
 ---
@@ -9,7 +8,7 @@ sidebar_position: 1
 
 ![Datachain kit banner](/img/kit-icons/datachain-kit-icon.svg)
 
-### Data Chain Kit
+## Data Chain Kit
 
 ## Vision & Mission
 

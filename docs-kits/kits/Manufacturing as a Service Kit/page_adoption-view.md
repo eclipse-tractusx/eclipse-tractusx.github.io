@@ -1,6 +1,5 @@
 ---
 id: Adoption View MaaS KIT
-title: Adoption View
 description: 'MaaS KIT'
 sidebar_position: 2
 ---
@@ -9,7 +8,7 @@ sidebar_position: 2
 
 ![Maas kit banner](/img/kit-icons/manufacturing-kit-icon.svg)
 
-### Manufacturing as a Service KIT
+## Manufacturing as a Service KIT
 
 ## Vision & Mission
 

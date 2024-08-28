@@ -188,6 +188,7 @@ export const kitsGallery = [
     id: 20,
     name: 'Supply Chain Disruption Notifications KIT',
     domain: 'Resiliency',
+    maturityLevel: 'Sandbox',
     pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
   },
 ]

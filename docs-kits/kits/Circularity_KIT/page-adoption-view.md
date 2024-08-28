@@ -1,7 +1,3 @@
----
-title: Adoption View
----
-
 # Adoption View ![Block image](/img/incubating-dots.png#block)
 
 ![Circulairty Kit banner](/img/kit-icons/circularity-kit-icon.svg)

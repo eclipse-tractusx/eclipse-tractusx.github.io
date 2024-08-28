@@ -1,6 +1,5 @@
 ﻿---
 id: overview
-title: Behaviour Twin KIT
 hide_title: true
 description: Behaviour Twin KIT
 ---
