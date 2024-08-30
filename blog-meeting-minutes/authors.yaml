@@ -14,7 +14,7 @@ almadi_gabor:
   title: Consortia System Team Member
   url: https://github.com/almadigabor
   image_url: https://github.com/almadigabor.png
-  
+
 fabian_gruen:
   name: Fabian Grün
   title: Consortia System Team Member
@@ -57,3 +57,7 @@ tom-rm-meyer-ISST:
   title: PURIS Architect, Eclipse Committer
   url: https://github.com/tom-rm-meyer-ISST
   image_url: https://github.com/tom-rm-meyer-ISST.png
+arno_weiss:
+  name: Arno Weiß
+  title: Tractus-X Committer
+  url: https://github.com/arnoweiss
