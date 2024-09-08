@@ -2,7 +2,7 @@
 slug: community-office-hour-2024-07-26
 title: Community Office Hour 2024-07-26
 authors:
-    - matbmoser
+    - arno_weiss
 tags: [community, meeting-minutes]
 ---
 
