@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0ad1b7a6-734c-4289-9221-667fc56a21da",
-		"name": "KA Conformity Assessment Scripts (R24.05)",
+		"name": "KA Conformity Assessment Scripts (R24.08)",
 		"description": "(C) 2021,2023 Contributors to the Eclipse Foundation\n\nSPDX-LICENSE-IDENTIFIER: CC-BY-4.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2757771",
@@ -232,7 +232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=open\",\n    \"properties\": {\n        \"cx-common:name\": \"Open Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=open#> .\\n\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=open\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=open\",\n    \"properties\": {\n        \"cx-common:name\": \"Open Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=open#> .\\n\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=open\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -281,7 +281,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=closed\",\n    \"properties\": {\n        \"cx-common:name\": \"Closed Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=closed\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=closed#> .\\n\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=closed\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=closed\",\n    \"properties\": {\n        \"cx-common:name\": \"Closed Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=closed\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=closed#> .\\n\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=closed\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -330,7 +330,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=unfederated\",\n    \"properties\": {\n        \"cx-common:name\": \"Unfederated Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Graph&mode=open\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=unfederated#> .\\n\",\n        \"cx-common:isFederated\": \"false^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=unfederated\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"GraphAsset?cab=Conforming&mode=unfederated\",\n    \"properties\": {\n        \"cx-common:name\": \"Unfederated Conforming Asset.\",\n        \"cx-common:description\": \"A graph asset/offering hosting a conforming agent for testing and conformity checking.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Graph&mode=open\",\n        \"dct:type\": \"cx-taxo:GraphAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/common>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"sh:shapesGraph\": \"@prefix : <GraphAsset?cab=Conforming&mode=unfederated#> .\\n\",\n        \"cx-common:isFederated\": \"false^^xsd:boolean\"\n    },\n    \"privateProperties\": {},\n    \"dataAddress\": {\n        \"id\": \"GraphAsset?cab=Conforming&mode=unfederated\",\n        \"@type\": \"DataAddress\",\n        \"baseUrl\": \"{{cabConformingAgent}}/bind\",\n        \"type\": \"cx-common:Protocol?w3c:http:SPARQL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -453,7 +453,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=open\",\n    \"properties\": {\n        \"cx-common:name\": \"Open Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=all\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=open\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=open\",\n    \"properties\": {\n        \"cx-common:name\": \"Open Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=all\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=open\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -577,7 +577,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=closed\",\n    \"properties\": {\n        \"cx-common:name\": \"Closed Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=closed\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=all\",\n        \"cx-common:isFederated\": \"false^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=closed> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=closed\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=closed\",\n    \"properties\": {\n        \"cx-common:name\": \"Closed Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=closed\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=all\",\n        \"cx-common:isFederated\": \"false^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=closed> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=closed\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -701,7 +701,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=provider\",\n    \"properties\": {\n        \"cx-common:name\": \"Provider-Forced Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=provider\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=provider\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=provider\",\n    \"properties\": {\n        \"cx-common:name\": \"Provider-Forced Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=provider\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=provider\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -825,7 +825,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=consumer\",\n    \"properties\": {\n        \"cx-common:name\": \"Consumer-Forced Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.12.19\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=consumer\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=consumer\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
+							"raw": "{\n    \"@context\": {\n        \"@vocab\": \"https://w3id.org/edc/v0.0.1/ns/\",\n        \"rdf\": \"http://www.w3.org/1999/02/22-rdf-syntax-ns#\",\n        \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n        \"cx-common\": \"https://w3id.org/catenax/ontology/common#\",\n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n        \"sh\": \"http://www.w3.org/ns/shacl#\",\n        \"cs-taxo\": \"https://w3id.org/catenax/taxonomy#\",\n        \"dct\": \"https://purl.org/dc/terms/\"\n    },\n    \"@id\": \"SkillAsset?cab=Conforming&mode=consumer\",\n    \"properties\": {\n        \"cx-common:name\": \"Consumer-Forced Skill\",\n        \"cx-common:description\": \"A conformity assessment skill.\",\n        \"cx-common:version\": \"1.13.22\",\n        \"cx-common:contenttype\": \"application/json, application/xml\",\n        \"cx-common:publishedUnderContract\": \"Contract?cab=Asset&mode=open\",\n        \"dct:type\": \"cx-taxo:SkillAsset\",\n        \"rdfs:isDefinedBy\": \"<https://w3id.org/catenax/ontology/core>\",\n        \"cx-common:implementsProtocol\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"cx-common:distributionMode\": \"cx-common:SkillDistribution?run=consumer\",\n        \"cx-common:isFederated\": \"true^^xsd:boolean\"\n    },\n    \"privateProperties\": {\n        \"cx-common:query\": \"# Sample Skill accessing a graph\\n\\nSELECT ?subject ?predicate ?object WHERE { \\n    SERVICE <edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN> {\\n        GRAPH <GraphAsset?cab=Conforming&mode=open> { \\n            ?subject ?predicate ?object. \\n        }\\n    } \\n}\"\n    },\n    \"dataAddress\": {\n        \"id\": \"SkillAsset?cab=Conforming&mode=consumer\",\n        \"@type\": \"DataAddress\",\n        \"type\": \"cx-common:Protocol?w3c:http:SKILL\",\n        \"proxyPath\": \"false\",\n        \"proxyMethod\": \"true\",\n        \"proxyQueryParams\": \"true\",\n        \"proxyBody\": \"true\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3298,6 +3298,402 @@
 											]
 										},
 										"description": "A sample SparQL query with a more complex binding where the input is a json document."
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "0303_PROVIDER_AAS",
+					"item": [
+						{
+							"name": "030301_PROVIDER_AAS_BRIDGE",
+							"item": [
+								{
+									"name": "030301_AAS_DESCRIPTION",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 description was successful\", function () {",
+													"    pm.expect(pm.response.code).oneOf([200]);",
+													"    res = pm.response.json();",
+													"\t\tpm.expect(res).to.have.property('profiles');",
+													"\t\tpm.expect(res.profiles).to.have.length.gte(1);",
+													"\t\taasProfiles=res.profiles.filter(function(profile) {",
+													"\t\t\treturn profile.includes(\"AssetAdministrationShellRepository\");",
+													"\t\t});",
+													"\t\tpm.expect(aasProfiles.length).to.be.eq(1);",
+													"\t\tsubmodelProfiles=res.profiles.filter(function(profile) {",
+													"\t\t\treturn profile.includes(\"SubmodelRepository\");",
+													"\t\t});",
+													"        pm.expect(submodelProfiles.length).to.be.eq(1);",
+													"});",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"accept": true,
+											"user-agent": true,
+											"accept-encoding": true,
+											"connection": true
+										}
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/description",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"description"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030302_AAS_ALL_SHELLS",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 shells was successful\", function () {",
+													"    pm.expect(pm.response.code).oneOf([200]);",
+													"    res = pm.response.json();",
+													"\tpm.expect(res).to.have.property('result');",
+													"\tpm.expect(res.result).to.have.length.gte(1);",
+													"\tres.result.forEach(function(shell) {",
+													"        pm.expect(shell).to.have.property(\"id\");",
+													"        pm.expect(shell).to.have.property(\"idShort\");",
+													"        pm.expect(shell).to.have.property(\"assetInformation\");",
+													"        pm.expect(shell.assetInformation).to.have.property(\"globalAssetId\");",
+													"        pm.expect(shell).to.have.property(\"submodels\");",
+													"        pm.expect(shell.submodels).to.have.length.gte(1);",
+													"        shell.submodels.forEach(function(submodel) {",
+													"            pm.expect(submodel).to.have.property(\"keys\");",
+													"            pm.expect(submodel.keys).to.have.length.gte(1);",
+													"        });",
+													"    });",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/shells",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"shells"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030303_AAS_ALL_SUBMODELS",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 submodels was successful\", function () {",
+													"    pm.expect(pm.response.code).oneOf([200]);",
+													"    res = pm.response.json();",
+													"\tpm.expect(res).to.have.property('result');",
+													"\tpm.expect(res.result).to.have.length.gte(1);",
+													"\tres.result.forEach(function(submodel) {",
+													"        pm.expect(submodel).to.have.property(\"id\");",
+													"        pm.expect(submodel).to.have.property(\"idShort\");",
+													"        pm.expect(submodel).to.have.property(\"semanticId\");",
+													"        pm.expect(submodel.semanticId).to.have.property(\"keys\");",
+													"        pm.expect(submodel.semanticId.keys).to.have.length.gte(1);",
+													"        pm.expect(submodel).to.have.property(\"submodelElements\");",
+													"        pm.expect(submodel.submodelElements).to.have.length.gte(1);",
+													"        submodel.submodelElements.forEach(function(submodelElement) {",
+													"            pm.expect(submodelElement).to.have.property(\"idShort\");",
+													"            pm.expect(submodelElement).to.have.property(\"value\");",
+													"        });",
+													"    });",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/submodels?content=value&level=deep",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"submodels"
+											],
+											"query": [
+												{
+													"key": "content",
+													"value": "value"
+												},
+												{
+													"key": "level",
+													"value": "deep"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030304_ONE_SHELL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 specific shell was successful\", function () {",
+													"    pm.expect(pm.response.code).oneOf([200]);",
+													"    shell = pm.response.json();",
+													"    pm.expect(shell).to.have.property(\"id\");",
+													"    pm.expect(shell).to.have.property(\"idShort\");",
+													"    pm.expect(shell).to.have.property(\"assetInformation\");",
+													"    pm.expect(shell.assetInformation).to.have.property(\"globalAssetId\");",
+													"    pm.expect(shell).to.have.property(\"submodels\");",
+													"    pm.expect(shell.submodels).to.have.length.gte(1);",
+													"    shell.submodels.forEach(function(submodel) {",
+													"        pm.expect(submodel).to.have.property(\"keys\");",
+													"        pm.expect(submodel.keys).to.have.length.gte(1);",
+													"    });",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/shells/:shellid",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"shells",
+												":shellid"
+											],
+											"variable": [
+												{
+													"key": "shellid",
+													"value": "dHJhY2VhYmlsaXR5L3Vybjp1dWlkOmY1ZWZiZjQ1LTdkODQtNDQ0Mi1iM2I4LTA1Y2YxYzVjNWEwYg=="
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030305_NOTEXISTS_SHELL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 not existant shell wasfailure\", function () {",
+													"  pm.expect(pm.response.code).oneOf([400,500]);",
+													"  message = pm.response.json();",
+													"\tpm.expect(message).to.have.property(\"messages\");",
+													"\tpm.expect(message.messages).to.have.length.gte(1);",
+													"\tmessage.messages.forEach(function(message) {",
+													"\t\t\tpm.expect(message).to.have.property(\"messageType\");",
+													"\t\t\tpm.expect(message).to.have.property(\"text\");",
+													"\t\t\tpm.expect(message).to.have.property(\"code\");",
+													"\t\t\tpm.expect(message).to.have.property(\"timestamp\");",
+													"\t});",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/shells/:shellid",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"shells",
+												":shellid"
+											],
+											"variable": [
+												{
+													"key": "shellid",
+													"value": "dHJhY2VhYmlsaXR5L3Vybjp1dWlkOmY1ZWZiZjQ1LTdkODQtNDQ0Mi1iM2I4LTA1Y2YxYzVjNWEwYw=="
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030306_ONE_SUBMODEL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 specific submodel was successful\", function () {",
+													"  pm.expect(pm.response.code).oneOf([200]);",
+													"  submodel = pm.response.json();",
+													"\tpm.expect(submodel).to.have.property(\"id\");",
+													"\tpm.expect(submodel).to.have.property(\"idShort\");",
+													"\tpm.expect(submodel).to.have.property(\"semanticId\");",
+													"\tpm.expect(submodel.semanticId).to.have.property(\"keys\");",
+													"\tpm.expect(submodel.semanticId.keys).to.have.length.gte(1);",
+													"\tpm.expect(submodel).to.have.property(\"submodelElements\");",
+													"\tpm.expect(submodel.submodelElements).to.have.length.gte(1);",
+													"\tsubmodel.submodelElements.forEach(function(submodelElement) {",
+													"\t\t\tpm.expect(submodelElement).to.have.property(\"idShort\");",
+													"\t\t\tpm.expect(submodelElement).to.have.property(\"value\");",
+													"\t});",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/submodels/:submodelIdentifier?level=deep",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"submodels",
+												":submodelIdentifier"
+											],
+											"query": [
+												{
+													"key": "level",
+													"value": "deep"
+												},
+												{
+													"key": "content",
+													"value": "value",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "submodelIdentifier",
+													"value": "dHJhY2VhYmlsaXR5L3VybjpiYW1tOmlvLmNhdGVuYXgucGFydF9hc19wbGFubmVkOjEuMC4xI1BhcnRBc1BsYW5uZWQvdXJuOnV1aWQ6ZjVlZmJmNDUtN2Q4NC00NDQyLWIzYjgtMDVjZjFjNWM1YTBi"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "030307_NOTEXISTS_SUBMODEL",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"AAS 3.0 not existant submodel wasfailure\", function () {",
+													"  pm.expect(pm.response.code).oneOf([400,500]);",
+													"  message = pm.response.json();",
+													"\tpm.expect(message).to.have.property(\"messages\");",
+													"\tpm.expect(message.messages).to.have.length.gte(1);",
+													"\tmessage.messages.forEach(function(message) {",
+													"\t\t\tpm.expect(message).to.have.property(\"messageType\");",
+													"\t\t\tpm.expect(message).to.have.property(\"text\");",
+													"\t\t\tpm.expect(message).to.have.property(\"code\");",
+													"\t\t\tpm.expect(message).to.have.property(\"timestamp\");",
+													"\t});",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{providerAasBridge}}/api/v3.0/submodels/:submodelIdentifier?level=deep",
+											"host": [
+												"{{providerAasBridge}}"
+											],
+											"path": [
+												"api",
+												"v3.0",
+												"submodels",
+												":submodelIdentifier"
+											],
+											"query": [
+												{
+													"key": "level",
+													"value": "deep"
+												},
+												{
+													"key": "content",
+													"value": "value",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "submodelIdentifier",
+													"value": "dHJhY2VhYmlsaXR5L3VybjpiYW1tOmlvLmNhdGVuYXgucGFydF9zaXRlX2luZm9ybWF0aW9uX2FzX3BsYW5uZWQ6MS4wLjAjUGFydFNpdGVJbmZvcm1hdGlvbkFzUGxhbm5lZC91cm46dXVpZDplNWM5NmFiNS04OTZhLTQ4MmMtODc2MS1lZmQ3NDc3N2NhOTc="
+												}
+											]
+										}
 									},
 									"response": []
 								}
