@@ -147,7 +147,7 @@ const config = {
         items: [
           {to: 'blog', label: 'News', position: 'left'},
           {
-            to: "/aboutus",
+            to: "/AboutUs",
             position: "left",
             label: "About Us",
           },

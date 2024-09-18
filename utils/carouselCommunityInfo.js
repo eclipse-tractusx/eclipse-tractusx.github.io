@@ -26,7 +26,7 @@ export const carouselCommunityInfo = [
     {
         id: 3,
         title: "Contribute a KIT",
-        navigate: "/developer",
+        navigate: "/Developer",
         icon: contributeIcon
     },
     {
@@ -36,4 +36,3 @@ export const carouselCommunityInfo = [
         icon: faqIcon
     }
   ]
-  
