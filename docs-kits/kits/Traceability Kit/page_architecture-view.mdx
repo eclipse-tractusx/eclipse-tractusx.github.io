@@ -139,6 +139,20 @@ The notification itself has various states. The states and their cycle are descr
 
 ![Notification State Model](./assets/notification-state-model.svg)
 
+### Block Information
+
+The blocking process is a process in the automotive industry to segregate or quarantine nonconforming parts in the supply chain to prevent using them in the production process. Therefore, the supplier must send all relevant information to the customer, so that he is able to identify the affected parts for example at the assembly line or in logistics.
+
+Catena-X is to be used to transfer this information in a standardized manner and to trace the individual parts back to see whether they have been blocked and sorted out on the customer side in order to prevent subsequent damage or major product recalls. In addition, the notification is intended to improve the quality and speed of the block information provided.
+
+> :raised_hand: Detailed Open API specifications for Blocking Notifications are available in the Development View. For  the current release, version 1.0.0 is optional and MUST be supported by every App provider from the next release. 
+
+#### Block Notification State Model
+
+State model that provides information about the block status of the individual parts within a block notification:
+
+![Block State Model](./assets/block-notification-state-model.svg)
+
 ## Runtime View
 
 In the sub-sections below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the corresponding sections:
@@ -151,7 +165,6 @@ To read the UML sequence diagrams correctly, some remarks:
 - The shown Notification EDC Adapter is not mandatory. It is just one option to send a notification via the EDC control and data plane. Important is that a similar functionality must be provided/implemented by the (traceability) application vendor. The Notification EDC Adapter or a similar component / functionality will not be provided as a central service from Catena-X.
 - To know where a notification must be send to, the (traceability) application must resolve the BPN of the receiver. This can either be happen because the (traceability) application has this information in its data model or it could - alternatively - also be resolved e.g. via a lookup of the digital twin in the central asset administration shell (AAS) registry.
 
-  :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications.
 - The resolution of the EDC URL for a given BPN is done via the Discovery Service API. The entry for each EDC into this Discovery Service is done via the CX Portal.
 - In each UML sequence diagram the step [01] describes the publishing of the notification endpoints as described in the above sections
 - Similarly, the Http POST request and response bodies are described in the above sections
@@ -167,6 +180,7 @@ Below, the UML sequence diagram to send and receive a quality investigation is d
 ![NotificationSendReceive](./diagrams/notification_send-receive.svg)
 
 #### Sending and Receiving of a Quality Alert
+> :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications.
 
 Below, the UML sequence diagram to send and receive a quality alert is depicted. In addition to the above mentioned general remarks, the following remark:
 
@@ -181,6 +195,7 @@ Below, the UML sequence diagram to update a quality investigation is depicted.
 ![NotificationUpdateInvestigation](./diagrams/notification_update-investigation.svg)
 
 #### Update of a Quality Alert
+> :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications.
 
 Below, the UML sequence diagram to update a quality alert is depicted.
 
