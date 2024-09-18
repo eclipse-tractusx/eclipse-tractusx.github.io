@@ -175,8 +175,10 @@ Therefore Bob needs to create an according contract definition. This follows the
 
 Info:
 
-edcManagementBaseUrl="<http://localhost/bob/management>"
+```bash
+edcManagementBaseUrl="http://localhost/bob/management"
 edcApiKey="password"
+```
 
 ```bash
 # Asset
@@ -427,7 +429,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 sovity GmbH
 - SPDX-FileCopyrightText: 2024 msg systems AG
-- Source URL: <https://github.com/eclipse-tractusx/eclipse-tractusx.github.io>
+- Source URL: `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io`
 
 [dt-kit]: https://eclipse-tractusx.github.io/docs-kits/kits/Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-software-development-view/
 [sldt-dtr]: https://github.com/eclipse-tractusx/sldt-digital-twin-registry/tree/main/docs

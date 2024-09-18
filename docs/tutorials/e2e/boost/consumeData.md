@@ -131,7 +131,7 @@ Alice now has a contract with Bob and can begin transferring the asset's data.
 
 ## Starting the data transfer
 
-Alice wants to send the data to her backend application ("<http://backend:8080>"). So she uses the following command to direct the data from Asset 3 to her desired data sink.
+Alice wants to send the data to her backend application (`http://backend:8080`). So she uses the following command to direct the data from Asset 3 to her desired data sink.
 
 :::warning
 
