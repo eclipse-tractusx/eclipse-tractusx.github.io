@@ -1220,7 +1220,7 @@ npm/npmjs/@mui/material/5.11.4, MIT, approved, #6619
 npm/npmjs/@mui/private-theming/5.11.2, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6629
 npm/npmjs/@mui/styled-engine/5.11.0, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6642
 npm/npmjs/@mui/system/5.11.4, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6627
-npm/npmjs/@mui/types/7.2.3, MIT, approved, clearlydefined
+npm/npmjs/@mui/types/7.2.3, MIT, approved, #16017
 npm/npmjs/@mui/utils/5.11.2, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6632
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
