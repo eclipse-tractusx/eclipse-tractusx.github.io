@@ -153,6 +153,23 @@ State model that provides information about the block status of the individual p
 
 ![Block State Model](./assets/block-notification-state-model.svg)
 
+#### Block Notification State Model Interaction
+
+The interaction of the status model is based on events that can be triggered by both the sender and the receiver.
+
+**Scenario 1:** In this case, it is assumed that the sender sends a list of parts with the associated block information to the recipient. The block status of each part is set to ACTIVE by default.
+
+When all block information has been received by the recipient, checked internally, further processed and finally all affected parts were blocked or sorted out, this information is sent back to the sender through a status update (PART_BLOCKED).
+
+**Scenario 2:**
+In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally. 
+
+In order to inform the recipient of this error, the block status of the affected parts is set to CANCELED via an update notification, so that these parts cannot be sorted out and used to be installed by the recipient. 
+
+> :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out. 
+
+![Block State Model Interaction](./assets/block-notification-state-model-interaction.svg)
+
 ## Runtime View
 
 In the sub-sections below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the corresponding sections:
