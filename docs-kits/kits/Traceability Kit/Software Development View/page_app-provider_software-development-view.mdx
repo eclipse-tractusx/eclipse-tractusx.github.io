@@ -102,7 +102,9 @@ For general guidelines for policy creation, please refer to [Industry Core KIT](
 It is possible to restrict visibility of data offer for notification API with access policy either for members of Catena-X (“Membership”) and one or several Data Consumers identified by a specific business partner number ("BusinessPartnerNumber").
 As for usage policy, participants and related services must restrict the data usage for notification endpoints by using the following policy rules:
 - Data Exchange Governance (leftOperand: “FrameworkAgreement”) – The official "Data Exchange Governance" is published on [Catena-X website](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
-- at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile).
+- at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile)
+  - for quality notifications, the corresponding usage policy MUST be used (leftOperand: “qualityNotifications”)
+  - for block notifications, the corresponding usage policy MUST be used (leftOperand: “blockNotifications”)
 
 Additionally, respective usage policies MAY include the following policy rule:
 - Reference Contract (“ContractReference”).
