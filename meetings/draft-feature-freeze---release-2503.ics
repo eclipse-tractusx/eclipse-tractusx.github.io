@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+
+BEGIN:VEVENT
+UID:Draft Feature Freeze - Release 25.03
+DTSTAMP:20240925T094139Z
+DTSTART;TZID=Europe/Berlin:20241025T090500
+DTEND;TZID=Europe/Berlin:20241025T120000
+SUMMARY:Draft Feature Freeze - Release 25.03
+DESCRIPTION:This event is organised and moderated by the Catena-X Association. Until this date, feature proposal can be submitted to the planning board (in GitHub). The current status (as an interim status in the refinement phase) of the previous feature proposals will also be discussed at this meeting.
+ORGANIZER;CN=Catena-X Automotive Network e.V.:MAILTO:stephan.bauer@catena-x.net
+LOCATION:https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDU0MDk1ZWUtMWFhMy00MWI2LTkyNDItNDcyMjBhYzgzNGFm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d
+URL:https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDU0MDk1ZWUtMWFhMy00MWI2LTkyNDItNDcyMjBhYzgzNGFm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d
+
+BEGIN:VALARM
+TRIGGER:-PT18H
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+
+END:VEVENT
+END:VCALENDAR
