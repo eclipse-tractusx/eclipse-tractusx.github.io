@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+END:VTIMEZONE
+
+BEGIN:VEVENT
+UID:Refinement Phase - Release 25.03
+DTSTAMP:20240925T094139Z
+DTSTART;TZID=Europe/Berlin:20241007
+DTEND;TZID=Europe/Berlin:20241113
+SUMMARY:Refinement Phase - Release 25.03
+DESCRIPTION:Please be aware that the Refinement Phase is to keep you aware of the overall timeline during the Release Process and does not constitute an actual meeting. It serves informational purposes only. During this time, the necessary people/groups should come together and work (refine) the future features. Feature authors take care of organising appointments and communicating with the relevant contacts themselves. The Teams Session link can be used. Be aware: The link and the shared content is available to everyone.
+ORGANIZER;CN=Catena-X Automotive Network e.V.:MAILTO:stephan.bauer@catena-x.net
+LOCATION:https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDQ3YWY3ZTktMDNmNy00YzgxLTg2YTQtNDkyMmM3ZDk5MDg3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d
+URL:https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDQ3YWY3ZTktMDNmNy00YzgxLTg2YTQtNDkyMmM3ZDk5MDg3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d
+
+BEGIN:VALARM
+TRIGGER:-PT18H
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+
+END:VEVENT
+END:VCALENDAR
