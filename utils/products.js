@@ -1,72 +1,10 @@
 export const products = [
   {
-    productName: ".eclipsefdn",
-    productDescription:
-      "Repository to host configurations related to the Eclipse Foundation.",
-    githubRepo: ["https://github.com/eclipse-tractusx/.eclipsefdn"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request .eclipsefdn Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: ".github",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/.github"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request .github Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: ".eclipsefdn",
-    productDescription:
-      "Repository to host configurations related to the Eclipse Foundation.",
-    githubRepo: ["https://github.com/eclipse-tractusx/.eclipsefdn"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request .eclipsefdn Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: ".github",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/.github"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request .github Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "api-hub",
     productDescription: "TBD",
     githubRepo: ["https://github.com/eclipse-tractusx/api-hub"],
     committers: ["https://github.com/tomaszbarwicki"],
     mailTo: "tractusx-dev@eclipse.org?subject=Request api-hub Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "app-dashboard",
-    productDescription: "app-dashboard",
-    githubRepo: ["https://github.com/eclipse-tractusx/app-dashboard"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request app-dashboard Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -80,7 +18,6 @@ export const products = [
     ],
     committers: [
       "https://github.com/nicoprow",
-      "https://github.com/fabiodmota",
       "https://github.com/SujitMBRDI",
       "https://github.com/Maximilianong",
     ],
@@ -99,37 +36,9 @@ export const products = [
       "https://github.com/paullatzelsperger",
       "https://github.com/wolf4ood",
       "https://github.com/jimmarino",
-      "https://github.com/evegufy",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request bpn-did-resolution-service Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "charts",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/charts"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request charts Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "data-exchange-test-service",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/data-exchange-test-service",
-    ],
-    committers: [
-      "https://github.com/almadigabor",
-      "https://github.com/tomaszbarwicki",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request data-exchange-test-service Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -155,40 +64,6 @@ export const products = [
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request digital-product-pass Team",
     hasBoard: true,
-    showVersion: true,
-  },
-  {
-    productName: "eclipse-tractusx.github.io",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io",
-    ],
-    committers: [
-      "https://github.com/stephanbcbauer",
-      "https://github.com/arnoweiss",
-      "https://github.com/maximilianong",
-      "https://github.com/mhellmeier",
-      "https://github.com/matbmoser",
-      "https://github.com/danielmiehle",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request eclipse-tractusx.github.io Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "eclipse-tractusx.github.io.largefiles",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles",
-    ],
-    committers: [
-      "https://github.com/matbmoser",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request eclipse-tractusx.github.io.largefiles Team",
-    hasBoard: false,
     showVersion: true,
   },
   {
@@ -222,7 +97,6 @@ export const products = [
     hasBoard: false,
     showVersion: true,
   },
-
   {
     productName: "Item Relationship Service",
     productDescription:
@@ -246,32 +120,13 @@ export const products = [
     productName: "knowledge-agents",
     productDescription:
       "Reference Implementations of CX-0084 (Federated Queries In Data Spaces)",
-    githubRepo: ["https://github.com/eclipse-tractusx/knowledge-agents"],
-    committers: ["https://github.com/almadigabor"],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request knowledge-agents Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "knowledge-agents-aas-bridge",
-    productDescription: "TBD",
     githubRepo: [
+      "https://github.com/eclipse-tractusx/knowledge-agents",
       "https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge",
+      "https://github.com/eclipse-tractusx/knowledge-agents-edc",
     ],
     committers: ["https://github.com/almadigabor"],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request knowledge-agents-aas-bridge Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "knowledge-agents-edc",
-    productDescription:
-      "EDC Extensions for CX-0084 (Federated Queries In Data Spaces)",
-    githubRepo: ["https://github.com/eclipse-tractusx/knowledge-agents-edc"],
-    committers: ["https://github.com/almadigabor"],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request knowledge-agents-edc Team",
+    mailTo: "tractusx-dev@eclipse.org?subject=Request knowledge-agents Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -308,6 +163,8 @@ export const products = [
     productDescription: "TBD",
     githubRepo: [
       "https://github.com/eclipse-tractusx/managed-simple-data-exchanger",
+      "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend",
+      "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend",
     ],
     committers: [
       "https://github.com/almadigabor",
@@ -319,36 +176,6 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "managed-simple-data-exchanger-backend",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend",
-    ],
-    committers: [
-      "https://github.com/almadigabor",
-      "https://github.com/tomaszbarwicki",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request managed-simple-data-exchanger-backend Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "managed-simple-data-exchanger-frontend",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend",
-    ],
-    committers: [
-      "https://github.com/almadigabor",
-      "https://github.com/tomaszbarwicki",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request managed-simple-data-exchanger-frontend Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "Policy Hub",
     productDescription:
       "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth for Catena-X policies, attributes and templates for policy rules.",
@@ -356,7 +183,6 @@ export const products = [
     committers: [
       "https://github.com/evegufy",
       "https://github.com/Phil91",
-      "https://github.com/tom-rm-meyer-ISST",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request Tractus-X Policy Hub Team",
@@ -393,13 +219,10 @@ export const products = [
       "Predictive Unit Real-Time Information Service (PURIS) for Short Term Demand and Capacity Management",
     githubRepo: [
       "https://github.com/eclipse-tractusx/puris",
-      "https://github.com/eclipse-tractusx/puris-backend",
-      "https://github.com/eclipse-tractusx/puris-frontend",
     ],
     committers: [
       "https://github.com/tom-rm-meyer-ISST",
       "https://github.com/mhellmeier",
-      "https://github.com/tomaszbarwicki",
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request puris Team",
     hasBoard: false,
@@ -411,42 +234,6 @@ export const products = [
     githubRepo: ["https://github.com/eclipse-tractusx/quality-dashboard"],
     committers: ["https://github.com/tomaszbarwicki"],
     mailTo: "tractusx-dev@eclipse.org?subject=Request quality-dashboard Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "Tractus-X infrastructure",
-    productDescription:
-      "Repository to manage the infrastructure of the Tractus-X project.",
-    githubRepo: ["https://github.com/eclipse-tractusx/sig-infra"],
-    committers: [
-      "https://github.com/evegufy",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request sig-infra Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "Tractus-X release planning repository",
-    productDescription:
-      "Repository to manage the release planning of the Tractus-X project on a feature level.",
-    githubRepo: ["https://github.com/eclipse-tractusx/sig-release"],
-    committers: [
-      "https://github.com/tomaszbarwicki",
-      "https://github.com/stephanbcbauer",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request sig-release Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "Tractus-X security",
-    productDescription:
-      "Repository to manage the security aspects of the Tractus-X project.",
-    githubRepo: ["https://github.com/eclipse-tractusx/sig-security"],
-    committers: ["https://github.com/RoKrish14"],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request sig-security Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -491,7 +278,11 @@ export const products = [
     githubRepo: [
       "https://github.com/eclipse-tractusx/ssi-authority-schema-registry",
     ],
-    committers: ["https://github.com/Phil91", "https://github.com/evegufy"],
+    committers: [
+      "https://github.com/Phil91",
+      "https://github.com/evegufy",
+      "https://github.com/ntruchsess",
+    ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request ssi-authority-schema-registry Team",
     hasBoard: false,
@@ -501,21 +292,13 @@ export const products = [
     productName: "ssi-credential-issuer",
     productDescription: "SSI Credential Issuer",
     githubRepo: ["https://github.com/eclipse-tractusx/ssi-credential-issuer"],
-    committers: ["https://github.com/Phil91", "https://github.com/evegufy"],
+    committers: [
+      "https://github.com/Phil91",
+      "https://github.com/evegufy",
+      "https://github.com/ntruchsess",
+    ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request ssi-credential-issuer Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "ssi-docu",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/ssi-docu"],
-    committers: [
-      "https://github.com/jimmarino",
-      "https://github.com/paullatzelsperger",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request ssi-docu Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -528,11 +311,10 @@ export const products = [
     hasBoard: false,
     showVersion: true,
   },
-
   {
     productName: "Trace-X",
     productDescription:
-      "The project provides a business application for tracking parts along the supply chain. A high level of transparency across the supplier network enables faster intervention based on a recorded event in the supply chain.",
+      "The project provides a business application for tracking parts along the supply chain. It uses quality notifications in a standardized way to notify customers or suppliers about detected faulty parts. It is based on the Catena-X standards for serialized and non-serialized hardware and software components.",
     githubRepo: [
       "https://github.com/eclipse-tractusx/traceability-foss",
       "https://github.com/eclipse-tractusx/traceability-foss-backend",
@@ -548,36 +330,6 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "tractus-x-release",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/tractus-x-release"],
-    committers: [
-      "https://github.com/tom-rm-meyer-ISST",
-      "https://github.com/arnoweiss",
-      "https://github.com/stephanbcbauer",
-      "https://github.com/evegufy",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request tractus-x-release Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "tractus-x-umbrella",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/tractus-x-umbrella"],
-    committers: [
-      "https://github.com/ds-jhartmann",
-      "https://github.com/almadigabor",
-      "https://github.com/evegufy",
-      "https://github.com/jzbmw",
-      "https://github.com/tunacicek",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request tractus-x-umbrella Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-
-  {
     productName: "Tractus-X EDC",
     productDescription:
       "The project provides the pre-built control- and data-plane docker images and helm charts of the Eclipse Dataspace Connector Project.",
@@ -589,7 +341,7 @@ export const products = [
       "https://github.com/paullatzelsperger",
       "https://github.com/wolf4ood",
       "https://github.com/ndr-brt",
-      "https://github.com/tuncaytunc-zf",
+      "https://github.com/jimmarino",
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
     hasBoard: true,
@@ -609,55 +361,11 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "tractusx-quality-checks",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/tractusx-quality-checks"],
-    committers: [
-      "https://github.com/SebastianBezold",
-      "https://github.com/tomaszbarwicki",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request tractusx-quality-checks Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "tutorial-resources",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/tutorial-resources"],
-    committers: [
-      "https://github.com/wolf4ood",
-      "https://github.com/paullatzelsperger",
-      "https://github.com/ndr-brt",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request tutorial-resources Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "vas-country-risk",
     productDescription: "TBD",
     githubRepo: ["https://github.com/eclipse-tractusx/vas-country-risk"],
-    committers: [
-      "https://github.com/fabiodmota",
-      "https://github.com/SujitMBRDI",
-    ],
+    committers: [],
     mailTo: "tractusx-dev@eclipse.org?subject=Request vas-country-risk Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "vas-country-risk-backend",
-    productDescription: "TBD",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/vas-country-risk-backend",
-    ],
-    committers: [
-      "https://github.com/fabiodmota",
-      "https://github.com/SujitMBRDI",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request vas-country-risk-backend Team",
     hasBoard: false,
     showVersion: true,
   },
