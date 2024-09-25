@@ -1228,7 +1228,7 @@ npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
 npm/npmjs/@paloaltonetworks/openapi-to-postmanv2/3.1.0-hotfix.1, Apache-2.0 AND (Apache-2.0 AND MIT) AND BSD-2-Clause-Views AND (Apache-2.0 AND BSD-2-Clause AND MIT) AND MIT, approved, #6641
 npm/npmjs/@paloaltonetworks/postman-code-generators/1.1.12, Apache-2.0, approved, #6636
 npm/npmjs/@paloaltonetworks/postman-collection/4.1.1, Apache-2.0, approved, #6638
-npm/npmjs/@polka/url/1.0.0-next.21, MIT, approved, clearlydefined
+npm/npmjs/@polka/url/1.0.0-next.21, MIT, approved, #16183
 npm/npmjs/@popperjs/core/2.11.6, MIT, approved, clearlydefined
 npm/npmjs/@redocly/ajv/8.11.0, MIT, approved, clearlydefined
 npm/npmjs/@redocly/openapi-core/1.0.0-beta.120, MIT AND Apache-2.0, approved, #6639
@@ -1283,7 +1283,7 @@ npm/npmjs/@types/node/18.11.18, MIT, approved, #5746
 npm/npmjs/@types/parse-json/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/5.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/6.0.3, MIT, approved, clearlydefined
-npm/npmjs/@types/prop-types/15.7.5, MIT, approved, clearlydefined
+npm/npmjs/@types/prop-types/15.7.5, MIT, approved, #16176
 npm/npmjs/@types/qs/6.9.7, MIT, approved, #13991
 npm/npmjs/@types/range-parser/1.2.4, MIT, approved, #10795
 npm/npmjs/@types/react-is/17.0.3, MIT, approved, #8424
