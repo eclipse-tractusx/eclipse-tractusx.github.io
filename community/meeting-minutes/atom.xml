@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-07-26T00:00:00.000Z</updated>
+    <updated>2024-08-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2024-08-02]]></title>
+        <id>community-office-hour-2024-08-02</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02"/>
+        <updated>2024-08-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a class="hash-link" href="#infrastructure" title="Direct link to heading">​</a></h3><ul><li>Discussion on catenax-ng<ul><li>@matbmoser: please cross-check your own repository, if you reference it!</li><li>@lgblaumeiser: we noticed that the R24.03 MIW needs catenax-ng resources. It temporarily stays up. (see <a href="https://github.com/eclipse-tractusx/managed-identity-wallet/issues/342" target="_blank" rel="noopener noreferrer">issue</a>)</li></ul></li><li>Consortia teams are gone. Thanks, it was a pleasure! </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a class="hash-link" href="#security-team" title="Direct link to heading">​</a></h3><ul><li>@matbmoser: Please do check for your security issues on the tab. High and critical issues need to be fixed. We should check this on high level / project level regularly in this meeting</li><li>@tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see <a href="/community/meeting-minutes/eclipse-tractusx/puris#531">e.g.</a>)</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>@AngelikaWittek is gone. Thanks for your work!</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a class="hash-link" href="#open-planning--community" title="Direct link to heading">​</a></h3><ul><li>@stephanbcbauer: <ul><li>Refinement Phase went well overall. Committers please join the planning meetings.</li><li>Some QGates are still open, please check.</li><li>Review together the <a href="https://github.com/eclipse-tractusx/tractus-x-release/pull/34" target="_blank" rel="noopener noreferrer">release preparation</a></li></ul></li></ul>]]></content>
+        <author>
+            <name>Tom Meyer</name>
+            <uri>https://github.com/tom-rm-meyer-ISST</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-07-26]]></title>
         <id>community-office-hour-2024-07-26</id>
