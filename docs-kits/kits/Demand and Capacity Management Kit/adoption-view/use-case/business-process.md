@@ -431,6 +431,280 @@ Embedded into the WeekBasedCapacityGroup are
 
 In addition the difference between actual capacity and maximum capacity is commonly understood as **flexible capacity**.
 
+The following examples illustrate how to use the "Capacities" properties
+
+#### Example 1: simple case
+
+![Capacity Example](./resources/business-process_capacity-types_example1.svg)
+<!--
+```mermaid
+---
+
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 400
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 1"
+    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    y-axis "." 0 -> 2000
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [870, 900, 980, 905, 950, 912, 940, 1150, 1390, 1478]
+    line Actual Capacity [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1250, 1500,1500]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+<!--
+```mermaid
+---
+
+---
+
+block-beta
+columns 3
+A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
+B["Demand over actual but within maximum capacity"] style B fill:#FFA600,color:#F4F2F3
+C["Demand within actual capacity"] style C fill:#809500,color:#F4F2F3
+D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
+E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
+```
+-->
+
+We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain Capacity Group.
+Current capacity plan at Supplier for this horizon is
+- 1000 units per week from Week14 (10 shifts per week) to Week20
+- 1500 units per week from Week22 onwards (15 shifts per week), with a rampup step in Week21
+
+This plan is reflected in the Actual Capacity of DCM.
+
+When matching Demand to Capacity, one will see that
+- Actual Capacity is sufficient to cover Demand.
+- Maximum Capacity can be available to cover potential increase of the Demand up until 1800
+
+#### Exemple 2: Imbalance
+
+![Capacity Example](./resources/business-process_capacity-types_example2.svg)
+<!--
+```mermaid
+
+---
+config:
+ xyChart:
+        width: 1200
+        height: 400
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 2"
+    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    y-axis "." 0 -> 2000
+    bar Demand Over Actual but within Actual Capacity Orange [0,1100,1200,1318,1150,1254,1110,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1000, 0, 0, 0, 0, 0, 0, 1150, 1390, 1478]
+    line Actual Capacity [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1250, 1500,1500]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+We are, here again, in Week01, considering the horizon from Week14 onwards.
+Demand has increased in the period between Week 15 and Week 20, and now exceeds Actual Capacity. 
+
+On Supplier side: Supplier should detect that Actual Capacity is insufficient, using its DCM Software, and conclude that measures should be activated to cover Demand. As Demand is below Maximum Capacity, Supplier knows that it is feasible. Eventually, Supplier should update its Actual Capacity to reflect those measures.
+
+On Customer side: when validating its own production plan, Customer may consider utilizing the Supplier’s flexibility up to the Maximum Capacity and conclude that feasibility is OK.
+
+#### Example 3: saturated capacity
+
+![Capacity Example](./resources/business-process_capacity-types_example3.svg)
+<!--
+```mermaid
+---
+
+---
+config:
+ xyChart:
+        width: 1200
+        height: 700
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#046b99"
+---
+   
+   
+    xychart-beta
+    title "Example 3: Capacity Group close to saturation"
+    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    y-axis "." 0 -> 2000
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1788, 1786, 1770, 1767, 1788, 1780, 1770, 1760, 1750, 1789]
+    line Actual Capacity [1790, 1790,1790,1790, 1790,1790,1790, 1790,1790,1790]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+
+Actual Capacity is equal to Maximum Capacity, and Demand is very close.
+Though no lack of capacity is detected, even a slight increase of Demand could not be managed.  Both Supplier and Customer can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
+
+#### Example 4: solving a Capacity Bottleneck
+
+<!--
+```mermaid
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 420
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 4a"
+    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    y-axis "." 0 -> 2200
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,1950,1950,1950,0,0]
+    bar Demand within Actual Capacity Green [1780, 1775, 1775, 1775, 1770, 0, 0, 0, 1770, 1770]
+    line Actual Capacity [1785, 1785,1785, 1785, 1785, 1785,1785, 1785,1785, 1785]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example4a.svg)
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+Imbalance is detected in Week19 to Week 21: Demand exceeds Maximum Capacity.
+Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
+If so, Actual and Maximum Capacity measures must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
+
+
+<!--
+```mermaid
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 420
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 4b"
+    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    y-axis "." 0 -> 2200
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1780, 1775, 1775, 1775, 1770, 1930, 1930, 1930, 1770, 1770]
+    line Actual Capacity [1785, 1785,1785, 1785, 1785, 1935, 1935, 1935,1785, 1785]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1950, 1950, 1950,1800,1800]
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example4b.svg)
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+
+
+
 ### WeekBasedCapacityGroup Properties
 
 A Capacity Group dataset comprises the following basic components:
