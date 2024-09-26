@@ -15,9 +15,9 @@ END:VTIMEZONE
 
 BEGIN:VEVENT
 UID:Refinement Day 1 - Release 25.03
-DTSTAMP:20240925T094139Z
-DTSTART;TZID=Europe/Berlin:20241014T090500
-DTEND;TZID=Europe/Berlin:20241014T120000
+DTSTAMP:20240926T184747Z
+DTSTART;TZID=Europe/Berlin:20241016T090500
+DTEND;TZID=Europe/Berlin:20241016T120000
 SUMMARY:Refinement Day 1 - Release 25.03
 DESCRIPTION:This event is organised and moderated by the Catena-X Association. Based on a predefined agenda (depending on the features on the board), individual dependencies are discussed and also documented directly on the feature. If the refinement of the features has already been carried out 'in the refinement phase' and the Definition of Entry (DoE) has already reached, this meeting can also be used as synchronisation.
 ORGANIZER;CN=Catena-X Automotive Network e.V.:MAILTO:stephan.bauer@catena-x.net
