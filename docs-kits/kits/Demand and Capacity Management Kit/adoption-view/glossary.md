@@ -1,3 +1,11 @@
+---
+id: glossary
+title: Glossary
+description: Glossary
+---
+
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+
 ## DCM Glossary
 
 |Term|Description|
