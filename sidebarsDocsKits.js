@@ -479,6 +479,8 @@ items: [
         items: require('./docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-comment-api/sidebar.js'),
     },
     'kits/Demand and Capacity Management Kit/development-view/api-aas',
+    'kits/Demand and Capacity Management Kit/development-view/test-customer',
+    'kits/Demand and Capacity Management Kit/development-view/test-supplier',
 ]
 },
 {
