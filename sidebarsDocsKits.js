@@ -411,6 +411,7 @@ const sidebars = {
                         id: 'kits/Demand and Capacity Management Kit/adoption-view/overview',
                    },
                    items: [
+                    'kits/Demand and Capacity Management Kit/adoption-view/glossary',
                        {
                            type: 'category',
                            label: 'Use Case',
