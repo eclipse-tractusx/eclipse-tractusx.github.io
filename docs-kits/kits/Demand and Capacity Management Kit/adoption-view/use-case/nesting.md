@@ -103,7 +103,7 @@ Capacity Group 3 is the result of the indirect way of linking Material Demand, t
 
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
 
-<img width="1066" alt="Recurrent nested Capacity Groups" src="https://github.com/catenax-eV/cx-ex-dcm/blob/main/PI-14/%5BR24.12%5D%20DCM%20KIT%20Nesting%20Content/2024-09-24_DCM_Nesting_example_picture.svg">
+<img width="1066" alt="Recurrent nested Capacity Groups" src="resources/2024-09-24_DCM_Nesting_example_picture.svg">
 Figure: *Recurrent nested Capacity Groups*
 </br></br></br>
 
