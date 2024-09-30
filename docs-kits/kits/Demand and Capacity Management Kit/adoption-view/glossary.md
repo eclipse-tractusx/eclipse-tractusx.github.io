@@ -46,7 +46,8 @@ description: Glossary
 |Supplier|A role within the DCM use case, which represents a company that supplies goods to its customers. Participating companies can have multiple roles at the same time. Suppliers provide consistent and up-to-date capacity data and receive demands from customers. Synonym: one-down.|
 |Surplus|A surplus is a situation in which an oversupply exists. In the DCM context, it is often used to indicate a situation in which unutilized capacity exists. It is the contrary of a bottleneck. Synonym: idle capacity, excess capacity.|
 |UUID|A UUID, which stands for Universally Unique Identifier, is a 128-bit number used to uniquely identify information in computer systems. The primary purpose of a UUID is to enable distributed systems to uniquely identify information without significant central coordination. In this way, anyone can create a UUID and use it to identify something with reasonable confidence that the identifier does not duplicate one that has already been, or will be, created to identify something else.|
-|WeekBasedCapacityGroup|This term refers to the specific WeekBasedCapacityGroup object defined in this standard.|
+|WeekBasedCapacityGroup|This term refers to the specific WeekBasedCapacityGroup object defined in the DCM standard.|
+|WeekBasedMaterialDemand|This term refers to the specific WeekBasedMaterialDemand object defined in the DCM standard.|
 
 ## Notice
 
