@@ -12,7 +12,24 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.1.0] - unreleased
+## [1.2.0] - unreleased
+
+### Added
+
+- Added multiple diagrams to [Development View](./development-view/overview.md)  
+- Added E2E Tests to [Development View](./development-view/overview.md)
+- Added Glossary to [Adoption View](./adoption-view/overview.md)
+- Added Delta Production to [Adoption View](./adoption-view/overview.md)
+- Added Demand Fluctuation to [Adoption View](./adoption-view/overview.md)
+- Added Load Factors to [Adoption View](./adoption-view/overview.md)
+- Added Nesting to [Adoption View](./adoption-view/overview.md)
+- 
+### Changed
+
+- Updated [Core Business Process](./adoption-view/use-case/business-process.md)
+- Updated [Onboarding](./adoption-view/onboarding.md)
+
+## [1.1.0] - 2024-08-05
 
 ### Added
 
