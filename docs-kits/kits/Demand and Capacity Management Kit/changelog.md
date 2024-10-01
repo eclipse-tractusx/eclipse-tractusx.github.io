@@ -16,7 +16,6 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added multiple diagrams to [Development View](./development-view/overview.md)  
 - Added E2E Tests to [Development View](./development-view/overview.md)
 - Added Glossary to [Adoption View](./adoption-view/overview.md)
 - Added Delta Production to [Adoption View](./adoption-view/overview.md)
