@@ -22,7 +22,7 @@ All notable changes to this Kit will be documented in this file.
 - Added Demand Fluctuation to [Adoption View](./adoption-view/overview.md)
 - Added Load Factors to [Adoption View](./adoption-view/overview.md)
 - Added Nesting to [Adoption View](./adoption-view/overview.md)
-- 
+  
 ### Changed
 
 - Updated [Core Business Process](./adoption-view/use-case/business-process.md)
