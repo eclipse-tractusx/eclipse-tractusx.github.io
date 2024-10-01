@@ -346,7 +346,7 @@ This test checks the implementation of the aspect model as well as some edge cas
 ```
 Feature: Supplier: Create WeekBasedCapacityGroup
 
-Scenario Outline: Try to generate valid WeekBasedCapacityGroup
+Scenario Outline: Try to generate invalid WeekBasedCapacityGroup
   Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                                              with a default value of "unit:piece"
   *       the value for the property "name"                           is <v_name>                                                       with a default value of "All my beautiful spark plugs"
   *       the value for the property "demandVolatilityParameters"     contains exactly one entity "DemandVolatilityParametersEntity"
@@ -451,7 +451,6 @@ Given   the value for the property "unitOfMeasure"                  is <v_unitOf
 *       the value for the property "customer"                       is <v_customer>                             
 *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
 *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
-*       the value for the property "DemandVolatilityEntity"         tbc                                         
 *       the value for the property "pointInTime"                    is <v_pointInTime>                          
 *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
 *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
@@ -804,12 +803,12 @@ Scenario: Consume invalid IdBasedComment
 ### Consume IdBasedComment for base journey
 
 ```
-Feature: Customer: Consume IdBasedComment
+Feature: Supplier: Consume IdBasedComment
 
 Scenario Outline: Consume IdBasedComment for base journey
   Given I receive a <FileTransfer> containing <IdBasedComment> as payload
   When I try to consume <IdBasedComment>
-  Then I should be able to consume it and send my supplier a http 200 status message
+  Then I should be able to consume it and send my customer a http 200 status message
 
 Examples:
 | FileTransfer | IdBasedComment    |
@@ -1031,7 +1030,7 @@ This test checks the basic implementation of the comment feature within the GUI.
 ```
 Feature: Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
-Scenario: Comment linked ton IdBasedComment
+Scenario: Comment linked to IdBasedComment
   Given I have a comment that is linked to an IdBasedComment
   When I try to view this comment in the graphical user interface 
   Then    I should be able to view this comment in a list of all comments

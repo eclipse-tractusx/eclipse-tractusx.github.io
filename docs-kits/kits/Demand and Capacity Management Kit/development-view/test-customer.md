@@ -430,11 +430,11 @@ Feature: Customer: Consume WeekBasedCapacityGroup
 
 Scenario Outline: Consume WeekBasedCapacityGroup for base journey
   Given I have successfully created demands alpha, beta, gamma and delta as described in Create WeekBasedMaterialDemand for base journey
-  When I try to consume  <testCapacity> provided by my supplier within <fileTransfer>
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
   Then I should be able to consume the data and send <http status code> to my supplier.
 
 Examples:
-| testCapacity      | fileTransfer | http status code |
+| testCapacityGroup | fileTransfer | http status code |
 | CG_alpha,CG_beta  | FT_gamma     | 200 OK           |
 | CG_gamma,CG_delta | FT_delta     | 200 OK           |
 ```
