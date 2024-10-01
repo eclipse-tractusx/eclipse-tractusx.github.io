@@ -6,9 +6,13 @@ description: 'Tests relevant for the business role customer.'
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
-This page lists all the tests that can be executed by the business role customer.
+## Introduction
 
-For an overview of these tests you should visit [Testing a DCM application](./overview.md#testing-a-dcm-application).
+This page lists tests that can be executed by the business role customer.
+
+They are written in [Gherkin](https://cucumber.io/docs/gherkin/).
+
+For an overview of these tests you should visit [Testing a DCM application](./overview.md#testing-a-dcm-application) within the Development View of this KIT.
 
 ## Customer: Prepare yourself
 
