@@ -1,7 +1,7 @@
 ---
 id: nesting
 title: Nesting
-description: Nest Material Demands and Capacity Groups into other Capacity Groups
+description: Nest material demands and capacity groups into other capacity groups
 sidebar_position: 8
 ---
 
