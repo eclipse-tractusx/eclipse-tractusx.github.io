@@ -1,3 +1,11 @@
+---
+id: nesting
+title: Nesting
+description: Nest Material Demands and Capacity Groups into other Capacity Groups
+sidebar_position: 8
+---
+
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
 ## Business Roles and Functions
 
