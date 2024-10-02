@@ -10,7 +10,7 @@ npm/npmjs/-/ajv-keywords/3.5.2, MIT, approved, clearlydefined
 npm/npmjs/-/ajv-keywords/5.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/ajv/6.12.6, MIT, approved, #15286
 npm/npmjs/-/ajv/8.17.1, MIT, approved, clearlydefined
-npm/npmjs/-/algoliasearch-helper/3.22.5, , restricted, #16180
+npm/npmjs/-/algoliasearch-helper/3.22.5, MIT AND Apache-2.0 AND (BSD-2-Clause AND BSD-3-Clause AND ISC AND Unlicense AND MIT AND Apache-2.0), approved, #16180
 npm/npmjs/-/algoliasearch/4.24.0, MIT, approved, clearlydefined
 npm/npmjs/-/ansi-align/3.0.1, ISC, approved, clearlydefined
 npm/npmjs/-/ansi-html-community/0.0.8, Apache-2.0, approved, clearlydefined
@@ -207,7 +207,7 @@ npm/npmjs/-/dom-serializer/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/domelementtype/2.3.0, BSD-2-Clause, approved, clearlydefined
 npm/npmjs/-/domhandler/4.3.1, BSD-2-Clause, approved, clearlydefined
 npm/npmjs/-/domhandler/5.0.3, BSD-2-Clause, approved, clearlydefined
-npm/npmjs/-/dompurify/3.1.6, Apache-2.0 AND MPL-2.0 AND (Apache-2.0 AND GPL-2.0-only AND MPL-2.0), restricted, #16174
+npm/npmjs/-/dompurify/3.1.6, Apache-2.0 OR MPL-2.0, approved, #16174
 npm/npmjs/-/domutils/2.8.0, BSD-2-Clause, approved, clearlydefined
 npm/npmjs/-/domutils/3.1.0, BSD-2-Clause, approved, #8391
 npm/npmjs/-/dot-case/3.0.4, MIT, approved, clearlydefined
@@ -874,7 +874,7 @@ npm/npmjs/-/unist-util-visit-parents/6.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/unist-util-visit/5.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/universalify/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/unpipe/1.0.0, MIT, approved, clearlydefined
-npm/npmjs/-/update-browserslist-db/1.1.0, MIT, approved, clearlydefined
+npm/npmjs/-/update-browserslist-db/1.1.0, MIT, approved, #16405
 npm/npmjs/-/update-notifier/6.0.2, BSD-2-Clause, approved, clearlydefined
 npm/npmjs/-/uri-js/4.4.1, BSD-2-Clause, approved, #1086
 npm/npmjs/-/url-loader/4.1.1, MIT, approved, clearlydefined
@@ -1096,15 +1096,15 @@ npm/npmjs/@docusaurus/utils/3.5.2, MIT, approved, clearlydefined
 npm/npmjs/@emotion/babel-plugin/11.12.0, MIT, approved, clearlydefined
 npm/npmjs/@emotion/cache/11.13.1, MIT, approved, clearlydefined
 npm/npmjs/@emotion/hash/0.9.2, MIT, approved, #8394
-npm/npmjs/@emotion/is-prop-valid/1.3.0, MIT, approved, clearlydefined
+npm/npmjs/@emotion/is-prop-valid/1.3.0, MIT AND (BSD-2-Clause AND MIT), approved, #16339
 npm/npmjs/@emotion/memoize/0.9.0, MIT, approved, clearlydefined
 npm/npmjs/@emotion/react/11.13.3, MIT AND (BSD-2-Clause AND MIT), approved, #15965
-npm/npmjs/@emotion/serialize/1.3.1, MIT, approved, clearlydefined
+npm/npmjs/@emotion/serialize/1.3.1, MIT AND (BSD-2-Clause AND MIT), approved, #16340
 npm/npmjs/@emotion/sheet/1.4.0, MIT, approved, clearlydefined
 npm/npmjs/@emotion/styled/11.13.0, MIT, approved, clearlydefined
 npm/npmjs/@emotion/unitless/0.10.0, MIT, approved, clearlydefined
 npm/npmjs/@emotion/use-insertion-effect-with-fallbacks/1.1.0, MIT, approved, clearlydefined
-npm/npmjs/@emotion/utils/1.4.0, MIT, approved, clearlydefined
+npm/npmjs/@emotion/utils/1.4.0, MIT AND (BSD-2-Clause AND MIT), approved, #16344
 npm/npmjs/@emotion/weak-memoize/0.4.0, MIT, approved, clearlydefined
 npm/npmjs/@hapi/hoek/9.3.0, BSD-3-Clause AND MIT, approved, #6651
 npm/npmjs/@hapi/topo/5.1.0, BSD-3-Clause, approved, clearlydefined
@@ -1130,15 +1130,12 @@ npm/npmjs/@mui/utils/6.1.0, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
-npm/npmjs/@paloaltonetworks/openapi-to-postmanv2/3.1.0-hotfix.1, Apache-2.0 AND (Apache-2.0 AND MIT) AND BSD-2-Clause-Views AND (Apache-2.0 AND BSD-2-Clause AND MIT) AND MIT, approved, #6641
-npm/npmjs/@paloaltonetworks/postman-code-generators/1.1.12, Apache-2.0, approved, #6636
-npm/npmjs/@paloaltonetworks/postman-collection/4.1.1, Apache-2.0, approved, #6638
-npm/npmjs/@polka/url/1.0.0-next.21, MIT, approved, #16183
-npm/npmjs/@popperjs/core/2.11.6, MIT, approved, clearlydefined
-npm/npmjs/@redocly/ajv/8.11.0, MIT, approved, clearlydefined
-npm/npmjs/@redocly/openapi-core/1.0.0-beta.120, MIT AND Apache-2.0, approved, #6639
-npm/npmjs/@reduxjs/toolkit/1.9.1, MIT AND (BSD-2-Clause AND MIT) AND Apache-2.0, approved, #7050
-npm/npmjs/@sideway/address/4.1.4, BSD-3-Clause AND MIT, approved, #3098
+npm/npmjs/@pnpm/config.env-replace/1.1.0, MIT, approved, clearlydefined
+npm/npmjs/@pnpm/network.ca-file/1.0.2, MIT, approved, clearlydefined
+npm/npmjs/@pnpm/npm-conf/2.3.1, MIT AND ISC, approved, #16190
+npm/npmjs/@polka/url/1.0.0-next.27, MIT, approved, #16183
+npm/npmjs/@popperjs/core/2.11.8, MIT, approved, clearlydefined
+npm/npmjs/@sideway/address/4.1.5, BSD-3-Clause AND MIT, approved, #3098
 npm/npmjs/@sideway/formula/3.0.1, BSD-3-Clause, approved, clearlydefined
 npm/npmjs/@sideway/pinpoint/2.0.0, BSD-3-Clause, approved, clearlydefined
 npm/npmjs/@sinclair/typebox/0.27.8, MIT, approved, clearlydefined
@@ -1193,20 +1190,17 @@ npm/npmjs/@types/mime/1.3.5, MIT, approved, #10834
 npm/npmjs/@types/ms/0.7.34, MIT, approved, #10811
 npm/npmjs/@types/node-forge/1.3.11, MIT, approved, clearlydefined
 npm/npmjs/@types/node/17.0.45, MIT, approved, clearlydefined
-npm/npmjs/@types/node/18.11.18, MIT, approved, #5746
-npm/npmjs/@types/parse-json/4.0.0, MIT, approved, clearlydefined
-npm/npmjs/@types/parse5/5.0.3, MIT, approved, clearlydefined
-npm/npmjs/@types/parse5/6.0.3, MIT, approved, clearlydefined
-npm/npmjs/@types/prop-types/15.7.5, MIT, approved, #16176
-npm/npmjs/@types/qs/6.9.7, MIT, approved, #13991
-npm/npmjs/@types/range-parser/1.2.4, MIT, approved, #10795
-npm/npmjs/@types/react-is/17.0.3, MIT, approved, #8424
-npm/npmjs/@types/react-redux/7.1.25, MIT, approved, #10970
-npm/npmjs/@types/react-router-config/5.0.6, MIT, approved, clearlydefined
+npm/npmjs/@types/node/22.5.5, MIT, approved, clearlydefined
+npm/npmjs/@types/parse-json/4.0.2, MIT, approved, clearlydefined
+npm/npmjs/@types/prismjs/1.26.4, MIT, approved, clearlydefined
+npm/npmjs/@types/prop-types/15.7.13, MIT, approved, #16176
+npm/npmjs/@types/qs/6.9.16, MIT, approved, #14071
+npm/npmjs/@types/range-parser/1.2.7, MIT, approved, #10795
+npm/npmjs/@types/react-router-config/5.0.11, MIT, approved, clearlydefined
 npm/npmjs/@types/react-router-dom/5.3.3, MIT, approved, clearlydefined
 npm/npmjs/@types/react-router/5.1.20, MIT, approved, clearlydefined
 npm/npmjs/@types/react-transition-group/4.4.11, MIT, approved, #8416
-npm/npmjs/@types/react/18.3.7, MIT, approved, clearlydefined
+npm/npmjs/@types/react/18.3.7, MIT, approved, #16412
 npm/npmjs/@types/retry/0.12.0, MIT, approved, clearlydefined
 npm/npmjs/@types/sax/1.2.7, MIT, approved, clearlydefined
 npm/npmjs/@types/send/0.17.4, MIT, approved, #10832
