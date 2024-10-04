@@ -17,21 +17,21 @@ Nesting is a feature defined in the DCM standard CX-0128 and includes an advance
 |Inform business partners about Nesting via data transfer||X|
 |Receive Nesting information|X||
 
-</br></br>
+<br/><br/>
 
 ## Business value
 Nesting may be used by suppliers for the following purposes (but not limited to): 
 - To simplify the maintenance of Capacity Groups   
 - To enable the bundling of several smaller Capacity Groups to reflect a (virtual, internal) company structure
 
-</br></br>
+<br/><br/>
 
 **Advantages**
 
 - Avoid increased maintenance efforts if same Material Demands may be required for another Capacity Group
 - Allows to provide additional transparency to customers
 
-</br></br>
+<br/><br/>
 
 ## Functional description
 
@@ -45,10 +45,10 @@ Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the p
 For more transparent collaboration, a supplier may also aggregate two or more Capacity Groups and share this aggregated Capacity Group with its customer, if all aggregated Capacity Groups refer to the same customer (BPNL). 
 Nesting helps suppliers for example to map the internal production sequence in the Capacity Groups, e.g. the combination of two production lines into one final assembly line can be mapped by linking the two Capacity Groups of the preceding lines into another Capacity Group (see [Example](#example)). 
 The same applies to multiple production plants representing a customer's total allocated capacity for materials.
-</br></br>
-The supplier is able to put the desired Capacity Groups with their respective demands and capacities together and then share it with the customer.</br>
+<br/><br/>
+The supplier is able to put the desired Capacity Groups with their respective demands and capacities together and then share it with the customer.<br/>
 
-Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group. </br>
+Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group. <br/>
   
 
 The following figure shows that:  
@@ -92,9 +92,9 @@ class G1,G2,G4,G5 Material_Demand_full
 class C1,C2,C4,C5 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
-</br></br>
+<br/><br/>
 Legend:
-</br>
+<br/>
 
 ```mermaid
 block-beta
@@ -113,7 +113,7 @@ If a linked Capacity Group contains further linked Capacity Groups (dark green i
 
 <img width="1066" alt="Recurrent nested Capacity Groups" src="resources/2024-09-24_DCM_Nesting_example_picture.svg">
 Figure: *Recurrent nested Capacity Groups*
-</br></br></br>
+<br/><br/>
 
 **Considerations**
 
@@ -121,7 +121,7 @@ Figure: *Recurrent nested Capacity Groups*
 - Suppliers can use comments to provide customers with additional information about the Nesting. For more details on this communication feature, see Chapter 5.9 in the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange) or [Comments](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/adoption-view/use-case/comments) chapter in DCM Kit of Tractus-X.
 - Suppliers should be carefully applying recurring linked Capacity Groups ("domino effect"), because of the complexity of keeping track on changes and in maintenance. It is more difficult to identify and understand demand changes and where they are originating from (e.g. which part).
 
-</br></br>
+<br/><br/>
 
 Feature Nesting is to be used optional but if it is used certain parameters are required to be filled.
 
@@ -161,22 +161,22 @@ Figure: *Sequence diagram for Nesting*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-</br></br>
+<br/><br/>
 
 ## Example 
 
 The supplier produces five different toys on two different production lines for the customer. Afterwards the produced toys of both production lines are colored in the same paint shop. 
 All five toys pass through the same paint shop within the colouring process.
 
-Production line 1 is used to produce toys 1, 2 and 3 for the customer.</br> 
-Production line 2 is used to produce toys 4 and 5 for the customer.</br>   
+Production line 1 is used to produce toys 1, 2 and 3 for the customer.<br/> 
+Production line 2 is used to produce toys 4 and 5 for the customer.<br/>   
 
-The supplier has created a Capacity Group "Production Line 1" with the directly linked Material Demands of toys 1, 2 and 3.</br>
-The supplier has also created a Capacity Group "Production Line 2" with the directly linked Material Demands of toys 4 and 5.</br>
+The supplier has created a Capacity Group "Production Line 1" with the directly linked Material Demands of toys 1, 2 and 3.<br/>
+The supplier has also created a Capacity Group "Production Line 2" with the directly linked Material Demands of toys 4 and 5.<br/>
 For the paint shop the supplier has created another Capacity Group "Paint Shop", but without directly linked Material Demands. Instead, the supplier linked the Capacity Groups "Production Line 1" and "Production Line 2". 
-</br></br>
-The customer requires 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3 in the respective week. Therefore the Capacity Group "Production Line 1" has an aggregated Material Demand of 150 pieces per week.</br>
-Of toy 4, the customer wants 100 pieces and of toy 5 70 pieces in the respective week. Accordingly the related Capacity Group "Production Line 2" shows an aggregated Material Demand of 170 pieces per week.</br>
+<br/><br/>
+The customer requires 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3 in the respective week. Therefore the Capacity Group "Production Line 1" has an aggregated Material Demand of 150 pieces per week.<br/>
+Of toy 4, the customer wants 100 pieces and of toy 5 70 pieces in the respective week. Accordingly the related Capacity Group "Production Line 2" shows an aggregated Material Demand of 170 pieces per week.<br/>
 
 With the Nesting, the supplier achieves that the latest Material Demands that are linked to "Production Line 1" and "Production Line 2" are automatically available and considered in his Capacity Group "Paint Shop" without any further activities. Also in case a new toy 6 would be requested by same customer and produced on e.g. "Production Line 2", the supplier would only need to add it to that Capacity Group and automatically its Material Demand would also be considered in the Capacity Group "Paint Shop", thus also avoiding time-consuming additional maintenance on the demand side for "Paint Shop" Capacity Group.
 ```mermaid
@@ -228,9 +228,9 @@ class G1,G2,G4,G5,H1 Material_Demand_full
 class C1,C2,C4,C5,D1 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
-</br>
+<br/>
 Legend:
-</br>
+<br/>
 
 ```mermaid
 block-beta
@@ -241,11 +241,11 @@ C["Capacity data"] style C fill:#B3CB2D,color:#000000
 D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-dasharray:3
 ```
 Figure: *Example for application of Nesting*
-</br>
+<br/>
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-</br></br>
+<br/><br/>
 
 ## Notice
 
