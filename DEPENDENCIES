@@ -215,7 +215,7 @@ npm/npmjs/-/dot-prop/6.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/duplexer/0.1.2, MIT, approved, #1002
 npm/npmjs/-/eastasianwidth/0.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/ee-first/1.1.1, MIT, approved, clearlydefined
-npm/npmjs/-/electron-to-chromium/1.5.25, ISC AND (ISC AND JSON), restricted, #16184
+npm/npmjs/-/electron-to-chromium/1.5.25, ISC, approved, #16184
 npm/npmjs/-/elkjs/0.9.3, Apache-2.0 AND EPL-2.0, approved, #16195
 npm/npmjs/-/emoji-regex/8.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/emoji-regex/9.2.2, MIT, approved, clearlydefined
@@ -764,7 +764,7 @@ npm/npmjs/-/scheduler/0.23.2, MIT, approved, #14588
 npm/npmjs/-/schema-utils/2.7.0, MIT, approved, clearlydefined
 npm/npmjs/-/schema-utils/3.3.0, MIT, approved, #8952
 npm/npmjs/-/schema-utils/4.2.0, MIT, approved, #8986
-npm/npmjs/-/search-insights/2.17.2, , restricted, #16185
+npm/npmjs/-/search-insights/2.17.2, , approved, #16185
 npm/npmjs/-/section-matter/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/select-hose/2.0.0, MIT, approved, #145
 npm/npmjs/-/selfsigned/2.4.1, MIT, approved, clearlydefined
