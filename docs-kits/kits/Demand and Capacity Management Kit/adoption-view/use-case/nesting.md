@@ -111,7 +111,7 @@ Capacity Group 3 is the result of the indirect way of linking Material Demand, t
 
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
 
-<img width="1066" alt="Recurrent nested Capacity Groups" src="resources/2024-09-24_DCM_Nesting_example_picture.svg">
+![Recurrent nested Capacity Groups" src="!](./resources/2024-09-24_DCM_Nesting_example_picture.svg)
 Figure: *Recurrent nested Capacity Groups*
 <br/><br/>
 
@@ -133,7 +133,7 @@ __Parameters of the Nesting are as follows:__
 
 
 
-For further details please refer to the DCM - Kit --> Development View --> <a href="https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup">Aspect Model WeekBasedCapacityGroup</a>.
+For further details please refer to the [DCM - Kit --> Development View --> Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 
 ## Sequence Diagram
