@@ -1,3 +1,12 @@
+---
+id: load-factors
+title: Load Factors
+description: Detail capacities by defining how much of a strain a material is on your capacities, compared to other materials. 
+sidebar_position: 4
+---
+
+![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+
 ## Business Roles and Functions
 
 Load factors are advanced properties of a Capacity Group structure and therefore used optionally by suppliers. The application of Load factors is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers may apply load factors and customers consume it.
