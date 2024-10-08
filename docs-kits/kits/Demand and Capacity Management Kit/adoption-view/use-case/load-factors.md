@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ## Business Roles and Functions
 
-Load factors are advanced properties of a Capacity Group structure and therefore used optionally by suppliers. The application of Load factors is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers may apply load factors and customers consume it.
+Load factors are advanced parameters of a Capacity Group structure and therefore used optionally by suppliers. The application of Load factors is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers may apply load factors and customers consume it.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
