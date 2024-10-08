@@ -53,6 +53,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023,2024 Capgemini Deutschland GmbH
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
