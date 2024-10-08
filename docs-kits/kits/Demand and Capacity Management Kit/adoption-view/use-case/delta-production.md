@@ -33,7 +33,7 @@ The main advantage of using simulated Delta-Production is that it gives supplier
 Simulated Delta-Production enables suppliers to add extra detail to their capacity information. This helps illustrate solutions for capacity issues or times when production resources might be offline. Only the end results of simulated Delta-Production are shared with the customer. Suppliers may input a simulated Delta-Production value for each week as needed, which shows an increase or decrease in planned demand without actually changing the real figures.
 
 ## Functional description
-![Untitled diagram-2024-10-02-134301](https://github.com/user-attachments/assets/92d2f3ef-ae30-4d16-8522-445419f97974)
+![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
 
 Figure: *Capacity group structure with linked material demand incl. delta production result*
 
@@ -60,11 +60,11 @@ Simulated Delta-Production must not change the material demand. It's strictly a 
 Suppliers can use comments to provide customers with additional information about the simulated Delta-Production. For more details on this communication feature, see Chapter 5.9 in the CX-0128 DCM Standard document.
 
 ## Example
-![DeltaProduction_swimlane](https://github.com/user-attachments/assets/410b2f1d-ae93-4fff-8842-2214bfcbd99d)
+![DeltaProduction_swimlane](./resources/business-process_DeltaProduction_sequence.svg)
 
 Figure: *Sequence Diagram for Delta-Production*
 
-![DCM_DeltaProduction](https://github.com/user-attachments/assets/4d27b7c8-bd66-4222-9870-3b4176b4459d)
+![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
 
 Figure: *Visualized example of results of simulated Delta-Production (with pre-production)*
 
