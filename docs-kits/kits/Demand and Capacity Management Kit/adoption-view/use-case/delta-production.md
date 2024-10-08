@@ -43,9 +43,9 @@ Suppliers can provide these simulated values on a weekly basis alongside their r
 ```json
 "deltaProductionResult"
 ```
-| Main Parameters | Required? | Description | Example |
+| Main Parameters | Mandatory? | Description | Example |
 |-|-|-|-|
-| Delta Production Result | no | Delta related to the aggregated material demand after pre-/post production calculation the supplier wants to send to the customer. Can be positive and negative.| Decimal value (e.g. "400"). |
+| deltaProductionResult | no | Delta related to the aggregated material demand after pre-/post production calculation the supplier wants to send to the customer. Can be positive and negative.| Decimal value (e.g. "400"). |
 
 There's no need to give details about the duration of these adjustments, as this can be inferred from the number of weeks for which the simulated data is provided.
 When comparing demand and capacity data, the simulated values are considered without altering the actual data. If a simulated Delta-Production value is provided, it must be included in the weekly demand and capacity comparison. A positive value indicates a virtual increase in planned demand, while a negative value indicates a virtual decrease.
