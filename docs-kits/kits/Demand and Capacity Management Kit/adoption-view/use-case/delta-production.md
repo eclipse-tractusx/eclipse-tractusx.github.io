@@ -59,14 +59,12 @@ When comparing demand and capacity data, the simulated values are considered wit
 Simulated Delta-Production must not change the material demand. It's strictly a simulation feature.
 Suppliers can use comments to provide customers with additional information about the simulated Delta-Production. For more details on this communication feature, see Chapter 5.9 in the CX-0128 DCM Standard document.
 
-## Sequence Diagram
+## Example
+#### Sequence Diagram
 ![DeltaProduction_swimlane](./resources/business-process_DeltaProduction_sequence.svg)
-
 Figure: *Sequence Diagram for Delta-Production*
 
-## Example
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
-
 Figure: *Visualized example of results of simulated Delta-Production (with pre-production)*
 
 #### Sample Data
