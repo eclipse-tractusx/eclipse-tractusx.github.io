@@ -44,10 +44,8 @@ Load factors solve these problems by:
 ![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
 Figure: *Capacity group structure with linked material demand incl. load factors*
 
-Suppliers may apply load factors within WeekBasedCapacityGroup aspect model via the parameter
-```json
- "loadFactor"
-```
+Suppliers may apply load factors within WeekBasedCapacityGroup aspect model via the parameter:
+
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
 | loadFactor | no | If applied, a load factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). |
