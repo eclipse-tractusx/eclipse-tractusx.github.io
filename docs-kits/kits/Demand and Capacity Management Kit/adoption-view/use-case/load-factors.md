@@ -41,9 +41,7 @@ Load factors solve these problems by:
 - Better reflection of actual production environment
 
 ## Functional description
-![Loadfactor](/resources/business-process_LoadFactor_functional.svg)
-![Loadfactor_img01](https://github.com/user-attachments/assets/4719dbd3-95ba-49a7-9131-9d1fa6d0a339)
-
+![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
 Figure: *Capacity group structure with linked material demand incl. load factors*
 
 Suppliers may apply load factors within WeekBasedCapacityGroup aspect model via the parameter
@@ -52,7 +50,7 @@ Suppliers may apply load factors within WeekBasedCapacityGroup aspect model via 
 ```
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| Load Factor | no | If existent, the load factor indicates that this material of the material demand collection takes a factor more or less intensity to produce.| Decimal value (e.g. "3.5"). |
+| Load Factor | no | If applied, a load factor indicates that in order to produce the required material demand,  more (or less) production resources are required .| Decimal value (e.g. "3.5"). |
 
 Suppliers can apply load factors within the WeekBasedCapacityGroup model via a parameter. If they choose to do so, a load factor must be assigned to every WeekBasedMaterialDemand linked to the WeekBasedCapacityGroup.
 
@@ -71,7 +69,7 @@ Suppliers can use comments to provide customers with additional information abou
 
 
 ## Sequence Diagram
-![LoadFactor_swimlane](https://github.com/user-attachments/assets/eacbd366-1fe0-40c1-85f8-a421b140d13c)
+![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)
 Figure: *Sequence diagram example for application of load factor*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
@@ -90,7 +88,7 @@ Without the load factor applied, it would not have been transparent for the cust
 
 One possible solution would be to reduce the chrome toys by 25 pieces to 75 pieces. New required process time would add up to 100(red)*1 + 75(chrome)*2 = 100 + 150 = 250 cycles. 
 
-![Loadfactor_example](https://github.com/user-attachments/assets/579c1f3f-c218-4d63-9a13-53968bd26769)
+![Loadfactor](./resources/business-process_LoadFactor_example_diagram.svg)
 Figure: *Example for application of load factor within WeekBasedCapacityGroup*
 
 #### Sample Data
