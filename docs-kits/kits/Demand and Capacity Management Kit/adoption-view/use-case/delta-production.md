@@ -13,7 +13,7 @@ Delta production data is embedded into the WeekBasedCapacityGroup aspect model. 
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
-|Solve bottleneck via pre production||X|
+|Solve bottleneck via pre-/post production||X|
 |Solve bottleneck via post production||X|
 |Inform customer||X|
 |Acknowledge that bottleneck has been solved|X||
@@ -35,9 +35,9 @@ Simulated Delta-Production enables suppliers to add extra detail to their capaci
 ## Functional description
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
 
-Figure: *Capacity group structure with linked material demand incl. delta production result*
+Figure: *Capacity group structure with linked material demand including delta production result*
 
-Simulated Delta-Production may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both simulated pre-production and post-production activities.
+Simulated delta-production may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both simulated pre-production and post-production activities.
 
 Suppliers can provide these simulated values on a weekly basis alongside their regular capacity data via parameter
 ```json
