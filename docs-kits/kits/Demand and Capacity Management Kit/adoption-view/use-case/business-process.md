@@ -433,9 +433,11 @@ In addition the difference between actual capacity and maximum capacity is commo
 
 The following examples illustrate how to use the "Capacities" properties
 
-#### Example 1: simple case
+#### Example 1: Simple Case
 
 ![Capacity Example](./resources/business-process_capacity-types_example1.svg)
+
+
 <!--
 ```mermaid
 ---
@@ -468,7 +470,7 @@ config:
    
     xychart-beta
     title "Example 1"
-    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2000
     bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
     bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
@@ -478,6 +480,7 @@ config:
 
 ```
 -->
+Figure: 
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 <!--
@@ -495,6 +498,7 @@ D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
 ```
 -->
+Figure: *Visualizing Capacity and Demand*
 
 We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain Capacity Group.
 Current capacity plan at Supplier for this horizon is
@@ -507,7 +511,7 @@ When matching Demand to Capacity, one will see that
 - Actual Capacity is sufficient to cover Demand.
 - Maximum Capacity can be available to cover potential increase of the Demand up until 1800
 
-#### Exemple 2: Imbalance
+#### Example 2: Imbalance
 
 ![Capacity Example](./resources/business-process_capacity-types_example2.svg)
 <!--
@@ -540,7 +544,7 @@ config:
    
     xychart-beta
     title "Example 2"
-    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2000
     bar Demand Over Actual but within Actual Capacity Orange [0,1100,1200,1318,1150,1254,1110,0,0,0]
     bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
@@ -552,14 +556,16 @@ config:
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
+Figure: *Visualizing Capacity and Demand*
+
 We are, here again, in Week01, considering the horizon from Week14 onwards.
-Demand has increased in the period between Week 15 and Week 20, and now exceeds Actual Capacity. 
+Demand has increased in the period between Week15 and Week20, and now exceeds Actual Capacity. 
 
 On Supplier side: Supplier should detect that Actual Capacity is insufficient, using its DCM Software, and conclude that measures should be activated to cover Demand. As Demand is below Maximum Capacity, Supplier knows that it is feasible. Eventually, Supplier should update its Actual Capacity to reflect those measures.
 
 On Customer side: when validating its own production plan, Customer may consider utilizing the Supplier’s flexibility up to the Maximum Capacity and conclude that feasibility is OK.
 
-#### Example 3: saturated capacity
+#### Example 3:  Full Capacity Saturation
 
 ![Capacity Example](./resources/business-process_capacity-types_example3.svg)
 <!--
@@ -593,7 +599,7 @@ config:
    
     xychart-beta
     title "Example 3: Capacity Group close to saturation"
-    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2000
     bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
     bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
@@ -605,11 +611,12 @@ config:
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
+Figure: *Visualizing Capacity and Demand*
 
 Actual Capacity is equal to Maximum Capacity, and Demand is very close.
 Though no lack of capacity is detected, even a slight increase of Demand could not be managed.  Both Supplier and Customer can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
 
-#### Example 4: solving a Capacity Bottleneck
+#### Example 4: Solving a Capacity Bottleneck
 
 <!--
 ```mermaid
@@ -641,7 +648,7 @@ config:
    
     xychart-beta
     title "Example 4a"
-    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2200
     bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
     bar Demand Over Actual Capacity Red [0,0,0,0,0,1950,1950,1950,0,0]
@@ -654,7 +661,9 @@ config:
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
-Imbalance is detected in Week19 to Week 21: Demand exceeds Maximum Capacity.
+Figure: *Visualizing Capacity and Demand*
+
+Imbalance is detected in Week19 to Week21: Demand exceeds Maximum Capacity.
 Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
 If so, Actual and Maximum Capacity measures must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
 
@@ -689,7 +698,7 @@ config:
    
     xychart-beta
     title "Example 4b"
-    x-axis [Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20, Week 21, Week 22, Week 23]
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2200
     bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
     bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
