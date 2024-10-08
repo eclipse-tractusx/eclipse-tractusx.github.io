@@ -67,18 +67,15 @@ Without load factors, the units of measure of a WeekBasedCapacityGroup and its l
 
 Suppliers can use comments to provide customers with additional information about the applied load factors. For more details on this communication feature, see Chapter 5.9 of the CX-0128 DCM Standard document.
 
-
-## Sequence Diagram
-![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)
-Figure: *Sequence diagram example for application of load factor*
-
-For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
-
 ## Example
 The supplier produces two toys coloured red and chrome on its line for the customer. 
 Both materials pass through the same station within the colouring process.
 
-Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station.  
+Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station. 
+
+#### Sequence Diagram
+![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)
+Figure: *Sequence diagram example for application of load factor*
 
 The supplier has created a capacity group "Red and Chrome Toys" with the unit “cycle” (unit:cycle). A processing time per piece of 1 cycle is set for red toys and 2 cycles for chrome toys. The maximum available process time is set to 250 cycles. 
 
