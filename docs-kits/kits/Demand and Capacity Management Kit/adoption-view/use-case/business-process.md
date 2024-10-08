@@ -99,7 +99,7 @@ If either customer or supplier identify a problem they can collaborate by exchan
 
 Tools available to the customer for solving problems are fairly limited. They can increase or decrease demand quantities.
 
-The supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use flexible capacity, load factors and delta production.
+The supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use Flexible Capacity, load factors and delta production.
 
 ## Material Demand
 
@@ -425,11 +425,11 @@ D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 
 Embedded into the WeekBasedCapacityGroup are
 
-- **actual capacity** as the  planned available capacity of a supplier
-- **maximum capacity** as the maximum releasable capacity of a supplier
-- **agreed capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
+- **Actual Capacity** as the  planned available capacity of a supplier
+- **Maximum Capacity** as the maximum releasable capacity of a supplier
+- **Agreed Capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
 
-In addition the difference between actual capacity and maximum capacity is commonly understood as **flexible capacity**.
+In addition the difference between Actual capacity and Maximum capacity is commonly understood as **Flexible Capacity**.
 
 The following examples illustrate how to use the "Capacities" properties
 
@@ -491,9 +491,9 @@ Figure:
 
 block-beta
 columns 3
-A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
-B["Demand over actual but within maximum capacity"] style B fill:#FFA600,color:#F4F2F3
-C["Demand within actual capacity"] style C fill:#809500,color:#F4F2F3
+A["Demand over Actual capacity"] style A fill:#d91e18,color:#F4F2F3
+B["Demand over Actual but within Maximum Capacity"] style B fill:#FFA600,color:#F4F2F3
+C["Demand within Actual capacity"] style C fill:#809500,color:#F4F2F3
 D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
 ```
@@ -665,7 +665,7 @@ Figure: *Visualizing Capacity and Demand*
 
 Imbalance is detected in Week19 to Week21: Demand exceeds Maximum Capacity.
 Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
-If so, Actual and Maximum Capacity measures must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
+If so, Actual and Maximum Capacity must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
 
 
 <!--
@@ -735,9 +735,9 @@ Further properties are added at lower level below the “Capacities” property.
 
 |Properties|Description|
 |-|-|
-|Actual Capacity|The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
-|Agreed Capacity|The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
-|Maximum Capacity|The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a supplier maximum capacity minus actual capacity|
+|Actual Capacity|The Actual Capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
+|Agreed Capacity|The Agreed Capacity of a supplier for a specific customer material(s) within a Capacity Group. The agreed capacity must not constitute a legal obligation to deliver.|
+|Maximum Capacity|The supplier's Maximum Capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The Maximum Capacity thereby restricts the Flexible Capacity, as the Flexible Capacity is obtained from the difference of a supplier Maximum Capacity minus Actual capacity|
 |Point in Time|ISO Calendar Week of the given time series entry. UstIt must be given as a date of the Monday in the week.|
 
 ### Linking Capacity Groups to Material Demands
@@ -1011,7 +1011,7 @@ The standard describes exactly which scenario leads to the three possible matchi
 - Surplus
 - Bottleneck
 
-Within a DCM application those three matching results are commonly represented as a traffic light status, with zero deviation and surplus being green and bottleneck being orange or red, depending on whether demand is higher than maximum capacity or just actual capacity.
+Within a DCM application those three matching results are commonly represented as a traffic light status, with zero deviation and surplus being green and bottleneck being orange or red, depending on whether demand is higher than Maximum capacity or just Actual capacity.
 
 While customers might not feel impacted by a surplus, because the demand is matched, it still represents capacity that the supplier could better utilize.
 
@@ -1065,9 +1065,9 @@ Figure: *Visualizing the comparison of demand and capacity quantities*
 ```mermaid
 block-beta
 columns 3
-A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
-B["Demand over actual but within maximum capacity"] style B fill:#FFA600,color:#F4F2F3
-C["Demand within actual capacity"] style C fill:#809500,color:#F4F2F3
+A["Demand over Actual capacity"] style A fill:#d91e18,color:#F4F2F3
+B["Demand over Actual but within Maximum Capacity"] style B fill:#FFA600,color:#F4F2F3
+C["Demand within Actual Capacity"] style C fill:#809500,color:#F4F2F3
 D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#000000
 F["Agreed Capacity"] style F fill:#219dd4,color:#000000
