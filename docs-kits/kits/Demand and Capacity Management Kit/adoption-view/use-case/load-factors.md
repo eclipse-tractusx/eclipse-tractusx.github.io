@@ -41,6 +41,7 @@ Load factors solve these problems by:
 - Better reflection of actual production environment
 
 ## Functional description
+![Loadfactor](/resources/business-process_LoadFactor_functional.svg)
 ![Loadfactor_img01](https://github.com/user-attachments/assets/4719dbd3-95ba-49a7-9131-9d1fa6d0a339)
 
 Figure: *Capacity group structure with linked material demand incl. load factors*
