@@ -52,8 +52,8 @@ When comparing demand and capacity data, the simulated values are considered wit
 
 **Considerations**
 
-- The standard does not provide individual calculation logic for delta production, only the results may be transferred
-- Calculation automation and smoothing logic is subject to suppliers individual planning requirements and tools
+- The standard does not define individual calculation logic for delta production, only the results may be submitted
+- Suppliers should apply appropriate smoothing algorithms, depending on their planning requirements and toolchains
 - Consideration of e.g. stock levels, storage capacity, transport capacity, product or part versioning, perishability, storing or handling requirements is subject to suppliers individual planning and product requirements
 
 Simulated Delta-Production must not change the material demand. It's strictly a simulation feature.
