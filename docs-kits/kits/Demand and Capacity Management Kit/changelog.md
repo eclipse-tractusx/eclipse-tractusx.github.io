@@ -25,8 +25,8 @@ All notable changes to this Kit will be documented in this file.
   
 ### Changed
 
-- Updated [Core Business Process](./adoption-view/use-case/business-process.md)
-- Updated [Onboarding](./adoption-view/onboarding.md)
+- Updated [Core Business Process](./adoption-view/use-case/business-process.md) with assorted examples of capacity groups and material demands as well as their interpretation 
+- Updated [Onboarding](./adoption-view/onboarding.md) to include an onboarding journey
 
 ## [1.1.0] - 2024-08-05
 
