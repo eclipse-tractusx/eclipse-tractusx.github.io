@@ -23,7 +23,7 @@ Make sure that you have understood and carried out all the steps in the `Prerequ
 - Graphical tool to inspect your Kubernetes environment, such as [Lens](https://k8slens.dev/).
 - Graphical tool to inspect Postgres databases, such as [PgAdmin](https://www.pgadmin.org/). Screenshots in
   this guide are created off of PgAdmin.
-- Graphical tool to send REST requests, such as [insomnia] ( <https://insomnia.rest/>) or [Postman](https://www.postman.com/).
+- Graphical tool to send REST requests, such as [insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/).
 
 ## The Deployment
 
@@ -33,8 +33,7 @@ The components (listed in the table in the `Connect chapter`) are deployed using
 
 :::note
 
-This chapter aligns with the README for the Tractus-X umbrella charts following the link:
-<https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md>
+This chapter aligns with the README for the [Tractus-X umbrella charts](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/charts/umbrella/README.md).
 
 :::
 
@@ -406,7 +405,7 @@ helm install -f values-adopter-portal.yaml umbrella . --namespace umbrella --cre
 
 Perform first login and send out an invitation to a company to join the network (SMTP account required to be configured in custom values.yaml file).
 
-Proceed with the login to the <http://portal.arena.test> to verify that everything is setup as expected.
+Proceed with the login to the `http://portal.arena.test` to verify that everything is setup as expected.
 
 Credentials to log into the initial example realm (CX-Operator):
 
@@ -445,17 +444,17 @@ tractusx-umbr3lla!
 
 The relevant hosts are the following:
 
-- <http://centralidp.arena.test/auth/>
-- <http://sharedidp.arena.test/auth/>
-- <http://portal-backend.arena.test>
-- <http://portal.arena.test>
+- `http://centralidp.arena.test/auth/`
+- `http://sharedidp.arena.test/auth/`
+- `http://portal-backend.arena.test`
+- `http://portal.arena.test`
 
 In case that you have TLS enabled (see [Self-signed TLS setup (Optional)](#self-signed-tls-setup-optional)), make sure to accept the risk of the self-signed certificates for all the hosts before performing the first login:
 
-- <https://centralidp.arena.test/auth/>
-- <https://sharedidp.arena.test/auth/>
-- <https://portal-backend.arena.test>
-- <https://portal.arena.test>
+- `https://centralidp.arena.test/auth/`
+- `https://sharedidp.arena.test/auth/`
+- `https://portal-backend.arena.test`
+- `https://portal.arena.test`
 
 ### Uninstall Helm Charts
 

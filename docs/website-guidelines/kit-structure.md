@@ -88,8 +88,10 @@ Future: Standardized APIs will be released with yaml file in the Standard librar
 
 Please use (or adapt existing) automated workflows to publish on SwaggerHub. Maintain your openAPI.yaml and the publishing workflow in the repository of the reference implementation. Remove everything related to that from the website repo and only link to SwaggerHub in your KIT from now on. We utilize a user provided by the Eclipse Foundation to publish on SwaggerHub. Credentials for this user can be used through in the eclipse-tractusx GitHub org secrets and can be utilized in automated workflows. Pay special attention to the "swaggerHub" CLI commands. The location where the openAPI file is maintained may vary. The BPDM example showcases how the application is initiated to download and publish the current file from that location.
 
+```yaml
 SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
-      SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+```
 
 Examples:
 [BPDM Certificate Management](https://github.com/eclipse-tractusx/bpdm-certificate-management/blob/main/.github/workflows/publish-swagger-hub.yaml)
