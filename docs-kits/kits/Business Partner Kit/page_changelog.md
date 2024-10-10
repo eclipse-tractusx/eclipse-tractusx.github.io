@@ -11,6 +11,20 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [7.0.0] - Unreleased
+
+### Added
+
+- Added api hub hyperlink for swagger documentation for all services from business partner data management in development view of business partner kit.
+
+### Changed
+
+- ./.
+
+### Removed
+
+- Removed open api plug in usage from business partner kit.
+
 ## [6.0.0] - 2024-07-16
 
 ### Added
