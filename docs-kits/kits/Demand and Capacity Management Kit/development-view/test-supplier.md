@@ -20,7 +20,7 @@ For an overview of these tests you should visit [Testing a DCM application](./ov
 
 This test ensures that the supplier sets up his EDC.
 
-```
+```cucumber
 Feature: Supplier: Prepare yourself
 
 Scenario: Setup EDC
@@ -33,7 +33,7 @@ Scenario: Setup EDC
 
 This test ensures that the supplier registers his API endpoints as data assets with his own EDC.
 
-```
+```cucumber
 Feature: Supplier: Prepare yourself
 
 Scenario Outline: Register APIs as assets
@@ -52,7 +52,7 @@ Examples:
 
 This test ensures that the supplier has the necessary credentials in his wallet.
 
-```
+```cucumber
 Feature: Supplier: Prepare yourself
 
 Scenario Outline: Check wallet for certificates
@@ -71,7 +71,7 @@ Examples:
 
 This test ensures that the supplier is aware of the fact that some tests contain variables that need to be filled in with the correct values before executing the tests.
 
-```
+```cucumber
 Feature: Supplier: Prepare yourself
   
 Scenario Outline: Prepare 
@@ -105,7 +105,7 @@ Examples:
 
 This test ensures that the supplier is aware of the sequence of communication and naming conventions within the base journey.
 
-```
+```cucumber
 Feature: Supplier: Prepare yourself
   
   Scenario Outline: Prepare for base journey
@@ -139,7 +139,6 @@ Examples:
 | FT_theta   | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume                       | Provide IdBasedRequestForUpdate for base journey                                                                                                  |
 | FT_iota    | A Filetransfer providing IdBasedComment for the supplier to consume                                | Consume IdBasedComment for base journey                                                                                                           |
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Provide IdBasedComment for base journey                                                                                                           |
-
 ```
 
 ## Supplier: Consume WeekBasedMaterialDemand
@@ -148,7 +147,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Customer: Consume WeekBasedMaterialDemand
 
 Scenario: Consume valid unknown WeekBasedMaterialDemand
@@ -166,7 +165,7 @@ Scenario: Consume valid known WeekBasedMaterialDemand
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Customer: Consume WeekBasedMaterialDemand
 
 Scenario: Consume invalid WeekBasedMaterialDemand
@@ -179,7 +178,7 @@ Scenario: Consume invalid WeekBasedMaterialDemand
 
 The supplier receives the previously created WeekBasedMaterialDemands from the customer as two separate data transfers.
 
-```
+```cucumber
 Feature: Supplier: Consume WeekBasedMaterialDemand
 
 Scenario Outline: Consume WeekBasedMaterialDemand for base journey
@@ -199,7 +198,7 @@ Examples:
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate valid WeekBasedCapacityGroup
@@ -347,7 +346,7 @@ Examples:
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate invalid WeekBasedCapacityGroup
@@ -440,7 +439,7 @@ Examples:
 
 ### Create WeekBasedCapacityGroup for base journey
 
-```
+```cucumber
 Feature: Customer: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate WeekBasedCapacityGroup for Base Journey using different <v_tests>
@@ -480,7 +479,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide WeekBasedCapacityGroup
 
 Scenario: Provide valid new WeekBasedCapacityGroup
@@ -498,7 +497,7 @@ Scenario: Provide valid existing WeekBasedCapacityGroup
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide WeekBasedCapacityGroup
 
 Scenario: Provide invalid WeekBasedCapacityGroup
@@ -511,7 +510,7 @@ Scenario: Provide invalid WeekBasedCapacityGroup
 
 The supplier sends the previously created WeekBasedCapacityGroups to the customer as two separate data transfers.
 
-```
+```cucumber
 Feature: Supplier: Provide WeekBasedCapacityGroup
 
 Scenario Outline: Provide WeekBasedCapacityGroup for base journey
@@ -531,7 +530,7 @@ Examples:
 
 This test checks the basic implementation of the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Bottleneck calculation
@@ -552,7 +551,7 @@ Examples:
 
 This test checks the basic implementation of the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Bottleneck calculation
@@ -571,7 +570,7 @@ Examples:
 
 This test checks the basic implementation of the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Bottleneck calculation
@@ -590,7 +589,7 @@ Examples:
 
 The supplier compares the demand data, he received from the customer, to the capacity data, he sent to the customer.
 
-```
+```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Calculation for base journey
@@ -610,13 +609,14 @@ Examples:
 | CG_beta                | MD_beta, MD_gamma       | 13   | 2026 | zero deviation | Demand = actual capacity = maximum capacity | green  |
 | CG_beta                | MD_beta, MD_gamma       | 14   | 2026 | zero deviation | Demand = actual capacity < maximum capacity | green  |
 ```
+
 ## Supplier: Create IdBasedRequestForUpdate
 
 ### Create valid IdBasedRequestForUpdate
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create IdBasedRequestForUpdate
 
 Scenario Outline: Try to generate valid IdBasedRequestForUpdate
@@ -643,7 +643,7 @@ Examples:
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create IdBasedRequestForUpdate
 
 Scenario Outline: Try to generate invalid IdBasedRequestForUpdate
@@ -665,7 +665,7 @@ Examples:
 
 The supplier creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedMaterialDemand Alpha, identified via {{UUID_MD1}}.
 
-```
+```cucumber
 Feature: Supplier: Create IdBasedRequestForUpdate
 
 Scenario Outline: Try to generate  IdBasedRequestForUpdate for Base Journey using different <v_tests>
@@ -687,7 +687,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedRequestForUpdate
 
 Scenario: Consume valid  IdBasedRequestForUpdate
@@ -700,7 +700,7 @@ Scenario: Consume valid  IdBasedRequestForUpdate
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedRequestForUpdate
 
 Scenario: Consume invalid IdBasedRequestForUpdate
@@ -713,7 +713,7 @@ Scenario: Consume invalid IdBasedRequestForUpdate
 
 The customer sends the previously created IdBasedRequestForUpdate to the supplier and expects one WeekBasedCapacityGroup in return.
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedRequestForUpdate
 
 Scenario Outline: Consume IdBasedRequestForUpdate for base journey
@@ -733,7 +733,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide IdBasedRequestForUpdate
 
 Scenario: Provide valid IdBasedRequestForUpdate
@@ -746,7 +746,7 @@ Scenario: Provide valid IdBasedRequestForUpdate
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide invalid IdBasedRequestForUpdate
 
 Scenario: Provide invalid IdBasedRequestForUpdate
@@ -757,7 +757,7 @@ Scenario: Provide invalid IdBasedRequestForUpdate
 
 ### Provide IdBasedRequestForUpdate for base journey
 
-```
+```cucumber
 Feature: Supplier: Provide IdBasedRequestForUpdate
 
 Scenario Outline: Provide IdBasedRequestForUpdate for base journey
@@ -777,7 +777,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedComment
 
 Scenario: Consume valid unknown IdBasedComment
@@ -795,7 +795,7 @@ Scenario: Consume valid known IdBasedComment
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedComment
 
 Scenario: Consume invalid IdBasedComment
@@ -806,7 +806,7 @@ Scenario: Consume invalid IdBasedComment
 
 ### Consume IdBasedComment for base journey
 
-```
+```cucumber
 Feature: Supplier: Consume IdBasedComment
 
 Scenario Outline: Consume IdBasedComment for base journey
@@ -825,7 +825,7 @@ Examples:
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create IdBasedComment
 
 Scenario Outline: Try to generate valid IdBasedComment
@@ -875,7 +875,7 @@ Examples:
 
 This test checks the implementation of the aspect model as well as some edge cases.
 
-```
+```cucumber
 Feature: Supplier: Create IdBasedComment
 
 Scenario Outline: Try to generate invalid IdBasedComment
@@ -916,10 +916,9 @@ Examples:
 |             |             |                   |                        |                          |            |            |                                           |                 |                                                       |                                 | 2000-01-0   | AspectModel Conformity Error: changedAt            |
 ```
 
-
 ### Create IdBasedComment for base journey
 
-```
+```cucumber
 Feature: Customer: Create IdBasedComment
 
 Scenario Outline: Try to generate IdBasedComment for Base Journey using different <v_tests>
@@ -951,7 +950,7 @@ Examples:
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide IdBasedComment
 
 Scenario: Provide valid new IdBasedComment
@@ -969,7 +968,7 @@ Scenario: Provide valid existing IdBasedComment
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide IdBasedComment
 
 Scenario: Provide invalid IdBasedComment
@@ -982,7 +981,7 @@ Scenario: Provide invalid IdBasedComment
 
 This test checks the basic implementation of the API.
 
-```
+```cucumber
 Feature: Supplier: Provide IdBasedComment
 
 Scenario Outline: Provide IdBasedComment for base journey
@@ -1001,7 +1000,7 @@ Examples:
 
 This test checks the basic implementation of the comment feature within the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
 Scenario: Comment linked to WeekBasedCapacityGroup
@@ -1015,7 +1014,7 @@ Scenario: Comment linked to WeekBasedCapacityGroup
 
 This test checks the basic implementation of the comment feature within the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
 Scenario: Comment linked to WeekBasedMaterialDemand
@@ -1031,7 +1030,7 @@ Scenario: Comment linked to WeekBasedMaterialDemand
 
 This test checks the basic implementation of the comment feature within the GUI.
 
-```
+```cucumber
 Feature: Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
 Scenario: Comment linked to IdBasedComment
@@ -1048,4 +1047,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
