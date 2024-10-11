@@ -711,6 +711,8 @@ config:
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
+Figure: *Visualizing Capacity and Demand*
+
 ### WeekBasedCapacityGroup Properties
 
 A Capacity Group dataset comprises the following basic components:
