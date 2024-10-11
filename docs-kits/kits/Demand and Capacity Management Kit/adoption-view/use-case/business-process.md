@@ -437,7 +437,6 @@ The following examples illustrate how to use the "Capacities" properties
 
 ![Capacity Example](./resources/business-process_capacity-types_example1.svg)
 
-
 <!--
 ```mermaid
 ---
@@ -480,7 +479,7 @@ config:
 
 ```
 -->
-Figure: 
+Figure:
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 <!--
@@ -502,12 +501,14 @@ Figure: *Visualizing Capacity and Demand*
 
 We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain Capacity Group.
 Current capacity plan at Supplier for this horizon is
+
 - 1000 units per week from Week14 (10 shifts per week) to Week20
 - 1500 units per week from Week22 onwards (15 shifts per week), with a rampup step in Week21
 
 This plan is reflected in the Actual Capacity of DCM.
 
 When matching Demand to Capacity, one will see that
+
 - Actual Capacity is sufficient to cover Demand.
 - Maximum Capacity can be available to cover potential increase of the Demand up until 1800
 
@@ -559,7 +560,7 @@ config:
 Figure: *Visualizing Capacity and Demand*
 
 We are, here again, in Week01, considering the horizon from Week14 onwards.
-Demand has increased in the period between Week15 and Week20, and now exceeds Actual Capacity. 
+Demand has increased in the period between Week15 and Week20, and now exceeds Actual Capacity.
 
 On Supplier side: Supplier should detect that Actual Capacity is insufficient, using its DCM Software, and conclude that measures should be activated to cover Demand. As Demand is below Maximum Capacity, Supplier knows that it is feasible. Eventually, Supplier should update its Actual Capacity to reflect those measures.
 
@@ -667,7 +668,6 @@ Imbalance is detected in Week19 to Week21: Demand exceeds Maximum Capacity.
 Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
 If so, Actual and Maximum Capacity must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
 
-
 <!--
 ```mermaid
 ---
@@ -710,9 +710,6 @@ config:
 ![Capacity Example](./resources/business-process_capacity-types_example4b.svg)
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
-
-
-
 
 ### WeekBasedCapacityGroup Properties
 
