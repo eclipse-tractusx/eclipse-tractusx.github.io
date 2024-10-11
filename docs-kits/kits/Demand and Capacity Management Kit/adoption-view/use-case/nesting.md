@@ -20,8 +20,10 @@ Nesting is a feature defined in the DCM standard CX-0128 and includes an advance
 <br/><br/>
 
 ## Business value
-Nesting may be used by suppliers for the following purposes (but not limited to): 
-- To simplify the maintenance of Capacity Groups   
+
+Nesting may be used by suppliers for the following purposes (but not limited to):
+
+- To simplify the maintenance of Capacity Groups
 - To enable the bundling of several smaller Capacity Groups to reflect a (virtual, internal) company structure
 
 <br/><br/>
@@ -36,7 +38,7 @@ Nesting may be used by suppliers for the following purposes (but not limited to)
 ## Functional description
 
 Nesting is an indirect linking of Material Demand information to a Capacity Group done by a supplier. It involves connecting the WeekBasedCapacityGroup to another WeekBasedCapacityGroup that is already linked to a WeekBasedMaterialDemand.
-Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the parameter 
+Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the parameter.
 
 ```
  "linkedCapacityGroups"
@@ -49,13 +51,13 @@ The same applies to multiple production plants representing a customer's total
 The supplier is able to put the desired Capacity Groups with their respective demands and capacities together and then share it with the customer.<br/>
 
 Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group. <br/>
-  
 
 The following figure shows that:  
+
 - Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking).  
-- Material Demand 1 and 2 are linked to Capacity Group 1 (i.e. direct linking). 
-- Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking). 
-- Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group 
+- Material Demand 1 and 2 are linked to Capacity Group 1 (i.e. direct linking).
+- Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
+- Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
 
 <!--
 ```mermaid
@@ -110,7 +112,6 @@ D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-
 -->
 Figure: *Capacity Group with directly linked Material Demands or nested Capacity Groups (indirectly linked Material Demands)*  
 
-
 Capacity Group 3 is the result of the indirect way of linking Material Demand, therefore it must not contain any additional directly linked Material Demands.  
 
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
@@ -135,10 +136,7 @@ __Parameters of the Nesting are as follows:__
 |-|-|-|-|
 | linkedCapacityGroups | Yes | UUID of the linked Capacity Group | "0157ba42-d2a8-4e28-8565-7b07830c1110" |
 
-
-
 For further details please refer to the [DCM - Kit --> Development View --> Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
-
 
 ## Sequence Diagram
 
@@ -159,21 +157,21 @@ s-->>c: All toys have to be coloured in the paint shop
 s->>c: Nesting "Production Line 1" and "Production Line 2" in "Paint Shop" instead of linking each Material Demand separately again
 end
 c->>c: My demands for all 5 toys are interlinked and transparent that they affect same capacity together
-
 ```
+
 Figure: *Sequence diagram for Nesting*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 <br/><br/>
 
-## Example 
+## Example
 
-The supplier produces five different toys on two different production lines for the customer. Afterwards the produced toys of both production lines are colored in the same paint shop. 
+The supplier produces five different toys on two different production lines for the customer. Afterwards the produced toys of both production lines are colored in the same paint shop.
 All five toys pass through the same paint shop within the colouring process.
 
-Production line 1 is used to produce toys 1, 2 and 3 for the customer.<br/> 
-Production line 2 is used to produce toys 4 and 5 for the customer.<br/>   
+Production line 1 is used to produce toys 1, 2 and 3 for the customer.<br/>
+Production line 2 is used to produce toys 4 and 5 for the customer.<br/>
 
 The supplier has created a Capacity Group "Production Line 1" with the directly linked Material Demands of toys 1, 2 and 3.<br/>
 The supplier has also created a Capacity Group "Production Line 2" with the directly linked Material Demands of toys 4 and 5.<br/>
