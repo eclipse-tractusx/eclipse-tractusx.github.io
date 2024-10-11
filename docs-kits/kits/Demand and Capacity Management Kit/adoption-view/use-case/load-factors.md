@@ -20,6 +20,7 @@ Load factors are advanced parameters of a Capacity Group structure and therefore
 |Recalculate demands in user interface, based on factors |X|X|
 
 ## Business value
+
 The feature “load factors” allows suppliers to model and represent otherwise impossible capacity occurrences, by introducing a numerical multiplication factor, that changes the demand volume interpretation of a capacity group.
 
 Load factors should be used to solve the following two problems:  
@@ -41,6 +42,7 @@ Load factors solve these problems by:
 - Better reflection of actual production environment
 
 ## Functional description
+
 ![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
 Figure: *Capacity group structure with linked material demand incl. load factors*
 
@@ -72,6 +74,7 @@ Both materials pass through the same station within the colouring process.
 Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station. 
 
 #### Sequence Diagram
+
 ![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)
 Figure: *Sequence diagram example for application of load factor*
 
