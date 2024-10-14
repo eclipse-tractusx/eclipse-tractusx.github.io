@@ -19,7 +19,7 @@ Nesting is a feature defined in the DCM standard [CX-0128 Demand and Capacity Ma
 
 <br/><br/>
 
-## Business value
+## Business Value
 
 Nesting may be used by suppliers for the following purposes (but not limited to):
 
@@ -35,7 +35,7 @@ Nesting may be used by suppliers for the following purposes (but not limited to)
 
 <br/><br/>
 
-## Functional description
+## Functional Description
 
 Nesting is an indirect linking of Material Demand information to a Capacity Group done by a supplier. It involves connecting the WeekBasedCapacityGroup to another WeekBasedCapacityGroup that is already linked to a WeekBasedMaterialDemand.
 Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the parameter.
