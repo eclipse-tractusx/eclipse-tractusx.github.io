@@ -300,7 +300,7 @@ components:
         - key: 'partInstanceId'
           value: 'SN12345678'
         - key: 'customKey:ecuSerialNumber'
-          value: '884267902201978102201150013500635811'
+          value: '220115001384267902201978150063581180'
      
     urn_samm_io.catenax.block_notification_data_1.0.0_ComponentLevelContainmentCharacteristic:
       description: 'The characteristic of the component level containment defined
@@ -391,27 +391,27 @@ components:
             \ point, such as a ramp that is specifically designed for loading and\
             \ unloading goods. These specific conditions are crucial for the efficient\
             \ and secure processing of deliveries.\t"
-      example: '61022'
+      example: '22610'
 
     urn_samm_io.catenax.block_notification_data_1.0.0_DeliveryNoteNumberCharacteristic:
       type: string
       description: "The number of the delivery note that accompanies the delivery\
             \ and shows the description, unit and quantity of goods included in the\
             \ delivery, etc..\t"
-      example: '85456898'
+      example: '68988545'
      
     urn_samm_io.catenax.block_notification_data_1.0.0_PackageNumberCharacteristic:
       type: string
       description: "Identififcation number of the package, the unit of goods and\
             \ packaging material. These can be boxes, pallets, mesh boxes, roll containers\
             \ and other loading equipment."
-      example: '51400122991613'
+      example: '12295140916130'
  
     urn_samm_io.catenax.block_notification_data_1.0.0_OrderNumberCharacteristic:
       type: string
       description: The order number (only for production synchronization requests
             (JIS))
-      example: '6373346'
+      example: '7334663'
      
     urn_samm_io.catenax.block_notification_data_1.0.0_PeriodAndVolumeLevelContainmentCharacteristic:
       description: 'The characteristic of the period and volume level containment
@@ -471,7 +471,7 @@ components:
             The layer within the small load carrier in which the faulty part is located.
             (Ideally if available: UCID = Unique Container ID - ID of the small load carrier in which the faulty part is located) 
             Packaging specific for high-voltage battery cells. Other components (e.g. penthouse are not packaged in small load carriers).
-      example: '28BUN3153699345555555+000000008'
+      example: '53BUN6555599345283155+000000008'
      
     urn_samm_io.catenax.block_notification_data_1.0.0_LocationInTheContainerCharacteristic:
       description: The characteristic to define the location in the container defined
