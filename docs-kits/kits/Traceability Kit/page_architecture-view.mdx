@@ -145,17 +145,9 @@ The blocking process is a process in the automotive industry to segregate or qua
 
 Catena-X is to be used to transfer this information in a standardized manner and to trace the individual parts back to see whether they have been blocked and sorted out on the customer side in order to prevent subsequent damage or major product recalls. In addition, the notification is intended to improve the quality and speed of the block information provided.
 
-> :raised_hand: Detailed Open API specifications for Blocking Notifications are available in the Development View. For  the current release, version 1.0.0 is optional and MUST be supported by every App provider from the next release. 
+#### Block Notification Interaction
 
-#### Block Notification State Model
-
-State model that provides information about the block status of the individual parts within a block notification:
-
-![Block State Model](./assets/block-notification-state-model.svg)
-
-#### Block Notification State Model Interaction
-
-The interaction of the status model is based on events that can be triggered by both the sender and the receiver.
+The interaction of block notifications is based on events that can be triggered by both the sender and the recipient. These events are represented by a status model and are used to track the progress of the parts that need to be blocked or respectively sorted out by the customer. Details about these status model and the Open API specification for Block Notifications are available in the [Developer View](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit).
 
 **Scenario 1:** In this case, it is assumed that the sender sends a list of parts with the associated block information to the recipient. The block status of each part is set to ACTIVE by default.
 
