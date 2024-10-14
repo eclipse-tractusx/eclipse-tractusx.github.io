@@ -9,7 +9,7 @@ sidebar_position: 8
 
 ## Business Roles and Functions
 
-Nesting is a feature defined in the DCM standard CX-0128 and includes an advanced property of the Capacity Group structure and therefore may be used optionally by suppliers. The application of Nesting is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers may apply Nesting and customers consume it.
+Nesting is a feature defined in the DCM standard CX-0128 and includes an advanced property of the Capacity Group structure and therefore may be used optionally by suppliers. The Nesting feature is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers may apply Nesting and customers consume it.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
