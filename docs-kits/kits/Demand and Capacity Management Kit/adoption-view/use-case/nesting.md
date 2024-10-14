@@ -38,11 +38,7 @@ Nesting may be used by suppliers for the following purposes (but not limited to)
 ## Functional Description
 
 Nesting is an indirect linking of Material Demand information to a Capacity Group done by a supplier. It involves connecting the WeekBasedCapacityGroup to another WeekBasedCapacityGroup that is already linked to a WeekBasedMaterialDemand.
-Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the parameter.
-
-```
- "linkedCapacityGroups"
-```
+Suppliers may apply Nesting within WeekBasedCapacityGroup aspect model via the parameter `linkedCapacityGroups`.
 
 For more transparent collaboration, a supplier may also aggregate two or more Capacity Groups and share this aggregated Capacity Group with its customer, if all aggregated Capacity Groups refer to the same customer (BPNL). 
 Nesting helps suppliers for example to map the internal production sequence in the Capacity Groups, e.g. the combination of two production lines into one final assembly line can be mapped by linking the two Capacity Groups of the preceding lines into another Capacity Group (see [Example](#example)). 
