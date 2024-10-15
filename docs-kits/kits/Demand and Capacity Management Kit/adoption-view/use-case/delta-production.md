@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ## Business Roles and Functions
 
-Delta-Production data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide delta production related data and customers consume it.
+Delta-Production data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide Delta-Production related data and customers consume it.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
