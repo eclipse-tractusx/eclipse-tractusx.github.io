@@ -106,39 +106,6 @@ One possible solution would be to reduce the chrome toys by 25 pieces to 75 piec
 ![Loadfactor](./resources/business-process_LoadFactor_example_diagram.svg)
 Figure: *Example for application of load factor within WeekBasedCapacityGroup*
 
-#### Sample Data
-
-```json
-{
-  "unitOfMeasureIsOmitted" : false,
-  "unitOfMeasure" : "unit:piece",
-  "linkedDemandSeries" : [ {
-
-    "loadFactor" : 3.5,
-
-    "materialNumberCustomer" : "MNR-7307-AU340474.002",
-    "materialNumberSupplier" : "MNR-8101-ID146955.001",
-    "customerLocation" : "BPNS8888888888XX",
-    "demandCategory" : {
-      "demandCategoryCode" : "0001"
-    }
-  } ],
-  "supplier" : "BPNL6666666666YY",
-  "linkedCapacityGroups" : [ "be4d8470-2de6-43d2-b5f8-2e5d3eebf3fd" ],
-  "name" : "Spark Plugs on drilling machine for car model XYZ",
-  "supplierLocations" : [ "BPNS8888888888XX" ],
-  "capacities" : [ {
-    "pointInTime" : "2022-08-01",
-    "actualCapacity" : 1000,
-    "maximumCapacity" : 2000,
-    "deltaProductionResult" : 400
-  } ],
-  "changedAt" : "2023-03-10T12:27:11.320Z",
-  "capacityGroupId" : "0157ba42-d2a8-4e28-8565-7b07830c1110",
-  "customer" : "BPNL8888888888XX"
-}
-```
-
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ## Notice
@@ -155,7 +122,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
 - SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2023,2024 Capgemini Deutschland GmbH
+- SPDX-FileCopyrightText: 2024 Capgemini Deutschland GmbH
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
