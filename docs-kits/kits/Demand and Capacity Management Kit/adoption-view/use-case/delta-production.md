@@ -33,6 +33,7 @@ Simulated  enables suppliers to add extra detail to their capacity information. 
 
 ## Functional description
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
+![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)
 
 Figure: *Capacity group structure with linked material demand including delta production result*
 
