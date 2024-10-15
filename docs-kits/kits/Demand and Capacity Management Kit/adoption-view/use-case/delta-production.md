@@ -14,7 +14,6 @@ Delta production data is embedded into the WeekBasedCapacityGroup aspect model. 
 |Function / Role|Customer|Supplier|
 |-|-|-|
 |Solve bottleneck via pre-/post production||X|
-|Solve bottleneck via post production||X|
 |Inform customer||X|
 |Acknowledge that bottleneck has been solved|X||
 
