@@ -108,6 +108,9 @@ Figure: *Example for application of load factor within WeekBasedCapacityGroup*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
+#### Sample Data
+For sample data please refer to the related aspect model example in the development view for [WeekBasedCapacityGroup](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup/).
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
