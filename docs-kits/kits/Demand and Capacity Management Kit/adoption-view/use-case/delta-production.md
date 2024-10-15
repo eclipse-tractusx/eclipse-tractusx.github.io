@@ -39,13 +39,11 @@ Figure: *Capacity group structure with linked material demand including delta pr
 
 Simulated delta-production may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both simulated pre-production and post-production activities.
 
-Suppliers can provide these simulated values on a weekly basis alongside their regular capacity data via parameter
-```json
-"deltaProductionResult"
-```
-| Main Parameters | Mandatory? | Description | Example |
+Suppliers can provide these simulated values on a weekly basis alongside their regular capacity data via parameter:
+
+| Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| deltaProductionResult | No | Delta related to the aggregated material demand after pre-/post production calculation the supplier wants to send to the customer. Can be positive and negative.| Decimal value (e.g. "400"). |
+| Delta Production Result | No | Delta related to the aggregated material demand after pre-/post production calculation the supplier wants to send to the customer. Can be positive and negative.| Decimal value (e.g. "400"). |
 
 There's no need to give details about the duration of these adjustments, as this can be inferred from the number of weeks for which the simulated data is provided.
 When comparing demand and capacity data, the simulated values are considered without altering the actual data. If a simulated Delta-Production value is provided, it must be included in the weekly demand and capacity comparison. A positive value indicates a virtual increase in planned demand, while a negative value indicates a virtual decrease.
@@ -61,44 +59,27 @@ Suppliers can use comments to provide customers with additional information abou
 
 ## Example
 #### Sequence Diagram
-![DeltaProduction_swimlane](./resources/business-process_DeltaProduction_sequence.svg)
+```mermaid
+sequenceDiagram
+Participant c as Customer
+Participant s as Supplier
+rect rgb(157,93,00) 
+c->>s: I need 100 blue toys each in weeks 47, 48, 49 and 50
+end
+s->>s: Manage Capacities
+s->>s: There is a bottleneck in week 50
+s->>s: It is solvable via pre-production in weeks 48 and 49  
+
+rect rgb(4,107,153)
+s-->>c: I can produce 100 in week 47, 0 in week 50 and 150 in weeks 48 and 49
+s->>c: 50 each in weeks 48 und 49 are pre-produced to cover the demand in week 50
+end
+```
+<!---![DeltaProduction_swimlane](./resources/business-process_DeltaProduction_sequence.svg)--->
 Figure: *Sequence Diagram for Delta-Production*
 
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
 Figure: *Visualized example of results of simulated Delta-Production (with pre-production)*
-
-#### Sample Data
-
-```json
-{
-  "unitOfMeasureIsOmitted" : false,
-  "unitOfMeasure" : "unit:piece",
-  "linkedDemandSeries" : [ {
-    "loadFactor" : 3.5,
-    "materialNumberCustomer" : "MNR-7307-AU340474.002",
-    "materialNumberSupplier" : "MNR-8101-ID146955.001",
-    "customerLocation" : "BPNS8888888888XX",
-    "demandCategory" : {
-      "demandCategoryCode" : "0001"
-    }
-  } ],
-  "supplier" : "BPNL6666666666YY",
-  "linkedCapacityGroups" : [ "be4d8470-2de6-43d2-b5f8-2e5d3eebf3fd" ],
-  "name" : "Spark Plugs on drilling machine for car model XYZ",
-  "supplierLocations" : [ "BPNS8888888888XX" ],
-  "capacities" : [ {
-    "pointInTime" : "2022-08-01",
-    "actualCapacity" : 1000,
-    "maximumCapacity" : 2000,
-
-    "deltaProductionResult" : 400
-
-  } ],
-  "changedAt" : "2023-03-10T12:27:11.320Z",
-  "capacityGroupId" : "0157ba42-d2a8-4e28-8565-7b07830c1110",
-  "customer" : "BPNL8888888888XX"
-}
-```
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
