@@ -83,7 +83,7 @@ Figure: *Visualized example of results of simulated Delta-Production (with pre-p
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-####Sample Data
+#### Sample Data
 For sample data please refer to the related aspect model example in the development view for [WeekBasedCapacityGroup](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup/).
 
 ## Notice
