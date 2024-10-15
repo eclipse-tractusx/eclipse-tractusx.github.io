@@ -21,7 +21,7 @@ Load factors are advanced parameters of a Capacity Group structure and therefore
 
 ## Business value
 
-The feature “load factors” allows suppliers to model and represent otherwise impossible capacity occurrences, by introducing a numerical multiplication factor, that changes the demand volume interpretation of a capacity group.
+The feature “Load factors” allows suppliers to model and represent otherwise impossible capacity occurrences, by introducing a numerical multiplication factor, that changes the demand volume interpretation of a capacity group.
 
 Load factors should be used to solve the following two problems:  
 
