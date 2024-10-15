@@ -9,6 +9,14 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [0.3.1] - 2024-08-08
+
+### Changed
+
+- Adoption View
+  - Made "Customer" white font in overview graphic
+  - Corrected confusion of Data Consumer and Data Provider in section "Actors and Roles"
+
 ## [0.3.0] - 2024-08-01
 
 ### Added
