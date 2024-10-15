@@ -44,7 +44,8 @@ Load Factors solve these problems by:
 ## Functional description
 
 ![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
-![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)
+<!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)--->
+<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="400">
 Figure: *Capacity group structure with linked material demand incl. Load Factors*
 
 Suppliers may apply Load Factors within WeekBasedCapacityGroup aspect model via the parameter:
