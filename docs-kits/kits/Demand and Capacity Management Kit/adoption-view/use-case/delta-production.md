@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ## Business Roles and Functions
 
-Delta production data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide delta production related data and customers consume it.
+Delta-Production data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide delta production related data and customers consume it.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
@@ -18,9 +18,9 @@ Delta production data is embedded into the WeekBasedCapacityGroup aspect model. 
 |Acknowledge that bottleneck has been solved|X||
 
 ## Business value
-Simulated Delta-Production is a feature that helps suppliers to manage their production capacity more effectively. It allows them to address and balance capacity shortages without having to increase their actual or maximum capacity. Suppliers can choose to use this feature, but it is not mandatory. 
+Simulated  is a feature that helps suppliers to manage their production capacity more effectively. It allows them to address and balance capacity shortages without having to increase their actual or maximum capacity. Suppliers can choose to use this feature, but it is not mandatory. 
 
-The main advantage of using simulated Delta-Production is that it gives suppliers a way to manage small capacity shortfalls. This can be done manually or automatically, which saves time and effort that would otherwise be spent on frequent capacity adjustments, particularly when demand is unpredictable.
+The main advantage of using simulated  is that it gives suppliers a way to manage small capacity shortfalls. This can be done manually or automatically, which saves time and effort that would otherwise be spent on frequent capacity adjustments, particularly when demand is unpredictable.
 
 **Advantages**
 
@@ -29,14 +29,14 @@ The main advantage of using simulated Delta-Production is that it gives supplier
 - Smoothen demand and capacity peaks
 - No frequent alerting for minor bottlenecks which can be solved by the supplier (within its actual capacity)
 
-Simulated Delta-Production enables suppliers to add extra detail to their capacity information. This helps illustrate solutions for capacity issues or times when production resources might be offline. Only the end results of Simulated Delta-Production are shared with the customer. Suppliers may input a Simulated Delta-Production value for each week as needed, which shows an increase or decrease in planned demand without actually changing the real figures.
+Simulated  enables suppliers to add extra detail to their capacity information. This helps illustrate solutions for capacity issues or times when production resources might be offline. Only the end results of Simulated  are shared with the customer. Suppliers may input a Simulated  value for each week as needed, which shows an increase or decrease in planned demand without actually changing the real figures.
 
 ## Functional description
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
 
 Figure: *Capacity group structure with linked material demand including delta production result*
 
-Simulated Delta-Production may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both simulated pre-production and post-production activities.
+Simulated  may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated  covers both simulated pre-production and post-production activities.
 
 Suppliers can provide these simulated values on a weekly basis alongside their regular capacity data via parameter:
 
