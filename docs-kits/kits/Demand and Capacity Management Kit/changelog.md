@@ -19,7 +19,7 @@ All notable changes to this Kit will be documented in this file.
 - Added E2E Tests to [Development View](./development-view/overview.md)
 - Added Glossary to [Adoption View](./adoption-view/overview.md)
 - Added Delta Production to [Adoption View](./adoption-view/overview.md)
-- Added Demand Fluctuation to [Adoption View](./adoption-view/overview.md)
+- Added Demand Volatility to [Adoption View](./adoption-view/overview.md)
 - Added Load Factors to [Adoption View](./adoption-view/overview.md)
 - Added Nesting to [Adoption View](./adoption-view/overview.md)
   
