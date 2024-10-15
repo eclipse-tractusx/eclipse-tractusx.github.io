@@ -55,7 +55,7 @@ When comparing demand and capacity data, the simulated values are considered wit
 - Consideration of e.g. stock levels, storage capacity, transport capacity, product or part versioning, perishability, storing or handling requirements is subject to suppliers individual planning and product requirements
 
 Simulated Delta-Production must not change the material demand. It's strictly a simulation feature.
-Suppliers can use comments to provide customers with additional information about the simulated Delta-Production. For more details on this communication feature, see Chapter 5.9 in the CX-0128 DCM Standard document.
+Suppliers can use comments to provide customers with additional information about the simulated Delta-Production. For more details on this communication feature, see Chapter 5.7.2 in the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange)
 
 ## Example
 #### Sequence Diagram
