@@ -50,7 +50,7 @@ Suppliers may apply load factors within WeekBasedCapacityGroup aspect model via 
 
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| loadFactor | no | If applied, a load factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). |
+| Load Factor | No | If applied, a load factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). |
 
 Suppliers can apply load factors within the WeekBasedCapacityGroup model via a parameter. If they choose to do so, a load factor must be assigned to every WeekBasedMaterialDemand linked to the WeekBasedCapacityGroup.
 
@@ -74,8 +74,25 @@ Both materials pass through the same station within the colouring process.
 Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station. 
 
 #### Sequence Diagram
-
-![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)
+```mermaid
+sequenceDiagram
+Participant c as Customer
+Participant s as Supplier
+rect rgb(157,93,00) 
+c->>s: I need 100 red and 100 chrome toys
+end
+s->>s: Chrome toys strain my capacities twice as much as red toys
+rect rgb(4,107,153)
+s-->>c: Your demand and my capacities need to be expressed as production cycles.
+s-->>c: Red toys are loaded with factor 1
+s-->>c: Chrome toys are loaded with factor 2
+s->>c: My overall capacity is 250 cycles
+end
+c->>c: My demands are 100 red cycles plus 200 chrome cycles equals 300 cycles
+c->>c: Their capacity for both toys is 250 cycles
+c->>c: Reduce demand for chrome toys to 75 so total demand equals 250 cycles
+```
+<!---![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)--->
 Figure: *Sequence diagram example for application of load factor*
 
 The supplier has created a capacity group "Red and Chrome Toys" with the unit “cycle” (unit:cycle). A processing time per piece of 1 cycle is set for red toys and 2 cycles for chrome toys. The maximum available process time is set to 250 cycles. 
