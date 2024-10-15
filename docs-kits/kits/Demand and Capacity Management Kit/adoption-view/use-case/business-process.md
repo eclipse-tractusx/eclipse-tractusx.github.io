@@ -310,7 +310,7 @@ class C4 Highlite
 ```
 -->
 
-A capacity group represents the answer to one ore more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
+A capacity group represents the answer to one or more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
 
 The customer is responsible for publishing capacity groups to their customer and it is strongly recommended to:
 
