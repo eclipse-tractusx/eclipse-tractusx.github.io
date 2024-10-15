@@ -49,7 +49,7 @@ When comparing demand and capacity data, the simulated values are considered wit
 
 **Considerations**
 
-- The standard does not define individual calculation logic for delta production, only the results may be submitted
+- The standard does not define individual calculation logic for simulated delta production, only the results may be submitted
 - Suppliers should apply appropriate smoothing algorithms, depending on their planning requirements and toolchains
 - Consideration of e.g. stock levels, storage capacity, transport capacity, product or part versioning, perishability, storing or handling requirements is subject to suppliers individual planning and product requirements
 
