@@ -45,7 +45,7 @@ Load Factors solve these problems by:
 
 ![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
 <!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)--->
-<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="400">
+<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="50%">
 
 Figure: *Capacity group structure with linked material demand incl. Load Factors*
 
