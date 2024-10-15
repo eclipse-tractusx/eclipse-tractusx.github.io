@@ -51,7 +51,7 @@ Suppliers may apply Load Factors within WeekBasedCapacityGroup aspect model via 
 
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| Load Factor | No | If applied, a Load Factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). A value of 3.5 means that in the respective week in order to produce the required demand it is multiplied by 3.5. |
+| Load Factor | No | If applied, a Load Factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). A value of 3.5 means that in the respective week in order to produce the required demand, it is multiplied by 3.5. |
 
 Suppliers can apply Load Factors within the WeekBasedCapacityGroup model via a parameter. If they choose to do so, a Load Factor must be assigned to every WeekBasedMaterialDemand linked to the WeekBasedCapacityGroup.
 
