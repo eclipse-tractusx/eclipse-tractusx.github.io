@@ -65,7 +65,7 @@ Without load factors, the units of measure of a WeekBasedCapacityGroup and its l
 - To maintain consistency in demand-capacity comparison, rounding of fractional conversion results should be avoided.
 - If a WeekBasedCapacityGroup links several WeekBasedMaterialDemand containing the same material, the load factors applied to these WeekBasedMaterialDemand should be identical.
 
-Suppliers can use comments to provide customers with additional information about the applied load factors. For more details on this communication feature, see Chapter 5.9 of the CX-0128 DCM Standard document.
+Suppliers can use comments to provide customers with additional information about the applied load factors. For more details on this communication feature, see Chapter 5.9 of the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange)
 
 ## Example
 The supplier produces two toys coloured red and chrome on its line for the customer. 
