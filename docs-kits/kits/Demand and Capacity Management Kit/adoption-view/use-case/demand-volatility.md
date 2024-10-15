@@ -85,8 +85,8 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
 -->
 
-![Demand Volatility CG](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Demand-Fluctuation-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_demand_volatility_CG.svg)
-![Demand Volatility CG Legend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Demand-Fluctuation-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_demand_volatility_CG_legend.svg)
+![Demand Volatility CG](./resources/business-process_demand_volatility_CG.svg)
+![Demand Volatility CG Legend](./resources/business-process_demand_volatility_CG_legend.svg)
 
 Figure 1: *Demand Volatility within Capacity Group*
 
