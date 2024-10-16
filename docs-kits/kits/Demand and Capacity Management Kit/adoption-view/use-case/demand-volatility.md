@@ -27,15 +27,10 @@ Demand Volatility metrics help suppliers to identify and measure volatility in d
 The exchange of measurements of the demand deviation metric between business partners in the automotive supply chain leads to the following advantages: 
 
 - stabilize supply chain by introducing Demand Volatility measures 
-
 - making fluctuations in customer demands transparent 
-
 - facilitating collaboration between business partners regarding demand patterns 
-
 - taking action to stabilize demand levels in the supply chain over time 
-
 - improving the balance between demands and capacity 
-
 - reducing the costs of supply chain operations 
 
 ## Functional Description Demand Volatility  
