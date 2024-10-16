@@ -565,7 +565,7 @@ On Supplier side: Supplier should detect that Actual Capacity is insufficient, u
 
 On Customer side: when validating its own production plan, Customer may consider utilizing the Supplier’s flexibility up to the Maximum Capacity and conclude that feasibility is OK.
 
-#### Example 3:  No flexible capacity
+#### Example 3:  No Flexible Capacity
 
 ![Capacity Example](./resources/business-process_capacity-types_example3.svg)
 <!--
