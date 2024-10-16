@@ -500,7 +500,7 @@ E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
 Figure: *Visualizing Capacity and Demand*
 
 We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain Capacity Group.
-Current capacity plan at Supplier for this horizon is
+The Current capacity plan at Supplier for this horizon is
 
 - 1000 units per week from Week14 (10 shifts per week) to Week20
 - 1500 units per week from Week22 onwards (15 shifts per week), with a rampup step in Week21
