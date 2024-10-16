@@ -38,7 +38,7 @@ Simulated Delta-Production enables suppliers to add extra detail to their capaci
 
 Figure: *Capacity group structure with linked material demand including Simulated Delta-Production Result*
 
-Simulated Delta-Production may be used within a Capacity Group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both pre-production and post-production activities.
+Simulated Delta-Production may be used within a capacity group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore Simulated Delta-Production covers both pre-production and post-production activities.
 
 Suppliers can provide these values on a weekly basis alongside their regular capacity data via parameter:
 
