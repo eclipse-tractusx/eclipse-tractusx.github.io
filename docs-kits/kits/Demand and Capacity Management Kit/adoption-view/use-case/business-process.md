@@ -479,7 +479,6 @@ config:
 
 ```
 -->
-Figure:
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 <!--
@@ -497,7 +496,7 @@ D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
 ```
 -->
-Figure: *Visualizing Capacity and Demand*
+Figure: *Visualizing Capacity and Demand on a simple case with sufficient capacity*
 
 We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain Capacity Group.
 The Current capacity plan at the Supplier for this horizon is
@@ -557,7 +556,7 @@ config:
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
-Figure: *Visualizing Capacity and Demand*
+Figure: *Visualizing Capacity and Demand in a case of imbalance*
 
 We are, here again, in Week01, considering the horizon from Week14 onwards.
 Demand has increased in the period between Week15 and Week20, and now exceeds Actual Capacity.
@@ -566,7 +565,7 @@ On Supplier side: Supplier should detect that Actual Capacity is insufficient, u
 
 On Customer side: when validating its own production plan, Customer may consider utilizing the Supplier’s flexibility up to the Maximum Capacity and conclude that feasibility is OK.
 
-#### Example 3:  Full Capacity Saturation
+#### Example 3:  No flexible capacity
 
 ![Capacity Example](./resources/business-process_capacity-types_example3.svg)
 <!--
@@ -599,7 +598,7 @@ config:
    
    
     xychart-beta
-    title "Example 3: Capacity Group close to saturation"
+    title "Example 3: Capacity Group with little Flexible Capacity"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
     y-axis "." 0 -> 2000
     bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
@@ -612,10 +611,10 @@ config:
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
-Figure: *Visualizing Capacity and Demand*
+Figure: *Visualizing Capacity and Demand in case without flexible capacity*
 
 Actual Capacity is equal to Maximum Capacity, and Demand is very close.
-Though no lack of capacity is detected, even a slight increase of Demand could not be managed.  Both Supplier and Customer can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
+Though no propre imbalance  is detected, even a slight increase of Demand could not be managed.  Both Supplier and Customer can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
 
 #### Example 4: Solving a Capacity Bottleneck
 
@@ -662,7 +661,7 @@ config:
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
-Figure: *Visualizing Capacity and Demand*
+Figure: *Visualizing Capacity and Demand in a case of bottleneck*
 
 Imbalance is detected in Week19 to Week21: Demand exceeds Maximum Capacity.
 Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
