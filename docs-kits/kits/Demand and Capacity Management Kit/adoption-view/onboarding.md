@@ -1,5 +1,3 @@
-
-
 ---
 id: onboarding
 title: Onboarding
@@ -20,7 +18,7 @@ Within DCM customer and supplier both act as data provider and data consumer. In
 
 #### Onboarding
 
-![DCM_Onboarding](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Onboarding-Content---Update/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/resources/DCM_Onboarding.png)
+![DCM_Onboarding](./resources/DCM_Onboarding.png)
 
 |#|Requirement|Further details|
 |-|-|-|
