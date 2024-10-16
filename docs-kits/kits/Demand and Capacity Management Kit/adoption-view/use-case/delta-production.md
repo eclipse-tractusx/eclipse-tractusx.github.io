@@ -33,8 +33,9 @@ Simulated Delta-Production enables suppliers to add extra detail to their capaci
 
 ## Functional description
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
-<!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)--->
-<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="50%">
+<!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)
+<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="50%">--->
+![DCM_DeltaProduction_Legend](./resources/business-process_FunctionalBlockDiagram_Legend.svg)
 
 Figure: *Capacity group structure with linked material demand including Simulated Delta-Production Result*
 
