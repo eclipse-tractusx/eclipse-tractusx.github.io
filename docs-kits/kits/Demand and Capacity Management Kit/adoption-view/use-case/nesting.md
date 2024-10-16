@@ -122,7 +122,7 @@ Figure: *Recurrent nested Capacity Groups*
 **Considerations**
 
 - It must not be possible to have a combination of directly linked Material Demand series and linked Capacity Groups (Nesting) within the same Capacity Group.
-- Suppliers can use comments to provide customers with additional information about the Nesting. For more details on this communication feature, see Chapter 5.9 in the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange) or [Comments](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/adoption-view/use-case/comments) chapter in DCM Kit of Tractus-X.
+- Suppliers can use comments to provide customers with additional information about the Nesting. For more details on this communication feature, see chapter 5.9 in the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange) or [Comments](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/adoption-view/use-case/comments) page in DCM Kit of Tractus-X.
 - Suppliers should be carefully applying recurring linked Capacity Groups ("domino effect"), because of the complexity of keeping track on changes and in maintenance. It is more difficult to identify and understand demand changes and where they are originating from (e.g. which part).
 
 <br/><br/>
@@ -133,7 +133,7 @@ __Parameters of the Nesting are as follows:__
 
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| linkedCapacityGroups | Yes | UUID of the linked Capacity Group | "0157ba42-d2a8-4e28-8565-7b07830c1110" |
+| linkedCapacityGroups | No | UUID of the linked Capacity Group | "0157ba42-d2a8-4e28-8565-7b07830c1110" |
 
 For further details please refer to the [DCM - Kit --> Development View --> Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
