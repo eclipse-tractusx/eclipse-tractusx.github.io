@@ -723,12 +723,12 @@ A Capacity Group dataset comprises the following basic components:
 |Customer|The Business Partner Number (BPNL) of the party requesting material from a supplier|
 |Capacity Group ID|The Capacity Group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
 |Changed At|Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
-|Capacity Group Name|Name of the capacity group.|
+|Capacity Group Name|Name of the capacity group|
 |Inactive Flag|Indicates that this capacity group is currently not in use/maintained by the supplier|
 |Unit of Measure|Unit of Measurement (UoM) for capacity quantities|
-|Linked Demand Series|Set of demand series assigned tio this capacity group.|
+|Linked Demand Series|Set of demand series assigned to this capacity group|
 |Capacities|A time series with week-based granularity along a given time period containing the capacity values|
-|Unit of Measure is Omitted|Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+|Unit of Measure is comitted|Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
