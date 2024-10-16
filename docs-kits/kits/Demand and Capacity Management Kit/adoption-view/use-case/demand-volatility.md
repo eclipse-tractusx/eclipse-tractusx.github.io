@@ -24,7 +24,7 @@ Demand Volatility data is embedded into the WeekBasedCapacityGroup aspect model.
 
 Demand Volatility metrics help suppliers to identify and measure volatility in demands. It allows them to address Demand Volatility directly to their customers, increasing transparency for a more effective collaborative capacity planning. Demand Deviation is the first metric for measuring Demand Volatility in the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] (see chapter 5.11 Demand Volatility Metrics).
 
-The exchange of measurements of the Demand Deviation metric between business partners in the automotive supply chain leads to the following advantages: 
+The exchange of measurements of the demand deviation metric between business partners in the automotive supply chain leads to the following advantages: 
 
 - stabilize supply chain by introducing Demand Volatility measures 
 
@@ -88,7 +88,7 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ![Demand Volatility CG](./resources/business-process_demand_volatility_CG.svg)
 ![Demand Volatility CG Legend](./resources/business-process_demand_volatility_CG_legend.svg)
 
-Figure 1: *Demand Volatility within Capacity Group*
+Figure 1: *Demand Volatility within capacity group*
 
 Feature Demand Volatility is to be used optional but if it is used certain parameters are required to be filled.
 
@@ -106,7 +106,7 @@ __Parameters of the Demand Volatility metric are as follows:__
 | Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2)  means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
 
 
-For further details please refer to the DCM - Kit --> Development View --> <a href="https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup">Aspect Model WeekBasedCapacityGroup</a>.
+For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Example of Demand Volatility Measurements 
 
@@ -137,7 +137,6 @@ end
 
 ```
 
-
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ## Notice
@@ -148,8 +147,12 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2024 SAP SE
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2024 BASF SE
 - SPDX-FileCopyrightText: 2024 SupplyOn AG
 - SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
