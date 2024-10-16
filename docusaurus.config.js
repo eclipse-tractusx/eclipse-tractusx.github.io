@@ -495,7 +495,7 @@ const config = {
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/kits/Industry%20Core%20Kit/Logistics%20Kit/page_adoption-view',
+                to: '/docs-kits/kits/Logistics%20Kit/page_adoption-view',
                 label: 'Logistics',
               },
               {
