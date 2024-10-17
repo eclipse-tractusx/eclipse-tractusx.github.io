@@ -587,7 +587,7 @@ Examples:
 
 ### Calculation for base journey
 
-The supplier compares the demand data, he received from the customer, to the capacity data, he sent to the customer.
+The supplier compares the demand data, received from the customer, to the capacity data, sent to the customer.
 
 ```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
@@ -693,7 +693,7 @@ Feature: Supplier: Consume IdBasedRequestForUpdate
 Scenario: Consume valid  IdBasedRequestForUpdate
   Given I receive a valid IdBasedRequestForUpdate from my customer
   When I try to consume said IdBasedRequestForUpdate
-  Then I should be able to consume it, send my customer a http 200 status message and provide my customer with the data he requested, if applicable
+  Then I should be able to consume it, send my customer a http 200 status message and provide my customer with the data requested, if applicable
 ```
 
 ### Consume invalid IdBasedRequestForUpdate
