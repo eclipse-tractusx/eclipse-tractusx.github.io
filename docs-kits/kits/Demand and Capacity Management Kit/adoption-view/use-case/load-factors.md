@@ -114,7 +114,7 @@ For further details, please refer to [CX-0128 Demand and Capacity Management Dat
 
 ### Sample Data
 
-For sample data please refer to [WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Notice
 
