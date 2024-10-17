@@ -36,6 +36,7 @@ import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
 import Industry_Kit from "@site/static/img/Industry_Kit.png";
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.png";
+import Logistics_Kit from "@site/static/img/logistics/logistics-gallery.drawio.svg";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -182,5 +183,12 @@ export const kitsGallery = [
     domain: 'Resiliency',
     pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
     img: SupplyChainsDisruptionNotifications_Kit,
+  },
+  {
+    id: 20,
+    name: 'Logistics KIT',
+    domain: 'PLM / Quality',
+    pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
+    img: Logistics_Kit,
   },
 ]
