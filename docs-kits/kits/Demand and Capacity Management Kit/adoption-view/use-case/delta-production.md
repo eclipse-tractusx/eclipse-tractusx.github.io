@@ -28,7 +28,7 @@ The main advantage of using simulated Delta-Production is that it gives supplier
 - Solve minor bottlenecks via pre-production/post-production
 - Optimize utilization
 - Smoothen demand and capacity peaks
-- No frequent alerting for minor bottlenecks which can be solved by the supplier (within its actual capacity)
+- No frequent alerting for minor bottlenecks which can be solved by the supplier (within its actual or maximum capacity)
 
 Simulated Delta-Production enables suppliers to add extra detail to their capacity information. This helps illustrate solutions for capacity issues or times when production resources might be offline. Only the end results of simulated Delta-Production are shared with the customer. Suppliers may input a simulated Delta-Production value for each week as needed, which shows an increase or decrease in planned demand without actually changing the real figures.
 
