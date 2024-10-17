@@ -44,8 +44,6 @@ Load Factors solve these problems by:
 ## Functional description
 
 ![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
-<!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)
-<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="50%">--->
 ![LoadfactorLegend](./resources/business-process_FunctionalBlockDiagram_Legend.svg)
 
 Figure: *Capacity group structure with linked material demand incl. Load Factors*
@@ -69,15 +67,17 @@ Without Load Factors, the units of measure of a WeekBasedCapacityGroup and its l
 - To maintain consistency in demand-capacity comparison, rounding of fractional conversion results should be avoided.
 - If a WeekBasedCapacityGroup links several WeekBasedMaterialDemand containing the same material, the Load Factors applied to these WeekBasedMaterialDemand should be identical.
 
-Suppliers can use comments to provide customers with additional information about the applied Load Factors. For more details on this communication feature, see Chapter 5.9 of the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange)
+Suppliers can use comments to provide customers with additional information about the applied Load Factors. For more details on this communication feature, see Chapter 5.9 of [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]
 
 ## Example
-The supplier produces two toys coloured red and chrome on its line for the customer. 
+
+The supplier produces two toys coloured red and chrome on its line for the customer.
 Both materials pass through the same station within the colouring process.
 
-Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station. 
+Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station.
 
-#### Sequence Diagram
+### Sequence Diagram
+
 ```mermaid
 sequenceDiagram
 Participant c as Customer
@@ -96,40 +96,41 @@ c->>c: My demands are 100 red cycles plus 200 chrome cycles equals 300 cycles
 c->>c: Their capacity for both toys is 250 cycles
 c->>c: Reduce demand for chrome toys to 75 so total demand equals 250 cycles
 ```
-<!---![Loadfactor](./resources/business-process_LoadFactor_sequence.svg)--->
+
 Figure: *Sequence diagram example for application of Load Factor*
 
-The supplier has created a capacity group "Red and Chrome Toys" with the unit “cycle” (unit:cycle). A processing time per piece of 1 cycle is set for red toys and 2 cycles for chrome toys. The maximum available process time is set to 250 cycles. 
+The supplier has created a capacity group "Red and Chrome Toys" with the unit “cycle” (unit:cycle). A processing time per piece of 1 cycle is set for red toys and 2 cycles for chrome toys. The maximum available process time is set to 250 cycles.
 
-The customer requires 100 pieces of red toys and 100 pieces of chrome toys in the respective week. The supplier calculates the required process time to be 300 cycles, i.e. 100(red)*1 + 100(chrome)*2 = 100 + 200 = 300 cycles.
+The customer requires 100 pieces of red toys and 100 pieces of chrome toys in the respective week. The supplier calculates the required process time to be 300 cycles, i.e. 100(red)\*1 + 100(chrome)\*2 = 100 + 200 = 300 cycles.
 
-Without the Load Factor applied, it would not have been transparent for the customer, that the required amount of red and chrome toys is not possible to be fulfilled and it is necessary to decrease the volume in the respective week. 
+Without the Load Factor applied, it would not have been transparent for the customer, that the required amount of red and chrome toys is not possible to be fulfilled and it is necessary to decrease the volume in the respective week.
 
-One possible solution would be to reduce the chrome toys by 25 pieces to 75 pieces. New required process time would add up to 100(red)*1 + 75(chrome)*2 = 100 + 150 = 250 cycles. 
+One possible solution would be to reduce the chrome toys by 25 pieces to 75 pieces. New required process time would add up to 100(red)\*1 + 75(chrome)\*2 = 100 + 150 = 250 cycles.
 
 ![Loadfactor](./resources/business-process_LoadFactor_example_diagram.svg)
 Figure: *Example for application of Load Factor within WeekBasedCapacityGroup*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-#### Sample Data
-For sample data please refer to the related aspect model example in the development view for [WeekBasedCapacityGroup](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup/).
+### Sample Data
+
+For sample data please refer to [WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023,2024 SAP SE
+- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023,2024 BASF SE
+- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
 - SPDX-FileCopyrightText: 2024 Capgemini Deutschland GmbH
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
