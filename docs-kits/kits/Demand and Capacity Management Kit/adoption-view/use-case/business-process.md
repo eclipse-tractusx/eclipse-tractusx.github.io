@@ -611,7 +611,7 @@ config:
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
-Figure: *Visualizing Capacity and Demand in case without flexible capacity*
+Figure: *Visualizing Capacity and Demand in case without Flexible Capacity*
 
 Actual Capacity is equal to Maximum Capacity, and Demand is very close.
 Though no propre imbalance  is detected, even a slight increase of Demand could not be managed.  Both Supplier and Customer can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
