@@ -1,7 +1,7 @@
 ---
 id: business-process
 title: Core Business Process
-description: Exchange demand and capacity information to solve bottlenecks.
+description: Exchange Demand and Capacity information to solve bottlenecks.
 sidebar_position: 1
 ---
 
@@ -18,16 +18,16 @@ sidebar_position: 1
 
 ## Business Roles and Functions
 
-The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
+The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The Customer is responsible for `WeekBasedMaterialDemand`, the Supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the Supplier has to link Material Demands.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
 |Manage demand data|X||
-|Inform supplier about demand|X||
+|Inform Supplier about demand|X||
 |Manage capacity data||X|
-|Link demand and capacity||X|
-|Inform customer about capacity||X|
-|Compare demand to capacity|X|X|
+|Link Demand and Capacity||X|
+|Inform Customer about Capacity||X|
+|Compare Demand to Capacity|X|X|
 |Collaborate to resolve bottlenecks|X|X|
 
 ## User Journey
@@ -66,40 +66,40 @@ The basic DCM user journey encompasses two key personas, each with distinct role
 
 #### Customer
 
- Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of managing material demand and ensuring that supply aligns with their forecasted needs. The value of DCM for the customer lies in the capability to provide clear visibility into future demand and to facilitate efficient communication and alignment with suppliers.
+ Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of managing Material Demand and ensuring that supply aligns with their forecasted needs. The value of DCM for the Customer lies in the capability to provide clear visibility into future demand and to facilitate efficient communication and alignment with Suppliers.
 
-The responsibilities of the customer include:
+The responsibilities of the Customer include:
 
-- safeguarding sufficient capacity of his suppliers for required materials and prevent bottleneck situations
-- allocation of production capacity on customer side
+- safeguarding sufficient capacity of his Suppliers for required materials and prevent bottleneck situations
+- allocation of production capacity on Customer side
 - production rough cut planning
 - material allocation
 
 #### Supplier
 
-Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of providing capacity data in response to the customer's material demand. The value of DCM for the supplier lies in the capability to receive material demand data, which enables them to plan and allocate resources effectively, ensuring they can meet the customer's demands.
+Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of providing capacity data in response to the Customer's Material Demand. The value of DCM for the Supplier lies in the capability to receive Material Demand data, which enables them to plan and allocate resources effectively, ensuring they can meet the Customer's demands.
 
-The responsibilities of the supplier include:
+The responsibilities of the Supplier include:
 
 - allocation of production capacity
 - production rough cut planning
 - material allocation
-- communication to a customer business partner regarding capacity figures in a mid to - long term horizon
+- communication to a Customer business partner regarding capacity figures in a mid to - long term horizon
 - resolving bottleneck situations
 
 ### User Journey Description
 
-The starting point within the DCM user journey is the exchange of demand data, which is provided by the customer and consumed by the supplier as WeekBasedMaterialDemand. For an effective demand and capacity management the data needs to be of a certain quality. This includes sorting the demand into weekly buckets, extending the demand data 24 months into the future and subsequently keeping it up to date. Whether the customer has to manually prepare the demand data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards.
+The starting point within the DCM user journey is the exchange of demand data, which is provided by the Customer and consumed by the Supplier as WeekBasedMaterialDemand. For an effective demand and capacity management the data needs to be of a certain quality. This includes sorting the Demand into weekly buckets, extending the Demand data 24 months into the future and subsequently keeping it up to date. Whether the Customer has to manually prepare the Demand data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards.
 
-The exchange of demand data is followed by the exchange of capacity data, which is provided by the supplier und consumed by the customer. For an effective demand and capacity management the data needs to be of a certain quality. This included linking material demands to the capacity group ,providing a capacity quantity for every calendar week the customer provided demand quantities for, matching unit of measures correctly and utilizing advanced features like load factors and delta production in order to model demand and capacity management as closely to real life as possible. Whether the supplier has to manually prepare the capacity data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards. However matching material numbers and linking material demands to capacity groups will most likely required human intervention at some point.
+The exchange of Demand data is followed by the exchange of capacity data, which is provided by the Supplier und consumed by the Customer. For an effective demand and capacity management the data needs to be of a certain quality. This included linking Material Demands to the Capacity Group, providing a capacity quantity for every calendar week the Customer provided demand quantities for, matching unit of measures correctly and utilizing advanced features like load factors and delta production in order to model demand and capacity management as closely to real life as possible. Whether the Supplier has to manually prepare the capacity data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards. However matching material numbers and linking Material Demands to Capacity Groups will most likely required human intervention at some point.
 
-After exchanging demand and capacity data  both customer and supplier do have the same view of the current situation and can begin matching and comparing the data. This is something that usually happens locally within the respective DCM application. Ideally the whole process of finding problems (bottleneck or surplus) is automated.
+After exchanging demand and capacity data  both Customer and Supplier do have the same view of the current situation and can begin matching and comparing the data. This is something that usually happens locally within the respective DCM application. Ideally the whole process of finding problems (bottleneck or surplus) is automated.
 
-If either customer or supplier identify a problem they can collaborate by exchanging comments as described by the DCM standard or by communicating outside the Catena-X dataspace using email or online-meetings. Regardless of how communication is initiated and maintained solving an identified problem is always the result of proposing, evaluating and simulating potential solutions. Customers and supplier discuss potential measures, modify their demand and capacity respectively and exchange the modified data until a solution that works for both sides has been found.
+If either Customer or Supplier identify a problem they can collaborate by exchanging comments as described by the DCM standard or by communicating outside the Catena-X dataspace using email or online-meetings. Regardless of how communication is initiated and maintained solving an identified problem is always the result of proposing, evaluating and simulating potential solutions. Customers and Supplier discuss potential measures, modify their demand and capacity respectively and exchange the modified data until a solution that works for both sides has been found.
 
-Tools available to the customer for solving problems are fairly limited. They can increase or decrease demand quantities.
+Tools available to the Customer for solving problems are fairly limited. They can increase or decrease demand quantities.
 
-The supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use Flexible Capacity, load factors and delta production.
+The Supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use Flexible Capacity, load factors and delta production.
 
 ## Material Demand
 
@@ -156,17 +156,17 @@ class C1 Highlite
 
 -->
 
-A material demand represents the need for a particular product, part, component or material over a certain time period in a specified quantity. Demand quantities must refer to a time period of one calendar week (weekly buckets).
+A Material Demand represents the need for a particular product, part, component or material over a certain time period in a specified quantity. Demand quantities must refer to a time period of one calendar week (weekly buckets).
 
-The customer is responsible for publishing material demands to their supplier for upcoming time periods and it is strongly recommended to:
+The Customer is responsible for publishing Material Demand to their Supplier for upcoming time periods and it is strongly recommended to:
 
 - Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
-- Provide material demand data for at least nine months into the future to ensure that DCM participants have sufficient information to work with.
+- Provide Material Demand data for at least nine months into the future to ensure that DCM participants have sufficient information to work with.
 - Implement a rolling demand plan by continuously updating the planning horizon with recent data.
 - Refresh the data at a minimum of once every four weeks.
-- Align, ideally within a contract, the unit of measure for demand quantities (e.g., pieces, kilograms, metric tons) with the supplier before providing the demand.
+- Align, ideally within a contract, the unit of measure for demand quantities (e.g., pieces, kilograms, metric tons) with the Supplier before providing the demand.
 
-The supplier must have the capability to consume the material demand data from the customer.
+The Supplier must have the capability to consume the Material Demand data from the Customer.
 
 ### Material Demand Structure
 
@@ -310,28 +310,28 @@ class C4 Highlite
 ```
 -->
 
-A capacity group represents the answer to one or more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
+A Capacity Group represents the answer to one or more Material Demands. It contains the information on how a Supplier intends to fulfill Customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
 
-The customer is responsible for publishing capacity groups to their customer and it is strongly recommended to:
+The Customer is responsible for publishing Capacity Groups to their Customer and it is strongly recommended to:
 
 - Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
 - Provide capacity data for every calendar week that has associated demand data.
 - Refresh the data at a minimum of once every four weeks.
-- Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the customer and utilize lead factors as conversion factors, if applicable.
+- Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the Customer and utilize lead factors as conversion factors, if applicable.
 
-The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.  
+The Supplier must provide capacity data to the Customer, corresponding to the Material Demand data previously shared. Thereby, the Supplier is acting as a data provider and the Customer as a data consumer of the exchanged Capacity Group.  
 
-The customer must have the capability to consume the capacity group data from the supplier.
+The Customer must have the capability to consume the Capacity Group data from the Supplier.
 
 ### Capacity Group Structure
 
-The Capacity Group is the entity where Material Demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the Capacity Group builds the common view on the data exchanged between a customer and a supplier.  
+The Capacity Group is the entity where Material Demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the Capacity Group builds the common view on the data exchanged between a Customer and a Supplier.  
 
 The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
 
-Figure: *Capacity group structure*
+Figure: *Capacity Group structure*
 <!--
 ```mermaid
 block-beta
@@ -425,11 +425,11 @@ D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 
 Embedded into the WeekBasedCapacityGroup are
 
-- **Actual Capacity** as the  planned available capacity of a supplier
-- **Maximum Capacity** as the maximum releasable capacity of a supplier
-- **Agreed Capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
+- **Actual Capacity** as the  planned available capacity of a Supplier
+- **Maximum Capacity** as the maximum releasable capacity of a Supplier
+- **Agreed Capacity**  as the understanding between Customer and Supplier, regardless of contractual obligations. It is optional.
 
-In addition the difference between Actual capacity and Maximum capacity is commonly understood as **Flexible Capacity**.
+In addition the difference between Actual Capacity and Maximum Capacity is commonly understood as **Flexible Capacity**.
 
 The following examples illustrate how to use the "Capacities" properties
 
@@ -489,9 +489,9 @@ config:
 
 block-beta
 columns 3
-A["Demand over Actual capacity"] style A fill:#d91e18,color:#F4F2F3
+A["Demand over Actual Capacity"] style A fill:#d91e18,color:#F4F2F3
 B["Demand over Actual but within Maximum Capacity"] style B fill:#FFA600,color:#F4F2F3
-C["Demand within Actual capacity"] style C fill:#809500,color:#F4F2F3
+C["Demand within Actual Capacity"] style C fill:#809500,color:#F4F2F3
 D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#0000FF
 ```
@@ -718,14 +718,14 @@ A Capacity Group dataset comprises the following basic components:
 
 |Properties|Description|
 |-|-|
-|Supplier|The Business Partner Number (BPNL) of the party providing materials to a customer|
-|Customer|The Business Partner Number (BPNL) of the party requesting material from a supplier|
-|Capacity Group ID|The Capacity Group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
-|Changed At|Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
-|Capacity Group Name|Name of the capacity group|
-|Inactive Flag|Indicates that this capacity group is currently not in use/maintained by the supplier|
+|Supplier|The Business Partner Number (BPNL) of the party providing materials to a Customer|
+|Customer|The Business Partner Number (BPNL) of the party requesting material from a Supplier|
+|Capacity Group ID|The Capacity Group ID uniquely identifies the Capacity Group within the business relationship between a Supplier and its Customer|
+|Changed At|Point in time when the content (any property according to the data model) of the Capacity Group was changed, at the Supplier, either by a human user or an automated process|
+|Capacity Group Name|Name of the Capacity Group|
+|Inactive Flag|Indicates that this Capacity Group is currently not in use/maintained by the Supplier|
 |Unit of Measure|Unit of Measurement (UoM) for capacity quantities|
-|Linked Demand Series|Set of demand series assigned to this capacity group|
+|Linked Demand Series|Set of demand series assigned to this Capacity Group|
 |Capacities|A time series with week-based granularity along a given time period containing the capacity values|
 |Unit of Measure is comitted|Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
@@ -733,14 +733,14 @@ Further properties are added at lower level below the “Capacities” property.
 
 |Properties|Description|
 |-|-|
-|Actual Capacity|The Actual Capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
-|Agreed Capacity|The Agreed Capacity of a supplier for a specific customer material(s) within a Capacity Group. The agreed capacity must not constitute a legal obligation to deliver.|
-|Maximum Capacity|The supplier's Maximum Capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The Maximum Capacity thereby restricts the Flexible Capacity, as the Flexible Capacity is obtained from the difference of a supplier Maximum Capacity minus Actual capacity|
+|Actual Capacity|The Actual Capacity is the realistically planned output per calendar week and material for a specific Customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
+|Agreed Capacity|The Agreed Capacity of a Supplier for a specific Customer material(s) within a Capacity Group. The agreed capacity must not constitute a legal obligation to deliver.|
+|Maximum Capacity|The Supplier's Maximum Capacity is the maximal available output per calendar week and material for a specific Customer in a specific unit of measure. The Maximum Capacity thereby restricts the Flexible Capacity, as the Flexible Capacity is obtained from the difference of a Supplier Maximum Capacity minus Actual Capacity|
 |Point in Time|ISO Calendar Week of the given time series entry. UstIt must be given as a date of the Monday in the week.|
 
 ### Linking Capacity Groups to Material Demands
 
-For a functional Capacity Group, the supplier must link it directly or indirectly to a Material Demand:
+For a functional Capacity Group, the Supplier must link it directly or indirectly to a Material Demand:
 
 - **Direct linking** means that the Capacity Group links at least one Material Demand  
 - **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand. This is also referred to as **nesting**.
@@ -750,7 +750,7 @@ For a functional Capacity Group, the supplier must link it directly or indirectl
 ![Direct Linking](./resources/business-process_DirectLinking.svg)
 ![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
 
-Figure: *Capacity group structure with linked material demand*
+Figure: *Capacity group structure with linked Material Demand*
 
 <!--
 ```mermaid
@@ -801,25 +801,25 @@ D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
 -->
 For the technical representation of a CapacityGroup the aspect model WeekBasedCapacityGroup is utilized.  
 
-The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the customer.  
+The aspect model WeekBasedCapacityGroup must be used by a Supplier to provide capacity information to the Customer.  
 
 For further details refer to the semantic model in Chapter 3.2 and to the APIs in Chapter 4.2.  
 
-A partner acting as a supplier sends a Capacity Group to its customer. In order to link demand series in the Capacity Group between customer and supplier, the following properties must be filled-in:  
+A partner acting as a Supplier sends a Capacity Group to its Customer. In order to link demand series in the Capacity Group between Customer and Supplier, the following properties must be filled-in:  
 
-- supplier
-- customer
+- Supplier
+- Customer
 - materialNumberCustomer  
-- customerLocation  
+- CustomerLocation  
 - demandCategory  
 
-If there’s no complete match between supplier and customer data, it’s recommended to initiate collaboration (i.e. see chapter “Comments”)
+If there’s no complete match between Supplier and Customer data, it’s recommended to initiate collaboration (i.e. see chapter “Comments”)
 
-The supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. the capacity is obsolete), in this case the capacity will not be considered in the demand-capacity matching. However, the WeekBasedCapacityGroup can be reactivated again.
+The Supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. the capacity is obsolete), in this case the capacity will not be considered in the demand-capacity matching. However, the WeekBasedCapacityGroup can be reactivated again.
 
-### Building n-tier chains via capacity groups
+### Building n-tier chains via Capacity Groups
 
-Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
+Building supply chain via Capacity Groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one Capacity Groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
 
 The following figure illustrates how plastic granulate ends up being used in the housing of a control unit and how this would be viewed from a birds eye perspective.
 
@@ -853,7 +853,7 @@ style cg3Material fill:#FFFFFF,color:#707070
 style cg31DOWN fill:#575757,color:#ffffff
 ```
 
-Figure: *A small supply chain built by three capacity groups*
+Figure: *A small supply chain built by three Capacity Groups*
 
 The following figure illustrates the flow of demand and capacity data through the supply network. Capacity and demand blocks are placed according to responsibility. Data exchange that is happening within the Catena-X dataspace is denoted by arrows with "Provide" written on them.
 
@@ -932,7 +932,7 @@ class car Car
 
 ![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
 
-Figure: *A small supply network built by seven capacity groups*
+Figure: *A small supply network built by seven Capacity Groups*
 
 <!--
 ```mermaid
@@ -1001,7 +1001,7 @@ class E2 Highlite
 
 -->
 
-Both customer and supplier need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
+Both Customer and Supplier need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
 
 The standard describes exactly which scenario leads to the three possible matching results:
 
@@ -1009,9 +1009,9 @@ The standard describes exactly which scenario leads to the three possible matchi
 - Surplus
 - Bottleneck
 
-Within a DCM application those three matching results are commonly represented as a traffic light status, with zero deviation and surplus being green and bottleneck being orange or red, depending on whether demand is higher than Maximum capacity or just Actual capacity.
+Within a DCM application those three matching results are commonly represented as a traffic light status, with zero deviation and surplus being green and bottleneck being orange or red, depending on whether demand is higher than Maximum Capacity or just Actual Capacity.
 
-While customers might not feel impacted by a surplus, because the demand is matched, it still represents capacity that the supplier could better utilize.
+While Customers might not feel impacted by a surplus, because the demand is matched, it still represents capacity that the Supplier could better utilize.
 
 For ease of use demand and capacity data should be shown on the same graph and colored in appropriately, within a DCM application.
 
@@ -1063,7 +1063,7 @@ Figure: *Visualizing the comparison of demand and capacity quantities*
 ```mermaid
 block-beta
 columns 3
-A["Demand over Actual capacity"] style A fill:#d91e18,color:#F4F2F3
+A["Demand over Actual Capacity"] style A fill:#d91e18,color:#F4F2F3
 B["Demand over Actual but within Maximum Capacity"] style B fill:#FFA600,color:#F4F2F3
 C["Demand within Actual Capacity"] style C fill:#809500,color:#F4F2F3
 D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
@@ -1130,7 +1130,7 @@ class G2 Highlite
 
 Collaboration is key within the DCM process. It is the final part of the DCM user journey, where actual solutions for problems (surplus and bottlenecks) are proposed, discussed and finally deployed.
 
-In order to facilitate collaboration with the Catena-X dataspace the DCM standards describes the exchange of comments, using an own aspect model and API. Communication features outside the Catena-X dataspace, such as eMail, phone calls, online meetings, etc. are not prohibited and should be used as the individual customers and suppliers see fit.
+In order to facilitate collaboration with the Catena-X dataspace the DCM standards describes the exchange of comments, using an own aspect model and API. Communication features outside the Catena-X dataspace, such as eMail, phone calls, online meetings, etc. are not prohibited and should be used as the individual Customers and Suppliers see fit.
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
