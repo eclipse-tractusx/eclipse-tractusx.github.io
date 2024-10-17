@@ -666,7 +666,7 @@ npm/npmjs/-/postcss-normalize-url/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-normalize-whitespace/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-ordered-values/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-reduce-idents/6.0.3, MIT, approved, clearlydefined
-npm/npmjs/-/postcss-reduce-initial/6.1.0, MIT AND GPL-2.0-only AND CC0-1.0, restricted, #16191
+npm/npmjs/-/postcss-reduce-initial/6.1.0, MIT AND CC0-1.0, approved, #16191
 npm/npmjs/-/postcss-reduce-transforms/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-selector-parser/6.1.2, MIT, approved, #15845
 npm/npmjs/-/postcss-sort-media-queries/5.2.0, MIT, approved, #16194
