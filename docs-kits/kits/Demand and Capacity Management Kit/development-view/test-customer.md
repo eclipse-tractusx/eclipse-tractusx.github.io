@@ -18,7 +18,7 @@ For an overview of these tests you should visit [Testing a DCM application](./ov
 
 ### Setup EDC
 
-This test ensures that the customer sets up his EDC.
+This test ensures that the customer sets up its EDC.
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -31,7 +31,7 @@ Scenario: Setup EDC
 
 ### Register APIs as assets
 
-This test ensures that the customer registers his API endpoints as data assets with his own EDC.
+This test ensures that the customer registers its API endpoints as data assets with its own EDC.
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -50,7 +50,7 @@ Examples:
 
 ### Check wallet for certificates
 
-This test ensures that the customer has the necessary credentials in his wallet.
+This test ensures that the customer has the necessary credentials in its wallet.
 
 ```cucumber
 Feature: Customer: Prepare yourself
