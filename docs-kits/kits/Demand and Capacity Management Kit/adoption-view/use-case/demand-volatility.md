@@ -20,26 +20,26 @@ Demand Volatility data is embedded into the WeekBasedCapacityGroup aspect model.
 |Acknowledge Demand Volatility calculation|X||
 |Reproduce Demand Volatility calculation|X||
 
-## Business Value 
+## Business Value
 
 Demand Volatility metrics help suppliers to identify and measure volatility in demands. It allows them to address Demand Volatility directly to their customers, increasing transparency for a more effective collaborative capacity planning. Demand Deviation is the first metric for measuring Demand Volatility in the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] (see chapter 5.11 Demand Volatility Metrics).
 
-The exchange of measurements of the demand deviation metric between business partners in the automotive supply chain leads to the following advantages: 
+The exchange of measurements of the demand deviation metric between business partners in the automotive supply chain leads to the following advantages:
 
-- stabilize supply chain by introducing Demand Volatility measures 
-- making fluctuations in customer demands transparent 
-- facilitating collaboration between business partners regarding demand patterns 
-- taking action to stabilize demand levels in the supply chain over time 
-- improving the balance between demands and capacity 
-- reducing the costs of supply chain operations 
+- stabilize supply chain by introducing Demand Volatility measures
+- making fluctuations in customer demands transparent
+- facilitating collaboration between business partners regarding demand patterns
+- taking action to stabilize demand levels in the supply chain over time
+- improving the balance between demands and capacity
+- reducing the costs of supply chain operations
 
 ## Functional Description Demand Volatility  
 
-Supply chains in the automotive industry are characterized by a dynamic operating environment that manifests itself in regular changes in delivery and production requirements. This leads to varying degrees of Demand Volatility that customers communicate to their suppliers, in short term as well as long term planning horizons. 
+Supply chains in the automotive industry are characterized by a dynamic operating environment that manifests itself in regular changes in delivery and production requirements. This leads to varying degrees of Demand Volatility that customers communicate to their suppliers, in short term as well as long term planning horizons.
 
-Empirical analyses prove that high levels of Demand Volatility lead to high levels of unplanned supply chain efforts and costs mostly linked to readjustments of supply chain plans and to increased inventories across all tiers of the automotive supply chain. 
+Empirical analyses prove that high levels of Demand Volatility lead to high levels of unplanned supply chain efforts and costs mostly linked to readjustments of supply chain plans and to increased inventories across all tiers of the automotive supply chain.
 
-An effective approach to address the negative consequences of Demand Volatility is to systematically measure them and thus make them transparent. This facilitates collaborative alignments between supply chain partners in order to reduce Demand Volatility and increase the stability of supply plans. Therefore, the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] includes a simple Demand Volatility metric: “Demand Deviation”. Figure 1 shows that the parameters and metrics that are processed for Demand Deviation form part of the dataset of the capacity group, which is also handled by suppliers. The metric is generally based on the comparison of the current aggregated demand measured for a defined capacity group with a previous aggregated demand. It is recommended to measure Demand Deviation on a monthly basis. Hence, a 4-week offset between measurements of current and previous demands is recommended. 
+An effective approach to address the negative consequences of Demand Volatility is to systematically measure them and thus make them transparent. This facilitates collaborative alignments between supply chain partners in order to reduce Demand Volatility and increase the stability of supply plans. Therefore, the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] includes a simple Demand Volatility metric: “Demand Deviation”. Figure 1 shows that the parameters and metrics that are processed for Demand Deviation form part of the dataset of the capacity group, which is also handled by suppliers. The metric is generally based on the comparison of the current aggregated demand measured for a defined capacity group with a previous aggregated demand. It is recommended to measure Demand Deviation on a monthly basis. Hence, a 4-week offset between measurements of current and previous demands is recommended.
 
 <!--
 ```mermaid
@@ -100,10 +100,9 @@ __Parameters of the Demand Volatility metric are as follows:__
 | Relative Negative Deviation | No | Relative negative deviation threshold which triggers an alert | E.g. -30% (value 0,3)  means an alert is triggered if the relative negative deviation between two measurement intervals for a respective calendar week decrease by 30% or more. Value can be set between 0 and 1. |
 | Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2)  means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
 
-
 For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
-## Example of Demand Volatility Measurements 
+## Example of Demand Volatility Measurements
 
 ```mermaid
 sequenceDiagram
