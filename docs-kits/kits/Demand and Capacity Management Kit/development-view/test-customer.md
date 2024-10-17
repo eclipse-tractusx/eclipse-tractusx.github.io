@@ -309,7 +309,7 @@ The customer creates four WeekBasedMaterialDemand used by the base journey.
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
 
-Scenario Outline: Try to generate WeekBasedMaterialDemand for Base Journey using different <v_tests>
+Scenario Outline: Try to generate WeekBasedMaterialDemand for base journey using different <v_tests>
 
   Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
   *       the value for the property "changedAt"                      is <v_changedAt>                            
@@ -586,7 +586,7 @@ The customer creates an IdBasedRequestForUpdate used by the base journey which r
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
 
-Scenario Outline: Try to generate  IdBasedRequestForUpdate for Base Journey using different <v_tests>
+Scenario Outline: Try to generate  IdBasedRequestForUpdate for base journey using different <v_tests>
   Given   the value for the property "weekBasedMaterialDemand"        is <v_weekBasedMaterialDemand>
   *       "weekBasedMaterialDemand"                                   is a list with properties "changedAt" and "materialDemandId"
   *       the value for the property "weekBasedCapacityGroup"         is <v_weekBasedCapacityGroup>
@@ -789,9 +789,9 @@ Examples:
 ### Create IdBasedComment for base journey
 
 ```cucumber
-Feature: Customer: Create IdBasedComment for Base Journey
+Feature: Customer: Create IdBasedComment for base journey
 
-Scenario Outline: Try to generate IdBasedComment for Base Journey for Base Journey using different <v_tests>
+Scenario Outline: Try to generate IdBasedComment for base journey for base journey using different <v_tests>
 
 Given   the value for the property "CommentId"                      is <v_CommentId>                            
 *       the value for the property "ObjectId"                       is <v_ObjectId>                             
