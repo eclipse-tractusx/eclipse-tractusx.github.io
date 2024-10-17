@@ -664,7 +664,7 @@ config:
 Figure: *Visualizing Capacity and Demand in a case of bottleneck*
 
 Imbalance is detected in Week19 to Week21: Demand exceeds Maximum Capacity.
-Supplier and Customer collaborate and validate an action plan, e.g. consisting in increasing production capacity from Week19 to Week21
+Supplier and Customer collaborate and agree on a measure to solve imbalance, e.g. increasing production capacity from Week19 to Week21
 If so, Actual and Maximum Capacity must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in graph 4b below.
 
 <!--
