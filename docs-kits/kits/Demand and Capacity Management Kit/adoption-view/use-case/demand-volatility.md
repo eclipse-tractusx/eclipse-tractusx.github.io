@@ -9,7 +9,7 @@ sidebar_position: 2
 
 ## Business Roles and Functions
 
-Demand Volatility data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide Demand Volatitlity related data and customers consume it.
+Demand Volatility data is embedded into the WeekBasedCapacityGroup aspect model. This means that only suppliers provide Demand Volatility related data and customers consume it.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
