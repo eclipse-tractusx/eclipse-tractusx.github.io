@@ -8,3 +8,8 @@ In addition you may want to check the recent releases for content which was publ
 Go to the [sig-release/README.md](https://github.com/eclipse-tractusx/sig-release/blob/main/README.md) for a consolidated package on release-relevant information.
 
 Visit [tractus-x-release/CHANGELOG.md](https://github.com/eclipse-tractusx/tractus-x-release/blob/main/CHANGELOG.md) for our periodic release info.
+
+:::tip
+The timelines for the current and next releases, can be found on the [Release Planning Board](https://github.com/orgs/eclipse-tractusx/projects/26/views/35). The milestone filter can be used,
+to select a dedicated release and check the progress of the release.
+:::
