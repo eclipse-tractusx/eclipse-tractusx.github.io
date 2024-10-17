@@ -18,6 +18,7 @@ Delta-Production data is embedded into the WeekBasedCapacityGroup aspect model. 
 |Acknowledge that bottleneck has been solved|X||
 
 ## Business value
+
 Simulated Delta-Production is a feature that helps suppliers to manage their production capacity more effectively. It allows them to address and balance capacity shortages without having to increase their actual or maximum capacity. Suppliers can choose to use this feature, but it is not mandatory. 
 
 The main advantage of using Simulated Delta-Production is that it gives suppliers a way to manage small capacity shortfalls. This can be done manually or automatically, which saves time and effort that would otherwise be spent on frequent capacity adjustments, particularly when demand is unpredictable.
@@ -32,9 +33,9 @@ The main advantage of using Simulated Delta-Production is that it gives supplier
 Simulated Delta-Production enables suppliers to add extra detail to their capacity information. This helps illustrate solutions for capacity issues or times when production resources might be offline. Only the end results of Simulated Delta-Production are shared with the customer. Suppliers may input a Simulated Delta-Production value for each week as needed, which shows an increase or decrease in planned demand without actually changing the real figures.
 
 ## Functional description
+
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
-<!---![LoadFactorLegend](https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg)
-<img src="https://github.com/ClosedSourcerer/eclipse-tractusx.github.io/blob/DCM-KIT-Load-Factors-Content/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/use-case/resources/business-process_FunctionalBlockDiagram_Legend.svg" width="50%">--->
+
 ![DCM_DeltaProduction_Legend](./resources/business-process_FunctionalBlockDiagram_Legend.svg)
 
 Figure: *Capacity group structure with linked material demand including Simulated Delta-Production Result*
@@ -57,10 +58,12 @@ When comparing demand and capacity data, the simulated values are considered wit
 - Consideration of e.g. stock levels, storage capacity, transport capacity, product or part versioning, perishability, storing or handling requirements is subject to suppliers individual planning and product requirements
 
 Simulated Delta-Production must not change the material demand. It's strictly a simulation feature.
-Suppliers can use comments to provide customers with additional information about the Simulated Delta-Production. For more details on this communication feature, see Chapter 5.9 in the [CX-0128 DCM Standard document](https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange)
+Suppliers can use comments to provide customers with additional information about the Simulated Delta-Production. For more details on this communication feature, see Chapter 5.9 of [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ## Example
-#### Sequence Diagram
+
+### Sequence Diagram
+
 ```mermaid
 sequenceDiagram
 Participant c as Customer
@@ -77,16 +80,18 @@ s-->>c: I can produce 100 in week 47, 0 in week 50 and 150 in weeks 48 and 49
 s->>c: 50 each in weeks 48 und 49 are pre-produced to cover the demand in week 50
 end
 ```
-<!---![DeltaProduction_swimlane](./resources/business-process_DeltaProduction_sequence.svg)--->
+
 Figure: *Sequence Diagram for Simulated Delta-Production*
 
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
+
 Figure: *Visualized example of results of Simulated Delta-Production (with pre-production)*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
-#### Sample Data
-For sample data please refer to the related aspect model example in the development view for [WeekBasedCapacityGroup](https://eclipse-tractusx.github.io/docs-kits/kits/DCM-Kit/development-view/model-WeekBasedCapacityGroup/).
+### Sample Data
+
+For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Notice
 
