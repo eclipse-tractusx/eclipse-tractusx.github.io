@@ -12,12 +12,12 @@ description: Glossary
 |----|-----------|
 |Actual Capacity|This is the capacity a supplier realistically plans to have available to satisfy the demand of a certain material per week for a specific customer. It considers the supplier’s own assessment of their capabilities, inventory and existing commitments.|
 |Agreed Capacity|This is a capacity value coordinated between customer and supplier and it may refer e.g. to capacity values defined in mutually agreed contracts. Using the agreed capacity is optional, it has purely informative character and therefore does not constitute a legal obligation to deliver. The agreed capacity may be greater than, less than or equal to the actual or Maximum Capacity. It may be used for a time frame different than the whole time series.|
-|API|Application Programming Interface is a set of rules, protocols, and tools for building software and applications. Examples for DCM can be found here: [LinkText](https://eclipse-tractusx.github.io/docs-kits/next/kits/DCM-Kit/development-view/overview#apis-utilized-by-a-dcm-application)|
-|Aspect Model|see: [LinkText](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#aspect-model)|
+|API|Application Programming Interface is a set of rules, protocols, and tools for building software and applications. Examples for DCM can be found here: [Development View - APIs utilized by a DCM application](../development-view/overview.md#apis-utilized-by-a-dcm-application)|
+|Aspect Model|See: [CX-0002 Digital Twins in Catena-X][StandardLibrary]|
 |Bottleneck|A facility, function, department, or resource whose capacity is less than the demand placed upon it. For example, a bottleneck machine or work center exists where jobs are processed at a slower rate than they are demanded (Source: ASCM Supply Chain Dictionary, 17th edition).|
 |Business Application Provider|Typically, it is a third party that offers tools to data consumers and data providers for demand and capacity management purposes that conform to the core business logic, data models and APIs described in the Catena-X DCM  standard.|
-|Business Partner Number Legal Entity (BPNL)|See: [LinkText](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber#153-legal-entity)|
-|Business Partner Number Site (BPNSL)|See: [LinkText](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber#154-site)|
+|Business Partner Number Legal Entity (BPNL)|See: [CX-0010 Business Partner Number][StandardLibrary]|
+|Business Partner Number Site (BPNSL)|See: [CX-0010 Business Partner Number][StandardLibrary]|
 |Calendar Week|A week consisting of seven days, typically numbered according to the week containing the year’s first Thursday. For example, if the first Thursday of the year is on January 1st, that week is considered Week 1.|
 |Capacity|1. The capability of a system to perform its expected function. 2. The capability of a worker, machine, work center, plant, or organization to produce output per time period. (Source: ASCM Supply Chain Dictionary, 17th edition).|
 |Capacity Group|A capacity group is a virtual entity that contains capacity information, which depend on production capabilities (based e.g. on grouping of one or more machines, plants, production lines or similar), as well as the material demands linked to it. The capacity group is the place where demand and capacity information come together and are compared, in order to recongize production bottlenecks and/or surplus. When written as WeekBasedCapacityGroup, it refers to a specific data model within this standard.|
@@ -28,7 +28,7 @@ description: Glossary
 |(Simulated) Delta-Production|This is an optional feature that allows suppliers to manage capacity bottlenecks by simulating changes in production without altering actual or Maximum Capacity values published to customers. See also pre-/post-production.|
 |Demand Deviation|This is an optional metric that allows suppliers to monitor changes in customer demands and to identify significant changes that can collaboratively be addressed by suppliers and customers.|
 |Demand Volatility|Demand Volatility help suppliers to identify and measure volatility in demands. It allows them to address demand volatility directly to their customers, increasing transparency for a more effective collaborative capacity planning. Demand deviation is the first metric for measuring demand volatility.|
-|Digital Twin|See: [LinkText](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX#digital-twin)|
+|Digital Twin|See: [CX-0002 Digital Twins in Catena-X][StandardLibrary].|
 |Flexible Capacity|The difference between maximum and Actual Capacity, which represents the measures to potentially increase capacity without further agreements between partners, such as extending the utilization of production resources within a week.|
 |JSON|The JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g. sending some data from the server to the client, so it can be displayed on a web page, or vice versa).|
 |Linking Material Demand|Material demands can be linked directly to a capacity group or indirectly through another capacity group, which is known as “Nesting.”|
@@ -60,3 +60,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 BASF SE
 - SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/overview
