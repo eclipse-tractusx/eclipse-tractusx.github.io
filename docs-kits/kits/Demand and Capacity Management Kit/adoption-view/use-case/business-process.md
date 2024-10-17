@@ -18,7 +18,7 @@ sidebar_position: 1
 
 ## Business Roles and Functions
 
-The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterial`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material s.
+The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterial`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link materials.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
@@ -104,6 +104,7 @@ The supplier on the other hand has more options to solve problems. They can not 
 ## Material Demand
 
 ![Guide Demand](./resources/business-process_guide_demand.svg)
+Figure: *Basic DCM process with demand part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -259,6 +260,7 @@ Figure: *Visualizing demand quantities as bars*
 ## Capacity Group
 
 ![Guide Capacity](./resources/business-process_guide_capacity.svg)
+Figure: *Basic DCM process with capacity part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -949,6 +951,7 @@ block-beta
 ## Match and Comparison of Demand and Capacity
 
 ![Guide Match](./resources/business-process_guide_match.svg)
+Figure: *Basic DCM process with match and comparison part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -1075,7 +1078,7 @@ F["Agreed Capacity"] style F fill:#219dd4,color:#000000
 ## Collaboration
 
 ![Guide Collaboration ](./resources/business-process_guide_collab.svg)
-
+*Basic DCM process with collaboration part highlighted*
 <!--
 
 ```mermaid
