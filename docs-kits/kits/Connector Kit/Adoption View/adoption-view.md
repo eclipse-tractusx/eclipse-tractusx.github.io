@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
-title: Adoption View
 description: Adoption View
 id: connector_kit_adoption_view
 ---
+
+# Adoption View ![Block image](/img/graduated-dots.png#block)
 
 ![Connector kit banner](/img/kit-icons/connector-kit-icon.svg)
 
