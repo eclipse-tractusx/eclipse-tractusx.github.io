@@ -72,7 +72,7 @@ The responsibilities of the customer include:
 
 - safeguarding sufficient capacity of his suppliers for required materials and prevent bottleneck situations
 - allocation of production capacity on customer side
-- production rough cut planning
+- production rough cut capacity planning
 - material allocation
 
 #### Supplier
@@ -82,7 +82,7 @@ Individuals that act as this persona may hold various titles within their organi
 The responsibilities of the supplier include:
 
 - allocation of production capacity
-- production rough cut planning
+- production rough cut capacity planning
 - material allocation
 - communication to a Customer business partner regarding capacity figures in a mid to - long term horizon
 - resolving bottleneck situations
