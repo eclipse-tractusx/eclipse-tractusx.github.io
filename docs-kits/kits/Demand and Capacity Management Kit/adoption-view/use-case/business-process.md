@@ -1,7 +1,7 @@
 ---
 id: business-process
 title: Core Business Process
-description: Exchange  and Capacity information to solve bottlenecks.
+description: Exchange Demand and Capacity information to solve bottlenecks.
 sidebar_position: 1
 ---
 
@@ -10,24 +10,24 @@ sidebar_position: 1
 ## TABLE OF CONTENTS
 
 - [Business Roles and Functions](#business-roles-and-functions)
-- [Material ](#material-)
+- [Material Demand](#material-demand)
 - [Capacity Group](#capacity-group)
-- [Match and Comparison of  and Capacity](#match-and-comparison-of--and-capacity)
+- [Match and Comparison of Demand and Capacity](#match-and-comparison-of-demand-and-capacity)
 - [Collaboration](#collaboration)
 - [User Journey](#user-journey)
 
 ## Business Roles and Functions
 
-The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterial`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link materials.
+The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
-|Manage  data|X||
-|Inform supplier about |X||
+|Manage demand data|X||
+|Inform supplier about demand|X||
 |Manage capacity data||X|
-|Link  and capacity||X|
+|Link demand and capacity||X|
 |Inform customer about capacity||X|
-|Compare  to capacity|X|X|
+|Compare demand to capacity|X|X|
 |Collaborate to resolve bottlenecks|X|X|
 
 ## User Journey
@@ -40,17 +40,17 @@ Figure: *Basic DCM user journey*
 ```mermaid
 journey
     title Basic DCM User Journey
- section Exchange 
-        Manage :3: Customer
-        Provide  data:3: Customer
-        Consume  data:3: Supplier
+ section Exchange demand 
+        Manage demand:3: Customer
+        Provide demand data:3: Customer
+        Consume demand data:3: Supplier
 section Exchange capacities
         Manage capacity:3: Supplier
-        Link  and capacity:3: Supplier
+        Link demand and capacity:3: Supplier
         Provide capacity data:3: Supplier
         Consume capacity data:3: Customer
 section Match and Compare
-        Match and compare  and capacity:4: Customer, Supplier
+        Match and compare demand and capacity:4: Customer, Supplier
         Identifiy problems:5: Customer, Supplier
 section Collaborate
         Propose sulutions:6: Customer, Supplier
@@ -66,7 +66,7 @@ The basic DCM user journey encompasses two key personas, each with distinct role
 
 #### Customer
 
- Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of managing material  and ensuring that supply aligns with their forecasted needs. The value of DCM for the customer lies in the capability to provide clear visibility into future  and to facilitate efficient communication and alignment with suppliers.
+ Individuals that act as this persona may hold various titles within their organization, but share the common responsibility of managing material demand and ensuring that supply aligns with their forecasted needs. The value of DCM for the customer lies in the capability to provide clear visibility into future demand and to facilitate efficient communication and alignment with suppliers.
 
 The responsibilities of the customer include:
 
