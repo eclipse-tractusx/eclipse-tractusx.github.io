@@ -37,6 +37,50 @@ Simulated Delta-Production enables suppliers to add extra detail to their capaci
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
 ![DCM_DeltaProduction_Legend](./resources/business-process_DeltaProduction_functional_legend.svg)
 
+<!--
+block-beta
+columns 10
+A1("WeekBasedCapacityGroup"):10
+B1("Supplier")
+B2("Customer")
+B3("CapacityGroupID")
+B4("changedAt")
+B5("Calendar Week"):3
+B8("DemandSeries"):3
+C1("Inactive flag")
+C2("UnitOfMeasure")
+space
+C4("CapacityGroupName")
+C5("ActualCapacity")
+C6("MaximumCapacity")
+C7("AgreedCapacity")
+C8("MaterialNumberCustomer")
+C9("DemandCategory")
+C10("CustomerLocation")
+space:4
+D5("DeltaProductionResult")
+space:2
+D8("PointInTime")
+D9("Quantity")
+
+classDef Demand_must fill:#FFA600,stroke:#FFFFFF,color:#000000
+classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
+classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#000000
+classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#000000
+classDef Highlite fill:#617000,stroke:#FF0000,color:#000000
+class A1,B1,B2,B3,B4,B5,C4,C5,C6,C7,D6,D7 Capacity_must
+class B8,C8,C9,C10,D8,D9 Demand_must
+class D5 Highlite
+class C1,C2,C7,D7 Capacity_optional
+-->
+<!--
+block-beta
+A["Demand data (MUST)"] style A fill:#FFA600,color:#F4F2F3
+B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
+C["Capacity data (MUST)"] style C fill:#B3CB2D,color:#F4F2F3
+D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
+-->
+
 Figure: *Capacity group structure with linked material demand including simulated Delta-Production Result*
 
 Simulated Delta-Production may be used within a capacity group to indicate how production can be adjusted to meet demand. It helps cover potential shortfalls by showing where goods could be produced earlier or later than currently demanded. Therefore simulated Delta-Production covers both pre-production and post-production activities.
