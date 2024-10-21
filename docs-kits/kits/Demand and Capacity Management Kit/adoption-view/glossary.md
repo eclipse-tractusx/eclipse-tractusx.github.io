@@ -17,7 +17,7 @@ description: Glossary
 |Bottleneck|A facility, function, department, or resource whose capacity is less than the demand placed upon it. For example, a bottleneck machine or work center exists where jobs are processed at a slower rate than they are demanded (Source: ASCM Supply Chain Dictionary, 17th edition).|
 |Business Application Provider|Typically, it is a third party that offers tools to data consumers and data providers for demand and capacity management purposes that conform to the core business logic, data models and APIs described in the Catena-X DCM  standard.|
 |Business Partner Number Legal Entity (BPNL)|See: [CX-0010 Business Partner Number][StandardLibrary]|
-|Business Partner Number Site (BPNSL)|See: [CX-0010 Business Partner Number][StandardLibrary]|
+|Business Partner Number Site (BPNS)|See: [CX-0010 Business Partner Number][StandardLibrary]|
 |Calendar Week|A week consisting of seven days, typically numbered according to the week containing the year’s first Thursday. For example, if the first Thursday of the year is on January 1st, that week is considered Week 1.|
 |Capacity|1. The capability of a system to perform its expected function. 2. The capability of a worker, machine, work center, plant, or organization to produce output per time period. (Source: ASCM Supply Chain Dictionary, 17th edition).|
 |Capacity Group|A capacity group is a virtual entity that contains capacity information, which depend on production capabilities (based e.g. on grouping of one or more machines, plants, production lines or similar), as well as the material demands linked to it. The capacity group is the place where demand and capacity information come together and are compared, in order to recongize production bottlenecks and/or surplus. When written as WeekBasedCapacityGroup, it refers to a specific data model within this standard.|
@@ -54,11 +54,11 @@ description: Glossary
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2024-2024 BASF SE
+- SPDX-FileCopyrightText: 2024-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2024-2024 SAP SE
+- SPDX-FileCopyrightText: 2024-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2024-2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/overview
