@@ -20,13 +20,14 @@ Within DCM customer and supplier both act as data provider and data consumer. In
 
 ![DCM_Onboarding](./resources/DCM_Onboarding.png)
 
+Figure: *DCM Onboarding*
+
 |#|Requirement|Further details|
 |-|-|-|
 |1|Subscribe to an Operating Company and get required credentials| [Cofinity-X Onboarding](https://www.cofinity-x.com/onboarding/)|
 |2|Deploy a Catena-X certified dataspace connector|Depending on your adoption strategy you will buy the connector or you might have to develop and certify it yourself|
 |3|Sign DCM Data Exchange Governance|Signed Data Exchange Governance with Operating Company is required to participate in Catena-X Dataspace|
 |4|Deploy a Catena-X certified business application|See adoption strategy table below|
-|5|Deploy an SSI wallet for the credentials received by the Operating Company|Depending on your adoption strategy you will be provided one or you might have to deploy one yourself|
 
 #### Adoption Strategy
 
@@ -57,11 +58,16 @@ Please refer to the [Catena-X Library][StandardLibrary] for the newest version o
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 BearingPoint GmbH
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2024 BASF SE
+- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 BearingPoint Holding B.V
+- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023-2024 SAP SE
+- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
