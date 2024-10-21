@@ -84,6 +84,7 @@ sequenceDiagram
     participant Con as Data Consumer
     participant CEDC as Consumer EDC <br/>Control Plane
     participant PEDC as Provider EDC <br/>Control Plane
+    participant PEDCDP as Provider EDC <br/>Data Plane
     participant DTR as Digital Twin Registry
     participant SM as Submodel Server
     participant EDCD as EDC Discovery
@@ -109,8 +110,10 @@ autonumber
         CEDC-->>Con: Dataset for submodel(-bundle)
         Con->>PEDC: negotiate for Dataset and retrieve token
         PEDC-->>Con: access token
-        Con->>SM: GET {{submodel-descriptor/href}}/$value
-        SM-->>Con: data
+        Con->>PEDCDP: GET {{submodel-descriptor/href}}/$value
+        PEDCDP-->>SM: consume
+        SM-->>PEDCDP: return
+        PEDCDP-->>Con: data
 ```
 
 If the `data` is a Bill of
