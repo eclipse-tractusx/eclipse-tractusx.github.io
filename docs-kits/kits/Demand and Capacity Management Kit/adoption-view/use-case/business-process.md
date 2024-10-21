@@ -330,6 +330,7 @@ The Capacity Group is the entity where Material Demand and capacity information 
 The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
+![Capacity Group Structure Legend](./resources/business-process_CGstructure_Legend.svg)
 
 Figure: *Capacity group structure*
 <!--
