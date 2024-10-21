@@ -35,4 +35,5 @@ tags: [community, meeting-minutes]
 ### Community/Open Planning
 
 - Files like presentations done during Open Planning are currently not provided in Open Source. The proposal is to store such files in the already existing large files repository attached to the webpage repo.
-- Open Meetings page has been enhanced, there are now relevant links like to the board that is relevant, ...
+- Open Meetings page has been enhanced, there are now relevant links like to the task board that is relevant and related release timelines
+- Regular New Joiner meeting was canceled. If a session is needed, it needs to be requested
