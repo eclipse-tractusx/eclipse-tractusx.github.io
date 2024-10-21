@@ -19,11 +19,11 @@ Delta-Production data is embedded into the WeekBasedCapacityGroup aspect model. 
 
 ## Business value
 
-Simulated Delta-Production is a feature that helps suppliers to manage their production capacity more effectively. It allows them to address and balance capacity shortages without having to increase their actual or maximum capacity. Suppliers can choose to use this feature, but it is not mandatory. 
+Simulated Delta-Production is a feature that helps suppliers to manage their production capacity more effectively. It allows them to address and balance capacity shortages without having to increase their actual or maximum capacity. Suppliers can choose to use this feature, but it is not mandatory.
 
 The main advantage of using simulated Delta-Production is that it gives suppliers a way to manage small capacity shortfalls. This can be done manually or automatically, which saves time and effort that would otherwise be spent on frequent capacity adjustments, particularly when demand is unpredictable.
 
-**Advantages**
+### Advantages
 
 - Solve minor bottlenecks via pre-production/post-production
 - Optimize utilization
@@ -94,7 +94,7 @@ Suppliers can provide these values on a weekly basis alongside their regular cap
 There's no need to give details about the duration of these adjustments, as this can be inferred from the number of weeks for which the simulated data is provided.
 When comparing demand and capacity data, the simulated values are considered without altering the actual data. If a simulated Delta-Production value is provided, it must be included in the weekly demand and capacity comparison. A positive value indicates a virtual increase in planned demand, while a negative value indicates a virtual decrease.
 
-**Considerations**
+### Considerations
 
 - The standard does not define individual calculation logic for simulated Delta-Production, only the results may be submitted
 - Suppliers should apply appropriate smoothing algorithms, depending on their planning requirements and toolchains

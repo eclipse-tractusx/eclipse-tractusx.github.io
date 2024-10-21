@@ -35,7 +35,7 @@ Load Factors solve these problems by:
 
 - Acting as conversion factors, converting the unit of measure of a WeekBasedMaterialDemand into the unit of measure of the WeekBasedCapacityGroup. This leads to a conversion into either “time” (unit:secondUnitOfTime) or “cycle” (unit:cycle), expressing that, for example, a piece of material takes 12 seconds, or a set of material takes half a cycle to manufacture.  
 
-**Advantages**
+### Advantages
 
 - Possible differentiation of capacity utilization for product variants within a capacity group
 - Possible conversion of different units of measure
@@ -60,7 +60,7 @@ A Load Factor of 1 is neutral and does not change the linked WeekBasedMaterialDe
 
 Without Load Factors, the units of measure of a WeekBasedCapacityGroup and its linked WeekBasedMaterialDemand should be identical. With Load Factors, they may differ.
 
-**Considerations**
+### Considerations
 
 - The standard does not specify individual calculation logic for applying a Load Factor (e.g., converting capacity in pieces to production cycles). This logic depends on the suppliers’ individual planning requirements and tools. Indicating a Load Factor informs the customer that a conversion has taken place but does not affect the transferred demand or capacity values.
 - Lot size restrictions, especially lot size = 1, are not considered when using Load Factors.

@@ -24,7 +24,7 @@ Nesting may be used by suppliers for the following purposes (but not limited to)
 - To simplify the maintenance of Capacity Groups
 - To enable the bundling of several smaller Capacity Groups to reflect a (virtual, internal) company structure
 
-**Advantages**
+### Advantages
 
 - Avoid increased maintenance efforts if same Material Demands may be required for another Capacity Group
 - Allows to provide additional transparency to customers
@@ -109,7 +109,7 @@ If a linked Capacity Group contains further linked Capacity Groups (dark green i
 ![Recurrent nested Capacity Groups](./resources/business-process_nesting_example-recurrent.svg)
 Figure: *Recurrent nested Capacity Groups*
 
-**Considerations**
+### Considerations
 
 - It must not be possible to have a combination of directly linked Material Demand series and linked Capacity Groups (Nesting) within the same Capacity Group.
 - Suppliers can use comments to provide customers with additional information about the Nesting. For more details on this communication feature, see chapter 5.9 in [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] or [Comments](comments.md) page in DCM Kit of Tractus-X.
