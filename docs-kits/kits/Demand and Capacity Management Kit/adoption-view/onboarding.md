@@ -18,7 +18,7 @@ Within DCM customer and supplier both act as data provider and data consumer. In
 
 #### Onboarding
 
-![DCM_Onboarding](./resources/DCM_Onboarding.png)
+![DCM_Onboarding](./resources/onboarding.svg)
 
 Figure: *DCM Onboarding*
 
