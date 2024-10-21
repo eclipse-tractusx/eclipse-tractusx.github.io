@@ -18,14 +18,16 @@ Within DCM customer and supplier both act as data provider and data consumer. In
 
 #### Onboarding
 
+![DCM_Onboarding](./resources/onboarding.svg)
+
+Figure: *DCM Onboarding*
+
 |#|Requirement|Further details|
 |-|-|-|
-|1|Subscribe to Catena-X|[General Onboarding](https://catena-x.net/en/catena-x-introduce-implement/onboarding)<br/>[One Pager](https://catena-x.net/fileadmin/user_upload/03_Angebote/Portal/One_Pager_CX_Onboarding.pdf)|
-|2|Subscribe to an operating company| [Cofinity-X Onboarding](https://www.cofinity-x.com/onboarding/)|
-|3|Deploy a Catena-X certified dataspace connector|Depending on your adoption strategy you will be provided one or you might have to deploy one yourself|
-|4|Deploy a Catena-X certified business application|See adoption strategy|
-|5|Get certified and sign framework agreements|The kind of certification depends on your adoption strategy|
-|6|Deploy an SSI wallet for the credentials from the certification and framework agreement process|Depending on your adoption strategy you will be provided one or you might have to deploy one yourself|
+|1|Subscribe to an Operating Company and get required credentials| [Cofinity-X Onboarding](https://www.cofinity-x.com/onboarding/)|
+|2|Deploy a Catena-X certified dataspace connector|Depending on your adoption strategy you will buy the connector or you might have to develop and certify it yourself|
+|3|Sign DCM Data Exchange Governance|Signed Data Exchange Governance with Operating Company is required to participate in Catena-X Dataspace|
+|4|Deploy a Catena-X certified business application|See adoption strategy table below|
 
 #### Adoption Strategy
 
@@ -33,9 +35,9 @@ If you are interested in utilizing DCM within the Catena-X dataspace you can fol
 
 |#|Approach|Details|
 |-|-|-|
-|1|COTS|Purchase a certified **C**ommercial **O**ff **T**he **S**helf solution via the Catena-X marketplace, accessible through your operating company (e.g. [Cofinity-X Marketplace](https://www.cofinity-x.com/app-marketplace/))|
-|2|FOSS|Adopt, customize and deploy an existing **F**ree and **O**pen **S**ource **S**oftware **S**olution|
-|3|CUSTOM|Adopt and integrate the business logic, aspect models and APIs, as described in the [DCM standard][StandardLibrary], yourself |
+|A|CUSTOM|Adopt and integrate the business logic, aspect models and APIs, as described in the [DCM standard][StandardLibrary], yourself |
+|B|FOSS|Adopt, customize and deploy an existing **F**ree and **O**pen **S**ource **S**oftware **S**olution|
+|C|COTS|Purchase a certified **C**ommercial **O**ff **T**he **S**helf solution via the Catena-X marketplace, accessible through your operating company (e.g. [Cofinity-X Marketplace](https://www.cofinity-x.com/app-marketplace/))|
 
 ### Business Application Providers
 
@@ -56,11 +58,16 @@ Please refer to the [Catena-X Library][StandardLibrary] for the newest version o
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2024 SAP SE
-- SPDX-FileCopyrightText: 2023,2024 BASF SE
-- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2023,2024 BearingPoint GmbH
-- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2024 BASF SE
+- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 BearingPoint Holding B.V
+- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023-2024 SAP SE
+- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
