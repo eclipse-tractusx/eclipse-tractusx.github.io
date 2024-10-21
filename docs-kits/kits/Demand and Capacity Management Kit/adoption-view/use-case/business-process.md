@@ -1,7 +1,7 @@
 ---
 id: business-process
 title: Core Business Process
-description: Exchange demand and capacity information to solve bottlenecks.
+description: Exchange Demand and Capacity information to solve bottlenecks.
 sidebar_position: 1
 ---
 
@@ -40,7 +40,7 @@ Figure: *Basic DCM user journey*
 ```mermaid
 journey
     title Basic DCM User Journey
- section Exchange demand
+ section Exchange demand 
         Manage demand:3: Customer
         Provide demand data:3: Customer
         Consume demand data:3: Supplier
@@ -72,7 +72,7 @@ The responsibilities of the customer include:
 
 - safeguarding sufficient capacity of his suppliers for required materials and prevent bottleneck situations
 - allocation of production capacity on customer side
-- production rough cut planning
+- production rough cut capacity planning
 - material allocation
 
 #### Supplier
@@ -82,28 +82,29 @@ Individuals that act as this persona may hold various titles within their organi
 The responsibilities of the supplier include:
 
 - allocation of production capacity
-- production rough cut planning
+- production rough cut capacity planning
 - material allocation
-- communication to a customer business partner regarding capacity figures in a mid to - long term horizon
+- communication to a Customer business partner regarding capacity figures in a mid to - long term horizon
 - resolving bottleneck situations
 
 ### User Journey Description
 
-The starting point within the DCM user journey is the exchange of demand data, which is provided by the customer and consumed by the supplier as WeekBasedMaterialDemand. For an effective demand and capacity management the data needs to be of a certain quality. This includes sorting the demand into weekly buckets, extending the demand data 24 months into the future and subsequently keeping it up to data. Whether the customer has to manually prepare the demand data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards.
+The starting point within the DCM user journey is the exchange of demand data, which is provided by the Customer and consumed by the supplier as WeekBasedMaterialDemand. For an effective demand and capacity management the data needs to be of a certain quality. This includes sorting the demand into weekly buckets, extending the demand data 24 months into the future and subsequently keeping it up to date. Whether the Customer has to manually prepare the demand data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards.
 
-The exchange of demand data is followed by the exchange of capacity data, which is provided by the supplier und consumed by the customer. For an effective demand and capacity management the data needs to be of a certain quality. This included linking material demands to the capacity group ,providing a capacity quantity for every calendar week the customer provided demand quantities for, matching unit of measures correctly and utilizing advanced features like load factors and delta production in order to model demand and capacity management as closely to real life as possible. Whether the supplier has to manually prepare the capacity data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards. However matching material numbers and linking material demands to capacity groups will most likely required human intervention at some point.
+The exchange of demand data is followed by the exchange of capacity data, which is provided by the supplier und consumed by the customer. For an effective demand and capacity management the data needs to be of a certain quality. This included linking material demands to the capacity group, providing a capacity quantity for every calendar week the customer provided demand quantities for, matching unit of measures correctly and utilizing advanced features like load factors and delta production in order to model demand and capacity management as closely to real life as possible. Whether the supplier has to manually prepare the capacity data or it gets automatically generated and updated from existing systems, is not restricted by the Catena-X standards. However matching material numbers and linking material demands to capacity groups will most likely required human intervention at some point.
 
-After exchanging demand and capacity data  both customer and supplier do have the same view of the current situation and can begin matching and comparing the data. This is something that usually happening locally within the respective DCM application. Ideally the whole process of finding problems (bottleneck or surplus) is automated.
+After exchanging demand and capacity data both, customer and supplier, do have the same view of the current situation and can begin matching and comparing the data. This is something that usually happens locally within the respective DCM application. Ideally the whole process of finding problems (bottleneck or surplus) is automated.
 
 If either customer or supplier identify a problem they can collaborate by exchanging comments as described by the DCM standard or by communicating outside the Catena-X dataspace using email or online-meetings. Regardless of how communication is initiated and maintained solving an identified problem is always the result of proposing, evaluating and simulating potential solutions. Customers and supplier discuss potential measures, modify their demand and capacity respectively and exchange the modified data until a solution that works for both sides has been found.
 
-Tools available to the customer for solving problems are fairly limited. They can increase or decrease demand quantities.
+Tools available to the Customer for solving problems are fairly limited. They can increase or decrease demand quantities.
 
 The supplier on the other hand has more options to solve problems. They can not only increase and decrease capacity quantities, but also use flexible capacity, load factors and delta production.
 
 ## Material Demand
 
 ![Guide Demand](./resources/business-process_guide_demand.svg)
+Figure: *Basic DCM process with demand part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -158,7 +159,7 @@ class C1 Highlite
 
 A material demand represents the need for a particular product, part, component or material over a certain time period in a specified quantity. Demand quantities must refer to a time period of one calendar week (weekly buckets).
 
-The customer is responsible for publishing material demands to their supplier for upcoming time periods and it is strongly recommended to:
+The customer is responsible for publishing material demand to their supplier for upcoming time periods and it is strongly recommended to:
 
 - Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
 - Provide material demand data for at least nine months into the future to ensure that DCM participants have sufficient information to work with.
@@ -259,6 +260,7 @@ Figure: *Visualizing demand quantities as bars*
 ## Capacity Group
 
 ![Guide Capacity](./resources/business-process_guide_capacity.svg)
+Figure: *Basic DCM process with capacity part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -310,14 +312,14 @@ class C4 Highlite
 ```
 -->
 
-A capacity groups represents the answer to one ore more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
+A capacity group represents the answer to one or more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
 
 The customer is responsible for publishing capacity groups to their customer and it is strongly recommended to:
 
 - Minimize any data gaps to the greatest extent possible by maintaining continuity and establishing consistency.
 - Provide capacity data for every calendar week that has associated demand data.
 - Refresh the data at a minimum of once every four weeks.
-- Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the customer and utilize lead factors as conversion factors, if applicable.
+- Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the Customer and utilize lead factors as conversion factors, if applicable.
 
 The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.  
 
@@ -325,11 +327,12 @@ The customer must have the capability to consume the capacity group data from th
 
 ### Capacity Group Structure
 
-The Capacity Group is the entity where Material Demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the Capacity Group builds the common view on the data exchanged between a customer and a supplier.  
+The capacity group is the entity where material demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the capacity group builds the common view on the data exchanged between a customer and a supplier.  
 
-The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
+The entity capacity group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
+![Capacity Group Structure Legend](./resources/business-process_CGstructure_Legend.svg)
 
 Figure: *Capacity group structure*
 <!--
@@ -425,44 +428,325 @@ D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 
 Embedded into the WeekBasedCapacityGroup are
 
-- **actual capacity** as the  planned available capacity of a supplier
-- **maximum capacity** as the maximum releasable capacity of a supplier
-- **agreed capacity**  as the understanding between customer and supplier, regardless of contractual obligations. It is optional.
+- **Actual Capacity** as the  planned available capacity of a supplier
+- **Maximum Capacity** as the maximum releasable capacity of a supplier
+- **Agreed Capacity**  as the understanding between Customer and supplier, regardless of contractual obligations. It is optional.
 
-In addition the difference between actual capacity and maximum capacity is commonly understood as **flexible capacity**.
+In addition the difference between actual capacity and maximum capacity is commonly understood as flexible capacity.
+
+The following examples illustrate how to use the "capacity" properties.
+
+#### Example 1: Simple Case
+
+![Capacity Example](./resources/business-process_capacity-types_example1.svg)
+
+<!--
+```mermaid
+---
+
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 400
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 1"
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
+    y-axis "." 0 -> 2000
+    bar demand over actual but within actual capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar demand over actual capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar demand within actual capacity Green [870, 900, 980, 905, 950, 912, 940, 1150, 1390, 1478]
+    line actual capacity [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1250, 1500,1500]
+    line maximum capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+<!--
+```mermaid
+---
+
+---
+
+block-beta
+columns 3
+A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
+B["Demand over actual but within maximum capacity"] style B fill:#FFA600,color:#F4F2F3
+C["Demand within actual capacity"] style C fill:#809500,color:#F4F2F3
+D["Actual capacity"] style D fill:#FFFFFF,color:#000000
+E["Maximum capacity"] style E fill:#046b99,color:#0000FF
+```
+-->
+Figure: *Visualizing capacity and demand on a simple case with sufficient capacity*
+
+We are in Week01, and we focus on a mid-term horizon starting in Week14, for a certain capacity group.
+The current capacity plan at the supplier for this horizon is
+
+- 1000 units per week from Week14 (10 shifts per week) to Week20
+- 1500 units per week from Week22 onwards (15 shifts per week), with a rampup step in Week21
+
+This plan is reflected in the actual capacity of DCM.
+
+When matching demand to capacity, one will see that
+
+- Actual capacity is sufficient to cover demand.
+- Maximum capacity can be available to cover potential increase of the demand up until 1800
+
+#### Example 2: Imbalance
+
+![Capacity Example](./resources/business-process_capacity-types_example2.svg)
+<!--
+```mermaid
+
+---
+config:
+ xyChart:
+        width: 1200
+        height: 400
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 2"
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
+    y-axis "." 0 -> 2000
+    bar Demand Over Actual but within Actual Capacity Orange [0,1100,1200,1318,1150,1254,1110,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1000, 0, 0, 0, 0, 0, 0, 1150, 1390, 1478]
+    line Actual Capacity [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1250, 1500,1500]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+Figure: *Visualizing capacity and demand in a case of imbalance*
+
+We are, here again, in Week01, considering the horizon from Week14 onwards.
+Demand has increased in the period between Week15 and Week20, and now exceeds actual capacity.
+
+On supplier side: Supplier should detect that actual capacity is insufficient, using its DCM software, and conclude that measures should be activated to cover demand. As demand is below maximum capacity, supplier knows that it is feasible. Eventually, supplier should update its actual capacity to reflect those measures.
+
+On customer side: when validating its own production plan, customer may consider utilizing the supplier’s flexibility up to the maximum capacity and conclude that feasibility is given.
+
+#### Example 3:  No Flexible Capacity
+
+![Capacity Example](./resources/business-process_capacity-types_example3.svg)
+<!--
+```mermaid
+---
+
+---
+config:
+ xyChart:
+        width: 1200
+        height: 700
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#046b99"
+---
+   
+   
+    xychart-beta
+    title "Example 3: Capacity Group with little Flexible Capacity"
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
+    y-axis "." 0 -> 2000
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1788, 1786, 1770, 1767, 1788, 1780, 1770, 1760, 1750, 1789]
+    line Actual Capacity [1790, 1790,1790,1790, 1790,1790,1790, 1790,1790,1790]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+Figure: *Visualizing capacity and demand in case without flexible capacity*
+
+Actual capacity is equal to maximum capacity, and demand is very close.
+Though no propre imbalance  is detected, even a slight increase of demand could not be managed.  Both, supplier and customer, can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
+
+#### Example 4: Solving a Capacity Bottleneck
+
+<!--
+```mermaid
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 420
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 4a"
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
+    y-axis "." 0 -> 2200
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,1950,1950,1950,0,0]
+    bar Demand within Actual Capacity Green [1780, 1775, 1775, 1775, 1770, 0, 0, 0, 1770, 1770]
+    line Actual Capacity [1785, 1785,1785, 1785, 1785, 1785,1785, 1785,1785, 1785]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example4a.svg)
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+Figure: *Visualizing capacity and demand in a case of bottleneck*
+
+Imbalance is detected in Week19 to Week21: Demand exceeds maximum capacity.
+Supplier and customer collaborate and agree on a measure to solve imbalance, e.g. increasing production capacity from Week19 to Week21
+If so, Actual and Maximum Capacity must be updated to reflect the result of the collaboration. As a result, the bottleneck disappears, as exemplified in example 4b below.
+
+<!--
+```mermaid
+---
+---
+config:
+ xyChart:
+        width: 1200
+        height: 420
+        titlePadding: 10
+        titleFontSize: 20
+        showTitle: true
+        plotReservedSpacePercent: 50
+ themeVariables:
+        xyChart:
+            backgroundColor: "#000000"
+            titleColor: "#F4F2F3"
+            xAxisLabelColor: "#F4F2F3"
+            xAxisTitleColor: "#F4F2F3"
+            xAxisTickColor: "#F4F2F3"
+            xAxisLineColor: "#F4F2F3"
+            yAxisLabelColor: "#F4F2F3"
+            yAxisTitleColor: "#F4F2F3"
+            yAxisTickColor: "#F4F2F3"
+            yAxisLineColor: "#F4F2F3"
+            plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
+---
+   
+   
+    xychart-beta
+    title "Example 4b"
+    x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
+    y-axis "." 0 -> 2200
+    bar Demand Over Actual but within Actual Capacity Orange [0,0,0,0,0,0,0,0,0,0]
+    bar Demand Over Actual Capacity Red [0,0,0,0,0,0,0,0,0,0]
+    bar Demand within Actual Capacity Green [1780, 1775, 1775, 1775, 1770, 1930, 1930, 1930, 1770, 1770]
+    line Actual Capacity [1785, 1785,1785, 1785, 1785, 1935, 1935, 1935,1785, 1785]
+    line Maximum Capacity [1800, 1800,1800,1800,1800,1950, 1950, 1950,1800,1800]
+```
+-->
+![Capacity Example](./resources/business-process_capacity-types_example4b.svg)
+
+![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
+Figure: *Visualizing capacity and demand*
 
 ### WeekBasedCapacityGroup Properties
 
-A Capacity Group dataset comprises the following basic components:
+A capacity group dataset comprises the following basic components:
 
-|Properties|Description|
-|-|-|
-|Supplier|The Business Partner Number (BPNL) of the party providing materials to a customer|
-|Customer|The Business Partner Number (BPNL) of the party requesting material from a supplier|
-|Capacity Group ID|The Capacity Group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
-|Changed At|Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
-|Capacity Group Name|Name of the capacity group.|
-|Inactive Flag|Indicates that this capacity group is currently not in use/maintained by the supplier|
-|Unit of Measure|Unit of Measurement (UoM) for capacity quantities|
-|Linked Demand Series|Set of demand series assigned tio this capacity group.|
-|Capacities|A time series with week-based granularity along a given time period containing the capacity values|
-|Unit of Measure is Omitted|Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+| Main Parameters | Required | Description |
+|-|-|-|
+|Supplier||The Business Partner Number Legal (BPNL) of the party providing materials to a customer|
+|Customer||The Business Partner Number Legal (BPNL) of the party requesting material from a supplier|
+|Capacity Group ID||The capacity group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
+|Changed At||Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
+|Capacity Group Name||Name of the capacity group|
+|Inactive Flag||Indicates that this capacity Group is currently not in use/maintained by the Supplier|
+|Unit of Measure||Unit of Measurement (UoM) for capacity quantities|
+|Linked Demand Series||Set of demand series assigned to this capacity group|
+|Capacities||A time series with week-based granularity along a given time period containing the capacity values|
+|Unit of Measure is comitted||Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
-|Properties|Description|
-|-|-|
-|Actual Capacity|The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
-|Agreed Capacity|The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
-|Maximum Capacity|The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a supplier maximum capacity minus actual capacity|
-|Point in Time|ISO Calendar Week of the given time series entry. UstIt must be given as a date of the Monday in the week.|
+| Main Parameters | Required | Description |
+|-|-|-|
+|Actual capacity||The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
+|Agreed capacity||The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
+|Maximum capacity||The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a suppliers maximum capacity minus actual capacity|
+|Point in Time||ISO calendar week of the given time series entry. It must be given as a date of the Monday in the week.|
 
 ### Linking Capacity Groups to Material Demands
 
-For a functional Capacity Group, the supplier must link it directly or indirectly to a Material Demand:
+For a functional capacity group, the supplier must link it directly or indirectly to a material demand:
 
-- **Direct linking** means that the Capacity Group links at least one Material Demand  
-- **Indirect linking** means that the Capacity Group links to another Capacity Group which links at least one Material Demand. This is also referred to as **nesting**.
+- **Direct linking** means that the capacity group links at least one material demand.  
+- **Indirect linking** means that the capacity group links to another capacity group which links at least one material demand. This is also referred to as **nesting**.
 
 #### Direct Linking
 
@@ -518,25 +802,25 @@ D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
 
 ```
 -->
-For the technical representation of a CapacityGroup the aspect model WeekBasedCapacityGroup is utilized.  
+For the technical representation of a capacity group the aspect model WeekBasedCapacityGroup is utilized.  
 
-The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the customer.  
+The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the Customer.  
 
 For further details refer to the semantic model in Chapter 3.2 and to the APIs in Chapter 4.2.  
 
-A partner acting as a supplier sends a Capacity Group to its customer. In order to link demand series in the Capacity Group between customer and supplier, the following properties must be filled-in:  
+A partner acting as a supplier sends a capacity group to its customer. In order to link demand series in the capacity group between customer and supplier, the following properties must be filled-in:  
 
-- supplier
-- customer
+- Supplier
+- Customer
 - materialNumberCustomer  
-- customerLocation  
+- CustomerLocation  
 - demandCategory  
 
 If there’s no complete match between supplier and customer data, it’s recommended to initiate collaboration (i.e. see chapter “Comments”)
 
 The supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. the capacity is obsolete), in this case the capacity will not be considered in the demand-capacity matching. However, the WeekBasedCapacityGroup can be reactivated again.
 
-### Building n-tier chains via capacity groups
+### Building N-Tier Chains via Capacity Groups
 
 Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
 
@@ -668,6 +952,7 @@ block-beta
 ## Match and Comparison of Demand and Capacity
 
 ![Guide Match](./resources/business-process_guide_match.svg)
+Figure: *Basic DCM process with match and comparison part highlighted*
 <!--
 ```mermaid
 block-beta
@@ -720,7 +1005,7 @@ class E2 Highlite
 
 -->
 
-Both customer and supplier need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
+Both, customer and supplier, need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
 
 The standard describes exactly which scenario leads to the three possible matching results:
 
@@ -782,9 +1067,9 @@ Figure: *Visualizing the comparison of demand and capacity quantities*
 ```mermaid
 block-beta
 columns 3
-A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
-B["Demand over actual but within maximum capacity"] style B fill:#FFA600,color:#F4F2F3
-C["Demand within actual capacity"] style C fill:#809500,color:#F4F2F3
+A["Demand over Actual Capacity"] style A fill:#d91e18,color:#F4F2F3
+B["Demand over Actual but within Maximum Capacity"] style B fill:#FFA600,color:#F4F2F3
+C["Demand within Actual Capacity"] style C fill:#809500,color:#F4F2F3
 D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#000000
 F["Agreed Capacity"] style F fill:#219dd4,color:#000000
@@ -794,7 +1079,7 @@ F["Agreed Capacity"] style F fill:#219dd4,color:#000000
 ## Collaboration
 
 ![Guide Collaboration ](./resources/business-process_guide_collab.svg)
-
+*Basic DCM process with collaboration part highlighted*
 <!--
 
 ```mermaid
@@ -858,15 +1143,19 @@ For further details, please refer to [CX-0128 Demand and Capacity Management Dat
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2024 SAP SE
-- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2023,2024 BASF SE
-- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2024 BASF SE
+- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 BearingPoint Holding B.V
+- SPDX-FileCopyrightText: 2024-2024 Capgemini SE
+- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2024-2024 Renault SA
+- SPDX-FileCopyrightText: 2023-2024 SAP SE
+- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024-2024 Volvo Car Corporation
+- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
 
-[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-andCapacityManagementDataExchange
