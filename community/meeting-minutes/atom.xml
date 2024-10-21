@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-08-30T00:00:00.000Z</updated>
+    <updated>2024-10-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2024-10-18]]></title>
+        <id>community-office-hour-2024-10-18</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18"/>
+        <updated>2024-10-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a class="hash-link" href="#infrastructure" title="Direct link to heading">​</a></h3><ul><li>Test Environments:<ul><li>Currently a blocking issue is with SAP. They want to do a change in the DIF deployment and we are blocked by that. Target for the change is early next week. This involves both STABLE and INT environment.</li><li>It is important that we can start with the deployment for the e2e test of 24/12 on INT, there are school holidays in southern Germany between Oct., 28th and Nov., 1st, so deployment is constrained in time.</li><li>The INT environment has to be wiped to start from scratch with the deployment for 24/12.</li><li>Doubleslash will provide information on how to proceed next week.</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a class="hash-link" href="#release-management" title="Direct link to heading">​</a></h3><ul><li>EDC 0.8.0 to be used during e2e testing. There will be a RC5 early next week, that should be used as a start for e2e testing</li><li>Release check issues are due on Oct. 18th for release 24/12</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>Sources of pictures: Do we need to regulate the availability of sources for binary pictures, as there are pictures in the website repo without editable sources.<ul><li>There is already a TRG that specifies the handling of pictures. It should be controlled better by committers.</li></ul></li><li>Concerning intermediate releases, especially bugfix releases that need to be done in Tractus-X during a operating cycle. There is a task to make a proposal on how to handle the situation from Eclipse Tractus-X perspective.</li><li>Deprecation of Repos. The regulation in TRG 7.09 is currently reworked to be more precise.</li><li>Discussion on a TRG about testing.<ul><li>Doubleslash prepares a TRG concerning automated testing</li><li>Some repositories use SonarCloud and code coverage measurements there</li><li>General openness towards a new trial on some specs concering testing</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a class="hash-link" href="#communityopen-planning" title="Direct link to heading">​</a></h3><ul><li>Files like presentations done during Open Planning are currently not provided in Open Source. The proposal is to store such files in the already existing large files repository attached to the webpage repo.</li><li>Open Meetings page has been enhanced, there are now relevant links like to the task board that is relevant and related release timelines</li><li>Regular New Joiner meeting was canceled. If a session is needed, it needs to be requested</li></ul>]]></content>
+        <author>
+            <name>Lars Geyer-Blaumeiser</name>
+            <uri>https://github.com/lgblaumeiser</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2024-07-26]]></title>
         <id>community-office-hour-2024-07-26</id>
