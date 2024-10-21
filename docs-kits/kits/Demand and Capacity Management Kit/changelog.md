@@ -25,7 +25,7 @@ All notable changes to this Kit will be documented in this file.
   
 ### Changed
 
-- Updated [Core Business Process](./adoption-view/use-case/business-process.md) with assorted examples of capacity groups and material demands as well as their interpretation 
+- Updated [Core Business Process](./adoption-view/use-case/business-process.md) with assorted examples of capacity groups and material demands as well as their interpretation
 - Updated [Onboarding](./adoption-view/onboarding.md) to include an onboarding journey
 
 ## [1.1.0] - 2024-08-05
@@ -107,13 +107,20 @@ n/a
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2024 SAP SE
-- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2023,2024 BASF SE
-- SPDX-FileCopyrightText: 2023,2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2023,2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2023,2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2024 BASF SE
+- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 BearingPoint Holding B.V
+- SPDX-FileCopyrightText: 2024-2024 Capgemini SE
+- SPDX-FileCopyrightText: 2024-2024 CatX Service GmbH
+- SPDX-FileCopyrightText: 2024-2024 Deloitte Touche Tohmatsu Limited (DTTL)
+- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2024-2024 Renault SA
+- SPDX-FileCopyrightText: 2023-2024 SAP SE
+- SPDX-FileCopyrightText: 2024-2024 Stellantis N.V.
+- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024-2024 Volvo Car Corporation
+- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
