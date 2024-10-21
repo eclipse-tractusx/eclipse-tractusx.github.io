@@ -1,13 +1,14 @@
 ---
 id: Adoption View OSim Kit
-title: Adoption View
 description: "OSim Kit"
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ![osim kit banner](@site/static/img/OSimKitIcon.svg)
 
-### OSim Kit
+## OSim Kit
 
 ## Vision & Mission
 
