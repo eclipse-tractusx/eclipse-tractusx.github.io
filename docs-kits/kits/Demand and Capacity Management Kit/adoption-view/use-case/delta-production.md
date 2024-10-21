@@ -35,8 +35,7 @@ Simulated Delta-Production enables suppliers to add extra detail to their capaci
 ## Functional description
 
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_functional.svg)
-
-![DCM_DeltaProduction_Legend](./resources/business-process_FunctionalBlockDiagram_Legend.svg)
+![DCM_DeltaProduction_Legend](./resources/business-process_DeltaProduction_functional_legend.svg)
 
 Figure: *Capacity group structure with linked material demand including simulated Delta-Production Result*
 
@@ -98,16 +97,16 @@ For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../de
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2024 Capgemini Deutschland GmbH
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2024 BASF SE
+- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024-2024 Capgemini SE
+- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023-2024 SAP SE
+- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
+- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
 
 [StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
