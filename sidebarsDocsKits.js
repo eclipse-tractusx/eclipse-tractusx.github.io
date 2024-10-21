@@ -411,6 +411,7 @@ const sidebars = {
                         id: 'kits/Demand and Capacity Management Kit/adoption-view/overview',
                    },
                    items: [
+                    'kits/Demand and Capacity Management Kit/adoption-view/glossary',
                        {
                            type: 'category',
                            label: 'Use Case',
@@ -479,6 +480,8 @@ items: [
         items: require('./docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-comment-api/sidebar.js'),
     },
     'kits/Demand and Capacity Management Kit/development-view/api-aas',
+    'kits/Demand and Capacity Management Kit/development-view/test-customer',
+    'kits/Demand and Capacity Management Kit/development-view/test-supplier',
 ]
 },
 {
