@@ -40,6 +40,8 @@ s->>c: I updated the capacity data to include pre production, lets discuss this 
 end
 ```
 
+Figure: *Utilizing comments to solve a production problem*
+
 ## Details
 
 Collaboration is a critical element in Demand and Capacity Management. It enables alignment and cooperation between customers and suppliers within their respective business relationships. This interaction is facilitated by the exchange of comments, which are messages or texts related to data objects – either Material Demand or Capacity Group. These objects are identified by an "ObjectID," which matches the UUID of either a WeekBasedMaterialDemand or a WeekBasedCapacityGroup.

@@ -97,7 +97,7 @@ c->>c: Their capacity for both toys is 250 cycles
 c->>c: Reduce demand for chrome toys to 75 so total demand equals 250 cycles
 ```
 
-Figure: *Sequence diagram example for application of Load Factor*
+Figure: *Utilizing load factors*
 
 The supplier has created a capacity group "Red and Chrome Toys" with the unit “cycle” (unit:cycle). A processing time per piece of 1 cycle is set for red toys and 2 cycles for chrome toys. The maximum available process time is set to 250 cycles.
 
@@ -108,6 +108,7 @@ Without the Load Factor applied, it would not have been transparent for the cust
 One possible solution would be to reduce the chrome toys by 25 pieces to 75 pieces. New required process time would add up to 100(red)\*1 + 75(chrome)\*2 = 100 + 150 = 250 cycles.
 
 ![Loadfactor](./resources/business-process_LoadFactor_example_diagram.svg)
+
 Figure: *Example for application of Load Factor within WeekBasedCapacityGroup*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].

@@ -107,6 +107,7 @@ Capacity Group 3 is the result of the indirect way of linking Material Demand, t
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
 
 ![Recurrent nested Capacity Groups](./resources/business-process_nesting_example-recurrent.svg)
+
 Figure: *Recurrent nested Capacity Groups*
 
 ### Considerations
@@ -146,7 +147,7 @@ end
 c->>c: My demands for all 5 toys are interlinked and transparent that they affect same capacity together
 ```
 
-Figure: *Sequence diagram for Nesting*
+Figure: *Utilizing nesting to structure demand and capacity data*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

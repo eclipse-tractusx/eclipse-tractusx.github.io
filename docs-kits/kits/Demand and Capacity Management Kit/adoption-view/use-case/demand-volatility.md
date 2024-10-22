@@ -83,7 +83,7 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ![Demand Volatility CG](./resources/business-process_demand_volatility_CG.svg)
 ![Demand Volatility CG Legend](./resources/business-process_demand_volatility_CG_legend.svg)
 
-Figure 1: *Demand Volatility within capacity group*
+Figure: *Demand Volatility within capacity group*
 
 Feature Demand Volatility is to be used optional but if it is used certain parameters are required to be filled.
 
@@ -128,8 +128,9 @@ s-->>c: Increase limited to max. 20% in subhorizon 3
 s-->>c: Decrease limited to max. -20% in subhorizon 3
 s-->>c: Measurement starts in week 0, using 4 subhorizons of length (2,11,39,52) 
 end
-
 ```
+
+Figure: *Utilizing demand volatility metrics to address data consistency issues*
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

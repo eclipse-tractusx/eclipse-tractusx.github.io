@@ -22,6 +22,8 @@ Customer provide suppliers demand data as `WeekBasedMaterialDemand` aspect model
 ![WeekBasedMaterialDemand Structure](./resources/model-material-demand_structure.svg)
 ![WeekBasedMaterialDemand Structure Legend](./resources/model-material-demand_legend.svg)
 
+Figure: *WeekBasedMaterialDemand structure*
+
 <!--
 ```mermaid
 block-beta

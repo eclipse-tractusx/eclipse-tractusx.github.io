@@ -47,6 +47,8 @@ sequenceDiagram
   
 ```
 
+Figure: *Exchanging WeekBasedCapacityGroup via API*
+
 ### Open API documentation
 
 |API|Link|

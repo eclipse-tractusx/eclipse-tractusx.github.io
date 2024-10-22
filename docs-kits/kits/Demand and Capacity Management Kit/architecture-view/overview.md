@@ -177,6 +177,8 @@ sequenceDiagram
     end
 ```
 
+Figure: *Core business process*
+
 Note that the supplier does not need to immediately reply with capacity group after receiving demand information, although a timely reply is appreciated, there can be a considerable time in between instead.
 
 Digital Twins can also be used to reference parts, but are not shown in the sequence diagram for simplicity.

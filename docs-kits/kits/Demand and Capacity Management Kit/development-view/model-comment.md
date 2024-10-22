@@ -22,6 +22,8 @@ Customer and suppliers provide each other `IdBasedComment` aspect models in orde
 ![IdBasedComment Structure](./resources/model-comment_structure.svg)
 ![IdBasedComment Structure Legend](./resources/model-comment_legend.svg)
 
+Figure: *IdBasedComment structure*
+
 <!--
 ```mermaid
 block-beta

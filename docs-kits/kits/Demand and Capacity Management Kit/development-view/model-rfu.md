@@ -22,6 +22,8 @@ Customer and suppliers provide each other `IdBasedRequestForUpdate` aspect model
 ![IdBasedRequestForUpdate Structure](./resources/model-rfu_structure.svg)
 ![IdBasedRequestForUpdate Structure Legend](./resources/model-rfu_legend.svg)
 
+Figure: *IdBasedRequestForUpdate structure*
+
 <!--
 ```mermaid
 block-beta

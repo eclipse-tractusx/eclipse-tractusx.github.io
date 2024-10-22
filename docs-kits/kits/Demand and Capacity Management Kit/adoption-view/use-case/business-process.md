@@ -104,7 +104,9 @@ The supplier on the other hand has more options to solve problems. They can not 
 ## Material Demand
 
 ![Guide Demand](./resources/business-process_guide_demand.svg)
+
 Figure: *Basic DCM process with demand part highlighted*
+
 <!--
 ```mermaid
 block-beta
@@ -260,6 +262,7 @@ Figure: *Visualizing demand quantities as bars*
 ## Capacity Group
 
 ![Guide Capacity](./resources/business-process_guide_capacity.svg)
+
 Figure: *Basic DCM process with capacity part highlighted*
 <!--
 ```mermaid
@@ -484,6 +487,7 @@ config:
 -->
 
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
+
 <!--
 ```mermaid
 ---
@@ -661,7 +665,6 @@ config:
 ```
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example4a.svg)
-
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
 Figure: *Visualizing capacity and demand in a case of bottleneck*
@@ -710,7 +713,6 @@ config:
 ```
 -->
 ![Capacity Example](./resources/business-process_capacity-types_example4b.svg)
-
 ![Capacity Example](./resources/business-process_capacity-types_example_legend.svg)
 
 Figure: *Visualizing capacity and demand*
@@ -952,6 +954,7 @@ block-beta
 ## Match and Comparison of Demand and Capacity
 
 ![Guide Match](./resources/business-process_guide_match.svg)
+
 Figure: *Basic DCM process with match and comparison part highlighted*
 <!--
 ```mermaid
@@ -1079,7 +1082,9 @@ F["Agreed Capacity"] style F fill:#219dd4,color:#000000
 ## Collaboration
 
 ![Guide Collaboration ](./resources/business-process_guide_collab.svg)
-*Basic DCM process with collaboration part highlighted*
+
+Figure: *Basic DCM process with collaboration part highlighted*
+
 <!--
 
 ```mermaid

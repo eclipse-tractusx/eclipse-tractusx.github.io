@@ -40,6 +40,8 @@ end
 c->>c: Show user how old the data is and when was the last time it got synchronized.
 ```
 
+Figure: *Utilizing request for update*
+
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ## Notice
