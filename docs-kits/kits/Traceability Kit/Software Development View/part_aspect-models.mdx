@@ -26,7 +26,8 @@ Aspect models are mostly easy to create by transforming a company's internal dat
 
 <AspectModelOverview components={props.components} />
 
-The following section shows an overview of all aspect models of the Traceability Use Case that can be attached to serial parts of part instance twins.
+
+The following section shows an overview of all aspect models of the Traceability Use Case that can be attached to part instance twins.
 
 | Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -161,5 +162,128 @@ Aspect model in GitHub:
             "subjectSerialNumber": "SN12345678"
         }
     ]
+}
+```
+
+### SpecialCharacteristics
+Special Characteristics are measureable and these measurements are of interest for a consumer who defined these characteristics. The proposal is a data model "result" which represents a measurement related to a specific measurement and product. A measurement result is identified by the identification of a characteristic and the product. 
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.special_characteristics/1.0.0
+
+#### Example: Submodel `SpecialCharacteristics` for simple measurements
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "SN12345678",
+      "key": "partInstanceId"
+    },
+    {
+      "value": "SN12345678",
+      "key": "manufactuererId"
+    }
+  ],
+  "customerPartId": "PRT-12345",
+  "revisionIndex": "01",
+  "measurementType": "simple",
+  "characteristicId": "S1",
+  "results": [
+    {
+      "simpleMeasurement": {
+        "quantityValue": 20,
+        "itemUnit": "unit:piece",
+        "measurementTimestamp": "2022-02-04T14:48:54"
+      },
+      "simpleMeasurement": {
+        "quantityValue": 20,
+        "itemUnit": "unit:piece",
+        "measurementTimestamp": "2022-02-05T12:00:54"
+      },
+      "simpleMeasurement": {
+        "quantityValue": 20,
+        "itemUnit": "unit:piece",
+        "measurementTimestamp": "2022-02-06T17:55:54"
+      }
+    }
+  ]
+}
+```
+
+#### Example: Submodel `SpecialCharacteristics` for qualitative measurements
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "SN12345678",
+      "key": "partInstanceId"
+    },
+    {
+      "value": "SN12345678",
+      "key": "manufactuererId"
+    }
+  ],
+  "customerPartId": "PRT-12345",
+  "revisionIndex": "01",
+  "measurementType": "qualitative",
+  "characteristicId": "S1",
+  "results": [
+    {
+      "qualitativeMeasurement": {
+        "extractedValue": "eOMtThyhVNLWUZNRcBaQKxI",
+        "readQuality": "5",
+        "measurementTimestamp": "2022-02-04T14:48:54"
+      },
+      "qualitativeMeasurement": {
+        "extractedValue": "eOMtThyhVNLWUZNRcBaQKxI",
+        "readQuality": "5",
+        "measurementTimestamp": "2022-02-05T12:00:54"
+      },
+      "qualitativeMeasurement": {
+        "extractedValue": "eOMtThyhVNLWUZNRcBaQKxI",
+        "readQuality": "5",
+        "measurementTimestamp": "2022-02-06T17:55:54"
+      }
+    }
+  ]
+}
+```
+
+#### Example: Submodel `SpecialCharacteristics` for functional measurements
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "SN12345678",
+      "key": "partInstanceId"
+    },
+    {
+      "value": "SN12345678",
+      "key": "manufactuererId"
+    }
+  ],
+  "customerPartId": "PRT-12345",
+  "revisionIndex": "01",
+  "measurementType": "functional",
+  "characteristicId": "S1",
+  "results": [
+    {
+      "functionalMeasurement": {
+        "expectationSatisfied": true,
+        "measurementTimestamp": "2022-02-04T14:48:54"
+      },
+      "functionalMeasurement": {
+        "expectationSatisfied": false,
+        "measurementTimestamp": "2022-02-05T12:00:54"
+      },
+      "functionalMeasurement": {
+        "expectationSatisfied": true,
+        "measurementTimestamp": "2022-02-06T17:55:54"
+      }
+    }
+  ]
 }
 ```
