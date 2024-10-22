@@ -32,7 +32,9 @@ c->>s: The disruption (strike) has ended
 end
 ```
 
-For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
+Figure: *Utilizing supply chain disruption notification*
+
+For further details, please refer to [CX-0146 Supply Chain Disruption Notifications][StandardLibrary].
 
 ## Notice
 
@@ -50,4 +52,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
 
-[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications

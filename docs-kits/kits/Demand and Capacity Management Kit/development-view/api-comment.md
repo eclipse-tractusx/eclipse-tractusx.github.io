@@ -69,6 +69,8 @@ sequenceDiagram
   
 ```
 
+Figure: *Exchanging IdBasedComment via API*
+
 ### Open API documentation
 
 |API|Link|

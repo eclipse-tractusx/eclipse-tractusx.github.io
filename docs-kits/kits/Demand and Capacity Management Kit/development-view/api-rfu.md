@@ -69,6 +69,8 @@ sequenceDiagram
   
 ```
 
+Figure: *Exchanging IdBasedRequestForUpdate via API*
+
 ### Open API documentation
 
 |API|Link|

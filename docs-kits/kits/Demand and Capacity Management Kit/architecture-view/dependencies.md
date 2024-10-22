@@ -22,6 +22,8 @@ In order to keep things orderly some restrictions to this graph apply:
 
 ![Dependency Graph](./resources/dependencies_dependency-graph.svg)
 
+Figure: *Dependencies*
+
 <!--
 ```mermaid
 mindmap

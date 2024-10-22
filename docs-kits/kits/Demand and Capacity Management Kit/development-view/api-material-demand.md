@@ -46,6 +46,8 @@ sequenceDiagram
     end
 ```
 
+Figure: *Exchanging WeekBasedMaterialDemand via API*
+
 ### Open API documentation
 
 |API|Link|

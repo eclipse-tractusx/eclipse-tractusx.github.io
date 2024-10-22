@@ -103,6 +103,8 @@ deactivate s
 end
 ```
 
+Figure: *Core business process*
+
 ## Business Process
 
 ### Business Architecture
