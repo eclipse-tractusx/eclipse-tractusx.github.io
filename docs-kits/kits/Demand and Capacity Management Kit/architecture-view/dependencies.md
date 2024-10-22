@@ -79,13 +79,13 @@ root((CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.0.0))
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023-2024 BASF SE
-- SPDX-FileCopyrightText: 2023-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023-2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
-- SPDX-FileCopyrightText: 2023-2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2023-2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2023-2024 SAP SE
-- SPDX-FileCopyrightText: 2023-2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2023-2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023-2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023-2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer)
+- SPDX-FileCopyrightText: 2023 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2023 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 SupplyOn AG
+- SPDX-FileCopyrightText: 2023 Volkswagen AG
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation

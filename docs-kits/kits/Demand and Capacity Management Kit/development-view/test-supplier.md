@@ -1046,7 +1046,7 @@ Scenario: Comment linked to IdBasedComment
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024-2024 CatX Service GmbH
-- SPDX-FileCopyrightText: 2024-2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024-2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2024 CatX Service GmbH
+- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
