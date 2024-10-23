@@ -21,7 +21,7 @@ paths:
       tags:
       - Block Notification
       requestBody:
-        $ref: '#/components/requestBodies/BlockNotificationData'
+        $ref: '#/components/requestBodies/BlockNotificationReceive'
       responses:
         "201":
           $ref: '#/components/responses/Successful'
@@ -44,7 +44,7 @@ paths:
       tags:
       - Block Notification
       requestBody:
-        $ref: '#/components/requestBodies/BlockNotificationStatusUpdate'
+        $ref: '#/components/requestBodies/BlockNotificationUpdate'
       responses:
         "201":
           $ref: '#/components/responses/Successful'
@@ -65,26 +65,26 @@ components:
    
   # Schemas to build up the request body and the reponses
   schemas:
-    BlockNotificationData:
+    BlockNotificationReceive:
       type: object
       description: "Request schema to send block notifications."
       properties:
         header:
           $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_HeaderCharacteristic'
         content:
-          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_PartBlockingInformationSet'
+          $ref: '#/components/schemas/NotificationContentReceive'
       required:
         - header
         - content
  
-    BlockNotificationStatusUpdate:
+    BlockNotificationUpdate:
       type: object
       description: "Request body schema to send a status update for an existing block notification."
       properties:
         header:
           $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_HeaderCharacteristic'
         content:
-          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_status_update_1.0.0_PartBlockingInformationSet'
+          $ref: '#/components/schemas/NotificationContentUpdate'
       required:
         - header
         - content
@@ -182,7 +182,7 @@ components:
       example: '3.0.0'
      
     # Schemas to build up the content (default notification)
-    urn_samm_io.catenax.block_notification_data_1.0.0_PartBlockingInformationSet:
+    urn_samm_io.catenax.block_notification_receive_1.0.0_PartBlockingInformationSet:
       description: The characteristic of the part blocking information defined as
         an Array Set.
       type: array
@@ -199,7 +199,7 @@ components:
             \ batch, valid for the Catena-X dataspace."
           $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
         blockStatus:
-          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_StatusEnumeration'
+          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_1.0.0_BlockStatus'
         componentLevelContainment:
           description: Section with blocking information at component level.
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_ComponentLevelContainmentCharacteristic'
@@ -216,7 +216,7 @@ components:
       - componentLevelContainment
       - periodAndVolumeLevelContainment
  
-    urn_samm_io.catenax.block_notification_data_1.0.0_StatusEnumeration:
+    urn_samm_io.catenax.block_notification_1.0.0_BlockStatus:
       type: string
       description: "Child-element of the partBlockingInformation array.\n\nProvides\
             \ information about the status of the individual part within a blocking\
@@ -439,7 +439,7 @@ components:
         productionDate:
           $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp'
         numberOfPartsPerPackage:
-          description: "Number of parts, which are stored in a package."
+          description: Number of parts, which are stored in a package.
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_QuantityCharacteristic'
         orderNumber:
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_OrderNumberCharacteristic'
@@ -506,14 +506,55 @@ components:
       type: object
       properties:
         catenaXId:
-          description: 
           $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
         blockStatus:
-          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_StatusEnumeration'
+          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_1.0.0_BlockStatus'
       required:
       - catenaXId
       - blockStatus
- 
+    
+    NotificationContentReceive:
+      type: object
+      properties:
+        notificationStatus:
+          $ref: '#/components/schemas/NotificationStatus'
+        blockInformations:
+          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_receive_1.0.0_PartBlockingInformationSet'
+      
+    NotificationContentUpdate:
+      type: object
+      properties:
+        notificationStatus:
+          $ref: '#/components/schemas/NotificationStatus'
+        blockInformations:
+          $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_status_update_1.0.0_PartBlockingInformationSet'
+    
+    NotificationStatus:
+      type: string
+      enum:
+        - CREATED
+        - SENT
+        - RECEIVED
+        - ACKNOWLEDGED
+        - CLOSED
+      example: 'SENT'
+      description: The status of the block notification. The following entries are supported and allowed
+
+        - CREATED
+        This status is an internal status and is used after the initial creation of a notification. It is not communicated to an other CX/business partner.
+
+        - SENT
+        This status means that the notification has been sent out. This status is shown on the sender side (and not on the receiver side).
+
+        - RECEIVED
+        This status means that the notification has been received by the receiver. The status is shown on sender and receiver side. It is not communicated to another CX/business partner.
+
+        - ACKNOWLEDGED
+        Defines that a user has confirmed that the notification has been received. 
+
+        - CLOSED
+        This status is set by the initiator of the notification either to regularly close the notification (i.e., after the receiver has set the status to ACKNOWLEDGED).
+    
   # Response Content
   responses:
     Successful:
@@ -533,13 +574,13 @@ components:
  
   # Request Body Content
   requestBodies:
-    BlockNotificationData:
+    BlockNotificationReceive:
       content:
         application/json:
           schema:
-           $ref: '#/components/schemas/BlockNotificationData'
-    BlockNotificationStatusUpdate:
+           $ref: '#/components/schemas/BlockNotificationReceive'
+    BlockNotificationUpdate:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/BlockNotificationStatusUpdate'
+            $ref: '#/components/schemas/BlockNotificationUpdate'
