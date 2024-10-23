@@ -87,9 +87,9 @@ Data provisioning of Traceabilty is built on the data provisioning of the [Indus
 - Digital Twin "PartType"
   - N/A
 - Digital Twin "PartInstance"
-  - Aspect model ["TractionBatteryCode"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#tractionbatterycode)
-  - Aspect model ["SoftwareInformation"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#softwareinformation)
-  - Aspect model ["CertificateSigningRequests"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#certificatesigningrequests)
+  - Aspect model ["TractionBatteryCode"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#tractionbatterycode)
+  - Aspect model ["SoftwareInformation"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#softwareinformation)
+  - Aspect model ["CertificateSigningRequests"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#certificatesigningrequests)
 
 Details about these aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit).
 
@@ -152,6 +152,8 @@ The interaction of block notifications is based on events that can be triggered 
 **Scenario 1:** In this case, it is assumed that the sender sends a list of parts with the associated block information to the recipient. The block status of each part is set to ACTIVE by default.
 
 When all block information has been received by the recipient, checked internally, further processed and finally all affected parts were blocked or sorted out, this information is sent back to the sender through a status update (PART_BLOCKED).
+
+> :raised_hand: Note that the update notification whether one or more parts have been blocked and therefore sorted out by the customer is **not mandatory**. The decision to provide suppliers with this information through a feedback notification **MUST** have been negotiated and accepted by both business partners before implemented. 
 
 **Scenario 2:**
 In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally. 
