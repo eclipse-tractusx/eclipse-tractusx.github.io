@@ -26,6 +26,16 @@ Aspect models are mostly easy to create by transforming a company's internal dat
 
 <AspectModelOverview components={props.components} />
 
+
+The following section shows an overview of all aspect models of the Traceability Use Case that can be attached to part instance twins.
+
+| Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| PartInstance | TractionBatteryCode | 2.0.0 | | Traceability |  CX-0125 Traceability Use Case v2.0.0 |
+| | SoftwareInformation | 1.0.0 | | Traceability | N/A |
+| | CertificateSigningRequests | 1.0.0 | | Traceability | N/A |
+| | SpecialCharacteristics | 1.0.0 | | Traceability | N/A |
+
 ### TractionBatteryCode
 
 The aspect provides the information of the Traction battery code of a battery cell, a battery module or a battery pack according to the chinese standard GB/T 34014-2017. Furthermore, it provides the traction battery codes for the assembled sub parts of the component, e.g.  Traction battery code of a battery module plus all the traction battery codes of the assembled battery cells of this battery module.
@@ -152,5 +162,33 @@ Aspect model in GitHub:
             "subjectSerialNumber": "SN12345678"
         }
     ]
+}
+```
+
+### SpecialCharacteristics
+Special Characteristics are measureable and these measurements are of interest for a consumer who defined these characteristics. The proposal is a data model "result" which represents a measurement related to a specific measurement and product. A measurement result is identified by the identification of a characteristic and the product. 
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.special_characteristics.measurement/1.0.0
+
+#### Example: Submodel `Measurement`
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "SN12345678",
+      "key": "partInstanceId"
+    },
+    {
+      "value": "SN12345678",
+      "key": "manufactuererId"
+    }
+  ],
+  "customerPartId": "PRT-12345",
+  "revisionIndex": "01",
+  "measurementType": "simple",
+  "characteristicId": "S1",
+  "results": [ ]
 }
 ```
