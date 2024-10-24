@@ -30,14 +30,14 @@ rect rgb(4,107,153)
 c->>s: I have data known by ID e03ac75f with timestamp 2023.12.12 do you have a more recent version?
 
 end
-c->>c: Inform user that I am synchronized the data
+c->>c: Inform user that I am synchronizing the data
 alt Data not in sync
 s->>c: Here is a more recent version of data e03ac75f
 else Data still in sync
 s->>c: You already have the most recent version of data e03ac75f
 
 end
-c->>c: Show user how old the data is and when was the last time it got synchronized.
+c->>c: Show user how old the data is and when it was last synchronized.
 ```
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
