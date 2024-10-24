@@ -370,7 +370,7 @@ const config = {
             specPath:
               './openApi/dcm/IdBasedComment.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-comment-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-comment-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -379,7 +379,7 @@ const config = {
             specPath:
               './openApi/dcm/IdBasedRequestForUpdate.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-rfu-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-rfu-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -388,7 +388,7 @@ const config = {
             specPath:
               './openApi/dcm/WeekBasedCapacityGroup.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-capacity-group-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-capacity-group-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -397,7 +397,7 @@ const config = {
             specPath:
               './openApi/dcm/WeekBasedMaterialDemand.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-material-demand-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-material-demand-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -475,8 +475,8 @@ const config = {
                 label: 'Data Governance',
               },
               {
-                to: '/docs-kits/kits/DCM-Kit/adoption-view/overview',
-                label: 'Demand & Capacity Management',
+                to: 'docs-kits/kits/Demand and Capacity Management Kit/adoption-view/overview',
+                label: 'Demand and Capacity Management',
               },
               {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
