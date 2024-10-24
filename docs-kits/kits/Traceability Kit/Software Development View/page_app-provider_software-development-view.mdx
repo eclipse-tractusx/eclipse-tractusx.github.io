@@ -35,6 +35,7 @@ The traceability app providers are supposed to implement the capabilities to ena
 This feature will enable the whole industry to exchange and act upon quality issues in a more standardized, integrated, accelerated and precise manner in order to streamline claim management, avoid general and inaccurate recalls as well as reduce cost and safeguard brand reputation.
 
 In order to uniquely reference the affected parts across the network in the context of a quality incident, the exchange of quality notifications uses Catena-X Unique ID, which are the network-wide unique identifiers for a serialized part or batch, for which a digital twin has been created. Therefore, an app provider should also deliver capabilities for standardized creation of digital twins of vehicles, parts and materials as described in the [Industry Core KIT](../../../category/industry-core-kit) and [Digital Twin KIT](../../../category/digital-twin-kit).
+
 ![Quality Notifications](../assets/quality_notifications.svg)
 
 ### Quality Notification Process
@@ -53,14 +54,15 @@ Meanwhile, this notification API shall only be accessible after successful contr
 > :raised_hand: For the current release, **version 1.2.1 is mandatory** and must be supported by every App provider. The newer version 2.0.0 can be supported optionally.
 
 ## Block Notifications
-While quality notifications are primarily aimed at (first) contact between business partners, block notifications represent an extended form of data exchange in order to actively initiate an immediate measure to block or sort out the produced parts at the customer's production or logistics. As the quality notifications, block notifications take place between traceability applications or other application stacks, so that this functionality must be implemented by both business partners application. However, block notifications include a different status model and, in particular, additional information that is critical to the customer's blocking process.
+While quality notifications are primarily aimed at (first) contact between business partners, block notifications represent an extended form of data exchange in order to actively initiate an immediate measure to block or sort out the produced parts at the customer's production or logistics. As the quality notifications, block notifications take place between traceability applications or other application stacks, so that this functionality must be implemented by both business partners application. 
+
+In this case, block notifications include a **notification status similar to quality notifications** to track communication, but **also include a new status model** for each individual part of the block notification to provide additional information. For example, whether the part was blocked or whether the process to block a part was canceled.
 
 > :raised_hand: Since the Catena-x unique ID is used for the individually listed (damaged) parts in the block notification, the app provider should also provide functions for the standardized creation of digital twins of vehicles, parts and materials, as already mentioned in the quality notifications section. 
 
-### Block Notification State Model
+### Block State Model
 In order to track the blocking process in the Catena X network, a defined state model is used for each part of the block notification:
-
-![Block Notification State Model](../assets/block-notification-state-model.svg)
+![Block State Model](../assets/block-notification-state-model.svg)
 
 - ACTIVE means that the part has been identified as a damaged and safety-critical part and must therefore be blocked on the customer side.
 - PART_BLOCKED is used when the recipient has received the block notification and actually blocks / sorts out the damaged parts as a measure.
