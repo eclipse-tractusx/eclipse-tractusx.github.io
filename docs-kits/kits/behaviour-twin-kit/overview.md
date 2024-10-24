@@ -1,11 +1,10 @@
 ﻿---
 id: overview
-title: Behaviour Twin KIT
 hide_title: true
 description: Behaviour Twin KIT
 ---
 
-<div style={{fontSize:60, color:'rgb(255,166,1)', marginBottom:8, marginTop:0, paddingTop:0}}>BEHAVIOUR TWIN KIT</div>
+# Behaviour Twin KIT ![Block image](/img/graduated-dots.png#block)
 
 ![Behaviour Twin KIT banner](@site/static/img/kit-icons/behaviour-twin-kit-icon.svg)
 
