@@ -162,9 +162,8 @@ A full example on the default case is shown in the next section.
 #### Registering a new Twin
 
 Registration of a new twin is (at least in Catena-X) equivalent to the creation of a new twin. Thus, a Data Provider
-should always ensure that there is no AAS-descriptor created for the respective assetIds yet. If there already is one,
-the submodel-descriptor should
-be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
+should always ensure that an AAS-descriptor for the respective assetIds does not exist yet. If one exists, the
+submodel-descriptor should be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
 
 `POST /shell-descriptors`
 
