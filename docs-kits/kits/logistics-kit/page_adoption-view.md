@@ -178,5 +178,3 @@ Our current version of Data models depicted in a table view.
     "locationName": "Mercedes-Benz Untertürkheim Plant"
   }
 }
-```
-.
