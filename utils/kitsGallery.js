@@ -188,7 +188,7 @@ export const kitsGallery = [
     id: 20,
     name: 'Logistics KIT',
     domain: 'PLM / Quality',
-    pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
+    pageRoute: 'docs-kits/kits/logistics-kit/page_adoption-view.md',
     img: Logistics_Kit,
   },
 ]
