@@ -5,7 +5,7 @@ description: 'Administration Guide'
 sidebar_position: 3
 ---
 
-![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+![Datachain kit banner](@site/static/img/data-chain/data-chain-kit-logo.drawio.svg)
 
 ### Data Chain KIT
 
