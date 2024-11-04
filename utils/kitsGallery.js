@@ -43,10 +43,11 @@ import Logistics_Kit from "@site/static/img/logistics/logistics-gallery.drawio.s
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
-// * Network & Core Services
+// * Network Services
 // * PLM / Quality
 // * Sustainability
 // * Resiliency
+// * Industry Core
 
 //**************************************************************** */
 
