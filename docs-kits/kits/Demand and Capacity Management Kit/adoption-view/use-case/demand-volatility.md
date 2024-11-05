@@ -91,7 +91,7 @@ __Parameters of the Demand Volatility metric are as follows:__
 
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| Start Reference Date Time | Yes | Point in time when the measurement is initiated on suppliers side. It needs to be a point in time after the receival of active flag. It also marks the beginning of the first reporting interval/subhorizon| A value of 2024-08-01 indicates the measurement will start as of August 1st 2024. |
+| Start Reference Date Time | Yes | Point in time when the measurement is initiated on suppliers side. It needs to be a point in time after receiving the active flag. It also marks the beginning of the first reporting interval/subhorizon| A value of 2024-08-01 indicates the measurement will start as of August 1st 2024. |
 | Measurement Interval | Yes | Indicates the length in weeks between two measurements. First interval start with the *Start Reference Date Time*. Second interval starts the mentioned weeks after this date and so on | A value of 4 indicates a measurement will be taken each 4 weeks, starting with the *Start Reference Date Time*. |
 | Sequence Number | Yes | Sequence Number of the respective subhorizon. The time frame can be divided into any positive number of individual subhorizons | A value of 2 indicates that this specific subhorizon is subhorizon number 2.  |
 | Subhorizon Lengths | Yes | Length of an individual subhorizon. Minimum length is always one week per individual subhorizon due to the DCM granularity | In the example having a *Sequence Number* set as 2, a value of 6 indicates that subhorizon 2 has a length of 6 weeks. |

@@ -26,7 +26,7 @@ Figure: *DCM Onboarding*
 |-|-|-|
 |1|Subscribe to an Operating Company and get required credentials| [Cofinity-X Onboarding](https://www.cofinity-x.com/onboarding/)|
 |2|Deploy a Catena-X certified dataspace connector|Depending on your adoption strategy you will buy the connector or you might have to develop and certify it yourself|
-|3|Sign DCM Data Exchange Governance|Signed Data Exchange Governance with Operating Company is required to participate in Catena-X Dataspace|
+|3|Sign DCM Data Exchange Governance|Signed Data Exchange Governance with Operating Company is required to participate in the Catena-X Dataspace|
 |4|Deploy a Catena-X certified business application|See adoption strategy table below|
 
 #### Adoption Strategy

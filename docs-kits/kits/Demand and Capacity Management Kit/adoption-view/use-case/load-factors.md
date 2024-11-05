@@ -71,8 +71,8 @@ Suppliers can use comments to provide customers with additional information abou
 
 ## Example
 
-The supplier produces two toys coloured red and chrome on its line for the customer.
-Both materials pass through the same station within the colouring process.
+The supplier produces two toys colored red and chrome on its line for the customer.
+Both materials pass through the same station within the coloring process.
 
 Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it needs to be painted twice. The supplier can effectively produce 250 cycles per week at this station.
 

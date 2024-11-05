@@ -51,9 +51,9 @@ section Exchange capacities
         Consume capacity data:3: Customer
 section Match and Compare
         Match and compare demand and capacity:4: Customer, Supplier
-        Identifiy problems:5: Customer, Supplier
+        Identify problems:5: Customer, Supplier
 section Collaborate
-        Propose sulutions:6: Customer, Supplier
+        Propose solutions:6: Customer, Supplier
         Evaluate solutions:6: Customer, Supplier
         Simulate solutions:6: Customer, Supplier
         Decide on Measures:6: Customer, Supplier
@@ -509,7 +509,7 @@ We are in Week01, and we focus on a mid-term horizon starting in Week14, for a c
 The current capacity plan at the supplier for this horizon is
 
 - 1000 units per week from Week14 (10 shifts per week) to Week20
-- 1500 units per week from Week22 onwards (15 shifts per week), with a rampup step in Week21
+- 1500 units per week from Week22 onwards (15 shifts per week), with a ramp up step in Week21
 
 This plan is reflected in the actual capacity of DCM.
 
@@ -621,7 +621,7 @@ config:
 Figure: *Visualizing capacity and demand in case without flexible capacity*
 
 Actual capacity is equal to maximum capacity, and demand is very close.
-Though no propre imbalance  is detected, even a slight increase of demand could not be managed.  Both, supplier and customer, can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
+Though no proper imbalance  is detected, even a slight increase of demand could not be managed.  Both, supplier and customer, can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
 
 #### Example 4: Solving a Capacity Bottleneck
 
@@ -732,7 +732,7 @@ A capacity group dataset comprises the following basic components:
 |Unit of Measure||Unit of Measurement (UoM) for capacity quantities|
 |Linked Demand Series||Set of demand series assigned to this capacity group|
 |Capacities||A time series with week-based granularity along a given time period containing the capacity values|
-|Unit of Measure is comitted||Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+|Unit of Measure is committed||Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
