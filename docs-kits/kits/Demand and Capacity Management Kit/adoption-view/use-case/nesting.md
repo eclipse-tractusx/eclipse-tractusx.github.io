@@ -141,7 +141,7 @@ rect rgb(64,74,00)
 s-->>c: Your demand and my capacities need to be assigned to 3 different capacity groups.
 s->>c: Toys 1, 2 and 3 are part of capacity group "Production Line 1"
 s->>c: Toys 4 and 5 are part of capacity group "Production Line 2"
-s-->>c: All toys have to be coloured in the paint shop
+s-->>c: All toys have to be colored in the paint shop
 s->>c: Nesting "Production Line 1" and "Production Line 2" in "Paint Shop" instead of linking each Material Demand separately again
 end
 c->>c: My demands for all 5 toys are interlinked and transparent that they affect same capacity together
@@ -154,7 +154,7 @@ For further details, please refer to [CX-0128 Demand and Capacity Management Dat
 ## Example
 
 The supplier produces five different toys on two different production lines for the customer. Afterwards the produced toys of both production lines are colored in the same paint shop.
-All five toys pass through the same paint shop within the colouring process.
+All five toys pass through the same paint shop within the coloring process.
 
 - Production line 1 is used to produce toys 1, 2 and 3 for the customer.
 - Production line 2 is used to produce toys 4 and 5 for the customer.

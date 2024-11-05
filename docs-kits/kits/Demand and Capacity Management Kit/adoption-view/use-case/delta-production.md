@@ -124,7 +124,7 @@ s->>c: 50 each in weeks 48 und 49 are pre-produced to cover the demand in week 5
 end
 ```
 
-Figure: *Utilizing simualted delta-production to solve a production problem*
+Figure: *Utilizing simulated delta-production to solve a production problem*
 
 ![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
 
