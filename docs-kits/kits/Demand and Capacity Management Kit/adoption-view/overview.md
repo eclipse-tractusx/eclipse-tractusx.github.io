@@ -76,8 +76,9 @@ The core of the DCM business process is about exchange demand and capacity infor
 sequenceDiagram
     actor c as Customer 
     actor s as Supplier
-activate c
 rect rgb(221,130,0)
+activate c
+note left of c: Exchange demand information
 c->>c: Manage own material demands
 c->>s: Provide supplier with WeekBasedMaterialDemand
 deactivate c
@@ -85,6 +86,7 @@ activate s
 s->>s: Consume WeekBasedMaterialDemand
 end
 rect rgb(128,149,00)
+note left of c: Exchange capacity information
 s->>s: Manage own capacities
 s->>s: Link consumed material demands to capacities within a WeekBasedCapacityGroup
 s->>c: Provide Customer with WeekBasedCapacityGroup
@@ -92,6 +94,7 @@ activate c
 c->>c: Consume WeekBasedCapacityGroup
 end
 rect rgb(04,107,153)
+note left of c: Compare demands to capacity
 c->>c: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
 s->>s: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
 c->>c: Identify bottlenecks
