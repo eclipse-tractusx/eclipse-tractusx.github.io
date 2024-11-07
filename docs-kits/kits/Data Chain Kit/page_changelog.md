@@ -5,7 +5,7 @@ description: 'Data Chain Kit Changelog'
 sidebar_position: 10
 ---
 
-![Datachain kit banner](/img/kit-icons/datachain-kit-icon.svg)
+![Datachain kit banner](@site/static/img/data-chain/data-chain-kit-logo.drawio.svg)
 
 ### Data Chain KIT
 
