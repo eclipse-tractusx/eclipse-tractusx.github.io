@@ -42,11 +42,11 @@ import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.p
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
+// * Industry Core
 // * Network Services
 // * PLM / Quality
-// * Sustainability
 // * Resiliency
-// * Industry Core
+// * Sustainability
 
 //**************************************************************** */
 
