@@ -42,10 +42,11 @@ import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.p
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
-// * Network & Core Services
+// * Network Services
 // * PLM / Quality
 // * Sustainability
 // * Resiliency
+// * Industry Core
 
 //**************************************************************** */
 
@@ -53,21 +54,21 @@ export const kitsGallery = [
   {
     id: 1,
     name: 'Business Partner Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Business_Kit,
     pageRoute: "/docs-kits/kits/Business Partner Kit/Adoption View"
   },
   {
     id: 2,
     name: 'Data Chain Kit',
-    domain: 'Network & Core Services',
+    domain: 'Industry Core',
     img: DataChain_Kit,
     pageRoute: "/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit"
   },
   {
     id: 3,
     name: 'Connector Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Connector_Kit,
     pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
   },
@@ -88,7 +89,7 @@ export const kitsGallery = [
   {
     id: 6,
     name: 'Digital Twin Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: DigitalTwin,
     pageRoute: "/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit"
   },
@@ -116,7 +117,7 @@ export const kitsGallery = [
   {
     id: 10,
     name: 'Agents Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Agents_Kit,
     pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view/intro"
   },
@@ -165,7 +166,7 @@ export const kitsGallery = [
   {
     id: 17,
     name: "Industry Core Kit",
-    domain: 'Network & Core Services',
+    domain: 'Industry Core',
     img: Industry_Kit,
     pageRoute: "/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit"
   },
