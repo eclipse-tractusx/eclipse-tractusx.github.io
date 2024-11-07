@@ -8,7 +8,7 @@ description: Dependencies
 
 ## Standard Dependencies
 
-Designing an implementing an application that conforms to CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.0.0, means not only conforming to CX-0128 but also to all standards that CX-0128 depends upon.
+Designing an implementing an application that conforms to CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.1.0, means not only conforming to CX-0128 but also to all standards that CX-0128 depends upon.
 
 ### Dependency Graph
 
@@ -27,7 +27,7 @@ Figure: *Dependencies*
 <!--
 ```mermaid
 mindmap
-root((CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.0.0))
+root((CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.1.0))
     CX-0001 `v1.0.2` EDC Discovery API
         CX-0006 Registration and initial onboarding
             CX-0009 CATENA-X REGISTRATION API
