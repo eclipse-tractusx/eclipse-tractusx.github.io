@@ -57,7 +57,7 @@ The Kit enables the offering of value-add services and innovation based on proce
 
 The DCM KIT enables better and faster issue resolution. We believe that collaboration is the key to creating and maintaining strong partnerships between customers and suppliers and, at the same time, enhancing problem solving to reach a more balanced and efficient supply and demand management.
 
-Of course, by realizing efficiency through improved collaboration all involved partners will gain competitive advantage over those that do not collaborate.
+Of course, by realizing efficiency through improved collaboration all involved partners will gain a competitive advantage over those that do not collaborate.
 
 ## Semantic Models
 
@@ -70,7 +70,7 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 ## Logic / Schema
 
-The core of the DCM business process is about exchange demand and capacity information, identifying problems and solving those problems.
+The core of the DCM business process is about exchanging demand and capacity information, identifying problems and solving those problems.
 
 ```mermaid
 sequenceDiagram
@@ -138,11 +138,11 @@ Because of the way that communication within CX-0128 is defined companies are no
 
 ### Standards
 
-|Content|Standard|Version|Sections|Description|
+|Content|Standard|Version|Section|Description|
 |-|-|-|-|-|
-|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|5|Focuses on a common understanding of the DCM processes among participants.|
-|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
-|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.0.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
+|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|5|Focuses on a common understanding of the DCM processes among participants.|
+|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
+|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
 |Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, where the impact cannot be precisely quantified yet.|
 
 ## Frequently asked Questions
