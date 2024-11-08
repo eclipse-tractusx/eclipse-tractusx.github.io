@@ -4,10 +4,19 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Wed, 23 Oct 2024 21:45:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Nov 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Tractus-X EDC Bugfix Release 0.7.7]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/new-bugfix-release-edc-077</link>
+            <guid>new-bugfix-release-edc-077</guid>
+            <pubDate>Wed, 06 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Release of a new Tractus-X EDC bugfix version]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-bugfix-release-077-for-eclipse-tractus-x-edc">New Bugfix Release 0.7.7 for Eclipse Tractus-X EDC<a class="hash-link" href="#new-bugfix-release-077-for-eclipse-tractus-x-edc" title="Direct link to heading">​</a></h2><p>The new bugfix release 0.7.7 of the Eclipse Tractus-X EDC is now available.</p><p>The release fixes one bug:</p><ul><li>Issue: <a href="https://github.com/eclipse-tractusx/tractusx-edc/issues/1618" target="_blank" rel="noopener noreferrer">tractusx-edc/1618</a></li><li>Pull Request: <a href="https://github.com/eclipse-tractusx/tractusx-edc/pull/1633" target="_blank" rel="noopener noreferrer">tractusx-edc/1633</a></li><li>Summary: The fixed issue was a non-deterministic behavior in case of parallel EDR token refreshs which lead to the non-availability of a valid token at the consumer connector.</li><li>You need to update if you operate a consumer EDC and initiate data transfers based on the same contract multiple times in parallel.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="notice">Notice<a class="hash-link" href="#notice" title="Direct link to heading">​</a></h2><p>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer">CC-BY-4.0</a>.</p><ul><li>SPDX-License-Identifier: CC-BY-4.0</li><li>SPDX-FileCopyrightText: 2024 Cofinity-X GmbH</li><li>Source URL: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io" target="_blank" rel="noopener noreferrer">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io</a></li></ul>]]></content:encoded>
+            <author>lars.blaumeiser@cofinity-x.com (Lars Geyer-Blaumeiser)</author>
+        </item>
         <item>
             <title><![CDATA[Open Planning for Release 25.03]]></title>
             <link>https://eclipse-tractusx.github.io/blog/open-planning-R25.03</link>
