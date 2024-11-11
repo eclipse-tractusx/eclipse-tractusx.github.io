@@ -80,18 +80,21 @@ Red toy needs 1 cycle at this station. Chrome toy needs 2 cycles because it need
 
 ```mermaid
 sequenceDiagram
+autonumber
 Participant c as Customer
 Participant s as Supplier
 rect rgb(157,93,00) 
-c->>s: I need 100 red and 100 chrome toys
+    c->>s: I need 100 red and 100 chrome toys
 end
 s->>s: Chrome toys strain my capacities twice as much as red toys
 rect rgb(4,107,153)
-s-->>c: Your demand and my capacities need to be expressed as production cycles.
-s-->>c: Red toys are loaded with factor 1
-s-->>c: Chrome toys are loaded with factor 2
-s->>c: My overall capacity is 250 cycles
+    s-->>c: Your demand and my capacities need to be expressed as production cycles.
+    autonumber off
+    s-->>c: Red toys are loaded with factor 1
+    s-->>c: Chrome toys are loaded with factor 2
+    s->>c: My overall capacity is 250 cycles
 end
+autonumber 4
 c->>c: My demands are 100 red cycles plus 200 chrome cycles equals 300 cycles
 c->>c: Their capacity for both toys is 250 cycles
 c->>c: Reduce demand for chrome toys to 75 so total demand equals 250 cycles

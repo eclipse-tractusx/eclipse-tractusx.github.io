@@ -21,6 +21,7 @@ Comments use their own aspect model and API. Comments are provided and consumed 
 ```mermaid
 
 sequenceDiagram
+autonumber
 Participant c as Customer
 Participant s as Supplier
 rect rgb(4,107,153)
