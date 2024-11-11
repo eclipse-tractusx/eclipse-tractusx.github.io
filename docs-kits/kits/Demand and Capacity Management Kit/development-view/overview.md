@@ -190,6 +190,7 @@ rect rgb(57,57,57)
   s->>s: Check Wallet
 end
 rect rgb(221,130,0)
+autonumber 1
   note right of c: Transfer WeekBasedMaterialDemand
   c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA,BETA and GAMMA
   s->>c: HTTP 200 OK
@@ -206,6 +207,7 @@ end
 rect rgb(57,57,57)
   note right of c: GUI test
   c->>c: Visualize bottleneck calculation
+  autonumber 9
   s->>s: Visualize bottleneck calculation
 end
 rect rgb(4,107,153)
@@ -241,6 +243,7 @@ end
 rect rgb(57,57,57)
   note right of c: GUI test
   c->>c: Visualize Comment
+  autonumber 22
   s->>s: Visualize Comment
 end
 ```

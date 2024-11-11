@@ -28,15 +28,17 @@ sequenceDiagram
     actor s as Supplier
     
     rect rgb(217,24,24)
-    c->>+ce: Register API as Asset
-    ce->>-c: API registered
+        autonumber 1
+        c->>+ce: Register API as Asset
+        ce->>-c: API registered
     end
     rect rgb(221,130,0)
-    s->>+se: Provide WeekBasedMaterialDemand
-    rect rgb(255,166,0)
-    se->>+ce: Initiate Handshake
-    ce->>se: Complete Handshake
-    end
+        autonumber 1
+        s->>+se: Provide WeekBasedMaterialDemand
+        rect rgb(255,166,0)
+        se->>+ce: Initiate Handshake
+        ce->>se: Complete Handshake
+        end
     se->>ce: Provide WeekBasedMaterialDemand
     ce->>+a: Provide WeekBasedMaterialDemand
     a->>-ce: WeekBasedMaterialDemand consumed

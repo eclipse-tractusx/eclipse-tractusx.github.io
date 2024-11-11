@@ -21,14 +21,17 @@ Supply chain disruption notifications  use their own aspect model and API. Suppl
 
 ```mermaid
 sequenceDiagram
+autonumber
 Participant c as Customer / Supplier
 Participant s as Supplier / Customer
 rect rgb(4,107,153) 
-c->>s: One of my production plants is negatively impacted by a strike
-c-->>s: This affects the demand of the following materials: {Toy 1, Toy2, Toy3}
+    c->>s: One of my production plants is negatively impacted by a strike
+    autonumber off
+    c-->>s: This affects the demand of the following materials: {Toy 1, Toy2, Toy3}
 end
 rect rgb(4,107,153) 
-c->>s: The disruption (strike) has ended
+    autonumber 2
+    c->>s: The disruption (strike) has ended
 end
 ```
 

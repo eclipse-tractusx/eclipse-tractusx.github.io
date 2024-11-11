@@ -21,6 +21,7 @@ The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the su
 
 ```mermaid
 sequenceDiagram
+autonumber
     actor c as Customer 
     participant ce as Customer EDC
     participant se as Supplier EDC

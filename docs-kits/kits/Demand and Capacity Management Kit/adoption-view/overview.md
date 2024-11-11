@@ -74,8 +74,9 @@ The core of the DCM business process is about exchanging demand and capacity inf
 
 ```mermaid
 sequenceDiagram
-    actor c as Customer 
-    actor s as Supplier
+autonumber
+actor c as Customer 
+actor s as Supplier
 rect rgb(221,130,0)
 activate c
 note left of c: Exchange demand information
@@ -95,11 +96,17 @@ c->>c: Consume WeekBasedCapacityGroup
 end
 rect rgb(04,107,153)
 note left of c: Compare demands to capacity
+autonumber 8
 c->>c: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+autonumber 8
 s->>s: Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup
+autonumber 9
 c->>c: Identify bottlenecks
+autonumber 9
 s->>s: Identify bottlenecks
+autonumber 10
 c->>s: Resolve bottlenecks
+autonumber 10
 s->>c: Resolve bottlenecks
 deactivate c
 deactivate s

@@ -106,27 +106,29 @@ For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../
 
 ```mermaid
 sequenceDiagram
+autonumber
 Participant c as Customer
 Participant s as Supplier
 rect rgb(157,93,00) 
-c->>s: I need 1000 red toys in week 19
+    c->>s: I need 1000 red toys in week 19
 end
 c->>c: Wait 4 weeks
 rect rgb(157,93,00) 
-c->>s: I need 100 red toys in week 19
+    c->>s: I need 100 red toys in week 19
 end
 s->>s: I should really start measuring the volatility of my customers demands
 c->>c: Wait 4 weeks
 rect rgb(157,93,00) 
-c->>s: I need 75 red toys in week 19
+    c->>s: I need 75 red toys in week 19
 end
 s->>s: I start transferring the volatility of my customers demands
 rect rgb(64,74,00)
-s->>c: I started measuring Demand Deviation, using the following parameters:
-s-->>c: Measurement Interval is set to 4 weeks
-s-->>c: Increase limited to max. 20% in subhorizon 3
-s-->>c: Decrease limited to max. -20% in subhorizon 3
-s-->>c: Measurement starts in week 0, using 4 subhorizons of length (2,11,39,52) 
+    s->>c: I started measuring Demand Deviation, using the following parameters:
+    autonumber off
+    s-->>c: Measurement Interval is set to 4 weeks
+    s-->>c: Increase limited to max. 20% in subhorizon 3
+    s-->>c: Decrease limited to max. -20% in subhorizon 3
+    s-->>c: Measurement starts in week 0, using 4 subhorizons of length (2,11,39,52) 
 end
 ```
 

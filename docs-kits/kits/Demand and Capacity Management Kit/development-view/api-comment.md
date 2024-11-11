@@ -29,16 +29,16 @@ sequenceDiagram
     actor s as Supplier
     
      rect rgb(217,24,24)
+    autonumber 1
     c->>+ce: Register API as Asset
     ce->>-c: API registered
     end  
     rect rgb(217,24,24)
+    autonumber 1
     s->>+se: Register API as Asset
     se->>-s: API registered
     end
- 
-
-
+autonumber 1
     rect rgb(04,107,153)
     c->>+ce: Provide IdBasedComment
     rect rgb(33,157,212)

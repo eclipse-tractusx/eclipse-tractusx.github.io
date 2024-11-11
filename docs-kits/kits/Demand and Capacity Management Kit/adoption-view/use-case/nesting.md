@@ -130,19 +130,24 @@ For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../.
 
 ```mermaid
 sequenceDiagram
+autonumber
 Participant c as Customer
 Participant s as Supplier
 rect rgb(191,113,00) 
-c->>s: I need 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3
-c->>s: I need 100 pieces of toy 4 and 70 pieces of toy 5
+    c->>s: I need 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3
+    c->>s: I need 100 pieces of toy 4 and 70 pieces of toy 5
 end
 s->>s: Toys 1, 2 and 3 are produced on line 1, toys 4 and 5 on line 2 and all toys have to pass through paint shop
 rect rgb(64,74,00)
-s-->>c: Your demand and my capacities need to be assigned to 3 different capacity groups.
-s->>c: Toys 1, 2 and 3 are part of capacity group "Production Line 1"
-s->>c: Toys 4 and 5 are part of capacity group "Production Line 2"
-s-->>c: All toys have to be colored in the paint shop
-s->>c: Nesting "Production Line 1" and "Production Line 2" in "Paint Shop" instead of linking each Material Demand separately again
+    autonumber off
+    s-->>c: Your demand and my capacities need to be assigned to 3 different capacity groups.
+    autonumber 4
+    s->>c: Toys 1, 2 and 3 are part of capacity group "Production Line 1"
+    s->>c: Toys 4 and 5 are part of capacity group "Production Line 2"
+    autonumber off
+    s-->>c: All toys have to be colored in the paint shop
+    autonumber 6
+    s->>c: Nesting "Production Line 1" and "Production Line 2" in "Paint Shop" instead of linking each Material Demand separately again
 end
 c->>c: My demands for all 5 toys are interlinked and transparent that they affect same capacity together
 ```
