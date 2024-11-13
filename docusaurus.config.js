@@ -202,34 +202,6 @@ const config = {
         id: "docs-kits",
         docsPluginId: "docs-kits",
         config: {
-          bpdm_gate: {
-            specPath: "./openApi/bpdm/gate.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_pool: {
-            specPath: "./openApi/bpdm/pool.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_cleaning: {
-            specPath: "./openApi/bpdm/cleaning-dummy.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_orchestrator: {
-            specPath: "./openApi/bpdm/orchestrator.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
           irs: {
             specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
@@ -475,7 +447,7 @@ const config = {
                 label: 'Data Governance',
               },
               {
-                to: '/docs-kits/kits/DCM-Kit/adoption-view',
+                to: '/docs-kits/kits/DCM-Kit/adoption-view/overview',
                 label: 'Demand & Capacity Management',
               },
               {

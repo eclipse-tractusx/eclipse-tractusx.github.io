@@ -5,6 +5,8 @@ description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 3
 ---
 
+![Supply Chain Disruption Notifications kit banner](/img/kit-icons/scdn-kit-icon.svg)
+
 ## Introduction
 
 The Development View provides information and resources for implementing Supply Chain Disruption Notifications (further: notifications) standards. The architecture chapter describes the interactions of all components in the notifications context. The policies chapter describes the access policies, usage policies and contract definitions. The protocol chapter gives examples how the data asset is registered in the connector. In the chapter sample data the semantic data model of the Supply Chain Disruption Notifications are defined with a reference to the turtle file and an example JSON payload. For quick installation guides and reference to a ready implementation of notifications, please see Operation View.
