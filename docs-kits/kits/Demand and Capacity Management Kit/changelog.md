@@ -12,7 +12,7 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
-## [1.2.0] - unreleased
+## [1.2.0] - 2024-12-02
 
 ### Added
 
