@@ -14,7 +14,7 @@ almadi_gabor:
   title: Consortia System Team Member
   url: https://github.com/almadigabor
   image_url: https://github.com/almadigabor.png
-  
+
 fabian_gruen:
   name: Fabian Grün
   title: Consortia System Team Member
@@ -51,3 +51,20 @@ evelyn_gurschler:
   name: Evelyn Gurschler
   title: Tractus-X Project Lead
   url: https://github.com/evegufy
+
+arno_weiss:
+  name: Arno Weiß
+  title: Tractus-X Committer
+  url: https://github.com/arnoweiss
+
+tom-rm-meyer-ISST:
+  name: Tom Meyer
+  title: PURIS Architect, Eclipse Committer
+  url: https://github.com/tom-rm-meyer-ISST
+  image_url: https://github.com/tom-rm-meyer-ISST.png
+
+lgblaumeiser:
+  name: Lars Geyer-Blaumeiser
+  title: EDC responsible
+  url: https://github.com/lgblaumeiser
+  image_url: https://github.com/lgblaumeiser.png
