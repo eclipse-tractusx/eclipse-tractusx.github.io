@@ -5,7 +5,7 @@ description: "Circularity KIT"
 sidebar_position: 1
 ---
 
-![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
+![Circularity kit banner](/img/kit-icons/circularity-kit-icon.svg)
 All notable changes to this Kit will be documented in this file.
 
 ## [1.2.0] - 15.05.2024
@@ -17,7 +17,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed
 
-- change strucutre of the contents. Same content chapters are in different order
+- change structure of the contents. Same content chapters are in different order
 - change wording
 
 ### Removed
@@ -39,7 +39,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Changed
 
-- change strucutre of the contents. Same content chapters are in different order
+- change structure of the contents. Same content chapters are in different order
 - change wording
 
 ### Removed
