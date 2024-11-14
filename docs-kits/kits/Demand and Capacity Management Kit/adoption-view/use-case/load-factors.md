@@ -23,17 +23,17 @@ Load Factors are advanced parameters of a Capacity Group structure and therefore
 
 The feature “Load Factors” allows suppliers to model and represent otherwise impossible capacity occurrences, by introducing a numerical multiplication factor, that changes the demand volume interpretation of a capacity group.
 
-Load Factors should be used to solve the following two problems:  
+Load Factors should be used to solve the following two problems:
 
-- Processing of non-homogeneous material variants within a capacity group, resulting in diverging capacity utilization.  
+- Processing of non-homogeneous material variants within a capacity group, resulting in diverging capacity utilization.
 
-- Requirement for having a different unit of measure within a WeekBasedCapacityGroup, in relation to its linked WeekBasedMaterialDemand.  
+- Requirement for having a different unit of measure within a WeekBasedCapacityGroup, in relation to its linked WeekBasedMaterialDemand.
 
-Load Factors solve these problems by:  
+Load Factors solve these problems by:
 
-- Scaling the weekly demand linearly if a material variant causes higher or lower than normal load within the capacity group. Load Factors can, for example, express a reduction to 90% or an increase to 150%.  
+- Scaling the weekly demand linearly if a material variant causes higher or lower than normal load within the capacity group. Load Factors can, for example, express a reduction to 90% or an increase to 150%.
 
-- Acting as conversion factors, converting the unit of measure of a WeekBasedMaterialDemand into the unit of measure of the WeekBasedCapacityGroup. This leads to a conversion into either “time” (unit:secondUnitOfTime) or “cycle” (unit:cycle), expressing that, for example, a piece of material takes 12 seconds, or a set of material takes half a cycle to manufacture.  
+- Acting as conversion factors, converting the unit of measure of a WeekBasedMaterialDemand into the unit of measure of the WeekBasedCapacityGroup. This leads to a conversion into either “time” (unit:secondUnitOfTime) or “cycle” (unit:cycle), expressing that, for example, a piece of material takes 12 seconds, or a set of material takes half a cycle to manufacture.
 
 ### Advantages
 
@@ -52,7 +52,7 @@ Suppliers may apply Load Factors within WeekBasedCapacityGroup aspect model via 
 
 | Main Parameters | Required? | Description | Example |
 |-|-|-|-|
-| Load Factor | No | If applied, a Load Factor indicates that in order to produce the required material demand,  more (or less) production resources are required.| Decimal value (e.g. "3.5"). A value of 3.5 means that in the respective week the demand value is multiplied by 3,5 in order to reflect the required capacity needed to fulfil the demand. |
+| Load Factor | No | If applied, a Load Factor indicates that in order to produce the required material demand, more (or less) production resources are required.| Decimal value (e.g. "3.5"). A value of 3.5 means that in the respective week the demand value is multiplied by 3,5 in order to reflect the required capacity needed to fulfil the demand. |
 
 Suppliers can apply Load Factors within the WeekBasedCapacityGroup model via a parameter. If they choose to do so, a Load Factor must be assigned to every WeekBasedMaterialDemand linked to the WeekBasedCapacityGroup.
 

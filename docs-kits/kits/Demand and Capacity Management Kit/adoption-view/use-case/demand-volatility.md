@@ -33,7 +33,7 @@ The exchange of measurements of the demand deviation metric between business par
 - improving the balance between demands and capacity
 - reducing the costs of supply chain operations
 
-## Functional Description Demand Volatility  
+## Functional Description Demand Volatility
 
 Supply chains in the automotive industry are characterized by a dynamic operating environment that manifests itself in regular changes in delivery and production requirements. This leads to varying degrees of Demand Volatility that customers communicate to their suppliers, in short term as well as long term planning horizons.
 
@@ -68,7 +68,7 @@ classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
 classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#000000
 classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#000000
 class A,B1,B2,B3,B4,B5,C1,C2,C4,C5,C6,D1,D5,D6 Capacity_must
-class C1,C2,D4,C7,D7 Capacity_optional  
+class C1,C2,D4,C7,D7 Capacity_optional
 
 style C3 fill:#617000,stroke:#d91e18,stroke-width:2px,color:#000000
 ```
@@ -93,12 +93,12 @@ __Parameters of the Demand Volatility metric are as follows:__
 |-|-|-|-|
 | Start Reference Date Time | Yes | Point in time when the measurement is initiated on suppliers side. It needs to be a point in time after receiving the active flag. It also marks the beginning of the first reporting interval/subhorizon| A value of 2024-08-01 indicates the measurement will start as of August 1st 2024. |
 | Measurement Interval | Yes | Indicates the length in weeks between two measurements. First interval start with the *Start Reference Date Time*. Second interval starts the mentioned weeks after this date and so on | A value of 4 indicates a measurement will be taken each 4 weeks, starting with the *Start Reference Date Time*. |
-| Sequence Number | Yes | Sequence Number of the respective subhorizon. The time frame can be divided into any positive number of individual subhorizons | A value of 2 indicates that this specific subhorizon is subhorizon number 2.  |
+| Sequence Number | Yes | Sequence Number of the respective subhorizon. The time frame can be divided into any positive number of individual subhorizons | A value of 2 indicates that this specific subhorizon is subhorizon number 2.|
 | Subhorizon Lengths | Yes | Length of an individual subhorizon. Minimum length is always one week per individual subhorizon due to the DCM granularity | In the example having a *Sequence Number* set as 2, a value of 6 indicates that subhorizon 2 has a length of 6 weeks. |
 | Absolute Negative Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. -100 units (value 100) means an alert is triggered if the absolute negative deviation between two measurement intervals for a respective calendar week decrease by 100 or more units. |
 | Absolute Positive Deviation | No | Absolute positive deviation threshold which triggers an alert | E.g. 100 units (value 100) means an alert is triggered if the absolute positive deviation between two measurement intervals for a respective calendar week increases by 100 or more units. |
-| Relative Negative Deviation | No | Relative negative deviation threshold which triggers an alert | E.g. -30% (value 0,3)  means an alert is triggered if the relative negative deviation between two measurement intervals for a respective calendar week decrease by 30% or more. Value can be set between 0 and 1. |
-| Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2)  means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
+| Relative Negative Deviation | No | Relative negative deviation threshold which triggers an alert | E.g. -30% (value 0,3) means an alert is triggered if the relative negative deviation between two measurement intervals for a respective calendar week decrease by 30% or more. Value can be set between 0 and 1. |
+| Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2) means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
 
 For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
