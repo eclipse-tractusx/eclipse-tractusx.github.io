@@ -111,7 +111,7 @@ Our strategy for achieving these goals involves several key steps. Firstly, we a
 
 Ultimately, our efforts provide essential support for the digitalization and automation of the EoL phase, with the ultimate goal of closing loops in the automotive sector. Through these digitized and scalable EoL services, we aim to contribute significantly to sustainable development and resource conservation, aligning with the principles of the circular economy.
 
-### Business Context
+### Business Context for End-of-Life
 
 #### Data Journey "End-of-Life"
 
