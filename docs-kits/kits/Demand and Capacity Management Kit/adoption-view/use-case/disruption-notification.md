@@ -9,7 +9,7 @@ sidebar_position: 7
 
 ## Business Roles and Functions
 
-Supply chain disruption notifications  use their own aspect model and API. Supply chain disruption notifications are provided and consumed by both customer and supplier.
+Supply chain disruption notifications use their own aspect model and API. Supply chain disruption notifications are provided and consumed by both customer and supplier.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|

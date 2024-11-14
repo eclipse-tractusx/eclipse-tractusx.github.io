@@ -18,7 +18,7 @@ sidebar_position: 1
 
 ## Business Roles and Functions
 
-The core DCM business process is executed by two roles and uses two APIs as well as  two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
+The core DCM business process is executed by two roles and uses two APIs as well as two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|
@@ -149,7 +149,7 @@ classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
 classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
 classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
-classDef Highlite  stroke:#FF0000,stroke-width:4px
+classDef Highlite stroke:#FF0000,stroke-width:4px
 class A1,C1 Demand
 class A3,C4 Capacity
 class E2,G2 DemCap
@@ -306,7 +306,7 @@ classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
 classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
 classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
-classDef Highlite  stroke:#FF0000,stroke-width:4px
+classDef Highlite stroke:#FF0000,stroke-width:4px
 class A1,C1 Demand
 class A3,C4 Capacity
 class E2,G2 DemCap
@@ -330,9 +330,9 @@ The customer must have the capability to consume the capacity group data from th
 
 ### Capacity Group Structure
 
-The capacity group is the entity where material demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the capacity group builds the common view on the data exchanged between a customer and a supplier.  
+The capacity group is the entity where material demand and capacity information are matched and compared for the purpose of a collaborative DCM. Thereby, the capacity group builds the common view on the data exchanged between a customer and a supplier.
 
-The entity capacity group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
+The entity capacity group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.
 
 ![Capacity Group Structure](./resources/business-process_CGstructure.svg)
 ![Capacity Group Structure Legend](./resources/business-process_CGstructure_Legend.svg)
@@ -431,9 +431,9 @@ D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 
 Embedded into the WeekBasedCapacityGroup are
 
-- **Actual Capacity** as the  planned available capacity of a supplier
+- **Actual Capacity** as the planned available capacity of a supplier
 - **Maximum Capacity** as the maximum releasable capacity of a supplier
-- **Agreed Capacity**  as the understanding between Customer and supplier, regardless of contractual obligations. It is optional.
+- **Agreed Capacity** as the understanding between Customer and supplier, regardless of contractual obligations. It is optional.
 
 In addition the difference between actual capacity and maximum capacity is commonly understood as flexible capacity.
 
@@ -572,7 +572,7 @@ On supplier side: Supplier should detect that actual capacity is insufficient, u
 
 On customer side: when validating its own production plan, customer may consider utilizing the supplier’s flexibility up to the maximum capacity and conclude that feasibility is given.
 
-#### Example 3:  No Flexible Capacity
+#### Example 3: No Flexible Capacity
 
 ![Capacity Example](./resources/business-process_capacity-types_example3.svg)
 <!--
@@ -621,7 +621,7 @@ config:
 Figure: *Visualizing capacity and demand in case without flexible capacity*
 
 Actual capacity is equal to maximum capacity, and demand is very close.
-Though no proper imbalance  is detected, even a slight increase of demand could not be managed.  Both, supplier and customer, can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
+Though no proper imbalance is detected, even a slight increase of demand could not be managed. Both, supplier and customer, can conclude, that it may be relevant to collaborate to identify measures to mitigate risk.
 
 #### Example 4: Solving a Capacity Bottleneck
 
@@ -747,7 +747,7 @@ Further properties are added at lower level below the “Capacities” property.
 
 For a functional capacity group, the supplier must link it directly or indirectly to a material demand:
 
-- **Direct linking** means that the capacity group links at least one material demand.  
+- **Direct linking** means that the capacity group links at least one material demand.
 - **Indirect linking** means that the capacity group links to another capacity group which links at least one material demand. This is also referred to as **nesting**.
 
 #### Direct Linking
@@ -804,19 +804,19 @@ D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
 
 ```
 -->
-For the technical representation of a capacity group the aspect model WeekBasedCapacityGroup is utilized.  
+For the technical representation of a capacity group the aspect model WeekBasedCapacityGroup is utilized.
 
-The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the Customer.  
+The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the Customer.
 
-For further details refer to the semantic model in Chapter 3.2 and to the APIs in Chapter 4.2.  
+For further details refer to the semantic model in Chapter 3.2 and to the APIs in Chapter 4.2.
 
-A partner acting as a supplier sends a capacity group to its customer. In order to link demand series in the capacity group between customer and supplier, the following properties must be filled-in:  
+A partner acting as a supplier sends a capacity group to its customer. In order to link demand series in the capacity group between customer and supplier, the following properties must be filled-in:
 
 - Supplier
 - Customer
-- materialNumberCustomer  
-- CustomerLocation  
-- demandCategory  
+- materialNumberCustomer
+- CustomerLocation
+- demandCategory
 
 If there’s no complete match between supplier and customer data, it’s recommended to initiate collaboration (i.e. see chapter “Comments”)
 
@@ -824,7 +824,7 @@ The supplier has the option to mark a WeekBasedCapacityGroup as inactive (i.e. t
 
 ### Building N-Tier Chains via Capacity Groups
 
-Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.  
+Building supply chain via capacity groups is crucial to improve resiliency, transparency and efficiency along the value chain. Using the individual one-to-one capacity groups between one-ups and one-downs step by step builds the whole supply network. This enables all partners to collaborate along the whole value chain and navigate through complex and dynamic market conditions.
 
 The following figure illustrates how plastic granulate ends up being used in the housing of a control unit and how this would be viewed from a birds eye perspective.
 
@@ -935,7 +935,7 @@ class t2pzc,t1c CG5
 class car Car
 ```
 
-![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
+![N-Tier Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
 
 Figure: *A small supply network built by seven capacity groups*
 
@@ -998,7 +998,7 @@ classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
 classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
 classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
-classDef Highlite  stroke:#FF0000,stroke-width:4px
+classDef Highlite stroke:#FF0000,stroke-width:4px
 class A1,C1 Demand
 class A3,C4 Capacity
 class E2,G2 DemCap
@@ -1128,7 +1128,7 @@ classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
 classDef DemCap fill:#D9B917,stroke:#FFFFFF,color:#000000
 classDef Frame fill:#979797,stroke:#EAEAEA,color:#000000
-classDef Highlite  stroke:#FF0000,stroke-width:4px
+classDef Highlite stroke:#FF0000,stroke-width:4px
 class A1,C1 Demand
 class A3,C4 Capacity
 class E2,G2 DemCap

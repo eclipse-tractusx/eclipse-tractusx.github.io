@@ -32,7 +32,7 @@ sequenceDiagram
     autonumber 1
     c->>+ce: Register API as Asset
     ce->>-c: API registered
-    end  
+    end
     rect rgb(217,24,24)
     autonumber 1
     s->>+se: Register API as Asset
