@@ -35,7 +35,7 @@ import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
 import Industry_Kit from "@site/static/img/Industry_Kit.png";
-import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/supply-chain-disruption-notification/supply-chain-disruption-notification-gallery.drawio.svg";
+import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/supply-chain-disruption-notification/supply-chain-disruption-notification-gallery.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
