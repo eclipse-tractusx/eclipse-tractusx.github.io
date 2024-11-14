@@ -10,11 +10,11 @@ tags: [community, meeting-minutes]
 
 ### Infrastructure
 
-- Eclipse-tractusx/eclipse-tractusx.github.io requires just One Committer Review now
+- [eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io) requires just One Committer Review now
   - Committers that approve: Please double-check the content, remember you have also responsibility when approving non TRG compliant content
-  - Expetation for KITs: It should be less stressfull to find a committer
+  - Expectation for KITs: It should be less stressful to find a committer
 - Setup Catena-X STABLE Environment
-  - Organisational issue that’s why the stable is not there right now but they are working on it
+  - Organizational issue that’s why the stable is not there right now but they are working on it
   - Questions: Will the STABLE environment stick to the released version or will it evolve with the development of the components?
 - Planned general infrastructure maintenance INT environment 2024-09-29
   - 24.12 e2e test phase on INT environment still planned to start 25.10. as communicated in adapted timeline
@@ -27,9 +27,9 @@ tags: [community, meeting-minutes]
 - Reminder for Refinement Day 1: 16.10
   - Each group will focus on the first steps of skeleton-building for their features, based on the feature template, mapping them to the related roadmap items
     - For more information please read the [news blog](https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03)
-- Reminder for Refinment Day 2: 06.11
+- Reminder for Refinement Day 2: 06.11
   - Build on the work from Refinement Day 1 and focus primarily on the identified dependencies
-    - For more informations please read the [news blog](https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03)
+    - For more information, please read the [news blog](https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03)
 
 ### Security
 
