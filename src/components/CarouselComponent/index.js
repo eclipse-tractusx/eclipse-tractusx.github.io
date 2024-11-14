@@ -1,7 +1,8 @@
 /********************************************************************************* 
  * Copyright (c) 2023 BMW Group AG
  * Copyright (c) 2023 Mercedes Benz AG 
- * Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 Catena-X Automotive Network e.V.
+ * Copyright (c) 2024 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -17,7 +18,7 @@
  * under the License.
  * 
  * SPDX-License-Identifier: Apache-2.0
- ********************************************************************************/
+********************************************************************************/
 
  import React from "react";
  import Link from "@docusaurus/Link";
@@ -71,7 +72,11 @@
                  return (
                    <div key={kit.id} className={styles.slider_item}>
                      <Link className={styles.slider_content} to={kit.pageRoute}>
-                     <img src={kit.img} className={styles.slider_img}/>
+                     {typeof kit.img === 'function' ? (
+                      <kit.img className={styles.item_img} alt={kit.name} /> 
+                    ) : ( 
+                      <img src={kit.img} className={styles.item_img} alt={kit.name} />
+                    )}
                      </Link>
                    </div>
                  )

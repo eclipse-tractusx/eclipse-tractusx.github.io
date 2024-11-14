@@ -1,7 +1,8 @@
 /********************************************************************************* 
  * Copyright (c) 2023 BMW Group AG
  * Copyright (c) 2023 Mercedes Benz AG 
- * Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 Catena-X Automotive Network e.V.
+ * Copyright (c) 2024 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -39,7 +40,11 @@
                return(
                  <div key={index} className={styles.gallery_item}>
                    <Link to={kit.pageRoute} className={styles.gallery_link}>
-                     <img src={kit.img} className={styles.item_img}/>
+                   {typeof kit.img === 'function' ? (
+                      <kit.img className={styles.item_img} alt={kit.name} /> 
+                    ) : ( 
+                      <img src={kit.img} className={styles.item_img} alt={kit.name} />
+                    )}
                    </Link>
                  </div>
                )      
