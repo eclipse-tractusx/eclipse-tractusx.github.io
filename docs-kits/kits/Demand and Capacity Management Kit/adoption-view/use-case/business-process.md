@@ -732,8 +732,7 @@ A capacity group dataset comprises the following basic components:
 | Unit of Measure | No |Unit of Measurement (UoM) for capacity quantities|
 | Linked Demand Series | No |Set of demand series assigned to this capacity group|
 | Capacities | No |A time series with week-based granularity along a given time period containing the capacity values|
-| Unit of Measure is Ommitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
-
+| Unit of Measure is Omitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
@@ -743,7 +742,6 @@ Further properties are added at lower level below the “Capacities” property.
 | Agreed Capacity | No |The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
 | Maximum Capacity | Yes |The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a suppliers maximum capacity minus actual capacity|
 | Point in Time | Yes |ISO calendar week of the given time series entry. It must be given as a date of the Monday in the week.|
-
 
 ### Linking Capacity Groups to Material Demands
 
