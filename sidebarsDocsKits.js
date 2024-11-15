@@ -239,36 +239,24 @@ const sidebars = {
                     items: [
                         'kits/Business Partner Kit/Software Development View/Specification',
                         {
-                            type: "category",
+                            type: "link",
                             label: "Gate API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-gate-V6.1.0/swagger-ui/'
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Pool API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-pool-V6.1.0/swagger-ui/'
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Cleaning Dummy API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-cleaning-dummy-V6.1.0/swagger-ui/'
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Orchestrator API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-orchestrator-V6.1.0/swagger-ui/'
                         },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
