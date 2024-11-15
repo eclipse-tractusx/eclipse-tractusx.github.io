@@ -721,27 +721,27 @@ Figure: *Visualizing capacity and demand*
 
 A capacity group dataset comprises the following basic components:
 
-| Main Parameters | Required | Description |
+| Main Parameters | Required? | Description |
 |-|-|-|
-|Supplier||The Business Partner Number Legal (BPNL) of the party providing materials to a customer|
-|Customer||The Business Partner Number Legal (BPNL) of the party requesting material from a supplier|
-|Capacity Group ID||The capacity group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
-|Changed At||Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
-|Capacity Group Name||Name of the capacity group|
-|Inactive Flag||Indicates that this capacity Group is currently not in use/maintained by the Supplier|
-|Unit of Measure||Unit of Measurement (UoM) for capacity quantities|
-|Linked Demand Series||Set of demand series assigned to this capacity group|
-|Capacities||A time series with week-based granularity along a given time period containing the capacity values|
-|Unit of Measure is committed||Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+| Supplier | Yes |The Business Partner Number Legal (BPNL) of the party providing materials to a customer|
+| Customer | Yes |The Business Partner Number Legal (BPNL) of the party requesting material from a supplier|
+| Capacity Group ID | Yes |The capacity group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
+| Changed At | Yes |Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
+| Capacity Group Name | Yes |Name of the capacity group|
+| Capacity Group is Inactive | Yes |Indicates that this capacity Group is currently not in use/maintained by the Supplier|
+| Unit of Measure | No |Unit of Measurement (UoM) for capacity quantities|
+| Linked Demand Series | No |Set of demand series assigned to this capacity group|
+| Capacities | No |A time series with week-based granularity along a given time period containing the capacity values|
+| Unit of Measure is Omitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
-| Main Parameters | Required | Description |
+| Main Parameters | Required? | Description |
 |-|-|-|
-|Actual capacity||The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
-|Agreed capacity||The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
-|Maximum capacity||The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a suppliers maximum capacity minus actual capacity|
-|Point in Time||ISO calendar week of the given time series entry. It must be given as a date of the Monday in the week.|
+| Actual Capacity | Yes |The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity|
+| Agreed Capacity | No |The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver.|
+| Maximum Capacity | Yes |The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a suppliers maximum capacity minus actual capacity|
+| Point in Time | Yes |ISO calendar week of the given time series entry. It must be given as a date of the Monday in the week.|
 
 ### Linking Capacity Groups to Material Demands
 
