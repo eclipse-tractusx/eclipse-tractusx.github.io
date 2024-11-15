@@ -216,7 +216,7 @@ rect rgb(4,107,153)
   s->>c: HTTP 200 OK
 end
 rect rgb(128,149,0)
-  note right of c:  React to Request for Update
+  note right of c: React to Request for Update
   s->>c: FileTransfer ETA containing CapacityGroup ALPHA
   c->>s: HTTP 200 OK
 end

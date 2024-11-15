@@ -100,9 +100,9 @@ D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-
 ![Simple nesting example](./resources/business-process_nesting_example-basic.svg)
 ![Simple nesting example legend](./resources/business-process_nesting_example_legend.svg)
 
-Figure: *Capacity Group with directly linked Material Demands or nested Capacity Groups (indirectly linked Material Demands)*  
+Figure: *Capacity Group with directly linked Material Demands or nested Capacity Groups (indirectly linked Material Demands)*
 
-Capacity Group 3 is the result of the indirect way of linking Material Demand, therefore it must not contain any additional directly linked Material Demands.  
+Capacity Group 3 is the result of the indirect way of linking Material Demand, therefore it must not contain any additional directly linked Material Demands.
 
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
 

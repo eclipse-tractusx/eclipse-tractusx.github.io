@@ -112,7 +112,7 @@ sequenceDiagram
     end
     rect rgb(221,130,0)
         note right of Customer: Exchange Material Demand
-        CustomerApp ->> CustomerConnector: Transmit MaterialDemand        
+        CustomerApp ->> CustomerConnector: Transmit MaterialDemand
         CustomerConnector ->> SupplierConnector: Transmit MaterialDemand
         SupplierConnector ->> SupplierApp: Transmit MaterialDemand
         activate SupplierApp
