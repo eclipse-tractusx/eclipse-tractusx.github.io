@@ -63,7 +63,7 @@ Of course, by realizing efficiency through improved collaboration all involved p
 
 | Semantic Model | Link to GitHub Repository |
 | ------------- | ------------- |
-| WeekBasedCapacityGroup  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/3.0.0/WeekBasedCapacityGroup.ttl> |
+| WeekBasedCapacityGroup | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_capacity_group/3.0.0/WeekBasedCapacityGroup.ttl> |
 | WeekBasedMaterialDemand | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.week_based_material_demand/3.0.0/WeekBasedMaterialDemand.ttl> |
 | IdBasedRequestForUpdate | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_request_for_update/3.0.0/IdBasedRequestForUpdate.ttl> |
 | IdBasedComment | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.id_based_comment/1.0.0/IdBasedComment.ttl> |
