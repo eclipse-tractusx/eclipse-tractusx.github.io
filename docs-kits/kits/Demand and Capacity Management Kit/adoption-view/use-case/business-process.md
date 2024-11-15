@@ -375,7 +375,7 @@ B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
 -->
 
-### Example Visualization
+### Visualization Example
 
 ![Capacity Example](./resources/business-process_ExampleCapacity.svg)
 
