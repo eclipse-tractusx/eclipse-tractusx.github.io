@@ -71,7 +71,11 @@
                  return (
                    <div key={kit.id} className={styles.slider_item}>
                      <Link className={styles.slider_content} to={kit.pageRoute}>
-                     <img src={kit.img} className={styles.slider_img}/>
+                     {typeof kit.img === 'function' ? (
+                      <kit.img className={styles.slider_img} alt={kit.name} /> 
+                    ) : ( 
+                      <img src={kit.img} className={styles.slider_img} alt={kit.name} />
+                    )}
                      </Link>
                    </div>
                  )
