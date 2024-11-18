@@ -11,6 +11,20 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.0.1] - 2024-11-18
+
+### Added
+
+- ./.
+
+### Changed
+
+- New kit-icon and gallery banner
+
+### Removed
+
+- ./.
+
 ## [1.0.0] - 2024-08-01
 
 ### Added
