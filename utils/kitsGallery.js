@@ -18,7 +18,7 @@
  ********************************************************************************/
 
 import Business_Kit from "@site/static/img/bpkit.png";
-import DataChain_Kit from "@site/static/img/data-chain/data-chain-kit-gallery.drawio.svg";
+import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
 import Connector_Kit from "@site/static/img/connectorkit-min.png";
 import Traceability_Kit from "@site/static/img/traceabilitykit.png";
 import BehaviourTwin_Kit from "@site/static/img/behaviourtwinkit.png";
@@ -34,7 +34,7 @@ import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
 import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
-import Industry_Kit from "@site/static/img/industry-core/industry-core-kit-gallery.drawio.svg";
+import Industry_Kit from "@site/static/img/kits/industry-core/industry-core-kit-gallery.drawio.svg";
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
