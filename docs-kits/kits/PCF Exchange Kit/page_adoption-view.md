@@ -1,9 +1,10 @@
 ---
 id: Adoption View
-title: Adoption View
 description: 'PCF-Exchange-KIT'
 sidebar_position: 2
 ---
+
+# Adoption View ![Block image](/img/incubating-dots.png#block)
 
 ![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
 

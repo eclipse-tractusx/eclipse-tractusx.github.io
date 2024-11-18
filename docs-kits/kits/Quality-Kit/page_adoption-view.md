@@ -1,13 +1,14 @@
 ---
 id: Adoption View Quality Kit
-title: Adoption View
 description: 'Quality Kit'
 sidebar_position: 2
 ---
 
+# Adoption View ![Block image](/img/incubating-dots.png#block)
+
 ![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
 
-### Quality KIT
+## Quality KIT
 
 ## Vision & Mission
 
