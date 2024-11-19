@@ -480,14 +480,14 @@ differences are the changed typization. `proxyPath` parameter should be set `"tr
 ### Usage Policies
 
 For Digital Twin Registries, Data Providers are encouraged to only extend Data Offers that make no explicit checks to
-use-case frameworks (formerly known as `FrameworkAgreements`. The DTR is an Enablement Service that should only be
+use-case frameworks (formerly known as `FrameworkAgreement`s). The DTR is an Enablement Service that should only be
 visible once to every Data Consumer in the DSP-Catalog because it is a meta-data broker for data from multiple
 use-cases. Registering it with a Constraint that's specific to a particular use-case would restrict it only to a small
 subset of the dataspace. Of course, the DTR could be registered once per use-case but that's not recommended as it
 bloats the catalog and requires a lot of consumer-side processing. That's why Offers for a DTR should always
 be extended to the dataspace using the at least two Constraints:
 
-1. Check for an active `Membership` credential. This is agnostic to use-cases but still ensures that a Consumer's VP
+1. Check for an active `DataExchangeGovernanceCredential` credential. This is agnostic to use-cases but still ensures that a Consumer's VP
    is valid and issued by a common trust-anchor.
 2. using the DTR as a roadsign in the discovery process is legitimate but requires a set of predefined behavior which
    is why there's a `purpose` for the DTR.
@@ -497,10 +497,7 @@ Here's an example
 ````json
 {
   "@context": [
-    "https://www.w3.org/ns/odrl.jsonld",
-    {
-      "cx-policy": "https://w3id.org/catenax/policy/"
-    }
+    "https://www.w3.org/ns/odrl.jsonld"
   ],
   "@type": "Policy",
   "permission": [
@@ -509,9 +506,9 @@ Here's an example
       "constraint": {
         "and": [
           {
-            "leftOperand": "cx-policy:Membership",
+            "leftOperand": "https://w3id.org/catenax/policy/Framework",
             "operator": "eq",
-            "rightOperand": "active"
+            "rightOperand": "DataExchangeGovernance:1.0"
           },
           {
             "leftOperand": "cx-policy:UsagePurpose",
