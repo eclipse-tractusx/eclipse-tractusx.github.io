@@ -5,11 +5,25 @@ description: 'Supply Chain Disruption Notifications'
 sidebar_position: 1
 ---
 
-![Supply Chain Disruption Notifications kit banner](/img/kit-icons/scdn-kit-icon.svg)
+![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-icon.drawio.svg)
 
 ### Supply Chain Disruption Notifications
 
 All notable changes to this Kit will be documented in this file.
+
+## [1.0.1] - 2024-11-18
+
+### Added
+
+- ./.
+
+### Changed
+
+- New kit-icon and gallery banner
+
+### Removed
+
+- ./.
 
 ## [1.0.0] - 2024-08-01
 

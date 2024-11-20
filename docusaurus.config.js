@@ -488,7 +488,7 @@ const config = {
               },
               {
                 to: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
-                label: 'Supply Chain Disruption Notifications KIT',
+                label: 'Supply Chain Disruption Notifications',
               },
               {
                 to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
