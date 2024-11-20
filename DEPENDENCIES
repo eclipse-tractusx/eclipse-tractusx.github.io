@@ -144,7 +144,7 @@ npm/npmjs/-/cose-base/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/cosmiconfig/6.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/cosmiconfig/7.1.0, MIT, approved, #4975
 npm/npmjs/-/cross-fetch/3.1.5, MIT, approved, clearlydefined
-npm/npmjs/-/cross-spawn/7.0.3, MIT, approved, clearlydefined
+npm/npmjs/-/cross-spawn/7.0.3, MIT, approved, #17146
 npm/npmjs/-/crypto-js/4.1.1, MIT AND BSD-2-Clause, approved, #6630
 npm/npmjs/-/crypto-random-string/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/css-declaration-sorter/6.3.1, ISC, approved, clearlydefined
