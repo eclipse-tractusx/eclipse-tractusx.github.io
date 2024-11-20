@@ -510,7 +510,7 @@ Here's an example
             "rightOperand": "DataExchangeGovernance:1.0"
           },
           {
-            "leftOperand": "cx-policy:UsagePurpose",
+            "leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
             "operator": "eq",
             "rightOperand": "cx.core.digitalTwinRegistry:1"
           }
