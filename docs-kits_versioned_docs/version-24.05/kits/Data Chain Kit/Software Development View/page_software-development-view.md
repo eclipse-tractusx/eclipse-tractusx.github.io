@@ -4,7 +4,7 @@ title: Specification
 sidebar_position: 2
 ---
 
-![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+![Datachain kit banner](@site/static/img/kits/data-chain/DataChainKitIcon.png)
 
 ### Data Chain KIT
 
