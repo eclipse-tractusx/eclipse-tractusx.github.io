@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2024-11-06T00:00:00.000Z</updated>
+    <updated>2024-11-18T11:05:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Tractus-X Release 25.03 Planning Recap]]></title>
+        <id>open-planning-recap-R25.03</id>
+        <link href="https://eclipse-tractusx.github.io/blog/open-planning-recap-R25.03"/>
+        <updated>2024-11-18T11:05:00.000Z</updated>
+        <summary type="html"><![CDATA[Tractus-X Community Update - Eclipse Tractus-X Release 25.03 Planning Recap]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="eclipse tractus x logo" src="/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></p><p>Hello, Eclipse Tractus-X Community!</p><p>As we approach the release of Eclipse Tractus-X 25.03, our community has actively engaged in a series of collaborative events to refine and plan the upcoming features.
+Here’s a summary of the key activities:</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="refinement-day-1-october-16-2024">Refinement Day 1 (October 16, 2024)<a class="hash-link" href="#refinement-day-1-october-16-2024" title="Direct link to heading">​</a></h2><p>Our community gathered to initiate the refinement process for Release 25.03. Unlike previous meetings, this session was hands-on, focusing on refining features and identifying
+dependencies. Participants worked in dedicated groups, laying the groundwork for the upcoming release.</p><ul><li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A25.03+" target="_blank" rel="noopener noreferrer">Timeline</a></li><li><a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03" target="_blank" rel="noopener noreferrer">News Blog</a></li><li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/R25.03_SLIDES_REFINEMENTDAY_ONE.pdf" target="_blank" rel="noopener noreferrer">Refinement Day 1 - Slides</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="refinement-day-2-november-6-2024">Refinement Day 2 (November 6, 2024)<a class="hash-link" href="#refinement-day-2-november-6-2024" title="Direct link to heading">​</a></h2><p>Building upon the progress from Refinement Day 1, this session concentrated on resolving identified dependencies. The collaborative efforts ensured that features were well-prepared
+for the final planning stages.</p><ul><li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A25.03+" target="_blank" rel="noopener noreferrer">Timeline</a></li><li><a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03" target="_blank" rel="noopener noreferrer">News Blog</a></li><li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/R25.03_SLIDES_REFINEMENTDAY_TWO.pdf" target="_blank" rel="noopener noreferrer">Refinement Day 2 - Slides</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-planning-days-november-13-14-2024">Release Planning Days (November 13-14, 2024)<a class="hash-link" href="#release-planning-days-november-13-14-2024" title="Direct link to heading">​</a></h2><p>These days marked the culmination of our planning efforts. The community aligned and confirmed the features for Release 25.03, ensuring a cohesive and well-structured release plan.</p><ul><li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A25.03+" target="_blank" rel="noopener noreferrer">Timeline</a></li><li><a href="https://eclipse-tractusx.github.io/blog/open-planning-R25.03" target="_blank" rel="noopener noreferrer">News Blog</a></li><li><a href="https://eclipse-tractusx.github.io/blog/open-planning-R25.03#agenda" target="_blank" rel="noopener noreferrer">Detailed Agenda</a></li><li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/39?filterQuery=label%3A%22Prep-R25.03%22+-status%3ADone+milestone%3A%2225.03%22++has%3Asupported-by" target="_blank" rel="noopener noreferrer">Final committed Features (66)</a></li><li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/R25.03_SLIDES_RELEASE_PLANNING.pdf" target="_blank" rel="noopener noreferrer">Release Planning - Slides</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="next-steps">Next Steps<a class="hash-link" href="#next-steps" title="Direct link to heading">​</a></h2><p>With the planning phase concluded, the focus shifts to development and implementation. Contributors are encouraged to monitor the <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/39" target="_blank" rel="noopener noreferrer">Release Planning Board</a> for updates and to
+participate actively in the development process.</p><p>Thank you very much for your active participation and dedication to shaping the future of Eclipse Tractus-X. 🚀</p>]]></content>
+        <author>
+            <name>Stephan Bauer</name>
+            <email>stephan.bauer@catena-x.net</email>
+            <uri>https://github.com/stephanbcbauer</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tractus-X EDC Bugfix Release 0.7.7]]></title>
         <id>new-bugfix-release-edc-077</id>
