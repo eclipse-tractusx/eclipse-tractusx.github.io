@@ -7,7 +7,7 @@ sidebar_position: 3
 ---
 <!-- # Architecture documentation (arc42) -->
 
-![Datachain kit banner](@site/static/img/DataChainKitIcon.png)
+![Datachain kit banner](@site/static/img/kits/data-chain/DataChainKitIcon.png)
 
 ### Data Chain KIT
 
