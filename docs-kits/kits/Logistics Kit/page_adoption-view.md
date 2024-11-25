@@ -107,7 +107,7 @@ The aspect provides the information of the packed goods inside of a Transport Un
 
 Aspect Model in GitHub:
 
-- Version 1.0.0: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttlhttps://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0>
+- [Version 1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl)
 
 #### Example: Aspect Model `Packing List` for Transport Unit
 
