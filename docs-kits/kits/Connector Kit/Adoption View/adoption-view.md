@@ -219,7 +219,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [BPDM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Business%20Partner%20Kit/Adoption%20View
 
-[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/DCM-Kit/adoption-view
+[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/overview
 
 [PURIS-url]: https://github.com/eclipse-tractusx/puris
 
