@@ -1,5 +1,10 @@
 export const newsTitles = [
   {
+    date: "18.11.2024",
+    title: "Eclipse Tractus-X Release 25.03 Planning Recap",
+    blogLink: "/blog/open-planning-recap-R25.03"
+  },
+  {
     date: "13.11.2024",
     title: "Open Planning for Release 25.03",
     blogLink: "/blog/open-planning-R25.03"
@@ -18,10 +23,5 @@ export const newsTitles = [
     date: "05.12.2024",
     title: "Third Eclipse Tractus-X Community Days",
     blogLink: "/blog/community-days-12-2024"
-  },
-  {
-    date: "28.05.2024",
-    title: "Tractus-X 24.05 is available now",
-    blogLink: "/blog/new-release-2405"
   },
 ]
