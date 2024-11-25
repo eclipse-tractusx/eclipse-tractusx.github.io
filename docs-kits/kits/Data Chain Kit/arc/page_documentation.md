@@ -5,7 +5,7 @@ description: 'Data Chain Kit'
 sidebar_position: 3
 ---
 
-![Datachain kit banner](@site/static/img/doc-datachain_header-minified.png)
+![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.drawio.svg)
 
 ## INCLUDE
 
