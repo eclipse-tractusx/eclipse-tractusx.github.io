@@ -36,7 +36,7 @@ import Maas_Kit from "@site/static/img/MaaSKIT.png";
 import PURIS_Kit from '@site/static/img/PURISKIT.png';
 import Industry_Kit from "@site/static/img/Industry_Kit.png";
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.png";
-import Logistics_Kit from "@site/static/img/logistics/logistics-gallery.drawio.svg";
+import Logistics_Kit from "@site/static/img/kits/logistics/logistics-gallery.drawio.svg";C
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
