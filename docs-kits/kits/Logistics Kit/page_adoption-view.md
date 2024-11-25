@@ -141,7 +141,7 @@ The aspect provides the information of shipping data.
 
 Aspect Model in GitHub:
 
-- Version 1.0.0: <>
+- Version 1.0.0:
 
 #### Example: Aspect Model `Shipment Data` for Transport
 
