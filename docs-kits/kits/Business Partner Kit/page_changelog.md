@@ -11,7 +11,9 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [7.0.0] - Unreleased
+## [7.0.0] - 2024-12-01
+
+Compatible for **release 24.12**.
 
 ### Added
 
