@@ -241,22 +241,17 @@ const sidebars = {
                         {
                             type: "link",
                             label: "Gate API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-gate-V6.1.0/swagger-ui/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/gate/'
                         },
                         {
                             type: "link",
                             label: "Pool API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-pool-V6.1.0/swagger-ui/'
-                        },
-                        {
-                            type: "link",
-                            label: "Cleaning Dummy API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-cleaning-dummy-V6.1.0/swagger-ui/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/pool/'
                         },
                         {
                             type: "link",
                             label: "Orchestrator API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit_business-partner-kit-orchestrator-V6.1.0/swagger-ui/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/orchestrator/'
                         },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
