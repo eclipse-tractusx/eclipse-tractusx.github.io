@@ -22,107 +22,61 @@ Alice, as a data consumer, wants to consume data from Bob. Bob, as a data provid
 Action (Bob): Create this asset using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v3/assets' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST2' \
+
+curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST2' \
 --data-raw '{
-    "@context": {},
-    "@type": "Asset",
-    "@id": "3",
-    "properties": {
-        "description": "Product EDC Demo Asset 3"
-    },
-    "dataAddress": {
-        "@type": "DataAddress",
-        "type": "HttpData",
-        "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
-    }
-}' | jq
+  "@context": {},
+  "@id": "200",
+  "properties": {
+    "description": "Product EDC Demo Asset"
+  },
+  "dataAddress": {
+    "@type": "DataAddress",
+    "type": "HttpData",
+    "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
+  }
+}'| jq
 ```
 
-Just to be sure, that the asset was created succesfully, Bob can check the asset using the following `curl` command:
+Just to be sure, that the asset was created succesfully, Bob can check the asset using the following `curl` commands:
 
 ```shell
-curl -X POST http://dataprovider-controlplane.tx.test/management/v2/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
+
+curl -L -X GET 'http://dataprovider-controlplane.tx.test/management/v3/assets/200' \
+-H 'X-Api-Key: TEST2' | jq
+
+//or the whole catalog
+
+curl -L -X POST http://dataprovider-controlplane.tx.test/management/v3/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
 ```
 
-The result shows the already existing assets and the newly created asset.
+The result for the first command shows just the newly created asset.
 
 ```json
-[
-  {
-    "@id": "registry-asset",
-    "@type": "edc:Asset",
-    "edc:properties": {
-      "edc:type": "data.core.digitalTwinRegistry",
-      "edc:description": "Digital Twin Registry Endpoint of IRS DEV",
-      "edc:id": "registry-asset"
-    },
-    "edc:dataAddress": {
-      "@type": "edc:DataAddress",
-      "edc:proxyPath": "true",
-      "edc:type": "HttpData",
-      "edc:proxyMethod": "true",
-      "edc:proxyQueryParams": "true",
-      "edc:proxyBody": "true",
-      "edc:baseUrl": "http://umbrella-dataprovider-dtr:8080/api/v3.0"
-    },
-    "@context": {
-      "dct": "http://purl.org/dc/terms/",
-      "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
-      "edc": "https://w3id.org/edc/v0.0.1/ns/",
-      "dcat": "https://www.w3.org/ns/dcat/",
-      "odrl": "http://www.w3.org/ns/odrl/2/",
-      "dspace": "https://w3id.org/dspace/v0.8/"
-    }
+{
+  "@id": "200",
+  "@type": "Asset",
+  "properties": {
+    "description": "Product EDC Demo Asset",
+    "id": "200"
   },
-  {
-    "@id": "urn:uuid:dc641d45-95e7-4284-a472-43f30255d0cb",
-    "@type": "edc:Asset",
-    "edc:properties": {
-      "edc:description": "IRS EDC Test Asset",
-      "edc:id": "urn:uuid:dc641d45-95e7-4284-a472-43f30255d0cb"
-    },
-    "edc:dataAddress": {
-      "@type": "edc:DataAddress",
-      "edc:proxyPath": "true",
-      "edc:type": "HttpData",
-      "edc:proxyMethod": "false",
-      "edc:proxyQueryParams": "false",
-      "edc:proxyBody": "false",
-      "edc:baseUrl": "http://umbrella-dataprovider-submodelserver:8080"
-    },
-    "@context": {
-      "dct": "http://purl.org/dc/terms/",
-      "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
-      "edc": "https://w3id.org/edc/v0.0.1/ns/",
-      "dcat": "https://www.w3.org/ns/dcat/",
-      "odrl": "http://www.w3.org/ns/odrl/2/",
-      "dspace": "https://w3id.org/dspace/v0.8/"
-    }
+  "dataAddress": {
+    "@type": "DataAddress",
+    "type": "HttpData",
+    "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
   },
-  {
-    "@id": "3",
-    "@type": "edc:Asset",
-    "edc:properties": {
-      "edc:description": "Product EDC Demo Asset 3",
-      "edc:id": "3"
-    },
-    "edc:dataAddress": {
-      "@type": "edc:DataAddress",
-      "edc:type": "HttpData",
-      "edc:baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
-    },
-    "@context": {
-      "dct": "http://purl.org/dc/terms/",
-      "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
-      "edc": "https://w3id.org/edc/v0.0.1/ns/",
-      "dcat": "https://www.w3.org/ns/dcat/",
-      "odrl": "http://www.w3.org/ns/odrl/2/",
-      "dspace": "https://w3id.org/dspace/v0.8/"
-    }
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
-]
+}
+
 ```
 
 ## Request catalog
@@ -132,21 +86,28 @@ Bob tells Alice, that he created an asset, and she should now be able to request
 Action (Alice): Execute a request using the following `curl` commands:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
-    "@context": {},
-    "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-    "querySpec": {
-        "offset": 0,
-        "limit": 100
-    }
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "CatalogRequest",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+  "counterPartyId": "BPNL00000003AYRE",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "offset": 0,
+    "limit": 50
+  }
 }' | jq
+
+
 ```
 
-The requested catalog looks like this:
+The requested catalog might look like this but the content may differ:
 
 ```json
 {
@@ -263,10 +224,10 @@ The requested catalog looks like this:
 
 ## Create first access policy
 
-Let´s see if Alice can see the Asset (ID: 3).
+Let´s see if Alice can see the Asset (ID: 200).
 
 :::info
-As you can see in the response, the data offer "Product EDC Demo Asset 3" (asset ID: 3) does not appear. Unfortunately, Alice sees some contract offers but she cannot find the contract offer from Bob.
+As you can see in the response, the data offer "Product EDC Demo Asset" (asset ID: 200) does not appear. Unfortunately, Alice sees some contract offers but she cannot find the contract offer from Bob.
 :::
 
 Alice calls Bob and says she can´t see the asset. Bob remembers that he did not create an access policy. An access policy defines who is allowed to see a data offering.
@@ -274,17 +235,38 @@ Alice calls Bob and says she can´t see the asset. Bob remembers that he did not
 Action (Bob): Create the access policy using the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST2' \
+
+curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST2' \
 --data-raw '{
   "@context": {
     "odrl": "http://www.w3.org/ns/odrl/2/"
   },
   "@type": "PolicyDefinitionRequestDto",
-  "@id": "3-1",
+  "@id": "200",
   "policy": {
-    "@type": "Policy"
+    "@type": "odrl:Set",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE",
+        "odrl:constraint": {
+          "@type": "LogicalConstraint",
+          "odrl:or": [
+            {
+              "@type": "Constraint",
+              "odrl:leftOperand": {
+                "@id": "BusinessPartnerNumber"
+              },
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "BPNL00000003AZQP"
+            }
+          ]
+        }
+      }
+    ]
   }
 }' | jq
 ```
@@ -292,19 +274,21 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policyde
 The policy was successfully created, if the response is something like this
 
 ```json
+
 {
-  "@type": "edc:IdResponse",
-  "@id": "3-1",
-  "edc:createdAt": 1715627034106,
+  "@type": "IdResponse",
+  "@id": "200",
+  "createdAt": 1732640748595,
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
+
 ```
 
 ## Request catalog - second try
@@ -314,18 +298,24 @@ Now that Bob created an access policy, Alice can once again try to access Bob's 
 Action (Alice): Execute the request again using the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
-    "@context": {},
-    "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-    "querySpec": {
-        "offset": 0,
-        "limit": 100
-    }
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "CatalogRequest",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+  "counterPartyId": "BPNL00000003AYRE",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "offset": 0,
+    "limit": 50
+  }
 }' | jq
+
 ```
 
 ## Create first contract definition
@@ -347,61 +337,78 @@ Contract definitions state how assets and policies are linked together. Contract
 
 Find additional information on transferring data in the [Developer's Handbook](https://github.com/eclipse-edc/docs/blob/main/developer/handbook.md).
 
-Since an access policy has already been created, a contract policy must be created and linked in a contract definition.
+An access policy has already been created and it can also be used as a contract policy.
 
-Action (BoB): Create the contract policy using the following `curl` command:
+Let's check if the policy is created correctly:
+
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST2' \
---data-raw '{
-  "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
-  },
-  "@type": "PolicyDefinitionRequestDto",
-  "@id": "3-2",
-  "policy": {
-    "@type": "Policy"
-  }
-}' | jq
+curl -L -X GET 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions/200' \
+-H 'X-Api-Key: TEST2' | jq
+
 ```
 
-And again the policy was successfully created
+The policy with ID: 200 was successfully created, if the response is something like this
 
 ```json
+
 {
-  "@type": "edc:IdResponse",
-  "@id": "3-2",
-  "edc:createdAt": 1715627218849,
+  "@id": "200",
+  "@type": "PolicyDefinition",
+  "createdAt": 1732640748595,
+  "policy": {
+    "@id": "d7f2161b-1670-4461-ab36-e5aeefcab2e9",
+    "@type": "odrl:Set",
+    "odrl:permission": {
+      "odrl:action": {
+        "@id": "USE"
+      },
+      "odrl:constraint": {
+        "odrl:or": {
+          "odrl:leftOperand": {
+            "@id": "BusinessPartnerNumber"
+          },
+          "odrl:operator": {
+            "@id": "odrl:eq"
+          },
+          "odrl:rightOperand": "BPNL00000003AZQP"
+        }
+      }
+    },
+    "odrl:prohibition": [],
+    "odrl:obligation": []
+  },
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
+
 ```
+
 
 Action (Bob): Create a contract definition including the asset and the policies you have created. For this, use the following `curl` command:
 
 ```shell
-curl --location 'http://dataprovider-controlplane.tx.test/management/v2/contractdefinitions' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST2' \
+
+curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v2/contractdefinitions' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST2' \
 --data-raw '{
   "@context": {},
-  "@id": "3",
+  "@id": "200",
   "@type": "ContractDefinition",
-  "accessPolicyId": "3-1",
-  "contractPolicyId": "3-2",
+  "accessPolicyId": "200",
+  "contractPolicyId": "200",
   "assetsSelector": {
     "@type": "CriterionDto",
     "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
     "operator": "=",
-    "operandRight": "3"
+    "operandRight": "200"
   }
 }' | jq
 ```
@@ -409,19 +416,21 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v2/contract
 As a check, the result should look like this:
 
 ```json
+
 {
-  "@type": "edc:IdResponse",
-  "@id": "3",
-  "edc:createdAt": 1715627302307,
+  "@type": "IdResponse",
+  "@id": "200",
+  "createdAt": 1732698850793,
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
+
 ```
 
 ## Request catalog - third try
@@ -430,53 +439,175 @@ Let´s see if Alice can finally see the Asset.
 Action (Alice): Execute the request again using the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
-    "@context": {},
-    "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-    "querySpec": {
-        "offset": 0,
-        "limit": 100
-    }
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "CatalogRequest",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+  "counterPartyId": "BPNL00000003AYRE",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "offset": 0,
+    "limit": 50
+  }
 }' | jq
 ```
 
 In the response an additional entry should appear:
 
 ```json
+
+
 {
-      "@id": "3",
+  "@id": "a8bef433-83ac-4fe0-a2c1-3f988dc187d4",
+  "@type": "dcat:Catalog",
+  "dspace:participantId": "BPNL00000003AYRE",
+  "dcat:dataset": [
+      {
+      "@id": "200",
       "@type": "dcat:Dataset",
-      "odrl:hasPolicy": {
-        "@id": "Mw==:Mw==:ZDA5YzE2ZWYtMzkyZC00ODExLWE5NjEtN2U4ZjRhMTU3ZGRh",
-        "@type": "odrl:Set",
-        "odrl:permission": [],
-        "odrl:prohibition": [],
-        "odrl:obligation": [],
-        "odrl:target": "3"
-      },
+      "odrl:hasPolicy": [
+        {
+          "@id": "MjAw:MjAw:ODliYzY2OWItYjkyYS00NmU2LWEzYjktNzI1MjdjM2U3MTY0",
+          "@type": "odrl:Offer",
+          "odrl:permission": {
+            "odrl:action": {
+              "@id": "USE"
+            },
+            "odrl:constraint": {
+              "odrl:or": {
+                "odrl:leftOperand": {
+                  "@id": "BusinessPartnerNumber"
+                },
+                "odrl:operator": {
+                  "@id": "odrl:eq"
+                },
+                "odrl:rightOperand": "BPNL00000003AZQP"
+              }
+            }
+          },
+          "odrl:prohibition": [],
+          "odrl:obligation": []
+        }
+        
+      ],
       "dcat:distribution": [
         {
           "@type": "dcat:Distribution",
           "dct:format": {
-            "@id": "HttpProxy"
+            "@id": "AzureStorage-PUSH"
           },
-          "dcat:accessService": "49a693e0-835d-457a-99b4-e781f2bd643d"
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
         },
         {
           "@type": "dcat:Distribution",
           "dct:format": {
-            "@id": "AmazonS3"
+            "@id": "HttpData-PULL"
           },
-          "dcat:accessService": "49a693e0-835d-457a-99b4-e781f2bd643d"
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:format": {
+            "@id": "HttpData-PUSH"
+          },
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:format": {
+            "@id": "AmazonS3-PULL"
+          },
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:format": {
+            "@id": "AmazonS3-PUSH"
+          },
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:format": {
+            "@id": "AzureStorage-PULL"
+          },
+          "dcat:accessService": {
+            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+            "dct:terms": "dspace:connector",
+            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+          }
         }
       ],
-      "edc:description": "Product EDC Demo Asset 3",
-      "edc:id": "3"
+      "description": "Product EDC Demo Asset",
+      "id": "200"
     }
+  ],
+  "dcat:service": {
+    "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+    "@type": "dcat:DataService",
+    "dcat:endpointDescription": "dspace:connector",
+    "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "dct:terms": "dspace:connector",
+    "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+  },
+  "participantId": "BPNL00000003AYRE",
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "dspace": "https://w3id.org/dspace/v0.8/"
+  }
+}
+
 ```
 
 :::info
@@ -488,6 +619,7 @@ Finally Alice can see the Contract Offer from Bob. Congratulations on yor first 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 ARENA2036 e.V.
 - SPDX-FileCopyrightText: 2023 sovity GmbH
 - SPDX-FileCopyrightText: 2023 SAP SE
 - SPDX-FileCopyrightText: 2023 msg systems AG
