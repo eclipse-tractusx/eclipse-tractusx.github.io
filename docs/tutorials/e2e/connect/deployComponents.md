@@ -38,43 +38,6 @@ This chapter aligns with the README for the Tractus-X umbrella charts following 
 
 :::
 
-:::warning
-If you are [not] the only user on your system working with the turorial, means you are working in a multi-user environment, please ensure, that you understand your impact on other minikube profiles of other users and Umbralla namespaces. Please check, if other user are working on the same system by checking the existance of other minikube profiles with the command:
-
-```bash
-minikube profile list
-```
-
-Please ensure you are explicitly defining the profile with the `-f` parameter and [never] using options like **--all**. To avoid disturbing other we use the environment variable [$USER] any time we specify a name for a minikube profile of an Umbrella namespace.
-
-So if your minikube cluster will not be the only one running in your system, please
-
-- use specific names for your cluster profile and namespaces for helm​
-  - Proposed name for the cluster profile: **minikube-$USER**
-  - Proposed name for the umbrella namespace: **umbrella-$USER** ​
-
-- Ensure you are using the option `-p`, everytime you calling minikube ​
-
-```bash
-minikube –p minikube-$USER <command> <options>  ​
-```
-
-Ensure you are using the option **–n**, every time you calling helm​
-
-```bash
-helm <command> <options> –n umbrella-$USER
-```
-
-Before you enable ingress enter:​
-
-```bash
-minikube profile minikube-$USER​
-```
-
-This will ensure that ingress is working in the correct environment of your cluster profile.
-
-:::
-
 ### Overview
 
 Perform the following steps to begin deploying the TXD:
@@ -93,7 +56,7 @@ For the most bare-bones installation of the dataspace, execute the following com
 
 ```bash
 # get the tutorial including the config file for the cluster by cloning the repository locally
-git clone [https://github.com/eclipse-tractusx/tractus-x-umbrella.git](https://github.com/eclipse-tractusx/tractus-x-umbrella.git")
+git clone https://github.com/eclipse-tractusx/tractus-x-umbrella.git
 ```
 
 Now we will find the directory [tractus-x-umbrella] under your current working directory. Change into this directory:
@@ -107,22 +70,14 @@ cd tractus-x-umbrella
 To start the cluster we just call **minikube start**. If we have more than one instance, we use -p option to set the profile name minikube-$USER. We use the other options to request the appropiate resources.
 
 ```bash
-minikube start [-p minikube-$USER] --cpus=4 --memory 6gb
+minikube start --cpus=4 --memory 6gb
 # Start the cluster, if -p option is used with the profile name minikube-$USER
-```
-
-We now switch the context to minikube profile. This is required to ensure Ingress gets the correct data of the cluster. But it is not needed, if you run only one minikube cluster on your system.
-
-```bash
-minikube profile minikube-$USER
-# Switch the context to minikube profile
 ```
 
 You can check your minikube cluster any time by starting the Minikube dashboard:
 
 ```bash
-minikube [-p minikube-$USER] dashboard
-# if -p option is used, with the profile name minikube-$USER
+minikube dashboard
 ```
 
 ### Setting up the local internal netwok
@@ -130,8 +85,7 @@ minikube [-p minikube-$USER] dashboard
 In order to enable the local access via ingress, use the according addon for Minikube:
 
 ```bash
-minikube [-p minikube-$USER] addons enable ingress
-# if -p option is used, with the profile name minikube-$USER
+minikube addons enable ingress
 ```
 
 Now add these hostnames to your /etc/hosts. You should ensure that you have access and the /etc/hosts file group entry should be assigend to the group **docker**. Check this with the following commands:
@@ -150,15 +104,13 @@ Alternatively configure the DNS Service to be enabled for Ingress.
 :::
 
 ```bash
-minikube [-p minikube-$USER] addons enable ingress-dns
-# if -p option is used, with the profile name minikube-$USER
+minikube addons enable ingress-dns
 ```
 
 Find out the IP  Address of your minikube cluster by entering:
 
 ```bash
-minikube [-p minikube-$USER] ip
-# if -p option is used, with the profile name minikube-$USER
+minikube ip
 ```
 
 In the following steps, replace `192.168.49.2` with your `minikube ip` if it differs.
@@ -168,7 +120,7 @@ In the following steps, replace `192.168.49.2` with your `minikube ip` if it dif
 Create a file in /etc/resolver/minikube-test with the following contents.
 
 ```properties
-domain arena.test
+domain tx.test
 nameserver 192.168.49.2
 search_order 1
 timeout 5
@@ -177,18 +129,25 @@ timeout 5
 If you still face DNS issues, add the hosts to your /etc/hosts file:
 
 ```properties
-192.168.49.2    centralidp.arena.test
-192.168.49.2    sharedidp.arena.test
-192.168.49.2    portal.arena.test
-192.168.49.2    portal-backend.arena.test
-192.168.49.2    managed-identity-wallets.arena.test
-192.168.49.2    semantics.arena.test
-192.168.49.2    sdfactory.arena.test
-192.168.49.2    dataconsumer-1-dataplane.arena.test
-192.168.49.2    dataconsumer-1-controlplane.arena.test
-192.168.49.2    dataprovider-dataplane.arena.test
-192.168.49.2    dataconsumer-2-dataplane.arena.test
-192.168.49.2    dataconsumer-2-controlplane.arena.test
+192.168.49.2    centralidp.tx.test
+192.168.49.2    sharedidp.tx.test
+192.168.49.2    portal.tx.test
+192.168.49.2    portal-backend.tx.test
+192.168.49.2    semantics.tx.test
+192.168.49.2    sdfactory.tx.test
+192.168.49.2    ssi-credential-issuer.tx.test
+192.168.49.2    dataconsumer-1-dataplane.tx.test
+192.168.49.2    dataconsumer-1-controlplane.tx.test
+192.168.49.2    dataprovider-dataplane.tx.test
+192.168.49.2    dataprovider-controlplane.tx.test
+192.168.49.2    dataconsumer-2-dataplane.tx.test
+192.168.49.2    dataconsumer-2-controlplane.tx.test
+192.168.49.2    bdrs-server.tx.test
+192.168.49.2    iatpmock.tx.test
+192.168.49.2    business-partners.tx.test
+192.168.49.2    pgadmin4.tx.test
+192.168.49.2    ssi-dim-wallet-stub.tx.test
+192.168.49.2    dataprovider-submodelserver.tx.test
 ```
 
 Additional network setup for Mac:
@@ -202,51 +161,25 @@ We also recommend to execute the usage example after install to check proper set
 For Windows edit the hosts file under `C:\Windows\System32\drivers\etc\hosts`:
 
 ```properties
-192.168.49.2    centralidp.arena.test
-192.168.49.2    sharedidp.arena.test
-192.168.49.2    portal.arena.test
-192.168.49.2    portal-backend.arena.test
-192.168.49.2    managed-identity-wallets.arena.test
-192.168.49.2    semantics.arena.test
-192.168.49.2    sdfactory.arena.test
-192.168.49.2    dataconsumer-1-dataplane.arena.test
-192.168.49.2    dataconsumer-1-controlplane.arena.test
-192.168.49.2    dataprovider-dataplane.arena.test
-192.168.49.2    dataconsumer-2-dataplane.arena.test
-192.168.49.2    dataconsumer-2-controlplane.arena.test
-```
-
-#### Adjusting the Config files for multi user usage
-
-In case we have to modify the values within the configuartion files as we run in a multi use environment, we need to adjust the domians names within the configuration files. A simple way is to update the file by using **sed** as line editor.
-
-```bash
-# adjust values.yaml
-#
-DOMAIN_NAME="$USER.test"
-CONFIG_FILE="alues-adopter-data-exchange.yaml"
-cp values.yaml values.yaml.orig
-cat values.yaml.orig | sed s/tx.test/$DOMAIN_NAME/ > values.yaml
-echo "file values.yaml updated with actual dommainame $DOMAIN_NAME"
-cp $CONFIG_FILE $CONFIG_FILE.orig
-cat $CONFIG_FILE.orig | sed s/tx.test/$DOMAIN_NAME/ > $CONFIG_FILE
-echo "file $CONFIG_FILE updated with actual dommainame $DOMAIN_NAME"
-# Adjust further files: concept/seeds-overall-data.md, init-container/iam/centralidp/CX-Central-realm.json, init
--container/iam/sharedidp/CX-operator-realm.json. init-container/iam/sharedidp/CX-operator-users-0.json
-#
-cd ../..
-echo "Modifing file concept/seeds-overall-data.md, ..."
-cp concept/seeds-overall-data.md concept/seeds-overall-data.md.orig
-cat concept/seeds-overall-data.md.orig | sed s/tx.test/$DOMAIN_NAME/ > concept/seeds-overall-data.md
-echo "Modifing file  init-container/iam/centralidp/CX-Central-realm.json ..."
-cp init-container/iam/centralidp/CX-Central-realm.json init-container/iam/centralidp/CX-Central-realm.json.orig
-cat init-container/iam/centralidp/CX-Central-realm.json.orig | sed s/tx.test/$DOMAIN_NAME/ > init-container/iam/centralidp/CX-Central-realm.json
-echo "Modifing file init-container/iam/sharedidp/CX-operator-realm.json ..."
-cp init-container/iam/sharedidp/CX-Operator-realm.json init-container/iam/sharedidp/CX-Operator-realm.json.orig
-cat init-container/iam/sharedidp/CX-Operator-realm.json.orig | sed s/tx.test/$DOMAIN_NAME/ > init-container/iam/sharedidp/CX-Operator-realm.json
-echo "Modifing file init-container/iam/sharedidp/CX-operator-realm.json ..."
-cp init-container/iam/sharedidp/CX-Operator-users-0.json init-container/iam/sharedidp/CX-Operator-users-0.json.orig
-cat init-container/iam/sharedidp/CX-Operator-users-0.json.orig | sed s/tx.test/$DOMAIN_NAME/ > init-container/iam/sharedidp/CX-Operator-users-0.json
+192.168.49.2    centralidp.tx.test
+192.168.49.2    sharedidp.tx.test
+192.168.49.2    portal.tx.test
+192.168.49.2    portal-backend.tx.test
+192.168.49.2    semantics.tx.test
+192.168.49.2    sdfactory.tx.test
+192.168.49.2    ssi-credential-issuer.tx.test
+192.168.49.2    dataconsumer-1-dataplane.tx.test
+192.168.49.2    dataconsumer-1-controlplane.tx.test
+192.168.49.2    dataprovider-dataplane.tx.test
+192.168.49.2    dataprovider-controlplane.tx.test
+192.168.49.2    dataconsumer-2-dataplane.tx.test
+192.168.49.2    dataconsumer-2-controlplane.tx.test
+192.168.49.2    bdrs-server.tx.test
+192.168.49.2    iatpmock.tx.test
+192.168.49.2    business-partners.tx.test
+192.168.49.2    pgadmin4.tx.test
+192.168.49.2    ssi-dim-wallet-stub.tx.test
+192.168.49.2    dataprovider-submodelserver.tx.test
 ```
 
 ### Install Helm Charts
@@ -261,82 +194,9 @@ Those jobs will recreate pods until one run is successful.
 
 :::
 
-#### Use released chart
-
-```bash
-helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
-```
-
-##### :grey_question: Command explanation
-
-:::info
-
-`helm install` is used to install a chart in Kubernetes using Helm.
-
-- `--set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true` Enables the components by setting their respective enabled values to true.
-- `umbrella` is the release name for the chart.
-- `tractusx-dev/umbrella` specifies the chart to install, with *tractusx-dev* being the repository name and *umbrella* being the chart name.
-- `--namespace umbrella` specifies the namespace in which to install the chart.
-- `--create-namespace` create a namespace with the name `umbrella`.
-
-:::
-
-##### Option 1
-
-Install with your chosen components enabled:
-
-```bash
-helm install \
-  --set COMPONENT_1.enabled=true,COMPONENT_2.enabled=true,COMPONENT_3.enabled=true \
-  umbrella tractusx-dev/umbrella \
-  --namespace umbrella \
-  --create-namespace
-```
-
-##### Option 2
-
-Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
-
-###### Data Exchange Subset
-
-```bash
-helm install \
-  --set centralidp.enabled=true,managed-identity-wallet.enabled=true,dataconsumerOne.enabled=true,tx-data-provider.enabled=true \
-  umbrella tractusx-dev/umbrella \
-  --namespace umbrella \
-  --create-namespace
-```
-
-###### Optional
-
-Enable `dataconsumerTwo` at upgrade:
-
-```bash
-helm install \
-  --set centralidp.enabled=true,managed-identity-wallet.enabled=true,dataconsumerOne.enabled=true,tx-data-provider.enabled=true,dataconsumerTwo.enabled=true \
-  umbrella tractusx-dev/umbrella \
-  --namespace umbrella
-```
-
-###### Portal Subset
-
-```bash
-helm install \
-  --set portal.enabled=true,centralidp.enabled=true,sharedidp.enabled=true \
-  umbrella tractusx-dev/umbrella \
-  --namespace umbrella \
-  --create-namespace
-```
-
-To set your own configuration and secret values, install the helm chart with your own values file:
-
-```bash
-helm install -f your-values.yaml umbrella tractusx-dev/umbrella --namespace umbrella --create-namespace
-```
-
 #### Use local repository
 
-Make sure to clone the [tractus-x-umbrella](https://github.com/eclipse-tractusx/tractus-x-umbrella) repository beforehand.
+Make sure you cloned the [tractus-x-umbrella](https://github.com/eclipse-tractusx/tractus-x-umbrella) repository beforehand.
 
 Then navigate to the chart directory:
 
@@ -365,16 +225,6 @@ helm dependency update
 
 ##### Option 1
 
-Install your chosen components by having them enabled in a `your-values.yaml` file:
-
-```bash
-helm install -f your-values.yaml umbrella . --namespace umbrella --create-namespace
-```
-
-> In general, all your specific configuration and secret values should be set by installing with an own values file.
-
-##### Option 2
-
 Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
 
 ###### Data Exchange Subset
@@ -401,6 +251,17 @@ helm upgrade -f values-adopter-data-exchange.yaml umbrella . --namespace umbrell
 ```bash
 helm install -f values-adopter-portal.yaml umbrella . --namespace umbrella --create-namespace
 ```
+
+##### Option 2
+
+Install your chosen components by having them enabled in a `your-values.yaml` file:
+
+```bash
+helm install -f your-values.yaml umbrella . --namespace umbrella --create-namespace
+```
+
+> In general, all your specific configuration and secret values should be set by installing with an own values file.
+
 
 #### Get to know the Portal
 
@@ -445,17 +306,17 @@ tractusx-umbr3lla!
 
 The relevant hosts are the following:
 
-- <http://centralidp.arena.test/auth/>
-- <http://sharedidp.arena.test/auth/>
-- <http://portal-backend.arena.test>
-- <http://portal.arena.test>
+- <http://centralidp.tx.test/auth/>
+- <http://sharedidp.tx.test/auth/>
+- <http://portal-backend.tx.test>
+- <http://portal.tx.test>
 
 In case that you have TLS enabled (see [Self-signed TLS setup (Optional)](#self-signed-tls-setup-optional)), make sure to accept the risk of the self-signed certificates for all the hosts before performing the first login:
 
-- <https://centralidp.arena.test/auth/>
-- <https://sharedidp.arena.test/auth/>
-- <https://portal-backend.arena.test>
-- <https://portal.arena.test>
+- <https://centralidp.tx.test/auth/>
+- <https://sharedidp.tx.test/auth/>
+- <https://portal-backend.tx.test>
+- <https://portal.tx.test>
 
 ### Uninstall Helm Charts
 
@@ -475,23 +336,29 @@ If persistance for one or more components is enabled, the persistent volume clai
 
 Currently enabled ingresses:
 
-- [centralidp.arena.test/auth](http://centralidp.arena.test/auth/)
-- [sharedidp.arena.test/auth](http://sharedidp.arena.test/auth/)
-- [portal-backend.arena.test](http://portal-backend.arena.test)
-  - [portal-backend.arena.test/api/administration/swagger/index.html](http://portal-backend.arena.test/api/administration/swagger/index.html)
-  - [portal-backend.arena.test/api/registration/swagger/index.html](http://portal-backend.arena.test/api/registration/swagger/index.html)
-  - [portal-backend.arena.test/api/apps/swagger/index.html](http://portal-backend.arena.test/api/apps/swagger/index.html)
-  - [portal-backend.arena.test/api/services/swagger/index.html](http://portal-backend.arena.test/api/services/swagger/index.html)
-  - [portal-backend.arena.test/api/notification/swagger/index.html](http://portal-backend.arena.test/api/notification/swagger/index.html)
-- [portal.arena.test](http://portal.arena.test)
-- [managed-identity-wallets.arena.test/ui/swagger-ui/index.html](http://managed-identity-wallets.arena.test/ui/swagger-ui/index.html)
-- [semantics.arena.test/discoveryfinder/swagger-ui/index.html](http://semantics.arena.test/discoveryfinder/swagger-ui/index.html)
-- [dataconsumer-1-controlplane.arena.test](http://dataconsumer-1-controlplane.arena.test)
-- [dataconsumer-1-dataplane.arena.test](http://dataconsumer-1-dataplane.arena.test)
-- [dataprovider-dataplane.arena.test](http://dataprovider-dataplane.arena.test)
-- [dataconsumer-2-controlplane.arena.test](http://dataconsumer-2-controlplane.arena.test)
-- [dataconsumer-2-dataplane.arena.test](http://dataconsumer-2-dataplane.arena.test)
-- [pgadmin4.arena.test](http://pgadmin4.arena.test)
+- http://centralidp.tx.test/auth/
+- http://sharedidp.tx.test/auth/
+- http://portal-backend.tx.test
+  - http://portal-backend.tx.test/api/administration/swagger/index.html
+  - http://portal-backend.tx.test/api/registration/swagger/index.html
+  - http://portal-backend.tx.test/api/apps/swagger/index.html
+  - http://portal-backend.tx.test/api/services/swagger/index.html
+  - http://portal-backend.tx.test/api/notification/swagger/index.html
+- http://portal.tx.test
+- http://semantics.tx.test/discoveryfinder/swagger-ui/index.html
+- http://ssi-credential-issuer.tx.test/api/issuer/swagger/index.html
+- http://dataconsumer-1-controlplane.tx.test
+- http://dataconsumer-1-dataplane.tx.test
+- http://dataprovider-dataplane.tx.test
+- http://dataconsumer-2-controlplane.tx.test
+- http://dataconsumer-2-dataplane.tx.test
+- http://business-partners.tx.test/pool
+- http://business-partners.tx.test/orchestrator
+- http://bdrs-server.tx.test
+- http://iatpmock.tx.test
+- http://pgadmin4.tx.test
+- http://ssi-dim-wallet-stub.tx.test
+- http://dataprovider-submodelserver.tx.test
 
 ### Database Access
 
@@ -499,7 +366,7 @@ This chart also contains a pgadmin4 instance for easy access to the deployed Pos
 
 pgadmin4 is by default enabled with in the predefined subsets for data exchange and portal.
 
-Address: [pgadmin4.arena.test](http://pgadmin4.arena.test)
+Address: [pgadmin4.tx.test](http://pgadmin4.tx.test)
 
 Credentials to login into pgadmin4:
 
@@ -633,8 +500,8 @@ dbpassworddataconsumertwo
 
 Access to admin consoles:
 
-- [http://centralidp.arena.test/auth/](http://sharedidp.arena.test/auth/)
-- [http://sharedidp.arena.test/auth/](http://sharedidp.arena.test/auth/)
+- [http://centralidp.tx.test/auth/](http://sharedidp.tx.test/auth/)
+- [http://sharedidp.tx.test/auth/](http://sharedidp.tx.test/auth/)
 
 Default username for centralidp and sharedidp:
 
@@ -749,6 +616,7 @@ Build fuseki docker image by following the below steps:
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 ARENA2036 e.V.
 - SPDX-FileCopyrightText: 2024 sovity GmbH
 - SPDX-FileCopyrightText: 2024 SAP SE
 - SPDX-FileCopyrightText: 2024 msg systems AG
