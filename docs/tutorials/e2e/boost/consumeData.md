@@ -14,55 +14,74 @@ To see Bob's data offerings, Alice must request access to his catalog. The catal
 So Alice requests Bob's catalog using the following `curl` commands:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
-    "@context": {},
-    "protocol": "dataspace-protocol-http",
-    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-    "querySpec": {
-        "offset": 0,
-        "limit": 100
-    }
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "CatalogRequest",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+  "counterPartyId": "BPNL00000003AYRE",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "offset": 0,
+    "limit": 50
+  }
 }' | jq
 ```
 
-The response shows all available data offerings in Bob's catalog. Bob has already told Alice that he gave the Asset the ID 3, and added a simple description to make it easier for Alice to identify.
+The response shows all available data offerings in Bob's catalog. Bob has already told Alice that he gave the Asset the ID 200, and added a simple description to make it easier for Alice to identify.
 
-Alice finds the Asset with the ID 3 and the description "Product EDC Demo Asset 3" in the catalog. Now that she is sure which Asset she wants to consume, she wants to start the data transfer.
+Alice finds the Asset with the ID 200 and the description "Product EDC Demo Asset" in the catalog. Now that she is sure which Asset she wants to consume, she wants to start the data transfer.
 
 ## Negotiate a contract
 
 :::info
-Dont forget to change the `offerId`with the one you received in the previous step in your catalog request.
+Dont forget to change the `offerId`with the one you received in the previous step in your catalog request. The `offerId` could look like this:  "@id": "MjAw:MjAw:ODliYzY2OWItYjkyYS00NmU2LWEzYjktNzI1MjdjM2U3MTY0"
 :::
 
 But before she can transfer the data, she must negotiate the contract with Bob. To do this, she uses the following `curl` command:
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
- "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
- },
- "@type": "NegotiationInitiateRequestDto",
- "connectorAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
- "protocol": "dataspace-protocol-http",
- "providerId": "BPNL00000003AYRE",
- "offer": {
-    "offerId": "Mw==:Mw==:NTYzYWRkYTItNmEzMy00YTNhLWFmOTQtYjVjOWM0ZDMyODA1",
-    "assetId": "3",
-    "policy": {
-        "@type": "odrl:Set",
-        "odrl:permission": [],
-        "odrl:prohibition": [],
-        "odrl:obligation": [],
-        "odrl:target": "3"
-    }
- }
+	"@context": {
+		"@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+	},
+	"@type": "NegotiationInitiateRequestDto",
+	"counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+	"protocol": "dataspace-protocol-http",
+	"policy": {
+		"@context": "http://www.w3.org/ns/odrl.jsonld",
+		"@type": "odrl:Offer",
+    // highlight-next-line
+		"@id": "---Insert offer ID here---",
+    "assigner": "BPNL00000003AYRE",
+		"permission": {
+			"odrl:target": "200",
+			"odrl:action": {
+				"odrl:type": "USE"
+			},
+			"odrl:constraint": {
+				"odrl:or": {
+					"odrl:leftOperand": "BusinessPartnerNumber",
+					"odrl:operator": {
+						"@id": "odrl:eq"
+					},
+					"odrl:rightOperand": "BPNL00000003AZQP"
+				}
+			}
+		},
+		"prohibition": [],
+		"obligation": [],
+		"target": "200"
+	}
 }' | jq
 ```
 
@@ -70,34 +89,30 @@ The response should look like this:
 
 ```json
 {
-  "@type": "edc:IdResponse",
-  "@id": "65356596-dd7c-4ad4-8fc6-8512be6f0ec2",
-  "edc:createdAt": 1715669329095,
+  "@type": "IdResponse",
+      // highlight-next-line
+  "@id": "f42396cd-be8d-498b-b74d-8c0ead798ad5",
+  "createdAt": 1732699413292,
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
+
 ```
 
 In the response, Alice gets a UUID (attribute is `@id`). This is the ID of the created contract negotiation. Alice can now use this ID to see the current status of the negotiation and - if the negotiation was successful - the ID of the created contract agreement.
 
 :::tip
-Make sure to replace `<ID>` in the URL with the UUID you just received. in the current case the UUID is `65356596-dd7c-4ad4-8fc6-8512be6f0ec2`. So the curl command should look like this:
-
-```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations/65356596-dd7c-4ad4-8fc6-8512be6f0ec2' \
---header 'X-Api-Key: TEST1' | jq
-```
-
+Make sure to replace `<ID>` in the URL with the UUID you just received. in the current case the UUID is `f42396cd-be8d-498b-b74d-8c0ead798ad5`.
 :::
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations/<ID>' \
+curl -L -X GET 'http://dataconsumer-1-controlplane.tx.test/management/v2/contractnegotiations/<ID>' \
 --header 'X-Api-Key: TEST1' | jq
 ```
 
@@ -105,33 +120,35 @@ curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/contra
 - If the negotiation was **unsuccessful**, the negotiation state (`edc:state`) will be `TERMINATED` and no contract agreement ID will be present.
 
 ```json
+
 {
-  "@type": "edc:ContractNegotiation",
-  "@id": "65356596-dd7c-4ad4-8fc6-8512be6f0ec2",
-  "edc:type": "CONSUMER",
-  "edc:protocol": "dataspace-protocol-http",
-  "edc:state": "FINALIZED",
-  "edc:counterPartyId": "BPNL00000003AYRE",
-  "edc:counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-  "edc:callbackAddresses": [],
-  "edc:createdAt": 1715669329095,
-  "edc:contractAgreementId": "Mw==:Mw==:N2RhZGI3OGMtYzUxNC00OTkzLWI3MzktNDE3YmJhMDNkMDU4",
+  "@type": "ContractNegotiation",
+  "@id": "f42396cd-be8d-498b-b74d-8c0ead798ad5",
+  "type": "CONSUMER",
+  "protocol": "dataspace-protocol-http",
+  "state": "FINALIZED",
+  "counterPartyId": "BPNL00000003AYRE",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+  "callbackAddresses": [],
+  "createdAt": 1732699413292,
+  "contractAgreementId": "76e8435b-ddb9-4005-a6b1-4b6cfdd17306",
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
+
 ```
 
 Alice now has a contract with Bob and can begin transferring the asset's data.
 
 ## Starting the data transfer
 
-Alice wants to send the data to her backend application ("<http://backend:8080>"). So she uses the following command to direct the data from Asset 3 to her desired data sink.
+Alice wants to send the data to her backend application ("<http://backend:8080>"). So she uses the following command to direct the data from Asset 200 to her desired data sink.
 
 :::warning
 
@@ -143,47 +160,55 @@ Replace `<contractAgreementId>` with the contract agreement ID you received in t
 :::
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses' \
---header 'Content-Type: application/json' \
---header 'X-Api-Key: TEST1' \
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses' \
+-H 'Content-Type: application/json' \
+-H 'X-Api-Key: TEST1' \
 --data-raw '{
-    "@context": {
-        "odrl": "http://www.w3.org/ns/odrl/2/"
-    },
-    "assetId": "3",
-    "connectorAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-    "connectorId": "BPNL00000003AYRE",
-    "contractId": "<contractAgreementId>",
-    "dataDestination": {
-        "type": "HttpProxy"
-    },
-    "privateProperties": {
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "TransferRequest",
+  "protocol": "dataspace-protocol-http",
+  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+        // highlight-next-line
+  "contractId": "<contractAgreementId>",
+  "assetId": "200",
+  "transferType": "HttpData-PULL",
+  "dataDestination":  {
+    "type": "HttpProxy"
+  },
+  "connectorId": "BPNL00000003AZQP",
+  "privateProperties": {
         "receiverHttpEndpoint": "<backend:8080>"
     },
-    "protocol": "dataspace-protocol-http",
-    "transferType": {
-        "contentType": "application/octet-stream",
-        "isFinite": true
+  "callbackAddresses": [
+    {
+      "transactional": true,
+      "uri": "http://dataprovider-submodelserver.tx.test/api/v1/transfers"
     }
+  ]
 }' | jq
+
 ```
 
 The response in this case looks like this:
 
 ```json
 {
-  "@type": "edc:IdResponse",
-  "@id": "9d6a0507-25f5-4a81-8885-a47bc3809451",
-  "edc:createdAt": 1715669899367,
+  "@type": "IdResponse",
+   // highlight-next-line
+  "@id": "e547fbfc-8229-4366-9039-125a82b0ea43",
+  "createdAt": 1732713519152,
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "dcat": "https://www.w3.org/ns/dcat/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
-}
+
 ```
 
 Just to make sure everything worked, Alice uses another `curl` command to check if the transfer was successful.
@@ -191,18 +216,14 @@ Just to make sure everything worked, Alice uses another `curl` command to check 
 In the response, Alice gets a UUID. This is the ID of the created transfer. Alice can now use this ID to see the current status of the transfer.
 
 :::tip
-Make sure to replace `<ID>` in the URL with the UUID you just received. In our case, the UUID is `9d6a0507-25f5-4a81-8885-a47bc3809451`. So the curl command should look like this:
-
-```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses/9d6a0507-25f5-4a81-8885-a47bc3809451' \
---header 'X-Api-Key: TEST1' | jq
-```
-
+Make sure to replace `<ID>` in the URL with the UUID you just received. In our case, the UUID is `e547fbfc-8229-4366-9039-125a82b0ea43`.
 :::
 
 ```shell
-curl --location 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses/<ID>' \
---header 'X-Api-Key: TEST1' | jq
+
+curl -L -X GET 'http://dataconsumer-1-controlplane.tx.test/management/v2/transferprocesses/{{transfer_id}}' \
+-H 'X-Api-Key: TEST1'
+
 ```
 
 - If the transfer was **successful**, Alice will see an ouput as shown below.
