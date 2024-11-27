@@ -207,6 +207,7 @@ cd charts/umbrella/
 Download the chart dependencies:
 
 ```bash
+helm dependency update ../tx-data-provider
 helm dependency update
 ```
 
@@ -226,6 +227,12 @@ helm dependency update
 ##### Option 1
 
 Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
+
+:::note 
+
+This will take a while. So please be patient.
+
+:::
 
 ###### Data Exchange Subset
 
