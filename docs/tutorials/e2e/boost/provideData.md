@@ -44,10 +44,12 @@ Just to be sure, that the asset was created succesfully, Bob can check the asset
 
 ```shell
 
+// get your asset by ID
+
 curl -L -X GET 'http://dataprovider-controlplane.tx.test/management/v3/assets/200' \
 -H 'X-Api-Key: TEST2' | jq
 
-//or the whole catalog
+// or get the whole catalog
 
 curl -L -X POST http://dataprovider-controlplane.tx.test/management/v3/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
 ```
