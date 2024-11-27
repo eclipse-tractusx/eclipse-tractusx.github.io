@@ -3,58 +3,104 @@ title: Provide data
 sidebar_position: 2
 ---
 
-## Create first data asset
+This tutorial guides you through the process of creating and providing data in a local dataspace using the Eclipse Dataspace Connector (EDC). You'll create an asset,
+define policies, and set up a contract definition for data sharing.
 
-In this step we will focus on inserting data into our provider connector using
-the [Management API](https://app.swaggerhub.com/apis/eclipse-edc-bot/management-api). We will use plain
-CLI tools (`curl`) for this, but feel free to use graphical tools such as Postman or Insomnia.
+## Create your first data asset
 
-:::note
+We will start by creating an asset that represents the data to be shared. The data provider (Bob) uses the **[Management API](https://app.swaggerhub.com/apis/eclipse-edc-bot/management-api)** to define the asset.
+For better understanding, the cURL commands are provided and explained in detail for every step. For nearly every request a response is expected.
 
-Alice acts here as a data consumer and Bob as a data provider.
+:::tip curl explanation
 
-- Bob -> <http://dataprovider-controlplane.tx.test>
-- Alice -> <http://dataconsumer-1-controlplane.tx.test>
+1. **URL and Method**:
+
+- `-L`: Ensures redirections are followed if the URL returns a redirect response.
+- `-X POST`: Specifies the HTTP method as `POST`.
+
+2. **Headers**:
+
+- `-H 'Content-Type: application/json'`: Indicates that the payload is in JSON format.
+- `-H 'X-Api-Key: TEST2'`: Sends an API key for authentication.
+
+3. **Payload**:
+
+- `--data-raw`: Includes the JSON payload to be sent with the `POST` request.
+
+4. **Piping into `jq`**:
+
+- The output is piped into `jq` to format and colorize the JSON response for easier reading.
 
 :::
 
+:::note
+**Actors in this tutorial:**
+
+- **Bob**: data provider, is reachable via `http://dataprovider-controlplane.tx.test`
+- **Alice**: data consumer, is reachable via `http://dataconsumer-1-controlplane.tx.test`
+
+:::
+
+### Step 1: Create the asset
+
 Alice, as a data consumer, wants to consume data from Bob. Bob, as a data provider, needs to create an asset for Alice.
-Action (Bob): Create this asset using the following `curl` command:
+Run the following `curl` command to create the asset:
 
 ```shell
-
 curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST2' \
---data-raw '{
-  "@context": {},
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST2' \
+  --data-raw '{
+    "@context": {},
+    "@id": "200",
+    "properties": {
+      "description": "Product EDC Demo Asset"
+    },
+    "dataAddress": {
+      "@type": "DataAddress",
+      "type": "HttpData",
+      "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
+    }
+  }' | jq
+```
+
+#### Expected output
+
+If successful, the response should look like this:
+
+```json
+{
   "@id": "200",
   "properties": {
     "description": "Product EDC Demo Asset"
   },
   "dataAddress": {
-    "@type": "DataAddress",
     "type": "HttpData",
     "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
   }
-}'| jq
+}
 ```
 
-Just to be sure, that the asset was created succesfully, Bob can check the asset using the following `curl` commands:
+### Step 2: Validate the asset
 
-```shell
+Check that the asset was created successfully by running the following for requesting the specific asset with ID 200:
 
-// get your asset by ID
-
+```bash
 curl -L -X GET 'http://dataprovider-controlplane.tx.test/management/v3/assets/200' \
 -H 'X-Api-Key: TEST2' | jq
-
-// or get the whole catalog
-
-curl -L -X POST http://dataprovider-controlplane.tx.test/management/v3/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
 ```
 
-The result for the first command shows just the newly created asset.
+Alternatively, retrieve all assets:
+
+```bash
+curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets/request' \
+-H "x-api-key: TEST2" \
+-H "content-type: application/json" | jq
+```
+
+#### Expected output
+
+The result for the first command shows just the newly created asset:
 
 ```json
 {
@@ -81,35 +127,46 @@ The result for the first command shows just the newly created asset.
 
 ```
 
-## Request catalog
+The second request will return all assets. It`s called request catalog and will be explained in the next step.
 
-Bob tells Alice, that he created an asset, and she should now be able to request it. In the next step, Alice requests a contract offer catalog. In the catalog, all contract offers for Alice are listed.
+## Request the catalog
 
-Action (Alice): Execute a request using the following `curl` commands:
+Once the asset is created, Alice (the data consumer) can try request a catalog of available (offered) data.
+
+:::note
+Alice can only see the offered data if a Access Policy was assigned.
+:::
+
+### Step 1: Request contract offers
+
+Alice sends a `CatalogRequest` to Bob's connector to discover available assets:
 
 ```shell
-
 curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST1' \
---data-raw '{
-  "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
-  },
-  "@type": "CatalogRequest",
-  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-  "counterPartyId": "BPNL00000003AYRE",
-  "protocol": "dataspace-protocol-http",
-  "querySpec": {
-    "offset": 0,
-    "limit": 50
-  }
-}' | jq
-
-
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST1' \
+  --data-raw '{
+    "@context": {
+      "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@type": "CatalogRequest",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "counterPartyId": "BPNL00000003AYRE",
+    "protocol": "dataspace-protocol-http",
+    "querySpec": {
+      "offset": 0,
+      "limit": 50
+    }
+  }' | jq
 ```
 
-The requested catalog might look like this but the content may differ:
+#### Expected Output
+
+Alice's catalog response will include available assets like this (but not the newly created asset with ID: 200):
+
+:::tip
+If the asset is not visible, ensure the **Access Policy** and **Contract Definition** are created on Bob's side.
+:::
 
 ```json
 {
@@ -224,59 +281,57 @@ The requested catalog might look like this but the content may differ:
 }
 ```
 
-## Create first access policy
+## Create a first access policy
 
-Let´s see if Alice can see the Asset (ID: 200).
+Bob creates an **Access Policy** to determine who can view the data offer.
 
-:::info
-As you can see in the response, the data offer "Product EDC Demo Asset" (asset ID: 200) does not appear. Unfortunately, Alice sees some contract offers but she cannot find the contract offer from Bob.
-:::
+### Step 1: Create the policy
 
-Alice calls Bob and says she can´t see the asset. Bob remembers that he did not create an access policy. An access policy defines who is allowed to see a data offering.
-
-Action (Bob): Create the access policy using the following `curl` command:
+Run this `curl` command:
 
 ```shell
-
 curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST2' \
---data-raw '{
-  "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
-  },
-  "@type": "PolicyDefinitionRequestDto",
-  "@id": "200",
-  "policy": {
-    "@type": "odrl:Set",
-    "odrl:permission": [
-      {
-        "odrl:action": "USE",
-        "odrl:constraint": {
-          "@type": "LogicalConstraint",
-          "odrl:or": [
-            {
-              "@type": "Constraint",
-              "odrl:leftOperand": {
-                "@id": "BusinessPartnerNumber"
-              },
-              "odrl:operator": {
-                "@id": "odrl:eq"
-              },
-              "odrl:rightOperand": "BPNL00000003AZQP"
-            }
-          ]
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST2' \
+  --data-raw '{
+    "@context": {
+      "odrl": "http://www.w3.org/ns/odrl/2/"
+    },
+    "@type": "PolicyDefinitionRequestDto",
+    "@id": "200",
+    "policy": {
+      "@type": "odrl:Set",
+      "odrl:permission": [
+        {
+          "odrl:action": "USE",
+          "odrl:constraint": {
+            "@type": "LogicalConstraint",
+            "odrl:or": [
+              {
+                "@type": "Constraint",
+                "odrl:leftOperand": {
+                  "@id": "BusinessPartnerNumber"
+                },
+                "odrl:operator": {
+                  "@id": "odrl:eq"
+                },
+                "odrl:rightOperand": "BPNL00000003AZQP"
+              }
+            ]
+          }
         }
-      }
-    ]
-  }
-}' | jq
+      ]
+    }
+  }' | jq
 ```
+
+In this case a **Access Policy** is created. The assigned asset will only be visible as a data offer for the Business Partner Number `BPNL00000003AZQP`.
+
+#### Expected Output
 
 The policy was successfully created, if the response is something like this
 
 ```json
-
 {
   "@type": "IdResponse",
   "@id": "200",
@@ -290,47 +345,38 @@ The policy was successfully created, if the response is something like this
     "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
-
 ```
 
-## Request catalog - second try
+### Step 2: Request catalog - second try
 
-Now that Bob created an access policy, Alice can once again try to access Bob's asset.
-
-Action (Alice): Execute the request again using the following `curl` command:
+Now that Bob created an access policy, Alice can once again try to access Bob's offer by running this `curl`.
 
 ```shell
-
 curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST1' \
---data-raw '{
-  "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
-  },
-  "@type": "CatalogRequest",
-  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-  "counterPartyId": "BPNL00000003AYRE",
-  "protocol": "dataspace-protocol-http",
-  "querySpec": {
-    "offset": 0,
-    "limit": 50
-  }
-}' | jq
-
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST1' \
+  --data-raw '{
+    "@context": {
+      "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@type": "CatalogRequest",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "counterPartyId": "BPNL00000003AYRE",
+    "protocol": "dataspace-protocol-http",
+    "querySpec": {
+      "offset": 0,
+      "limit": 50
+    }
+  }' | jq
 ```
 
-## Create first contract definition
+#### Expected Output
 
-Let´s see if Alice can see the Asset.
+Since the asset is still not visible, the response will be the same as before. This is expected, as the asset is not yet linked to the policy.
 
+:::tip
 Once again Alice cannot find the data offer. This is by design and to be expected since Bob has only created an asset and a policy definition. An asset and a policy can not be displayed to Alice as a consumer without a contract definition.
-
-:::info
-
-This is the first lesson in this tutorial: For providing data, a contract definition must be created on the provider side. This must always contain an asset, an access policy, and a contract policy.
-
-:::
+**For providing data, a contract definition must be created on the provider side. This must always contain an asset, an access policy, and a contract policy.**
 
 Contract definitions state how assets and policies are linked together. Contract definitions express under what conditions an asset is published in a data space. Those conditions are comprised of a contract policy and an access policy. Those policies are referenced by ID, that means they must already exist in the policy store before creating the contract definition.
 
@@ -338,22 +384,24 @@ Contract definitions state how assets and policies are linked together. Contract
 - **Contract policy:** determines the conditions for initiating a contract negotiation for a particular asset. Note that this does not automatically guarantee the successful creation of a contract, it merely expresses the eligibility to start the negotiation.
 
 Find additional information on transferring data in the [Developer's Handbook](https://github.com/eclipse-edc/docs/blob/main/developer/handbook.md).
+:::
 
-An access policy has already been created and it can also be used as a contract policy.
+## Define a contract definition
 
-Let's check if the policy is created correctly:
+Alice still cannot see the asset because Bob hasn't created a **Contract Definition**. Contract definitions link assets and policies to define usage terms.
 
+### Step 1: Create the contract definition
+
+First of all run this `curl` command to check if the policy is created correctly:
 
 ```shell
 curl -L -X GET 'http://dataprovider-controlplane.tx.test/management/v2/policydefinitions/200' \
 -H 'X-Api-Key: TEST2' | jq
-
 ```
 
 The policy with ID: 200 was successfully created, if the response is something like this
 
 ```json
-
 {
   "@id": "200",
   "@type": "PolicyDefinition",
@@ -389,36 +437,32 @@ The policy with ID: 200 was successfully created, if the response is something l
     "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
-
 ```
 
-
-Action (Bob): Create a contract definition including the asset and the policies you have created. For this, use the following `curl` command:
+Run this `curl` command to create a contract definition including the asset and the policies you have created:
 
 ```shell
-
 curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v2/contractdefinitions' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST2' \
---data-raw '{
-  "@context": {},
-  "@id": "200",
-  "@type": "ContractDefinition",
-  "accessPolicyId": "200",
-  "contractPolicyId": "200",
-  "assetsSelector": {
-    "@type": "CriterionDto",
-    "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
-    "operator": "=",
-    "operandRight": "200"
-  }
-}' | jq
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST2' \
+  --data-raw '{
+    "@context": {},
+    "@id": "200",
+    "@type": "ContractDefinition",
+    "accessPolicyId": "200",
+    "contractPolicyId": "200",
+    "assetsSelector": {
+      "@type": "CriterionDto",
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+      "operator": "=",
+      "operandRight": "200"
+    }
+  }' | jq
 ```
 
-As a check, the result should look like this:
+#### Expected Output
 
 ```json
-
 {
   "@type": "IdResponse",
   "@id": "200",
@@ -432,45 +476,40 @@ As a check, the result should look like this:
     "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
-
 ```
 
-## Request catalog - third try
+## Verify data availability
 
-Let´s see if Alice can finally see the Asset.
-Action (Alice): Execute the request again using the following `curl` command:
+Alice re-requests the catalog. This time, she should see Bob's asset in the catalog:
 
 ```shell
-
 curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalog/request' \
--H 'Content-Type: application/json' \
--H 'X-Api-Key: TEST1' \
---data-raw '{
-  "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
-  },
-  "@type": "CatalogRequest",
-  "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-  "counterPartyId": "BPNL00000003AYRE",
-  "protocol": "dataspace-protocol-http",
-  "querySpec": {
-    "offset": 0,
-    "limit": 50
-  }
-}' | jq
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST1' \
+  --data-raw '{
+    "@context": {
+      "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+    },
+    "@type": "CatalogRequest",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "counterPartyId": "BPNL00000003AYRE",
+    "protocol": "dataspace-protocol-http",
+    "querySpec": {
+      "offset": 0,
+      "limit": 50
+    }
+  }' | jq
 ```
 
-In the response an additional entry should appear:
+#### Expected Output
 
 ```json
-
-
 {
   "@id": "a8bef433-83ac-4fe0-a2c1-3f988dc187d4",
   "@type": "dcat:Catalog",
   "dspace:participantId": "BPNL00000003AYRE",
   "dcat:dataset": [
-      {
+    {
       "@id": "200",
       "@type": "dcat:Dataset",
       "odrl:hasPolicy": [
@@ -496,7 +535,6 @@ In the response an additional entry should appear:
           "odrl:prohibition": [],
           "odrl:obligation": []
         }
-        
       ],
       "dcat:distribution": [
         {
@@ -609,7 +647,6 @@ In the response an additional entry should appear:
     "dspace": "https://w3id.org/dspace/v0.8/"
   }
 }
-
 ```
 
 :::info
