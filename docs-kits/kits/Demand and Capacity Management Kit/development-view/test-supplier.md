@@ -141,6 +141,51 @@ Examples:
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Provide IdBasedComment for base journey                                                                                                           |
 ```
 
+### Prepare for volatility metrics journey
+
+This test ensures that the supplier is aware of the sequence of communication and naming conventions within the volatility metrics journey.
+
+```cucumber
+Feature: Supplier: Prepare yourself
+  
+  Scenario Outline: Prepare for volatility metrics journey
+  Given I want to execute the volatility metrics journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the volatility metrics journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+Examples:
+```
+
+### Prepare for simulated delta production journey
+
+This test ensures that the supplier is aware of the sequence of communication and naming conventions within the simulated delta production journey.
+
+```cucumber
+Feature: Supplier: Prepare yourself
+  
+  Scenario Outline: Prepare for simulated delta production journey
+  Given I want to execute the simulated delta production journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the simulated delta production journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+Examples:
+```
+
+### Prepare for load factors journey
+
+This test ensures that the supplier is aware of the sequence of communication and naming conventions within the load factors journey.
+
+```cucumber
+Feature: Supplier: Prepare yourself
+  
+  Scenario Outline: Prepare for load factors journey journey
+  Given I want to execute the load factors journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the load factors journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+Examples:
+```
+
 ## Supplier: Consume WeekBasedMaterialDemand
 
 ### Consume valid WeekBasedMaterialDemand
