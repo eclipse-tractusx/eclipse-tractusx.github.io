@@ -214,11 +214,12 @@ helm dependency update
 :::note Command explanation
 
 `helm install` is used to install a Helm chart.
-  - `-f your-values.yaml` | `-f values-*.yaml` specifies the values file to use for configuration.
-  - `umbrella` is the release name for the Helm chart.
-  - `.` specifies the path to the chart directory.
-  - `--namespace umbrella` specifies the namespace in which to install the chart.
-  - `--create-namespace` create a namespace with the name `umbrella`.
+
+- `-f your-values.yaml` | `-f values-*.yaml` specifies the values file to use for configuration.
+- `umbrella` is the release name for the Helm chart.
+- `.` specifies the path to the chart directory.
+- `--namespace umbrella` specifies the namespace in which to install the chart.
+- `--create-namespace` create a namespace with the name `umbrella`.
 
 :::
 
@@ -342,29 +343,29 @@ If persistance for one or more components is enabled, the persistent volume clai
 
 Currently enabled ingresses:
 
-- http://centralidp.tx.test/auth/
-- http://sharedidp.tx.test/auth/
-- http://portal-backend.tx.test
-  - http://portal-backend.tx.test/api/administration/swagger/index.html
-  - http://portal-backend.tx.test/api/registration/swagger/index.html
-  - http://portal-backend.tx.test/api/apps/swagger/index.html
-  - http://portal-backend.tx.test/api/services/swagger/index.html
-  - http://portal-backend.tx.test/api/notification/swagger/index.html
-- http://portal.tx.test
-- http://semantics.tx.test/discoveryfinder/swagger-ui/index.html
-- http://ssi-credential-issuer.tx.test/api/issuer/swagger/index.html
-- http://dataconsumer-1-controlplane.tx.test
-- http://dataconsumer-1-dataplane.tx.test
-- http://dataprovider-dataplane.tx.test
-- http://dataconsumer-2-controlplane.tx.test
-- http://dataconsumer-2-dataplane.tx.test
-- http://business-partners.tx.test/pool
-- http://business-partners.tx.test/orchestrator
-- http://bdrs-server.tx.test
-- http://iatpmock.tx.test
-- http://pgadmin4.tx.test
-- http://ssi-dim-wallet-stub.tx.test
-- http://dataprovider-submodelserver.tx.test
+- <http://centralidp.tx.test/auth/>
+- <http://sharedidp.tx.test/auth/>
+- <http://portal-backend.tx.test>
+  - <http://portal-backend.tx.test/api/administration/swagger/index.html>
+  - <http://portal-backend.tx.test/api/registration/swagger/index.html>
+  - <http://portal-backend.tx.test/api/apps/swagger/index.html>
+  - <http://portal-backend.tx.test/api/services/swagger/index.html>
+  - <http://portal-backend.tx.test/api/notification/swagger/index.html>
+- <http://portal.tx.test>
+- <http://semantics.tx.test/discoveryfinder/swagger-ui/index.html>
+- <http://ssi-credential-issuer.tx.test/api/issuer/swagger/index.html>
+- <http://dataconsumer-1-controlplane.tx.test>
+- <http://dataconsumer-1-dataplane.tx.test>
+- <http://dataprovider-dataplane.tx.test>
+- <http://dataconsumer-2-controlplane.tx.test>
+- <http://dataconsumer-2-dataplane.tx.test>
+- <http://business-partners.tx.test/pool>
+- <http://business-partners.tx.test/orchestrator>
+- <http://bdrs-server.tx.test>
+- <http://iatpmock.tx.test>
+- <http://pgadmin4.tx.test>
+- <http://ssi-dim-wallet-stub.tx.test>
+- <http://dataprovider-submodelserver.tx.test>
 
 ### Database Access
 
