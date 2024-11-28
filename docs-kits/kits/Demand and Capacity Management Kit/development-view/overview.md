@@ -169,10 +169,10 @@ It is recommended to compartmentalize tests into test-sets from which different 
 
 |#|User Journey|Test-Sets|Tested Capabilities|
 |--|--|--|--|
-|1|Base journey|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand<br/> - Customer: Provide IdBasedRequestForUpdate<br/> - Supplier: Consume IdBasedRequestForUpdate<br/> - Supplier: Provide IdBasedRequestForUpdate<br/> - Customer: Consume IdBasedRequestForUpdate<br/> - Customer: Create IdBasedComment<br/> - Customer: Provide IdBasedComment<br/> - Supplier: Consume IdBasedComment<br/> - Supplier: Create IdBasedComment<br/> - Supplier: Provide IdBasedComment<br/> - Customer: Consume IdBasedComment<br/> - Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand<br/> - Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Request for update<br/> - Comments|
-|2|Demand volatility metrics journey|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Demand volatility metrics|
-|3|Simulated delta production journey|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Simulated delta production|
-|4|Load factors journey|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Load factors|
+|1|[Base journey](#base-journey)|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand<br/> - Customer: Provide IdBasedRequestForUpdate<br/> - Supplier: Consume IdBasedRequestForUpdate<br/> - Supplier: Provide IdBasedRequestForUpdate<br/> - Customer: Consume IdBasedRequestForUpdate<br/> - Customer: Create IdBasedComment<br/> - Customer: Provide IdBasedComment<br/> - Supplier: Consume IdBasedComment<br/> - Supplier: Create IdBasedComment<br/> - Supplier: Provide IdBasedComment<br/> - Customer: Consume IdBasedComment<br/> - Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand<br/> - Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Request for update<br/> - Comments|
+|2|[Demand volatility metrics journey](#demad-volatility-metrics-journey)|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Demand volatility metrics|
+|3|[Simulated delta production journey](#simulated-delta-production-journey)|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Simulated delta production|
+|4|[Load factors journey](#load-factors-journey)|- Customer: Prepare yourself<br/> - Supplier: Prepare yourself<br/> - Customer: Create WeekBasedMaterialDemand<br/> - Customer: Provide WeekBasedMaterialDemand<br/> - Supplier: Consume WeekBasedMaterialDemand<br/> - Supplier: Create WeekBasedCapacityGroup<br/> - Supplier: Provide WeekBasedCapacityGroup<br/> - Customer: Consume WeekBasedCapacityGroup<br/> - Customer: Visualize CapacityGroup together with MaterialDemand<br/> - Supplier: Visualize CapacityGroup together with MaterialDemand|- Providing and consuming demand data<br/> - Providing and consuming capacity data<br/> - Comparing demand and capacity data<br/> - Load factors|
 
 #### Base Journey
 
@@ -245,6 +245,114 @@ rect rgb(57,57,57)
   c->>c: Visualize Comment
   autonumber 22
   s->>s: Visualize Comment
+end
+```
+
+#### Demad Volatility Metrics Journey
+
+``` mermaid
+sequenceDiagram
+actor c as Customer
+actor s as Supplier
+rect rgb(57,57,57)
+  note right of c: Prepare for E2E test
+  c->>c: Check EDC
+  c->>c: Check Data Assets
+  c->>c: Check Wallet
+  s->>s: Check EDC
+  s->>s: Check Data Assets
+  s->>s: Check Wallet
+end
+rect rgb(221,130,0)
+autonumber 1
+  note right of c: Transfer WeekBasedMaterialDemand
+  c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA_1
+  s->>c: HTTP 200 OK
+  c->>s: FileTransfer BETA containing MaterialDemand ALPHA_2
+  s->>c: HTTP 200 OK
+  c->>s: FileTransfer GAMMA containing MaterialDemand ALPHA_3
+  s->>c: HTTP 200 OK
+  c->>s: FileTransfer DELTA containing MaterialDemand ALPHA_4
+  s->>c: HTTP 200 OK
+end
+rect rgb(128,149,0)
+  note right of c: Transfer WeekBasedCapacityGroup
+  s->>c: FileTransfer EPSILON containing CapacityGroup ALPHA
+  c->>s: HTTP 200 OK
+end
+rect rgb(57,57,57)
+  note right of c: GUI test
+  c->>c: Visualize bottleneck calculation
+  autonumber 11
+  s->>s: Visualize bottleneck calculation
+end
+```
+
+#### Simulated Delta Production Journey
+
+``` mermaid
+sequenceDiagram
+actor c as Customer
+actor s as Supplier
+rect rgb(57,57,57)
+  note right of c: Prepare for E2E test
+  c->>c: Check EDC
+  c->>c: Check Data Assets
+  c->>c: Check Wallet
+  s->>s: Check EDC
+  s->>s: Check Data Assets
+  s->>s: Check Wallet
+end
+rect rgb(221,130,0)
+autonumber 1
+  note right of c: Transfer WeekBasedMaterialDemand
+  c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA
+  s->>c: HTTP 200 OK
+end
+rect rgb(128,149,0)
+  note right of c: Transfer WeekBasedCapacityGroup
+  s->>c: FileTransfer BETA containing CapacityGroup ALPHA
+  c->>s: HTTP 200 OK
+end
+rect rgb(57,57,57)
+  note right of c: GUI test
+  c->>c: Visualize bottleneck calculation
+  autonumber 5
+  s->>s: Visualize bottleneck calculation
+end
+```
+
+#### Load Factors Journey
+
+``` mermaid
+sequenceDiagram
+actor c as Customer
+actor s as Supplier
+rect rgb(57,57,57)
+  note right of c: Prepare for E2E test
+  c->>c: Check EDC
+  c->>c: Check Data Assets
+  c->>c: Check Wallet
+  s->>s: Check EDC
+  s->>s: Check Data Assets
+  s->>s: Check Wallet
+end
+rect rgb(221,130,0)
+autonumber 1
+  note right of c: Transfer WeekBasedMaterialDemand
+  c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA
+  s->>c: HTTP 200 OK
+end
+rect rgb(128,149,0)
+  note right of c: Transfer WeekBasedCapacityGroup
+  s->>c: FileTransfer BETA containing CapacityGroup ALPHA
+  c->>s: HTTP 200 OK
+end
+rect rgb(57,57,57)
+  note right of c: GUI test
+  c->>c: Visualize bottleneck calculation
+  autonumber 5
+  s->>s: Visualize bottleneck calculation
 end
 ```
 
