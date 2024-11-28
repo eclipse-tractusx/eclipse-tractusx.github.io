@@ -8,14 +8,12 @@ In the `Boost Chapter`, you will configure and register your components so that 
 In this **Boost Chapter**, you will create and request different assets and learn how the management-api works. The following steps will guide you through the process:
 
 1. **Data Provider Role**:
-
-- Build your first data pipeline.
-- Add your first `assets`, `policies`, and create a `contract offer`.
+   - Build your first data pipeline.
+   - Add your first `assets`, `policies`, and create a `contract offer`.
 
 2. **Data Consumer Role**:
-
-- Discover the data you previously created.
-- Initiate a data transfer.
+   - Discover the data you previously created.
+   - Initiate a data transfer.
 
 By the end of this chapter, you will have the foundational knowledge needed to share data within your data space.
 

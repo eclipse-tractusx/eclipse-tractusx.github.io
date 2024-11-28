@@ -14,22 +14,18 @@ For better understanding, the cURL commands are provided and explained in detail
 :::tip curl explanation
 
 1. **URL and Method**:
-
-- `-L`: Ensures redirections are followed if the URL returns a redirect response.
-- `-X POST`: Specifies the HTTP method as `POST`.
+   - `-L`: Ensures redirections are followed if the URL returns a redirect response.
+   - `-X POST`: Specifies the HTTP method as `POST`.
 
 2. **Headers**:
-
-- `-H 'Content-Type: application/json'`: Indicates that the payload is in JSON format.
-- `-H 'X-Api-Key: TEST2'`: Sends an API key for authentication.
+   - `-H 'Content-Type: application/json'`: Indicates that the payload is in JSON format.
+   - `-H 'X-Api-Key: TEST2'`: Sends an API key for authentication.
 
 3. **Payload**:
-
-- `--data-raw`: Includes the JSON payload to be sent with the `POST` request.
+   - `--data-raw`: Includes the JSON payload to be sent with the `POST` request.
 
 4. **Piping into `jq`**:
-
-- The output is piped into `jq` to format and colorize the JSON response for easier reading.
+   - The output is piped into `jq` to format and colorize the JSON response for easier reading.
 
 :::
 
@@ -501,7 +497,7 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalo
   }' | jq
 ```
 
-#### Expected Output
+### Expected Output
 
 ```json
 {

@@ -119,7 +119,7 @@ In the following steps, replace `192.168.49.2` with your `minikube ip` if it dif
 
 Create a file in /etc/resolver/minikube-test with the following contents.
 
-```properties
+```shell
 domain tx.test
 nameserver 192.168.49.2
 search_order 1
@@ -128,7 +128,7 @@ timeout 5
 
 If you still face DNS issues, add the hosts to your /etc/hosts file:
 
-```properties
+```shell
 192.168.49.2    centralidp.tx.test
 192.168.49.2    sharedidp.tx.test
 192.168.49.2    portal.tx.test
@@ -160,7 +160,7 @@ We also recommend to execute the usage example after install to check proper set
 
 For Windows edit the hosts file under `C:\Windows\System32\drivers\etc\hosts`:
 
-```properties
+```shell
 192.168.49.2    centralidp.tx.test
 192.168.49.2    sharedidp.tx.test
 192.168.49.2    portal.tx.test
@@ -211,24 +211,22 @@ helm dependency update ../tx-data-provider
 helm dependency update
 ```
 
-##### grey_question: Command explanation
+:::note Command explanation
 
-> `helm install` is used to install a Helm chart.
-> > `-f your-values.yaml` | `-f values-*.yaml` specifies the values file to use for configuration.
-> ---
-> > `umbrella` is the release name for the Helm chart.
-> ---
-> > `.` specifies the path to the chart directory.
-> ---
-> > `--namespace umbrella` specifies the namespace in which to install the chart.
-> ---
-> > `--create-namespace` create a namespace with the name `umbrella`.
+`helm install` is used to install a Helm chart.
+  - `-f your-values.yaml` | `-f values-*.yaml` specifies the values file to use for configuration.
+  - `umbrella` is the release name for the Helm chart.
+  - `.` specifies the path to the chart directory.
+  - `--namespace umbrella` specifies the namespace in which to install the chart.
+  - `--create-namespace` create a namespace with the name `umbrella`.
+
+:::
 
 ##### Option 1
 
 Choose to install one of the predefined subsets (currently in focus of the **E2E Adopter Journey**):
 
-:::note 
+:::note
 
 This will take a while. So please be patient.
 
@@ -267,8 +265,9 @@ Install your chosen components by having them enabled in a `your-values.yaml` fi
 helm install -f your-values.yaml umbrella . --namespace umbrella --create-namespace
 ```
 
-> In general, all your specific configuration and secret values should be set by installing with an own values file.
-
+:::tip
+In general, all your specific configuration and secret values should be set by installing with an own values file.
+:::
 
 #### Get to know the Portal
 
