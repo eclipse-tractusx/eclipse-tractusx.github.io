@@ -144,7 +144,7 @@ Examples:
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Consume IdBasedComment for base journey                                                                                                                                           |
 ```
 
-### Prepare for volatility metrics journey
+### WIP - Prepare for volatility metrics journey
 
 This test ensures that the customer is aware of the sequence of communication and naming conventions within the volatility metrics journey.
 
@@ -159,7 +159,7 @@ Feature: Customer: Prepare yourself
 Examples:
 ```
 
-### Prepare for simulated delta production journey
+### WIP - Prepare for simulated delta production journey
 
 This test ensures that the customer is aware of the sequence of communication and naming conventions within the simulated delta production journey.
 
@@ -174,7 +174,7 @@ Feature: Customer: Prepare yourself
 Examples:
 ```
 
-### Prepare for load factors journey
+### WIP - Prepare for load factors journey
 
 This test ensures that the customer is aware of the sequence of communication and naming conventions within the load factors journey.
 
@@ -571,6 +571,74 @@ Examples:
 | CG_beta                | MD_beta, MD_gamma       | 01   | 2026 | surplus        | demand < actual capacity < maximum capacity | green  |
 | CG_beta                | MD_beta, MD_gamma       | 13   | 2026 | zero deviation | demand = actual capacity = maximum capacity | green  |
 | CG_beta                | MD_beta, MD_gamma       | 14   | 2026 | zero deviation | demand = actual capacity < maximum capacity | green  |
+```
+
+### WIP - Calculation for volatility metrics journey
+
+The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This triggers multiple volatility alerts.
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for volatility metrics journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand> and updated it multiple times
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should get <volatility alert> for <week> in <year>
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | volatility alert                     |
+| CG_alpha               | MD_alpha                |      |      | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha                |      |      | absolute positive deviation exceeded |
+| CG_alpha               | MD_alpha                |      |      | relative negative deviation exceeded |
+| CG_alpha               | MD_alpha                |      |      | relative positive deviation exceeded |
+```
+
+### WIP - Calculation for simulated delta production journey
+
+The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes deltaProductionResult into account.
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for simulated delta production journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand>
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should get <result> for <week> in <year> after considering deltaProductionResult
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | result         | case                                                                  | color  |
+| CG_alpha               | MD_alpha                |      |      | bottleneck     | (demand + deltaProductionResult) > actual capacity = maximum capacity | red    |
+| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < (demand + deltaProductionResult) = maximum capacity | orange |
+| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < (demand + deltaProductionResult) < maximum capacity | orange |
+| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < maximum capacity < (demand + deltaProductionResult) | red    |
+| CG_alpha               | MD_alpha                |      |      | surplus        | (demand + deltaProductionResult) < actual capacity = maximum capacity | green  |
+| CG_alpha               | MD_alpha                |      |      | surplus        | (demand + deltaProductionResult) < actual capacity < maximum capacity | green  |
+| CG_alpha               | MD_alpha                |      |      | zero deviation | (demand + deltaProductionResult) = actual capacity = maximum capacity | green  |
+| CG_alpha               | MD_alpha                |      |      | zero deviation | (demand + deltaProductionResult) = actual capacity < maximum capacity | green  |
+```
+
+### WIP - Calculation for load factors journey
+
+The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes load factors into account.
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for load factors journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand>
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should see <UI demand> that differs from <data demand> for <week> in <year>.
+  Then     I should see <UI unit of measure> that differs from <data unit of measure>.
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | UI demand | data demand | <UI unit of measure> | <data unit of measure> |
+| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
+| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
+| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
+| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
 ```
 
 ## Customer: Create IdBasedRequestForUpdate
