@@ -355,7 +355,6 @@ The customer creates four WeekBasedMaterialDemand used by the base journey.
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate WeekBasedMaterialDemand for base journey using different <v_tests>
-
   Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
   *       the value for the property "changedAt"                      is <v_changedAt>                            
   *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
@@ -383,6 +382,112 @@ Examples:
 | MD_beta  | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA2}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | A1S1                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 100,100,100,100,100,100,100,100,100,100,100,200,100,200,200,100,100,200,100,200           |
 | MD_gamma | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA3}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | PI01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 500,200,500,400,500,500,300,500,500,600,600,600,800,700,800,600,600,800,500,900           |
 | MD_delta | unit:liters     | {{TS_NOW}}  | false                      | false                    | MNR-8538-CH809974.001    | {{OMITTED}}              | {{DSC_MAT3}}                  | {{UUID_MD3}}       | {{UUID_GA4}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS3}}      | PO01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 2540,4160,3660,3210,0,3570,490,3590,3400,3130,2920,3270,3210,0,3060,3030,2570,2740,0,1450 |
+```
+
+### WIP - Create WeekBasedMaterialDemand for volatility metrics journey
+
+The customer creates four WeekBasedMaterialDemand used by the volatility metrics journey.
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for volatility metrics journey using different <v_tests>
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          
+  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "demandSeries"                   contains exactly one Entity "DemandSeries"
+  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             
+  *       the value for the property "customerLocation"               is <v_customerLocation>                     
+  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   
+  *       the value for the property "demands"                        contains exactly one Entity "Demand"
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "demand"                         is <v_demand>                               
+  When the application tries to generate the WeekBasedMaterialDemand
+  Then it should generate or update the WeekBasedMaterialDemand
+
+Examples:
+| v_tests   | v_unitOfMeasure | v_changedAt | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId | v_materialGlobalAssetId | v_supplier   | v_customer   | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime                                                                                                                                                                                                               | v_demand                                                                                  |
+| MD_alpha1 | unit:pieces     | {{TS_NOW}}  | false                      | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{UUID_MD1}}       | {{UUID_GA1}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{BPNS_SUP1}}              | {{BPNS_CUS1}}      | 0001                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             |
+| MD_alpha2 | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA2}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | A1S1                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 100,100,100,100,100,100,100,100,100,100,100,200,100,200,200,100,100,200,100,200           |
+| MD_alpha3 | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA3}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | PI01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 500,200,500,400,500,500,300,500,500,600,600,600,800,700,800,600,600,800,500,900           |
+| MD_alpha4 | unit:liters     | {{TS_NOW}}  | false                      | false                    | MNR-8538-CH809974.001    | {{OMITTED}}              | {{DSC_MAT3}}                  | {{UUID_MD3}}       | {{UUID_GA4}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS3}}      | PO01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 2540,4160,3660,3210,0,3570,490,3590,3400,3130,2920,3270,3210,0,3060,3030,2570,2740,0,1450 |
+```
+
+### WIP - Create WeekBasedMaterialDemand for simulated delta production journey
+
+The customer creates one WeekBasedMaterialDemand used by the simulated delta production journey.
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for simulated delta production journey using different <v_tests>
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          
+  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "demandSeries"                   contains exactly one Entity "DemandSeries"
+  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             
+  *       the value for the property "customerLocation"               is <v_customerLocation>                     
+  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   
+  *       the value for the property "demands"                        contains exactly one Entity "Demand"
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "demand"                         is <v_demand>                               
+  When the application tries to generate the WeekBasedMaterialDemand
+  Then it should generate the WeekBasedMaterialDemand
+
+Examples:
+| v_tests  | v_unitOfMeasure | v_changedAt | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId | v_materialGlobalAssetId | v_supplier   | v_customer   | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime                                                                                                                                                                                                               | v_demand                                                                                  |
+| MD_alpha | unit:pieces     | {{TS_NOW}}  | false                      | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{UUID_MD1}}       | {{UUID_GA1}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{BPNS_SUP1}}              | {{BPNS_CUS1}}      | 0001                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             |
+```
+
+### WIP - Create WeekBasedMaterialDemand for load factors journey
+
+The customer creates one WeekBasedMaterialDemand used by the load factors journey.
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for load factors journey using different <v_tests>
+
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          
+  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "demandSeries"                   contains exactly one Entity "DemandSeries"
+  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             
+  *       the value for the property "customerLocation"               is <v_customerLocation>                     
+  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   
+  *       the value for the property "demands"                        contains exactly one Entity "Demand"
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "demand"                         is <v_demand>                               
+  When the application tries to generate the WeekBasedMaterialDemand
+  Then it should generate the WeekBasedMaterialDemand
+
+Examples:
+| v_tests  | v_unitOfMeasure | v_changedAt | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId | v_materialGlobalAssetId | v_supplier   | v_customer   | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime                                                                                                                                                                                                               | v_demand                                                                                  |
+| MD_alpha | unit:pieces     | {{TS_NOW}}  | false                      | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{UUID_MD1}}       | {{UUID_GA1}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{BPNS_SUP1}}              | {{BPNS_CUS1}}      | 0001                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             |
 ```
 
 ## Customer: Provide WeekBasedMaterialDemand
