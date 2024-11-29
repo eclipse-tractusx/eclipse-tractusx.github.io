@@ -567,6 +567,58 @@ Examples:
 | testCapacityGroup  | fileTransfer | http status code |
 | CG_alpha, CG_beta  | FT_gamma     | 200 OK           |
 | CG_gamma, CG_delta | FT_delta     | 200 OK           |
+
+```
+
+### WIP - Provide WeekBasedCapacityGroup for volatility metrics journey
+
+The supplier sends the previously created WeekBasedCapacityGroups to the customer.
+
+```cucumber
+Feature: Supplier: Provide WeekBasedCapacityGroup
+
+Scenario Outline: Provide WeekBasedCapacityGroup for volatility metrics journey
+  Given I have successfully created capacity group alpha as described in Create WeekBasedCapacityGroup for volatility metrics journey
+  When I try to provide my customer with <testCapacityGroup> as <fileTransfer>
+  Then I should get <http status code> from my customer.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_epsilon   | 200 OK           |
+```
+
+### WIP - Provide WeekBasedCapacityGroup for simulated delta production journey
+
+The supplier sends the previously created WeekBasedCapacityGroups to the customer.
+
+```cucumber
+Feature: Supplier: Provide WeekBasedCapacityGroup
+
+Scenario Outline: Provide WeekBasedCapacityGroup for simulated delta production journey
+  Given I have successfully created capacity group alpha as described in Create WeekBasedCapacityGroup for simulated delta production journey
+  When I try to provide my customer with <testCapacityGroup> as <fileTransfer>
+  Then I should get <http status code> from my customer.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
+```
+
+### WIP - Provide WeekBasedCapacityGroup for load factors journey
+
+The supplier sends the previously created WeekBasedCapacityGroups to the customer.
+
+```cucumber
+Feature: Supplier: Provide WeekBasedCapacityGroup
+
+Scenario Outline: Provide WeekBasedCapacityGroup for load factors journey
+  Given I have successfully created capacity group alpha as described in Create WeekBasedCapacityGroup for load factors journey
+  When I try to provide my customer with <testCapacityGroup> as <fileTransfer>
+  Then I should get <http status code> from my customer.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
 ```
 
 ## Supplier: Visualize CapacityGroup together with MaterialDemand
