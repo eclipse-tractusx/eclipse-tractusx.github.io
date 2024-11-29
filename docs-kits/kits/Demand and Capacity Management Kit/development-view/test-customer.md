@@ -438,7 +438,7 @@ Examples:
 
 ### WIP - Provide WeekBasedMaterialDemand for volatility metrics journey
 
-The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.
+The customer sends the previously created WeekBasedMaterialDemands to the supplier as four separate data transfers.
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -458,6 +458,8 @@ Examples:
 
 ### WIP - Provide WeekBasedMaterialDemand for simulated delta production journey
 
+The customer sends the previously created WeekBasedMaterialDemand to the supplier
+
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
 Scenario Outline: Provide WeekBasedMaterialDemand for delta production journey
@@ -471,6 +473,8 @@ Examples:
 ```
 
 ### WIP - Provide WeekBasedMaterialDemand for load factors journey
+
+The customer sends the previously created WeekBasedMaterialDemand to the supplier
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -533,6 +537,57 @@ Examples:
 | testCapacityGroup | fileTransfer | http status code |
 | CG_alpha,CG_beta  | FT_gamma     | 200 OK           |
 | CG_gamma,CG_delta | FT_delta     | 200 OK           |
+```
+
+### WIP - Consume WeekBasedCapacityGroup for volatility metrics journey
+
+The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for volatility metrics journey
+  Given I have successfully created demand alpha and updated it multiple times as described in Create WeekBasedMaterialDemand for volatility metrics journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_epsilon   | 200 OK           |
+```
+
+### WIP - Consume WeekBasedCapacityGroup for simulated delta production journey
+
+The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for simulated delta production journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for simulated delta production journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
+```
+
+### WIP - Consume WeekBasedCapacityGroup for load factors journey
+
+The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for load factors journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for load factors journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
 ```
 
 ## Customer: Visualize CapacityGroup together with MaterialDemand
