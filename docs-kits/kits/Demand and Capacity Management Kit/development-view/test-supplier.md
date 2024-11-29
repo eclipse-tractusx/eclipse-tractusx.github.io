@@ -108,7 +108,7 @@ This test ensures that the supplier is aware of the sequence of communication an
 ```cucumber
 Feature: Supplier: Prepare yourself
   
-  Scenario Outline: Prepare for base journey
+Scenario Outline: Prepare for base journey
   Given I want to execute the base journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the base journey successfully
   When the test gets executed
   Then it should work as intended
@@ -148,7 +148,7 @@ This test ensures that the supplier is aware of the sequence of communication an
 ```cucumber
 Feature: Supplier: Prepare yourself
   
-  Scenario Outline: Prepare for volatility metrics journey
+Scenario Outline: Prepare for volatility metrics journey
   Given I want to execute the volatility metrics journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the volatility metrics journey successfully
   When the test gets executed
   Then it should work as intended
@@ -163,7 +163,7 @@ This test ensures that the supplier is aware of the sequence of communication an
 ```cucumber
 Feature: Supplier: Prepare yourself
   
-  Scenario Outline: Prepare for simulated delta production journey
+Scenario Outline: Prepare for simulated delta production journey
   Given I want to execute the simulated delta production journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the simulated delta production journey successfully
   When the test gets executed
   Then it should work as intended
@@ -178,7 +178,7 @@ This test ensures that the supplier is aware of the sequence of communication an
 ```cucumber
 Feature: Supplier: Prepare yourself
   
-  Scenario Outline: Prepare for load factors journey journey
+Scenario Outline: Prepare for load factors journey journey
   Given I want to execute the load factors journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the load factors journey successfully
   When the test gets executed
   Then it should work as intended
@@ -542,8 +542,7 @@ Examples:
 Feature: Customer: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate WeekBasedCapacityGroup for base journey using different <v_tests>
-
-Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
   *       the value for the property "changedAt"                      is <v_changedAt>                            
   *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
   *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
@@ -848,7 +847,6 @@ Examples:
 ### WIP - Calculation for volatility metrics journey
 
 The supplier compares the demand data, received from the customer, to the capacity data, sent to the customer. This triggers multiple volatility alerts.
-
 
 ```cucumber
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand

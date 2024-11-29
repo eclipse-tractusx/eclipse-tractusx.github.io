@@ -74,7 +74,7 @@ This test ensures that the customer is aware of the fact that some tests contain
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare variables for other tests
+Scenario Outline: Prepare variables for other tests
   Given I want to execute a <test> that uses a <variable> I need to have a <value> assigned to <variable> that makes sense in the context of the <test> and use the value of the variable instead of its name when testing.
   When the test gets executed
   Then it should work as intended
@@ -111,7 +111,7 @@ This test ensures that the customer is aware of the sequence of communication an
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare for base journey
+Scenario Outline: Prepare for base journey
   Given I want to execute the base journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the base journey successfully
   When the test gets executed
   Then it should work as intended
@@ -151,7 +151,7 @@ This test ensures that the customer is aware of the sequence of communication an
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare for volatility metrics journey
+Scenario Outline: Prepare for volatility metrics journey
   Given I want to execute the volatility metrics journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the volatility metrics journey successfully
   When the test gets executed
   Then it should work as intended
@@ -166,7 +166,7 @@ This test ensures that the customer is aware of the sequence of communication an
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare for simulated delta production journey
+Scenario Outline: Prepare for simulated delta production journey
   Given I want to execute the simulated delta production journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the simulated delta production journey successfully
   When the test gets executed
   Then it should work as intended
@@ -463,7 +463,6 @@ The customer creates one WeekBasedMaterialDemand used by the load factors journe
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate WeekBasedMaterialDemand for load factors journey using different <v_tests>
-
   Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
   *       the value for the property "changedAt"                      is <v_changedAt>                            
   *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
@@ -567,6 +566,7 @@ The customer sends the previously created WeekBasedMaterialDemand to the supplie
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
+
 Scenario Outline: Provide WeekBasedMaterialDemand for delta production journey
   Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for delta production journey
   When I try to provide my supplier with <testDemand> as <fileTransfer>
@@ -583,6 +583,7 @@ The customer sends the previously created WeekBasedMaterialDemand to the supplie
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
+
 Scenario Outline: Provide WeekBasedMaterialDemand for load factors journey
   Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for load factors journey
   When I try to provide my supplier with <testDemand> as <fileTransfer>
@@ -1113,23 +1114,20 @@ Examples:
 Feature: Customer: Create IdBasedComment for base journey
 
 Scenario Outline: Try to generate IdBasedComment for base journey for base journey using different <v_tests>
-
-Given   the value for the property "CommentId"                      is <v_CommentId>                            
-*       the value for the property "ObjectId"                       is <v_ObjectId>                             
-*       the value for the property "CommentType"                    is <v_CommentType>                          
-*       the value for the property "listOfReferenceDates"           is <v_listOfReferenceDates>                 
-*       the value for the property "author"                         is <v_author>                               
-*       the value for the property "supplier"                       is <v_supplier>                             
-*       the value for the property "customer"                       is <v_customer>                             
-*       the value for the property "CommentText"                    is <v_commentText>                          
-*       the value for the property "requestDelete"                  is <v_requestDelete>                        
-*       the value for the property "objectType"                     is <v_objectType>                           
-*       the value for the property "postedAt"                       is <v_postedAt>                             
-*       the value for the property "changedAt"                      is <v_changedAt>                            
-
-When the application tries to generate the IdBasedComment
-
-Then it should generate the IdBasedComment
+  Given   the value for the property "CommentId"                      is <v_CommentId>                            
+  *       the value for the property "ObjectId"                       is <v_ObjectId>                             
+  *       the value for the property "CommentType"                    is <v_CommentType>                          
+  *       the value for the property "listOfReferenceDates"           is <v_listOfReferenceDates>                 
+  *       the value for the property "author"                         is <v_author>                               
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "CommentText"                    is <v_commentText>                          
+  *       the value for the property "requestDelete"                  is <v_requestDelete>                        
+  *       the value for the property "objectType"                     is <v_objectType>                           
+  *       the value for the property "postedAt"                       is <v_postedAt>                             
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  When the application tries to generate the IdBasedComment
+  Then it should generate the IdBasedComment
 
 Examples:
 | v_tests  | v_CommentId   | v_ObjectId   | v_CommentType   | v_listOfReferenceDates | v_author                  | v_supplier   | v_customer   | v_CommentText                                                       | v_requestDelete | v_objectType                                   | v_postedAt  | v_changedAt |
