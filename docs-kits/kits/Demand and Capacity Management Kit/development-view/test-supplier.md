@@ -237,6 +237,60 @@ Examples:
 | MD_delta                  | FT_beta      | 200 OK           |
 ```
 
+### WIP -  Consume WeekBasedMaterialDemand for volatility metrics journey
+
+The supplier receives the previously created WeekBasedMaterialDemands from the customer as four separate data transfers.
+
+```cucumber
+Feature: Supplier: Consume WeekBasedMaterialDemand
+
+Scenario Outline: Consume WeekBasedMaterialDemand for volatility metrics journey
+  Given this is my entry point into the volatility metrics journey
+  When I try to consume  <testDemand> provided by my customer within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my customer.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha1  | FT_alpha     | 200 OK           |
+| MD_alpha2  | FT_beta      | 200 OK           |
+| MD_alpha3  | FT_gamma     | 200 OK           |
+| MD_alpha4  | FT_delta     | 200 OK           |
+```
+
+### WIP -  Consume WeekBasedMaterialDemand for simulated delta production journey
+
+The supplier receives the previously created WeekBasedMaterialDemand from the customer.
+
+```cucumber
+Feature: Supplier: Consume WeekBasedMaterialDemand
+
+Scenario Outline: Consume WeekBasedMaterialDemand for simulated delta production journey
+  Given this is my entry point into the simulated delta production journey
+  When I try to consume  <testDemand> provided by my customer within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my customer.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha   | FT_alpha     | 200 OK           |
+```
+
+### WIP - Consume WeekBasedMaterialDemand for load factors journey
+
+The supplier receives the previously created WeekBasedMaterialDemand from the customer.
+
+```cucumber
+Feature: Supplier: Consume WeekBasedMaterialDemand
+
+Scenario Outline: Consume WeekBasedMaterialDemand for load factors journey
+  Given this is my entry point into the load factors journey 
+  When I try to consume  <testDemand> provided by my customer within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my customer.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha   | FT_alpha     | 200 OK           |
+```
+
 ## Supplier: Create WeekBasedCapacityGroup
 
 ### Create valid WeekBasedCapacityGroup
