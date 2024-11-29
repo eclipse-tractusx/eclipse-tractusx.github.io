@@ -544,25 +544,22 @@ Feature: Customer: Create WeekBasedCapacityGroup
 Scenario Outline: Try to generate WeekBasedCapacityGroup for base journey using different <v_tests>
 
 Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
-*       the value for the property "changedAt"                      is <v_changedAt>                            
-*       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
-*       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
-*       the value for the property "name"                           is <v_name>                                 
-*       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
-*       the value for the property "supplier"                       is <v_supplier>                             
-*       the value for the property "customer"                       is <v_customer>                             
-*       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
-*       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
-*       the value for the property "pointInTime"                    is <v_pointInTime>                          
-*       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
-*       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
-*       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
-*       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
-
-
-When the application tries to generate the WeekBasedCapacityGroup
-
-Then it should generate the WeekBasedCapacityGroup
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "name"                           is <v_name>                                 
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
+  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  When the application tries to generate the WeekBasedCapacityGroup
+  Then it should generate the WeekBasedCapacityGroup
 
 Examples:
 | v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
@@ -570,6 +567,93 @@ Examples:
 | beta    | unit:kilogram   | {{TS_NOW}}  | false                     | false                    | {{STR_LOCB}} | {{UUID_CG2}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8549-CH706214.023, MNR-8549-CH706214.023 | {{BPNS_CUS2}}, {{BPNS_CUS2}} | A1S1,PI01        | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 690,345,690,575,690,690,460,690,0,805,805,780,900,900,805,805,900,690,1150                     | 900,900,900,900,900,900,900,900,0,900,900,900,900,910,950,900,900,1000,900,1150                     | 800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800                     | {{OMITTED}}             |
 | gamma   | unit:liters     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCC}} | {{UUID_CG3}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8538-CH809974.001                        | {{BPNS_CUS3}}                | PO01             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 3790,3790,3890,3890,2020,2020,2310,2310,3690,0,3500,3500,1820,1820,3450,3450,3010,3010,550,550 | 3790,3790,3890,3890,3530,3530,3530,3910,3910,3910,3910,3910,3910,3910,3450,3450,3010,3010,2580,2580 | 4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4000 | {{OMITTED}}             |
 | delta   | unit:kilogram   | {{TS_NOW}}  | false                     | false                    | {{STR_LOCD}} | {{UUID_CG4}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                                  | {{OMITTED}}                  | {{OMITTED}}      | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 690,345,690,575,690,690,460,690,0,805,805,780,900,900,805,805,900,690,1150                     | 900,900,900,900,900,900,900,900,0,900,900,900,900,910,950,900,900,1000,900,1150                     | 800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800                     | {{OMITTED}}             |
+```
+
+### WIP - Create WeekBasedCapacityGroup for volatility metrics journey
+
+```cucumber
+Feature: Customer: Create WeekBasedCapacityGroup
+
+Scenario Outline: Try to generate WeekBasedCapacityGroup for volatility metrics journey using different <v_tests>
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "name"                           is <v_name>                                 
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
+  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  When the application tries to generate the WeekBasedCapacityGroup
+  Then it should generate the WeekBasedCapacityGroup
+
+Examples:
+| v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
+| alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
+```
+
+### WIP - Create WeekBasedCapacityGroup for simulated delta production journey
+
+```cucumber
+Feature: Customer: Create WeekBasedCapacityGroup
+
+Scenario Outline: Try to generate WeekBasedCapacityGroup for simulated delta production journey using different <v_tests>
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "name"                           is <v_name>                                 
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
+  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  When the application tries to generate the WeekBasedCapacityGroup
+  Then it should generate the WeekBasedCapacityGroup
+
+Examples:
+| v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
+| alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
+```
+
+### WIP - Create WeekBasedCapacityGroup for load factors journey
+
+```cucumber
+Feature: Customer: Create WeekBasedCapacityGroup
+
+Scenario Outline: Try to generate WeekBasedCapacityGroup for load factors journey using different <v_tests>
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
+  *       the value for the property "name"                           is <v_name>                                 
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
+  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  When the application tries to generate the WeekBasedCapacityGroup
+  Then it should generate the WeekBasedCapacityGroup
+
+Examples:
+| v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
+| alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
 ```
 
 ## Supplier: Provide WeekBasedCapacityGroup
