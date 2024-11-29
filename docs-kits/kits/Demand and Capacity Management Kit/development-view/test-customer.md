@@ -436,6 +436,54 @@ Examples:
 | MD_delta                  | FT_beta      | 200 OK           |
 ```
 
+### WIP - Provide WeekBasedMaterialDemand for volatility metrics journey
+
+The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+
+Scenario Outline: Provide WeekBasedMaterialDemand for volatility metrics journey
+  Given I have successfully created demand alpha in multiple versions as described in Create WeekBasedMaterialDemand for volatility metrics journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha1  | FT_alpha     | 200 OK           |
+| MD_alpha2  | FT_beta      | 200 OK           |
+| MD_alpha3  | FT_gamma     | 200 OK           |
+| MD_alpha4  | FT_delta     | 200 OK           |
+```
+
+### WIP - Provide WeekBasedMaterialDemand for simulated delta production journey
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+Scenario Outline: Provide WeekBasedMaterialDemand for delta production journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for delta production journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha   | FT_alpha     | 200 OK           |
+```
+
+### WIP - Provide WeekBasedMaterialDemand for load factors journey
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+Scenario Outline: Provide WeekBasedMaterialDemand for load factors journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for load factors journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha   | FT_alpha     | 200 OK           |
+```
+
 ## Customer: Consume WeekBasedCapacityGroup
 
 ### Consume valid WeekBasedCapacityGroup
