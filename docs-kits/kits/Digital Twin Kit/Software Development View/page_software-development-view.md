@@ -23,15 +23,15 @@ the [Operation View](../page_software-operation-view.md).
 
 ## API Specifications
 
-All openAPI-specifications for the Digital Twin Kit services are rendered in the
-section [of these docs](API%20AAS%20Discovery/dotaas-part-2-http-rest-discovery-service-specification.info.mdx)
+All openAPI-specifications for the Digital Twin Kit services are stored in the [openApi section](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/openApi/dt) of this repo.
+Please note that these are non-normative replicas from the original standards and their normative references.
 
 ### Asset Administration Shell
 
 The Asset Administration Shell (AAS) is a specification that is released by
 the [Industrial Digital Twin Association (IDTA)](https://industrialdigitaltwin.org/)
-with a perspective to be adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as
-IEC 63278.
+and already partly adopted by the [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage) as
+[IEC 63278](https://webstore.iec.ch/en/publication/65628).
 
 Its mission is defining how “information about assets […] can be exchanged in a meaningful way between partners in a
 value creation network” ([IDTA 01001-3-0](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf)
@@ -69,7 +69,7 @@ security setup etc.). As the information contained in the DTR may be sensitive a
 every data provider must offer his own DTR as an EDC Data Asset. While it is only mandatory to implement the GET
 endpoints
 as specified in
-the [Development View](API%20AAS%20Registry/dotaas-part-2-http-rest-registry-service-specification.info.mdx),
+the [Standard CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX),
 data providers may find it useful to implement other requests for registration
 on top. Either way, they are free to populate their DTR in any way they desire.
 
@@ -162,9 +162,8 @@ A full example on the default case is shown in the next section.
 #### Registering a new Twin
 
 Registration of a new twin is (at least in Catena-X) equivalent to the creation of a new twin. Thus, a Data Provider
-should always ensure that there is no AAS-descriptor created for the respective assetIds yet. If there already is one,
-the submodel-descriptor should
-be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
+should always ensure that an AAS-descriptor for the respective assetIds does not exist yet. If one exists, the
+submodel-descriptor should be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-existing-twin).
 
 `POST /shell-descriptors`
 
@@ -480,14 +479,14 @@ differences are the changed typization. `proxyPath` parameter should be set `"tr
 ### Usage Policies
 
 For Digital Twin Registries, Data Providers are encouraged to only extend Data Offers that make no explicit checks to
-use-case frameworks (formerly known as `FrameworkAgreements`. The DTR is an Enablement Service that should only be
+use-case frameworks (formerly known as `FrameworkAgreement`s). The DTR is an Enablement Service that should only be
 visible once to every Data Consumer in the DSP-Catalog because it is a meta-data broker for data from multiple
 use-cases. Registering it with a Constraint that's specific to a particular use-case would restrict it only to a small
 subset of the dataspace. Of course, the DTR could be registered once per use-case but that's not recommended as it
 bloats the catalog and requires a lot of consumer-side processing. That's why Offers for a DTR should always
 be extended to the dataspace using the at least two Constraints:
 
-1. Check for an active `Membership` credential. This is agnostic to use-cases but still ensures that a Consumer's VP
+1. Check for an active `DataExchangeGovernanceCredential` credential. This is agnostic to use-cases but still ensures that a Consumer's VP
    is valid and issued by a common trust-anchor.
 2. using the DTR as a roadsign in the discovery process is legitimate but requires a set of predefined behavior which
    is why there's a `purpose` for the DTR.
@@ -497,10 +496,7 @@ Here's an example
 ````json
 {
   "@context": [
-    "https://www.w3.org/ns/odrl.jsonld",
-    {
-      "cx-policy": "https://w3id.org/catenax/policy/"
-    }
+    "https://www.w3.org/ns/odrl.jsonld"
   ],
   "@type": "Policy",
   "permission": [
@@ -509,12 +505,12 @@ Here's an example
       "constraint": {
         "and": [
           {
-            "leftOperand": "cx-policy:Membership",
+            "leftOperand": "https://w3id.org/catenax/policy/Framework",
             "operator": "eq",
-            "rightOperand": "active"
+            "rightOperand": "DataExchangeGovernance:1.0"
           },
           {
-            "leftOperand": "cx-policy:UsagePurpose",
+            "leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
             "operator": "eq",
             "rightOperand": "cx.core.digitalTwinRegistry:1"
           }

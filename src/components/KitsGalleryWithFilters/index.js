@@ -142,10 +142,11 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 }}
               >
                 <MenuItem value={'All Domains'}>All Domains</MenuItem>
-                <MenuItem value={'Network & Core Services'}>Network & Core Services</MenuItem>
+                <MenuItem value={'Industry Core'}>Industry Core</MenuItem>
+                <MenuItem value={'Network Services'}>Network Services</MenuItem>
                 <MenuItem value={'PLM / Quality'}>PLM / Quality</MenuItem>
-                <MenuItem value={'Sustainability'}>Sustainability</MenuItem>
                 <MenuItem value={'Resiliency'}>Resiliency</MenuItem>
+                <MenuItem value={'Sustainability'}>Sustainability</MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -167,7 +168,12 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
               return(
                 <div key={index} className={styles.gallery_item}>
                   <Link to={kit.pageRoute} className={styles.gallery_link}>
-                    <img src={kit.img} className={styles.item_img}/>
+                  {typeof kit.img === 'function' ? (
+                      <kit.img className={styles.item_img} alt={kit.name} /> 
+                    ) : ( 
+                      <img src={kit.img} className={styles.item_img} alt={kit.name} />
+                    )}
+
                   </Link>
                 </div>
               )      
