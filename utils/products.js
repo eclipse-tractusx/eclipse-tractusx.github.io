@@ -54,7 +54,7 @@ export const products = [
   },
   {
     productName: "Digital Product Pass",
-    productDescription: 
+    productDescription:
     "The Digital Product Pass (DPP) Application provides an easy way to request and visualize product passports from an economic operator using the Catena-X Network. By scanning a QR code or introducing a manufacturerPartId and partInstanceId (productId) passports can be displayed for different products like Batteries (Battery Pass), Transmissions (Transmision Pass) and any other product by simply using the Generic Digital Product Passport Model. Additionally components like the dpp-backend have the power to retrieve any aspect submodel content, which is registered in a Digital Twin using the Catena-X Network, and the dpp-verification add-on enables certification + verification of Catena-X Instance/Type Aspect Models",
     githubRepo: ["https://github.com/eclipse-tractusx/digital-product-pass"],
     committers: [
@@ -80,12 +80,10 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "IDS Essential Services",
+    productName: "Self-Description Factory",
     productDescription:
-      "The project provides additional services to enable an IDSA-infrastructure within the Catena-X dataspace.",
+      "Generates Self-Description (SD) documents based on input data from the Onboarding Tool, ensuring accurate representation of entities within the network",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/daps-registration-service",
-      "https://github.com/eclipse-tractusx/daps-helm-chart",
       "https://github.com/eclipse-tractusx/sd-factory",
     ],
     committers: [
@@ -131,21 +129,8 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "managed-identity-wallet",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/managed-identity-wallet"],
-    committers: [
-      "https://github.com/borisrizov-zf",
-      "https://github.com/nitin-vavdiya",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request managed-identity-wallet Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "managed-service-orchestrator",
-    productDescription: "TBD",
+    productDescription: "It is a prototype implementation for service provider. This service will help service provider to set up DFT/SDE with EDC and EDC as service in service provider environment.",
     githubRepo: [
       "https://github.com/eclipse-tractusx/managed-service-orchestrator",
     ],
@@ -160,7 +145,7 @@ export const products = [
   },
   {
     productName: "managed-simple-data-exchanger",
-    productDescription: "TBD",
+    productDescription: "It is a component, designed to provide a simplified and efficient solution for data exchange",
     githubRepo: [
       "https://github.com/eclipse-tractusx/managed-simple-data-exchanger",
       "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend",
@@ -229,15 +214,6 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "quality-dashboard",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/quality-dashboard"],
-    committers: ["https://github.com/tomaszbarwicki"],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request quality-dashboard Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "Semantic Layer & Digital Twin",
     productDescription:
       "The project provides methods and tooling to build semantic models (e.g., semantic hub). In addition, it provides standards and services to manage digital twins.",
@@ -262,7 +238,7 @@ export const products = [
   },
   {
     productName: "SSI-agent-lib",
-    productDescription: "TBD",
+    productDescription: "The SSI Agent Library is a component, designed to facilitate the implementation of Self-Sovereign Identity (SSI) solutions",
     githubRepo: ["https://github.com/eclipse-tractusx/SSI-agent-lib"],
     committers: [
       "https://github.com/borisrizov-zf",
