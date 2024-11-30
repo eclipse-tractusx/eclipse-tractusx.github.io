@@ -1,7 +1,7 @@
 export const products = [
   {
     productName: "api-hub",
-    productDescription: "TBD",
+    productDescription: "Welcome to the API Hub repository, a centralized location for hosting and viewing API documentation for the Tractus-X organization. This repository automates the collection of OpenAPI specifications from GitHub releases, generates Swagger UI documentation, and publishes it on GitHub Pages.",
     githubRepo: ["https://github.com/eclipse-tractusx/api-hub"],
     committers: ["https://github.com/tomaszbarwicki"],
     mailTo: "tractusx-dev@eclipse.org?subject=Request api-hub Team",
@@ -349,7 +349,7 @@ export const products = [
   },
   {
     productName: "tractusx-profiles",
-    productDescription: "TBD",
+    productDescription: "Defines Credential and Policy Profiles for Tractus-X.",
     githubRepo: ["https://github.com/eclipse-tractusx/tractusx-profiles"],
     committers: [
       "https://github.com/jimmarino",
@@ -362,7 +362,7 @@ export const products = [
   },
   {
     productName: "vas-country-risk",
-    productDescription: "TBD",
+    productDescription: "The Catena-X Country Risk project is a web application that calculates a risk score per country based on information regarding corruption, political stability, economic risk, and social and structural figures.",
     githubRepo: ["https://github.com/eclipse-tractusx/vas-country-risk"],
     committers: [],
     mailTo: "tractusx-dev@eclipse.org?subject=Request vas-country-risk Team",
