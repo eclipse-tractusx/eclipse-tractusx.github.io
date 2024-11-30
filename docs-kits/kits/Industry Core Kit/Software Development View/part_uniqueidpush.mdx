@@ -28,7 +28,9 @@ The solution is based on notification assets in the EDC (which is the same appro
 
 > :raised_hand: It is important to understand that the receiver creates EDC asset and policies, and thus, the sender of the Unique ID push notification must check during the EDC negotiation process if the conditions the receiver offers are acceptable for the sender.
 
-Currently there are two types of Unique ID Push Notifications available: "Connect to Parent" and "Connect to Child".
+Currently there are two types of Unique ID Push Notifications available: "Connect to Parent" and "Connect to Child":
+
+![Unique ID Push Notifications](../assets/unique_id_push_notifications.svg)
 
 ##### Connect to Parent
 
@@ -123,7 +125,7 @@ Upon receipt of the message, the supplier needs to update the corresponding sing
 
 #### Schema of Unique ID Push Notifications
 
-The Unique ID Push notifications have a standardized format. Schemas of these notifications are described in detail in the Unique ID Push Open API specification. The standardized version of this API is [2.0.0](../../../../openApi/industrycore/unique-id-push.yaml). Version [2.1.0](../../../../openApi/industrycore/unique-id-push_2-1-0.yaml) is not (yet) standardized, but backwards compatible, and extends v2.0.0 with the Connect-to-Child feature.
+The Unique ID Push notifications have a standardized format. Schemas of these notifications are described in detail in the Unique ID Push Open API specification. The standardized version of this API is [2.0.0](../openapi/unique-id-push.yaml). Version [2.1.0](../openapi/unique-id-push_2-1-0.yaml) is not (yet) standardized, but backwards compatible, and extends v2.0.0 with the Connect-to-Child feature.
 
 ##### Connect to Parent
 

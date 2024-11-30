@@ -144,7 +144,7 @@ npm/npmjs/-/cose-base/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/cosmiconfig/6.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/cosmiconfig/7.1.0, MIT, approved, #4975
 npm/npmjs/-/cross-fetch/3.1.5, MIT, approved, clearlydefined
-npm/npmjs/-/cross-spawn/7.0.3, MIT, approved, clearlydefined
+npm/npmjs/-/cross-spawn/7.0.3, MIT, approved, #17146
 npm/npmjs/-/crypto-js/4.1.1, MIT AND BSD-2-Clause, approved, #6630
 npm/npmjs/-/crypto-random-string/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/css-declaration-sorter/6.3.1, ISC, approved, clearlydefined
@@ -1220,7 +1220,7 @@ npm/npmjs/@mui/material/5.11.4, MIT, approved, #6619
 npm/npmjs/@mui/private-theming/5.11.2, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6629
 npm/npmjs/@mui/styled-engine/5.11.0, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6642
 npm/npmjs/@mui/system/5.11.4, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6627
-npm/npmjs/@mui/types/7.2.3, MIT, approved, clearlydefined
+npm/npmjs/@mui/types/7.2.3, MIT, approved, #16017
 npm/npmjs/@mui/utils/5.11.2, MIT AND OFL-1.1 AND CC-BY-3.0, approved, #6632
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
@@ -1228,7 +1228,7 @@ npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
 npm/npmjs/@paloaltonetworks/openapi-to-postmanv2/3.1.0-hotfix.1, Apache-2.0 AND (Apache-2.0 AND MIT) AND BSD-2-Clause-Views AND (Apache-2.0 AND BSD-2-Clause AND MIT) AND MIT, approved, #6641
 npm/npmjs/@paloaltonetworks/postman-code-generators/1.1.12, Apache-2.0, approved, #6636
 npm/npmjs/@paloaltonetworks/postman-collection/4.1.1, Apache-2.0, approved, #6638
-npm/npmjs/@polka/url/1.0.0-next.21, MIT, approved, clearlydefined
+npm/npmjs/@polka/url/1.0.0-next.21, MIT, approved, #16183
 npm/npmjs/@popperjs/core/2.11.6, MIT, approved, clearlydefined
 npm/npmjs/@redocly/ajv/8.11.0, MIT, approved, clearlydefined
 npm/npmjs/@redocly/openapi-core/1.0.0-beta.120, MIT AND Apache-2.0, approved, #6639
@@ -1283,7 +1283,7 @@ npm/npmjs/@types/node/18.11.18, MIT, approved, #5746
 npm/npmjs/@types/parse-json/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/5.0.3, MIT, approved, clearlydefined
 npm/npmjs/@types/parse5/6.0.3, MIT, approved, clearlydefined
-npm/npmjs/@types/prop-types/15.7.5, MIT, approved, clearlydefined
+npm/npmjs/@types/prop-types/15.7.5, MIT, approved, #16176
 npm/npmjs/@types/qs/6.9.7, MIT, approved, #13991
 npm/npmjs/@types/range-parser/1.2.4, MIT, approved, #10795
 npm/npmjs/@types/react-is/17.0.3, MIT, approved, #8424
