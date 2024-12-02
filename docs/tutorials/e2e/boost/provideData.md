@@ -63,11 +63,10 @@ curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets' 
       "@type": "DataAddress",
       "type": "HttpData",
       "proxyPath": "true",
-      "type": "HttpData",
       "proxyMethod": "true",
       "proxyQueryParams": "true",
       "proxyBody": "true",
-      "baseUrl": "https://dataprovider-submodelserver.tx.test"
+      "baseUrl": "http://dataprovider-submodelserver.tx.test"
     }
   }' | jq
 ```
