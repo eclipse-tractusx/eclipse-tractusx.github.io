@@ -47,7 +47,14 @@ curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets' 
   -H 'Content-Type: application/json' \
   -H 'X-Api-Key: TEST2' \
   --data-raw '{
-    "@context": {},
+    "@context": {
+      "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+      "edc": "https://w3id.org/edc/v0.0.1/ns/",
+      "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+      "tx-auth": "https://w3id.org/tractusx/auth/",
+      "cx-policy": "https://w3id.org/catenax/policy/",
+      "odrl": "http://www.w3.org/ns/odrl/2/"
+     },
     "@id": "200",
     "properties": {
       "description": "Product EDC Demo Asset"
@@ -55,7 +62,12 @@ curl -L -X POST 'http://dataprovider-controlplane.tx.test/management/v3/assets' 
     "dataAddress": {
       "@type": "DataAddress",
       "type": "HttpData",
-      "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
+      "proxyPath": "true",
+      "type": "HttpData",
+      "proxyMethod": "true",
+      "proxyQueryParams": "true",
+      "proxyBody": "true",
+      "baseUrl": "https://dataprovider-submodelserver.tx.test"
     }
   }' | jq
 ```
@@ -66,13 +78,16 @@ If successful, the response should look like this:
 
 ```json
 {
+  "@type": "IdResponse",
   "@id": "200",
-  "properties": {
-    "description": "Product EDC Demo Asset"
-  },
-  "dataAddress": {
-    "type": "HttpData",
-    "baseUrl": "https://jsonplaceholder.typicode.com/todos/3"
+  "createdAt": 1733150672368,
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
+    "tx-auth": "https://w3id.org/tractusx/auth/",
+    "cx-policy": "https://w3id.org/catenax/policy/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
 ```
@@ -120,7 +135,6 @@ The result for the first command shows just the newly created asset:
     "odrl": "http://www.w3.org/ns/odrl/2/"
   }
 }
-
 ```
 
 The second request will return all assets. It`s called request catalog and will be explained in the next step.
@@ -490,9 +504,14 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalo
     "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
     "counterPartyId": "BPNL00000003AYRE",
     "protocol": "dataspace-protocol-http",
-    "querySpec": {
-      "offset": 0,
-      "limit": 50
+        "querySpec": {
+        "filterExpression": [
+            {
+                "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+                "operator": "=",
+                "operandRight": "200"
+            } 
+        ] 
     }
   }' | jq
 ```
@@ -501,129 +520,95 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/catalo
 
 ```json
 {
-  "@id": "a8bef433-83ac-4fe0-a2c1-3f988dc187d4",
+  "@id": "ad6b2272-a131-4d75-9efd-0c7529d1109f",
   "@type": "dcat:Catalog",
   "dspace:participantId": "BPNL00000003AYRE",
-  "dcat:dataset": [
-    {
-      "@id": "200",
-      "@type": "dcat:Dataset",
-      "odrl:hasPolicy": [
-        {
-          "@id": "MjAw:MjAw:ODliYzY2OWItYjkyYS00NmU2LWEzYjktNzI1MjdjM2U3MTY0",
-          "@type": "odrl:Offer",
-          "odrl:permission": {
-            "odrl:action": {
-              "@id": "USE"
+  "dcat:dataset": {
+    "@id": "200",
+    "@type": "dcat:Dataset",
+    "odrl:hasPolicy": {
+      "@id": "MjAw:MjAw:YzNlOWVjYzEtMDcwNS00YWI1LThhM2UtOWNmYTA5NTg2ZWU4",
+      "@type": "odrl:Offer",
+      "odrl:permission": {
+        "odrl:action": {
+          "odrl:type": "USE"
+        },
+        "odrl:constraint": {
+          "odrl:or": {
+            "odrl:leftOperand": "BusinessPartnerNumber",
+            "odrl:operator": {
+              "@id": "odrl:eq"
             },
-            "odrl:constraint": {
-              "odrl:or": {
-                "odrl:leftOperand": {
-                  "@id": "BusinessPartnerNumber"
-                },
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "BPNL00000003AZQP"
-              }
-            }
-          },
-          "odrl:prohibition": [],
-          "odrl:obligation": []
-        }
-      ],
-      "dcat:distribution": [
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "AzureStorage-PUSH"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
-          }
-        },
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "HttpData-PULL"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
-          }
-        },
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "HttpData-PUSH"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
-          }
-        },
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "AmazonS3-PULL"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
-          }
-        },
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "AmazonS3-PUSH"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
-          }
-        },
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "AzureStorage-PULL"
-          },
-          "dcat:accessService": {
-            "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
-            "@type": "dcat:DataService",
-            "dcat:endpointDescription": "dspace:connector",
-            "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
-            "dct:terms": "dspace:connector",
-            "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+            "odrl:rightOperand": "BPNL00000003AZQP"
           }
         }
-      ],
-      "description": "Product EDC Demo Asset",
-      "id": "200"
-    }
-  ],
+      },
+      "odrl:prohibition": [],
+      "odrl:obligation": []
+    },
+    "dcat:distribution": [
+      {
+        "@type": "dcat:Distribution",
+        "dct:format": {
+          "@id": "AzureStorage-PUSH"
+        },
+        "dcat:accessService": {
+          "@id": "ed228dd5-d1e6-45be-84be-20ba27829e50",
+          "@type": "dcat:DataService",
+          "dcat:endpointDescription": "dspace:connector",
+          "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+          "dct:terms": "dspace:connector",
+          "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+        }
+      },
+      {
+        "@type": "dcat:Distribution",
+        "dct:format": {
+          "@id": "HttpData-PULL"
+        },
+        "dcat:accessService": {
+          "@id": "ed228dd5-d1e6-45be-84be-20ba27829e50",
+          "@type": "dcat:DataService",
+          "dcat:endpointDescription": "dspace:connector",
+          "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+          "dct:terms": "dspace:connector",
+          "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+        }
+      },
+      {
+        "@type": "dcat:Distribution",
+        "dct:format": {
+          "@id": "HttpData-PUSH"
+        },
+        "dcat:accessService": {
+          "@id": "ed228dd5-d1e6-45be-84be-20ba27829e50",
+          "@type": "dcat:DataService",
+          "dcat:endpointDescription": "dspace:connector",
+          "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+          "dct:terms": "dspace:connector",
+          "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+        }
+      },
+      {
+        "@type": "dcat:Distribution",
+        "dct:format": {
+          "@id": "AmazonS3-PUSH"
+        },
+        "dcat:accessService": {
+          "@id": "ed228dd5-d1e6-45be-84be-20ba27829e50",
+          "@type": "dcat:DataService",
+          "dcat:endpointDescription": "dspace:connector",
+          "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+          "dct:terms": "dspace:connector",
+          "dct:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp"
+        }
+      }
+    ],
+    "description": "Product EDC Demo Asset",
+    "id": "200"
+  },
   "dcat:service": {
-    "@id": "cf8a77da-dbe9-4d95-bd15-7a250706511e",
+    "@id": "ed228dd5-d1e6-45be-84be-20ba27829e50",
     "@type": "dcat:DataService",
     "dcat:endpointDescription": "dspace:connector",
     "dcat:endpointUrl": "http://dataprovider-controlplane.tx.test/api/v1/dsp",

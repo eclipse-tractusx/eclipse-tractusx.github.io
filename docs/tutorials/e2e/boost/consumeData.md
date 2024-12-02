@@ -135,6 +135,28 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs/r
   }' | jq
 ```
 
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs/request' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST1' \
+  --data-raw '{
+    "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" },
+    "@type": "QuerySpec",
+    "filterExpression": [
+      {
+        "operandLeft": "contractNegotiationId",
+        "operator": "=",
+        "operandRight": "4b260501-ae2f-46f4-9efc-01ba5a0b3d96"
+      }
+    ]
+  }' | jq
+
+
+basurl
+ 
+basurl/uuid1
+ 
+
+
 ### Query edrs response
 
 ```json
@@ -144,7 +166,6 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs/r
   "providerId": "BPNL00000003AYRE",
   "assetId": "200",
   "agreementId": "2ece6f45-ff09-4417-b5a9-a92a1849f1d0",
-  // highlight-next-line
   "transferProcessId": "bdd4af10-9e4a-4796-b4b7-7ecdf91a533a",
   "createdAt": 1732726189831,
   "contractNegotiationId": "4b260501-ae2f-46f4-9efc-01ba5a0b3d96",
