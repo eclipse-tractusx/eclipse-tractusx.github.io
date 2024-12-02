@@ -241,17 +241,17 @@ const sidebars = {
                         {
                             type: "link",
                             label: "Gate API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/gate/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0/gate/swagger-ui/'
                         },
                         {
                             type: "link",
                             label: "Pool API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/pool/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0/pool/swagger-ui/'
                         },
                         {
                             type: "link",
                             label: "Orchestrator API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0-rc5/orchestrator/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.2.0/orchestrator/swagger-ui/'
                         },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
