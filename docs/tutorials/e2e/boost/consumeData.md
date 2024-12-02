@@ -83,14 +83,75 @@ curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs' 
     "protocol": "dataspace-protocol-http",
     "policy": {
       "assigner": "BPNL00000003AYRE",
-      // highlight-next-line
       "target": "200",
-      // highlight-next-line
-      "@id": "MjAw:MjAw:Y2ZjMzdlNmUtODAwNi00NGJjLWJhMWYtNjJkOWIzZWM0ZTQ3"
+      "@id": "MjAw:MjAw:Y2ZjMzdlNmUtODAwNi00NGJjLWJhMWYtNjJkOWIzZWM0ZTQ3",
+        "@type": "odrl:Offer",
+        "odrl:permission": {
+          "odrl:action": {
+            "odrl:type": "USE"
+          },
+          "odrl:constraint": {
+            "odrl:or": {
+              "odrl:leftOperand": "BusinessPartnerNumber",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "BPNL00000003AZQP"
+            }
+          }
+        },
+        "odrl:prohibition": [],
+        "odrl:obligation": []
+
+
     },
     "callbackAddresses": []
   }' | jq
 ```
+
+
+curl -L -X POST 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Key: TEST1' \
+  --data-raw '{
+    "@context": [
+      "https://w3id.org/tractusx/policy/v1.0.0",
+      "http://www.w3.org/ns/odrl.jsonld",
+      { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" }
+    ],
+    "@type": "ContractRequest",
+    "counterPartyAddress": "http://dataprovider-controlplane.tx.test/api/v1/dsp",
+    "protocol": "dataspace-protocol-http",
+    "policy": {
+      "assigner": "BPNL00000003AYRE",
+      "target": "700",
+      "@id": "MjIwMA==:NzAw:OGQ1MmZjOWQtYWE1Yy00NTc2LWI5NjYtZGNkODRmYmQzNGM3",
+        "@type": "odrl:Offer",
+        "odrl:permission": {
+          "odrl:action": {
+            "odrl:type": "USE"
+          },
+          "odrl:constraint": {
+            "odrl:or": {
+              "odrl:leftOperand": "BusinessPartnerNumber",
+              "odrl:operator": {
+                "@id": "odrl:eq"
+              },
+              "odrl:rightOperand": "BPNL00000003AZQP"
+            }
+          }
+        },
+        "odrl:prohibition": [],
+        "odrl:obligation": []
+
+
+    },
+    "callbackAddresses": []
+  }' | jq
+
+
+
+
 
 ### EDR response
 
@@ -179,11 +240,9 @@ curl -L -X GET 'http://dataconsumer-1-controlplane.tx.test/management/v2/edrs/bd
   "tx-auth:refreshEndpoint": "http://dataprovider-dataplane.tx.test/api/public/token",
   "tx-auth:audience": "did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003AZQP",
   "type": "https://w3id.org/idsa/v4.1/HTTP",
-  // highlight-next-line
   "endpoint": "http://dataprovider-dataplane.tx.test/api/public",
   "tx-auth:refreshToken": "eyJraWQiOiJ0b2tlblNpZ25lclB1YmxpY0tleSIsImFsZyI6IlJTMjU2In0.eyJleHAiOjE3MzI3MjY0ODksImlhdCI6MTczMjcyNjE4OSwianRpIjoiODA2OTAwYmQtNGY4MS00MzhmLTgyMjYtZDc2ZjkzMmY2MjI1In0.JpTIrOJv609vX86i-y-O8sQcKoTJcWvipC6jyBgWqcEIMWm4dmm4T72z-Z68l1X7QnVq1Ak8JB-fA05ONNL1JjU0W7j6rJK01M2Xo641RpecimxuFhlnld55CPks2wRbbbzHADn8kpqRf2dtNrnsiuRsnzAi6KAkFAEHLB7eLjceNbkk6df3hJrLfnn0DZ6M-OR0O05SgtEyHFsyMpf4OALQwVREIkC7LBTWn7nYCpmzK4ilrL3eM5ZRrbweQ96Tbwi-rfPfp-ptnelO_GGnqzyQef2DN5Eg4P5QZV4QX62Bw0eoYVncgCP6ZKibymnlASG0xHwgEJitu3ZSxBXt-w",
   "tx-auth:expiresIn": "300",
-  // highlight-next-line
   "authorization": "eyJraWQiOiJ0b2tlblNpZ25lclB1YmxpY0tleSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJCUE5MMDAwMDAwMDNBWVJFIiwiYXVkIjoiQlBOTDAwMDAwMDAzQVpRUCIsInN1YiI6IkJQTkwwMDAwMDAwM0FZUkUiLCJleHAiOjE3MzI3MjY0ODksImlhdCI6MTczMjcyNjE4OSwianRpIjoiODRkZDIxOGItMzk1ZC00YmExLTg2OWUtOWYzMjI3ZWM0NWFlIn0.jTKEv8Fh75W1JOwrFUo1wyLdUOyBn3g500dWNUbaEC_bgASPImXfXnY3rhIVr_hrFY-anJIB_a6SkpTWb7lycCh2dcMaOmUVgmdKTcEvTr2blAXD_WUZTQYxHDVsMuPXDbX-30tYM4KVPOyemfe7IreB38n104j_SLo2Dr1BrbN9xU7mUm6DeKv1oi0TFRxnmhwnRx4hK1eBYIO-FuA9h1RDvfLWXW5yF55KkkrRTjX2HKqVPAtHInMZBRDhqB298N_VLpwQMtg9nkElzNWIUqEV4zQ1YLSsGNLSxog7JwuL3Tvy1VCOkzDkr6K89Z4IWEF0GzPjXO6Z-li_Vv7DVw",
   "tx-auth:refreshAudience": "did:web:ssi-dim-wallet-stub.tx.test:BPNL00000003AZQP",
   "@context": {
@@ -204,8 +263,7 @@ Using the endpoint and authorization token from the response, Alice fetches the 
 ### Fetch data request
 
 ```bash
-curl -L -X GET 'http://dataprovider-dataplane.tx.test/api/public' \
-  // highlight-next-line
+curl -L -X GET 'http://dataprovider-dataplane.tx.test/api/public/urn:uuid:b77c6d51-cd1f-4c9d-b5d4-091b22dd306b' \
   -H 'Authorization: eyJraWQiOiJ0b2tlblNpZ25lclB1YmxpY0tleSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJCUE5MMDAwMDAwMDNBWVJFIiwiYXVkIjoiQlBOTDAwMDAwMDAzQVpRUCIsInN1YiI6IkJQTkwwMDAwMDAwM0FZUkUiLCJleHAiOjE3MzI3MjY0ODksImlhdCI6MTczMjcyNjE4OSwianRpIjoiODRkZDIxOGItMzk1ZC00YmExLTg2OWUtOWYzMjI3ZWM0NWFlIn0.jTKEv8Fh75W1JOwrFUo1wyLdUOyBn3g500dWNUbaEC_bgASPImXfXnY3rhIVr_hrFY-anJIB_a6SkpTWb7lycCh2dcMaOmUVgmdKTcEvTr2blAXD_WUZTQYxHDVsMuPXDbX-30tYM4KVPOyemfe7IreB38n104j_SLo2Dr1BrbN9xU7mUm6DeKv1oi0TFRxnmhwnRx4hK1eBYIO-FuA9h1RDvfLWXW5yF55KkkrRTjX2HKqVPAtHInMZBRDhqB298N_VLpwQMtg9nkElzNWIUqEV4zQ1YLSsGNLSxog7JwuL3Tvy1VCOkzDkr6K89Z4IWEF0GzPjXO6Z-li_Vv7DVw'
 ```
 
@@ -213,10 +271,35 @@ curl -L -X GET 'http://dataprovider-dataplane.tx.test/api/public' \
 
 ```json
 {
-  "userId": 1,
-  "id": 3,
-  "title": "fugiat veniam minus",
-  "completed": false
+  "parentParts": [
+    {
+      "validityPeriod": {
+        "validFrom": "2023-03-21T08:47:14.438+01:00",
+        "validTo": "2024-08-02T09:00:00.000+01:00"
+      },
+      "parentCatenaXId": "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
+      "quantity": {
+        "quantityNumber": 2.5,
+        "measurementUnit": "unit:litre"
+      },
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+    },
+    {
+      "validityPeriod": {
+        "validFrom": "2023-03-21T08:47:14.438+01:00",
+        "validTo": "2024-08-02T09:00:00.000+01:00"
+      },
+      "parentCatenaXId": "urn:uuid:68904173-ad59-4a77-8412-3e73fcafbd8b",
+      "quantity": {
+        "quantityNumber": 2.5,
+        "measurementUnit": "unit:litre"
+      },
+      "createdOn": "2022-02-03T14:48:54.709Z",
+      "lastModifiedOn": "2022-02-03T14:48:54.709Z"
+    }
+  ],
+  "catenaXId": "urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
 }
 ```
 
