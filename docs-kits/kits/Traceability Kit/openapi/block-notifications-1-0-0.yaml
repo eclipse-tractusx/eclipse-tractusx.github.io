@@ -6,15 +6,15 @@ info:
   license:
     name: Apache License v2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
- 
+  
 servers:
 - url: https://example.com/api/v1
   variables:
     api-version:
       default: '1.0.0'
- 
+  
 paths:
-   
+    
   # Path to send and receive block notifications
   /block-notification/receive:
     post:
@@ -37,7 +37,7 @@ paths:
           $ref: '#/components/responses/Duplication'
         "422":
           $ref: '#/components/responses/SemanticError'
-   
+    
   # Path to send and receive a status update of a existing block notifications
   /block-notification/update:
     post:
@@ -60,9 +60,9 @@ paths:
           $ref: '#/components/responses/Duplication'
         "422":
           $ref: '#/components/responses/SemanticError'
- 
+  
 components:
-   
+    
   # Schemas to build up the request body and the reponses
   schemas:
     BlockNotificationReceive:
@@ -76,7 +76,7 @@ components:
       required:
         - header
         - content
- 
+  
     BlockNotificationUpdate:
       type: object
       description: "Request body schema to send a status update for an existing block notification."
@@ -88,7 +88,7 @@ components:
       required:
         - header
         - content
- 
+  
     # Schemas to build up the header
     urn_samm_io.catenax.shared.message_header_3.0.0_HeaderCharacteristic:
       description: Characteristic describing the common shared aspect Message Header
@@ -139,7 +139,7 @@ components:
       - senderBpn
       - receiverBpn
       - version
- 
+  
     urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait:
       type: string
       description: "The fully anonymous Catena-X ID of the serialized part or\
@@ -148,7 +148,7 @@ components:
         \ for a total of 36 characters (32 hexadecimal characters and 4 hyphens),\
         \ optionally prefixed by \"urn:uuid:\" to make it an IRI."
       pattern: "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
- 
+  
     urn_samm_io.catenax.shared.message_header_3.0.0_ContextCharacteristic:
       type: string
       description: |-
@@ -160,7 +160,7 @@ components:
             Versioning only refers to major versions in both default and fallback cases.
             Note: The version of the message's header is specified in the version field.
       example: 'Traceability-BlockNotification:1.0.0'
-     
+      
     urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp:
       type: string
       pattern: "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
@@ -168,19 +168,19 @@ components:
       description: Describes a Property which contains the date and time with an optional
         timezone.
       example: '2024-10-07T10:15+00:00'
-     
+      
     urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait:
       type: string
       description: "The provided regular expression ensures that the BPNL is composed\
         \ of prefix 'BPNL', 10 digits and two alphanumeric letters."
       pattern: "^BPNL[a-zA-Z0-9]{12}$"
-     
+      
     urn_samm_io.catenax.shared.message_header_3.0.0_SemanticVersioningTrait:
       type: string
       description: Constraint for defining a SemVer version.
       pattern: "^(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)(-(0|[1-9A-Za-z-][0-9A-Za-z-]*)(.[0-9A-Za-z-]+)*)?([0-9A-Za-z-]+(.[0-9A-Za-z-]+)*)?$"
       example: '3.0.0'
-     
+      
     # Schemas to build up the content (default notification)
     urn_samm_io.catenax.block_notification_receive_1.0.0_PartBlockingInformationSet:
       description: The characteristic of the part blocking information defined as
@@ -189,7 +189,7 @@ components:
       items:
         $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_PartBlockingInformationEntity'
       uniqueItems: true
- 
+  
     urn_samm_io.catenax.block_notification_data_1.0.0_PartBlockingInformationEntity:
       description: The entitiy of the part blocking information Array Set.
       type: object
@@ -215,7 +215,7 @@ components:
       - blockStatus
       - componentLevelContainment
       - periodAndVolumeLevelContainment
- 
+  
     urn_samm_io.catenax.block_notification_1.0.0_BlockStatus:
       type: string
       description: "Child-element of the partBlockingInformation array.\n\nProvides\
@@ -233,43 +233,43 @@ components:
       - ACTIVE
       - PART_BLOCKED
       - CANCELED
-     
+      
     urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnaCharacteristic:
       type: string
       description: "Identifies the respective address of the supplier's location
             from which the corresponding components are delivered. \n\n The provided regular expression ensures that the BPNA is composed\
         \ of prefix 'BPNA', 10 digits and two alphanumeric letters."
       pattern: "^BPNA[a-zA-Z0-9]{12}$"
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_IntegrationLevelCharacteristic:
       type: string
       description: "(E/E component generation (hardware and software) with defined\
             \ functional content and coordinated system communication) [Vehicle electrics/electronics]\t"
       example: 'S18A-19-03-400'
-     
+      
     urn_samm_io.catenax.serial_part_3.0.0_PartIdCharacteristic:
       type: string
       description: |-
             An ID that consists of two different pieces of information but at least always contains a part number:
- 
+  
             Part Number
              identifier of a particular part design (or material used) which unambiguously identifies a part design within a single corporation, sometimes across several corporations
- 
+  
             Change Index (optional)
             The change index corresponds to the identification of a version of a technical object (also in the technical drawing).
             This provides easy-to-understand version management, which allows older variants to be clearly addressed. The first version usually has an index of 0. When changes are made, this is usually increased by 1. The current edition therefore has the highest change index. Alternatively, it is possible to represent the index in ascending order with letters, i.e. A, B, C,... Z, AA, AB, etc.
       example: '884267902'
-     
+      
     urn_samm_io.catenax.serial_part_3.0.0_KeyTrait:
       type: string
       description: Constraint that ensures that the standard keys and custom key prefixes
         can be used.
       pattern: ^(manufacturerId|partInstanceId|batchId|van|customKey:\w+)$
-     
+      
     urn_samm_io.catenax.serial_part_3.0.0_ValueCharacteristic:
       type: string
       description: The value of an identifier.
-     
+      
     urn_samm_io.catenax.serial_part_3.0.0_KeyValueList:
       description: "A list of key value pairs for local identifiers, which are composed\
         \ of a key and a corresponding value."
@@ -284,7 +284,7 @@ components:
       required:
       - key
       - value
-     
+      
     urn_samm_io.catenax.serial_part_3.0.0_LocalIdentifierCharacteristic:
       description: "A local identifier enables identification of a part in a specific\
             \ dataspace, but is not unique in Catena-X dataspace. Multiple local identifiers\
@@ -301,7 +301,7 @@ components:
           value: 'SN12345678'
         - key: 'customKey:ecuSerialNumber'
           value: '220115001384267902201978150063581180'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_ComponentLevelContainmentCharacteristic:
       description: 'The characteristic of the component level containment defined
         as a Object. '
@@ -319,7 +319,7 @@ components:
       - manufacturingLocationId
       - customerPartId
       - localIdentifiers
-     
+      
     urn_samm_io.catenax.shared.quantity_2.0.0_ItemUnitEnumeration:
       type: string
       pattern: "[a-zA-Z]*:[a-zA-Z]+"
@@ -360,12 +360,12 @@ components:
       - unit:minuteUnitOfTime
       - unit:hourUnitOfTime
       - unit:day
-     
+      
     urn_samm_io.catenax.shared.quantity_2.0.0_QuantityValueCharacteristic:
       type: number
       description: The quantity value associated with the unit expressed as float.
       example: 20.0
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_QuantityCharacteristic:
       description: 'The characteristic to define the quantity an value of a property. '
       type: object
@@ -380,7 +380,7 @@ components:
       required:
       - itemUnit
       - quantityValue
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_DeliveryPlaceCharacteristic:
       type: string
       description: "The identification number of the unloading point. An unloading\
@@ -392,27 +392,27 @@ components:
             \ unloading goods. These specific conditions are crucial for the efficient\
             \ and secure processing of deliveries.\t"
       example: '22610'
-
+ 
     urn_samm_io.catenax.block_notification_data_1.0.0_DeliveryNoteNumberCharacteristic:
       type: string
       description: "The number of the delivery note that accompanies the delivery\
             \ and shows the description, unit and quantity of goods included in the\
             \ delivery, etc..\t"
       example: '68988545'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_PackageNumberCharacteristic:
       type: string
       description: "Identififcation number of the package, the unit of goods and\
             \ packaging material. These can be boxes, pallets, mesh boxes, roll containers\
             \ and other loading equipment."
       example: '12295140916130'
- 
+  
     urn_samm_io.catenax.block_notification_data_1.0.0_OrderNumberCharacteristic:
       type: string
       description: The order number (only for production synchronization requests
             (JIS))
       example: '7334663'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_PeriodAndVolumeLevelContainmentCharacteristic:
       description: 'The characteristic of the period and volume level containment
         defined as Object. '
@@ -452,27 +452,27 @@ components:
       - numberOfPartsPerDeliveryNote
       - productionDate
       - numberOfPartsPerPackage
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_XPositionCharacteristic:
       type: string
       description: "Position along the X coordinate where the faulty component\
             \ (cell) is located within the small charge carrier.\t"
       example: 'F'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_YPositionCharacteristic:
       type: string
       description: Position along the Y coordinate where the faulty component
             (cell) is located within the small charge carrier.
       example: '10'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_SmallLoadCarrierLayerCharacteristic:
       type: string
       description: |-
             The layer within the small load carrier in which the faulty part is located.
-            (Ideally if available: UCID = Unique Container ID - ID of the small load carrier in which the faulty part is located) 
+            (Ideally if available: UCID = Unique Container ID - ID of the small load carrier in which the faulty part is located)
             Packaging specific for high-voltage battery cells. Other components (e.g. penthouse are not packaged in small load carriers).
       example: '53BUN6555599345283155+000000008'
-     
+      
     urn_samm_io.catenax.block_notification_data_1.0.0_LocationInTheContainerCharacteristic:
       description: The characteristic to define the location in the container defined
         as entity.
@@ -484,7 +484,7 @@ components:
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_YPositionCharacteristic'
         smallLoadCarrierLayer:
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_data_1.0.0_SmallLoadCarrierLayerCharacteristic'
- 
+  
     # Schemas to build up the content (status udpate notification)
     urn_samm_io.catenax.block_notification_status_update_1.0.0_PartBlockingInformationSet:
       description: The characteristic of the part blocking information defined as
@@ -500,7 +500,7 @@ components:
           blockStatus: 'PART_BLOCKED'
         - catenaXId: '550d3swf-1845-55sw-a2s8-13d6ceed4265'
           blockStatus: 'PART_BLOCKED'
- 
+  
     urn_samm_io.catenax.block_notification_status_update_1.0.0_PartBlockingInformationEntity:
       description: The entitiy of the part blocking information Array Set.
       type: object
@@ -512,23 +512,39 @@ components:
       required:
       - catenaXId
       - blockStatus
-    
+     
     NotificationContentReceive:
       type: object
       properties:
         notificationStatus:
           $ref: '#/components/schemas/NotificationStatus'
+        problemDescription:
+          type: string
+          maxLength: 1000
+          example: "Gear boxes lose oil while driving."
+          description: A free text field which provides information why the parts from the provided list must be blocked or sorted out.
         blockInformations:
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_receive_1.0.0_PartBlockingInformationSet'
-      
+      required:
+      - notificationStatus
+      - blockInformations
+       
     NotificationContentUpdate:
       type: object
       properties:
         notificationStatus:
           $ref: '#/components/schemas/NotificationStatus'
+        updateReason:
+          type: string
+          maxLength: 1000
+          example: "Defect gear boxes were sorted out to prevent major damage."
+          description: A free text field that informs why a previously provided list of damaged parts needs to be updated. For example, because the order to block the parts must be canceled due to a user error or because the damaged parts were sorted out by the customer and thus blocked.
         blockInformations:
           $ref: '#/components/schemas/urn_samm_io.catenax.block_notification_status_update_1.0.0_PartBlockingInformationSet'
-    
+      required:
+      - notificationStatus
+      - blockInformations
+     
     NotificationStatus:
       type: string
       enum:
@@ -539,22 +555,22 @@ components:
         - CLOSED
       example: 'SENT'
       description: The status of the block notification. The following entries are supported and allowed
-
+ 
         - CREATED
         This status is an internal status and is used after the initial creation of a notification. It is not communicated to an other CX/business partner.
-
+ 
         - SENT
         This status means that the notification has been sent out. This status is shown on the sender side (and not on the receiver side).
-
+ 
         - RECEIVED
         This status means that the notification has been received by the receiver. The status is shown on sender and receiver side. It is not communicated to another CX/business partner.
-
+ 
         - ACKNOWLEDGED
-        Defines that a user has confirmed that the notification has been received. 
-
+        Defines that a user has confirmed that the notification has been received.
+ 
         - CLOSED
         This status is set by the initiator of the notification either to regularly close the notification (i.e., after the receiver has set the status to ACKNOWLEDGED).
-    
+     
   # Response Content
   responses:
     Successful:
@@ -571,7 +587,7 @@ components:
       description: Could not accept the sent block notification, because a block notification with that same notification ID already exists.
     SemanticError:
       description: Could not accept the sent block notification even though it is syntactically correct. The block notification is not accepted, because of semantic reasons (e.g., an affected item is not known by the receiver).
- 
+  
   # Request Body Content
   requestBodies:
     BlockNotificationReceive:
