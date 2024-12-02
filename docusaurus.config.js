@@ -398,7 +398,7 @@ const config = {
         title: 'Eclipse Tractus-X',
         logo: {
           alt: 'Eclipse Tractus-X logo',
-          src: 'img/logo_tractus-x.svg',
+          src: 'img/tx-logos/logo-tractus-x-xmas.drawio.svg',
         },
         items: [
           {to: 'blog', label: 'News', position: 'left'},
