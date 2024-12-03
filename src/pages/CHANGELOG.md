@@ -8,6 +8,72 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for overarching, quarterly Releases. Semantic Versioning remains unchanged for all components.
 
+## [24.12] - 2024-12-02
+
+Implemented features can be found [here](https://github.com/orgs/eclipse-tractusx/projects/26/views/33?filterQuery=milestone%3A%2224.12%22+-label%3Ametadata+is%3Aclosed++status%3ADone)
+
+### Updated
+
+| Component | Helm Chart (s) | App-/KIT Version (s) |
+| :-------- | :-------------: | :------------------: |
+| [BPDM KIT](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit) | n/a | [7.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/Business%20Partner%20Kit/Changelog) |
+| [Circularity KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Circularity_KIT/page-adoption-view) | n/a | [1.3.0](https://eclipse-tractusx.github.io/docs-kits/kits/Data%20Chain%20Kit/data%20chain%20kit%20changelog) |
+| [DCM Kit](https://eclipse-tractusx.github.io/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/overview) | n/a | [1.2.0](https://eclipse-tractusx.github.io/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/changelog) |
+| [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry) | digital-twin-registry: [0.6.2](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/digital-twin-registry-0.6.2) | [0.6.2](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/v0.6.2) |
+| [Discovery Finder](https://github.com/eclipse-tractusx/sldt-discovery-finder) | discoveryfinder: [0.4.2](https://github.com/eclipse-tractusx/sldt-discovery-finder/releases/tag/discoveryfinder-0.4.2) | [0.5.2](https://github.com/eclipse-tractusx/sldt-discovery-finder/releases/tag/v0.5.2) |
+| [Discovery Service (BPN Finder)](https://github.com/eclipse-tractusx/sldt-bpn-discovery) | bpndiscovery: [0.4.2](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/bpndiscovery-0.4.2) | [0.5.2](https://github.com/eclipse-tractusx/sldt-bpn-discovery/releases/tag/v0.5.2) |
+| [Eclipse Data Space Connector (Tractus-X EDC)](https://github.com/eclipse-tractusx/tractusx-edc) | [0.8.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.8.0) | [0.8.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.8.0) |
+| [Golden Record Business Partner Number (BPN) Service](https://github.com/eclipse-tractusx/bpdm) | bpdm: [5.2.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/bpdm-5.2.0) | [6.2.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/v6.2.0) |
+| [Identity and Access Management (IAM)](https://github.com/eclipse-tractusx/portal-iam) | centralidp: [4.0.0](https://github.com/eclipse-tractusx/portal-iam/releases/tag/centralidp-4.0.0)<br/>sharedidp: [4.0.0](https://github.com/eclipse-tractusx/portal-iam/releases/tag/sharedidp-4.0.0) | keycloak: [25.0.6](https://www.keycloak.org/docs/latest/release_notes/index.html#keycloak-25-0-0) |
+| [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/category/industry-core-kit) | n/a | [1.3.0](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Industry%20Core%20Kit%20Changelog) |
+| [Knowledge Agents](https://github.com/eclipse-tractusx/knowledge-agents) | remoting-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/remoting-agent-1.14.24)<br>provisioning-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/provisioning-agent-1.14.24)<br>conforming-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/conforming-agent-1.14.24)<br>matchmaking-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/matchmaking-agent-1.14.24) | remoting-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/v1.14.24)<br>provisioning-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/v1.14.24)<br>conforming-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/v1.14.24)<br>matchmaking-agent: [1.14.24](https://github.com/eclipse-tractusx/knowledge-agents/releases/tag/v1.14.24) |
+| [(Knowledge) Agents KIT](https://eclipse-tractusx.github.io/docs-kits/category/agents-kit) | n/a | [1.2.0](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/Knowledge%20Agent%20Changelog) |
+| [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.2.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.2.0) | [1.2.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.2.0) |
+| [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.3.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.3.0) | registration: [2.1.0](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.1.0)<br>frontend: [2.3.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.3.0)<br>backend: [2.3.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.3.0)<br>assets: [2.3.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.3.0) |
+| [Self Description (SD) Factory](https://github.com/eclipse-tractusx/sd-factory) | sdfactory: [2.1.22](https://github.com/eclipse-tractusx/sd-factory/releases/tag/sdfactory-2.1.22) | [v2.1.14](https://github.com/eclipse-tractusx/sd-factory/releases/tag/v2.1.14) |
+| [Semantic Hub](https://github.com/eclipse-tractusx/sldt-semantic-hub) | semantic-hub: [0.4.2](https://github.com/eclipse-tractusx/sldt-semantic-hub/releases/tag/semantic-hub-0.4.2) | [0.5.2](https://github.com/eclipse-tractusx/sldt-semantic-hub/releases/tag/v0.5.2) |
+| [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [1.1.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-1.1.0) | [1.1.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v1.1.0) |
+| [SSI Credential Issuer](https://github.com/eclipse-tractusx/ssi-credential-issuer) | ssi-credential-issuer: [1.2.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/ssi-credential-issuer-1.2.0) | [1.2.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/v1.2.0) |
+| [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/category/traceability-kit) | n/a | [6.0.0](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Traceability%20Kit%20Changelog) |
+
+### Known Knowns
+
+- All not listed products and KITs have not been updated and are based on the release 24.08
+  - These products were not part of the e2e testing phase
+  - And are not tested with the current EDC version 0.8.0
+- [BPN DID Resolution Service (BDRS)](https://github.com/eclipse-tractusx/bpn-did-resolution-service) is unchanged but was part of the testing phase
+- [PURIS](https://github.com/eclipse-tractusx/puris) is unchanged but regression tests were executed
+- [Knowledge Agents](https://github.com/eclipse-tractusx/knowledge-agents) was updated to version 0.8.0 but only tested with the EDC release candidate 0.8.0-RC4
+- This Tractus-X release does not include a Managed Identity Wallet (MIW). The development team decided on a temporary bridging solution, based on a commercial application, to test and ship Release 24.08. Without implementing this interim solution, participants will not be able to fully utilize this Tractus-X release in consequence.
+- For E2E Testing, the [2.1.1](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v2.1.1) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not.
+- Security concern about exposed technical users when subscribing BPDM services over the Portal -> see  [according issue](https://github.com/eclipse-tractusx/sig-release/issues/987)
+- BPNL Group Validation for a Policy does not allow a Collection as a rightOperand -> see [Issue](https://github.com/eclipse-tractusx/tractusx-edc/issues/1674)
+- EDR token refresh implementation is inconsistent and deviates from the documentation -> see [Issue](https://github.com/eclipse-tractusx/tractusx-edc/issues/1565)
+- Consumer-Asset with the same ID as a Provider-Asset Cannot Be Deleted After Contract Negotiation -> see [Issue](https://github.com/eclipse-edc/Connector/issues/4583)
+- Termination of pull transfer process from consumer side does not succeed -> see [Issue](https://github.com/eclipse-edc/Connector/issues/4592)
+- Fatal error while resume PULL transfer process -> see [Issue](https://github.com/eclipse-edc/Connector/issues/4591)
+
+### Runtime
+
+The release has been tested
+
+- on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.28.9`
+- with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `15.2.1.`
+
+Note: Tractus-X EDC has been tested on both Postgresql versions: 15.x and 16.x
+
+### Using helm with central helm registry
+
+You can search all released helm charts with the following commands:
+
+```shell
+helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
+helm repo update tractusx-dev
+helm search repo tractusx-dev --versions
+```
+
+For installation details, please see the referenced Repositories / Releases.
+
 ## [24.08] - 2024-08-05
 
 ### Added
