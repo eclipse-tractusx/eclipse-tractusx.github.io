@@ -51,14 +51,14 @@ This KIT describes two core capabilties of Traceability:
 
 This overview shows the two core capabilities of Traceabilty and the Catena-X Core Services onto which Traceability is built and which are required by the Traceability architecture.
 
-![Architecture - Level 1](./assets/architecture_level_1.png)
+![Architecture - Level 1](./assets/architecture_level_1.svg)
 
 ### Traceability Components
 
 | Subsystem         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Data Provisioning | This component extracts data from a company's internal systems,  transforms it into digital twins, and publishes these digital twins in the DTR and their data in the EDC (as submodels, based on aspect models). The published data is used by Traceability apps as well as other use cases that require Traceabiilty data. |
-| Traceability App  | A Traceability app has two core functionalities:<ul><li>providing an UI to show the parts manufactured by a company and published as digital twins</li><li>create and process quality alerts and quality investigations for quality actions</li></ul>|
+| Traceability App  | A Traceability app has three core functionalities:<ul><li>providing an UI to show the parts manufactured by a company and published as digital twins</li><li>create and process quality alerts and quality investigations for quality actions</li><li>create and transfer block information in real time to separate or quarantine faulty parts in the supply chain to prevent them from being used in the production process (currently optional app feature)</li></ul>|
 | Internal Systems  | These are existing internal systems of a Catena-X partner which provides data to Traceability components, e.g.,<ul><li>for data provisioning: The data provided to Catena-X is fetched from a partner's internal PLM and parts master data systems.</li><li>for Traceability apps: A Traceability app may show more data to a user than just the data that is provided to Catena-X. Generally, the business scope of COTS software is bigger than just Traceability and they have existing interfaces to fetch all data they need for their business functionality (and not only Traceability data).</li></ul>Both components can also send data back to internal systems. That's at the discretion of the Catena-X partner and neither required nor prohibited by the Traceability use case. |
 
 ### Catena-X Core Services
@@ -85,12 +85,15 @@ The following diagram shows a basic data processing flow how a company's interna
 Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](../Industry%20Core%20Kit/Architecture%20View%20Industry%20Core%20Kit), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
 
 - Digital Twin "PartType"
-
+  - N/A
 - Digital Twin "PartInstance"
-  - Aspect model ["TractionBatteryCode"](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#tractionbatterycode)
-
+  - Aspect model ["TractionBatteryCode"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#tractionbatterycode)
+  - Aspect model ["SoftwareInformation"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#softwareinformation)
+  - Aspect model ["CertificateSigningRequests"](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit#certificatesigningrequests)
 
 Details about these aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit).
+
+> :raised_hand: Beware that the aspect models **_SoftwareInformation_** and **_CertificateSigningRequests_** are not standardized yet, but MAY be released as standardized aspect models in future releases of the CX-0125 Traceability Use Case Standard.
 
 ### Policies
 
@@ -119,7 +122,8 @@ This capability defines what mandatory features a Traceability app must provide 
 | Data Sharing via [CX-0018](#standards) compliant connector	| Yes | The data sharing with other Catena-X partners (for Traceability partners, these are their customers and suppliers mostly) must be done via via a [CX-0018](#standards) compliant connector (e.g. EDC). |
 | Data Sovereignty | Yes | The usage of data in the Traceability app is compliant with the Access and Usage Policies as defined in this KIT.
 | Quality Alerts | Yes | In the event of an incident the partner's value chain, the partner would like to be informed promptly and in a structured manner by the triggering partners (e.g., manufacturing problem, field problems) so that the partner can respond as quickly as possible (Supplier/Customer). In the same way, the partner wants to inform their value chain partners easily and specifically in the event of relevant incidents. The traceability apps are able to exchange the alerts in the same interoperable way. |
-| Quality Investigations | Yes | For a given incident in a partner's supply chain, the partner would like to be able to narrow down the affected products as sharply as possible in order to carry out suitable actions in a targeted manner. The partners in the value chain use interoperable Traceability apps for this purpose.|
+| Quality Investigations | Yes | For a given incident in a partner's supply chain, the partner would like to be able to narrow down the affected products as sharply as possible in order to carry out suitable actions in a targeted manner. The partners in the value chain use interoperable Traceability apps for this purpose.| 
+| Block Information | No | The blocking process is a event  where faulty parts in the supply chain are separated or quarantined to prevent them from being used in the production process. Due to the criticality, this part-specific information must be forwarded to the affected manufacturers as quickly as possible so that they can react immediately to sorting out the corresponding components. To overcome this challenge, this information is provided and transmitted via a standardized API.|
 
 ### Non-Functional Requirements
 
@@ -137,36 +141,65 @@ The notification itself has various states. The states and their cycle are descr
 
 ![Notification State Model](./assets/notification-state-model.svg)
 
+### Block Information
+
+The blocking process is a process in the automotive industry to segregate or quarantine nonconforming parts in the supply chain to prevent using them in the production process. Therefore, the supplier must send all relevant information to the customer, so that he is able to identify the affected parts for example at the assembly line or in logistics.
+
+Catena-X is to be used to transfer this information in a standardized manner and to trace the individual parts back to see whether they have been blocked and sorted out on the customer side in order to prevent subsequent damage or major product recalls. In addition, the notification is intended to improve the quality and speed of the block information provided.
+
+#### Block Notification Interaction
+
+The interaction of block notifications is based on events that can be triggered by both the sender and the recipient. These events are represented by a status model and are used to track the progress of the parts that need to be blocked or respectively sorted out by the customer. Details about these status model and the Open API specification for Block Notifications are available in the [Developer View](../Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit).
+
+**Scenario 1:** In this case, it is assumed that the sender sends a list of parts with the associated block information to the recipient. The block status of each part is set to ACTIVE by default.
+
+When all block information has been received by the recipient, checked internally, further processed and finally all affected parts were blocked or sorted out, this information is sent back to the sender through a status update (PART_BLOCKED).
+
+> :raised_hand: Note that the update notification whether one or more parts have been blocked and therefore sorted out by the customer is **not mandatory**. The decision to provide suppliers with this information through a feedback notification **MUST** have been negotiated and accepted by both business partners before implemented. 
+
+**Scenario 2:**
+In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally. 
+
+In order to inform the recipient of this error, the block status of the affected parts is set to CANCELED via an update notification, so that these parts cannot be sorted out and used to be installed by the recipient. 
+
+> :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out. 
+
+![Block State Model Interaction](./assets/block-notification-state-model-interaction.svg)
+
 ## Runtime View
 
-### Processes for Sending, Updating and Resolving Notifications
-
-Below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the section (TRS) Quality Notification Endpoints and EDC Contract Offerings.
+In the sub-sections below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the corresponding sections:
+- [(TRS) Quality Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#quality-notifications)
+- [Block Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#block-notifications)
+- [EDC Contract Offerings](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#asset-registration-via-connector).
 
 To read the UML sequence diagrams correctly, some remarks:
 
 - The shown Notification EDC Adapter is not mandatory. It is just one option to send a notification via the EDC control and data plane. Important is that a similar functionality must be provided/implemented by the (traceability) application vendor. The Notification EDC Adapter or a similar component / functionality will not be provided as a central service from Catena-X.
 - To know where a notification must be send to, the (traceability) application must resolve the BPN of the receiver. This can either be happen because the (traceability) application has this information in its data model or it could - alternatively - also be resolved e.g. via a lookup of the digital twin in the central asset administration shell (AAS) registry.
 
-  :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications. (Warnung)
 - The resolution of the EDC URL for a given BPN is done via the Discovery Service API. The entry for each EDC into this Discovery Service is done via the CX Portal.
 - In each UML sequence diagram the step [01] describes the publishing of the notification endpoints as described in the above sections
 - Similarly, the Http POST request and response bodies are described in the above sections
+
+### Processes for Sending, Updating and Resolving Quality Notifications
 
 #### Sending and Receiving of a Quality Investigation
 
 Below, the UML sequence diagram to send and receive a quality investigation is depicted. In addition to the above mentioned general remarks, the following remark:
 
+- The status transition from SENT to RECEIVED has to be done by the sender once it received the Http status code 201 from the receiver
+
 ![NotificationSendReceive](./diagrams/notification_send-receive.svg)
 
 #### Sending and Receiving of a Quality Alert
+> :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications.
 
 Below, the UML sequence diagram to send and receive a quality alert is depicted. In addition to the above mentioned general remarks, the following remark:
 
 - The status transition from SENT to RECEIVED has to be done by the sender once it received the Http status code 201 from the receiver
 
 ![NotificationSendReceiveAlert](./diagrams/notification_send-receive-alert.svg)
-
 
 #### Update of a Quality Investigation
 
@@ -175,19 +208,33 @@ Below, the UML sequence diagram to update a quality investigation is depicted.
 ![NotificationUpdateInvestigation](./diagrams/notification_update-investigation.svg)
 
 #### Update of a Quality Alert
+> :raised_hand: The (traceability) applications that fully rely on the AAS registry and the corresponding AAS submodels can only support quality investigations. With the release of the AAS submodel SingleLevelUsageAsBuilt or a similar AAS submodel that contains the information, which supply chain partner purchased/assembled a part / batch, it is possible to also support quality alerts for those (traceability) applications.
 
 Below, the UML sequence diagram to update a quality alert is depicted.
 
 ![NotificationUpdateAlert](./diagrams/notification_update-alert.svg)
+
+### Processes for Sending, Updating and Resolving Block Notifications
+
+#### Sending and Receiving of Block Information
+Below, the UML sequence diagram to send and receive a block information is depicted.
+
+![BlockNotificationSendReceive](./diagrams/block-notification-send-receive.svg)
+
+#### Update of Block Information
+Below, the UML sequence diagram to update a block information is depicted.
+> :raised_hand: The process for sending update notifications regarding an ongoing blocking process must be carried out in the same way as sending block information for the first time. The differences are limited to the following changes:
+> - Another data asset “BlockNotificationStatusUpdate” is used for the update
+> - The data model of the notification is limited to the ID and block status of a part and therefore does not include full block informations
+> - Both 'CANCELED' and 'PART_BLOCKED' can be set for the status depending on which case applies to the notification
+
+![BlockNotificationUpdateStatus](./diagrams/block-notification-update-status.svg)
 
 ## Standards
 
 Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Traceability is built on the Industry Core. Please check the relevant [standards of the Industry Core](../Industry%20Core%20Kit/Architecture%20View%20Industry%20Core%20Kit#standards).
-- [CX - 0022 Notification Process 1.1.1](https://catena-x.net/de/standard-library)
-- [CX - 0023 Notification API 1.2.2](https://catena-x.net/de/standard-library)
-- [CX - 0062 Traceability Notification Triangle 1.0.0](https://catena-x.net/de/standard-library)
-- [CX - 0093 Aspect Model Traction Battery Code 1.0.0](https://catena-x.net/de/standard-library)
+- [CX - 0125 Traceability Use Case v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0125-TraceabilityUseCase)
 
 <Notice components={props.components} />

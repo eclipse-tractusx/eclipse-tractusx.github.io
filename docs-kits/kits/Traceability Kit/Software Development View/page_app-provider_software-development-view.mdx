@@ -35,7 +35,8 @@ The traceability app providers are supposed to implement the capabilities to ena
 This feature will enable the whole industry to exchange and act upon quality issues in a more standardized, integrated, accelerated and precise manner in order to streamline claim management, avoid general and inaccurate recalls as well as reduce cost and safeguard brand reputation.
 
 In order to uniquely reference the affected parts across the network in the context of a quality incident, the exchange of quality notifications uses Catena-X Unique ID, which are the network-wide unique identifiers for a serialized part or batch, for which a digital twin has been created. Therefore, an app provider should also deliver capabilities for standardized creation of digital twins of vehicles, parts and materials as described in the [Industry Core KIT](../../../category/industry-core-kit) and [Digital Twin KIT](../../../category/digital-twin-kit).
-![Quality Notifications](../assets/quality_notifications.png)
+
+![Quality Notifications](../assets/quality_notifications.svg)
 
 ### Quality Notification Process
 The notification process takes place between traceability applications or application stacks, and the focus is on minimal interaction, which must be supported by all applications participating in a quality notification or quality investigation scenario. This minimal interaction includes sending and receiving of quality notification as well as updating of the notification state.  Application internals like user journeys, process steps or workflows for notification creation and management in an application are not standardized within Catena-X, and therefore omitted.
@@ -46,7 +47,32 @@ The notification states and their cycle are described in the following figure.
 ### Quality Notification API
 A standardized set of APIs and payloads are specified to enable partners to send quality notifications in a standardized way while already knowing which parts (i.e., serialized parts or batches) and which direct customers or suppliers are affected. Notifications are - in contrast to classical data offers in Catena-X which is created for consumption by external stakeholders - a way to push notification related data from a sender to a receiver. For now, this notification API is limited to the sending and receiving of quality notifications as well as the update of the notification status following a state model.
 It is important to mention that the notification API shall be implemented into each participant's traceability solution or solution stack in order to be able to receive information related to quality issues. The implemented endpoints shall be able to process the defined request body and respond with the HTTP status codes and - if required - reply with the defined response body.
-Meanwhile, this notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the Notification API ([v1.2.1](../openapi/notifications_1-2-1.yaml), [v2.0.0](../openapi/notifications_2-0-0.yaml)) for more details.
+Meanwhile, this notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the corresponding Notification API specifications for more details:
+- [Notification API (v1.2.1)](../openapi/notifications_1-2-1.yaml)
+- [Notification API (v2.0.0)](../openapi/notifications_2-0-0.yaml)
+
+> :raised_hand: For the current release, **version 1.2.1 is mandatory** and must be supported by every App provider. The newer version 2.0.0 can be supported optionally.
+
+## Block Notifications
+While quality notifications are primarily aimed at (first) contact between business partners, block notifications represent an extended form of data exchange in order to actively initiate an immediate measure to block or sort out the produced parts at the customer's production or logistics. As the quality notifications, block notifications take place between traceability applications or other application stacks, so that this functionality must be implemented by both business partners application. 
+
+In this case, block notifications include a **notification status similar to quality notifications** to track communication, but **also include a new status model** for each individual part of the block notification to provide additional information. For example, whether the part was blocked or whether the process to block a part was canceled.
+
+> :raised_hand: Since the Catena-x unique ID is used for the individually listed (damaged) parts in the block notification, the app provider should also provide functions for the standardized creation of digital twins of vehicles, parts and materials, as already mentioned in the quality notifications section. 
+
+### Block Status Model
+In order to track the blocking process in the Catena X network, a defined status model is used for each part of the block notification:
+![Block Status Model](../assets/block-notification-state-model.svg)
+
+- ACTIVE means that the part has been identified as a damaged and safety-critical part and must therefore be blocked on the customer side.
+- PART_BLOCKED is used when the recipient has received the block notification and actually blocks / sorts out the damaged parts as a measure.
+- CANCELED serves as the update status of the component originally identified to be blocked if the supplier subsequently determines that the original part does meet safety requirements, is not damaged or that the information was sent by mistake. This status can also be set by the manufacturer if, after an (initial) analysis, the part does not require a block.
+
+### Block Notification API
+A standardized API and corresponding payloads are specified for block notification to enable and ensure the exchange of information that is critical to the blocking process in a standardized way. At this point, the notification API is focused on sending and receiving notifications with a full stack of block information and on updating a previously sent notification by changing the block status. The implemented endpoints shall be able to process the defined request body and respond with the HTTP status codes and - if required - reply with the defined response body. Meanwhile, the Block Notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the corresponding Block Notification API specification for more details:
+- [Block Notification API (v1.0.0)](../openapi/block-notifications-1-0-0.yaml)
+
+> :raised_hand: For  the current release, **version 1.0.0 is optional** and MUST be supported by every App provider from the next (major) release. The block notifications are not standardized yet, but will be released as a new optional functionality in the CX-0125 Traceability Use Case Standard as of the next release 25.03.
 
 ## Asset Registration via Connector
 Since the notification APIs are published towards the network using a data asset/contract definition in terms of the dataspace protocol (DSP), there are general guidelines defined for registering a notification receiving endpoint within a data asset. The traceability solutions are supposed to implement a similar data asset with the same structure and provisioning towards Catena-X.
@@ -57,9 +83,11 @@ The notification endpoint providers must set properties `dct:type` and `cx-commo
 
 In general, during EDC asset creation, the notification API version needs to provided for `cx-common:version` as specified in OpenAPI documentation. For `dct:type` the following asset typizations should be used during implementation:
 - ReceiveQualityInvestigationNotification
-- ReceiveQualityAlertNotification
-- ReceiveQualityAlertNotification
 - UpdateQualityInvestigationNotification
+- ReceiveQualityAlertNotification
+- UpdateQualityAlertNotification
+- ReceiveBlockNotification
+- UpdateBlockNotification
 
 Please refer to the [Digital Twin KIT](../../../category/digital-twin-kit) for more details.
 
@@ -100,7 +128,9 @@ For general guidelines for policy creation, please refer to [Industry Core KIT](
 It is possible to restrict visibility of data offer for notification API with access policy either for members of Catena-X (“Membership”) and one or several Data Consumers identified by a specific business partner number ("BusinessPartnerNumber").
 As for usage policy, participants and related services must restrict the data usage for notification endpoints by using the following policy rules:
 - Data Exchange Governance (leftOperand: “FrameworkAgreement”) – The official "Data Exchange Governance" is published on [Catena-X website](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
-- at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile).
+- at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile)
+  - for quality notifications, the corresponding usage policy MUST be used (leftOperand: “qualityNotifications”)
+  - for block notifications, the same usage policy as quality notifications MUST be used (leftOperand: “qualityNotifications”)
 
 Additionally, respective usage policies MAY include the following policy rule:
 - Reference Contract (“ContractReference”).
