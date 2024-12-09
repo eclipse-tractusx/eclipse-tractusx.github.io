@@ -193,7 +193,7 @@ The Federated Catalogue is an RDF data storage facility for the Matchmaking Agen
 
 The Federated Catalogue should initially download the complete Semantic Model that has been released for the target environment. It should also contain a list of business partners and their roles which form the surrounding dataspace neighborhood of the tenant. For that purpose, It could use GPDM (Business Partner Data Management) and Self-Description Hub services in order to lookup EDC addresses and additional domain information (sites, geo addresses). It should then be frequently updated with “live” information by invoking the EDC data management API to regularly obtain catalogue information.
 
-The portion of the Semantic Model describing these meta-data (Business Partners, Sites, Addresses, Use Cases, Use Case Roles, Connectors & Assets) is called the Common domain ontology and is mandatory for all releases/excerpts of the Semantic Model (<https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/common_ontology.ttl>).
+The portion of the Semantic Model describing these meta-data (Business Partners, Sites, Addresses, Use Cases, Use Case Roles, Connectors & Assets) is called the Common domain ontology and is mandatory for all releases/excerpts of the Semantic Model (<https://raw.githubusercontent.com/big-data-spaces/knowledge-agents-deployment/main/ontology/common_ontology.ttl>).
 
 ## Virtualization Layer (Non-Standard Relevant)
 
@@ -268,8 +268,8 @@ There are two main components whose interplay implements the AAS-KA bridge:
 * A flexible SQL/JSON engine, such as Dremio or in parts also Postgresql which is able to mount raw data in various
 formats from remote filesystems and APIs. This engine is used to build flat relational views onto a hierarchical
 json structure that may originate in the value-only-serialization of the AAS. Typically there will be one table/view
-per json-schema/submodel template. As an example, see these [scripts](https://github.com/big-data-spaces/knowledge-agent-deployment/tree/main/infrastructure/resources/dremio)
-* A graph engine (such as [ontop](https://ontop-vkg.org/guide/) ) that is able to bind/translate SPARQL queries into SQL. As an example, see these [bindings](https://github.com/big-data-spaces/knowledge-agent-deployment/tree/main/infrastructure/oem/resources/trace.obda)
+per json-schema/submodel template. As an example, see these [scripts](https://github.com/big-data-spaces/knowledge-agents-deployment/tree/main/infrastructure/resources/dremio)
+* A graph engine (such as [ontop](https://ontop-vkg.org/guide/) ) that is able to bind/translate SPARQL queries into SQL. As an example, see these [bindings](https://github.com/big-data-spaces/knowledge-agents-deployment/tree/main/infrastructure/oem/resources/trace.obda)
 
 Of course, if the data is available in a native SQL-schema, the SQL/JSON-engine can be omitted. Likewise, even the graph engine
 can be left out if a sparql-capable database holds its data in conformance to the CX-ontologies.
