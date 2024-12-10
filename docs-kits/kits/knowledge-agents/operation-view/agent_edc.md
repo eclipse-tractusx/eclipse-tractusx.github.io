@@ -49,7 +49,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 - name: agent-plane
   alias: my-agent-plane
   repository: https://eclipse-tractusx.github.io/charts/dev
-  version: 1.13.22
+  version: 1.14.24
 ```
 
 Then configure the connector in the values.yaml

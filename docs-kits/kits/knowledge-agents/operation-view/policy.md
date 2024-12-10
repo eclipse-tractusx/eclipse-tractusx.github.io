@@ -117,7 +117,7 @@ A result from would look like this
                 },
                 "version": {
                     "type": "literal",
-                    "value": "1.13.22"
+                    "value": "1.14.24"
                 }
             },
             {

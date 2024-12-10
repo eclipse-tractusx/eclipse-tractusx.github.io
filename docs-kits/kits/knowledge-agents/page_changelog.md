@@ -32,6 +32,14 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
 
+## [1.3.0] - 2024-12-09
+
+### Added
+
+### Changed
+
+- References to 24.12 (1.14.24)
+
 ## [1.2.0] - 2024-07-29
 
 ### Added
