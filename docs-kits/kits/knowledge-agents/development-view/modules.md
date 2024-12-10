@@ -37,7 +37,7 @@ For more information see
 * Our [Reference Implementation](reference)
 * The [Deployment](../operation-view/deployment) guide
 
-In this context generic building blocks were defined (see next figure) which can be implemented with different open source or [COTS](https://en.wikipedia.org/wiki/Commercial_off-the-shelf) solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found here: <https://catenax-ng.github.io/product-knowledge/docs/architecture>.
+In this context generic building blocks were defined (see next figure) which can be implemented with different open source or [COTS](https://en.wikipedia.org/wiki/Commercial_off-the-shelf) solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found [here](architecture).
 
 [![Architecture High-Level](/img/knowledge-agents/layer_architecture_small.png)](/img/knowledge-agents/layer_architecture.png)
 
