@@ -4,7 +4,7 @@ title: Dependencies
 description: Dependencies
 ---
 
-![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
 
 ## Standard Dependencies
 
