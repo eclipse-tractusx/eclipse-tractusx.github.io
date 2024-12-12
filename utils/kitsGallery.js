@@ -35,7 +35,7 @@ import ModularProduction_Kit from "@site/static/img/kits/modular-production/modu
 import OnlineSimulation from "@site/static/img/kits/osim/osim-kit-gallery.drawio.svg";
 import PCF_Kit from "@site/static/img/kits/pcf/pcf-kit-gallery.drawio.svg";
 import PURIS_Kit from '@site/static/img/kits/puris/puris-kit-gallery.drawio.svg';
-import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-gallery.drawio.svg";
+import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-gallery.drawio.svg";
 import Traceability_Kit from "@site/static/img/kits/traceability/traceability-kit-gallery.drawio.svg";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
@@ -111,7 +111,7 @@ export const kitsGallery = [
   },
   {
     id: 9,
-    name: 'Quality Kit',
+    name: 'Data Driven Quality Management Kit',
     domain: 'PLM / Quality',
     img: DDQM,
     pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
