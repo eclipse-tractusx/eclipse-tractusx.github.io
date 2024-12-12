@@ -43,7 +43,7 @@ curl --location 'http://dataprovider-controlplane.tx.test/management/v3/assets' 
 Just to be sure, that the asset was created succesfully, Bob can check the asset using the following `curl` command:
 
 ```shell
-curl -X POST http://dataprovider-controlplane.tx.test/management/v2/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
+curl -X POST http://dataprovider-controlplane.tx.test/management/v3/assets/request -H "x-api-key: TEST2" -H "content-type: application/json" | jq
 ```
 
 The result shows the already existing assets and the newly created asset.
