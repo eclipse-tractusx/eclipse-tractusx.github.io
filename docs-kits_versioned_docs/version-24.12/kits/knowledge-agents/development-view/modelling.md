@@ -5,7 +5,7 @@ title: Ontology Modelling
 <!--
  * Copyright (c) 2024 T-Systems International GmbH
  * Copyright (c) 2024 Mercedes-Benz AG
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2024 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.

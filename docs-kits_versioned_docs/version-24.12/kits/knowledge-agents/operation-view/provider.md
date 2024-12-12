@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Provisioning
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -50,7 +50,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 ```yaml
     - name: provisioning-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.13.22
+      version: 1.14.24
       alias: my-provider-agent
 ```
 
@@ -317,7 +317,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 ```yaml
     - name: remoting-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.13.22
+      version: 1.14.24
       alias: my-remoting-agent
 ```
 
@@ -1112,7 +1112,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cx-common:name": "Lifetime Prognosis Service for Gearboxes",
         "cx-common:description": "A sample graph asset/offering referring to a specific prognosis resource.",
         "cx-common:description@de": "Ein Beispielasset für eine Prognosefunktion.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?supplier=Graph",
         "dc:type": "cx-taxo:GraphAsset",
@@ -1158,7 +1158,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cx-common:name": "Health Prognosis Service for Gearboxes",
         "cx-common:description": "A second sample graph asset/offering referring to a specific prognosis resource.",
         "cx-common:description@de": "Ein weiteres Beispielasset für eine Prognosefunktion.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?supplier=Graph",
         "dc:type": "cx-taxo:GraphAsset",
@@ -1183,4 +1183,4 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
 }'
 ```
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
