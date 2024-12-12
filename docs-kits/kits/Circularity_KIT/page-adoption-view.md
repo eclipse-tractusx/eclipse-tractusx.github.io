@@ -2,7 +2,7 @@
 title: Adoption View
 ---
 
-![Circulairty Kit Banner](/img/kit-icons/circularity-kit-icon.svg)
+![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.drawio.svg)
 
 ## Circularity KIT
 
