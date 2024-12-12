@@ -5,6 +5,9 @@ description: 'Architecture
 Manufacturing as a Service Kit'
 sidebar_position: 4
 ---
+
+![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.drawio.svg)
+
 ## 1 Introduction and Goals
 
 Manufacturing as a Service (MaaS) requires a matchmaking between the requirements to produce a part or assembly and the capabilities manufacturers can provide, not mentioning the manufacturer’s respective capacities. In addition, manufacturers who are able to offer certain capabilities may never have produced for the product area to which they can contribute. The automotive industry has massive supply chains consisting of manufacturers from nearly every manufacturing domain there is. In such a cross-domain setup, the heterogeneity of production requirements and manufacturing capability descriptions, as well as highly different technical interfaces and governance requirements are major challenges to build an ecosystem for MaaS.
