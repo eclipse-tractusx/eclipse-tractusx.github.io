@@ -6,7 +6,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
 
 ## DCM KIT Changelog
 
