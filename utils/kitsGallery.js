@@ -48,6 +48,7 @@ import Traceability_Kit from "@site/static/img/kits/traceability/traceability-ki
 // * PLM / Quality
 // * Resiliency
 // * Sustainability
+// * Engineering
 
 //**************************************************************** */
 
@@ -83,14 +84,14 @@ export const kitsGallery = [
   {
     id: 5,
     name: 'Behaviour Twin Kit',
-    domain: 'PLM / Quality',
+    domain: 'Engineering',
     img: BehaviourTwin_Kit,
     pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview"
   },
   {
     id: 6,
     name: 'Digital Twin Kit',
-    domain: 'Network Services',
+    domain: 'Industry Core',
     img: DigitalTwin,
     pageRoute: "/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit"
   },
@@ -188,7 +189,7 @@ export const kitsGallery = [
   {
     id: 20,
     name: 'Model Based Production KIT',
-    domain: 'Resiliency',
+    domain: 'Engineering',
     pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
     img: MBP_Kit,
   },
