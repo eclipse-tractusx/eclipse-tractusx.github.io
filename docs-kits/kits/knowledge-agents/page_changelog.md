@@ -5,12 +5,12 @@ description: 'Knowledge Agent'
 sidebar_position: 1
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -31,6 +31,14 @@ sidebar_position: 1
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
+
+## [1.3.0] - 2024-12-09
+
+### Added
+
+### Changed
+
+- References to 24.12 (1.14.24)
 
 ## [1.2.0] - 2024-07-29
 
@@ -141,4 +149,4 @@ All notable changes to the (Knowledge) Agents KIT will be documented in this fil
 
 ### Removed
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
