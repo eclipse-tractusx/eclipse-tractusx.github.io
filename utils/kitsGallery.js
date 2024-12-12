@@ -17,25 +17,25 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import Business_Kit from "@site/static/img/bpkit.png";
-import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
-import Connector_Kit from "@site/static/img/connectorkit-min.png";
-import Traceability_Kit from "@site/static/img/traceabilitykit.png";
+import Agents_Kit from "@site/static/img/Agents_Kit.png";
 import BehaviourTwin_Kit from "@site/static/img/behaviourtwinkit.png";
+import Business_Kit from "@site/static/img/bpkit.png";
+import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
+import Connector_Kit from "@site/static/img/connectorkit-min.png";
+import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
+import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityManagement_Kit.png";
 import DigitalTwin from "@site/static/img/DigitalTwin.png";
 import EcoPass from "@site/static/img/EcoPass.png";
 import ESS_Kit from "@site/static/img/ESSKit.png";
-import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
-import Quality from "@site/static/img/Quality.png";
-import PCF_Kit from "@site/static/img/PCF_Kit.png";
-import ModularProduction_Kit from "@site/static/img/ModularProduction_Kit.png";
-import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityManagement_Kit.png";
-import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
-import Agents_Kit from "@site/static/img/Agents_Kit.png";
-import Maas_Kit from "@site/static/img/MaaSKIT.png";
-import PURIS_Kit from '@site/static/img/PURISKIT.png';
 import Industry_Kit from "@site/static/img/kits/industry-core/industry-core-kit-gallery.drawio.svg";
+import Maas_Kit from "@site/static/img/MaaSKIT.png";
+import ModularProduction_Kit from "@site/static/img/ModularProduction_Kit.png";
+import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
+import PCF_Kit from "@site/static/img/PCF_Kit.png";
+import PURIS_Kit from '@site/static/img/PURISKIT.png';
+import Quality from "@site/static/img/Quality.png";
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-gallery.drawio.svg";
+import Traceability_Kit from "@site/static/img/traceabilitykit.png";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
