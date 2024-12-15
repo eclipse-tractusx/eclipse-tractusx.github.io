@@ -5,7 +5,7 @@ description: "PURIS Kit"
 sidebar_position: 3
 ---
 
-![puris kit banner](/img/kit-icons/puris-kit-icon.svg)
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.drawio.svg)
 
 ## Introduction
 

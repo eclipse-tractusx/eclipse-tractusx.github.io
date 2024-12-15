@@ -5,7 +5,7 @@ description: Share comments to further help solving bottlenecks.
 sidebar_position: 6
 ---
 
-![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
 
 ## Business Roles and Functions
 
