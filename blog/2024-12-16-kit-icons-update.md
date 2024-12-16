@@ -2,7 +2,7 @@
 title: Unified Design and Color Scheme for Kit Icons
 description: Unified Design and Color Scheme for All Kit Icons
 slug: unified-design-color-kits
-date: 2024-12-06
+date: 2024-12-16
 hide_table_of_contents: false
 authors:
   - name: Thibault Grandemenge
