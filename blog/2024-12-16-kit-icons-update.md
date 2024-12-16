@@ -1,14 +1,14 @@
 ---
 title: Unified Design and Color Scheme for All Kit Icons
-description: ...
-slug: ....
+description: Unified Design and Color Scheme for All Kit Icons
+slug: unified-design-color-kits
 date: 2024-11-06
 hide_table_of_contents: false
 authors:
   - name: Thibault Grandemenge
     title: Business Domanin Manager
     url: https://github.com/Grand-Thibault
-    image_url: ...
+    image_url: https://github.com/Grand-Thibault.png
     email: thibault.grandemenge@catena-x.net
 ---
 
