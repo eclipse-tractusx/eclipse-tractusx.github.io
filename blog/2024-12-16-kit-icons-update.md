@@ -1,8 +1,8 @@
 ---
-title: Unified Design and Color Scheme for All Kit Icons
+title: Unified Design and Color Scheme for Kit Icons
 description: Unified Design and Color Scheme for All Kit Icons
 slug: unified-design-color-kits
-date: 2024-11-06
+date: 2024-12-06
 hide_table_of_contents: false
 authors:
   - name: Thibault Grandemenge
@@ -20,7 +20,12 @@ We are excited to announce a major update to the design of our KIT icons! We hav
 
 ## A Unified Layout for a Unified Experience
 
-Color plays a critical role in differentiating KITs and making them visually accessible. To achieve this, we have updated the color scheme to strike a balance between shared identity and unique representation:KITs within the same domain now share a common base color to symbolize their connection, while each kit retains its own accent color to emphasize its unique scope. This ensures that each kit is still easily identifiable while reinforcing its association with the broader domain. We have also adjusted the primary color for certain kits to improve readability and contrast. These changes are particularly noticeable in the kit gallery, where some older color choices made text and icons harder to read.
+Color plays a critical role in differentiating KITs and making them visually accessible. To achieve this, we have updated the color scheme to strike a balance between shared identity and unique representation:
+
+- KITs within the same domain now share a common base color to symbolize their connection,
+- Each KIT retains its own accent color to emphasize its unique scope.
+
+This ensures that each kit is still easily identifiable while reinforcing its association with the broader domain. We have also adjusted the primary color for certain kits to improve readability and contrast. These changes are particularly noticeable in the KIT gallery, where some older color choices made text and icons harder to read.
 
 ## Why These Changes Matter
 
