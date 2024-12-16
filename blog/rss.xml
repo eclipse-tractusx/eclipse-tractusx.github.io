@@ -4,10 +4,19 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Fri, 13 Dec 2024 11:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 16 Dec 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Unified Design and Color Scheme for Kit Icons]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/unified-design-color-kits</link>
+            <guid>unified-design-color-kits</guid>
+            <pubDate>Mon, 16 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Unified Design and Color Scheme for All Kit Icons]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="KITs landscape" src="/assets/images/KIT_landscape.drawio-66c73011fc11ae062eee5e8333b00267.svg" width="1391" height="891" class="img_ev3q"></p><p>Hello Tractus-X community,</p><p>We are excited to announce a major update to the design of our KIT icons! We have implemented a new, unified design and color scheme that improves consistency, readability, and visual cohesion across all KITs. With this update, all icons now follow a standardized layout that visually connects them while still allowing room for individuality. The new layout enhances the overall user experience and ensures a more polished look in the gallery and beyond.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-unified-layout-for-a-unified-experience">A Unified Layout for a Unified Experience<a class="hash-link" href="#a-unified-layout-for-a-unified-experience" title="Direct link to heading">​</a></h2><p>Color plays a critical role in differentiating KITs and making them visually accessible. To achieve this, we have updated the color scheme to strike a balance between shared identity and unique representation:</p><ul><li>KITs within the same domain now share a common base color to symbolize their connection,</li><li>Each KIT retains its own accent color to emphasize its unique scope.</li></ul><p>This ensures that each kit is still easily identifiable while reinforcing its association with the broader domain. We have also adjusted the primary color for certain kits to improve readability and contrast. These changes are particularly noticeable in the KIT gallery, where some older color choices made text and icons harder to read.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-these-changes-matter">Why These Changes Matter<a class="hash-link" href="#why-these-changes-matter" title="Direct link to heading">​</a></h2><p>Consistency and clarity are key to making our open source project accessible and enjoyable for everyone. By unifying the design and refining the color scheme, we’re making navigation easier, improving accessibility and creating a cohesive identity.</p><p>All color codes can he found <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/kit-colors.md" target="_blank" rel="noopener noreferrer">here</a>.</p>]]></content:encoded>
+            <author>thibault.grandemenge@catena-x.net (Thibault Grandemenge)</author>
+        </item>
         <item>
             <title><![CDATA[Release Planning for Release 25.06]]></title>
             <link>https://eclipse-tractusx.github.io/blog/release-planning-R25.06</link>
