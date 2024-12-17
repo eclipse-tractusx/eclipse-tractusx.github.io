@@ -7,7 +7,3 @@ repositories:
   url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
 openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/kit_digital-twin-kit-submodel-api_openAPI.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/bpdm/kit_business-partner-kit-cleaning-dummy_openAPI.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/bpdm/kit_business-partner-kit-gate_openAPI.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/bpdm/kit_business-partner-kit-orchestrator_openAPI.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/bpdm/kit_business-partner-kit-pool_openAPI.yaml"

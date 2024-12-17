@@ -19,34 +19,40 @@
 * SPDX-License-Identifier: Apache-2.0
 ********************************************************************************/
 
-import React from "react";
-import Link from "@docusaurus/Link";
-import styles from "./styles.module.css";
+ import React from "react";
+ import Link from "@docusaurus/Link";
+ import styles from "./styles.module.css";
+ 
+ export default function KitsGalleryMDX({itemsArray, title, description}) {
+   return (
+     <section className={styles.kits_gallery}>
+       <div className={styles.container}>
+ 
+         <div className={styles.title_container}>
+           <h2 className={styles.title}>{title}</h2>
+           <p className="description">{description}</p>
+         </div>
+ 
+         <div className={styles.gallery_container}>
+           {
+             itemsArray.map((kit, index)=> {
+               return(
+                 <div key={index} className={styles.gallery_item}>
+                   <Link to={kit.pageRoute} className={styles.gallery_link}>
+                   {typeof kit.img === 'function' ? (
+                      <kit.img className={styles.item_img} alt={kit.name} /> 
+                    ) : ( 
+                      <img src={kit.img} className={styles.item_img} alt={kit.name} />
+                    )}
 
-export default function KitsGalleryMDX({itemsArray, title, description}) {
-  return (
-    <section className={styles.kits_gallery}>
-      <div className={styles.container}>
-
-        <div className={styles.title_container}>
-          <h2 className={styles.title}>{title}</h2>
-          <p className="description">{description}</p>
-        </div>
-
-        <div className={styles.gallery_container}>
-          {
-            itemsArray.map((kit, index)=> {
-              return(
-                <div key={index} className={styles.gallery_item}>
-                  <Link to={kit.pageRoute} className={styles.gallery_link}>
-                    <img src={kit.img} className={styles.item_img}/>
-                  </Link>
-                </div>
-              )      
-            })
-          }
-        </div>
-      </div>
-    </section>
-  );
-}
+                   </Link>
+                 </div>
+               )      
+             })
+           }
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
