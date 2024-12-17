@@ -5,13 +5,15 @@ description: 'Business Partner Kit'
 sidebar_position: 1
 ---
 
-![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
+![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.drawio.svg)
 
 ### Business Partner KIT
 
 All notable changes to this Kit will be documented in this file.
 
-## [7.0.0] - Unreleased
+## [7.0.0] - 2024-12-01
+
+Compatible for **release 24.12**.
 
 ### Added
 

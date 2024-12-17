@@ -5,7 +5,8 @@ description: "Circularity KIT"
 sidebar_position: 1
 ---
 
-![Circulairty kit banner](/img/kit-icons/circularity-kit-icon.svg)
+![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.drawio.svg)
+
 All notable changes to this Kit will be documented in this file.
 
 ## [1.3.0] - 17.09.2024
@@ -18,7 +19,17 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- add Informational Requirements at End of Life
+- add new figures
+- add license files for new figures
+
+### Changed
+
+- change structure of the contents. Same content chapters are in different order
+- change wording
+
+### Removed
+
+- ./.
 
 ## [1.1.0] - 15.05.2024
 
