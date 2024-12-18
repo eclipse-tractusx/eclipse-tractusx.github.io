@@ -26,6 +26,7 @@
   --ifm-font-color-base: #000;
   --ifm-navbar-link-color: #00000099;
   --ifm-color-secondary-darkest: #626262;
+  --ifm-color-card-border: rgba(0, 0, 0, 0.3);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -45,6 +46,7 @@
   --ifm-font-color-base: #fff;
   --ifm-navbar-link-color: #fff;
   --ifm-color-secondary-darkest: #000;
+  --ifm-color-card-border: rgba(255, 255, 255, 0.3);
 }
 
 /* Algolia DocSearch Component */
