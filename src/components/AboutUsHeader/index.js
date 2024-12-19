@@ -32,7 +32,7 @@ export default function AboutUsHeader() {
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
-            // light: ('/img/main-bg-new.png'),
+            light: ('/img/main-bg-light.png'),
             dark: ('/img/main_bg-min.png'),
           }}
           className={styles.hero_bg}
@@ -45,7 +45,7 @@ export default function AboutUsHeader() {
           </div>
           <div className={styles.information_container}>
             <h1 className="headers-title-h1">About Tractus X</h1>
-            <p className="headers-subtitle-p">
+            <p className={styles.subtitle}>
               Eclipse Tractus-X™  is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation.
             </p>
           </div>

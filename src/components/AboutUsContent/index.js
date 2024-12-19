@@ -20,10 +20,10 @@
  ********************************************************************************/
 
 import React from "react";
-import TractusXBG from "@site/static/img/tractus-x_bg-updated.svg";
 import LicensesImg from "@site/static/img/licenses-minified.png";
 import IFrameComponent from "../../components/IFrameComponent";
 import styles from "./styles.module.css";
+import ThemedImage from '@theme/ThemedImage';
 
 export default function AboutUsContent() {
   return (
@@ -38,7 +38,14 @@ export default function AboutUsContent() {
           </p>
 
           <div className={styles.img_container}>
-            <TractusXBG className={styles.img}/>
+          <ThemedImage
+          // alt="About image"
+          sources={{
+            light: ('/img/tractus-x_bg-updated_light.png'),
+            dark: ('/img/tractus-x_bg-updated.svg'),
+          }}
+          className={styles.hero_bg}
+        />
           </div>
 
           <p className="description-p">
