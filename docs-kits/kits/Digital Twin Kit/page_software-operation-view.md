@@ -5,7 +5,7 @@ description: 'Digital Twin Kit'
 sidebar_position: 3
 ---
 
-![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
+![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.drawio.svg)
 
 ### Digital Twin KIT
 
