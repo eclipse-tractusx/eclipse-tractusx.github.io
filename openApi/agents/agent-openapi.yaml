@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: Catena-X Knowledge Agents SPARQL Endpoint Specification
+  title: Tractus-X Knowledge Agents SPARQL Endpoint Specification
   description: "# Usage\n\nThis endpoint is designed after [W3C SparQL 1.1](https://www.w3.org/TR/sparql11-protocol/)\n\nIt is used in three places:\n- As the consumer-oriented entrypoint of a Matchmaking Agent into the dataspace\n- As the provider-oriented looking entrypoint of a Binding Agent to a backend system\n- As the \"transfer\" protocol between the transfer proxies as built by the EDC infrastructure\n\n### Examples\n\n1. Invoke a Parameterized Skill\n\n```\nPREFIX l0: <https://w3id.org/italia/onto/l0/>\nPREFIX cis: <http://dati.beniculturali.it/cis/>\nSELECT ?event ?eventName ?culturalProperty ?culturalPropertyLabel\nWHERE{\n  ?event cis:involvesCulturalEntity ?culturalProperty ;\n  l0:name ?eventName .\n  ?culturalProperty rdfs:label ?culturalPropertyLabel\n}\n```\n\n2. Invoke a Dataspace Query\n\n```\nPREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\nPREFIX roapit: <https://w3id.org/italia/onto/RO/>\nSELECT *\nWHERE{\n  ?entity arco-catalogue:hasCatalogueRecordVersion ?record . \n  ?record arco-catalogue:hasCatalogueRecordVersionRiT ?rit . \n  ?rit roapit:withRole ?role ;\n    roapit:isRoleInTimeOf ?agent\n}\n\n3. Sub-Skill of 2. that is transferred to the Binding Agent\n\n```\nPREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\nPREFIX roapit: <https://w3id.org/italia/onto/RO/>\nSELECT *\nWHERE{\n  ?entity arco-catalogue:hasCatalogueRecordVersion ?record . \n  ?record arco-catalogue:hasCatalogueRecordVersionRiT ?rit . \n  ?rit roapit:withRole ?role ;\n    roapit:isRoleInTimeOf ?agent\n}\n\n```\n"
   termsOfService: http://catenax.io
   contact:
@@ -9,38 +9,38 @@ info:
   license:
     name: Eclipse Public License
     url: https://www.eclipse.org/legal/epl-2.0/
-  version: 1.12.19
+  version: 1.14.24
 externalDocs:
   description: https://eclipse-tractusx.github.io/docs-kits/category/agents-kit
   url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api
 servers:
-- url: https://knowledge.dev.demo.catena-x.net/conforming-agent/bind
+- url: https://knowledge.dev.demo/conforming-agent/bind
   description: Development Conforming Agent for KA-BIND Profile
-- url: https://knowledge.dev.demo.catena-x.net/conforming-agent/match
+- url: https://knowledge.dev.demo/conforming-agent/match
   description: Development Conforming Agent for KA-MATCH Profile
-- url: https://knowledge.dev.demo.catena-x.net/conforming-agent/transfer
+- url: https://knowledge.dev.demo/conforming-agent/transfer
   description: Development Conforming Agent for KA-TRANSFER Profile
-- url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/prognosis
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/prognosis
   description: Development Remoting Agent Prognosis Example
-- url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/rul
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/rul
   description: Development Remoting Agent Remaining Useful Life Example
-- url: https://knowledge.dev.demo.catena-x.net/tiera-remoting-agent/rdf4j-server/repositories/health
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/health
   description: Development Remoting Agent Health Indicator Example
-- url: https://knowledge.dev.demo.catena-x.net/oem-provider-agent/sparql
+- url: https://knowledge.dev.demo/oem-provider-agent/sparql
   description: Development Provisioning Agent Endpoint 1
-- url: https://knowledge.dev.demo.catena-x.net/oem-provider-agent2/sparql
+- url: https://knowledge.dev.demo/oem-provider-agent2/sparql
   description: Development Provisioning Agent Endpoint 2
-- url: https://knowledge.dev.demo.catena-x.net/oem-provider-agent3/sparql
+- url: https://knowledge.dev.demo/oem-provider-agent3/sparql
   description: Development Provisioning Agent Endpoint 3
-- url: https://knowledge.dev.demo.catena-x.net/oem-provider-agent4/sparql
+- url: https://knowledge.dev.demo/oem-provider-agent4/sparql
   description: Development Provisioning Agent Endpoint 4
-- url: https://knowledge.dev.demo.catena-x.net/oem-provider-agent5/sparql
+- url: https://knowledge.dev.demo/oem-provider-agent5/sparql
   description: Development Provisioning Agent Endpoint 5
-- url: https://knowledge.dev.demo.catena-x.net/tiera-edc-data/BPNL00000003CPIY/api/agent
+- url: https://knowledge.dev.demo/tiera-edc-data/BPNL00000003CPIY/api/agent
   description: Development Matchmaking Agent
-- url: https://knowledge.dev.demo.catena-x.net/consumer-edc-data/BPNL00000003CQI9/api
+- url: https://knowledge.dev.demo/consumer-edc-data/BPNL00000003CQI9/api
   description: Development Consumer
-- url: ttps://knowledge.dev.demo.catena-x.net/oem-edc-data/BPNL00000003COJN/api
+- url: https://knowledge.dev.demo/oem-edc-data/BPNL00000003COJN/api
   description: Development OEM
 security:
 - ApiKeyAuth: []
@@ -1442,7 +1442,7 @@ components:
       value: null
     Dataspace:
       summary: Skill to List Federated Data Catalogue
-      value: "SELECT ?connector ?asset \n       ?name\n       (MIN(?adescription) AS ?description) \n       ?type\n       (MAX(?aversion) AS ?version) \n       (GROUP_CONCAT(DISTINCT ?acontentType;SEPARATOR=\",\") AS ?contentType) \n       (CONCAT(\"<\",GROUP_CONCAT(?aontology;SEPARATOR=\">,<\"),\">\") AS ?isDefinedBy) \n       (MIN(?ashape) AS ?shape)\n WHERE { \n     ?connector <https://github.com/catenax-ng/product-knowledge/ontology/cx.ttl#offersAsset> ?asset. \n     ?asset <https://github.com/catenax-ng/product-knowledge/ontology/common_ontology.ttl#contentType> ?acontentType; \n            <https://github.com/catenax-ng/product-knowledge/ontology/common_ontology.ttl#name> ?name; \n            <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type; \n            <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> ?aontology; \n            <https://github.com/catenax-ng/product-knowledge/ontology/common_ontology.ttl#version> ?aversion; \n            <https://github.com/catenax-ng/product-knowledge/ontology/common_ontology.ttl#description> ?adescription.\n\n    OPTIONAL {\n        ?asset <https://github.com/catenax-ng/product-knowledge/ontology/cx.ttl#shape> ?ashape\n    }\n} GROUP BY ?connector ?asset ?name ?type"
+      value: "SELECT ?connector ?asset \n       ?name\n       (MIN(?adescription) AS ?description) \n       ?type\n       (MAX(?aversion) AS ?version) \n       (GROUP_CONCAT(DISTINCT ?acontentType;SEPARATOR=\",\") AS ?contentType) \n       (CONCAT(\"<\",GROUP_CONCAT(?aontology;SEPARATOR=\">,<\"),\">\") AS ?isDefinedBy) \n       (MIN(?ashape) AS ?shape)\n WHERE { \n     ?connector <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/cx.ttl#offersAsset> ?asset. \n     ?asset <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#contentType> ?acontentType; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#name> ?name; \n            <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type; \n            <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> ?aontology; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#version> ?aversion; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#description> ?adescription.\n\n    OPTIONAL {\n        ?asset <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/cx.ttl#shape> ?ashape\n    }\n} GROUP BY ?connector ?asset ?name ?type"
     Resultset:
       summary: Sample Json-Based Resultset
     AuthorsWithLimits:

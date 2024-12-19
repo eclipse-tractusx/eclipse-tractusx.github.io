@@ -4,12 +4,12 @@ title: Adoption View
 ---
 
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -216,9 +216,9 @@ Any party who offers ready-made artifacts, packages and managed services assisti
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 * SPDX-License-Identifier: CC-BY-4.0
-* SPDX-FileCopyrightText: 2021,2024 T-Systems International GmbH
-* SPDX-FileCopyrightText: 2021,2023 Mercedes-Benz AG
-* SPDX-FileCopyrightText: 2022,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-* SPDX-FileCopyrightText: 2021,2023 ZF Friedrichshafen AG
-* SPDX-FileCopyrightText: 2021,2023 SAP SE
-* SPDX-FileCopyrightText: 2022,2023 Contributors to the Eclipse Foundation
+* SPDX-FileCopyrightText: 2021 T-Systems International GmbH
+* SPDX-FileCopyrightText: 2021 Mercedes-Benz AG
+* SPDX-FileCopyrightText: 2022 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+* SPDX-FileCopyrightText: 2021 ZF Friedrichshafen AG
+* SPDX-FileCopyrightText: 2021 SAP SE
+* SPDX-FileCopyrightText: 2022 Contributors to the Eclipse Foundation
