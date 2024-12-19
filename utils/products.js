@@ -67,19 +67,6 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "identity-trust",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/identity-trust"],
-    committers: [
-      "https://github.com/jimmarino",
-      "https://github.com/wolf4ood",
-      "https://github.com/paullatzelsperger",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request identity-trust Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "Self-Description Factory",
     productDescription:
       "Generates Self-Description (SD) documents based on input data from the Onboarding Tool, ensuring accurate representation of entities within the network",
