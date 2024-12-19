@@ -17,6 +17,17 @@ In this **Boost Chapter**, you will create and request different assets and lear
 
 By the end of this chapter, you will have the foundational knowledge needed to share data within your data space.
 
+:::note
+
+This chapter is described within the guides for the Tractus-X umbrella charts following the [link](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/README.md)
+
+Important chapters are:
+- [Data Exchange](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange.md)
+  - [Provide Data](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange/provide-data.md)
+  - [Consume Data](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange/consume-data.md)
+
+:::
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
