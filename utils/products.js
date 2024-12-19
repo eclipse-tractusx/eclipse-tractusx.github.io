@@ -214,16 +214,50 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "Semantic Layer & Digital Twin",
+    productName: "Digital Twin Registry",
     productDescription:
-      "The project provides methods and tooling to build semantic models (e.g., semantic hub). In addition, it provides standards and services to manage digital twins.",
+        "This product provides standards and services to manage digital twins.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/sldt-digital-twin-registry",
-      "https://github.com/eclipse-tractusx/sldt-semantic-models",
+      "https://github.com/eclipse-tractusx/sldt-digital-twin-registry"
+    ],
+    committers: [
+      "https://github.com/agg3fe",
+      "https://github.com/bs-jokri",
+      "https://github.com/LuLeRoemer",
+      "https://github.com/tunacicek",
+    ],
+    mailTo:
+        "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
+    productName: "Semantic Layer",
+    productDescription:
+        "The project provides methods and tooling to build semantic models (e.g., semantic hub).",
+    githubRepo: [
       "https://github.com/eclipse-tractusx/sldt-semantic-hub",
+      "https://github.com/eclipse-tractusx/sldt-semantic-models",
+      "https://github.com/eclipse-tractusx/sldt-ontology-model",
+    ],
+    committers: [
+      "https://github.com/agg3fe",
+      "https://github.com/bs-jokri",
+      "https://github.com/LuLeRoemer",
+      "https://github.com/tunacicek",
+    ],
+    mailTo:
+        "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
+    productName: "Discovery Services",
+    productDescription:
+      "The project provides applications for the discovery services. The Discovery Finder is used to find an endpoint to a BPN Discovery for a certain type while BPN Discovery finds the endpoint of a provider EDC.",
+    githubRepo: [
       "https://github.com/eclipse-tractusx/sldt-bpn-discovery",
       "https://github.com/eclipse-tractusx/sldt-discovery-finder",
-      "https://github.com/eclipse-tractusx/sldt-ontology-model",
     ],
     committers: [
       "https://github.com/agg3fe",
