@@ -57,10 +57,23 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  max-width: 60%;
+}
       
 @media screen and (max-width: 996px) {
   .about_header {
     height: auto;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: -1rem;
   }
 
   .container {
@@ -98,6 +111,11 @@
 
   .svg_container {
     height: fit-content;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 16px;
   }
 
   .svg {

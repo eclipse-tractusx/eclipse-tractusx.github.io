@@ -33,7 +33,7 @@ export default function HomePageHeader() {
       <ThemedImage
         // alt="Docusaurus themed image hero background"
         sources={{
-          // light: ('/img/main-bg-new.png'),
+          light: ('/img/main-bg-light.png'),
           dark: ('/img/main-bg-new.png'),
         }}
         className={styles.hero_bg}
