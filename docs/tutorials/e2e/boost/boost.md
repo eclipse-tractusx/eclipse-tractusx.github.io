@@ -22,6 +22,7 @@ By the end of this chapter, you will have the foundational knowledge needed to s
 This chapter is described within the guides for the Tractus-X umbrella charts following the [link](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/README.md)
 
 Important chapters are:
+
 - [Data Exchange](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange.md)
   - [Provide Data](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange/provide-data.md)
   - [Consume Data](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/guides/data-exchange/consume-data.md)

@@ -37,6 +37,7 @@ basis for running end-to-end tests or creating a sandbox environment of the Cate
 This chapter is described within the README for the Tractus-X umbrella charts following the [link](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/README.md)
 
 Important chapters are:
+
 - [Cluster Setup](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/setup)
 - [Network Setup](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/network)
 - [Installation](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/user/installation/README.md)
