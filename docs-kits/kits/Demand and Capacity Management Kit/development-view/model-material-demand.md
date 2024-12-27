@@ -4,7 +4,7 @@ title: Aspect Model - WeekBasedMaterialDemand
 description: Aspect Model - WeekBasedMaterialDemand
 ---
 
-![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
 
 ## Aspect Model "WeekBasedMaterialDemand"
 

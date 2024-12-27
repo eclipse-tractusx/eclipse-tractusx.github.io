@@ -5,7 +5,7 @@ description: 'PURIS-DCM Supply Chain Disruption Notifications'
 sidebar_position: 4
 ---
 
-![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-icon.drawio.svg)
+![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.drawio.svg)
 
 ## Reference Implementation
 

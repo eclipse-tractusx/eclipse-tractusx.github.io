@@ -5,7 +5,7 @@ description: 'PURIS Kit Operations View'
 sidebar_position: 4
 ---
 
-![PURIS kit banner](/img/kit-icons/puris-kit-icon.svg)
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.drawio.svg)
 
 ## Reference Implementation
 
