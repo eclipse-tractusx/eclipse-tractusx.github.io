@@ -5,7 +5,7 @@ description: Adoption View
 id: connector_kit_adoption_view
 ---
 
-![Connector kit banner](/img/kit-icons/connector-kit-icon.svg)
+![Connector kit banner](@site/static/img/kits/connector/connector-kit-icon.drawio.svg)
 
 ## Connector KIT
 

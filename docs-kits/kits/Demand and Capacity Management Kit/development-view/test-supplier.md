@@ -4,7 +4,7 @@ title: Test - Supplier
 description: 'Tests relevant for the business role supplier.'
 ---
 
-![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
 
 ## Introduction
 
