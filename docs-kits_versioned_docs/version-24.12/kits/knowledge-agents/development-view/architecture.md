@@ -3,12 +3,12 @@ sidebar_position: 1
 title: High-Level Architecture
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -126,4 +126,4 @@ To summarize, the Knowledge Agent standard shall achieve the following abilities
 * the ability to define domain/use case-based ontologies which form the vocabulary used in the skill definitions.
 * the ability to visualize and develop the ontologies and skills in appropriate SDKs and User Experience components.
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

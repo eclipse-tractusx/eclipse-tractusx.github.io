@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Testbed
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -186,7 +186,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Open Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:GraphAsset",
@@ -227,7 +227,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Closed Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
         "dct:type": "cx-taxo:GraphAsset",
@@ -268,7 +268,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Unfederated Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Graph&mode=open",
         "dct:type": "cx-taxo:GraphAsset",
@@ -313,7 +313,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Open Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",
@@ -355,7 +355,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Closed Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
         "dct:type": "cx-taxo:SkillAsset",
@@ -397,7 +397,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Provider-Forced Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",
@@ -439,7 +439,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Consumer-Forced Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.13.22",
+        "cx-common:version": "1.14.24",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",
@@ -505,4 +505,4 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
 }
 ```
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
