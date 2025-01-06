@@ -6,13 +6,12 @@ __Focus:__ Document the overall architecture from Tractus-X and document Datatas
 
 ## Objectives
 
-- define architecture guidelines for Eclipse Tractus-X Products
-- document the architecture and how all the products come together as a whole
-- document the design decisions of the project itself, regarding other dataspaces and organizations
-- document the relationships in between products, aligning and keep things running in between the dependencies
-- enable a fluid and synchronized integration of the Eclipse Tractus-X Dataspace, having a big picture how it comes together.
-- easy the understanding for external technical viewers who want to learn how Tractus-X has been built from architectural point of view.
-- document dataspace usage patterns to increase performance, reduce complexity and ease the adoption of the dataspace.
+- Define architecture guidelines for Eclipse Tractus-X products
+- Document the architecture and the relationships between the products
+- Document the design decisions of the project itself, regarding other dataspaces and organizations
+- Enable a fluid and synchronized integration of the Eclipse Tractus-X dataspace, having a big picture how it comes together.
+- Easy the understanding for external technical viewers who want to learn how Eclipse Tractus-X has been built from architectural point of view.
+- Document dataspace usage patterns to increase performance, reduce complexity and ease the adoption of the dataspace.
 
 __Repository:__ [eclipse-tractusx/sig-architecture](https://github.com/eclipse-tractusx/sig-architecture)
 
