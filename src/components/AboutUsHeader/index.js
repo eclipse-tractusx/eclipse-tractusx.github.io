@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
+import ThemedImage from '@theme/ThemedImage';
 import TractusXSvg from '../../../static/img/logo_tractus-x.svg'
 
 import styles from "./styles.module.css";
@@ -27,17 +28,28 @@ import styles from "./styles.module.css";
 export default function AboutUsHeader() {
   return (
       <header className={styles.about_header}>
-      <div className={styles.container}>
-        <div className={styles.svg_container}>
-          <TractusXSvg className={styles.svg}/>
+      {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
+        <ThemedImage
+          // alt="Docusaurus themed image hero background"
+          sources={{
+            light: ('/img/main-bg-light.png'),
+            dark: ('/img/main_bg-min.png'),
+          }}
+          className={styles.hero_bg}
+        />
+
+      {/* Content of the component */}
+        <div className={styles.container}>
+          <div className={styles.svg_container}>
+            <TractusXSvg className={styles.svg}/>
+          </div>
+          <div className={styles.information_container}>
+            <h1 className="headers-title-h1">About Tractus X</h1>
+            <p className={styles.subtitle}>
+              Eclipse Tractus-X™  is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation.
+            </p>
+          </div>
         </div>
-        <div className={styles.information_container}>
-          <h1 className="headers-title-h1">About Tractus X</h1>
-          <p className="headers-subtitle-p">
-            Eclipse Tractus-X™  is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation.
-          </p>
-        </div>
-      </div>
     </header>
   );
 }

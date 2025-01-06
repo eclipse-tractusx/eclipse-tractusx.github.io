@@ -34,7 +34,7 @@
   width: 380px;
   height: 172px;
   padding: 50px 20px 5px 20px;
-  background-color: #1E1E1E;
+  background-color: var(--ifm-background-color);
   border-radius: 10px;
   border: 0px solid #ffffff;
   margin-left: 40px;
@@ -42,7 +42,7 @@
   align-items: center;
   box-shadow: rgb(255 255 255 / 50%) 0px 0px 10px;
   border-width: 1px;
-  border-color: rgba(255,255,255,0.3);
+  border-color: var(--ifm-color-card-border);
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
@@ -60,6 +60,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 300px;
+  color: var(--ifm-heading-color);
 }
 
 .roles_title {
@@ -68,6 +69,7 @@
   letter-spacing: 0.6px !important;
   text-overflow: ellipsis;
   white-space: pre-wrap;
+  color: var(--ifm-heading-color);
 }
 
 .icon_container {
@@ -159,4 +161,26 @@
 
 .slick-prev:before {
   content: '';
+}
+
+.prev_arrow {
+  display: flex;
+  left: 20px;
+  position: absolute;
+  top: 75px;
+  cursor: pointer;
+  z-index: 9;
+  background-color: var(--ifm-background-color);
+  border-radius: 100px;
+}
+
+.next_arrow {
+  display: flex;
+  right: 20px;
+  position: absolute;
+  top: 75px;
+  cursor: pointer;
+  z-index: 9;
+  background-color: var(--ifm-background-color);
+  border-radius: 100px;
 }

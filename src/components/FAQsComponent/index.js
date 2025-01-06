@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React, {useState} from "react";
+import ThemedImage from '@theme/ThemedImage';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -50,6 +51,17 @@ export default function FAQsComponent() {
 
   return (
     <section className={styles.faqs}>
+    {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
+      <ThemedImage
+        // alt="Docusaurus themed image hero background"
+        sources={{
+          // light: ('/img/main_bg-min.png'),
+          dark: ('/img/main_bg-min.png'),
+        }}
+        className={styles.hero_bg}
+      />
+
+    {/* Content of the component */}
       <div className={styles.container}>
         <div className={styles.title_container}>
           <h2 className="title-h2">FAQs</h2> 
@@ -75,7 +87,7 @@ export default function FAQsComponent() {
                     expandIcon={<ExpandMoreIcon sx={{color: '#FAA023'}}/>}
                     aria-controls={`panel${faq.id}-content`}
                     id={`panel${faq.id}-header`}
-                    sx={{color: '#fff', paddingBottom: '1rem'}}
+                    sx={{paddingBottom: '1rem'}}
                   >
                     <Typography
                       sx={{
@@ -90,7 +102,7 @@ export default function FAQsComponent() {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails
-                    sx={{color: '#fff', paddingBottom: '2rem'}}
+                    sx={{paddingBottom: '2rem'}}
                   >
                     <Typography
                       sx={{

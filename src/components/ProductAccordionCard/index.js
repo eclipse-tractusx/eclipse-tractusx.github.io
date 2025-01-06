@@ -38,8 +38,10 @@ export default function ProductAccordionCard({ productName, productDescription, 
 
   let emailAddress = mailTo.split('?')[0];
 
+  // Defining max amount of characters that is been passed to condiotionally render the productDescription string
   const MAX_LENGTH = 175;
 
+  // Fetching the latest release of passed leading repository and setting it as the "release" state 
   useEffect(() => {
     fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
       method: 'GET',
@@ -54,14 +56,13 @@ export default function ProductAccordionCard({ productName, productDescription, 
       .catch(err => console.log(err))
   }, []);
 
+  // Function that handles the "version string" in the product card
   const handleVersionString = (string) => {
     let str = string.toLowerCase()
     if (str.startsWith('v')) {
       return str.slice(1)
     } return str
   }
-
-  const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
     <>

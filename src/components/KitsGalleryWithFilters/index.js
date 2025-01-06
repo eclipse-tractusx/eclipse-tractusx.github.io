@@ -110,9 +110,9 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 onChange={handleDomainChange}
 
                 //styles for the input box
+                className={styles.text_color}
                 sx={
                   {
-                    color: '#fff',
                     padding: '0 0.5rem',
                     '& .MuiSvgIcon-root': {
                       color: '#faa023',
