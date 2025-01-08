@@ -340,7 +340,7 @@ end
 rect rgb(221,130,0)
 autonumber 1
   note right of c: Transfer WeekBasedMaterialDemand
-  c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA
+  c->>s: FileTransfer ALPHA containing MaterialDemand ALPHA and BETA
   s->>c: HTTP 200 OK
 end
 rect rgb(128,149,0)
