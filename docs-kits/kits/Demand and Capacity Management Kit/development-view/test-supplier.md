@@ -171,19 +171,25 @@ Scenario Outline: Prepare for simulated delta production journey
 Examples:
 ```
 
-### WIP - Prepare for load factors journey
+### Prepare for load factors journey
 
-This test ensures that the supplier is aware of the sequence of communication and naming conventions within the load factors journey.
+This test ensures that the customer is aware of the sequence of communication and naming conventions within the load factors journey.
 
 ```cucumber
-Feature: Supplier: Prepare yourself
+Feature: Customer: Prepare yourself
   
-Scenario Outline: Prepare for load factors journey journey
+  Scenario Outline: Prepare for load factors journey
   Given I want to execute the load factors journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the load factors journey successfully
   When the test gets executed
   Then it should work as intended
 
 Examples:
+| object   | function                                                                                 | test                                                                                                            |
+| MD_alpha | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
+| MD_beta  | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
+| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Create WeekBasedCapacityGroup for load factor journey, Provide WeekBasedCapacityGroup for load factor journey   |
+| FT_alpha | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume             | Provide WeekBasedMaterialDemand for load factor journey                                                         |
+| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Provide WeekBasedCapacityGroup for load factor journey                                                          |
 ```
 
 ## Supplier: Consume WeekBasedMaterialDemand
@@ -274,7 +280,7 @@ Examples:
 | MD_alpha   | FT_alpha     | 200 OK           |
 ```
 
-### WIP - Consume WeekBasedMaterialDemand for load factors journey
+### Consume WeekBasedMaterialDemand for load factors journey
 
 The supplier receives the previously created WeekBasedMaterialDemand from the customer.
 
@@ -287,8 +293,8 @@ Scenario Outline: Consume WeekBasedMaterialDemand for load factors journey
   Then I should be able to consume the data and send <http status code> to my customer.
 
 Examples:
-| testDemand | fileTransfer | http status code |
-| MD_alpha   | FT_alpha     | 200 OK           |
+| testDemand        | fileTransfer | http status code |
+| MD_alpha, MD_beta | FT_alpha     | 200 OK           |
 ```
 
 ## Supplier: Create WeekBasedCapacityGroup
@@ -626,33 +632,39 @@ Examples:
 | alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
 ```
 
-### WIP - Create WeekBasedCapacityGroup for load factors journey
+### Create WeekBasedCapacityGroup for load factors journey
 
 ```cucumber
 Feature: Customer: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate WeekBasedCapacityGroup for load factors journey using different <v_tests>
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
-  *       the value for the property "changedAt"                      is <v_changedAt>                            
-  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
-  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
-  *       the value for the property "name"                           is <v_name>                                 
-  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
-  *       the value for the property "supplier"                       is <v_supplier>                             
-  *       the value for the property "customer"                       is <v_customer>                             
-  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
-  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
+  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure> 
+  *       the value for the property "LinkedDemandSeries"             contains exactly two Entities "DemandSeries" 
+  *       the value for the property "loadFactor"                     is <v_loadFactor>
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>
+  *       the value for the property "customerLocation"               is <v_customerLocation>
+  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>
+  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>   
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>  
+  *       the value for the property "supplier"                       is <v_supplier>
+  *       the value for the property "name"                           is <v_name>   
   *       the value for the property "pointInTime"                    is <v_pointInTime>                          
   *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
   *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
   *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
-  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult> 
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
+  *       the value for the property "customer"                       is <v_customer>                             
+                              
   When the application tries to generate the WeekBasedCapacityGroup
   Then it should generate the WeekBasedCapacityGroup
 
 Examples:
-| v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
-| alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
+| v_tests | v_unitOfMeasure | v_loadFactor | v_materialNumberCustomer                    | v_materialNumberSupplier | v_customerLocation          | v_demandCategoryCode | v_linkedCapacityGroups | v_unitOfMeasureIsOmitted | v_capacityGroupIsInactive | v_supplier   | v_name              | v_pointInTime                                                                                                 | v_actualCapacity                        | v_maximumCapacity                       | v_agreedCapacity                        | v_deltaProductionResult | v_changedAt | v_capacityGroupId | v_customer   |
+| alpha   | unit:cycles     | 1,2          | MNR-8540-CH063329.001,MNR-8549-CH706214.023 | {{OMITTED}},{{OMITTED}}  | {{BPNS_CUS1}},{{BPNS_CUS1}} | 0001,A1S1            | {{OMITTED}}            | false                    | false                     | {{BPNL_SUP}} | LoadFactorTestGroup | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 | 200,200,200,200,200,200,200,200,200,200 | 225,225,225,225,225,225,225,225,225,225 | 200,200,200,200,200,200,200,200,200,200 | 0,0,0,0,0,0,0,0,0,0     | {{TS_NOW}}  | {{UUID_ID1}}      | {{BPNL_CUS}} |
 ```
 
 ## Supplier: Provide WeekBasedCapacityGroup
@@ -741,7 +753,7 @@ Examples:
 | CG_alpha          | FT_beta      | 200 OK           |
 ```
 
-### WIP - Provide WeekBasedCapacityGroup for load factors journey
+### Provide WeekBasedCapacityGroup for load factors journey
 
 The supplier sends the previously created WeekBasedCapacityGroups to the customer.
 
@@ -890,7 +902,7 @@ Examples:
 | CG_alpha               | MD_alpha                |      |      | zero deviation | (demand + deltaProductionResult) = actual capacity < maximum capacity | green  |
 ```
 
-### WIP - Calculation for load factors journey
+### Calculation for load factors journey
 
 The supplier compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes load factors into account.
 
@@ -898,18 +910,34 @@ The supplier compares the demand data, sent to the supplier, to the capacity dat
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Calculation for load factors journey
-  Given    I have successfully consumed <WeekBasedCapacityGroup>
-  *        I have successfully created <WeekBasedMaterialDemand>
+  Given    I have successfully consumed <WeekBasedMaterialDemand>
+  *        I have successfully created <WeekBasedCapacityGroup>
   When     I compare demand and capacity data for <WeekBasedCapacityGroup>
   Then     I should see <UI demand> that differs from <data demand> for <week> in <year>.
-  Then     I should see <UI unit of measure> that differs from <data unit of measure>.
+  Then     I should see <capacity data and UI unit of measure> that differs from <demand data unit of measure>.
 
 Examples:
-| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | UI demand | data demand | <UI unit of measure> | <data unit of measure> |
-| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
-| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
-| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
-| CG_alpha               | MD_alpha                |      |      |           |             |                      |                        |
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | UI demand | data demand | capacity data and UI unit of measure | demand data unit of measure |
+| CG_alpha               | MD_alpha                | 32   | 2024 | 80        | 80          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 21   | 2026 | 50        | 50          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 22   | 2026 | 100       | 100         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 23   | 2026 | 75        | 75          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 24   | 2026 | 60        | 60          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 25   | 2026 | 90        | 90          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 26   | 2026 | 20        | 20          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 27   | 2026 | 110       | 110         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 28   | 2026 | 225       | 225         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 29   | 2026 | 0         | 0           | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 32   | 2024 | 140       | 70          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 21   | 2026 | 200       | 100         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 22   | 2026 | 100       | 50          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 23   | 2026 | 150       | 75          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 24   | 2026 | 180       | 90          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 25   | 2026 | 120       | 60          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 26   | 2026 | 260       | 130         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 27   | 2026 | 80        | 40          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 28   | 2026 | 0         | 0           | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 29   | 2026 | 220       | 110         | unit:cycles                          | unit:pieces                 |
 ```
 
 ## Supplier: Create IdBasedRequestForUpdate
