@@ -248,7 +248,7 @@ rect rgb(57,57,57)
 end
 ```
 
-#### Demad Volatility Metrics Journey
+#### Demand Volatility Metrics Journey
 
 ``` mermaid
 sequenceDiagram
@@ -270,12 +270,31 @@ autonumber 1
   s->>c: HTTP 200 OK
   c->>s: FileTransfer BETA containing MaterialDemand ALPHA_2
   s->>c: HTTP 200 OK
+end
+rect rgb(128,149,0)
+autonumber 5
+  note right of c: Transfer WeekBasedCapacityGroup
+  s->>c: FileTransfer EPSILON containing CapacityGroup ALPHA
+  c->>s: HTTP 200 OK
+end
+rect rgb(221,130,0)
+autonumber 7
   c->>s: FileTransfer GAMMA containing MaterialDemand ALPHA_3
   s->>c: HTTP 200 OK
+end
+rect rgb(128,149,0)
+autonumber 9
+  note right of c: Transfer WeekBasedCapacityGroup
+  s->>c: FileTransfer EPSILON containing CapacityGroup ALPHA
+  c->>s: HTTP 200 OK
+end
+rect rgb(221,130,0)
+autonumber 11
   c->>s: FileTransfer DELTA containing MaterialDemand ALPHA_4
   s->>c: HTTP 200 OK
 end
 rect rgb(128,149,0)
+autonumber 13
   note right of c: Transfer WeekBasedCapacityGroup
   s->>c: FileTransfer EPSILON containing CapacityGroup ALPHA
   c->>s: HTTP 200 OK
