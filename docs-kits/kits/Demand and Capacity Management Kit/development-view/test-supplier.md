@@ -141,7 +141,7 @@ Examples:
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Provide IdBasedComment for base journey                                                                                                           |
 ```
 
-### WIP - Prepare for volatility metrics journey
+### Prepare for volatility metrics journey
 
 This test ensures that the supplier is aware of the sequence of communication and naming conventions within the volatility metrics journey.
 
@@ -154,7 +154,18 @@ Scenario Outline: Prepare for volatility metrics journey
   Then it should work as intended
 
 Examples:
-```
+| object      | function                                                                                   | test                                                                                                          |
+| MD_alpha_v1 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha   | Consume WeekBasedMaterialDemand for load factor journey                                                       |
+| MD_alpha_v2 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Beta    | Consume Provide WeekBasedMaterialDemand for load factor journey                                               |
+| MD_alpha_v3 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Delta   | Consume Provide WeekBasedMaterialDemand for load factor journey                                               |
+| MD_alpha_v4 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Epsilon | Consume Provide WeekBasedMaterialDemand for load factor journey                                               |
+| CG_alpha    | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Gamma    | Create WeekBasedCapacityGroup for load factor journey, Provide WeekBasedCapacityGroup for load factor journey |
+| FT_alpha    | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume               | Consume WeekBasedMaterialDemand for load factor journey                                                       |
+| FT_beta     | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Consume WeekBasedMaterialDemand for load factor journey                                                       |
+| FT_gamma    | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume                | Provide WeekBasedCapacityGroup for load factor journey                                                        |
+| FT_delta    | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Consume WeekBasedMaterialDemand for load factor journey                                                       |
+| FT_epsilon  | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Consume WeekBasedMaterialDemand for load factor journey                                                       |
+``````
 
 ### WIP - Prepare for simulated delta production journey
 
@@ -243,7 +254,7 @@ Examples:
 | MD_delta                  | FT_beta      | 200 OK           |
 ```
 
-### WIP -  Consume WeekBasedMaterialDemand for volatility metrics journey
+### Consume WeekBasedMaterialDemand for volatility metrics journey
 
 The supplier receives the previously created WeekBasedMaterialDemands from the customer as four separate data transfers.
 
@@ -256,11 +267,11 @@ Scenario Outline: Consume WeekBasedMaterialDemand for volatility metrics journey
   Then I should be able to consume the data and send <http status code> to my customer.
 
 Examples:
-| testDemand | fileTransfer | http status code |
-| MD_alpha1  | FT_alpha     | 200 OK           |
-| MD_alpha2  | FT_beta      | 200 OK           |
-| MD_alpha3  | FT_gamma     | 200 OK           |
-| MD_alpha4  | FT_delta     | 200 OK           |
+| testDemand  | fileTransfer | http status code |
+| MD_alpha_v1 | FT_alpha     | 200 OK           |
+| MD_alpha_v2 | FT_beta      | 200 OK           |
+| MD_alpha_v3 | FT_delta     | 200 OK           |
+| MD_alpha_v4 | FT_epsilon   | 200 OK           |
 ```
 
 ### WIP -  Consume WeekBasedMaterialDemand for simulated delta production journey
@@ -574,33 +585,49 @@ Examples:
 | delta   | unit:kilogram   | {{TS_NOW}}  | false                     | false                    | {{STR_LOCD}} | {{UUID_CG4}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                                  | {{OMITTED}}                  | {{OMITTED}}      | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 690,345,690,575,690,690,460,690,0,805,805,780,900,900,805,805,900,690,1150                     | 900,900,900,900,900,900,900,900,0,900,900,900,900,910,950,900,900,1000,900,1150                     | 800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800,800                     | {{OMITTED}}             |
 ```
 
-### WIP - Create WeekBasedCapacityGroup for volatility metrics journey
+### Create WeekBasedCapacityGroup for volatility metrics journey
 
 ```cucumber
 Feature: Customer: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate WeekBasedCapacityGroup for volatility metrics journey using different <v_tests>
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
-  *       the value for the property "changedAt"                      is <v_changedAt>                            
-  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>              
-  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
-  *       the value for the property "name"                           is <v_name>                                 
-  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
-  *       the value for the property "supplier"                       is <v_supplier>                             
-  *       the value for the property "customer"                       is <v_customer>                             
-  *       the value for the property "LinkedDemandSeries"             contains at least one Entity "DemandSeries" 
-  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>                 
-  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
-  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
-  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
-  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
-  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>                
+  Given   the value for the property "name"                           is <v_name>
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>
+  *       the value for the property "changedAt"                      is <v_changedAt>
+  *       the value for the property "customer"                       is <v_customer>
+  *       the value for the property "supplier"                       is <v_supplier>
+  *       the value for the property "supplierLocations"              is <v_supplierLocations>
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>
+
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>
+
+  *       the value for the property "linkedDemandSeries"             contains entities
+  *       the value for the property "materialNumberCustomer"         is <1_materialNumberCustomer>   for the first   entity "LinkedDemandSeries"
+  *       the value for the property "materialNumberSupplier"         is <1_materialNumberSupplier>   for the first   entity "LinkedDemandSeries"
+  *       the value for the property "customerLocation"               is <1_customerLocation>         for the first   entity "LinkedDemandSeries"
+  *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "LinkedDemandSeries"
+  
+  *       the value for the property "capacities"                     contains entities
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>
+  *       the value for the property "pointInTime"                    is <v_pointInTime>
+
+  *       the value for the property "demandVolatilityParameters"     contains entities
+  *       the value for the property "startReferenceDateTime"         is <v_startReferenceDateTime>
+  *       the value for the property "measurementInterval"            is <v_measurementInterval>
+  *       the value for the property "rollingHorizonAlertThresholds"  contains entities
+  *       the value for the property "sequenceNumber"                 is <v_sequenceNumber>
+  *       the value for the property "subhorizonLength"               is <v_subhorizonLength> 
+  *       the value for the property "absolutePositiveDeviation"      is <v_absolutePositiveDeviation>
+  *       the value for the property "absoluteNegativeDeviation"      is <v_absoluteNegativeDeviation>
   When the application tries to generate the WeekBasedCapacityGroup
   Then it should generate the WeekBasedCapacityGroup
 
 Examples:
-| v_tests | v_unitOfMeasure | v_changedAt | v_capacityGroupIsInactive | v_unitOfMeasureIsOmitted | v_name       | v_capacityGroupId | v_supplier   | v_customer   | v_materialNumberCustomer                     | v_customerLocation           | v_demandCategory | v_linkedCapacityGroups | v_DemandVolatility | v_pointInTime                                                                                                                                                                                                               | v_actualCapacity                                                                               | v_maximumCapacity                                                                                   | v_agreedCapacity                                                                                    | v_deltaProductionResult |
-| alpha   | unit:pieces     | {{TS_NOW}}  | false                     | false                    | {{STR_LOCA}} | {{UUID_CG1}}      | {{BPNL_SUP}} | {{BPNL_CUS}} | MNR-8540-CH063329.001                        | {{BPNS_CUS1}}                | 0001             | {{OMITTED}}            | {{OMITTED}}        | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 220,209,209,220,209,245,250,0,240,250,245,242,220,209,198,220,109,198,209,220                  | 250,250,250,250,250,250,250,0,250,250,250,250,250,250,250,250,250,250,250,250                       | 300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300                     | {{OMITTED}}             |
+| v_tests  | v_name            | v_capacityGroupId | v_changedAt | v_customer   | v_supplier   | v_supplierLocations | v_capacityGroupIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | 1_materialNumberCustomer | 1_materialNumberSupplier | 1_customerLocation | 1_demandCategoryCode | v_actualCapacity                  | v_agreedCapacity                    | v_maximumCapacity                       | v_pointInTime                                                                                                 | v_startReferenceDateTime | v_measurementInterval | v_sequenceNumber | v_subhorizonLength | v_absolutePositiveDeviation | v_absoluteNegativeDeviation |
+| CG_alpha | Volatility Tester | {{TS_NOW}}        | UUID_CG1    | {{BPNL_CUS}} | {{BPNL_SUP}} | {{BPNS_SUP1}}       | false                     | unit:pieces     | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{BPNS_CUS1}}      | 0001                 | 80,80,90,90,90,90,100,100,100,100 | 100,100,95,95,95,95,150,150,150,150 | 100,100,100,100	100,100,100,100,100,100 | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 | {{TS_NOW}}               | 1                     | 1,2,3            | 2,4,4              | 0,10,20                     | 0,10,20                     |
 ```
 
 ### WIP - Create WeekBasedCapacityGroup for simulated delta production journey
@@ -719,7 +746,7 @@ Examples:
 
 ```
 
-### WIP - Provide WeekBasedCapacityGroup for volatility metrics journey
+### Provide WeekBasedCapacityGroup for volatility metrics journey
 
 The supplier sends the previously created WeekBasedCapacityGroups to the customer.
 
@@ -733,7 +760,7 @@ Scenario Outline: Provide WeekBasedCapacityGroup for volatility metrics journey
 
 Examples:
 | testCapacityGroup | fileTransfer | http status code |
-| CG_alpha          | FT_epsilon   | 200 OK           |
+| CG_alpha          | FT_gamma     | 200 OK           |
 ```
 
 ### WIP - Provide WeekBasedCapacityGroup for simulated delta production journey
@@ -856,7 +883,7 @@ Examples:
 | CG_beta                | MD_beta, MD_gamma       | 14   | 2026 | zero deviation | Demand = actual capacity < maximum capacity | green  |
 ```
 
-### WIP - Calculation for volatility metrics journey
+### Calculation for volatility metrics journey
 
 The supplier compares the demand data, received from the customer, to the capacity data, sent to the customer. This triggers multiple volatility alerts.
 
@@ -864,17 +891,18 @@ The supplier compares the demand data, received from the customer, to the capaci
 Feature: Supplier: Visualize CapacityGroup together with MaterialDemand
 
 Scenario Outline: Calculation for volatility metrics journey
-  Given    I have successfully consumed <WeekBasedMaterialDemand> in multiple updated versions
+  Given    I have successfully consumed <WeekBasedMaterialDemand>
   *        I have successfully created <WeekBasedCapacityGroup>
+  *        <MostRecentMaterialDemands> are the basis for the comparison within the GUI
   When     I compare demand and capacity data for <WeekBasedCapacityGroup>
   Then     I should get <volatility alert> for <week> in <year>
 
 Examples:
-| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | volatility alert                     |
-| CG_alpha               | MD_alpha                |      |      | absolute negative deviation exceeded |
-| CG_alpha               | MD_alpha                |      |      | absolute positive deviation exceeded |
-| CG_alpha               | MD_alpha                |      |      | relative negative deviation exceeded |
-| CG_alpha               | MD_alpha                |      |      | relative positive deviation exceeded |
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand                            | MostRecentMaterialDemand | week   | year | volatility alert                     |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 25, 28 | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 20     | 2026 | absolute positive deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 24     | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 23, 28 | 2026 | absolute positive deviation exceeded |
 ```
 
 ### WIP - Calculation for simulated delta production journey
