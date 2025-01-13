@@ -665,33 +665,41 @@ Examples:
 Feature: Customer: Create WeekBasedCapacityGroup
 
 Scenario Outline: Try to generate WeekBasedCapacityGroup for load factors journey using different <v_tests>
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure> 
-  *       the value for the property "LinkedDemandSeries"             contains exactly two Entities "DemandSeries" 
-  *       the value for the property "loadFactor"                     is <v_loadFactor>
-  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>
-  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>
-  *       the value for the property "customerLocation"               is <v_customerLocation>
-  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>
-  *       the value for the property "linkedCapacityGroups"           is <v_linkedCapacityGroups>
-  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>   
-  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>  
+  Given   the value for the property "name"                           is <v_name>
+  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>
+  *       the value for the property "changedAt"                      is <v_changedAt>
+  *       the value for the property "customer"                       is <v_customer>
   *       the value for the property "supplier"                       is <v_supplier>
-  *       the value for the property "name"                           is <v_name>   
-  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
-  *       the value for the property "actualCapacity"                 is <v_actualCapacity>                       
-  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>                      
-  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>                       
-  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult> 
-  *       the value for the property "changedAt"                      is <v_changedAt>                            
-  *       the value for the property "capacityGroupId"                is <v_capacityGroupId>                      
-  *       the value for the property "customer"                       is <v_customer>                             
-                              
+  *       the value for the property "linkedCapacityGroups"           is <linkedCapacityGroups>
+  *       the value for the property "capacityGroupIsInactive"        is <v_capacityGroupIsInactive>
+
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>
+
+  *       the value for the property "linkedDemandSeries"             contains entities
+  *       the value for the property "materialNumberCustomer"         is <1_materialNumberCustomer>   for the first   entity "LinkedDemandSeries"
+  *       the value for the property "materialNumberSupplier"         is <1_materialNumberSupplier>   for the first   entity "LinkedDemandSeries"
+  *       the value for the property "customerLocation"               is <1_customerLocation>         for the first   entity "LinkedDemandSeries"
+  *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "LinkedDemandSeries"
+  *       the value for the property "loadFactor"                     is <1_loadFactor>               for the first   entity "LinkedDemandSeries"
+  *       the value for the property "materialNumberCustomer"         is <2_materialNumberCustomer>   for the second  entity "LinkedDemandSeries"
+  *       the value for the property "materialNumberSupplier"         is <2_materialNumberSupplier>   for the second  entity "LinkedDemandSeries"
+  *       the value for the property "customerLocation"               is <2_customerLocation>         for the second  entity "LinkedDemandSeries"
+  *       the value for the property "demandCategoryCode"             is <2_demandCategoryCode>       for the second  entity "LinkedDemandSeries"
+  *       the value for the property "loadFactor"                     is <2_loadFactor>               for the second  entity "LinkedDemandSeries"
+
+  *       the value for the property "capacities"                     contains entities
+  *       the value for the property "actualCapacity"                 is <v_actualCapacity>
+  *       the value for the property "agreedCapacity"                 is <v_agreedCapacity>
+  *       the value for the property "maximumCapacity"                is <v_maximumCapacity>
+  *       the value for the property "deltaProductionResult"          is <v_deltaProductionResult>
+  *       the value for the property "pointInTime"                    is <v_pointInTime>                           
   When the application tries to generate the WeekBasedCapacityGroup
   Then it should generate the WeekBasedCapacityGroup
 
 Examples:
-| v_tests | v_unitOfMeasure | v_loadFactor | v_materialNumberCustomer                    | v_materialNumberSupplier | v_customerLocation          | v_demandCategoryCode | v_linkedCapacityGroups | v_unitOfMeasureIsOmitted | v_capacityGroupIsInactive | v_supplier   | v_name              | v_pointInTime                                                                                                 | v_actualCapacity                        | v_maximumCapacity                       | v_agreedCapacity                        | v_deltaProductionResult | v_changedAt | v_capacityGroupId | v_customer   |
-| alpha   | unit:cycles     | 1,2          | MNR-8540-CH063329.001,MNR-8549-CH706214.023 | {{OMITTED}},{{OMITTED}}  | {{BPNS_CUS1}},{{BPNS_CUS1}} | 0001,A1S1            | {{OMITTED}}            | false                    | false                     | {{BPNL_SUP}} | LoadFactorTestGroup | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 | 200,200,200,200,200,200,200,200,200,200 | 225,225,225,225,225,225,225,225,225,225 | 200,200,200,200,200,200,200,200,200,200 | 0,0,0,0,0,0,0,0,0,0     | {{TS_NOW}}  | {{UUID_ID1}}      | {{BPNL_CUS}} |
+| v_tests | v_name              | v_capacityGroupId | v_changedAt | v_customer   | v_supplier   | v_linkedCapacityGroups | v_capacityGroupIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | 1_materialNumberCustomer | 1_materialNumberSupplier | 1_customerLocation | 1_demandCategoryCode | 1_loadFactor | 2_materialNumberCustomer | 2_materialNumberSupplier | 2_customerLocation | 2_demandCategoryCode | 2_loadFactor | v_actualCapacity                        | v_agreedCapacity                        | v_maximumCapacity                       | v_deltaProductionResult | v_pointInTime                                                                                                 |
+| alpha   | LoadFactorTestGroup | {{UUID_ID1}}      | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | {{OMITTED}}            | false                     | unit:cycles     | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{BPNS_CUS1}}      | 0001                 | 1            | MNR-8549-CH706214.023    | {{OMITTED}}              | {{BPNS_CUS1}}      | A1S1                 | 2            | 200,200,200,200,200,200,200,200,200,200 | 200,200,200,200,200,200,200,200,200,200 | 225,225,225,225,225,225,225,225,225,225 | 0,0,0,0,0,0,0,0,0,0     | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 ```
 
 ## Supplier: Provide WeekBasedCapacityGroup
