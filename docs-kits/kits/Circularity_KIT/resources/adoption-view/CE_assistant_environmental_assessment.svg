@@ -1,0 +1,2261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export CE Assistant_Environmental Assessment_Aktivitaetsdiagramm2024-04-23_v6_110MüJ.svg Ecological decision-logic -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="46.2717in" height="32.5709in"
+		viewBox="0 0 3331.56 2345.1" xml:space="preserve" color-interpolation-filters="sRGB" class="st18">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Times New Roman;font-size:1.00001em;font-stretch:semi-expanded}
+		.st3 {fill:#000000;font-family:Arial;font-size:1.16666em}
+		.st4 {fill:#000000;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {fill:#000000;font-family:Times New Roman;font-size:1.00001em}
+		.st6 {font-size:1em}
+		.st7 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st8 {marker-end:url(#mrkr4-54);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.237638}
+		.st9 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.068333106914821}
+		.st10 {fill:#ffffff;stroke:#00b050;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st11 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st12 {font-size:1em;text-decoration:underline}
+		.st13 {fill:#9dbb61;fill-opacity:0.098;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st14 {fill:#dde2cd;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st15 {fill:#000000;font-family:Calibri;font-size:1.66667em}
+		.st16 {fill:#000000}
+		.st17 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st18 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-11" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0.01" stop-color="#ffffff" stop-opacity="1"/>
+			<stop offset="0.5" stop-color="#fefefe" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-15" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
+			<stop offset="0" stop-color="#fefefe" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-54" class="st9" v:arrowType="4" v:arrowSize="3" v:setback="29.2684" refX="-29.268389662028" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-14.634194831014,-14.634194831014) "/>
+		</marker>
+	</defs>
+	<g v:mID="27" v:index="1" v:groupContext="foregroundPage">
+		<title>Szenario_4R</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Container" v:index="0"/>
+		<v:layer v:name="Verbinder" v:index="1"/>
+		<g id="group1-1" transform="translate(113.831,-361.722)" v:mID="1" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Container)"/>
+				<v:ud v:nameU="msvSDContainerMargin" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				<v:ud v:nameU="msvSDContainerResize" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerLocked" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerNoHighlight" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerNoRibbon" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerStyle" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerStyleCount" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerRequiredCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDContainerExcludedCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
+				<v:ud v:nameU="msvSDHeadingStyle" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDHeadingStyleCount" v:prompt="" v:val="VT0(4):26"/>
+				<v:ud v:nameU="HeadingSide" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="HeadingSpan" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="HeadingAlign" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="RTL" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="FnForceContrast" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="HColor1" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="HColor2" v:prompt="" v:val="VT5(#fefefe)"/>
+				<v:ud v:nameU="HColor3" v:prompt="" v:val="VT5(#e9e9e9)"/>
+				<v:ud v:nameU="HColor4" v:prompt="" v:val="VT5(#efefef)"/>
+				<v:ud v:nameU="BColor1" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="BColor2" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="LineColor" v:prompt="" v:val="VT5(#d5d5d5)"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>Teilsystem</title>
+			<g id="group2-2" v:mID="2" v:groupContext="group" v:layerMember="0">
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Corner6" v:prompt="" v:val="VT0(0.19685039370079):24"/>
+					<v:ud v:nameU="FillForegndIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="FillBkgndIn" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="FillPatternIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+				</v:userDefs>
+				<title>Tabelle.2</title>
+				<g id="shape3-3" v:mID="3" v:groupContext="shape" v:layerMember="0" transform="translate(2.83465,2.83465)">
+					<title>Tabelle.3</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeColors" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeEffects" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+						<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="OffsetX10" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+						<v:ud v:nameU="OffsetY10" v:prompt="" v:val="VT0(-0.039370078740157):24"/>
+					</v:userDefs>
+				</g>
+				<g id="shape2-5" v:mID="2" v:groupContext="groupContent" v:layerMember="0">
+					<path d="M0 2345.1 L1445.53 2345.1 L2891.07 2345.1 L2891.07 788.9 L1445.53 788.9 L0 788.9 L0 2345.1 Z"
+							class="st1"/>
+				</g>
+			</g>
+			<g id="group4-7" transform="translate(0,-1530.69)" v:mID="4" v:groupContext="group" v:layerMember="0">
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Hidden" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(3):26"/>
+					<v:ud v:nameU="Inset" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="InsideRadius" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="InsetXInt" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="HTxtMargin" v:prompt="" v:val="VT0(0.059055118110236):24"/>
+					<v:ud v:nameU="HTxtWidth" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+					<v:ud v:nameU="HLeft" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+					<v:ud v:nameU="SquareCorners7" v:prompt="" v:val="VT0(3):26"/>
+					<v:ud v:nameU="Offset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Rounding8" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+					<v:ud v:nameU="InsetX9" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="InsetY9" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="OffsetY11" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="OffsetY12" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Width12" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="HLineVisible" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="HFillVisible" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="FillForegndIn" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="FillBkgndIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="FillPatternIn" v:prompt="" v:val="VT0(30):26"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="HTxtWidth" v:prompt="" v:val="VT0(40.15368610444):1"/>
+					<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(40.15368610444):1"/>
+				</v:userDefs>
+				<title>Tabelle.4</title>
+				<desc>User (Dismantling Lead)</desc>
+				<g id="shape5-8" v:mID="5" v:groupContext="shape" v:layerMember="0">
+					<title>Tabelle.5</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeColors" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeEffects" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+						<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0):1"/>
+						<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(3):26"/>
+						<v:ud v:nameU="HLeft" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+						<v:ud v:nameU="Hidden" v:prompt="" v:val="VT0(0):5"/>
+						<v:ud v:nameU="BowHeight7" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+						<v:ud v:nameU="Offset7" v:prompt="" v:val="VT0(0.0052083333333333):3"/>
+						<v:ud v:nameU="AnchorPt7" v:prompt="" v:val="VT0(0.55581528871391):24"/>
+						<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(40.15368610444):1"/>
+						<v:ud v:nameU="AnchorPt7" v:prompt="" v:val="VT0(0.64439796587927):24"/>
+					</v:userDefs>
+				</g>
+				<g id="shape4-12" v:mID="4" v:groupContext="groupContent" v:layerMember="0">
+					<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
+					<v:textRect cx="1445.53" cy="2332.35" width="2891.07" height="25.5118"/>
+					<text x="6" y="2335.95" class="st2" v:langID="1031"><v:paragraph/><v:tabList/>User (Dismantling Lead)</text>				</g>
+			</g>
+		</g>
+		<g id="group6-17" transform="translate(556.427,-362.268)" v:mID="6" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Container)"/>
+				<v:ud v:nameU="msvSDContainerMargin" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				<v:ud v:nameU="msvSDContainerResize" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerLocked" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerNoHighlight" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerNoRibbon" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvSDContainerStyle" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerStyleCount" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDContainerRequiredCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDContainerExcludedCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
+				<v:ud v:nameU="msvSDHeadingStyle" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="msvSDHeadingStyleCount" v:prompt="" v:val="VT0(4):26"/>
+				<v:ud v:nameU="HeadingSide" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="HeadingSpan" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="HeadingAlign" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="RTL" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="FnForceContrast" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="HColor1" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="HColor2" v:prompt="" v:val="VT5(#fefefe)"/>
+				<v:ud v:nameU="HColor3" v:prompt="" v:val="VT5(#e9e9e9)"/>
+				<v:ud v:nameU="HColor4" v:prompt="" v:val="VT5(#efefef)"/>
+				<v:ud v:nameU="BColor1" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="BColor2" v:prompt="" v:val="VT5(#ffffff)"/>
+				<v:ud v:nameU="LineColor" v:prompt="" v:val="VT5(#d5d5d5)"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>Teilsystem.54</title>
+			<g id="group7-18" v:mID="7" v:groupContext="group" v:layerMember="0">
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Corner6" v:prompt="" v:val="VT0(0.19685039370079):24"/>
+					<v:ud v:nameU="FillForegndIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="FillBkgndIn" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="FillPatternIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+				</v:userDefs>
+				<title>Tabelle.7</title>
+				<g id="shape8-19" v:mID="8" v:groupContext="shape" v:layerMember="0" transform="translate(2.83465,2.83465)">
+					<title>Tabelle.8</title>
+					<desc>Remanufacturing</desc>
+					<v:userDefs>
+						<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeColors" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeEffects" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+						<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="OffsetX10" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+						<v:ud v:nameU="OffsetY10" v:prompt="" v:val="VT0(-0.039370078740157):24"/>
+					</v:userDefs>
+					<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+					<v:textRect cx="1224.23" cy="1567.28" width="2448.47" height="1555.65"/>
+					<text x="1170.93" y="1571.48" class="st3" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Remanufacturing</text>				</g>
+				<g id="shape7-22" v:mID="7" v:groupContext="groupContent" v:layerMember="0">
+					<path d="M0 2345.1 L1224.23 2345.1 L2448.47 2345.1 L2448.47 789.45 L1224.23 789.45 L0 789.45 L0 2345.1 Z"
+							class="st1"/>
+				</g>
+			</g>
+			<g id="group9-24" transform="translate(0,-1530.14)" v:mID="9" v:groupContext="group" v:layerMember="0">
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HSpan" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Hidden" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="HorzAlign" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(3):26"/>
+					<v:ud v:nameU="Inset" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="InsideRadius" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="InsetXInt" v:prompt="" v:val="VT0(0):24"/>
+					<v:ud v:nameU="HTxtMargin" v:prompt="" v:val="VT0(0.059055118110236):24"/>
+					<v:ud v:nameU="HTxtWidth" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+					<v:ud v:nameU="HLeft" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+					<v:ud v:nameU="SquareCorners7" v:prompt="" v:val="VT0(3):26"/>
+					<v:ud v:nameU="Offset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Rounding8" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+					<v:ud v:nameU="InsetX9" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="InsetY9" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="OffsetY11" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="OffsetY12" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Width12" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="HLineVisible" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="HFillVisible" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="FillForegndIn" v:prompt="" v:val="VT5(#ffffff)"/>
+					<v:ud v:nameU="FillBkgndIn" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="BaseColor" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="FillPatternIn" v:prompt="" v:val="VT0(30):26"/>
+					<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
+					<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
+					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#000000)"/>
+					<v:ud v:nameU="HTxtWidth" v:prompt="" v:val="VT0(34.006517367795):1"/>
+					<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(34.006517367795):1"/>
+				</v:userDefs>
+				<title>Tabelle.9</title>
+				<desc>CE-Strategy Assistant</desc>
+				<g id="shape10-25" v:mID="10" v:groupContext="shape" v:layerMember="0">
+					<title>Tabelle.10</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeColors" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="msvThemeEffects" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="CStyle" v:prompt="" v:val="VT0(1):26"/>
+						<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0):1"/>
+						<v:ud v:nameU="SquareCorners" v:prompt="" v:val="VT0(3):26"/>
+						<v:ud v:nameU="HLeft" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(1.9685039370079):24"/>
+						<v:ud v:nameU="Hidden" v:prompt="" v:val="VT0(0):5"/>
+						<v:ud v:nameU="BowHeight7" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+						<v:ud v:nameU="Offset7" v:prompt="" v:val="VT0(0.0052083333333333):3"/>
+						<v:ud v:nameU="AnchorPt7" v:prompt="" v:val="VT0(0.55581528871391):24"/>
+						<v:ud v:nameU="HSide" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HAlign" v:prompt="" v:val="VT0(0):26"/>
+						<v:ud v:nameU="HRight" v:prompt="" v:val="VT0(34.006517367795):1"/>
+						<v:ud v:nameU="AnchorPt7" v:prompt="" v:val="VT0(0.64439796587927):24"/>
+					</v:userDefs>
+				</g>
+				<g id="shape9-28" v:mID="9" v:groupContext="groupContent" v:layerMember="0">
+					<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
+					<v:textRect cx="1224.23" cy="2332.35" width="2448.47" height="25.5118"/>
+					<text x="6" y="2335.95" class="st2" v:langID="1031"><v:paragraph/><v:tabList/>CE-Strategy Assistant  </text>				</g>
+			</g>
+		</g>
+		<g id="shape11-32" v:mID="11" v:groupContext="shape" transform="translate(365.082,-1838.55)">
+			<title>Anfangsknoten</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<ellipse cx="17.0079" cy="2328.09" rx="17.0079" ry="17.0079" class="st4"/>
+		</g>
+		<g id="shape15-34" v:mID="15" v:groupContext="shape" transform="translate(51.4689,-1838.55)">
+			<title>Aktion.1001</title>
+			<desc>Technical feasible R-Strategy</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="2326.7" width="113.39" height="36.8038"/>
+			<rect x="0" y="2308.3" width="113.386" height="36.8038" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="5.38" y="2323.1" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Technical feasible R-<tspan
+						x="36.7" dy="1.2em" class="st6">Strategy</tspan></text>		</g>
+		<g id="group29-38" transform="translate(536.335,-1807.37)" v:mID="29" v:groupContext="group">
+			<title>Tabelle.29</title>
+			<g id="shape30-39" v:mID="30" v:groupContext="shape">
+				<title>Anfangsknoten.1406</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<ellipse cx="17.0079" cy="2328.09" rx="17.0079" ry="17.0079" class="st1"/>
+			</g>
+			<g id="shape31-41" v:mID="31" v:groupContext="shape" transform="translate(7.11352,-34.0157)">
+				<title>Anfangsknoten.1409</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<ellipse cx="9.89436" cy="2335.21" rx="9.89436" ry="9.89436" class="st1"/>
+			</g>
+			<g id="shape32-43" v:mID="32" v:groupContext="shape" transform="translate(4.3937,-2.88526)">
+				<title>Tabelle.32</title>
+				<rect v:rectContext="foreign" x="0" y="2318.33" width="25.2283" height="26.7735" class="st7"/>
+				<switch>
+					<foreignObject x="0" y="2318.33" width="25.2283" height="26.7735"
+							requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+						<v:foreignData v:orgSize="6220" v:data="data:metafile;base64,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
+									as2Lcc0ZY/1gT9Rr+bxGTf/7e+9/6FvkLiQTpYA=="/>
+					</foreignObject>
+					<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+					<svg viewBox="-0.70871 -0.70869 212.14 225.13" height="26.7735" preserveAspectRatio="none" width="25.2283"
+							x="0" y="2318.33">
+						<clipPath id="mfid1">
+							<rect x="-0.70871" y="-0.70869" width="212.14" height="225.13" id="mfid2"/>
+						</clipPath>
+						<g clip-path="url(#mfid1)">
+							<mask id="mfid3">
+								<rect width="212" height="225" fill="white" stroke="none"/>
+							</mask>
+							<mask id="mfid4" fill="white" stroke="none">
+								<g>
+									<g mask="url(#mfid3)">
+										<use xlink:href="#mfid2"/>
+									</g>
+								</g>
+							</mask>
+							<defs>
+								<path id="mfid5" d="M0,0 L323090,0 L323090,342900 L0,342900 Z"/>
+							</defs>
+							<mask id="mfid6">
+								<use xlink:href="#mfid5" fill-rule="evenodd" fill="white" stroke="none"
+										transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
+							</mask>
+							<mask id="mfid7" fill="white" stroke="none">
+								<g mask="url(#mfid4)">
+									<g mask="url(#mfid6)">
+										<use xlink:href="#mfid2"/>
+									</g>
+								</g>
+							</mask>
+							<defs>
+								<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+								<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+								<svg viewBox="0 0 65.056 69.083" height="69" id="mfid8" width="65">
+									<clipPath id="mfid9">
+										<rect width="65.056" height="69.083" id="mfid10"/>
+									</clipPath>
+									<g clip-path="url(#mfid9)">
+										<defs>
+											<path id="mfid11"
+													d="M1342,962 L1342,760 C1342,734 1312,718 1290,733 L492,1284 C401,1347 276,1282 276,1171 L276,906 C276,815 321,730 395,679 L633,515 C669,490 691,448 691,403 L691,214 L692,33 C692,14 677,-0 660,-0 L658,-0 C652,-0 646,2 640,6 L474,121 C437,146 415,188 415,233 L414,330 L211,470 C79,561 -0,712 -0,872 L-0,1170 C-0,1504 375,1701 650,1511 L1283,1074 C1320,1049 1342,1007 1342,962 Z"/>
+										</defs>
+										<g>
+											<g transform="matrix(0.037066, 0, 0, 0.037037, 0, 0)">
+												<g fill="#f6a100">
+													<use xlink:href="#mfid11" fill-rule="nonzero" stroke="none"/>
+													<defs>
+														<path id="mfid12"
+																d="M1106,356 L473,793 C436,819 414,861 414,906 L414,1107 C414,1134 444,1149 466,1134 L1264,583 C1355,520 1480,586 1480,697 L1480,962 C1480,1052 1435,1137 1361,1188 L1149,1335 L1124,1352 L1124,1352 L1124,1352 C1087,1377 1065,1419 1065,1464 L1065,1515 L1064,1833 C1064,1859 1094,1875 1116,1860 L1283,1745 C1320,1720 1342,1678 1342,1633 L1342,1537 L1545,1397 C1677,1306 1756,1156 1756,995 L1756,697 C1756,363 1381,166 1106,356 Z"/>
+													</defs>
+												</g>
+												<g fill="#b4cc2d">
+													<use xlink:href="#mfid12" fill-rule="nonzero" stroke="none"/>
+												</g>
+											</g>
+										</g>
+									</g>
+								</svg>
+							</defs>
+							<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
+							<g mask="url(#mfid7)">
+								<g transform="matrix(3.2094, 0, 0, 3.2105, 0, 0)">
+									<clipPath id="mfid13">
+										<rect width="66.056" height="70.083"/>
+									</clipPath>
+									<use xlink:href="#mfid8" clip-path="url(#mfid13)" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+								</g>
+							</g>
+							<mask id="mfid14">
+								<rect width="212" height="225" fill="white" stroke="none"/>
+							</mask>
+						</g>
+					</svg>
+				</switch>
+				<rect v:rectContext="foreign" x="0" y="2318.33" width="25.2283" height="26.7735" class="st7"/>
+			</g>
+			<g id="shape33-46" v:mID="33" v:groupContext="shape" transform="translate(5.31496,-36.0405)">
+				<title>Tabelle.33</title>
+				<desc>1</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="11.6929" cy="2337.73" width="23.39" height="14.7402"/>
+				<rect x="0" y="2330.36" width="23.3858" height="14.7402" class="st7"/>
+				<text x="8.69" y="2341.33" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>			</g>
+		</g>
+		<g id="shape34-49" v:mID="34" v:groupContext="shape" v:layerMember="1" transform="translate(570.351,-1831.46)">
+			<title>Antwortnachricht.1429</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L463.86 2352.19" class="st8"/>
+		</g>
+		<g id="shape35-55" v:mID="35" v:groupContext="shape" transform="translate(1041.17,-1784.69)">
+			<title>Aktion.1563</title>
+			<desc>Show technical feasible R-Strategy</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.3577" cy="2305.42" width="120.72" height="79.3701"/>
+			<rect x="0" y="2265.73" width="120.715" height="79.3701" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="23.53" y="2301.82" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Show technical <tspan
+						x="14.21" dy="1.2em" class="st6">feasible R</tspan>-Strategy</text>		</g>
+		<g id="shape45-59" v:mID="45" v:groupContext="shape" transform="translate(365.082,-1311.35)">
+			<title>Aktion.1676</title>
+			<desc>Weight Environmental Indicators/Impacts (set preference on LC...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.1845" cy="2287.01" width="144.37" height="116.179"/>
+			<rect x="0" y="2228.92" width="144.369" height="116.179" rx="8.50394" ry="8.50394" class="st10"/>
+			<text x="17.37" y="2269.01" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Weight Environmental <tspan
+						x="17.37" dy="1.2em" class="st6">Indicators/Impacts (set </tspan><tspan x="6.05" dy="1.2em" class="st6">preference on LCIA impact </tspan><tspan
+						x="49.53" dy="1.2em" class="st6">category)</tspan></text>		</g>
+		<g id="shape47-65" v:mID="47" v:groupContext="shape" transform="translate(1074.24,-1482.8)">
+			<title>Aktion.1680</title>
+			<desc>Collect environmental data for disassembly and determine proc...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2304.71" width="145.42" height="80.7874"/>
+			<rect x="0" y="2264.31" width="145.417" height="80.7874" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.73" y="2293.91" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect environmental data <tspan
+						x="24.72" dy="1.2em" class="st6">for disassembly and </tspan><tspan x="4.4" dy="1.2em" class="st6">determine process Inventory  </tspan>  </text>		</g>
+		<g id="shape93-70" v:mID="93" v:groupContext="shape" transform="translate(365.082,-1465.8)">
+			<title>Aktion.1871</title>
+			<desc>If necessary: Enter the way of disassembly and process-relate...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="77.8313" cy="2288.41" width="155.67" height="113.386"/>
+			<rect x="0" y="2231.72" width="155.663" height="113.386" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.53" y="2263.21" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>If necessary: Enter the way of <tspan
+						x="16.84" dy="1.2em" class="st6">disassembly and process</tspan>-<tspan x="31.68" dy="1.2em" class="st6">related information </tspan><tspan
+						x="22.01" dy="1.2em" class="st6">(Equipment, Sequence, </tspan><tspan x="54.51" dy="1.2em" class="st6">Location)</tspan></text>		</g>
+		<g id="shape153-77" v:mID="153" v:groupContext="shape" transform="translate(3624.85,782.929) rotate(90)">
+			<title>Verzweigungsknoten</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape192-79" v:mID="192" v:groupContext="shape" v:layerMember="1" transform="translate(520.745,-1515.4)">
+			<title>Antwortnachricht.1991</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L11.47 2338.02" class="st8"/>
+		</g>
+		<g id="shape226-84" v:mID="226" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.226</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2181.4 L105.51 2181.4" class="st8"/>
+		</g>
+		<g id="shape228-89" v:mID="228" v:groupContext="shape" transform="translate(1409.22,-1648.63)">
+			<title>Aktion.228</title>
+			<desc>Calculate Material consumption for disassembly</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="28.23" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate Material <tspan
+						x="33.21" dy="1.2em" class="st6">consumption for </tspan><tspan x="43.38" dy="1.2em" class="st6">disassembly</tspan></text>		</g>
+		<g id="shape229-94" v:mID="229" v:groupContext="shape" transform="translate(1601.48,-1661.39)">
+			<title>Tabelle.229</title>
+			<desc>Total Material consumption disassembly</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="30.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Total Material </tspan><tspan
+						x="34.31" dy="1.2em" class="st12">consumption </tspan><tspan x="35.98" dy="1.2em" class="st12">disassembly</tspan></text>		</g>
+		<g id="shape230-100" v:mID="230" v:groupContext="shape" v:layerMember="1" transform="translate(1554.63,-1679.81)">
+			<title>Antwortnachricht.230</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L39.89 2338.02" class="st8"/>
+		</g>
+		<g id="shape455-105" v:mID="455" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.455</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2284.87 L105.51 2284.87" class="st8"/>
+		</g>
+		<g id="shape462-110" v:mID="462" v:groupContext="shape" transform="translate(1409.22,-1545.17)">
+			<title>Aktion.462</title>
+			<desc>Calculate Energy consumption (power) for disassembly</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="31.23" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate Energy <tspan
+						x="12.72" dy="1.2em" class="st6">consumption (power) for </tspan><tspan x="43.38" dy="1.2em" class="st6">disassembly</tspan></text>		</g>
+		<g id="shape471-115" v:mID="471" v:groupContext="shape" transform="translate(1601.48,-1555.09)">
+			<title>Tabelle.471</title>
+			<desc>Total Energy consumption (power) disassembly</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="33.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Total Energy </tspan><tspan
+						x="13.82" dy="1.2em" class="st12">consumption (power) </tspan><tspan x="35.98" dy="1.2em" class="st12">disassembly</tspan></text>		</g>
+		<g id="shape472-121" v:mID="472" v:groupContext="shape" v:layerMember="1" transform="translate(1554.63,-1576.35)">
+			<title>Antwortnachricht.472</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L39.89 2338.02" class="st8"/>
+		</g>
+		<g id="shape480-126" v:mID="480" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.480</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2394 L105.51 2394" class="st8"/>
+		</g>
+		<g id="shape481-131" v:mID="481" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.481</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2394 L105.51 2394" class="st8"/>
+		</g>
+		<g id="shape482-136" v:mID="482" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.482</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2394 L105.51 2394" class="st8"/>
+		</g>
+		<g id="shape487-141" v:mID="487" v:groupContext="shape" transform="translate(1409.22,-1436.03)">
+			<title>Aktion.487</title>
+			<desc>Calculate Energy consumption (fuel) for disassembly</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="31.23" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate Energy <tspan
+						x="18.39" dy="1.2em" class="st6">consumption (fuel) for </tspan><tspan x="43.38" dy="1.2em" class="st6">disassembly</tspan></text>		</g>
+		<g id="shape495-146" v:mID="495" v:groupContext="shape" transform="translate(1601.48,-1455.87)">
+			<title>Tabelle.495</title>
+			<desc>Total Energy consumption (fuel) disassembly</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="33.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Total Energy </tspan><tspan
+						x="19.48" dy="1.2em" class="st12">consumption (fuel) </tspan><tspan x="35.98" dy="1.2em" class="st12">disassembly</tspan></text>		</g>
+		<g id="shape496-152" v:mID="496" v:groupContext="shape" v:layerMember="1" transform="translate(1554.63,-1467.21)">
+			<title>Antwortnachricht.496</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L39.89 2338.02" class="st8"/>
+		</g>
+		<g id="shape501-157" v:mID="501" v:groupContext="shape" transform="translate(1409.22,-1328.31)">
+			<title>Aktion.501</title>
+			<desc>Calculate emissions for disassembly</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="16.39" y="2303.23" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate emissions for <tspan
+						x="43.38" dy="1.2em" class="st6">disassembly</tspan></text>		</g>
+		<g id="shape504-161" v:mID="504" v:groupContext="shape" transform="translate(1601.48,-1345.32)">
+			<title>Tabelle.504</title>
+			<desc>Total Emissions consumption (fuel) disassembly</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="26.47" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Total Emissions </tspan><tspan
+						x="19.48" dy="1.2em" class="st12">consumption (fuel) </tspan><tspan x="35.98" dy="1.2em" class="st12">disassembly</tspan></text>		</g>
+		<g id="shape505-167" v:mID="505" v:groupContext="shape" v:layerMember="1" transform="translate(1554.63,-1359.5)">
+			<title>Antwortnachricht.505</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L39.89 2338.02" class="st8"/>
+		</g>
+		<g id="shape509-172" v:mID="509" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.509</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2501.72 L105.51 2501.72" class="st8"/>
+		</g>
+		<g id="shape510-177" v:mID="510" v:groupContext="shape" v:layerMember="1" transform="translate(1296.76,-1523.2)">
+			<title>Antwortnachricht.510</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L59.03 2345.1 L59.03 2501.72 L105.51 2501.72" class="st8"/>
+		</g>
+		<g id="shape511-182" v:mID="511" v:groupContext="shape" transform="translate(1553.23,-844.127)">
+			<title>Aktion.511</title>
+			<desc>Calculate relative environmental impact for Remanufacturing-S...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st10"/>
+			<text x="30.56" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate relative <tspan
+						x="11.73" dy="1.2em" class="st6">environmental impact for </tspan><tspan x="9.06" dy="1.2em" class="st6">Remanufacturing</tspan>-Strategy <tspan
+						x="46.22" dy="1.2em" class="st6">(EoL only)</tspan></text>		</g>
+		<g id="shape513-188" v:mID="513" v:groupContext="shape" transform="translate(1367.14,-1015.01)">
+			<title>Aktion.513</title>
+			<desc>Collect environmental data for Reuse</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2304.71" width="145.42" height="80.7874"/>
+			<rect x="0" y="2264.31" width="145.417" height="80.7874" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.73" y="2301.11" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect environmental data <tspan
+						x="49.55" dy="1.2em" class="st6">for Reuse </tspan> </text>		</g>
+		<g id="shape514-192" v:mID="514" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-1048.31)">
+			<title>Antwortnachricht.514</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape520-197" v:mID="520" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-1048.31)">
+			<title>Antwortnachricht.520</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape573-202" v:mID="573" v:groupContext="shape" transform="translate(1367.14,-842.001)">
+			<title>Aktion.573</title>
+			<desc>Collect environmental data for Remanufacturing</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2304.71" width="145.42" height="80.7874"/>
+			<rect x="0" y="2264.31" width="145.417" height="80.7874" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.73" y="2301.11" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect environmental data <tspan
+						x="22.56" dy="1.2em" class="st6">for Remanufacturing </tspan> </text>		</g>
+		<g id="shape574-206" v:mID="574" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-875.308)">
+			<title>Antwortnachricht.574</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L20.55 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape614-211" v:mID="614" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-875.308)">
+			<title>Antwortnachricht.614</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L20.55 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape630-216" v:mID="630" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-875.308)">
+			<title>Antwortnachricht.630</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L20.55 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape633-221" v:mID="633" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-875.308)">
+			<title>Antwortnachricht.633</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L20.55 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape637-226" v:mID="637" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-875.308)">
+			<title>Antwortnachricht.637</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L20.55 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape643-231" v:mID="643" v:groupContext="shape" transform="translate(1367.14,-695.48)">
+			<title>Aktion.643</title>
+			<desc>Collect environmental data for Recycling</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2304.71" width="145.42" height="80.7874"/>
+			<rect x="0" y="2264.31" width="145.417" height="80.7874" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.73" y="2301.11" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect environmental data <tspan
+						x="39.89" dy="1.2em" class="st6">for Recycling </tspan> </text>		</g>
+		<g id="shape663-235" v:mID="663" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.663</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape670-240" v:mID="670" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.670</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L22.82 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape674-245" v:mID="674" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.674</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L22.82 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape702-250" v:mID="702" v:groupContext="shape" transform="translate(1367.14,-566.514)">
+			<title>Aktion.702</title>
+			<desc>Collect environmental data for Recover</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2304.71" width="145.42" height="80.7874"/>
+			<rect x="0" y="2264.31" width="145.417" height="80.7874" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="7.73" y="2301.11" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect environmental data <tspan
+						x="44.22" dy="1.2em" class="st6">for Recover </tspan> </text>		</g>
+		<g id="shape712-254" v:mID="712" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.712</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape713-259" v:mID="713" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.713</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape714-264" v:mID="714" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.714</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape722-269" v:mID="722" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.722</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape730-274" v:mID="730" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.730</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape742-279" v:mID="742" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.742</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape754-284" v:mID="754" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.754</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L22.82 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape757-289" v:mID="757" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.757</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L22.82 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape759-294" v:mID="759" v:groupContext="shape" v:layerMember="1" transform="translate(1219.65,-1516.11)">
+			<title>Antwortnachricht.759</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L21.12 2338.02 L53.14 2338.02" class="st8"/>
+		</g>
+		<g id="shape760-299" v:mID="760" v:groupContext="shape" transform="translate(4142.17,782.929) rotate(90)">
+			<title>Verzweigungsknoten.760</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape763-301" v:mID="763" v:groupContext="shape" v:layerMember="1" transform="translate(1732.1,-1477.13)">
+			<title>Antwortnachricht.763</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L31.17 2345.1 L31.17 2299.04 L58.02 2299.04" class="st8"/>
+		</g>
+		<g id="shape764-306" v:mID="764" v:groupContext="shape" v:layerMember="1" transform="translate(1732.1,-1366.58)">
+			<title>Antwortnachricht.764</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L31.17 2345.1 L31.17 2188.49 L58.02 2188.49" class="st8"/>
+		</g>
+		<g id="shape1061-311" v:mID="1061" v:groupContext="shape" transform="translate(1072.33,-769.181)">
+			<title>Aktion.1061</title>
+			<desc>Collect data for R-Strategies and calculate Inventory</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="4.23" y="2303.23" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Collect data for R-Strategies <tspan
+						x="16.4" dy="1.2em" class="st6">and calculate Inventory</tspan></text>		</g>
+		<g id="shape1065-315" v:mID="1065" v:groupContext="shape" v:layerMember="1" transform="translate(1217.75,-800.362)">
+			<title>Antwortnachricht.1065</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L41.23 2338.02" class="st8"/>
+		</g>
+		<g id="shape1066-320" v:mID="1066" v:groupContext="shape" transform="translate(3611.04,1498.68) rotate(90)">
+			<title>Verzweigungsknoten.1066</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1068-322" v:mID="1068" v:groupContext="shape" v:layerMember="1" transform="translate(1282.95,-807.449)">
+			<title>Antwortnachricht.1068</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L39.26 2345.1 L39.26 2270.16 L77.23 2270.16" class="st8"/>
+		</g>
+		<g id="shape1069-327" v:mID="1069" v:groupContext="shape" v:layerMember="1" transform="translate(1282.95,-807.449)">
+			<title>Antwortnachricht.1069</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L39.26 2345.1 L39.26 2416.68 L77.23 2416.68" class="st8"/>
+		</g>
+		<g id="shape1070-332" v:mID="1070" v:groupContext="shape" v:layerMember="1" transform="translate(1282.95,-807.449)">
+			<title>Antwortnachricht.1070</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L39.26 2345.1 L39.26 2545.64 L77.23 2545.64" class="st8"/>
+		</g>
+		<g id="shape1071-337" v:mID="1071" v:groupContext="shape" v:layerMember="1" transform="translate(1282.95,-807.449)">
+			<title>Antwortnachricht.1071</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L39.26 2345.1 L39.26 2097.15 L77.23 2097.15" class="st8"/>
+		</g>
+		<g id="shape1089-342" v:mID="1089" v:groupContext="shape" transform="translate(1553.23,-697.606)">
+			<title>Aktion.1089</title>
+			<desc>Calculate relative total environmental impact for Recycling-S...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st10"/>
+			<text x="18.4" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate relative total <tspan
+						x="11.73" dy="1.2em" class="st6">environmental impact for </tspan><tspan x="12.56" dy="1.2em" class="st6">Recycling</tspan>-Strategy (EoL <tspan
+						x="60.04" dy="1.2em" class="st6">only)</tspan></text>		</g>
+		<g id="shape1097-348" v:mID="1097" v:groupContext="shape" transform="translate(1553.23,-568.64)">
+			<title>Aktion.1097</title>
+			<desc>Calculate relative total environmental impact for Recover-Str...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st10"/>
+			<text x="18.4" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate relative total <tspan
+						x="11.73" dy="1.2em" class="st6">environmental impact for </tspan><tspan x="16.9" dy="1.2em" class="st6">Recover</tspan>-Strategy (EoL <tspan
+						x="60.04" dy="1.2em" class="st6">only)</tspan></text>		</g>
+		<g id="shape1099-354" v:mID="1099" v:groupContext="shape" transform="translate(1553.23,-1017.13)">
+			<title>Aktion.1099</title>
+			<desc>Calculate relative environmental impact for Reuse-Strategy (E...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st10"/>
+			<text x="30.56" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate relative <tspan
+						x="11.73" dy="1.2em" class="st6">environmental impact for </tspan><tspan x="6.56" dy="1.2em" class="st6">Reuse</tspan>-Strategy  (EoL only)  </text>		</g>
+		<g id="shape1101-359" v:mID="1101" v:groupContext="shape" transform="translate(1732.55,-1034.14)">
+			<title>Tabelle.1101</title>
+			<desc>Relative Total environmental impact Reuse</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="31.15" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Relative Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="50.65" dy="1.2em" class="st12">Reuse</tspan></text>		</g>
+		<g id="shape1102-365" v:mID="1102" v:groupContext="shape" v:layerMember="1" transform="translate(1698.65,-1048.31)">
+			<title>Antwortnachricht.1102</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L26.95 2338.02" class="st8"/>
+		</g>
+		<g id="shape1105-370" v:mID="1105" v:groupContext="shape" transform="translate(1732.55,-714.614)">
+			<title>Tabelle.1105</title>
+			<desc>Relative Total environmental impact Recycling</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="31.15" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Relative Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="40.98" dy="1.2em" class="st12">Recycling</tspan></text>		</g>
+		<g id="shape1106-376" v:mID="1106" v:groupContext="shape" transform="translate(1732.55,-586.438)">
+			<title>Tabelle.1106</title>
+			<desc>Relative Total environmental impact Recover</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="31.15" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Relative Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="45.32" dy="1.2em" class="st12">Recover</tspan></text>		</g>
+		<g id="shape1108-382" v:mID="1108" v:groupContext="shape" v:layerMember="1" transform="translate(1698.65,-728.787)">
+			<title>Antwortnachricht.1108</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L26.95 2338.02" class="st8"/>
+		</g>
+		<g id="shape1109-387" v:mID="1109" v:groupContext="shape" v:layerMember="1" transform="translate(1698.65,-599.821)">
+			<title>Antwortnachricht.1109</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L26.95 2338.02" class="st8"/>
+		</g>
+		<g id="shape1110-392" v:mID="1110" v:groupContext="shape" transform="translate(2368.73,-844.127)">
+			<title>Aktion.1110</title>
+			<desc>Calculate difference between new production and Remanufacturi...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="24.24" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate difference <tspan
+						x="13.73" dy="1.2em" class="st6">between new production </tspan><tspan x="18.9" dy="1.2em" class="st6">and Remanufacturing</tspan>-<tspan
+						x="52.71" dy="1.2em" class="st6">Strategy </tspan> </text>		</g>
+		<g id="shape1112-398" v:mID="1112" v:groupContext="shape" transform="translate(1907.99,-844.127)">
+			<title>Aktion.1112</title>
+			<desc>Consider environmental impact of Remanufacturing in compariso...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="14.89" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Consider environmental <tspan
+						x="6.73" dy="1.2em" class="st6">impact of Remanufacturing </tspan><tspan x="20.88" dy="1.2em" class="st6">in comparison to new </tspan><tspan
+						x="46.71" dy="1.2em" class="st6">production</tspan></text>		</g>
+		<g id="shape1113-404" v:mID="1113" v:groupContext="shape" transform="translate(2825.15,-764.22)">
+			<title>Aktion.1113</title>
+			<desc>Recommend R-Strategy with lowest environmental impact (=most ...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2301.87" width="145.42" height="86.4567"/>
+			<rect x="0" y="2258.65" width="145.417" height="86.4567" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="14.89" y="2291.07" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Recommend R-Strategy <tspan
+						x="8.72" dy="1.2em" class="st6">with lowest environmental </tspan><tspan x="9.68" dy="1.2em" class="st6">impact (=most ecological)</tspan></text>		</g>
+		<g id="shape1117-409" v:mID="1117" v:groupContext="shape" transform="translate(4441.03,1423.73) rotate(90)">
+			<title>Verzweigungsknoten.1117</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1118-411" v:mID="1118" v:groupContext="shape" v:layerMember="1" transform="translate(2053.4,-875.308)">
+			<title>Antwortnachricht.1118</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L35.56 2338.02" class="st8"/>
+		</g>
+		<g id="shape1119-416" v:mID="1119" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-882.395)">
+			<title>Antwortnachricht.1119</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2296.03 L18.56 2296.03" class="st8"/>
+		</g>
+		<g id="shape1120-421" v:mID="1120" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-889.328)">
+			<title>Antwortnachricht.1120</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.04 L18.56 2352.26" class="st8"/>
+		</g>
+		<g id="shape1121-426" v:mID="1121" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-882.395)">
+			<title>Antwortnachricht.1121</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2390.1 L18.56 2390.1" class="st8"/>
+		</g>
+		<g id="shape1122-431" v:mID="1122" v:groupContext="shape" transform="translate(4653.62,1423.73) rotate(90)">
+			<title>Verzweigungsknoten.1122</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1123-433" v:mID="1123" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-875.308)">
+			<title>Antwortnachricht.1123</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L32.51 2338.02" class="st8"/>
+		</g>
+		<g id="shape1124-438" v:mID="1124" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-837.395)">
+			<title>Antwortnachricht.1124</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2300.1 L32.51 2300.1" class="st8"/>
+		</g>
+		<g id="shape1129-443" v:mID="1129" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-931.465)">
+			<title>Antwortnachricht.1129</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2394.17 L32.51 2394.17" class="st8"/>
+		</g>
+		<g id="shape1131-448" v:mID="1131" v:groupContext="shape" v:layerMember="1" transform="translate(2325.53,-875.308)">
+			<title>Antwortnachricht.1131</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L36.24 2338.02" class="st8"/>
+		</g>
+		<g id="shape1132-453" v:mID="1132" v:groupContext="shape" transform="translate(2559.95,-861.135)">
+			<title>Tabelle.1132</title>
+			<desc>Absolute Total environmental impact Remanufacturing</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="29.48" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Absolute Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="23.66" dy="1.2em" class="st12">Remanufacturing</tspan></text>		</g>
+		<g id="shape1133-459" v:mID="1133" v:groupContext="shape" v:layerMember="1" transform="translate(2514.14,-875.308)">
+			<title>Antwortnachricht.1133</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L38.85 2338.02" class="st8"/>
+		</g>
+		<g id="shape1134-464" v:mID="1134" v:groupContext="shape" transform="translate(2368.73,-1017.13)">
+			<title>Aktion.1134</title>
+			<desc>Calculate difference between new production and Reuse-Strategy</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="24.24" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate difference <tspan
+						x="13.73" dy="1.2em" class="st6">between new production </tspan><tspan x="25.89" dy="1.2em" class="st6">and Reuse</tspan>-Strategy  </text>		</g>
+		<g id="shape1135-469" v:mID="1135" v:groupContext="shape" transform="translate(1907.99,-1017.13)">
+			<title>Aktion.1135</title>
+			<desc>Consider environmental impact of Reuse in comparison to new p...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="14.89" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Consider environmental <tspan
+						x="26.05" dy="1.2em" class="st6">impact of Reuse  in </tspan><tspan x="27.05" dy="1.2em" class="st6">comparison to new </tspan><tspan
+						x="46.71" dy="1.2em" class="st6">production</tspan></text>		</g>
+		<g id="shape1136-475" v:mID="1136" v:groupContext="shape" transform="translate(2138.44,-1037.76)">
+			<title>Tabelle.1136</title>
+			<desc>Remaining lifetime through Reuse</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="18.82" y="2320.24" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Remaining lifetime </tspan><tspan
+						x="30.48" dy="1.2em" class="st12">through Reuse</tspan></text>		</g>
+		<g id="shape1137-480" v:mID="1137" v:groupContext="shape" transform="translate(2138.44,-1094.46)">
+			<title>Tabelle.1137</title>
+			<desc>OEM Lifetime (new production)</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="16.32" y="2320.24" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">OEM Lifetime (new </tspan><tspan
+						x="37.31" dy="1.2em" class="st12">production)</tspan></text>		</g>
+		<g id="shape1138-485" v:mID="1138" v:groupContext="shape" transform="translate(2138.44,-981.071)">
+			<title>Tabelle.1138</title>
+			<desc>Environmental impact new production of component</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="11.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Environmental impact </tspan><tspan
+						x="21.32" dy="1.2em" class="st12">new production of </tspan><tspan x="38.65" dy="1.2em" class="st12">component</tspan></text>		</g>
+		<g id="shape1139-491" v:mID="1139" v:groupContext="shape" transform="translate(4441.03,1250.73) rotate(90)">
+			<title>Verzweigungsknoten.1139</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1140-493" v:mID="1140" v:groupContext="shape" v:layerMember="1" transform="translate(2053.4,-1048.31)">
+			<title>Antwortnachricht.1140</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L35.56 2338.02" class="st8"/>
+		</g>
+		<g id="shape1141-498" v:mID="1141" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-1055.4)">
+			<title>Antwortnachricht.1141</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2284.79 L18.56 2284.79" class="st8"/>
+		</g>
+		<g id="shape1142-503" v:mID="1142" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-1048.43)">
+			<title>Antwortnachricht.1142</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.13 L18.56 2337.96" class="st8"/>
+		</g>
+		<g id="shape1143-508" v:mID="1143" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-1055.4)">
+			<title>Antwortnachricht.1143</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2398.17 L18.56 2398.17" class="st8"/>
+		</g>
+		<g id="shape1144-513" v:mID="1144" v:groupContext="shape" transform="translate(4653.62,1250.73) rotate(90)">
+			<title>Verzweigungsknoten.1144</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1145-515" v:mID="1145" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-1067.83)">
+			<title>Antwortnachricht.1145</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2346.84 L10.63 2346.84 L10.63 2357.53 L32.51 2357.53" class="st8"/>
+		</g>
+		<g id="shape1146-520" v:mID="1146" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-1002.33)">
+			<title>Antwortnachricht.1146</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2292.03 L32.51 2292.03" class="st8"/>
+		</g>
+		<g id="shape1147-525" v:mID="1147" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-1114.4)">
+			<title>Antwortnachricht.1147</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2404.1 L32.51 2404.1" class="st8"/>
+		</g>
+		<g id="shape1148-530" v:mID="1148" v:groupContext="shape" v:layerMember="1" transform="translate(2325.53,-1048.31)">
+			<title>Antwortnachricht.1148</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L36.24 2338.02" class="st8"/>
+		</g>
+		<g id="shape1149-535" v:mID="1149" v:groupContext="shape" transform="translate(2559.95,-1034.14)">
+			<title>Tabelle.1149</title>
+			<desc>Absolute Total environmental impact Reuse</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="29.48" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Absolute Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="50.65" dy="1.2em" class="st12">Reuse</tspan></text>		</g>
+		<g id="shape1150-541" v:mID="1150" v:groupContext="shape" v:layerMember="1" transform="translate(2514.14,-1048.31)">
+			<title>Antwortnachricht.1150</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L38.85 2338.02" class="st8"/>
+		</g>
+		<g id="shape1151-546" v:mID="1151" v:groupContext="shape" v:layerMember="1" transform="translate(1863.17,-1048.31)">
+			<title>Antwortnachricht.1151</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L37.86 2338.02" class="st8"/>
+		</g>
+		<g id="shape1152-551" v:mID="1152" v:groupContext="shape" transform="translate(2368.73,-697.606)">
+			<title>Aktion.1152</title>
+			<desc>Calculate difference between new production and Recycling-Str...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="24.24" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate difference <tspan
+						x="13.73" dy="1.2em" class="st6">between new production </tspan><tspan x="16.23" dy="1.2em" class="st6">and Recycling</tspan>-Strategy</text>		</g>
+		<g id="shape1153-556" v:mID="1153" v:groupContext="shape" transform="translate(1907.99,-697.606)">
+			<title>Aktion.1153</title>
+			<desc>Consider environmental impact of Recycling comparison to new ...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="14.89" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Consider environmental <tspan
+						x="24.06" dy="1.2em" class="st6">impact of Recycling </tspan><tspan x="27.05" dy="1.2em" class="st6">comparison to new </tspan><tspan
+						x="46.71" dy="1.2em" class="st6">production</tspan></text>		</g>
+		<g id="shape1167-562" v:mID="1167" v:groupContext="shape" transform="translate(2559.95,-714.614)">
+			<title>Tabelle.1167</title>
+			<desc>Absolute Total environmental impact Recycling</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="29.48" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Absolute Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="40.98" dy="1.2em" class="st12">Recycling</tspan></text>		</g>
+		<g id="shape1168-568" v:mID="1168" v:groupContext="shape" v:layerMember="1" transform="translate(2514.14,-728.787)">
+			<title>Antwortnachricht.1168</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L38.85 2338.02" class="st8"/>
+		</g>
+		<g id="shape1169-573" v:mID="1169" v:groupContext="shape" v:layerMember="1" transform="translate(1863.17,-728.787)">
+			<title>Antwortnachricht.1169</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L37.86 2338.02" class="st8"/>
+		</g>
+		<g id="shape1187-578" v:mID="1187" v:groupContext="shape" transform="translate(2368.73,-573.418)">
+			<title>Aktion.1187</title>
+			<desc>Calculate difference between new production and Recover-Strat...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="24.24" y="2296.03" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculate difference <tspan
+						x="13.73" dy="1.2em" class="st6">between new production </tspan><tspan x="20.56" dy="1.2em" class="st6">and Recover</tspan>-Strategy  </text>		</g>
+		<g id="shape1188-583" v:mID="1188" v:groupContext="shape" transform="translate(1907.99,-567.749)">
+			<title>Aktion.1188</title>
+			<desc>Consider environmental impact of Recover in comparison to new...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="72.7087" cy="2306.83" width="145.42" height="76.5354"/>
+			<rect x="0" y="2268.57" width="145.417" height="76.5354" rx="8.50394" ry="8.50394" class="st1"/>
+			<text x="14.89" y="2288.83" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Consider environmental <tspan
+						x="22.23" dy="1.2em" class="st6">impact of Recover in </tspan><tspan x="27.05" dy="1.2em" class="st6">comparison to new </tspan><tspan
+						x="46.71" dy="1.2em" class="st6">production</tspan></text>		</g>
+		<g id="shape1190-589" v:mID="1190" v:groupContext="shape" transform="translate(2138.44,-612.567)">
+			<title>Tabelle.1190</title>
+			<desc>Energy recovery</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="25.5" y="2327.44" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Energy recovery</tspan></text>		</g>
+		<g id="shape1191-593" v:mID="1191" v:groupContext="shape" transform="translate(2138.44,-562.961)">
+			<title>Tabelle.1191</title>
+			<desc>Environmental impact new production energy</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="11.82" y="2320.24" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Environmental impact </tspan><tspan
+						x="9.99" dy="1.2em" class="st12">new production energy</tspan></text>		</g>
+		<g id="shape1193-598" v:mID="1193" v:groupContext="shape" v:layerMember="1" transform="translate(2053.4,-598.93)">
+			<title>Antwortnachricht.1193</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L35.56 2338.02" class="st8"/>
+		</g>
+		<g id="shape1196-603" v:mID="1196" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-606.017)">
+			<title>Antwortnachricht.1196</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2366.9 L18.56 2366.9" class="st8"/>
+		</g>
+		<g id="shape1197-608" v:mID="1197" v:groupContext="shape" transform="translate(4653.62,1694.44) rotate(90)">
+			<title>Verzweigungsknoten.1197</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1201-610" v:mID="1201" v:groupContext="shape" v:layerMember="1" transform="translate(2325.53,-604.6)">
+			<title>Antwortnachricht.1201</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L36.24 2338.02" class="st8"/>
+		</g>
+		<g id="shape1202-615" v:mID="1202" v:groupContext="shape" transform="translate(2559.95,-590.426)">
+			<title>Tabelle.1202</title>
+			<desc>Absolute Total environmental impact Recover</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="29.48" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Absolute Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="45.32" dy="1.2em" class="st12">Recover</tspan></text>		</g>
+		<g id="shape1203-621" v:mID="1203" v:groupContext="shape" v:layerMember="1" transform="translate(2514.14,-604.6)">
+			<title>Antwortnachricht.1203</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L38.85 2338.02" class="st8"/>
+		</g>
+		<g id="shape1205-626" v:mID="1205" v:groupContext="shape" v:layerMember="1" transform="translate(1863.17,-598.93)">
+			<title>Antwortnachricht.1205</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L37.86 2338.02" class="st8"/>
+		</g>
+		<g id="shape1206-631" v:mID="1206" v:groupContext="shape" transform="translate(5121.75,1428.58) rotate(90)">
+			<title>Verzweigungsknoten.1206</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="218.141" height="17.0079" class="st4"/>
+		</g>
+		<g id="shape1212-633" v:mID="1212" v:groupContext="shape" v:layerMember="1" transform="translate(2690.57,-734.457)">
+			<title>Antwortnachricht.1212</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L37.21 2345.1 L37.21 2299.75 L79.12 2299.75" class="st8"/>
+		</g>
+		<g id="shape1213-638" v:mID="1213" v:groupContext="shape" v:layerMember="1" transform="translate(2690.57,-881.868)">
+			<title>Antwortnachricht.1213</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L35.6 2345.1 L35.6 2393.3 L79.12 2393.3" class="st8"/>
+		</g>
+		<g id="shape1214-643" v:mID="1214" v:groupContext="shape" v:layerMember="1" transform="translate(2690.57,-611.15)">
+			<title>Antwortnachricht.1214</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L51.1 2345.1 L51.1 2227.46 L79.12 2227.46" class="st8"/>
+		</g>
+		<g id="shape1216-648" v:mID="1216" v:groupContext="shape" v:layerMember="1" transform="translate(2690.57,-1055.4)">
+			<title>Antwortnachricht.1216</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L48.55 2345.1 L48.55 2510.14 L79.12 2510.14" class="st8"/>
+		</g>
+		<g id="shape1217-653" v:mID="1217" v:groupContext="shape" v:layerMember="1" transform="translate(2793.65,-800.362)">
+			<title>Antwortnachricht.1217</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L24.54 2338.02" class="st8"/>
+		</g>
+		<g id="shape1221-658" v:mID="1221" v:groupContext="shape" v:layerMember="1" transform="translate(1101.52,-1784.69)">
+			<title>Antwortnachricht.1221</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L0 2366.36 L-658.61 2366.36 L-658.61 2543.66" class="st8"/>
+		</g>
+		<g id="group1222-663" transform="translate(539.17,-1505.48)" v:mID="1222" v:groupContext="group">
+			<title>Tabelle.1222</title>
+			<g id="shape1223-664" v:mID="1223" v:groupContext="shape">
+				<title>Anfangsknoten.1406</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<ellipse cx="17.0079" cy="2328.09" rx="17.0079" ry="17.0079" class="st1"/>
+			</g>
+			<g id="shape1224-666" v:mID="1224" v:groupContext="shape" transform="translate(7.11352,-34.0157)">
+				<title>Anfangsknoten.1409</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<ellipse cx="9.89436" cy="2335.21" rx="9.89436" ry="9.89436" class="st1"/>
+			</g>
+			<g id="shape231-668" v:mID="231" v:groupContext="shape" transform="translate(4.3937,-2.88526)">
+				<title>Tabelle.231</title>
+				<rect v:rectContext="foreign" x="0" y="2318.33" width="25.2283" height="26.7735" class="st7"/>
+				<switch>
+					<foreignObject x="0" y="2318.33" width="25.2283" height="26.7735"
+							requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+						<v:foreignData v:orgSize="6220" v:data="data:metafile;base64,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
+									as2Lcc0ZY/1gT9Rr+bxGTf/7e+9/6FvkLiQTpYA=="/>
+					</foreignObject>
+					<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+					<svg viewBox="-0.70871 -0.70869 212.14 225.13" height="26.7735" preserveAspectRatio="none" width="25.2283"
+							x="0" y="2318.33">
+						<clipPath id="mfid15">
+							<rect x="-0.70871" y="-0.70869" width="212.14" height="225.13" id="mfid16"/>
+						</clipPath>
+						<g clip-path="url(#mfid15)">
+							<mask id="mfid17">
+								<rect width="212" height="225" fill="white" stroke="none"/>
+							</mask>
+							<mask id="mfid18" fill="white" stroke="none">
+								<g>
+									<g mask="url(#mfid17)">
+										<use xlink:href="#mfid16"/>
+									</g>
+								</g>
+							</mask>
+							<defs>
+								<path id="mfid19" d="M0,0 L323090,0 L323090,342900 L0,342900 Z"/>
+							</defs>
+							<mask id="mfid20">
+								<use xlink:href="#mfid19" fill-rule="evenodd" fill="white" stroke="none"
+										transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
+							</mask>
+							<mask id="mfid21" fill="white" stroke="none">
+								<g mask="url(#mfid18)">
+									<g mask="url(#mfid20)">
+										<use xlink:href="#mfid16"/>
+									</g>
+								</g>
+							</mask>
+							<defs>
+								<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+								<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+								<svg viewBox="0 0 65.056 69.083" height="69" id="mfid22" width="65">
+									<clipPath id="mfid23">
+										<rect width="65.056" height="69.083" id="mfid24"/>
+									</clipPath>
+									<g clip-path="url(#mfid23)">
+										<defs>
+											<path id="mfid25"
+													d="M1342,962 L1342,760 C1342,734 1312,718 1290,733 L492,1284 C401,1347 276,1282 276,1171 L276,906 C276,815 321,730 395,679 L633,515 C669,490 691,448 691,403 L691,214 L692,33 C692,14 677,-0 660,-0 L658,-0 C652,-0 646,2 640,6 L474,121 C437,146 415,188 415,233 L414,330 L211,470 C79,561 -0,712 -0,872 L-0,1170 C-0,1504 375,1701 650,1511 L1283,1074 C1320,1049 1342,1007 1342,962 Z"/>
+										</defs>
+										<g>
+											<g transform="matrix(0.037066, 0, 0, 0.037037, 0, 0)">
+												<g fill="#f6a100">
+													<use xlink:href="#mfid25" fill-rule="nonzero" stroke="none"/>
+													<defs>
+														<path id="mfid26"
+																d="M1106,356 L473,793 C436,819 414,861 414,906 L414,1107 C414,1134 444,1149 466,1134 L1264,583 C1355,520 1480,586 1480,697 L1480,962 C1480,1052 1435,1137 1361,1188 L1149,1335 L1124,1352 L1124,1352 L1124,1352 C1087,1377 1065,1419 1065,1464 L1065,1515 L1064,1833 C1064,1859 1094,1875 1116,1860 L1283,1745 C1320,1720 1342,1678 1342,1633 L1342,1537 L1545,1397 C1677,1306 1756,1156 1756,995 L1756,697 C1756,363 1381,166 1106,356 Z"/>
+													</defs>
+												</g>
+												<g fill="#b4cc2d">
+													<use xlink:href="#mfid26" fill-rule="nonzero" stroke="none"/>
+												</g>
+											</g>
+										</g>
+									</g>
+								</svg>
+							</defs>
+							<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
+							<g mask="url(#mfid21)">
+								<g transform="matrix(3.2094, 0, 0, 3.2105, 0, 0)">
+									<clipPath id="mfid27">
+										<rect width="66.056" height="70.083"/>
+									</clipPath>
+									<use xlink:href="#mfid22" clip-path="url(#mfid27)" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+								</g>
+							</g>
+							<mask id="mfid28">
+								<rect width="212" height="225" fill="white" stroke="none"/>
+							</mask>
+						</g>
+					</svg>
+				</switch>
+				<rect v:rectContext="foreign" x="0" y="2318.33" width="25.2283" height="26.7735" class="st7"/>
+			</g>
+			<g id="shape1225-671" v:mID="1225" v:groupContext="shape" transform="translate(5.31496,-36.0405)">
+				<title>Tabelle.1225</title>
+				<desc>2</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="11.6929" cy="2337.73" width="23.39" height="14.7402"/>
+				<rect x="0" y="2330.36" width="23.3858" height="14.7402" class="st7"/>
+				<text x="8.69" y="2341.33" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>			</g>
+		</g>
+		<g id="shape1229-674" v:mID="1229" v:groupContext="shape" v:layerMember="1" transform="translate(2053.4,-728.787)">
+			<title>Antwortnachricht.1229</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L35.56 2338.02" class="st8"/>
+		</g>
+		<g id="shape1230-679" v:mID="1230" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-760.677)">
+			<title>Antwortnachricht.1230</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.83 2345.1 L10.83 2369.91 L32.51 2369.91" class="st8"/>
+		</g>
+		<g id="shape1231-684" v:mID="1231" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-633.827)">
+			<title>Antwortnachricht.1231</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2367.24 L32.51 2367.24" class="st8"/>
+		</g>
+		<g id="shape1232-689" v:mID="1232" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-584.22)">
+			<title>Antwortnachricht.1232</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2317.64 L32.51 2317.64" class="st8"/>
+		</g>
+		<g id="shape1192-694" v:mID="1192" v:groupContext="shape" transform="translate(4441.03,1700.11) rotate(90)">
+			<title>Verzweigungsknoten.1192</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1235-696" v:mID="1235" v:groupContext="shape" v:layerMember="1" transform="translate(382.09,-1838.55)">
+			<title>Antwortnachricht.1235</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L0 2359.28 L147.29 2359.28" class="st8"/>
+		</g>
+		<g id="shape1237-701" v:mID="1237" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-735.874)">
+			<title>Antwortnachricht.1237</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2323.13 L18.56 2323.13" class="st8"/>
+		</g>
+		<g id="shape1239-706" v:mID="1239" v:groupContext="shape" v:layerMember="1" transform="translate(2269.06,-712.843)">
+			<title>Antwortnachricht.1239</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.83 2345.1 L10.83 2322.07 L32.51 2322.07" class="st8"/>
+		</g>
+		<g id="shape1240-711" v:mID="1240" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-606.017)">
+			<title>Antwortnachricht.1240</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2317.29 L18.56 2317.29" class="st8"/>
+		</g>
+		<g id="shape1241-716" v:mID="1241" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.1241</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape1248-721" v:mID="1248" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-728.787)">
+			<title>Antwortnachricht.1248</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L22.82 2338.02 L33.72 2338.02" class="st8"/>
+		</g>
+		<g id="shape1257-726" v:mID="1257" v:groupContext="shape" v:layerMember="1" transform="translate(1732.1,-1576.35)">
+			<title>Antwortnachricht.1257</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L31.17 2345.1 L31.17 2398.25 L58.02 2398.25" class="st8"/>
+		</g>
+		<g id="shape1258-731" v:mID="1258" v:groupContext="shape" v:layerMember="1" transform="translate(1732.1,-1682.65)">
+			<title>Antwortnachricht.1258</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L31.17 2345.1 L31.17 2504.55 L58.02 2504.55" class="st8"/>
+		</g>
+		<g id="shape1259-736" v:mID="1259" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.1259</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="group1260-741" transform="translate(2138.44,-816.135)" v:mID="1260" v:groupContext="group">
+			<title>Tabelle.1260</title>
+			<g id="shape1114-742" v:mID="1114" v:groupContext="shape" transform="translate(1.27898E-13,-48.0877)">
+				<title>Tabelle.1114</title>
+				<desc>Extended Lifetime through Remanufacturing</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+				<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+				<text x="20.49" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan
+							class="st12">Extended Lifetime </tspan><tspan x="46.64" dy="1.2em" class="st12">through </tspan><tspan
+							x="23.66" dy="1.2em" class="st12">Remanufacturing</tspan></text>			</g>
+			<g id="shape1115-748" v:mID="1115" v:groupContext="shape" transform="translate(1.27898E-13,-94.0697)">
+				<title>Tabelle.1115</title>
+				<desc>OEM Lifetime (new production)</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+				<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+				<text x="16.32" y="2320.24" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan
+							class="st12">OEM Lifetime (new </tspan><tspan x="37.31" dy="1.2em" class="st12">production)</tspan></text>			</g>
+			<g id="shape1116-753" v:mID="1116" v:groupContext="shape">
+				<title>Tabelle.1116</title>
+				<desc>Environmental impact new production of component</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+				<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+				<text x="11.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan
+							class="st12">Environmental impact </tspan><tspan x="21.32" dy="1.2em" class="st12">new production of </tspan><tspan
+							x="38.65" dy="1.2em" class="st12">component</tspan></text>			</g>
+		</g>
+		<g id="shape1265-759" v:mID="1265" v:groupContext="shape" transform="translate(1732.55,-862.016)">
+			<title>Tabelle.1265</title>
+			<desc>Relative Total environmental impact Remanufacturing</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+			<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+			<text x="31.15" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st12">Relative Total </tspan><tspan
+						x="12.83" dy="1.2em" class="st12">environmental impact </tspan><tspan x="23.66" dy="1.2em" class="st12">Remanufacturing</tspan></text>		</g>
+		<g id="shape1267-765" v:mID="1267" v:groupContext="shape" v:layerMember="1" transform="translate(1698.65,-875.308)">
+			<title>Antwortnachricht.1267</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L26.95 2338.02" class="st8"/>
+		</g>
+		<g id="shape1268-770" v:mID="1268" v:groupContext="shape" v:layerMember="1" transform="translate(1863.17,-875.131)">
+			<title>Antwortnachricht.1268</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.19 L37.86 2337.89" class="st8"/>
+		</g>
+		<g id="shape1270-775" v:mID="1270" v:groupContext="shape" transform="translate(4441.03,1570.25) rotate(90)">
+			<title>Verzweigungsknoten.1270</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1271-777" v:mID="1271" v:groupContext="shape" v:layerMember="1" transform="translate(2112.93,-735.874)">
+			<title>Antwortnachricht.1271</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2369.91 L18.56 2369.91" class="st8"/>
+		</g>
+		<g id="group1272-782" transform="translate(2138.44,-689.811)" v:mID="1272" v:groupContext="group">
+			<title>Tabelle.1272</title>
+			<g id="shape1156-783" v:mID="1156" v:groupContext="shape">
+				<title>Tabelle.1156</title>
+				<desc>Environmental impact material new production</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+				<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+				<text x="11.82" y="2320.24" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan
+							class="st12">Environmental impact </tspan><tspan x="6.66" dy="1.2em" class="st12">material new production</tspan></text>			</g>
+			<g id="shape1228-788" v:mID="1228" v:groupContext="shape" transform="translate(1.27898E-13,-49.6063)">
+				<title>Tabelle.1228</title>
+				<desc>Environmental impact new production of component</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="65.3082" cy="2323.84" width="130.62" height="42.5197"/>
+				<rect x="0" y="2302.58" width="130.616" height="42.5197" class="st11"/>
+				<text x="11.82" y="2313.04" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan
+							class="st12">Environmental impact </tspan><tspan x="21.32" dy="1.2em" class="st12">new production of </tspan><tspan
+							x="38.65" dy="1.2em" class="st12">component</tspan></text>			</g>
+		</g>
+		<g id="shape1273-794" v:mID="1273" v:groupContext="shape" transform="translate(4653.62,1570.25) rotate(90)">
+			<title>Verzweigungsknoten.1273</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="2328.09" width="77.9528" height="17.0079" class="st1"/>
+		</g>
+		<g id="shape1274-796" v:mID="1274" v:groupContext="shape" v:layerMember="1" transform="translate(2325.53,-728.787)">
+			<title>Antwortnachricht.1274</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L36.24 2338.02" class="st8"/>
+		</g>
+		<g id="shape1275-801" v:mID="1275" v:groupContext="shape" v:layerMember="1" transform="translate(2325.53,-728.787)">
+			<title>Antwortnachricht.1275</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.02 L36.24 2338.02" class="st8"/>
+		</g>
+		<g id="shape1285-806" v:mID="1285" v:groupContext="shape" v:layerMember="1" transform="translate(1512.55,-613.994)">
+			<title>Antwortnachricht.1285</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2352.19 L21.36 2352.19 L33.72 2352.19" class="st8"/>
+		</g>
+		<g id="shape1287-811" v:mID="1287" v:groupContext="shape" v:layerMember="1" transform="translate(573.186,-1515.71)">
+			<title>Antwortnachricht.1287</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2338.33 L494.1 2337.71" class="st8"/>
+		</g>
+		<g id="shape1445-816" v:mID="1445" v:groupContext="shape" transform="translate(1045.42,-1260.28)">
+			<title>Feld</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="1860.38" width="803.622" height="484.724" class="st13"/>
+		</g>
+		<g id="shape1446-818" v:mID="1446" v:groupContext="shape" transform="translate(1887.02,-544.535)">
+			<title>Feld.1446</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="1728.57" width="815.244" height="616.535" class="st13"/>
+		</g>
+		<g id="shape1447-820" v:mID="1447" v:groupContext="shape" transform="translate(1046.13,-543.118)">
+			<title>Feld.1447</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="1727.15" width="485.433" height="617.953" class="st13"/>
+		</g>
+		<g id="shape1632-822" v:mID="1632" v:groupContext="shape" transform="translate(1531.56,-544.535)">
+			<title>Feld.1632</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="1728.57" width="355.465" height="616.535" class="st13"/>
+		</g>
+		<g id="shape1637-824" v:mID="1637" v:groupContext="shape" transform="translate(1045.56,-1196.5)">
+			<title>Feld.1637</title>
+			<desc>Activity data collection (LCI) - Dismantling -</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="401.74" cy="2313.21" width="803.49" height="63.7795"/>
+			<rect x="0" y="2281.32" width="803.48" height="63.7795" class="st14"/>
+			<text x="288.84" y="2307.21" class="st15" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Activity data collection (LCI)<v:newlineChar/><tspan
+						x="340.54" dy="1.2em" class="st6"> </tspan>- Dismantling -</text>		</g>
+		<g id="shape1638-828" v:mID="1638" v:groupContext="shape" transform="translate(1045.89,-480.756)">
+			<title>Feld.1638</title>
+			<desc>Activity data collection (LCI) - R-Strategies -</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="242.835" cy="2313.21" width="485.67" height="63.7795"/>
+			<rect x="0" y="2281.32" width="485.67" height="63.7795" class="st14"/>
+			<text x="129.93" y="2307.21" class="st15" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Activity data collection (LCI)<v:newlineChar/><tspan
+						x="181" dy="1.2em" class="st6"> </tspan>- R-Strategies -</text>		</g>
+		<g id="shape1641-832" v:mID="1641" v:groupContext="shape" transform="translate(1531.56,-480.756)">
+			<title>Feld.1641</title>
+			<desc>Relative environmental impact of R-Strategies (LCIA - EoL only)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="177.874" cy="2313.21" width="355.75" height="63.7795"/>
+			<rect x="0" y="2281.32" width="355.748" height="63.7795" class="st14"/>
+			<text x="42.53" y="2307.21" class="st15" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Relative environmental impact of <v:lf/><tspan
+						x="61.23" dy="1.2em" class="st6">R</tspan>-Strategies (LCIA - EoL only)</text>		</g>
+		<g id="shape1644-836" v:mID="1644" v:groupContext="shape" transform="translate(1887.31,-480.756)">
+			<title>Feld.1644</title>
+			<desc>Absolute environmental impact of R-Strategies (LCIA - EoL plu...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="407.48" cy="2313.21" width="814.97" height="63.7795"/>
+			<rect x="0" y="2281.32" width="814.961" height="63.7795" class="st14"/>
+			<text x="268.66" y="2307.21" class="st15" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Absolute environmental impact of<v:lf/><tspan
+						x="232.13" dy="1.2em" class="st6">R</tspan>-Strategies (LCIA - EoL plus lifetime credit)</text>		</g>
+		<g id="group1646-840" transform="translate(365.082,-370.225)" v:mID="1646" v:groupContext="group">
+			<title>Tabelle.1646</title>
+			<g id="shape13-841" v:mID="13" v:groupContext="shape">
+				<title>Abschlussknoten</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<path d="M30.61 2328.09 A13.6063 13.6063 -180 1 0 3.4 2328.09 A13.6063 13.6063 -180 1 0 30.61 2328.09 Z"
+						class="st16"/>
+				<path d="M34.02 2328.09 A17.0079 17.0079 -180 1 0 0 2328.09 A17.0079 17.0079 -180 1 0 34.02 2328.09" class="st17"/>
+				<path d="M30.61 2328.09 A13.6063 13.6063 -180 1 0 3.4 2328.09 A13.6063 13.6063 -180 1 0 30.61 2328.09" class="st17"/>
+			</g>
+			<g id="shape14-845" v:mID="14" v:groupContext="shape" transform="translate(0,-48.189)">
+				<title>Aktion.1000</title>
+				<desc>Implement R-Strategy</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="72.1845" cy="2301.19" width="144.37" height="87.8326"/>
+				<rect x="0" y="2257.27" width="144.369" height="87.8326" rx="8.50394" ry="8.50394" class="st1"/>
+				<text x="18.7" y="2304.79" class="st5" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Implement R-Strategy</text>			</g>
+			<g id="shape18-848" v:mID="18" v:groupContext="shape" v:layerMember="1" transform="translate(72.1845,-48.189)">
+				<title>Antwortnachricht.1057</title>
+				<v:userDefs>
+					<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+					<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+					<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+				</v:userDefs>
+				<path d="M0 2345.1 L0 2376.28 L-31.21 2376.28" class="st8"/>
+			</g>
+		</g>
+		<g id="shape1647-853" v:mID="1647" v:groupContext="shape" v:layerMember="1" transform="translate(1814.08,-1523.2)">
+			<title>Antwortnachricht.1647</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L63.31 2345.1 L63.31 2688.19 L-796.59 2688.19 L-796.59 3060.85 L-748.7 3060.85" class="st8"/>
+		</g>
+		<g id="shape1648-858" v:mID="1648" v:groupContext="shape" v:layerMember="1" transform="translate(2970.57,-807.449)">
+			<title>Antwortnachricht.1648</title>
+			<v:userDefs>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+				<v:ud v:nameU="Label" v:prompt="" v:val="VT4(Sequence: Message)"/>
+			</v:userDefs>
+			<path d="M0 2345.1 L10.63 2345.1 L10.63 2690.22 L-2454.16 2690.22" class="st8"/>
+		</g>
+	</g>
+</svg>
