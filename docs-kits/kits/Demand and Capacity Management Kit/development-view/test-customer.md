@@ -157,20 +157,20 @@ Scenario Outline: Prepare for volatility metrics journey
   Then it should work as intended
 
 Examples:
-| object      | function                                                                                   | test                                                                                                            |
-| MD_alpha_v1 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha   | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
-| MD_alpha_v2 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Beta    | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
-| MD_alpha_v3 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Delta   | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
-| MD_alpha_v4 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Epsilon | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
-| CG_alpha    | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Gamma    | Consume WeekBasedCapacityGroup for load factor journey   |
-| FT_alpha    | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume               | Provide WeekBasedMaterialDemand for load factor journey                                                         |
-| FT_beta     | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for load factor journey                                                         |
-| FT_gamma    | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume                | Consume WeekBasedCapacityGroup for load factor journey                                                          |
-| FT_delta    | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for load factor journey                                                         |
-| FT_epsilon  | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for load factor journey                                                         |
-``````
+| object      | function                                                                                   | test                                                                                                                          |
+| MD_alpha_v1 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha   | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v2 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Beta    | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v3 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Delta   | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v4 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Epsilon | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| CG_alpha    | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Gamma    | Consume WeekBasedCapacityGroup for volatility metrics journey                                                                 |
+| FT_alpha    | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume               | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_beta     | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_gamma    | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume                | Consume WeekBasedCapacityGroup for volatility metrics journey                                                                 |
+| FT_delta    | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_epsilon  | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+```
 
-### WIP - Prepare for simulated delta production journey
+### Prepare for simulated delta production journey
 
 This test ensures that the customer is aware of the sequence of communication and naming conventions within the simulated delta production journey.
 
@@ -182,7 +182,13 @@ Scenario Outline: Prepare for simulated delta production journey
   When the test gets executed
   Then it should work as intended
 
+
 Examples:
+| object   | function                                                                                 | test                                                                                                                                          |
+| MD_alpha | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for simulated delta production journey, Provide WeekBasedMaterialDemand for simulated delta production journey |
+| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Consume WeekBasedCapacityGroup for simulated delta production journey                                                                         |
+| FT_alpha | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume             | Provide WeekBasedMaterialDemand for simulated delta production journey                                                                        |
+| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for simulated delta production journey                                                                         |
 ```
 
 ### Prepare for load factors journey
@@ -201,9 +207,9 @@ Examples:
 | object   | function                                                                                 | test                                                                                                            |
 | MD_alpha | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
 | MD_beta  | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
-| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Create WeekBasedCapacityGroup for load factor journey, Provide WeekBasedCapacityGroup for load factor journey   |
+| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Consume WeekBasedCapacityGroup for load factor journey                                                          |
 | FT_alpha | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume             | Provide WeekBasedMaterialDemand for load factor journey                                                         |
-| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Provide WeekBasedCapacityGroup for load factor journey                                                          |
+| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for load factor journey                                                          |
 ```
 
 ## Customer: Create WeekBasedMaterialDemand
@@ -440,7 +446,7 @@ Examples:
 | MD_alpha_v4 | {{UUID_ID1}}       | {{TS_NOW + 3 Weeks}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 85,45,100,95,0,78,65,86,200,15  | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 ```
 
-### WIP - Create WeekBasedMaterialDemand for simulated delta production journey
+### Create WeekBasedMaterialDemand for simulated delta production journey
 
 The customer creates one WeekBasedMaterialDemand used by the simulated delta production journey.
 
@@ -448,30 +454,33 @@ The customer creates one WeekBasedMaterialDemand used by the simulated delta pro
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate WeekBasedMaterialDemand for simulated delta production journey using different <v_tests>
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
-  *       the value for the property "changedAt"                      is <v_changedAt>                            
-  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
-  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
-  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               
-  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               
-  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          
-  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     
-  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                
-  *       the value for the property "supplier"                       is <v_supplier>                             
-  *       the value for the property "customer"                       is <v_customer>                             
-  *       the value for the property "demandSeries"                   contains exactly one Entity "DemandSeries"
-  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             
-  *       the value for the property "customerLocation"               is <v_customerLocation>                     
-  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   
-  *       the value for the property "demands"                        contains exactly one Entity "Demand"
-  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
-  *       the value for the property "demand"                         is <v_demand>                               
+  Given   the value for the property "materialDemandId"             is <materialDemandId>
+  *       the value for the property "changedAt"                    is <changedAt>
+  *       the value for the property "customer"                     is <customer>
+  *       the value for the property "supplier"                     is <supplier>
+  *       the value for the property "materialDemandIsInactive"     is <materialDemandIsInactive>
+
+  *       the value for the property "unitOfMeasure"                is <unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"       is <unitOfMeasureIsOmitted>
+
+  *       the value for the property "materialGlobalAssetId"        is <materialGlobalAssetId>
+  *       the value for the property "materialNumberCustomer"       is <materialNumberCustomer>
+  *       the value for the property "materialNumberSupplier"       is <materialNumberSupplier>
+  *       the value for the property "materialDescriptionCustomer"  is <materialDescriptionCustomer>
+
+  *       the value for the property "demandSeries"                 contains exactly two entities
+
+  *       the value for the property "customerLocation"             is <1_customerLocation>         for the first     "demandSeries"
+  *       the value for the property "expectedSupplierLocation"     is <1_expectedSupplierLocation> for the first     "demandSeries"
+  *       the value for the property "demandCategoryCode"           is <1_demandCategoryCode>       for the first     "demandSeries"
+  *       the value for the property "demand"                       is <1_demand>                   for the first     "demandSeries"
+  *       the value for the property "pointInTime"                  is <1_pointInTime>              for the first     "demandSeries"                      
   When the application tries to generate the WeekBasedMaterialDemand
   Then it should generate the WeekBasedMaterialDemand
 
 Examples:
-| v_tests  | v_unitOfMeasure | v_changedAt | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId | v_materialGlobalAssetId | v_supplier   | v_customer   | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime                                                                                                                                                                                                               | v_demand                                                                                  |
-| MD_alpha | unit:pieces     | {{TS_NOW}}  | false                      | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{UUID_MD1}}       | {{UUID_GA1}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{BPNS_SUP1}}              | {{BPNS_CUS1}}      | 0001                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             |
+| v_tests  | materialDemandId | changedAt  | customer     | supplier     | materialDemandIsInactive | unitOfMeasure | unitOfMeasureIsOmitted | materialGlobalAssetId | materialNumberCustomer | materialNumberSupplier | materialDescriptionCustomer | 1_customerLocation | 1_expectedSupplierLocation | 1_demandCategoryCode | 1_demand                            | 1_pointInTime                                                                                                 |
+| MD_alpha | {{UUID_ID1}}     | {{TS_NOW}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                    | units:pieces  | false                  | {{UUID_GA1}}          | MNR-8540-CH063329.001  | {{OMITTED}}            | {{DSC_MAT1}}                | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 60,60,180,50,150,100,100,100,120,70 | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 ```
 
 ### Create WeekBasedMaterialDemand for load factors journey
@@ -502,8 +511,9 @@ Scenario Outline: Try to generate WeekBasedMaterialDemand for load factors journ
   *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "DemandSeries"
   *       the value for the property "demand"                         is <1_demand>                   for the first   entity "DemandSeries"
   *       the value for the property "pointInTime"                    is <1_pointInTime>              for the first   entity "DemandSeries"
+  When the application tries to generate the WeekBasedCapacityGroup
   Then it should generate the WeekBasedMaterialDemand
-  
+
 Examples:
 | v_tests  | v_materialDemandId | v_changedAt | v_customer   | v_supplier   | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_customerLocation | v_expectedSupplierLocation | v_demandCategoryCode | v_demand                        | v_pointInTime                                                                                                 |
 | MD_alpha | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 80,50,100,75,60,90,20,110,225,0 | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
@@ -582,7 +592,7 @@ Examples:
 | MD_alpha_v4 | FT_epsilon   | 200 OK           |
 ```
 
-### WIP - Provide WeekBasedMaterialDemand for simulated delta production journey
+### Provide WeekBasedMaterialDemand for simulated delta production journey
 
 The customer sends the previously created WeekBasedMaterialDemand to the supplier
 
@@ -684,7 +694,7 @@ Examples:
 | CG_alpha          | FT_gamma     | 200 OK           |
 ```
 
-### WIP - Consume WeekBasedCapacityGroup for simulated delta production journey
+### Consume WeekBasedCapacityGroup for simulated delta production journey
 
 The customer receives the previously created WeekBasedCapacityGroup from the supplier.
 
@@ -826,7 +836,7 @@ Examples:
 | CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 23, 28 | 2026 | absolute positive deviation exceeded |
 ```
 
-### WIP - Calculation for simulated delta production journey
+### Calculation for simulated delta production journey
 
 The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes deltaProductionResult into account.
 
@@ -840,15 +850,9 @@ Scenario Outline: Calculation for simulated delta production journey
   Then     I should get <result> for <week> in <year> after considering deltaProductionResult
 
 Examples:
-| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | result         | case                                                                  | color  |
-| CG_alpha               | MD_alpha                |      |      | bottleneck     | (demand + deltaProductionResult) > actual capacity = maximum capacity | red    |
-| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < (demand + deltaProductionResult) = maximum capacity | orange |
-| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < (demand + deltaProductionResult) < maximum capacity | orange |
-| CG_alpha               | MD_alpha                |      |      | bottleneck     | actual capacity < maximum capacity < (demand + deltaProductionResult) | red    |
-| CG_alpha               | MD_alpha                |      |      | surplus        | (demand + deltaProductionResult) < actual capacity = maximum capacity | green  |
-| CG_alpha               | MD_alpha                |      |      | surplus        | (demand + deltaProductionResult) < actual capacity < maximum capacity | green  |
-| CG_alpha               | MD_alpha                |      |      | zero deviation | (demand + deltaProductionResult) = actual capacity = maximum capacity | green  |
-| CG_alpha               | MD_alpha                |      |      | zero deviation | (demand + deltaProductionResult) = actual capacity < maximum capacity | green  |
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week              | year | result         | case                                                                  | color |
+| CG_alpha               | MD_alpha                | 29                | 2026 | surplus        | (demand + deltaProductionResult) < actual capacity = maximum capacity | green |
+| CG_alpha               | MD_alpha                | 20,21,22,23,24,28 | 2026 | zero deviation | (demand + deltaProductionResult) = actual capacity = maximum capacity | green |
 ```
 
 ### Calculation for load factors journey
