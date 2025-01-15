@@ -1,4 +1,4 @@
-# Eclipse-tractusx website
+# Eclipse Tractus-X website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
@@ -27,14 +27,14 @@ You can also run the linting step manually by running `npm run lint-doc` or `npm
 
 ## 3rd Party dependency checks
 
-This repository enforces licence compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
+This repository enforces license compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
 Follow these steps if your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash)`:
 
 1. Make sure the error-message is not `[main] ERROR Error response from XYZ HTTP 524` or anything else pointing to
   failures in remote services. If that happens, try again tomorrow. If not, continue.
 2. Have java installed. Check by executing `java --version` in your bash terminal. For Windows Powershell or command
   prompt, this and the following commands may look different but should follow the same structure.
-3. Download the jar of the dash licence tool's latest release (for instance [distributed via eclipse](https://repo.eclipse.org/content/repositories/dash-licenses/org/eclipse/dash/org.eclipse.dash.licenses/)).
+3. Download the jar of the dash license tool's latest release (for instance [distributed via eclipse](https://repo.eclipse.org/content/repositories/dash-licenses/org/eclipse/dash/org.eclipse.dash.licenses/)).
 4. Move the file into the top level folder of this repository. Do not add it to git or commit it.
 5. Navigate your terminal to the top level folder of this project (eclipse-tractusx.github.io).
 6. Execute `java -jar ./org.eclipse.dash.licenses-1.1.0.jar package-lock.json -project automotive.tractusx -summary ./DEPENDENCIES`

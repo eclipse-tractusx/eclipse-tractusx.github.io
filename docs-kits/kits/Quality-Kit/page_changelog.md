@@ -5,7 +5,7 @@ description: 'Quality Kit'
 sidebar_position: 1
 ---
 
-![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
+![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
 
 ### Quality KIT
 
