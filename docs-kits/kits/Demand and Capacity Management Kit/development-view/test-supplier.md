@@ -656,7 +656,6 @@ Scenario Outline: Try to generate WeekBasedCapacityGroup for simulated delta pro
   *       the value for the property "materialNumberCustomer"         is <1_materialNumberCustomer>   for the first   entity "LinkedDemandSeries"
   *       the value for the property "customerLocation"               is <1_customerLocation>         for the first   entity "LinkedDemandSeries"
   *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "LinkedDemandSeries"
-  * 
   
   *       the value for the property "capacities"                     contains entities
   *       the value for the property "actualCapacity"                 is <v_actualCapacity>
