@@ -271,16 +271,19 @@ autonumber 1
   c->>s: FileTransfer BETA containing MaterialDemand ALPHA_v2
   s->>c: HTTP 200 OK
 end
-rect rgb(57,57,57)
-  note right of c: GUI test
-  s->>s: Visualize bottleneck calculation
-end
 rect rgb(128,149,0)
   note right of c: Transfer WeekBasedCapacityGroup
   s->>c: FileTransfer GAMMA containing CapacityGroup ALPHA
   c->>s: HTTP 200 OK
 end
+rect rgb(57,57,57)
+  note right of c: GUI test
+  c->>c: Visualize bottleneck calculation
+  autonumber 7
+  s->>s: Visualize bottleneck calculation
+end
 rect rgb(221,130,0)
+  note right of c: Transfer WeekBasedMaterialDemand
   c->>s: FileTransfer DELTA containing MaterialDemand ALPHA_v3
   s->>c: HTTP 200 OK
 end
@@ -291,6 +294,7 @@ rect rgb(57,57,57)
   s->>s: Visualize bottleneck calculation
 end
 rect rgb(221,130,0)
+  note right of c: Transfer WeekBasedMaterialDemand
   c->>s: FileTransfer EPSILON containing MaterialDemand ALPHA_v4
   s->>c: HTTP 200 OK
 end

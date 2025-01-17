@@ -836,6 +836,8 @@ Scenario Outline: Calculation for volatility metrics journey
 
 Examples:
 | WeekBasedCapacityGroup | WeekBasedMaterialDemand                            | MostRecentMaterialDemand | week   | year | volatility alert                     |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2                           | MD_alpha_v1, MD_alpha_v2 | 21, 27 | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2                           | MD_alpha_v1, MD_alpha_v2 | 24,26  | 2026 | absolute positive deviation exceeded |
 | CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 25, 28 | 2026 | absolute negative deviation exceeded |
 | CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 20     | 2026 | absolute positive deviation exceeded |
 | CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 24     | 2026 | absolute negative deviation exceeded |
