@@ -7,3 +7,7 @@ repositories:
   url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
 openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/kit_digital-twin-kit-submodel-api_openAPI.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/IdBasedComment.yaml.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/IdBasedRequestForUpdate.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/WeekBasedCapacityGroup.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/WeekBasedMaterialDemand.yaml"
