@@ -971,7 +971,7 @@ Scenario Outline: Calculation for load factors journey
   *        I have successfully created <WeekBasedCapacityGroup>
   When     I compare demand and capacity data for <WeekBasedCapacityGroup>
   Then     I should see <UI demand> that differs from <data demand> for <week> in <year>.
-  Then     I should see <capacity data and UI unit of measure> that differs from <demand data unit of measure>.
+  *        I should see <capacity data and UI unit of measure> that differs from <demand data unit of measure>.
 
 Examples:
 | WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | UI demand | data demand | capacity data and UI unit of measure | demand data unit of measure |
