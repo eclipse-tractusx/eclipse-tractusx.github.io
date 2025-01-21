@@ -4,6 +4,16 @@
 
 All notable changes to this tutorial will be documented in this file.
 
+## [1.1.0] - 2024-12-19
+
+### Changed
+
+:::note
+Most of the content is redundant to [umbrella repository](https://github.com/eclipse-tractusx/tractus-x-umbrella) and related [description](https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/docs/README.md)
+:::
+
+- Delete redundant content and forward to umbrella helm chart description
+
 ## [1.0.0] - 2024-06-24
 
 ### Added
