@@ -18,7 +18,8 @@ For an overview of these tests you should visit [Testing a DCM application](./ov
 
 ### Setup EDC
 
-This test ensures that the customer sets up its EDC.
+<details>
+<summary>This test ensures that the customer sets up its EDC.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -29,9 +30,12 @@ Scenario: Setup EDC
   Then I should confirm that I have setup my EDC in the correct version successfully 
 ```
 
+</details>
+
 ### Register APIs as assets
 
-This test ensures that the customer registers its API endpoints as data assets with its own EDC.
+<details>
+<summary>This test ensures that the customer registers its API endpoints as data assets with its own EDC.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -48,9 +52,12 @@ Examples:
 | IdBasedComment API          | cx-taxo:DcmIdBasedComment          | 2.0     |
 ```
 
+</details>
+
 ### Check wallet for certificates
 
-This test ensures that the customer has the necessary credentials in its wallet.
+<details>
+<summary>This test ensures that the customer has the necessary credentials in its wallet.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -67,9 +74,12 @@ Examples:
 | DataExchangeGovernance:1.0 | DataExchangeGovernance:1.0 |
 ```
 
+</details>
+
 ### Prepare variables for other tests
 
-This test ensures that the customer is aware of the fact that some tests contain variables that need to be filled in with the correct values before executing the tests.
+<details>
+<summary>This test ensures that the customer is aware of the fact that some tests contain variables that need to be filled in with the correct values before executing the tests.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -104,9 +114,12 @@ Examples:
 | Customer: Create WeekBasedMaterialDemand, Customer: Create IdBasedComment, Customer: Create IdBasedRequestForUpdate | OMITTED   | {Special case where you do not include the property in the data at all. You do not even mention it.}                                                           |
 ```
 
+</details>
+
 ### Prepare for base journey
 
-This test ensures that the customer is aware of the sequence of communication and naming conventions within the base journey.
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -144,9 +157,12 @@ Examples:
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Consume IdBasedComment for base journey                                                                                                                                           |
 ```
 
+</details>
+
 ### Prepare for volatility metrics journey
 
-This test ensures that the customer is aware of the sequence of communication and naming conventions within the volatility metrics journey.
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the volatility metrics journey.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -170,9 +186,12 @@ Examples:
 | FT_epsilon  | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
 ```
 
+</details>
+
 ### Prepare for simulated delta production journey
 
-This test ensures that the customer is aware of the sequence of communication and naming conventions within the simulated delta production journey.
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the simulated delta production journey.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -191,9 +210,12 @@ Examples:
 | FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for simulated delta production journey                                                                         |
 ```
 
+</details>
+
 ### Prepare for load factors journey
 
-This test ensures that the customer is aware of the sequence of communication and naming conventions within the load factors journey.
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the load factors journey.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -212,11 +234,14 @@ Examples:
 | FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for load factor journey                                                          |
 ```
 
+</details>
+
 ## Customer: Create WeekBasedMaterialDemand
 
 ### Create valid WeekBasedMaterialDemand
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -316,9 +341,12 @@ Examples:
 |                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  | 2119-12-25    |
 ```
 
+</details>
+
 ### Create invalid WeekBasedMaterialDemand
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -371,9 +399,12 @@ Examples:
 |                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        | 2022-04-22    | AspectModel Conformity Error: pointInTime              |
 ```
 
+</details>
+
 ### Create WeekBasedMaterialDemand for base journey
 
-The customer creates four WeekBasedMaterialDemand used by the base journey.
+<details>
+<summary>The customer creates four WeekBasedMaterialDemand used by the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -410,9 +441,12 @@ Examples:
 | MD_delta | {{UUID_MD3}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:liters     | false                    | {{UUID_GA4}}            | MNR-8538-CH809974.001    | {{OMITTED}}              | {{DSC_MAT3}}                  | {{BPNS_CUS3}}      | {{OMITTED}}                | PO01                 | 2540,4160,3660,3210,0,3570,490,3590,3400,3130,2920,3270,3210,0,3060,3030,2570,2740,0,1450 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 |
 ```
 
+</details>
+
 ### Create WeekBasedMaterialDemand for volatility metrics journey
 
-The customer creates four WeekBasedMaterialDemand used by the volatility metrics journey.
+<details>
+<summary>The customer creates four WeekBasedMaterialDemand used by the volatility metrics journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -449,9 +483,12 @@ Examples:
 | MD_alpha_v4 | {{UUID_ID1}}       | {{TS_NOW + 3 Weeks}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 85,45,100,95,0,78,65,86,200,15  | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 ```
 
+</details>
+
 ### Create WeekBasedMaterialDemand for simulated delta production journey
 
-The customer creates one WeekBasedMaterialDemand used by the simulated delta production journey.
+<details>
+<summary>The customer creates one WeekBasedMaterialDemand used by the simulated delta production journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -486,9 +523,12 @@ Examples:
 | MD_alpha | {{UUID_ID1}}     | {{TS_NOW}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                    | units:pieces  | false                  | {{UUID_GA1}}          | MNR-8540-CH063329.001  | {{OMITTED}}            | {{DSC_MAT1}}                | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 60,60,180,50,150,100,100,100,120,70 | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 ```
 
+</details>
+
 ### Create WeekBasedMaterialDemand for load factors journey
 
-The customer creates one WeekBasedMaterialDemand used by the load factors journey.
+<details>
+<summary>The customer creates one WeekBasedMaterialDemand used by the load factors journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -521,14 +561,16 @@ Examples:
 | v_tests  | v_materialDemandId | v_changedAt | v_customer   | v_supplier   | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_customerLocation | v_expectedSupplierLocation | v_demandCategoryCode | v_demand                        | v_pointInTime                                                                                                 |
 | MD_alpha | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 80,50,100,75,60,90,20,110,225,0 | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
 | MD_beta  | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{BPNS_CUS1}}      |                            | A1S1                 | 70,100,50,75,90,60,130,40,0,110 | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
-
 ```
+
+</details>
 
 ## Customer: Provide WeekBasedMaterialDemand
 
 ### Provide valid WeekBasedMaterialDemand
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -544,9 +586,12 @@ Scenario: Provide valid existing WeekBasedMaterialDemand
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid WeekBasedMaterialDemand
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -557,9 +602,12 @@ Scenario: Provide invalid WeekBasedMaterialDemand
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide WeekBasedMaterialDemand for base journey
 
-The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -575,9 +623,12 @@ Examples:
 | MD_delta                  | FT_beta      | 200 OK           |
 ```
 
+</details>
+
 ### Provide WeekBasedMaterialDemand for volatility metrics journey
 
-The customer sends the previously created WeekBasedMaterialDemands to the supplier as four separate data transfers.
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemands to the supplier as four separate data transfers.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -595,9 +646,12 @@ Examples:
 | MD_alpha_v4 | FT_epsilon   | 200 OK           |
 ```
 
+</details>
+
 ### Provide WeekBasedMaterialDemand for simulated delta production journey
 
-The customer sends the previously created WeekBasedMaterialDemand to the supplier
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemand to the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -612,9 +666,12 @@ Examples:
 | MD_alpha   | FT_alpha     | 200 OK           |
 ```
 
+</details>
+
 ### Provide WeekBasedMaterialDemand for load factors journey
 
-The customer sends the previously created WeekBasedMaterialDemand to the supplier
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemand to the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -629,11 +686,14 @@ Examples:
 | MD_alpha, MD_beta | FT_alpha     | 200 OK           |
 ```
 
+</details>
+
 ## Customer: Consume WeekBasedCapacityGroup
 
 ### Consume valid WeekBasedCapacityGroup
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -649,9 +709,12 @@ Scenario: Consume valid known WeekBasedCapacityGroup
   Then I should be able to consume it and send my supplier a http 200 status message
 ```
 
+</details>
+
 ### Consume invalid WeekBasedCapacityGroup
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -662,9 +725,12 @@ Scenario: Consume invalid WeekBasedCapacityGroup
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume WeekBasedCapacityGroup for base journey
 
-The customer receives the previously created WeekBasedCapacityGroups from the supplier as two separate data transfers.
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroups from the supplier as two separate data transfers.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -680,9 +746,12 @@ Examples:
 | CG_gamma,CG_delta | FT_delta     | 200 OK           |
 ```
 
+</details>
+
 ### Consume WeekBasedCapacityGroup for volatility metrics journey
 
-The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -697,9 +766,12 @@ Examples:
 | CG_alpha          | FT_gamma     | 200 OK           |
 ```
 
+</details>
+
 ### Consume WeekBasedCapacityGroup for simulated delta production journey
 
-The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -714,9 +786,12 @@ Examples:
 | CG_alpha          | FT_beta      | 200 OK           |
 ```
 
+</details>
+
 ### Consume WeekBasedCapacityGroup for load factors journey
 
-The customer receives the previously created WeekBasedCapacityGroup from the supplier.
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -731,11 +806,14 @@ Examples:
 | CG_alpha          | FT_beta      | 200 OK           |
 ```
 
+</details>
+
 ## Customer: Visualize CapacityGroup together with MaterialDemand
 
 ### Bottleneck calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -754,9 +832,12 @@ Examples:
 | actual capacity < maximum capacity < demand | red    | bottleneck |
 ```
 
+</details>
+
 ### Surplus calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -773,9 +854,12 @@ Examples:
 | demand < actual capacity < maximum capacity | green | surplus |
 ```
 
+</details>
+
 ### Zero deviation calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -792,9 +876,12 @@ Examples:
 | demand = actual capacity < maximum capacity | green | zero deviation |
 ```
 
+</details>
+
 ### Calculation for base journey
 
-The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier.
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -817,9 +904,12 @@ Examples:
 | CG_beta                | MD_beta, MD_gamma       | 14   | 2026 | zero deviation | demand = actual capacity < maximum capacity | green  |
 ```
 
+</details>
+
 ### Calculation for volatility metrics journey
 
-The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This triggers multiple volatility alerts.
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This triggers multiple volatility alerts.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -841,9 +931,12 @@ Examples:
 | CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 23, 28 | 2026 | absolute positive deviation exceeded |
 ```
 
+</details>
+
 ### Calculation for simulated delta production journey
 
-The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes deltaProductionResult into account.
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes deltaProductionResult into account.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -860,9 +953,12 @@ Examples:
 | CG_alpha               | MD_alpha                | 20,21,22,23,24,28 | 2026 | zero deviation | (demand + deltaProductionResult) = actual capacity = maximum capacity | green |
 ```
 
+</details>
+
 ### Calculation for load factors journey
 
-The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes load factors into account.
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes load factors into account.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -898,11 +994,14 @@ Examples:
 | CG_alpha               | MD_beta                 | 29   | 2026 | 220       | 110         | unit:cycles                          | unit:pieces                 |
 ```
 
+</details>
+
 ## Customer: Create IdBasedRequestForUpdate
 
 ### Create valid IdBasedRequestForUpdate
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -927,9 +1026,12 @@ Examples:
 
 ```
 
+</details>
+
 ### Create invalid IdBasedRequestForUpdate
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -949,9 +1051,12 @@ Examples:
 
 ```
 
+</details>
+
 ### Create IdBasedRequestForUpdate for base journey
 
-The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via {{UUID_CG1}}.
+<details>
+<summary>The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via {'{UUID_CG1}'}.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -969,11 +1074,14 @@ Examples:
 | RU_alpha | {{OMITTED}}               | [ {"capacityGroupId" : {{UUID_CG1}}}] |
 ```
 
+</details>
+
 ## Customer: Provide IdBasedRequestForUpdate
 
 ### Provide valid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -984,9 +1092,12 @@ Scenario: Provide valid IdBasedRequestForUpdate
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -997,9 +1108,12 @@ Scenario: Provide invalid IdBasedRequestForUpdate
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide IdBasedRequestForUpdate for base journey
 
-The customer sends the previously created IdBasedRequestForUpdate to the supplier and expects one WeekBasedCapacityGroup in return.
+<details>
+<summary>The customer sends the previously created IdBasedRequestForUpdate to the supplier and expects one WeekBasedCapacityGroup in return.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -1015,11 +1129,14 @@ Examples:
 | FT_epsilon   | RU_alpha                | FT_eta   | CG_alpha         |
 ```
 
+</details>
+
 ## Customer: Consume IdBasedRequestForUpdate
 
 ### Consume valid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -1030,9 +1147,12 @@ Scenario: Consume valid  IdBasedRequestForUpdate
   Then I should be able to consume it, send my supplier a http 200 status message and provide my supplier with the data requested, if applicable
 ```
 
+</details>
+
 ### Consume invalid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -1043,7 +1163,12 @@ Scenario: Consume invalid IdBasedRequestForUpdate
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume IdBasedRequestForUpdate for base journey
+
+<details>
+<summary>The customer receives the previously created IdBasedRequestForUpdate from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -1059,11 +1184,14 @@ Examples:
 | FT_zeta      | RU_beta                 | FT_theta | MD_gamma         |
 ```
 
+</details>
+
 ## Customer: Create IdBasedComment
 
 ### Create valid IdBasedComment
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment
@@ -1111,9 +1239,12 @@ Examples:
 |                                               |                                               |                |                        |                |              |              |                                                                        |                 |                                                |                          | 2024-03-11T11:27:11.320Z |
 ```
 
+</details>
+
 ### Create invalid IdBasedComment
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment
@@ -1156,7 +1287,12 @@ Examples:
 |             |             |                   |                        |                          |            |            |                                           |                 |                                                       |                                 | 2000-01-0   | AspectModel Conformity Error: changedAt            |
 ```
 
+</details>
+
 ### Create IdBasedComment for base journey
+
+<details>
+<summary>The customer creates two IdBasedComment used by the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment for base journey
@@ -1183,11 +1319,14 @@ Examples:
 | CT_beta  | {{UUID_COM3}} | {{UUID_MD1}} | action required | {{OMITTED}}            | max.mustermann@company.de | {{BPNL_SUP}} | {{BPNL_CUS}} | "Demand Increase in CW45. Please confirm increase actual capacity." | {{OMITTED}}     | urn:samm:io.catenax.week_based_material_demand | {{OMITTED}} | {{TS_NOW}}  |
 ```
 
+</details>
+
 ## Customer: Provide IdBasedComment
 
 ### Provide valid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -1203,9 +1342,12 @@ Scenario: Provide valid existing IdBasedComment
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -1216,9 +1358,12 @@ Scenario: Provide invalid IdBasedComment
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide IdBasedComment for base journey
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -1233,11 +1378,14 @@ Examples:
 | FT_iota      | CT_alpha, CT_beta  |
 ```
 
+</details>
+
 ## Customer: Consume IdBasedComment
 
 ### Consume valid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -1253,9 +1401,12 @@ Scenario: Consume valid known IdBasedComment
   Then I should be able to consume it and send my supplier a http 200 status message
 ```
 
+</details>
+
 ### Consume invalid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -1266,7 +1417,12 @@ Scenario: Consume invalid IdBasedComment
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume IdBasedComment for base journey
+
+<details>
+<summary>The customer receives the previously created IdBasedComment from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -1281,11 +1437,14 @@ Examples:
 | FT_kappa     | CT_gamma, CT_delta |
 ```
 
+</details>
+
 ## Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
 ### Comment linked to WeekBasedCapacityGroup
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
@@ -1297,9 +1456,12 @@ Scenario: Comment linked to WeekBasedCapacityGroup
   *       I should be able to view this comment by navigating to the WeekBasedCapacityGroup the comment is linking
 ```
 
+</details>
+
 ### Comment linked to WeekBasedMaterialDemand
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
@@ -1313,9 +1475,12 @@ Scenario: Comment linked to WeekBasedMaterialDemand
   *       the comments should be presented in a tree view
 ```
 
+</details>
+
 ### Comment linked to IdBasedComment
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
@@ -1327,6 +1492,8 @@ Scenario: Comment linked to IdBasedComment
   *       I should be able to view this comment by navigating to the WeekBasedMaterialDemand the IdBasedComment is linking, the comment is linking
   *       I should be able to view this comment by navigating to the WeekBasedCapacityGroup, the WeekBasedMaterialDemand is linked to, the IdBasedComment is linking, the comment is linking
 ```
+
+</details>
 
 ## Notice
 
