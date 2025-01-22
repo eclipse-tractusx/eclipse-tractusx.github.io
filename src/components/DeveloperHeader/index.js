@@ -32,7 +32,7 @@ export default function DeveloperHeader() {
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
-            // light: ('/img/main-bg-new.png'),
+            light: ('/img/main-bg-light.png'),
             dark: ('/img/main_bg-min.png'),
           }}
           className={styles.hero_bg}

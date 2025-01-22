@@ -102,7 +102,7 @@ function  PrevArrow (props) {
                   >
                     {title}
                   </Typography>
-                  <LaunchIcon sx={{ color: "#ffffff" }} className={styles.launch} />
+                  <LaunchIcon className={styles.launch} />
                 </div>
             </div>
           </Link>
