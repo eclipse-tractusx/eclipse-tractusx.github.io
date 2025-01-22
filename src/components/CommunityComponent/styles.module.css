@@ -100,7 +100,7 @@
 }
 
 .card_title_container p {
-  color: #ffffff;
+  color: var(--ifm-heading-color);
 }
 
 .link_container {
@@ -110,6 +110,7 @@
 .launch {
   padding-left: 10px;
   cursor: pointer;
+  color: var(--ifm-heading-color);
 }
 
 @media screen and (max-width: 996px) {

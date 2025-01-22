@@ -133,6 +133,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
+  width: 80%;
 }
 
 .title-h2 {
@@ -266,6 +267,7 @@
     font-size: 16px;
     line-height: 20px;
     margin-top: -1rem;
+    width: 50%;
   }
 
   .title-h2 {
@@ -290,6 +292,7 @@
   .headers-subtitle-p {
     font-size: 14px;
     line-height: 16px;
+    width: 50%;
   }
 
   .button {
@@ -355,6 +358,10 @@
     width: 70vw;
     margin: auto;
   }
+
+  .headers-subtitle-p {
+    width: 50%;
+  }
 }
 
 
@@ -362,5 +369,9 @@
   .navbar {
     width: 60vw;
     margin: auto;
+  }
+  
+  .headers-subtitle-p {
+    width: 40%;
   }
 }
