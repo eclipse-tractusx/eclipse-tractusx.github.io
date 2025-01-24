@@ -446,7 +446,7 @@ Examples:
 ### Create WeekBasedMaterialDemand for volatility metrics journey
 
 <details>
-<summary>The customer creates four WeekBasedMaterialDemand used by the volatility metrics journey.</summary>
+<summary>The customer creates a WeekBasedMaterialDemand, in four different versions, used by the volatility metrics journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
@@ -508,8 +508,7 @@ Scenario Outline: Try to generate WeekBasedMaterialDemand for simulated delta pr
   *       the value for the property "materialNumberSupplier"       is <materialNumberSupplier>
   *       the value for the property "materialDescriptionCustomer"  is <materialDescriptionCustomer>
 
-  *       the value for the property "demandSeries"                 contains exactly two entities
-
+  *       the value for the property "demandSeries"                 contains entities
   *       the value for the property "customerLocation"             is <1_customerLocation>         for the first     "demandSeries"
   *       the value for the property "expectedSupplierLocation"     is <1_expectedSupplierLocation> for the first     "demandSeries"
   *       the value for the property "demandCategoryCode"           is <1_demandCategoryCode>       for the first     "demandSeries"
