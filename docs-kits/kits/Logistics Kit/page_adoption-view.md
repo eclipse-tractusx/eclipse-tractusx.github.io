@@ -19,20 +19,18 @@ It reduces interfaces and enriches the entire network by including logistics and
 
 ### Mission
 
-The Logistic KIT describes digital twins for a transport unit, a shipment itself, provides the basis to include digital twins for assets (for example load carrier) and sensors (use case Demand and Capacity Management - asset tracking) and matching aspect models like the Global Transport Label (VDA 4994). It enables logistic service providers, carriers etc. as well to provide their data to the network in a Catena-X compliant and interoperable way according to Gaia-X principles.
-The approach is to exchange GTL/transport information in an n-way relationship between manufacturer, tier-N, and supplier, gathering all relevant transport information and making it visible to all eligible stakeholders in the supply chain, while setting up aspect models and digital twin structures that correctly reflect the required data.
+The Logistic KIT describes digital twins for a transport unit, a shipment itself, provides the basis to include digital twins for assets (for example load carrier) and sensors (use case Demand and Capacity Management - asset tracking) and matching aspect models like packingList or Global Transport Label (VDA 4994). It enables logistic service providers, carriers etc. as well to provide their data to the network in a Catena-X compliant and interoperable way according to Gaia-X principles.
+The approach is to exchange transport information in a n-way relationship between manufacturer, Tier-N, and supplier, gathering all relevant transport information and making it visible to all authorized stakeholders in the supply chain, while setting up aspect models and digital twin structures that correctly reflect the required data.
 
 ## Business Value & Key Ideas
 
 ### Business Value
 
-Since the Logistic KIT is based on the logic of the Industry Core, it requires only a small effort to maintain full coverage of the supply chain, including the logistics routes. Goods negatively impacted by shock or temperature can be tracked permanently.
+Since the Logistic KIT is based on the logic of the Industry Core, it requires only a small effort to maintain full coverage of the supply chain, including the logistics routes. Goods which are negatively impacted by shock or heat can be tracked permanently.
 
 Application and service providers can develop interoperable Catena-X traceability solutions.
 
-We aim to implement a standard for shipments and traceability of all transports to make planning for production and costs easier for the OEM as well as Tier-N suppliers of the Catena-X network.
-
-By doing so, a fully connected network can be achieved in the long run. Ideally, OEMs and their suppliers will be part of the Catena-X logistics supply chain network and will be able to seamlessly transfer data between all authorized stakeholders, such as GPS tracking, estimated timestamps, package composition, sensor data, and more.
+Using the CX logistic standard, a fully connected network can be achieved in the long run. Ideally, OEMs and their suppliers will be part of the Catena-X logistics supply chain network and will be able to seamlessly transfer data between all authorized stakeholders, such as GPS tracking, estimated timestamps, package composition, sensor data, customs requirements and much more.
 
 ### Key Ideas
 
