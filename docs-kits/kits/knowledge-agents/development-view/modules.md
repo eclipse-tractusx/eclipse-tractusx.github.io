@@ -3,7 +3,7 @@ sidebar_position: 1
 title: Layers & Modules
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
+ * Copyright (c) 2021,2025 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
