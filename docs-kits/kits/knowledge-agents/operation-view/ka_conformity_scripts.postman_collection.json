@@ -3761,7 +3761,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/:model",
+											"raw": "https://raw.githubusercontent.com/big-data-spaces/ontology/refs/heads/main/ontology/:model",
 											"protocol": "https",
 											"host": [
 												"raw",
@@ -3769,8 +3769,10 @@
 												"com"
 											],
 											"path": [
-												"catenax-ng",
-												"product-knowledge",
+												"big-data-spaces",
+												"ontology",
+												"refs",
+												"heads",
 												"main",
 												"ontology",
 												":model"
@@ -3778,7 +3780,7 @@
 											"variable": [
 												{
 													"key": "model",
-													"value": "cx_ontology.ttl"
+													"value": "common_ontology.ttl"
 												}
 											]
 										}
@@ -3791,7 +3793,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://api.github.com/repos/catenax-ng/product-knowledge/contents/ontology?ref=release/v0.7.4",
+											"raw": "https://api.github.com/repos/big-data-spaces/ontology/contents/ontology?ref=release/24.03",
 											"protocol": "https",
 											"host": [
 												"api",
@@ -3800,15 +3802,15 @@
 											],
 											"path": [
 												"repos",
-												"catenax-ng",
-												"product-knowledge",
+												"big-data-spaces",
+												"ontology",
 												"contents",
 												"ontology"
 											],
 											"query": [
 												{
 													"key": "ref",
-													"value": "release/v0.7.4"
+													"value": "release/v24.03"
 												},
 												{
 													"key": "ref",
