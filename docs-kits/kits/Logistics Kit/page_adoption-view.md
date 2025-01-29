@@ -30,6 +30,7 @@ The approach is to exchange transport information in a n-way relationship betwee
 Since the Logistic KIT is based on the logic of the Industry Core, it requires only a small effort to maintain full coverage of the supply chain, including logistic routes. Goods which are negatively impacted by shock or heat can be tracked permanently.
 Application and service provider can develop interoperable Catena-X logistic solutions.
 Using the CX logistic standard, a fully connected network can be achieved in the long run. Ideally, OEMs and their suppliers will be part of the Catena-X logistics supply chain network and will be able to seamlessly transfer data between all authorized stakeholders, such as GPS tracking, estimated delivery date, package composition, sensor data, customs requirements and much more.
+
 ![Logistic Twins](../assets/LogisticTwins.png)
 
 ### Key Ideas
