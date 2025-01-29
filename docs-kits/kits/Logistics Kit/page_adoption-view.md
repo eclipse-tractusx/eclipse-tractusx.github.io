@@ -43,51 +43,24 @@ Using the CX logistic standard, a fully connected network can be achieved in the
 
 The challenge today is that data exchange with logistics service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. The VDA made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
 
+
+## Business Value
+
+picture
+
+
 ## Digital Twins
 
 The Logistic Use Case uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins are described in the Digital Twin KIT.
 
-
-### Special Digital Twins for Logistic
-
-#### Digital Twin “Transport Unit”
+### Digital Twin “Transport Unit”
 
 In case of using a Global Transport Label or tracking a transport unit and provide data e.g. about the packing list, using a digital twin for transport unit is necessary.
 
-##### Property specificAssetIds
-
-Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a supplier of parts to connect the digital twins of the transport unit to the digizal twins of their parts. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
-
-The following conventions for specific asset IDs apply to digital twins of a transport unit:
-
-|Key|Availability|Description|Type|
-| :------------- | :----------- | :-------------------------------------------------------------------------------------------  | :----- |
-| GTL No.               | Optional      | Master/Mixed Label No. according to VDA 4994                                          | String |
-| Digital Twin Type     | Mandatory     | transport unit                                                                        | String |
-| Shipping Note No      | Mandatory     | (Lieferschein-Nr.) Shipping Note No. of forwarding company                            | String |
-| Order No.             | Mandatory     | Shipping no. on package visible for carrier (Referenz-Nr.)                            | String |
-| manufacturerId        | Mandatory     | The Business Partner Number (BPN-L) of the manufacturer/supplier of parts             | String |
-| customerID            | Mandatory     | The Business Partner Number (BPN-A) of goods receiver.                                | String |
-| Customer Shipping No. | Optional      | Customer Shipping No. if available                                                    | String |
-
-#### Digital Twin "Transport"
+### Digital Twin "Transport"
 
 In case of tracking the transport and provide data e.g. about GPS data, using a digital twin for transport is possible.
 
-##### Property specificAssetIds
-
-Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a supplier of parts to connect the digital twins of the transport unit and the transport itself to the digital twins of their parts. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
-
-The following conventions for specific asset IDs apply to digital twins of a transport:
-
-|Key|Availability|Description|Type|
-| :------------- | :----------- | :-------------------------------------------------------------------------------------------  | :----- |
-| Customer Shipping No. | Mandatory     | Customer Shipping No.                                                                 | String |
-| Digital Twin Type     | Mandatory     | Shipment number                                                                       | String |
-| Business partner Id   | Mandatory     | The Business Partner Number (BPN-L) of the logistic service Provider (LSP)            | String |
-| manufacturerId        | Mandatory     | The Business Partner Number (BPN-L) of the manufacturer/supplier of parts             | String |
-| customerID            | Mandatory     | The Business Partner Number (BPN-A) of goods receiver.                                | String |
-| Order No.             | Optional      | Shipping no. on package visible for carrier (Referenz-Nr.)                            | String |
 
 ## Aspect Models
 
