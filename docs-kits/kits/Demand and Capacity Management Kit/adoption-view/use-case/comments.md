@@ -59,7 +59,7 @@ Both customers and suppliers must be able to send and receive comments regarding
 
 To aid in the interpretation of received comments, a comment type must be specified during its creation. Each comment must align with one of the defined types in the standard. The consumer of the comment is responsible for determining the appropriate actions in response to the comment type.
 
-The provider of a comment can freely write their message in a designated text field, as outlined in the corresponding data model. Any editing of comments, such as changes to content, date, or time, does not alter the CommentID.
+The provider of a comment can freely write their message in a designated text field, as described in the corresponding data model. Any editing of comments, such as changes to content, date, or time, does not alter the CommentID.
 
 Additionally, comments may include references to specific calendar weeks of the time series data for clarity.
 
