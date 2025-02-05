@@ -112,11 +112,11 @@ sequenceDiagram
     end
     rect rgb(221,130,0)
         note right of Customer: Exchange Material Demand
-        CustomerApp ->> CustomerConnector: Transmit MaterialDemand
-        CustomerConnector ->> SupplierConnector: Transmit MaterialDemand
-        SupplierConnector ->> SupplierApp: Transmit MaterialDemand
+        CustomerApp ->> CustomerConnector: Transfer MaterialDemand
+        CustomerConnector ->> SupplierConnector: Transfer MaterialDemand
+        SupplierConnector ->> SupplierApp: Transfer MaterialDemand
         activate SupplierApp
-        SupplierApp ->> Supplier: Transmit MaterialDemand
+        SupplierApp ->> Supplier: Transfer MaterialDemand
         Supplier -->> SupplierApp: MaterialDemand received
         SupplierApp -->> SupplierConnector: MaterialDemand received
         deactivate SupplierApp
@@ -151,7 +151,7 @@ sequenceDiagram
         CoreEdcDiscovery -->> SupplierApp: connector URL catalogue
         deactivate CoreEdcDiscovery
         SupplierApp ->> SupplierApp: Find correct connector via URL catalogue inspection
-        SupplierApp ->> SupplierConnector: Transmit CapacityGroup
+        SupplierApp ->> SupplierConnector: Transfer CapacityGroup
         activate SupplierConnector
         SupplierConnector ->> CustomerConnector: Resolve connector Endpoint and connector service catalogue into CapacityGroup API URL
         activate CustomerConnector
@@ -161,10 +161,10 @@ sequenceDiagram
     end 
     rect rgb(128,149,0)
         note left of Supplier: Exchange Capacity Group
-        SupplierConnector ->> CustomerConnector: Transmit CapacityGroup
-        CustomerConnector ->> CustomerApp: Transmit CapacityGroup
+        SupplierConnector ->> CustomerConnector: Transfer CapacityGroup
+        CustomerConnector ->> CustomerApp: Transfer CapacityGroup
         activate CustomerApp
-        CustomerApp ->> Customer: Transmit CapacityGroup
+        CustomerApp ->> Customer: Transfer CapacityGroup
         Customer -->> CustomerApp: CapacityGroup received
         CustomerApp -->> CustomerConnector: CapacityGroup received
         deactivate CustomerApp
