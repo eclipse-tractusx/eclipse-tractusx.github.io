@@ -53,113 +53,44 @@ picture (section double)
 
 ## Digital Twins
 
-The Logistic Use Case uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins are described in the Digital Twin KIT and in the Logistics and Customs Standard.
+The Logistic Use Case uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins are described in the Digital Twin KIT https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit/ and in the Logistics and Customs Standard https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0150-UseCaseLogistics/CX-0150-UseCaseLogistics.md.
 
 ### Digital Twin “Transport Unit”
 
-In case of using a Global Transport Label or tracking a transport unit and provide data e.g. about the packing list, using a digital twin for transport unit is necessary.
+In case of using a Global Transport Label or tracking a transport unit and provide data e.g. about the packing list, creating a digital twin for transport unit is necessary. For creation a DT for transport units please see the requirements of specific asset ID's https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0150-UseCaseLogistics/CX-0150-UseCaseLogistics.md#23-special-digital-twins-for-logistics-and-specific-asset-ids .
 
 ### Digital Twin "Transport"
 
-In case of tracking the transport and provide data e.g. about GPS data, using a digital twin for transport is possible.
+In case of tracking the transport and provide data e.g. about GPS data, using a digital twin for transport is possible. For creation a DT for transport units please see the requirements of specific asset ID's https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0150-UseCaseLogistics/CX-0150-UseCaseLogistics.md#23-special-digital-twins-for-logistics-and-specific-asset-ids .
 
 
 ## Aspect Models
 
-Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model. Transformations are mostly straightforward in these cases. If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
-
 In the following section, all aspect models that are part of Logistic KIT are documented.
-|Digital Twin Type|Aspect Model|Mandatory Version|Optional Version|
-| :------------- | :----------- | :-------------------------------------------------------------------------------------------  |
-| TransportUnit | PackingList   | 1.0.0 |   |
-| Transport     | ShippingData  |       |   |
 
 ### Packing List
 
 The aspect provides the information of the packed goods inside of a Transport Unit.
+Github Link to semantic data model: (https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl)
 
-Aspect Model in GitHub:
+### IotSensorData
 
-- [Version 1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl)
+The aspect provides the information of tracked returnable packages and assets, monitor quality of critical materials.
+Github Link to semantic data model: https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.iot_sensor_data/2.0.0/IotSensorData.ttl
 
-#### Example: Aspect Model `Packing List` for Transport Unit
+### GlobalTransportLabel (GTL)
 
-```json
-{
-  "receiverAddress" : {
-    "bpnaProperty" : "BPNA0123456789ZZ"
-  },
-  "listItems" : [ {
-    "catenaXId" : "urn:uuid:055c1128-0375-47c8-98de-7cf802c3241d",
-    "itemName" : "Valve",
-    "quantity" : {
-      "itemQuantityProperty" : {
-        "value" : 20.0,
-        "unit" : "unit:piece"
-      }
-    },
-    "position" : 1,
-    "itemDescription" : "eOMtThyhVNLWUZNRcBaQKxI"
-  } ],
-  "senderAddress" : {
-    "bpnaProperty" : "BPNA0123456789ZZ"
-  },
-  "shippingDate" : "2023-02-11"
-}
-```
+The aspect provides all information of GTL in a digital format.
+Github Link to semantic data model: https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.global_transport_label/1.0.0/GlobalTransportLabel.ttl
 
-### Shipment Data
 
-The aspect provides the information of shipping data.
+## Notice
 
-Aspect Model in GitHub:
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-- Version 1.0.0:
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024, Mercedes Benz AG
+- SPDX-FileCopyrightText: 2024, Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2024, msg systems AG
+- SPDX-FileCopyrightText: 2024, Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
 
-#### Example: Aspect Model `Shipment Data` for Transport
-
-Our current version of Data models depicted in a table view.
-
-```json
-{
-  "actualBusinessTimestamp": "2022-11-11T01:00:00Z",
-  "actualTechnicalTimestamp": "2022-11-11T01:00:00Z",
-  "transportInfo": {
-    "transportNumber": "testTP25012024",
-    "dangerousGoods": false,
-    "meansOfTransport": 31
-  },
-  "statusUpdate": "NOT_STARTED",
-  "estimatedTimestamps": {
-    "estimateArrival": "2024-01-25T16:55:00Z",
-    "estimateDispatch": "2024-01-21T14:35:00Z"
-},
-  "registrationInfo": {
-    "registrationCountry": "DE",
-    "registrationNumber": "D-RA-KL-8136"
-  },
-  "trackedObjects": [
-    "obj1",
-    "obj2",
-    "obj3"
-  ],
-  "serviceAgentId": {
-    "forwardingAgentId": 13245,
-    "haulerId": 12345
-  },
-  "arrivalInfo": [
-    {
-      "locationType": "Distribution Center",
-      "proofOfDelivery": true,
-      "locationName": "Mercedes-Benz Untertürkheim Plant",
-      "locationId": "12345678"
-    }
-  ],
-  "shipmentNumber": "testSHP25012024",
-  "departureInfo": {
-    "locationType": "Distribution Center",
-    "locationId": "12345678",
-    "locationName": "Mercedes-Benz Untertürkheim Plant"
-  }
-}
-```
