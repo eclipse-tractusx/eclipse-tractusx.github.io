@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## Customs KIT
 
-## Vision & Mission Customs
+## Vision & Mission
 
 ### Vision
 
