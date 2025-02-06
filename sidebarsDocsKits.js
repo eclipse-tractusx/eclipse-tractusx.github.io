@@ -568,7 +568,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Logistics KIT',
+            label: 'Logistics and Customs KIT',
             link: {
                 type: 'generated-index',
             },
