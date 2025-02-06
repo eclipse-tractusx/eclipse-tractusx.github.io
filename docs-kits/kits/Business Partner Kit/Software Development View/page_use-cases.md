@@ -9,19 +9,20 @@ Here in this section, we have provided use cases along with how end to end tests
 
 ## 1 - Execute automated end to end test
 
-To perform end-to-end test of all Business Partner Data Management (BPDM) services using the `bpdm-system-tester` module, follow the detailed steps below. 
+To perform end-to-end test of all Business Partner Data Management (BPDM) services using the `bpdm-system-tester` module, follow the detailed steps below.
 This guide will help you set up your local environment, configure necessary services, and execute tests to ensure the BPDM services function as expected.
 
 ### Local environment setup
 
-To run BPDM services and tester module, BPDM offers multiple ways like using Helm Charts or using Dockerfiles depending upon different scenarios. 
-For more details on how can you run services on different environment, you can follow instructions mentioned in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file. 
+To run BPDM services and tester module, BPDM offers multiple ways like using Helm Charts or using Dockerfiles depending upon different scenarios.
+For more details on how can you run services on different environment, you can follow instructions mentioned in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file.
 
 #### Prerequisites
+
 - JAVA 21
 - Maven (3.9 supported)
-- Docker Engine 
-- Docker Compose 
+- Docker Engine
+- Docker Compose
 
 #### Installation Steps
 
@@ -43,30 +44,31 @@ For more details on how can you run services on different environment, you can f
 
     Alternatively, a BPDM Gate can be configured to be single tenant only. This allows access for users only from a single company identified by its BPNL.
 
-    ```
+    ```bash
     bpdm:
         bpn:
             owner-bpn-l: BPNLXXXXXXXXXX01
     ```
+
     If it is set with a BPNL only users belonging to that company can access the Gate. If it is not set or set to null a user from any company can use the Gate, albeit the user can only see its own company shared business partner data.
 
 3. Start BPDM services sequentially:
 
     BPDM services require a PostgreSQL database and Keycloak server to run. Navigate to the root folder of the BPDM repository. Then set up the necessary dependencies by using the provided Docker Compose file:
 
-    ```
+    ```bash
     docker compose -f docker/compose/dependencies/docker-compose.yml up -d
-    ``` 
+    ```
 
     This will run a Postgres and Keycloak with an initial realm already configured to be used by the BPDM services. After this step, we can build and install the BPDM applications.
 
-    ```
+    ```bash
     mvn clean install
     ```
-    
+
     Each BPDM application can now be run separately. We will run each application after another. For this, we navigate into the application's subfolder and run the application with the spring-boot run goal.
 
-    ```
+    ```bash
     cd bpdm-orchestrator
     mvn spring-boot:run
     cd ../bpdm-cleaning-service-dummy
@@ -79,12 +81,12 @@ For more details on how can you run services on different environment, you can f
 
 ### Start Automated E2E Test
 
-The `bpdm-system-tester` module is responsible for performing automated end to end test. To get more details about test data and scenarios which are running under automated test, 
-you can visit [feature](https://github.com/eclipse-tractusx/bpdm/tree/main/bpdm-system-tester/src/main/resources/cucumber) file folder. 
+The `bpdm-system-tester` module is responsible for performing automated end to end test. To get more details about test data and scenarios which are running under automated test,
+you can visit [feature](https://github.com/eclipse-tractusx/bpdm/tree/main/bpdm-system-tester/src/main/resources/cucumber) file folder.
 
 now you can run the `bpdm-system-tester` application with the spring-boot run goal.
 
-```
+```bash
 cd bpdm-system-tester
 mvn spring-boot:run
 ```
@@ -93,14 +95,15 @@ This will execute all the test scenarios parallelly and will be finished in 3-4 
 
 ## 2 - Request Business Partner Changelogs
 
-Similarly based on use case 1, if you have executed automated end to end test successfully on your local machine then you can easily search for intput and output changelogs of involved business partners during tests. 
+Similarly based on use case 1, if you have executed automated end to end test successfully on your local machine then you can easily search for intput and output changelogs of involved business partners during tests.
 
 example, you can have below request from BPDM-GATE service after execution of automated tests
 
 ### Input Changelogs
 
-Request - 
-```
+Request -
+
+```bash
 curl --location 'http://localhost:8081/v6/input/changelog/search?page=0&size=5' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: ••••••' \
@@ -112,7 +115,8 @@ curl --location 'http://localhost:8081/v6/input/changelog/search?page=0&size=5' 
 ```
 
 Response - will be something like below.
-```
+
+```bash
 {
     "totalElements": 28,
     "totalPages": 6,
@@ -152,8 +156,9 @@ Response - will be something like below.
 
 ### Output Changelogs
 
-Request - 
-```
+Request -
+
+```bash
 curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: ••••••' \
@@ -166,7 +171,8 @@ curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3'
 ```
 
 Response - will be something like below.
-```
+
+```bash
 {
     "totalElements": 14,
     "totalPages": 5,
