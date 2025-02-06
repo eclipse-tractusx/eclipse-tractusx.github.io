@@ -48,11 +48,6 @@ Using the CX logistic standard, a fully connected network can be achieved in the
 The challenge today is that data exchange with logistic service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. Different committes made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
 
 
-## Business Value
-
-picture (section double)
-
-
 ## Digital Twins
 
 The Logistic Use Case uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins are described in the Digital Twin KIT https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit/ and in the Logistics and Customs Standard https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0150-UseCaseLogistics/CX-0150-UseCaseLogistics.md.
