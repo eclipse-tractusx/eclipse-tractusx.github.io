@@ -42,8 +42,8 @@ Every company divides the trade agreements into different and individual zones. 
 2.	The receiver (customer) sends a request to the sender (supplier) with a list of part numbers to ask for preference master data.
     a.	Proceeding as usual by email, post, etc.
     b.	Using a “request notification” based on the Notification API
-3.	The sender (supplier) accepts the request.
-4.	The sender (supplier) creates a customs notification by using the aspect model customsInformation v.1.0.0 to send preference information.
+3.	The sender (supplier) accepts the request depending on the type of the transmission of the request.
+4.	The sender (supplier) creates a customs notification to send preference information.
 5.	The sender (supplier) initiates a contract negotiation to get a contract agreement.
 6.	A contract negotiation takes place between the sender (supplier) and the receiver (customer) by using their Eclipse Data Connectors (EDC).
 7.	After a successful contract negotiation, the sender (supplier) sends the customs notification via a HTTP POST request to the receiver (customer) via the dataplane endpoint from the contract agreement.
@@ -54,11 +54,11 @@ Every company divides the trade agreements into different and individual zones. 
 1.	The Data Consumer (customer) sends a request to the Data Provider (supplier) with a list of part numbers to ask for preference master data.
     a.	Proceeding as usual by email, post, etc.
     b.	Using a “request notification” based on the Notification API
-2.	The Data Provider (supplier) accepts the request.
-3.	The Data Provider (supplier) creates an aspect model “customsInformation” and saves it at the Submodel Server.
+2.	The Data Provider (supplier) accepts the request depending on the type of the transmission of the request.
+3.	The Data Provider (supplier) creates an aspect model “customsInformation” and saves it at the Submodel Server if it does not already exist.
 4.	The Data Provider (supplier) creates a digital twin for each requested part if it does not already exist (a) and adds the Submodel Descriptor for the created aspect model to the digital twin (b).
 5.	The Data Provider (supplier) registers a new created digital twin to the decentral twin registry (DTR).
-6.	The Data Provider (supplier) creates a contract definition consisting of the aspect model and policy and takes it to the Eclipse Data Connector (EDC).
+6.	The Data Provider (supplier) creates a contract definition consisting of the asset and policy and takes it to the Eclipse Data Connector (EDC).
 7.	The Data Consumer (customer) initiates a contract negotiation to get a contract agreement. A contract negotiation takes place between the Data Provider (supplier) and the Data Consumer (customer) by using their Eclipse Data Connectors (EDC).
 8.	After a successful contract negotiation, the Data Consumer (customer) pulls the aspect model “customsInformation” (json) from the Submodel Server of the Data Provider (supplier).
 
