@@ -64,6 +64,8 @@ export default function ProductAccordionCard({ productName, productDescription, 
     } return str
   }
 
+  const [accordionOpen, setAccordionOpen] = useState(false);
+
   return (
     <>
       <div className={styles.product_accordion_card}>
