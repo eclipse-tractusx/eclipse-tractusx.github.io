@@ -56,7 +56,7 @@ Key aspects of PURIS are:
 - **Data usage control and compliance**: PURIS employs the Catena-X data space to ensure the required level of data security and sovereignty for all participants.
 - **Accessibility**: PURIS provides a FOSS \(Free and Open-Source Software\) reference implementation that aims to keep the entry threshold for participating in PURIS as low as possible, making it easier for smaller businesses to participate and take advantage of the benefits.
 
-By considering these principles, PURIS is not just enhancing current supply chain management practices but is also paving the way for a more agile, informed, and responsive automotive industry
+By considering these principles, PURIS is not just enhancing current supply chain management practices but is also paving the way for a more agile, informed, and responsive automotive industry.
 
 ## Today's Challenge
 
@@ -64,9 +64,10 @@ Supply chain complexity and the frequency of crises and exceptional situations p
 
 Status-quo:
 
-1. **Supply Chain Transparency:** The lack of up-to-date data and transparency in the supply chain makes it difficult to anticipate disruptions and actual demand, manage production and inventory efficiently, and ensure timely deliveries. Complex and Volatile Supplier Network: The supply chain, with its widespread and diverse suppliers, faces visibility and control challenges. Demand volatility, influenced by key companies, impacts forecasting and immediate needs.
-2. **Inefficient communication:** Manual and non-standardized information exchange, e.g. via Excel or phone, between partners is slow and can lead to misunderstandings, errors and unnecessary effort, which in turn negatively impacts the supply situation and increases costs.
-3. **Lack of Trust:** Reluctance to share sensitive information, such as inventory levels, demand forecasts, and production capacities hinders the flow of critical information and prevent the formation of a cohesive, collaborative supply chain network. This can lead to a siloed and inefficient supply chain, where the best and most sustainable solutions are not realized. Consequences are missed opportunities, increased costs, and decreased competitiveness.
+1. **Supply Chain Transparency:** The lack of up-to-date data and transparency in the supply chain makes it difficult to anticipate disruptions and actual demand, manage production and inventory efficiently, and ensure timely deliveries.
+2. **Complex and Volatile Supplier Network:** The supply chain, with its widespread and diverse suppliers, faces visibility and control challenges. Demand volatility, influenced by key companies, impacts forecasting and immediate needs.
+3. **Inefficient communication:** Manual and non-standardized information exchange, e.g. via Excel or phone, between partners is slow and can lead to misunderstandings, errors and unnecessary effort, which in turn negatively impacts the supply situation and increases costs.
+4. **Lack of Trust:** Reluctance to share sensitive information, such as inventory levels, demand forecasts, and production capacities hinders the flow of critical information and prevent the formation of a cohesive, collaborative supply chain network. This can lead to a siloed and inefficient supply chain, where the best and most sustainable solutions are not realized. Consequences are missed opportunities, increased costs, and decreased competitiveness.
 
 Moreover, currently only proprietary systems are available, which are insufficiently scalable and also involve a vendor lock-in. This highlights the need for an open standard and a FOSS \(Free and Open Source Software\) reference implementation. Moreover, these systems often have a long-term focus on demand and capacity management.
 
