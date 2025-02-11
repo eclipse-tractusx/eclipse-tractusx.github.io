@@ -13,42 +13,27 @@ sidebar_position: 2
 
 ### Vision
 
-Our vision is to move from parts-based quality management on a bilateral level between supplier and customer to a
-data-based approach across the OEM-n-Tier chains of value creation to enable a network approach for producing and
-ensuring product quality.
+Our vision is to transition from parts-based quality management on a bilateral level between suppliers and customers, to a data-based approach across the OEM-n-Tier value creation chains. This transition aims to enable a network approach for producing and ensuring product quality in a **Live Quality Loop**.
 
 ![quality kit vision diagram](@site/static/img/quality-kit_vision-min.png)
 
-The Quality KIT enables **data provider** and **consumer** to exchange and analyse existing data across company
-boundaries on a daily basis, securely and easily. By merging the OEM's field quality data and the supplier's product
-information, a new level of transparency is achieved in a joint analysis (single point of information). This leads to
-earlier failure detection, faster cooperation between partners and acceleration of root cause analysis. Once the root
-cause of the problem is known, corrective actions can be targeted to the products and vehicles that have the quality
-problem using Catena-X traceability capabilities. The containment minimises the number of parts & vehicles for which
-corrective actions need to be implemented.
+The Quality KIT enables OEM and supplier as **data provider** and **consumer** to exchange and analyze existing data across company boundaries on a e.g. weekly basis, securely and easily. By merging the OEM's field quality data with the supplier's product information, a new level of transparency is achieved, leading to earlier failure detection, faster cooperation between partners, and accelerated root cause analysis. The goal is to minimize the number of parts and vehicles that require corrective actions.
 
-This KIT enables **quality app provider** to deliver solutions for quality data analysis including tracebility and
-notification functionalities.
+Additionally, this KIT enables the **quality app provider** to deliver solutions for quality data analysis, including traceability and notification functionalities.
 
 ### Mission
 
 ![quality kit mission diagram](@site/static/img/quality-kit_mission-min.png)
+The mission of the Quality KIT is to provide the necessary standards, aspect models, technical data pipeline specifications, and business logics to establish a sovereign exchange of quality-related data along the OEM-Tier n chain. This is based on the following principles:
 
-The Quality KIT provides the necessary standards, aspect models, technical data pipeline specifications and business
-logics on how to estabilish a soverein exchange of quality related data along the OEM-Tier n chain. All the components
-mentioned are based on the following principles:
+-   We bring together data from suppliers and manufacturers (OEM).
+-   Data exchange between data provider and consumer complies with the Catena-X network's data sovereignty.
+-   Data exchange following a standardized pipeline and data models within a data eco system enables each partner to use the applications of their choice for data analysis features, like Early Warning and Root Cause Analysis.
+-   Early Warning Notification enables the partners to exchange information about potential anomalies they detected and to trigger their subsequent joint evaluation.
+-   Failure Pattern exchange enables the partners to have a common understanding of a specific anomaly. As part of the lessons learned, these patterns help to identify known anomalies more quickly in the field.
+-   Analysis methods and algorithms that are realized in the quality applications are not part of any standardization. It is desirable that different tools deliver different view angles, to support Root Cause hypothesis creation Therefore, specialization of analysis tools is valuable.
 
-- We bring together data from suppliers and manufacturers (OEM).
-- Data exchange between data provider and consumer complies with the Catena-X network's data sovereignty principles.
-- Data exchange enables each partner to use the applications of their choice for data analysis features like Early
-  Warning and Root Cause Analysis.
-- We standardize data models incl. their assets
-- Data exchange in the current Quality KIT version is described as a common requirement.
-- Analysis methods and algorithms that are realized in the quaity applications are not part of any standardization. It
-  is desirable that different tools deliver different results Specialisation of tools is valuable.
-
-In sum this KIT enables quality management to substantially **increase speed** in resolving quality problems and reach a
-**new level on transparency** and traceability.
+In sum, this KIT enables quality management to substantially **increase speed** in detecting and resolving quality problems and reach a **new level on transparency** and traceability.
 
 ### Customer Journey
 
