@@ -3761,7 +3761,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://raw.githubusercontent.com/big-data-spaces/ontology/main/ontology/:model",
+											"raw": "https://raw.githubusercontent.com/big-data-spaces/ontology/refs/heads/main/ontology/:model",
 											"protocol": "https",
 											"host": [
 												"raw",
@@ -3771,6 +3771,8 @@
 											"path": [
 												"big-data-spaces",
 												"ontology",
+												"refs",
+												"heads",
 												"main",
 												"ontology",
 												":model"
@@ -3778,7 +3780,7 @@
 											"variable": [
 												{
 													"key": "model",
-													"value": "cx_ontology.ttl"
+													"value": "common_ontology.ttl"
 												}
 											]
 										}
@@ -3791,7 +3793,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://api.github.com/repos/big-data-spaces/ontology/contents/ontology?ref=release/v24.12",
+											"raw": "https://api.github.com/repos/big-data-spaces/ontology/contents/ontology?ref=release/24.03",
 											"protocol": "https",
 											"host": [
 												"api",
@@ -3808,7 +3810,7 @@
 											"query": [
 												{
 													"key": "ref",
-													"value": "release/v24.12"
+													"value": "release/24.03"
 												},
 												{
 													"key": "ref",
