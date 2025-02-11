@@ -3,7 +3,7 @@ sidebar_position: 1
 title: Layers & Modules
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
+ * Copyright (c) 2021,2025 T-Systems International GmbH
  * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
@@ -37,7 +37,7 @@ For more information see
 * Our [Reference Implementation](reference)
 * The [Deployment](../operation-view/deployment) guide
 
-In this context generic building blocks were defined (see next figure) which can be implemented with different open source or [COTS](https://en.wikipedia.org/wiki/Commercial_off-the-shelf) solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found here: <https://catenax-ng.github.io/product-knowledge/docs/architecture>.
+In this context generic building blocks were defined (see next figure) which can be implemented with different open source or [COTS](https://en.wikipedia.org/wiki/Commercial_off-the-shelf) solutions. In the scope of Catena-X project these building blocks are instantiated with a reference implementation based on open source components (the Knowledge Agents KIT). The detailed architecture following this reference implementation can be found [here](architecture).
 
 [![Architecture High-Level](/img/knowledge-agents/layer_architecture_small.png)](/img/knowledge-agents/layer_architecture.png)
 
@@ -193,7 +193,7 @@ The Federated Catalogue is an RDF data storage facility for the Matchmaking Agen
 
 The Federated Catalogue should initially download the complete Semantic Model that has been released for the target environment. It should also contain a list of business partners and their roles which form the surrounding dataspace neighborhood of the tenant. For that purpose, It could use GPDM (Business Partner Data Management) and Self-Description Hub services in order to lookup EDC addresses and additional domain information (sites, geo addresses). It should then be frequently updated with “live” information by invoking the EDC data management API to regularly obtain catalogue information.
 
-The portion of the Semantic Model describing these meta-data (Business Partners, Sites, Addresses, Use Cases, Use Case Roles, Connectors & Assets) is called the Common domain ontology and is mandatory for all releases/excerpts of the Semantic Model (<https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/common_ontology.ttl>).
+The portion of the Semantic Model describing these meta-data (Business Partners, Sites, Addresses, Use Cases, Use Case Roles, Connectors & Assets) is called the Common domain ontology and is mandatory for all releases/excerpts of the Semantic Model (<https://w3id.org/catenax/ontology>).
 
 ## Virtualization Layer (Non-Standard Relevant)
 
