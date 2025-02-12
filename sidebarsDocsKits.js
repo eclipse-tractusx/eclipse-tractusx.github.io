@@ -239,7 +239,7 @@ const sidebars = {
                     items: [
                         'kits/Business Partner Kit/Software Development View/Specification',
                         {
-                            type: "category",
+                            type: "link",
                             label: "Gate API",
                             link: {
                                 type: "generated-index",
@@ -247,7 +247,7 @@ const sidebars = {
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api/sidebar.js'),
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Pool API",
                             link: {
                                 type: "generated-index",
@@ -255,7 +255,7 @@ const sidebars = {
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api/sidebar.js'),
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Cleaning Dummy API",
                             link: {
                                 type: "generated-index",
@@ -263,7 +263,7 @@ const sidebars = {
                             items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
                         },
                         {
-                            type: "category",
+                            type: "link",
                             label: "Orchestrator API",
                             link: {
                                 type: "generated-index",
