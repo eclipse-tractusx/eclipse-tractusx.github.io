@@ -4,10 +4,19 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Thu, 30 Jan 2025 08:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 12 Feb 2025 08:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Introducing the New Light Theme for Tractus-X]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/2025/03/17/dark-and-light-themes</link>
+            <guid>/2025/03/17/dark-and-light-themes</guid>
+            <pubDate>Wed, 12 Feb 2025 08:00:00 GMT</pubDate>
+            <description><![CDATA[A Fresh, Elegant Look for the page]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="theme image" src="/assets/images/light-dark-theme-ccd1b8a98b1347d9e92ce20e794a4fee.png" width="1896" height="609" class="img_ev3q"></p><p>Introducing the New Light Theme for Tractus-X: A Fresh, Elegant Look for the page.</p><p>Today, we are thrilled to unveil the all-new light theme for Tractus-X, offering a sleek, modern design that enhances both aesthetics and user experience. With its bright open layout and enhanced readability, this update offers a welcoming and user-friendly interface for all users. The new light theme is designed with clarity in mind, ensuring that you can navigate through the world of Tractus-X effortlessly—whether you're on a desktop, tablet, or mobile.</p>]]></content:encoded>
+            <author>michaela.kleynhans@mercedes-benz.com (Michaela Kleynhans)</author>
+        </item>
         <item>
             <title><![CDATA[Join us in May 2025 for the Fourth Eclipse Tractus-X Community Days!]]></title>
             <link>https://eclipse-tractusx.github.io/blog/community-days-05-2025</link>

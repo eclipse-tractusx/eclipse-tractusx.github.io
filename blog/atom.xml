@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-01-30T08:00:00.000Z</updated>
+    <updated>2025-02-12T08:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Introducing the New Light Theme for Tractus-X]]></title>
+        <id>/2025/03/17/dark-and-light-themes</id>
+        <link href="https://eclipse-tractusx.github.io/blog/2025/03/17/dark-and-light-themes"/>
+        <updated>2025-02-12T08:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A Fresh, Elegant Look for the page]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="theme image" src="/assets/images/light-dark-theme-ccd1b8a98b1347d9e92ce20e794a4fee.png" width="1896" height="609" class="img_ev3q"></p><p>Introducing the New Light Theme for Tractus-X: A Fresh, Elegant Look for the page.</p><p>Today, we are thrilled to unveil the all-new light theme for Tractus-X, offering a sleek, modern design that enhances both aesthetics and user experience. With its bright open layout and enhanced readability, this update offers a welcoming and user-friendly interface for all users. The new light theme is designed with clarity in mind, ensuring that you can navigate through the world of Tractus-X effortlessly—whether you're on a desktop, tablet, or mobile.</p>]]></content>
+        <author>
+            <name>Michaela Kleynhans</name>
+            <email>michaela.kleynhans@mercedes-benz.com</email>
+            <uri>https://github.com/michaelakleynhans</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Join us in May 2025 for the Fourth Eclipse Tractus-X Community Days!]]></title>
         <id>community-days-05-2025</id>
