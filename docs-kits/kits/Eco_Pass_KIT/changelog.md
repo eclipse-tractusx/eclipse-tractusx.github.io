@@ -2,6 +2,8 @@
 title: Changelog
 ---
 
+![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.drawio.svg)
+
 ## [1.5.0] - 2024-07-25
 
 ### 24.08 Added

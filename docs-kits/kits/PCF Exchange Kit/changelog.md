@@ -5,11 +5,15 @@ description: 'PCF Exchange Kit'
 sidebar_position: 1
 ---
 
-![PCF Exchange kit banner](/img/kit-icons/pcf-kit-icon.svg)
+![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.drawio.svg)
 
 ## PCF Exchange KIT
 
 All notable changes to this Kit will be documented in this file.
+
+## [1.2.1] - 2025-02-07
+
+* Fix broken links and spelling mistakes
 
 ## [1.2.0] - 2024-08-01
 

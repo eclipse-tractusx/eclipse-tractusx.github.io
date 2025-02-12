@@ -17,36 +17,40 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import Business_Kit from "@site/static/img/bpkit.png";
-import DataChain_Kit from "@site/static/img/datachainkit.png";
-import Connector_Kit from "@site/static/img/connectorkit-min.png";
-import Traceability_Kit from "@site/static/img/traceabilitykit.png";
-import BehaviourTwin_Kit from "@site/static/img/behaviourtwinkit.png";
-import DigitalTwin from "@site/static/img/DigitalTwin.png";
-import EcoPass from "@site/static/img/EcoPass.png";
-import ESS_Kit from "@site/static/img/ESSKit.png";
-import OnlineSimulation from "@site/static/img/OnlineSimulation.png";
-import Quality from "@site/static/img/Quality.png";
-import PCF_Kit from "@site/static/img/PCF_Kit.png";
-import ModularProduction_Kit from "@site/static/img/ModularProduction_Kit.png";
-import DemandandCapacityManagement_Kit from "@site/static/img/DemandandCapacityManagement_Kit.png";
-import Circularity_Kit from "@site/static/img/Circularity_Kit.png";
-import Agents_Kit from "@site/static/img/Agents_Kit.png";
-import Maas_Kit from "@site/static/img/MaaSKIT.png";
-import PURIS_Kit from '@site/static/img/PURISKIT.png';
-import Industry_Kit from "@site/static/img/Industry_Kit.png";
-import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/SCDN_Kit.png";
-import Logistics_Kit from "@site/static/img/kits/logistics/logistics-gallery.drawio.svg";C
+import Agents_Kit from "@site/static/img/kits/agents/agents-kit-gallery.drawio.svg";
+import BehaviourTwin_Kit from "@site/static/img/kits/behavior-twin/behavior-twin-kit-gallery.drawio.svg";
+import Business_Kit from "@site/static/img/kits/business-partner/business-partner-gallery.drawio.svg";
+import Circularity_Kit from "@site/static/img/kits/circularity/circularity-kit-gallery.drawio.svg";
+import Connector_Kit from "@site/static/img/kits/connector/connector-kit-gallery.drawio.svg";
+import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
+import DDQM from "@site/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-gallery.drawio.svg";
+import DemandandCapacityManagement_Kit from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-gallery.drawio.svg";
+import DigitalTwin from "@site/static/img/kits/digital-twin/digital-twin-kit-gallery.drawio.svg";
+import EcoPass from "@site/static/img/kits/eco-pass/eco-pass-kit-gallery.drawio.svg";
+import ESS_Kit from "@site/static/img/kits/ess/ess-kit-gallery.drawio.svg";
+import Industry_Kit from "@site/static/img/kits/industry-core/industry-core-kit-gallery.drawio.svg";
+import Logistics_Kit from "@site/static/img/kits/logistics/logistics-gallery.drawio.svg";
+import Maas_Kit from "@site/static/img/kits/manufacturing-as-a-service/maas-kit-gallery.drawio.svg";
+import MBP_Kit from "@site/static/img/kits/model-based-production/model-based-production-kit-gallery.drawio.svg";
+import ModularProduction_Kit from "@site/static/img/kits/modular-production/modular-production-kit-gallery.drawio.svg";
+import OnlineSimulation from "@site/static/img/kits/osim/osim-kit-gallery.drawio.svg";
+import PCF_Kit from "@site/static/img/kits/pcf/pcf-kit-gallery.drawio.svg";
+import PURIS_Kit from '@site/static/img/kits/puris/puris-kit-gallery.drawio.svg';
+import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-gallery.drawio.svg";
+import Traceability_Kit from "@site/static/img/kits/traceability/traceability-kit-gallery.drawio.svg";
+
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
-// * Network & Core Services
+// * Industry Core
+// * Network Services
 // * PLM / Quality
-// * Sustainability
 // * Resiliency
+// * Sustainability
+// * Engineering
 
 //**************************************************************** */
 
@@ -54,21 +58,21 @@ export const kitsGallery = [
   {
     id: 1,
     name: 'Business Partner Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Business_Kit,
     pageRoute: "/docs-kits/kits/Business Partner Kit/Adoption View"
   },
   {
     id: 2,
     name: 'Data Chain Kit',
-    domain: 'Network & Core Services',
+    domain: 'Industry Core',
     img: DataChain_Kit,
     pageRoute: "/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit"
   },
   {
     id: 3,
     name: 'Connector Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Connector_Kit,
     pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
   },
@@ -82,14 +86,14 @@ export const kitsGallery = [
   {
     id: 5,
     name: 'Behaviour Twin Kit',
-    domain: 'PLM / Quality',
+    domain: 'Engineering',
     img: BehaviourTwin_Kit,
     pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview"
   },
   {
     id: 6,
     name: 'Digital Twin Kit',
-    domain: 'Network & Core Services',
+    domain: 'Industry Core',
     img: DigitalTwin,
     pageRoute: "/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit"
   },
@@ -109,15 +113,15 @@ export const kitsGallery = [
   },
   {
     id: 9,
-    name: 'Quality Kit',
+    name: 'Data Driven Quality Management Kit',
     domain: 'PLM / Quality',
-    img: Quality,
+    img: DDQM,
     pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
   },
   {
     id: 10,
     name: 'Agents Kit',
-    domain: 'Network & Core Services',
+    domain: 'Network Services',
     img: Agents_Kit,
     pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view/intro"
   },
@@ -133,7 +137,7 @@ export const kitsGallery = [
     name: 'DCM Kit',
     domain: 'Resiliency',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/DCM-Kit/adoption-view/overview"
+    pageRoute: "/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/overview"
   },
   {
     id: 13,
@@ -166,7 +170,7 @@ export const kitsGallery = [
   {
     id: 17,
     name: "Industry Core Kit",
-    domain: 'Network & Core Services',
+    domain: 'Industry Core',
     img: Industry_Kit,
     pageRoute: "/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit"
   },
@@ -186,6 +190,13 @@ export const kitsGallery = [
   },
   {
     id: 20,
+    name: 'Model Based Production KIT',
+    domain: 'Engineering',
+    pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
+    img: MBP_Kit,
+  },
+  {
+    id: 21,
     name: 'Logistics KIT',
     domain: 'PLM / Quality',
     pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',

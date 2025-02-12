@@ -202,34 +202,6 @@ const config = {
         id: "docs-kits",
         docsPluginId: "docs-kits",
         config: {
-          bpdm_gate: {
-            specPath: "./openApi/bpdm/gate.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_pool: {
-            specPath: "./openApi/bpdm/pool.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_cleaning: {
-            specPath: "./openApi/bpdm/cleaning-dummy.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_orchestrator: {
-            specPath: "./openApi/bpdm/orchestrator.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
           irs: {
             specPath: "./openApi/irs/irs-api.yaml",
             outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
@@ -370,7 +342,7 @@ const config = {
             specPath:
               './openApi/dcm/IdBasedComment.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-comment-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-comment-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -379,7 +351,7 @@ const config = {
             specPath:
               './openApi/dcm/IdBasedRequestForUpdate.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-rfu-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-rfu-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -388,7 +360,7 @@ const config = {
             specPath:
               './openApi/dcm/WeekBasedCapacityGroup.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-capacity-group-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-capacity-group-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -397,7 +369,7 @@ const config = {
             specPath:
               './openApi/dcm/WeekBasedMaterialDemand.yaml', // Path to designated spec file
             outputDir:
-              './docs-kits/kits/DCM-Kit/development-view/plugin-generated-material-demand-api', // Output directory for generated .mdx docs
+              './docs-kits/kits/Demand and Capacity Management Kit/development-view/plugin-generated-material-demand-api', // Output directory for generated .mdx docs
             sidebarOptions: {
               groupPathsBy: 'tag',
             },
@@ -426,7 +398,7 @@ const config = {
         title: 'Eclipse Tractus-X',
         logo: {
           alt: 'Eclipse Tractus-X logo',
-          src: 'img/logo_tractus-x.svg',
+          src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
           {to: 'blog', label: 'News', position: 'left'},
@@ -475,8 +447,8 @@ const config = {
                 label: 'Data Governance',
               },
               {
-                to: '/docs-kits/kits/DCM-Kit/adoption-view/overview',
-                label: 'Demand & Capacity Management',
+                to: 'docs-kits/kits/Demand and Capacity Management Kit/adoption-view/overview',
+                label: 'Demand and Capacity Management',
               },
               {
                 to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
