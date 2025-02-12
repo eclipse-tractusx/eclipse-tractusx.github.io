@@ -7,8 +7,6 @@ sidebar_position: 1
 
 ![Logistics kit banner](/img/kits/logistics/logistics-kit-logo.drawio.svg)
 
-## Customs KIT
-
 ## Vision & Mission
 
 ### Vision
