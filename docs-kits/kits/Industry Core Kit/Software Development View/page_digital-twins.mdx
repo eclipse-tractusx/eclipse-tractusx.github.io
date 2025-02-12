@@ -26,7 +26,7 @@ This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/
 import Notice from '../part_notice.mdx'
 import UniqueIDPush from './part_uniqueidpush.mdx'
 
-![Industry Core kit banner](@site/static/img/kit-icons/industry-core-kit-icon.svg)
+![Industry Core kit banner](@site/static/img/kits/industry-core/industry-core-kit-logo.drawio.svg)
 
 Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
@@ -117,7 +117,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 
 | Key            | Availability | Description                                                                                  | Type   |
 | :------------- | :----------- | :------------------------------------------------------------------------------------------- | :----- |
-| partInstanceId | Mandatory    | The serial number of the part from the manufacturer.                                         | String |
+| partInstanceId | Mandatory    | The serial number of a part, as specified by the manufacturer, is the number that is applied to the part (e.g., as a barcode or DMC). The recipient (e.g., a customer) of the part will use this serial number information to look up the digital twin of the part in the manufacturer's Digital Twin Registry.<br/>A manufacturer might create more than one serial number for a part. For example, if customers require the serial number to have a customer-specific format, the manufacturer might create two serial numbers for every part: an internal one with a standard format for ease of use in the manufacturer's internal systems, and a customer-specific one that is actually applied to the part. In this case, the customer-specific serial number should be used as partInstanceId. | String |
 | intrinsicId    | Mandatory    | This the unified technical key for searching a digital twin of a part. In this case the<br/> partInstanceId is used as the intrinsicId.                                         | String |
 | van            | Optional     | **Only for vehicles:** The pseudonymized vehicle identification number (VIN) of the vehicle. | String |
 
@@ -141,9 +141,6 @@ The following conventions for specific asset IDs apply to all digital twins:
 > The lookup for parts can use the customerPartId or the manufacturerPartId. Both, manufacturer and customer must agree upon what part ID will be used for the lookup. Otherwise, when the customer would use the customerPartId for the lookup, but the manufacturer would only provide the manufacturerPartId in its digital twins, the lookup would fail every time. **This is decision that a customer must agree upon with each of their suppliers individually.**
 > In order to provide a standardised way to look-up digital twins, the specificAssetIDs are extended by a unified technical key, the intrinsicId. This ensures a correct semantic filling of all other existing attributes in the specificAssetIDs, as the partInstanceId was previously used as an overarching search field, which resulted in the partInstanceId being filled with a batch number for a batch, for example.
 Nevertheless, a search for digital twins can still be used via the corresponding the primary fields from a business point of view, such as partInstanceId or batchId.
-
-standardised identification of a digital twin based on technical key attributes
-Correct semantic filling of all existing fields in the specificAssetIDs (e.g. filling of the partInstanceIDs attribute for JisParts)
 
 #### Submodel Descriptors
 
@@ -209,7 +206,7 @@ Here's an example how such a submodel descriptor could look like:
       "keys": [
         {
           "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:1.0.1#SerialPart"
+          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
         }
       ]
     },
@@ -253,7 +250,7 @@ Here's an example how such a submodel descriptor could look like:
       "keys": [
         {
           "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:1.0.1#SerialPart"
+          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
         }
       ]
     },
