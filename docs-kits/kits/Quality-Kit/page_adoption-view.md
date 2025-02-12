@@ -37,43 +37,36 @@ In sum, this KIT enables quality management to substantially **increase speed** 
 
 ### Customer Journey
 
-With the Quality KIT, we support the Catena-X customer journey for our adopters and solutions providers.
+With the Quality KIT, we support the Catena-X customer journey for our adopters and solution providers. The data driven quality work described in the Quality KIT is not based on the data sharing mechanism of **Digital Twins**. (despite all standardized semantic data models are ready to be used with Digital Twins). The reasons behind are:
+
+-   Quality features like Early Warning Field require a data exchange from a big population of vehicles or part instances. For such big files the data transfer performance by Digital Twins are currently not proven.,
+-   The number of vehicles and products in field covered by existing Digital Twins is too low to realize quality work today.
 
 ![quality kit customer journey diagram](@site/static/img/quality.kit_customer-Journey-1_1.jpg)
 
 ## Business Value
 
-Through the standardized specifications described in the “Quality-KIT” – mainly the semantic models and data exchange
-process – data providers & consumers can build up a soverreign and trusty data exchange pipeline with their partner
-companies and reduce investment and implementation costs to integrate data based quality processes in their company
-inhouse process and IT landscape.
+The "Quality-KIT" provides guidelines and standard, such as semantic models and data exchange processes, which help companies create a reliable and sovereign data exchange system with their partners. This reduces cost and effort needed to integrate data-driven quality processes into their operations and IT systems. In addition, every partner company can use only one preferred solution for data-based quality analyses instead of data provider specific platforms.
 
-Furthermore, quality application providers can also reduce the implementation effort and enter potential new markets
-providing specific analytic capabilities.
+Additionally, providers of quality applications can also lower their setup costs and explore new markets by offering specialized analytical tools.
 
 ## Use Case
 
 ### Status Quo / Today's challenge
 
-In today’s global and complex collaboration models quality does not emerge as the sum of the quality contributions of
-the individual partners in the value chain of OEM and suppliers, but rather because of the networking of the partners
-involved.
+In today’s global and complex collaboration models, quality does not emerge as the sum of the quality contributions of the individual partners in the value chain of OEM and suppliers, but through the networking of the partners involved.
 
-The existing conventional bilateral working models do not account for this. There is no operative network in the
-industry with a substantial coverage of elements of the value chains that provides the necessary means for collaborative
-quality management with all involved partners.
+The existing conventional bilateral working models do not account for this. There is no operative network in the industry, with a substantial coverage of elements of the value chains, that provides the necessary means for collaborative quality management with all involved partners.
 
-From Quality Management perspective, the main challenge within the automotive industry is to define and implement
-inter-organizational end-to-end data chains across the whole automotive partner chain to empower data driven quality use
-cases.
+From Quality Management perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains across the whole automotive partner chain, to empower data driven quality use cases.
 
 Main challenges to ensure a trustful and scalable cooperation are:
 
-- Trustful and sovereign data exchange mechanism including ...
-  - legal contracts and access/usage policy framework along the complete data chain
-  - Standardized data pipeline
-  - Aligned standard data exchange, e.g. file format and transfer
-- Standardized data models
+-   Trustful and sovereign data exchange mechanism including:
+    -   legal contracts and access/usage policy framework along the complete data chain.
+    -   Standardized data pipeline.
+    -   Aligned standard data exchange, e.g. file format and transfer.
+-   Standardized data models.
 
 ### Benefits
 
@@ -91,91 +84,84 @@ Main challenges to ensure a trustful and scalable cooperation are:
 
 #### OEM and large automotive suppliers
 
-The Quality KIT from Catena-X enables companies to realize trustful and sovereign data exchange with their partners and
-utilize the data in a cooperative way for an Early Warning of known and unknown quality issues. Root causes can be
-analysed und understood much faster what leads to an earlier and focussed counter measure. In sum companies can realize
-economic benefit by reduction of warranty costs while at the same time increasing customer satisfaction due to a maximum
-availability of vehicles, products and services.
+The Quality KIT from Catena-X enables companies to realize trustful and sovereign data exchange with their partners and utilize the data in a cooperative way for an Early Warning of unknown/new issues and monitoring the effectiveness of counter measures for known quality issues.. Root causes can be analyzed und understood much faster, due to the exact problem scope can be defined more accurately by checking the connected data sets. This leads to an earlier and focused counter measure. In sum, companies can realize economic benefit by reduction of warranty costs, while at the same time increasing end customer satisfaction due to a reduction of products & vehicles involved in quality issues.
 
-#### SME
+#### Small and Medium-sized Enterprises (SME)
 
-The defined standards like data models and data exchange pipelines enforce a flexible and low-barries approach to
-integrate quality use cases and features according to SME need. An easy access to analytic capabilities or transparent
-analytic results from partner companies leads to an economic benefit from warranty costs reduction via faster on more
-focused activities related to quality issues.
+The defined standards, like data models and data exchange pipelines, enforce a flexible and low-barrier approach, to integrate quality use cases and features according to SME need. An easy access to analytic capabilities or transparent analytic results from partner companies, will lead to an economic benefit from warranty costs reduction, via faster and more focused activities related to problem solving.
 
 #### Solution Provider
 
-Solution providers have the potential to scale customer groups via platform effects and standardization of data models
-and their exchange. Additional new market potentials can be accessed via marketplace and shared service network.
+Solution providers have the potential to scale customer groups via platform effects and the standardization of data models and their exchange. This additional market potential can be accessed via the marketplace and the shared service network.
 
 ##### Example: Benefits of using early warning and root cause analyses in active field monitoring of a vehicle component
 
-OEM A and supplier B agree to carry out quality analyses with field data from the OEM and production data from the
-supplier based on Catena-X Use Case Quality Methodology (live control loop see above) and with Catena-X-certified tools.
-For this purpose, a quality case with framework conditions is agreed to in the use case. A component and the associated
-data are selected. After technical and organizational onboarding and the agreed data exchange, the joint analysis room
-is available and collaborative quality work can be started.
+OEM A and supplier B agree to carry out quality analyses with field data from the OEM and production data from the supplier, based on Catena-X Use Case Quality Methodology (ref. Live Quality Loop) and with Catena-X-certified tools. For this purpose, a quality case incl. a component and the related data is agreed between both partner companies. After technical and organizational onboarding and agreed data exchange, the collaborative analyses setup is available and data-driven quality work can start.
 
-In general, one of the partners carries out continuous monitoring of the components using the common database. This
-allows, for example, error messages in the vehicle, repairs and claims to be monitored and anomalies are immediately
-visible.
+In general, both partners carry out continuous monitoring of the vehicle as system (OEM focus) and its components (supplier focus) using the common database. This allows, for example, error messages in the vehicle, repairs and claims to be monitored and anomalies are immediately visible.
 
-In our example, an engine component passes on various error messages (DTCs = Diagnosis Trouble Codes) to the vehicle via
-the central engine control unit. After 4 weeks, it is visible in the Catena-X certified tool that a DTC in the field is
-slowly but steadily increasing. With Catena-X Tooling, this is immediately recognized, although no increasing workshop
-visits and repairs are yet visible in the database. An employee of a partner immediately notices this and shares this
-observation with the joint team. At the same time, the employee begins to clarify through initial analyses whether the
-anomaly is actually a problem. Since it quickly becomes clear from the data that this is a potentially critical fault
-pattern with the result of increasing repair cases and that a replacement of parts may be necessary, the employee
-reports this to the joint team (early warning).
+In our example, an engine component flags various error codes (DTCs = Diagnosis Trouble Codes) to the vehicle via the Engine Control Unit. In case of connected vehicle data transfer , after a view days a steadily upward DTC trend is visible in the Catena-X certified data analysis tool. With Catena-X Tooling, this is immediately recognized, although no increasing workshop visits and repairs are yet visible in the warranty data. An employee of a partner immediately notices this and shares this observation with the joint team. At the same time, the employee begins to clarify through initial analyses whether the DTC trend is a real issue or a data artefact. With this confirmation the issue got the risk of increasing repair cases and that a recall may be necessary,
 
-The team decides to carry out a root cause analysis together. Various hypotheses about the cause of the fault are
-examined: running times are compared, software levels, environmental conditions at the time the fault occurred, etc. The
-cause of the fault is a diagnostic algorithm modified in a software update, which results in the abnormal DTC appearing
-more often in the field at hot temperatures. This is caused by the production of vehicles from a certain point in time
-with the new software version or the installation of a new software version for vehicles in the field, e.g. during a
-service visit to a workshop.
+The joint team decides to carry out a root cause analysis together. Various hypotheses about the cause of the fault are examined: running times are compared, software levels, environmental conditions at the time when the fault occurred, etc. The cause of the fault is a diagnostic algorithm modified in a software update, which results in the abnormal DTC appearing more often in the field at hot temperatures. It appears that vehicles are involved, that were built or reflashed at dealers with a newer software version.
 
-As a jointly defined corrective measure between OEM and supplier, a modified algorithm will be integrated into the next
-regular software update. This starts as soon as possible in vehicle production and vehicles with the faulty software
-version receive a software update the next time they visit the workshop. For this purpose, repair shops are informed
-that the displayed error (DTC) for a particular software version is a software problem and does not require any repair.
-This minimizes costs due to unnecessary repairs.
+As a jointly defined corrective measure between OEM and supplier, a modified algorithm will be integrated into the next regular software update. This starts as soon as possible in vehicle production and vehicles with the faulty software version receive a software update the next time they visit the workshop. For this purpose, repair shops are informed that the displayed error (DTC) for a particular software version is a software problem and does not require any repair. This minimizes costs by avoiding unnecessary repairs.
 
-The affected component continues to be monitored regularly. After a few months, there is a decrease in the conspicuous
-DTC corresponding to the reduction in the number of vehicles in the field with the faulty software version (proof of
-effectiveness of the corrective measure adopted).
-
-The image below shows user feedback, challenges, results and benefits of the new data-based way of working using the
-example of the Early Warning & Root Cause Analysis process steps.
-
-![quality kit example of benefits chart](@site/static/img/quality-kit_example-benefit-1_2.png)
+The affected component continues to be monitored regularly. After a few months, there is a decrease in the conspicuous DTC corresponding to the reduction in the number of vehicles in the field with the faulty software version (proof of effectiveness of the corrective measure adopted).
 
 **Conclusion:**
 
-The example impressively shows that with the Catena-X methodology (live control loop), quality problems can be
-identified earlier, the causes of faults can be found more quickly, corrective measures can be carried out in a more
-targeted manner and the affected vehicles can be narrowed down more precisely. There are similar examples of the
-conversion of production parameters at the supplier or design errors in the design of vehicle components.
+The example impressively shows that with the Catena-X methodology (Live Quality Loop), quality problems can be identified earlier, the causes of faults can be found quicker, corrective measures can be carried out in a more targeted manner and the affected vehicles can be narrowed down more precisely. There are similar examples of the conversion of production parameters at the supplier or design errors in the design of vehicle components.
 
-(Source: The example is based on real project results from piloting the Catena-X methodology at an OEM with 5 selected
-suppliers)
+## In the following figures five quality improvement scenarios based on the Life Quality Loop are presented, together with the concrete benefit in the meaning of e.g., saved time or reduced number of affected products and vehicles.
+
+![](media/cefbefd22e450197c186457edc82b1d8.tmp)
+
+![](media/d51e80388d9d3a022efd1ee9ce5cfe48.tmp)
+
+## You can find more detailed information for all five scenarios in the figures below.
+
+![](media/0ac02099af2e1492f4d27416aebea04e.tmp)
+
+![](media/faa70586fb9cc8278cb2d7f33cb65b7c.tmp)
+
+![](media/3334cfb7ccd08c8c96fdd6178c6cc1f4.tmp)
+
+![](media/438e9edf19f79a8908600fb678ffb894.tmp)
+
+![](media/b136495e4ebdcc58d9e40a5a552cad47.tmp)
 
 ## Tutorials
 
-The following videos gives an overview of the presented Quality Improvement Use Case.
+The following **Onboarding Guide** is based on experiences gained during the initiation of real Quality pilots and the transfer to serial operation. Remark: For more details about the specified IT infrastructure, take a look at the **Architecture Overview** below and the description of how to exchange data in the [**Operation View**](https://eclipse-tractusx.github.io/docs-kits/next/kits/Quality-Kit/Operation%20View%20Quality%20Kit)**.**
 
-Overview about how Quality Management is improved by Catena-X
+![](media/92bb19d27f84d8d33d262301cbc5fe34.tmp)
 
+### The following topics should be considered for a successful onboarding
+
+![](media/9ae9487fcd80bdcc53ac094ccf2f39d1.tmp)
+
+### The "Do's & Don'ts" for the Team Setup and PMO
+
+![](media/2a08a37f445911a61282ae96be772bc9.tmp)
+
+### The "Do's & Don'ts" for the Legal Agreement
+
+![](media/7a6ddd62d622fd28c756b738af87e067.tmp)
+
+### The "Do's & Don'ts" for the infrastructure set up and development
+
+![](media/6fe6d1d58c8ce41b5fa6a9c668cfed37.tmp)
+
+### The "Do's & Don'ts" for working with the Live Quality Loop Methodology
+
+![](media/dc7e8b40187e88e2c22487726142f9e9.tmp)
+
+The following videos give an overview of the vision of the Quality Use Case.
+
+First follow this link to get an overview about how Quality Management is improved by Catena-X 
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/WMixoRvzWP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For more technical details take a look at the video in
-the [Operation View](/docs-kits/kits/Quality-Kit/page_software-operation-view.md)
-
-Data driven Quality Management with
-Catena-X - [Statements from the consortial partners](http://youtube.com/watch?v=T-Xh_LzXXbg)
-
+Hear what the consortia partners within in the Use Case Quality state about the options for quality improvement with Catena-X - [Statements from the consortia partners]
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/T-Xh_LzXXbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Semantic Models
@@ -188,6 +174,7 @@ Catena-X - [Statements from the consortial partners](http://youtube.com/watch?v=
 
 Download for MS Excel: <a target="_blank" href={ require("/static/img/Quality_KIT_DataModelOverview_v1.0.xlsx")
 .default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
+--> [R2405_Quality_KIT_DataModelOverview.xlsx](https://bcgcatenax.sharepoint.com/sites/download/attachments/126287876/R2405_Quality_KIT_DataModelOverview.xlsx)
 
 ### Common Data
 
@@ -202,7 +189,7 @@ defines why data is exchanged between two or more companies and what insights sh
 data. In addition, there is a flag what happens with the transferred data when this qTask is closed.
 
 Github Link to semantic data
-model: [CX-00036 Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
+model: [Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
 
 #### Quality Task Attachment
 
@@ -211,7 +198,19 @@ standardized data provisioning is realized as a file transfer. The model contain
 structured data in the provided file. A Quality Task Attachment can be provided by both **OEM or Supplier**.
 
 Github Link to semantic data
-model: [CX-00092 Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
+model: [Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
+
+#### Early Warning Notification
+
+Early Warning Notifications provide information about anomalies detected in the data belonging to a quality task. The content of the Early Warning Notification comprises a link to the respective quality task, a textual description of the detected anomaly, a filter describing the potentially affected population, and a reference to optional additional data that can be provided as Quality Task Attachment.
+
+Github Link to semantic data model: [Early Warning Notification](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.early_warning_notification)
+
+#### Failure Pattern
+
+Failure patterns are defined filters and links to aspects of the Catena-X standard CX-00123 that automatically list potentially critical individual data sets within a population. This semantic model, which uses Boolean operators, for example, to link different variables within a data set or depending on a logically linked data set, is used to identify and assess critical system states within a population and to provide evidence of effectiveness. Due to standardization, failure patterns can be exchanged arbitrarily between the OEM and Tier_1.
+
+Github Link to semantic data model: [Failure Pattern](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/a2a01f445091188a647c42cced589f071fa2990d/io.catenax.failure_pattern/)
 
 ### OEM Data
 
@@ -222,11 +221,7 @@ Data structured in the following semantic models are to be delivered by OEM.
 Master data for each vehicle of a specific population - from an end customer view. This model represents the vehicle as
 it was sold to the customer. All entities and properties are constant over the lifetime of the vehicle.
 
-Github Links to semantic data models:
-
-[CX-00037 Vehicle Product Description](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.vehicle.product_description)
-
-[CX-00091 Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.vehicles)
+Github Link to semantic data model: [Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/a2a01f445091188a647c42cced589f071fa2990d/io.catenax.fleet.vehicles)
 
 #### Fleet Diagnostic Data
 
@@ -234,14 +229,14 @@ Data model for vehicle diagnostic data suitable for mass data transfer. Diagnost
 that are affected by an quality issue + Diagnostic data from similar vehicles that are not affected by an quality issue.
 
 Github Link to semantic data
-model: [CX-00038 Fleet Diagnostic Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
+model: [Fleet Diagnostic](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
 
 #### Fleet Claim Data
 
 Customer complaints that are linked to this QualityTask +Data about the exchange of potentially faulty parts.
 
 Github Link to semantic data
-model: [CX-00039 Fleet Claim Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
+model: [Fleet Claim](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
 
 ### Supplier Data
 
@@ -251,15 +246,14 @@ Data structured in the following semantic models are to be delivered by Supplier
 
 A selection of manufacturing-related parameters that help to solve a quality issue.
 
-Github Link to semantic data
-model: [CX-00041 Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
+Github Link to semantic data model: [Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
 
 #### Parts Analyses
 
 Analyses results of replaced and potentially faulty parts, that are linked to this Quality Task.
 
 Github Link to semantic data
-model: [CX-00040 Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
+model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
 
 ## Logic & Schema
 
