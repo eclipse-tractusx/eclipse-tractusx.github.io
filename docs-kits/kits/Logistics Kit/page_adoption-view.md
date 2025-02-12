@@ -9,8 +9,6 @@ sidebar_position: 1
 
 Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](./customs/page_adoption-view-customs.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
 
-## Logistic Kit
-
 ## Vision & Mission
 
 ### Vision
