@@ -7,6 +7,13 @@ sidebar_position: 3
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.drawio.svg)
 
+## Announcement
+
+With the major CX-Saturn Release 25.09 the CX-0136 standard will be extended to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126).
+The second change to the standard will add CustomerPartNumber as an optional field in the PCF request thus enabling creation of the PCF requests with the CustomerPartNumber instead of SupplierPartNumber (ManufacturerPartNumber).
+
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit#todays-challenge)
+
 ## Introduction
 
 The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developers will learn how to integrate the KIT into their applications and make use of the feature of exchanging PCF values via the Catena-X network.
