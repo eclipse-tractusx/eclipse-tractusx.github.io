@@ -54,6 +54,7 @@
   font-size: 14px;
   line-height: 18px;
   list-style: none;
+  color: var(--ifm-heading-color);
 }
 
 .item_link {
@@ -79,6 +80,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 27px;
+  color: var(--ifm-heading-color);
 }
 
 .no_display {
