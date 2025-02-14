@@ -21,23 +21,35 @@
 
 import React from "react";
 import KitsCoreSvg from '@site/static/img/kits&core.svg'
-
+import ThemedImage from '@theme/ThemedImage';
 import styles from "./styles.module.css";
 
 export default function DeepdiveHeader({title, description, showImage}) {
   return (
-      <header className={styles.deepdive_header}>
-      <div className={showImage ? styles.container : styles.no_bg_container}>
-        <div className={styles.svg_container}>
-          <KitsCoreSvg className={styles.svg}/>
-        </div>
-        <div className={styles.information_container}>
+    <header className={styles.deepdive_header}>
+      {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
+        <ThemedImage
+          // alt="Docusaurus themed image hero background"
+          sources={{
+            light: ('/img/main-bg-light.png'),
+            dark: ('/img/main_bg-min.png'),
+          }}
+          className={styles.hero_bg}
+        />
+
+      {/* Content of the component */}
+        <div className={styles.container}>
+          <div className={styles.svg_container}>
+            <KitsCoreSvg className={styles.svg}/>
+          </div>
+          <div className={styles.information_container}>
           <h1 className="headers-title-h1">{title}</h1>
           <p className="headers-subtitle-p">
             {description}
           </p>
         </div>
-      </div>
+        </div>
     </header>
+      
   );
 }
