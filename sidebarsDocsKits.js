@@ -566,7 +566,7 @@ const sidebars = {
             label: 'Logistics and Customs KIT',
             link: {
                 type: 'doc',
-                id: 'kits/Logistics Kit/customs/Adoption View Logistics Kit',
+                id: 'kits/Logistics Kit/Adoption View Logistics Kit',
             },
             collapsed: true,
             items: [
