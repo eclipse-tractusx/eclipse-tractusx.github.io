@@ -106,8 +106,8 @@ sequenceDiagram
     activate CustomerConnector
         CustomerConnector ->> SupplierConnector: Resolve connector Endpoint and connector service catalogue into MaterialDemand API URL
         activate SupplierConnector
-        SupplierConnector ->> CustomerConnector: Framework & Contract Negotiation
-        CustomerConnector -->> SupplierConnector: Framework & Contract Negotiation
+        SupplierConnector ->> CustomerConnector: Framework and Contract Negotiation
+        CustomerConnector -->> SupplierConnector: Framework and Contract Negotiation
         SupplierConnector -->> CustomerConnector: MaterialDemand API URL
     end
     rect rgb(221,130,0)
@@ -155,8 +155,8 @@ sequenceDiagram
         activate SupplierConnector
         SupplierConnector ->> CustomerConnector: Resolve connector Endpoint and connector service catalogue into CapacityGroup API URL
         activate CustomerConnector
-        CustomerConnector ->> SupplierConnector: Framework & Contract Negotiation
-        SupplierConnector -->> CustomerConnector: Framework & Contract Negotiation
+        CustomerConnector ->> SupplierConnector: Framework and Contract Negotiation
+        SupplierConnector -->> CustomerConnector: Framework and Contract Negotiation
         CustomerConnector -->> SupplierConnector: CapacityGroup API Endpoint
     end 
     rect rgb(128,149,0)

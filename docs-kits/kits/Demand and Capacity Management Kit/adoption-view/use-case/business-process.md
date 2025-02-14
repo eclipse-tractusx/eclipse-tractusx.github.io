@@ -126,7 +126,7 @@ C3((" ")):1
 C4("Capacity"):1
 space:4
 space:1
-E2("Match & Comparison"):2
+E2("Match and Comparison"):2
 space:1
 space:4
 G1((" "))
@@ -283,7 +283,7 @@ C3((" ")):1
 C4("Capacity"):1
 space:4
 space:1
-E2("Match & Comparison"):2
+E2("Match and Comparison"):2
 space:1
 space:4
 G1((" "))
@@ -975,7 +975,7 @@ C3((" ")):1
 C4("Capacity"):1
 space:4
 space:1
-E2("Match & Comparison"):2
+E2("Match and Comparison"):2
 space:1
 space:4
 G1((" "))
@@ -1105,7 +1105,7 @@ C3((" ")):1
 C4("Capacity"):1
 space:4
 space:1
-E2("Match & Comparison"):2
+E2("Match and Comparison"):2
 space:1
 space:4
 G1((" "))
