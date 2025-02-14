@@ -55,6 +55,52 @@ This architecture is based on the following assumptions:
   the DTR as well as to the digital twin's data in the EDC. If the customer is not known when a digital twin is created,
   additional processes must be set up by the data provider to add access permissions for the customer at a later time.
 
+## Digital Twin - Asset Administration Shell
+
+This section provides guidance on the consideration of digital twins as a basis for data structuring and data discovery within Catena-X. Details on the exact usage of AAS and Digital Twins can be obtained in CX-0002 Digital Twins in CatenaX and CX-0003 SAMM Aspect Meta Model.
+
+### General Guidance
+
+Digital twins and their technical representation as an Asset Administration Shell within Catena-X are a crucial element for interoperability and reusability. By leveraging an AAS-compliant Digital Twin Registry, the provisioning and publishing of object-related data via standardized submodel templates through the standardized API enables reusable data discovery and consumption mechanisms across various use cases.
+
+However, the provisioning of a digital twin incurs certain costs. Therefore, the Industry Core provides the following guidance and highlights potential benefits:
+
+#### Discrete Nature of Digital Twins
+
+Digital twins should be associated with an underlying object (real or virtual) to which data will be attached. Creating a digital twin for a pure set of mass data (e.g., generic usage data) not related to a specific discrete object may be unnecessary, as it might already be represented by a data asset in dataspace terms according to CX-0018 Dataspace Connectivity.
+
+Examples of Discrete Objects in the automotive context:
+
+- a part number / catalog part (as described in "Industry Core: PartType")
+- a serialized part / material (as described in "Industry Core: Part Instance")
+- a product batch
+- a quality case
+- a production line
+- serialized production equipment
+- ...
+
+Even with an underlying object, the usage of a digital twin might still not be necessary based on the predefined exclusive utilization of the data within a use-case. Therefore the following questions should be answered:
+
+- Is the object and especially the data linked to it shared or likely to be shared between different use cases ?
+- Is the object itself linked to different sets of data (submodels), that are individually accessed ?
+- Is the object identified by different identifiers, requiring the use or translation of these identifiers for discovery mechanisms ?
+- Is the object commonly accessed individually and not via mass data requests ?
+- Is the data intended to be used more than once and therefore worth to be discovered ?
+
+If all of the above questions are answered with a clear "No", a twin might be overhead for an object or data to be shared within one specific use-case. Examples include: 
+- the data to be shared is a set of mass data not linked to a specific instance of an object
+- the data is only being used and intended to be used by a single use-case and there is no cross-use-case relevancy anticipated
+  
+### Additional Recommendations and Comments
+
+If mass data is used for analysis to generate new data applicable to a specific object (e.g., material, serialized part, batch), this data should be linked to a digital twin at that level, while the originating mass data sets are not required to be linked. For example, analytics use cases leveraging mass data sets regarding multiple objects could feed their outcome back into the digital twins of the known objects, while the potentially use-case proprietary mass data sets are not necessarily represented by digital twins or submodels.
+
+Data that is exchanged via request and answer schemes, due to the need of additional processes to generate, may also be attached -once generated- in addition to the direct exchange.
+
+The AAS does not alter data structures; it defines a method to link data (submodels) to objects and establishes a standardized path for data discovery. Data Structures and Semantics should be described by semantic models to support easy consumption.
+
+Linking data to multiple twins does not increase its persistence footprint. The Digital Twin Registry merely points to the actual data sources.
+
 ## Non-Functional Requirements
 
 ### Lawfulness
