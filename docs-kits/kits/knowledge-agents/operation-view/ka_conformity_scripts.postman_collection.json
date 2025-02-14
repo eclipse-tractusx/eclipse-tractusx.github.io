@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "0ad1b7a6-734c-4289-9221-667fc56a21da",
 		"name": "KA Conformity Assessment Scripts (R24.08)",
-		"description": "(C) 2021,2023 Contributors to the Eclipse Foundation\n\nSPDX-LICENSE-IDENTIFIER: CC-BY-4.0",
+		"description": "(C) 2021,2025 Contributors to the Eclipse Foundation\n\nSPDX-LICENSE-IDENTIFIER: CC-BY-4.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2757771",
 		"_collection_link": "https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/collection/2757771-0ad1b7a6-734c-4289-9221-667fc56a21da?action=share&source=collection_link&creator=2757771"
@@ -3761,7 +3761,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/:model",
+											"raw": "https://raw.githubusercontent.com/big-data-spaces/ontology/refs/heads/main/ontology/:model",
 											"protocol": "https",
 											"host": [
 												"raw",
@@ -3769,8 +3769,10 @@
 												"com"
 											],
 											"path": [
-												"catenax-ng",
-												"product-knowledge",
+												"big-data-spaces",
+												"ontology",
+												"refs",
+												"heads",
 												"main",
 												"ontology",
 												":model"
@@ -3778,7 +3780,7 @@
 											"variable": [
 												{
 													"key": "model",
-													"value": "cx_ontology.ttl"
+													"value": "common_ontology.ttl"
 												}
 											]
 										}
@@ -3791,7 +3793,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://api.github.com/repos/catenax-ng/product-knowledge/contents/ontology?ref=release/v0.7.4",
+											"raw": "https://api.github.com/repos/big-data-spaces/ontology/contents/ontology?ref=release/24.03",
 											"protocol": "https",
 											"host": [
 												"api",
@@ -3800,15 +3802,15 @@
 											],
 											"path": [
 												"repos",
-												"catenax-ng",
-												"product-knowledge",
+												"big-data-spaces",
+												"ontology",
 												"contents",
 												"ontology"
 											],
 											"query": [
 												{
 													"key": "ref",
-													"value": "release/v0.7.4"
+													"value": "release/v24.03"
 												},
 												{
 													"key": "ref",
