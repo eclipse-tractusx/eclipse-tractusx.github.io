@@ -241,34 +241,17 @@ const sidebars = {
                         {
                             type: "link",
                             label: "Gate API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/gate/swagger-ui/'
                         },
                         {
                             type: "link",
                             label: "Pool API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api/sidebar.js'),
-                        },
-                        {
-                            type: "link",
-                            label: "Cleaning Dummy API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/pool/swagger-ui/'
                         },
                         {
                             type: "link",
                             label: "Orchestrator API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api/sidebar.js'),
+                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/orchestrator/swagger-ui/'
                         },
                         'kits/Business Partner Kit/Software Development View/Use Cases'
                     ]
