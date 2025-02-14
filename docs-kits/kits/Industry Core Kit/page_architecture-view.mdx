@@ -97,7 +97,35 @@ More information about backward compatibility and versioning can be found here:
 
 ## Building Block View
 
+The basic features of Industry Core build the foundation for message-based and digital-twin-based data exchange in Catena-X. Message-based communication or respectively data push scenarios can leverage the notification feature, whilst data pull scenarios can leverage the digital-twin-based data discovery as well as data exchange orchestration.
+
+Use cases are intended to build upon the foundation provided by the Industry Core to support use case agnostic interoperability, reusability, monitoring and minimized entry barriers towards new use cases.
+
+A shared technical foundation offers significant advantages for dataspace participants and software providers. By minimizing the technical footprint required for multi-use-case participation and software development, it enables substantial reductions in development, maintenance costs and cross-usecase reusability.
+
+### Digital Twins
+
 ![Building Block View of the Industry Core](./assets/ic-arch-view-blocks.svg)
+
+### Notifications
+
+With notifications, the Industry Core defines a message-based data exchange within Catena-X. The message is sent from one Catena-X partner - called sender - to another Catena-X partner - called receiver - using simple messages in JSON format via Catena-X connector, as shown in the following figure:
+
+![Notifications Flow](./assets/notifications_process.svg)
+
+- In the context of this KIT, notifications are messages in JSON format with a standardized data format consisting of a standardized header and a use-case-specific content.
+- The exchange consists of a set of operations that can be used to exchange notifications between sender and receiver. Each operation has a defined request, i.e., the notification, and a response which consists of HTTP error codes. Operations can use notifications with different data formats. It is not required to use the same notification data format for all operations.
+- The exchange is done via Catena-X connectors. So, this KIT also defines assets, asset properties, and usage policies that are required for implementation of the exchange.
+
+Together, these artifacts define the message-based data exchange, called notification API. This KIT also defines a standardized way to document all these artifacts of a notification API in Catena-X standard documents and KITs.
+
+Use cases can define and standardize their own notification APIs. They need to extend the Industry Core notification API by adding their own business content.
+
+- They must extend the content part of the notification data format with their own business content.
+- They must define a set of operations that should be supported with the use case specific notification API.
+- They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.  
+
+As all use cases use the same underlying notification technology based on Industry Core, use cases still are interoperable. Data and app providers only need to implement one notification technology that is jointly used by all use cases and do not need to implement several different technologies for message-based data exchange.
 
 ## Runtime View
 
@@ -111,15 +139,13 @@ Since the Discovery Services according to CX-0053 are not part of the Industry C
 
 ## Standards
 
-A formal definition of the Industry Core's content is given in the standards CX-0126 and CX-0127 - first released in
-CX R24-03. These two standards build on a common subset of technologies that are themselves described in Catena-X standards.
+A formal definition of the Industry Core's content is given in the standards CX-0151 (Industry Core: Basics), CX-0126 and CX-0127. These standards build on a common subset of technologies that are themselves described in separate Catena-X standards.
 
-The two standards share a common set of base technologies. And while the Industry Core does provide Business-relevant
-capabilities for Data Consumers, it can likewise serve as a launchpad for new use-cases.
+The Industry Core standards share a common set of base technologies. And while the Industry Core does provide Business-relevant capabilities for Data Consumers, it can likewise serve as a launchpad for new use-cases.
 
 ![Locating the Industry Core standards in the Catena-X landscape](./assets/ic-arch-view-stds.svg)
 
-The Interoperability Layer the Industry Core Standards build on, defines API structures of Data Providers and relevant
+The Interoperability Layer the Industry Core Standards build on defines API structures of Data Providers and relevant
 core services hosted centrally. They depend on the EDC Discovery Service defined in standard CX-0001 to discover a
 participant's the EDC-endpoint. CX-0002 is the standard for the integration between assets and related data - leveraging
 the Asset Administration Shell standard as adopted by Catena-X. Its correct deployment is especially critical as its
@@ -128,10 +154,10 @@ services (Digital Twin Registry and Submodel Endpoints) are operated by all Data
 The Identity and Sovereignty Layers are defined in a variety of Catena-X standards that are assumed to be deployed and
 integrated form the foundation for data exchange in Catena-X.
 
-All relevant standards can be downloaded from the
-official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
+All relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Industry Core specific
+    - [CX - 0151 Industry Core: Basics 1.0.0](https://catena-x.net/de/standard-library)
     - [CX - 0126 Industry Core Part Type 1.0.0](https://catena-x.net/de/standard-library)
     - [CX - 0127 Industry Core Part Instance 1.0.0](https://catena-x.net/de/standard-library)
 - Interoperability Layer
@@ -139,7 +165,7 @@ official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
     - [CX - 0002 Digital Twins in Catena-X 2.2.0](https://catena-x.net/de/standard-library)
     - [CX - 0003 SAMM Aspect Meta Model 1.1.0](https://catena-x.net/de/standard-library)
 - Sovereignty Layer
-    - [CX - 0018 Eclipse Data Space Connector (EDC) 2.1.0](https://catena-x.net/de/standard-library)
+    - [CX - 0018 Dataspace Connectivity 2.1.0](https://catena-x.net/de/standard-library)
 - Identity Layer
     - [CX - 0013 Identity of Member Companies 1.1.0](https://catena-x.net/de/standard-library)
     - [CX - 0014 Employees and Technical Users 1.0.1](https://catena-x.net/de/standard-library)
@@ -161,5 +187,23 @@ _Sidenote: The following existing standards are incorporated into new standards.
     - CX - 0020 Aspect Model SingleLevelBomAsBuilt
     - CX - 0021 Aspect Model Batch
     - CX - 0060 Triangle Traceability - Digital Twin As-Built
+
+## Terminology
+
+The following terms are especially relevant for the understanding of this KIT:
+
+**Catena-X Partner:** A company participating in the Catena-X network. A partner can act as both, a notification sender or notification receiver.
+
+**Message**: Data with a defined format exchanged between two partners, a sender and a receiver. 
+
+**Notification**: In Catena-X, notifications are JSON messages with a standardized data format consisting of a standardized header and a use-case-specific content.
+
+**Notification Sender:** The sender of a Catena-X notification
+
+**Notification Receiver:** The receiver of a Catena-X notification. The receiver provides an asset in the connector to which notifications can be sent.
+
+**Notification API**: A message-based data exchange within Catena-X that supports a set of operations.
+
+**Unique ID / Catena-X ID**: A Unique ID uniquely identifies a particular real-world asset. In Industry Core, these are: serialized parts (including vehicles), batches, JIS parts (Just-in-Sequence) and catalog parts. A Unique ID is a URN and has the following format: urn:uuid:<UUIDv4>, i.e., the NID is "uuid" and the NSS is an UUID Version 4 (as described here: https://en.wikipedia.org/wiki/Universally_unique_identifier). Unique IDs are used in several places in Industry Core, e.g., as globalAssetId for digital twins. Although they share the same format with other identifiers like, e.g., the AAS identifier, they are separate identifiers that identify different resources and should not be mistaken with these other identifiers.
 
 <Notice components={props.components} />
