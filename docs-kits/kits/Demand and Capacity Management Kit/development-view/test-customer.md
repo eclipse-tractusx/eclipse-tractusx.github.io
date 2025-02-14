@@ -18,7 +18,8 @@ For an overview of these tests you should visit [Testing a DCM application](./ov
 
 ### Setup EDC
 
-This test ensures that the customer sets up its EDC.
+<details>
+<summary>This test ensures that the customer sets up its EDC.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -29,9 +30,12 @@ Scenario: Setup EDC
   Then I should confirm that I have setup my EDC in the correct version successfully 
 ```
 
+</details>
+
 ### Register APIs as assets
 
-This test ensures that the customer registers its API endpoints as data assets with its own EDC.
+<details>
+<summary>This test ensures that the customer registers its API endpoints as data assets with its own EDC.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -48,9 +52,12 @@ Examples:
 | IdBasedComment API          | cx-taxo:DcmIdBasedComment          | 2.0     |
 ```
 
+</details>
+
 ### Check wallet for certificates
 
-This test ensures that the customer has the necessary credentials in its wallet.
+<details>
+<summary>This test ensures that the customer has the necessary credentials in its wallet.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
@@ -67,14 +74,17 @@ Examples:
 | DataExchangeGovernance:1.0 | DataExchangeGovernance:1.0 |
 ```
 
+</details>
+
 ### Prepare variables for other tests
 
-This test ensures that the customer is aware of the fact that some tests contain variables that need to be filled in with the correct values before executing the tests.
+<details>
+<summary>This test ensures that the customer is aware of the fact that some tests contain variables that need to be filled in with the correct values before executing the tests.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare variables for other tests
+Scenario Outline: Prepare variables for other tests
   Given I want to execute a <test> that uses a <variable> I need to have a <value> assigned to <variable> that makes sense in the context of the <test> and use the value of the variable instead of its name when testing.
   When the test gets executed
   Then it should work as intended
@@ -104,14 +114,17 @@ Examples:
 | Customer: Create WeekBasedMaterialDemand, Customer: Create IdBasedComment, Customer: Create IdBasedRequestForUpdate | OMITTED   | {Special case where you do not include the property in the data at all. You do not even mention it.}                                                           |
 ```
 
+</details>
+
 ### Prepare for base journey
 
-This test ensures that the customer is aware of the sequence of communication and naming conventions within the base journey.
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Prepare yourself
   
-  Scenario Outline: Prepare for base journey
+Scenario Outline: Prepare for base journey
   Given I want to execute the base journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the base journey successfully
   When the test gets executed
   Then it should work as intended
@@ -144,207 +157,419 @@ Examples:
 | FT_kappa   | A Filetransfer providing IdBasedComment for the customer to consume                                | Consume IdBasedComment for base journey                                                                                                                                           |
 ```
 
+</details>
+
+### Prepare for volatility metrics journey
+
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the volatility metrics journey.</summary>
+
+```cucumber
+Feature: Customer: Prepare yourself
+  
+Scenario Outline: Prepare for volatility metrics journey
+  Given I want to execute the volatility metrics journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the volatility metrics journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+Examples:
+| object      | function                                                                                   | test                                                                                                                          |
+| MD_alpha_v1 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha   | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v2 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Beta    | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v3 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Delta   | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| MD_alpha_v4 | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Epsilon | Create WeekBasedMaterialDemand for volatility metrics journey, Provide WeekBasedMaterialDemand for volatility metrics journey |
+| CG_alpha    | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Gamma    | Consume WeekBasedCapacityGroup for volatility metrics journey                                                                 |
+| FT_alpha    | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume               | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_beta     | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_gamma    | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume                | Consume WeekBasedCapacityGroup for volatility metrics journey                                                                 |
+| FT_delta    | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+| FT_epsilon  | A Filetransfer providing updated WeekBasedMaterialDemand for the supplier to consume       | Provide WeekBasedMaterialDemand for volatility metrics journey                                                                |
+```
+
+</details>
+
+### Prepare for simulated delta production journey
+
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the simulated delta production journey.</summary>
+
+```cucumber
+Feature: Customer: Prepare yourself
+  
+Scenario Outline: Prepare for simulated delta production journey
+  Given I want to execute the simulated delta production journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the simulated delta production journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+
+Examples:
+| object   | function                                                                                 | test                                                                                                                                          |
+| MD_alpha | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for simulated delta production journey, Provide WeekBasedMaterialDemand for simulated delta production journey |
+| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Consume WeekBasedCapacityGroup for simulated delta production journey                                                                         |
+| FT_alpha | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume             | Provide WeekBasedMaterialDemand for simulated delta production journey                                                                        |
+| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for simulated delta production journey                                                                         |
+```
+
+</details>
+
+### Prepare for load factors journey
+
+<details>
+<summary>This test ensures that the customer is aware of the sequence of communication and naming conventions within the load factors journey.</summary>
+
+```cucumber
+Feature: Customer: Prepare yourself
+  
+  Scenario Outline: Prepare for load factors journey
+  Given I want to execute the load factors journey which uses <object> in <test> to fulfill a certain <function> that I need to be aware of in order to execute my part of the load factors journey successfully
+  When the test gets executed
+  Then it should work as intended
+
+Examples:
+| object   | function                                                                                 | test                                                                                                            |
+| MD_alpha | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
+| MD_beta  | A WeekBasedMaterialDemand created by the customer and transmitted via Filetransfer Alpha | Create WeekBasedMaterialDemand for load factor journey, Provide WeekBasedMaterialDemand for load factor journey |
+| CG_alpha | A WeekBasedCapacityGroup created by the supplier and transmitted via Filetransfer Beta   | Consume WeekBasedCapacityGroup for load factor journey                                                          |
+| FT_alpha | A Filetransfer providing WeekBasedMaterialDemand for the supplier to consume             | Provide WeekBasedMaterialDemand for load factor journey                                                         |
+| FT_beta  | A Filetransfer providing WeekBasedCapacityGroup for the customer to consume              | Consume WeekBasedCapacityGroup for load factor journey                                                          |
+```
+
+</details>
+
 ## Customer: Create WeekBasedMaterialDemand
 
 ### Create valid WeekBasedMaterialDemand
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate valid WeekBasedMaterialDemand
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        with a default value of "unit:piece"
+  Given   the value for the property "materialDemandId"               is <v_materialDemandId>                     with a default value of "0157ba42-d2a8-4e28-8565-7b07830c1110"
   *       the value for the property "changedAt"                      is <v_changedAt>                            with a default value of "{{TS_NOW}}"
+  *       the value for the property "customer"                       is <v_customer>                             with a default value of "{{BPNL_CUS}}"
+  *       the value for the property "supplier"                       is <v_supplier>                             with a default value of "{{BPNL_SUP}}"
   *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             with a default value of "false"
+  
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        with a default value of "unit:piece"
   *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               with a default value of "false"
+
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                with a default value of "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df"
   *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               with a default value of "MNR-7307-AU340474.002"
   *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               with a default value of "MNR-8101-ID146955.001"
   *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          with a default value of "Spark Plug"
-  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     with a default value of "0157ba42-d2a8-4e28-8565-7b07830c1110"
-  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                with a default value of "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df"
-  *       the value for the property "supplier"                       is <v_supplier>                             with a default value of "{{BPNL_SUP}}"
-  *       the value for the property "customer"                       is <v_customer>                             with a default value of "{{BPNL_CUS}}"
-  *       the value for the property "demandSeries"                   contains exactly one entity "DemandSeries"
-  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             with a default value of "{{BPNS_SUP1}}"
+
+  *       the value for the property "demandSeries"                   contains entities
   *       the value for the property "customerLocation"               is <v_customerLocation>                     with a default value of "{{BPNS_CUS1}}"
+  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             with a default value of "{{BPNS_SUP1}}"
   *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   with a default value of "0001"
-  *       the value for the property "demands"                        contains exactly one entity "Demand"
   *       the value for the property "pointInTime"                    is <v_pointInTime>                          with a default value of "2023-10-09"
-  *       the value for the property "demand"                         is <v_demand>                               with a default value of "1000"
+  *       the value for the property "demand"                         is <v_demand>                               with a default value of "1000" 
   When the application tries to generate the WeekBasedMaterialDemand
   Then it should generate the WeekBasedMaterialDemand
 
 Examples:
-| v_unitOfMeasure            | v_changedAt                     | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer          | v_materialNumberSupplier          | v_materialDescriptionCustomer                                | v_materialDemandId                            | v_materialGlobalAssetId                  | v_supplier | v_customer | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime | v_demand         |
-| {{OMITTED}}                |                                 |                            | true                     |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            | false                    |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:gram                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:kilogram              |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:tonneMetricTon        |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:tonUsOrShortTonUkorus |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:ounceAvoirdupois      |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:pound                 |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:centimetre            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:metre                 |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:kilometre             |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:inch                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:foot                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:yard                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:squareCentimetre      |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:squareMetre           |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:squareInch            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:squareFoot            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:squareYard            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cubicCentimetre       |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cubicMetre            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cubicInch             |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cubicFoot             |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cubicYard             |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:millilitre            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:litre                 |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:hectolitre            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:piece                 |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:set                   |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:pair                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:page                  |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:kilowattHour          |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:secondUnitOfTime      |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:minuteUnitOfTime      |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:hourUnitOfTime        |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-| unit:cycle                 |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            | 2000-01-01T14:23:00.66372+14:00 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 | true                       |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 | false                      |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            | true                     |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            | false                    |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          | Hello world                       |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          | Καλημέρα κόσμε                    |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          | コンニチハ                         |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          | @!"§$%&/()=?`;:_-.,'*+#~><²³][}{´ |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   | Hello world                       |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   | Καλημέρα κόσμε                    |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   | コンニチハ                         |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   | @!"§$%&/()=?`;:_-.,'*+#~><²³][}{´ |                                                              |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   | A materia| description_that mig#t cont§in sp3cial ch@r@cters |                                               |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              | 857e3c6f-f556-4ac4-a7cd-8f46ad03673f          |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              | urn:uuid:857e3c6f-f556-4ac4-a7cd-8f46ad03673f |                                          |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               | e2a72ce8-45b6-4d5a-8854-2d6e0299d337     |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               | urn:e2a72ce8-45b6-4d5a-8854-2d6e0299d337 |            |            |                            |                    |                      |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | SR99                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | ED01                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | A1S1                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | OI01                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | OS01                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | PI01                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | PO01                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    | 0001                 |               |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      | 2024-09-02    |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      | 1930-01-06    |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      | 2119-12-25    |                  |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               | 0                |
-|                            |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               | 10000            |
-| unit:kilowattHour          |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               | 999999999999.999 |
-| unit:tonneMetricTon        |                                 |                            |                          |                                   |                                   |                                                              |                                               |                                          |            |            |                            |                    |                      |               | 4.4              |
+| v_materialDemandId                            | v_changedAt                     | v_customer | v_supplier | v_materialDemandIsInactive | v_unitOfMeasure            | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId                  | v_materialNumberCustomer          | v_materialNumberSupplier          | v_materialDescriptionCustomer                                | v_customerLocation | v_expectedSupplierLocation | v_demandCategoryCode | v_demand         | v_pointInTime |
+| 857e3c6f-f556-4ac4-a7cd-8f46ad03673f          |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+| urn:uuid:857e3c6f-f556-4ac4-a7cd-8f46ad03673f |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               | 2000-01-01T14:23:00.66372+14:00 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            | true                       |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            | false                      |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:gram                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:kilogram              |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:tonneMetricTon        |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:tonUsOrShortTonUkorus |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:ounceAvoirdupois      |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:pound                 |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:centimetre            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:metre                 |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:kilometre             |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:inch                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:foot                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:yard                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:squareCentimetre      |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:squareMetre           |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:squareInch            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:squareFoot            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:squareYard            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cubicCentimetre       |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cubicMetre            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cubicInch             |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cubicFoot             |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cubicYard             |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:millilitre            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:litre                 |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:hectolitre            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:piece                 |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:set                   |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:pair                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:page                  |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:kilowattHour          |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:secondUnitOfTime      |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:minuteUnitOfTime      |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:hourUnitOfTime        |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | unit:cycle                 |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            | {{OMITTED}}                | true                     |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            | false                    |                                          |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          | e2a72ce8-45b6-4d5a-8854-2d6e0299d337     |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          | urn:e2a72ce8-45b6-4d5a-8854-2d6e0299d337 |                                   |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          | Hello world                       |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          | Καλημέρα κόσμε                    |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          | コンニチハ                         |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          | @!"§$%&/()=?`;:_-.,'*+#~><²³][}{´ |                                   |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   | Hello world                       |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   | Καλημέρα κόσμε                    |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   | コンニチハ                         |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   | @!"§$%&/()=?`;:_-.,'*+#~><²³][}{´ |                                                              |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   | A materia| description_that mig#t cont§in sp3cial ch@r@cters |                    |                            |                      |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | SR99                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | ED01                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | A1S1                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | OI01                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | OS01                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | PI01                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | PO01                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            | 0001                 |                  |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      | 0                |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      | 10000            |               |
+|                                               |                                 |            |            |                            | unit:kilowattHour          |                          |                                          |                                   |                                   |                                                              |                    |                            |                      | 999999999999.999 |               |
+|                                               |                                 |            |            |                            | unit:tonneMetricTon        |                          |                                          |                                   |                                   |                                                              |                    |                            |                      | 4.4              |               |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  | 2024-09-02    |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  | 1930-01-06    |
+|                                               |                                 |            |            |                            |                            |                          |                                          |                                   |                                   |                                                              |                    |                            |                      |                  | 2119-12-25    |
 ```
+
+</details>
 
 ### Create invalid WeekBasedMaterialDemand
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate invalid WeekBasedMaterialDemand
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        with a default value of "unit:piece"
+  Given   the value for the property "materialDemandId"               is <v_materialDemandId>                     with a default value of "0157ba42-d2a8-4e28-8565-7b07830c1110"
   *       the value for the property "changedAt"                      is <v_changedAt>                            with a default value of "{{TS_NOW}}"
+  *       the value for the property "customer"                       is <v_customer>                             with a default value of "{{BPNL_CUS}}"
+  *       the value for the property "supplier"                       is <v_supplier>                             with a default value of "{{BPNL_SUP}}"
   *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             with a default value of "false"
+  
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        with a default value of "unit:piece"
   *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               with a default value of "false"
+
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                with a default value of "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df"
   *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               with a default value of "MNR-7307-AU340474.002"
   *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               with a default value of "MNR-8101-ID146955.001"
   *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          with a default value of "Spark Plug"
-  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     with a default value of "0157ba42-d2a8-4e28-8565-7b07830c1110"
-  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                with a default value of "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df"
-  *       the value for the property "supplier"                       is <v_supplier>                             with a default value of "{{BPNL_SUP}}"
-  *       the value for the property "customer"                       is <v_customer>                             with a default value of "{{BPNL_CUS}}"
-  *       the value for the property "demandSeries"                   contains exactly one entity "DemandSeries"
-  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             with a default value of "{{BPNS_SUP1}}"
+
+  *       the value for the property "demandSeries"                   contains entities
   *       the value for the property "customerLocation"               is <v_customerLocation>                     with a default value of "{{BPNS_CUS1}}"
+  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             with a default value of "{{BPNS_SUP1}}"
   *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   with a default value of "0001"
-  *       the value for the property "demands"                        contains exactly one entity "Demand"
   *       the value for the property "pointInTime"                    is <v_pointInTime>                          with a default value of "2023-10-09"
-  *       the value for the property "demand"                         is <v_demand>                               with a default value of "1000"
+  *       the value for the property "demand"                         is <v_demand>                               with a default value of "1000" 
   When the application tries to generate the WeekBasedMaterialDemand
   Then it should NOT generate the WeekBasedMaterialDemand and throw an <error> instead
 
 Examples:
-| v_unitOfMeasure | v_changedAt                     | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId  | v_materialGlobalAssetId            | v_supplier       | v_customer       | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime | v_demand               | error                                                  |
-| unit:cake list  |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: unitOfMeasure            |
-|                 | 22.04.2021                      |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: changedAt                |
-|                 | 2000-01-01T66:23:00.66372+14:00 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: changedAt                |
-|                 | Wrong Format                    |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: changedAt                |
-|                 |                                 | Maybe                      |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: materialDemandIsInactive |
-|                 |                                 |                            | 2                        |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: unitOfMeasureIsOmitted   |
-|                 |                                 |                            |                          |                          |                          |                               | This is not an UUID |                                    |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: materialDemandId         |
-|                 |                                 |                            |                          |                          |                          |                               |                     | 4888d48-6f1d-47f5-8ded-a4410d879df |                  |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: materialGlobalAssetId    |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    | This is not BPNL |                  |                            |                    |                      |               |                        | AspectModel Conformity Error: supplier                 |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  | This is not BPNL |                            |                    |                      |               |                        | AspectModel Conformity Error: customer                 |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  | This is not BPNS           |                    |                      |               |                        | AspectModel Conformity Error: expectedSupplierLocation |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            | This is not BPNS   |                      |               |                        | AspectModel Conformity Error: customerLocation         |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    | Default              |               |                        | AspectModel Conformity Error: demandCategoryCode       |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    | OSO1                 |               |                        | AspectModel Conformity Error: demandCategoryCode       |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    | 0S01                 |               |                        | AspectModel Conformity Error: demandCategoryCode       |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      | 22.04.2021    |                        | AspectModel Conformity Error: pointInTime              |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      | 2022-04-22    |                        | AspectModel Conformity Error: pointInTime              |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               | 5,5                    | AspectModel Conformity Error: demand                   |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               | 9999999999999999999999 | AspectModel Conformity Error: demand                   |
-|                 |                                 |                            |                          |                          |                          |                               |                     |                                    |                  |                  |                            |                    |                      |               | -1                     | AspectModel Conformity Error: demand                   |
-
+| v_materialDemandId  | v_changedAt                     | v_customer       | v_supplier       | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId            | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_customerLocation | v_expectedSupplierLocation | v_demandCategoryCode | v_demand               | v_pointInTime | error                                                  |
+| This is not an UUID |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: materialDemandId         |
+|                     | 22.04.2021                      |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: changedAt                |
+|                     | 2000-01-01T66:23:00.66372+14:00 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: changedAt                |
+|                     | Wrong Format                    |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: changedAt                |
+|                     |                                 | This is not BPNL |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: customer                 |
+|                     |                                 |                  | This is not BPNL |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: supplier                 |
+|                     |                                 |                  |                  | Maybe                      |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: materialDemandIsInactive |
+|                     |                                 |                  |                  |                            | unit:cake list  |                          |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: unitOfMeasure            |
+|                     |                                 |                  |                  |                            |                 | 2                        |                                    |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: unitOfMeasureIsOmitted   |
+|                     |                                 |                  |                  |                            |                 |                          | 4888d48-6f1d-47f5-8ded-a4410d879df |                          |                          |                               |                    |                            |                      |                        |               | AspectModel Conformity Error: materialGlobalAssetId    |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               | This is not BPNS   |                            |                      |                        |               | AspectModel Conformity Error: customerLocation         |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    | This is not BPNS           |                      |                        |               | AspectModel Conformity Error: expectedSupplierLocation |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            | Default              |                        |               | AspectModel Conformity Error: demandCategoryCode       |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            | OSO1                 |                        |               | AspectModel Conformity Error: demandCategoryCode       |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            | 0S01                 |                        |               | AspectModel Conformity Error: demandCategoryCode       |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      | 5,5                    |               | AspectModel Conformity Error: demand                   |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      | 9999999999999999999999 |               | AspectModel Conformity Error: demand                   |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      | -1                     |               | AspectModel Conformity Error: demand                   |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        | 22.04.2021    | AspectModel Conformity Error: pointInTime              |
+|                     |                                 |                  |                  |                            |                 |                          |                                    |                          |                          |                               |                    |                            |                      |                        | 2022-04-22    | AspectModel Conformity Error: pointInTime              |
 ```
+
+</details>
 
 ### Create WeekBasedMaterialDemand for base journey
 
-The customer creates four WeekBasedMaterialDemand used by the base journey.
+<details>
+<summary>The customer creates four WeekBasedMaterialDemand used by the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Create WeekBasedMaterialDemand
 
 Scenario Outline: Try to generate WeekBasedMaterialDemand for base journey using different <v_tests>
+  Given   the value for the property "materialDemandId"               is <v_materialDemandId>           
+  *       the value for the property "changedAt"                      is <v_changedAt>                  
+  *       the value for the property "customer"                       is <v_customer>                   
+  *       the value for the property "supplier"                       is <v_supplier>                   
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>   
+  
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>              
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>     
 
-  Given   the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>                        
-  *       the value for the property "changedAt"                      is <v_changedAt>                            
-  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>             
-  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>               
-  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>               
-  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>               
-  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>          
-  *       the value for the property "materialDemandId"               is <v_materialDemandId>                     
-  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>                
-  *       the value for the property "supplier"                       is <v_supplier>                             
-  *       the value for the property "customer"                       is <v_customer>                             
-  *       the value for the property "demandSeries"                   contains exactly one Entity "DemandSeries"
-  *       the value for the property "expectedSupplierLocation"       is <v_expectedSupplierLocation>             
-  *       the value for the property "customerLocation"               is <v_customerLocation>                     
-  *       the value for the property "demandCategoryCode"             is <v_demandCategoryCode>                   
-  *       the value for the property "demands"                        contains exactly one Entity "Demand"
-  *       the value for the property "pointInTime"                    is <v_pointInTime>                          
-  *       the value for the property "demand"                         is <v_demand>                               
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>      
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>     
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>     
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>
+
+  *       the value for the property "demandSeries"                   contains entities
+  *       the value for the property "customerLocation"               is <1_customerLocation>          for the first   entity "LinkedDemandSeries" 
+  *       the value for the property "expectedSupplierLocation"       is <1_expectedSupplierLocation>  for the first   entity "LinkedDemandSeries" 
+  *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>        for the first   entity "LinkedDemandSeries" 
+  *       the value for the property "pointInTime"                    is <1_pointInTime>               for the first   entity "LinkedDemandSeries" 
+  *       the value for the property "demand"                         is <1_demand>                    for the first   entity "LinkedDemandSeries" 
   When the application tries to generate the WeekBasedMaterialDemand
   Then it should generate the WeekBasedMaterialDemand
 
 Examples:
-| v_tests  | v_unitOfMeasure | v_changedAt | v_materialDemandIsInactive | v_unitOfMeasureIsOmitted | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_materialDemandId | v_materialGlobalAssetId | v_supplier   | v_customer   | v_expectedSupplierLocation | v_customerLocation | v_demandCategoryCode | v_pointInTime                                                                                                                                                                                                               | v_demand                                                                                  |
-| MD_alpha | unit:pieces     | {{TS_NOW}}  | false                      | false                    | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{UUID_MD1}}       | {{UUID_GA1}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{BPNS_SUP1}}              | {{BPNS_CUS1}}      | 0001                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             |
-| MD_beta  | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA2}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | A1S1                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 100,100,100,100,100,100,100,100,100,100,100,200,100,200,200,100,100,200,100,200           |
-| MD_gamma | unit:kilogram   | {{TS_NOW}}  | false                      | false                    | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{UUID_MD2}}       | {{UUID_GA3}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS2}}      | PI01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 500,200,500,400,500,500,300,500,500,600,600,600,800,700,800,600,600,800,500,900           |
-| MD_delta | unit:liters     | {{TS_NOW}}  | false                      | false                    | MNR-8538-CH809974.001    | {{OMITTED}}              | {{DSC_MAT3}}                  | {{UUID_MD3}}       | {{UUID_GA4}}            | {{BPNL_SUP}} | {{BPNL_CUS}} | {{OMITTED}}                | {{BPNS_CUS3}}      | PO01                 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 | 2540,4160,3660,3210,0,3570,490,3590,3400,3130,2920,3270,3210,0,3060,3030,2570,2740,0,1450 |
+| v_tests  | v_materialDemandId | v_changedAt | v_customer   | v_supplier   | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | 1_customerLocation | 1_expectedSupplierLocation | 1_demandCategoryCode | 1_demand                                                                                  | 1_pointInTime                                                                                                                                                                                                               |
+| MD_alpha | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 200,190,190,200,190,250,280,0,270,250,240,220,200,190,180,200,190,180,190,200             | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 |
+| MD_beta  | {{UUID_MD2}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:kilogram   | false                    | {{UUID_GA2}}            | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{BPNS_CUS2}}      | {{OMITTED}}                | A1S1                 | 100,100,100,100,100,100,100,100,100,100,100,200,100,200,200,100,100,200,100,200           | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 |
+| MD_gamma | {{UUID_MD2}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:kilogram   | false                    | {{UUID_GA3}}            | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{BPNS_CUS2}}      | {{OMITTED}}                | PI01                 | 500,200,500,400,500,500,300,500,500,600,600,600,800,700,800,600,600,800,500,900           | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 |
+| MD_delta | {{UUID_MD3}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:liters     | false                    | {{UUID_GA4}}            | MNR-8538-CH809974.001    | {{OMITTED}}              | {{DSC_MAT3}}                  | {{BPNS_CUS3}}      | {{OMITTED}}                | PO01                 | 2540,4160,3660,3210,0,3570,490,3590,3400,3130,2920,3270,3210,0,3060,3030,2570,2740,0,1450 | 2026-01-05,2026-08-05,2026-01-12,2026-01-19,2026-01-26,2026-02-02,2026-02-09,2026-02-16,2026-02-23,2026-03-02,2026-03-09,2026-03-16,2026-03-23,2026-03-30,2026-04-06,2026-04-13,2026-04-20,2026-04-27,2026-05-04,2026-05-11 |
 ```
+
+</details>
+
+### Create WeekBasedMaterialDemand for volatility metrics journey
+
+<details>
+<summary>The customer creates a WeekBasedMaterialDemand, in four different versions, used by the volatility metrics journey.</summary>
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for volatility metrics journey using different <v_tests>
+  Given   the value for the property "materialDemandId"               is <v_materialDemandId>
+  *       the value for the property "changedAt"                      is <v_changedAt>
+  *       the value for the property "customer"                       is <v_customer>
+  *       the value for the property "supplier"                       is <v_supplier>
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>
+
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>
+
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>
+
+  *       the value for the property "demandSeries"                   contains entities
+  *       the value for the property "customerLocation"               is <1_customerLocation>         for the first   entity "DemandSeries"
+  *       the value for the property "expectedSupplierLocation"       is <1_expectedSupplierLocation> for the first   entity "DemandSeries"
+  *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "DemandSeries"
+  *       the value for the property "demand"                         is <1_demand>                   for the first   entity "DemandSeries"
+  *       the value for the property "pointInTime"                    is <1_pointInTime>              for the first   entity "DemandSeries"
+  When the application tries to generate the WeekBasedMaterialDemand
+  Then it should generate or update the WeekBasedMaterialDemand
+
+Examples:
+| v_tests     | v_materialDemandId | v_changedAt          | v_customer   | v_supplier   | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | 1_customerLocation | 1_expectedSupplierLocation | 1_demandCategoryCode | 1_demand                        | 1_pointInTime                                                                                                 |
+| MD_alpha_v1 | {{UUID_ID1}}       | {{TS_NOW}}           | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 80,50,100,75,60,90,20,110,225,0 | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+| MD_alpha_v2 | {{UUID_ID1}}       | {{TS_NOW + 1 Week}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 80,45,95,83,75,90,45,80,225,5   | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+| MD_alpha_v3 | {{UUID_ID1}}       | {{TS_NOW + 2 Weeks}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 85,45,95,83,75,78,65,65,0,15    | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+| MD_alpha_v4 | {{UUID_ID1}}       | {{TS_NOW + 3 Weeks}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 85,45,100,95,0,78,65,86,200,15  | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+```
+
+</details>
+
+### Create WeekBasedMaterialDemand for simulated delta production journey
+
+<details>
+<summary>The customer creates one WeekBasedMaterialDemand used by the simulated delta production journey.</summary>
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for simulated delta production journey using different <v_tests>
+  Given   the value for the property "materialDemandId"             is <materialDemandId>
+  *       the value for the property "changedAt"                    is <changedAt>
+  *       the value for the property "customer"                     is <customer>
+  *       the value for the property "supplier"                     is <supplier>
+  *       the value for the property "materialDemandIsInactive"     is <materialDemandIsInactive>
+
+  *       the value for the property "unitOfMeasure"                is <unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"       is <unitOfMeasureIsOmitted>
+
+  *       the value for the property "materialGlobalAssetId"        is <materialGlobalAssetId>
+  *       the value for the property "materialNumberCustomer"       is <materialNumberCustomer>
+  *       the value for the property "materialNumberSupplier"       is <materialNumberSupplier>
+  *       the value for the property "materialDescriptionCustomer"  is <materialDescriptionCustomer>
+
+  *       the value for the property "demandSeries"                 contains entities
+  *       the value for the property "customerLocation"             is <1_customerLocation>         for the first     "demandSeries"
+  *       the value for the property "expectedSupplierLocation"     is <1_expectedSupplierLocation> for the first     "demandSeries"
+  *       the value for the property "demandCategoryCode"           is <1_demandCategoryCode>       for the first     "demandSeries"
+  *       the value for the property "demand"                       is <1_demand>                   for the first     "demandSeries"
+  *       the value for the property "pointInTime"                  is <1_pointInTime>              for the first     "demandSeries"                      
+  When the application tries to generate the WeekBasedMaterialDemand
+  Then it should generate the WeekBasedMaterialDemand
+
+Examples:
+| v_tests  | materialDemandId | changedAt  | customer     | supplier     | materialDemandIsInactive | unitOfMeasure | unitOfMeasureIsOmitted | materialGlobalAssetId | materialNumberCustomer | materialNumberSupplier | materialDescriptionCustomer | 1_customerLocation | 1_expectedSupplierLocation | 1_demandCategoryCode | 1_demand                            | 1_pointInTime                                                                                                 |
+| MD_alpha | {{UUID_ID1}}     | {{TS_NOW}} | {{BPNL_CUS}} | {{BPNL_SUP}} | false                    | units:pieces  | false                  | {{UUID_GA1}}          | MNR-8540-CH063329.001  | {{OMITTED}}            | {{DSC_MAT1}}                | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 60,60,180,50,150,100,100,100,120,70 | 2026-05-11,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+```
+
+</details>
+
+### Create WeekBasedMaterialDemand for load factors journey
+
+<details>
+<summary>The customer creates one WeekBasedMaterialDemand used by the load factors journey.</summary>
+
+```cucumber
+Feature: Customer: Create WeekBasedMaterialDemand
+
+Scenario Outline: Try to generate WeekBasedMaterialDemand for load factors journey using different <v_tests>
+  Given   the value for the property "materialDemandId"               is <v_materialDemandId>
+  *       the value for the property "changedAt"                      is <v_changedAt>
+  *       the value for the property "customer"                       is <v_customer>
+  *       the value for the property "supplier"                       is <v_supplier>
+  *       the value for the property "materialDemandIsInactive"       is <v_materialDemandIsInactive>
+
+  *       the value for the property "unitOfMeasure"                  is <v_unitOfMeasure>
+  *       the value for the property "unitOfMeasureIsOmitted"         is <v_unitOfMeasureIsOmitted>
+
+  *       the value for the property "materialGlobalAssetId"          is <v_materialGlobalAssetId>
+  *       the value for the property "materialNumberCustomer"         is <v_materialNumberCustomer>
+  *       the value for the property "materialNumberSupplier"         is <v_materialNumberSupplier>
+  *       the value for the property "materialDescriptionCustomer"    is <v_materialDescriptionCustomer>
+
+  *       the value for the property "demandSeries"                   contains entities
+  *       the value for the property "customerLocation"               is <1_customerLocation>         for the first   entity "DemandSeries"
+  *       the value for the property "expectedSupplierLocation"       is <1_expectedSupplierLocation> for the first   entity "DemandSeries"
+  *       the value for the property "demandCategoryCode"             is <1_demandCategoryCode>       for the first   entity "DemandSeries"
+  *       the value for the property "demand"                         is <1_demand>                   for the first   entity "DemandSeries"
+  *       the value for the property "pointInTime"                    is <1_pointInTime>              for the first   entity "DemandSeries"
+  When the application tries to generate the WeekBasedCapacityGroup
+  Then it should generate the WeekBasedMaterialDemand
+
+Examples:
+| v_tests  | v_materialDemandId | v_changedAt | v_customer   | v_supplier   | v_materialDemandIsInactive | v_unitOfMeasure | v_unitOfMeasureIsOmitted | v_materialGlobalAssetId | v_materialNumberCustomer | v_materialNumberSupplier | v_materialDescriptionCustomer | v_customerLocation | v_expectedSupplierLocation | v_demandCategoryCode | v_demand                        | v_pointInTime                                                                                                 |
+| MD_alpha | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8540-CH063329.001    | {{OMITTED}}              | {{DSC_MAT1}}                  | {{BPNS_CUS1}}      | {{BPNS_SUP1}}              | 0001                 | 80,50,100,75,60,90,20,110,225,0 | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+| MD_beta  | {{UUID_MD1}}       | {{TS_NOW}}  | {{BPNL_CUS}} | {{BPNL_SUP}} | false                      | unit:pieces     | false                    | {{UUID_GA1}}            | MNR-8549-CH706214.023    | {{OMITTED}}              | {{DSC_MAT2}}                  | {{BPNS_CUS1}}      |                            | A1S1                 | 70,100,50,75,90,60,130,40,0,110 | 2024-08-05,2026-05-18,2026-05-25,2026-06-01,2026-06-08,2026-06-15,2026-06-22,2026-06-29,2026-07-06,2026-07-13 |
+```
+
+</details>
 
 ## Customer: Provide WeekBasedMaterialDemand
 
 ### Provide valid WeekBasedMaterialDemand
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -360,9 +585,12 @@ Scenario: Provide valid existing WeekBasedMaterialDemand
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid WeekBasedMaterialDemand
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -373,9 +601,12 @@ Scenario: Provide invalid WeekBasedMaterialDemand
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide WeekBasedMaterialDemand for base journey
 
-The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemands to the supplier as two separate data transfers.</summary>
 
 ```cucumber
 Feature: Customer: Provide WeekBasedMaterialDemand
@@ -391,11 +622,77 @@ Examples:
 | MD_delta                  | FT_beta      | 200 OK           |
 ```
 
+</details>
+
+### Provide WeekBasedMaterialDemand for volatility metrics journey
+
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemands to the supplier as four separate data transfers.</summary>
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+
+Scenario Outline: Provide WeekBasedMaterialDemand for volatility metrics journey
+  Given I have successfully created demand alpha in multiple versions as described in Create WeekBasedMaterialDemand for volatility metrics journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand  | fileTransfer | http status code |
+| MD_alpha_v1 | FT_alpha     | 200 OK           |
+| MD_alpha_v2 | FT_beta      | 200 OK           |
+| MD_alpha_v3 | FT_delta     | 200 OK           |
+| MD_alpha_v4 | FT_epsilon   | 200 OK           |
+```
+
+</details>
+
+### Provide WeekBasedMaterialDemand for simulated delta production journey
+
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemand to the supplier.</summary>
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+
+Scenario Outline: Provide WeekBasedMaterialDemand for delta production journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for delta production journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand | fileTransfer | http status code |
+| MD_alpha   | FT_alpha     | 200 OK           |
+```
+
+</details>
+
+### Provide WeekBasedMaterialDemand for load factors journey
+
+<details>
+<summary>The customer sends the previously created WeekBasedMaterialDemand to the supplier.</summary>
+
+```cucumber
+Feature: Customer: Provide WeekBasedMaterialDemand
+
+Scenario Outline: Provide WeekBasedMaterialDemand for load factors journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for load factors journey
+  When I try to provide my supplier with <testDemand> as <fileTransfer>
+  Then I should get <http status code> from my supplier.
+
+Examples:
+| testDemand        | fileTransfer | http status code |
+| MD_alpha, MD_beta | FT_alpha     | 200 OK           |
+```
+
+</details>
+
 ## Customer: Consume WeekBasedCapacityGroup
 
 ### Consume valid WeekBasedCapacityGroup
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -411,9 +708,12 @@ Scenario: Consume valid known WeekBasedCapacityGroup
   Then I should be able to consume it and send my supplier a http 200 status message
 ```
 
+</details>
+
 ### Consume invalid WeekBasedCapacityGroup
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -424,9 +724,12 @@ Scenario: Consume invalid WeekBasedCapacityGroup
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume WeekBasedCapacityGroup for base journey
 
-The customer receives the previously created WeekBasedCapacityGroups from the supplier as two separate data transfers.
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroups from the supplier as two separate data transfers.</summary>
 
 ```cucumber
 Feature: Customer: Consume WeekBasedCapacityGroup
@@ -442,11 +745,74 @@ Examples:
 | CG_gamma,CG_delta | FT_delta     | 200 OK           |
 ```
 
+</details>
+
+### Consume WeekBasedCapacityGroup for volatility metrics journey
+
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for volatility metrics journey
+  Given I have successfully created demand alpha and updated it multiple times as described in Create WeekBasedMaterialDemand for volatility metrics journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_gamma     | 200 OK           |
+```
+
+</details>
+
+### Consume WeekBasedCapacityGroup for simulated delta production journey
+
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for simulated delta production journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for simulated delta production journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
+```
+
+</details>
+
+### Consume WeekBasedCapacityGroup for load factors journey
+
+<details>
+<summary>The customer receives the previously created WeekBasedCapacityGroup from the supplier.</summary>
+
+```cucumber
+Feature: Customer: Consume WeekBasedCapacityGroup
+
+Scenario Outline: Consume WeekBasedCapacityGroup for load factors journey
+  Given I have successfully created demand alpha as described in Create WeekBasedMaterialDemand for load factors journey
+  When I try to consume  <testCapacityGroup> provided by my supplier within <fileTransfer>
+  Then I should be able to consume the data and send <http status code> to my supplier.
+
+Examples:
+| testCapacityGroup | fileTransfer | http status code |
+| CG_alpha          | FT_beta      | 200 OK           |
+```
+
+</details>
+
 ## Customer: Visualize CapacityGroup together with MaterialDemand
 
 ### Bottleneck calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -465,9 +831,12 @@ Examples:
 | actual capacity < maximum capacity < demand | red    | bottleneck |
 ```
 
+</details>
+
 ### Surplus calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -484,9 +853,12 @@ Examples:
 | demand < actual capacity < maximum capacity | green | surplus |
 ```
 
+</details>
+
 ### Zero deviation calculation
 
-This test checks the basic implementation of the GUI.
+<details>
+<summary>This test checks the basic implementation of the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -503,9 +875,12 @@ Examples:
 | demand = actual capacity < maximum capacity | green | zero deviation |
 ```
 
+</details>
+
 ### Calculation for base journey
 
-The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier.
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Visualize CapacityGroup together with MaterialDemand
@@ -528,11 +903,104 @@ Examples:
 | CG_beta                | MD_beta, MD_gamma       | 14   | 2026 | zero deviation | demand = actual capacity < maximum capacity | green  |
 ```
 
+</details>
+
+### Calculation for volatility metrics journey
+
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This triggers multiple volatility alerts.</summary>
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for volatility metrics journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand>
+  *        <MostRecentMaterialDemands> are the basis for the comparison within the GUI
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should get <volatility alert> for <week> in <year>
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand                            | MostRecentMaterialDemand | week   | year | volatility alert                     |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2                           | MD_alpha_v1, MD_alpha_v2 | 21, 27 | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2                           | MD_alpha_v1, MD_alpha_v2 | 24,26  | 2026 | absolute positive deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 25, 28 | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3              | MD_alpha_v2, MD_alpha_v3 | 20     | 2026 | absolute positive deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 24     | 2026 | absolute negative deviation exceeded |
+| CG_alpha               | MD_alpha_v1, MD_alpha_v2, MD_alpha_v3, MD_alpha_v4 | MD_alpha_v3, MD_alpha_v4 | 23, 28 | 2026 | absolute positive deviation exceeded |
+```
+
+</details>
+
+### Calculation for simulated delta production journey
+
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes deltaProductionResult into account.</summary>
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for simulated delta production journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand>
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should get <result> for <week> in <year> after considering deltaProductionResult
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week              | year | result         | case                                                                  | color |
+| CG_alpha               | MD_alpha                | 29                | 2026 | surplus        | (demand + deltaProductionResult) < actual capacity = maximum capacity | green |
+| CG_alpha               | MD_alpha                | 20,21,22,23,24,28 | 2026 | zero deviation | (demand + deltaProductionResult) = actual capacity = maximum capacity | green |
+```
+
+</details>
+
+### Calculation for load factors journey
+
+<details>
+<summary>The customer compares the demand data, sent to the supplier, to the capacity data, received from the supplier. This comparison takes load factors into account.</summary>
+
+```cucumber
+Feature: Customer: Visualize CapacityGroup together with MaterialDemand
+
+Scenario Outline: Calculation for load factors journey
+  Given    I have successfully consumed <WeekBasedCapacityGroup>
+  *        I have successfully created <WeekBasedMaterialDemand>
+  When     I compare demand and capacity data for <WeekBasedCapacityGroup>
+  Then     I should see <UI demand> that differs from <data demand> for <week> in <year>.
+  *        I should see <capacity data and UI unit of measure> that differs from <demand data unit of measure>.
+
+Examples:
+| WeekBasedCapacityGroup | WeekBasedMaterialDemand | week | year | UI demand | data demand | capacity data and UI unit of measure | demand data unit of measure |
+| CG_alpha               | MD_alpha                | 32   | 2024 | 80        | 80          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 21   | 2026 | 50        | 50          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 22   | 2026 | 100       | 100         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 23   | 2026 | 75        | 75          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 24   | 2026 | 60        | 60          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 25   | 2026 | 90        | 90          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 26   | 2026 | 20        | 20          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 27   | 2026 | 110       | 110         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 28   | 2026 | 225       | 225         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_alpha                | 29   | 2026 | 0         | 0           | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 32   | 2024 | 140       | 70          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 21   | 2026 | 200       | 100         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 22   | 2026 | 100       | 50          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 23   | 2026 | 150       | 75          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 24   | 2026 | 180       | 90          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 25   | 2026 | 120       | 60          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 26   | 2026 | 260       | 130         | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 27   | 2026 | 80        | 40          | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 28   | 2026 | 0         | 0           | unit:cycles                          | unit:pieces                 |
+| CG_alpha               | MD_beta                 | 29   | 2026 | 220       | 110         | unit:cycles                          | unit:pieces                 |
+```
+
+</details>
+
 ## Customer: Create IdBasedRequestForUpdate
 
 ### Create valid IdBasedRequestForUpdate
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -557,9 +1025,12 @@ Examples:
 
 ```
 
+</details>
+
 ### Create invalid IdBasedRequestForUpdate
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -579,9 +1050,12 @@ Examples:
 
 ```
 
+</details>
+
 ### Create IdBasedRequestForUpdate for base journey
 
-The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via {{UUID_CG1}}.
+<details>
+<summary>The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via {'{UUID_CG1}'}.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
@@ -599,11 +1073,14 @@ Examples:
 | RU_alpha | {{OMITTED}}               | [ {"capacityGroupId" : {{UUID_CG1}}}] |
 ```
 
+</details>
+
 ## Customer: Provide IdBasedRequestForUpdate
 
 ### Provide valid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -614,9 +1091,12 @@ Scenario: Provide valid IdBasedRequestForUpdate
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -627,9 +1107,12 @@ Scenario: Provide invalid IdBasedRequestForUpdate
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide IdBasedRequestForUpdate for base journey
 
-The customer sends the previously created IdBasedRequestForUpdate to the supplier and expects one WeekBasedCapacityGroup in return.
+<details>
+<summary>The customer sends the previously created IdBasedRequestForUpdate to the supplier and expects one WeekBasedCapacityGroup in return.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedRequestForUpdate
@@ -645,11 +1128,14 @@ Examples:
 | FT_epsilon   | RU_alpha                | FT_eta   | CG_alpha         |
 ```
 
+</details>
+
 ## Customer: Consume IdBasedRequestForUpdate
 
 ### Consume valid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -660,9 +1146,12 @@ Scenario: Consume valid  IdBasedRequestForUpdate
   Then I should be able to consume it, send my supplier a http 200 status message and provide my supplier with the data requested, if applicable
 ```
 
+</details>
+
 ### Consume invalid IdBasedRequestForUpdate
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -673,7 +1162,12 @@ Scenario: Consume invalid IdBasedRequestForUpdate
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume IdBasedRequestForUpdate for base journey
+
+<details>
+<summary>The customer receives the previously created IdBasedRequestForUpdate from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedRequestForUpdate
@@ -689,11 +1183,14 @@ Examples:
 | FT_zeta      | RU_beta                 | FT_theta | MD_gamma         |
 ```
 
+</details>
+
 ## Customer: Create IdBasedComment
 
 ### Create valid IdBasedComment
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment
@@ -741,9 +1238,12 @@ Examples:
 |                                               |                                               |                |                        |                |              |              |                                                                        |                 |                                                |                          | 2024-03-11T11:27:11.320Z |
 ```
 
+</details>
+
 ### Create invalid IdBasedComment
 
-This test checks the implementation of the aspect model as well as some edge cases.
+<details>
+<summary>This test checks the implementation of the aspect model as well as some edge cases.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment
@@ -786,29 +1286,31 @@ Examples:
 |             |             |                   |                        |                          |            |            |                                           |                 |                                                       |                                 | 2000-01-0   | AspectModel Conformity Error: changedAt            |
 ```
 
+</details>
+
 ### Create IdBasedComment for base journey
+
+<details>
+<summary>The customer creates two IdBasedComment used by the base journey.</summary>
 
 ```cucumber
 Feature: Customer: Create IdBasedComment for base journey
 
 Scenario Outline: Try to generate IdBasedComment for base journey for base journey using different <v_tests>
-
-Given   the value for the property "CommentId"                      is <v_CommentId>                            
-*       the value for the property "ObjectId"                       is <v_ObjectId>                             
-*       the value for the property "CommentType"                    is <v_CommentType>                          
-*       the value for the property "listOfReferenceDates"           is <v_listOfReferenceDates>                 
-*       the value for the property "author"                         is <v_author>                               
-*       the value for the property "supplier"                       is <v_supplier>                             
-*       the value for the property "customer"                       is <v_customer>                             
-*       the value for the property "CommentText"                    is <v_commentText>                          
-*       the value for the property "requestDelete"                  is <v_requestDelete>                        
-*       the value for the property "objectType"                     is <v_objectType>                           
-*       the value for the property "postedAt"                       is <v_postedAt>                             
-*       the value for the property "changedAt"                      is <v_changedAt>                            
-
-When the application tries to generate the IdBasedComment
-
-Then it should generate the IdBasedComment
+  Given   the value for the property "CommentId"                      is <v_CommentId>                            
+  *       the value for the property "ObjectId"                       is <v_ObjectId>                             
+  *       the value for the property "CommentType"                    is <v_CommentType>                          
+  *       the value for the property "listOfReferenceDates"           is <v_listOfReferenceDates>                 
+  *       the value for the property "author"                         is <v_author>                               
+  *       the value for the property "supplier"                       is <v_supplier>                             
+  *       the value for the property "customer"                       is <v_customer>                             
+  *       the value for the property "CommentText"                    is <v_commentText>                          
+  *       the value for the property "requestDelete"                  is <v_requestDelete>                        
+  *       the value for the property "objectType"                     is <v_objectType>                           
+  *       the value for the property "postedAt"                       is <v_postedAt>                             
+  *       the value for the property "changedAt"                      is <v_changedAt>                            
+  When the application tries to generate the IdBasedComment
+  Then it should generate the IdBasedComment
 
 Examples:
 | v_tests  | v_CommentId   | v_ObjectId   | v_CommentType   | v_listOfReferenceDates | v_author                  | v_supplier   | v_customer   | v_CommentText                                                       | v_requestDelete | v_objectType                                   | v_postedAt  | v_changedAt |
@@ -816,11 +1318,14 @@ Examples:
 | CT_beta  | {{UUID_COM3}} | {{UUID_MD1}} | action required | {{OMITTED}}            | max.mustermann@company.de | {{BPNL_SUP}} | {{BPNL_CUS}} | "Demand Increase in CW45. Please confirm increase actual capacity." | {{OMITTED}}     | urn:samm:io.catenax.week_based_material_demand | {{OMITTED}} | {{TS_NOW}}  |
 ```
 
+</details>
+
 ## Customer: Provide IdBasedComment
 
 ### Provide valid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -836,9 +1341,12 @@ Scenario: Provide valid existing IdBasedComment
   Then I should get an http 200 status message
 ```
 
+</details>
+
 ### Provide invalid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -849,9 +1357,12 @@ Scenario: Provide invalid IdBasedComment
   Then I should get an http 400 status message
 ```
 
+</details>
+
 ### Provide IdBasedComment for base journey
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Provide IdBasedComment
@@ -866,11 +1377,14 @@ Examples:
 | FT_iota      | CT_alpha, CT_beta  |
 ```
 
+</details>
+
 ## Customer: Consume IdBasedComment
 
 ### Consume valid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -886,9 +1400,12 @@ Scenario: Consume valid known IdBasedComment
   Then I should be able to consume it and send my supplier a http 200 status message
 ```
 
+</details>
+
 ### Consume invalid IdBasedComment
 
-This test checks the basic implementation of the API.
+<details>
+<summary>This test checks the basic implementation of the API.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -899,7 +1416,12 @@ Scenario: Consume invalid IdBasedComment
   Then I should not consume it and send my supplier a http 400 status message
 ```
 
+</details>
+
 ### Consume IdBasedComment for base journey
+
+<details>
+<summary>The customer receives the previously created IdBasedComment from the supplier.</summary>
 
 ```cucumber
 Feature: Customer: Consume IdBasedComment
@@ -914,11 +1436,14 @@ Examples:
 | FT_kappa     | CT_gamma, CT_delta |
 ```
 
+</details>
+
 ## Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
 ### Comment linked to WeekBasedCapacityGroup
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
@@ -930,9 +1455,12 @@ Scenario: Comment linked to WeekBasedCapacityGroup
   *       I should be able to view this comment by navigating to the WeekBasedCapacityGroup the comment is linking
 ```
 
+</details>
+
 ### Comment linked to WeekBasedMaterialDemand
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
@@ -946,20 +1474,25 @@ Scenario: Comment linked to WeekBasedMaterialDemand
   *       the comments should be presented in a tree view
 ```
 
+</details>
+
 ### Comment linked to IdBasedComment
 
-This test checks the basic implementation of the comment feature within the GUI
+<details>
+<summary>This test checks the basic implementation of the comment feature within the GUI.</summary>
 
 ```cucumber
 Feature: Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand
 
-Scenario: Comment linked ton IdBasedComment
+Scenario: Comment linked to IdBasedComment
   Given I have a comment that is linked to an IdBasedComment
   When I try to view this comment in the graphical user interface 
   Then    I should be able to view this comment in a list of all comments
   *       I should be able to view this comment by navigating to the WeekBasedMaterialDemand the IdBasedComment is linking, the comment is linking
   *       I should be able to view this comment by navigating to the WeekBasedCapacityGroup, the WeekBasedMaterialDemand is linked to, the IdBasedComment is linking, the comment is linking
 ```
+
+</details>
 
 ## Notice
 

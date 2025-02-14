@@ -12,6 +12,17 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.3.0] - 2025-03-03
+
+### Added
+
+- Added additional E2E Tests to [Development View](./development-view/overview.md)
+
+### Changed
+
+- Updated [Test - Customer](./development-view/test-customer.md) to improve readability
+- Updated [Test - Supplier](./development-view/test-supplier.md) to improve readability
+
 ## [1.2.0] - 2024-12-02
 
 ### Added
