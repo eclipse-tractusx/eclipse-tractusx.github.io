@@ -43,7 +43,7 @@ If you are interested in utilizing DCM within the Catena-X dataspace you can fol
 
 #### Onboarding
 
-Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including next steps & contacts).
+Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including next steps and contacts).
 
 Please refer to the [Catena-X Library][StandardLibrary] for the newest version of the DCM as well as other standards.
 
