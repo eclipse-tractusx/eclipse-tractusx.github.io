@@ -71,8 +71,8 @@ To describe the process, we defined two customer journeys:
 
 The exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
 
-As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests.
-The second change to the standard will add CustomerPartNumber as an optional field in the PCF request thus enabling creation of the PCF requests with the CustomerPartNumber instead of SupplierPartNumber (ManufacturerPartNumber).
+As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests. We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
+The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
 
 [To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit#todays-challenge)
 
