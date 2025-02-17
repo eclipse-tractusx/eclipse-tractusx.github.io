@@ -5,7 +5,7 @@ description: "Customs Kit"
 sidebar_position: 1
 ---
 
-![Logistics kit banner](/img/kits/logistics/logistics-kit-logo.drawio.svg)
+![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.drawio.svg)
 
 ## Vision & Mission
 
