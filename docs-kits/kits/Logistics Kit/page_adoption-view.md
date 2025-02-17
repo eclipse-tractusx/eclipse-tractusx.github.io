@@ -30,7 +30,7 @@ Since the Logistic KIT is based on the digital foundation of the Industry Core, 
 Application and service provider can develop interoperable Catena-X logistic solutions.
 Using the CX logistic standard, a fully connected network can be achieved in the long run. Ideally, OEMs and their suppliers will be part of the Catena-X logistics supply chain network and will be able to seamlessly provide and share data between all authorized stakeholders, such as GPS tracking, estimated delivery date, package composition, sensor data, customs requirements and much more.
 
-![Logistic Twins](../assets/LogisticTwins.png)
+![Logistic Twins](./assets/LogisticTwins.png)
 
 ### Key Ideas
 
