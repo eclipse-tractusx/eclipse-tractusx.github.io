@@ -1,21 +1,21 @@
- /**
- * Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
- *
- * See the NOTICE file(s) distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This program and the accompanying materials are made available under the
- * terms of the Apache License, Version 2.0 which is available at
- * https://www.apache.org/licenses/LICENSE-2.0.
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations
- * under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- */
+/**
+* Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
+*
+* See the NOTICE file(s) distributed with this work for additional
+* information regarding copyright ownership.
+*
+* This program and the accompanying materials are made available under the
+* terms of the Apache License, Version 2.0 which is available at
+* https://www.apache.org/licenses/LICENSE-2.0.
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+*
+* SPDX-License-Identifier: Apache-2.0
+*/
 
 /**
  * Creating a sidebar enables you to:
@@ -45,62 +45,62 @@ const sidebars = {
                 'kits/knowledge-agents/Knowledge Agent Changelog',
                 'kits/knowledge-agents/adoption-view/intro',
                 {
-                  type: 'category',
-                  label: 'Development View',
-                  link: {
-                      type: 'doc',
-                      id: 'kits/knowledge-agents/development-view/architecture',
-                  },
-                  collapsed: true,
-                  items: [
-                      'kits/knowledge-agents/development-view/Arc42',
-                      'kits/knowledge-agents/development-view/modelling',
-                      'kits/knowledge-agents/development-view/modules',
-                      'kits/knowledge-agents/development-view/reference',
-                      {
-                          type: 'category',
-                          label: 'API',
-                          link: {
-                              type: 'doc',
-                              id: 'kits/knowledge-agents/development-view/api',
-                          },
-                          collapsed: true,
-                          items: [
-                              'kits/knowledge-agents/development-view/api/agent/getAgent',
-                              'kits/knowledge-agents/development-view/api/agent/postAgent',
-                              'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
-                              'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
-                              'kits/knowledge-agents/development-view/api/graph/postGraph',
-                              'kits/knowledge-agents/development-view/api/graph/deleteGraph',
-                          ],
-                      }
-                  ],
-              },
-              {
-                  type: 'category',
-                  label: 'Operation View',
-                  link: {
-                      type: 'doc',
-                      id: 'kits/knowledge-agents/operation-view/deployment',
-                  },
-                  collapsed: true,
-                  items: [
-                      'kits/knowledge-agents/operation-view/agent_edc',
-                      'kits/knowledge-agents/operation-view/provider',
-                      'kits/knowledge-agents/operation-view/bridge',
-                      'kits/knowledge-agents/operation-view/policy',
-                      'kits/knowledge-agents/operation-view/testbed',
+                    type: 'category',
+                    label: 'Development View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/knowledge-agents/development-view/architecture',
+                    },
+                    collapsed: true,
+                    items: [
+                        'kits/knowledge-agents/development-view/Arc42',
+                        'kits/knowledge-agents/development-view/modelling',
+                        'kits/knowledge-agents/development-view/modules',
+                        'kits/knowledge-agents/development-view/reference',
+                        {
+                            type: 'category',
+                            label: 'API',
+                            link: {
+                                type: 'doc',
+                                id: 'kits/knowledge-agents/development-view/api',
+                            },
+                            collapsed: true,
+                            items: [
+                                'kits/knowledge-agents/development-view/api/agent/getAgent',
+                                'kits/knowledge-agents/development-view/api/agent/postAgent',
+                                'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
+                                'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
+                                'kits/knowledge-agents/development-view/api/graph/postGraph',
+                                'kits/knowledge-agents/development-view/api/graph/deleteGraph',
+                            ],
+                        }
                     ],
-              },
+                },
+                {
+                    type: 'category',
+                    label: 'Operation View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/knowledge-agents/operation-view/deployment',
+                    },
+                    collapsed: true,
+                    items: [
+                        'kits/knowledge-agents/operation-view/agent_edc',
+                        'kits/knowledge-agents/operation-view/provider',
+                        'kits/knowledge-agents/operation-view/bridge',
+                        'kits/knowledge-agents/operation-view/policy',
+                        'kits/knowledge-agents/operation-view/testbed',
+                    ],
+                },
             ],
         },
         {
             type: 'category',
             label: 'Behaviour Twin KIT',
-			link: {
-				 type: 'doc',
-				 id: 'kits/behaviour-twin-kit/overview',
-			},
+            link: {
+                type: 'doc',
+                id: 'kits/behaviour-twin-kit/overview',
+            },
             collapsed: true,
             items: [
                 'kits/behaviour-twin-kit/changelog',
@@ -108,8 +108,8 @@ const sidebars = {
                     type: 'category',
                     label: 'Adoption View',
                     link: {
-                         type: 'doc',
-                         id: 'kits/behaviour-twin-kit/adoption-view/overview',
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/adoption-view/overview',
                     },
                     items: [
                         'kits/behaviour-twin-kit/adoption-view/introduction',
@@ -125,8 +125,8 @@ const sidebars = {
                     type: 'category',
                     label: 'Development View',
                     link: {
-                         type: 'doc',
-                         id: 'kits/behaviour-twin-kit/development-view/overview',
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/development-view/overview',
                     },
                     items: [
                         'kits/behaviour-twin-kit/development-view/contracts-and-policies',
@@ -140,24 +140,24 @@ const sidebars = {
                     type: 'category',
                     label: 'Use Cases',
                     link: {
-                         type: 'doc',
-                         id: 'kits/behaviour-twin-kit/use-cases/overview',
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/use-cases/overview',
                     },
                     items: [
                         {
                             type: 'category',
                             label: 'Remaining useful Life',
                             link: {
-                                 type: 'doc',
-                                 id: 'kits/behaviour-twin-kit/use-cases/rul/overview',
+                                type: 'doc',
+                                id: 'kits/behaviour-twin-kit/use-cases/rul/overview',
                             },
                             items: [
                                 {
                                     type: 'category',
                                     label: 'Adoption View',
                                     link: {
-                                         type: 'doc',
-                                         id: 'kits/behaviour-twin-kit/use-cases/rul/adoption-view/overview',
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/rul/adoption-view/overview',
                                     },
                                     items: [
                                         'kits/behaviour-twin-kit/use-cases/rul/adoption-view/introduction',
@@ -169,8 +169,8 @@ const sidebars = {
                                     type: 'category',
                                     label: 'Development View',
                                     link: {
-                                         type: 'doc',
-                                         id: 'kits/behaviour-twin-kit/use-cases/rul/development-view/overview',
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/rul/development-view/overview',
                                     },
                                     items: [
                                         'kits/behaviour-twin-kit/use-cases/rul/development-view/data-bindings',
@@ -184,16 +184,16 @@ const sidebars = {
                             type: 'category',
                             label: 'Health Indicator',
                             link: {
-                                 type: 'doc',
-                                 id: 'kits/behaviour-twin-kit/use-cases/hi/overview',
+                                type: 'doc',
+                                id: 'kits/behaviour-twin-kit/use-cases/hi/overview',
                             },
                             items: [
                                 {
                                     type: 'category',
                                     label: 'Adoption View',
                                     link: {
-                                         type: 'doc',
-                                         id: 'kits/behaviour-twin-kit/use-cases/hi/adoption-view/overview',
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/hi/adoption-view/overview',
                                     },
                                     items: [
                                         'kits/behaviour-twin-kit/use-cases/hi/adoption-view/introduction',
@@ -205,8 +205,8 @@ const sidebars = {
                                     type: 'category',
                                     label: 'Development View',
                                     link: {
-                                         type: 'doc',
-                                         id: 'kits/behaviour-twin-kit/use-cases/hi/development-view/overview',
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/hi/development-view/overview',
                                     },
                                     items: [
                                         'kits/behaviour-twin-kit/use-cases/hi/development-view/data-bindings',
@@ -381,105 +381,109 @@ const sidebars = {
             label: 'Demand and Capacity Management KIT',
             link: {
                 type: 'doc',
+
                 id: 'kits/demand-and-capacity-management-kit/adoption-view/overview',
-           },
-           collapsed: true,
-           items: [
-               'kits/demand-and-capacity-management-kit/changelog',
-               {
-                   type: 'category',
-                   label: 'Adoption View',
-                   link: {
-                        type: 'doc',
-                        id: 'kits/demand-and-capacity-management-kit/adoption-view/overview',
-                   },
-                   items: [
-                    'kits/demand-and-capacity-management-kit/adoption-view/glossary',
-                       {
-                           type: 'category',
-                           label: 'Use Case',
-                           link: {
-                               type: 'generated-index',
             },
             collapsed: true,
             items: [
-              {
-                type: 'autogenerated',
-                dirName: 'kits/demand-and-capacity-management-kit/adoption-view/use-case'
-            }
-        ]
-    },
-    'kits/demand-and-capacity-management-kit/adoption-view/onboarding',
-    'kits/demand-and-capacity-management-kit/adoption-view/qna',
-    'kits/demand-and-capacity-management-kit/adoption-view/foss-app',
-]
-},
-{
-type: 'category',
-label: 'Development View',
-link: {
-     type: 'doc',
-     id: 'kits/demand-and-capacity-management-kit/development-view/overview',
-},
-items: [
-    'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedMaterialDemand',
-    'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedCapacityGroup',
-    'kits/demand-and-capacity-management-kit/development-view/model-IdBasedRequestForUpdate',
-    'kits/demand-and-capacity-management-kit/development-view/model-IdBasedComment',
-    'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedMaterialDemand',
-    {
-        type: "category",
-        label: "API Specification",
-        link: {
-            type: "generated-index",
-        },
-        items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-material-demand-api/sidebar.js'),
-    },
-    'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedCapacityGroup',
-    {
-        type: "category",
-        label: "API Specification",
-        link: {
-            type: "generated-index",
-        },
-        items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-capacity-group-api/sidebar.js'),
-    },
-    'kits/demand-and-capacity-management-kit/development-view/api-IdBasedRequestForUpdate',
-    {
-        type: "category",
-        label: "API Specification",
-        link: {
-            type: "generated-index",
-        },
-        items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-rfu-api/sidebar.js'),
-    },
-    'kits/demand-and-capacity-management-kit/development-view/api-IdBasedComment',
-    {
-        type: "category",
-        label: "API Specification",
-        link: {
-            type: "generated-index",
-        },
-        items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-comment-api/sidebar.js'),
-    },
-    'kits/demand-and-capacity-management-kit/development-view/api-aas',
-    'kits/demand-and-capacity-management-kit/development-view/test-customer',
-    'kits/demand-and-capacity-management-kit/development-view/test-supplier',
-]
-},
-{
-type: 'category',
-label: 'Architecture View',
-link: {
-     type: 'doc',
-     id: 'kits/demand-and-capacity-management-kit/architecture-view/overview',
-},
-items: [
-    'kits/demand-and-capacity-management-kit/architecture-view/dependencies',
-]
-},
+                'kits/demand-and-capacity-management-kit/changelog',
+
+                {
+                    type: 'category',
+                    label: 'Adoption View',
+                    link: {
+                        type: 'doc',
+
+                        id: 'kits/demand-and-capacity-management-kit/adoption-view/overview',
+                    },
+                    items: [
+                        'kits/demand-and-capacity-management-kit/adoption-view/glossary',
+                        {
+                            type: 'category',
+                            label: 'Use Case',
+                            link: {
+                                type: 'generated-index',
+                            },
+                            collapsed: true,
+                            items: [
+                                {
+
+                                    type: 'autogenerated',
+                                    dirName: 'kits/demand-and-capacity-management-kit/adoption-view/use-case'
+                                }
+                            ]
+                        },
+                        'kits/demand-and-capacity-management-kit/adoption-view/onboarding',
+                        'kits/demand-and-capacity-management-kit/adoption-view/qna',
+                        'kits/demand-and-capacity-management-kit/adoption-view/foss-app',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Development View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/demand-and-capacity-management-kit/development-view/overview',
+                    },
+                    items: [
+                        'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedMaterialDemand',
+                        'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedCapacityGroup',
+                        'kits/demand-and-capacity-management-kit/development-view/model-IdBasedRequestForUpdate',
+                        'kits/demand-and-capacity-management-kit/development-view/model-IdBasedComment',
+                        'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedMaterialDemand',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-material-demand-api/sidebar.js'),
+                        },
+                        'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedCapacityGroup',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-capacity-group-api/sidebar.js'),
+                        },
+                        'kits/demand-and-capacity-management-kit/development-view/api-IdBasedRequestForUpdate',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-rfu-api/sidebar.js'),
+                        },
+                        'kits/demand-and-capacity-management-kit/development-view/api-IdBasedComment',
+                        {
+                            type: "category",
+                            label: "API Specification",
+                            link: {
+                                type: "generated-index",
+                            },
+                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-comment-api/sidebar.js'),
+                        },
+                        'kits/demand-and-capacity-management-kit/development-view/api-aas',
+                        'kits/demand-and-capacity-management-kit/development-view/test-customer',
+                        'kits/demand-and-capacity-management-kit/development-view/test-supplier',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Architecture View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/demand-and-capacity-management-kit/architecture-view/overview',
+                    },
+                    items: [
+                        'kits/demand-and-capacity-management-kit/architecture-view/dependencies',
+                    ]
+                },
                 'kits/demand-and-capacity-management-kit/operation-view',
-                        ]
+            ]
         },
         {
             type: 'category',
@@ -563,30 +567,28 @@ items: [
         },
         {
             type: 'category',
-            label: 'Model Based Development and Data Processing (MDP) KIT',
+            label: 'Logistics and Customs KIT',
             link: {
-                type: 'generated-index',
+                type: 'doc',
+                id: 'kits/logistics-kit/Adoption View Logistics Kit',
             },
             collapsed: true,
             items: [
+                'kits/logistics-kit/Adoption View Logistics Kit',
                 {
-                    type: 'autogenerated',
-                    dirName: 'kits/Behaviour Twin MDP Kit',
+                    type: 'category',
+                    label: 'Customs',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/logistics-kit/customs/Adoption View Customs Kit'
+                    },
+                    items: [
+                        {
+                            type: 'autogenerated',
+                            dirName: 'kits/logistics-kit/customs/Adoption View Customs Kit'
+                        }
+                    ]
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Modular Production Kit',
-            link: {
-              type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-              {
-                type: 'autogenerated',
-                dirName: 'kits/Modular Production Kit',
-              },
             ],
         },
         {
@@ -605,6 +607,34 @@ items: [
         },
         {
             type: 'category',
+            label: 'Model Based Development and Data Processing (MDP) KIT',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/Behaviour Twin MDP Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Modular Production Kit',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/Modular Production Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
             label: 'OSim Kit',
             link: {
                 type: 'generated-index',
@@ -614,34 +644,6 @@ items: [
                 {
                     type: 'autogenerated',
                     dirName: 'kits/OSim Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'PURIS Kit',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/PURIS Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Supply Chain Disruption Notifications KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Supply Chain Disruption Notifications KIT',
                 },
             ],
         },
@@ -679,6 +681,20 @@ items: [
         },
         {
             type: 'category',
+            label: 'PURIS Kit',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/PURIS Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
             label: 'Quality KIT',
             link: {
                 type: 'generated-index',
@@ -688,6 +704,20 @@ items: [
                 {
                     type: 'autogenerated',
                     dirName: 'kits/Quality-Kit',
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Supply Chain Disruption Notifications KIT',
+            link: {
+                type: 'generated-index',
+            },
+            collapsed: true,
+            items: [
+                {
+                    type: 'autogenerated',
+                    dirName: 'kits/Supply Chain Disruption Notifications KIT',
                 },
             ],
         },

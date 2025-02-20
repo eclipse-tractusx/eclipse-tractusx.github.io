@@ -29,6 +29,7 @@ import DigitalTwin from "@site/static/img/kits/digital-twin/digital-twin-kit-gal
 import EcoPass from "@site/static/img/kits/eco-pass/eco-pass-kit-gallery.drawio.svg";
 import ESS_Kit from "@site/static/img/kits/ess/ess-kit-gallery.drawio.svg";
 import Industry_Kit from "@site/static/img/kits/industry-core/industry-core-kit-gallery.drawio.svg";
+import Logistics_Kit from "@site/static/img/kits/logistics/logistics-gallery.drawio.svg";
 import Maas_Kit from "@site/static/img/kits/manufacturing-as-a-service/maas-kit-gallery.drawio.svg";
 import MBP_Kit from "@site/static/img/kits/model-based-production/model-based-production-kit-gallery.drawio.svg";
 import ModularProduction_Kit from "@site/static/img/kits/modular-production/modular-production-kit-gallery.drawio.svg";
@@ -37,6 +38,7 @@ import PCF_Kit from "@site/static/img/kits/pcf/pcf-kit-gallery.drawio.svg";
 import PURIS_Kit from '@site/static/img/kits/puris/puris-kit-gallery.drawio.svg';
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-gallery.drawio.svg";
 import Traceability_Kit from "@site/static/img/kits/traceability/traceability-kit-gallery.drawio.svg";
+
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -192,5 +194,12 @@ export const kitsGallery = [
     domain: 'Engineering',
     pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
     img: MBP_Kit,
+  },
+  {
+    id: 21,
+    name: 'Logistics KIT',
+    domain: 'PLM / Quality',
+    pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
+    img: Logistics_Kit,
   },
 ]
