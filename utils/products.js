@@ -9,6 +9,40 @@ export const products = [
     showVersion: true,
   },
   {
+    productName: "Tractus-X SDK",
+    productDescription:
+      "A powerful middleware that simplifies the usage and application development using multi-target versions of the EDC, DTR and Data Sources",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/tractusx-sdk"
+    ],
+    committers: [
+      "https://github.com/matbmoser",
+      "https://github.com/CDiezRodriguez",
+      "https://github.com/mgarciaLKS",
+    ],
+    mailTo:
+      "mathias.moser@catena-x.net?subject=Request Tractus-X SDK Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+    {
+    productName: "Industry Core Hub",
+    productDescription:
+      "A data provision & consumption lightweight orchestrator, giving an example of usage of the Tractus-X SDK and providing an UI workbench for your to share data easily with Tractus-X compliant technology and following the Catena-X industry core standards.",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/industry-core-hub"
+    ],
+    committers: [
+      "https://github.com/matbmoser",
+      "https://github.com/CDiezRodriguez",
+      "https://github.com/mgarciaLKS",
+    ],
+    mailTo:
+      "mathias.moser@catena-x.net?subject=Request Industry Core Hub Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
     productName: "Business Partner Data Management",
     productDescription:
       "The project provides core services for querying, adding, and changing business partner data in the Catena-X data space. Currently, BPDM consists of the Pool and Gate API.",
