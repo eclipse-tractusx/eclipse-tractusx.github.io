@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Layers & Modules
 ---
 <!--
- * Copyright (c) 2021,2025 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -268,8 +268,8 @@ There are two main components whose interplay implements the AAS-KA bridge:
 * A flexible SQL/JSON engine, such as Dremio or in parts also Postgresql which is able to mount raw data in various
 formats from remote filesystems and APIs. This engine is used to build flat relational views onto a hierarchical
 json structure that may originate in the value-only-serialization of the AAS. Typically there will be one table/view
-per json-schema/submodel template. As an example, see these [scripts](https://github.com/big-data-spaces/knowledge-agent-deployment/tree/main/infrastructure/resources/dremio)
-* A graph engine (such as [ontop](https://ontop-vkg.org/guide/) ) that is able to bind/translate SPARQL queries into SQL. As an example, see these [bindings](https://github.com/big-data-spaces/knowledge-agent-deployment/tree/main/infrastructure/oem/resources/trace.obda)
+per json-schema/submodel template. As an example, see these [scripts](https://github.com/big-data-spaces/knowledge-agents-deployment/tree/main/infrastructure/resources/dremio)
+* A graph engine (such as [ontop](https://ontop-vkg.org/guide/) ) that is able to bind/translate SPARQL queries into SQL. As an example, see these [bindings](https://github.com/big-data-spaces/knowledge-agents-deployment/tree/main/infrastructure/oem/resources/trace.obda)
 
 Of course, if the data is available in a native SQL-schema, the SQL/JSON-engine can be omitted. Likewise, even the graph engine
 can be left out if a sparql-capable database holds its data in conformance to the CX-ontologies.
@@ -305,4 +305,4 @@ technological APIs in specific, transaction-oriented formats.
 As a special case of backend systems, this KIT also regards existing AAS servers and databases as valid data sources
 to form a semantic dataspace.
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
