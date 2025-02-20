@@ -15,7 +15,7 @@ sidebar_position: 2
 
 **_Revolutionizing the Global Supply Chain Ecosystem with Integrated, Proactive Data Sharing and Collaboration_**
 
-The introduction of the **P**redictive **U**nit **R**eal-Time **I**nformation **S**ervice (PURIS) enriches a company's resilience strategy through standardized data sharing, giving stakeholders heightened transparency and comprehensive information. This clarity allows PURIS users to detect supply chain issues earlier, initiate solution-finding more swiftly, and access a wider array of options, leading to more effective, cost-efficient, and environmentally friendly outcomes. By facilitating proactive anticipation, concurrent management, and reactive recovery, PURIS supports the supply chain across pre-, during-, and post-disruption phases, thereby improving operational efficiency and resilience within the Catena-X network.
+The introduction of the **P**redictive **U**nit **R**eal-Time **I**nformation **S**ervice (PURIS) enriches a company's resilience strategy through standardized data sharing, giving stakeholders heightened transparency and comprehensive information. This clarity allows PURIS users to detect supply chain issues earlier, initiate solution-finding more swiftly, and access a wider array of options, leading to more effective, cost-efficient, and environmentally friendly outcomes. By facilitating proactive anticipation, concurrent management, and reactive recovery, PURIS supports the supply chain pre-, during-, and post-disruption phases, thereby improving operational efficiency and resilience within the Catena-X network.
 
 <iframe
   width="560"
@@ -66,7 +66,7 @@ Status-quo:
 
 1. **Supply Chain Transparency:** The lack of up-to-date data and transparency in the supply chain makes it difficult to anticipate disruptions and actual demand, manage production and inventory efficiently, and ensure timely deliveries.
 2. **Complex and Volatile Supplier Network:** The supply chain, with its widespread and diverse suppliers, faces visibility and control challenges. Demand volatility, influenced by key companies, impacts forecasting and immediate needs.
-3. **Inefficient communication:** Manual and non-standardized information exchange, e.g. via Excel or phone, between partners is slow and can lead to misunderstandings, errors and unnecessary effort, which in turn negatively impacts the supply situation and increases costs.
+3. **Inefficient communication:** Manual and non-standardized information exchange throughout the supply chain network, e.g. via Excel or phone, between partners is slow and can lead to misunderstandings, errors and unnecessary effort, which in turn negatively impacts the supply situation and increases costs.
 4. **Lack of Trust:** Reluctance to share sensitive information, such as inventory levels, demand forecasts, and production capacities hinders the flow of critical information and prevent the formation of a cohesive, collaborative supply chain network. This can lead to a siloed and inefficient supply chain, where the best and most sustainable solutions are not realized. Consequences are missed opportunities, increased costs, and decreased competitiveness.
 
 Moreover, currently only proprietary systems are available, which are insufficiently scalable and also involve a vendor lock-in. This highlights the need for an open standard and a FOSS \(Free and Open Source Software\) reference implementation. Moreover, these systems often have a long-term focus on demand and capacity management.
@@ -101,11 +101,11 @@ Overall, adapting PURIS helps businesses achieve operational excellence, strateg
 
 - **For OEMs and large suppliers:**
   - **Increased overall supply chain efficiency:** When a critical mass of participants is reached, the PURIS standard can increase efficiency of the entire supply chain, ultimately benefiting OEMs and large Tier-1s at the end of the chain.
-  - **Lower operating and maintenance costs:** Consolidating and standardizing data flow through the PUris standard can reduce operating and maintenance costs for proprietary systems.
+  - **Lower operating and maintenance costs:** Consolidating and standardizing data flow through the PURIS standard can reduce operating and maintenance costs for proprietary systems.
   - **Avoid vendor lock-in:** With the PURIS standard, there is no need to depend on a dominant solutions provider that can result in vendor lock-in.
 - **For Small and Medium-sized Enterprises \(SMEs\):**
   - **Single integration point:** With PURIS there is just a single integration point, reducing the complexity and costs of managing and serving multiple customer interfaces, systems and platforms.
-  - **Bi-directional data exchange:** One of the significant benefits of PURIS is that it enables small and medium companies to receive information in addition to providing it. This bi-directional data exchange on equal footing reduces blind decision-making and guesswork, allowing for more informed decision-making and collaboration
+  - **Bi-directional data exchange:** One of the significant benefits of PURIS is that it enables small and medium companies to receive information in addition to providing it. This bi-directional data exchange on equal footing reduces blind decision-making and guesswork, allowing for more informed decision-making and collaboration.
   - **Competitive advantage:** Using the PURIS standard can give a competitive advantage when bidding for contracts, as compliance with the PURIS standard can be favored in some procurement processes. By adopting the PURIS standard, it can be demonstrated to potential partners that a SME ist committed to data exchange best practices, making it a more attractive partner for collaboration and contract opportunities.
 - **For Solution Providers:**
   - **Scaling solutions:** Solution providers can scale their PURIS solutions in the market and thereby access new customer groups.
@@ -113,7 +113,8 @@ Overall, adapting PURIS helps businesses achieve operational excellence, strateg
 
 ## Example Use Case
 
-In the following example, a Supply Chain Manager uses a tool similar to the PURIS reference application to monitor goods and parts. If problems arise, I can immediately check the status of my parts and respond appropriately.
+In the following example, a Supply Chain Manager uses a tool similar to the PURIS reference application to monitor goods and parts. 
+In my role as a Supply Chain Manager, I can immediately check the status of my parts if problems arise and respond appropriately.
 
 **The results in detail:**
 
@@ -123,8 +124,8 @@ In the following example, a Supply Chain Manager uses a tool similar to the PURI
 
 **Decisions about replenishment, additional transportation or other measures can be made immediately if necessary:**
 
-- I always have a clear perspective on the most economical booking methods, such as with agents.
-- I receive immediate updates if necessary. This provides my organization with cost savings, even in critical situations, as a result of these practices.
+- I receive immediate updates if necessary. This provides my organization with cost savings, even in critical situations.
+- I always have a clear perspective on the most economical booking methods, such as agents.
 
 **Stressful phone calls & meetings with my customer can be reduced to exceptional situations.**
 
