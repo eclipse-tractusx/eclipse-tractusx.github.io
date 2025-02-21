@@ -8,18 +8,18 @@ Following our project structure, the collection of our KITs documentation is dev
 
 Each folder/KIT's content is structured in at least four pages/subfolders:
 
-- Adoption View -> `page_adoption-view.md`
-- Software Operation View -> `page_software-operation-view.md`
-- Documentation -> `page_documentation.md`
+- Adoption View -> `adoption-view.md`
+- Software Operation View -> `software-operation-view.md`
+- Documentation -> `documentation.md`
 - Software Development View/
-  - Specification -> `page_software-development-view.md`
+  - Specification -> `software-development-view.md`
   - OpenAPI link to SwaggerHub
   - Another OpenAPI definition/
   - ...
 
 ## Steps to add a NewKit documentation
 
-1. Create a folder under the `./docs/kits` with the name of the KIT you are developing the documentation of
+1. Create a folder under the `./docs/kits` with the name of the KIT you are developing the documentation of.
 
     ```md
     root
@@ -28,7 +28,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
             └── new-kit
     ```
 
-2. Inside the `new-kit` folder, add a `page_adoption-view.md` file with the content that suits your use case
+2. Inside the `new-kit` folder, add a `adoption-view.md` file with the content that suits your use case.
 
     ```md
     root
@@ -38,44 +38,59 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                 └── page_adoption-view.md
     ```
 
-3. Inside the `new-kit` folder, add a `page_software-operation-view.md` file with the content that suits your use case
+3. Inside the `new-kit` folder, add a `software-operation-view.md` file with the content that suits your use case.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                ├── page_adoption-view.md
-                └── page_software-operation-view.md
+                ├── adoption-view.md
+                └── software-operation-view.md
     ```
 
-4. Inside the `new-kit` folder, add a `page_documentation.md` file with the content that suits your use case
+4. Inside the `new-kit` folder, add a `documentation.md` file with the content that suits your use case.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                ├── page_adoption-view.md
-                ├── page_software-operation-view.md
-                └── page_documentation.md
+                ├── adoption-view.md
+                ├── software-operation-view.md
+                └── documentation.md
     ```
 
-5. Inside the `new-kit` folder, add a `SoftwareDevelopmentView` folder that contains a `page_software-development-view.md` file with the content that suits your use case
+5. Inside the `new-kit` folder, add a `software-development-view.md` file with the content that suits your use case.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                ├── page_adoption-view.md
-                ├── page_software-operation-view.md
-                ├── page_documentation.md
-                └── Software Development View
-                    └──page_software-development-view.md
+                ├── adoption-view.md
+                ├── software-operation-view.md
+                ├── documentation.md
+                └── software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please publish the API on SwaggerHub
+6. If you want to add additional pages to your KIT, add a folder with the same name as the .md file under which the pages should be added (e.g.`software-development-view` - `software-development-view.md`) and place the .md in it and the additional pages.
+
+    ```md
+    root
+    └── docs-kits
+        └── kits
+            └── new-kit
+                ├── adoption-view.md
+                ├── software-operation-view.md
+                ├── documentation.md
+                └── software-development-view
+                    ├── software-development-view.md
+                    └── additional-page.md
+                    
+    ```
+
+7. To generate the `OpenAPI` based documentation of your KIT, please publish the API on SwaggerHub
 
 **For KITs without reference implementation:**
 
