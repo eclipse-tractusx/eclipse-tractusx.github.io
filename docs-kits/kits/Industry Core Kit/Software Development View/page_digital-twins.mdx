@@ -146,8 +146,6 @@ Nevertheless, a search for digital twins can still be used via the corresponding
 
 To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-links-by-id).
 
-##### Submodel Descriptors
-
 Submodel descriptors must be compliant with the guildeines from the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit) as well as the following additional conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
@@ -284,6 +282,491 @@ A data consumer must first identify the correct submodel descriptor for a Catena
 
 Further information about the data transfer of submodels can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
+##### Define submodel descriptors to represent mass data (like parquet files) reference
+There are several ways to transfer mass data, such as parquet files. The main challenge in the transfer process lies in the large file sizes.
+The following sections present the possible solutions for defining submodel descriptors to represent mass data.
+
+###### Solution 1: Cloud2Cloud File transfer via S3 bucket with EDC AWS extension
+**Introduction to File Transfer process in EDC**
+
+1. `Provider` prepares aasx file with parquet file.
+1. `Provider` uploads the aasx file to an S3 bucket.
+2. `Provider` creates an edc-asset. The dataAddress includes information about the S3 bucket and the file name:
+
+```json
+ {
+   "edc:dataAddress": {
+     "edc-type": "AmazonS3",
+     "edc:bucket": "<provider-bucket>",
+     "edc:keyName": "<file-name>"
+   }
+ }
+```
+
+See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Software%20Development%20View/Specification%20Quality%20Kit/)
+3. `Provider` creates a shell with shell descriptors and the edc Asset with controlplane URL.
+4. `Consumer` calls the DTR via EDC and read the submodeldescriptor from the shell.
+5. `Consumer` starts negotiation/transfer process and provide their own bucket information:
+
+```json
+ {
+   "edc:dataDestination": {
+     "edc-type": "AmazonS3",
+     "edc:bucket": "<consumer-bucket>",
+     "edc:keyName": "<file-name>",
+     "edc:accessKeyId":"<access-key-id>",
+     "edc:secretAccessKey":"<secretAccessKey>"
+   }
+ }
+```
+
+6. `Provider` retrieve the request and download the requested aasx file from bucket and upload it to the consumer bucket.
+7. `Consumer` can download the file from their own bucket.
+
+**SubmodelDescriptor for aasx  file (Parquet Data - via File Transfer)**
+
+> ⚠ **Hint:**
+> Since the Cloud2Cloud file transfer is an asynchronous call and the consumer only triggers the process via EDC, the workflow cannot currently be fully represented in the submodel descriptors.
+> An issue has already been created with the IDTA to extend the submodel descriptor so that an asynchronous call can be defined as a standard feature. See [github-issue 347](https://github.com/admin-shell-io/aas-specs-api/issues/347)
+
+For the file transfer via S3 bucket the submodelDescriptor can be defined like:
+```json
+{
+...
+  "submodelDescriptors": [
+    {
+      "idShort": "quality-data",
+      "id": "<uuid>",
+      "endpoints": [
+        {
+           // TODO: Check which interface can be used here. See :https://github.com/admin-shell-io/questions-and-answers?tab=readme-ov-file#id47
+          "interface": "TBD", // SUBMODEL-3.0 cam not used because in EDC AWS S3 the consumer only triggers the event. It is a asyn call. No other type which can be used here (from IDTA Standards)
+          "protocolInformation": {
+            "href": "NONE",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "",
+            "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+             // Since the action only triggers an asyn event, the encoding is not relevant.
+            "subprotocolBodyEncoding": "application/json",
+            "securityAttributes": [
+              {
+                "type": "NONE",
+                "key": "NONE",
+                "value": "NONE"
+              }
+            ]
+          }
+        }
+      ],
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+           {
+              "type": "GlobalReference",
+              //TBD: New Model which map flatten hirarchy to model (like with "_" or "."). Outcome of the issue: https://github.com/eclipse-tractusx/sldt-semantic-models/issues/762
+              "value": "urn:samm:io.catenax.vehicle.product_description:3.0.0#FlattenedProductDescription"
+           }
+        ]
+      },
+      "description": [
+        {
+          "language": "en",
+          "text": "submodel-descriptor for quality data which will be transferred via EDC S3 bucket."
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Parameter               | Value                                                                             | Description                                                           |
+|-------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| href                    | ""                                                                                | not used for transfer via s3 bucket                                   |
+| subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                      | Includes information about provider edc controlplane and edc-asset ID |
+| subprotocolBodyEncoding | application/octet-stream;type=parquet-snappy                                      | format of file. The file will be transfer via bucket.                 |
+| semanticId.keys[].value | urn:samm:io.catenax.vehicle.product_description:3.0.0#FlattenedProductDescription | Aspect model which map flatten hirarchy to model                      |
+| description[].text      | submodel-descriptor for quality data which will be transferred via S3 bucket.     | Further description for the consumer.                                 |
+
+
+###### Solution 2: File transfer via AASX Server
+If the file size is less than 100 GB, it can be transferred in AAX format via HTTPS. Therefore, the parquet file must be embedded in an AAX file and provided via the AASX server.
+
+**Precondition**
+
+A mass data like parquet file is interpreted as a submodel, and therefore, an AASX file always contains only one assetAdminstrationShell with exact one submodel.
+![Industry Core kit massdata overview](@site/static/img/kits/industry-core/industry-core-kit-massdata-overview.svg)
+
+**Definition**
+
+The submodelDescriptor for this case can be defined as follows:
+```json
+{
+   "idShort": "boschFleet",
+   "id": "boschFleet",
+   ...
+   "submodelDescriptors": [
+      {
+         "idShort": "qualityTask",
+         "id": "qualityTask",
+         "endpoints": [
+            {
+               "interface": "AASX-FILE-3.0",
+               "protocolInformation": {
+                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/1>",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/octet-stream",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for quality task which will be transferred via AAX File."
+            }
+         ]
+      },
+      {
+         "idShort": "fleetClaimData",
+         "id": "flettClaimData",
+         "endpoints": [
+            {
+               "interface": "AASX-FILE-3.0",
+               "protocolInformation": {
+                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/2",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/octet-stream",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.fleet.claim_data:2.0.0#FlattenedClaimData"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for claim data which will be transferred via AAX File."
+            }
+         ]
+      },
+      {
+         "idShort": "fleetDiagnosticData",
+         "id": "fleetDiagnosticData",
+         "endpoints": [
+            {
+               "interface": "AASX-FILE-3.0",
+               "protocolInformation": {
+                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/3",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/octet-stream",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.fleet.diagnostic_data:2.0.0#FlattenedDiagnosticData"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for diagnostic data which will be transferred via AAX File."
+            }
+         ]
+      },
+      {
+         "idShort": "vehicleProductDescription",
+         "id": "vehicleProductDescription",
+         "endpoints": [
+            {
+               "interface": "AASX-FILE-3.0",
+               "protocolInformation": {
+                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/4",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/octet-stream",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.vehicle.product_description:2.0.0#FlattenedProductDescription"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for vehicle product description which will be transferred via AAX File."
+            }
+         ]
+      },
+      {
+         "idShort": "qualityTaskAttachment",
+         "id": "qualityTaskAttachment",
+         "endpoints": [
+            {
+               "interface": "AASX-FILE-3.0",
+               "protocolInformation": {
+                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/5",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/octet-stream",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.quality_task_attachment:2.0.0#FlattenedQualityTaskAttachment"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for quality task attachment which will be transferred via AAX File."
+            }
+         ]
+      }
+   ]
+}
+```
+
+Example AASX File for **qualityTask** structure can looks like:
+```
+bosch_quality_data.aasx
+│   CX_release3_qax_testdata_qualitytask_v1.1.parquet
+│───aasx
+      └───data.xml
+```
+
+The reference inside of 'bosch_quality_data.aasx' -> 'data.xml' can look like:
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<aas:environment xmlns:aas="https://admin-shell.io/aas/3/0">
+   <aas:assetAdministrationShells>
+      <aas:assetAdministrationShell>
+         <aas:idShort>boschFleet</aas:idShort>
+         <aas:id>boschFleet</aas:id>
+         <aas:assetInformation>
+            <aas:assetKind>Instance</aas:assetKind>
+            <aas:globalAssetId>global-asset-fleet</aas:globalAssetId>
+         </aas:assetInformation>
+         <aas:submodels>
+            <aas:reference>
+               <aas:type>ModelReference</aas:type>
+               <aas:keys>
+                  <aas:key>
+                     <aas:type>Submodel</aas:type>
+                     <aas:value>qualityTask</aas:value>
+                  </aas:key>
+               </aas:keys>
+            </aas:reference>
+         </aas:submodels>
+      </aas:assetAdministrationShell>
+   </aas:assetAdministrationShells>
+   <aas:submodels>
+      <aas:submodel>
+         <aas:category>qualityTask</aas:category>
+         <aas:idShort>qualityTask</aas:idShort>
+         <aas:id>qualityTask</aas:id>
+         <aas:kind>Instance</aas:kind>
+         <aas:semanticId>
+            <aas:type>ExternalReference</aas:type>
+            <aas:keys>
+               <aas:key>
+                  <aas:type>GlobalReference</aas:type>
+                  <aas:value>urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask</aas:value>
+               </aas:key>
+            </aas:keys>
+         </aas:semanticId>
+         <aas:submodelElements>
+            <aas:file>
+               <aas:category>PARAMETER</aas:category>
+               <aas:idShort>quality_data_parquet</aas:idShort>
+               <aas:semanticId>
+                  <aas:type>ExternalReference</aas:type>
+                  <aas:keys>
+                     <aas:key>
+                        <aas:type>GlobalReference</aas:type>
+                        <aas:value>urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask</aas:value>
+                     </aas:key>
+                  </aas:keys>
+               </aas:semanticId>
+               <aas:value>/CX_release3_qax_testdata_qualitytask_v1.1.parquet</aas:value>
+               <aas:contentType>application/parquet</aas:contentType>
+            </aas:file>
+         </aas:submodelElements>
+      </aas:submodel>
+   </aas:submodels>
+</aas:environment>
+```
+
+Example AASX File **claimData** structure can looks like:
+```
+bosch_claim_data.aasx
+│   CX_release3_qax_testdata_claimData_v1.1.parquet
+│───aasx
+      └───data.xml
+```
+
+The reference inside of 'bosch_claim_data.aasx' -> 'data.xml' can look like:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<aas:environment xmlns:aas="https://admin-shell.io/aas/3/0">
+   <aas:assetAdministrationShells>
+      <aas:assetAdministrationShell>
+         <aas:idShort>boschFleet</aas:idShort>
+         <aas:id>boschFleet</aas:id>
+         <aas:assetInformation>
+            <aas:assetKind>Instance</aas:assetKind>
+            <aas:globalAssetId>global-asset-fleet</aas:globalAssetId>
+         </aas:assetInformation>
+         <aas:submodels>
+            <aas:reference>
+               <aas:type>ModelReference</aas:type>
+               <aas:keys>
+                  <aas:key>
+                     <aas:type>Submodel</aas:type>
+                     <aas:value>claimData</aas:value>
+                  </aas:key>
+               </aas:keys>
+            </aas:reference>
+         </aas:submodels>
+      </aas:assetAdministrationShell>
+   </aas:assetAdministrationShells>
+   <aas:submodels>
+      <aas:submodel>
+         <aas:category>claimData</aas:category>
+         <aas:idShort>claimData</aas:idShort>
+         <aas:id>claimData</aas:id>
+         <aas:kind>Instance</aas:kind>
+         <aas:semanticId>
+            <aas:type>ExternalReference</aas:type>
+            <aas:keys>
+               <aas:key>
+                  <aas:type>GlobalReference</aas:type>
+                  <aas:value>urn:samm:io.catenax.fleet.claim_data:2.0.0##FlattenedClaimData</aas:value>
+               </aas:key>
+            </aas:keys>
+         </aas:semanticId>
+         <aas:submodelElements>
+            <aas:file>
+               <aas:category>PARAMETER</aas:category>
+               <aas:idShort>quality_data_parquet</aas:idShort>
+               <aas:semanticId>
+                  <aas:type>ExternalReference</aas:type>
+                  <aas:keys>
+                     <aas:key>
+                        <aas:type>GlobalReference</aas:type>
+                        <aas:value>urn:samm:io.catenax.fleet.claim_data:2.0.0##FlattenedClaimData</aas:value>
+                     </aas:key>
+                  </aas:keys>
+               </aas:semanticId>
+               <aas:value>/CX_release3_qax_testdata_claimData_v1.1.parquet</aas:value>
+               <aas:contentType>application/parquet</aas:contentType>
+            </aas:file>
+         </aas:submodelElements>
+      </aas:submodel>
+   </aas:submodels>
+</aas:environment>
+```
+
+###### Solution 3: File transfer via [async.] AASX Server
+Issue is created: See [github-issue 347](https://github.com/admin-shell-io/aas-specs-api/issues/347)
+Status: In progress
+
 ### Lookup in the Digital Twin Registry
 
 For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
@@ -356,7 +839,7 @@ To find the corresponding part instance twins to a given part type twin, it is p
 
 To find the corresponding part type twin to a given part instance twin, it is possible to search for the specific asset IDs `manufacturerId`, `manufacturerPartId` and `digitalTwinType = "PartType"` of the given part instance twin.
 
-To find the corresponding part instance twins to a given part instance twin, it is possible to search for the specific asset IDs `manufacturerId`, `manufacturerPartId` and `digitalTwinType = "PartInstance"` of the given part instance twin. 
+To find the corresponding part instance twins to a given part instance twin, it is possible to search for the specific asset IDs `manufacturerId`, `manufacturerPartId` and `digitalTwinType = "PartInstance"` of the given part instance twin.
 
 ### Unique ID Push
 
