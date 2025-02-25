@@ -95,7 +95,7 @@ If all of the above questions are answered with a clear "No", a twin might be ov
 
 If mass data is used for analysis to generate new data applicable to a specific object (e.g., material, serialized part, batch), this data should be linked to a digital twin at that level, while the originating mass data sets are not required to be linked. For example, analytics use cases leveraging mass data sets regarding multiple objects could feed their outcome back into the digital twins of the known objects, while the potentially use-case proprietary mass data sets are not necessarily represented by digital twins or submodels.
 
-Data that is exchanged via request and answer schemes, due to the need of additional processes to generate, may also be attached -once generated- in addition to the direct exchange.
+Data that is exchanged via request and answer schemes, due to the need of additional processes to generate, may also be attached - once generated - in addition to the direct exchange.
 
 The AAS does not alter data structures; it defines a method to link data (submodels) to objects and establishes a standardized path for data discovery. Data Structures and Semantics should be described by semantic models to support easy consumption.
 
@@ -143,7 +143,7 @@ More information about backward compatibility and versioning can be found here:
 
 ## Building Block View
 
-The basic features of Industry Core build the foundation for message-based and digital-twin-based data exchange in Catena-X. Message-based communication or respectively data push scenarios can leverage the notification feature, whilst data pull scenarios can leverage the digital-twin-based data discovery as well as data exchange orchestration.
+The basic features of Industry Core build the foundation for message-based and digital-twin-based data sharing in Catena-X. Message-based communication or respectively data push scenarios can leverage the notification feature, whilst data pull scenarios can leverage the digital-twin-based data discovery as well as data sharing orchestration.
 
 Use cases are intended to build upon the foundation provided by the Industry Core to support use case agnostic interoperability, reusability, monitoring and minimized entry barriers towards new use cases.
 
@@ -163,7 +163,7 @@ With notifications, the Industry Core defines a message-based data exchange with
 - The exchange consists of a set of operations that can be used to exchange notifications between sender and receiver. Each operation has a defined request, i.e., the notification, and a response which consists of HTTP error codes. Operations can use notifications with different data formats. It is not required to use the same notification data format for all operations.
 - The exchange is done via Catena-X connectors. So, this KIT also defines assets, asset properties, and usage policies that are required for implementation of the exchange.
 
-Together, these artifacts define the message-based data exchange, called notification API. This KIT also defines a standardized way to document all these artifacts of a notification API in Catena-X standard documents and KITs.
+Together, these artifacts define the message-based data sharing, called notification API. This KIT also defines a standardized way to document all these artifacts of a notification API in Catena-X standard documents and KITs.
 
 Use cases can define and standardize their own notification APIs. They need to extend the Industry Core notification API by adding their own business content.
 
@@ -171,7 +171,7 @@ Use cases can define and standardize their own notification APIs. They need to e
 - They must define a set of operations that should be supported with the use case specific notification API.
 - They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.  
 
-As all use cases use the same underlying notification technology based on Industry Core, use cases still are interoperable. Data and app providers only need to implement one notification technology that is jointly used by all use cases and do not need to implement several different technologies for message-based data exchange.
+As all use cases use the same underlying notification technology based on Industry Core, use cases still are interoperable. Data and app providers only need to implement one notification technology that is jointly used by all use cases and do not need to implement several different technologies for message-based data sharing.
 
 ## Runtime View
 
@@ -203,13 +203,13 @@ integrated form the foundation for data exchange in Catena-X.
 All relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Industry Core specific
-    - [CX - 0151 Industry Core: Basics 1.0.0](https://catena-x.net/de/standard-library)
-    - [CX - 0126 Industry Core Part Type 1.0.0](https://catena-x.net/de/standard-library)
-    - [CX - 0127 Industry Core Part Instance 1.0.0](https://catena-x.net/de/standard-library)
+    - [CX-0151 Industry Core: Basics 1.0](https://catena-x.net/de/standard-library)
+    - [CX-0126 Industry Core Part Type 2.0](https://catena-x.net/de/standard-library)
+    - [CX-0127 Industry Core Part Instance 2.0](https://catena-x.net/de/standard-library)
 - Interoperability Layer
-    - [CX - 0001 EDC Discovery API 1.0.2](https://catena-x.net/de/standard-library)
-    - [CX - 0002 Digital Twins in Catena-X 2.2.0](https://catena-x.net/de/standard-library)
-    - [CX - 0003 SAMM Aspect Meta Model 1.1.0](https://catena-x.net/de/standard-library)
+    - [CX-0001 EDC Discovery API 1.0](https://catena-x.net/de/standard-library)
+    - [CX-0002 Digital Twins in Catena-X 2.2](https://catena-x.net/de/standard-library)
+    - [CX-0003 SAMM Aspect Meta Model 1.2](https://catena-x.net/de/standard-library)
 - Sovereignty Layer
     - [CX - 0018 Dataspace Connectivity 2.1.0](https://catena-x.net/de/standard-library)
 - Identity Layer

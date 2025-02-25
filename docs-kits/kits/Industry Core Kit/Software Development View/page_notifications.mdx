@@ -33,7 +33,7 @@ A notification is sent from one Catena-X partner - called sender - to another Ca
 
 ![Notifications Flow](../assets/notifications_process.svg)
 
-The exchange is done via Catena-X connectors:
+The exchange is done via standardized connectors:
   - The receiver provides an asset in the connector to which notifications can be sent.
   - The sender initiates a contract negotiation for this asset to get a contract agreement and dataplane endpoint.
   - After a successful contract negotiation, the sender sends the notification via a HTTP POST request to the receiver via the dataplane endpoint from the contract agreement. 
@@ -41,10 +41,9 @@ The exchange is done via Catena-X connectors:
   
 ### Notification Data Format
 
-This section defines the data format of notifications:
+This section defines the data format for notifications:
 
-- Notifications must be in JSON format. 
-- Notifications must be compliant to the following data format:
+Notifications must be compliant to the following JSON data format:
 
 ```json
   {
