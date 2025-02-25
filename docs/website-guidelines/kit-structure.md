@@ -84,7 +84,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                 ├── adoption-view.md
                 ├── software-development.md
                 ├── software-operation-view.md
-                └── documentation.md 
+                └── documentation.md
 
 7. If you want to add additional pages to your KIT, add a folder with the same name as the .md file under which the pages should be added (e.g.`software-development-view` - `software-development-view.md`) and place the .md in it and the additional pages.
 
