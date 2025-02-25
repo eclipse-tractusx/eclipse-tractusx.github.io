@@ -2,10 +2,8 @@
 id: Adoption View Customs Kit
 title: Adoption View Customs
 description: "Customs Kit"
-sidebar_position: 1
+sidebar_position: 2
 ---
-
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.drawio.svg)
 
 ## Vision & Mission
 
