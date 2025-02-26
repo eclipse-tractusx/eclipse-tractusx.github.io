@@ -6,20 +6,23 @@ sidebar_position: 3
 ---
 
 <!--
-This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 BASF SE
-- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2025 BASF SE
+- SPDX-FileCopyrightText: 2023, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
 - SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
 - SPDX-FileCopyrightText: 2023 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023, 2025 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023, 2025 SAP SE
 - SPDX-FileCopyrightText: 2023 Siemens AG
 - SPDX-FileCopyrightText: 2023 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Deloitte Consulting GmbH.
+- SPDX-FileCopyrightText: 2025 GALIA
+- SPDX-FileCopyrightText: 2025 msg systems AG
+- SPDX-FileCopyrightText: 2023, 2025 Contributors to the Eclipse Foundation
 - Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Industry%20Core%20Kit (latest version)
 -->
 
@@ -33,7 +36,7 @@ A notification is sent from one Catena-X partner - called sender - to another Ca
 
 ![Notifications Flow](../assets/notifications_process.svg)
 
-The exchange is done via standardized connectors:
+The data sharing is done via standardized connectors:
   - The receiver provides an asset in the connector to which notifications can be sent.
   - The sender initiates a contract negotiation for this asset to get a contract agreement and dataplane endpoint.
   - After a successful contract negotiation, the sender sends the notification via a HTTP POST request to the receiver via the dataplane endpoint from the contract agreement. 
@@ -61,7 +64,7 @@ Notifications must be compliant to the following JSON data format:
 ```
 
 - The JSON schema for this schema is available [here](../assets/notification.schema.json).
-- The property `header` must be compliant to the aspect model [MessageHeaderAspect](#31-aspect-model-messageheaderaspect). 
+- The property `header` must be compliant to the aspect model [MessageHeaderAspect](#aspect-model-messageheaderaspect). 
   - The `messageId` of a notification must uniquely identify a single message, therefore it must not be reused. No two notifications must share the same `messageId`. Only if a notification could not be sent because of data transfer errors, it MAY be re-sent with the same `messageId`.
   - It is recommended to use the following format (defined in the MessageHeaderAspect aspect model) for property `context`: `<domain>-<subdomain>-<object>:<[major] version>`
     - `<domain>` should be the name of the use case that defines the notification, e.g., `IndustryCore`.
@@ -102,7 +105,7 @@ The notification API of a use case must be defined with an OpenAPI specification
 
 #### Preconditions and Dependencies
 
-- The use case must standardize the notification API's name. The name of the notification API (used in property `http://purl.org/dc/terms/type`) must be defined in the Catena-X taxonomy published under https://w3id.org/catenax/taxonomy.
+- The use case must standardize the notification API's name see [Notification API Documentation](#notification-api-documentation)
 - For a notification API, only the HTTP method POST is allowed.
 
 #### API Specification
@@ -167,6 +170,7 @@ The API's version is not only documented in the notification's connector asset (
 
 A use case defining a notification API as part of its standard must document the following artifacts:
 - All notification data formats must be documented either as separate JSON schema or (also in JSON schema) as part of the notification API's OpenAPI specification.
-- The notification API must be documented with an OpenAPI specification that must be published on the Tractus-X Swagger space.
+- The notification API must be documented with an OpenAPI specification and must be published according to [TRG 1.08 - Interface documentation (APIs)](/docs/release/trg-1/trg-1-08/).
 - For a standardized use case, the name of the notification API (used in property `http://purl.org/dc/terms/type`) must be defined in the Catena-X taxonomy published under https://w3id.org/catenax/taxonomy.
-- The notification API asset in the connector must define the property `http://purl.org/dc/terms/type` as defined in [4.1.3 EDC DATA ASSET STRUCTURE](#413-edc-data-asset-structure).
+- The notification API asset in the connector must define necessary properties as defined in [Connector Asset Structure](#connector-asset-structure).
+
