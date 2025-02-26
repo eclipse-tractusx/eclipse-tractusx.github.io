@@ -6,20 +6,23 @@ sidebar_position: 2
 ---
 
 <!--
-This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 BASF SE
-- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2025 BASF SE
+- SPDX-FileCopyrightText: 2023, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
 - SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
 - SPDX-FileCopyrightText: 2023 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023, 2025 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023, 2025 SAP SE
 - SPDX-FileCopyrightText: 2023 Siemens AG
 - SPDX-FileCopyrightText: 2023 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Deloitte Consulting GmbH.
+- SPDX-FileCopyrightText: 2025 GALIA
+- SPDX-FileCopyrightText: 2025 msg systems AG
+- SPDX-FileCopyrightText: 2023, 2025 Contributors to the Eclipse Foundation
 - Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Industry%20Core%20Kit (latest version)
 -->
 
@@ -57,7 +60,7 @@ This architecture is based on the following assumptions:
 
 ## Digital Twin - Asset Administration Shell
 
-This section provides guidance on the consideration of digital twins as a basis for data structuring and data discovery within Catena-X. Details on the exact usage of AAS and Digital Twins can be obtained in CX-0002 Digital Twins in CatenaX and CX-0003 SAMM Aspect Meta Model.
+This section provides guidance on the consideration of digital twins as a basis for data structuring and data discovery within Catena-X. Details on the exact usage of AAS and Digital Twins can be obtained in the [Digital Twin KIT](/docs-kits/category/digital-twin-kit)
 
 ### General Guidance
 
@@ -95,7 +98,7 @@ If all of the above questions are answered with a clear "No", a twin might be ov
 
 If mass data is used for analysis to generate new data applicable to a specific object (e.g., material, serialized part, batch), this data should be linked to a digital twin at that level, while the originating mass data sets are not required to be linked. For example, analytics use cases leveraging mass data sets regarding multiple objects could feed their outcome back into the digital twins of the known objects, while the potentially use-case proprietary mass data sets are not necessarily represented by digital twins or submodels.
 
-Data that is exchanged via request and answer schemes, due to the need of additional processes to generate, may also be attached - once generated - in addition to the direct exchange.
+Data that is shared via request and answer schemes, due to the need of additional processes to generate, may also be attached - once generated - in addition to the direct data sharing.
 
 The AAS does not alter data structures; it defines a method to link data (submodels) to objects and establishes a standardized path for data discovery. Data Structures and Semantics should be described by semantic models to support easy consumption.
 
@@ -155,13 +158,13 @@ A shared technical foundation offers significant advantages for dataspace partic
 
 ### Notifications
 
-With notifications, the Industry Core defines a message-based data exchange within Catena-X. The message is sent from one Catena-X partner - called sender - to another Catena-X partner - called receiver - using simple messages in JSON format via Catena-X connector, as shown in the following figure:
+With notifications, the Industry Core defines a message-based data sharing within Catena-X. The message is sent from one Catena-X partner - called sender - to another Catena-X partner - called receiver - using simple messages in JSON format via Catena-X connector, as shown in the following figure:
 
 ![Notifications Flow](./assets/notifications_process.svg)
 
 - In the context of this KIT, notifications are messages in JSON format with a standardized data format consisting of a standardized header and a use-case-specific content.
-- The exchange consists of a set of operations that can be used to exchange notifications between sender and receiver. Each operation has a defined request, i.e., the notification, and a response which consists of HTTP error codes. Operations can use notifications with different data formats. It is not required to use the same notification data format for all operations.
-- The exchange is done via Catena-X connectors. So, this KIT also defines assets, asset properties, and usage policies that are required for implementation of the exchange.
+- The notification API consists of a set of operations that can be used to exchange notifications between sender and receiver. Each operation has a defined request, i.e., the notification, and a response which consists of HTTP error codes. Operations can use notifications with different data formats. It is not required to use the same notification data format for all operations.
+- The notification exchange is done via Catena-X connectors. So, this KIT also defines assets, asset properties, and usage policies that are required for implementation.
 
 Together, these artifacts define the message-based data sharing, called notification API. This KIT also defines a standardized way to document all these artifacts of a notification API in Catena-X standard documents and KITs.
 
@@ -198,41 +201,26 @@ the Asset Administration Shell standard as adopted by Catena-X. Its correct depl
 services (Digital Twin Registry and Submodel Endpoints) are operated by all Data Providers.
 
 The Identity and Sovereignty Layers are defined in a variety of Catena-X standards that are assumed to be deployed and
-integrated form the foundation for data exchange in Catena-X.
+integrated form the foundation for data sharing in Catena-X.
 
 All relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
 
 - Industry Core specific
     - [CX-0151 Industry Core: Basics 1.0](https://catena-x.net/de/standard-library)
-    - [CX-0126 Industry Core Part Type 2.0](https://catena-x.net/de/standard-library)
+    - [CX-0126 Industry Core Part Type 2.1](https://catena-x.net/de/standard-library)
     - [CX-0127 Industry Core Part Instance 2.0](https://catena-x.net/de/standard-library)
 - Interoperability Layer
     - [CX-0001 EDC Discovery API 1.0](https://catena-x.net/de/standard-library)
     - [CX-0002 Digital Twins in Catena-X 2.2](https://catena-x.net/de/standard-library)
     - [CX-0003 SAMM Aspect Meta Model 1.2](https://catena-x.net/de/standard-library)
 - Sovereignty Layer
-    - [CX - 0018 Dataspace Connectivity 2.1.0](https://catena-x.net/de/standard-library)
+    - [CX-0018 Dataspace Connectivity 3.2](https://catena-x.net/de/standard-library)
 - Identity Layer
-    - [CX - 0013 Identity of Member Companies 1.1.0](https://catena-x.net/de/standard-library)
-    - [CX - 0014 Employees and Technical Users 1.0.1](https://catena-x.net/de/standard-library)
-    - [CX - 0015 IAM & Access Control Paradigm 1.0.1](https://catena-x.net/de/standard-library)
-    - [CX - 0016 Company Attribute Verification 1.1.0](https://catena-x.net/de/standard-library)
-    - [CX - 0017 Company Role by the Connector 1.1.0](https://catena-x.net/de/standard-library)
-    - [CX - 0050 Framework Agreement Credential 1.0.0](https://catena-x.net/de/standard-library)
-    - [CX - 0051 Summary Credential 1.0.0](https://catena-x.net/de/standard-library)
-
-_Sidenote: The following existing standards are incorporated into new standards. Please only refer to CX-0126 and CX-0127._
-
-- [CX - 0126 Industry Core Part Type 1.0.0](https://catena-x.net/de/standard-library) is the new standard based on the following existing standards:
-    - CX - 0042 Aspect Model SingleLevelBomAsPlanned
-    - CX - 0043 Aspect Model PartAsPlanned
-    - CX - 0094 Aspect Model PartSiteInformationAsPlanned
-    - CX - 0061 Triangle Traceability Data Provisioning BomAsPlanned
-- [CX - 0127 Industry Core Part Instance 1.0.0](https://catena-x.net/de/standard-library) is the new standard based on the following existing standards:
-    - CX - 0019 Aspect Model SerialPart
-    - CX - 0020 Aspect Model SingleLevelBomAsBuilt
-    - CX - 0021 Aspect Model Batch
-    - CX - 0060 Triangle Traceability - Digital Twin As-Built
+    - [CX-0013 Identity of Member Company 2.0](https://catena-x.net/de/standard-library)
+    - [CX-0014 Employees and Technical Users 1.0](https://catena-x.net/de/standard-library)
+    - [CX-0015 IAM & Access Control Paradigm for Users and Clients 1.0](https://catena-x.net/de/standard-library)
+    - [CX-0149 Verified Company Identity 1.0](https://catena-x.net/de/standard-library)
+    - [CX-0050 Framework Agreement Credential 2.1](https://catena-x.net/de/standard-library)
 
 ## Terminology
 
@@ -248,7 +236,7 @@ The following terms are especially relevant for the understanding of this KIT:
 
 **Notification Receiver:** The receiver of a Catena-X notification. The receiver provides an asset in the connector to which notifications can be sent.
 
-**Notification API**: A message-based data exchange within Catena-X that supports a set of operations.
+**Notification API**: A message-based data sharing within Catena-X that supports a set of operations.
 
 **Unique ID / Catena-X ID**: A Unique ID uniquely identifies a particular real-world asset. In Industry Core, these are: serialized parts (including vehicles), batches, JIS parts (Just-in-Sequence) and catalog parts. A Unique ID is a URN and has the following format: urn:uuid:&lt;UUIDv4&gt;, i.e., the NID is "uuid" and the NSS is an UUID Version 4 (as described here: https://en.wikipedia.org/wiki/Universally_unique_identifier). Unique IDs are used in several places in Industry Core, e.g., as globalAssetId for digital twins. Although they share the same format with other identifiers like, e.g., the AAS identifier, they are separate identifiers that identify different resources and should not be mistaken with these other identifiers.
 
