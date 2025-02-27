@@ -15,7 +15,7 @@ sidebar_position: 2
 
 Our vision is to transition from parts-based quality management on a bilateral level between suppliers and customers, to a data-based approach across the OEM-n-Tier value creation chains. This transition aims to enable a network approach for producing and ensuring product quality in a **Live Quality Loop**.
 
-![quality kit vision diagram](@site/static/img/quality-kit_vision-min.png)
+![quality kit vision diagram](@site/Quality-Kit/assets/vision-live-quality-loop.png)
 
 The Quality KIT enables OEM and supplier as **data provider** and **consumer** to exchange and analyze existing data across company boundaries on a e.g. weekly basis, securely and easily. By merging the OEM's field quality data with the supplier's product information, a new level of transparency is achieved, leading to earlier failure detection, faster cooperation between partners, and accelerated root cause analysis. The goal is to minimize the number of parts and vehicles that require corrective actions.
 
@@ -23,7 +23,7 @@ Additionally, this KIT enables the **quality app provider** to deliver solutions
 
 ### Mission
 
-![quality kit mission diagram](@site/static/img/quality-kit_mission-min.png)
+![quality kit mission diagram](@site/Quality-Kit/assets/mission.png)
 The mission of the Quality KIT is to provide the necessary standards, aspect models, technical data pipeline specifications, and business logics to establish a sovereign exchange of quality-related data along the OEM-Tier n chain. This is based on the following principles:
 
 -   We bring together data from suppliers and manufacturers (OEM).
@@ -42,7 +42,7 @@ With the Quality KIT, we support the Catena-X customer journey for our adopters 
 -   Quality features like Early Warning Field require a data exchange from a big population of vehicles or part instances. For such big files the data transfer performance by Digital Twins are currently not proven.,
 -   The number of vehicles and products in field covered by existing Digital Twins is too low to realize quality work today.
 
-![quality kit customer journey diagram](@site/static/img/quality.kit_customer-Journey-1_1.jpg)
+![quality kit customer journey diagram](@site/Quality-Kit/assets/user-journey.png)
 
 ## Business Value
 
@@ -112,47 +112,47 @@ The example impressively shows that with the Catena-X methodology (Live Quality 
 
 ## In the following figures five quality improvement scenarios based on the Life Quality Loop are presented, together with the concrete benefit in the meaning of e.g., saved time or reduced number of affected products and vehicles.
 
-![](media/cefbefd22e450197c186457edc82b1d8.tmp)
+![](@site/Quality-Kit/assets/success-story-overview.png)
 
-![](media/d51e80388d9d3a022efd1ee9ce5cfe48.tmp)
+![](@site/Quality-Kit/assets/success-story-benefit-overview.png)
 
 ## You can find more detailed information for all five scenarios in the figures below.
 
-![](media/0ac02099af2e1492f4d27416aebea04e.tmp)
+![](@site/Quality-Kit/assets/success-story-1.png)
 
-![](media/faa70586fb9cc8278cb2d7f33cb65b7c.tmp)
+![](@site/Quality-Kit/assets/success-story-2.png)
 
-![](media/3334cfb7ccd08c8c96fdd6178c6cc1f4.tmp)
+![](@site/Quality-Kit/assets/success-story-3.png)
 
-![](media/438e9edf19f79a8908600fb678ffb894.tmp)
+![](@site/Quality-Kit/assets/success-story-4.png)
 
-![](media/b136495e4ebdcc58d9e40a5a552cad47.tmp)
+![](@site/Quality-Kit/assets/success-story-5.png)
 
 ## Tutorials
 
 The following **Onboarding Guide** is based on experiences gained during the initiation of real Quality pilots and the transfer to serial operation. Remark: For more details about the specified IT infrastructure, take a look at the **Architecture Overview** below and the description of how to exchange data in the [**Operation View**](https://eclipse-tractusx.github.io/docs-kits/next/kits/Quality-Kit/Operation%20View%20Quality%20Kit)**.**
 
-![](media/92bb19d27f84d8d33d262301cbc5fe34.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-onboarding-journey.png)
 
 ### The following topics should be considered for a successful onboarding
 
-![](media/9ae9487fcd80bdcc53ac094ccf2f39d1.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-topics.png)
 
 ### The "Do's & Don'ts" for the Team Setup and PMO
 
-![](media/2a08a37f445911a61282ae96be772bc9.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-team-setup.png)
 
 ### The "Do's & Don'ts" for the Legal Agreement
 
-![](media/7a6ddd62d622fd28c756b738af87e067.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-legal-agreement.png)
 
 ### The "Do's & Don'ts" for the infrastructure set up and development
 
-![](media/6fe6d1d58c8ce41b5fa6a9c668cfed37.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-infrastructure.png)
 
 ### The "Do's & Don'ts" for working with the Live Quality Loop Methodology
 
-![](media/dc7e8b40187e88e2c22487726142f9e9.tmp)
+![](@site/Quality-Kit/assets/dos-and-donts-methodology.png)
 
 The following videos give an overview of the vision of the Quality Use Case.
 
@@ -166,12 +166,12 @@ Hear what the consortia partners within in the Use Case Quality state about the 
 
 ### Semantic Structure
 
-![semantic structure chart](@site/static/img/quality-kit_semantic-structure-min.png)
+![semantic structure chart](@site/Quality-Kit/assets/data-model-structure.png)
 
 ### Overview Data Model Entities
 
-Download for MS Excel: <a target="_blank" href={ require("/static/img/Quality_KIT_DataModelOverview_v1.0.xlsx")
-.default } download>Quality_KIT_DataModelOverview_v1.0.xlsx</a>
+Download for MS Excel: <a target="_blank" href={ require("/Quality-Kit/assets/R2405_Quality_KIT_DataModelOverview.xlsx")
+.default } download>R2405_Quality_KIT_DataModelOverview.xlsx</a>
 --> [R2405_Quality_KIT_DataModelOverview.xlsx](https://bcgcatenax.sharepoint.com/sites/download/attachments/126287876/R2405_Quality_KIT_DataModelOverview.xlsx)
 
 ### Common Data
@@ -255,9 +255,9 @@ model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models
 
 ## Logic & Schema
 
-### Business Logic
+### Business Logic ---- HIER GEHTS WEITER___
 
-![quality kit business logic diagram](@site/static/img/quality-kit_business-logic-1_1.png)
+![quality kit business logic diagram](@site/Quality-Kit/assets/quality-user-journey.png)
 
 The prerequisite for faster faster problem solving is the earliest possible detection of a problem (early warning) and
 the fastest possible understanding of the error chain and cause (root cause analysis). Early Warning in general has to
@@ -284,7 +284,7 @@ much faster.
 
 ### Architecture Overview
 
-![independant architecture r2312 chart](@site/static/img/quality-kit_general_app-independant_archicture-R2312.jpg)
+![independant architecture r2312 chart](@site/Quality-Kit/assets/architecture_overview.png)
 
 The tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1
 supplier is analyzing the data in order to detect patterns based on which DTCs and claims can be explained. The data is
