@@ -45,10 +45,12 @@ import Traceability_Kit from "@site/static/img/kits/traceability/traceability-ki
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
+// * Engineering
 // * Industry Core
+// * Manufacturing
 // * Network Services
-// * PLM / Quality
-// * Resiliency
+// * Quality
+// * Supply Chain
 // * Sustainability
 // * Engineering
 
@@ -79,7 +81,7 @@ export const kitsGallery = [
   {
     id: 4,
     name: 'Traceability Kit',
-    domain: 'PLM / Quality',
+    domain: 'Quality',
     img: Traceability_Kit,
     pageRoute: "/docs-kits/kits/Traceability Kit/Business View Traceability Kit"
   },
@@ -107,14 +109,14 @@ export const kitsGallery = [
   {
     id: 8,
     name: 'Online Simulation Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     img: OnlineSimulation,
     pageRoute: "/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit"
   },
   {
     id: 9,
     name: 'Data Driven Quality Management Kit',
-    domain: 'PLM / Quality',
+    domain: 'Quality',
     img: DDQM,
     pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
   },
@@ -135,14 +137,14 @@ export const kitsGallery = [
   {
     id: 12,
     name: 'DCM Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     img: DemandandCapacityManagement_Kit,
     pageRoute: "/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/overview"
   },
   {
     id: 13,
     name: 'Modular Production Kit',
-    domain: 'Resiliency',
+    domain: 'Manufacturing',
     img: ModularProduction_Kit,
     pageRoute: "/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit"
   },
@@ -156,7 +158,7 @@ export const kitsGallery = [
   {
     id: 15,
     name: 'Manufacturing as a Service Kit',
-    domain: 'Resiliency',
+    domain: 'Manufacturing',
     img: Maas_Kit,
     pageRoute: "/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
   },
@@ -177,14 +179,14 @@ export const kitsGallery = [
   {
     id: 18,
     name: 'PURIS Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
     img: PURIS_Kit,
   },
   {
     id: 19,
     name: 'Supply Chain Disruption Notifications KIT',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
     img: SupplyChainsDisruptionNotifications_Kit,
   },
@@ -198,7 +200,7 @@ export const kitsGallery = [
   {
     id: 21,
     name: 'Logistics KIT',
-    domain: 'PLM / Quality',
+    domain: 'Supply Chain',
     pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
     img: Logistics_Kit,
   },
