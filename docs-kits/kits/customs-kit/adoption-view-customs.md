@@ -5,6 +5,8 @@ description: "Customs Kit"
 sidebar_position: 2
 ---
 
+![Customs kit logo](@site/static/img/kits/customs/customs-kit-logo.drawio.svg)
+
 ## Vision & Mission
 
 ### Vision
