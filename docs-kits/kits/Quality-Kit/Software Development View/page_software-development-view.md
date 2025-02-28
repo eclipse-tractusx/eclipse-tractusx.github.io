@@ -37,9 +37,6 @@ Github Link to semantic data model: [Quality Task](https://github.com/eclipse-tr
 File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_QualityTask_200_testdata.parquet" download>
 CX25_03_QualityTask_200_testdata.parquet</a>
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_QualityTask_200_testdata.parquet" download>
-CX25_03_QualityTask_200_testdata.parquet</a>
-
 As **data provider** please add the **PARQUET file** as EDC asset to the **EDC data plane.**
 
 ### Quality Task Attachment Sample Data
