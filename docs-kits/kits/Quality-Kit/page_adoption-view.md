@@ -118,15 +118,15 @@ In the following figures **five quality improvement scenarios** based on the Lif
 
 You can find more detailed information for all five scenarios in the figures below.
 
-![](@site/Quality-Kit/assets/success-story-1.png)
+![success-story-1](@site/Quality-Kit/assets/success-story-1.png)
 
-![](@site/Quality-Kit/assets/success-story-2.png)
+![success-story-2](@site/Quality-Kit/assets/success-story-2.png)
 
-![](@site/Quality-Kit/assets/success-story-3.png)
+![success-story-3](@site/Quality-Kit/assets/success-story-3.png)
 
-![](@site/Quality-Kit/assets/success-story-4.png)
+![success-story-4](@site/Quality-Kit/assets/success-story-4.png)
 
-![](@site/Quality-Kit/assets/success-story-5.png)
+![success-story-5](@site/Quality-Kit/assets/success-story-5.png)
 
 ## Tutorials
 
