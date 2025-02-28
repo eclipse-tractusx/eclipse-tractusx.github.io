@@ -767,6 +767,59 @@ The reference inside of 'bosch_claim_data.aasx' -> 'data.xml' can look like:
 Issue is created: See [github-issue 347](https://github.com/admin-shell-io/aas-specs-api/issues/347)
 Status: In progress
 
+###### Solution 4: File transfer via HTTPS
+It is also possible to structure the data from the parquet file as JSON and deliver it via HTTPS in JSON format, which is currently the standard in Catena-X.
+The submodelDescriptor for this case can be defined like:
+```json
+{
+   ...
+   "submodelDescriptors": [
+      {
+         "idShort": "vehicleProductDescription",
+         "id": "<uuid>",
+         "endpoints": [
+            {
+               "interface": "SUBMODEL-3.0",
+               "protocolInformation": {
+                  "href": "<provider-edc-dataplane-url>/<path-to-submodel-service>/$value",
+                  "endpointProtocol": "HTTP",
+                  "endpointProtocolVersion": [
+                     "1.1"
+                  ],
+                  "subprotocol": "",
+                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+                  "subprotocolBodyEncoding": "application/json; charset=UTF-8",
+                  "securityAttributes": [
+                     {
+                        "type": "NONE",
+                        "key": "NONE",
+                        "value": "NONE"
+                     }
+                  ]
+               }
+            }
+         ],
+         "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+               {
+                  "type": "GlobalReference",
+                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
+                  "value": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"
+               }
+            ]
+         },
+         "description": [
+            {
+               "language": "en",
+               "text": "submodel-descriptor for vehicleProductDescription which will be transferred via HTTPS."
+            }
+         ]
+      }
+   ]
+}
+```
+
 ### Lookup in the Digital Twin Registry
 
 For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
