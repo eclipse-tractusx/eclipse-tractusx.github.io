@@ -440,6 +440,10 @@ const config = {
                 label: 'Connector',
               },
               {
+                to: '/docs-kits/kits/customs-kit/page_adoption-view',
+                label: 'Customs',
+              },
+              {
                 to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
                 label: 'Data Chain',
               },

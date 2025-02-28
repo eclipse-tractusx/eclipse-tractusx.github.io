@@ -2,10 +2,10 @@
 id: Adoption View Customs Kit
 title: Adoption View Customs
 description: "Customs Kit"
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.drawio.svg)
+![Customs kit logo](@site/static/img/kits/customs/customs-kit-logo.drawio.svg)
 
 ## Vision & Mission
 
@@ -49,7 +49,7 @@ Every company divides the trade agreements into different and individual zones. 
 6. A contract negotiation takes place between the sender (supplier) and the receiver (customer) by using their Eclipse Data Connectors (EDC).
 7. After a successful contract negotiation, the sender (supplier) sends the customs notification via a HTTP POST request to the receiver (customer) via the dataplane endpoint from the contract agreement.
 
-![PushCustoms](../assets/pushCustoms.svg)
+![PushCustoms](./assets/pushCustoms.svg)
 
 ### Pull of customs information
 
@@ -64,7 +64,7 @@ Every company divides the trade agreements into different and individual zones. 
 7. The Data Consumer (customer) initiates a contract negotiation to get a contract agreement. A contract negotiation takes place between the Data Provider (supplier) and the Data Consumer (customer) by using their Eclipse Data Connectors (EDC).
 8. After a successful contract negotiation, the Data Consumer (customer) pulls the aspect model “customsInformation” (json) from the Submodel Server of the Data Provider (supplier).
 
-![PullCustoms](../assets/pullCustoms.svg)
+![PullCustoms](./assets/pullCustoms.svg)
 
 ## Signature
 
