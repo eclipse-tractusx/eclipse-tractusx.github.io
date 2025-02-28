@@ -134,25 +134,25 @@ The following **Onboarding Guide** is based on experiences gained during the ini
 
 ![](@site/Quality-Kit/assets/dos-and-donts-onboarding-journey.png)
 
-### The following topics should be considered for a successful onboarding
+The following topics should be considered for a **successful onboarding**
 
-![](@site/Quality-Kit/assets/dos-and-donts-topics.png)
+![dos-and-donts-topics](@site/Quality-Kit/assets/dos-and-donts-topics.png)
 
-### The "Do's & Don'ts" for the Team Setup and PMO
+ The "Do's & Don'ts" for the **Team Setup** and **PMO**
 
-![](@site/Quality-Kit/assets/dos-and-donts-team-setup.png)
+![dos-and-donts-team-setup](@site/Quality-Kit/assets/dos-and-donts-team-setup.png)
 
-### The "Do's & Don'ts" for the Legal Agreement
+The "Do's & Don'ts" for the **Legal Agreement**
 
-![](@site/Quality-Kit/assets/dos-and-donts-legal-agreement.png)
+![dos-and-donts-legal-agreement](@site/Quality-Kit/assets/dos-and-donts-legal-agreement.png)
 
-### The "Do's & Don'ts" for the infrastructure set up and development
+The "Do's & Don'ts" for the **infrastructure** set up and development
 
-![](@site/Quality-Kit/assets/dos-and-donts-infrastructure.png)
+![dos-and-donts-infrastructure](@site/Quality-Kit/assets/dos-and-donts-infrastructure.png)
 
-### The "Do's & Don'ts" for working with the Live Quality Loop Methodology
+The "Do's & Don'ts" for working with the Live Quality Loop **Methodology**
 
-![](@site/Quality-Kit/assets/dos-and-donts-methodology.png)
+![dos-and-donts-methodology](@site/Quality-Kit/assets/dos-and-donts-methodology.png)
 
 The following videos give an overview of the vision of the Quality Use Case.
 
@@ -255,7 +255,7 @@ model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models
 
 ## Logic & Schema
 
-### Business Logic ---- HIER GEHTS WEITER___
+### Business Logic
 
 ![quality kit user journey](@site/Quality-Kit/assets/quality-user-journey.png)
 
@@ -311,7 +311,7 @@ They enable more targeted field monitoring for early warnings, more efficient ro
 
 Failure patterns can be stored arbitrarily and exchanged with partners to cooperatively address critical issues efficiently. They can also be applied to other, even future vehicle fields, allowing for the rapid and effective identification of known damage mechanisms across entire populations. Based on this foundation, future familiar error patterns can be discovered almost in real time and immediately addressed within the context of ‘lessons learned.’ The resulting knowledge database provides significant value to the involved partners in terms of the reliability of complex systems and subsystems. It prevents loss of experience, accelerates response times, and offers substantial benefits to companies.
 
-![](media/2697ce2322f5b23ee756b60fbc180a37.tmp)
+![failure pattern-1](@site/Quality-Kit/assets/failure-pattern-1.png)
 
 Failure Patterns are defined filter settings that relate to aspects of the Catena-X Standard CX-00123. This semantic model, which utilizes Boolean operators and links different variables within a dataset or in dependence on a logically connected dataset, serves to identify, assess, and provide evidence of effectiveness for critical system states within a population.
 
@@ -325,7 +325,7 @@ Failure patterns are divided into the following categories for better understand
 -   *symptom-Based Patterns: These primarily serve to identify critical vehicles or systems with symptoms, where the root cause is still unknown but potential criticality can be discerned. For example: Diagnostic Trouble Codes (DTCs) such as “DTC00120” and “DTC 00123,” Engine Type: “Diesel 3.0L V6,” and Sales Market: “USA.”*
 -   *cause-Based Patterns: These are used to identify vehicles or systems where the causal relationship between criticality and conditions is known or where the root cause has been identified through a root cause analysis. For instance: “Control unit engine Batch no. xy00145678” 12.*
 
-![](media/089cc67f50f56046cf53f3c6f6f1176f.tmp)
+![failure pattern-2](@site/Quality-Kit/assets/failure-pattern-2.png)
 
 The “field monitoring” oversees the vehicle population for critical system conditions. Once criticality is identified, the critical population is generically described using failure patterns. These failure patterns can be determined either manually or with the assistance of artificial intelligence. Simultaneously, in the context of "early warnings", partners are informed about anomalies to collaboratively assess criticality within the framework of a root cause analysis. Initially, the population can only be narrowed down based on symptoms. Once the root cause analysis is completed and the cause is identified, the population can be described based on its underlying causes. Mitigation measures and proof of effectiveness can be precisely monitored through the failure patterns in near real-time. However, in the overall view of the population, evidence of effectiveness is achievable only through a symptom-based filter. Conversely, measures can also be monitored using a cause-based pattern.
 
