@@ -110,13 +110,13 @@ The affected component continues to be monitored regularly. After a few months, 
 
 The example impressively shows that with the Catena-X methodology (Live Quality Loop), quality problems can be identified earlier, the causes of faults can be found quicker, corrective measures can be carried out in a more targeted manner and the affected vehicles can be narrowed down more precisely. There are similar examples of the conversion of production parameters at the supplier or design errors in the design of vehicle components.
 
-## In the following figures five quality improvement scenarios based on the Life Quality Loop are presented, together with the concrete benefit in the meaning of e.g., saved time or reduced number of affected products and vehicles.
+In the following figures **five quality improvement scenarios** based on the Life Quality Loop are presented, together with the concrete **benefit** in the meaning of e.g., saved time or reduced number of affected products and vehicles.
 
 ![](@site/Quality-Kit/assets/success-story-overview.png)
 
 ![](@site/Quality-Kit/assets/success-story-benefit-overview.png)
 
-## You can find more detailed information for all five scenarios in the figures below.
+You can find more detailed information for all five scenarios in the figures below.
 
 ![](@site/Quality-Kit/assets/success-story-1.png)
 
