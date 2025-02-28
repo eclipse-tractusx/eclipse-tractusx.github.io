@@ -381,9 +381,15 @@ official [Catena-X Standard Library:](https://catenax-ev.github.io/docs/standard
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2023 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2023,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2023 SAP SE
-- SPDX-FileCopyrightText: 2023,2023 Siemens AG
-- SPDX-FileCopyrightText: 2023,2023 Volkswagen AG
+-   SPDX-FileCopyrightText: 2023, 2024, 2025 ZF Friedrichshafen AG
+-   SPDX-FileCopyrightText: 2023, 2024, 2025 Robert Bosch GmbH
+-   SPDX-FileCopyrightText: 2023, 2024, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+-   SPDX-FileCopyrightText: 2023, 2024, 2025 SAP SE
+-   SPDX-FileCopyrightText: 2023, 2024, 2025 Siemens AG
+-   SPDX-FileCopyrightText: 2023, 2024,2025 Volkswagen AG
+-   SPDX-FileCopyrightText: 2025 DENSO AUTOMOTIVE Deutschland GmbH
+-   SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
+-   SPDX-FileCopyrightText: 2025 Schaeffler Technologies AG & Co. KG
+-   SPDX-FileCopyrightText: 2025 PRS Technologie Gesellschaft mbH
+-   SPDX-FileCopyrightText: 2025 Ford Werke GmbH
+
