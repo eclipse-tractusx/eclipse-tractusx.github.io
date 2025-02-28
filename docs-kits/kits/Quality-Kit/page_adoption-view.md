@@ -15,7 +15,7 @@ sidebar_position: 2
 
 Our vision is to transition from parts-based quality management on a bilateral level between suppliers and customers, to a data-based approach across the OEM-n-Tier value creation chains. This transition aims to enable a network approach for producing and ensuring product quality in a **Live Quality Loop**.
 
-![quality kit vision diagram](@site/Quality-Kit/assets/vision-live-quality-loop.png)
+![quality kit vision diagram](./assets/vision-live-quality-loop.png)
 
 The Quality KIT enables OEM and supplier as **data provider** and **consumer** to exchange and analyze existing data across company boundaries on a e.g. weekly basis, securely and easily. By merging the OEM's field quality data with the supplier's product information, a new level of transparency is achieved, leading to earlier failure detection, faster cooperation between partners, and accelerated root cause analysis. The goal is to minimize the number of parts and vehicles that require corrective actions.
 
