@@ -23,7 +23,7 @@ Additionally, this KIT enables the **quality app provider** to deliver solutions
 
 ### Mission
 
-![quality kit mission diagram](@site/Quality-Kit/assets/mission.png)
+![quality kit mission diagram](./assets/mission.png)
 The mission of the Quality KIT is to provide the necessary standards, aspect models, technical data pipeline specifications, and business logics to establish a sovereign exchange of quality-related data along the OEM-Tier n chain. This is based on the following principles:
 
 -   We bring together data from suppliers and manufacturers (OEM).
@@ -42,7 +42,7 @@ With the Quality KIT, we support the Catena-X customer journey for our adopters 
 -   Quality features like Early Warning Field require a data exchange from a big population of vehicles or part instances. For such big files the data transfer performance by Digital Twins are currently not proven.,
 -   The number of vehicles and products in field covered by existing Digital Twins is too low to realize quality work today.
 
-![quality kit customer journey diagram](@site/Quality-Kit/assets/user-journey.png)
+![quality kit customer journey diagram](./assets/user-journey.png)
 
 ## Business Value
 
@@ -112,47 +112,47 @@ The example impressively shows that with the Catena-X methodology (Live Quality 
 
 In the following figures **five quality improvement scenarios** based on the Life Quality Loop are presented, together with the concrete **benefit** in the meaning of e.g., saved time or reduced number of affected products and vehicles.
 
-![](@site/Quality-Kit/assets/success-story-overview.png)
+![success-story-overview](./assets/success-story-overview.png)
 
-![](@site/Quality-Kit/assets/success-story-benefit-overview.png)
+![success-story-benefit-overview](./assets/success-story-benefit-overview.png)
 
 You can find more detailed information for all five scenarios in the figures below.
 
-![success-story-1](@site/Quality-Kit/assets/success-story-1.png)
+![success-story-1](./assets/success-story-1.png)
 
-![success-story-2](@site/Quality-Kit/assets/success-story-2.png)
+![success-story-2](./assets/success-story-2.png)
 
-![success-story-3](@site/Quality-Kit/assets/success-story-3.png)
+![success-story-3](./assets/success-story-3.png)
 
-![success-story-4](@site/Quality-Kit/assets/success-story-4.png)
+![success-story-4](./assets/success-story-4.png)
 
-![success-story-5](@site/Quality-Kit/assets/success-story-5.png)
+![success-story-5](./assets/success-story-5.png)
 
 ## Tutorials
 
 The following **Onboarding Guide** is based on experiences gained during the initiation of real Quality pilots and the transfer to serial operation. Remark: For more details about the specified IT infrastructure, take a look at the **Architecture Overview** below and the description of how to exchange data in the [**Operation View**](https://eclipse-tractusx.github.io/docs-kits/next/kits/Quality-Kit/Operation%20View%20Quality%20Kit)**.**
 
-![](@site/Quality-Kit/assets/dos-and-donts-onboarding-journey.png)
+![dos-and-donts-onboarding-journey](./assets/dos-and-donts-onboarding-journey.png)
 
 The following topics should be considered for a **successful onboarding**
 
-![dos-and-donts-topics](@site/Quality-Kit/assets/dos-and-donts-topics.png)
+![dos-and-donts-topics](./assets/dos-and-donts-topics.png)
 
  The "Do's & Don'ts" for the **Team Setup** and **PMO**
 
-![dos-and-donts-team-setup](@site/Quality-Kit/assets/dos-and-donts-team-setup.png)
+![dos-and-donts-team-setup](./assets/dos-and-donts-team-setup.png)
 
 The "Do's & Don'ts" for the **Legal Agreement**
 
-![dos-and-donts-legal-agreement](@site/Quality-Kit/assets/dos-and-donts-legal-agreement.png)
+![dos-and-donts-legal-agreement](./assets/dos-and-donts-legal-agreement.png)
 
 The "Do's & Don'ts" for the **infrastructure** set up and development
 
-![dos-and-donts-infrastructure](@site/Quality-Kit/assets/dos-and-donts-infrastructure.png)
+![dos-and-donts-infrastructure](./assets/dos-and-donts-infrastructure.png)
 
 The "Do's & Don'ts" for working with the Live Quality Loop **Methodology**
 
-![dos-and-donts-methodology](@site/Quality-Kit/assets/dos-and-donts-methodology.png)
+![dos-and-donts-methodology](./assets/dos-and-donts-methodology.png)
 
 The following videos give an overview of the vision of the Quality Use Case.
 
@@ -166,13 +166,11 @@ Hear what the consortia partners within in the Use Case Quality state about the 
 
 ### Semantic Structure
 
-![semantic structure chart](@site/Quality-Kit/assets/data-model-structure.png)
+![semantic structure chart](./assets/data-model-structure.png)
 
 ### Overview Data Model Entities
 
-Download for MS Excel: <a target="_blank" href={ require("/Quality-Kit/assets/R2405_Quality_KIT_DataModelOverview.xlsx")
-.default } download>R2405_Quality_KIT_DataModelOverview.xlsx</a>
---> [R2405_Quality_KIT_DataModelOverview.xlsx](https://bcgcatenax.sharepoint.com/sites/download/attachments/126287876/R2405_Quality_KIT_DataModelOverview.xlsx)
+Download for MS Excel: [R2405_Quality_KIT_DataModelOverview.xlsx](./assets/R2405_Quality_KIT_DataModelOverview.xlsx)
 
 ### Common Data
 
@@ -257,7 +255,7 @@ model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models
 
 ### Business Logic
 
-![quality kit user journey](@site/Quality-Kit/assets/quality-user-journey.png)
+![quality kit user journey](./assets/quality-user-journey.png)
 
 To describe the procedure for a data-based quality cooperation between an OEM and his Tier 1 supplier the following user journey with different scenarios. It has to be mentioned that the semantic data models for supplier are specified to be feasible along the supply chain and not only for OEM and Tier 1. This user journey includes the following steps:
 
@@ -293,7 +291,7 @@ The notifications within the Quality KIT share several concepts:
 
 -   they leverage the common notification header specification ([Shared Message Header](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header)) and only differ in the content of the payload.
 -   they follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail)
--   they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-notifications) and the [Notification API Specification](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0023-NotificationAPI-v1.2.2.pdf)  for further detail)
+-   they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1)  for further detail)
 
 In addition, to a very large extent, the payload format for these notifications is common between the Early Warning notification and version 2.0 of the Quality Investigation/Alert notifications.
 
@@ -311,7 +309,7 @@ They enable more targeted field monitoring for early warnings, more efficient ro
 
 Failure patterns can be stored arbitrarily and exchanged with partners to cooperatively address critical issues efficiently. They can also be applied to other, even future vehicle fields, allowing for the rapid and effective identification of known damage mechanisms across entire populations. Based on this foundation, future familiar error patterns can be discovered almost in real time and immediately addressed within the context of ‘lessons learned.’ The resulting knowledge database provides significant value to the involved partners in terms of the reliability of complex systems and subsystems. It prevents loss of experience, accelerates response times, and offers substantial benefits to companies.
 
-![failure pattern-1](@site/Quality-Kit/assets/failure-pattern-1.png)
+![failure pattern-1](./assets/failure-pattern-1.png)
 
 Failure Patterns are defined filter settings that relate to aspects of the Catena-X Standard CX-00123. This semantic model, which utilizes Boolean operators and links different variables within a dataset or in dependence on a logically connected dataset, serves to identify, assess, and provide evidence of effectiveness for critical system states within a population.
 
@@ -325,7 +323,7 @@ Failure patterns are divided into the following categories for better understand
 -   *symptom-Based Patterns: These primarily serve to identify critical vehicles or systems with symptoms, where the root cause is still unknown but potential criticality can be discerned. For example: Diagnostic Trouble Codes (DTCs) such as “DTC00120” and “DTC 00123,” Engine Type: “Diesel 3.0L V6,” and Sales Market: “USA.”*
 -   *cause-Based Patterns: These are used to identify vehicles or systems where the causal relationship between criticality and conditions is known or where the root cause has been identified through a root cause analysis. For instance: “Control unit engine Batch no. xy00145678” 12.*
 
-![failure pattern-2](@site/Quality-Kit/assets/failure-pattern-2.png)
+![failure pattern-2](./assets/failure-pattern-2.png)
 
 The “field monitoring” oversees the vehicle population for critical system conditions. Once criticality is identified, the critical population is generically described using failure patterns. These failure patterns can be determined either manually or with the assistance of artificial intelligence. Simultaneously, in the context of "early warnings", partners are informed about anomalies to collaboratively assess criticality within the framework of a root cause analysis. Initially, the population can only be narrowed down based on symptoms. Once the root cause analysis is completed and the cause is identified, the population can be described based on its underlying causes. Mitigation measures and proof of effectiveness can be precisely monitored through the failure patterns in near real-time. However, in the overall view of the population, evidence of effectiveness is achievable only through a symptom-based filter. Conversely, measures can also be monitored using a cause-based pattern.
 
@@ -336,7 +334,7 @@ From the failure patterns, relevant population lists can be extracted, uniquely 
 
 ### Architecture Overview
 
-![independant architecture r2312 chart](@site/Quality-Kit/assets/architecture_overview.png)
+![independant architecture r2312 chart](./assets/architecture_overview.png)
 
 The Tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier analyzes the data to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC, while the authorization is managed via the shared services of the consortia.
 
