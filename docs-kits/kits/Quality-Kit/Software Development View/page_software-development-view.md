@@ -34,7 +34,7 @@ In the following, example data for the standardized data models are provided as 
 
 Github Link to semantic data model: [Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_QualityTask_200_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_QualityTask_200_testdata.parquet" download>
 CX25_03_QualityTask_200_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to the **EDC data plane.**
@@ -43,7 +43,7 @@ As **data provider** please add the **PARQUET file** as EDC asset to the **EDC d
 
 Github Link to semantic data model: [Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_QualityTaskAttachment_testdata.zip" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_QualityTaskAttachment_testdata.zip" download>
 CX25_03_QualityTaskAttachment_testdata.zip</a>
 
 As **data provider** please add the **ZIP file** as EDC asset to **EDC data plane**.
@@ -52,7 +52,7 @@ As **data provider** please add the **ZIP file** as EDC asset to **EDC data plan
 
 Github Link to semantic data models: [Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.vehicles)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_FleetVehicles_200_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_FleetVehicles_200_testdata.parquet" download>
 CX25_03_FleetVehicles_200_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to **EDC data plane**.
@@ -61,7 +61,7 @@ As **data provider** please add the **PARQUET file** as EDC asset to **EDC data 
 
 Github Link to semantic data model: [Fleet Diagnostic Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_DiagnosticData_200_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_DiagnosticData_200_testdata.parquet" download>
 CX25_03_DiagnosticData_200_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to **EDC data plane**.
@@ -70,7 +70,7 @@ As **data provider** please add the **PARQUET file** as EDC asset to **EDC data 
 
 Github Link to semantic data model: [Fleet Claim Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_FleetClaim_200_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_FleetClaim_200_testdata.parquet" download>
 CX25_03_FleetClaim_200_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to **EDC data plane**.
@@ -79,7 +79,7 @@ As **data provider** please add the **PARQUET file** as EDC asset to **EDC data 
 
 Github Link to semantic data model: [Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_ManufacuredPartsQualityInformation_210_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_ManufacuredPartsQualityInformation_210_testdata.parquet" download>
 CX25_03_ManufacuredPartsQualityInformation_210_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to **EDC data plane**.
@@ -88,7 +88,7 @@ As **data provider** please add the **PARQUET file** as EDC asset to **EDC data 
 
 Github Link to semantic data model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
 
-File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/quality-kit/CX25_03_PartsAnalyses_300_testdata.parquet" download>
+File download: <a target="_blank" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/quality-kit/CX25_03_PartsAnalyses_300_testdata.parquet" download>
 CX25_03_PartsAnalyses_300_testdata.parquet</a>
 
 As **data provider** please add the **PARQUET file** as EDC asset to **EDC data plane**.
