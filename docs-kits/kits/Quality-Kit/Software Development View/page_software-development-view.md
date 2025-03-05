@@ -27,8 +27,8 @@ File transfer is recommended to be done via EDC S3 plane, The transfer via EDC h
 
 In the following, example data for the standardized data models are provided as download in zip format. The sample data is generated according the current standards. It contains a virtual fleet of 50.000 vehicles where two quality issues are implemented.
 
--   Production failure of product "zehn" at Tier 1
--   Specification failure
+- Production failure of product "zehn" at Tier 1
+- Specification failure
 
 ### Quality Task Sample Data
 
