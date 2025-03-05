@@ -26,12 +26,12 @@ Additionally, this KIT enables the **quality app provider** to deliver solutions
 ![quality kit mission diagram](./assets/mission.png)
 The mission of the Quality KIT is to provide the necessary standards, aspect models, technical data pipeline specifications, and business logics to establish a sovereign exchange of quality-related data along the OEM-Tier n chain. This is based on the following principles:
 
--   We bring together data from suppliers and manufacturers (OEM).
--   Data exchange between data provider and consumer complies with the Catena-X network's data sovereignty.
--   Data exchange following a standardized pipeline and data models within a data eco system enables each partner to use the applications of their choice for data analysis features, like Early Warning and Root Cause Analysis.
--   Early Warning Notification enables the partners to exchange information about potential anomalies they detected and to trigger their subsequent joint evaluation.
--   Failure Pattern exchange enables the partners to have a common understanding of a specific anomaly. As part of the lessons learned, these patterns help to identify known anomalies more quickly in the field.
--   Analysis methods and algorithms that are realized in the quality applications are not part of any standardization. It is desirable that different tools deliver different view angles, to support Root Cause hypothesis creation Therefore, specialization of analysis tools is valuable.
+- We bring together data from suppliers and manufacturers (OEM).
+- Data exchange between data provider and consumer complies with the Catena-X network's data sovereignty.
+- Data exchange following a standardized pipeline and data models within a data eco system enables each partner to use the applications of their choice for data analysis features, like Early Warning and Root Cause Analysis.
+- Early Warning Notification enables the partners to exchange information about potential anomalies they detected and to trigger their subsequent joint evaluation.
+- Failure Pattern exchange enables the partners to have a common understanding of a specific anomaly. As part of the lessons learned, these patterns help to identify known anomalies more quickly in the field.
+- Analysis methods and algorithms that are realized in the quality applications are not part of any standardization. It is desirable that different tools deliver different view angles, to support Root Cause hypothesis creation Therefore, specialization of analysis tools is valuable.
 
 In sum, this KIT enables quality management to substantially **increase speed** in detecting and resolving quality problems and reach a **new level on transparency** and traceability.
 
@@ -39,8 +39,8 @@ In sum, this KIT enables quality management to substantially **increase speed** 
 
 With the Quality KIT, we support the Catena-X customer journey for our adopters and solution providers. The data driven quality work described in the Quality KIT is not based on the data sharing mechanism of **Digital Twins**. (despite all standardized semantic data models are ready to be used with Digital Twins). The reasons behind are:
 
--   Quality features like Early Warning Field require a data exchange from a big population of vehicles or part instances. For such big files the data transfer performance by Digital Twins are currently not proven.,
--   The number of vehicles and products in field covered by existing Digital Twins is too low to realize quality work today.
+- Quality features like Early Warning Field require a data exchange from a big population of vehicles or part instances. For such big files the data transfer performance by Digital Twins are currently not proven.,
+- The number of vehicles and products in field covered by existing Digital Twins is too low to realize quality work today.
 
 ![quality kit customer journey diagram](./assets/user-journey.png)
 
@@ -62,11 +62,11 @@ From Quality Management perspective, the main challenge within the automotive in
 
 Main challenges to ensure a trustful and scalable cooperation are:
 
--   Trustful and sovereign data exchange mechanism including:
-    -   legal contracts and access/usage policy framework along the complete data chain.
-    -   Standardized data pipeline.
-    -   Aligned standard data exchange, e.g. file format and transfer.
--   Standardized data models.
+- Trustful and sovereign data exchange mechanism including:
+  - legal contracts and access/usage policy framework along the complete data chain.
+  - Standardized data pipeline.
+  - Aligned standard data exchange, e.g. file format and transfer.
+- Standardized data models.
 
 ### Benefits
 
@@ -156,7 +156,7 @@ The "Do's & Don'ts" for working with the Live Quality Loop **Methodology**
 
 The following videos give an overview of the vision of the Quality Use Case.
 
-First follow this link to get an overview about how Quality Management is improved by Catena-X 
+First follow this link to get an overview about how Quality Management is improved by Catena-X
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/WMixoRvzWP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Hear what the consortia partners within in the Use Case Quality state about the options for quality improvement with Catena-X - [Statements from the consortia partners]
@@ -259,21 +259,21 @@ model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models
 
 To describe the procedure for a data-based quality cooperation between an OEM and his Tier 1 supplier the following user journey with different scenarios. It has to be mentioned that the semantic data models for supplier are specified to be feasible along the supply chain and not only for OEM and Tier 1. This user journey includes the following steps:
 
-**1. Quality cooperation and Data Sharing agreement**
+#### 1. Quality cooperation and Data Sharing agreement
 
 In the first step, the data-based quality cooperation has to be agreed to by the partner companies. This includes the definition of the products in focus, the purpose of the analyses as well as the data entities that have to be provided by both partners. The specification in the semantic data models defines the technical frame for this alignment. It is up to the data provider to decide whether or not to share a specific data entity with the partner. Based on the cooperation spec, the data sharing agreement and contracts have to be signed in compliance with the framework, as described in the chapter **Business Process**.
 
-**2. Early issue detection (Early Warning Field and Monitoring Production)**
+#### 2. Early issue detection (Early Warning Field and Monitoring Production)
 
 **Early Warning** in the **Field**: An early warning system for issues in a vehicle fleet, enables the earliest possible detection of quality problems in products in vehicles after delivery. Vehicle data from the OEM is used for the analysis, in particular fault codes that are stored in ECUs and read out during a workshop visit or frequently "over the air". Increases in product-specific fault codes across the vehicle population provide a reliable indicator of quality problems much earlier than through parts replacement and analysis.
 
 **Monitoring** in the **Production** focuses on early detection in the production of products. Various practical scenarios have been developed and the corresponding technical requirements specified. If, for example, a supplier discovers that a delivered product has a quality defect, the customer can be informed by a Quality Alert notification, see chapter Notifications concept within the Quality KIT. The functionality of traceability (Catena-X Use Case Traceability) in the supply chain makes it possible to trace in which vehicle or follow-up product the affected components are installed. Remedial measures can thus be applied specifically to a limited quantity.
 
-**3. Root Cause Analysis and Problem Solving**
+#### 3. Root Cause Analysis and Problem Solving
 
 If a problem is detected by early warning in the field or by monitoring of the production, a data-based **Root Cause Analysis** is started. The aim is to derive hypotheses regarding the cause and the complete effect chain out of the shared database of the OEM and supplier and to verify them together. With the Catena-X network functions, this transparency can be achieved much faster.
 
-**4. Implement measure and derive failure pattern**
+#### 4. Implement measure and derive failure pattern
 
 If the root cause and the complete failure effect chain is analyzed and understood faster, counter measures can be implemented much earlier to avoid issues. If the root cause and the failure effect chain is analyzed and reconstructed based on data, it might be possible to derive a specific so called failure pattern that enables to differentiate vehicles and products that are affected by a failure and those without failure. For more information, please refer to the chapter **Failure Pattern**.
 
@@ -283,15 +283,15 @@ Notifications within the Quality KIT are used to inform a partner company about 
 
 There are three types of notifications relating to different steps in the user journey:
 
-1.  Early Warning: This notification is used in the context of an Early Warning project to inform the partner company about an anomaly that was detected in the exchanged data. This data anomaly may or may not origin from an actual problem and, therefore, subsequently both partners will jointly review and evaluate the situation to decide if further actions need to be taken, e.g. issuing a Quality Investigation notification (see 2. below) and/or starting an 8D process. In contrast to Quality Investigation or Quality Alert notifications, the payload of an Early Warning notification is represented as a Data Model and, therefore, can be added to the shared data pool for the Early Warning project.
-2.  Quality Investigation: This notification is sent from the OEM / Tier n-1 to a supplier and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the OEM / Tier n-1, e.g., during incoming goods inspection or end of line test. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts)
-3.  Quality Alert: This notification is sent from the supplier to an OEM / Tier n-1and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the supplier, e.g., end of line test or via a notification from another customer. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts)
+1. Early Warning: This notification is used in the context of an Early Warning project to inform the partner company about an anomaly that was detected in the exchanged data. This data anomaly may or may not origin from an actual problem and, therefore, subsequently both partners will jointly review and evaluate the situation to decide if further actions need to be taken, e.g. issuing a Quality Investigation notification (see 2. below) and/or starting an 8D process. In contrast to Quality Investigation or Quality Alert notifications, the payload of an Early Warning notification is represented as a Data Model and, therefore, can be added to the shared data pool for the Early Warning project.
+2. Quality Investigation: This notification is sent from the OEM / Tier n-1 to a supplier and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the OEM / Tier n-1, e.g., during incoming goods inspection or end of line test. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts)
+3. Quality Alert: This notification is sent from the supplier to an OEM / Tier n-1and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the supplier, e.g., end of line test or via a notification from another customer. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts)
 
 The notifications within the Quality KIT share several concepts:
 
--   they leverage the common notification header specification ([Shared Message Header](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header)) and only differ in the content of the payload.
--   they follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail)
--   they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1)  for further detail)
+- they leverage the common notification header specification ([Shared Message Header](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header)) and only differ in the content of the payload.
+- they follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail)
+- they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1)  for further detail)
 
 In addition, to a very large extent, the payload format for these notifications is common between the Early Warning notification and version 2.0 of the Quality Investigation/Alert notifications.
 
@@ -317,11 +317,10 @@ Failure Patterns are defined filter settings that relate to aspects of the Caten
 
 Within a population, a user can narrow down a specific fault entry to a particular vehicle model with a specific engine configuration and within a specific market segment (e.g., Diagnostic Trouble Code: “DTC00120” & “DTC 00123” & Engine Type: “Diesel 3.0l V6” & Sales market: “USA”). The user can then inform their partner about the anomaly in terms of “Early Warning.” Together, based on the available information, they can identify the root cause of the error (e.g., “Control unit engine Batch no. xy00145678”). The Failure Pattern can be adjusted as needed to apply the predefined corrective measures effectively, allowing for swift validation of success. Additionally, the Failure Pattern can generate a component list that clearly lists the affected parts.
 
-*  
 Failure patterns are divided into the following categories for better understanding:*
 
--   *symptom-Based Patterns: These primarily serve to identify critical vehicles or systems with symptoms, where the root cause is still unknown but potential criticality can be discerned. For example: Diagnostic Trouble Codes (DTCs) such as “DTC00120” and “DTC 00123,” Engine Type: “Diesel 3.0L V6,” and Sales Market: “USA.”*
--   *cause-Based Patterns: These are used to identify vehicles or systems where the causal relationship between criticality and conditions is known or where the root cause has been identified through a root cause analysis. For instance: “Control unit engine Batch no. xy00145678” 12.*
+- *symptom-Based Patterns: These primarily serve to identify critical vehicles or systems with symptoms, where the root cause is still unknown but potential criticality can be discerned. For example: Diagnostic Trouble Codes (DTCs) such as “DTC00120” and “DTC 00123,” Engine Type: “Diesel 3.0L V6,” and Sales Market: “USA.”*
+- *cause-Based Patterns: These are used to identify vehicles or systems where the causal relationship between criticality and conditions is known or where the root cause has been identified through a root cause analysis. For instance: “Control unit engine Batch no. xy00145678” 12.*
 
 ![failure pattern-2](./assets/failure-pattern-2.png)
 
@@ -330,7 +329,6 @@ The “field monitoring” oversees the vehicle population for critical system c
 The insights gained from these failure patterns can be applied to any future populations within the context of lessons learned, allowing for rapid identification of known error patterns and targeted intervention.
 
 From the failure patterns, relevant population lists can be extracted, uniquely identifying and naming the affected systems. Tracking critical components and subcomponents using UC-Traceability enables a targeted quality process chain in line with Catena-X.
-
 
 ### Architecture Overview
 
@@ -364,7 +362,6 @@ To realize a data driven quality cooperation according to the Quality Kit all st
 
 **Data Offering** and **Usage Level** are defined by bi-lateral aligned policies and contracts between the cooperating partner companies. A template for a usage policy on bi-lateral level can be found in CX-0018.
 
-
 ## Standards
 
 Our relevant standards can be downloaded from the
@@ -379,15 +376,14 @@ official [Catena-X Standard Library:](https://catenax-ev.github.io/docs/standard
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
--   SPDX-FileCopyrightText: 2023, 2024, 2025 ZF Friedrichshafen AG
--   SPDX-FileCopyrightText: 2023, 2024, 2025 Robert Bosch GmbH
--   SPDX-FileCopyrightText: 2023, 2024, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
--   SPDX-FileCopyrightText: 2023, 2024, 2025 SAP SE
--   SPDX-FileCopyrightText: 2023, 2024, 2025 Siemens AG
--   SPDX-FileCopyrightText: 2023, 2024,2025 Volkswagen AG
--   SPDX-FileCopyrightText: 2025 DENSO AUTOMOTIVE Deutschland GmbH
--   SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
--   SPDX-FileCopyrightText: 2025 Schaeffler Technologies AG & Co. KG
--   SPDX-FileCopyrightText: 2025 PRS Technologie Gesellschaft mbH
--   SPDX-FileCopyrightText: 2025 Ford Werke GmbH
-
+- SPDX-FileCopyrightText: 2023, 2024, 2025 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023, 2024, 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023, 2024, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2024, 2025 SAP SE
+- SPDX-FileCopyrightText: 2023, 2024, 2025 Siemens AG
+- SPDX-FileCopyrightText: 2023, 2024,2025 Volkswagen AG
+- SPDX-FileCopyrightText: 2025 DENSO AUTOMOTIVE Deutschland GmbH
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
+- SPDX-FileCopyrightText: 2025 Schaeffler Technologies AG & Co. KG
+- SPDX-FileCopyrightText: 2025 PRS Technologie Gesellschaft mbH
+- SPDX-FileCopyrightText: 2025 Ford Werke GmbH
