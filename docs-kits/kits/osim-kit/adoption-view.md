@@ -38,7 +38,7 @@ One specific case of this data exchange is so called “What-If” scenario. Thi
 
 A central application takes over the tasks of monitoring and controlling the transmission of the simulation results, regardless of the level of digitalization of the partners. In addition, this application takes over control of the simulation tools used.
 
-![Example of an OSim partner network from the perspective of the producing company WERK-76](./werk76.png)
+![Example of an OSim partner network from the perspective of the producing company WERK-76](./resources/werk76.png)
 
 ### Benefits for OEM, SME and Solution Provider
 
@@ -57,7 +57,7 @@ This basic data exchange is based on a real production state and current plannin
 
 The following picture shows the fundamental network structure, consisting of suppliers, logisticians and OEMs who exchange simulation results with each other, considering the one-up and one-down principles. Every material flow simulation result includes information about delivery readiness of packaged material goods, like material identifier, amount, delivery time and destination.
 
-![business processes](./businessProcess.png)
+![business processes](./resources/businessProcess.png)
 
 See also the following publications for more detailed description of the process and its components:
 
@@ -152,7 +152,7 @@ The following central services are needed for the communication along the supply
 
 ### Architecture and Dataflow
 
-![architecture](./architecture.png)
+![architecture](./resources/architecture.png)
 
 ### Technical requirements for a CATENA-X compliant data transmission
 
@@ -248,7 +248,7 @@ Our relevant standards can be downloaded from the official [Catena-X Standard Li
 
 A deeper understanding of the basic Online Control and Simulation use case can be gained from the following linked document. While in the OSIM-KIT only the standardized partner interface of OSim is considered, the OSim product documentation represents the complete technical specification of the use case.
 
-- [OSim - Product Documentation_EN](./OSim-Product-Documentation-EN.pdf)
+- [OSim - Product Documentation_EN](./resources/OSim-Product-Documentation-EN.pdf)
 
 ## Notice
 
