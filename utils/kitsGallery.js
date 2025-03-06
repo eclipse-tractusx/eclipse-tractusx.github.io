@@ -210,6 +210,6 @@ export const kitsGallery = [
     name: 'Data Governance KIT',
     domain: 'Network Services',
     pageRoute: 'docs-kits/kits/Data%20Governance%20Kit/adoption-view.md',
-    img: Logistics_Kit,
+    img: DataGovernance_Kit,
   },
 ]
