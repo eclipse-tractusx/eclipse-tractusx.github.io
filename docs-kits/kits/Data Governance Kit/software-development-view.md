@@ -1,7 +1,7 @@
 ---
 id: Data Governance Kit Development View
 title: Development View
-description: 'Data Governance Kit'
+description: 'Data Governance KIT'
 sidebar_position: 1
 ---
 ## Data Governance KIT
