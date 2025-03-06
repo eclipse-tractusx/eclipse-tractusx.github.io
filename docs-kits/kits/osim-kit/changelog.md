@@ -11,6 +11,20 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [3.1.0] - 2025-03-06
+
+### Added
+
+- license files for images
+
+### Changed
+
+- structure of the KIT to be compliant with the Tractus-X requirements
+
+### Removed
+
+- ./.
+
 ## [3.0.0] - 2024-08-01
 
 ### Added
