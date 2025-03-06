@@ -23,6 +23,7 @@ import Business_Kit from "@site/static/img/kits/business-partner/business-partne
 import Circularity_Kit from "@site/static/img/kits/circularity/circularity-kit-gallery.drawio.svg";
 import Connector_Kit from "@site/static/img/kits/connector/connector-kit-gallery.drawio.svg";
 import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
+import DataGovernance_Kit from "@site/static/img/kits/data-governance/data-governance-kit-gallery.drawio.svg";
 import DDQM from "@site/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-gallery.drawio.svg";
 import DemandandCapacityManagement_Kit from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-gallery.drawio.svg";
 import DigitalTwin from "@site/static/img/kits/digital-twin/digital-twin-kit-gallery.drawio.svg";
@@ -203,5 +204,12 @@ export const kitsGallery = [
     domain: 'Supply Chain',
     pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
     img: Logistics_Kit,
+  },
+  {
+    id: 22,
+    name: 'Data Governance KIT',
+    domain: 'Network Services',
+    pageRoute: 'docs-kits/kits/Data%20Governance%20Kit/adoption-view.md',
+    img: DataGovernance_Kit,
   },
 ]

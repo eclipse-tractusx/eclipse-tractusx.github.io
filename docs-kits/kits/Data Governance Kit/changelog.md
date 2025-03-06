@@ -1,7 +1,7 @@
 ---
 id: Data Governance Kit Changelog
 title: Changelog
-description: 'Data Governance Kit'
+description: 'Data Governance KIT'
 sidebar_position: 1
 ---
 <!--
@@ -24,6 +24,8 @@ sidebar_position: 1
  * SPDX-License-Identifier: CC-BY-4.0
  ![DatGov Kit Banner](./resources/DatGovKit-Icon.png)
 -->
+
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
 
 ### Data Governance KIT
 
