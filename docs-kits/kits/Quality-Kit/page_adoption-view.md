@@ -1,13 +1,11 @@
 ---
 id: Adoption View Quality Kit
 title: Adoption View
-description: 'Quality Kit'
+description: 'Quality KIT'
 sidebar_position: 2
 ---
 
 ![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
-
-### Quality KIT
 
 ## Vision & Mission
 

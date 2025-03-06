@@ -1,13 +1,11 @@
 ---
 id: Quality Kit Changelog
 title: Changelog
-description: 'Quality Kit'
+description: 'Quality KIT'
 sidebar_position: 1
 ---
 
 ![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
-
-### Quality KIT
 
 All notable changes to this Kit will be documented in this file.
 
