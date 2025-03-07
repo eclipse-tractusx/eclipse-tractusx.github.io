@@ -504,8 +504,8 @@ const config = {
                 label: 'Quality',
               },
               {
-                to: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
-                label: 'Supply Chain Disruption Notifications KIT',
+                to: '/docs-kits/next/kits/supply-chain-disruption-notification-kit',
+                label: 'Supply Chain Disruption Notifications',
               },
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',

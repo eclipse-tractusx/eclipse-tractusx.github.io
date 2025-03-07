@@ -25,7 +25,7 @@ From conceptual point of view the system consists of different building blocks. 
 diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity
 reasons.
 
-![System Architecture](resources/PURIS-R2408-system-architecture%20sketch.png)
+![System Architecture](resources/PURIS-R2408-system-architecture-sketch.png)
 _Figure 2: Whitebox view on a PURIS system_
 
 ## Policies
