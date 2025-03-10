@@ -1,7 +1,7 @@
 ---
 id: Data Governance Kit Adoption View
 title: Adoption View
-description: 'Data Governance Kit'
+description: 'Data Governance KIT'
 sidebar_position: 2
 ---
 ## Data Governance KIT
@@ -26,6 +26,8 @@ sidebar_position: 2
  * SPDX-License-Identifier: CC-BY-4.0
 ![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 -->
+
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 

@@ -514,7 +514,7 @@ const sidebars = {
                     label: 'Development View',
                     link: {
                         type: 'doc',
-                        id: 'kits/Data Governance Kit/Software Development View/Data Governance Kit Development View'
+                        id: 'kits/Data Governance Kit/Data Governance Kit Development View'
                     },
                     items: [
                         {
