@@ -1,12 +1,10 @@
 ---
 id: Specification OSim Kit
-title: Specification
+title: Software Development View
 description: 'OSim Kit'
 ---
 
 ![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.drawio.svg)
-
-### OSim Kit
 
 ## Sample Data
 
