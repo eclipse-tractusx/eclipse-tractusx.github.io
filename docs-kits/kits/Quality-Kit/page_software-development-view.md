@@ -1,13 +1,11 @@
 ---
 id: Specification Quality Kit
-title: Specification
+title: Software Development View
 description: 'Quality Kit'
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
-
-### Quality KIT
 
 ## Quality Data Offers at EDC
 
