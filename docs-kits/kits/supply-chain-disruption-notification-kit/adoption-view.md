@@ -1,5 +1,5 @@
 ---
-id: Adoption View PURIS-DCM Supply Chain Disruption Notifications
+id: adoption-view-supply-chain-disruption-notifications
 title: Adoption View
 description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 2
@@ -42,7 +42,7 @@ For both scenarios, the recipient of this notification reviews the content and a
 
 In this context, the "Supply Chain Disruption Notifications" plays a significant role in addressing these challenges by facilitating swift and standardized communication of supply chain disruptions.
 
-![Process](res/Process2SCDN.jpg)
+![Process](resources/Process2SCDN.jpg)
 _Figure 1: Visualisation of example use case_
 
 #### Implementation Example
@@ -187,7 +187,7 @@ By adopting this business architecture, stakeholders in the automotive supply ch
 
 To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 2 company sends a notification to its customers and a supplier.
 
-![Logic & Schema](res/image-2024-3-5_15-22-27-1.png)
+![Logic & Schema](resources/image-2024-3-5_15-22-27-1.png)
 _Figure 2: Visualisation of the notifications process_
 
 ## Standards
