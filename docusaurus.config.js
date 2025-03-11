@@ -448,7 +448,7 @@ const config = {
                 label: 'Data Chain',
               },
               {
-                to: 'docs-kits/kits/Data%20Governance%20Kit/Data%20Governance%20Kit%20Adoption%20View',
+                to: 'docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
               },
               {
@@ -472,7 +472,7 @@ const config = {
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/kits/logistics-kit/page_adoption-view',
+                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
               },
               {
