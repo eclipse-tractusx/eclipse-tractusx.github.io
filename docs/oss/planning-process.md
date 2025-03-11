@@ -14,19 +14,23 @@ in order to enter a release.
 ## Issue creation
 
 - **Responsible**: Any contributor
-- **Description**: Anybody can contribute to a use case by creating a feature proposal in Tractus X. The person creating the feature proposal is the 'Requester' and is going to be responsbile for the feature proposal through the process. The feature author has to continuously refine the feature until it contains the requested content, so that it can be validated. All features must be created in sig-release by filling out a [template](https://github.com/eclipse-tractusx/sig-release/issues/new/choose).
+- **Description**: Anybody can contribute to a use case by creating a feature proposal in Tractus-X. The person creating the feature proposal is the 'Requester' and is going to be responsbile for the feature proposal through the process. The feature author has to continuously refine the feature until it contains the requested content, so that it can be validated. All features must be created in sig-release by filling out a [template](https://github.com/eclipse-tractusx/sig-release/issues/new/choose).
+
 - **Outcome**: List of intended issues for the next release
 
 ## Refine issue
 
 - **Responsible**: Requester
-- **Description**: After creating the issue the requester has to continuously refine the feature until it contains the requested content, so that it can be validated by the community. Once the issue is sufficiently it must be submitted for validation in the Open Planning.
-- **Outcome**: List of issues, that fulfill the quality requirements and can be presented to the community
+- **Description**: After creating the issue, the requester has to continuously refine the feature until it contains the requested content, so that it can be validated by the community. Once the issue is sufficiently refined, it must be submitted for validation in the Open Planning.
+
+- **Outcome**: List of issues, that fulfill the quality requirements and can be presented to the community.
+
 
 ## Issue approval (Open Planning)
 
 - **Responsible**: Requester and Committers
-- **Description**: During the Open Planning all items for upcoming release are validated and planned. All issue that were handed in on time are going to be presented to the audience by the requester or a delegate. The Open Planning is the last chance to provide feedback about the scope of the issue. After the presentation of the issue, the committers are going to prioritize the issue. An issue becomes part of the upcoming release only by receiving the commitment by the committees and not by being presented in the Open Planning!
+- **Description**: During the Open Planning all items for upcoming release are validated and planned. All issues that were handed in on time are going to be presented to the audience by the requester or a delegate. The Open Planning is the last chance to provide feedback about the scope of the issue. After the presentation of the issue, the committers are going to prioritize the issue. An issue becomes part of the upcoming release only by receiving the commitment by the committees and not by being presented in the Open Planning!
+
 - **Outcome**:
   - Prioritized backlog: Decision by committer group Committed, prioritized backlog for the next release.
   - Resource commitment: Teams and individuals commit to the work they will deliver, fostering accountability and setting clear expectations for the upcoming release.
