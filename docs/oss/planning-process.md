@@ -25,7 +25,6 @@ in order to enter a release.
 
 - **Outcome**: List of issues, that fulfill the quality requirements and can be presented to the community.
 
-
 ## Issue approval (Open Planning)
 
 - **Responsible**: Requester and Committers
