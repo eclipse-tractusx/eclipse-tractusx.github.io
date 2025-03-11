@@ -204,7 +204,7 @@ Github Link to semantic data model: [Early Warning Notification](https://github.
 
 #### Failure Pattern
 
-Failure patterns are defined filters and links to aspects of the Catena-X standard CX-00123 that automatically list potentially critical individual data sets within a population. This semantic model, which uses Boolean operators, for example, to link different variables within a data set or depending on a logically linked data set, is used to identify and assess critical system states within a population and to provide evidence of effectiveness. Due to standardization, failure patterns can be exchanged arbitrarily between the OEM and Tier_1.
+Failure patterns are defined filters and links to aspects of the Catena-X standard CX-0123 that automatically list potentially critical individual data sets within a population. This semantic model, which uses Boolean operators, for example, to link different variables within a data set or depending on a logically linked data set, is used to identify and assess critical system states within a population and to provide evidence of effectiveness. Due to standardization, failure patterns can be exchanged arbitrarily between the OEM and Tier_1.
 
 Github Link to semantic data model: [Failure Pattern](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/a2a01f445091188a647c42cced589f071fa2990d/io.catenax.failure_pattern/)
 
