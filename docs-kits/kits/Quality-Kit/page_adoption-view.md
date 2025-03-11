@@ -311,7 +311,7 @@ Failure patterns can be stored arbitrarily and exchanged with partners to cooper
 
 ![failure pattern-1](./assets/failure-pattern-1.png)
 
-Failure Patterns are defined filter settings that relate to aspects of the Catena-X Standard CX-00123. This semantic model, which utilizes Boolean operators and links different variables within a dataset or in dependence on a logically connected dataset, serves to identify, assess, and provide evidence of effectiveness for critical system states within a population.
+Failure Patterns are defined filter settings that relate to aspects of the Catena-X Standard CX-0123. This semantic model, which utilizes Boolean operators and links different variables within a dataset or in dependence on a logically connected dataset, serves to identify, assess, and provide evidence of effectiveness for critical system states within a population.
 
 *For example:*
 
