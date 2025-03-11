@@ -19,7 +19,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
 
 ## Steps to add a NewKit documentation
 
-1. Create a folder under the `./docs/kits` with the name of the KIT you are developing the documentation of.
+1. Create a folder under the `./docs-kits/kits` with the name of the KIT you are developing the documentation of using the kebab-case naming schema.
 
     ```md
     root
