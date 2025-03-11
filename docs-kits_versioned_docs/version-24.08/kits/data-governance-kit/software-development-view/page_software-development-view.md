@@ -1,5 +1,5 @@
 ---
-id: Data Governance Kit Development View
+id: development-view
 title: Development View
 description: 'Data Governance Kit'
 sidebar_position: 1
