@@ -3,12 +3,12 @@ sidebar_position: 7
 title: Detailed Architecture
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -168,4 +168,4 @@ Just as the Federated Datacatalog is a multi-instance-synchronised component, al
 
 See chapter [Deployment](../operation-view/deployment).
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
