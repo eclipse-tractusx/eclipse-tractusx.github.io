@@ -202,14 +202,14 @@ export const kitsGallery = [
     id: 21,
     name: 'Logistics KIT',
     domain: 'Supply Chain',
-    pageRoute: 'docs-kits/kits/Logistics%20Kit/page_adoption-view.md',
+    pageRoute: 'docs-kits/next/kits/logistics-kit/adoption-view',
     img: Logistics_Kit,
   },
   {
     id: 22,
     name: 'Data Governance KIT',
     domain: 'Network Services',
-    pageRoute: 'docs-kits/kits/Data%20Governance%20Kit/adoption-view.md',
+    pageRoute: 'docs-kits/kits/data-governance-kit/adoption-view',
     img: DataGovernance_Kit,
   },
 ]
