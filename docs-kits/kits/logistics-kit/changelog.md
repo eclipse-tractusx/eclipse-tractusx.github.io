@@ -1,5 +1,5 @@
 ---
-id: Logistics Kit Changelog
+id: changelog
 title: Changelog
 description: 'Logistics Kit'
 sidebar_position: 1
