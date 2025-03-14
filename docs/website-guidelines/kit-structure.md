@@ -103,7 +103,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     
     ```
 
-8. To generate the `OpenAPI` based documentation of your KIT, please publish the API on SwaggerHub
+8. To generate the `OpenAPI` based documentation of your KIT, please see the [api-hub](https://github.com/eclipse-tractusx/api-hub/blob/main/README.md) documentation and related [TRG 1.08 - Interface documentation (APIs)](https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08/)
 
 **For KITs without reference implementation:**
 
