@@ -18,14 +18,14 @@ are involved. Both the notification sender and the notification recipient must b
 order to communicate with each other. With the help of the Identity Access Management (IAM) each participant can
 authenticate itself, verify the identity of the requesting party and decide whether to authorize the request.
 
-![Architecture Sketch](res/PURIS-R2408-architecture-sketch.png)
+![Architecture Sketch](resources/PURIS-R2408-architecture-sketch.png)
 _Figure 1: High-level architecture of the notification exchange in the Catena-X dataspace_
 
 From conceptual point of view the system consists of different building blocks. These building blocks in the following
 diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity
 reasons.
 
-![System Architecture](res/PURIS-R2408-system-architecture%20sketch.png)
+![System Architecture](resources/PURIS-R2408-system-architecture-sketch.png)
 _Figure 2: Whitebox view on a PURIS system_
 
 ## Policies
