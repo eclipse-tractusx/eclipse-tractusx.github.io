@@ -96,6 +96,7 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
   - If a company was onboarded with ELBE clearing house, the legal person self description document is not accepted when creating a connector with newer versions of the clearing house. Portal operators are advised to create new legal person and connector self description documents for all previously onboarded companies.
   - As of v2.4.0, the portal backend will activate connector without updated legal person self description document to allow for a transition phase. The connector will not have a document until reissuance for both company and connector is triggered by operators.
   - An automatic reissuance system is planned for the future.
+- When registering two connectors (EDCs) under one technical user, the technical user will be duplicated and the details of the technical user will not be shown
 
 ### Runtime
 
