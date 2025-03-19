@@ -21,6 +21,7 @@ The WeekBasedMaterialDemand API is owned and registered as an EDC asset by the s
 
 ```mermaid
 sequenceDiagram
+autonumber
     actor c as Customer 
     participant ce as Customer EDC
     participant se as Supplier EDC
@@ -28,12 +29,10 @@ sequenceDiagram
     actor s as Supplier
     
     rect rgb(217,24,24)
-        autonumber 1
         s->>+se: Register API as Asset
         se->>-s: API registered
     end
     rect rgb(128,149,00)
-        autonumber 1
         c->>+ce: Provide WeekBasedMaterialDemand
         rect rgb(179,203,45)
         ce->>+se: Initiate Handshake
