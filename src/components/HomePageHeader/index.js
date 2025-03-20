@@ -21,6 +21,7 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
+import ThemedImage from '@theme/ThemedImage';
 import NewsTicker from "../NewsTicker";
 
 import styles from "./styles.module.css";
@@ -28,6 +29,17 @@ import styles from "./styles.module.css";
 export default function HomePageHeader() {
   return (
     <header className={styles.heroBanner}>
+    {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
+      <ThemedImage
+        // alt="Docusaurus themed image hero background"
+        sources={{
+          light: ('/img/main-bg-light.png'),
+          dark: ('/img/main-bg-new.png'),
+        }}
+        className={styles.hero_bg}
+      />
+
+    {/* Content of the component */}
       <div className={styles.container}>
         <h1 className={styles.title}>
           Welcome to <br />

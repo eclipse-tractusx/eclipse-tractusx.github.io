@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
+import ThemedImage from '@theme/ThemedImage';
 import KitsCoreSvg from '@site/static/img/kits&core.svg'
 
 import styles from "./styles.module.css";
@@ -27,17 +28,27 @@ import styles from "./styles.module.css";
 export default function DeveloperHeader() {
   return (
       <header className={styles.developer_header}>
-      <div className={styles.container}>
-        <div className={styles.svg_container}>
-          <KitsCoreSvg className={styles.svg}/>
+      {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
+        <ThemedImage
+          // alt="Docusaurus themed image hero background"
+          sources={{
+            light: ('/img/main-bg-light.png'),
+            dark: ('/img/main_bg-min.png'),
+          }}
+          className={styles.hero_bg}
+        />
+      {/* Content of the component */}
+        <div className={styles.container}>
+          <div className={styles.svg_container}>
+            <KitsCoreSvg className={styles.svg}/>
+          </div>
+          <div className={styles.information_container}>
+            <h1 className="headers-title-h1">Kits & Core Services</h1>
+            <p className="headers-subtitle-p">
+            Kits aim to accelerate the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.
+            </p>
+          </div>
         </div>
-        <div className={styles.information_container}>
-          <h1 className="headers-title-h1">Kits & Core Services</h1>
-          <p className="headers-subtitle-p">
-          Kits aim to accelerate the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.
-          </p>
-        </div>
-      </div>
     </header>
   );
 }

@@ -57,6 +57,8 @@ The scripts are organised as follows:
     * 030101_PROVIDER_DATA_SPARQL - scripts to be run against Data Provider Agents
   * 0302_PROVIDER_FUNCTION - scripts to be run at Function Provider CAPs
     * 030201_PROVIDER_FUNCTION_SPARQL - scripts to be run against Function Provider Agents
+  * 0303_PROVIDER_AAS - scripts to be run at AAS Provider CAPs
+    * 030301_PROVIDER_AAS_API - scripts to be run against AAS Provider Bridge
 * 04_CONSUMER - scripts to be run against Consumer CAPs
   * 0401_CONSUMER_APPLICATION - scripts to be run against a KA-enabled Application
     * 040101_CONSUMER_APPLICATION_SPARQL  - scripts to be run against a SPARQL-speaking Application
@@ -184,7 +186,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Open Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:GraphAsset",
@@ -225,7 +227,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Closed Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
         "dct:type": "cx-taxo:GraphAsset",
@@ -266,7 +268,7 @@ The CAB may use the following Graph Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Unfederated Conforming Asset.",
         "cx-common:description": "A graph asset/offering hosting a conforming agent for testing and conformity checking.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Graph&mode=open",
         "dct:type": "cx-taxo:GraphAsset",
@@ -311,7 +313,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Open Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",
@@ -353,7 +355,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Closed Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=closed",
         "dct:type": "cx-taxo:SkillAsset",
@@ -395,7 +397,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Provider-Forced Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",
@@ -437,7 +439,7 @@ The CAB may use the following Skill Asset Descriptions (referring to the contrac
     "properties": {
         "cx-common:name": "Consumer-Forced Skill",
         "cx-common:description": "A conformity assessment skill.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?cab=Asset&mode=open",
         "dct:type": "cx-taxo:SkillAsset",

@@ -37,33 +37,13 @@ export default function CommunityComponent() {
   function  NextArrow (props) {
     const { onClick } = props;
     return (
-        <div style={{
-          position: 'absolute',
-          display: 'flex !important',
-          color: '#fff',
-          right: '20px',
-          boxShadow: '0px 0px 200px 40px rgb(255 255 255)',
-          backgroundColor: 'rgb(255 255 255 / 35%)',
-          borderRadius: '100px',
-          marginTop: '-10px',
-          top: '120px',
-          cursor: 'pointer'
-        }} onClick={onClick}><img src={sliderWhiteRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+        <Box className={styles.next_arrow} onClick={onClick}><img src={sliderWhiteRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></Box>
     )
 }
 function  PrevArrow (props) {
     const { onClick } = props;
     return (
-        <div style={{
-          position: 'absolute',
-          display: 'flex !important',
-          color: '#fff',
-          left: '20px',
-          zIndex: '999',
-          marginTop: '-10px',
-          top: '120px',
-          cursor: 'pointer'
-        }} onClick={onClick}><img src={sliderWhiteLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+        <Box  className={styles.prev_arrow} onClick={onClick}><img src={sliderWhiteLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></Box>
     )
 }
   let settings = {
@@ -122,7 +102,7 @@ function  PrevArrow (props) {
                   >
                     {title}
                   </Typography>
-                  <LaunchIcon sx={{ color: "#ffffff" }} className={styles.launch} />
+                  <LaunchIcon className={styles.launch} />
                 </div>
             </div>
           </Link>

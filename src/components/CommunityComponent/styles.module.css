@@ -5,7 +5,7 @@
 
 .conmmunity_info {
   padding: 5rem 0 5rem 0rem;
-  background: #1E1E1E;
+  background: var(--ifm-background-color);
 }
 
 @media screen and (min-width: 2200px) {
@@ -100,7 +100,7 @@
 }
 
 .card_title_container p {
-  color: #ffffff;
+  color: var(--ifm-heading-color);
 }
 
 .link_container {
@@ -110,6 +110,7 @@
 .launch {
   padding-left: 10px;
   cursor: pointer;
+  color: var(--ifm-heading-color);
 }
 
 @media screen and (max-width: 996px) {
@@ -170,4 +171,31 @@
 
 .slick-prev:before {
   content: '';
+}
+
+.next_arrow {
+  position: absolute;
+  display: flex !important;
+  color: #fff;
+  right: 20px;
+  box-shadow: 0px 0px 200px 40px rgb(255 255 255);
+  border-radius: 100px;
+  margin-top: -10px;
+  top: 120px;
+  cursor: pointer;
+  background-color: var(--ifm-color-card-border);
+}
+
+.prev_arrow {
+  position: absolute;
+  display: flex !important;
+  color: #fff;
+  left: 20px;
+  box-shadow: 0px 0px 200px 40px rgb(255 255 255);
+  border-radius: 100px;
+  margin-top: -10px;
+  top: 120px;
+  cursor: pointer;
+  z-index: 9;
+  background-color: var(--ifm-color-card-border);
 }

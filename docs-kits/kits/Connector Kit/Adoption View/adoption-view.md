@@ -162,7 +162,7 @@ be limited further by constraints (temporal or spatial) and duties ("e.g. deleti
 
 #### Contract Definition
 
-By combining [`Assets`](#data asset) and Policies, Contracts for data offerings are defined. These Contracts need to be
+By combining [`Assets`](#data-assets) and Policies, Contracts for data offerings are defined. These Contracts need to be
 accepted by consuming participants (Connectors) for the data exchange to take place.
 
 #### Contract offer
@@ -188,7 +188,7 @@ participants, including a start and an end date and further relevant information
 #### Transfer process
 
 After a successful contract negotiation, `DataRequests` can be sent from the consumer connector to the provider
-connector to initiate the data transfer. It references the requested [`Asset`](#data asset)
+connector to initiate the data transfer. It references the requested [`Asset`](#data-assets)
 and [`ContractAgreement`](#contract-agreement) as well as information about the [data destination](#data-address).
 
 Similar to the `ContractNegotiation`, this object captures the current state of a data transfer. This process is

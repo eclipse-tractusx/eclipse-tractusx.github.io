@@ -110,9 +110,9 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 onChange={handleDomainChange}
 
                 //styles for the input box
+                className={styles.text_color}
                 sx={
                   {
-                    color: '#fff',
                     padding: '0 0.5rem',
                     '& .MuiSvgIcon-root': {
                       color: '#faa023',
@@ -144,9 +144,10 @@ export default function KitsGalleryWithFilters({itemsArray, title, description})
                 <MenuItem value={'All Domains'}>All Domains</MenuItem>
                 <MenuItem value={'Engineering'}>Engineering</MenuItem>
                 <MenuItem value={'Industry Core'}>Industry Core</MenuItem>
+                <MenuItem value={'Manufacturing'}>Manufacturing</MenuItem>
                 <MenuItem value={'Network Services'}>Network Services</MenuItem>
-                <MenuItem value={'PLM / Quality'}>PLM / Quality</MenuItem>
-                <MenuItem value={'Resiliency'}>Resiliency</MenuItem>
+                <MenuItem value={'Quality'}>Quality</MenuItem>
+                <MenuItem value={'Supply Chain'}>Supply Chain</MenuItem>
                 <MenuItem value={'Sustainability'}>Sustainability</MenuItem>
               </Select>
             </FormControl>

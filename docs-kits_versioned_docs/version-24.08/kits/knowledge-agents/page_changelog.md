@@ -32,6 +32,16 @@ sidebar_position: 1
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
 
+## [1.2.0] - 2024-07-29
+
+### Added
+
+- AAS Bridge Released
+
+### Changed
+
+- References to 24.08 (1.31.22/1.13.7)
+
 ## [1.1.0] - 2024-05-13
 
 ### Added

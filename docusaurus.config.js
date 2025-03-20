@@ -1,8 +1,9 @@
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -133,7 +134,7 @@ const config = {
           },
         ],
       },
-    ]
+    ],
   ],
 
   themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
@@ -143,7 +144,7 @@ const config = {
     ({
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: true,
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       algolia: {
@@ -196,15 +197,19 @@ const config = {
                 label: 'Connector',
               },
               {
+                to: '/docs-kits/kits/customs-kit/page_adoption-view',
+                label: 'Customs',
+              },
+              {
                 to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
                 label: 'Data Chain',
               },
               {
-                to: 'docs-kits/kits/Data%20Governance%20Kit/Data%20Governance%20Kit%20Adoption%20View',
+                to: 'docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
               },
               {
-                to: 'docs-kits/kits/Demand and Capacity Management Kit/adoption-view/overview',
+                to: 'docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
               },
               {
@@ -224,6 +229,14 @@ const config = {
                 label: 'Industry Core',
               },
               {
+                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
+                label: 'Logistics',
+              },
+              {
+                to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
+                label: 'Manufacturing as a Service',
+              },
+              {
                 to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
                 label: 'Model Based Development',
               },
@@ -236,24 +249,20 @@ const config = {
                 label: 'Online Simulation',
               },
               {
-                to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
-                label: 'Manufacturing as a Service',
+                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
+                label: 'PCF Exchange',
               },
               {
                 to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
                 label: 'PURIS',
               },
               {
-                to: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
-                label: 'Supply Chain Disruption Notifications',
-              },
-              {
-                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
-                label: 'PCF Exchange',
-              },
-              {
                 to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
                 label: 'Quality',
+              },
+              {
+                to: '/docs-kits/next/kits/supply-chain-disruption-notification-kit',
+                label: 'Supply Chain Disruption Notifications',
               },
               {
                 to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',

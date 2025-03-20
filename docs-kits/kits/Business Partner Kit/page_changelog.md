@@ -11,6 +11,23 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [8.0.0] - 2025-03-03
+
+Compatible for **release 25.03**.
+
+### Added
+
+- Added api hub hyperlink for all services in development view of business partner kit with latest BPDM Application version 6.3.0.
+
+### Changed
+
+- Updated development view sidebar to show latest api specifications.
+- Use case section updated on how E2E test can be executed locally.
+
+### Removed
+
+- ./.
+
 ## [7.0.0] - 2024-12-01
 
 Compatible for **release 24.12**.

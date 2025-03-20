@@ -23,12 +23,14 @@ import Business_Kit from "@site/static/img/kits/business-partner/business-partne
 import Circularity_Kit from "@site/static/img/kits/circularity/circularity-kit-gallery.drawio.svg";
 import Connector_Kit from "@site/static/img/kits/connector/connector-kit-gallery.drawio.svg";
 import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
+import DataGovernance_Kit from "@site/static/img/kits/data-governance/data-governance-kit-gallery.drawio.svg";
 import DDQM from "@site/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-gallery.drawio.svg";
 import DemandandCapacityManagement_Kit from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-gallery.drawio.svg";
 import DigitalTwin from "@site/static/img/kits/digital-twin/digital-twin-kit-gallery.drawio.svg";
 import EcoPass from "@site/static/img/kits/eco-pass/eco-pass-kit-gallery.drawio.svg";
 import ESS_Kit from "@site/static/img/kits/ess/ess-kit-gallery.drawio.svg";
 import Industry_Kit from "@site/static/img/kits/industry-core/industry-core-kit-gallery.drawio.svg";
+import Logistics_Kit from "@site/static/img/kits/logistics/logistics-gallery.drawio.svg";
 import Maas_Kit from "@site/static/img/kits/manufacturing-as-a-service/maas-kit-gallery.drawio.svg";
 import MBP_Kit from "@site/static/img/kits/model-based-production/model-based-production-kit-gallery.drawio.svg";
 import ModularProduction_Kit from "@site/static/img/kits/modular-production/modular-production-kit-gallery.drawio.svg";
@@ -38,15 +40,18 @@ import PURIS_Kit from '@site/static/img/kits/puris/puris-kit-gallery.drawio.svg'
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-gallery.drawio.svg";
 import Traceability_Kit from "@site/static/img/kits/traceability/traceability-kit-gallery.drawio.svg";
 
+
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 //************************** IMPORTANT **************************** */
 
 // WHEN DEFINING A "DOMAIN" IN THE kitsGallery ARRAY, MAKE SURE TO SELECT/TYPE EXACTLY AS BELOW:
+// * Engineering
 // * Industry Core
+// * Manufacturing
 // * Network Services
-// * PLM / Quality
-// * Resiliency
+// * Quality
+// * Supply Chain
 // * Sustainability
 // * Engineering
 
@@ -77,7 +82,7 @@ export const kitsGallery = [
   {
     id: 4,
     name: 'Traceability Kit',
-    domain: 'PLM / Quality',
+    domain: 'Quality',
     img: Traceability_Kit,
     pageRoute: "/docs-kits/kits/Traceability Kit/Business View Traceability Kit"
   },
@@ -105,14 +110,14 @@ export const kitsGallery = [
   {
     id: 8,
     name: 'Online Simulation Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     img: OnlineSimulation,
     pageRoute: "/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit"
   },
   {
     id: 9,
     name: 'Data Driven Quality Management Kit',
-    domain: 'PLM / Quality',
+    domain: 'Quality',
     img: DDQM,
     pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
   },
@@ -133,14 +138,14 @@ export const kitsGallery = [
   {
     id: 12,
     name: 'DCM Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     img: DemandandCapacityManagement_Kit,
     pageRoute: "/docs-kits/kits/Demand%20and%20Capacity%20Management%20Kit/adoption-view/overview"
   },
   {
     id: 13,
     name: 'Modular Production Kit',
-    domain: 'Resiliency',
+    domain: 'Manufacturing',
     img: ModularProduction_Kit,
     pageRoute: "/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit"
   },
@@ -154,7 +159,7 @@ export const kitsGallery = [
   {
     id: 15,
     name: 'Manufacturing as a Service Kit',
-    domain: 'Resiliency',
+    domain: 'Manufacturing',
     img: Maas_Kit,
     pageRoute: "/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
   },
@@ -175,15 +180,15 @@ export const kitsGallery = [
   {
     id: 18,
     name: 'PURIS Kit',
-    domain: 'Resiliency',
+    domain: 'Supply Chain',
     pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
     img: PURIS_Kit,
   },
   {
     id: 19,
     name: 'Supply Chain Disruption Notifications KIT',
-    domain: 'Resiliency',
-    pageRoute: '/docs-kits/next/kits/Supply%20Chain%20Disruption%20Notifications%20KIT/Adoption%20View%20PURIS-DCM%20Supply%20Chain%20Disruption%20Notifications',
+    domain: 'Supply Chain',
+    pageRoute: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view-supply-chain-disruption-notifications',
     img: SupplyChainsDisruptionNotifications_Kit,
   },
   {
@@ -192,5 +197,19 @@ export const kitsGallery = [
     domain: 'Engineering',
     pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
     img: MBP_Kit,
+  },
+  {
+    id: 21,
+    name: 'Logistics KIT',
+    domain: 'Supply Chain',
+    pageRoute: 'docs-kits/next/kits/logistics-kit/adoption-view',
+    img: Logistics_Kit,
+  },
+  {
+    id: 22,
+    name: 'Data Governance KIT',
+    domain: 'Network Services',
+    pageRoute: 'docs-kits/kits/data-governance-kit/adoption-view',
+    img: DataGovernance_Kit,
   },
 ]
