@@ -30,15 +30,15 @@ import UniqueIDPush from './part_uniqueidpush.mdx'
 
 Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
-### Register Digital Twins
+## Register Digital Twins
 
 In Industry Core, different types of parts, e. g. serialized parts, batches, JIS parts or catalog part, are registered in a company's DTR as digital twins.
 
-#### Regulatory Compliance and Security
+### Regulatory Compliance and Security
 
 To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
-#### Handling of Digital Twins at Contract Manufacturing
+### Handling of Digital Twins at Contract Manufacturing
 
 Contract manufacturing refers to the practice of outsourcing the production of vehicles or components to external manufacturers through formal agreements. This is a common business model and process in the automotive industry and therefore needs to be considered within Catena-X.
 
@@ -46,7 +46,7 @@ Contract manufacturing refers to the practice of outsourcing the production of v
 - The contract manufacturer does not necessarily need to be a member of Catena-X, as it is often intended to remain confidential if a part is produced by a contract manufacturer. The contracting authority bears responsibility for the externally manufactured parts towards their customers, and therefore all communication, such as Quality Notifications, takes place via the contracting authority.
 - If the contract manufacturer is not part of Catena-X, the required data are provided by the contractor outside of Catena-X, and the contracting authority creates the digital twin and performs the Look-up of the child parts to ensure traceability.
 
-#### Unique ID for Parts
+### Unique ID for Parts
 
 In the Industry Core, a Unique ID uniquely identifies a particular real-world asset. Currently, these are: serialized parts (including vehicles), batches, JIS parts (Just-in-Sequence) and also catalog parts.
 
@@ -56,7 +56,7 @@ The Unique ID mus be created by the manufacturer of the part. At the latest, it 
 
 Unique IDs are used in several places in the Industry Core, e.g., as `globalAssetId` for digital twins or as `catenaXId` in aspect models.
 
-#### Conventions for Creating Digital Twins
+### Conventions for Creating Digital Twins
 
 The following general conventions apply for all digital twins:
 
@@ -67,7 +67,7 @@ The following general conventions apply for all digital twins:
 
 > :raised_hand: **Unique ID Push:** Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
 
-#### Property specificAssetIds
+### Property specificAssetIds
 
 Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
@@ -142,7 +142,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 > In order to provide a standardised way to look-up digital twins, the specificAssetIDs are extended by a unified technical key, the intrinsicId. This ensures a correct semantic filling of all other existing attributes in the specificAssetIDs, as the partInstanceId was previously used as an overarching search field, which resulted in the partInstanceId being filled with a batch number for a batch, for example.
 Nevertheless, a search for digital twins can still be used via the corresponding the primary fields from a business point of view, such as partInstanceId or batchId.
 
-#### Submodel Descriptors
+### Submodel Descriptors
 
 To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-links-by-id).
 
@@ -185,7 +185,7 @@ The following conventions apply for the endpoint:
 
 With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{providerPath}`.
 
-##### Option 1: Same Connector Asset Structure as in Release 3.1
+#### Option 1: Same Connector Asset Structure as in Release 3.1
 
 Submodels of digital twins are registered in the Connector the same way as for release 3.1: One asset is created for every submodel of a digital twin.
 
@@ -230,7 +230,7 @@ Here's an example how such a submodel descriptor could look like:
 
 In this example, the `{providerPath}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
 
-##### Option 2: Connector Asset Structure on Catalog Part Level
+#### Option 2: Connector Asset Structure on Catalog Part Level
 
 A data provider can link several submodel endpoints to the same Connector asset (referenced by its ID). This allows to create only one asset (per aspect model) for a catalog part and link all submodels (of the same aspect model) for serialized parts of the catalog part to the same asset. The data provider would still need to create separate assets per aspect model as in most cases different usage policies are used for aspect models.
 
@@ -272,31 +272,55 @@ Here's an example how such a submodel descriptor could look like:
 ]
 ```
 
-The the `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
+The `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other asset structure.
 
-##### Data Consumption with AAS Submodel Descriptor Endpoints
+#### Performance test Digital Twin Registry
+The purpose of performance test was to analyze how much data can be retrieved from the Digital twin registry and Submodel Server within a specific period of time.
+All available shellIds were exported in a CSV file because the API lookup/shells is called once to load all matched shellIds from the DTR. The entire workflow was considered to perform realistic load tests using Apache JMeter.
+
+**Datasets**
+| Type                  | Component                 | Quantity | Description                                                        |
+|:----------------------|:--------------------------|:---------|:-------------------------------------------------------------------|
+| Digital Twin Registry | Shells                    | 1000     | Each Shell contains 4 Submodeldescriptors                          |
+|                       | Submodeldescriptors       | 4000     | Each Submodeldescriptor points to a dataset in the Submodel Server |
+| SubmodelServer        | Submodel Server Datasets  | 4000     | Entries corresponding to the submodel descriptors                  |
+
+**Workflow:**
+The tested workflow includes the following steps:
+1.	Randomly select a shellId from the given CSV File
+2.	GET DTR EDR Token from EDC-Controlplane (execute every 4 minutes)
+    a.	Retrieve EDC Catalog to determine which EDC Asset is responsible for the DTR.
+    b.	Fetch EDR token for the DTR.
+3.	Call DTR API shell-descriptors/id via EDC-Dataplane to load the shell.
+4.	Randomly select a submodel descriptor.
+5.	GET SUBMODEL EDR Token FROM EDC-Controlplane (execute every 4 minutes)
+    a.	Query the EDC Catalog to find the EDC Asset for the submodel.
+    b.	Fetch EDR token for the Submodelserver.
+6.	Retrieve the dataset from the Submodel Server via EDC-Dataplane, as defined in the href of the submodel descriptor.
+
+**Result**
+Test was performed using 20 threads in parallel. The average number of transactions per second was 30-35.
+
+> :raised_hand: If the performance is still not satisfactory for the user, then next given approach can be used, where aasx server can be used to transfer big files like parquet files.
+
+#### Data Consumption with AAS Submodel Descriptor to represent mass data (like parquet files) reference
 
 A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
 Further information about the data transfer of submodels can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
-##### Define submodel descriptors to represent mass data (like parquet files) reference
-There are several ways to transfer mass data, such as parquet files. The main challenge in the transfer process lies in the large file sizes.
-The following sections present the possible solutions for defining submodel descriptors to represent mass data.
-
-###### Solution 1: Cloud2Cloud File transfer via S3 bucket with EDC AWS extension
-**Introduction to File Transfer process in EDC**
+**Cloud2Cloud File transfer with EDC Cloud extension**
 
 1. `Provider` prepares aasx file with parquet file.
-1. `Provider` uploads the aasx file to an S3 bucket.
-2. `Provider` creates an edc-asset. The dataAddress includes information about the S3 bucket and the file name:
+2. `Provider` uploads the aasx file to the cloud (S3 bucket in our case)
+3. `Provider` creates an edc-asset. The dataAddress includes information about the S3 bucket and the file name:
 
 ```json
  {
    "edc:dataAddress": {
-     "edc-type": "AmazonS3",
+     "edc-type": "Cloud type e.g. AmazonS3",
      "edc:bucket": "<provider-bucket>",
      "edc:keyName": "<file-name>"
    }
@@ -304,14 +328,14 @@ The following sections present the possible solutions for defining submodel desc
 ```
 
 See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Software%20Development%20View/Specification%20Quality%20Kit/)
-3. `Provider` creates a shell with shell descriptors and the edc Asset with controlplane URL.
-4. `Consumer` calls the DTR via EDC and read the submodeldescriptor from the shell.
-5. `Consumer` starts negotiation/transfer process and provide their own bucket information:
+4. `Provider` creates a shell with shell descriptors and the edc Asset with controlplane URL.
+5. `Consumer` calls the DTR via EDC and read the submodeldescriptor from the shell.
+6. `Consumer` starts negotiation/transfer process and provide their own bucket information:
 
 ```json
  {
    "edc:dataDestination": {
-     "edc-type": "AmazonS3",
+     "edc-type": "Cloud type e.g. AmazonS3",
      "edc:bucket": "<consumer-bucket>",
      "edc:keyName": "<file-name>",
      "edc:accessKeyId":"<access-key-id>",
@@ -320,8 +344,8 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
  }
 ```
 
-6. `Provider` retrieve the request and download the requested aasx file from bucket and upload it to the consumer bucket.
-7. `Consumer` can download the file from their own bucket.
+7. `Provider` retrieve the request and download the requested aasx file from bucket and upload it to the consumer bucket.
+8. `Consumer` can download the file from their own bucket.
 
 **SubmodelDescriptor for aasx  file (Parquet Data - via File Transfer)**
 
@@ -332,37 +356,23 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
 For the file transfer via S3 bucket the submodelDescriptor can be defined like:
 ```json
 {
-...
   "submodelDescriptors": [
     {
-      "idShort": "quality-data",
-      "id": "<uuid>",
+      ...
       "endpoints": [
         {
            // TODO: Check which interface can be used here. See :https://github.com/admin-shell-io/questions-and-answers?tab=readme-ov-file#id47
-          "interface": "TBD", // SUBMODEL-3.0 cam not used because in EDC AWS S3 the consumer only triggers the event. It is a asyn call. No other type which can be used here (from IDTA Standards)
+          "interface": "TBD", // SUBMODEL-3.0 can not used because in EDC cloud the consumer only triggers the event. It is a asyn call. No other type which can be used here (from IDTA Standards)
           "protocolInformation": {
-            "href": "NONE",
-            "endpointProtocol": "HTTP",
-            "endpointProtocolVersion": [
-              "1.1"
-            ],
-            "subprotocol": "",
+            ...
             "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
              // Since the action only triggers an asyn event, the encoding is not relevant.
             "subprotocolBodyEncoding": "application/json",
-            "securityAttributes": [
-              {
-                "type": "NONE",
-                "key": "NONE",
-                "value": "NONE"
-              }
-            ]
           }
         }
       ],
       "semanticId": {
-        "type": "ExternalReference",
+        ...
         "keys": [
            {
               "type": "GlobalReference",
@@ -371,12 +381,7 @@ For the file transfer via S3 bucket the submodelDescriptor can be defined like:
            }
         ]
       },
-      "description": [
-        {
-          "language": "en",
-          "text": "submodel-descriptor for quality data which will be transferred via EDC S3 bucket."
-        }
-      ]
+      ...
     }
   ]
 }
@@ -390,437 +395,7 @@ For the file transfer via S3 bucket the submodelDescriptor can be defined like:
 | semanticId.keys[].value | urn:samm:io.catenax.vehicle.product_description:3.0.0#FlattenedProductDescription | Aspect model which map flatten hirarchy to model                      |
 | description[].text      | submodel-descriptor for quality data which will be transferred via S3 bucket.     | Further description for the consumer.                                 |
 
-
-###### Solution 2: File transfer via AASX Server
-If the file size is less than 100 GB, it can be transferred in AAX format via HTTPS. Therefore, the parquet file must be embedded in an AAX file and provided via the AASX server.
-
-**Precondition**
-
-A mass data like parquet file is interpreted as a submodel, and therefore, an AASX file always contains only one assetAdminstrationShell with exact one submodel.
-![Industry Core kit massdata overview](@site/static/img/kits/industry-core/industry-core-kit-massdata-overview.svg)
-
-**Definition**
-
-The submodelDescriptor for this case can be defined as follows:
-```json
-{
-   "idShort": "boschFleet",
-   "id": "boschFleet",
-   ...
-   "submodelDescriptors": [
-      {
-         "idShort": "qualityTask",
-         "id": "qualityTask",
-         "endpoints": [
-            {
-               "interface": "AASX-FILE-3.0",
-               "protocolInformation": {
-                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/1>",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/octet-stream",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for quality task which will be transferred via AAX File."
-            }
-         ]
-      },
-      {
-         "idShort": "fleetClaimData",
-         "id": "flettClaimData",
-         "endpoints": [
-            {
-               "interface": "AASX-FILE-3.0",
-               "protocolInformation": {
-                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/2",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/octet-stream",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.fleet.claim_data:2.0.0#FlattenedClaimData"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for claim data which will be transferred via AAX File."
-            }
-         ]
-      },
-      {
-         "idShort": "fleetDiagnosticData",
-         "id": "fleetDiagnosticData",
-         "endpoints": [
-            {
-               "interface": "AASX-FILE-3.0",
-               "protocolInformation": {
-                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/3",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/octet-stream",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.fleet.diagnostic_data:2.0.0#FlattenedDiagnosticData"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for diagnostic data which will be transferred via AAX File."
-            }
-         ]
-      },
-      {
-         "idShort": "vehicleProductDescription",
-         "id": "vehicleProductDescription",
-         "endpoints": [
-            {
-               "interface": "AASX-FILE-3.0",
-               "protocolInformation": {
-                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/4",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/octet-stream",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.vehicle.product_description:2.0.0#FlattenedProductDescription"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for vehicle product description which will be transferred via AAX File."
-            }
-         ]
-      },
-      {
-         "idShort": "qualityTaskAttachment",
-         "id": "qualityTaskAttachment",
-         "endpoints": [
-            {
-               "interface": "AASX-FILE-3.0",
-               "protocolInformation": {
-                  "href": "https://<provider-edc-dataplane-url>/<path>/packages/5",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/octet-stream",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.quality_task_attachment:2.0.0#FlattenedQualityTaskAttachment"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for quality task attachment which will be transferred via AAX File."
-            }
-         ]
-      }
-   ]
-}
-```
-
-Example AASX File for **qualityTask** structure can looks like:
-```
-bosch_quality_data.aasx
-│   CX_release3_qax_testdata_qualitytask_v1.1.parquet
-│───aasx
-      └───data.xml
-```
-
-The reference inside of 'bosch_quality_data.aasx' -> 'data.xml' can look like:
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<aas:environment xmlns:aas="https://admin-shell.io/aas/3/0">
-   <aas:assetAdministrationShells>
-      <aas:assetAdministrationShell>
-         <aas:idShort>boschFleet</aas:idShort>
-         <aas:id>boschFleet</aas:id>
-         <aas:assetInformation>
-            <aas:assetKind>Instance</aas:assetKind>
-            <aas:globalAssetId>global-asset-fleet</aas:globalAssetId>
-         </aas:assetInformation>
-         <aas:submodels>
-            <aas:reference>
-               <aas:type>ModelReference</aas:type>
-               <aas:keys>
-                  <aas:key>
-                     <aas:type>Submodel</aas:type>
-                     <aas:value>qualityTask</aas:value>
-                  </aas:key>
-               </aas:keys>
-            </aas:reference>
-         </aas:submodels>
-      </aas:assetAdministrationShell>
-   </aas:assetAdministrationShells>
-   <aas:submodels>
-      <aas:submodel>
-         <aas:category>qualityTask</aas:category>
-         <aas:idShort>qualityTask</aas:idShort>
-         <aas:id>qualityTask</aas:id>
-         <aas:kind>Instance</aas:kind>
-         <aas:semanticId>
-            <aas:type>ExternalReference</aas:type>
-            <aas:keys>
-               <aas:key>
-                  <aas:type>GlobalReference</aas:type>
-                  <aas:value>urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask</aas:value>
-               </aas:key>
-            </aas:keys>
-         </aas:semanticId>
-         <aas:submodelElements>
-            <aas:file>
-               <aas:category>PARAMETER</aas:category>
-               <aas:idShort>quality_data_parquet</aas:idShort>
-               <aas:semanticId>
-                  <aas:type>ExternalReference</aas:type>
-                  <aas:keys>
-                     <aas:key>
-                        <aas:type>GlobalReference</aas:type>
-                        <aas:value>urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask</aas:value>
-                     </aas:key>
-                  </aas:keys>
-               </aas:semanticId>
-               <aas:value>/CX_release3_qax_testdata_qualitytask_v1.1.parquet</aas:value>
-               <aas:contentType>application/parquet</aas:contentType>
-            </aas:file>
-         </aas:submodelElements>
-      </aas:submodel>
-   </aas:submodels>
-</aas:environment>
-```
-
-Example AASX File **claimData** structure can looks like:
-```
-bosch_claim_data.aasx
-│   CX_release3_qax_testdata_claimData_v1.1.parquet
-│───aasx
-      └───data.xml
-```
-
-The reference inside of 'bosch_claim_data.aasx' -> 'data.xml' can look like:
-
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<aas:environment xmlns:aas="https://admin-shell.io/aas/3/0">
-   <aas:assetAdministrationShells>
-      <aas:assetAdministrationShell>
-         <aas:idShort>boschFleet</aas:idShort>
-         <aas:id>boschFleet</aas:id>
-         <aas:assetInformation>
-            <aas:assetKind>Instance</aas:assetKind>
-            <aas:globalAssetId>global-asset-fleet</aas:globalAssetId>
-         </aas:assetInformation>
-         <aas:submodels>
-            <aas:reference>
-               <aas:type>ModelReference</aas:type>
-               <aas:keys>
-                  <aas:key>
-                     <aas:type>Submodel</aas:type>
-                     <aas:value>claimData</aas:value>
-                  </aas:key>
-               </aas:keys>
-            </aas:reference>
-         </aas:submodels>
-      </aas:assetAdministrationShell>
-   </aas:assetAdministrationShells>
-   <aas:submodels>
-      <aas:submodel>
-         <aas:category>claimData</aas:category>
-         <aas:idShort>claimData</aas:idShort>
-         <aas:id>claimData</aas:id>
-         <aas:kind>Instance</aas:kind>
-         <aas:semanticId>
-            <aas:type>ExternalReference</aas:type>
-            <aas:keys>
-               <aas:key>
-                  <aas:type>GlobalReference</aas:type>
-                  <aas:value>urn:samm:io.catenax.fleet.claim_data:2.0.0##FlattenedClaimData</aas:value>
-               </aas:key>
-            </aas:keys>
-         </aas:semanticId>
-         <aas:submodelElements>
-            <aas:file>
-               <aas:category>PARAMETER</aas:category>
-               <aas:idShort>quality_data_parquet</aas:idShort>
-               <aas:semanticId>
-                  <aas:type>ExternalReference</aas:type>
-                  <aas:keys>
-                     <aas:key>
-                        <aas:type>GlobalReference</aas:type>
-                        <aas:value>urn:samm:io.catenax.fleet.claim_data:2.0.0##FlattenedClaimData</aas:value>
-                     </aas:key>
-                  </aas:keys>
-               </aas:semanticId>
-               <aas:value>/CX_release3_qax_testdata_claimData_v1.1.parquet</aas:value>
-               <aas:contentType>application/parquet</aas:contentType>
-            </aas:file>
-         </aas:submodelElements>
-      </aas:submodel>
-   </aas:submodels>
-</aas:environment>
-```
-
-###### Solution 3: File transfer via [async.] AASX Server
-Issue is created: See [github-issue 347](https://github.com/admin-shell-io/aas-specs-api/issues/347)
-Status: In progress
-
-###### Solution 4: File transfer via HTTPS
-It is also possible to structure the data from the parquet file as JSON and deliver it via HTTPS in JSON format, which is currently the standard in Catena-X.
-The submodelDescriptor for this case can be defined like:
-```json
-{
-   ...
-   "submodelDescriptors": [
-      {
-         "idShort": "vehicleProductDescription",
-         "id": "<uuid>",
-         "endpoints": [
-            {
-               "interface": "SUBMODEL-3.0",
-               "protocolInformation": {
-                  "href": "<provider-edc-dataplane-url>/<path-to-submodel-service>/$value",
-                  "endpointProtocol": "HTTP",
-                  "endpointProtocolVersion": [
-                     "1.1"
-                  ],
-                  "subprotocol": "",
-                  "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-                  "subprotocolBodyEncoding": "application/json; charset=UTF-8",
-                  "securityAttributes": [
-                     {
-                        "type": "NONE",
-                        "key": "NONE",
-                        "value": "NONE"
-                     }
-                  ]
-               }
-            }
-         ],
-         "semanticId": {
-            "type": "ExternalReference",
-            "keys": [
-               {
-                  "type": "GlobalReference",
-                  //TBD: New Model which map flatten hirarchy to model (like with "_" or ".")
-                  "value": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"
-               }
-            ]
-         },
-         "description": [
-            {
-               "language": "en",
-               "text": "submodel-descriptor for vehicleProductDescription which will be transferred via HTTPS."
-            }
-         ]
-      }
-   ]
-}
-```
-
-### Lookup in the Digital Twin Registry
+## Lookup in the Digital Twin Registry
 
 For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
 
@@ -833,7 +408,7 @@ For a data consumer, there are currently the following steps where they have to 
 - The data consumer in the Traceability use case in most cases will use the Unique ID of a part to lookup the digital twin (more precisely, its AAS ID) of this part.
 - The data consumer from another use case (e.g., Circular Economy), might either use the Unique ID of a part (if known) or the local IDs of a part to lookup the part's digital twin (AAS ID) depending on what is available in the use case.
 
-#### Lookup up a Digital Twin with Local IDs
+### Lookup up a Digital Twin with Local IDs
 
 The local IDs of a serialized part (manufacturer, part number, serial number) are stored as specific asset IDs in the AAS descriptor of the digital twin. From the Digital Twin Registry API, the following function can be used for this lookup `GET /lookup/shells`.
 
@@ -886,7 +461,7 @@ Currently, even if more than one digital twin is returned in a lookup, these dig
 
 The next section describes to modify the lookup to additionally restrict the results to digital twins with a specific submodel type based on it's semanticId.
 
-#### Implicit Connection Between a Part Type Twin and the Corresponding Part Instance Twins
+### Implicit Connection Between a Part Type Twin and the Corresponding Part Instance Twins
 
 To find the corresponding part instance twins to a given part type twin, it is possible to use the lookup functionality. Searching for the specific asset IDs `manufacturerId` and `manufacturerPartId` and `digitalTwinType = "PartInstance"` of the given part type twin will find all corresponding part instance twins.
 
@@ -894,13 +469,13 @@ To find the corresponding part type twin to a given part instance twin, it is po
 
 To find the corresponding part instance twins to a given part instance twin, it is possible to search for the specific asset IDs `manufacturerId`, `manufacturerPartId` and `digitalTwinType = "PartInstance"` of the given part instance twin.
 
-### Unique ID Push
+## Unique ID Push
 
 Once the digital twin was created, optionally a Unique ID Push notification can be send by the manufacturer of the part to the customer of the serialized part of batch to inform the customer that information about a serialized part or batch is available as a digital twin. This is an optional process and both, the manufacturer of a part as well as the customer of the part must support Unique ID Push notifications.
 
 For more information, see [Unique ID Push Notifications](#unique-id-push-notifications)
 
-#### Query a Digital Twin Registry to find the digital twin for this built-in part
+### Query a Digital Twin Registry to find the digital twin for this built-in part
 
 - Querying digital twins is described in [Lookup in the Digital Twin Registry](#lookup-in-the-digital-twin-registry)
   - Note that the query parameters differ depending on what type of digital twin is looked up.
@@ -914,11 +489,11 @@ For more information, see [Unique ID Push Notifications](#unique-id-push-notific
 
 These steps have to be repeated for all built-in parts by the manufacturer. After that, the manufacturer has all information to create the SingleLevelBomAsBuilt.
 
-#### Publish Traceability Data Offers in the Connector
+### Publish Traceability Data Offers in the Connector
 
 With the flexible approach described above, the actual asset structure for submodels in the Connector is no longer restricted by use case conventions and can be decided by the data provider.
 
-#### Data Provider Tasks
+### Data Provider Tasks
 
 Basically, as a data provider you have to do the following
 
