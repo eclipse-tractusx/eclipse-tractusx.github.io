@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Deployment
 ---
 <!--
- * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -241,7 +241,7 @@ Deployed as "provider-agent-plane"
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.13.22
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -458,7 +458,7 @@ Deployed as "consumer-agent-plane"
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.13.22
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -587,7 +587,7 @@ Deployed as "consumer-agent"
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.13.22
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -679,7 +679,7 @@ Therefore, some of the following settings are specific to stable and will not be
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.13.22
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -754,7 +754,7 @@ For simplicity, the remoting agent exposes a simply public API as a graph.
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.13.22
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -884,4 +884,4 @@ It consists of the following steps:
 * Query Data Graph Asset (Consumer)
 * Query Function Graph Asset (Consumer)
 
-<sub><sup>(C) 2021,2024 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

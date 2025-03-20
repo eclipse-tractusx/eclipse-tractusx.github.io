@@ -28,9 +28,9 @@ Report and steer the de-carbonization of our value chain with dedicated measures
 Addressing supply chain carbon emissions today is missing reliable data about baseline emissions, effect of reductions and best practices. This is due to three reasons:
 
 - Complexity of supply chains leading to huge amount of data: complex supply chains spanning different countries and actors from many industries lead to huge amounts of data.
-  
+
 - Lack of trust: unwillingness to share data due to the risk of losing competitive advantage (data is shared with competitors).
-  
+
 - Missing standards for measuring carbon emissions in a comparable way.
 
 At the core of our project is the recognition of a current challenge - the lack of transparency and accessibility to real PCF information in supply chains. Through our project, we strive to bridge this information gap by establishing a trusted and collaborative and interoperable environment. Suppliers will have the opportunity to share their PCF data with confidence, knowing that it remains sovereign and under their control.
@@ -71,6 +71,11 @@ To describe the process, we defined two customer journeys:
 
 The exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
 
+As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests. We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
+The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
+
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit#todays-challenge)
+
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
 
 In the real world, this will not be implemented this way, at least in the short and medium term. It can be assumed that this process and information chain will break down at certain points in the supply chain. There, data is not requested, but calculated using secondary data, as is standard procedure these days. There can be various reasons for this:
@@ -98,7 +103,7 @@ PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a d
 
 - The data consumer realizes that he needs the PCF for a specific component and that this data is not available in his local data (or is not of sufficient quality).
 - With his PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X (from a technical perspective, this means that there is already a digital twin for the component and that the PCF submodel is available for this twin). If so, the tool would “fetch up” this data. If not, the user can request this data from the supplier as described in the next steps.
-- The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his supplier. In doing so, he asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the Catena-X PCF Rulebook ([CX-0029](https://catenax-ev.github.io/docs/next/standards/CX-0029-ProductCarbonFootprintRulebook)).
+- The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his supplier. In doing so, he asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the [Catena-X PCF Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf).
 
 With this request, the process temporarily ends for the data consumer. The ball is now in the data provider's playing field:
 
@@ -120,7 +125,7 @@ This ends this customer journey.
 
 ### Customer Journey “PCF Calculation”
 
-This customer journey describes the calculation of a PCF in compliance with the Catena-X PCF Rulebook ([CX-0029](https://catenax-ev.github.io/docs/next/standards/CX-0029-ProductCarbonFootprintRulebook)), with some of the required data obtained via the Catena-X network.
+This customer journey describes the calculation of a PCF in compliance with the [Catena-X PCF Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf) with some of the required data obtained via the Catena-X network.
 
 ![PCF Calculation](resources/adoption-view/PCFCalculation.png)
 
@@ -397,7 +402,7 @@ For this KIT only the PCF data model is used. The PCF data model follows the [CX
 
 #### Data Model Overview
 
-The Catena-X PCF data model has been developed in accordance with the "Technical Specifications for PCF Data Exchange" from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. The basis for the specification of the Catena-X PCF data model is the PCF Rulebook V3.0.0 (see [CX-0029](https://catenax-ev.github.io/docs/next/standards/CX-0029-ProductCarbonFootprintRulebook)).
+The Catena-X PCF data model has been developed in accordance with the "Technical Specifications for PCF Data Exchange" from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. The basis for the specification of the Catena-X PCF data model is the [PCF Rulebook v3.0.0](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf).
 
 The following illustration describes the logical structure of the Catena-X PCF data model:
 
@@ -618,7 +623,10 @@ The diagram shown here illustrates the interaction between the PCF KIT and the o
 The relevant standards can be downloaded from the official [Catena-X Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
 
 - [CX-0136 Product Carbon Footprint UseCase (Version 2.0.0)](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
-- [CX-0029 Product Carbon Footprint Rulebook (Version 3.0.0)](https://catenax-ev.github.io/docs/next/standards/CX-0029-ProductCarbonFootprintRulebook)
+
+### Non-rechnical requirement
+
+- [Product Carbon Footprint Rulebook (Version 3.0.0)](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)
 
 ## REFERENCE IMPLEMENTATIONS
 

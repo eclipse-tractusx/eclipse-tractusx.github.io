@@ -7,6 +7,13 @@ sidebar_position: 3
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.drawio.svg)
 
+## Announcement
+
+With the major CX-Saturn Release 25.09 the CX-0136 standard will be extended to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126). We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
+The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
+
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit#todays-challenge)
+
 ## Introduction
 
 The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developers will learn how to integrate the KIT into their applications and make use of the feature of exchanging PCF values via the Catena-X network.
@@ -26,13 +33,13 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 ### EDC Discovery and dDTR Access
 
-In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefor, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
+In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefore, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
 ![EDCDiscoveryAndDTRAccess](../resources/development-view/EDCDiscoveryanddDTRAccess.png)
 
 ### PCF Request
 
-In order to request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefor, the decentralized Digital Twin Registry (dDTR) is used. Data providers must register their dDTR(s) as EDC assets following the [CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) Digital Twins in Catena-X standard. After identifying the dDTR, the digital twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
+In order to request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore, the decentralized Digital Twin Registry (dDTR) is used. Data providers must register their dDTR(s) as EDC assets following the [CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) Digital Twins in Catena-X standard. After identifying the dDTR, the digital twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
@@ -53,16 +60,16 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 #### API Calls
 
-| Call                                                                                                                                                                                                                                                                                    | Method | Path                                                                                                 | Parameter                                                                                                             |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| [001](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20EDC%20Discovery/post-list-of-bpns-or-an-empty-array-to-retrieve-available-company-connector-authorization-required-roles-view-connectors) (Lookup EDC endpoints) | POST   | /api/administration/Connectors/discovery/                                                            | `[<Company's BPNL>]`                                                                                              |
-| [002](https://eclipse-tractusx.github.io/docs-kits/next/kits/tractusx-edc/docs/samples/management-api-v2-walkthrough/catalog) (Look up dDTR)                                                                                                                                            | POST   | /v2/catalog/request |  --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                                                                                                                 |
-| [003](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-administration-shell-ids-by-asset-link) (Lookup Twin ID)                                                                            | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
-| [004](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Registry/get-all-asset-administration-shell-descriptors) (Lookup PCF submodel/EDC asset ID)                                                                | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
-| [005](../resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Requesting PCF value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
-| [006](../resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Sending PCF value)                                                                                                                                                                                                                                                                 | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
+| Call                                                                                                                                                                                                                                                                              | Method | Path                                                                                                 | Parameter                                                                                                             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Lookup EDC endpoints | POST   | /api/administration/Connectors/discovery/                                                            | `[<Company's BPNL>]`                                                                                              |
+| Lookup dDTR                                                                                                                                         | POST   | /v2/catalog/request |  --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                                                                                                                 |
+| Lookup Twin ID                                                                           | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
+| Lookup PCF submodel/EDC asset ID                                                             | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
+| Requesting PCF value                                                                                                                                                                                                                                                       | GET    | /productIds                                                                                          | {productId}                                                                                                       |
+| Sending PCF value                                                                                                                                                                                                                                                            | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
 
-- The assetIds under [003] must be base64 encoded!
+- The assetIds under *Lookup Twin ID* must be base64 encoded!
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
 - When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
@@ -258,7 +265,7 @@ The content of the access policy depends on the criterias used within the usage 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
 If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
 ![Tier1Supplier without bilateral contracts](../resources/development-view/Tier1AOpenUP.png)
-  
+
 <details>
     <summary>Empty Access Policy (JSON)</summary>
 

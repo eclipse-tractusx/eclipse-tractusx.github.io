@@ -43,14 +43,11 @@ For more information see
 
 * Provider-Side Programming Language: Java > 12
   * Eclipse Dataspace Connector
-  * Provider Agent: OnTop
-  * Inference Agent: Fuseki
-  * Function Agent: RDF4J
+  * Provider Agent: OnTop VKP
+  * Matchmaking Agent: Apache Fuseki
+  * Remoting Agent: RDF4J
+  * Conforming Agent: JAX-RS (Jersey) & Glassfish
   * SPARQL-AAS Bridge: FAAAST
-* Consumer-Side Programming Language: Typescript
-  * Skill Framework: React/Redux
-  * Knowledge Explorer: React/Redux & Catena-X Portal
-  * Skill Development Environment: React/Redux & Catena-X Portal
 
 ## Sources And Artifacts
 

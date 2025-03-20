@@ -3,12 +3,12 @@ sidebar_position: 1
 title: API
 ---
 <!--
- * Copyright (c) 2021,2023 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
- * Copyright (c) 2021,2023 Mercedes-Benz AG
- * Copyright (c) 2021,2023 ZF Friedrichshafen AG
- * Copyright (c) 2021,2023 SAP SE
- * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2021 T-Systems International GmbH
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Mercedes-Benz AG
+ * Copyright (c) 2021 ZF Friedrichshafen AG
+ * Copyright (c) 2021 SAP SE
+ * Copyright (c) 2021 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -131,7 +131,7 @@ curl --location '${KA-MATCH}/agent/skill?asset=urn%3Acx%3ASkill%3Aconsumer%3ALif
 --data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:          <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX cx:            <https://github.com/catenax-ng/product-knowledge/ontology/cx.ttl#>
+PREFIX cx:            <https://w3id.org/catenax/ontology#>
 
 ############################################################################################
 #                  Catena-X Knowledge Agents Sample Federated Skill           
@@ -166,8 +166,8 @@ VALUES (?vin ?troubleCode) { ("@vin"^^xsd:string "@troubleCode"^^xsd:string) }.
         cx:hasConnector ?oemConnector.
 
 ?oemConnector cx:offersAsset ?diagnoseAsset.
-?diagnoseAsset rdf:type <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#GraphAsset>;
-                rdfs:isDefinedBy <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/diagnosis_ontology.ttl>.
+?diagnoseAsset rdf:type <https://w3id.org/catenax/taxonomy#GraphAsset>;
+                rdfs:isDefinedBy <https://w3id.org/catenax/ontology/reliability>.
 
 ####
 # 3. The CONSUMER delegates the following logic to the OEM (connector)
@@ -214,7 +214,7 @@ SERVICE ?oemConnector {
                     ].           
 
     ?tieraConnector cx:offersAsset ?prognosisAsset.
-    ?prognosisAsset rdfs:isDefinedBy <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/prognosis_ontology.ttl>.
+    ?prognosisAsset rdfs:isDefinedBy <https://w3id.org/catenax/ontology/behaviour>.
 
     ####
     # 4. The OEM (and not the CONSUMER) delegates to the SUPPLIER (connector)
@@ -277,7 +277,7 @@ curl --location '${KA-BIND}/agent' \
 --data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:          <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX cx:            <https://github.com/catenax-ng/product-knowledge/ontology/cx.ttl#>
+PREFIX cx:            <https://w3id.org/catenax/ontology#>
 
 # Sample Graph Context that is Delegated/Instantiated to a Binding Agent Call
 SELECT ?partType ?description WHERE {
@@ -299,4 +299,4 @@ see the [GRAPH POST](api/graph/postGraph) method specification
 
 see the [GRAPH DELETE](api/graph/deleteGraph) method specification
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>

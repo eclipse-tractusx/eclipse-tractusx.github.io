@@ -50,7 +50,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 ```yaml
     - name: provisioning-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.12.19
+      version: 1.13.22
       alias: my-provider-agent
 ```
 
@@ -317,7 +317,7 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 ```yaml
     - name: remoting-agent
       repository: https://eclipse-tractusx.github.io/charts/dev
-      version: 1.12.19
+      version: 1.13.22
       alias: my-remoting-agent
 ```
 
@@ -1112,7 +1112,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cx-common:name": "Lifetime Prognosis Service for Gearboxes",
         "cx-common:description": "A sample graph asset/offering referring to a specific prognosis resource.",
         "cx-common:description@de": "Ein Beispielasset für eine Prognosefunktion.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?supplier=Graph",
         "dc:type": "cx-taxo:GraphAsset",
@@ -1158,7 +1158,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cx-common:name": "Health Prognosis Service for Gearboxes",
         "cx-common:description": "A second sample graph asset/offering referring to a specific prognosis resource.",
         "cx-common:description@de": "Ein weiteres Beispielasset für eine Prognosefunktion.",
-        "cx-common:version": "1.12.19",
+        "cx-common:version": "1.13.22",
         "cx-common:contenttype": "application/json, application/xml",
         "cx-common:publishedUnderContract": "Contract?supplier=Graph",
         "dc:type": "cx-taxo:GraphAsset",
