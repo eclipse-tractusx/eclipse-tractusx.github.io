@@ -8,42 +8,41 @@ description: API - WeekBasedMaterialDemand
 
 ## WeekBasedMaterialDemand API
 
-The WeekBasedMaterialDemand API is owned and registered as an EDC asset by the customer. The supplier provides material demand data to the API via POST request.
+The WeekBasedMaterialDemand API is owned and registered as an EDC asset by the supplier. The customer provides material demand data to the API via POST request.
 
 ### Roles and Functions
 
 |Role / Function|API Owner|POST to API|
 |-|-|-|
-|Customer|X||
-|Supplier||X|
+|Customer||X|
+|Supplier|X||
 
 ### Data Exchange
 
 ```mermaid
 sequenceDiagram
+autonumber
     actor c as Customer 
-    participant a as WeekBasedMaterialDemand API
     participant ce as Customer EDC
     participant se as Supplier EDC
+    participant a as WeekBasedMaterialDemand API
     actor s as Supplier
     
     rect rgb(217,24,24)
-        autonumber 1
-        c->>+ce: Register API as Asset
-        ce->>-c: API registered
+        s->>+se: Register API as Asset
+        se->>-s: API registered
     end
-    rect rgb(221,130,0)
-        autonumber 1
-        s->>+se: Provide WeekBasedMaterialDemand
-        rect rgb(255,166,0)
-        se->>+ce: Initiate Handshake
-        ce->>se: Complete Handshake
+    rect rgb(128,149,00)
+        c->>+ce: Provide WeekBasedMaterialDemand
+        rect rgb(179,203,45)
+        ce->>+se: Initiate Handshake
+        se->>ce: Complete Handshake
         end
-    se->>ce: Provide WeekBasedMaterialDemand
-    ce->>+a: Provide WeekBasedMaterialDemand
-    a->>-ce: WeekBasedMaterialDemand consumed
-    ce->>-se: WeekBasedMaterialDemand consumed
-    se->>-s: WeekBasedMaterialDemand consumed
+    ce->>se: Provide WeekBasedMaterialDemand
+    se->>+a: Provide WeekBasedMaterialDemand
+    a->>-se: WeekBasedMaterialDemand consumed
+    se->>-ce: WeekBasedMaterialDemand consumed
+    ce->>-c: WeekBasedMaterialDemand consumed
     
     end
 ```
