@@ -4,10 +4,20 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/community/meeting-minutes</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Fri, 08 Nov 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 21 Mar 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Community Office Hour 2025-03-21]]></title>
+            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21</link>
+            <guid>community-office-hour-2025-03-21</guid>
+            <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Office Hour meeting minutes]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a class="hash-link" href="#office-hour-meeting-minutes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a class="hash-link" href="#infrastructure" title="Direct link to heading">​</a></h3><h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a class="hash-link" href="#release-management" title="Direct link to heading">​</a></h3><ul><li>The first activities for the next release are coming up as <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer">per the timeline</a>.</li><li>docusaurus of the website will finally be updated to 3.x 😍 Everyone who is responsible for a kit should join the kick-off as announced per the <a href="https://eclipse-tractusx.github.io/community/open-meetings/" target="_blank" rel="noopener noreferrer">open meetings page</a>.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a class="hash-link" href="#foss" title="Direct link to heading">​</a></h3><ul><li>There's a couple of PRs open and especially the suggestion to add a new TRG should be reviewed thoroughly <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187" target="_blank" rel="noopener noreferrer">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a class="hash-link" href="#communityopen-planning" title="Direct link to heading">​</a></h3><ul><li>Everyone is invited to join the community days in May 2025.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedbackquestionsrequests">Feedback/Questions/Requests<a class="hash-link" href="#feedbackquestionsrequests" title="Direct link to heading">​</a></h3><ul><li>There's a new <a href="https://github.com/eclipse-tractusx/sig-architecture/tree/main/docs/white-papers/multiple-wallet-providers-and-bring-your-own-wallet" target="_blank" rel="noopener noreferrer">architecture whitepaper</a> on integrating the identity hub with other TX components in the concept of a BYO-wallet concept.</li><li>The release timeline of TX, CX and the ecosystem are aligned <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer">here</a>.</li></ul>]]></content:encoded>
+            <category>community</category>
+            <category>meeting-minutes</category>
+        </item>
         <item>
             <title><![CDATA[Community Office Hour 2024-11-08]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08</link>
