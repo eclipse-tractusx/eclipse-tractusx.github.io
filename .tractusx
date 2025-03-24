@@ -32,7 +32,7 @@ openApiSpecs:
 
 # Digital Twin KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-finder-openAPI_0-0-1.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-service-ssp001-openAPI_V3-0_SSP-001.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-service-openapi_V3-0_SSP-001.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-registry-service-ssp002-openAPI_V3-0_SSP-002.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-kit-submodel-openAPI_V3-0-1_SSP-003.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-edc-discovery-service-openAPI_v2-0.json"
@@ -47,8 +47,8 @@ openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-1.yaml"
 
 # MaaS KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-ManufacturingCapability-openapi_3-0-0-openAPI.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-RfQ-openapi_3-0-0-openAPI.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-ManufacturingCapability-openAPI_3-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-RfQ-openAPI_3-0-0.yaml"
 
 # Modular Production KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/modular-production/kit_modular-production-GetProductionForecast-openAPI_v2.yml"
