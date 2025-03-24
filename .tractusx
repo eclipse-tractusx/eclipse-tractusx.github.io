@@ -8,7 +8,7 @@ repositories:
 openApiSpecs:
 
 # Agents KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/agents/agent-openapi_1-12-19.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/agents/kit_agent-openAPI_1-12-19.yaml"
 
 # Business Parter Data Manegemtn KIT
 # Note: APIs are already provided by the BPDM repository
@@ -22,43 +22,47 @@ openApiSpecs:
 # - "https://raw.githubusercontent.com/eclipse-tractusx/bpdm/refs/heads/release/6.2.x/docs/api/pool.yaml"
 
 # Data Governance KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/data-governance/data-governance_0-0-1.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/data-governance/kit_data-governance-openAPI_0-0-1.yaml"
 
 # DCM KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/IdBasedComment_1-0-0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/IdBasedRequestForUpdate_3-0-0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/WeekBasedCapacityGroup_3-0.0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/WeekBasedMaterialDemand_3-0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/kit_dcm-IdBasedComment-openAPI_1-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/kit_dcm-IdBasedRequestForUpdate-openAPI_3-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/kit_dcm-WeekBasedCapacityGroup-openAPI_3-0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dcm/kit_dcm-WeekBasedMaterialDemand-openAPI_3-0.0.yaml"
 
 # Digital Twin KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/discovery-finder-openapi_0-0-1.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/discovery-service-ssp001-openapi-V3-0_SSP-001.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/registry-service-ssp002-openapi-V3-0_SSP-002.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/kit_digital-twin-kit-submodel-api_openAPI-V3-0-1_SSP-003.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/dt/edc-discovery-service-openapi.json"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-finder-openAPI_0-0-1.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-service-ssp001-openAPI_V3-0_SSP-001.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-registry-service-ssp002-openAPI_V3-0_SSP-002.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-kit-submodel-openAPI_V3-0-1_SSP-003.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-edc-discovery-service-openAPI_v2-0.json"
 # - "https://raw.githubusercontent.com/eclipse-tractusx/sldt-bpn-discovery/main/backend/src/main/resources/static/bpn-discovery-service-openapi.yaml" only referenced in the openAPI plugin, no references within the KITs
 
 # Industry Core KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/unique-id-push_2-0.0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/unique-id-push_2-1-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/kit_industry-core-example-digital-twin-event-openAPI_3-0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/kit_industry-core-unique-id-push-openAPI_2-0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/kit_industry-core-unique-id-push-openAPI_2-1-0.yaml"
 
 # PCF KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/catena-x-pcf-endpoint-1_1_1.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-1.yaml"
 
 # MaaS KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/maas/ManufacturingCapability-openapi_3-0-0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/maas/RfQ-openapi_3-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-ManufacturingCapability-openapi_3-0-0-openAPI.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/maas/kit_maas-RfQ-openapi_3-0-0-openAPI.yaml"
 
 # Modular Production KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/modular-production/GetProductionForecast-v2.yml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/modular-production/GetProductionTracking-v2.yml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/modular-production/ProvideProductionForecast-v2.yml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/modular-production/ProvideProductionTracking-v1.yml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/modular-production/kit_modular-production-GetProductionForecast-openAPI_v2.yml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/modular-production/kit_modular-production-GetProductionTracking-openAPI_v2.yml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/modular-production/kit_modular-production-ProvideProductionForecast-openAPI_v2.yml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/modular-production/kit_modular-production-ProvideProductionTracking-openAPI_v1.yml"
 
 # OSIM KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/resiliency/kit_osim_openAPI_2-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/osim/kit_osim-openAPI_2-0-0.yaml"
 
 # Traceability KIT
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/block-notifications-1-0-0.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/notifications_1-2-1.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/notifications_2-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-block-notifications-openAPI_1-0-0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-notifications-openAPI_1-2-1.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-notifications-openAPI_2-0-0.yaml"
+
+# Data Chain KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/data-chain/kit_data-chain-irs-openAPI_5.4.2.yaml"
