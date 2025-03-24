@@ -34,7 +34,7 @@ openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-finder-openAPI_0-0-1.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-discovery-service-openapi_V3-0_SSP-001.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-registry-service-ssp002-openAPI_V3-0_SSP-002.yaml"
-- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-kit-submodel-openAPI_V3-0-1_SSP-003.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-submodel-openAPI_V3-0-1_SSP-003.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/digital-twin/kit_digital-twin-edc-discovery-service-openAPI_v2-0.json"
 # - "https://raw.githubusercontent.com/eclipse-tractusx/sldt-bpn-discovery/main/backend/src/main/resources/static/bpn-discovery-service-openapi.yaml" only referenced in the openAPI plugin, no references within the KITs
 
