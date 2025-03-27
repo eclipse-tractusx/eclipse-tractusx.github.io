@@ -10,7 +10,7 @@ npm/npmjs/-/ajv-keywords/5.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/ajv/6.12.6, MIT, approved, #15286
 npm/npmjs/-/ajv/8.17.1, MIT, approved, clearlydefined
 npm/npmjs/-/algoliasearch-helper/3.24.3, , restricted, clearlydefined
-npm/npmjs/-/algoliasearch/5.23.0, , restricted, clearlydefined
+npm/npmjs/-/algoliasearch/5.23.0, MIT, approved, #20330
 npm/npmjs/-/ansi-align/3.0.1, ISC, approved, clearlydefined
 npm/npmjs/-/ansi-escapes/4.3.2, MIT, approved, clearlydefined
 npm/npmjs/-/ansi-html-community/0.0.8, Apache-2.0, approved, clearlydefined
@@ -100,11 +100,11 @@ npm/npmjs/-/compressible/2.0.18, MIT, approved, clearlydefined
 npm/npmjs/-/compression/1.8.0, MIT, approved, clearlydefined
 npm/npmjs/-/concat-map/0.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/confbox/0.1.8, BSD-3-Clause AND MIT, approved, clearlydefined
-npm/npmjs/-/confbox/0.2.1, , restricted, clearlydefined
+npm/npmjs/-/confbox/0.2.1, BSD-3-Clause AND ISC AND MIT AND MIT AND BSD-3-Clause, approved, #20323
 npm/npmjs/-/config-chain/1.1.13, MIT, approved, clearlydefined
 npm/npmjs/-/configstore/6.0.0, BSD-2-Clause, approved, clearlydefined
 npm/npmjs/-/connect-history-api-fallback/2.0.0, MIT, approved, clearlydefined
-npm/npmjs/-/consola/3.4.2, , restricted, clearlydefined
+npm/npmjs/-/consola/3.4.2, MIT, approved, #20313
 npm/npmjs/-/content-disposition/0.5.2, MIT, approved, clearlydefined
 npm/npmjs/-/content-disposition/0.5.4, MIT, approved, clearlydefined
 npm/npmjs/-/content-type/1.0.5, MIT, approved, #6950
@@ -341,10 +341,10 @@ npm/npmjs/-/hast-util-from-parse5/8.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/hast-util-parse-selector/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/hast-util-raw/9.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/hast-util-to-estree/3.1.3, , restricted, clearlydefined
-npm/npmjs/-/hast-util-to-jsx-runtime/2.3.6, , restricted, clearlydefined
+npm/npmjs/-/hast-util-to-jsx-runtime/2.3.6, MIT, approved, #20320
 npm/npmjs/-/hast-util-to-parse5/8.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/hast-util-whitespace/3.0.0, MIT, approved, clearlydefined
-npm/npmjs/-/hastscript/9.0.1, LicenseRef-scancode-proprietary-license AND MIT, restricted, clearlydefined
+npm/npmjs/-/hastscript/9.0.1, MIT, approved, #20325
 npm/npmjs/-/he/1.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/history/4.10.1, MIT, approved, clearlydefined
 npm/npmjs/-/hoist-non-react-statics/3.3.2, BSD-3-Clause, approved, clearlydefined
@@ -509,9 +509,9 @@ npm/npmjs/-/memfs/3.5.3, Unlicense, approved, #8397
 npm/npmjs/-/merge-descriptors/1.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/merge-stream/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/merge2/1.4.1, MIT, approved, clearlydefined
-npm/npmjs/-/mermaid/11.6.0, , restricted, clearlydefined
+npm/npmjs/-/mermaid/11.6.0, MIT AND (Apache-2.0 AND MIT AND MPL-2.0) AND (Apache-2.0 AND MIT AND MPL-2.0 AND OFL-1.1) AND Apache-2.0 AND (Apache-2.0 AND MPL-2.0) AND (LicenseRef-scancode-free-unknown AND LicenseRef-scancode-proprietary-license AND MIT) AND (Apache-2.0 AND OFL-1.1), restricted, #20321
 npm/npmjs/-/methods/1.1.2, MIT, approved, clearlydefined
-npm/npmjs/-/micromark-core-commonmark/2.0.3, , restricted, clearlydefined
+npm/npmjs/-/micromark-core-commonmark/2.0.3, MIT, approved, #20324
 npm/npmjs/-/micromark-extension-directive/3.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-extension-frontmatter/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-extension-gfm-autolink-literal/2.1.0, MIT, approved, clearlydefined
@@ -528,7 +528,7 @@ npm/npmjs/-/micromark-extension-mdxjs-esm/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-extension-mdxjs/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-factory-destination/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-factory-label/2.0.1, MIT, approved, clearlydefined
-npm/npmjs/-/micromark-factory-mdx-expression/2.0.3, , restricted, clearlydefined
+npm/npmjs/-/micromark-factory-mdx-expression/2.0.3, MIT, approved, #20331
 npm/npmjs/-/micromark-factory-space/1.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-factory-space/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-factory-title/2.0.1, MIT, approved, clearlydefined
@@ -692,7 +692,7 @@ npm/npmjs/-/postcss-ordered-values/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-overflow-shorthand/6.0.0, MIT-0, approved, #19006
 npm/npmjs/-/postcss-page-break/3.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-place/10.0.0, MIT-0, approved, #19004
-npm/npmjs/-/postcss-preset-env/10.1.5, , restricted, clearlydefined
+npm/npmjs/-/postcss-preset-env/10.1.5, MIT-0, approved, #20319
 npm/npmjs/-/postcss-pseudo-class-any-link/10.0.1, MIT-0, approved, clearlydefined
 npm/npmjs/-/postcss-reduce-idents/6.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-reduce-initial/6.1.0, MIT AND CC0-1.0, approved, #16191
@@ -965,7 +965,7 @@ npm/npmjs/-/yallist/3.1.1, ISC, approved, clearlydefined
 npm/npmjs/-/yaml/1.10.2, ISC, approved, clearlydefined
 npm/npmjs/-/yaml/2.1.1, ISC AND 0BSD, approved, #3489
 npm/npmjs/-/yocto-queue/0.1.0, MIT, approved, clearlydefined
-npm/npmjs/-/yocto-queue/1.2.1, , restricted, clearlydefined
+npm/npmjs/-/yocto-queue/1.2.1, MIT, approved, #20315
 npm/npmjs/-/zwitch/2.0.4, MIT, approved, clearlydefined
 npm/npmjs/@algolia/autocomplete-core/1.17.9, MIT, approved, #19007
 npm/npmjs/@algolia/autocomplete-plugin-algolia-insights/1.17.9, MIT, approved, #18963
@@ -975,15 +975,15 @@ npm/npmjs/@algolia/client-abtesting/5.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/client-analytics/5.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/client-common/5.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/client-insights/5.23.0, , restricted, clearlydefined
-npm/npmjs/@algolia/client-personalization/5.23.0, , restricted, clearlydefined
+npm/npmjs/@algolia/client-personalization/5.23.0, MIT, approved, #20314
 npm/npmjs/@algolia/client-query-suggestions/5.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/client-search/5.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/events/4.0.1, MIT, approved, clearlydefined
 npm/npmjs/@algolia/ingestion/1.23.0, , restricted, clearlydefined
 npm/npmjs/@algolia/monitoring/1.23.0, , restricted, clearlydefined
-npm/npmjs/@algolia/recommend/5.23.0, , restricted, clearlydefined
+npm/npmjs/@algolia/recommend/5.23.0, MIT, approved, #20317
 npm/npmjs/@algolia/requester-browser-xhr/5.23.0, , restricted, clearlydefined
-npm/npmjs/@algolia/requester-fetch/5.23.0, , restricted, clearlydefined
+npm/npmjs/@algolia/requester-fetch/5.23.0, MIT, approved, #20328
 npm/npmjs/@algolia/requester-node-http/5.23.0, , restricted, clearlydefined
 npm/npmjs/@ampproject/remapping/2.3.0, Apache-2.0, approved, clearlydefined
 npm/npmjs/@antfu/install-pkg/1.0.0, MIT, approved, clearlydefined
@@ -1027,7 +1027,7 @@ npm/npmjs/@babel/plugin-transform-arrow-functions/7.25.9, MIT, approved, clearly
 npm/npmjs/@babel/plugin-transform-async-generator-functions/7.26.8, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-async-to-generator/7.25.9, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-block-scoped-functions/7.26.5, MIT, approved, clearlydefined
-npm/npmjs/@babel/plugin-transform-block-scoping/7.27.0, , restricted, clearlydefined
+npm/npmjs/@babel/plugin-transform-block-scoping/7.27.0, MIT, approved, #20318
 npm/npmjs/@babel/plugin-transform-class-properties/7.25.9, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-class-static-block/7.26.0, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-classes/7.25.9, MIT, approved, clearlydefined
@@ -1074,7 +1074,7 @@ npm/npmjs/@babel/plugin-transform-shorthand-properties/7.25.9, MIT, approved, cl
 npm/npmjs/@babel/plugin-transform-spread/7.25.9, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-sticky-regex/7.25.9, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-template-literals/7.26.8, MIT, approved, clearlydefined
-npm/npmjs/@babel/plugin-transform-typeof-symbol/7.27.0, , restricted, clearlydefined
+npm/npmjs/@babel/plugin-transform-typeof-symbol/7.27.0, MIT, approved, #20316
 npm/npmjs/@babel/plugin-transform-typescript/7.27.0, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-unicode-escapes/7.25.9, MIT, approved, clearlydefined
 npm/npmjs/@babel/plugin-transform-unicode-property-regex/7.25.9, MIT, approved, clearlydefined
@@ -1140,7 +1140,7 @@ npm/npmjs/@csstools/selector-specificity/5.0.0, MIT-0, approved, clearlydefined
 npm/npmjs/@csstools/utilities/2.0.0, MIT-0, approved, #18977
 npm/npmjs/@discoveryjs/json-ext/0.5.7, MIT, approved, clearlydefined
 npm/npmjs/@docsearch/css/3.9.0, , restricted, clearlydefined
-npm/npmjs/@docsearch/react/3.9.0, , restricted, clearlydefined
+npm/npmjs/@docsearch/react/3.9.0, MIT, approved, #20326
 npm/npmjs/@docusaurus/babel/3.7.0, MIT, approved, #18974
 npm/npmjs/@docusaurus/bundler/3.7.0, MIT, approved, #18980
 npm/npmjs/@docusaurus/core/3.7.0, MIT AND CC-BY-4.0 AND OFL-1.1, approved, #18958
@@ -1185,7 +1185,7 @@ npm/npmjs/@emotion/weak-memoize/0.4.0, MIT, approved, clearlydefined
 npm/npmjs/@hapi/hoek/9.3.0, BSD-3-Clause AND MIT, approved, #6651
 npm/npmjs/@hapi/topo/5.1.0, BSD-3-Clause, approved, clearlydefined
 npm/npmjs/@iconify/types/2.0.0, MIT, restricted, clearlydefined
-npm/npmjs/@iconify/utils/2.3.0, MIT, restricted, clearlydefined
+npm/npmjs/@iconify/utils/2.3.0, MIT AND (Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND CC-BY-SA-4.0 AND CC0-1.0 AND GPL-2.0-only AND GPL-3.0-only), restricted, #20327
 npm/npmjs/@jest/schemas/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jest/types/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, clearlydefined
@@ -1198,12 +1198,12 @@ npm/npmjs/@leichtgewicht/ip-codec/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/mdx/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/react/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mermaid-js/parser/0.4.0, , restricted, clearlydefined
-npm/npmjs/@mui/core-downloads-tracker/5.17.1, , restricted, clearlydefined
+npm/npmjs/@mui/core-downloads-tracker/5.17.1, MIT, approved, #20322
 npm/npmjs/@mui/icons-material/5.17.1, , restricted, clearlydefined
 npm/npmjs/@mui/material/5.17.1, , restricted, clearlydefined
 npm/npmjs/@mui/private-theming/5.17.1, , restricted, clearlydefined
 npm/npmjs/@mui/styled-engine/5.16.14, MIT, approved, #15718
-npm/npmjs/@mui/system/5.17.1, , restricted, clearlydefined
+npm/npmjs/@mui/system/5.17.1, MIT, approved, #20329
 npm/npmjs/@mui/types/7.2.24, MIT, approved, #16017
 npm/npmjs/@mui/utils/5.17.1, , restricted, clearlydefined
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
