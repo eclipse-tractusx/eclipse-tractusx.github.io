@@ -29,20 +29,20 @@ autonumber
     actor s as Supplier
     
     rect rgb(217,24,24)
-    c->>+ce: Register API as Asset
-    ce->>-c: API registered
+      c->>+ce: Register API as Asset
+      ce->>-c: API registered
     end
-    rect rgb(128,149,00)
-    s->>+se: Provide WeekBasedCapacityGroup
-    rect rgb(179,203,45)
-    se->>+ce: Initiate Handshake
-    ce->>se: Complete Handshake
-    end
-    se->>ce: Provide WeekBasedCapacityGroup
-    ce->>+a: Provide WeekBasedCapacityGroup
-    a->>-ce: WeekBasedCapacityGroup consumed
-    ce->>-se: WeekBasedCapacityGroup consumed
-    se->>-s: WeekBasedCapacityGroup consumed
+    rect rgb(221,130,0)
+      s->>+se: Provide WeekBasedCapacityGroup
+      rect rgb(255,166,0)
+        se->>+ce: Initiate Handshake
+        ce->>se: Complete Handshake
+      end
+      se->>ce: Provide WeekBasedCapacityGroup
+      ce->>+a: Provide WeekBasedCapacityGroup
+      a->>-ce: WeekBasedCapacityGroup consumed
+      ce->>-se: WeekBasedCapacityGroup consumed
+      se->>-s: WeekBasedCapacityGroup consumed
     
     end
 ```
