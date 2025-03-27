@@ -23,7 +23,7 @@ Make sure that you have understood and carried out all the steps in the `Prerequ
 - Graphical tool to inspect your Kubernetes environment, such as [Lens](https://k8slens.dev/).
 - Graphical tool to inspect Postgres databases, such as [PgAdmin](https://www.pgadmin.org/). Screenshots in
   this guide are created off of PgAdmin.
-- Graphical tool to send REST requests, such as [insomnia] ( <https://insomnia.rest/>) or [Postman](https://www.postman.com/).
+- Graphical tool to send REST requests, such as [insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/).
 
 ## The Deployment
 
