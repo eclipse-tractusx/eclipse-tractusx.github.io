@@ -8,14 +8,14 @@ description: API - WeekBasedCapacityGroup
 
 ## WeekBasedCapacityGroup API
 
-The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the supplier. The customer provides capacity group data to the API via POST request.
+The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the customer. The supplier provides capacity group data to the API via POST request.
 
 ### Roles and Functions
 
 |Role / Function|API Owner|POST to API|
 |-|-|-|
-|Customer||X|
-|Supplier|X||
+|Customer|X||
+|Supplier||X|
 
 ### Data Exchange
 
@@ -23,29 +23,28 @@ The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the su
 sequenceDiagram
 autonumber
     actor c as Customer 
-    participant ce as Customer EDC
-    participant se as Supplier EDC
     participant a as WeekBasedCapacityGroup API
+    participant ce as Customer EDC
+    participant se as Supplier EDC    
     actor s as Supplier
     
     rect rgb(217,24,24)
-    s->>+se: Register API as Asset
-    se->>-s: API registered
+      c->>+ce: Register API as Asset
+      ce->>-c: API registered
     end
-    rect rgb(128,149,00)
-    c->>+ce: Provide WeekBasedCapacityGroup
-    rect rgb(179,203,45)
-    ce->>+se: Initiate Handshake
-    se->>ce: Complete Handshake
-    end
-    ce->>se: Provide WeekBasedCapacityGroup
-    se->>+a: Provide WeekBasedCapacityGroup
-    a->>-se: WeekBasedCapacityGroup consumed
-    se->>-ce: WeekBasedCapacityGroup consumed
-    ce->>-c: WeekBasedCapacityGroup consumed
+    rect rgb(221,130,0)
+      s->>+se: Provide WeekBasedCapacityGroup
+      rect rgb(255,166,0)
+        se->>+ce: Initiate Handshake
+        ce->>se: Complete Handshake
+      end
+      se->>ce: Provide WeekBasedCapacityGroup
+      ce->>+a: Provide WeekBasedCapacityGroup
+      a->>-ce: WeekBasedCapacityGroup consumed
+      ce->>-se: WeekBasedCapacityGroup consumed
+      se->>-s: WeekBasedCapacityGroup consumed
     
     end
-  
 ```
 
 Figure: *Exchanging WeekBasedCapacityGroup via API*
