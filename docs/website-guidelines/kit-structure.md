@@ -100,7 +100,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     ├── software-development-view.md
                     └── additional-page.md
                 └── documentation.md
-                    
+
     ```
 
 8. To generate the `OpenAPI` based documentation of your KIT, please see the [api-hub](https://github.com/eclipse-tractusx/api-hub/blob/main/README.md) documentation and related [TRG 1.08 - Interface documentation (APIs)](https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08/)
@@ -116,8 +116,10 @@ Future: Standardized APIs will be released with yaml file in the Standard librar
 
 Please use (or adapt existing) automated workflows to publish on SwaggerHub. Maintain your openAPI.yaml and the publishing workflow in the repository of the reference implementation. Remove everything related to that from the website repo and only link to SwaggerHub in your KIT from now on. We utilize a user provided by the Eclipse Foundation to publish on SwaggerHub. Credentials for this user can be used through in the eclipse-tractusx GitHub org secrets and can be utilized in automated workflows. Pay special attention to the "swaggerHub" CLI commands. The location where the openAPI file is maintained may vary. The BPDM example showcases how the application is initiated to download and publish the current file from that location.
 
+```yaml
 SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
-      SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+```
 
 Examples:
 [BPDM Certificate Management](https://github.com/eclipse-tractusx/bpdm-certificate-management/blob/main/.github/workflows/publish-swagger-hub.yaml)
@@ -191,7 +193,7 @@ If you have any questions, please use our [“Tractus-X community call”](https
                 to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
                 label: 'Traceability',
               },
-              // ********* add here your object specifying "to" and "label" *********** 
+              // ********* add here your object specifying "to" and "label" ***********
             ],
           },
           // ...
