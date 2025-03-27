@@ -45,8 +45,6 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
-          docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -73,8 +71,6 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
-        docLayoutComponent: "@theme/DocPage",
-        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
   ],
   // -- documentation-kits --
@@ -137,7 +133,7 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
+  themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -177,97 +173,9 @@ const config = {
               },
 
               {
-                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
-                label: 'Agents',
+                to: '/docs-kits/dummy-kit/adoption-view',
+                label: 'Dummy Kit',
               },
-              {
-                to: '/docs-kits/kits/behaviour-twin-kit/overview',
-                label: 'Behaviour Twin',
-              },
-              {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
-                label: 'Business Partner',
-              },
-              {
-                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
-                label: 'Circularity',
-              },
-              {
-                to: '/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view',
-                label: 'Connector',
-              },
-              {
-                to: '/docs-kits/kits/customs-kit/page_adoption-view',
-                label: 'Customs',
-              },
-              {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
-                label: 'Data Chain',
-              },
-              {
-                to: 'docs-kits/kits/data-governance-kit/adoption-view',
-                label: 'Data Governance',
-              },
-              {
-                to: 'docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
-                label: 'Demand and Capacity Management',
-              },
-              {
-                to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
-                label: 'Digital Twin',
-              },
-              {
-                to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View',
-                label: 'Environmental & Social Standards',
-              },
-              {
-                to: '/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit',
-                label: 'Industry Core',
-              },
-              {
-                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
-                label: 'Logistics',
-              },
-              {
-                to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
-                label: 'Manufacturing as a Service',
-              },
-              {
-                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
-                label: 'Model Based Development',
-              },
-              {
-                to: '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
-                label: 'Modular Production',
-              },
-              {
-                to: '/docs-kits/kits/osim-kit/Adoption%20View%20OSim%20Kit',
-                label: 'Online Simulation',
-              },
-              {
-                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
-                label: 'PCF Exchange',
-              },
-              {
-                to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
-                label: 'PURIS',
-              },
-              {
-                to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
-                label: 'Quality',
-              },
-              {
-                to: '/docs-kits/next/kits/supply-chain-disruption-notification-kit',
-                label: 'Supply Chain Disruption Notifications',
-              },
-              {
-                to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
-                label: 'Traceability',
-              }
             ],
           },
           {

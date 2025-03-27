@@ -73,7 +73,7 @@ Tasks:
 - The PMC is tasked with approving progress, release, and graduation reviews.
 - The PMC supports the Eclipse IP Team with knowledge and experience with their community and technology .
 
-Contact the PMC: <automotive-pmc@eclipse.org>
+Contact the PMC: [automotive-pmc@eclipse.org](mailto:automotive-pmc@eclipse.org)
 
 Note: You have to be subscribed to the [automotive-pmc mailinglist](https://accounts.eclipse.org/mailing-list/automotive-pmc) to write to the list.
 
@@ -82,6 +82,6 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-pmc)
 ## Eclipse Management Organization (EMO)
 
 If you have a question that cannot be answered by project lead, mentor, or PMC, ask the EMO.
-The best method of contact with the EMO is by email (<emo@eclipse-foundation.org>).
+The best method of contact with the EMO is by email [emo@eclipse-foundation.org](mailto:emo@eclipse-foundation.org).
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)
