@@ -245,7 +245,7 @@ const config = {
                 label: 'Modular Production',
               },
               {
-                to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
+                to: '/docs-kits/kits/osim-kit/Adoption%20View%20OSim%20Kit',
                 label: 'Online Simulation',
               },
               {

@@ -112,7 +112,7 @@ export const kitsGallery = [
     name: 'Online Simulation Kit',
     domain: 'Supply Chain',
     img: OnlineSimulation,
-    pageRoute: "/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit"
+    pageRoute: "/docs-kits/kits/osim-kit/Adoption%20View%20OSim%20Kit"
   },
   {
     id: 9,
