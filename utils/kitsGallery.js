@@ -63,153 +63,153 @@ export const kitsGallery = [
     name: 'Business Partner Kit',
     domain: 'Network Services',
     img: Business_Kit,
-    pageRoute: "/docs-kits/kits/Business Partner Kit/Adoption View"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 2,
     name: 'Data Chain Kit',
     domain: 'Industry Core',
     img: DataChain_Kit,
-    pageRoute: "/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 3,
     name: 'Connector Kit',
     domain: 'Network Services',
     img: Connector_Kit,
-    pageRoute: "/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 4,
     name: 'Traceability Kit',
     domain: 'Quality',
     img: Traceability_Kit,
-    pageRoute: "/docs-kits/kits/Traceability Kit/Business View Traceability Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 5,
     name: 'Behaviour Twin Kit',
     domain: 'Engineering',
     img: BehaviourTwin_Kit,
-    pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 6,
     name: 'Digital Twin Kit',
     domain: 'Industry Core',
     img: DigitalTwin,
-    pageRoute: "/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 7,
     name: 'Eco Pass Kit',
     domain: 'Sustainability',
     img: EcoPass,
-    pageRoute: "/docs-kits/kits/Eco_Pass_KIT/page-adoption-view"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 8,
     name: 'Online Simulation Kit',
     domain: 'Supply Chain',
     img: OnlineSimulation,
-    pageRoute: "/docs-kits/kits/osim-kit/Adoption%20View%20OSim%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 9,
     name: 'Data Driven Quality Management Kit',
     domain: 'Quality',
     img: DDQM,
-    pageRoute: "/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 10,
     name: 'Agents Kit',
     domain: 'Network Services',
     img: Agents_Kit,
-    pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view/intro"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 11,
     name: 'Circularity Kit',
     domain: 'Sustainability',
     img: Circularity_Kit,
-    pageRoute: "/docs-kits/kits/Circularity_KIT/page-adoption-view"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 12,
     name: 'DCM Kit',
     domain: 'Supply Chain',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 13,
     name: 'Modular Production Kit',
     domain: 'Manufacturing',
     img: ModularProduction_Kit,
-    pageRoute: "/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 14,
     name: 'PCF Kit',
     domain: 'Sustainability',
     img: PCF_Kit,
-    pageRoute: "/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 15,
     name: 'Manufacturing as a Service Kit',
     domain: 'Manufacturing',
     img: Maas_Kit,
-    pageRoute: "/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 16,
     name: 'ESS Kit',
     domain: 'Sustainability',
     img: ESS_Kit,
-    pageRoute: "/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 17,
     name: "Industry Core Kit",
     domain: 'Industry Core',
     img: Industry_Kit,
-    pageRoute: "/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit"
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
   },
   {
     id: 18,
     name: 'PURIS Kit',
     domain: 'Supply Chain',
-    pageRoute: '/docs-kits/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
     img: PURIS_Kit,
   },
   {
     id: 19,
     name: 'Supply Chain Disruption Notifications KIT',
     domain: 'Supply Chain',
-    pageRoute: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view-supply-chain-disruption-notifications',
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
     img: SupplyChainsDisruptionNotifications_Kit,
   },
   {
     id: 20,
     name: 'Model Based Production KIT',
     domain: 'Engineering',
-    pageRoute: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
     img: MBP_Kit,
   },
   {
     id: 21,
     name: 'Logistics KIT',
     domain: 'Supply Chain',
-    pageRoute: 'docs-kits/next/kits/logistics-kit/adoption-view',
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
     img: Logistics_Kit,
   },
   {
     id: 22,
     name: 'Data Governance KIT',
     domain: 'Network Services',
-    pageRoute: 'docs-kits/kits/data-governance-kit/adoption-view',
+    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
     img: DataGovernance_Kit,
   },
 ]
