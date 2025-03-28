@@ -49,7 +49,6 @@ The following figure shows that: 
 - Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
 - Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
 
-
 ```mermaid
 block-beta
 columns 5
