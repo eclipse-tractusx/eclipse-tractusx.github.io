@@ -937,6 +937,7 @@ Within a DCM application those three matching results are commonly represented a
 While customers might not feel impacted by a surplus, because the demand is matched, it still represents capacity that the supplier could better utilize.
 
 For ease of use demand and capacity data should be shown on the same graph and colored in appropriately, within a DCM application.
+
 ```mermaid
 ---
    config:
