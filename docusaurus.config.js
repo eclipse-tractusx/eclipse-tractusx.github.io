@@ -176,6 +176,10 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: 'docs-kits/kits/Demand and Capacity Management Kit/adoption-view/overview',
+                label: 'Demand and Capacity Management',
+              },
             ],
           },
           {
