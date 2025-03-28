@@ -75,7 +75,7 @@ Figure: *Exchanging IdBasedComment via API*
 
 |API|Link|
 |-|-|
-|IdBasedComment|[Find here](./plugin-generated-comment-api/post-id-based-comment.api.mdx)|
+|IdBasedComment|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-dcm-IdBasedComment-openAPI-1.0.0/swagger-ui/)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

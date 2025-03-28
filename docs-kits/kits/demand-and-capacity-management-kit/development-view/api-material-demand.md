@@ -53,7 +53,7 @@ Figure: *Exchanging WeekBasedMaterialDemand via API*
 
 |API|Link|
 |-|-|
-|WeekBasedMaterialDemand|[Find here](./plugin-generated-material-demand-api/post-week-based-material-demand.api.mdx)|
+|WeekBasedMaterialDemand|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-dcm-WeekBasedMaterialDemand-openAPI-3.0.0/swagger-ui/)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

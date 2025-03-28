@@ -75,7 +75,7 @@ Figure: *Exchanging IdBasedComment via API*
 
 |API|Link|
 |-|-|
-|IdBasedComment|[Find here](./plugin-generated-comment-api/post-id-based-comment.api.mdx)|
+|IdBasedComment|N/A|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

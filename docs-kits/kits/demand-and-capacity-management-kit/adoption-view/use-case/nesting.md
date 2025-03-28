@@ -49,7 +49,7 @@ The following figure shows that: 
 - Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
 - Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
 
-<!--
+
 ```mermaid
 block-beta
 columns 5
@@ -84,9 +84,7 @@ class G1,G2,G4,G5 Material_Demand_full
 class C1,C2,C4,C5 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
--->
 
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -95,10 +93,6 @@ B["Demand data (indirectly linked)"] style B fill:#BF7100,color:#F4F2F3,stroke-d
 C["Capacity data"] style C fill:#B3CB2D,color:#000000
 D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-dasharray:3
 ```
--->
-
-![Simple nesting example](./resources/business-process_nesting_example-basic.svg)
-![Simple nesting example legend](./resources/business-process_nesting_example_legend.svg)
 
 Figure: *Capacity Group with directly linked Material Demands or nested Capacity Groups (indirectly linked Material Demands)*
 
@@ -171,7 +165,6 @@ All five toys pass through the same paint shop within the coloring process.
 
 With the Nesting, the supplier achieves that the latest Material Demands that are linked to "Production Line 1" and "Production Line 2" are automatically available and considered in his Capacity Group "Paint Shop" without any further activities. Also in case a new toy 6 would be requested by same customer and produced on e.g. "Production Line 2", the supplier would only need to add it to that Capacity Group and automatically its Material Demand would also be considered in the Capacity Group "Paint Shop", thus also avoiding time-consuming additional maintenance on the demand side for "Paint Shop" Capacity Group.
 
-<!--
 ```mermaid
 block-beta
 columns 6
@@ -221,9 +214,7 @@ class G1,G2,G4,G5,H1 Material_Demand_full
 class C1,C2,C4,C5,D1 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
--->
 
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -232,10 +223,6 @@ B["Demand data (indirectly linked)"] style B fill:#BF7100,color:#F4F2F3,stroke-d
 C["Capacity data"] style C fill:#B3CB2D,color:#000000
 D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-dasharray:3
 ```
--->
-
-![Advanced Nesting example](./resources/business-process_nesting_example-basic.svg)
-![Advanced Nesting example Legend](./resources/business-process_nesting_example_legend.svg)
 
 Figure: *Example for application of Nesting*
 
