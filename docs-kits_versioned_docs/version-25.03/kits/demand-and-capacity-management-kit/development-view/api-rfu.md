@@ -71,7 +71,7 @@ Figure: *Exchanging IdBasedRequestForUpdate via API*
 
 |API|Link|
 |-|-|
-|IdBasedRequestForUpdate|[Find here](./plugin-generated-rfu-api/post-id-based-request-for-update.api.mdx)|
+|IdBasedRequestForUpdate|N/A|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

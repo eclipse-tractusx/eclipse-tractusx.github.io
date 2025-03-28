@@ -53,7 +53,7 @@ Figure: *Exchanging WeekBasedCapacityGroup via API*
 
 |API|Link|
 |-|-|
-|WeekBasedCapacityGroup|[Find here](./plugin-generated-capacity-group-api/post-week-based-capacity-group.api.mdx)|
+|WeekBasedCapacityGroup|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-dcm-WeekBasedCapacityGroup-openAPI-3.0.0/swagger-ui/)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

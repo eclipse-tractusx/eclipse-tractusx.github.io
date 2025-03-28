@@ -19,12 +19,6 @@ Customer and suppliers provide each other `IdBasedRequestForUpdate` aspect model
 
 ### Structure of a IdBasedRequestForUpdate
 
-![IdBasedRequestForUpdate Structure](./resources/model-rfu_structure.svg)
-![IdBasedRequestForUpdate Structure Legend](./resources/model-rfu_legend.svg)
-
-Figure: *IdBasedRequestForUpdate structure*
-
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -41,27 +35,14 @@ classDef RfU_optional fill:#046b99,stroke:#FFFFFF,color:#F4F2F3
 class A RfU_must
 class B1,B3,C1,C2,C3,C4 RfU_optional
 ```
+
 ```mermaid
 block-beta
 A["Request for Update data (mandatory)"] style A fill:#219dd4,color:#000000
 B["Request for Update data (optional)"] style B fill:#046b99,color:#F4F2F3
 ```
 
-### Example data
-
-```json
-{
-  "weekBasedMaterialDemand" : [ {
-    "materialDemandId" : "0157ba42-d2a8-4e28-8565-7b07830c3456",
-    "changedAt" : "2023-03-10T12:27:11.320Z"
-  } ],
-  "weekBasedCapacityGroup" : [ {
-    "capacityGroupId" : "0157ba42-d2a8-4e28-8565-7b07830c1110",
-    "changedAt" : "2023-03-10T12:27:11.320Z"
-  } ]
-}
-```
--->
+Figure: *IdBasedRequestForUpdate structure*
 
 ### Example data
 

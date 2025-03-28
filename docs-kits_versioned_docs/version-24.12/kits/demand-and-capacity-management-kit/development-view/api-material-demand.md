@@ -54,7 +54,7 @@ Figure: *Exchanging WeekBasedMaterialDemand via API*
 
 |API|Link|
 |-|-|
-|WeekBasedMaterialDemand|[Find here](./plugin-generated-material-demand-api/post-week-based-material-demand.api.mdx)|
+|WeekBasedMaterialDemand|N/A|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
