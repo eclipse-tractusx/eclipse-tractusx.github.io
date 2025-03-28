@@ -209,7 +209,7 @@ export const kitsGallery = [
     id: 22,
     name: 'Data Governance KIT',
     domain: 'Network Services',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-governance-kit/adoption-view",
     img: DataGovernance_Kit,
   },
 ]
