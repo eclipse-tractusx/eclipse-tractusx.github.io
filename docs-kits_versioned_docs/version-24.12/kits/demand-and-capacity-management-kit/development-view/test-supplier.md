@@ -663,7 +663,7 @@ Examples:
 
 ### Create IdBasedRequestForUpdate for base journey
 
-The supplier creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedMaterialDemand Alpha, identified via {{UUID_MD1}}.
+The supplier creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedMaterialDemand Alpha, identified via \{\{UUID_MD1\}\}.
 
 ```cucumber
 Feature: Supplier: Create IdBasedRequestForUpdate
