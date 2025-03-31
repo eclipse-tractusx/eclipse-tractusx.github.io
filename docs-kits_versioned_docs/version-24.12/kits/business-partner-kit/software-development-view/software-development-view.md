@@ -1,5 +1,5 @@
 ---
-id: Specification
+id: specification
 title: Specification
 description: ''
 sidebar_position: 1

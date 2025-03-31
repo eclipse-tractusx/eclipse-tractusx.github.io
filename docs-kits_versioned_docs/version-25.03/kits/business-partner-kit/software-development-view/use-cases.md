@@ -1,5 +1,5 @@
 ---
-id: Use Cases
+id: use-cases
 title: Use Cases
 description: ''
 sidebar_position: 5
