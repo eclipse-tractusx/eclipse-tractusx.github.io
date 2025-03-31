@@ -1,5 +1,5 @@
 ---
-id: Changelog
+id: changelog
 title: Changelog 
 description: 'Business Partner Kit'
 sidebar_position: 1
