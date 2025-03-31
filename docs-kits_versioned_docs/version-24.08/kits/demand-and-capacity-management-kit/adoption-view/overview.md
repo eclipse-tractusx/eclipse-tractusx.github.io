@@ -113,7 +113,7 @@ Figure: *Supply network*
 
 A supply network can be divided into a multitude of interlinking supply chains. Every supply chain consists of multiple chain links. Individual business partner relationships are these chain links. Data exchange conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] always happens within such a chain link, ensuring that every company has full control over which data they provide. Demand information travels from one end of the supply chain to the other. For capacity information the situation is reversed.
 
-![Supply chain](./resources/business-architecture_chain.svg)
+![Supply chain](./resources/business-architecture-chain.svg)
 
 Figure: *Supply chain*
 
