@@ -15,7 +15,7 @@ export const successStories = [
     img: countryRisk,
     title: "COUNTRY RISK SUCESS STORY",
     description: "The service offers a risk score per country based on several, customizable ratings.",
-    pageRoute: "/docs-kits/kits/Business Partner Kit/Success Stories/Country Risk Score%C2%A0",
+    pageRoute: "/docs-kits/kits/business-partner-kit/Success Stories/Country Risk Score%C2%A0",
     buttonName: "SUCESS STORY"
   }
 ]
