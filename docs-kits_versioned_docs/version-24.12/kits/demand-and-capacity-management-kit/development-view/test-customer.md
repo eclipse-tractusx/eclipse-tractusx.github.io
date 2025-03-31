@@ -581,7 +581,7 @@ Examples:
 
 ### Create IdBasedRequestForUpdate for base journey
 
-The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via {{UUID_CG1}}.
+The customer creates an IdBasedRequestForUpdate used by the base journey which requests WeekBasedCapacityGroup Alpha, identified via \{\{UUID_CG1\}\}.
 
 ```cucumber
 Feature: Customer: Create IdBasedRequestForUpdate
