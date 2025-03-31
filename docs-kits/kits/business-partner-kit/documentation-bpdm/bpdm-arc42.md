@@ -1,5 +1,5 @@
 ---
-id: bpdm_arc42
+id: bpdm-arc42
 title: Architecture documentation (arc42)
 description: 'Architecture documentation (arc42)'
 sidebar_position: 1
