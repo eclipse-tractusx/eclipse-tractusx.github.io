@@ -1,5 +1,5 @@
 ---
-id: Adoption View
+id: adoption-view
 title: Adoption View
 description: 'Business Partner Kit'
 sidebar_position: 2
