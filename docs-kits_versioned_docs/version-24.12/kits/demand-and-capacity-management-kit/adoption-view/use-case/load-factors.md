@@ -43,8 +43,53 @@ Load Factors solve these problems by:
 
 ## Functional description
 
-![Loadfactor](./resources/business-process_LoadFactor_functional.svg)
-![LoadfactorLegend](./resources/business-process_FunctionalBlockDiagram_Legend.svg)
+```mermaid
+block-beta
+columns 10
+A1("WeekBasedCapacityGroup"):10
+
+B1("Supplier")
+B2("Customer")
+B3("CapacityGroupId")
+B4("ChangedAt")
+B5("Calendar Week"):3
+B8("DemandSeries"):3
+space
+C2("Inactive flag")
+C3("UnitOfMeasure")
+C4("CapacityGroupName")
+C5("ActualCapacity")
+C6("MaximumCapacity")
+C7("AgreedCapacity")
+C8("MaterialNumberCustomer")
+C9("DemandCategory")
+C10("CustomerLocation")
+space:7
+D8("PointInTIme")
+D9("quantity")
+D10("Load Factor")
+
+classDef Demand_must fill:#FFA600,stroke:#FFFFFF,color:#000000
+classDef Capacity_must fill:#B3CB2D,stroke:#FFFFFF,color:#000000
+classDef Demand_optional fill:#BF7100,stroke:#FFFFFF,color:#000000
+classDef Capacity_optional fill:#617000,stroke:#FFFFFF,color:#000000
+classDef Demand_optional_focus fill:#BF7100,stroke:#FF0000,color:#000000
+
+classDef Invis fill:#000000,stroke:#000000,color:#000000,opacity:0
+class B8,C8,C9,C10,D8,D9 Demand_must
+class  D10 Demand_optional
+class A1,B1,B2,B3,B4,B5,B6,C4,C5,C6 Capacity_must
+class C2,C3,C7 Capacity_optional
+class  D10 Demand_optional_focus
+```
+
+```mermaid
+block-beta
+A["Demand data (MUST)"] style A fill:#FFA600,color:#F4F2F3
+B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
+C["Capacity data (MUST)"] style C fill:#B3CB2D,color:#F4F2F3
+D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
+```
 
 Figure: *Capacity group structure with linked material demand incl. Load Factors*
 
@@ -110,7 +155,7 @@ Without the Load Factor applied, it would not have been transparent for the cust
 
 One possible solution would be to reduce the chrome toys by 25 pieces to 75 pieces. New required process time would add up to 100(red)\*1 + 75(chrome)\*2 = 100 + 150 = 250 cycles.
 
-![Loadfactor](./resources/business-process_LoadFactor_example_diagram.svg)
+![Loadfactor](./resources/business-process-load-factor-example-diagram.svg)
 
 Figure: *Example for application of Load Factor within WeekBasedCapacityGroup*
 

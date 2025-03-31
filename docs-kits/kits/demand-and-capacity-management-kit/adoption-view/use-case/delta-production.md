@@ -125,7 +125,7 @@ end
 
 Figure: *Utilizing simulated delta-production to solve a production problem*
 
-![DCM_DeltaProduction](./resources/business-process_DeltaProduction_example_diagram.svg)
+![DCM_DeltaProduction](./resources/business-process-delta-production-example-diagram.svg)
 
 Figure: *Visualized example of results of simulated Delta-Production (with pre-production)*
 
