@@ -15,7 +15,7 @@ sidebar_position: 1
 - [Introduction and Goals](#introduction-and-goals)
   - [Goals Overview](#goals-overview)
   - [Requirements Overview](#requirements-overview)
-  - [Quality Goals](#quality-goals-quality-goals)
+  - [Quality Goals](#quality-goals)
   - [Stakeholders](#stakeholders)
 - [Architecture Constraints](#architecture-constraints)
 - [System Scope and Context](#system-scope-and-context)
@@ -706,6 +706,7 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 In BPDM a wide range of CX Member share their business partner data with our system. It must be ensured that each CX Member has only access to its own data. That's why our system must realize some kind of multi-tenancy.
 
 // This is an optional element. Feel free to remove.
+
 ### Decision Drivers
 
 - in the automotive industry there are requirements and standards like TISAX that high confidential business partner data must be stored in secure manner
@@ -719,7 +720,8 @@ In BPDM a wide range of CX Member share their business partner data with our sys
 
 Chosen option: "Use multiple Gates so that every member will have its own Gate with database", because so far its the most easiest and secure way to realize multi-tenancy in context of a reference implementation. It also provides the highest flexibility regarding to possible upcoming requirements. For example perspectively Gates could be deployed in different regions or locations. Also data is stored by default in different databases which gives additional security by default.
 
-// This is an optional element. Feel free to remove. 
+// This is an optional element. Feel free to remove.
+
 #### Consequences
 
 - Good, because easier Identity and Access Management
@@ -748,17 +750,18 @@ Chosen option: "Use multiple Gates so that every member will have its own Gate w
 - In fact for reference implementation a customer who wants to subscribe a Value Added Services has to provide his Gate/EDC Endpoints
 - The Value Added Services also have to ensure by its own to secure and separate the data of each customer
 
-// This is an optional element. Feel free to remove. 
+// This is an optional element. Feel free to remove.
+
 ### Pros and Cons of the Options
 
 #### Use one Gate and implement multi-tenancy within the code base and database
 
 - Good, because only one deployment is required
 - Good, because better cost saving, because only one database is used
-// use "neutral" if the given argument weights neither for good nor bad 
+// use "neutral" if the given argument weights neither for good nor bad
 - Bad, because higher implementation effort
 - Bad, because unknown requirements in data separation. If data **must** be stored in different databases, all our efforts would be for nothing.
-- … // numbers of pros and cons can vary 
+- … // numbers of pros and cons can vary
 
 #### Use multiple Gates so that every member will have its own Gate with database
 
@@ -901,7 +904,8 @@ Orchestration logic can basically be realized via an API and service based appro
 
 **❗Disclaimer**: Keep in mind that the shown interaction diagram is only a rough idea and the business logic and process flow must still be iterated and adjusted!
 
-// This is an optional element. Feel free to remove. 
+// This is an optional element. Feel free to remove.
+
 ### More Information / Outlook
 
 (Further/Next Steps to be discussed)
@@ -939,7 +943,7 @@ There are two known issues with defining text descriptions in OpenAPI/SpringDoc 
 
 Chosen option: "Live with the OpenAPI limitations", because the improvement is not worth the added complexity.
 
-// This is an optional element. Feel free to remove. 
+// This is an optional element. Feel free to remove.
 
 ### Pros and Cons of the Options
 
@@ -969,7 +973,7 @@ using `@get:Schema(ref = "legalAddressAliasForLogisticAddressDto")`.
   using `@get:Schema(ref=...)` instead of `@get:Schema(description=...)`).
 - Bad, because this is hard to maintain.
 
-// This is an optional element. Feel free to remove. 
+// This is an optional element. Feel free to remove.
 
 ### More Information
 
@@ -1054,7 +1058,7 @@ In this scenario the operating environment itself operates a backend service or 
 
 ## Quality Requirements
 
-- see: [Quality Goals](#quality-goals-quality-goals)
+- see: [Quality Goals](#quality-goals)
 
 ## Risks and Technical Debts
 
