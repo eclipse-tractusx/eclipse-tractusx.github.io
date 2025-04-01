@@ -176,6 +176,10 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
+                label: 'Knowledge Agents',
+              },
             ],
           },
           {
