@@ -64,7 +64,7 @@ This KIT also defines bridges to other digital twin approaches, such as AAS (Ass
 
 Our Implementations can be accessed as [Eclipse Tractus-X Repositories](https://github.com/eclipse-tractusx):
 
-* [Agent Plane(s) for EDC (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) see also [KA-EDC Operation View](../operation-view/agent_edc)
+* [Agent Plane(s) for EDC (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) see also [KA-EDC Operation View](../operation-view/agent-edc)
 * [Binding Agent(s) for Providers (KA-RI)](https://github.com/eclipse-tractusx/knowledge-agents) see also [KA-RI Operation View](../operation-view/provider)
 * [Agent Bridges for AAS (KA-AAS)](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) see also [KA-AAS Operation View](../operation-view/bridge)
 
@@ -173,7 +173,7 @@ It distinguishes between Dataspace Participants and other parties (who support t
 ### Dataspace Participants
 
 The following stakeholders should [deploy](../operation-view/deployment) modules/artifacts of the Agents Kit.
-In particular, each Dataspace Participant needs an [Agent-Enabled Connector](../operation-view/agent_edc).
+In particular, each Dataspace Participant needs an [Agent-Enabled Connector](../operation-view/agent-edc).
 
 #### Consumer
 

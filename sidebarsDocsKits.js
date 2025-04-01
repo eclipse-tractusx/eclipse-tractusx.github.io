@@ -114,7 +114,7 @@ const sidebars = {
                     },
                     collapsed: true,
                     items: [
-                        'kits/knowledge-agents/operation-view/agent_edc',
+                        'kits/knowledge-agents/operation-view/agent-edc',
                         'kits/knowledge-agents/operation-view/provider',
                         'kits/knowledge-agents/operation-view/bridge',
                         'kits/knowledge-agents/operation-view/policy',

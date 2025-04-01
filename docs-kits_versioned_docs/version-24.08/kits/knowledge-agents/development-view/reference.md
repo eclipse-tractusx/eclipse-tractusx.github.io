@@ -53,7 +53,7 @@ For more information see
 
 ### Tractus-X Knowledge Agents EDC Extensions (KA-EDC)
 
-see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent_edc)
+see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-agents-edc) and its [KA-EDC Deployment](../operation-view/agent-edc)
 
 ### Tractus-X Knowledge Agents Reference Implementations (KA-RI)
 

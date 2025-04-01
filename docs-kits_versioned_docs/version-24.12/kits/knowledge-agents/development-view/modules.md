@@ -82,7 +82,7 @@ The base Dataspace-building technology is the Eclipse Dataspace Connector (EDC) 
 ### EDC
 
 Actually, the Eclipse Dataspace Connector (see Catena-X Standard CX-00001) consists of two components, one of which needs to be extended.
-See the [Tractus-X Knowledge Agents EDC Extensions (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) and their [KA-EDC Deployment](../operation-view/agent_edc)
+See the [Tractus-X Knowledge Agents EDC Extensions (KA-EDC)](https://github.com/eclipse-tractusx/knowledge-agents-edc) and their [KA-EDC Deployment](../operation-view/agent-edc)
 
 #### Control Plane
 
