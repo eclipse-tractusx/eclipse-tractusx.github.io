@@ -114,7 +114,7 @@ Currently the standard _Supply Chain Disruption Notifications_ provides one sema
 
 | Semantic Model                                   | Version | Link to GitHub Repository                                                                                        |
 | ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------- |
-| Demand and Capacity Notification (Release 24.05) | v2.0.0  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification> |
+| Demand and Capacity Notification (Release 24.05) | v2.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
 ## Business Process
 
