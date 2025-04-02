@@ -386,7 +386,7 @@ components:
           $ref: "#/components/schemas/BpnlTrait"
 
 paths:
-  /companycertificate.request:
+  /companycertificate/request:
     post:
       summary: Request a specific certificate from provider
       requestBody:
