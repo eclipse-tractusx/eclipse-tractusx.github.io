@@ -212,7 +212,7 @@ provides one semantic model _Demand and Capacity Notification_.
 ### 1. Demand and Capacity Notification
 
 GitHub link to semantic data model in RDF turtle
-format: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl>
+format: [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl)
 
 This aspect model has the following semantic id:
 
