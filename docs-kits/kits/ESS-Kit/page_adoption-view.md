@@ -88,7 +88,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 ![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
 
-**Note:** There is an explanatory video published on youtube. [ESS video](<https://youtu.be/ySsy6v9_bsM>)
+**Note:** There is an explanatory video published on youtube. [ESS video](https://youtu.be/ySsy6v9_bsM)
 
 ### Customer Journey: Occasion-related tracking in broken supply chains
 
@@ -135,7 +135,7 @@ Now, the tracing of an ESS incident can continue as described above. The ESS inc
 
 Catena-X offers various semantic models depending on the specific application and KIT. They establish a fundamental understanding of the data and its connections, facilitating compatibility between different data sets. The data models of Catena-X prioritize principles such as clarity, standardization, distinction, verifiability, and comprehensiveness.
 
-The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/standard-library>) and is modelled following the Standard [CX-0003](<https://catena-x.net/de/standard-library>). Below, you can find an excerpt of the full data set:
+The data model follows the Catena-X Standard [CX-0144](https://catena-x.net/de/standard-library) and is modelled following the Standard [CX-0003](https://catena-x.net/de/standard-library). Below, you can find an excerpt of the full data set:
 
 #### ESS Incident Information
 
@@ -168,7 +168,7 @@ The data model follows the Catena-X Standard [CX-0144](<https://catena-x.net/de/
 | **Attribute Name** | **Description** | **Example** |
 |-----------------------------|-----------------------------|-----------------------------|
 | First and last Name  | Contact name of ESS incident issuer  | Camille Mustermensch  |
-| E-Mail Address  | E-Mail address of ESS incident issuer  | <xyz.abc@xxx.com> |
+| E-Mail Address  | E-Mail address of ESS incident issuer  | [xyz.abc@xxx.com] |
 | Phone number  | Phone number of ESS incident issuer  | +49 89 123456789  |
 | Address  | Address of ESS incident issuer  | XYZ-Road, 73230 Kirchheim  |
 | Anonymous  | Flag that Incident issuer wants to be anonymous  | Checkbox: ticked / not ticked  |

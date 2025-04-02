@@ -55,4 +55,3 @@ This work is licensed under the CC-BY-4.0.
 - SPDX-FileCopyrightText: 2024 Robert Bosch GmbH
 - SPDX-FileCopyrightText: 2024 Gris Group
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
-- Source URL: <https://github.com/eclipse-tractusx/ESS_Kit>
