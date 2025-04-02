@@ -38,7 +38,10 @@ components:
           format: date-time
         context:
           type: string
-          enum: [CompanyCertificateManagement-CCMAPI-Push:1.0.0,CompanyCertificateManagement-CCMAPI-Request:1.0.0,CompanyCertificateManagement-CCMAPI-Status:1.0.0]
+          enum: 
+            - "CompanyCertificateManagement-CCMAPI-Push:1.0.0"
+            - "CompanyCertificateManagement-CCMAPI-Request:1.0.0"
+            - "CompanyCertificateManagement-CCMAPI-Status:1.0.0"
         receiverBpn:
           type: string
           example: "BPNL0000000002CD"
