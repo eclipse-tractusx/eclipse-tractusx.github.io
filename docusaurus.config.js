@@ -176,6 +176,10 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
+                label: 'Environmental and Social Standards',
+              },
             ],
           },
           {
