@@ -86,7 +86,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 **Note:** For the top - down approach with IRS recursive this is not applicable because no information about the ESS incident is transferred between Business Partners. See [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) for further details.
 
-![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
+![ESS_KitCustomerJourney](assets/customer-journey.svg)
 
 **Note:** There is an explanatory video published on youtube. [ESS video](https://youtu.be/ySsy6v9_bsM)
 
@@ -168,7 +168,7 @@ The data model follows the Catena-X Standard [CX-0144](https://catena-x.net/de/s
 | **Attribute Name** | **Description** | **Example** |
 |-----------------------------|-----------------------------|-----------------------------|
 | First and last Name  | Contact name of ESS incident issuer  | Camille Mustermensch  |
-| E-Mail Address  | E-Mail address of ESS incident issuer  | [xyz.abc@xxx.com] |
+| E-Mail Address  | E-Mail address of ESS incident issuer  | [xyz.abc@xxx.com](xyz.abc@xxx.com) |
 | Phone number  | Phone number of ESS incident issuer  | +49 89 123456789  |
 | Address  | Address of ESS incident issuer  | XYZ-Road, 73230 Kirchheim  |
 | Anonymous  | Flag that Incident issuer wants to be anonymous  | Checkbox: ticked / not ticked  |
@@ -177,7 +177,7 @@ The data model follows the Catena-X Standard [CX-0144](https://catena-x.net/de/s
 
 ### Business architecture
 
-![ESS_KitBusinessArchitecture](assets/CatenaX_ESS_KitBusinessArchitecture.png)
+![ESS_KitBusinessArchitecture](assets/business-architecture.png)
 
 ### Access & Usage Policies / Code of Conduct
 

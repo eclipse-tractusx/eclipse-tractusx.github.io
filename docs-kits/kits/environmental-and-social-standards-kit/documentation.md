@@ -11,7 +11,7 @@ sidebar_position: 3
 
 The following figure shows the current high-level architecture of the use case "Occasion-related tracking of ESS-related incidents".
 
-![ESS_KitBlockDiagram](assets/CatenaX_ESS_KitBlockDiagram.png)
+![ESS_KitBlockDiagram](assets/block-diagram.png)
 
 ## Sequence view
 
@@ -33,7 +33,7 @@ The CXMemberLn is not related directly to L0, so he will receive anonymized info
 
 As soon as the ESS incident can be closed, the CXMemberL0 informs the Clearing Agency and the Business Partners in the Supply Chain to close it.
 
-![ESS_KitSequenceView](assets/CatenaX_ESS_KitSequenceView.svg)
+![ESS_KitSequenceView](assets/sequence-view.svg)
 
 ## Notice
 

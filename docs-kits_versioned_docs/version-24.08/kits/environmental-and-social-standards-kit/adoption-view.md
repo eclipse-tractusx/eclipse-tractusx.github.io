@@ -5,7 +5,7 @@ description: 'Environmental and Social Standards Incident Management Kit'
 sidebar_position: 2
 ---
 
-![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.drawio.svg)
+![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
 ## Vision & Mission
 
@@ -86,7 +86,7 @@ The trace of an incident follows previously mentioned principles along any oblig
 
 **Note:** For the top - down approach with IRS recursive this is not applicable because no information about the ESS incident is transferred between Business Partners. See [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) for further details.
 
-![ESS_KitCustomerJourney](assets/CatenaX_ESS_KitCustomerJourney.svg)
+![ESS_KitCustomerJourney](assets/customer-journey.svg)
 
 **Note:** There is an explanatory video published on youtube. [ESS video](https://youtu.be/ySsy6v9_bsM)
 
@@ -177,7 +177,7 @@ The data model follows the Catena-X Standard [CX-0144](https://catena-x.net/de/s
 
 ### Business architecture
 
-![ESS_KitBusinessArchitecture](assets/CatenaX_ESS_KitBusinessArchitecture.png)
+![ESS_KitBusinessArchitecture](assets/business-architecture.png)
 
 ### Access & Usage Policies / Code of Conduct
 
