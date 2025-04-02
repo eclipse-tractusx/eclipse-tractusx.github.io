@@ -4,7 +4,7 @@ title: Changelog
 sidebar_position: 1
 ---
 
-![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.drawio.svg)
+![ESS Kit Icon](@site/static/img/kit-icons/ess-kit-icon.svg)
 
 ## [0.3.0] - 2024-07-11
 
@@ -27,7 +27,7 @@ chapters for Code of Conduct in Adoption View
 
 ### Changed
 
-- replace picture CatenaX_ESS_KitCustomerJourney
+- replace picture customer-journey
 - moved pictures from folder static to folder asset within ESS-Kit
 
 ### Removed
