@@ -6,27 +6,26 @@ sidebar_position: 2
 ---
 
 # Adoption View
-Test edit von Tobi
 
 ## Vision & Mission
 
 ### Vision
-
+TODO Carlos
 Here comes the Vision for the Requirements KIT
 
 
 ### Mission
-
+TODO Michael
 Here comes the mission for the Requirements KIT
 
 
 ## Business Value & Benefits
 
 ### Business Value
-
+TODO Tobias
 
 ### Todays Challenge
-
+TODO Franz
 
 ### Benefits for OEM, SME and Solution Provider
 
