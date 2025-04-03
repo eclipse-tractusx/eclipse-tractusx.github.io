@@ -1,5 +1,5 @@
 ---
-id: Adoption View OSim Kit
+id: adoption-view
 title: Adoption View
 description: "OSim Kit"
 sidebar_position: 2
