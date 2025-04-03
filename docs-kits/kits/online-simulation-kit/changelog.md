@@ -1,5 +1,5 @@
 ---
-id: OSim Kit Changelog
+id: changelog
 title: Changelog
 description: 'OSim Kit'
 sidebar_position: 1
