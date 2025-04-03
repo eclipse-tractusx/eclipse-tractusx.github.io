@@ -1,5 +1,5 @@
 ---
-id: Specification OSim Kit
+id: software-development-view
 title: Specification
 description: 'OSim Kit'
 ---
