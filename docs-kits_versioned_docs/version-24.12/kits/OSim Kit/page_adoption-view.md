@@ -93,7 +93,7 @@ One _MaterialFlowSimulationResult_ refers to one or more Shipments.
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/3.0.0>
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/3.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material_flow_simulation_result/3.0.0)
 
 ### Materialflow Scenario Request (MaterialFlowScenarioRequest)
 
@@ -122,7 +122,7 @@ The _MaterialFlowScenarioRequest_ semantic model contains 4 entities:
 
 #### Aspect Model
 
-Github Link to semantic data model: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/2.0.0>
+Github Link to semantic data model: [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/2.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.material_flow_scenario_request/2.0.0)
 
 ## Logic & Schema
 
