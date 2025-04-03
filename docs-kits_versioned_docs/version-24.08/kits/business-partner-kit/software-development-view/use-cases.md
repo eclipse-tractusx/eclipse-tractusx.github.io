@@ -57,10 +57,10 @@ This use case aims to provide users with clear and concise instructions, ensurin
 ### 1.2 Test data setup
 
 1. Download the Postman collection JSON files:
-   - You can copy collection for each service from provided hyperlink below and can download local variables from [here](../Software%20Development%20View/Local.postman_environment.json)
-        1. [BPDM Bridge-Dummy service](../Software%20Development%20View/BPDM%20Bridge%20Dummy.postman_collection.json)
-        2. [BPDM Gate Service](../Software%20Development%20View/BPDM%20Gate.postman_collection.json)
-        3. [BPDM Pool Service](../Software%20Development%20View/BPDM%20Pool.postman_collection.json)
+   - You can copy collection for each service from provided hyperlink below and can download local variables from [here](../software-development-view/Local.postman_environment.json)
+        1. [BPDM Bridge-Dummy service](../software-development-view/BPDM%20Bridge%20Dummy.postman_collection.json)
+        2. [BPDM Gate Service](../software-development-view/BPDM%20Gate.postman_collection.json)
+        3. [BPDM Pool Service](../software-development-view/BPDM%20Pool.postman_collection.json)
    - Or for latest version of apis, you can navigate to the following GitHub repository path: [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/postman) and locate the JSON files named as "BPDM Gate.postman_collection.json","BPDM Pool.postman_collection.json", "BPDM Bridge Dummy.postman_collection.json" and "local.postman_collection.json" click on it to view its contents.
    - Click the "Raw" button to download the files or simply import jsons.
 
