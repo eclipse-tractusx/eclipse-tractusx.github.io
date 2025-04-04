@@ -1,6 +1,6 @@
 ---
-id: Specification
-title: Specification
+id: software-development-view
+title: Development View
 description: 'PCF-Exchange-KIT'
 sidebar_position: 3
 ---
@@ -66,8 +66,8 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 | Lookup dDTR                                                                                                                                         | POST   | /v2/catalog/request |  --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                                                                                                                 |
 | Lookup Twin ID                                                                           | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
 | Lookup PCF submodel/EDC asset ID                                                             | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
-| Requesting PCF value                                                                                                                                                                                                                                                       | GET    | /productIds                                                                                          | {productId}                                                                                                       |
-| Sending PCF value                                                                                                                                                                                                                                                            | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
+| Requesting PCF value                                                                                                                                                                                                                                                       | GET    | /productIds                                                                                          | \{productId}                                                                                                       |
+| Sending PCF value                                                                                                                                                                                                                                                            | PUT    | /productIds                                                                                          | \{productId}                                                                                                       |
 
 - The assetIds under *Lookup Twin ID* must be base64 encoded!
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
