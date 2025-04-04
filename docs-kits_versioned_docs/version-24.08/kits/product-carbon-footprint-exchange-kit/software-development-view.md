@@ -18,7 +18,7 @@ This KIT covers various aspects, starting from how to utilize the available API 
 
 The following figure shows the current high level architecture of the PCF Exchange use case. It is build on an asynchronous data exchange.
 
-![Building Block View](../resources/development-view/BuildingblockView.png)
+![Building Block View](./resources/development-view/BuildingblockView.png)
 
 ## Sequence View
 
@@ -28,7 +28,7 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefor, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
-![EDCDiscoveryAndDTRAccess](../resources/development-view/EDCDiscoveryanddDTRAccess.png)
+![EDCDiscoveryAndDTRAccess](./resources/development-view/EDCDiscoveryanddDTRAccess.png)
 
 ### PCF Request
 
@@ -36,11 +36,11 @@ In order to request PCF values via the PCF API endpoint first of all the EDC PCF
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
-![PCF Request](../resources/development-view/PCFRequestthroughAAS.png)
+![PCF Request](./resources/development-view/PCFRequestthroughAAS.png)
 
 In case no matching material twin or PCF submodel exists, the flow falls back to a direct lookup of an EDC asset containing the PCF request endpoint provided within the offers of any EDC registered for the data provider's BPNL.
 
-![PCF Request without Twin or Submodel](../resources/development-view/PCFRequestWithoutTwinOrSubmodel.png)
+![PCF Request without Twin or Submodel](./resources/development-view/PCFRequestWithoutTwinOrSubmodel.png)
 
 >**Note**
 >The API wrapper shown in the sequence diagrams is optional. The management API of the EDC can also be used directly.
@@ -49,7 +49,7 @@ In case no matching material twin or PCF submodel exists, the flow falls back to
 
 The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for assets that have been previously requested at least once, as demonstrated in [PCF Request](#pcf-request). Proactive updates without a prior request are not achievable with the current version.
 
-![PCF Update](../resources/development-view/PCFUpdatePushedThroughEDC.png)
+![PCF Update](./resources/development-view/PCFUpdatePushedThroughEDC.png)
 
 #### API Calls
 
@@ -59,14 +59,14 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 | [002](https://eclipse-tractusx.github.io/docs-kits/next/kits/tractusx-edc/docs/samples/management-api-v2-walkthrough/catalog) (Look up dDTR)                                                                                                                                            | POST   | /v2/catalog/request |  --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                                                                                                                 |
 | [003](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Discovery/get-all-asset-administration-shell-ids-by-asset-link) (Lookup Twin ID)                                                                            | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
 | [004](https://eclipse-tractusx.github.io/docs-kits/next/kits/Digital%20Twin%20Kit/Software%20Development%20View/API%20AAS%20Registry/get-all-asset-administration-shell-descriptors) (Lookup PCF submodel/EDC asset ID)                                                                | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
-| [005](../resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Requesting PCF value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
-| [006](../resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Sending PCF value)                                                                                                                                                                                                                                                                 | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
+| [005](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Requesting PCF value)                                                                                                                                                                                                                                                            | GET    | /productIds                                                                                          | {productId}                                                                                                       |
+| [006](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml) (Sending PCF value)                                                                                                                                                                                                                                                                 | PUT    | /productIds                                                                                          | {productId}                                                                                                       |
 
 - The assetIds under [003] must be base64 encoded!
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
 - When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
-- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transfered through those can be found [here](../resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
+- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transfered through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
 
 ##### Payload for Requesting PCF Sub Model
 
@@ -257,7 +257,7 @@ The content of the access policy depends on the criterias used within the usage 
 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
 If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
-![Tier1Supplier without bilateral contracts](../resources/development-view/Tier1AOpenUP.png)
+![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
   
 <details>
     <summary>Empty Access Policy (JSON)</summary>
@@ -285,7 +285,7 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
 </details>
 
 If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
-![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCOnlyUP.png)
+![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCOnlyUP.png)
 
 <details>
     <summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
@@ -322,7 +322,7 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
 </details>
 
 If *bilateral contract reference* criterias are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
-![Tier1Supplier using bilateral contracts and an open policy](../resources/development-view/Tier1ABCUP.png)
+![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCUP.png)
  <p> The following example uses BusinessPartnerGroups to achieve this:</p>
 
 <details>
