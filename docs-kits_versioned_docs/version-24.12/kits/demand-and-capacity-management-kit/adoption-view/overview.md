@@ -8,7 +8,7 @@ toc_max_heading_level: 2
 
 ![DCM kit banner](/img/kit-icons/dcm-kit-icon.svg)
 
-## Vision & Mission
+## Vision and Mission
 
 The Catena-X-Standards for Demand- and Capacity-Management enable participants of the automotive supply chain to become more resilient and to increase the degree of collaboration aimed at avoiding or solving production bottlenecks as well as surplus situations in a tactical horizon of 1-2 years.
 

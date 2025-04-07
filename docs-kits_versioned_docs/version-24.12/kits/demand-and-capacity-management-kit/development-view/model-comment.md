@@ -19,12 +19,6 @@ Customer and suppliers provide each other `IdBasedComment` aspect models in orde
 
 ### Structure of a IdBasedComment
 
-![IdBasedComment Structure](./resources/model-comment_structure.svg)
-![IdBasedComment Structure Legend](./resources/model-comment_legend.svg)
-
-Figure: *IdBasedComment structure*
-
-<!--
 ```mermaid
 block-beta
 columns 6
@@ -46,7 +40,8 @@ block-beta
 A["Comment data (mandatory)"] style A fill:#219dd4,color:#000000
 B["Comment data (optional)"] style B fill:#046b99,color:#F4F2F3
 ```
--->
+
+Figure: *IdBasedComment structure*
 
 ### Example data
 

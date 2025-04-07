@@ -35,7 +35,7 @@ All notable changes to this Kit will be documented in this file.
 - Added multiple diagrams to [Development View](./development-view/overview.md)
 - Added APIs to [Development View](./development-view/overview.md)
 - Added Use Case to [Adoption View](./adoption-view/overview.md)
-- Added Q&A to [Adoption View](./adoption-view/overview.md)
+- Added QnA to [Adoption View](./adoption-view/overview.md)
 
 ### Changed
 
