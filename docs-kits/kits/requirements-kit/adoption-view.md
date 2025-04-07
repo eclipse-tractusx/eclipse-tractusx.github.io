@@ -36,7 +36,16 @@ Here comes the mission for the Requirements KIT
 TODO Tobias
 
 ### Todays Challenge
-TODO Franz
+
+As product development becomes more and more cross-company, the requirements that are necessary for the specification of the product to be developed must also be exchanged and harmonized across companies. This exchange for coordination between the customer and the development partner takes place in an iterative process that results in various documentation and changes to the specifications.
+
+Nowadays, the exchange of requirements is largely file-based, with the files being provided or exchanged via company portals (B2B platforms), for example. In most cases, the requirements are first managed by the client in special requirements management software. As a starting point for collaboration in the product development process, one or more files for the product to be developed are extracted from the requirements management software with the requirements and possibly other information and made available to the development partner. In order for the development partner to view and evaluate the requirements, they must import the file into their requirements management tool (which may or may not be the same as the customer's). Once the requirements have been evaluated by the development partner, the partner exports another file from its requirements management tool and makes it available to the client. The client then imports this file back into its system and evaluates the development partner's scores, comments, etc.
+
+This involves the circular processing of requests between partners, which can result in multiple file exports and imports to and from the respective systems. Each import/export results in a break in the data. Changes within each version of the files must be tracked and displayed by the requirements management tools. This method of working with requirements is very time consuming and requires a lot of manual effort that has nothing to do with the actual evaluation of the requirements.
+
+In addition to the challenges mentioned above, there is also the issue that the files can be designed in a variety of content forms and the formats of the files can also vary. The formats can be divided into structured and unstructured files. Unstructured files are texts, tables etc. that are not organized into individual requirements without prior processing. These increase the effort required to organize the document into individual requirements. This also makes the exchange with the partner more difficult, as the partner does not know the newly created structure. With structured files, the aforementioned circumstances no longer exist, as the requirements are already organized. In the best case, a standardized form, such as the ReqIF format, is used. However, even when using standardized formats such as ReqIF, it is still necessary to agree on a common data model for exporting and importing in advance so that data exchange via the various requirements management tools works as smoothly as possible.
+
+
 
 ### Benefits for OEM, SME and Solution Provider
 
