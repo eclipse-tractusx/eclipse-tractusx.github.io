@@ -19,12 +19,6 @@ Suppliers provide customers capacity data as `WeekBasedCapacityGroup` aspect mod
 
 ### Structure of a WeekBasedCapacityGroup
 
-![WeekBasedCapacityGroup Structure](./resources/model-capacity-group_structure.svg)
-![WeekBasedCapacityGroup Structure Legend](./resources/model-capacity-group_legend.svg)
-
-Figure: *WeekBasedCapacityGroup structure*
-
-<!--
 ```mermaid
 block-beta
 columns 7
@@ -57,7 +51,8 @@ block-beta
 A["Capacity data (mandatory)"] style A fill:#B3CB2D,color:#000000
 B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
--->
+
+Figure: *WeekBasedCapacityGroup structure*
 
 ### Example data
 
