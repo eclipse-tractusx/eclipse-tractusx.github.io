@@ -19,10 +19,6 @@ Customer provide suppliers demand data as `WeekBasedMaterialDemand` aspect model
 
 ### Structure of a WeekBasedMaterialDemand
 
-![WeekBasedMaterialDemand Structure](./resources/model-material-demand_structure.svg)
-![WeekBasedMaterialDemand Structure Legend](./resources/model-material-demand_legend.svg)
-
-<!--
 ```mermaid
 block-beta
 columns 6
@@ -58,7 +54,7 @@ block-beta
 A["Demand data (mandatory)"] style A fill:#FFA600,color:#000000
 B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
 ```
--->
+
 ### Example data
 
 ```json
