@@ -41,7 +41,6 @@ Empirical analyses prove that high levels of Demand Volatility lead to high leve
 
 An effective approach to address the negative consequences of Demand Volatility is to systematically measure them and thus make them transparent. This facilitates collaborative alignments between supply chain partners in order to reduce Demand Volatility and increase the stability of supply plans. Therefore, the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] includes a simple Demand Volatility metric: “Demand Deviation”. Figure 1 shows that the parameters and metrics that are processed for Demand Deviation form part of the dataset of the capacity group, which is also handled by suppliers. The metric is generally based on the comparison of the current aggregated demand measured for a defined capacity group with a previous aggregated demand. It is recommended to measure Demand Deviation on a monthly basis. Hence, a 4-week offset between measurements of current and previous demands is recommended.
 
-<!--
 ```mermaid
 block-beta 
 columns 7
@@ -78,10 +77,6 @@ block-beta
 A["Capacity data (MUST)"] style A fill:#B3CB2D,color:#F4F2F3
 B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
--->
-
-![Demand Volatility CG](./resources/business-process_demand_volatility_CG.svg)
-![Demand Volatility CG Legend](./resources/business-process_demand_volatility_CG_legend.svg)
 
 Figure: *Demand Volatility within capacity group*
 
