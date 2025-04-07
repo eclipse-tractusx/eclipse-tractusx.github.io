@@ -427,9 +427,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----
-   
-   
+---   
     xychart-beta
     title "Example 1"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -439,11 +437,9 @@ config:
     bar demand within actual capacity Green [870, 900, 980, 905, 950, 912, 940, 1150, 1390, 1478]
     line actual capacity [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1250, 1500,1500]
     line maximum capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
-
 ```
 
 ```mermaid
-
 block-beta
 columns 3
 A["Demand over actual capacity"] style A fill:#d91e18,color:#F4F2F3
@@ -471,7 +467,6 @@ When matching demand to capacity, one will see that
 #### Example 2: Imbalance
 
 ```mermaid
-
 ---
 config:
  xyChart:
@@ -494,9 +489,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----
-   
-   
+---   
     xychart-beta
     title "Example 2"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -542,9 +535,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#046b99"
----
-   
-   
+---   
     xychart-beta
     title "Example 3: Capacity Group with little Flexible Capacity"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -554,7 +545,6 @@ config:
     bar Demand within Actual Capacity Green [1788, 1786, 1770, 1767, 1788, 1780, 1770, 1760, 1750, 1789]
     line Actual Capacity [1790, 1790,1790,1790, 1790,1790,1790, 1790,1790,1790]
     line Maximum Capacity [1800, 1800,1800,1800,1800,1800,1800,1800,1800,1800]
-
 ```
 
 Figure: *Visualizing capacity and demand in case without flexible capacity*
@@ -587,9 +577,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----
-   
-   
+---  
     xychart-beta
     title "Example 4a"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -630,9 +618,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----
-   
-   
+---   
     xychart-beta
     title "Example 4b"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
