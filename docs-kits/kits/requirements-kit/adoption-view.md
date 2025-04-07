@@ -11,17 +11,17 @@ sidebar_position: 2
 
 ### Vision
 
-Our vision is to establish a seamless, secure, and efficient engineering platform within the Catena-X ecosystem. In a first step a collaborative platform for cross company requirements management that enables quick information access and multiple company collaboration through neutral data formats, particularly ReqIF (Requirements Interchange Format). By leveraging ReqIF, we aim to op-timize the information flow and collaboration between OEMs and their suppliers, fostering a deep understanding and clear communication of requirements across company boundaries, while re-ducing time for exchanging requirements from point to point using common data exchange tools.
+Our vision is to establish a seamless, secure, and efficient engineering platform within the Catena-X ecosystem. In a first step a collaborative platform for cross company requirements management that enables quick information access and multiple company collaboration through neutral data formats, particularly ReqIF (Requirements Interchange Format). By leveraging ReqIF, we aim to optimize the information flow and collaboration between OEMs and their suppliers, fostering a deep understanding and clear communication of requirements across company boundaries, while reducing time for exchanging requirements from point to point using common data exchange tools.
 
-At the heart of this commitment is the guarantee of data sovereignty any time. Each partner should be able to share their data securely while retaining full control over their own information. This enables transparent and trustworthy collaboration in product development by providing all stake-holders access to relevant requirement sets and documents without compromising proprietary or confidential information.
+At the heart of this commitment is the guarantee of data sovereignty any time. Each partner should be able to share their data securely while retaining full control over their own information. This enables transparent and trustworthy collaboration in product development by providing all stakeholders access to relevant requirement sets and documents without compromising proprietary or confidential information.
 
 This vision opens the way for innovative and collaborative product development by providing a structured and standardized method for managing, exchanging, and validating requirements across supply chains. This new approach promises significant advantages such as:
 
-1.	Enhanced Connectivity and Collaboration: We envision a digital landscape where all stake-holders can quickly access and share requirements data, fostering innovation and reducing time-to-market for new products.
-2.	Standardization and Interoperability: Efficiently manage the diversity of requirements and specifications, ensuring that different systems can seamlessly communicate with each oth-er.
-3.	Data Sovereignty and Security: By employing the secure infrastructure of Catena-X, part-ners can maintain full control over their data while ensuring it is protected during exchang-es, thereby building trust and transparency across the network.
-4.	Real-time Integration and Agility: Through Catena-X, changes and updates to requirements can be synchronized in real-time, allowing teams to respond swiftly to evolving project needs and external challenges.
-5.	Improved Quality and Compliance: This unified platform will not only enhance the accura-cy and consistency of requirements data but also streamline compliance with industry standards and regulations, ultimately elevating product quality.
+1.	Enhanced Connectivity and Collaboration: We envision a digital landscape where all stakeholders can quickly access and share requirements data, fostering innovation and reducing time-to-market for new products.
+2.	Standardization and Interoperability: Efficiently manage the diversity of requirements and specifications, ensuring that different systems can seamlessly communicate with each other.
+3.	Data Sovereignty and Security: By employing the secure infrastructure of Catena-X, partners can maintain full control over their data while ensuring it is protected during exchanges, thereby building trust and transparency across the network.
+4.	Real-time Integration and Agility: Through Catena-X, changes and updates to requirements can be synchronized in realtime, allowing teams to respond swiftly to evolving project needs and external challenges.
+5.	Improved Quality and Compliance: This unified platform will not only enhance the accuracy and consistency of requirements data but also streamline compliance with industry standards and regulations, ultimately elevating product quality.
 
 
 
