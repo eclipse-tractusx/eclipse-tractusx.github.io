@@ -26,7 +26,6 @@ This vision opens the way for innovative and collaborative product development b
 
 
 ### Mission
-TODO Michael
 The Requirements Kit aims to meticulously outline requirements by incorporating essential standards, aspect models and business logics. Its approach is designed to facilitate the exchange of requirements information between OEMs and Tier-N suppliers, ensuring that all relevant data is gathered and enabling authorized stakeholders to collaborate effectively. The data exchange process adheres to the Catena-X network's principles of data sovereignty, ensuring secure and compliant interactions. By following a standardized pipeline and utilizing data models within a data ecosystem, each partner is empowered to use their preferred applications, fostering a flexible and efficient collaboration environment.
 
 
