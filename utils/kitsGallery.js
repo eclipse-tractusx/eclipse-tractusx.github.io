@@ -154,7 +154,7 @@ export const kitsGallery = [
     name: 'Product Carbon Footprint Exchange Kit',
     domain: 'Sustainability',
     img: PCF_Kit,
-    pageRoute: "/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/product-carbon-footprint-exchange-kit/Adoption%20View",
   },
   {
     id: 15,
