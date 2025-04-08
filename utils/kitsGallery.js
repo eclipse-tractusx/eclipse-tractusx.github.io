@@ -202,7 +202,7 @@ export const kitsGallery = [
     id: 21,
     name: 'Logistics KIT',
     domain: 'Supply Chain',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/logistics-kit/adoption-view",
     img: Logistics_Kit,
   },
   {
