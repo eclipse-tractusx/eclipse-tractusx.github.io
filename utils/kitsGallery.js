@@ -63,7 +63,7 @@ export const kitsGallery = [
     name: 'Business Partner Kit',
     domain: 'Network Services',
     img: Business_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/business-partner-kit/adoption-view",
   },
   {
     id: 2,
