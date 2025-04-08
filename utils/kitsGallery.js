@@ -123,10 +123,10 @@ export const kitsGallery = [
   },
   {
     id: 10,
-    name: 'Agents Kit',
+    name: 'Knowledge Agents Kit',
     domain: 'Network Services',
     img: Agents_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view",
   },
   {
     id: 11,
