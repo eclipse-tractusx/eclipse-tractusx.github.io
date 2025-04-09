@@ -70,7 +70,7 @@ export const kitsGallery = [
     name: 'Data Chain Kit',
     domain: 'Industry Core',
     img: DataChain_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-chain-kit/adoption-view",
   },
   {
     id: 3,
