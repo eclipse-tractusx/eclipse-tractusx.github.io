@@ -35,8 +35,12 @@ sequenceDiagram
     ReqIF2->>BackendSupplier: Initiate Asset-Pull
 
 ```
-
-
+Description
+- Full-Line:
+  - Arrow: Direction of Data Flow
+    Initiator: Line connected directly to EDC
+- Dotted Line
+  - Action
 
 
 
