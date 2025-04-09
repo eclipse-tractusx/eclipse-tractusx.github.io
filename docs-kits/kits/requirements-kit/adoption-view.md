@@ -55,6 +55,8 @@ In addition to the challenges mentioned above, there is also the issue that the 
 
 ## Customer Journey
 
+![Customer Journey](assets/requirements_customer-journey.png)
+
 
 ## Notice
 
