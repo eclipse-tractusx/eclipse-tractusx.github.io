@@ -1,5 +1,5 @@
 ---
-id: Modular Production Kit Changelog
+id: changelog
 title: Changelog
 description: 'Modular Production Kit'
 sidebar_position: 1

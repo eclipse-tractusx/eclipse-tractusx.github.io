@@ -1,5 +1,5 @@
 ---
-id: Adoption View Modular Production Kit
+id: adoption-view
 title: Adoption View
 description: 'Modular Production Kit'
 sidebar_position: 2
