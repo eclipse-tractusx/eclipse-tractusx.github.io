@@ -960,8 +960,8 @@ JWT token should also contain two claims:
 | Aspect models | Get aspect models | GET /irs/aspectmodels | x | x |
 | Job processing | Register job | POST /irs/jobs | (x) | x |
 |  | Get jobs | GET /irs/jobs | (x) | x |
-|  | Get job | GET /irs/jobs/{jobId} | (x) | x |
-|  | Cancel job | PUT /irs/jobs/{jobId} | (x) | x |
+|  | Get job | GET /irs/jobs/\{jobId\} | (x) | x |
+|  | Cancel job | PUT /irs/jobs/\{jobId\} | (x) | x |
 | Batch processing | Register order | POST /irs/orders | (x) | x |
 |  | Get order | GET /irs/orders/{orderId} | (x) | x |
 |  | Cancel order | PUT /irs/orders/{orderId} | (x) | x |
