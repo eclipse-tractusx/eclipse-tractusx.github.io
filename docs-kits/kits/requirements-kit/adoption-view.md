@@ -51,8 +51,27 @@ In addition to the challenges mentioned above, there is also the issue that the 
 
 
 ### Benefits for OEM, SME and Solution Provider
+#### OEM and large automotive suppliers
+- höhere Geschwindigkeit - Echtzeitpublikation möglich
+- schnelle Ergebnisbewertungen/abstimmung
+- Informations statt Dateienaustausch
+- Keine Datenbrüche
+- Transparenz und Tracability
+- Vorteile der Standadisierung
+- Data Sovreignity und Interoperability
+- Höherer Automatisierungsgrad in der Engineering Toolchain möglich
+- Verknüpfung zu anderen Eng Usecases möglich
+#### SME
+- Vereinfachter Req Management Prozess
+- Ersetzt proprietäre B2B interfaces - CX als einziges Interface für alle Kunden - spart Kosten und IT ressourcen und Zeit
+- höhere Geschwindigkeit - Echtzeitpublikation möglich
+- Reusability
+#### Solution Provider
+- Schnittstelle kann eindeutig gestaltet werden
+- Neue Chancen und Kunden
+- Rechtliche Themen über CX Rahmenverträge bereits geklärt
 
-
+  
 ## Customer Journey
 
 
