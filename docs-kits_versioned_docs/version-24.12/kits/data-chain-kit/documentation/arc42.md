@@ -955,8 +955,8 @@ JWT token should also contain two claims:
 | Category | Action | Endpoint | view_irs | admin_irs |
 | Policy Store | Add policy | POST /irs/policies |  | x |
 |  | Get policies | GET /irs/policies |  | x |
-|  | Update policy | PUT /irs/policies/{policyId} |  | x |
-|  | Delete policy | DELETE /irs/policies/{policyId} |  | x |
+|  | Update policy | PUT /irs/policies/\{policyId\} |  | x |
+|  | Delete policy | DELETE /irs/policies/\{policyId\} |  | x |
 | Aspect models | Get aspect models | GET /irs/aspectmodels | x | x |
 | Job processing | Register job | POST /irs/jobs | (x) | x |
 |  | Get jobs | GET /irs/jobs | (x) | x |
