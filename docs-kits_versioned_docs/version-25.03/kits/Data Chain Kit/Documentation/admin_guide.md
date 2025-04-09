@@ -23,7 +23,7 @@ Everything else needs to be provided externally.
 ## Installation
 
 The IRS Helm repository can be found here:
-<https://eclipse-tractusx.github.io/item-relationship-service/index.yaml>
+[https://eclipse-tractusx.github.io/item-relationship-service/index.yaml](https://eclipse-tractusx.github.io/item-relationship-service/index.yaml)
 
 Use the latest release of the "irs-helm" chart.
 It contains all required dependencies.
@@ -36,11 +36,11 @@ Supply the required configuration properties (see chapter [Configuration](config
 
 Add the IRS Helm repository:
 
-$ helm repo add irs <https://eclipse-tractusx.github.io/item-relationship-service>
+`$ helm repo add irs https://eclipse-tractusx.github.io/item-relationship-service>`
 
 Then install the Helm chart into your cluster:
 
-$ helm install -f your-values.yaml irs-app irs/irs-helm
+`$ helm install -f your-values.yaml irs-app irs/irs-helm`
 
 ### Deployment using ArgoCD
 

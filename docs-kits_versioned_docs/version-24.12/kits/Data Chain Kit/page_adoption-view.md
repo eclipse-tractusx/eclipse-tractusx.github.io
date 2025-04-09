@@ -440,4 +440,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 * SPDX-FileCopyrightText: 2021, 2022 ZF Friedrichshafen AG
 * SPDX-FileCopyrightText: 2022 ISTOS GmbH
 * SPDX-FileCopyrightText: 2021, 2024 Contributors to the Eclipse Foundation
-* Source URL: <https://github.com/eclipse-tractusx/item-relationship-service>
+* Source URL: [https://github.com/eclipse-tractusx/item-relationship-service](https://github.com/eclipse-tractusx/item-relationship-service)

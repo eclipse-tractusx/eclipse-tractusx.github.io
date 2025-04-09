@@ -101,7 +101,7 @@ The following table entries define overall IRS quality goals. The order of the t
 | Checkstyle | Enforce coding standard | Fail build on violations | .config/checkstyle-suppressions.xml @SuppressWarnings("checkstyle:XXX") |
 | PMD | Source code analyzer to finds common programming flaws | Fail build on violations | .config/pmd-rules.xml @SuppressWarnings("PMD.XXX") |
 | JaCoCo | Test coverage | Fail build on coverage &lt; 80% | pom.xml @ExcludeFromCodeCoverageGeneratedReport |
-| Veracode | - Scan source code for vulnerabilities (SAST) - Scan dependencies for known vulnerabilities (SCA) - Check used licenses (FOSS Licenses) |  | <https://web.analysiscenter.veracode.com/> |
+| Veracode | - Scan source code for vulnerabilities (SAST) - Scan dependencies for known vulnerabilities (SCA) - Check used licenses (FOSS Licenses) |  | [https://web.analysiscenter.veracode.com/](https://web.analysiscenter.veracode.com/) |
 | Dependabot | Automated dependency updates built into GitHub. Provided pull requests on dependency updates. | Any dependency update generates a pull request automatically. | .github/dependabot.yml |
 | CodeQl | Discover vulnerabilities across a codebase. |  | .github/workflows/codeql.yml |
 
@@ -388,7 +388,7 @@ The ESS REST controller is used to provide a RESTful web service to related Envi
 
 ### References
 
-The Swagger documentation can be found in the local deployment of the reference application. More information can be found in the GitHub repository: <https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md>
+The Swagger documentation can be found in the local deployment of the reference application. More information can be found in the GitHub repository: [https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md](https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md)
 
 Since we cannot rely on synchronous responses regarding the requests of submodel endpoints, we designed the IRS in a way that it will handle the job management of requesting all needed endpoints in order to build a BoM tree.
 
@@ -693,7 +693,7 @@ Manual preparation is required to initially set up the ArgoCD apps and the crede
 
 ### ArgoCD
 
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. See <https://argo-cd.readthedocs.io/.>
+Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. See [https://argo-cd.readthedocs.io/.](https://argo-cd.readthedocs.io/.)
 
 ### Vault
 
@@ -705,7 +705,7 @@ Every secret information needed at runtime must be stored here and must never be
 ### GitHub
 
 GitHub contains the application source code as well as the Helm charts used for deployment.
-The IRS Helm charts can be found here: <https://github.com/eclipse-tractusx/item-relationship-service/tree/main/charts>
+The IRS Helm charts can be found here: [https://github.com/eclipse-tractusx/item-relationship-service/tree/main/charts](https://github.com/eclipse-tractusx/item-relationship-service/tree/main/charts)
 
 ### Docker Hub
 
@@ -717,7 +717,7 @@ The kubernetes cluster manages the underlying hardware that is used to run the a
 
 ### Local deployment
 
-For information on how to run the application locally, please check the README documentation in GitHub: <https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md>
+For information on how to run the application locally, please check the README documentation in GitHub: [https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md](https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md)
 
 ### View Levels
 
@@ -1194,7 +1194,7 @@ The IRS utilizes the configuration mechanism provided by Spring Boot. Configurat
 
 For local testing purposes, there is an additional configuration file called `application-local.yml`. Values can be overriden there to support the local dev environment.
 
-Other profiles should be avoided. Instead, the configuration can be overwritten using Spring’s external configuration mechanism (see <https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html).> The operator must have total control over the configuration of the IRS.
+Other profiles should be avoided. Instead, the configuration can be overwritten using Spring’s external configuration mechanism (see [https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html](https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html).) The operator must have total control over the configuration of the IRS.
 
 ## Operational concepts
 
@@ -1207,7 +1207,7 @@ The IRS can be configured using two mechanisms:
 ##### application.yml
 
 If you build the IRS yourself, you can modify the application.yml config that is shipped with the IRS. This file contains all possible config entries for the application.
-Once the Docker image has been built, these values can only be overwritten using the Spring external config mechanism (see <https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html),> e.g. by mounting a config file in the right path or using environment variables.
+Once the Docker image has been built, these values can only be overwritten using the Spring external config mechanism (see [https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html](https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html)), e.g. by mounting a config file in the right path or using environment variables.
 
 ##### Helm Chart
 
@@ -1283,7 +1283,7 @@ The quality scenarios in this section depict the fundamental quality goals as we
 | PRS | Formerly known Service Name: Parts Relationship Service |
 | Traversal Aspect | aka Edge: Aspect which the IRS uses for traversal through the data chain. Identified by a parent-child or a child-parent relationship. Samples: SingleLevelBomAsPlanned, SingleLevelBomAsBuilt and SingleLevelUsageAsBuilt |
 | Verifiable Credential (VC) | For more information see: [Verifiable Credentials](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture/cx-3-2/3.%20Verifiable%20Credentials) |
-| Eclipse Dataspace Connector (EDC) | For more information see: <https://github.com/eclipse-tractusx/tractusx-edc> |
-| Managed Identity Wallet (MIW) | For more information see: <https://github.com/eclipse-tractusx/managed-identity-wallet> |
-| Self-Sovereign Identity (SSI) | For more information see: <https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture/cx-3-2> |
-| PolicyStore | The Policy Store is an IRS component which provides an interface for getting, adding and deleting accepted IRS EDC policies. These policies will be used to validate EDC contract offers. EDC contract offers must include permissions that are equal to permission defined by an admin user in order to be allowed to use in IRS use cases. For more information see: <https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#0-introduction> |
+| Eclipse Dataspace Connector (EDC) | For more information see: [https://github.com/eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc) |
+| Managed Identity Wallet (MIW) | For more information see: [https://github.com/eclipse-tractusx/managed-identity-wallet](https://github.com/eclipse-tractusx/managed-identity-wallet) |
+| Self-Sovereign Identity (SSI) | For more information see: [https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture/cx-3-2](https://github.com/eclipse-tractusx/ssi-docu/tree/main/docs/architecture/cx-3-2) |
+| PolicyStore | The Policy Store is an IRS component which provides an interface for getting, adding and deleting accepted IRS EDC policies. These policies will be used to validate EDC contract offers. EDC contract offers must include permissions that are equal to permission defined by an admin user in order to be allowed to use in IRS use cases. For more information see: [https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#0-introduction](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md#0-introduction) |
