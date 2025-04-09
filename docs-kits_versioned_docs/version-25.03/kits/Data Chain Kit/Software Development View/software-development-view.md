@@ -1,5 +1,5 @@
 ---
-id: Specification
+id: software-development-view
 title: Specification
 sidebar_position: 2
 ---

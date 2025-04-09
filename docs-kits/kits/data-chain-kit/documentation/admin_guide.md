@@ -1,5 +1,5 @@
 ---
-id: irs_admin_guide
+id: admin-guide
 title: Administration Guide
 description: 'Administration Guide'
 sidebar_position: 3

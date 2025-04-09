@@ -1,5 +1,5 @@
 ---
-id: Operation View
+id: operation-view
 title: Operation View
 description: 'Data Chain Kit'
 sidebar_position: 2
