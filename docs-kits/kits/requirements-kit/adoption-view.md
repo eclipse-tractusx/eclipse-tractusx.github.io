@@ -32,7 +32,13 @@ The Requirements Kit aims to meticulously outline requirements by incorporating 
 ## Business Value & Benefits
 
 ### Business Value
-TODO Tobias
+The "Requirements-KIT" provides guidelines and standard, such as semantic models and data exchange processes, which help companies create a reliable and sovereign data exchange system with their partners. 
+
+This reduces cost and effort needed to integrate data-driven engineering processes into their operations and IT systems. 
+
+Since this KIT is built on the Industry Core KIT and will be closely connected to upcoming other KITSs within the Engineering Domain, investment and 
+
+implementation costs to integrate requirement services are reduced.
 
 ### Todays Challenge
 
