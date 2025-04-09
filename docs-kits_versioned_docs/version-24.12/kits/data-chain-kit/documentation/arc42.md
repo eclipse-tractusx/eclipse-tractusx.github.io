@@ -967,7 +967,7 @@ JWT token should also contain two claims:
 |  | Cancel order | PUT /irs/orders/\{orderId\} | (x) | x |
 |  | Get batch | GET /irs/orders/\{orderId\}/batches/\{batchId\} | (x) | x |
 | Environmental- and Social Standards | Register investigation job | POST /ess/bpn/investigations | (x) | x |
-|  | Get investigation job | GET /ess/bpn/investigations{id} | (x) | x |
+|  | Get investigation job | GET /ess/bpn/investigations\{id\} | (x) | x |
 |  | Accept notifications | POST /ess/notification/receive | x | x |
 
 Legend: x = full access to all resources, (x) = access to the resources he owns
