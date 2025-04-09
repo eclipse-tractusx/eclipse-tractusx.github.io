@@ -1,5 +1,5 @@
 ---
-id: irs_arc42
+id: arc42
 title: Architecture documentation (arc42)
 
 description: 'Architecture documentation (arc42)'

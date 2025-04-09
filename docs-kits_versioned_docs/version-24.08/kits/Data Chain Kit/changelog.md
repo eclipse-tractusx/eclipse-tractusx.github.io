@@ -1,5 +1,5 @@
 ---
-id: data chain kit changelog
+id: changelog
 title: Changelog
 description: 'Data Chain Kit Changelog'
 sidebar_position: 10

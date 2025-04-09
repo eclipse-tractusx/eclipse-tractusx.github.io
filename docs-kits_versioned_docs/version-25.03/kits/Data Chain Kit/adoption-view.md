@@ -1,5 +1,5 @@
 ---
-id: Adoption View Data Chain Kit
+id: adoption-view
 title: Adoption View
 description: 'Data Chain Kit'
 sidebar_position: 1
