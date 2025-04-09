@@ -645,11 +645,11 @@ This section describes what happens when user creates an ess order.
 | [001] | IRS | Initiates initial order processing | Begins asynchronous processing of ESS process for "incidentBPNSs" and tuples of "globalAssetId" and "BPN." |
 | [002] | IRS | Registers callback | Establishes a callback mechanism with the provided callback URL. |
 | [003] | Client | Receives 201 success response | Indicates successful registration of the order. |
-| [004] | Client | Sends a GET request to `/irs/orders/{orderId}` | Requests information for a specific orderId. |
+| [004] | Client | Sends a GET request to `/irs/orders/\{orderId\}` | Requests information for a specific orderId. |
 | [005] | IRS | Processes GET request | Initiates processing of the requested orderId. |
 | [006] | IRS | Sends a 200 response with order payload | Returns the details of the processed order. |
 | [007] | Client | Optionally initiates batch completion | Completes the batch processing if required. |
-| [008] | Client | Sends a POST request to `/irs/orders/{orderId}/batches/'{batchId}'` | Initiates batch processing for a specific orderId and batchId. |
+| [008] | Client | Sends a POST request to `/irs/orders/\{orderId\}/batches/'\{batchId\}'` | Initiates batch processing for a specific orderId and batchId. |
 | [009] | IRS | Sends BatchShell with jobs | Returns details of the batch with associated jobs. |
 
 ## Scenario 2: Register an Ess-Investigation-Job
@@ -963,9 +963,9 @@ JWT token should also contain two claims:
 |  | Get job | GET /irs/jobs/\{jobId\} | (x) | x |
 |  | Cancel job | PUT /irs/jobs/\{jobId\} | (x) | x |
 | Batch processing | Register order | POST /irs/orders | (x) | x |
-|  | Get order | GET /irs/orders/{orderId} | (x) | x |
-|  | Cancel order | PUT /irs/orders/{orderId} | (x) | x |
-|  | Get batch | GET /irs/orders/{orderId}/batches/{batchId} | (x) | x |
+|  | Get order | GET /irs/orders/\{orderId\} | (x) | x |
+|  | Cancel order | PUT /irs/orders/\{orderId\} | (x) | x |
+|  | Get batch | GET /irs/orders/\{orderId\}/batches/\{batchId\} | (x) | x |
 | Environmental- and Social Standards | Register investigation job | POST /ess/bpn/investigations | (x) | x |
 |  | Get investigation job | GET /ess/bpn/investigations{id} | (x) | x |
 |  | Accept notifications | POST /ess/notification/receive | x | x |
