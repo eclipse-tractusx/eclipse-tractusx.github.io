@@ -177,7 +177,7 @@ const config = {
                 label: 'Dummy Kit',
               },
               {
-                to: '/docs-kits/next/kits/supply-chain-disruption-notification-kit',
+                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
               },
             ],
