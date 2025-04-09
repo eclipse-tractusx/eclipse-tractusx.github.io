@@ -1,5 +1,5 @@
 ---
-id: Software Development View PURIS-DCM Supply Chain Disruption Notifications
+id: software-development-view
 title: Software Development View
 description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 3

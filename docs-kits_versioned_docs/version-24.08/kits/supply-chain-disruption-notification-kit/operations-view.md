@@ -1,5 +1,5 @@
 ---
-id: Operations View PURIS-DCM Supply Chain Disruption Notifications
+id: operations-view
 title: Operations View
 description: 'PURIS-DCM Supply Chain Disruption Notifications'
 sidebar_position: 4
