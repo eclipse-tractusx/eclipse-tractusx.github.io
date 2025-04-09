@@ -77,6 +77,32 @@ In addition to the challenges mentioned above, there is also the issue that the 
 ![Customer Journey](assets/requirements_customer-journey.png)
 
 
+## User Journey
+
+```mermaid
+flowchart TD
+    subgraph Customer
+        A["Publish (Initial) set of<br />Requirements via EDC into dataspace"]
+        F["Change of Spec Status update<br />(accept, decline, further clarification…)<br/>Comment (optional)"]
+        E[Review of supplier input]
+        G[End]
+    end
+
+    subgraph Supplier
+        B[Evaluation of Requirements]
+        C["Status update<br />(accept, decline, further clarification…) &<br/>Comment (optional)"]
+    end
+
+    A --> B
+    B --> C
+    C --> E
+    E --> F
+    F --> A
+    E --> G
+
+```
+
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
