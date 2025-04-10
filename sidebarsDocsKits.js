@@ -51,7 +51,7 @@ const sidebars = {
         },
         {
             type: 'category',
-            label: 'Data Governance KIT',
+            label: 'Data Governance',
             link: {
                 type: 'generated-index'
             },
