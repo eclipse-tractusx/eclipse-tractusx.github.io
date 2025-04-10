@@ -354,45 +354,66 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
 > An issue has already been created with the IDTA to extend the submodel descriptor so that an asynchronous call can be defined as a standard feature. See [github-issue 347](https://github.com/admin-shell-io/aas-specs-api/issues/347)
 
 For the file transfer via S3 bucket the submodelDescriptor can be defined like:
+<details>
+    <summary>Parquet file transfer with DigitalTwin submodel (JSON)</summary>
+
 ```json
 {
   "submodelDescriptors": [
     {
-      ...
+      "idShort": "quality-data",
+      "id": "<uuid>",
       "endpoints": [
         {
-           // TODO: Check which interface can be used here. See :https://github.com/admin-shell-io/questions-and-answers?tab=readme-ov-file#id47
-          "interface": "TBD", // SUBMODEL-3.0 can not used because in EDC cloud the consumer only triggers the event. It is a asyn call. No other type which can be used here (from IDTA Standards)
+          "interface": "SUBMODEL-3.0",
           "protocolInformation": {
-            ...
+             "href": "NONE",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "",
             "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
              // Since the action only triggers an asyn event, the encoding is not relevant.
             "subprotocolBodyEncoding": "application/json",
+            "securityAttributes": [
+                          {
+                            "type": "NONE",
+                            "key": "NONE",
+                            "value": "NONE"
+                          }
+                        ]
           }
         }
       ],
       "semanticId": {
-        ...
+        "type": "ExternalReference",
         "keys": [
            {
               "type": "GlobalReference",
-              //TBD: New Model which map flatten hirarchy to model (like with "_" or "."). Outcome of the issue: https://github.com/eclipse-tractusx/sldt-semantic-models/issues/762
-              "value": "urn:samm:io.catenax.vehicle.product_description:3.0.0#FlattenedProductDescription"
+              "value": "urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask"
            }
         ]
       },
-      ...
+            "description": [
+        {
+          "language": "en",
+          "text": "submodel-descriptor for quality data which will be transferred via EDC S3 bucket."
+        }
+      ]
     }
   ]
 }
 ```
+
+</details>
 
 | Parameter               | Value                                                                             | Description                                                           |
 |-------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | href                    | ""                                                                                | not used for transfer via s3 bucket                                   |
 | subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                      | Includes information about provider edc controlplane and edc-asset ID |
 | subprotocolBodyEncoding | application/octet-stream;type=parquet-snappy                                      | format of file. The file will be transfer via bucket.                 |
-| semanticId.keys[].value | urn:samm:io.catenax.vehicle.product_description:3.0.0#FlattenedProductDescription | Aspect model which map flatten hirarchy to model                      |
+| semanticId.keys[].value | urn:samm:io.catenax.quality_task:2.0.0#FlattenedQualityTask                       | Aspect model which map flatten hierarchy to model                     |
 | description[].text      | submodel-descriptor for quality data which will be transferred via S3 bucket.     | Further description for the consumer.                                 |
 
 ## Lookup in the Digital Twin Registry
