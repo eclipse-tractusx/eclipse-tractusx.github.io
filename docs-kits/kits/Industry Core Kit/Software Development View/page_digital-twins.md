@@ -179,8 +179,8 @@ The following conventions apply for the endpoint:
   - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for this release, `href` must have the suffix `/submodel` representing the invokation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `dspEndpoint`: Base URL of the [catalog service](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites) endpoint of a DSP Connector. The consumer Connector can use:
-     - `catalog/request` to fetch the full catalog and search for the dataset in the catalog or
-     - `catalog/datasets/{id}` to only fetch offers for the dataset with a particular dataset ID.
+    - `catalog/request` to fetch the full catalog and search for the dataset in the catalog or
+    - `catalog/datasets/{id}` to only fetch offers for the dataset with a particular dataset ID.
   - `id`: The ID of the Connector asset for which a contract negotiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
 
 With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{providerPath}`.
@@ -195,37 +195,45 @@ Submodels of digital twins are registered in the Connector the same way as for r
 Here's an example how such a submodel descriptor could look like:
 
 ```json
-"submodelDescriptors": [
-  {
-    "idShort": "serialPart",
-    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-    "semanticId": {
-      "type": "ExternalReference",
-      "keys": [
+{
+  "submodelDescriptors": [
+    {
+      "idShort": "serialPart",
+      "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          }
+        ]
+      },
+      "endpoints": [
         {
-          "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          "interface": "SUBMODEL-3.0",
+          "protocolInformation": {
+            "href": "https://connector.data.plane/api/public/submodel",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+            "subprotocolBodyEncoding": "plain",
+            "securityAttributes": [
+              {
+                "type": "NONE",
+                "key": "NONE",
+                "value": "NONE"
+              }
+            ]
+          }
         }
       ]
-    },
-    "endpoints": [
-      {
-        "interface": "SUBMODEL-3.0",
-        "protocolInformation": {
-          "href": "https://connector.data.plane/api/public/submodel",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "DSP",
-          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [
-            { "type": "NONE", "key": "NONE", "value": "NONE" }
-          ]
-        }
-      }
-    ]
-  }
-]
+    }
+  ]
+}
 ```
 
 In this example, the `{providerPath}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
@@ -239,37 +247,45 @@ If a data provider no longer creates assets on the level of submodels, the Conne
 Here's an example how such a submodel descriptor could look like:
 
 ```json
-"submodelDescriptors": [
-  {
-    "idShort": "serialPart",
-    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-    "semanticId": {
-      "type": "ExternalReference",
-      "keys": [
+{
+  "submodelDescriptors": [
+    {
+      "idShort": "serialPart",
+      "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          }
+        ]
+      },
+      "endpoints": [
         {
-          "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          "interface": "SUBMODEL-3.0",
+          "protocolInformation": {
+            "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7",
+            "subprotocolBodyEncoding": "plain",
+            "securityAttributes": [
+              {
+                "type": "NONE",
+                "key": "NONE",
+                "value": "NONE"
+              }
+            ]
+          }
         }
       ]
-    },
-    "endpoints": [
-      {
-        "interface": "SUBMODEL-3.0",
-        "protocolInformation": {
-          "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "DSP",
-          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [
-            { "type": "NONE", "key": "NONE", "value": "NONE" }
-          ]
-        }
-      }
-    ]
-  }
-]
+    }
+  ]
+}
 ```
 
 The `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
