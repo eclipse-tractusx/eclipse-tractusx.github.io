@@ -365,7 +365,7 @@ For the file transfer via S3 bucket the submodelDescriptor can be defined like:
       "id": "<uuid>",
       "endpoints": [
         {
-          "interface": "SUBMODEL-3.0",
+          "interface": "AASX-FILE-3.0",
           "protocolInformation": {
              "href": "NONE",
             "endpointProtocol": "HTTP",
@@ -374,15 +374,10 @@ For the file transfer via S3 bucket the submodelDescriptor can be defined like:
             ],
             "subprotocol": "",
             "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
-             // Since the action only triggers an asyn event, the encoding is not relevant.
-            "subprotocolBodyEncoding": "application/json",
+            "subprotocolBodyEncoding": "application/octet-stream",
             "securityAttributes": [
-                          {
-                            "type": "NONE",
-                            "key": "NONE",
-                            "value": "NONE"
-                          }
-                        ]
+             {"type": "NONE","key": "NONE","value": "NONE"}
+             ]
           }
         }
       ],
@@ -395,7 +390,7 @@ For the file transfer via S3 bucket the submodelDescriptor can be defined like:
            }
         ]
       },
-            "description": [
+        "description": [
         {
           "language": "en",
           "text": "submodel-descriptor for quality data which will be transferred via EDC S3 bucket."
