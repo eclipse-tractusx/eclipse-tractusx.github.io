@@ -133,7 +133,7 @@ export const kitsGallery = [
     name: 'Circularity Kit',
     domain: 'Sustainability',
     img: Circularity_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/circularity-kit/adoption-view",
   },
   {
     id: 12,
