@@ -865,7 +865,7 @@ material with Catena-X ID "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df".
 ### 5. Days of Supply v2.0.0
 
 GitHub link to semantic data model in RDF turtle
-format: <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.days_of_supply/2.0.0/DaysOfSupply.ttl>
+format: [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.days_of_supply/2.0.0/DaysOfSupply.ttl](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.days_of_supply/2.0.0/DaysOfSupply.ttl)
 
 This aspect model has the following semantic id:
 
