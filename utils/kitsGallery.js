@@ -193,9 +193,9 @@ export const kitsGallery = [
   },
   {
     id: 20,
-    name: 'Model Based Production KIT',
+    name: 'Model Based Development KIT',
     domain: 'Engineering',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view",
     img: MBP_Kit,
   },
   {
