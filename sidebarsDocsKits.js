@@ -62,6 +62,19 @@ const sidebars = {
                     dirName: 'kits/dummy-kit'
                 }
             ]
+        },
+        {
+            type: 'category',
+            label: 'Circularity KIT',
+            link: {
+                type: 'doc',
+                id: 'kits/circularity-kit/adoption-view'
+            },
+            items: [
+                'kits/circularity-kit/changelog',
+                'kits/circularity-kit/adoption-view',
+                'kits/circularity-kit/glossary',
+            ]
         }
     ]
 };
