@@ -1,5 +1,5 @@
 ---
-id: Adoption View PURIS Kit
+id: adoption-view
 title: Adoption View
 description: "PURIS Kit"
 sidebar_position: 2

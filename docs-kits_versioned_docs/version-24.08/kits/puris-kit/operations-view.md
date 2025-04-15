@@ -1,5 +1,5 @@
 ---
-id: Operations View PURIS Kit
+id: operations-view
 title: Operations View
 description: 'PURIS Kit Operations View'
 sidebar_position: 4

@@ -1,5 +1,5 @@
 ---
-id: Software Development PURIS Kit
+id: software-development-view
 title: Software Development View
 description: "PURIS Kit"
 sidebar_position: 3
