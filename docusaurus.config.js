@@ -172,7 +172,7 @@ const config = {
                 label: 'Kits General',
               },{
                 to: '/docs-kits/kits/data-governance-kit/adoption-view',
-                label: 'Data Governance KIT',
+                label: 'Data Governance',
               },
               {
                 to: '/docs-kits/kits/dummy-kit/adoption-view',
