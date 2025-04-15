@@ -1806,4 +1806,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
-- Source URL: <https://github.com/eclipse-tractusx/digital-product-pass>
+- Source URL: [https://github.com/eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)
