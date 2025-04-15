@@ -1,5 +1,5 @@
 ---
-id: PURIS Kit Changelog
+id: changelog
 title: Changelog
 description: 'PURIS Kit'
 sidebar_position: 1
