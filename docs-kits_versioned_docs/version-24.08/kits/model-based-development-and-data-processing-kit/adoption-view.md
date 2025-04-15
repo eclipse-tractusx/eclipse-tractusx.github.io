@@ -1,5 +1,5 @@
 ---
-id: page_adoption-view
+id: adoption-view
 title: Adoption View
 description: Model Based Development and Data Processing Kit
 ---
