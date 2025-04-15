@@ -2,7 +2,7 @@
 title: Adoption View
 ---
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.drawio.svg)
+![EcoPass KIT Pictotogram](/img/kit-icons/ecopass-kit-icon.svg)
 
 ## Introduction
 
@@ -1788,7 +1788,7 @@ The Digital Product Pass Reference Implementation: [eclipse-tractusx/digital-pro
 
 - [eclipse-tractusx/digital-product-pass/dpp-tutorial](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial)
 
-For more information about the Reference Implementation and how the KIT can be adoped consult the [Software Development View](./page-software-development-view.md).
+For more information about the Reference Implementation and how the KIT can be adoped consult the [Software Development View](./software-development-view.md).
 
 ## NOTICE
 

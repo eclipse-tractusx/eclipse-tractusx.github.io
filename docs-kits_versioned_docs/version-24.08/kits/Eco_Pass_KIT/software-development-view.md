@@ -42,7 +42,7 @@ CX:<manufacturerPartId>:<partInstanceId>
 | `<manufacturerPartId>` | The "**manufacturerPartId**" makes reference to the id type of the product. It is the identification the manufacturer gives to a specific part he produced.                                                  |
 | `<partInstanceId>`     | The "**partInstanceId**" stands to the specific id of the product. This id needs to be registered in the digital twin from the aspect. An example value in case of batteries would be the *batteryDMC_Code*. |
 
-> *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](./page-software-operation-view.md).
+> *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](./software-operation-view.md).
 
 ### Prerequisites
 
@@ -113,7 +113,7 @@ The following information is required to enable the decentralized search for dig
 This sequence diagram represents the digital twin search and the discovery phases. For more information [go to explanation](#2-digital-twin-registry-search-phase)
 [![Sequence Diagram](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
 
-> **NOTE**: For learning how to register the assets and the digital twin registry and operate the EcoPass KIT visit the [Operation View](./page-software-operation-view.md)
+> **NOTE**: For learning how to register the assets and the digital twin registry and operate the EcoPass KIT visit the [Operation View](./software-operation-view.md)
 
 ## 3. Digital Twin Search Phase Details
 
@@ -308,7 +308,7 @@ The digital product pass reference implementation can have a series of add-ons t
 
 The Digital Product Pass applicaiton can be integrated with the [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which childs in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
 
-The configuration details can be found in the [Operation View](./page-software-operation-view.md).
+The configuration details can be found in the [Operation View](./software-operation-view.md).
 
 ### Digital Product Pass Verification Add-on
 
