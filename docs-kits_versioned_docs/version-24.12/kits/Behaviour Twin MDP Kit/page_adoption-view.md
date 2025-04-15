@@ -155,7 +155,7 @@ Our relevant standard can be downloaded from the official [Catena-X Standard Lib
 
 The Standard aims at using the existing FMI industry standard as a Catena-X standard.
 
-The Functional Mock-up Interface (FMI) is a free standard that defines a container and an interface to exchange dynamic simulation models using a combination of XML files, binaries and C code, distributed as a ZIP file. It is supported by 170+ tools and maintained as a Modelica Association Project. The FMI implementation by a software modelling tool enables the creation of simulation models that can be interconnected. The file format of the FMI standard is called Functional Mock-up Unit (FMU)(source: <https://fmi-standard.org/>).
+The Functional Mock-up Interface (FMI) is a free standard that defines a container and an interface to exchange dynamic simulation models using a combination of XML files, binaries and C code, distributed as a ZIP file. It is supported by 170+ tools and maintained as a Modelica Association Project. The FMI implementation by a software modelling tool enables the creation of simulation models that can be interconnected. The file format of the FMI standard is called Functional Mock-up Unit (FMU)(source: [https://fmi-standard.org/](https://fmi-standard.org/)).
 
 ### Guidelines for Generating FMU
 
