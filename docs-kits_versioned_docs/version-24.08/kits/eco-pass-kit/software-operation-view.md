@@ -37,7 +37,7 @@ When configuring your EDC Provider you need to take into consideration the follo
 
 ### Documentation Description
 
-**All variables are written in the following notation: _**{{ VARIABLE_NAME }}**_**
+**All variables are written in the following notation: _**\{\{ VARIABLE_NAME \}\}**_**
 
 All the configurations are in JSON notation and follow the [EDC Configuration from Catena-X](https://github.com/eclipse-tractusx/tractusx-edc) and the [Eclipse Foundation](https://github.com/eclipse-edc/Connector).
 
