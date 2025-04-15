@@ -1,5 +1,5 @@
 ---
-id: Operation View EcoPass Kit
+id: software-operation-view
 title: Operation View
 description: 'EcoPass Kit Operation View'
 ---
