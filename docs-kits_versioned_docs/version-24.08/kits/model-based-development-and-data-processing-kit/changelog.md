@@ -1,5 +1,5 @@
 ---
-id: page_changelog
+id: changelog
 title: Changelog
 description: Model Based Development and Data Processing Kit
 ---
