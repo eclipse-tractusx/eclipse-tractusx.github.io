@@ -227,7 +227,7 @@ The APIs below are the ones contained in the `Digital Product Pass Backend` refe
 | contractId | contractIdentification | [REQUIRED]                  |
 | token      | searchSessionToken     | [REQUIRED]                  |
 
-##### /api/contract/status/{processId}
+##### /api/contract/status/\{processId\}
 
 | Parameter | Value Name            | Mandatory or Optional Value |
 | --------- | --------------------- | --------------------------- |
@@ -279,7 +279,7 @@ to be done and returns the data negotiated and transferred. In short, it's the s
 | BPN Discovery Service [CX-0053] | POST   | /api/administration/connectors/bpnDiscovery/search | key:manufacturerPartId                                                    |
 | EDC Discovery Service [CX-0001] | POST   | /api/administration/connectors/discovery/search    | `{[<Company's BPNL>]}`                                                    |
 | Digital Twin Registry [CX-0002] | GET    | /lookup/shells                                     | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
-| Digital Twin Registry [CX-0002] | GET    | /shell-descriptors/{digitalTwinId}                 | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
+| Digital Twin Registry [CX-0002] | GET    | /shell-descriptors/\{digitalTwinId\}                 | key:partInstanceID, value: batteryDMC-Code or Product Identification Code |
 
 ## Reference Implementations
 
