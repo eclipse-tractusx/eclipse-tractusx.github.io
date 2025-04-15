@@ -176,6 +176,11 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: '/docs-kits/kits/puris-kit/adoption-view',
+                label: 'Predictive Unit Real-Time Information Service',
+              },
+              
             ],
           },
           {
