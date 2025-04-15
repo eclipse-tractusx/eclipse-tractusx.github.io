@@ -408,7 +408,7 @@ When configuring the digital twin registry behind the EDC Provider you should fo
 
 | Name         | Description                                 | Example Value                             |
 | ------------ | ------------------------------------------- | ----------------------------------------- |
-| registryUrl  | The base url from the digital twin registry | <https://dpp-base.url/semantics/registry> |
+| registryUrl  | The base url from the digital twin registry | [https://dpp-base.url/semantics/registry](https://dpp-base.url/semantics/registry) |
 | registryAssetId | The name from the asset for the registry    | digital-twin-registry                     |
 
 #### Digital Twin Registry Format and Fields
@@ -466,4 +466,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- Source URL: <https://github.com/eclipse-tractusx/digital-product-pass>
+- Source URL: [https://github.com/eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)
