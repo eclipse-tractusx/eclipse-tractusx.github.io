@@ -1,5 +1,5 @@
 ---
-id: Changelog Circularity KIT
+id: changelog
 title: Changelog
 description: "Circularity KIT"
 sidebar_position: 1
