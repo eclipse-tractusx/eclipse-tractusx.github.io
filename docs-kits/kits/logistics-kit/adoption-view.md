@@ -1,6 +1,6 @@
 ---
-id: Adoption View Logistics Kit
-title: Adoption View
+id: adoption-view
+title:  Logistics Kit Adoption View
 description: "Logistics Kit"
 sidebar_position: 2
 ---
@@ -61,7 +61,7 @@ In the following section, all aspect models that are part of Logistic KIT are do
 
 ### Packing List
 
-The aspect provides the information of the [packed goods inside of a Transport Unit]((https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl)).
+The aspect provides the information of the [packed goods inside of a Transport Unit](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl).
 
 ### IotSensorData
 
