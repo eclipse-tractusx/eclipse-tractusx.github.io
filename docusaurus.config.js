@@ -171,10 +171,13 @@ const config = {
                 to: '/Kits',
                 label: 'Kits General',
               },
-
               {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
+              },
+              {
+                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+                label: 'Manufacturing as a Service',
               },
             ],
           },
