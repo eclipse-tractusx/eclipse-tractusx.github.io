@@ -11,7 +11,7 @@ The Request for Quotation API description below shows how the Request for Quotat
 
 Depending on the use case different request paths can be implemented, based on the specific MaaS implementations. Below is a sample request option:
 
-1. POST:/{api-endpoint}/request-for-quotation
+1. POST:/\{api-endpoint\}/request-for-quotation
    - Description: The API endpoint to send a request for quotation to a manufacturer.
 
 ## Sample Data
