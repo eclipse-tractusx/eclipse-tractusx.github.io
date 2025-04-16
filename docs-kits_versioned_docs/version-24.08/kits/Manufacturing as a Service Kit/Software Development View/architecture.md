@@ -1,5 +1,5 @@
 ---
-id: Architecture Manufacturing as a Service Kit
+id: architecture
 title: Architecture
 description: 'Architecture
 Manufacturing as a Service Kit'
