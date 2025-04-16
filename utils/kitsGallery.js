@@ -161,7 +161,7 @@ export const kitsGallery = [
     name: 'Manufacturing as a Service Kit',
     domain: 'Manufacturing',
     img: Maas_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
   },
   {
     id: 16,
