@@ -13,9 +13,9 @@ The Manufacturing Capability API description below shows how the Manufacturing C
 
 Depending on the use case different request paths can be implemented, based on the specific MaaS implementations. Below are two sample request options:
 
-- GET: /{api-endpoint}/ManufacturingCapability
+- GET: /\{api-endpoint\}/ManufacturingCapability
   - Description: The API endpoint to get manufacturing capabilities of a manufacturer.
-- POST: /{api-endpoint}/ManufacturingCapability
+- POST: /\{api-endpoint\}/ManufacturingCapability
   - Description: The API endpoint to register manufacturing capabilities of a manufacturer.
 
 ## Sample Data
