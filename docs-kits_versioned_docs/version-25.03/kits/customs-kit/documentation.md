@@ -1,5 +1,5 @@
 ---
-id: Documentation Customs Kit
+id: documentation
 title: Documentation
 description: "Customs Kit"
 sidebar_position: 5

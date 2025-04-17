@@ -1,5 +1,5 @@
 ---
-id: Customs Kit Changelog
+id: changelog
 title: Changelog
 description: 'Customs Kit'
 sidebar_position: 1
