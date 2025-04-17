@@ -18,42 +18,42 @@ The following suggestion is a non-standardized draft how Assets (and thus by pro
 ```json
 {  
  "@context": {  
- "cx-taxo": "[https://w3id.org/catenax/taxonomy\#](https://w3id.org/catenax/taxonomy)",  
- "cx-common": "[https://w3id.org/catenax/ontology/common\#](https://w3id.org/catenax/ontology/common)",  
- "dct": "<https://purl.org/dc/terms/>",  
- "dcat": "[http://www.w3.org/ns/dcat\#](http://www.w3.org/ns/dcat)",  
- "edc": "<https://w3id.org/edc/v0.0.1/ns/>"  
+  "cx-taxo": "https://w3id.org/catenax/taxonomy#",  
+  "cx-common": "https://w3id.org/catenax/ontology/common#",  
+  "dct": "https://purl.org/dc/terms/",  
+  "dcat": "http://www.w3.org/ns/dcat#",  
+  "edc": "https://w3id.org/edc/v0.0.1/ns/"  
  },  
  "@id": "someId",  
  "@type": "edc:Asset",  
  "edc:properties": {  
- "dct:type": {  
- "@id": "cx-taxo:QualityAsset"  
- },  
- "cx-common:version": "1.0",  
- "dct:language": {  
- "@id": "<https://w3id.org/idsa/code/EN>"  
- },  
- "dcat:qualifiedRelation": {  
- "dct:isPartOf": {  
- "@id": "f7574ad6-95ee-46e2-8a45-6fa1782ba426"  
- }  
- },  
- "dct:conformsTo": {  
- "@id": "urn:samm:io.catenax.vehicle.product_description:3.0.0\#ProductDescription"  
- },  
- "dct:description": "TBD",  
- "dct:format": "application/octet-stream;type=parquet-snappy",  
- "edc:type": "AmazonS3"  
+  "dct:type": {  
+   "@id": "cx-taxo:QualityAsset"  
+  },  
+  "cx-common:version": "1.0",  
+  "dct:language": {  
+   "@id": "https://w3id.org/idsa/code/EN"  
+  },  
+  "dcat:qualifiedRelation": {  
+   "dct:isPartOf": {  
+    "@id": "f7574ad6-95ee-46e2-8a45-6fa1782ba426"  
+   }  
+  },  
+  "dct:conformsTo": {  
+   "@id": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"  
+  },  
+  "dct:description": "TBD",  
+  "dct:format": "application/octet-stream;type=parquet-snappy",  
+  "edc:type": "AmazonS3"  
  },  
  "edc:dataAddress": {  
- "@type": "edc:DataAddress",  
- "edc:type": "AmazonS3",  
- "edc:region": "eu-west-1",  
- "edc:bucketName": "int-xcod-quality-aspect-models-eu-west-1",  
- "edc:keyName": "myCompany/myTag/QualityTask.parquet",  
- "edc:accessKeyId": "…",  
- "edc:secretAccessKey": "…"  
+  "@type": "edc:DataAddress",  
+  "edc:type": "AmazonS3",  
+  "edc:region": "eu-west-1",  
+  "edc:bucketName": "int-xcod-quality-aspect-models-eu-west-1",  
+  "edc:keyName": "myCompany/myTag/QualityTask.parquet",  
+  "edc:accessKeyId": "…",  
+  "edc:secretAccessKey": "…"
  }  
 }
 ```
@@ -84,4 +84,4 @@ This section is not use-case specific but since the EDC's AmazonS3 dataplane is 
 | [http://www.w3.org/ns/dcat\#qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)           | \{"dct:isPartOf": \{"@id": "\<idOfTheCorrespondingQualityTask\>"\}\} |              | This property is QM-specific. All Asset types defined in this Kit must include this property as it links the data behind an asset with the correct QualityTask. Note that the id of the QualityTask must be used, not the id of the EDC-Asset shielding said QualityTask.                                                                                                                                                     |
 | \<[https://w3id.org/edc/v0.0.1/ns/type](https://w3id.org/edc/v0.0.1/ns/type)\>                                                                 | AmazonS3                                                         |              | This property signifies the EDC dataplane that the QM data will be transferred over. The expectation that this would be signaled via the dcat:DataSet-dcat:distribution property of the catalog currently isn't implemented in the EDC. Thus the data must be replicated here and is presented via the same property that the consumer-side transferprocesses API uses for this same signal.                                  |
 | [https://w3id.org/catenax/ontology/common\#version](https://w3id.org/catenax/ontology/common#version) | "1.0"                                                            |              | CX-0018 recommends to use cx-common:version to signal the API's version. Here, the API's version is equivalent to the version of the CX-standard for the Quality domain. Creation is currently in progress as CX-0123 v1.0.0. In this EDC-property, only major and minor increments should be added.                                                                                                                          |
-| \<[https://purl.org/dc/terms/date](https://purl.org/dc/terms/date)\>)                                                                     | "JJJJ-CW-N"                                                      | \*           | This property identifies an update of an already shared catalogue asset. Day is mentioned as calender week day number, e.g. '1' means "monday"                                                                                                                                                                                                                                                                                |
+| \<[https://purl.org/dc/terms/date](https://purl.org/dc/terms/date)\>                                                                     | "JJJJ-CW-N"                                                      | \*           | This property identifies an update of an already shared catalogue asset. Day is mentioned as calender week day number, e.g. '1' means "monday"                                                                                                                                                                                                                                                                                |
