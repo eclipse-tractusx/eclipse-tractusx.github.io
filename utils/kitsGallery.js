@@ -63,7 +63,7 @@ export const kitsGallery = [
     name: 'Business Partner Kit',
     domain: 'Network Services',
     img: Business_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/business-partner-kit/adoption-view",
   },
   {
     id: 2,
@@ -123,10 +123,10 @@ export const kitsGallery = [
   },
   {
     id: 10,
-    name: 'Agents Kit',
+    name: 'Knowledge Agents Kit',
     domain: 'Network Services',
     img: Agents_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view/intro",
   },
   {
     id: 11,
@@ -137,10 +137,10 @@ export const kitsGallery = [
   },
   {
     id: 12,
-    name: 'DCM Kit',
+    name: 'Demand and Capacity Management Kit',
     domain: 'Supply Chain',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview",
   },
   {
     id: 13,
@@ -202,14 +202,14 @@ export const kitsGallery = [
     id: 21,
     name: 'Logistics KIT',
     domain: 'Supply Chain',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/logistics-kit/adoption-view",
     img: Logistics_Kit,
   },
   {
     id: 22,
     name: 'Data Governance KIT',
     domain: 'Network Services',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-governance-kit/adoption-view",
     img: DataGovernance_Kit,
   },
 ]
