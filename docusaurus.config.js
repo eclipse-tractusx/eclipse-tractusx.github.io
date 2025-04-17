@@ -196,6 +196,10 @@ const config = {
                 label: 'Demand and Capacity Management',
               },
               {
+                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
+                label: 'Environmental and Social Standards',
+              },
+              {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Knowledge Agents',
               },
