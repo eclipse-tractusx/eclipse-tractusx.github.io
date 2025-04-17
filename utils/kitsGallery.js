@@ -188,7 +188,7 @@ export const kitsGallery = [
     id: 19,
     name: 'Supply Chain Disruption Notifications KIT',
     domain: 'Supply Chain',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view",
     img: SupplyChainsDisruptionNotifications_Kit,
   },
   {

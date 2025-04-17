@@ -207,6 +207,10 @@ const config = {
                 to: '/docs-kits/next/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
               },
+              {
+                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
+                label: 'Supply Chain Disruption Notification',
+              },
             ],
           },
           {
