@@ -165,19 +165,31 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/Kits',
+            to: '/kits',
             items: [
               {
-                to: '/Kits',
+                to: 'kits',
                 label: 'Kits General',
+              }, 
+              {
+                to: '/docs-kits/kits/dummy-kit/adoption-view',
+                label: 'Dummy Kit',
+              },
+              {
+                to: '/docs-kits/kits/business-partner-kit/adoption-view',
+                label: 'Business Partner',
+              },
+              {
+                to: '/docs-kits/kits/data-governance-kit/adoption-view',
+                label: 'Data Governance',
+              },            
+              {
+                to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
+                label: 'Demand and Capacity Management',
               },
               {
                 to: '/docs-kits/kits/quality-kit/adoption-view',
                 label: 'Quality',
-              },
-              {
-                to: '/docs-kits/dummy-kit/adoption-view',
-                label: 'Dummy Kit',
               },
             ],
           },
