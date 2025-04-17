@@ -32,9 +32,10 @@ autonumber
       c->>+ce: Register API as Asset
       ce->>-c: API registered
     end
-    rect rgb(221,130,0)
+autonumber 1
+    rect rgb(128,149,00)
       s->>+se: Provide WeekBasedCapacityGroup
-      rect rgb(255,166,0)
+      rect rgb(179,203,45)
         se->>+ce: Initiate Handshake
         ce->>se: Complete Handshake
       end
