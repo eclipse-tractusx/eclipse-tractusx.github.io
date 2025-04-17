@@ -176,6 +176,14 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: '/docs-kits/kits/traceability-kit/business-view',
+                label: 'Traceability KIT',
+              },
+              {
+                to: '/docs-kits/kits/industry-core-kit/business-view',
+                label: 'Industry Core KIT',
+              },
             ],
           },
           {
