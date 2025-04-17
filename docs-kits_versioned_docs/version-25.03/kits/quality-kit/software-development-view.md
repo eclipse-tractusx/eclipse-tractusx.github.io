@@ -1,6 +1,6 @@
 ---
 id: software-development-view
-title: Specification
+title: Software Development View
 description: 'Quality Kit'
 sidebar_position: 3
 ---

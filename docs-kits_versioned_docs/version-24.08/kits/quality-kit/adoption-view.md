@@ -186,7 +186,7 @@ Overview about how Quality Management is improved by Catena-X
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/WMixoRvzWP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For more technical details take a look at the video in
-the [Operation View](/docs-kits/kits/quality-kit/software-operation-view.md)
+the [Operation View](/docs-kits/kits/quality-kit/software-operation-view)
 
 Data driven Quality Management with
 Catena-X - [Statements from the consortial partners](http://youtube.com/watch?v=T-Xh_LzXXbg)
@@ -217,7 +217,7 @@ defines why data is exchanged between two or more companies and what insights sh
 data. In addition, there is a flag what happens with the transferred data when this qTask is closed.
 
 Github Link to semantic data
-model: [CX-00036 Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
+model: [Quality Task](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task)
 
 #### Quality Task Attachment
 
@@ -226,7 +226,7 @@ standardized data provisioning is realized as a file transfer. The model contain
 structured data in the provided file. A Quality Task Attachment can be provided by both **OEM or Supplier**.
 
 Github Link to semantic data
-model: [CX-00092 Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
+model: [Quality Task Attachment](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.quality_task_attachment)
 
 ### OEM Data
 
@@ -239,9 +239,9 @@ it was sold to the customer. All entities and properties are constant over the l
 
 Github Links to semantic data models:
 
-[CX-00037 Vehicle Product Description](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.vehicle.product_description)
+[Vehicle Product Description](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.vehicle.product_description)
 
-[CX-00091 Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.vehicles)
+[Fleet Vehicles](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.vehicles)
 
 #### Fleet Diagnostic Data
 
@@ -249,14 +249,14 @@ Data model for vehicle diagnostic data suitable for mass data transfer. Diagnost
 that are affected by an quality issue + Diagnostic data from similar vehicles that are not affected by an quality issue.
 
 Github Link to semantic data
-model: [CX-00038 Fleet Diagnostic Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
+model: [Fleet Diagnostic Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.diagnostic_data)
 
 #### Fleet Claim Data
 
 Customer complaints that are linked to this QualityTask +Data about the exchange of potentially faulty parts.
 
 Github Link to semantic data
-model: [CX-00039 Fleet Claim Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
+model: [Fleet Claim Data](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.fleet.claim_data)
 
 ### Supplier Data
 
@@ -267,14 +267,14 @@ Data structured in the following semantic models are to be delivered by Supplier
 A selection of manufacturing-related parameters that help to solve a quality issue.
 
 Github Link to semantic data
-model: [CX-00041 Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
+model: [Manufactured Parts Quality Information](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.manufactured_parts_quality_information)
 
 #### Parts Analyses
 
 Analyses results of replaced and potentially faulty parts, that are linked to this Quality Task.
 
 Github Link to semantic data
-model: [CX-00040 Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
+model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
 
 ## Logic & Schema
 
