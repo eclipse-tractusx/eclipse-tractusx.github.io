@@ -187,6 +187,10 @@ const config = {
                 to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
               },
+              {
+                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
+                label: 'Knowledge Agents',
+              }, 
             ],
           },
           {
