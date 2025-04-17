@@ -69,9 +69,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Digital Twin KIT',
-          link: {
-            type: 'generated-index'
-          },
+          link: { type: 'generated-index' },
           collapsed: true,
           items: [
             {
@@ -211,6 +209,32 @@ const sidebars = {
           ]
         },
         'kits/demand-and-capacity-management-kit/operation-view'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Online Simulation KIT',
+      link: { type: 'generated-index' },
+      collapsed: true,
+      items: [
+        'kits/online-simulation-kit/changelog',
+        'kits/online-simulation-kit/adoption-view',
+        {
+          type: 'category',
+          label: 'Software Development View',
+          link: {
+            type: 'doc',
+            id: 'kits/online-simulation-kit/software-development-view'
+          },
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              label: 'OSim API',
+              href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-osim-openAPI-2.0.0/swagger-ui/'
+            }
+          ]
+        }
       ]
     },
     {
