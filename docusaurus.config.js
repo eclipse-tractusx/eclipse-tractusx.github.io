@@ -204,12 +204,16 @@ const config = {
                 label: 'Knowledge Agents',
               },
               {
-                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
+                to: '/docs-kits/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
               },
               {
                 to: '/docs-kits/kits/online-simulation-kit/adoption-view',
                 label: 'Online Simulation',
+              },
+              {
+                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
+                label: 'Product Carbon Footprint Exchange',
               },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
