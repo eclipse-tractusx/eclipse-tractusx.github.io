@@ -165,15 +165,17 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/Kits',
+            to: '/kits',
             items: [
               {
-                to: '/Kits',
+                to: 'kits',
                 label: 'Kits General',
+              },{
+                to: '/docs-kits/kits/data-governance-kit/adoption-view',
+                label: 'Data Governance',
               },
-
               {
-                to: '/docs-kits/dummy-kit/adoption-view',
+                to: '/docs-kits/kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
               {
