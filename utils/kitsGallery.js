@@ -165,10 +165,10 @@ export const kitsGallery = [
   },
   {
     id: 16,
-    name: 'ESS Kit',
+    name: 'Environmental and Social Standards Kit',
     domain: 'Sustainability',
     img: ESS_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/environmental-and-social-standards-kit/adoption-view",
   },
   {
     id: 17,
