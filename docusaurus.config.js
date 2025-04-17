@@ -172,14 +172,6 @@ const config = {
                 label: 'Kits General',
               },
               {
-                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
-                label: 'Digital Twin',
-              },
-              {
-                to: '/docs-kits/kits/dummy-kit/adoption-view',
-                label: 'Dummy Kit',
-              },
-              {
                 to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
@@ -188,12 +180,24 @@ const config = {
                 label: 'Customs',
               },
               {
+                to: '/docs-kits/kits/data-chain-kit/adoption-view',
+                label: 'Data Chain',
+              },
+              {
                 to: '/docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
               },
               {
                 to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
+              },
+              {
+                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
+                label: 'Digital Twin',
+              },
+              {
+                to: '/docs-kits/kits/dummy-kit/adoption-view',
+                label: 'Dummy Kit',
               },
               {
                 to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
