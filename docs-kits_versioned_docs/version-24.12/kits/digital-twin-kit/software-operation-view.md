@@ -2,7 +2,7 @@
 id: software-operation-view
 title: Operation View
 description: 'Digital Twin Kit'
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 ![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
