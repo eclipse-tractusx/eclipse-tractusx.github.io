@@ -176,6 +176,12 @@ const config = {
                 to: '/docs-kits/dummy-kit/adoption-view',
                 label: 'Dummy Kit',
               },
+              {
+                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
+                label: 'Digital Twin',
+              },
+
+              
             ],
           },
           {
