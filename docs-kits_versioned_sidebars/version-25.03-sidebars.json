@@ -193,6 +193,66 @@
         },
         "kits/demand-and-capacity-management-kit/operation-view"
       ]
+    },
+    {
+      "type": "category",
+      "label": "Knowledge Agents KIT",
+      "link": {
+        "type": "generated-index"
+      },
+      "collapsed": true,
+      "items": [
+        "kits/knowledge-agents/Knowledge Agent Changelog",
+        "kits/knowledge-agents/adoption-view/intro",
+        {
+          "type": "category",
+          "label": "Development View",
+          "link": {
+            "type": "doc",
+            "id": "kits/knowledge-agents/development-view/architecture"
+          },
+          "collapsed": true,
+          "items": [
+            "kits/knowledge-agents/development-view/Arc42",
+            "kits/knowledge-agents/development-view/modelling",
+            "kits/knowledge-agents/development-view/modules",
+            "kits/knowledge-agents/development-view/reference",
+            {
+              "type": "category",
+              "label": "API",
+              "link": {
+                "type": "doc",
+                "id": "kits/knowledge-agents/development-view/api"
+              },
+              "collapsed": true,
+              "items": [
+                "kits/knowledge-agents/development-view/api/agent/getAgent",
+                "kits/knowledge-agents/development-view/api/agent/postAgent",
+                "kits/knowledge-agents/development-view/api/agent/skill/postSkill",
+                "kits/knowledge-agents/development-view/api/agent/skill/getSkill",
+                "kits/knowledge-agents/development-view/api/graph/postGraph",
+                "kits/knowledge-agents/development-view/api/graph/deleteGraph"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operation View",
+          "link": {
+            "type": "doc",
+            "id": "kits/knowledge-agents/operation-view/deployment"
+          },
+          "collapsed": true,
+          "items": [
+            "kits/knowledge-agents/operation-view/agent-edc",
+            "kits/knowledge-agents/operation-view/provider",
+            "kits/knowledge-agents/operation-view/bridge",
+            "kits/knowledge-agents/operation-view/policy",
+            "kits/knowledge-agents/operation-view/testbed"
+          ]
+        }
+      ]
     }
   ]
 }
