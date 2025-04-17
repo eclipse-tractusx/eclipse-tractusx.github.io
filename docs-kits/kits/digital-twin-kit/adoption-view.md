@@ -1,5 +1,5 @@
 ---
-id: Adoption View Digital Twin Kit
+id: adoption-view
 title: Adoption View
 description: 'Digital Twin Kit'
 sidebar_position: 2
