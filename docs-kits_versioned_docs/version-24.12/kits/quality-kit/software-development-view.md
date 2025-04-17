@@ -1,8 +1,8 @@
 ---
 id: software-development-view
-title: Specification
+title: Software Development View
 description: 'Quality Kit'
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ![Quality kit banner](@site/static/img/QualityKitIcon.png)

@@ -16,49 +16,49 @@ The dataAddress object's structure is determined by the dataplane implementation
 The following suggestion is a non-standardized draft how Assets (and thus by proxy, dcat:Datasets) should be registered in the Quality Use-Case.
 
 ```json
-{  
- "@context": {  
-  "cx-taxo": "https://w3id.org/catenax/taxonomy#",  
-  "cx-common": "https://w3id.org/catenax/ontology/common#",  
-  "dct": "https://purl.org/dc/terms/",  
-  "dcat": "http://www.w3.org/ns/dcat#",  
-  "edc": "https://w3id.org/edc/v0.0.1/ns/"  
- },  
- "@id": "someId",  
- "@type": "edc:Asset",  
- "edc:properties": {  
-  "dct:type": {  
-   "@id": "cx-taxo:QualityAsset"  
-  },  
-  "cx-common:version": "1.0",  
-  "dct:language": {  
-   "@id": "https://w3id.org/idsa/code/EN"  
-  },  
-  "dcat:qualifiedRelation": {  
-   "dct:isPartOf": {  
-    "@id": "f7574ad6-95ee-46e2-8a45-6fa1782ba426"  
-   }  
-  },  
-  "dct:conformsTo": {  
-   "@id": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"  
-  },  
-  "dct:description": "TBD",  
-  "dct:format": "application/octet-stream;type=parquet-snappy",  
-  "edc:type": "AmazonS3"  
- },  
- "edc:dataAddress": {  
-  "@type": "edc:DataAddress",  
-  "edc:type": "AmazonS3",  
-  "edc:region": "eu-west-1",  
-  "edc:bucketName": "int-xcod-quality-aspect-models-eu-west-1",  
-  "edc:keyName": "myCompany/myTag/QualityTask.parquet",  
-  "edc:accessKeyId": "…",  
+{
+ "@context": {
+  "cx-taxo": "https://w3id.org/catenax/taxonomy#",
+  "cx-common": "https://w3id.org/catenax/ontology/common#",
+  "dct": "https://purl.org/dc/terms/",
+  "dcat": "http://www.w3.org/ns/dcat#",
+  "edc": "https://w3id.org/edc/v0.0.1/ns/"
+ },
+ "@id": "someId",
+ "@type": "edc:Asset",
+ "edc:properties": {
+  "dct:type": {
+   "@id": "cx-taxo:QualityAsset"
+  },
+  "cx-common:version": "1.0",
+  "dct:language": {
+   "@id": "https://w3id.org/idsa/code/EN"
+  },
+  "dcat:qualifiedRelation": {
+   "dct:isPartOf": {
+    "@id": "f7574ad6-95ee-46e2-8a45-6fa1782ba426"
+   }
+  },
+  "dct:conformsTo": {
+   "@id": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"
+  },
+  "dct:description": "TBD",
+  "dct:format": "application/octet-stream;type=parquet-snappy",
+  "edc:type": "AmazonS3"
+ },
+ "edc:dataAddress": {
+  "@type": "edc:DataAddress",
+  "edc:type": "AmazonS3",
+  "edc:region": "eu-west-1",
+  "edc:bucketName": "int-xcod-quality-aspect-models-eu-west-1",
+  "edc:keyName": "myCompany/myTag/QualityTask.parquet",
+  "edc:accessKeyId": "…",
   "edc:secretAccessKey": "…"
- }  
+ }
 }
 ```
 
-### S3 Data Address[​](https://eclipse-tractusx.github.io/docs-kits/kits/quality-kit/software-development-view/specification#s3-data-address)
+### S3 Data Address[​](https://eclipse-tractusx.github.io/docs-kits/kits/quality-kit/software-development-view#s3-data-address)
 
 This section is not use-case specific but since the EDC's AmazonS3 dataplane is basically undocumented, here is an explanation:
 
