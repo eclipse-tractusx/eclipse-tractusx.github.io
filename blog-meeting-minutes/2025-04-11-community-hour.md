@@ -42,4 +42,4 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
 ### Feedback / Questions / Requests
 
 - No specific topics to discuss
-- Please note that next Friday there will be no Office Hour due to a public holiday in Germany
+- Please note that next Friday 18.04.2025 there will be no Office Hour due to a public holiday in Germany
