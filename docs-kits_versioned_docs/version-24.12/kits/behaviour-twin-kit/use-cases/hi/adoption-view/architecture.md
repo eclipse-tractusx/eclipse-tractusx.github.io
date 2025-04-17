@@ -76,7 +76,7 @@ To have a common understanding of how to interpret and translate elements in the
 |Subsystem|Description|
 |---------|-----------|
 |HI Dashboard|This component is the app that is hosted at the *consumer* and provides the end user interface.|
-|Usage Data|A data source at the *data provider* that provides usage data that are required for HI calculation services. <BR/> It can be accessed by the Knowledge Agent via data bindings.|
+|Usage Data|A data source at the *data provider* that provides usage data that are required for HI calculation services. <br/> It can be accessed by the Knowledge Agent via data bindings.|
 |HI Service|A calculation service at the *Supplier*. It accepts a load spectrum as parameter, calculates the health indicator result values and returns them.|
 
 #### KNOWLEDGE AGENT COMPONENTS AND CATENA-X CORE SERVICES

@@ -98,7 +98,7 @@ To have a common understanding of how to interpret and translate elements in the
 |Subsystem|Description|
 |---------|-----------|
 |Data Consuming App|This component is the app that is hosted at the *consumer* and provides the end user interface.|
-|Usage Data|A data source at the *data provider* that provides usage data that are required for prognosis services. <BR/> It can be accessed by the Knowledge Agent via data bindings.|
+|Usage Data|A data source at the *data provider* that provides usage data that are required for prognosis services. <br/> It can be accessed by the Knowledge Agent via data bindings.|
 |Calculation Service|A calculation service at the *service provider*. It accepts input data from federated data sources, calculates the result values and returns them.|
 
 #### KNOWLEDGE AGENT COMPONENTS
@@ -108,7 +108,7 @@ To have a common understanding of how to interpret and translate elements in the
 |Matchmaking Agent|This component supports SPARQL (skills/sub-skills) to traverse the federated data space as a large data structure. It interacts with the EDC connector. <br/> A **provider's Matchmaking Agent** will be activated by its EDC connector. Therefore, the EDC must offer a Graph Asset (variant of ordinary data assets in the related Catena-X standards). <br/> A **consumer's Matchmaking Agent** interacts with its EDC to negotiate and perform the transfer of sub-skills to other dataspace participants. <br/> The Matchmaking Agents are matching the (sub-)graphs and negotiate appropriated graph assets with the partner EDCs.|
 |Binding Agent|The Binding Agent is a restricted version of the Matchmaking Agent (subset of OWL/SPARQL, e.g., without federation) which is just focused on translating sub-skills of a particular business domain (Bill-Of-Material, Chemical Materials, Production Sites, etc.) into proper SQL- or REST based backend system calls. <br/>Binding agents for data bindings are called **Provisioning Agent**. <br/>Binding agents for service bindings are called **Remoting Agent**. |
 |Binding|A Binding is part of the configuration of a Binding Agent. It defines the binding (translation form/into graph representation) for specific data/service instances.|
-|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <BR/> It must be hosted in a way that all participants can access it.|
+|Ontology|The ontology is a formal representation of knowledge that captures concepts, relationships, and properties. It allows a shared understanding and reasoning about the respective domain. <br/> It must be hosted in a way that all participants can access it.|
 |Skill/Sub-Skill|The Skill describes, what to do (which data have to be connected, transferred, processed ...).|
 
 #### CATENA-X CORE SERVICES (EXCEPT KNOWLEDGE AGENT COMPONENTS)
