@@ -85,7 +85,7 @@ const sidebars = {
                         {
                             type: "link",
                             label: "Item Relationship Service API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/item-relationship-service/'
+                            href: 'https://eclipse-tractusx.github.io/api-hub/item-relationship-service/6.0.1/swagger-ui/'
                         }
                     ]
                 },
