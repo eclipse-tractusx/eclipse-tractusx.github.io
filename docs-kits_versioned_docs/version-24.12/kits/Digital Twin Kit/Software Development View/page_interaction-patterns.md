@@ -40,7 +40,7 @@ This happens usually when onboarding a company to the network.
 
 | Scenario                                                                    | Participants                                           | Assumptions                                                                 | Links to Use-Cases                                                                                                                                                     |
 |-----------------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - [Industry Core](../../Industry-core-kit/software-development-view/page_digital-twins.mdx) <br/> - [Product Carbon Footprint Kit](../../product-carbon-footprint-exchange-kit) |
+| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - [Industry Core](../../Industry-core-kit/software-development-view/digital-twins.mdx) <br/> - [Product Carbon Footprint Kit](../../product-carbon-footprint-exchange-kit) |
 
 The most common integration pattern with Digital Twins aims to offer asset-related data in expectable ways along the
 supply chain. It defines conventions that allow locating data in the network. This most basic scenario assumes that the
@@ -161,7 +161,7 @@ from [the default case](#1-fetching-a-suppliers-twin)
 #### 2.2. Discovery by Registration
 
 If no heuristic is precise enough to expect a Submodel's location, the dismantler must signal in
-a [BPN-Discovery-Service](../page_software-operation-view.md)
+a [BPN-Discovery-Service](../software-operation-view.md)
 that they indeed have data on said vehicle. This is the registration process:
 
 ```mermaid
