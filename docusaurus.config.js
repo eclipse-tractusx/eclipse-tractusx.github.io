@@ -180,9 +180,13 @@ const config = {
                 label: 'Business Partner',
               },
               {
+                to: '/docs-kits/kits/customs-kit/adoption-view-customs',
+                label: 'Customs',
+              },
+              {
                 to: '/docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
-              },            
+              },
               {
                 to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
@@ -190,7 +194,7 @@ const config = {
               {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Knowledge Agents',
-              }, 
+              },
             ],
           },
           {
