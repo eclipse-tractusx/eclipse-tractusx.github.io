@@ -7,7 +7,7 @@ export const carouselKits = [
   {
     id: 1,
     img: Business_Kit,
-    pageRoute: "docs/kits/Business Partner Kit/Adoption View"
+    pageRoute: "docs/kits/business-partner-kit/Adoption View"
   },
   {
     id: 2,
