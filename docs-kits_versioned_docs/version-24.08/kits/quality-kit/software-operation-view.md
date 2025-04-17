@@ -2,7 +2,7 @@
 id: software-operation-view
 title: Operation View
 description: 'Quality Kit'
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 ![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
