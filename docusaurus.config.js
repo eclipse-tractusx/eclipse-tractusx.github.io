@@ -177,7 +177,7 @@ const config = {
                 label: 'Dummy Kit',
               },
               {
-                to: '/docs-kits/behaviour-twin-kit/overview',
+                to: '/docs-kits/kits/behaviour-twin-kit/overview',
                 label: 'Behaviour Twin',
               },
             ],

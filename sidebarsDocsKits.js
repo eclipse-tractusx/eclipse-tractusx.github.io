@@ -62,7 +62,133 @@ const sidebars = {
                     dirName: 'kits/dummy-kit'
                 }
             ]
-        }
+        },
+        {
+            type: 'category',
+            label: 'Behaviour Twin KIT',
+            link: {
+                type: 'doc',
+                id: 'kits/behaviour-twin-kit/overview',
+            },
+            collapsed: true,
+            items: [
+                'kits/behaviour-twin-kit/changelog',
+                {
+                    type: 'category',
+                    label: 'Adoption View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/adoption-view/overview',
+                    },
+                    items: [
+                        'kits/behaviour-twin-kit/adoption-view/introduction',
+                        'kits/behaviour-twin-kit/adoption-view/architecture',
+                        'kits/behaviour-twin-kit/adoption-view/knowledge-agent',
+                        'kits/behaviour-twin-kit/adoption-view/versioning',
+                        'kits/behaviour-twin-kit/adoption-view/to-be-considered',
+                        'kits/behaviour-twin-kit/adoption-view/new-use-cases',
+                        'kits/behaviour-twin-kit/adoption-view/terminology',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Development View',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/development-view/overview',
+                    },
+                    items: [
+                        'kits/behaviour-twin-kit/development-view/contracts-and-policies',
+                        'kits/behaviour-twin-kit/development-view/data-bindings',
+                        'kits/behaviour-twin-kit/development-view/service-bindings',
+                        'kits/behaviour-twin-kit/development-view/skill',
+                        'kits/behaviour-twin-kit/development-view/guidance-and-resources',
+                    ]
+                },
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    link: {
+                        type: 'doc',
+                        id: 'kits/behaviour-twin-kit/use-cases/overview',
+                    },
+                    items: [
+                        {
+                            type: 'category',
+                            label: 'Remaining useful Life',
+                            link: {
+                                type: 'doc',
+                                id: 'kits/behaviour-twin-kit/use-cases/rul/overview',
+                            },
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'Adoption View',
+                                    link: {
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/rul/adoption-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/introduction',
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/architecture',
+                                        'kits/behaviour-twin-kit/use-cases/rul/adoption-view/terminology',
+                                    ]
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Development View',
+                                    link: {
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/rul/development-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/data-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/service-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/rul/development-view/skill',
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            type: 'category',
+                            label: 'Health Indicator',
+                            link: {
+                                type: 'doc',
+                                id: 'kits/behaviour-twin-kit/use-cases/hi/overview',
+                            },
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'Adoption View',
+                                    link: {
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/hi/adoption-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/introduction',
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/architecture',
+                                        'kits/behaviour-twin-kit/use-cases/hi/adoption-view/terminology',
+                                    ]
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Development View',
+                                    link: {
+                                        type: 'doc',
+                                        id: 'kits/behaviour-twin-kit/use-cases/hi/development-view/overview',
+                                    },
+                                    items: [
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/data-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/service-bindings',
+                                        'kits/behaviour-twin-kit/use-cases/hi/development-view/skill',
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },
     ]
 };
 module.exports = sidebars;
