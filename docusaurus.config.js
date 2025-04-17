@@ -177,7 +177,7 @@ const config = {
                 label: 'Dummy Kit',
               },
               {
-                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/Adoption%20View',
+                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
             ],
