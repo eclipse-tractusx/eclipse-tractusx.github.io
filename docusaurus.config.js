@@ -195,6 +195,10 @@ const config = {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Knowledge Agents',
               },
+              {
+                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
+                label: 'Logistics',
+              },
             ],
           },
           {
