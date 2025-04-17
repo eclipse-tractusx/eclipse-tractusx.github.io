@@ -126,7 +126,7 @@ export const kitsGallery = [
     name: 'Knowledge Agents Kit',
     domain: 'Network Services',
     img: Agents_Kit,
-    pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view",
+    pageRoute: "/docs-kits/kits/knowledge-agents/adoption-view/intro",
   },
   {
     id: 11,
