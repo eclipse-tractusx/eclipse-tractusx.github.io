@@ -137,10 +137,10 @@ export const kitsGallery = [
   },
   {
     id: 12,
-    name: 'DCM Kit',
+    name: 'Demand and Capacity Management Kit',
     domain: 'Supply Chain',
     img: DemandandCapacityManagement_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview",
   },
   {
     id: 13,
