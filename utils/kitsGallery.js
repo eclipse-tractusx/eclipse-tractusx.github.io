@@ -119,7 +119,7 @@ export const kitsGallery = [
     name: 'Data Driven Quality Management Kit',
     domain: 'Quality',
     img: DDQM,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/quality-kit/adoption-view",
   },
   {
     id: 10,

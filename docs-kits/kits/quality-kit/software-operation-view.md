@@ -1,13 +1,13 @@
 ---
 id: software-operation-view
-title: Operation View
+title: Software Operation View
 description: 'Quality Kit'
 sidebar_position: 4
 ---
 
 ![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
 
-## Quality Data Offers at EDC[​](https://eclipse-tractusx.github.io/docs-kits/kits/quality-kit/software-development-view/specification#quality-data-offers-at-edc)
+## Quality Data Offers at EDC
 
 When a Data Consumer calls the Catalog of a Data Provider, the Data Provider must signal in each Data Offer what exactly a Consumer could negotiate for. Data Offers in the Catalog are sorted by dcat:Datasets which are registered in the EDC- Management API as edc:Asset. Each Asset has private and public properties. The public properties are shown in the catalog and give hints to the Data Consumer what API and data they may expect. There are some properties that are mandatory for the entire Catena-X network and some that are mandatory only in specific Business Scenarios (like Quality).
 
@@ -58,7 +58,7 @@ The following suggestion is a non-standardized draft how Assets (and thus by pro
 }
 ```
 
-### S3 Data Address[​](https://eclipse-tractusx.github.io/docs-kits/kits/quality-kit/software-development-view#s3-data-address)
+### S3 Data Address
 
 This section is not use-case specific but since the EDC's AmazonS3 dataplane is basically undocumented, here is an explanation:
 
@@ -72,7 +72,7 @@ This section is not use-case specific but since the EDC's AmazonS3 dataplane is 
 | edc:accessKeyId     | "\<keyId\>"                | Amazon S3 uses this property similarly to how oauth2 client credentials use the clientId. Note that this can also be set during deployment-time for the whole S3-dataplane. If it's set here, it will override the default config. |
 | edc:secretAccessKey | "\<secretAccessKey\>"      | This secret is used similarly to a clientSecret in oauth2 client credentials.                                                                                                                                                      |
 
-### Properties[​](https://eclipse-tractusx.github.io/docs-kits/kits/quality-kit/software-development-view/specification#properties)
+### Properties
 
 | **Property**                                                                                          | **Value**                                                        | **Optional** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
