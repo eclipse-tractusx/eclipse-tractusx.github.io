@@ -1,5 +1,5 @@
 ---
-id: Adoption View Customs Kit
+id: adoption-view-customs
 title: Adoption View Customs
 description: "Customs Kit"
 sidebar_position: 2
@@ -42,7 +42,7 @@ Every company divides the trade agreements into different and individual zones. 
 1. The receiver (customer) must provide a connector asset for notifications in the Eclipse Data Connector (EDC).
 2. The receiver (customer) sends a request to the sender (supplier) with a list of part numbers to ask for preference master data.
   a. Proceeding as usual by email, post, etc.
-  b. Using a “request notification” based on the Notification API  
+  b. Using a “request notification” based on the Notification API
 3. The sender (supplier) accepts the request depending on the type of the transmission of the request.
 4. The sender (supplier) creates a customs notification to send preference information.
 5. The sender (supplier) initiates a contract negotiation to get a contract agreement.
@@ -55,7 +55,7 @@ Every company divides the trade agreements into different and individual zones. 
 
 1. The Data Consumer (customer) sends a request to the Data Provider (supplier) with a list of part numbers to ask for preference master data.
   a. Proceeding as usual by email, post, etc.
-  b. Using a “request notification” based on the Notification API  
+  b. Using a “request notification” based on the Notification API
 2. The Data Provider (supplier) accepts the request depending on the type of the transmission of the request.
 3. The Data Provider (supplier) creates an aspect model “customsInformation” and saves it at the Submodel Server if it does not already exist.
 4. The Data Provider (supplier) creates a digital twin for each requested part if it does not already exist (a) and adds the Submodel Descriptor for the created aspect model to the digital twin (b).
