@@ -1,5 +1,5 @@
 ---
-id: dt-kit-software-development-view
+id: software-development-view
 title: Developing with the DT KIT
 description: 'Digital Twin KIT - Software Development View'
 sidebar_position: 1

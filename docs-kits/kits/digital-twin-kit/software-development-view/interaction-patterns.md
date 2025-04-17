@@ -1,5 +1,5 @@
 ---
-id: dt-kit-interaction-patterns
+id: interaction-patterns
 title: Interaction Patterns
 description: 'Digital Twin KIT - Interaction Patterns'
 sidebar_position: 2

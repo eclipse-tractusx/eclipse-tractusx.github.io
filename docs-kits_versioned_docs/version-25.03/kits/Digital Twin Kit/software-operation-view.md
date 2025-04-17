@@ -1,5 +1,5 @@
 ---
-id: Operation View Digital Twin Kit
+id: software-operation-view
 title: Operation View
 description: 'Digital Twin Kit'
 sidebar_position: 3
