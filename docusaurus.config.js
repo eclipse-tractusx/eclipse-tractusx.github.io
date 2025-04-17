@@ -208,6 +208,10 @@ const config = {
                 label: 'Logistics',
               },
               {
+                to: '/docs-kits/kits/online-simulation-kit/adoption-view',
+                label: 'Online Simulation',
+              },
+              {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
               },
