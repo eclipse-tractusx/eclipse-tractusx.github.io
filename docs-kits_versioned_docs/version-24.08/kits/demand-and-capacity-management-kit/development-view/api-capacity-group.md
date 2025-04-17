@@ -8,50 +8,53 @@ description: API - WeekBasedCapacityGroup
 
 ## WeekBasedCapacityGroup API
 
-The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the supplier. The customer provides capacity group data to the API via POST request.
+The WeekBasedCapacityGroup API is owned and registered as an EDC asset by the customer. The supplier provides capacity group data to the API via POST request.
 
 ### Roles and Functions
 
 |Role / Function|API Owner|POST to API|
 |-|-|-|
-|Customer||X|
-|Supplier|X||
+|Customer|X||
+|Supplier||X|
 
 ### Data Exchange
 
 ```mermaid
 sequenceDiagram
+autonumber
     actor c as Customer 
-    participant ce as Customer EDC
-    participant se as Supplier EDC
     participant a as WeekBasedCapacityGroup API
+    participant ce as Customer EDC
+    participant se as Supplier EDC    
     actor s as Supplier
     
     rect rgb(217,24,24)
-    s->>+se: Register API as Asset
-    se->>-s: API registered
+      c->>+ce: Register API as Asset
+      ce->>-c: API registered
     end
+autonumber 1
     rect rgb(128,149,00)
-    c->>+ce: Provide WeekBasedCapacityGroup
-    rect rgb(179,203,45)
-    ce->>+se: Initiate Handshake
-    se->>ce: Complete Handshake
-    end
-    ce->>se: Provide WeekBasedCapacityGroup
-    se->>+a: Provide WeekBasedCapacityGroup
-    a->>-se: WeekBasedCapacityGroup consumed
-    se->>-ce: WeekBasedCapacityGroup consumed
-    ce->>-c: WeekBasedCapacityGroup consumed
+      s->>+se: Provide WeekBasedCapacityGroup
+      rect rgb(179,203,45)
+        se->>+ce: Initiate Handshake
+        ce->>se: Complete Handshake
+      end
+      se->>ce: Provide WeekBasedCapacityGroup
+      ce->>+a: Provide WeekBasedCapacityGroup
+      a->>-ce: WeekBasedCapacityGroup consumed
+      ce->>-se: WeekBasedCapacityGroup consumed
+      se->>-s: WeekBasedCapacityGroup consumed
     
     end
-  
 ```
+
+Figure: *Exchanging WeekBasedCapacityGroup via API*
 
 ### Open API documentation
 
 |API|Link|
 |-|-|
-|WeekBasedCapacityGroup|N/A|
+|WeekBasedCapacityGroup|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-dcm-WeekBasedCapacityGroup-openAPI-3.0.0/swagger-ui/)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 

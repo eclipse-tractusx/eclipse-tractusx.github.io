@@ -32,9 +32,10 @@ autonumber
       c->>+ce: Register API as Asset
       ce->>-c: API registered
     end
-    rect rgb(221,130,0)
+autonumber 1
+    rect rgb(128,149,00)
       s->>+se: Provide WeekBasedCapacityGroup
-      rect rgb(255,166,0)
+      rect rgb(179,203,45)
         se->>+ce: Initiate Handshake
         ce->>se: Complete Handshake
       end
@@ -53,7 +54,7 @@ Figure: *Exchanging WeekBasedCapacityGroup via API*
 
 |API|Link|
 |-|-|
-|WeekBasedCapacityGroup|N/A|
+|WeekBasedCapacityGroup|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-dcm-WeekBasedCapacityGroup-openAPI-3.0.0/swagger-ui/)|
 
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
