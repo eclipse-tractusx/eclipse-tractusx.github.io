@@ -1,5 +1,5 @@
 ---
-id: Specification
+id: software-development-view
 title: Specification
 description: 'PCF-Exchange-KIT'
 sidebar_position: 3
@@ -258,7 +258,7 @@ The content of the access policy depends on the criterias used within the usage 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
 If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
 ![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
-  
+
 <details>
     <summary>Empty Access Policy (JSON)</summary>
 

@@ -1,5 +1,5 @@
 ---
-id: Adoption View
+id: adoption-view
 title: Adoption View
 description: 'PCF-Exchange-KIT'
 sidebar_position: 2
@@ -28,9 +28,9 @@ Report and steer the de-carbonization of our value chain with dedicated measures
 Addressing supply chain carbon emissions today is missing reliable data about baseline emissions, effect of reductions and best practices. This is due to three reasons:
 
 - Complexity of supply chains leading to huge amount of data: complex supply chains spanning different countries and actors from many industries lead to huge amounts of data.
-  
+
 - Lack of trust: unwillingness to share data due to the risk of losing competitive advantage (data is shared with competitors).
-  
+
 - Missing standards for measuring carbon emissions in a comparable way.
 
 At the core of our project is the recognition of a current challenge - the lack of transparency and accessibility to real PCF information in supply chains. Through our project, we strive to bridge this information gap by establishing a trusted and collaborative and interoperable environment. Suppliers will have the opportunity to share their PCF data with confidence, knowing that it remains sovereign and under their control.

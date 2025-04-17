@@ -1,5 +1,5 @@
 ---
-id: Adoption View
+id: adoption-view
 title: Adoption View
 description: 'PCF-Exchange-KIT'
 sidebar_position: 2

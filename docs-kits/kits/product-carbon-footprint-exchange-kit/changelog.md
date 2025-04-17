@@ -1,5 +1,5 @@
 ---
-id: PCF Exchange Kit Changelog
+id: changelog
 title: Changelog
 description: 'PCF Exchange Kit'
 sidebar_position: 1
