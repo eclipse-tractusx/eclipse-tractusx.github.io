@@ -98,7 +98,7 @@ export const kitsGallery = [
     name: 'Digital Twin Kit',
     domain: 'Industry Core',
     img: DigitalTwin,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/digital-twin-kit/adoption-view",
   },
   {
     id: 7,

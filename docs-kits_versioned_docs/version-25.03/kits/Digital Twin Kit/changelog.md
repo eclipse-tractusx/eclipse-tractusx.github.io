@@ -1,5 +1,5 @@
 ---
-id: Digital Twin Kit Changelog
+id: changelog
 title: Changelog
 description: 'Digital Twin Kit'
 sidebar_position: 1
