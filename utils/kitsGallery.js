@@ -179,9 +179,9 @@ export const kitsGallery = [
   },
   {
     id: 18,
-    name: 'PURIS Kit',
+    name: 'Predictive Unit Real-Time Information Service Kit',
     domain: 'Supply Chain',
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/puris-kit/adoption-view",
     img: PURIS_Kit,
   },
   {
