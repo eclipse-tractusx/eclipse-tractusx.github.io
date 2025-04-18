@@ -176,6 +176,10 @@ const config = {
                 label: 'Business Partner',
               },
               {
+                to: '/docs-kits/kits/circularity-kit/adoption-view',
+                label: 'Circularity',
+              },
+              {
                 to: '/docs-kits/kits/customs-kit/adoption-view-customs',
                 label: 'Customs',
               },
@@ -216,6 +220,10 @@ const config = {
                 label: 'Online Simulation',
               },
               {
+                to: '/docs-kits/kits/puris-kit/adoption-view',
+                label: 'Predictive Unit Real-Time Information Service',
+              },
+              {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
@@ -223,11 +231,6 @@ const config = {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
               },
-              {
-                to: '/docs-kits/kits/puris-kit/adoption-view',
-                label: 'Predictive Unit Real-Time Information Service',
-              },
-              
             ],
           },
           {
