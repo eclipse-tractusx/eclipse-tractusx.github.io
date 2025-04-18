@@ -147,7 +147,7 @@ export const kitsGallery = [
     name: 'Modular Production Kit',
     domain: 'Manufacturing',
     img: ModularProduction_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/modular-production-kit/adoption-view",
   },
   {
     id: 14,
