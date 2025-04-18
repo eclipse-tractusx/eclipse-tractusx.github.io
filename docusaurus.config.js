@@ -223,6 +223,11 @@ const config = {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
               },
+              {
+                to: '/docs-kits/kits/puris-kit/adoption-view',
+                label: 'Predictive Unit Real-Time Information Service',
+              },
+              
             ],
           },
           {
