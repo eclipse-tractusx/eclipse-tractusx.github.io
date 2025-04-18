@@ -196,10 +196,6 @@ const config = {
                 label: 'Digital Twin',
               },
               {
-                to: '/docs-kits/kits/dummy-kit/adoption-view',
-                label: 'Dummy Kit',
-              },
-              {
                 to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
                 label: 'Environmental and Social Standards',
               },
@@ -210,6 +206,10 @@ const config = {
               {
                 to: '/docs-kits/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
+              },
+              {
+                to: '/docs-kits/kits/modular-production-kit/adoption-view',
+                label: 'Modular Production',
               },
               {
                 to: '/docs-kits/kits/online-simulation-kit/adoption-view',
