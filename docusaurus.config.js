@@ -172,6 +172,10 @@ const config = {
                 label: 'Kits General',
               },
               {
+                to: '/docs-kits/kits/behaviour-twin-kit/overview',
+                label: 'Behaviour Twin',
+              },
+              {
                 to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
