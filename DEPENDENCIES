@@ -481,7 +481,7 @@ npm/npmjs/-/markdown-table/3.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/markdownlint-cli2-formatter-default/0.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/markdownlint-cli2/0.5.1, MIT, approved, clearlydefined
 npm/npmjs/-/markdownlint/0.26.2, MIT, approved, clearlydefined
-npm/npmjs/-/marked/15.0.7, MIT, approved, clearlydefined
+npm/npmjs/-/marked/15.0.7, BSD-3-Clause AND LicenseRef-scancode-generic-cla AND MIT, restricted, clearlydefined
 npm/npmjs/-/math-intrinsics/1.1.0, MIT, approved, #17964
 npm/npmjs/-/mdast-util-directive/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/mdast-util-find-and-replace/3.0.2, MIT, approved, clearlydefined
@@ -891,7 +891,7 @@ npm/npmjs/-/trim-lines/3.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/trough/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/ts-dedent/2.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/tslib/2.8.1, 0BSD, approved, clearlydefined
-npm/npmjs/-/type-fest/0.21.3, MIT OR (CC0-1.0 AND MIT), approved, clearlydefined
+npm/npmjs/-/type-fest/0.21.3, CC0-1.0 AND MIT, approved, clearlydefined
 npm/npmjs/-/type-fest/1.4.0, MIT OR (CC0-1.0 AND MIT), approved, clearlydefined
 npm/npmjs/-/type-fest/2.19.0, CC0-1.0 OR MIT OR (CC0-1.0 AND MIT), approved, clearlydefined
 npm/npmjs/-/type-is/1.6.18, MIT, approved, clearlydefined
