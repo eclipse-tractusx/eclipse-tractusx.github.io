@@ -114,7 +114,7 @@ This component's content is defined in the `./utils/resiliencyItems.js` file, an
     {
       id: 1,
       img: Business_Kit,
-      pageRoute: "docs-kits/kits/Business Partner Kit/Adoption View"
+      pageRoute: "docs-kits/kits/business-partner-kit/Adoption View"
     },
   ]
 ```
@@ -134,7 +134,7 @@ This component's content is defined in the `./utils/kitsGallery.js` file, and fo
       name: 'Business Partner Kit',
       domain: 'Network & Core Services',
       img: Business_Kit,
-      pageRoute: "docs-kits/kits/Business Partner Kit/Adoption View"
+      pageRoute: "docs-kits/kits/business-partner-kit/Adoption View"
     },
   ]
 ```
