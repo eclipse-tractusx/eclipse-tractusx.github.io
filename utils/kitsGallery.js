@@ -91,7 +91,7 @@ export const kitsGallery = [
     name: 'Behaviour Twin Kit',
     domain: 'Engineering',
     img: BehaviourTwin_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/behaviour-twin-kit/overview",
   },
   {
     id: 6,
