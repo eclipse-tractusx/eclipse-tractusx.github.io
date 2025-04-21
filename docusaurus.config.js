@@ -231,6 +231,10 @@ const config = {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
               },
+              {
+                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
+                label: 'Eco Pass',
+              },
             ],
           },
           {

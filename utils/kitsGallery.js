@@ -105,7 +105,7 @@ export const kitsGallery = [
     name: 'Eco Pass Kit',
     domain: 'Sustainability',
     img: EcoPass,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/eco-pass-kit/adoption-view",
   },
   {
     id: 8,
