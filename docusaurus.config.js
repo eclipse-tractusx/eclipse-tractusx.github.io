@@ -235,6 +235,10 @@ const config = {
                 to: '/docs-kits/kits/eco-pass-kit/adoption-view',
                 label: 'Eco Pass',
               },
+              {
+                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
+                label: 'Model Based Development and Data Processing',
+              },
             ],
           },
           {
