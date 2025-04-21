@@ -200,6 +200,10 @@ const config = {
                 label: 'Digital Twin',
               },
               {
+                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
+                label: 'Eco Pass',
+              },
+              {
                 to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
                 label: 'Environmental and Social Standards',
               },
@@ -210,6 +214,14 @@ const config = {
               {
                 to: '/docs-kits/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
+              },
+              {
+                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+                label: 'Manufacturing as a Service', 
+              },
+              {
+                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
+                label: 'Model Based Development and Data Processing',
               },
               {
                 to: '/docs-kits/kits/modular-production-kit/adoption-view',
@@ -230,14 +242,6 @@ const config = {
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
-              },
-              {
-                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-                label: 'Model Based Development and Data Processing',
               },
             ],
           },
