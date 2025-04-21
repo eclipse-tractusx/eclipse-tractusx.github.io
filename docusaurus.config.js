@@ -170,10 +170,6 @@ const config = {
               {
                 to: 'kits',
                 label: 'Kits General',
-              }, 
-              {
-                to: '/docs-kits/kits/dummy-kit/adoption-view',
-                label: 'Dummy Kit',
               },
               {
                 to: '/docs-kits/kits/business-partner-kit/adoption-view',
@@ -182,7 +178,7 @@ const config = {
               {
                 to: '/docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
-              },            
+              },
               {
                 to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
