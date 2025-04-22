@@ -48,7 +48,7 @@ This overview shows the two core capabilities of Traceabilty and the Catena-X Co
 | [Digital Twin Registry (DTR)](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) | The Digital Twin Registry acts as an address book for digital twins. Data Providers register their digital twins in their own DTR. Data consumers query a DTR to find digital twins and interact with them further, i.e., fetch data for a digtil twin. |
 | [Item Relationship Service (IRS)](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/)    | The IRS builds a digital representation of a product (digital twin) and the relationships of items the product consists of in a hierarchical structure. The result is an item graph in which each node represents a digital item of the product - this graph is called "Item Graph".|
 | [Eclipse Dataspace Components (EDC)](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) | The EDC as a connector implements a framework agreement for sovereign, cross-organizational data sharing. The International Data Spaces Standard (IDS) and relevant principles in connection with GAIA-X were implemented. The connector is designed to be extensible to support alternative protocols and to be integrated into different ecosystems.|
-| [Discovery Service](https://eclipse-tractusx.github.io/docs-kits/kits/Digital%20Twin%20Kit/Software%20Development%20View/Specification%20Digital%20Twin%20KIT#discovery-sequence)| The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.    |
+| [Discovery Service](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view#discovery-sequence)| The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.    |
 
 ## Data Provisioning
 
@@ -62,7 +62,7 @@ The following diagram shows a basic data processing flow how a company's interna
 
 ### Digital Twins and Aspect Models
 
-Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/Architecture%20View%20industry-core-kit), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
+Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/architecture-view), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
 
 - Digital Twin "PartType"
   - N/A
@@ -149,9 +149,9 @@ In order to inform the recipient of this error, the block status of the affected
 ## Runtime View
 
 In the sub-sections below the sequence for sending, updating and resolving of notifications between (traceability) applications is shown with UML sequence diagrams. In all cases, Http POST requests are used. Those Http endpoints are described in the corresponding sections:
-- [(TRS) Quality Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#quality-notifications)
-- [Block Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#block-notifications)
-- [EDC Contract Offerings](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/App%20Provider%20Development%20View%20Traceability%20Kit#asset-registration-via-connector).
+- [(TRS) Quality Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/app-provider#quality-notifications)
+- [Block Notification Endpoints](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/app-provider#block-notifications)
+- [EDC Contract Offerings](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/app-provider#asset-registration-via-connector).
 
 To read the UML sequence diagrams correctly, some remarks:
 
@@ -233,4 +233,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/Traceability%20Kit (latest version)
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/traceability-kit (latest version)
