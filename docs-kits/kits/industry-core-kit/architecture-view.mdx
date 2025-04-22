@@ -27,7 +27,7 @@ This architecture is based on the following assumptions:
       Service.
     - All participants have an active network membership that is represented in their membership credential.
     - Data Providers operate a Digital Twin Registry according to
-      the [Digital Twin Kit](../Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit)
+      the [Digital Twin Kit](../digital-twin-kit/adoption-view)
     - Data Providers expose their data via the Submodel API according to the Digital Twin Kit.
 - The **customers of parts** (on catalog and instance level) must be known when creating a digital twin and registering
   its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent
@@ -120,7 +120,7 @@ The Catena-X data space aims to support a parallel phase of two major versions o
 
 More information about backward compatibility and versioning can be found here:
 - [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catana-X Standard Library,
-- [Digital Twin KIT - Registration at EDC](../Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-software-development-view/#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
+- [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
 
 ## Building Block View
 
@@ -157,7 +157,7 @@ As all use cases use the same underlying notification technology based on Indust
 ## Runtime View
 
 The runtime patterns represent a subset of the interactions specified in the Digital Twin Kit.
-Its ["Interaction Patterns" section](../Digital%20Twin%20Kit/Software%20Development%20View/dt-kit-interaction-patterns)
+Its ["Interaction Patterns" section](../digital-twin-kit/software-development-view/interaction-patterns)
 describes the interaction between a Data Provider and Data Consumer including the necessary configuration steps.
 Since the Discovery Services according to CX-0053 are not part of the Industry Core, all calls going to the components
 `DiscoveryFinder` and `BPN Discovery Service` can be omitted.
