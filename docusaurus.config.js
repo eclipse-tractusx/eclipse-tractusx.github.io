@@ -184,6 +184,10 @@ const config = {
                 label: 'Circularity',
               },
               {
+                to: '/docs-kits/kits/connector-kit/adoption-view',
+                label: 'Connector', 
+              },
+              {
                 to: '/docs-kits/kits/customs-kit/adoption-view-customs',
                 label: 'Customs',
               },

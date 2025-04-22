@@ -77,7 +77,7 @@ export const kitsGallery = [
     name: 'Connector Kit',
     domain: 'Network Services',
     img: Connector_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/connector-kit/adoption-view",
   },
   {
     id: 4,
