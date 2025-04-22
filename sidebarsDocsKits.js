@@ -100,7 +100,7 @@ const sidebars = {
                         },
                     ]
                 },
-                'kits/connector-kit/operation-view/operation_view',
+                'kits/connector-kit/operation-view/operation-view',
 
             ],
         },
