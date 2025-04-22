@@ -177,7 +177,7 @@ const config = {
                 label: 'Dummy Kit',
               },
               {
-                to: '/docs-kits/kits/connector-kit/adoption-view/adoption-view',
+                to: '/docs-kits/kits/connector-kit/adoption-view',
                 label: 'Connector',
               },
             ],
