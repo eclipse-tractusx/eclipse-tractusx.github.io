@@ -171,11 +171,6 @@ const config = {
                 to: '/Kits',
                 label: 'Kits General',
               },
-
-              {
-                to: '/docs-kits/dummy-kit/adoption-view',
-                label: 'Dummy Kit',
-              },
               {
                 to: '/docs-kits/kits/connector-kit/adoption-view',
                 label: 'Connector',
