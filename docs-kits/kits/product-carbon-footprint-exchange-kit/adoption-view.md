@@ -74,7 +74,7 @@ The exchange-process is initiated top-down (e.g., at the OEM; but it can also st
 As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests. We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
 The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
 
-[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit#todays-challenge)
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/business-view#todays-challenge)
 
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
 
