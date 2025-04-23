@@ -175,7 +175,7 @@ Find more at [https://api.up2parts.com/docu.html#tag/Beta:-Calculation](https://
 
 ##### Catena-X Core Components
 
-As illustrated in the deployment view, the software components of this whitebox will usually be hosted and owned by different companies. Thus, each communication between the components on this whitebox level is protected by [Eclipse Dataspace Connectors (EDCs)](https://eclipse-tractusx.github.io/docs-kits/next/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view). Moreover, EDC and asset discovery are applied as described by the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
+As illustrated in the deployment view, the software components of this whitebox will usually be hosted and owned by different companies. Thus, each communication between the components on this whitebox level is protected by [Eclipse Dataspace Connectors (EDCs)](https://eclipse-tractusx.github.io/docs-kits/next/kits/connector-kit/adoption-view). Moreover, EDC and asset discovery are applied as described by the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
 
 ### 5.2 2nd Level Whitebox
 
@@ -276,7 +276,7 @@ The following runtime diagrams assume that the participants already have been on
 
 >EDC and Digital Twins
 >
-> Note that detailled runtime sequences can be found in the official  [EDC](https://eclipse-edc.github.io/docs/#/),  [BPMN](https://eclipse-tractusx.github.io/docs-kits/kits/Business%20Partner%20Kit/Documentation%20BPDM/bpdm_arc42#runtime-view) and [Digital Twin](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit/) documentation.
+> Note that detailled runtime sequences can be found in the official  [EDC](https://eclipse-edc.github.io/docs/#/),  [BPMN](https://eclipse-tractusx.github.io/docs-kits/kits/business-partner-kit/Documentation%20BPDM/bpdm_arc42#runtime-view) and [Digital Twin](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit/) documentation.
 
 ### 6.1 Federated Marketplace
 

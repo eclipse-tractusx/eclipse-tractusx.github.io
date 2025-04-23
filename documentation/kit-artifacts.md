@@ -113,7 +113,7 @@ Deliverables:
 - Description
 - Link to the semantic data models (GitHub)
 `Example from Traceability:`
-[Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#semantic-models)
+[Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#semantic-models)
 
 ### Logic / Schema
 
@@ -169,7 +169,7 @@ Deliverables:
 - Integration of the OpenAPI file
 - Use case examples for the API endpoints and how to use them
 `Example from DataChain KIT:` The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of Catena-X partners.
-[`Example for OpenAPI integration:`](/docs-kits/kits/Business%20Partner%20Kit/Software%20Development%20View/Pool%20Api/business-partner-data-management-pool)
+[`Example for OpenAPI integration:`](/docs-kits/kits/business-partner-kit/software-development-view/Pool%20Api/business-partner-data-management-pool)
 
 ### Sample Data
 
@@ -207,4 +207,4 @@ Deliverables:
 ## Architecture View
 
 The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
-[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
+[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#scope-and-context).

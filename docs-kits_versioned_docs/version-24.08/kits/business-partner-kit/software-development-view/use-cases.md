@@ -85,7 +85,7 @@ This use case aims to provide users with clear and concise instructions, ensurin
 
 6. Explore Apis for each service:
    - Api's for each service can be seen under postman collection with refernced test data.
-   - For more information on apis, user can refere section of [Api Reference](./page_software-development-view.md#api-reference)
+   - For more information on apis, user can refere section of [Api Reference](./software-development-view.md#api-reference)
 
 7. For Pool api service first check should be metadata availablity:
    - Expand the "BPDM Pool Api" collection in the left sidebar.

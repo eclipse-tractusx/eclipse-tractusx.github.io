@@ -730,7 +730,7 @@ const sidebars = {
       },
       {
         type: 'category',
-        label: 'Quality KIT',
+        label: 'Data Driven Quality Management KIT',
         link: {
             type: 'generated-index',
         },
