@@ -178,11 +178,11 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/traceability-kit/business-view',
-                label: 'Traceability KIT',
+                label: 'Traceability',
               },
               {
                 to: '/docs-kits/kits/industry-core-kit/business-view',
-                label: 'Industry Core KIT',
+                label: 'Industry Core',
               },
             ],
           },
