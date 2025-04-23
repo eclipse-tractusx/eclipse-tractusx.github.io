@@ -29,7 +29,7 @@
           },
           {
             "type": "category",
-            "label": "Development View",
+            "label": "Software Development View",
             "link": {
               "type": "doc",
               "id": "kits/behaviour-twin-kit/software-development-view/overview"
@@ -73,7 +73,7 @@
                   },
                   {
                     "type": "category",
-                    "label": "Development View",
+                    "label": "Software Development View",
                     "link": {
                       "type": "doc",
                       "id": "kits/behaviour-twin-kit/use-cases/rul/development-view/overview"
@@ -109,7 +109,7 @@
                   },
                   {
                     "type": "category",
-                    "label": "Development View",
+                    "label": "Software Development View",
                     "link": {
                       "type": "doc",
                       "id": "kits/behaviour-twin-kit/use-cases/hi/development-view/overview"
