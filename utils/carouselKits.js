@@ -22,7 +22,7 @@ export const carouselKits = [
   {
     id: 4,
     img: Traceability_Kit,
-    pageRoute: "docs/kits/traceability%20Kit/Adoption%20View%20Traceability%20Kit"
+    pageRoute: "docs/kits/traceability-kit/adoption-view"
   },
   {
     id: 5,

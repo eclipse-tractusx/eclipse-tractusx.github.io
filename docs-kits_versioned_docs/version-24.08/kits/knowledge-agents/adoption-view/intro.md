@@ -54,7 +54,7 @@ Our specifications have been published as  [Catena-X e.V. Standards](https://cat
 
 ### Implementations
 
-This KIT aggregates open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../Connector%20Kit/Adoption%20View/connector_kit_adoption_view)
+This KIT aggregates open-source reference implementations of these standards to Tractus-X in particular extending the [Connector KIT](../../connector-kit/adoption-view)
 
 These components are called [`agents`](https://en.wikipedia.org/wiki/Software_agent)) because they (semi-)actively negotiate and collaborate with each other (via so-called graph and skill assets) over the dataspace in order to derive higher-level semantic knowledge from the plain, isolated data.
 
