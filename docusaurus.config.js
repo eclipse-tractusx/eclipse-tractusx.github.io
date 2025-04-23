@@ -252,8 +252,8 @@ const config = {
                 label: 'Product Carbon Footprint Exchange',
               },
               {
-                to: '/docs-kits/kits/quality-kit/adoption-view',
-                label: 'Quality',
+                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
+                label: 'Data Driven Quality Management',
               },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
