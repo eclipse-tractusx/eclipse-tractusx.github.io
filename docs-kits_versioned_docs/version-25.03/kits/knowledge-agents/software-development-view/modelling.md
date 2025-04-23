@@ -155,11 +155,11 @@ cx-vehicle:Vehicle rdf:type owl:Class ;
 cx-vehicle:vehicleIdentificationNumber rdf:type owl:DatatypeProperty ;
   rdfs:subPropertyOf cx-core:id ;
   rdfs:domain cx-vehicle:Vehicle ;
-  rdfs:range xsd:string .  
+  rdfs:range xsd:string .
 
-# Sample instance             
+# Sample instance
 exp:vehicle_1 rdf:type cx-vehicle:Vehicle, cx-core:PhysicalObject;
-  cx-core:name "Goggomobile" 
+  cx-core:name "Goggomobile"
   cx-core:id "ABCDEFG1HI2J34567".
   cx-vehicle:vehicleIdentificationNumber "ABCDEFG1HI2J34567".
 
@@ -169,7 +169,7 @@ exp:vehicle_1 rdf:type cx-vehicle:Vehicle, cx-core:PhysicalObject;
 
 A digital twin is a digital object in a defined digital platform, such as the Web, data spaces, etc., that represents a real-world object and is identifiable and discoverable based on a defined unique identification. In the knowledge agent approach, a digital twin is an existing instance of a class of a domain ontology. The domain ontologies describe what kind of real-world objects it represents. With the cx-core:id all instances are identifiable in the Catena-X data space. A shape graph for the data provider's asset describes which digital twins are published in its asset. This makes the digital twins discoverable.
 
-Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to  [bridge](../development-view/modules#aas-bridges) these technolgies in both ways.
+Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to  [bridge](/modules#aas-bridges) these technolgies in both ways.
 
 ## Taxonomy
 
@@ -201,7 +201,7 @@ cx-taxo:Thing a skos:Concept;
       cx-taxo:SmallCar a skos:Concept ;
         skos:broader cx-taxo:Vehicle ;
         skos:prefLabel "Small Car"@en .
-  
+
 # Instance Vehicle
 exp:vehicle_1 rdf:type cx-vehicle:Vehicle;
   dct:type cx-taxo:SmallCar.
@@ -288,7 +288,7 @@ Functions are defined in a similar way to data in SHACL. In addition, the **cx-s
 
 ```ttl
 
-# Function Ontology 
+# Function Ontology
 
 exp:GetModelYearShape a sh:NodeShape ;
   sh:targetClass exp:GetModelYear ;
@@ -402,18 +402,18 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 select ?vehicleName ?vehicleVin ?diagnosisResultName
 where {
-  
+
   # OEM Asset
   SERVICE <https://catena-x.net/asset/oem/asset_1> {
     ?physicalObjectOEM rdf:type cx:Vehicle.
     ?physicalObjectOEM cx:vin ?vehicleVin.
-    
+
     #Service Asset
     SERVICE <https://catena-x.net/asset/service/asset_2> {
       ?physicalObjectService rdf:type cx:Vehicle.
       ?physicalObjectService cx:vin ?vehicleVin.
       ?physicalObjectService cx:name ?vehicleName.
-      ?activity rdf:type cx:Diagnosis.      
+      ?activity rdf:type cx:Diagnosis.
       ?activity cx:refersToPhysicalObject ?physicalObjectService.
       ?activity cx:refersToConceptualObject ?conceptualObject.
       ?conceptualObject cx:name ?diagnosisResultName.
@@ -462,7 +462,7 @@ For example, above federated query could be invoked under the assetname `SkillAs
                     "type": "literal",
                     "value": "4711"
                 }
-            }   
+            }
         ]
     }
 }
@@ -507,12 +507,12 @@ further constrain the associated vehicles (like by a verhicle series and product
 
 :LoadSpectrumShape a sh:NodeShape ;
     sh:targetClass  cx-reliability:LoadSpectrum;
-    sh:property :observationOfShape, 
-                :countingValueShape, 
-                :countingUnitShape, 
-                :countingMethodShape, 
-                :channelsShape, 
-                :classesShape, 
+    sh:property :observationOfShape,
+                :countingValueShape,
+                :countingUnitShape,
+                :countingMethodShape,
+                :channelsShape,
+                :classesShape,
                 :valuesShape.
 
 :observationOfShape a sh:PropertyShape;
@@ -641,7 +641,7 @@ The following shapes describe two different prognosis functions (one computing t
         cx-sh:hasAsArgument cx-reliability:classes;
         sh:path cx-behaviour:bodyClasses;
     ].
-    
+
 :HealthIndicationShape a sh:NodeShape ;
     cx-sh:extensionOf :PrognosisFunctionShape;
     sh:targetClass cx-behaviour:HealthIndication;
@@ -651,7 +651,7 @@ The following shapes describe two different prognosis functions (one computing t
         sh:in ( cx-taxo:Clutch );
     ];
     sh:property :HealthIndicationResultShape.
-    
+
 :HealthIndicationResultShape a sh:PropertyShape;
     cx-sh:outputOf :HealthIndicationShape;
     sh:path cx-behaviour:HealthIndicationResult .
@@ -665,11 +665,11 @@ PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#>
 PREFIX cx-sh: <https://w3id.org/catenax/ontology/schema#>
-PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#>
 PREFIX cx-core: <https://w3id.org/catenax/ontology/core#>
-PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#> 
+PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#>
 PREFIX cx-schema: <https://w3id.org/catenax/ontology/schema#>
 PREFIX cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#>
 PREFIX cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#>
@@ -686,13 +686,13 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 
 SELECT DISTINCT ?resultType ?functionConnector ?functionAsset ?dataConnector ?dataAsset WHERE {
 
-  VALUES (?result_type) { 
-      (<https://w3id.org/catenax/ontology/behaviour#RemainingUsefulLifeResult> <https://w3id.org/catenax/ontology/behaviour#HealthIndicationResult>) 
+  VALUES (?result_type) {
+      (<https://w3id.org/catenax/ontology/behaviour#RemainingUsefulLifeResult> <https://w3id.org/catenax/ontology/behaviour#HealthIndicationResult>)
   }
 
   # Determine the prognosis assets and calculate the required loadspectrum types
   ?output sh:path ?result_type.
-  ?output cx-sh:outputOf ?functionShape. 
+  ?output cx-sh:outputOf ?functionShape.
   ?assetFunction cx-sh:shapeObject ?functionShape.
   ?functionConnector cx-common:offers ?assetFunction.
   ?functionShape cx-sh:extensionOf* ?parentFunctionShape.
@@ -706,7 +706,7 @@ SELECT DISTINCT ?resultType ?functionConnector ?functionAsset ?dataConnector ?da
   ?assetData cx-sh:shapeObject ?nodeShape.
   ?dataConnector cx-common:offers ?assetData.
   ?nodeShape sh:property ?propertyShape.
-  ?propertyShape sh:path ?argument. 
+  ?propertyShape sh:path ?argument.
   ?propertyShape sh:in ?parameters_target.
   ?parameters_target rdf:rest*/rdf:first ?ls_type.
 ```
