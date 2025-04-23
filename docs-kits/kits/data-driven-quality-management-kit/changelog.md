@@ -68,8 +68,7 @@ Area Standards:
 - [CX - 0039 Semantic Model Fleet Claim Data](https://eclipse-tractusx.github.io/docs-kits/kits/data-driven-quality-management-kit/changelog)
 - [CX - 0040 Semantic Model Parts Analyses](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0036_Semantic_Model_Quality_Task_v_1.0.1.pdf)
 - [CX - 0041 Semantic Model Manufactured Parts Quality Information](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_PDF_Maerz/PLM_Quality_Use_Case_Live_Quality_Loops/CX_-_0037_Semantic_Model_Vehicle_Product_Description_v_1.0.1.pdf)
-- [CX - 0071 Triangle Quality Early Warning Field and Root Cause)](https://eclipse-tractusx.github.io/docs-kits/kits/data-driven-quality-management-kit/changelog)
-- [CX - 0091 Aspect Model Fleet Vehicles](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0091-AspectModelFleetVehicles-v.1.0.0.pdf)
+- [CX - 0071 Triangle Quality Early Warning Field and Root Cause](https://eclipse-tractusx.github.io/docs-kits/kits/data-driven-quality-management-kit/changelog)
 - [CX - 0092 Aspect Model Quality Task Attachment](https://eclipse-tractusx.github.io/docs-kits/kits/data-driven-quality-management-kit/changelog#top)
 
 Area Notice:
