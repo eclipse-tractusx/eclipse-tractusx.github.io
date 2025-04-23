@@ -42,9 +42,9 @@ The supplier is able to put the desired Capacity Groups with their respective de
 
 Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group.
 
-The following figure shows that:  
+The following figure shows that: 
 
-- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking).  
+- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking). 
 - Material Demand 1 and 2 are linked to Capacity Group 1 (i.e. direct linking).
 - Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
 - Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
@@ -63,8 +63,8 @@ space
 C4("Material Demand 3")
 C5("Material Demand 4")
 space:5
-blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 
-space:5 
+blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2
+space:5
 F1("Capacity Group 1"):2
 space
 F3("Capacity Group 2"):2
@@ -118,7 +118,7 @@ Feature Nesting is to be used optional but if it is used certain parameters are 
 |-|-|-|-|
 | linkedCapacityGroups | No | UUID of the linked Capacity Group | 0157ba42-d2a8-4e28-8565-7b07830c1110 |
 
-For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
 
 ## Sequence Diagram
 
@@ -127,7 +127,7 @@ sequenceDiagram
 autonumber
 Participant c as Customer
 Participant s as Supplier
-rect rgb(191,113,00) 
+rect rgb(191,113,00)
     c->>s: I need 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3
     c->>s: I need 100 pieces of toy 4 and 70 pieces of toy 5
 end
@@ -168,7 +168,7 @@ With the Nesting, the supplier achieves that the latest Material Demands that ar
 ```mermaid
 block-beta
 columns 6
-A1("Capacity Group 'Paint Shop'"):6 
+A1("Capacity Group 'Paint Shop'"):6
 B1("Capacity Group 'Production Line 1'"):3
 space
 B3("Capacity Group 'Production Line 2'"):2
@@ -184,8 +184,8 @@ C5("Material Demand 'Toy 5'")
 
 space
 space:5
-blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):3 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 
-space:6 
+blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):3 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2
+space:6
 F1("Capacity Group 'Production Line 1'"):3
 space
 F3("Capacity Group 'Production Line 2'"):2
@@ -201,7 +201,7 @@ M5("50 pieces")
 space
 M6("100 pieces")
 M7("70 pieces")
-space:6 
+space:6
 
 classDef Material_Demand_full fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Material_Demand_dotted fill:#BF7100,stroke:#FFFFFF,color:#F4F2F3,stroke-dasharray:3

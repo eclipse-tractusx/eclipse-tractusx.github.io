@@ -4,7 +4,7 @@ title: Testbed
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -31,7 +31,7 @@ This document describes a testbed for checking conformance of the (Knowledge) Ag
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
+* The [Architecture](../software-development-view/architecture) documentation
 * The [EDC Deployment](agent_edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
