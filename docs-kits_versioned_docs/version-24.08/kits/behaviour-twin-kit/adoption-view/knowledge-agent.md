@@ -79,7 +79,7 @@ Bindings are configured statically. For the changes of the binding configuration
 
 ## SKILLS
 
-A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/development-view/modelling#skill).
+A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/software-development-view/modelling#skill).
 
 ## BENEFITS
 

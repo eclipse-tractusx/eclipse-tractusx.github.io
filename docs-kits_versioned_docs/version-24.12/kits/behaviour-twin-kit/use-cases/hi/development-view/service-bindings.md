@@ -19,7 +19,7 @@ Applies to role: *HI calculation service provider*
 
 ### OVERVIEW
 
-For general information about service bindings, have a look at the [generalized Service Bindings section](../../../development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/provider). In the current section, only a dedicated example is shown.
+For general information about service bindings, have a look at the [generalized Service Bindings section](../../../software-development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/provider). In the current section, only a dedicated example is shown.
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 
@@ -30,7 +30,7 @@ In this example, an asynchronous calculation service for gearbox HI values is bo
 ```ttl
 ################################################################
 # Copyright (c) 2022-2024 T-Systems International GmbH
-# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 # Copyright (c) 2022-2024 ZF Friedrichshafen AG
 # Copyright (c) 2023-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
 # Copyright (c) 2022-2024 Mercedes-Benz AG
@@ -380,7 +380,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
         cx-sh:hasAsArgument cx-reliability:classes ;
         sh:path cx-behaviour:bodyClasses ;
     ] .
-    
+
 :HealthIndicationShape a sh:NodeShape ;
     cx-sh:extensionOf :PrognosisFunctionShape ;
     sh:targetClass cx-behaviour:HealthIndication ;
@@ -390,7 +390,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
         sh:in ( cx-taxo:Clutch ) ;
     ] ;
     sh:property :HealthIndicationResultShape .
-    
+
 :HealthIndicationResultShape a sh:PropertyShape ;
     cx-sh:outputOf :HealthIndicationShape ;
     sh:path cx-behaviour:HealthIndicationResult .
@@ -398,4 +398,4 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
 
 #### POLICY AND CONTRACT FOR THE GRAPH ASSET
 
-All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).
+All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../software-development-view/contracts-and-policies).

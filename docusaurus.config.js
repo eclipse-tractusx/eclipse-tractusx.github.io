@@ -157,7 +157,7 @@ const config = {
         items: [
           {to: 'blog', label: 'News', position: 'left'},
           {
-            to: "/aboutus",
+            to: "/AboutUs",
             position: "left",
             label: "About Us",
           },
@@ -165,10 +165,10 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/kits',
+            to: '/Kits',
             items: [
               {
-                to: 'kits',
+                to: 'Kits',
                 label: 'Kits General',
               },
               {
@@ -185,7 +185,7 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/connector-kit/adoption-view',
-                label: 'Connector', 
+                label: 'Connector',
               },
               {
                 to: '/docs-kits/kits/customs-kit/adoption-view-customs',
@@ -229,7 +229,7 @@ const config = {
               },
               {
                 to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
-                label: 'Manufacturing as a Service', 
+                label: 'Manufacturing as a Service',
               },
               {
                 to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
