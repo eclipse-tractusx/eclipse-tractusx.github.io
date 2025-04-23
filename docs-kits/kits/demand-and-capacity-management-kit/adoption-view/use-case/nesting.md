@@ -42,9 +42,9 @@ The supplier is able to put the desired Capacity Groups with their respective de
 
 Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group.
 
-The following figure shows that: 
+The following figure shows that:
 
-- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking). 
+- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking).
 - Material Demand 1 and 2 are linked to Capacity Group 1 (i.e. direct linking).
 - Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
 - Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
