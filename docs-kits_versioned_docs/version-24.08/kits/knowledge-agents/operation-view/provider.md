@@ -4,7 +4,7 @@ title: Provisioning
 ---
 <!--
  * Copyright (c) 2021,2024 T-Systems International GmbH
- * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021,2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021,2023 Mercedes-Benz AG
  * Copyright (c) 2021,2023 ZF Friedrichshafen AG
  * Copyright (c) 2021,2023 SAP SE
@@ -36,7 +36,7 @@ More specifically, this KIT recommends to deploy
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guidelines
-* The [Implementation](../development-view/architecture) documentation
+* The [Implementation](../software-development-view/architecture) documentation
 * The [Deployment](deployment) overview
 * The [Conformity](testbed) testbed
 * A [Data Sovereignity & Graph Policy](policy) discussion
@@ -64,17 +64,17 @@ Each mapping will then be presented by its own endpoint (= graph). Each graph us
 The below mapping resource is written in the [OBDA Mapping Definition Language](https://ontop-vkg.org/tutorial/mapping/). Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
 
 ```yaml
-my-provider-agent: 
+my-provider-agent:
   nameOverride: my-provider-agent
   fullnameOverride: my-provider-agent
-  bindings: 
+  bindings:
     # mutes the default example endpoint
     dtc: null
-    # adds a telematics graph based on the standard ontology 
-    telematics: 
+    # adds a telematics graph based on the standard ontology
+    telematics:
       port: 8080
       path: /telematics/(.*)
-      settings: 
+      settings:
         jdbc.url='jdbc:dremio:direct=data-backend:31010
         jdbc.driver=com.dremio.jdbc.Driver
         jdbc.user=<path:{{vaultpath}}#username>
@@ -113,7 +113,7 @@ my-provider-agent:
 
         mappingId parts
         target    uuid:{catenaXId} rdf:type cx-vehicle:Part ; cx-vehicle:id {localIdentifiers_partInstanceId}^^xsd:string; cx-vehicle:name {partTypeInformation_nameAtManufacturer}^^xsd:string; cx-vehicle:number {partTypeInformation_manufacturerPartId}^^xsd:string; cx-vehicle:supplier bpnl:{localIdentifiers_manufacturerId}; cx-vehicle:productionDate {manufacturingInformation_date}^^xsd:date .
-        source    SELECT "catenaXId", "localIdentifiers_partInstanceId", "partTypeInformation_nameAtManufacturer", "partTypeInformation_manufacturerPartId", "localIdentifiers_manufacturerId", "manufacturingInformation_date" FROM "HI_TEST_OEM"."CX_RUL_SerialPartTypization_Component" parts 
+        source    SELECT "catenaXId", "localIdentifiers_partInstanceId", "partTypeInformation_nameAtManufacturer", "partTypeInformation_manufacturerPartId", "localIdentifiers_manufacturerId", "manufacturingInformation_date" FROM "HI_TEST_OEM"."CX_RUL_SerialPartTypization_Component" parts
 
         mappingId partAnalysis
         target    uuid:{catenaXId}/{targetComponentId} cx-reliability:analysedObject uuid:{targetComponentId}.
@@ -161,15 +161,15 @@ PREFIX cx-reliability:  <https://w3id.org/catenax/ontology/reliability#>
 PREFIX rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:            <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:             <http://www.w3.org/2001/XMLSchema#>
-PREFIX json:            <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX json:            <https://json-schema.org/draft/2020-12/schema#>
 
 SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?teleAnalysis ?operatingTime ?mileage ?recordDate ?ls_type ?ls_name ?ls_value ?ls_unit ?ls_method ?ls_channels ?ls_classes ?ls_values WHERE {
 
-    VALUES (?van ?aggregate) { 
-        ("FNLQNRVCOFLHAQ"^^xsd:string "Differential Gear"^^xsd:string) 
+    VALUES (?van ?aggregate) {
+        ("FNLQNRVCOFLHAQ"^^xsd:string "Differential Gear"^^xsd:string)
     }
 
-    VALUES (?ls_type) { 
+    VALUES (?ls_type) {
         (<https://w3id.org/catenax/taxonomy#GearSet>)
     }
 
@@ -180,7 +180,7 @@ SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?teleAnalysis ?operatingTime
         cx-vehicle:name ?aggregate;
         cx-vehicle:isPartOf ?vehicle;
         cx-vehicle:supplier ?supplier.
-        
+
     ?teleAnalysis rdf:type cx-reliability:Analysis;
         cx-reliability:analysedObject ?assembly;
         cx-reliability:operatingHoursOfVehicle ?operatingTime;
@@ -196,7 +196,7 @@ SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?teleAnalysis ?operatingTime
             cx-reliability:classes ?ls_classes;
             cx-reliability:values ?ls_values
         ].
-} 
+}
 '
 ```
 
@@ -330,7 +330,7 @@ Each binding will then be presented by its own repository (= graph). Each graph 
 The below binding resources are written in a [Terse Triple Language - TTL](https://www.w3.org/TR/turtle/) syntax suitable for [RDF4J](https://rdf4j.org/documentation/tools/repository-configuration/) repositories. Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
 
 ```yaml
-my-remoting-agent: 
+my-remoting-agent:
   nameOverride: my-remoting-agent
   fullnameOverride: my-remoting-agent
   ingresses:
@@ -801,13 +801,13 @@ After the remoting agent has been setup, you may already invoke SPARQL queries a
 curl --location 'https://my-remoting-agent.domain/rdf4j-server/repositories/rul' \
 --header 'Content-Type: application/sparql-query' \
 --header 'Accept: application/json' \
---data 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
-PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+--data 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#>
 PREFIX cx-life: <https://w3id.org/catenax/ontology/behaviour#>
 PREFIX uuid: <urn:uuid:>
 
 SELECT ?invocation ?component ?timeHours ?distanceKm
-WHERE { 
+WHERE {
       VALUES (?component ?ls_type) { ( uuid:1 "GearOil"^^xsd:string) ( uuid:1 "GearSet"^^xsd:string)}
 
   ?invocation a cx-life:RemainingUsefulLife;
@@ -830,7 +830,7 @@ WHERE {
               cx-life:bodyCountsList "[34968.93,739782.51,4013185.15,46755055.56,25268958.35,8649735.95,9383635.35,19189260.77,1353867.54]"^^json:Object;
               cx-life:remainingOperatingHours ?timeHours;
               cx-life:remainingRunningDistance ?distanceKm
-              . 
+              .
 }'
 ```
 
@@ -879,13 +879,13 @@ Invocation against the HEALTH repository works like this:
 curl --location 'https://my-remoting-agent.domain/rdf4j-server/repositories/health' \
 --header 'Content-Type: application/sparql-query' \
 --header 'Accept: application/json' \
---data 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
-PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+--data 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#>
 PREFIX cx-life: <https://w3id.org/catenax/ontology/behaviour#>
 PREFIX uuid: <urn:uuid:>
 
 SELECT ?invocation ?component ?result
-WHERE { 
+WHERE {
       VALUES (?component ?ls_type) { ( uuid:1 "Clutch"^^xsd:string) }
 
   ?invocation a cx-life:HealthIndication;
@@ -906,7 +906,7 @@ WHERE {
               cx-life:headerChannels "[ { \"channelName\": \"TC_SU\", \"unit\": \"unit:degreeCelsius\", \"lowerLimit\": 0, \"upperLimit\": 640, \"numberOfBins\": 128 }  ]"^^json:Object;
               cx-life:bodyClasses "[ { \"className\": \"TC_SU-class\", \"classList\": [ 14, 15, 16, 17, 18, 19, 20, 21, 22 ] }]"^^json:Object;
               cx-life:bodyCountsList "[34968.93,739782.51,4013185.15,46755055.56,25268958.35,8649735.95,9383635.35,19189260.77,1353867.54]"^^json:Object;
-              cx-life:healthIndicatorValues ?result. 
+              cx-life:healthIndicatorValues ?result.
 }'
 ```
 
@@ -1080,13 +1080,13 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
 }'
 ```
 
-Note that there are two mechanisms inside the Graph Asset Description with which a skill (which basically is a graph matching language) can "search" for the right asset without using hardcoded asset ids (see also [our modelling guide](../development-view/modelling)).
+Note that there are two mechanisms inside the Graph Asset Description with which a skill (which basically is a graph matching language) can "search" for the right asset without using hardcoded asset ids (see also [our modelling guide](../software-development-view/modelling)).
 
 The "rdfs:isDefinedBy" property resolves into a full-fledged predicate inside the federated catalogue. By constraining the ontologies that an asset should implement, we can ensure that definitions (classes, properties, relations) that the skill requires are all available and the skill will run in principle.
 
 The "sh:shapesGraph" property resolves into a full-fledged sub-graph under the asset node in the federated catalogue. By constraining the domains of classes, properties and relations that the asset should provide, the skill can even find out whether the provided data is complete (maybe it just represents a single partition) or whether it fits with the types of other assets that the skill must combine.
 
-To demonstrate this alignment, we have already listed the shapes of three interacting assets, a data graph and two function graphsin the [our modelling guide](../development-view/modelling). We have also sketched the SPARQL by which a skill can do such an asset alignment.
+To demonstrate this alignment, we have already listed the shapes of three interacting assets, a data graph and two function graphsin the [our modelling guide](../software-development-view/modelling). We have also sketched the SPARQL by which a skill can do such an asset alignment.
 
 For completeness purposes, we give the two (function) graph registrations in the following
 
@@ -1107,7 +1107,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cs-taxo": "https://w3id.org/catenax/taxonomy#",
         "dc": "https://purl.org/dc/terms/"
     },
-    "@id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+    "@id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL",
     "properties": {
         "cx-common:name": "Lifetime Prognosis Service for Gearboxes",
         "cx-common:description": "A sample graph asset/offering referring to a specific prognosis resource.",
@@ -1122,7 +1122,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v3/ass
         "cx-common:isFederated": "true^^xsd:boolean"
     },
     "dataAddress": {
-        "id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+        "id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL",
         "@type": "DataAddress",
         "baseUrl": "https://my-remoting-agent.domain/rdf4j-server/repositories/rul",
         "type": "cx-common:Protocol?w3c:http:SPARQL",

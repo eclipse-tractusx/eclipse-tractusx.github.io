@@ -111,7 +111,7 @@ sequenceDiagram
 autonumber
 Participant c as Customer
 Participant s as Supplier
-rect rgb(157,93,00) 
+rect rgb(157,93,00)
     c->>s: I need 100 blue toys each in weeks 47, 48, 49 and 50
 end
 s->>s: Manage Capacities
@@ -134,7 +134,7 @@ For further details, please refer to [CX-0128 Demand and Capacity Management Dat
 
 ### Sample Data
 
-For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
 
 ## Notice
 

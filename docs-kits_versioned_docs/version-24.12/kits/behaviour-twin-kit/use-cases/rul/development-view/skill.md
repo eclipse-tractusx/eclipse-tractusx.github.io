@@ -258,4 +258,4 @@ At the supplier's EDC connector, the graph asset of the RuL calculation service 
 
 ## SKILL REGISTRATION AND INVOCATION
 
-For skill registration and invocation, have a look at the [general Development View](../../../development-view/skill#skill-registration).
+For skill registration and invocation, have a look at the [general Development View](../../../software-development-view/skill#skill-registration).
