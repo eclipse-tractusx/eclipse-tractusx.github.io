@@ -30,9 +30,9 @@ _Figure 2: Whitebox view on a PURIS system_
 
 This chapter describes the access & usage policies as well as the contract definitions. For more information on the
 access & usage policies, please refer to
-the [policies documentation in the tractusx-edc repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md).[​](https://github.com/eclipse-tractusx/tractusx-edc/tree/main "Direct link to heading")
+the [policies documentation in the tractusx-edc repository](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md).
 
-### Access Policies[​](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit/#access-policies "Direct link to heading")
+### Access Policies
 
 To enable data sovereignty, access and usage policies are important to protect the data assets of a data provider in the
 connector, as described in
@@ -45,7 +45,7 @@ Therefore, every asset should be protected and only be made available through sp
 BPNL policies. For a detailed description,
 see [Business Partner Validation Extension](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation).
 
-#### BPNL Access Policy[​](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit/#bpn-access-policy "Direct link to heading")
+#### BPNL Access Policy
 
 This policy allows limiting access to a data offer based on a list of specific BPNLs. This translates to the following
 functionality:
@@ -63,7 +63,7 @@ The reference implementation (see Operation View) also provides an extension to 
 the header of a proxied request. As a result, during implementation one can use this BPNL to design the internal
 submodel API.
 
-### Usage Policies[​](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit/#usage-policies "Direct link to heading")
+### Usage Policies
 
 To decide which company can use the data asset under specific conditions, usage policies (also referred to as contract
 policies) are used. Therefore, they are more specific than access policies and only used just after access is granted.
@@ -132,9 +132,9 @@ use case:
 | PURIS    | `Puris:1.0`                  | `cx.puris.base:1`      |
 
 More information can be found in
-the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view_policies_cx/).
+the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view_policies_cx/).
 
-### Contract Definitions[​](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Software%20Development%20View/Data%20Provider%20Development%20View%20Traceability%20Kit/#contract-definitions "Direct link to heading")
+### Contract Definitions
 
 In the connector, every policy is associated with a contract. Thus, a contract definition is needed, detailing what
 policies are required when contracting assets.

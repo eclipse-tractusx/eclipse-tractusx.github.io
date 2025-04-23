@@ -288,8 +288,8 @@ There are three types of notifications relating to different steps in the user j
 The notifications within the Quality KIT share several concepts:
 
 - they leverage the common notification header specification ([Shared Message Header](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header)) and only differ in the content of the payload.
-- they follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail)
-- they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1)  for further detail)
+- they follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail)
+- they leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1)  for further detail)
 
 In addition, to a very large extent, the payload format for these notifications is common between the Early Warning notification and version 2.0 of the Quality Investigation/Alert notifications.
 

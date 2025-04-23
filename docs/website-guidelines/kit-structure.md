@@ -178,19 +178,19 @@ If you have any questions, please use our [“Tractus-X community call”](https
             to: '/developer',
             items: [
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/data-chain-kit/adoption-view',
                 label: 'Data Chain',
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/traceability-kit/adoption-view',
                 label: 'Traceability',
               },
               // ********* add here your object specifying "to" and "label" ***********

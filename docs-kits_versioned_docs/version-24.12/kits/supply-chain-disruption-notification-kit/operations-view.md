@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ## Reference Implementation
 
-The [PURIS FOSS reference implementation](https://github.com/eclipse-tractusx/puris/tree/main/docs) serves as an application allowing to send and receive [Demand and Capacity Notifications](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl) among other data objects that are described in the [PURIS KIT](https://eclipse-tractusx.github.io/docs-kits/kits/PURIS%20Kit/Software%20Development%20View/Software%20Development%20PURIS%20Kit).
+The [PURIS FOSS reference implementation](https://github.com/eclipse-tractusx/puris/tree/main/docs) serves as an application allowing to send and receive [Demand and Capacity Notifications](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl) among other data objects that are described in the [PURIS KIT](https://eclipse-tractusx.github.io/docs-kits/kits/puris-kit/software-development-view/).
 
 Arc42 of the implementation is found [here](https://github.com/eclipse-tractusx/puris/blob/main/docs/architecture/Index.md).
 
