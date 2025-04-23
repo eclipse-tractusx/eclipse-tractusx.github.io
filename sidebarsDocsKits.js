@@ -192,7 +192,7 @@ const sidebars = {
               'kits/business-partner-kit/software-development-view/use-cases'
             ]
           },
-          'kits/business-partner-kit/Operation View',
+          'kits/business-partner-kit/operation-view',
           {
             type: 'category',
             label: 'Success Stories',
