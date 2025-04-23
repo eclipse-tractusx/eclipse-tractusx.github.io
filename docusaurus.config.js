@@ -216,6 +216,10 @@ const config = {
                 label: 'Environmental and Social Standards',
               },
               {
+                to: '/docs-kits/kits/industry-core-kit/business-view',
+                label: 'Industry Core',
+              },
+              {
                 to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
                 label: 'Knowledge Agents',
               },
@@ -254,6 +258,10 @@ const config = {
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
+              },
+              {
+                to: '/docs-kits/kits/traceability-kit/business-view',
+                label: 'Traceability',
               },
             ],
           },
