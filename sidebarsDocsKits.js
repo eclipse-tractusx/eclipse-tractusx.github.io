@@ -504,7 +504,7 @@ const sidebars = {
           'kits/knowledge-agents/adoption-view/intro',
           {
             type: 'category',
-            label: 'Architecture',
+            label: 'Software Development View',
             link: {
               type: 'doc',
               id: 'kits/knowledge-agents/development-view/architecture'
