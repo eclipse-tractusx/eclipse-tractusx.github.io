@@ -66,14 +66,14 @@ const sidebars = {
                     label: 'Development View',
                     link: {
                         type: 'doc',
-                        id: 'kits/behaviour-twin-kit/development-view/overview',
+                        id: 'kits/behaviour-twin-kit/software-development-view/overview',
                     },
                     items: [
-                        'kits/behaviour-twin-kit/development-view/contracts-and-policies',
-                        'kits/behaviour-twin-kit/development-view/data-bindings',
-                        'kits/behaviour-twin-kit/development-view/service-bindings',
-                        'kits/behaviour-twin-kit/development-view/skill',
-                        'kits/behaviour-twin-kit/development-view/guidance-and-resources',
+                        'kits/behaviour-twin-kit/software-development-view/contracts-and-policies',
+                        'kits/behaviour-twin-kit/software-development-view/data-bindings',
+                        'kits/behaviour-twin-kit/software-development-view/service-bindings',
+                        'kits/behaviour-twin-kit/software-development-view/skill',
+                        'kits/behaviour-twin-kit/software-development-view/guidance-and-resources',
                     ]
                 },
                 {
