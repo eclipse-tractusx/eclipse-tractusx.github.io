@@ -16,7 +16,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added E2E Tests to [Development View](./development-view/overview.md)
+- Added E2E Tests to [Development View](software-development-view/overview.md)
 - Added Glossary to [Adoption View](./adoption-view/overview.md)
 - Added Delta Production to [Adoption View](./adoption-view/overview.md)
 - Added Demand Volatility to [Adoption View](./adoption-view/overview.md)
@@ -32,14 +32,14 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Added multiple diagrams to [Development View](./development-view/overview.md)
-- Added APIs to [Development View](./development-view/overview.md)
+- Added multiple diagrams to [Development View](software-development-view/overview.md)
+- Added APIs to [Development View](software-development-view/overview.md)
 - Added Use Case to [Adoption View](./adoption-view/overview.md)
 - Added QnA to [Adoption View](./adoption-view/overview.md)
 
 ### Changed
 
-- Restructured [Development View](./development-view/overview.md)
+- Restructured [Development View](software-development-view/overview.md)
 - Restructured [Adoption View](./adoption-view/overview.md)
 - Recolored sequence diagram in [Architecture View](./architecture-view/overview.md)
 - Moved onboarding content from [Operation View](./operation-view.md) to [Adoption View](./adoption-view/overview.md)
@@ -54,7 +54,7 @@ All notable changes to this Kit will be documented in this file.
 
 - Changed banner image file location and converted .png image to .svg
 - Updated aspect models in [Architecture View](./architecture-view/overview.md) to new versions
-- Updated aspect models and API definitions in [Development View](./development-view/overview.md) to new versions
+- Updated aspect models and API definitions in [Development View](software-development-view/overview.md) to new versions
 - Updated WeekBasedMaterialDemand data model and API chapters to new data model (Replaced MaterialDemand with WeekBasedMaterialDemand aspect model)
 - Updated choice of words and writing pattern throughout the documentation
 

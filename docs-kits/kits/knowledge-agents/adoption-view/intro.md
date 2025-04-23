@@ -5,7 +5,7 @@ title: Adoption View
 
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -118,7 +118,7 @@ Agent technology is a complement that means that both approaches can be deployed
 
 There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which enfavour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM/SAMM & AAS approach.
 
-For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs). We provide [bridging technology](../development-view/modules#aas-bridges) for that purpose.
+For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs). We provide [bridging technology](../software-development-view/modules#aas-bridges) for that purpose.
 
 For the app developers it will be easy to use both [SDK](https://en.wikipedia.org/wiki/Software_development_kit)s over a single consumer connector and even interchange the identifiers/[IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)s.
 
@@ -133,9 +133,9 @@ One of the key requirements for dataspaces is to guarantee that data is only sha
 First, these are not arbitrary tenants, but access is only given to business partners with whom you have signed contracts (and who appear in certain roles there).
 A Skill request from a non-authorized chain of computation would not be able to enter your backend at all.
 
-Furthermore, you would not expose your backend directly, but rather introduce a [virtualization layer](../development-view/architecture) between the Agent and your data source. This introduces another (role-based) security domain by appropriate sub-schemas and filters. So different contracts can be mapped to different security principals/data views in the backend.
+Furthermore, you would not expose your backend directly, but rather introduce a [virtualization layer](../software-development-view/architecture) between the Agent and your data source. This introduces another (role-based) security domain by appropriate sub-schemas and filters. So different contracts can be mapped to different security principals/data views in the backend.
 
-This KIT does not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the [SPARQL](../development-view/sparql) standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
+This KIT does not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the [SPARQL](../software-development-view/sparql) standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
 
 Finally, the team is investigating a form of differential privacy which introduces noise between your data source and its graph representation such that original values can be effectively hidden from the reporting output.
 
@@ -201,7 +201,7 @@ Any party offering ontology models (semantic/ontology hub) or federated catalogu
 
 ### Additional Stakeholders
 
-The following stakeholders should [interface or implement](../development-view/architecture) modules of the Agents Kit.
+The following stakeholders should [interface or implement](../software-development-view/architecture) modules of the Agents Kit.
 
 #### Business Developer
 

@@ -33,7 +33,7 @@ title: Deployment
 **Operating federated queries over the whole data space.**
 
 * Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
+* The [Architecture](../software-development-view/architecture) documentation
 * The [EDC Deployment](agent_edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
@@ -341,7 +341,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -349,7 +349,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
   chart: agent-plane
 destination:
@@ -559,7 +559,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -567,7 +567,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
               BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
             matchmaking: https://consumer-agent.stable.demo-catena-x.net
@@ -651,7 +651,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -659,7 +659,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
               BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
   chart: matchmaking-agent

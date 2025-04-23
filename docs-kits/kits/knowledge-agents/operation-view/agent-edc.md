@@ -32,7 +32,7 @@ For participating in Semantic-Web Driven Dataspace Applications following the Ca
 For more information see
 
 - Our [Adoption](../adoption-view/intro) guidelines
-- The [Implementation](../development-view/architecture) documentation
+- The [Implementation](../software-development-view/architecture) documentation
 - The [Deployment](deployment) overview
 - The [Conformity](testbed) testbed
 - A [Data Sovereignity & Graph Policy](policy) discussion
@@ -414,7 +414,7 @@ curl --location --globoff 'https://my-agent-domain/api/agent?asset=https%3A%2F%2
 
 ## Advanced Skills
 
-In the [Ontology Modelling Guide](../development-view/modelling) we have demonstrated that a graph (i.e. the (virtual) set of triples comprising the data or function) can not only be described by ontologies (see the above skill making use of the rdfs:isdefinedBy property/predicate), but also by a shape (the sh:shapesGraph property and its resolutions into the cx-sh:shapeObject predicate can be seen much like a statistics which lists the extremal values and distinct counts inside the columns of a table). In the following we
+In the [Ontology Modelling Guide](../software-development-view/modelling) we have demonstrated that a graph (i.e. the (virtual) set of triples comprising the data or function) can not only be described by ontologies (see the above skill making use of the rdfs:isdefinedBy property/predicate), but also by a shape (the sh:shapesGraph property and its resolutions into the cx-sh:shapeObject predicate can be seen much like a statistics which lists the extremal values and distinct counts inside the columns of a table). In the following we
 demonstrate a more flexible Behaviour Prognosis Skill which will switched between different data and function assets (and hence business partners in the dataspace) depending on the @resultType that should be achived. The relevant shape definitions which make this skill worki can be found in the [Provider Operation Guide](provider)
 
 ```console
@@ -425,11 +425,11 @@ PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#>
 PREFIX cx-sh: <https://w3id.org/catenax/ontology/schema#>
-PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#>
 PREFIX cx-core: <https://w3id.org/catenax/ontology/core#>
-PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#> 
+PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#>
 PREFIX cx-schema: <https://w3id.org/catenax/ontology/schema#>
 PREFIX cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#>
 PREFIX cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#>
@@ -440,7 +440,7 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 #  - Depending on the targetted result
 #  - Finds the right supplier prognosis asset and its preconditions
 #  - jumps into the OEM-owned reliability asset to obtain the required data
-#  - feeds the gathered data back into the respective supplier connector/agent 
+#  - feeds the gathered data back into the respective supplier connector/agent
 #    to perform a behavioural prognosis
 # Author: cgjung
 # (c) 2023-2024 Catena-X assocation
@@ -448,13 +448,13 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 
 SELECT DISTINCT ?van ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?prognosis WHERE {
 
-  VALUES (?van ?aggregate ?result_type) { 
-      ("@van"^^xsd:string "Differential Gear"^^xsd:string <@resultType>) 
+  VALUES (?van ?aggregate ?result_type) {
+      ("@van"^^xsd:string "Differential Gear"^^xsd:string <@resultType>)
   }
 
   # Determine the prognosis assets
   ?output sh:path ?result_type.
-  ?output cx-sh:outputOf ?functionShape. 
+  ?output cx-sh:outputOf ?functionShape.
   ?assetFunction cx-sh:shapeObject ?functionShape.
   ?functionConnector cx-common:offers ?assetFunction.
   ?functionShape cx-sh:extensionOf* ?parentFunctionShape.
@@ -468,12 +468,12 @@ SELECT DISTINCT ?van ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
   ?assetData cx-sh:shapeObject ?nodeShape.
   ?dataConnector cx-common:offers ?assetData.
   ?nodeShape sh:property ?propertyShape.
-  ?propertyShape sh:path ?argument. 
+  ?propertyShape sh:path ?argument.
   ?propertyShape sh:in ?parameters_target.
   ?parameters_target rdf:rest*/rdf:first ?ls_type.
 
-  SERVICE ?dataConnector { 
-    GRAPH ?assetData { 
+  SERVICE ?dataConnector {
+    GRAPH ?assetData {
         ?vehicle rdf:type cx-vehicle:Vehicle;
             cx-vehicle:vehicleIdentificationNumber ?van.
 
@@ -481,7 +481,7 @@ SELECT DISTINCT ?van ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
             cx-vehicle:name ?aggregate;
             cx-vehicle:isPartOf ?vehicle;
             cx-vehicle:supplier ?supplier.
-            
+
          ?teleAnalysis rdf:type cx-reliability:Analysis;
              cx-reliability:analysedObject ?assembly;
              cx-reliability:operatingHoursOfVehicle ?operatingTime;
@@ -501,7 +501,7 @@ SELECT DISTINCT ?van ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
   }
 
   SERVICE ?functionConnector {
-    GRAPH ?assetFunction { 
+    GRAPH ?assetFunction {
       SELECT ?prognosis WHERE {
         ?invocation a ?function;
               cx-behaviour:sender <bpn:legal:BPNLOEM>;

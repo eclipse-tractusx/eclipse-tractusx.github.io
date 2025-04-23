@@ -1,7 +1,7 @@
 ---
 id: load-factors
 title: Load Factors
-description: Detail capacities by defining how much of a strain a material is on your capacities, compared to other materials. 
+description: Detail capacities by defining how much of a strain a material is on your capacities, compared to other materials.
 sidebar_position: 4
 ---
 
@@ -128,7 +128,7 @@ sequenceDiagram
 autonumber
 Participant c as Customer
 Participant s as Supplier
-rect rgb(157,93,00) 
+rect rgb(157,93,00)
     c->>s: I need 100 red and 100 chrome toys
 end
 s->>s: Chrome toys strain my capacities twice as much as red toys
@@ -163,7 +163,7 @@ For further details, please refer to [CX-0128 Demand and Capacity Management Dat
 
 ### Sample Data
 
-For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For sample data please refer to [Aspect Model - WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
 
 ### Notice
 
