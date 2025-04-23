@@ -84,7 +84,7 @@ export const kitsGallery = [
     name: 'Traceability Kit',
     domain: 'Quality',
     img: Traceability_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/traceability-kit/business-view",
   },
   {
     id: 5,
@@ -119,7 +119,7 @@ export const kitsGallery = [
     name: 'Data Driven Quality Management Kit',
     domain: 'Quality',
     img: DDQM,
-    pageRoute: "/docs-kits/kits/quality-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-driven-quality-management-kit/adoption-view",
   },
   {
     id: 10,
@@ -175,7 +175,7 @@ export const kitsGallery = [
     name: "Industry Core Kit",
     domain: 'Industry Core',
     img: Industry_Kit,
-    pageRoute: "/docs-kits/kits/dummy-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/industry-core-kit/business-view",
   },
   {
     id: 18,

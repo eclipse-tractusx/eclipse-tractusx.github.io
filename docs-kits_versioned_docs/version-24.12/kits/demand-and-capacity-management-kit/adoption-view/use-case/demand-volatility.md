@@ -42,7 +42,7 @@ Empirical analyses prove that high levels of Demand Volatility lead to high leve
 An effective approach to address the negative consequences of Demand Volatility is to systematically measure them and thus make them transparent. This facilitates collaborative alignments between supply chain partners in order to reduce Demand Volatility and increase the stability of supply plans. Therefore, the [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] includes a simple Demand Volatility metric: “Demand Deviation”. Figure 1 shows that the parameters and metrics that are processed for Demand Deviation form part of the dataset of the capacity group, which is also handled by suppliers. The metric is generally based on the comparison of the current aggregated demand measured for a defined capacity group with a previous aggregated demand. It is recommended to measure Demand Deviation on a monthly basis. Hence, a 4-week offset between measurements of current and previous demands is recommended.
 
 ```mermaid
-block-beta 
+block-beta
 columns 7
 A("WeekBasedCapacityGroup"):7
 B1("Supplier")
@@ -95,7 +95,7 @@ __Parameters of the Demand Volatility metric are as follows:__
 | Relative Negative Deviation | No | Relative negative deviation threshold which triggers an alert | E.g. -30% (value 0,3) means an alert is triggered if the relative negative deviation between two measurement intervals for a respective calendar week decrease by 30% or more. Value can be set between 0 and 1. |
 | Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2) means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
 
-For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
 
 ## Example of Demand Volatility Measurements
 
@@ -104,16 +104,16 @@ sequenceDiagram
 autonumber
 Participant c as Customer
 Participant s as Supplier
-rect rgb(157,93,00) 
+rect rgb(157,93,00)
     c->>s: I need 1000 red toys in week 19
 end
 c->>c: Wait 4 weeks
-rect rgb(157,93,00) 
+rect rgb(157,93,00)
     c->>s: I need 100 red toys in week 19
 end
 s->>s: I should really start measuring the volatility of my customers demands
 c->>c: Wait 4 weeks
-rect rgb(157,93,00) 
+rect rgb(157,93,00)
     c->>s: I need 75 red toys in week 19
 end
 s->>s: I start transferring the volatility of my customers demands
@@ -123,7 +123,7 @@ rect rgb(64,74,00)
     s-->>c: Measurement Interval is set to 4 weeks
     s-->>c: Increase limited to max. 20% in subhorizon 3
     s-->>c: Decrease limited to max. -20% in subhorizon 3
-    s-->>c: Measurement starts in week 0, using 4 subhorizons of length (2,11,39,52) 
+    s-->>c: Measurement starts in week 0, using 4 subhorizons of length (2,11,39,52)
 end
 ```
 

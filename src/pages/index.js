@@ -33,7 +33,7 @@ export default function Home() {
     descriptionHighlight: "The Eclipse Tractus-X™ project",
     description: " is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
     buttonText: "About Us",
-    link: "/aboutus"
+    link: "/AboutUs"
   }
   return (
     <Layout
@@ -45,7 +45,7 @@ export default function Home() {
         <RoleBasedEnrtyComponent data={carouselRoleBased} />
         <AboutUsCard {...aboutInput} />
         <CommunityComponent />
-        <KitsGalleryWithFilters 
+        <KitsGalleryWithFilters
           itemsArray={kitsGallery}
           title={"Our Kits"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
