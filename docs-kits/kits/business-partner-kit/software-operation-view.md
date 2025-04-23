@@ -1,5 +1,5 @@
 ---
-id: Operation View
+id: operation-view
 title: Operation View
 description: 'Business Partner Kit'
 sidebar_position: 3
