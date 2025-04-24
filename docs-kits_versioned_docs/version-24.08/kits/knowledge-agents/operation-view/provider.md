@@ -61,7 +61,7 @@ subgraphs (or 'node surroundings') in the graph. Using these mappings, the provi
 
 Each mapping will then be presented by its own endpoint (= graph). Each graph usually corresponds to a use case role, such as the OEM providing telematics data for vehicle components in a Behaviour Twin Prognosis. The use case role will determine the ontology concepts which the use case participant may need to provide/map or consume in its skills. In the following example, we map an existing datalake schema with telematics data to the [Reliablity Ontology](https://w3id.org/catenax/ontology/reliability), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
 
-The below mapping resource is written in the [OBDA Mapping Definition Language](https://ontop-vkg.org/tutorial/mapping/). Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
+The below mapping resource is written in the [OBDA Mapping Definition Language](https://ontop-vkg.org/tutorial/mapping/). Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent-edc).
 
 ```yaml
 my-provider-agent:
@@ -327,7 +327,7 @@ Then configure the remoting agent in the values.yaml - especially you introduce 
 
 Each binding will then be presented by its own repository (= graph). Each graph usually corresponds to a use case role, such as the SUPPLIER providing either RUL or HI prognosis function in a Behaviour Twin Prognosis. The use case role will determine the ontology concepts which the use case participant may need to provide/map or consume in its skills. In the following example, we map existing API backends to the [Behaviour Ontology](https://w3id.org/catenax/ontology/behaviour), the [Reliability Ontology](https://w3id.org/catenax/ontology/reliability), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Function Ontology](https://w3id.org/catenax/ontology/function), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
 
-The below binding resources are written in a [Terse Triple Language - TTL](https://www.w3.org/TR/turtle/) syntax suitable for [RDF4J](https://rdf4j.org/documentation/tools/repository-configuration/) repositories. Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent_edc).
+The below binding resources are written in a [Terse Triple Language - TTL](https://www.w3.org/TR/turtle/) syntax suitable for [RDF4J](https://rdf4j.org/documentation/tools/repository-configuration/) repositories. Note that the network interface is not supposed to be public (hence authentication is not used there), but should only be visible to the [Agent Plane](agent-edc).
 
 ```yaml
 my-remoting-agent:
@@ -945,7 +945,7 @@ and you should receive a different prognosis answer, such as
 
 ## Quick Setup Guide for Registering A Graph in the EDC
 
-The next steps require that you have already deployed the [Agent-Enabled EDC](agent_edc).
+The next steps require that you have already deployed the [Agent-Enabled EDC](agent-edc).
 We demonstrate the steps by interacting with the EDC Control Plane Management API
 
 ### 1. Register A Graph Policy
@@ -1030,7 +1030,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/con
 
 In the next step, we install a graph asset in the EDC which maybe invoked from any business partner that is eligid in the presented contract.
 
-The asset can also be "federated". That means that its meta-data can be regularly synchronized by the business partner and used in [Skills and Skill Assets](agent_edc) which search for corresponding assets
+The asset can also be "federated". That means that its meta-data can be regularly synchronized by the business partner and used in [Skills and Skill Assets](agent-edc) which search for corresponding assets
 (see the "cx-common:isFederated" public property). That also means that a skill can traverse the asset to move on its computation further to a set of other allowed connectors/assets (see the "cx-common:allowServicePattern" dataaddress property).
 
 ```console

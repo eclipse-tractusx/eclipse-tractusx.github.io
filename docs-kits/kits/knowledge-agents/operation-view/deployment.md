@@ -34,7 +34,7 @@ title: Deployment
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../software-development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [EDC Deployment](agent-edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
@@ -53,7 +53,7 @@ role that the business partner takes. The roles are described in more detail in 
 
 As a consumer, you just need to:
 
-* enable your [dataspace connector](agent_edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
+* enable your [dataspace connector](agent-edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
 * (optionally) use a separate matchmaking agent to securely host your own business and meta data in the graph storage behind the connector layer
 * (optionally) mount your matchmaking agent as a remote repository into your enterprise graph infrastructure.
 
@@ -61,7 +61,7 @@ As a consumer, you just need to:
 
 As a skill provider, you need to
 
-* enable your [dataspace connector](agent_edc)  to transfer/delegate the required Agent protocols.
+* enable your [dataspace connector](agent-edc)  to transfer/delegate the required Agent protocols.
 * (optionally) employ multiple data planes in case you want to expose hosted skills (skill assets that operate as stored procedures
 and which require computational resources at the provider side) instead of distributed skills (skill assets that are offered as query texts/files and which are executed at the consumer side).
 
@@ -69,7 +69,7 @@ and which require computational resources at the provider side) instead of distr
 
 As a provider, you need to
 
-* enable your [dataspace connector](agent_edc) to receive/internalize the required Agent protocols.
+* enable your [dataspace connector](agent-edc) to receive/internalize the required Agent protocols.
 * (optionally) use a separate matchmaking agent to securely publish your own business and meta data from the graph storage behind the connector layer
 
 Depending on the kind of provisioning, you will setup additional internal "agents" (endpoints).

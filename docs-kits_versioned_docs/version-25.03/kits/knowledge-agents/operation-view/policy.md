@@ -32,12 +32,12 @@ For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../software-development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [EDC Deployment](agent-edc) description
 * The [Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
 
-The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent_edc). The RDF endpoints (called binding *agents*, because they are active components that do not contain data, but simply transform queries into the backend protocols) stay in an "internal" network (as the data- and logic-carrying backends that they interface/transform into) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network.
+The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent-edc). The RDF endpoints (called binding *agents*, because they are active components that do not contain data, but simply transform queries into the backend protocols) stay in an "internal" network (as the data- and logic-carrying backends that they interface/transform into) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network.
 
 Although the EDC network is technically based on public interfaces, it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participations and proven certificates).
 
