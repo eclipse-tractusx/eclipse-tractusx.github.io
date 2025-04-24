@@ -23,7 +23,7 @@ title: Ontology Modelling
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.drawio.svg)
+![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
 ## Agents KIT
 
