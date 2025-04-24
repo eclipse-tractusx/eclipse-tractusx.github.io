@@ -5,7 +5,7 @@ description: "Circularity KIT"
 sidebar_position: 1
 ---
 
-![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.drawio.svg)
+![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.svg)
 
 All notable changes to this Kit will be documented in this file.
 
