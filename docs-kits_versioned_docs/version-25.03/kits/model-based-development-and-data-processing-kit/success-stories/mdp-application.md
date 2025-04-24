@@ -4,7 +4,7 @@ title: MDP Application
 description: Behaviour Twin MDP Application Success Story
 ---
 
-![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.drawio.svg)
+![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
 
 ### Model Based Development and Data Processing Kit
 
