@@ -23,7 +23,7 @@ For general information about service bindings, have a look at the [generalized 
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 
-The following configuration for the mapping of a Health Indicator (HI) calculation service is written in the [Terse RDF Triple Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
+The following configuration for the mapping of a Health Indicator (HI) calculation service is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
 
 In this example, an asynchronous calculation service for gearbox HI values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the HI logic always requires exact one input per calculation. Therefore, always the first (and only the first) item of the input list is bound.
 
@@ -336,7 +336,7 @@ The following example is a full asset description, that can be registered at the
 }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Health Indicator function and its output:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Health Indicator function and its output:
 
 ```shacl
 <https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>,<https://w3id.org/catenax/ontology/behaviour>",

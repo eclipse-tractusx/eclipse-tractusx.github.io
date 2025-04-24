@@ -27,11 +27,11 @@ In most cases, data are provided in (semi-)structured form (relational databases
 
 ### DATA MAPPING TOOL
 
-To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](../assets/external-link.svg)](https://ontop-vkg.org/).
+To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/).
 
 ### DATA MAPPING CONFIGURATION
 
-To configure the bindings, a config file for the provisioning agent software has to be created. The file is written in the [OBDA Mapping Language ![(external link)](../assets/external-link.svg)](https://ontop-vkg.org/tutorial/mapping/). For some detailed information, have a look at the Knowledge [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
+To configure the bindings, a config file for the provisioning agent software has to be created. The file is written in the [OBDA Mapping Language ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/tutorial/mapping/). For some detailed information, have a look at the Knowledge [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
 
 #### CONSTRUCTION OF A SINGLE DATA BINDING
 
@@ -175,7 +175,7 @@ The following example is a full asset description, that can be registered at the
 }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a load spectrum:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a load spectrum:
 
 ```shacl
 <https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/taxonomy>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/behaviour>",
