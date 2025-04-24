@@ -9,8 +9,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://docusaurus-upgrade.github.io',
-  baseUrl: '/eclipse-tractusx.github.io/',
+  url: 'https://eclipse-tractusx.github.io',
+  baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo_tractus-x-min.ico',
@@ -21,7 +21,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'docusaurus-upgrade', // Usually your GitHub org/user name.
+  organizationName: 'eclipse-tractusx', // Usually your GitHub org/user name.
   projectName: 'eclipse-tractusx.github.io', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
