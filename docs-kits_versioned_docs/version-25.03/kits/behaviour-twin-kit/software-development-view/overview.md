@@ -52,7 +52,7 @@ Behaviour Twin KIT
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0 ![(external link)](../assets/external-link.svg)](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)

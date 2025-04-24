@@ -23,7 +23,7 @@ For general information about service bindings, have a look at the [generalized 
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 
-The following configuration for the mapping of a Remaining useful Life (RuL) calculation service is written in the [Terse RDF Triple Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
+The following configuration for the mapping of a Remaining useful Life (RuL) calculation service is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
 
 In this example, an asynchronous calculation service for gearbox RuL values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the RuL logic always requires exact one input per calculation. Therefore, always the first (and only the first) item of the input list is bound.
 
@@ -329,7 +329,7 @@ The following example is a full asset description, that can be registered at the
   }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Remaining useful Life function and its output:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Remaining useful Life function and its output:
 
 ```shacl
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .

@@ -23,8 +23,8 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 
 |Term|Description|Comment|
 |---|---|---|
-|Catena-X|Association, dataspace, automotive network|Open and interoperable data ecosystem of the automotive sector, see [https://catena-x.net/ ![(external link)](../assets/external-link.svg)](https://catena-x.net/)|
-|Tractus-X|Official open-source project in the Catena-X data space|see [https://eclipse-tractusx.github.io/ ![(external link)](../assets/external-link.svg)](https://eclipse-tractusx.github.io/)|
+|Catena-X|Association, dataspace, automotive network|Open and interoperable data ecosystem of the automotive sector, see [https://catena-x.net/ ![(external link)](/icons/external-link.svg)](https://catena-x.net/)|
+|Tractus-X|Official open-source project in the Catena-X data space|see [https://eclipse-tractusx.github.io/ ![(external link)](/icons/external-link.svg)](https://eclipse-tractusx.github.io/)|
 |EDC|Eclipse Dataspace Components|Set of components like the Eclipse Dataspace Connector and it's extensions|
 |Tractus-X EDC|Tractus-X Eclipse Dataspace Components|EDC, adapted and released for the Tractus-X project|
 |Connector|Dataspace Connector|Tractus-X Eclipse Dataspace Connector or compatible connector implementation|
@@ -71,9 +71,9 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 |Term|Description|Comment|
 |---|---|---|
 |Catena-X Dataspace Architecture|Architecture defined by Catena-X|see [Tractus-X KITs](https://eclipse-tractusx.github.io/Kits)|
-|SPARQL|SPARQL 1.1 Query Language|see [SPARQL on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/sparql11-query/)|
-|RDF|Resource Description Framework|see [RDF on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/RDF/)|
-|ttl (Turtle)|RDF 1.1 Turtle|see [Turtle on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/turtle/)|
-|OWL|Web Ontology Language|see [OWL on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/OWL/)|
-|SHACL|Shapes Constraint Language|see [SHACL on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/shacl/)|
-|W3C|World Wide Web Consortium|see [w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/)|
+|SPARQL|SPARQL 1.1 Query Language|see [SPARQL on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/)|
+|RDF|Resource Description Framework|see [RDF on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/RDF/)|
+|ttl (Turtle)|RDF 1.1 Turtle|see [Turtle on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/)|
+|OWL|Web Ontology Language|see [OWL on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/OWL/)|
+|SHACL|Shapes Constraint Language|see [SHACL on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/)|
+|W3C|World Wide Web Consortium|see [w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/)|
