@@ -28,7 +28,7 @@ sidebar_position: 1
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.drawio.svg)
+![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
 
