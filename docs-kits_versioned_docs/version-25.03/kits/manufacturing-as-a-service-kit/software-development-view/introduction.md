@@ -5,7 +5,7 @@ description: 'Manufacturing as a Service Kit'
 sidebar_position: 4
 ---
 
-![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.drawio.svg)
+![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.svg)
 
 Manufacturing-as-a-Service (MaaS) scenarios focus on connecting buyers having a request for specific manufacturing process steps or products to be manufactured with the appropriate manufacturing supplier, who has the corresponding capabilities and resources. This connection depends on the capabilities that are offered on the supplier side and that are required on the buyer side.
 
