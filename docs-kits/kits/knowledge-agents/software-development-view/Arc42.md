@@ -28,7 +28,7 @@ title: Detailed Architecture
 
 ## Agents KIT
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.drawio.svg)
+![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
 **Arc42 for federated queries over the whole data space.**
 

@@ -5,7 +5,7 @@ description: 'Manufacturing as a Service KIT'
 sidebar_position: 1
 ---
 
-![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.drawio.svg)
+![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.svg)
 
 ### Manufacturing as a Service KIT
 

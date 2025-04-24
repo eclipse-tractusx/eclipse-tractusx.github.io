@@ -4,7 +4,7 @@ title: Changelog
 sidebar_position: 1
 ---
 
-![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.drawio.svg)
+![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.svg)
 
 ## [0.3.0] - 2024-07-11
 

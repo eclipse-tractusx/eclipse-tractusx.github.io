@@ -28,7 +28,7 @@ sidebar_position: 1
 
 ## Data Governance KIT
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 

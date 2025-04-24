@@ -7,8 +7,8 @@ description: Behaviour Twin KIT
 
 <div style={{fontSize:60, color:'rgb(255,166,1)', marginBottom:8, marginTop:0, paddingTop:0}}>BEHAVIOUR TWIN KIT</div>
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.drawio.svg)
-
+![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
+ 
 ## PURPOSE
 
 Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.

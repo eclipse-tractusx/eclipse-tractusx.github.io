@@ -5,7 +5,7 @@ description: 'Business Partner Kit'
 sidebar_position: 3
 ---
 
-![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.drawio.svg)
+![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
 
 ### Business Partner KIT
 
