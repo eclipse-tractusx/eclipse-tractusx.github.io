@@ -282,7 +282,7 @@ sequenceDiagram
         Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Step: 'PoolSync' <br> Step State: 'Success'
          Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Success'
     end
-    
+
     loop Polling for finished Golden Record Tasks
         Gate-->>Gate: Query sharing states in Sharing State Type 'PENDING'
         Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golde Record Task ID
@@ -304,8 +304,8 @@ sequenceDiagram
 sequenceDiagram
     autonumber
 
-    Pool-->Pool: Add Changelog Entry for BPNL 
-    
+    Pool-->Pool: Add Changelog Entry for BPNL
+
     loop Polling Pool Changelog
         Gate->>Pool: POST api/catena/changelog/search <br> Payload: From After Last Search Time
         Pool-->>Gate: Changelog entry for BPNL
@@ -328,7 +328,7 @@ sequenceDiagram
          Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Success'
         Orchestrator-->>CleaningServiceDummy: Accept
     end
-    
+
     loop Polling for finished Golden Record Tasks
         Gate-->>Gate: Query sharing states in Sharing State Type 'PENDING'
         Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golden Record Task ID
@@ -337,12 +337,12 @@ sequenceDiagram
         Gate-->>Gate: Set Sharing State 'Success'
         Gate-->>Gate: Add Changelog Entry 'Create' for Business Partner Output
     end
-    
+
     SharingMember->>Gate: POST api/catena/output/changelog/search <br> Payload: From After Last Search Time
     Gate-->>SharingMember: Changelog entry with Business Partner External ID
     SharingMember->>Gate: POST api/catena/output/business-partners/search <br> Payload: External ID
     Gate-->>SharingMember: Business Partner Output
-    
+
 ```
 
 ## Business Partner Data Records - States
@@ -669,7 +669,7 @@ sequenceDiagram
     OpenIDConnect Server -->> BPDM Gate: Confirms validity of Token
     BPDM Gate -->> BPDM Gate: Check "resource_access" section of OAuth Token
 
-    
+
 ```
 
 ### Business Partner Data Management Standards
@@ -1090,10 +1090,10 @@ In this scenario the operating environment itself operates a backend service or 
 
 ### Central-IDP
 
-As of now the [Central-IDP](https://github.com/eclipse-tractusx/portal-iam) in release 3.1.0 is not fully compatible with the standard configuration of the BPDM [rights and role concepts](08_Crosscutting_Concepts.md#authentication--autorization).
+As of now the [Central-IDP](https://github.com/eclipse-tractusx/portal-iam) in release 3.1.0 is not fully compatible with the standard configuration of the BPDM rights and role concepts.
 Therefore, the standard configuration of the BPDM deployment will **not** work with Central-IDP out of the box.
 BPDM standard configuration needs to be adapted to be compatible.
-This can be done over the application.yml files locally or in case of a Helm deployment these configuration overwrites can be placed in the `applicationConfig` values of the BPDM components (see [INSTALL](../../INSTALL.md) instructions).
+This can be done over the application.yml files locally or in case of a Helm deployment these configuration overwrites can be placed in the `applicationConfig` values of the BPDM components (see [INSTALL](../software-operation-view.md) instructions).
 [Here](#helm-configuration) a full Helm configuration for the needed adaptions is given.
 
 #### Pool and Gate Clients
@@ -1116,7 +1116,7 @@ bpdm:
 
 #### Orchestrator Authorization
 
-The Central-IDP does not contain the roles and permissions for the BPDM Orchestrator as described in the [rights and role concepts chapter](08_Crosscutting_Concepts.md#authentication--autorization) and has no dedicated client for the Orchestrator component.
+The Central-IDP does not contain the roles and permissions for the BPDM Orchestrator as described in the rights and role concepts chapter and has no dedicated client for the Orchestrator component.
 
 The configuration of the BPDM Orchestrator can be adapted to compensate for the mismatch.
 
@@ -1197,7 +1197,7 @@ Here is a full helm values overwrite file containing all adaptions needed for th
 # BPDM values overwrite
 keycloak:
   enabled: false
-  
+
 bpdm-pool:
   applicationConfig:
     bpdm:
@@ -1207,7 +1207,7 @@ bpdm-pool:
       client:
         orchestrator:
           registration:
-            client-id: "sa-cl7-cx-5"       
+            client-id: "sa-cl7-cx-5"
   applicationSecrets:
     bpdm:
       client:
@@ -1237,7 +1237,7 @@ bpdm-gate:
         pool:
           registration:
             client-secret: "*****"
-            
+
 bpdm-orchestrator:
   applicationConfig:
     bpdm:
@@ -1291,7 +1291,7 @@ Currently, the Portal's Partner Network page shows all business partners even th
 
 In order to resolve this issue a different endpoint needs to be integrated: `POST v6/members/legal-entities/search`
 
-Additionally, Central-IDP and the Portal need to make sure that the Portal users with the portal role `Cx-User` receive only the BPDM role `Pool Cx Member` as described in the [roles and rights concept](08_Crosscutting_Concepts.md#authentication--autorization).
+Additionally, Central-IDP and the Portal need to make sure that the Portal users with the portal role `Cx-User` receive only the BPDM role `Pool Cx Member` as described in the roles and rights concept.
 
 ### Managing own company data error
 
@@ -1301,7 +1301,7 @@ This renders the Portal user with the role `Service Manager` unable to manage th
 
 #### Mitigation
 
-The Portal can mitigate this issue by making sure that the portal user with role `Service Manager` obtains the role `Gate Admin` with permissions as defined in the [roles and rights concept](08_Crosscutting_Concepts.md#authentication--autorization).
+The Portal can mitigate this issue by making sure that the portal user with role `Service Manager` obtains the role `Gate Admin` with permissions as defined in the roles and rights concept.
 
 ### Exposed technical users
 
@@ -1314,7 +1314,7 @@ Since this behaviour of creating technical users is an ingrained feature of the 
 
 As a mitigation the BPDM provider who is also the operator of the Central-IDP can decide to not use the automatic tehcnical user creation process of the Portal.
 As a result, when BPDM services are requested the operator needs to create technical users directly in the Central-IDP.
-These hidden technical users can then be used to configure [EDC assets](../../INSTALL.md#edc-installation).
+These hidden technical users can then be used to configure EDC assets.
 
 ## Glossary
 
