@@ -5,9 +5,9 @@ description: "Industry Core KIT"
 sidebar_position: 3
 ---
 
-Industry Core covers the foundation for message-based data sharing using notifications. Notifications are already used in several use cases, but their implementation is not yet standardized. Most use cases, although, based their implementation on the first implementation, Traceability Quality Alerts & Investigations (on which Industry Core notifications are also based). Industry Core now defines an interoperable solution for sending and receiving notifications via connectors in Catena-X. 
+Industry Core covers the foundation for message-based data sharing using notifications. Notifications are already used in several use cases, but their implementation is not yet standardized. Most use cases, although, based their implementation on the first implementation, Traceability Quality Alerts & Investigations (on which Industry Core notifications are also based). Industry Core now defines an interoperable solution for sending and receiving notifications via connectors in Catena-X.
 
-A general descriptions of notifications is given in the [Architecture View](../page_architecture-view.mdx) of this KIT.
+A general descriptions of notifications is given in the [Architecture View](../architecture-view.mdx) of this KIT.
 
 ### Process
 
@@ -18,9 +18,9 @@ A notification is sent from one Catena-X partner - called sender - to another Ca
 The data sharing is done via standardized connectors:
   - The receiver provides an asset in the connector to which notifications can be sent.
   - The sender initiates a contract negotiation for this asset to get a contract agreement and dataplane endpoint.
-  - After a successful contract negotiation, the sender sends the notification via a HTTP POST request to the receiver via the dataplane endpoint from the contract agreement. 
+  - After a successful contract negotiation, the sender sends the notification via a HTTP POST request to the receiver via the dataplane endpoint from the contract agreement.
   - All notification operations are sent via the same asset using the same contract agreement.
-  
+
 ### Notification Data Format
 
 This section defines the data format for notifications:
@@ -43,13 +43,13 @@ Notifications must be compliant to the following JSON data format:
 ```
 
 - The JSON schema for this schema is available [here](../assets/notification.schema.json).
-- The property `header` must be compliant to the aspect model [MessageHeaderAspect](#aspect-model-messageheaderaspect). 
+- The property `header` must be compliant to the aspect model [MessageHeaderAspect](#aspect-model-messageheaderaspect).
   - The `messageId` of a notification must uniquely identify a single message, therefore it must not be reused. No two notifications must share the same `messageId`. Only if a notification could not be sent because of data transfer errors, it MAY be re-sent with the same `messageId`.
   - It is recommended to use the following format (defined in the MessageHeaderAspect aspect model) for property `context`: `<domain>-<subdomain>-<object>:<[major] version>`
     - `<domain>` should be the name of the use case that defines the notification, e.g., `IndustryCore`.
     - `<subdomain>` should be the name of the notification API, e.g., `DigitalTwinEventAPI`.
     - `<object>` should be the name of the operation for which the notification is used, e.g., `ConnectToParent`.
-    - Versioning only refers to major versions in both default and fallback cases. 
+    - Versioning only refers to major versions in both default and fallback cases.
     - This is recommended as it allows the notification receiver to freely choose what technology to use for the backend service. If this information is not encoded into the notifcation's `context` propoerty, a backend service like a message-queue technology will not know which notification operation was invoked by the sender as the endpoint information is not available in this case (compared to a REST API backend service).
  - Content and structure of the property `content` are not stanardized and must be defined by the use case defining the notifications API. A schema for this property must be defined as part of the OpenAPI specification of the notification API of the use case.
 
@@ -57,7 +57,7 @@ Notifications must be compliant to the following JSON data format:
 
 The Catena-X Message Header contains standardized attributes for message processing that are common across several use cases. It targets a minimal set of aspects that are required for overall message handling, but not for the processing of the business related payload part. By standardizing the message header structure, we support a harmonized modelling approach and re-use of concepts.
 
-Identifier of Aspect Model:  `urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeaderAspect` 
+Identifier of Aspect Model:  `urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeaderAspect`
 
 Aspect model in GitHub:
 - Version 3.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header/3.0.0
@@ -90,11 +90,11 @@ The notification API of a use case must be defined with an OpenAPI specification
 #### API Specification
 
 - Notification operations are modelled as endpoints (resources). For every operation, exactly one endpoint must be defined. This endpoint only supports the HTTP POST method.
-- The path URL should be the operation name with optional "-" as word separator. 
+- The path URL should be the operation name with optional "-" as word separator.
 - The operationId must be the notification operation name. The same name should be used as `<object>` in the `context` property of the notification header. This redundancy is recommended to allow the notification receiver to freely choose what technology to use for the backend service, e.g, a REST API or message-queue technology.
 - The notification is the actual request body of the HTTP POST method. Its schema must also be defined in the specification.
-  
-**Example:** [OpenAPI specification for Digital Twin Event API](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/3.0.0/example-digital-twin-event-api.yaml) 
+
+**Example:** [OpenAPI specification for Digital Twin Event API](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/3.0.0/example-digital-twin-event-api.yaml)
 
 #### Error Handling
 
@@ -112,7 +112,7 @@ These error codes are currently optional as the Catena-X connector does not yet 
 
 #### Connector Asset Structure
 
-For a notification API, exactly one asset in the connector must be defined. All notifications operations of the API must be invoked through this asset. 
+For a notification API, exactly one asset in the connector must be defined. All notifications operations of the API must be invoked through this asset.
 
 - The property `http://purl.org/dc/terms/type` must reference the name of the notification API as defined in the Catena-X taxonomy published under https://w3id.org/catenax/taxonomy.
 
