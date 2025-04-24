@@ -54,6 +54,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
+          onUntruncatedBlogPosts: 'ignore',
+          authorsMapPath: '../blog-meeting-minutes/authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -96,7 +98,8 @@ const config = {
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
-        authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -196,6 +199,10 @@ const config = {
                 label: 'Data Chain',
               },
               {
+                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
+                label: 'Data Driven Quality Management',
+              },
+              {
                 to: '/docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
               },
@@ -250,10 +257,6 @@ const config = {
               {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
-              },
-              {
-                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
-                label: 'Data Driven Quality Management',
               },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
