@@ -5,7 +5,7 @@ description: Solve bottlenecks using pre- and post production
 sidebar_position: 3
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Business Roles and Functions
 
