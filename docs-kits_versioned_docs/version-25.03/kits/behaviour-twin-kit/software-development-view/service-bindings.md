@@ -23,11 +23,11 @@ In many cases, services are provided via REST APIs and are using JSON as input a
 
 ### SERVICE MAPPING TOOL
 
-To bind a service to the knowledge graph, you must use a **remoting agent**, also called the **service binding agent**. The [Agents KIT](../../knowledge-agents/operation-view/provider) therefore provides a software based on [RDF4J ![(external link)](../assets/external-link.svg)](https://rdf4j.org/).
+To bind a service to the knowledge graph, you must use a **remoting agent**, also called the **service binding agent**. The [Agents KIT](../../knowledge-agents/operation-view/provider) therefore provides a software based on [RDF4J ![(external link)](/icons/external-link.svg)](https://rdf4j.org/).
 
 ### SERVICE MAPPING CONFIGURATION
 
-To configure the service mapping, a configuration must be provided that formally describes the mapping. The configuration is written in the [Terse RDF Triple Language ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*. For some detailed information, have a look at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
+To configure the service mapping, a configuration must be provided that formally describes the mapping. The configuration is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*. For some detailed information, have a look at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
 
 In this example, an asynchronous calculation service for gearbox RuL values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the RuL logic always requires exact one input set per calculation. Therefore, always the first (and only the first) item of the input list is bound. The service binding is defined as follows.
 
@@ -36,7 +36,7 @@ In this example, an asynchronous calculation service for gearbox RuL values is b
 ```ttl
 ################################################################
 # Copyright (c) 2022-2024 T-Systems International GmbH
-# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 # Copyright (c) 2022-2024 ZF Friedrichshafen AG
 # Copyright (c) 2023-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
 # Copyright (c) 2022-2024 Mercedes-Benz AG
@@ -195,7 +195,7 @@ The following example is a full asset description, that can be registered at the
         "cs-taxo": "https://w3id.org/catenax/taxonomy#",
         "dc": "https://purl.org/dc/terms/"
     },
-    "@id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+    "@id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL",
     "properties": {
         "cx-common:name": "Lifetime Prognosis Service for Gearboxes",
         "cx-common:description": "A sample graph asset/offering referring to a specific prognosis resource.",
@@ -210,7 +210,7 @@ The following example is a full asset description, that can be registered at the
         "cx-common:isFederated": "true^^xsd:boolean"
     },
     "dataAddress": {
-        "id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL", 
+        "id": "cx-taxo:GraphAsset?supplier=BehaviourTwinRUL",
         "@type": "DataAddress",
         "baseUrl": "https://my-remoting-agent.domain/rdf4j-server/repositories/rul",
         "type": "cx-common:Protocol?w3c:http:SPARQL",
@@ -224,7 +224,7 @@ The following example is a full asset description, that can be registered at the
     }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Remaining useful Life function and its output:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Remaining useful Life function and its output:
 
 ```shacl
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
