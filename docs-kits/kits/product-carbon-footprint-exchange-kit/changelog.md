@@ -5,7 +5,7 @@ description: 'PCF Exchange Kit'
 sidebar_position: 1
 ---
 
-![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.drawio.svg)
+![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
 ## PCF Exchange KIT
 
