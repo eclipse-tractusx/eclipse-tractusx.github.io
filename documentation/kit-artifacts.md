@@ -5,7 +5,7 @@ title: KIT Artifacts
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
 
-This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](@site/docs/release/trg-0/trg-9-01.md). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
+This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](/docs/release/trg-0/trg-9-01). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
 
 ## CHANGELOG
 
@@ -72,7 +72,7 @@ This gives more insights into the use case or domain itself.
 Deliverable: Status quo, challenge and the benefits from different perspectives
 `Example from BPDM:`
 Business Partner KIT comes from the use case Business Partner Data Management.
-Status Quo / Todays challenge:  
+Status Quo / Todays challenge:
 Most of today’s automotive companies have to invest a significant amount to keep their individual partner master data updated and correct, since outdated or incorrect data records result in federal fines and wrong claims / billing processes. The industry spends a vast amount into an area that is non differentiating, regulated and executed redundantly across the partners.
 For this, cutting individual company costs by offering the golden master data record as a shared service and proactively reduce Business Partner risk via collaborative value-add services.
 This will become the industry’s largest golden record collection as a shared and cost-optimized service (quality tested by the biggest players).

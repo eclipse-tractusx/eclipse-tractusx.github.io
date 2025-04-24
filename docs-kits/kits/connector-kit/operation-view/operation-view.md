@@ -19,7 +19,7 @@ They are detailed [here](https://github.com/eclipse-tractusx/tractusx-edc/tree/m
 
 ## Architecture
 
-For a summary of the architecture surrounding a Controller, take a look at the Development View's [architecture page](../Development%20View/architecture.md).
+For a summary of the architecture surrounding a Controller, take a look at the Development View's [architecture page](../software-development-view/architecture.md).
 
 ## Deployment Resources
 

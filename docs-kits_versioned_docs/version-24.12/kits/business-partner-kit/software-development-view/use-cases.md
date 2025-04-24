@@ -85,7 +85,7 @@ This use case aims to provide users with clear and concise instructions, ensurin
 
 6. Explore Apis for each service:
    - Api's for each service can be seen under postman collection with refernced test data.
-   - For more information on apis, user can refere section of [Api Reference](./page_software-development-view.md#api-reference)
+   - For more information on apis, user can refere section of [Api Reference](./software-development-view.md#api-reference)
 
 7. For Pool api service first check should be metadata availablity:
    - Expand the "BPDM Pool Api" collection in the left sidebar.
@@ -737,7 +737,7 @@ Response:
 Flow:
 
 - The user inputs a valid key and vale to the legal entity api request.
-- Consider use has enter key - legalForm and value - Custom Legal Form for Testing under api request shown below while quering.  
+- Consider use has enter key - legalForm and value - Custom Legal Form for Testing under api request shown below while quering.
 - The Legal Entity Controlle API returns information about multiple legal entities.
 - The Legal Entity Controller determines that all both two legal entities matching same filter.
 - The Legal Entity Controller displays the information about both legal entities in response as shown in below.
@@ -995,7 +995,7 @@ The response contains a few key fields that you can use to understand the inform
 - `contentSize` tells you how many legal entities are included in the current page of results. In this case, there are 10 legal entities returned in the response.
 - `content` is an array of legal entities that match your query. Each legal entity contains information about its identifiers, names, legal form, types, bank accounts, roles, and relations.
 
-### 2.3 Search particular legal entity  
+### 2.3 Search particular legal entity
 
 Scenario: The user enters a valid BPN under request body and API returns information about legal entities in response.
 
@@ -1245,7 +1245,7 @@ Response:
 }
 ```
 
-### 2.5 Fetch addresses for legal entity  
+### 2.5 Fetch addresses for legal entity
 
 Scenario: The user enters a valid BPNL under pathparam and the API returns information about address partners legal entities.
 
@@ -1499,7 +1499,7 @@ Scenario: Apply the changes or update on business partner of type legal entity, 
 Flow:
 
 - The user updates legal entity by hiting PUT api call as shown in request below.
-- The legal entity controller updates business partner of type legal entity as per the provided request body.  
+- The legal entity controller updates business partner of type legal entity as per the provided request body.
 - The Respone will be displayed to user with updated details for  a message to the user that the legal entity data has been updated.
 
 Request:
@@ -1600,8 +1600,8 @@ curl --location --request PUT 'http://localhost:8080/api/catena/legal-entities' 
 Flow:
 
 - The user updates site by hiting PUT api call as shown in request below.
-- The site controller updates business partner of type site as per the provided request body.  
-- The Respone will be displayed to user with updated details for a message to the user that the site data has been updated.  
+- The site controller updates business partner of type site as per the provided request body.
+- The Respone will be displayed to user with updated details for a message to the user that the site data has been updated.
 
 Request:
 
@@ -1683,8 +1683,8 @@ curl --location --request PUT 'http://localhost:8080/api/catena/sites' \
 Flow:
 
 - The user updates address by hiting PUT api call as shown in request below.
-- The address controller updates business partner of type address as per the provided request body.  
-- The Respone will be displayed to user with updated details for a message to the user that the address data has been updated.  
+- The address controller updates business partner of type address as per the provided request body.
+- The Respone will be displayed to user with updated details for a message to the user that the address data has been updated.
 
 Request:
 
