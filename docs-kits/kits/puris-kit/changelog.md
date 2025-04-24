@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ### PURIS Kit
 
-![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.drawio.svg)
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
 
 All notable changes to this Kit will be documented in this file.
 
