@@ -5,7 +5,7 @@ description: 'OSim Kit'
 sidebar_position: 1
 ---
 
-![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.drawio.svg)
+![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
 
 ### OSim Kit
 

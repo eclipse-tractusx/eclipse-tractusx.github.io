@@ -4,7 +4,7 @@ title: Software Development View
 description: 'OSim Kit'
 ---
 
-![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.drawio.svg)
+![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
 
 ## Sample Data
 
