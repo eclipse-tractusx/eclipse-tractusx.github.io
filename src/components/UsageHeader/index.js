@@ -16,7 +16,7 @@ import React from "react";
 import styles from "./styles.module.css";
 
 export default function UsageHeader(props) {
-  console.log(props)
+  //console.log(props)
   return (
       <header className={styles.usage_header}>
       <div className={styles.container}>

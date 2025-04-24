@@ -120,7 +120,7 @@ To have a common understanding of how to interpret and translate elements in the
 ## MANDATORY COMPONENTS
 
 You always need access to your **running connector (EDC) with knowledge agent components** and
-the (extensible) **ontologies of Catena-X**. In most cases, you can use them as they are.  
+the (extensible) **ontologies of Catena-X**. In most cases, you can use them as they are.
 
 Depending on your role, you need a combination of the following components:
 
@@ -145,7 +145,7 @@ Depending on your role, you need a combination of the following components:
 
 ## USE CASE TYPES
 
-Depending on how roles coincide and where skills are executed, the use case architecture, graph assets and skills must be adapted. Detailed information about how to write dedicated skills can be found in the [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent_edc).
+Depending on how roles coincide and where skills are executed, the use case architecture, graph assets and skills must be adapted. Detailed information about how to write dedicated skills can be found in the [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent-edc).
 
 ### COMBINATION OF ROLES
 
@@ -223,4 +223,4 @@ There are different options where and how the skill is executed initially:
 
 Allowed variants may be dependent on a *framework agreement*.
 
-For more information, see [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent_edc).
+For more information, see [Agents KIT's Operation View](../../knowledge-agents/operation-view/agent-edc).

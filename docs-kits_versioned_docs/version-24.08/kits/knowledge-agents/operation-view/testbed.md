@@ -32,7 +32,7 @@ For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../software-development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [EDC Deployment](agent-edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
