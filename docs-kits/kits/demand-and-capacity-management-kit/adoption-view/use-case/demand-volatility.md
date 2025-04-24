@@ -5,7 +5,7 @@ description: Create transparency regarding data volatility and strife for a solu
 sidebar_position: 2
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Business Roles and Functions
 

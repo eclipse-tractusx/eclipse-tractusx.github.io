@@ -5,7 +5,7 @@ description: Operation View
 id: operation-view
 ---
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-icon.drawio.svg)
+![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
 ## Reference Implementation
 

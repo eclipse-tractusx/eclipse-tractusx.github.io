@@ -5,7 +5,7 @@ description: 'Quality Kit'
 sidebar_position: 2
 ---
 
-![Quality kit banner](@site/static/img/kits\data-driven-quality-management\data-driven-quality-management-kit-logo.drawio.svg)
+![Quality kit banner](@site/static/img/kits\data-driven-quality-management\ddqm-kit-logo.svg)
 
 ## Vision & Mission
 

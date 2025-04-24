@@ -4,7 +4,7 @@ title: Operation View
 description: 'EcoPass Kit Operation View'
 ---
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.drawio.svg)
+![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
 
 ## EcoPass KIT
 

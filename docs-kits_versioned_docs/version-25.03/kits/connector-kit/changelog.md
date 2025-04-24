@@ -1,6 +1,6 @@
 # Changelog
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-icon.drawio.svg)
+![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
 ## Connector KIT
 

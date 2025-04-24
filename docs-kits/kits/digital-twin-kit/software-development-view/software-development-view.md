@@ -10,7 +10,7 @@ sidebar_position: 1
 Development View of the Kit.
 -->
 
-![DT Kit Pictotogram](/img/kit-icons/digital-twin-kit-icon.svg)
+![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
 
 ### Digital Twin KIT
 

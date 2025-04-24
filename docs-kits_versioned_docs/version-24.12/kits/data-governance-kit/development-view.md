@@ -27,7 +27,7 @@ sidebar_position: 3
 ![DatGov Kit Banner](/resources/DatGovKit-Icon.png)
 -->
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
