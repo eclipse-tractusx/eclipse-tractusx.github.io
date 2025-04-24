@@ -30,7 +30,7 @@ The graph asset policy can be used by more than one graph asset. The policy refe
 ```json
 {
   "@context": [
-    "http://www.w3.org/ns/odrl.jsonld", 
+    "http://www.w3.org/ns/odrl.jsonld",
     {
       "edc": "https://w3id.org/edc/v0.0.1/ns/"
     },
@@ -139,4 +139,4 @@ The following contract refers to the previous defined skill policy and related s
 }
 ```
 
-For more information, have a look at the [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/provider).
+For more information, have a look at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
