@@ -1,11 +1,11 @@
 ---
-id: adoption-view-supply-chain-disruption-notifications
+id: adoption-view
 title: Adoption View
 description: "PURIS-DCM Supply Chain Disruption Notifications"
 sidebar_position: 2
 ---
 
-![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.drawio.svg)
+![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.svg)
 
 ## Vision
 
@@ -114,7 +114,7 @@ Currently the standard _Supply Chain Disruption Notifications_ provides one sema
 
 | Semantic Model                                   | Version | Link to GitHub Repository                                                                                        |
 | ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------- |
-| Demand and Capacity Notification (Release 24.05) | v2.0.0  | <https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification> |
+| Demand and Capacity Notification (Release 24.05) | v2.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
 ## Business Process
 

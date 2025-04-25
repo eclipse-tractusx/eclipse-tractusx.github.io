@@ -7,7 +7,7 @@ export const successStories = [
     img: tracex,
     title: "TRACE-X SUCESS STORY",
     description: "Trace-X empowers all companies from SMEs to large OEMs to participate in parts traceability with an Open-Source solution.",
-    pageRoute: "/docs-kits/kits/Data Chain Kit/Success Stories/Trace-X Sucess Story",
+    pageRoute: "/docs-kits/kits/data-chain-kit/Success Stories/Trace-X Sucess Story",
     buttonName: "SUCESS STORY"
   },
   {
@@ -15,7 +15,7 @@ export const successStories = [
     img: countryRisk,
     title: "COUNTRY RISK SUCESS STORY",
     description: "The service offers a risk score per country based on several, customizable ratings.",
-    pageRoute: "/docs-kits/kits/Business Partner Kit/Success Stories/Country Risk Score%C2%A0",
+    pageRoute: "/docs-kits/kits/business-partner-kit/Success Stories/Country Risk Score%C2%A0",
     buttonName: "SUCESS STORY"
   }
 ]

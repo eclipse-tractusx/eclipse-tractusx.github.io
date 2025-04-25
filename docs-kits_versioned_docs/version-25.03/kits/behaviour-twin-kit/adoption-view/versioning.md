@@ -7,7 +7,7 @@ description: Behaviour Twin KIT
 <div style={{display:'block'}}>
   <div style={{display:'inline-block', verticalAlign:'top'}}>
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.drawio.svg)
+![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
 
   </div>
   <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
@@ -17,7 +17,7 @@ Behaviour Twin KIT
 
 ## CATENA-X RELEASES
 
-For information about the Catena-X release management, refer to the [Catena-X website ![(external link)](../assets/external-link.svg)](https://catena-x.net/). Implications for Behaviour Twin use cases are mentioned in the section [To Be Considered](./to-be-considered#versioning-and-breaking-changes).
+For information about the Catena-X release management, refer to the [Catena-X website ![(external link)](/icons/external-link.svg)](https://catena-x.net/). Implications for Behaviour Twin use cases are mentioned in the section [To Be Considered](./to-be-considered#versioning-and-breaking-changes).
 
 ## VERSIONING ASSETS
 
