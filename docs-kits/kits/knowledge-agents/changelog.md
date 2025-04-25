@@ -1,5 +1,5 @@
 ---
-id: Knowledge Agent Changelog
+id: changelog
 title: Changelog
 description: 'Knowledge Agent'
 sidebar_position: 1
