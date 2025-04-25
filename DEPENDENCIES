@@ -302,10 +302,6 @@ npm/npmjs/-/fraction.js/4.3.7, MIT, approved, clearlydefined
 npm/npmjs/-/fresh/0.5.2, MIT, approved, clearlydefined
 npm/npmjs/-/fs-extra/11.3.0, MIT, approved, #18872
 npm/npmjs/-/fs-extra/9.1.0, MIT, approved, clearlydefined
-npm/npmjs/-/fs-monkey/1.0.3, Unlicense AND (ISC AND MIT), approved, #2964
-npm/npmjs/-/fs.realpath/1.0.0, ISC AND MIT, approved, clearlydefined
-npm/npmjs/-/fsevents/2.3.2, MIT, approved, #2967
-npm/npmjs/-/function-bind/1.1.1, MIT, approved, #11063
 npm/npmjs/-/fs-monkey/1.0.6, Unlicense AND (ISC AND MIT), approved, #2964
 npm/npmjs/-/fs.realpath/1.0.0, ISC AND MIT, approved, clearlydefined
 npm/npmjs/-/fsevents/2.3.3, MIT, approved, #15309
