@@ -5,7 +5,6 @@ description: 'Digital Twin KIT - Software Development View'
 sidebar_position: 1
 ---
 
-
 <!--
 Development View of the Kit.
 -->
