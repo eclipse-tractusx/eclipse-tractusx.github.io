@@ -31,8 +31,8 @@ The notification states and their cycle are described in the following figure.
 A standardized set of APIs and payloads are specified to enable partners to send quality notifications in a standardized way while already knowing which parts (i.e., serialized parts or batches) and which direct customers or suppliers are affected. Notifications are - in contrast to classical data offers in Catena-X which is created for consumption by external stakeholders - a way to push notification related data from a sender to a receiver. For now, this notification API is limited to the sending and receiving of quality notifications as well as the update of the notification status following a state model.
 It is important to mention that the notification API shall be implemented into each participant's traceability solution or solution stack in order to be able to receive information related to quality issues. The implemented endpoints shall be able to process the defined request body and respond with the HTTP status codes and - if required - reply with the defined response body.
 Meanwhile, this notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the corresponding Notification API specifications for more details:
-- [Notification API (v1.2.1)](../openapi/notifications_1-2-1.yaml)
-- [Notification API (v2.0.0)](../openapi/notifications_2-0-0.yaml)
+- [Notification API (v1.2.1)](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-traceability-notifications-openAPI-1.2.1/swagger-ui/)
+- [Notification API (v2.0.0)](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-traceability-notifications-openAPI-2.0.0/swagger-ui/)
 
 > :raised_hand: For the current release, **version 1.2.1 is mandatory** and must be supported by every App provider. The newer version 2.0.0 can be supported optionally.
 
@@ -56,7 +56,7 @@ In order to track the blocking process in the Catena X network, a defined status
 ### Block Notification API
 
 A standardized API and corresponding payloads are specified for block notification to enable and ensure the exchange of information that is critical to the blocking process in a standardized way. At this point, the notification API is focused on sending and receiving notifications with a full stack of block information and on updating a previously sent notification by changing the block status. The implemented endpoints shall be able to process the defined request body and respond with the HTTP status codes and - if required - reply with the defined response body. Meanwhile, the Block Notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the corresponding Block Notification API specification for more details:
-- [Block Notification API (v1.0.0)](../openapi/block-notifications-1-0-0.yaml)
+- [Block Notification API (v1.0.0)](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-traceability-block-notifications-openAPI-1.0.0/swagger-ui/)
 
 > :raised_hand: For  the current release, **version 1.0.0 is optional** and MUST be supported by every App provider from the next (major) release. The block notifications are not standardized yet, but will be released as a new optional functionality in the CX-0125 Traceability Use Case Standard as of the next release 25.03.
 
