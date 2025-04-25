@@ -52,14 +52,14 @@ export default function DeveloperContent() {
           </div>
 
           <p className="description-p">
-            The first Kit that follows this journey is the <Link to="/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit">Traceability Kit.</Link><br/><br/>
+            The first Kit that follows this journey is the <Link to="/docs-kits/kits/traceability-kit/adoption-view">Traceability Kit.</Link><br/><br/>
             Catena-X KITs provide open-source resources and documentation to foster the collaboration and trust governed by the Eclipse Tractus-X Project. The initial offering of the Catena-X ecosystem is structured along the following four domains - one network domain and three business domains:
           </p>
 
           <ul className="description-p">
             <li>Network Domain for Shared Services</li>
             <li>Business Domain PLM and Quality</li>  
-            <li><Link to="docs-kits/Resiliency">Business Domain Resiliency</Link></li>
+            <li>Business Domain Resiliency</li>
             <li>Business Domain Sustainability Domain</li> 
           </ul>
         </div>
@@ -67,7 +67,7 @@ export default function DeveloperContent() {
         <div className={styles.title_container}>
           <h2 className="title-h2">Three different views</h2>
           <p className="description-p">KITs provide a set of standards, documentation, reference implementations, quick setup guides, etc., that enable participants to build and operate interoperable and certified applications / services easier and faster. Mandatory and optional deliverables depend on the type of KIT. Developers (e.g., application and service provider) can use and integrate KITs into their products to create a multi-vendor, interoperable, innovative, and scalable ecosystem. Furthermore, data provider and consumer can use KITs to connect to the Catena-X data space.</p>
-          <a className="description-p" href="docs/kit-process/artefacts">Read more about the deliverables.</a>
+          <a className="description-p">Read more about the deliverables.</a>
         </div>
 
         <div className={styles.img_container}>

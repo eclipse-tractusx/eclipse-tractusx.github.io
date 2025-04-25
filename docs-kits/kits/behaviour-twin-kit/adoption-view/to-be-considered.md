@@ -7,7 +7,7 @@ description: Behaviour Twin KIT
 <div style={{display:'block'}}>
   <div style={{display:'inline-block', verticalAlign:'top'}}>
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.drawio.svg)
+![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
 
   </div>
   <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
@@ -40,7 +40,7 @@ The supply chain is visible to each company *only one* up and *one down* (there 
 
 ### USE CASE FRAMEWORK AND CONTRACTS
 
-For each use case there must be a *Use Case Framework*, see the [Catena-X webpage ![(external link)](../assets/external-link.svg)](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations). There, all general requirements for all participants are defined.
+For each use case there must be a *Use Case Framework*, see the [Catena-X webpage ![(external link)](/icons/external-link.svg)](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations). There, all general requirements for all participants are defined.
 
 Keep in mind that use cases must fulfill the one-up-one-down-policy. If your (new) use case cannot completely comply, adapt it or consider a special solution.
 

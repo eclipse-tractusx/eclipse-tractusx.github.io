@@ -26,15 +26,15 @@ title: Deployment
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.drawio.svg)
+![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
 ## Agents KIT
 
 **Operating federated queries over the whole data space.**
 
 * Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [Architecture](../software-development-view/architecture) documentation
+* The [EDC Deployment](agent-edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
@@ -53,7 +53,7 @@ role that the business partner takes. The roles are described in more detail in 
 
 As a consumer, you just need to:
 
-* enable your [dataspace connector](agent_edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
+* enable your [dataspace connector](agent-edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
 * (optionally) use a separate matchmaking agent to securely host your own business and meta data in the graph storage behind the connector layer
 * (optionally) mount your matchmaking agent as a remote repository into your enterprise graph infrastructure.
 
@@ -61,7 +61,7 @@ As a consumer, you just need to:
 
 As a skill provider, you need to
 
-* enable your [dataspace connector](agent_edc)  to transfer/delegate the required Agent protocols.
+* enable your [dataspace connector](agent-edc)  to transfer/delegate the required Agent protocols.
 * (optionally) employ multiple data planes in case you want to expose hosted skills (skill assets that operate as stored procedures
 and which require computational resources at the provider side) instead of distributed skills (skill assets that are offered as query texts/files and which are executed at the consumer side).
 
@@ -69,7 +69,7 @@ and which require computational resources at the provider side) instead of distr
 
 As a provider, you need to
 
-* enable your [dataspace connector](agent_edc) to receive/internalize the required Agent protocols.
+* enable your [dataspace connector](agent-edc) to receive/internalize the required Agent protocols.
 * (optionally) use a separate matchmaking agent to securely publish your own business and meta data from the graph storage behind the connector layer
 
 Depending on the kind of provisioning, you will setup additional internal "agents" (endpoints).
@@ -112,12 +112,12 @@ Knowledge Agents on Stable is deployed on the following two tenants
 
 ### 1. Prepare the Two Tenants
 
-As a first step, two technical users are installed for the dataspace connectors using the <https://portal.stable.demo.catena-x.net>
+As a first step, two technical users are installed for the dataspace connectors using the [https://portal.stable.demo.catena-x.net](https://portal.stable.demo.catena-x.net)
 
 * App Provider 1: sa4
 * App Consumer 4: sa5
 
-The generated secrets should be installed under <https://vault.demo.catena-x.net/ui/vault/secrets/knowledge>
+The generated secrets should be installed under [https://vault.demo.catena-x.net/ui/vault/secrets/knowledge](https://vault.demo.catena-x.net/ui/vault/secrets/knowledge)
 
 * stable-provider-dim
 * stable-consumer-dim
@@ -135,7 +135,7 @@ Finally, an access token to the vault has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following three applications have been installed.
+Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following three applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
@@ -341,7 +341,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -349,7 +349,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
   chart: agent-plane
 destination:
@@ -559,7 +559,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -567,7 +567,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
               BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
             matchmaking: https://consumer-agent.stable.demo-catena-x.net
@@ -651,7 +651,7 @@ source:
               @prefix bpnl: <bpn:legal:> .
               @prefix bpns: <bpn:site:> .
               @base <GraphAsset?local=Dataspace> .
-              
+
               bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
@@ -659,7 +659,7 @@ source:
                               cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
           agent:
             synchronization: 360000
-            connectors: 
+            connectors:
               BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
               BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
   chart: matchmaking-agent
@@ -670,7 +670,7 @@ destination:
 
 ### 4. Deploy App Provider 1 Provisioning Agent
 
-Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following application has been installed.
+Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
 
 For simplicity, the provisioning agent exposes a builtin sample H2 database as a graph and therefore needs to write the file system with its non-root account.
 Therefore, some of the following settings are specific to stable and will not be used under productive settings.
@@ -746,7 +746,7 @@ destination:
 
 ### 5. Deploy App Provider 1 Remoting Agent
 
-Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following application has been installed.
+Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
 
 For simplicity, the remoting agent exposes a simply public API as a graph.
 
@@ -827,7 +827,7 @@ destination:
 
 ### 6. Deploy App Provider 1 AAS Bridge
 
-Using <https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge> the following application has been installed.
+Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
 
 For simplicity, the aas bridge uses builtin-persistence.
 
