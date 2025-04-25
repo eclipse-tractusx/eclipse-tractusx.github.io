@@ -209,7 +209,7 @@ sudo snap install kubectl --classic
 
 :::note
 
-Occasionally snap will fail with an error message "Access forbidden", alternatively you may try to install Kubectl using the native package as follows. Please check <https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/> for further information.
+Occasionally snap will fail with an error message "Access forbidden", alternatively you may try to install Kubectl using the native package as follows. Please check [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux) for further information.
 
 :::
 
@@ -261,7 +261,7 @@ kubectl cluster-info
 
 #### Install Minikube
 
-To install minikube just download the executable from the repository. (Please check also <https://kubernetes.io/de/docs/tasks/tools/install-minikube/>)
+To install minikube just download the executable from the repository. (Please check also [here](https://kubernetes.io/de/docs/tasks/tools/install-minikube)
 
 ```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \

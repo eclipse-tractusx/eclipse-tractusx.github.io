@@ -4,7 +4,7 @@ title: Testbed
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -31,8 +31,8 @@ This document describes a testbed for checking conformance of the (Knowledge) Ag
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [Architecture](../software-development-view/architecture) documentation
+* The [EDC Deployment](agent-edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
@@ -40,7 +40,7 @@ For more information see
 
 ## Test Scripts
 
-The CAB (Conformity Assessment Body) may use a set of predefined API interactions to run against its own dataspace tenant or let the assessed party run these scripts depending on the assessment method. The scripts are hierarchically organized and can be found under this [Postman Collection](ka_conformity_scripts.postman_collection.json) or online under <https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection>. For the URLs and identities of the CAB or the CAP (Conformity Assessment Party), the appropriate environment variables have to be set.
+The CAB (Conformity Assessment Body) may use a set of predefined API interactions to run against its own dataspace tenant or let the assessed party run these scripts depending on the assessment method. The scripts are hierarchically organized and can be found under this [Postman Collection](ka_conformity_scripts.postman_collection.json) or online under [https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection](https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection). For the URLs and identities of the CAB or the CAP (Conformity Assessment Party), the appropriate environment variables have to be set.
 
 ![KA Confirmity Assessment Scrtips](@site/static/img/knowledge-agents/ka_conformity_scripts.png)
 

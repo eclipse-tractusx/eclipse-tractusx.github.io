@@ -36,66 +36,6 @@ const sidebars = {
     kits: [
         {
             type: 'category',
-            label: 'Agents Kit',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                'kits/knowledge-agents/Knowledge Agent Changelog',
-                'kits/knowledge-agents/adoption-view/intro',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/knowledge-agents/development-view/architecture',
-                    },
-                    collapsed: true,
-                    items: [
-                        'kits/knowledge-agents/development-view/Arc42',
-                        'kits/knowledge-agents/development-view/modelling',
-                        'kits/knowledge-agents/development-view/modules',
-                        'kits/knowledge-agents/development-view/reference',
-                        {
-                            type: 'category',
-                            label: 'API',
-                            link: {
-                                type: 'doc',
-                                id: 'kits/knowledge-agents/development-view/api',
-                            },
-                            collapsed: true,
-                            items: [
-                                'kits/knowledge-agents/development-view/api/agent/getAgent',
-                                'kits/knowledge-agents/development-view/api/agent/postAgent',
-                                'kits/knowledge-agents/development-view/api/agent/skill/postSkill',
-                                'kits/knowledge-agents/development-view/api/agent/skill/getSkill',
-                                'kits/knowledge-agents/development-view/api/graph/postGraph',
-                                'kits/knowledge-agents/development-view/api/graph/deleteGraph',
-                            ],
-                        }
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Operation View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/knowledge-agents/operation-view/deployment',
-                    },
-                    collapsed: true,
-                    items: [
-                        'kits/knowledge-agents/operation-view/agent_edc',
-                        'kits/knowledge-agents/operation-view/provider',
-                        'kits/knowledge-agents/operation-view/bridge',
-                        'kits/knowledge-agents/operation-view/policy',
-                        'kits/knowledge-agents/operation-view/testbed',
-                    ],
-                },
-            ],
-        },
-        {
-            type: 'category',
             label: 'Behaviour Twin KIT',
             link: {
                 type: 'doc',
@@ -126,14 +66,14 @@ const sidebars = {
                     label: 'Development View',
                     link: {
                         type: 'doc',
-                        id: 'kits/behaviour-twin-kit/development-view/overview',
+                        id: 'kits/behaviour-twin-kit/software-development-view/overview',
                     },
                     items: [
-                        'kits/behaviour-twin-kit/development-view/contracts-and-policies',
-                        'kits/behaviour-twin-kit/development-view/data-bindings',
-                        'kits/behaviour-twin-kit/development-view/service-bindings',
-                        'kits/behaviour-twin-kit/development-view/skill',
-                        'kits/behaviour-twin-kit/development-view/guidance-and-resources',
+                        'kits/behaviour-twin-kit/software-development-view/contracts-and-policies',
+                        'kits/behaviour-twin-kit/software-development-view/data-bindings',
+                        'kits/behaviour-twin-kit/software-development-view/service-bindings',
+                        'kits/behaviour-twin-kit/software-development-view/skill',
+                        'kits/behaviour-twin-kit/software-development-view/guidance-and-resources',
                     ]
                 },
                 {
@@ -220,523 +160,615 @@ const sidebars = {
                 },
             ]
         },
-        {
+      {
+        type: 'category',
+        label: 'Business Partner KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/business-partner-kit/changelog',
+          'kits/business-partner-kit/adoption-view',
+          {
             type: 'category',
-            label: 'Business Partner KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
+            label: 'Development View',
+            link: { type: 'generated-index' },
             items: [
-                'kits/Business Partner Kit/Changelog',
-                'kits/Business Partner Kit/Adoption View',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: "generated-index",
-                    },
-                    items: [
-                        'kits/Business Partner Kit/Software Development View/Specification',
-                        {
-                            type: "link",
-                            label: "Gate API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/gate/swagger-ui/'
-                        },
-                        {
-                            type: "link",
-                            label: "Pool API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/pool/swagger-ui/'
-                        },
-                        {
-                            type: "link",
-                            label: "Orchestrator API",
-                            href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/orchestrator/swagger-ui/'
-                        },
-                        'kits/Business Partner Kit/Software Development View/Use Cases'
-                    ]
-                },
-                'kits/Business Partner Kit/Operation View',
-                {
-                    type: 'category',
-                    label: 'Success Stories',
-                    link: {
-                        type: "generated-index",
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Business Partner Kit/Success Stories'
-                        }
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Architecture View',
-                    link: {
-                        type: "generated-index",
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Business Partner Kit/Documentation BPDM'
-                        }
-                    ]
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Circularity KIT',
-            link: {
-                type: 'doc',
-                id: 'kits/Circularity_KIT/page-adoption-view'
-            },
-            items: [
-                'kits/Circularity_KIT/Changelog Circularity KIT',
-                'kits/Circularity_KIT/page-adoption-view',
-                'kits/Circularity_KIT/page-glossary',
+              'kits/business-partner-kit/software-development-view/specification',
+              {
+                type: 'link',
+                label: 'Gate API',
+                href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/gate/swagger-ui/'
+              },
+              {
+                type: 'link',
+                label: 'Pool API',
+                href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/pool/swagger-ui/'
+              },
+              {
+                type: 'link',
+                label: 'Orchestrator API',
+                href: 'https://eclipse-tractusx.github.io/api-hub/bpdm/6.3.0/orchestrator/swagger-ui/'
+              },
+              'kits/business-partner-kit/software-development-view/use-cases'
             ]
-        },
-        {
+          },
+          'kits/business-partner-kit/operation-view',
+          {
             type: 'category',
-            label: 'Connector KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
+            label: 'Success Stories',
+            link: { type: 'generated-index' },
             items: [
-                'kits/Connector Kit/page_changelog',
-                {
-                    type: 'category',
-                    label: 'Adoption View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/Connector Kit/Adoption View/connector_kit_adoption_view'
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Connector Kit/Adoption View',
-                        },
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/Connector Kit/Development View/connector_kit_development_view_specifications'
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Connector Kit/Development View',
-                        },
-                    ]
-                },
-                'kits/Connector Kit/Operation View/connector_kit_operation_view',
-
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Customs KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/customs-kit'
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Data Chain KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                'kits/Data Chain Kit/data chain kit changelog',
-                'kits/Data Chain Kit/Adoption View Data Chain Kit',
-                'kits/Data Chain Kit/Operation View',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/Data Chain Kit/Software Development View/Specification'
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Data Chain Kit/Software Development View/Job Api'
-                        }
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Documentation',
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/Data Chain Kit/Documentation'
-                        }
-                    ]
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Demand and Capacity Management KIT',
-            link: {
-                type: 'doc',
-
-                id: 'kits/demand-and-capacity-management-kit/adoption-view/overview',
-            },
-            collapsed: true,
-            items: [
-                'kits/demand-and-capacity-management-kit/changelog',
-
-                {
-                    type: 'category',
-                    label: 'Adoption View',
-                    link: {
-                        type: 'doc',
-
-                        id: 'kits/demand-and-capacity-management-kit/adoption-view/overview',
-                    },
-                    items: [
-                        'kits/demand-and-capacity-management-kit/adoption-view/glossary',
-                        {
-                            type: 'category',
-                            label: 'Use Case',
-                            link: {
-                                type: 'generated-index',
-                            },
-                            collapsed: true,
-                            items: [
-                                {
-
-                                    type: 'autogenerated',
-                                    dirName: 'kits/demand-and-capacity-management-kit/adoption-view/use-case'
-                                }
-                            ]
-                        },
-                        'kits/demand-and-capacity-management-kit/adoption-view/onboarding',
-                        'kits/demand-and-capacity-management-kit/adoption-view/qna',
-                        'kits/demand-and-capacity-management-kit/adoption-view/foss-app',
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/demand-and-capacity-management-kit/development-view/overview',
-                    },
-                    items: [
-                        'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedMaterialDemand',
-                        'kits/demand-and-capacity-management-kit/development-view/model-WeekBasedCapacityGroup',
-                        'kits/demand-and-capacity-management-kit/development-view/model-IdBasedRequestForUpdate',
-                        'kits/demand-and-capacity-management-kit/development-view/model-IdBasedComment',
-                        'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedMaterialDemand',
-                        {
-                            type: "category",
-                            label: "API Specification",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-material-demand-api/sidebar.js'),
-                        },
-                        'kits/demand-and-capacity-management-kit/development-view/api-WeekBasedCapacityGroup',
-                        {
-                            type: "category",
-                            label: "API Specification",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-capacity-group-api/sidebar.js'),
-                        },
-                        'kits/demand-and-capacity-management-kit/development-view/api-IdBasedRequestForUpdate',
-                        {
-                            type: "category",
-                            label: "API Specification",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-rfu-api/sidebar.js'),
-                        },
-                        'kits/demand-and-capacity-management-kit/development-view/api-IdBasedComment',
-                        {
-                            type: "category",
-                            label: "API Specification",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/demand-and-capacity-management-kit/development-view/plugin-generated-comment-api/sidebar.js'),
-                        },
-                        'kits/demand-and-capacity-management-kit/development-view/api-aas',
-                        'kits/demand-and-capacity-management-kit/development-view/test-customer',
-                        'kits/demand-and-capacity-management-kit/development-view/test-supplier',
-                    ]
-                },
-                {
-                    type: 'category',
-                    label: 'Architecture View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/demand-and-capacity-management-kit/architecture-view/overview',
-                    },
-                    items: [
-                        'kits/demand-and-capacity-management-kit/architecture-view/dependencies',
-                    ]
-                },
-                'kits/demand-and-capacity-management-kit/operation-view',
+              {
+                type: 'autogenerated',
+                dirName: 'kits/business-partner-kit/success-stories'
+              }
             ]
-        },
-        {
+          },
+          {
             type: 'category',
-            label: 'Data Governance Kit',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
+            label: 'Architecture View',
+            link: { type: 'generated-index' },
             items: [
-                'kits/data-governance-kit/changelog',
-                'kits/data-governance-kit/adoption-view',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: 'doc',
-                        id: 'kits/data-governance-kit/development-view'
-                    },
-                    items: [
-                        {
-                            type: 'autogenerated',
-                            dirName: 'kits/data-governance-kit/resources/MDX Files'
-                        }
-                    ]
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Digital Twin KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Digital Twin Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Eco Pass KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [{
+              {
                 type: 'autogenerated',
-                dirName: 'kits/Eco_Pass_KIT',
-            },
-            ],
+                dirName: 'kits/business-partner-kit/documentation-bpdm'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Circularity KIT',
+        link: {
+            type: 'doc',
+            id: 'kits/circularity-kit/adoption-view'
         },
-        {
-            type: 'category',
-            label: 'ESS KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [{
-                type: 'autogenerated',
-                dirName: 'kits/ESS-Kit',
-            },
-            ],
+        items: [
+            'kits/circularity-kit/changelog',
+            'kits/circularity-kit/adoption-view',
+            'kits/circularity-kit/glossary',
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Connector KIT',
+        link: {
+            type: 'generated-index',
         },
-        {
-            type: 'category',
-            label: 'Industry Core KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Industry Core Kit',
+        collapsed: true,
+        items: [
+            'kits/connector-kit/changelog',
+            {
+                type: 'category',
+                label: 'Adoption View',
+                link: {
+                    type: 'doc',
+                    id: 'kits/connector-kit/adoption-view/adoption-view'
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Logistics KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/logistics-kit'
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Manufacturing as a Service KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Manufacturing as a Service Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Model Based Development and Data Processing (MDP) KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Behaviour Twin MDP Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Modular Production Kit',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Modular Production Kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'OSim KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/osim-kit',
-                },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'PCF Exchange KIT',
-            link: {
-                type: 'generated-index',
-            },
-            collapsed: true,
-            items: [
-                'kits/PCF Exchange Kit/PCF Exchange Kit Changelog',
-                'kits/PCF Exchange Kit/Adoption View',
-                'kits/PCF Exchange Kit/Operation View',
-                {
-                    type: 'category',
-                    label: 'Development View',
-                    link: {
-                        type: "generated-index",
+                items: [
+                    {
+                        type: 'autogenerated',
+                        dirName: 'kits/connector-kit/adoption-view',
                     },
-                    items: [
-                        'kits/PCF Exchange Kit/Software Development View/Specification',
-                        {
-                            type: "category",
-                            label: "PCF Exchange API",
-                            link: {
-                                type: "generated-index",
-                            },
-                            items: require('./docs-kits/kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/sidebar.js'),
-                        }
-                    ]
-                }
+                ]
+            },
+            {
+                type: 'category',
+                label: 'Software Development View',
+                link: {
+                    type: 'doc',
+                    id: 'kits/connector-kit/software-development-view/specifications'
+                },
+                items: [
+                    {
+                        type: 'autogenerated',
+                        dirName: 'kits/connector-kit/software-development-view',
+                    },
+                ]
+            },
+            'kits/connector-kit/operation-view/operation-view',
 
-            ],
-        },
-        {
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Customs KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/customs-kit'
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Data Chain KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/data-chain-kit/changelog',
+          'kits/data-chain-kit/adoption-view',
+          'kits/data-chain-kit/operation-view',
+          {
             type: 'category',
-            label: 'PURIS Kit',
+            label: 'Development View',
             link: {
-                type: 'generated-index',
+              type: 'doc',
+              id: 'kits/data-chain-kit/software-development-view/software-development-view'
+            },
+            items: [
+              {
+                type: 'link',
+                label: 'Item Relationship Service API',
+                href: 'https://eclipse-tractusx.github.io/api-hub/item-relationship-service/6.0.1/swagger-ui/'
+              }
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Documentation',
+            items: [
+              {
+                type: 'autogenerated',
+                dirName: 'kits/data-chain-kit/documentation'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Data Governance KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/data-governance-kit/changelog',
+          'kits/data-governance-kit/adoption-view',
+          {
+            type: 'category',
+            label: 'Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/data-governance-kit/development-view'
+            },
+            items: [
+              {
+                type: 'link',
+                label: 'OpenAPI',
+                href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-data-governance-openAPI-0.0.1-SNAPSHOT/swagger-ui/'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Demand and Capacity Management KIT',
+        link: {
+          type: 'doc',
+          id: 'kits/demand-and-capacity-management-kit/adoption-view/overview'
+        },
+        collapsed: true,
+        items: [
+          'kits/demand-and-capacity-management-kit/changelog',
+          {
+            type: 'category',
+            label: 'Adoption View',
+            link: {
+              type: 'doc',
+              id: 'kits/demand-and-capacity-management-kit/adoption-view/overview'
+            },
+            items: [
+              'kits/demand-and-capacity-management-kit/adoption-view/glossary',
+              {
+                type: 'category',
+                label: 'Use Case',
+                link: { type: 'generated-index' },
+                collapsed: true,
+                items: [
+                  {
+                    type: 'autogenerated',
+                    dirName: 'kits/demand-and-capacity-management-kit/adoption-view/use-case'
+                  }
+                ]
+              },
+              'kits/demand-and-capacity-management-kit/adoption-view/onboarding',
+              'kits/demand-and-capacity-management-kit/adoption-view/qna',
+              'kits/demand-and-capacity-management-kit/adoption-view/foss-app'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/demand-and-capacity-management-kit/software-development-view/overview'
+            },
+            items: [
+              'kits/demand-and-capacity-management-kit/software-development-view/model-WeekBasedMaterialDemand',
+              'kits/demand-and-capacity-management-kit/software-development-view/model-WeekBasedCapacityGroup',
+              'kits/demand-and-capacity-management-kit/software-development-view/model-IdBasedRequestForUpdate',
+              'kits/demand-and-capacity-management-kit/software-development-view/model-IdBasedComment',
+              'kits/demand-and-capacity-management-kit/software-development-view/api-WeekBasedMaterialDemand',
+              'kits/demand-and-capacity-management-kit/software-development-view/api-WeekBasedCapacityGroup',
+              'kits/demand-and-capacity-management-kit/software-development-view/api-IdBasedRequestForUpdate',
+              'kits/demand-and-capacity-management-kit/software-development-view/api-IdBasedComment',
+              'kits/demand-and-capacity-management-kit/software-development-view/api-aas',
+              'kits/demand-and-capacity-management-kit/software-development-view/test-customer',
+              'kits/demand-and-capacity-management-kit/software-development-view/test-supplier'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Architecture View',
+            link: {
+              type: 'doc',
+              id: 'kits/demand-and-capacity-management-kit/architecture-view/overview'
+            },
+            items: [
+              'kits/demand-and-capacity-management-kit/architecture-view/dependencies'
+            ]
+          },
+          'kits/demand-and-capacity-management-kit/operation-view'
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Digital Twin KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/digital-twin-kit'
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Eco Pass KIT',
+        link: {
+            type: 'generated-index',
+        },
+        collapsed: true,
+        items: [
+            'kits/eco-pass-kit/changelog',
+            'kits/eco-pass-kit/adoption-view',
+            'kits/eco-pass-kit/software-development-view',
+            'kits/eco-pass-kit/software-operation-view',
+            {
+                type: 'category',
+                label: 'Success Stories',
+                link: {
+                    type: 'generated-index'
+                },
+                collapsed: true,
+                items: [
+                    {
+                        type: 'autogenerated',
+                        dirName: 'kits/eco-pass-kit/success-stories'
+                    }
+                ]
+            },
+
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Environmental and Social Standards KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/environmental-and-social-standards-kit'
+          }
+        ]
+      },
+      {
+          type: 'category',
+          label: 'Industry Core KIT',
+          link: {
+              type: 'generated-index',
+          },
+          collapsed: true,
+          items: [
+              {
+                  type: 'autogenerated',
+                  dirName: 'kits/industry-core-kit',
+              },
+          ],
+      },
+      {
+        type: 'category',
+        label: 'Knowledge Agents KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/knowledge-agents/Knowledge Agent Changelog',
+          'kits/knowledge-agents/adoption-view/intro',
+          {
+            type: 'category',
+            label: 'Software Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/knowledge-agents/software-development-view/architecture'
             },
             collapsed: true,
             items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/PURIS Kit',
+              'kits/knowledge-agents/software-development-view/Arc42',
+              'kits/knowledge-agents/software-development-view/modelling',
+              'kits/knowledge-agents/software-development-view/modules',
+              'kits/knowledge-agents/software-development-view/reference',
+              {
+                type: 'category',
+                label: 'API',
+                link: {
+                  type: 'doc',
+                  id: 'kits/knowledge-agents/software-development-view/api'
                 },
-            ],
-        },
-        {
+                collapsed: true,
+                items: [
+                  'kits/knowledge-agents/software-development-view/api/agent/getAgent',
+                  'kits/knowledge-agents/software-development-view/api/agent/postAgent',
+                  'kits/knowledge-agents/software-development-view/api/agent/skill/postSkill',
+                  'kits/knowledge-agents/software-development-view/api/agent/skill/getSkill',
+                  'kits/knowledge-agents/software-development-view/api/graph/postGraph',
+                  'kits/knowledge-agents/software-development-view/api/graph/deleteGraph'
+                ]
+              }
+            ]
+          },
+          {
             type: 'category',
-            label: 'Quality KIT',
+            label: 'Operation View',
             link: {
-                type: 'generated-index',
+              type: 'doc',
+              id: 'kits/knowledge-agents/operation-view/deployment'
             },
             collapsed: true,
             items: [
+              'kits/knowledge-agents/operation-view/agent-edc',
+              'kits/knowledge-agents/operation-view/provider',
+              'kits/knowledge-agents/operation-view/bridge',
+              'kits/knowledge-agents/operation-view/policy',
+              'kits/knowledge-agents/operation-view/testbed'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Logistics KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/logistics-kit'
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Manufacturing as a Service KIT',
+        link: {
+            type: 'generated-index',
+        },
+        collapsed: true,
+        items:
+            [
+                'kits/manufacturing-as-a-service-kit/changelog',
+                'kits/manufacturing-as-a-service-kit/adoption-view',
                 {
-                    type: 'autogenerated',
-                    dirName: 'kits/quality-kit',
+                    type: 'category',
+                    label: 'Software Development View',
+                    collapsed: true,
+                    items:
+                        [
+                            'kits/manufacturing-as-a-service-kit/software-development-view/introduction',
+                            'kits/manufacturing-as-a-service-kit/software-development-view/architecture',
+                            {
+                                type: 'category',
+                                label: 'Manufacturing Capability',
+                                collapsed: true,
+                                items:
+                                    [
+                                        'kits/manufacturing-as-a-service-kit/software-development-view/manufacturing-capability/manufacturing-capability-aspect-model',
+                                        'kits/manufacturing-as-a-service-kit/software-development-view/manufacturing-capability/api-description',
+                                        {
+                                            type: "link",
+                                            label: "Manufacturing Capability API",
+                                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-maas-ManufacturingCapability-openAPI-v3.1.0/swagger-ui/'
+                                        },
+                                    ],
+                            },
+                            {
+                                type: 'category',
+                                label: 'Request for Quotation',
+                                collapsed: true,
+                                items:
+                                    [
+                                        'kits/manufacturing-as-a-service-kit/software-development-view/request-for-quotation/request-for-quotation',
+                                        'kits/manufacturing-as-a-service-kit/software-development-view/request-for-quotation/api-description',
+                                        {
+                                            type: "link",
+                                            label: "Request for Quotation API",
+                                            href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-maas-RfQ-openAPI-v3/swagger-ui/'
+                                        },
+                                    ],
+                            },
+                        ],
                 },
             ],
+      },
+      {
+        type: 'category',
+        label: 'Model Based Development and Data Processing KIT',
+        link: {
+            type: 'generated-index',
         },
-        {
+        collapsed: true,
+        items: [
+            'kits/model-based-development-and-data-processing-kit/changelog',
+            'kits/model-based-development-and-data-processing-kit/adoption-view',
+            'kits/model-based-development-and-data-processing-kit/development-view',
+            {
+                type: 'category',
+                label: 'Success Stories',
+                link: {
+                    type: 'generated-index'
+                },
+                collapsed: true,
+                items: [
+                    {
+                        type: 'autogenerated',
+                        dirName: 'kits/model-based-development-and-data-processing-kit/success-stories'
+                    }
+                ]
+            },
+
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Modular Production KIT',
+        link: {
+            type: 'generated-index',
+        },
+        collapsed: true,
+        items: [
+            {
+                type: 'autogenerated',
+                dirName: 'kits/modular-production-kit',
+            },
+            {
+                type: 'category',
+                label: 'Software Development View',
+                link: {
+                    type: 'generated-index',
+                },
+                items: [
+                    {
+                        type: "link",
+                        label: "Consumer: GetProductionForecast API",
+                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-modular-production-ProvideProductionForecast-openAPI-v2/swagger-ui/'
+                    },
+                    {
+                        type: "link",
+                        label: "Consumer: ProvideProductionTracking API",
+                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-modular-production-ProvideProductionTracking-openAPI-v1/swagger-ui/'
+                    },
+                    {
+                        type: "link",
+                        label: "Provider: GetProductionForecast API",
+                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-modular-production-GetProductionForecast-openAPI-v2/swagger-ui/'
+                    },
+                    {
+                        type: "link",
+                        label: "Provider: GetProductionTracking API",
+                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-modular-production-GetProductionTracking-openAPI-v1/swagger-ui/'
+                    }
+                ]
+            }
+        ]
+    },
+      {
+        type: 'category',
+        label: 'Online Simulation KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/online-simulation-kit/changelog',
+          'kits/online-simulation-kit/adoption-view',
+          {
             type: 'category',
-            label: 'Supply Chain Disruption Notifications KIT',
+            label: 'Software Development View',
             link: {
-                type: 'generated-index',
+              type: 'doc',
+              id: 'kits/online-simulation-kit/software-development-view'
             },
             collapsed: true,
             items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/supply-chain-disruption-notification-kit',
-                },
-            ],
+              {
+                type: 'link',
+                label: 'OSim API',
+                href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-osim-openAPI-2.0.0/swagger-ui/'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Predictive Unit Real-Time Information Service KIT',
+        link: {
+            type: 'generated-index',
         },
-        {
-            type: 'category',
-            label: 'Traceability KIT',
-            link: {
-                type: 'generated-index',
+        collapsed: true,
+        items: [
+            {
+                type: 'autogenerated',
+                dirName: 'kits/puris-kit',
             },
-            collapsed: true,
-            items: [
-                {
-                    type: 'autogenerated',
-                    dirName: 'kits/Traceability Kit',
-                },
-            ],
-        }
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Product Carbon Footprint Exchange KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/product-carbon-footprint-exchange-kit'
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Data Driven Quality Management KIT',
+        link: {
+            type: 'generated-index',
+        },
+        collapsed: true,
+        items: [
+            {
+                type: 'autogenerated',
+                dirName: 'kits/data-driven-quality-management-kit',
+            },
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Supply Chain Disruption Notification KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          {
+            type: 'autogenerated',
+            dirName: 'kits/supply-chain-disruption-notification-kit'
+          }
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Traceability KIT',
+        link: {
+            type: 'generated-index',
+        },
+        collapsed: true,
+        items: [
+          {
+              type: 'autogenerated',
+              dirName: 'kits/traceability-kit',
+          },
+        ],
+      }
     ]
-};
-module.exports = sidebars;
+  };
+
+  module.exports = sidebars;

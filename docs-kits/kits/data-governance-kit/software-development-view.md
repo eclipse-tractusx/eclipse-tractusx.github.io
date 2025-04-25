@@ -27,14 +27,13 @@ sidebar_position: 3
 ![DatGov Kit Banner](/resources/DatGovKit-Icon.png)
 -->
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
 For more information see
 
-* [Adoption View](../page_adoption-view.md)
-* [Operation View](../page_software-operation-view.md)
+* [Development View and Architecture](./software-development-view)
 
 ### Overview
 
@@ -49,13 +48,13 @@ As it would be clear now that the Data Governance Kit acts as an abstraction lay
 
 The staging or Management refers to the creation, updation, deletion of various Assets, Policies and Contract Offers locally within the Governance KIT before actually sending those to the connectors. The users can create as many Assets, Policies or Contract Offers, get those reviewed and approved by any manual or automatic workflow process. Once the users are sure that now the data is ready to be sent to Connectors, the Publication process kicks in. Using the publication process, all the reviewed/approved assets, policies and contract offers can be sent to the required connectors. The following high level architecture provides more details.
 
-![Data Governance Kit High Level Architecture](./resources/Data%20Governance%20KIT_%20Big%20Picture.png)
+![Data Governance Kit High Level Architecture](./resources/data-governance-kit-big-picture.png)
 
 ### API Specifications
 
 The Data Governance KIT API specifications can be found here.
 
-[Data Governance Kit Swagger API Specifications](https://app.swaggerhub.com/apis-docs/TSI-Germany/data-governance_kit/0.0.1-SNAPSHOT)
+[Data Governance Kit Swagger API Specifications](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-data-governance-openAPI-0.0.1-SNAPSHOT/swagger-ui/)
 
 ## NOTICE
 
