@@ -144,7 +144,7 @@ export const kitsGallery = [
   },
   {
     id: 13,
-    name: 'Modular Production Kit',
+    name: 'Modular Production KIT',
     domain: 'Manufacturing',
     img: ModularProduction_Kit,
     pageRoute: "/docs-kits/kits/modular-production-kit/adoption-view",
