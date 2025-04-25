@@ -5,7 +5,7 @@ description: Inform the supply chain about urgent issues, that connect be quanti
 sidebar_position: 7
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Business Roles and Functions
 

@@ -18,7 +18,7 @@ tags: [community, meeting-minutes]
 ### Security team
 
 - @matbmoser: Please do check for your security issues on the tab. High and critical issues need to be fixed. We should check this on high level / project level regularly in this meeting
-- @tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see [e.g.](eclipse-tractusx/puris#531))
+- @tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see [e.g.](https://github.com/eclipse-tractusx/puris/pull/531))
 
 ### FOSS
 

@@ -25,9 +25,9 @@ The *consumer* is also the *skill proivder* and, in the special HI case, the *da
 
 The *skill provider* (in this example also the OEM), has to implement the skill and register it over the *Agent Plane API* or call it ad hoc.
 
-In the current example, a HI skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that the query is split into three parts: One general part, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, function assets (in the supplier's catalog/OEM's federated catalog) are resolved by the desired result type. Then, OEM-owned reliability assets are resolved by the required function arguments of resolved function assets. In the second part (at the OEM), the vehicle, subsequent the part of interest, the related load data asset and the supplier of the part are resolved. In the third part (at the supplier), the gathered data is fed back into the respective supplier EDC connector/agent to perform a HI calculation.
+In the current example, a HI skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that the query is split into three parts: One general part, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, function assets (in the supplier's catalog/OEM's federated catalog) are resolved by the desired result type. Then, OEM-owned reliability assets are resolved by the required function arguments of resolved function assets. In the second part (at the OEM), the vehicle, subsequent the part of interest, the related load data asset and the supplier of the part are resolved. In the third part (at the supplier), the gathered data is fed back into the respective supplier EDC connector/agent to perform a HI calculation.
 
-For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/agent_edc).
+For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/agent-edc).
 
 ### FULL EXAMPLE
 
@@ -37,11 +37,11 @@ PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX json: <https://json-schema.org/draft/2020-12/schema#> 
+PREFIX json: <https://json-schema.org/draft/2020-12/schema#>
 PREFIX cx-sh: <https://w3id.org/catenax/ontology/schema#>
-PREFIX cx-common: <https://w3id.org/catenax/ontology/common#> 
+PREFIX cx-common: <https://w3id.org/catenax/ontology/common#>
 PREFIX cx-core: <https://w3id.org/catenax/ontology/core#>
-PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#> 
+PREFIX cx-reliability: <https://w3id.org/catenax/ontology/reliability#>
 PREFIX cx-schema: <https://w3id.org/catenax/ontology/schema#>
 PREFIX cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#>
 PREFIX cx-behaviour: <https://w3id.org/catenax/ontology/behaviour#>
@@ -52,7 +52,7 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 #  - Depending on the targeted result
 #  - Finds the right supplier prognosis asset and its preconditions
 #  - jumps into the OEM-owned reliability asset to obtain the required data
-#  - feeds the gathered data back into the respective supplier connector/agent 
+#  - feeds the gathered data back into the respective supplier connector/agent
 #    to perform a behavioral prognosis
 # Author: cgjung
 # (c) 2023-2024 Catena-X association
@@ -60,8 +60,8 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 
 SELECT DISTINCT ?vin ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?prognosis WHERE {
 
-  VALUES (?vin ?aggregate ?result_type) { 
-      ("@vin"^^xsd:string "Differential Gear"^^xsd:string <@resultType>) 
+  VALUES (?vin ?aggregate ?result_type) {
+      ("@vin"^^xsd:string "Differential Gear"^^xsd:string <@resultType>)
   }
 
   # Determine the prognosis assets
@@ -84,8 +84,8 @@ SELECT DISTINCT ?vin ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
   ?propertyShape sh:in ?parameters_target .
   ?parameters_target rdf:rest*/rdf:first ?ls_type .
 
-  SERVICE ?dataConnector { 
-    GRAPH ?assetData { 
+  SERVICE ?dataConnector {
+    GRAPH ?assetData {
         ?vehicle rdf:type cx-vehicle:Vehicle ;
             cx-vehicle:vehicleIdentificationNumber ?vin .
 
@@ -93,7 +93,7 @@ SELECT DISTINCT ?vin ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
             cx-vehicle:name ?aggregate ;
             cx-vehicle:isPartOf ?vehicle ;
             cx-vehicle:supplier ?supplier .
-            
+
         ?teleAnalysis rdf:type cx-reliability:Analysis ;
              cx-reliability:analysedObject ?assembly ;
              cx-reliability:operatingHoursOfVehicle ?operatingTime ;
@@ -113,7 +113,7 @@ SELECT DISTINCT ?vin ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
   }
 
   SERVICE ?functionConnector {
-    GRAPH ?assetFunction { 
+    GRAPH ?assetFunction {
       SELECT ?prognosis WHERE {
         ?invocation a ?function ;
               cx-behaviour:sender <bpn:legal:BPNLOEM> ;
@@ -156,8 +156,8 @@ SELECT DISTINCT ?vin ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?progn
 The parameter `vin` (list of VINs for vehicles of interest) is the central external parameter that is provided by the caller of this skill. `aggregate` is set to `Differential Gear` to identify the component of interest (gearbox). `result_type` is also an external parameter that can be set to either `https://w3id.org/catenax/ontology/behaviour#HealthIndicatorResult` or to `https://w3id.org/catenax/ontology/behaviour#RemainingUsefulLifeResult`. The result types are extensible. With this generalized skill, different calculation types can be executed. In the HI use case, it must be set to `https://w3id.org/catenax/ontology/behaviour#HealthIndicatorResult`.
 
 ```sparql
-  VALUES (?vin ?aggregate ?result_type) { 
-      ("@vin"^^xsd:string "Differential Gear"^^xsd:string <@resultType>) 
+  VALUES (?vin ?aggregate ?result_type) {
+      ("@vin"^^xsd:string "Differential Gear"^^xsd:string <@resultType>)
   }
 ```
 
@@ -233,7 +233,7 @@ At the supplier's EDC connector, the graph asset of the HI calculation service i
 
 ```sparql
   SERVICE ?functionConnector {
-    GRAPH ?assetFunction { 
+    GRAPH ?assetFunction {
       SELECT ?prognosis WHERE {
         ?invocation a ?function ;
               cx-behaviour:sender <bpn:legal:BPNLOEM> ;
@@ -263,4 +263,4 @@ At the supplier's EDC connector, the graph asset of the HI calculation service i
 
 ## SKILL REGISTRATION AND INVOCATION
 
-For skill registration and invocation, have a look at the [general Development View](../../../development-view/skill#skill-registration).
+For skill registration and invocation, have a look at the [general Development View](../../../software-development-view/skill#skill-registration).

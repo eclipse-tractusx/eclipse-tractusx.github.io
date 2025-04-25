@@ -4,7 +4,7 @@ title: Architecture View
 description: The view from above
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Why​
 
@@ -124,7 +124,7 @@ sequenceDiagram
         deactivate SupplierConnector
         CustomerConnector -->> CustomerApp: MaterialDemand received
         deactivate CustomerConnector
-        CustomerApp -->> Customer: MaterialDemand finalized & synchronized
+        CustomerApp -->> Customer: MaterialDemand finalized and synchronized
         deactivate CustomerApp
     end
     rect rgb(128,149,0)
@@ -172,7 +172,7 @@ sequenceDiagram
         deactivate CustomerConnector
         SupplierConnector -->> SupplierApp: CapacityGroup received
         deactivate SupplierConnector
-        SupplierApp -->> Supplier: CapacityGroup finalized & synchronized
+        SupplierApp -->> Supplier: CapacityGroup finalized and synchronized
         deactivate SupplierApp
     end
 ```

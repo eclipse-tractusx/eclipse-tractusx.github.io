@@ -4,7 +4,7 @@ title: Dependencies
 description: Dependencies
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Standard Dependencies
 
@@ -20,11 +20,6 @@ In order to keep things orderly some restrictions to this graph apply:
 - Catena-X standards can be identified by their ID (e.g. CX-0011).
 - Non Catena-X standards are never resolved further.
 
-![Dependency Graph](./resources/dependencies_dependency-graph.svg)
-
-Figure: *Dependencies*
-
-<!--
 ```mermaid
 mindmap
 root((CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.1.0))
@@ -72,7 +67,8 @@ root((CX-0128 - DEMAND AND CAPACITY MANAGEMENT DATA EXCHANGE V.2.1.0))
         CX-0018
     CX-0146 `v1.0.0` Supply Chain Disruption Notifications
 ```
--->
+
+Figure: *Dependencies*
 
 ## Notice
 

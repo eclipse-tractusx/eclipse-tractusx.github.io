@@ -32,11 +32,6 @@ The core DCM business process is executed by two roles and uses two APIs as well
 
 ## User Journey
 
-![User Journey](./resources/business-process_UserJourney.svg)
-
-Figure: *Basic DCM user journey*
-
-<!--
 ```mermaid
 journey
     title Basic DCM User Journey
@@ -59,7 +54,9 @@ section Collaborate
         Decide on Measures:6: Customer, Supplier
         Solve problems:9: Customer, Supplier
 ```
--->
+
+Figure: *Basic DCM user journey*
+
 ### Personas
 
 The basic DCM user journey encompasses two key personas, each with distinct roles and responsibilities that highlight their value within the supply chain.
@@ -103,8 +100,6 @@ The supplier on the other hand has more options to solve problems. They can not 
 
 ## Material Demand
 
-![Guide Demand](./resources/business-process_guide_demand.svg)
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -130,17 +125,15 @@ G1((" "))
 G2("Collaboration"):2
 G4((" "))
 
-##### FIX THE ARROWS BELOW FOR MERMAID DIAGRAM TO WORK and remove this LOC
-
-C1->C2
-C2->E2
-C3->E2
-C4->C3
-E2->G2
-G1->C1
-G2->G1
-G2->G4
-G4->C4
+C1-->C2
+C2-->E2
+C3-->E2
+C4-->C3
+E2-->G2
+G1-->C1
+G2-->G1
+G2-->G4
+G4-->C4
 
 classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
@@ -153,8 +146,6 @@ class E2,G2 DemCap
 class B1,B4,C2,C3,G1,G4 Frame
 class C1 Highlite
 ```
-
--->
 
 A material demand represents the need for a particular product, part, component or material over a certain time period in a specified quantity. Demand quantities must refer to a time period of one calendar week (weekly buckets).
 
@@ -170,11 +161,6 @@ The supplier must have the capability to consume the material demand data from t
 
 ### Material Demand Structure
 
-![Material Demand Structure](./resources/business-process_MDstructure.svg)
-![Material Demand Structure Legend](./resources/business-process_MDstructure_Legend.svg)
-
-Figure: *Material demand structure*
-<!--
 ```mermaid
 block-beta
 columns 6
@@ -212,14 +198,12 @@ block-beta
 A["Demand data (MUST)"] style A fill:#FFA600,color:#F4F2F3
 B["Demand data (optional)"] style B fill:#BF7100,color:#F4F2F3
 ```
--->
+
+Figure: *Material demand structure*
 
 ### Visualization Example
 
-![Demand Example](./resources/business-process_ExampleDemand.svg)
 
-Figure: *Visualizing demand quantities as bars*
-<!--
 ```mermaid
 ---
    config:
@@ -248,18 +232,14 @@ Figure: *Visualizing demand quantities as bars*
     xychart-beta
     title "Example: Demand Data"
     x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
- 
- ##### FIX THE ARROW BELOW and remove this LOC to get mermaid working   
-    
-    y-axis 0 -> 6000
+    y-axis 0 --> 6000
     bar [3000, 3000, 3000, 3000, 4000, 4000, 4000, 5000]
 ```
--->
+
+Figure: *Visualizing demand quantities as bars*
 
 ## Capacity Group
 
-![Guide Capacity](./resources/business-process_guide_capacity.svg)
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -285,17 +265,15 @@ G1((" "))
 G2("Collaboration"):2
 G4((" "))
 
-##### FIX THE ARROWS BELOW FOR MERMAID DIAGRAM TO WORK and remove this LOC
-
-C1->C2
-C2->E2
-C3->E2
-C4->C3
-E2->G2
-G1->C1
-G2->G1
-G2->G4
-G4->C4
+C1-->C2
+C2-->E2
+C3-->E2
+C4-->C3
+E2-->G2
+G1-->C1
+G2-->G1
+G2-->G4
+G4-->C4
 
 classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
@@ -308,7 +286,6 @@ class E2,G2 DemCap
 class B1,B4,C2,C3,G1,G4 Frame
 class C4 Highlite
 ```
--->
 
 A capacity groups represents the answer to one ore more material demands. It contains the information on how a supplier intends to fulfill customer needs, by contrasting demands with capacities over a certain time period in a specified quantity. Capacity quantities must refer to a time period of one calendar week (weekly buckets).
 
@@ -329,10 +306,6 @@ The Capacity Group is the entity where Material Demand and capacity information 
 
 The entity Capacity Group may be used, i.e. to combine capacities related to one or more machines, facilities or plants.  
 
-![Capacity Group Structure](./resources/business-process_CGstructure.svg)
-
-Figure: *Capacity group structure*
-<!--
 ```mermaid
 block-beta
 columns 7
@@ -367,14 +340,11 @@ block-beta
 A["Capacity data (MUST)"] style A fill:#B3CB2D,color:#F4F2F3
 B["Capacity data (optional)"] style B fill:#617000,color:#F4F2F3
 ```
--->
+
+Figure: *Capacity group structure*
 
 ### Example Visualization
 
-![Capacity Example](./resources/business-process_ExampleCapacity.svg)
-
-Figure: *Visualizing capacity quantities as lines*
-<!--
 ```mermaid
 ---
    config:
@@ -403,23 +373,20 @@ Figure: *Visualizing capacity quantities as lines*
     xychart-beta
     title "Example: Capacity"
     x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
-##### FIX ARROW BELOW AND remove this LOC to get mermaid to work
-    y-axis 0 -> 6000
+    y-axis 0 --> 6000
     line Actual Capacity [3000, 3000, 4000, 4000, 3000, 3000, 3000, 3000]
     line Maximum Capacity [3000, 4000, 4000, 5000, 3000, 4000, 5000, 3000]
     line Agreed Capacity [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000]
 ```
 
--->
-
-<!--
 ```mermaid
 block-beta
 B["Actual Capacity"] style B fill:#B3CB2D,color:#F4F2F3
 C["Maximum Capacity"] style C fill:#809500,color:#F4F2F3
 D["Agreed Capacity"] style D fill:#219dd4,color:#F4F2F3
 ```
--->
+
+Figure: *Visualizing capacity quantities as lines*
 
 ### Capacity Types
 
@@ -466,12 +433,6 @@ For a functional Capacity Group, the supplier must link it directly or indirectl
 
 #### Direct Linking
 
-![Direct Linking](./resources/business-process_DirectLinking.svg)
-![Direct Linking Legend](./resources/business-process_DirectLinking_Legend.svg)
-
-Figure: *Capacity group structure with linked material demand*
-
-<!--
 ```mermaid
 block-beta
 columns 10
@@ -517,7 +478,9 @@ C["Capacity data (MUST)"] style C fill:#B3CB2D,color:#F4F2F3
 D["Capacity data (optional)"] style D fill:#617000,color:#F4F2F3
 
 ```
--->
+
+Figure: *Capacity group structure with linked material demand*
+
 For the technical representation of a CapacityGroup the aspect model WeekBasedCapacityGroup is utilized.  
 
 The aspect model WeekBasedCapacityGroup must be used by a supplier to provide capacity information to the customer.  
@@ -649,11 +612,6 @@ class t2pzc,t1c CG5
 class car Car
 ```
 
-![N-Tier  Linking Legend Legend](./resources/business-process_nTierLinking_Legend.svg)
-
-Figure: *A small supply network built by seven capacity groups*
-
-<!--
 ```mermaid
 block-beta
 1["CapacityGroup 1"] style 1 fill:#B3CB2D,color:#000000
@@ -664,11 +622,11 @@ block-beta
 6["CapacityGroup 6"] style 6 fill:#536008,color:#F4F2F3
 7["CapacityGroup 7"] style 7 fill:#404a00,color:#F4F2F3
 ```
--->
+
+Figure: *A small supply network built by seven capacity groups*
+
 ## Match and Comparison of Demand and Capacity
 
-![Guide Match](./resources/business-process_guide_match.svg)
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -694,17 +652,15 @@ G1((" "))
 G2("Collaboration"):2
 G4((" "))
 
-##### FIX THE ARROWS BELOW FOR MERMAID DIAGRAM TO WORK and remove this LOC
-
-C1->C2
-C2->E2
-C3->E2
-C4->C3
-E2->G2
-G1->C1
-G2->G1
-G2->G4
-G4->C4
+C1-->C2
+C2-->E2
+C3-->E2
+C4-->C3
+E2-->G2
+G1-->C1
+G2-->G1
+G2-->G4
+G4-->C4
 
 classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
@@ -717,8 +673,6 @@ class E2,G2 DemCap
 class B1,B4,C2,C3,G1,G4 Frame
 class E2 Highlite
 ```
-
--->
 
 Both customer and supplier need to apply the same logic when comparing demand and capacity data in order to get the same results and come to identical conclusions.
 
@@ -734,11 +688,6 @@ While customers might not feel impacted by a surplus, because the demand is matc
 
 For ease of use demand and capacity data should be shown on the same graph and colored in appropriately, within a DCM application.
 
-![Capacity Match and Compare](./resources/business-process_ExampleMatchCompare.svg)
-
-Figure: *Visualizing the comparison of demand and capacity quantities*
-
-<!--
 ```mermaid
 ---
    config:
@@ -766,7 +715,7 @@ Figure: *Visualizing the comparison of demand and capacity quantities*
     xychart-beta
     title "Example: Demand and Capacity Data Matching and Comparison within Capacity Group"
     x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
-    y-axis "." 0 -> 6000
+    y-axis "." 0 --> 6000
     bar [3000, 3000, 3000, 3000, 4000, 4000, 4000, 5000]
     bar [0,0,0,0,4000,0,0,5000]
     bar [3000,3000,3000,3000,0,0,0,0]
@@ -776,9 +725,6 @@ Figure: *Visualizing the comparison of demand and capacity quantities*
 
 ```
 
--->
-
-<!--
 ```mermaid
 block-beta
 columns 3
@@ -789,13 +735,10 @@ D["Actual Capacity"] style D fill:#FFFFFF,color:#000000
 E["Maximum Capacity"] style E fill:#046b99,color:#000000
 F["Agreed Capacity"] style F fill:#219dd4,color:#000000
 ```
--->
+
+Figure: *Visualizing the comparison of demand and capacity quantities*
 
 ## Collaboration
-
-![Guide Collaboration ](./resources/business-process_guide_collab.svg)
-
-<!--
 
 ```mermaid
 block-beta
@@ -822,17 +765,15 @@ G1((" "))
 G2("Collaboration"):2
 G4((" "))
 
-##### FIX THE ARROWS BELOW FOR MERMAID DIAGRAM TO WORK and remove this LOC
-
-C1->C2
-C2->E2
-C3->E2
-C4->C3
-E2->G2
-G1->C1
-G2->G1
-G2->G4
-G4->C4
+C1-->C2
+C2-->E2
+C3-->E2
+C4-->C3
+E2-->G2
+G1-->C1
+G2-->G1
+G2-->G4
+G4-->C4
 
 classDef Demand fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Capacity fill:#B3CB2D,stroke:#FFFFFF,color:#000000
@@ -845,7 +786,6 @@ class E2,G2 DemCap
 class B1,B4,C2,C3,G1,G4 Frame
 class G2 Highlite
 ```
--->
 
 Collaboration is key within the DCM process. It is the final part of the DCM user journey, where actual solutions for problems (surplus and bottlenecks) are proposed, discussed and finally deployed.
 

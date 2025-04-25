@@ -27,14 +27,13 @@ sidebar_position: 2
 ![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 -->
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 
 For more information see
 
-* [Development View and Architecture](./Software%20Development%20View/page_software-development-view.md)
-* [Operation View](./page_software-operation-view.md)
+* [Development View and Architecture](./software-development-view)
 
 ### Vision & Mission
 
@@ -58,7 +57,7 @@ The mission is to provide all the required details about Adoption View, Operatio
 
 The Data Governance Kit will provide the API specifications which in turn will enable the develpment of the decentralized components that links Backend Data Services with Data Space Connectors to ease the management of the data governance aspects. This should be helpful in building products but won't be one in itself. The client API from Data Governance Kit should cover the most typical Data Provider and Consumer functions, including publishing and managing data offers, managing policies, listing data transfers and contract negotiations.
 
-![Data Governance Kit Overview](./resources/DGK%20Overview.png)
+![Data Governance Kit Overview](./resources/dgk-overview.png)
 
 ### Business Value
 
