@@ -488,7 +488,7 @@ const sidebars = {
         link: { type: 'generated-index' },
         collapsed: true,
         items: [
-          'kits/knowledge-agents/Knowledge Agent Changelog',
+          'kits/knowledge-agents/changelog',
           'kits/knowledge-agents/adoption-view/intro',
           {
             type: 'category',
