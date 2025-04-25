@@ -7,7 +7,7 @@ export const successStories = [
     img: tracex,
     title: "TRACE-X SUCESS STORY",
     description: "Trace-X empowers all companies from SMEs to large OEMs to participate in parts traceability with an Open-Source solution.",
-    pageRoute: "/docs-kits/kits/Data Chain Kit/Success Stories/Trace-X Sucess Story",
+    pageRoute: "/docs-kits/kits/data-chain-kit/Success Stories/Trace-X Sucess Story",
     buttonName: "SUCESS STORY"
   },
   {
