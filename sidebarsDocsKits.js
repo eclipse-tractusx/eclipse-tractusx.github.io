@@ -635,7 +635,7 @@ const sidebars = {
       },
       {
         type: 'category',
-        label: 'Modular Production Kit',
+        label: 'Modular Production KIT',
         link: {
             type: 'generated-index',
         },
