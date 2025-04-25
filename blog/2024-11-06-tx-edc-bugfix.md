@@ -5,11 +5,7 @@ slug: new-bugfix-release-edc-077
 date: 2024-11-06
 hide_table_of_contents: false
 authors:
-  - name: Lars Geyer-Blaumeiser
-    title: EDC Responsible
-    url: https://github.com/lgblaumeiser
-    image_url: https://github.com/lgblaumeiser.png
-    email: lars.blaumeiser@cofinity-x.com
+  - lgblaumeiser
 ---
 
 ## New Bugfix Release 0.7.7 for Eclipse Tractus-X EDC

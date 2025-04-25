@@ -38,8 +38,10 @@ rohan_krishnamurthy:
 
 stephan_bauer:
   name: Stephan Bauer
-  title: Platform Domain Manager
+  title: Eclipse Tractus-X Project Lead
   url: https://github.com/stephanbcbauer
+  email: stephan.bauer@catena-x.net
+  image_url: https://github.com/stephanbcbauer.png
 
 matbmoser:
   name: Mathias Brunkow Moser
@@ -74,9 +76,45 @@ theresa_hilger:
   title: Data Space Operations Manager
   url: https://github.com/ther3sa
   image_url: https://github.com/ther3sa.png
+  email: theresa.hilger@catena-x.net
 
-  ds-hzimmer:
-    name: Harald Zimmer
-    title: Test Management on behalf of Catena-X e.V.
-    url: https://github.com/ds-hzimmer
-    image_url: https://github.com/ds-hzimmer.png
+ds-hzimmer:
+  name: Harald Zimmer
+  title: Test Management on behalf of Catena-X e.V.
+  url: https://github.com/ds-hzimmer
+  image_url: https://github.com/ds-hzimmer.png
+
+michaela_kleynhans:
+  name: Michaela Kleynhans
+  title: Light Theme Webpage for Tractus-X
+  url: https://github.com/michaelakleynhans
+  image_url: https://avatars.githubusercontent.com/u/158182781?v=4
+  email: michaela.kleynhans@mercedes-benz.com
+
+thibault_grandemenge:
+  name: Thibault Grandemenge
+  title: Business Domanin Manager
+  url: https://github.com/Grand-Thibault
+  image_url: https://github.com/Grand-Thibault.png
+  email: thibault.grandemenge@catena-x.net
+
+hanno_focken:
+  name: Hanno Focken
+  title: Ecosystem & Kits
+  url: https://github.com/hfocken
+  image_url: https://github.com/hfocken.png
+  email: hanno.focken@catena-x.net
+
+maximilian_ong:
+  name: Maximilian Ong
+  title: Ecosystem & Kits
+  url: https://github.com/maximilianong
+  image_url: https://github.com/maximilianong.png
+  email: maximilian.ong@catena-x.net
+
+daniel_miehle:
+  name: Daniel Miehle
+  title: Tractus-X Project Lead
+  url: https://github.com/danielmiehle
+  image_url: https://github.com/danielmiehle.png
+  email: daniel.miehle@bmw.de

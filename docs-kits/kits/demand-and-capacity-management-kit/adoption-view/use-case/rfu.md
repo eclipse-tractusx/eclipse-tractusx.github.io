@@ -5,7 +5,7 @@ description: Request updates from your partner
 sidebar_position: 5
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Business Roles and Functions
 

@@ -100,7 +100,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
                     ├── software-development-view.md
                     └── additional-page.md
                 └── documentation.md
-                    
+
     ```
 
 8. To generate the `OpenAPI` based documentation of your KIT, please see the [api-hub](https://github.com/eclipse-tractusx/api-hub/blob/main/README.md) documentation and related [TRG 1.08 - Interface documentation (APIs)](https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08/)
@@ -109,15 +109,17 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
 
 After evaluation, a "semi-automated" or "manual" solution is not considered effective.
 Please place the openAPI.yaml file directly in your KIT folder and link it to the appropriate location in your .md file.
-Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api/agent/agent-get/).
+Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/software-development-view/api/agent/agent-get/).
 Future: Standardized APIs will be released with yaml file in the Standard library. KIT links to standard and yaml published by the Catena-X e.V.
 
 **For KITs with reference implementation:**
 
 Please use (or adapt existing) automated workflows to publish on SwaggerHub. Maintain your openAPI.yaml and the publishing workflow in the repository of the reference implementation. Remove everything related to that from the website repo and only link to SwaggerHub in your KIT from now on. We utilize a user provided by the Eclipse Foundation to publish on SwaggerHub. Credentials for this user can be used through in the eclipse-tractusx GitHub org secrets and can be utilized in automated workflows. Pay special attention to the "swaggerHub" CLI commands. The location where the openAPI file is maintained may vary. The BPDM example showcases how the application is initiated to download and publish the current file from that location.
 
+```yaml
 SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
-      SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+```
 
 Examples:
 [BPDM Certificate Management](https://github.com/eclipse-tractusx/bpdm-certificate-management/blob/main/.github/workflows/publish-swagger-hub.yaml)
@@ -176,22 +178,22 @@ If you have any questions, please use our [“Tractus-X community call”](https
             to: '/developer',
             items: [
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/data-chain-kit/adoption-view',
                 label: 'Data Chain',
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/traceability-kit/adoption-view',
                 label: 'Traceability',
               },
-              // ********* add here your object specifying "to" and "label" *********** 
+              // ********* add here your object specifying "to" and "label" ***********
             ],
           },
           // ...

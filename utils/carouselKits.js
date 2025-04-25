@@ -7,31 +7,31 @@ export const carouselKits = [
   {
     id: 1,
     img: Business_Kit,
-    pageRoute: "docs/kits/Business Partner Kit/Adoption View"
+    pageRoute: "docs/kits/business-partner-kit/adoption-view"
   },
   {
     id: 2,
     img: Conector_Kit,
-    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/adoption-view"
   },
   {
     id: 3,
     img: DataChain_Kit,
-    pageRoute: "docs/kits/Data Chain Kit/Adoption View"
+    pageRoute: "docs/kits/data-chain-kit/adoption-view"
   },
   {
     id: 4,
     img: Traceability_Kit,
-    pageRoute: "docs/kits/traceability%20Kit/Adoption%20View%20Traceability%20Kit"
+    pageRoute: "docs/kits/traceability-kit/adoption-view"
   },
   {
     id: 5,
     img: Conector_Kit,
-    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View"
+    pageRoute: "docs/kits/tractusx-edc/docs/kit/adoption-view/adoption-view"
   },
   {
     id: 6,
     img: DataChain_Kit,
-    pageRoute: "docs/kits/Data Chain Kit/Adoption View"
+    pageRoute: "docs/kits/data-chain-kit/adoption-view"
   },
 ]

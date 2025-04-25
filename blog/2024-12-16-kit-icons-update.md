@@ -5,11 +5,7 @@ slug: unified-design-color-kits
 date: 2024-12-16
 hide_table_of_contents: false
 authors:
-  - name: Thibault Grandemenge
-    title: Business Domanin Manager
-    url: https://github.com/Grand-Thibault
-    image_url: https://github.com/Grand-Thibault.png
-    email: thibault.grandemenge@catena-x.net
+  - thibault_grandemenge
 ---
 
 ![KITs landscape](@site/static/img/kits/KIT_landscape.drawio.svg)

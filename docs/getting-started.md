@@ -5,7 +5,7 @@ sidebar_position: 10
 
 Welcome to Eclipse Tractus-X!
 
-For new joiners there are [monthly meetings](/community/open-meetings#NewJoiner%20-%20Office%20Hour), please join! We are happy to answer questions and to support you!
+For new joiners there are [monthly meetings](https://eclipse-tractusx.github.io/community/open-meetings#NewJoiner%20-%20Office%20Hour), please join! We are happy to answer questions and to support you!
 
 This page provides information and links to relevant resources before you start contributing to Eclipse Tractus-X.
 
@@ -67,7 +67,7 @@ Some links to important documentation:
 
 Join the [Tractus-X open meetings](/community/open-meetings):
 
-- There is a [meeting especially for new joiners](/community/open-meetings#NewJoiner%20-%20Office%20Hour)
-- Meet the community at the [Friday's Office Hours](/community/open-meetings#Office%20Hour)
+- There is a [meeting especially for new joiners](https://eclipse-tractusx.github.io/community/open-meetings#NewJoiner%20-%20Office%20Hour)
+- Meet the community at the [Friday's Office Hours](https://eclipse-tractusx.github.io/community/open-meetings#Community%20Office%20Hour)
 
 Meet the Eclipse Foundation Team at the [Eclipse Office Hours](https://www.eclipse.org/projects/calendar/). Note: the time in the calendar is GMT.
