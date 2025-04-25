@@ -19,7 +19,7 @@ If you start to build up a very new use case within the overarching Behaviour Tw
 
 To build up the use case, follow the following steps:
 
-- join Catena-X (see [participate section on catena-x.net ![(external link)](../assets/external-link.svg)](https://catena-x.net/en/participate))
+- join Catena-X (see [participate section on catena-x.net ![(external link)](/icons/external-link.svg)](https://catena-x.net/en/participate))
 - develop a business process
 - define participants and their roles
 - consider data protection requirements
@@ -34,4 +34,4 @@ To build up the use case, follow the following steps:
 
 The [Use Case Templates](../use-cases/overview) within this KIT can be used as starting point for the technical development.
 
-For further guidance, refer also to [Guidance And Resources](../development-view/guidance-and-resources) in the Development View.
+For further guidance, refer also to [Guidance And Resources](../software-development-view/guidance-and-resources) in the Development View.

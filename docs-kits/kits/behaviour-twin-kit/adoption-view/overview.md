@@ -7,7 +7,7 @@ description: Behaviour Twin KIT
 <div style={{display:'block'}}>
   <div style={{display:'inline-block', verticalAlign:'top'}}>
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.drawio.svg)
+![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
 
   </div>
   <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
@@ -27,7 +27,7 @@ Behaviour Twin KIT
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0 ![(external link)](../assets/external-link.svg)](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
