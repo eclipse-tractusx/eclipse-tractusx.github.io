@@ -1,5 +1,5 @@
 ---
-id: Supply Chain Disruption Notifications Changelog
+id: changelog
 title: Changelog
 description: 'Supply Chain Disruption Notifications'
 sidebar_position: 1

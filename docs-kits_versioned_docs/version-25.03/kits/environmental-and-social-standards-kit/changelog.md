@@ -1,5 +1,5 @@
 ---
-id: ESS Kit Changelog
+id: changelog
 title: Changelog
 sidebar_position: 1
 ---
