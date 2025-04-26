@@ -5,7 +5,7 @@ description: 'Modular Production KIT'
 sidebar_position: 4
 ---
 
-![mp kit banner]@site/static/img/kits/modular-production/modular-production-kit-gallery.svg
+![mp kit banner](@site/static/img/kits/modular-production/modular-production-kit-gallery.svg)
 
 The following examples show the payload used for exchange. All examples are based on a simple product,
 a box with a lid, that are screwed together with 3 screws.
