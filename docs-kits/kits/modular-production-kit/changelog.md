@@ -5,7 +5,7 @@ description: 'Modular Production Kit'
 sidebar_position: 1
 ---
 
-![mp kit banner]@site/static/img/kits/modular-production/modular-production-kit-gallery.svg
+![mp kit banner](@site/static/img/kits/modular-production/modular-production-kit-gallery.svg)
 
 ### Modular Production Kit
 
