@@ -11,8 +11,8 @@ info:
     url: https://www.eclipse.org/legal/epl-2.0/
   version: 1.14.24
 externalDocs:
-  description: https://eclipse-tractusx.github.io/docs-kits/category/agents-kit
-  url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/software-development-view/api
+  description: https://eclipse-tractusx.github.io/docs-kits/category/knowledge-agents-kit
+  url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents-kit/software-development-view/api
 servers:
 - url: https://knowledge.dev.demo/conforming-agent/bind
   description: Development Conforming Agent for KA-BIND Profile

@@ -53,7 +53,7 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 |Term|Description|Comment|
 |---|---|---|
 |Knowledge Graph|A semantic graph, representing real data|Describes relation between subjects and objects|
-|Knowledge Agent|Components to operate on knowledge graphs across the dataspace|see [Agents KIT](../../knowledge-agents/adoption-view/intro)|
+|Knowledge Agent|Components to operate on knowledge graphs across the dataspace|see [Agents KIT](../../knowledge-agents-kit/adoption-view/intro)|
 |Matchmaking Agent|Resolves federated sub-graphs for the Knowledge Agent|Fits requested sub-graphs with existing graph assets|
 |Binding Agent|A component that binds instances to the knowledge graph|Binds instances of data or services to the knowledge graph|
 |Provisioning Agent|Binding agent for data bindings|Binds instances of data to the knowledge graph|

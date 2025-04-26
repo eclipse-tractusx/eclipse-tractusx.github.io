@@ -17,7 +17,7 @@ Behaviour Twin KIT
 
 ## KNOWLEDGE AGENT
 
-The Behaviour Twin KIT builds up on top of the [Agents KIT](../../knowledge-agents/adoption-view/intro). Therefore, at least a basic understanding of the following semantic web technologies is mandatory:
+The Behaviour Twin KIT builds up on top of the [Agents KIT](../../knowledge-agents-kit/adoption-view/intro). Therefore, at least a basic understanding of the following semantic web technologies is mandatory:
 
 - SPARQL 1.1 Query Language, see [SPARQL on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/)
 - Resource Description Framework (RDF), see [RDF on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/RDF/)

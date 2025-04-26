@@ -139,4 +139,4 @@ The following contract refers to the previous defined skill policy and related s
 }
 ```
 
-For more information, have a look at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
+For more information, have a look at the [Agents KIT's Operation View](../../knowledge-agents-kit/operation-view/provider).
