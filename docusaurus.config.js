@@ -227,7 +227,7 @@ const config = {
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
+                to: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
                 label: 'Knowledge Agents',
               },
               {

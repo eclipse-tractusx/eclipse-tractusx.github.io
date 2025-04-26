@@ -19,7 +19,7 @@ Applies to role: *RuL calculation service provider*
 
 ### OVERVIEW
 
-For general information about service bindings, have a look at the [generalized Service Bindings section](../../../software-development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/provider). In the current section, only a dedicated example is shown.
+For general information about service bindings, have a look at the [generalized Service Bindings section](../../../software-development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents-kit/operation-view/provider). In the current section, only a dedicated example is shown.
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 

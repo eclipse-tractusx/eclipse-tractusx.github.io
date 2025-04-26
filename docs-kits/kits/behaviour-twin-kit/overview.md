@@ -11,7 +11,7 @@ description: Behaviour Twin KIT
 
 ## PURPOSE
 
-Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.
+Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents-kit/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.
 
 ## DISCLAIMER
 

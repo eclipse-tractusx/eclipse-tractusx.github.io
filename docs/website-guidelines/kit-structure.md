@@ -109,7 +109,7 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
 
 After evaluation, a "semi-automated" or "manual" solution is not considered effective.
 Please place the openAPI.yaml file directly in your KIT folder and link it to the appropriate location in your .md file.
-Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/software-development-view/api/agent/agent-get/).
+Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents-kit/software-development-view/api/agent/agent-get/).
 Future: Standardized APIs will be released with yaml file in the Standard library. KIT links to standard and yaml published by the Catena-X e.V.
 
 **For KITs with reference implementation:**

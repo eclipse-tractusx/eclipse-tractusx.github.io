@@ -17,7 +17,7 @@ Behaviour Twin KIT
 
 ## KNOWLEDGE GRAPH BASICS
 
-The Knowledge Agent is a set of federated components that are used to reason over knowledge graphs. For detailed information, see the [Agents KIT](../../knowledge-agents/adoption-view/intro).
+The Knowledge Agent is a set of federated components that are used to reason over knowledge graphs. For detailed information, see the [Agents KIT](../../knowledge-agents-kit/adoption-view/intro).
 
 Semantic models (ontologies, enriched by taxonomies) are describing the data model. They describe all possible classes, their properties and relationships within a specific domain. They may be represented as a graph, but they are not the knowledge graph itself.
 
@@ -79,7 +79,7 @@ Bindings are configured statically. For the changes of the binding configuration
 
 ## SKILLS
 
-A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/software-development-view/modelling#skill).
+A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents-kit/software-development-view/modelling#skill).
 
 ## BENEFITS
 
@@ -119,6 +119,6 @@ This approach shifts complexity to the Knowledge Agent (KA-EDC), which is a well
 Currently, there is no ready-to-use test environment. If you want to test your use case,
 you still have options:
 
-- Have a look at the [Agents KIT](../../knowledge-agents/adoption-view/intro), maybe there is already something regarding testing.
+- Have a look at the [Agents KIT](../../knowledge-agents-kit/adoption-view/intro), maybe there is already something regarding testing.
 - Search at your operating company's website or contact them.
 - Build up your own test environment. As a basis, you could use the official Tractus-X [MXD test environment on GitHub ![(external link)](/icons/external-link.svg)](https://github.com/eclipse-tractusx/tutorial-resources). Unfortunately, the Knowledge Agent components are not included into the MXD deployment scripts until release of the current KIT version.
