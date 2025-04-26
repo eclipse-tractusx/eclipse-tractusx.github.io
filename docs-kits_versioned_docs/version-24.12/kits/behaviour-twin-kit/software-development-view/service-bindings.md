@@ -23,11 +23,11 @@ In many cases, services are provided via REST APIs and are using JSON as input a
 
 ### SERVICE MAPPING TOOL
 
-To bind a service to the knowledge graph, you must use a **remoting agent**, also called the **service binding agent**. The [Agents KIT](../../knowledge-agents/operation-view/provider) therefore provides a software based on [RDF4J ![(external link)](/icons/external-link.svg)](https://rdf4j.org/).
+To bind a service to the knowledge graph, you must use a **remoting agent**, also called the **service binding agent**. The [Agents KIT](../../knowledge-agents-kit/operation-view/provider) therefore provides a software based on [RDF4J ![(external link)](/icons/external-link.svg)](https://rdf4j.org/).
 
 ### SERVICE MAPPING CONFIGURATION
 
-To configure the service mapping, a configuration must be provided that formally describes the mapping. The configuration is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*. For some detailed information, have a look at the [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
+To configure the service mapping, a configuration must be provided that formally describes the mapping. The configuration is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*. For some detailed information, have a look at the [Agents KIT's Operation View](../../knowledge-agents-kit/operation-view/provider).
 
 In this example, an asynchronous calculation service for gearbox RuL values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the RuL logic always requires exact one input set per calculation. Therefore, always the first (and only the first) item of the input list is bound. The service binding is defined as follows.
 

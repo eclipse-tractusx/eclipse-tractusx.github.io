@@ -27,11 +27,11 @@ In most cases, data are provided in (semi-)structured form (relational databases
 
 ### DATA MAPPING TOOL
 
-To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/).
+To bind the relational data to the knowledge graph, you can use a **provisioning agent**, also called the **data binding agent**. The [Agents KIT's Operation View](../../knowledge-agents-kit/operation-view/provider) therefore provides a software based on [OnTop ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/).
 
 ### DATA MAPPING CONFIGURATION
 
-To configure the bindings, a config file for the provisioning agent software has to be created. The file is written in the [OBDA Mapping Language ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/tutorial/mapping/). For some detailed information, have a look at the Knowledge [Agents KIT's Operation View](../../knowledge-agents/operation-view/provider).
+To configure the bindings, a config file for the provisioning agent software has to be created. The file is written in the [OBDA Mapping Language ![(external link)](/icons/external-link.svg)](https://ontop-vkg.org/tutorial/mapping/). For some detailed information, have a look at the Knowledge [Agents KIT's Operation View](../../knowledge-agents-kit/operation-view/provider).
 
 #### CONSTRUCTION OF A SINGLE DATA BINDING
 
