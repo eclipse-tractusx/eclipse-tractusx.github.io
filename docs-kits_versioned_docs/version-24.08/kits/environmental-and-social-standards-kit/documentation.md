@@ -1,5 +1,5 @@
 ---
-id: ESS Kit Documentation
+id: documentation
 title: Documentation
 description: 'What do I have to implement?'
 sidebar_position: 3

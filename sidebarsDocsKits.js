@@ -488,36 +488,36 @@ const sidebars = {
         link: { type: 'generated-index' },
         collapsed: true,
         items: [
-          'kits/knowledge-agents/Knowledge Agent Changelog',
-          'kits/knowledge-agents/adoption-view/intro',
+          'kits/knowledge-agents-kit/changelog',
+          'kits/knowledge-agents-kit/adoption-view/intro',
           {
             type: 'category',
             label: 'Software Development View',
             link: {
               type: 'doc',
-              id: 'kits/knowledge-agents/software-development-view/architecture'
+              id: 'kits/knowledge-agents-kit/software-development-view/architecture'
             },
             collapsed: true,
             items: [
-              'kits/knowledge-agents/software-development-view/Arc42',
-              'kits/knowledge-agents/software-development-view/modelling',
-              'kits/knowledge-agents/software-development-view/modules',
-              'kits/knowledge-agents/software-development-view/reference',
+              'kits/knowledge-agents-kit/software-development-view/Arc42',
+              'kits/knowledge-agents-kit/software-development-view/modelling',
+              'kits/knowledge-agents-kit/software-development-view/modules',
+              'kits/knowledge-agents-kit/software-development-view/reference',
               {
                 type: 'category',
                 label: 'API',
                 link: {
                   type: 'doc',
-                  id: 'kits/knowledge-agents/software-development-view/api'
+                  id: 'kits/knowledge-agents-kit/software-development-view/api'
                 },
                 collapsed: true,
                 items: [
-                  'kits/knowledge-agents/software-development-view/api/agent/getAgent',
-                  'kits/knowledge-agents/software-development-view/api/agent/postAgent',
-                  'kits/knowledge-agents/software-development-view/api/agent/skill/postSkill',
-                  'kits/knowledge-agents/software-development-view/api/agent/skill/getSkill',
-                  'kits/knowledge-agents/software-development-view/api/graph/postGraph',
-                  'kits/knowledge-agents/software-development-view/api/graph/deleteGraph'
+                  'kits/knowledge-agents-kit/software-development-view/api/agent/getAgent',
+                  'kits/knowledge-agents-kit/software-development-view/api/agent/postAgent',
+                  'kits/knowledge-agents-kit/software-development-view/api/agent/skill/postSkill',
+                  'kits/knowledge-agents-kit/software-development-view/api/agent/skill/getSkill',
+                  'kits/knowledge-agents-kit/software-development-view/api/graph/postGraph',
+                  'kits/knowledge-agents-kit/software-development-view/api/graph/deleteGraph'
                 ]
               }
             ]
@@ -527,15 +527,15 @@ const sidebars = {
             label: 'Operation View',
             link: {
               type: 'doc',
-              id: 'kits/knowledge-agents/operation-view/deployment'
+              id: 'kits/knowledge-agents-kit/operation-view/deployment'
             },
             collapsed: true,
             items: [
-              'kits/knowledge-agents/operation-view/agent-edc',
-              'kits/knowledge-agents/operation-view/provider',
-              'kits/knowledge-agents/operation-view/bridge',
-              'kits/knowledge-agents/operation-view/policy',
-              'kits/knowledge-agents/operation-view/testbed'
+              'kits/knowledge-agents-kit/operation-view/agent-edc',
+              'kits/knowledge-agents-kit/operation-view/provider',
+              'kits/knowledge-agents-kit/operation-view/bridge',
+              'kits/knowledge-agents-kit/operation-view/policy',
+              'kits/knowledge-agents-kit/operation-view/testbed'
             ]
           }
         ]
