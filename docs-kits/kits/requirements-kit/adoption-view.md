@@ -56,7 +56,7 @@ In addition to the challenges mentioned above, there is also the issue that the 
 - schnelle Ergebnisbewertungen/abstimmung
 - Informations statt Dateienaustausch
 - Keine Datenbrüche
-- Transparenz und Tracability
+- Transparenz und Traceability
 - Vorteile der Standadisierung
 - Data Sovreignity und Interoperability
 - Höherer Automatisierungsgrad in der Engineering Toolchain möglich
