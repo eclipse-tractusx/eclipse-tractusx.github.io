@@ -57,10 +57,18 @@ In addition to the challenges mentioned above, there is also the issue that the 
 - Informations statt Dateienaustausch
 - Keine Datenbrüche
 - Transparenz und Traceability
-- Vorteile der Standadisierung
+- Vorteile der Standardisierung
 - Data Sovreignity und Interoperability
 - Höherer Automatisierungsgrad in der Engineering Toolchain möglich
 - Verknüpfung zu anderen Eng Usecases möglich
+
+Draft Abstract: Requirements KIT
+
+
+Das Requirements KIT bietet OEMs und großen Automobilzulieferern eine innovative Lösung zur Optimierung des Anforderungsmanagements. Durch die Echtzeitpublikation ermöglicht es eine höhere Geschwindigkeit und schnelle Ergebnisbewertungen sowie Abstimmungen. Anstatt des traditionellen Dateienaustauschs wird ein Informationsaustausch gewährleistet, wodurch Datenbrüche vermieden werden. Die Lösung bietet Transparenz und Traceability, was die Nachverfolgbarkeit und Klarheit der Anforderungen verbessert.
+
+
+Die Standardisierung des Requirements KIT bringt zahlreiche Vorteile mit sich, darunter eine erhöhte Data Sovereignty und Interoperability. Dies führt zu einem höheren Automatisierungsgrad in der Engineering Toolchain und ermöglicht die Verknüpfung zu anderen Engineering Usecases. Insgesamt unterstützt das Requirements KIT eine effizientere und sicherere Anforderungsverwaltung, die den Bedürfnissen der Automobilindustrie gerecht wird.
 #### SME
 - Vereinfachter Req Management Prozess
 - Ersetzt proprietäre B2B interfaces - CX als einziges Interface für alle Kunden - spart Kosten und IT ressourcen und Zeit
