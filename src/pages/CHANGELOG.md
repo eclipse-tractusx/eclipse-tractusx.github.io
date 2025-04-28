@@ -191,7 +191,7 @@ For installation details, please see the referenced Repositories / Releases.
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
 | [Knowledge Agents AAS Bridge](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge) | aas-bridge: [1.13.7](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge/releases/tag/aas-bridge-1.13.7) | [1.13.7](https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge/releases/tag/v1.13.7) |
-| [Supply Chain Disruption Notifications Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/supply-chain-disruption-notification-kit) | n/a | [1.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/supply-chain-disruption-notification-kit/Supply%20Chain%20Disruption%20Notifications%20Changelog#100---2024-08-01) |
+| [Supply Chain Disruption Notifications Kit](https://eclipse-tractusx.github.io/docs-kits/next/category/supply-chain-disruption-notification-kit) | n/a | [1.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/supply-chain-disruption-notification-kit/changelog#100---2024-08-01) |
 | [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [1.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-1.0.0) | [1.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v1.0.0) |
 
 ### Updated
