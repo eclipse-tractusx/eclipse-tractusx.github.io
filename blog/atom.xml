@@ -2,11 +2,61 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-03-20T17:00:00.000Z</updated>
+    <updated>2025-04-25T15:28:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Tractus-X Webpage Updated to Docusaurus 3.7.0]]></title>
+        <id>https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025</id>
+        <link href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025"/>
+        <updated>2025-04-25T15:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Tractus-X Webpage Updated to Docusaurus 3.7.0]]></summary>
+        <content type="html"><![CDATA[<p>Hello Eclipse Tractus-X Community,</p>
+<p>We’re happy to announce that the Eclipse Tractus-X website has been successfully updated. The underlying documentation framework, <strong>Docusaurus</strong>, is now running on <strong>version 3.7.0</strong>.</p>
+<p><strong>This upgrade was essential, as we were previously using an outdated version that limited our flexibility and security.</strong></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-new">What's New?<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#whats-new" class="hash-link" aria-label="Direct link to What's New?" title="Direct link to What's New?">​</a></h2>
+<p>Visually, not much has changed — but you might notice that the <strong>News Blog</strong> is now grouped by year for improved clarity. While the visible updates are minimal, this upgrade clears the path for more improvements in the future.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="improvements-and-cleanups">Improvements and Cleanups<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#improvements-and-cleanups" class="hash-link" aria-label="Direct link to Improvements and Cleanups" title="Direct link to Improvements and Cleanups">​</a></h2>
+<p>The update was not only a technical migration but also an opportunity to perform a comprehensive cleanup. Here’s what was improved:</p>
+<ul>
+<li>KITs folder structure is now consistently using <strong>kebab-case</strong> naming.</li>
+<li>Labels such as "Software Development View" are now standardized across the site.</li>
+<li>Sidebar and dropdown entries for KITs now use consistent and full naming.</li>
+<li>All existing KIT versions were reviewed and cleaned up.</li>
+<li>Obsolete plugins such as <code>open-api</code> and <code>remote</code> were removed.</li>
+<li>References to the <strong>API Hub</strong> were added where possible.</li>
+<li>Node.js version was upgraded from 16 to 18 (used in GitHub workflows).</li>
+<li>Many previously broken links have been fixed.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="known-limitations">Known Limitations<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#known-limitations" class="hash-link" aria-label="Direct link to Known Limitations" title="Direct link to Known Limitations">​</a></h2>
+<p>We are still seeing build-time warnings caused by certain SVG files generated with Draw.io. These SVGs render correctly in the browser, but we plan to improve how we handle them going forward.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-you-should-do">What You Should Do<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#what-you-should-do" class="hash-link" aria-label="Direct link to What You Should Do" title="Direct link to What You Should Do">​</a></h2>
+<p>If you are a KIT contributor:</p>
+<ul>
+<li>Review your KIT for any inconsistencies or missed items.</li>
+<li>If you find something, please <a href="https://github.com/orgs/eclipse-tractusx/projects/85" target="_blank" rel="noopener noreferrer">create an issue</a> — ideally followed by a pull request.</li>
+<li>Double-check that your KIT references the <strong>API Hub</strong> and embeds Swagger UI as needed.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="next-steps">Next Steps<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#next-steps" class="hash-link" aria-label="Direct link to Next Steps" title="Direct link to Next Steps">​</a></h2>
+<p>Following the merge of this large update (<a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1237" target="_blank" rel="noopener noreferrer">see pull request</a>), here are a few post-update tasks:</p>
+<ul>
+<li>Review the changelog for broken links.</li>
+<li>Collect feedback and issues, and fix them when possible.</li>
+<li>Update license headers in 11 files.</li>
+<li>Tag the repository and remove outdated 24.08 KITs for improved performance.</li>
+<li>Update the contributor guidelines on how to adapt and work with KITs.</li>
+<li>Add the open meetings calendar to the documentation.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="thank-you">Thank You<a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025#thank-you" class="hash-link" aria-label="Direct link to Thank You" title="Direct link to Thank You">​</a></h2>
+<p>A big thank you to everyone who contributed and supported this update!</p>]]></content>
+        <author>
+            <name>Stephan Bauer</name>
+            <email>stephan.bauer@catena-x.net</email>
+            <uri>https://github.com/stephanbcbauer</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release Planning for Release 25.09]]></title>
         <id>https://eclipse-tractusx.github.io/blog/release-planning-R25.09</id>
@@ -1240,43 +1290,6 @@ The Catena-X Automotive Network e.V. will provide the corresponding standards (�
             <name>Daniel Miehle</name>
             <email>daniel.miehle@bmw.de</email>
             <uri>https://github.com/danielmiehle</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Launch of Our New Tutorial Section & First E2E Adopter Journey Tutorial]]></title>
-        <id>https://eclipse-tractusx.github.io/blog/release-tutorials</id>
-        <link href="https://eclipse-tractusx.github.io/blog/release-tutorials"/>
-        <updated>2023-11-28T09:00:00.000Z</updated>
-        <summary type="html"><![CDATA[The Eclipse Tractus-X tutorials - Enhancing learning and development within our community]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/TractusX-Tutorials_E2E-fd80647ee007b768868461e5f3fd9e3b.png" width="1880" height="940" class="img_ev3q"></p>
-<p>The Tractus-X open source community is pleased to announce the introduction of a new tutorial section, including our inaugural End-to-End (E2E) Adopter Journey Tutorial.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview-of-the-new-tutorial-section">Overview of the New Tutorial Section<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#overview-of-the-new-tutorial-section" class="hash-link" aria-label="Direct link to Overview of the New Tutorial Section" title="Direct link to Overview of the New Tutorial Section">​</a></h2>
-<p>This new section aims to provide structured and detailed educational content for our community members. The initiative reflects our commitment to supporting the continuous learning and development of our users and contributors.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="details-of-the-first-e2e-adopter-journey-tutorial">Details of the First E2E Adopter Journey Tutorial<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#details-of-the-first-e2e-adopter-journey-tutorial" class="hash-link" aria-label="Direct link to Details of the First E2E Adopter Journey Tutorial" title="Direct link to Details of the First E2E Adopter Journey Tutorial">​</a></h2>
-<p>This tutorial is built for employees of the IT department who operates the IT stack of an adopter (data provider/consumer). It shows how to operate the various Tractus-X components in combination with each other.
-It also explains the basic connection with the core services (e.g. Keycloak and MIW), as provided by an operating company.</p>
-<p><img decoding="async" loading="lazy" alt="Five steps to gain value" src="https://eclipse-tractusx.github.io/assets/images/five_steps_to_gain_value.drawio-5a88287e66d10229eb9de215f8655bae.svg" class="img_ev3q"></p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The red marked steps are already included in the tutorial. The other steps will be added in the future.</p></div></div>
-<ul>
-<li><strong>Features:</strong> It includes a practical component where users can set up and interact with a locally deployed dataspace.</li>
-<li><strong>Target Audience:</strong> The tutorial caters to both new users seeking an introduction to Tractus-X and existing members looking to deepen their understanding.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback-and-discussion">Feedback and Discussion<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#feedback-and-discussion" class="hash-link" aria-label="Direct link to Feedback and Discussion" title="Direct link to Feedback and Discussion">​</a></h3>
-<p>We encourage users to provide feedback after completing the tutorial. Constructive comments and suggestions can be submitted via our <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions" target="_blank" rel="noopener noreferrer">discussions page</a>. This feedback is essential for us to improve and tailor future educational content to the needs of our community.</p>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Please dont forget to add the label <code>documentation</code> to your discussion.</p></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="accessing-the-tutorial">Accessing the Tutorial<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#accessing-the-tutorial" class="hash-link" aria-label="Direct link to Accessing the Tutorial" title="Direct link to Accessing the Tutorial">​</a></h3>
-<p>The E2E Adopter Journey Tutorial is now available and can be accessed through the <a href="https://eclipse-tractusx.github.io/docs/tutorials" target="_blank" rel="noopener noreferrer">Tractus-X tutorial section</a>. We invite our community members to engage with this new resource and enhance their understanding of the Tractus-X ecosystem.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-developments">Future Developments<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#future-developments" class="hash-link" aria-label="Direct link to Future Developments" title="Direct link to Future Developments">​</a></h2>
-<p>The launch of this tutorial marks the beginning of a series of educational resources we plan to release. Stay informed about future updates and additions to our tutorial section. Or even better, provide your own ideas and contributions.</p>
-<p>For further information and to access the tutorial, please visit the <a href="https://eclipse-tractusx.github.io/docs/tutorials" target="_blank" rel="noopener noreferrer">Tractus-X tutorial section</a>.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="stay-connected">Stay Connected<a href="https://eclipse-tractusx.github.io/blog/release-tutorials#stay-connected" class="hash-link" aria-label="Direct link to Stay Connected" title="Direct link to Stay Connected">​</a></h2>
-<p>Follow our <a href="https://eclipse-tractusx.github.io/blog" target="_blank" rel="noopener noreferrer">news section</a> and join our <a href="https://eclipse-tractusx.github.io/docs/oss/how-to-contribute/#dev-mailinglist" target="_blank" rel="noopener noreferrer">Tractus-X mailing list</a>
-and be part of our <a href="https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Matrix Chat from Eclipse Tractus-X</a></p>
-<p>For more details about Tractus-X, visit the official <a href="https://projects.eclipse.org/projects/automotive.tractusx" target="_blank" rel="noopener noreferrer">Eclipse Tractus-X Project Page</a>.</p>]]></content>
-        <author>
-            <name>Stephan Bauer</name>
-            <email>stephan.bauer@catena-x.net</email>
-            <uri>https://github.com/stephanbcbauer</uri>
         </author>
     </entry>
 </feed>
