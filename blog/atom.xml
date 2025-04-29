@@ -106,35 +106,30 @@ mapping them to the related roadmap items. Don’t worry about completing every 
 <p>It's essential, however, to use the <strong>feature template</strong> and identify <strong>dependencies</strong> with other components or groups, which will help us add the correct labels to the features.
 You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> for each group to work in.</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the different groups / components / dependencies can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="refinement-day-2-for-r2509">Refinement Day 2 for R25.09<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#refinement-day-2-for-r2509" class="hash-link" aria-label="Direct link to Refinement Day 2 for R25.09" title="Direct link to Refinement Day 2 for R25.09">​</a></h2>
-<p>The second Refinement Day focuses on resolving <strong>dependencies</strong> identified during Refinement Day 1. Groups will refine their features further, ensuring alignment across components.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="alignment-day-for-r2509">Alignment Day for R25.09<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#alignment-day-for-r2509" class="hash-link" aria-label="Direct link to Alignment Day for R25.09" title="Direct link to Alignment Day for R25.09">​</a></h2>
+<p>The Alignment Day replaces the previously planned Refinement Day 2. It focuses on addressing <strong>open questions</strong> and unresolved <strong>dependencies</strong> from features planned for Release 25.09. Participation is only required if you have open topics to discuss.</p>
 <ul>
 <li><strong>Date:</strong> Wednesday, 30th April 2025</li>
 <li><strong>Time:</strong> 09:05 - 12:00</li>
 <li><strong>Main Teams Link:</strong> <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzhlNTU3ZTYtYTA4Ni00NWFhLTgxMDMtMWFmYTRkYmVkZWNj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer">Join the session</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="agenda-1">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#agenda-1" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agenda-1">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#agenda-1" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda">​</a></h2>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The agenda itself is dependent on the labled features.</p></div></div>
 <ul>
-<li><strong>09:05 - 09:30</strong>: Welcome and recap of Refinement Day 1 results</li>
-<li><strong>09:30 - 11:15</strong>: Group work on resolving dependencies</li>
-<li><strong>11:15 - 11:45</strong>: Group presentations on resolved dependencies</li>
-<li><strong>11:45 - 12:00</strong>: Closing and Next Steps</li>
+<li>09:05 - 09:30: Welcome and overview of <code>Open Discussion</code> features</li>
+<li>09:30 - 11:30: Group discussions and breakout sessions as needed</li>
+<li>11:30 - 12:00: Optional closing and documentation of decisions</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-focus-areas">Key Focus Areas<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#key-focus-areas" class="hash-link" aria-label="Direct link to Key Focus Areas" title="Direct link to Key Focus Areas">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-focus-areas">Key Focus Areas<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#key-focus-areas" class="hash-link" aria-label="Direct link to Key Focus Areas" title="Direct link to Key Focus Areas">​</a></h2>
 <ul>
-<li>Use the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer">feature template</a>.</li>
-<li>Add labels for identified dependencies.</li>
-<li>Collaborate across groups to resolve issues.</li>
-<li>Use the supported-by field to map the feature with your expert group.</li>
-<li>Status <code>Backlog</code>-&gt; this should be an alignment, between the requesting Expert Group/Committee and the open-source community.</li>
+<li>Only features labeled <code>Open Discussion</code> will be considered for the agenda.</li>
+<li>The label must be added at least 3 days prior to the event.</li>
+<li>This is not a planning or refinement session — it’s a space to align on open questions and clarify remaining uncertainties.</li>
+<li>Feature owners should be ready to describe their needs or concerns.</li>
+<li>Component developers can use this session to clarify what is expected from them.</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="group-and-teams-sessions-1">Group and Teams Sessions<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#group-and-teams-sessions-1" class="hash-link" aria-label="Direct link to Group and Teams Sessions" title="Direct link to Group and Teams Sessions">​</a></h3>
-<p>During the refinement sessions, each group will focus on resolving <strong>identified dependencies</strong> from Refinement Day 1, which are visible via the <strong>related labels</strong> on the features.
-While further feature refinement is allowed, the emphasis is on addressing and coordinating <strong>dependencies</strong> between groups and components.</p>
-<p>Our working Board for the day is the <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/40" target="_blank" rel="noopener noreferrer">Release Planning - R25.09 - Preparation</a></p>
-<p>You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> (we will use the same sessions from Refinement Day 1) for each group to work in.
-It might be the case for some experts to jump into different other groups to resolve dependencies.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the different groups / components / dependencies can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
+<p>Due to the fact, that we are working along an agenda, there will be no group sessions.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning-for-r2509">Open Planning for R25.09<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#open-planning-for-r2509" class="hash-link" aria-label="Direct link to Open Planning for R25.09" title="Direct link to Open Planning for R25.09">​</a></h2>
 <p>The Open Planning session finalizes the roadmap for R25.09, prioritizing features and aligning all participants on deliverables for the release.</p>
 <ul>
@@ -181,6 +176,11 @@ feature requesters are encouraged to attend and actively engage in the discussio
             <name>Theresa Hilger</name>
             <email>theresa.hilger@catena-x.net</email>
             <uri>https://github.com/ther3sa</uri>
+        </author>
+        <author>
+            <name>Stephan Bauer</name>
+            <email>stephan.bauer@catena-x.net</email>
+            <uri>https://github.com/stephanbcbauer</uri>
         </author>
     </entry>
     <entry>
