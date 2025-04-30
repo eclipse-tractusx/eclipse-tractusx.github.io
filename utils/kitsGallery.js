@@ -20,6 +20,7 @@
 import Agents_Kit from "@site/static/img/kits/agents/agents-kit-gallery.drawio.svg";
 import BehaviourTwin_Kit from "@site/static/img/kits/behavior-twin/behavior-twin-kit-gallery.drawio.svg";
 import Business_Kit from "@site/static/img/kits/business-partner/business-partner-gallery.drawio.svg";
+import Customs_Kit from "@site/static/img/kits/customs/customs-gallery.drawio.svg";
 import Circularity_Kit from "@site/static/img/kits/circularity/circularity-kit-gallery.drawio.svg";
 import Connector_Kit from "@site/static/img/kits/connector/connector-kit-gallery.drawio.svg";
 import DataChain_Kit from "@site/static/img/kits/data-chain/data-chain-kit-gallery.drawio.svg";
@@ -211,5 +212,12 @@ export const kitsGallery = [
     domain: 'Network Services',
     pageRoute: "/docs-kits/kits/data-governance-kit/adoption-view",
     img: DataGovernance_Kit,
+  },
+  {
+    id: 23,
+    name: 'Customs KIT',
+    domain: 'Supply Chain',
+    pageRoute: "/docs-kits/kits/customs-kit/adoption-view",
+    img: Customs_Kit,
   },
 ]
