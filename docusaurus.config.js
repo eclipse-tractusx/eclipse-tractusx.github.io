@@ -134,6 +134,9 @@ const config = {
         ],
       },
     ],
+    [
+      'docusaurus-plugin-sass'
+    ],
   ],
 
   themes: ["@docusaurus/theme-mermaid"],
@@ -168,7 +171,7 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/Kits',
+            to: '/kits',
             items: [
               {
                 to: 'Kits',
