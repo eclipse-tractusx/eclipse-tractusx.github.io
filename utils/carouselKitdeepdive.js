@@ -3,13 +3,13 @@ export const carouselKitdeepdive = [
         id: 1,
         title: "KIT Deepdive",
         description: "What is a KIT?",
-        navigate: "/Kit-Deepdive"
+        navigate: "/kits-deepdive"
     },
     {
         id: 2,
         title: "KIT Usage",
         description: "How to use a KIT?",
-        navigate: "/Kits-Usage"
+        navigate: "/kits-usage"
     },
     {
         id: 3,

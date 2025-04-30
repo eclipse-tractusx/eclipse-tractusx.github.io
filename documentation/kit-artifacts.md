@@ -9,7 +9,7 @@ This explains each artifact a KIT can or must follow - depending on the graduati
 
 ## CHANGELOG
 
-To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/Kits).
+To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/kits).
 For a KIT we distinguish between three phases sandbox, incubating and graduated.
 
 ### Sandbox Phase

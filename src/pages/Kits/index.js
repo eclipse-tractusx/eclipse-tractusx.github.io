@@ -31,7 +31,7 @@ export default function KitsPage() {
     descriptionHighlight: "Kits aim to accelerate",
     description: " the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
     buttonText: "KIT Deepdive",
-    link: "/Kit-Deepdive"
+    link: "/kits-deepdive"
   }
   const headerInput = {
     title: "KIT",
