@@ -169,7 +169,7 @@ const config = {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/kits',
+            to: '/Kits',
             items: [
               {
                 to: 'Kits',
