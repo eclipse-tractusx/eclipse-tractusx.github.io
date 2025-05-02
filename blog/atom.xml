@@ -98,7 +98,7 @@
 <li>Prepare initial ideas for features.</li>
 <li>Identify potential dependencies with other groups or components.</li>
 <li>Familiarize yourself with related roadmap items.</li>
-<li>Use the supported-by field to map the feature with your expert group</li>
+<li>Use the <code>Topic/Product</code> field to map the feature with your expert group</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="group-and-teams-sessions">Group and Teams Sessions<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#group-and-teams-sessions" class="hash-link" aria-label="Direct link to Group and Teams Sessions" title="Direct link to Group and Teams Sessions">​</a></h3>
 <p>During the refinement sessions, each group will focus on the first steps of skeleton-building for their features (based on the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer">feature template</a>),
@@ -149,11 +149,16 @@ feature requesters are encouraged to attend and actively engage in the discussio
 <p>Here’s the plan for the day:</p>
 <ul>
 <li><strong>09:05 - 09:30</strong>: Open Planning - Vision &amp; Introduction</li>
-<li><strong>09:30 - 16:00</strong>: Joint Open Planning (all teams)</li>
-<li><strong>16:00 - 16:30</strong>: Feedback Retro</li>
-<li><strong>16:30 - 17:00</strong>: Open Planning Wrap-Up / Summary &amp; Next Steps</li>
+<li><strong>09:30 - 14:00</strong>: Joint Open Planning (all teams)</li>
+<li><strong>14:00 - 14:30</strong>: Feedback Retro / Open Planning Wrap-up / Summary &amp; Next Steps</li>
 </ul>
-<p>The planning sessions will be driven by our <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Asupported-by+label%3A%22Prep-R25.09%22+status%3ABacklog" target="_blank" rel="noopener noreferrer">Release Planning Board</a>, which organizes features based on their <strong>supported-by</strong> field.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="joint-open-planning">Joint Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#joint-open-planning" class="hash-link" aria-label="Direct link to Joint Open Planning" title="Direct link to Joint Open Planning">​</a></h4>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The planning sessions will be driven by our <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/28" target="_blank" rel="noopener noreferrer">Release Planning Board</a>, which organizes features based on their <strong>Topic/Product</strong> field.</p></div></div>
+<table><thead><tr><th>Time</th><th>Committee</th><th>Features</th></tr></thead><tbody><tr><td>09:30 – 09:35</td><td>DPP</td><td>1</td></tr><tr><td>09:35 – 09:45</td><td>Circularity</td><td>2</td></tr><tr><td>09:45 – 10:45</td><td>Dataspace Connectivity</td><td>10</td></tr><tr><td>10:45 – 11:15</td><td>BPDM</td><td>5</td></tr><tr><td>11:15 – 11:20</td><td>Digital Twin (DT)</td><td>1</td></tr><tr><td>11:20 – 11:25</td><td>SSI</td><td>1</td></tr><tr><td>11:25 – 12:00</td><td>Portal</td><td>7</td></tr><tr><td>12:00 – 13:00</td><td>Lunch Break</td><td>–</td></tr><tr><td>13:00 – 13:10</td><td>Traceability</td><td>2</td></tr><tr><td>13:10 – 13:20</td><td>DCM</td><td>2</td></tr><tr><td>13:20 – 13:30</td><td>PURIS</td><td>2</td></tr><tr><td>13:30 – 13:40</td><td>Industry Core</td><td>2</td></tr><tr><td>13:40 – 13:50</td><td>Digital Twin</td><td>1</td></tr><tr><td>13:50 – 13:55</td><td>Testmanagement</td><td>1</td></tr><tr><td>13:55 – 14:00</td><td>Engineering</td><td>1</td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span><strong>Please note:</strong></div><div class="admonitionContent_BuS1"><ul>
+<li>The agenda provides a <strong>rough time structure</strong> to help guide the session. The <strong>timings are not fixed</strong> and can be adjusted depending on the flow of the discussion.</li>
+<li>Use the agenda as <strong>orientation</strong>, but we may deviate if needed based on progress.</li>
+</ul></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites-for-features-to-be-considered-in-open-planning">Prerequisites for features to be considered in Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#prerequisites-for-features-to-be-considered-in-open-planning" class="hash-link" aria-label="Direct link to Prerequisites for features to be considered in Open Planning" title="Direct link to Prerequisites for features to be considered in Open Planning">​</a></h3>
 <p>For a feature to be included in the Open Planning, the following conditions must be met:</p>
 <ul>
@@ -161,7 +166,7 @@ feature requesters are encouraged to attend and actively engage in the discussio
 <li><strong>All categories in the feature template must be filled</strong> – Do not delete any sections from the template.</li>
 <li><strong>Milestone is NOT set</strong> – This will be assigned during the Open Planning session.</li>
 <li><strong>Contributor and Committer must be assigned</strong>.</li>
-<li><strong>Supported-by must be set</strong>.</li>
+<li><strong><code>Topic/Product</code> must be set</strong>.</li>
 </ul>
 <p>During the session, if there is a common alignment among the participants, the feature milestone can be set to <strong>25.09</strong>, meaning it will be developed in the upcoming release.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="important-notes-and-hints">Important Notes and Hints<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.09#important-notes-and-hints" class="hash-link" aria-label="Direct link to Important Notes and Hints" title="Direct link to Important Notes and Hints">​</a></h3>
