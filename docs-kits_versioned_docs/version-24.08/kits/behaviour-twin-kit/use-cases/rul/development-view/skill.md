@@ -25,9 +25,9 @@ The *consumer* is also the *skill proivder*. It requests the calculation by prov
 
 The *skill provider* (in this example the consumer, but could also be the *data provider*/OEM or a third party or a CAB body), has to implement the skill and register it over the *Agent Plane API*.
 
-In the current example, a RuL skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that it is split into two parts, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, the OEM-owned reliability asset is queried to collect the load data of the vehicles with the given VINs and in the second part, the gathered data is fed back into the respective supplier EDC connector/agent to perform a RuL calculation.
+In the current example, a RuL skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that it is split into two parts, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, the OEM-owned reliability asset is queried to collect the load data of the vehicles with the given VINs and in the second part, the gathered data is fed back into the respective supplier EDC connector/agent to perform a RuL calculation.
 
-For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/agent_edc).
+For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents-kit/operation-view/agent-edc).
 
 ### FULL EXAMPLE
 
@@ -258,4 +258,4 @@ At the supplier's EDC connector, the graph asset of the RuL calculation service 
 
 ## SKILL REGISTRATION AND INVOCATION
 
-For skill registration and invocation, have a look at the [general Development View](../../../development-view/skill#skill-registration).
+For skill registration and invocation, have a look at the [general Development View](../../../software-development-view/skill#skill-registration).

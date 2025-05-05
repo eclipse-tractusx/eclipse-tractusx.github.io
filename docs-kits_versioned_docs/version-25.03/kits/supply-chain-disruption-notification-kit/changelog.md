@@ -1,11 +1,11 @@
 ---
-id: Supply Chain Disruption Notifications Changelog
+id: changelog
 title: Changelog
 description: 'Supply Chain Disruption Notifications'
 sidebar_position: 1
 ---
 
-![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.drawio.svg)
+![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.svg)
 
 ### Supply Chain Disruption Notifications
 

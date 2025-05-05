@@ -17,7 +17,7 @@ Behaviour Twin KIT
 
 ## KNOWLEDGE GRAPH BASICS
 
-The Knowledge Agent is a set of federated components that are used to reason over knowledge graphs. For detailed information, see the [Agents KIT](../../knowledge-agents/adoption-view/intro).
+The Knowledge Agent is a set of federated components that are used to reason over knowledge graphs. For detailed information, see the [Agents KIT](../../knowledge-agents-kit/adoption-view/intro).
 
 Semantic models (ontologies, enriched by taxonomies) are describing the data model. They describe all possible classes, their properties and relationships within a specific domain. They may be represented as a graph, but they are not the knowledge graph itself.
 
@@ -33,7 +33,7 @@ Classes, properties and relations can be instantiated zero, once or multiple tim
 
 The description of ontologies is done also by triplets (subject --predicate-> object), where subject and object are nodes and the predicate represents a unidirectional edge between them.
 
-For a specification of the preferred modelling language, see [RDF 1.1 Turtle on w3.org ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/turtle/).
+For a specification of the preferred modelling language, see [RDF 1.1 Turtle on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/).
 
 Object types and relations are formally defined within ontologies, e.g.:
 
@@ -45,16 +45,16 @@ Subjects and objects may not be real objects but conceptual ones:
 
 ### CATENA-X ONTOLOGIES AND TAXONOMIES
 
-There is already a set of ontologies and a taxonomy defined for the [Catena-X namespace on w3.org ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/):
+There is already a set of ontologies and a taxonomy defined for the [Catena-X namespace on w3.org ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/):
 
-- [core ontology ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/next/ontology/core)
-- [common core ontology ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/next/ontology/common)
-- [reliability ontology ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/next/ontology/reliability)
-- [vehicle ontology ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/next/ontology/vehicle)
+- [core ontology ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/next/ontology/core)
+- [common core ontology ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/next/ontology/common)
+- [reliability ontology ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/next/ontology/reliability)
+- [vehicle ontology ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/next/ontology/vehicle)
 
 For the Behaviour Twin use case, the following ontology is defined:
 
-- [behaviour ontology ![(external link)](../assets/external-link.svg)](https://w3id.org/catenax/next/ontology/behaviour)
+- [behaviour ontology ![(external link)](/icons/external-link.svg)](https://w3id.org/catenax/next/ontology/behaviour)
 
 ### OWN ONTOLOGIES FOR TEST OF NEW OR EXTENSION OF EXISTING USE CASES
 
@@ -69,7 +69,7 @@ In each case, the configuration is static and must be done within the deployment
 
 Ontologies and taxonomies describe nodes and edges (triplets) as a semantic model (schema). The actual instances (data) form the knowledge graph itself.
 
-The *shapes graph* is a separate graph written in the [Shapes Constraint Language (SHACL) ![(external link)](../assets/external-link.svg)](https://www.w3.org/TR/shacl/#part1) that defines the rules and constraints for the data. It acts like a template describing the expected structure and properties.
+The *shapes graph* is a separate graph written in the [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/#part1) that defines the rules and constraints for the data. It acts like a template describing the expected structure and properties.
 
 ## DATA SOVEREIGNTY THROUGH BINDINGS
 
@@ -79,7 +79,7 @@ Bindings are configured statically. For the changes of the binding configuration
 
 ## SKILLS
 
-A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents/development-view/modelling#skill).
+A *skill* is a query which is parameterizable by a set of input variables and is executable by the Knowledge Agent. It defines the fundamental logic of how data and calculation services are linked to achieve the desired result. In most cases, it is a federated query. For more information, see the [Agents KIT](../../knowledge-agents-kit/software-development-view/modelling#skill).
 
 ## BENEFITS
 
@@ -119,6 +119,6 @@ This approach shifts complexity to the Knowledge Agent (KA-EDC), which is a well
 Currently, there is no ready-to-use test environment. If you want to test your use case,
 you still have options:
 
-- Have a look at the [Agents KIT](../../knowledge-agents/adoption-view/intro), maybe there is already something regarding testing.
+- Have a look at the [Agents KIT](../../knowledge-agents-kit/adoption-view/intro), maybe there is already something regarding testing.
 - Search at your operating company's website or contact them.
-- Build up your own test environment. As a basis, you could use the official Tractus-X [MXD test environment on GitHub ![(external link)](../assets/external-link.svg)](https://github.com/eclipse-tractusx/tutorial-resources). Unfortunately, the Knowledge Agent components are not included into the MXD deployment scripts until release of the current KIT version.
+- Build up your own test environment. As a basis, you could use the official Tractus-X [MXD test environment on GitHub ![(external link)](/icons/external-link.svg)](https://github.com/eclipse-tractusx/tutorial-resources). Unfortunately, the Knowledge Agent components are not included into the MXD deployment scripts until release of the current KIT version.

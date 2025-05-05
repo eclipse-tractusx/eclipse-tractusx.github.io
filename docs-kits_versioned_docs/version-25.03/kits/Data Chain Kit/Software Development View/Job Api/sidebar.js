@@ -1,1 +1,0 @@
-module.exports = [{"type":"doc","id":"kits/Data Chain Kit/Software Development View/Job Api/irs-api"}];

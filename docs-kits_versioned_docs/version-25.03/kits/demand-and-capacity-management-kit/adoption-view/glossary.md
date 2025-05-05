@@ -4,7 +4,7 @@ title: Glossary
 description: Glossary
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## DCM Glossary
 
@@ -12,7 +12,7 @@ description: Glossary
 |----|-----------|
 |Actual Capacity|This is the capacity a supplier realistically plans to have available to satisfy the demand of a certain material per week for a specific customer. It considers the supplier’s own assessment of their capabilities, inventory and existing commitments.|
 |Agreed Capacity|This is a capacity value coordinated between customer and supplier and it may refer e.g. to capacity values defined in mutually agreed contracts. Using the agreed capacity is optional, it has purely informative character and therefore does not constitute a legal obligation to deliver. The agreed capacity may be greater than, less than or equal to the actual or Maximum Capacity. It may be used for a time frame different than the whole time series.|
-|API|Application Programming Interface is a set of rules, protocols, and tools for building software and applications. Examples for DCM can be found here: [Development View - APIs utilized by a DCM application](../development-view/overview.md#apis-utilized-by-a-dcm-application)|
+|API|Application Programming Interface is a set of rules, protocols, and tools for building software and applications. Examples for DCM can be found here: [Development View - APIs utilized by a DCM application](../software-development-view/overview.md#apis-utilized-by-a-dcm-application)|
 |Aspect Model|See: [CX-0002 Digital Twins in Catena-X][StandardLibrary]|
 |Bottleneck|A facility, function, department, or resource whose capacity is less than the demand placed upon it. For example, a bottleneck machine or work center exists where jobs are processed at a slower rate than they are demanded (Source: ASCM Supply Chain Dictionary, 17th edition).|
 |Business Application Provider|Typically, it is a third party that offers tools to data consumers and data providers for demand and capacity management purposes that conform to the core business logic, data models and APIs described in the Catena-X DCM standard.|

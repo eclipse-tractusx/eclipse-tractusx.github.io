@@ -5,9 +5,9 @@ description: "Logistics Kit"
 sidebar_position: 2
 ---
 
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.drawio.svg)
+![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.svg)
 
-Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](./customs/page_adoption-view-customs.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
+Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](../customs-kit/adoption-view-customs.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
 
 ## Vision & Mission
 
@@ -61,7 +61,7 @@ In the following section, all aspect models that are part of Logistic KIT are do
 
 ### Packing List
 
-The aspect provides the information of the [packed goods inside of a Transport Unit]((https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl)).
+The aspect provides the information of the [packed goods inside of a Transport Unit](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.packing_list/1.0.0/PackingList.ttl).
 
 ### IotSensorData
 

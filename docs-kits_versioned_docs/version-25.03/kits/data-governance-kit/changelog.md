@@ -4,6 +4,7 @@ title: Changelog
 description: 'Data Governance KIT'
 sidebar_position: 1
 ---
+
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
  * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
@@ -25,9 +26,9 @@ sidebar_position: 1
  ![DatGov Kit Banner](./resources/DatGovKit-Icon.png)
 -->
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.drawio.svg)
+## Data Governance KIT
 
-### Data Governance KIT
+![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 

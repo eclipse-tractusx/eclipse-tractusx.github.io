@@ -24,7 +24,7 @@ On [GitHub](https://docs.github.com/en/organizations/managing-user-access-to-you
 - Access to the security tab
 
 Committer can add contributors to the Tractus-X Project,
-see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors) OR use the sig-infra way, described [here](/docs/oss/getting-started#extended-contributor-permissions).
+see the [Handbook](https://www.eclipse.org/projects/handbook/#pmi-contributors) OR use the sig-infra way, described [here](/docs/getting-started.md#extended-contributor-permissions).
 
 Note: This is the [PMI](https://projects.eclipse.org/projects/automotive.tractusx) (Project Management Interface).
 
@@ -73,7 +73,7 @@ Tasks:
 - The PMC is tasked with approving progress, release, and graduation reviews.
 - The PMC supports the Eclipse IP Team with knowledge and experience with their community and technology .
 
-Contact the PMC: <automotive-pmc@eclipse.org>
+Contact the PMC: [automotive-pmc@eclipse.org](mailto:automotive-pmc@eclipse.org)
 
 Note: You have to be subscribed to the [automotive-pmc mailinglist](https://accounts.eclipse.org/mailing-list/automotive-pmc) to write to the list.
 
@@ -82,6 +82,6 @@ See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-pmc)
 ## Eclipse Management Organization (EMO)
 
 If you have a question that cannot be answered by project lead, mentor, or PMC, ask the EMO.
-The best method of contact with the EMO is by email (<emo@eclipse-foundation.org>).
+The best method of contact with the EMO is by email [emo@eclipse-foundation.org](mailto:emo@eclipse-foundation.org).
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#roles-emo)

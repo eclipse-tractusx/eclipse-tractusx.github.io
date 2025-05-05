@@ -5,7 +5,7 @@ description: Nest material demands and capacity groups into other capacity group
 sidebar_position: 8
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.drawio.svg)
+![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
 ## Business Roles and Functions
 
@@ -42,14 +42,14 @@ The supplier is able to put the desired Capacity Groups with their respective de
 
 Consolidation is performed only on the demand and not on the capacity side when Nesting is used: all related capacity information is fully independent, i.e. the capacity data in the Capacity Group must be maintained individually. If a Capacity Group contains linked Capacity Groups, then the Material Demands of these linked Capacity Groups are summed up and used as aggregated demand. The supplier must either link individual Material Demands or link existing Capacity Groups in the Capacity Group.
 
-The following figure shows that:  
+The following figure shows that: 
 
-- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking).  
+- Capacity Group 1 and 2 are linked to Capacity Group 3 (i.e. Nesting or indirect linking). 
 - Material Demand 1 and 2 are linked to Capacity Group 1 (i.e. direct linking).
 - Material Demand 3 and 4 are linked to Capacity Group 2 (i.e. direct linking).
 - Capacity Group 3 considers the Material Demands 1, 2, 3 and 4 because they are indirectly linked via the nested Capacity Group.
 
-<!--
+
 ```mermaid
 block-beta
 columns 5
@@ -63,8 +63,8 @@ space
 C4("Material Demand 3")
 C5("Material Demand 4")
 space:5
-blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 
-space:5 
+blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2
+space:5
 F1("Capacity Group 1"):2
 space
 F3("Capacity Group 2"):2
@@ -84,9 +84,7 @@ class G1,G2,G4,G5 Material_Demand_full
 class C1,C2,C4,C5 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
--->
 
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -95,10 +93,6 @@ B["Demand data (indirectly linked)"] style B fill:#BF7100,color:#F4F2F3,stroke-d
 C["Capacity data"] style C fill:#B3CB2D,color:#000000
 D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-dasharray:3
 ```
--->
-
-![Simple nesting example](./resources/business-process_nesting_example-basic.svg)
-![Simple nesting example legend](./resources/business-process_nesting_example_legend.svg)
 
 Figure: *Capacity Group with directly linked Material Demands or nested Capacity Groups (indirectly linked Material Demands)*
 
@@ -106,7 +100,7 @@ Capacity Group 3 is the result of the indirect way of linking Material Demand, t
 
 If a linked Capacity Group contains further linked Capacity Groups (dark green in figure below), the Nesting is recurrent and must go further until referenced Capacity Groups contain only linked demand series (orange in figure below) ("domino effect").
 
-![Recurrent nested Capacity Groups](./resources/business-process_nesting_example-recurrent.svg)
+![Recurrent nested Capacity Groups](./resources/business-process-nesting-example-recurrent.svg)
 
 Figure: *Recurrent nested Capacity Groups*
 
@@ -124,7 +118,7 @@ Feature Nesting is to be used optional but if it is used certain parameters are 
 |-|-|-|-|
 | linkedCapacityGroups | No | UUID of the linked Capacity Group | 0157ba42-d2a8-4e28-8565-7b07830c1110 |
 
-For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
+For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
 
 ## Sequence Diagram
 
@@ -133,7 +127,7 @@ sequenceDiagram
 autonumber
 Participant c as Customer
 Participant s as Supplier
-rect rgb(191,113,00) 
+rect rgb(191,113,00)
     c->>s: I need 60 pieces of toy 1, 40 pieces of toy 2 and 50 pieces of toy 3
     c->>s: I need 100 pieces of toy 4 and 70 pieces of toy 5
 end
@@ -171,11 +165,10 @@ All five toys pass through the same paint shop within the coloring process.
 
 With the Nesting, the supplier achieves that the latest Material Demands that are linked to "Production Line 1" and "Production Line 2" are automatically available and considered in his Capacity Group "Paint Shop" without any further activities. Also in case a new toy 6 would be requested by same customer and produced on e.g. "Production Line 2", the supplier would only need to add it to that Capacity Group and automatically its Material Demand would also be considered in the Capacity Group "Paint Shop", thus also avoiding time-consuming additional maintenance on the demand side for "Paint Shop" Capacity Group.
 
-<!--
 ```mermaid
 block-beta
 columns 6
-A1("Capacity Group 'Paint Shop'"):6 
+A1("Capacity Group 'Paint Shop'"):6
 B1("Capacity Group 'Production Line 1'"):3
 space
 B3("Capacity Group 'Production Line 2'"):2
@@ -191,8 +184,8 @@ C5("Material Demand 'Toy 5'")
 
 space
 space:5
-blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):3 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2 
-space:6 
+blockArrowId1<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):3 space blockArrowId2<["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]>(up):2
+space:6
 F1("Capacity Group 'Production Line 1'"):3
 space
 F3("Capacity Group 'Production Line 2'"):2
@@ -208,7 +201,7 @@ M5("50 pieces")
 space
 M6("100 pieces")
 M7("70 pieces")
-space:6 
+space:6
 
 classDef Material_Demand_full fill:#FFA600,stroke:#FFFFFF,color:#000000
 classDef Material_Demand_dotted fill:#BF7100,stroke:#FFFFFF,color:#F4F2F3,stroke-dasharray:3
@@ -221,9 +214,7 @@ class G1,G2,G4,G5,H1 Material_Demand_full
 class C1,C2,C4,C5,D1 Material_Demand_dotted
 class blockArrowId1,blockArrowId2 blockArrows
 ```
--->
 
-<!--
 ```mermaid
 block-beta
 columns 4
@@ -232,10 +223,6 @@ B["Demand data (indirectly linked)"] style B fill:#BF7100,color:#F4F2F3,stroke-d
 C["Capacity data"] style C fill:#B3CB2D,color:#000000
 D["Capacity data (linked or nested)"] style D fill:#617000,color:#F4F2F3,stroke-dasharray:3
 ```
--->
-
-![Advanced Nesting example](./resources/business-process_nesting_example-basic.svg)
-![Advanced Nesting example Legend](./resources/business-process_nesting_example_legend.svg)
 
 Figure: *Example for application of Nesting*
 
