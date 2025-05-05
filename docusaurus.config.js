@@ -11,8 +11,9 @@ const config = {
   tagline: '',
   url: 'https://eclipse-tractusx.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
   markdown: {
@@ -45,8 +46,6 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
-          docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -56,6 +55,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
+          onUntruncatedBlogPosts: 'ignore',
+          authorsMapPath: '../blog-meeting-minutes/authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -65,6 +66,7 @@ const config = {
   ],
 
   plugins: [
+    ['docusaurus-plugin-sass',{}],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -73,21 +75,19 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
-        docLayoutComponent: "@theme/DocPage",
-        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
       },
-  ],
-  // -- documentation-kits --
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'docs-documentation',
-      path: 'documentation',
-      routeBasePath: 'documentation',
-      editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
-      sidebarPath: './sidebarsDocumentation.js',
-    },
-  ],
+    ],
+    // -- documentation-kits --
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-documentation',
+        path: 'documentation',
+        routeBasePath: 'documentation',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
+        sidebarPath: './sidebarsDocumentation.js',
+      },
+    ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
@@ -100,7 +100,8 @@ const config = {
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
-        authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -137,7 +138,7 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
+  themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -161,7 +162,7 @@ const config = {
         items: [
           {to: 'blog', label: 'News', position: 'left'},
           {
-            to: "/aboutus",
+            to: "/AboutUs",
             position: "left",
             label: "About Us",
           },
@@ -172,102 +173,101 @@ const config = {
             to: '/Kits',
             items: [
               {
-                to: '/Kits',
+                to: 'Kits',
                 label: 'Kits General',
-              },
-
-              {
-                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
-                label: 'Agents',
               },
               {
                 to: '/docs-kits/kits/behaviour-twin-kit/overview',
                 label: 'Behaviour Twin',
               },
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
+                to: '/docs-kits/kits/circularity-kit/adoption-view',
                 label: 'Circularity',
               },
               {
-                to: '/docs-kits/kits/Connector%20Kit/Adoption%20View/connector_kit_adoption_view',
+                to: '/docs-kits/kits/connector-kit/adoption-view',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/customs-kit/page_adoption-view',
+                to: '/docs-kits/kits/customs-kit/adoption-view-customs',
                 label: 'Customs',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
+                to: '/docs-kits/kits/data-chain-kit/adoption-view',
                 label: 'Data Chain',
               },
               {
-                to: 'docs-kits/kits/data-governance-kit/adoption-view',
+                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
+                label: 'Data Driven Quality Management',
+              },
+              {
+                to: '/docs-kits/kits/data-governance-kit/adoption-view',
                 label: 'Data Governance',
               },
               {
-                to: 'docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
+                to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
                 label: 'Demand and Capacity Management',
               },
               {
-                to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
+                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
                 label: 'Digital Twin',
               },
               {
-                to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
+                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
                 label: 'Eco Pass',
               },
               {
-                to: '/docs-kits/kits/ESS-Kit/ESS%20Kit%20Adoption%20View',
-                label: 'Environmental & Social Standards',
+                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
+                label: 'Environmental and Social Standards',
               },
               {
-                to: '/docs-kits/kits/Industry%20Core%20Kit/Business%20View%20Industry%20Core%20Kit',
+                to: '/docs-kits/kits/industry-core-kit/business-view',
                 label: 'Industry Core',
               },
               {
-                to: '/docs-kits/next/kits/logistics-kit/adoption-view',
+                to: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
+                label: 'Knowledge Agents',
+              },
+              {
+                to: '/docs-kits/kits/logistics-kit/adoption-view',
                 label: 'Logistics',
               },
               {
-                to: '/docs-kits/kits/Manufacturing%20as%20a%20Service%20Kit/Adoption%20View%20MaaS%20Kit',
+                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
                 label: 'Manufacturing as a Service',
               },
               {
-                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/page_adoption-view',
-                label: 'Model Based Development',
+                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
+                label: 'Model Based Development and Data Processing',
               },
               {
-                to: '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
+                to: '/docs-kits/kits/modular-production-kit/adoption-view',
                 label: 'Modular Production',
               },
               {
-                to: '/docs-kits/kits/osim-kit/Adoption%20View%20OSim%20Kit',
+                to: '/docs-kits/kits/online-simulation-kit/adoption-view',
                 label: 'Online Simulation',
               },
               {
-                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
-                label: 'PCF Exchange',
+                to: '/docs-kits/kits/puris-kit/adoption-view',
+                label: 'Predictive Unit Real-Time Information Service',
               },
               {
-                to: '/docs-kits/next/kits/PURIS%20Kit/Adoption%20View%20PURIS%20Kit',
-                label: 'PURIS',
+                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
+                label: 'Product Carbon Footprint Exchange',
               },
               {
-                to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
-                label: 'Quality',
+                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
+                label: 'Supply Chain Disruption Notification',
               },
               {
-                to: '/docs-kits/next/kits/supply-chain-disruption-notification-kit',
-                label: 'Supply Chain Disruption Notifications',
-              },
-              {
-                to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/traceability-kit/business-view',
                 label: 'Traceability',
-              }
+              },
             ],
           },
           {

@@ -75,7 +75,7 @@ To have a common understanding of how to interpret and translate elements in the
 |Subsystem|Description|
 |---------|-----------|
 |RuL Consuming App|This component is the app that is hosted at the *consumer* and provides the end user interface.|
-|Usage Data|A data source at the *data provider* that provides usage data that are required for RuL prognosis services. <BR/> It can be accessed by the Knowledge Agent via data bindings.|
+|Usage Data|A data source at the *data provider* that provides usage data that are required for RuL prognosis services. <br/> It can be accessed by the Knowledge Agent via data bindings.|
 |RuL Service|A calculation service at the *Supplier*. It accepts load spectra as parameters, and calculates the Remaining useful Life result values and returns them.|
 
 #### KNOWLEDGE AGENT COMPONENTS AND CATENA-X CORE SERVICES
