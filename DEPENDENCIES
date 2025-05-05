@@ -857,7 +857,7 @@ npm/npmjs/-/spdy/4.0.2, MIT, approved, #2926
 npm/npmjs/-/sprintf-js/1.0.3, BSD-3-Clause, approved, #949
 npm/npmjs/-/srcset/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/statuses/1.5.0, MIT, approved, clearlydefined
-npm/npmjs/-/statuses/2.0.1, MIT, approved, clearlydefined
+npm/npmjs/-/statuses/2.0.1, MIT, approved, #20906
 npm/npmjs/-/std-env/3.8.1, MIT, approved, #20333
 npm/npmjs/-/string-convert/0.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/string-width/4.2.3, MIT, approved, clearlydefined
