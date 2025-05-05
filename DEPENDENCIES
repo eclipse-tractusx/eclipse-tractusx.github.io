@@ -260,7 +260,7 @@ npm/npmjs/-/estree-util-build-jsx/3.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/estree-util-is-identifier-name/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/estree-util-scope/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/estree-util-to-js/2.0.0, MIT, approved, clearlydefined
-npm/npmjs/-/estree-util-value-to-estree/3.3.2, MIT, approved, clearlydefined
+npm/npmjs/-/estree-util-value-to-estree/3.3.3, MIT, approved, clearlydefined
 npm/npmjs/-/estree-util-visit/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/estree-walker/3.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/esutils/2.0.3, BSD-2-Clause AND BSD-3-Clause, approved, #120
