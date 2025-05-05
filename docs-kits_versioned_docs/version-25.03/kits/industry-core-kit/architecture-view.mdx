@@ -68,10 +68,10 @@ Even with an underlying object, the usage of a digital twin might still not be n
 - Is the object commonly accessed individually and not via mass data requests ?
 - Is the data intended to be used more than once and therefore worth to be discovered ?
 
-If all of the above questions are answered with a clear "No", a twin might be overhead for an object or data to be shared within one specific use-case. Examples include: 
+If all of the above questions are answered with a clear "No", a twin might be overhead for an object or data to be shared within one specific use-case. Examples include:
 - the data to be shared is a set of mass data not linked to a specific instance of an object
 - the data is only being used and intended to be used by a single use-case and there is no cross-use-case relevancy anticipated
-  
+
 ### Additional Recommendations and Comments
 
 If mass data is used for analysis to generate new data applicable to a specific object (e.g., material, serialized part, batch), this data should be linked to a digital twin at that level, while the originating mass data sets are not required to be linked. For example, analytics use cases leveraging mass data sets regarding multiple objects could feed their outcome back into the digital twins of the known objects, while the potentially use-case proprietary mass data sets are not necessarily represented by digital twins or submodels.
@@ -120,7 +120,7 @@ The Catena-X data space aims to support a parallel phase of two major versions o
 
 More information about backward compatibility and versioning can be found here:
 - [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catana-X Standard Library,
-- [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view/dt-kit-software-development-view/#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
+- [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view/software-development-view.md#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
 
 ## Building Block View
 
@@ -150,7 +150,7 @@ Use cases can define and standardize their own notification APIs. They need to e
 
 - They must extend the content part of the notification data format with their own business content.
 - They must define a set of operations that should be supported with the use case specific notification API.
-- They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.  
+- They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.
 
 As all use cases use the same underlying notification technology based on Industry Core, use cases still are interoperable. Data and app providers only need to implement one notification technology that is jointly used by all use cases and do not need to implement several different technologies for message-based data sharing.
 
@@ -206,7 +206,7 @@ The following terms are especially relevant for the understanding of this KIT:
 
 **Catena-X Partner:** A company participating in the Catena-X network. A partner can act as both, a notification sender or notification receiver.
 
-**Message**: Data with a defined format exchanged between two partners, a sender and a receiver. 
+**Message**: Data with a defined format exchanged between two partners, a sender and a receiver.
 
 **Notification**: In Catena-X, notifications are JSON messages with a standardized data format consisting of a standardized header and a use-case-specific content.
 

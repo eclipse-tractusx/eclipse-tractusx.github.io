@@ -9,7 +9,7 @@ This explains each artifact a KIT can or must follow - depending on the graduati
 
 ## CHANGELOG
 
-To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/kits).
+To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/Kits).
 For a KIT we distinguish between three phases sandbox, incubating and graduated.
 
 ### Sandbox Phase
@@ -169,7 +169,7 @@ Deliverables:
 - Integration of the OpenAPI file
 - Use case examples for the API endpoints and how to use them
 `Example from DataChain KIT:` The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of Catena-X partners.
-[`Example for OpenAPI integration:`](/docs-kits/kits/business-partner-kit/software-development-view/Pool%20Api/business-partner-data-management-pool)
+[`Example for OpenAPI integration:`](/docs-kits/kits/business-partner-kit/software-development-view)
 
 ### Sample Data
 

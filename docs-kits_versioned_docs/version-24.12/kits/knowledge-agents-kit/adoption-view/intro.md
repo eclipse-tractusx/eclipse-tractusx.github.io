@@ -135,7 +135,7 @@ A Skill request from a non-authorized chain of computation would not be able to 
 
 Furthermore, you would not expose your backend directly, but rather introduce a [virtualization layer](../software-development-view/architecture) between the Agent and your data source. This introduces another (role-based) security domain by appropriate sub-schemas and filters. So different contracts can be mapped to different security principals/data views in the backend.
 
-This KIT does not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the [SPARQL](../software-development-view/sparql) standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
+This KIT does not introduce arbitrary (turing-equivalent, hence undecidable) ad-hoc computations, but the SPARQL standard introduces a well-defined set of operations whose effects and consequences can be checked and validated in advance (hypervision).
 
 Finally, the team is investigating a form of differential privacy which introduces noise between your data source and its graph representation such that original values can be effectively hidden from the reporting output.
 
