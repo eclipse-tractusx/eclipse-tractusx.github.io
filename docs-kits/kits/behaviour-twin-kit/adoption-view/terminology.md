@@ -70,7 +70,7 @@ For specific terminology in dedicated Behaviour Twin use cases, see the terminol
 
 |Term|Description|Comment|
 |---|---|---|
-|Catena-X Dataspace Architecture|Architecture defined by Catena-X|see [Tractus-X KITs](https://eclipse-tractusx.github.io/kits)|
+|Catena-X Dataspace Architecture|Architecture defined by Catena-X|see [Tractus-X KITs](https://eclipse-tractusx.github.io/Kits)|
 |SPARQL|SPARQL 1.1 Query Language|see [SPARQL on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/)|
 |RDF|Resource Description Framework|see [RDF on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/RDF/)|
 |ttl (Turtle)|RDF 1.1 Turtle|see [Turtle on w3.org ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/)|

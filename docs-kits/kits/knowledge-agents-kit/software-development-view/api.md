@@ -4,7 +4,7 @@ title: API
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -38,7 +38,7 @@ blocks of CX KA:
     Matchmaking Agent).
 2. As a Provider-facing callback from the dataspace into the backend
     (the so-called Binding Agent).
-3. As an intermediate Transfer protocol between "Sinks" representing SPARQL Remote  
+3. As an intermediate Transfer protocol between "Sinks" representing SPARQL Remote
     Service Contexts (=sub queries/routines) and the
     corresponding "Sources" representing backend-bound SPARQL Graph Contexts.
     These Sinks and Sources are to be implemented using the
@@ -61,7 +61,7 @@ or Federated SQL) in mind.
 
 ### Invoke a Locally-Stored Parameterized Skill (Simple)
 
-see the [AGENT GET](api/agent/getAgent) method specification
+see the [AGENT GET](api/agent/get.mdx) method specification
 
 ```console
 curl --location '${KA-MATCH}/agent?asset=urn%3Acx%3ASkill%3Aconsumer%3ALifetime&(vin=WBAAL31029PZ00001&troubleCode=P0746&troubleCode=P0745)&(vin=WBAAL31029PZ00002&troubleCode=P0744)&(vin=WBAAL31029PZ00003&troubleCode=P0743)' \
@@ -70,7 +70,7 @@ curl --location '${KA-MATCH}/agent?asset=urn%3Acx%3ASkill%3Aconsumer%3ALifetime&
 
 ### Invoke a Dataspace-Stored Parameterized Skill (Flexible)
 
-see the [AGENT POST](api/agent/postAgent) method specification
+see the [AGENT POST](api/agent/post.mdx) method specification
 
 ```console
 curl --location '${KA-MATCH}/agent?asset=${EDC-BUSINESSPARTNER}%23urn%3Acx%3ASkill%3Aconsumer%3ALifetime' \
@@ -122,30 +122,30 @@ curl --location '${KA-MATCH}/agent?asset=${EDC-BUSINESSPARTNER}%23urn%3Acx%3ASki
 
 ### Register a Parameterized Skill
 
-see the [AGENT SKILL POST](api/agent/skill/postSkill) method specification
+see the [AGENT SKILL POST](api/agent/skill/post.mdx) method specification
 
 ```console
 curl --location '${KA-MATCH}/agent/skill?asset=urn%3Acx%3ASkill%3Aconsumer%3ALifetime' \
 --header 'Content-Type: application/sparql-query' \
 --header 'Authorization: Basic ${UuencodedUsernameColonPassword}' \
---data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#> 
+--data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:          <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX cx:            <https://w3id.org/catenax/ontology#>
 
 ############################################################################################
-#                  Catena-X Knowledge Agents Sample Federated Skill           
-#                         Realizes a 5-Step Business Process                          
-#            "Remaining Useful Life Prognosis based on Diagnosis TroubleCodes"      
+#                  Catena-X Knowledge Agents Sample Federated Skill
+#                         Realizes a 5-Step Business Process
+#            "Remaining Useful Life Prognosis based on Diagnosis TroubleCodes"
 ############################################################################################
-# Preconditions:                                                                    
-# - A Contract Offering from OEM (e.g. BMW) to CONSUMER (e.g. ADAC)                 
-#   - VIN-VAN Conversion                                                            
-#   - DTC Analysis/Resolution (including the READING of PartType and Description)   
-#   - Serial Part & SUPPLIER Lookup                                                   
-# - A Contract Offering from SUPPLIER (e.g. ZF) to OEM                              
-#   - Telematics data (including the PROPAGATION of LoadSpectrum)                     
-#   - RUL Prognosis Invocation (including the DISTRIBUTION of RUL results)        
+# Preconditions:
+# - A Contract Offering from OEM (e.g. BMW) to CONSUMER (e.g. ADAC)
+#   - VIN-VAN Conversion
+#   - DTC Analysis/Resolution (including the READING of PartType and Description)
+#   - Serial Part & SUPPLIER Lookup
+# - A Contract Offering from SUPPLIER (e.g. ZF) to OEM
+#   - Telematics data (including the PROPAGATION of LoadSpectrum)
+#   - RUL Prognosis Invocation (including the DISTRIBUTION of RUL results)
 ############################################################################################
 
 ####
@@ -159,7 +159,7 @@ SELECT ?van ?troubleCode ?description ?affectedPart ?distanceKm ?timeDays ?vin W
 VALUES (?vin ?troubleCode) { ("@vin"^^xsd:string "@troubleCode"^^xsd:string) }.
 
 ####
-# 2. The CONSUMER looks up the OEM (connector) associated to the VIN 
+# 2. The CONSUMER looks up the OEM (connector) associated to the VIN
 #    using the Federated Data Catalogue  (Catalogue=Default Graph)
 ####
 ?oem cx:isIssuerOfVehicleIdentificationNumber ?vin;
@@ -172,11 +172,11 @@ VALUES (?vin ?troubleCode) { ("@vin"^^xsd:string "@troubleCode"^^xsd:string) }.
 ####
 # 3. The CONSUMER delegates the following logic to the OEM (connector)
 ####
-SERVICE ?oemConnector { 
+SERVICE ?oemConnector {
 
     ####
     # 3.1 The OEM (e.g. BMW) anomyzes the VIN into an anomymous (VAN) node
-    #.    and gets some master data with it 
+    #.    and gets some master data with it
     ####
     ?van cx:isAnonymousVehicle ?vin;
         cx:hasRegistration ?registration.
@@ -186,16 +186,16 @@ SERVICE ?oemConnector {
     ####
     GRAPH ?diagnoseAsset {
 
-    ?Dtc rdf:type cx:DTC; 
+    ?Dtc rdf:type cx:DTC;
         cx:Code ?troubleCode;
-        cx:affects [ cx:EnDenomination ?partType ]; 
+        cx:affects [ cx:EnDenomination ?partType ];
         cx:Description ?description.
-    
+
     } # OEM#Diagnosis context
 
     ####
     # 3.3 The OEM obtains fresh telematics/load-spectrum data for the vehicle
-    #     focussed to the problematic partType (Telematics Graph) 
+    #     focussed to the problematic partType (Telematics Graph)
     ####
     ?van cx:latestMileageReceived ?mileage;
         cx:latestDetailReceived ?telematicsDetail.
@@ -211,7 +211,7 @@ SERVICE ?oemConnector {
                     cx:hasName ?affectedPart;
                     cx:hasSupplier [
                         cx:hasConnector ?tieraConnector
-                    ].           
+                    ].
 
     ?tieraConnector cx:offersAsset ?prognosisAsset.
     ?prognosisAsset rdfs:isDefinedBy <https://w3id.org/catenax/ontology/behaviour>.
@@ -221,7 +221,7 @@ SERVICE ?oemConnector {
     #    which means that load spectrum data etc is only exchanged using their
     #    contract and between their connectors.
     ####
-    SERVICE ?tieraConnector { 
+    SERVICE ?tieraConnector {
 
     ####
     # 4.1 The SUPPLIER adds additional measurement information
@@ -235,7 +235,7 @@ SERVICE ?oemConnector {
     GRAPH ?prognosisAsset {
 
         ?invocation rdf:type cx:LifetimePrognosis;
-            
+
             # <--General vehicle info
             cx:loadCollectiveMileage ?mileage;
             cx:loadCollectiveRegistrationDate ?registration;
@@ -243,15 +243,15 @@ SERVICE ?oemConnector {
             # <--Part Info from the OEM
             cx:loadCollectiveComponent ?affectedPart;
             cx:loadCollectiveBody ?loadSpectrum;
-            
+
             # <--Additional info from the SUPPLIER
             cx:loadCollectiveFile ?loadSpectrumFile;
-            cx:loadCollectiveHeader ?loadSpectrumHeader; 
-            
+            cx:loadCollectiveHeader ?loadSpectrumHeader;
+
             # -->the actual prognosis output
-            cx:remainingDistance ?distanceKm; 
+            cx:remainingDistance ?distanceKm;
             cx:remainingTime ?timeDays.
-    
+
     } # SUPPLIER#Prognosis context
 
     } # SUPPLIER context
@@ -264,17 +264,17 @@ SERVICE ?oemConnector {
 
 ### Return a Skill
 
-see the [SKILL GET](api/agent/skill/getSkill) method specification
+see the [SKILL GET](api/agent/skill/get.mdx) method specification
 
 ### Invoke an Ad-hoc Query
 
-see the [AGENT POST](api/agent/postAgent) method specification
+see the [AGENT POST](api/agent/post.mdx) method specification
 
 ```console
 curl --location '${KA-BIND}/agent' \
 --header 'Content-Type: application/sparql-query' \
 --header 'Authorization: Basic ${UuencodedUsernameColonPassword}' \
---data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#> 
+--data-raw 'PREFIX xsd:           <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:          <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX cx:            <https://w3id.org/catenax/ontology#>
@@ -283,20 +283,20 @@ PREFIX cx:            <https://w3id.org/catenax/ontology#>
 SELECT ?partType ?description WHERE {
     VALUES (?troubleCode) { ("P0745"^^xsd:string) ("P0746"^^xsd:string) }.
 
-    ?Dtc rdf:type cx:DTC; 
+    ?Dtc rdf:type cx:DTC;
         cx:Code ?troubleCode;
-        cx:affects [ cx:EnDenomination ?partType ]; 
+        cx:affects [ cx:EnDenomination ?partType ];
         cx:Description ?description.
-        
-} 
+
+}
 ```
 
 ### Upload Graph Data (Only Matchmaking Agent Standalone)
 
-see the [GRAPH POST](api/graph/postGraph) method specification
+see the [GRAPH POST](api/graph/post.mdx) method specification
 
 ### Delete Graph Data (Only Matchmaking Agent Standalone)
 
-see the [GRAPH DELETE](api/graph/deleteGraph) method specification
+see the [GRAPH DELETE](api/graph/delete.mdx) method specification
 
 <sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
