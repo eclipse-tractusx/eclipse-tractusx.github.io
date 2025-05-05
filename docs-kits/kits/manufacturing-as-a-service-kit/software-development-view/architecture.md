@@ -155,13 +155,13 @@ Manufacturing-as-a-Service (MaaS) scenarios focus on connecting buyers having a 
 
 The Manufacturing Capability API defines how to share the manufacturing capabilities, e.g. to onboard them to a Manufacturing Network Registry. The API uses the Manufacturing Capability Model. The Manufacturing Capability model is designed to represent manufacturing capabilities based on the concepts of products, processes, resources and capabilities and their relations to each other (cf. section 8.2.1).
 
-Find more at [Development View Link](/pages/createpage.action?spaceKey=ARTIV&title=Development+View+Link&linkCreation=true&fromPageId=16799861)
+Find more at [Development View Link](introduction.md)
 
 ##### Request for Quotation API
 
 The Request for Quatation API defines how to communicate the exact requirements, specifications and needs a buyer has for a product, to the supplier. The supplier should be able to make an offer with this information. The API uses the Request for Quotation Model. The Request for Quotation Model defines detailed requirements, deadlines and evaluation criteria for obtaining quotations from potential manufacturers for specific products or services (cf. section 8.2.2).
 
-Find more at [Development View Link](/pages/createpage.action?spaceKey=ARTIV&title=Development+View+Link&linkCreation=true&fromPageId=16799861)
+Find more at [Development View Link](introduction.md)
 
 ##### Manufacturing Network Search API
 
