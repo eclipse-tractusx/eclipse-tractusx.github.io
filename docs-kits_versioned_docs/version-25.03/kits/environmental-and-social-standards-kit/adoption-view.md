@@ -168,7 +168,7 @@ The data model follows the Catena-X Standard [CX-0144](https://catena-x.net/de/s
 | **Attribute Name** | **Description** | **Example** |
 |-----------------------------|-----------------------------|-----------------------------|
 | First and last Name  | Contact name of ESS incident issuer  | Camille Mustermensch  |
-| E-Mail Address  | E-Mail address of ESS incident issuer  | [xyz.abc@xxx.com](xyz.abc@xxx.com) |
+| E-Mail Address  | E-Mail address of ESS incident issuer  | xyz.abc@xxx.com |
 | Phone number  | Phone number of ESS incident issuer  | +49 89 123456789  |
 | Address  | Address of ESS incident issuer  | XYZ-Road, 73230 Kirchheim  |
 | Anonymous  | Flag that Incident issuer wants to be anonymous  | Checkbox: ticked / not ticked  |
