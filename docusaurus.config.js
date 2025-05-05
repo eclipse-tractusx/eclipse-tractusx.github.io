@@ -12,6 +12,7 @@ const config = {
   url: 'https://eclipse-tractusx.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
