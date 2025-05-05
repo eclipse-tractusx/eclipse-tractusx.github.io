@@ -169,7 +169,7 @@ exp:vehicle_1 rdf:type cx-vehicle:Vehicle, cx-core:PhysicalObject;
 
 A digital twin is a digital object in a defined digital platform, such as the Web, data spaces, etc., that represents a real-world object and is identifiable and discoverable based on a defined unique identification. In the knowledge agent approach, a digital twin is an existing instance of a class of a domain ontology. The domain ontologies describe what kind of real-world objects it represents. With the cx-core:id all instances are identifiable in the Catena-X data space. A shape graph for the data provider's asset describes which digital twins are published in its asset. This makes the digital twins discoverable.
 
-Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to  [bridge](/modules#aas-bridges) these technolgies in both ways.
+Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to [bridge](modules.md#aas-bridges) these technolgies in both ways.
 
 ## Taxonomy
 

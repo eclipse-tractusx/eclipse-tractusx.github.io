@@ -4,7 +4,7 @@ title: Reference Implementation
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -32,7 +32,7 @@ For more information see
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Ontology](modelling) modelling guide
 * The [Layers & Modules](modules) Architecture
-* Our [Build](build) instructions
+* Our [Build](../operation-view/deployment.md) instructions
 * The [Deployment](../operation-view/deployment) guide
 
 ## High Level Architecture
@@ -69,7 +69,7 @@ see the [Tractus-X Repository](https://github.com/eclipse-tractusx/knowledge-age
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Layers & Modules](modules) Architecture
-* Our [Build](build) instructions
+* Our [Build](../operation-view/deployment.md) instructions
 * The [Deployment](../operation-view/deployment) guide
 
 <sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
