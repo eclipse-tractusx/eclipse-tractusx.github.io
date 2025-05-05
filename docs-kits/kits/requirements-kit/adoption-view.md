@@ -94,7 +94,7 @@ Catena-X offers solution providers a variety of strategic advantages to leverage
   
 ## Customer Journey
 
-![Customer Journey](assets/requirements_customer-journey.png)
+![Customer Journey](resources/requirements_customer-journey.png)
 
 
 ## User Journey
