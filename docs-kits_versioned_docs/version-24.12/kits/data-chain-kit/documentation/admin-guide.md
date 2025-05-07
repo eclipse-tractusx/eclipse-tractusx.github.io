@@ -30,7 +30,7 @@ It contains all required dependencies.
 
 If you also want to set up your own EDC consumer, use the [tractusx-connector](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector) chart.
 
-Supply the required configuration properties (see chapter [Configuration](configuration.adoc#_configuration)) in a values.yaml file or override the settings directly.
+Supply the required configuration properties (see chapter [Configuration](#configuration)) in a values.yaml file or override the settings directly.
 
 ### Deployment using Helm
 

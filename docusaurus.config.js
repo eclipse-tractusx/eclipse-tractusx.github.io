@@ -11,8 +11,9 @@ const config = {
   tagline: '',
   url: 'https://eclipse-tractusx.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
   markdown: {
@@ -65,6 +66,7 @@ const config = {
   ],
 
   plugins: [
+    ['docusaurus-plugin-sass',{}],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -74,18 +76,18 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
       },
-  ],
-  // -- documentation-kits --
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'docs-documentation',
-      path: 'documentation',
-      routeBasePath: 'documentation',
-      editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
-      sidebarPath: './sidebarsDocumentation.js',
-    },
-  ],
+    ],
+    // -- documentation-kits --
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-documentation',
+        path: 'documentation',
+        routeBasePath: 'documentation',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
+        sidebarPath: './sidebarsDocumentation.js',
+      },
+    ],
     // -- Community --
     [
       '@docusaurus/plugin-content-blog',
