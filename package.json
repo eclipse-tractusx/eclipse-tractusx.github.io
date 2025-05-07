@@ -38,7 +38,8 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.7.0",
     "husky": "^8.0.2",
-    "markdownlint-cli2": "^0.5.1"
+    "markdownlint-cli2": "^0.5.1",
+    "image-size": "~1.0.2"
   },
   "browserslist": {
     "production": [
