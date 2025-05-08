@@ -202,6 +202,14 @@ To enable notifications, the recipient has to register its notification API as a
 
 This asset can then be contracted by senders of notifications.
 
+### Versioning
+
+The Catena-X versioning applies. For version `2.0.0` of the Demand and Capacity API, a new asset and backend notification receiver MUST be created as shown in figure TODO4 below.
+
+![figure TODO4 - API versioning of the Demand and Capacity Notification API](./resources/notifications_connector_versioning.svg)
+
+Figure TODO4: *Versioning of the Demand and Capacity Notification based on CX-0151*
+
 ## Sample Data
 
 The semantic models in the business context are defined in the Adoption View of this KIT. This chapter gives additional

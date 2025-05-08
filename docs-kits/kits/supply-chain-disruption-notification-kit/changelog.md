@@ -18,6 +18,7 @@ All notable changes to this Kit will be documented in this file.
 Software Development View:
 
 - Table for setting fields in `header`
+- Versioning chapter
 
 ### Changed
 
