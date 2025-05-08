@@ -15,9 +15,9 @@ export const products = [
       "https://github.com/eclipse-tractusx/bpn-did-resolution-service",
     ],
     committers: [
-      "https://github.com/paullatzelsperger",
-      "https://github.com/wolf4ood",
-      "https://github.com/jimmarino",
+      "https://github.com/lgblaumeiser",
+      "https://github.com/ndr-brt",
+      "https://github.com/rafaelmag110",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request bpn-did-resolution-service Team",
@@ -322,10 +322,9 @@ export const products = [
       "https://github.com/eclipse-tractusx/tractusx-edc-template",
     ],
     committers: [
-      "https://github.com/paullatzelsperger",
-      "https://github.com/wolf4ood",
+      "https://github.com/rafaelmag110",
       "https://github.com/ndr-brt",
-      "https://github.com/jimmarino",
+      "https://github.com/lgblaumeiser",
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
     hasBoard: true,
@@ -353,9 +352,7 @@ export const products = [
     productDescription: "Defines Credential and Policy Profiles for Tractus-X.",
     githubRepo: ["https://github.com/eclipse-tractusx/tractusx-profiles"],
     committers: [
-      "https://github.com/jimmarino",
       "https://github.com/arnoweiss",
-      "https://github.com/wolf4ood",
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request tractusx-profiles Team",
     hasBoard: false,
