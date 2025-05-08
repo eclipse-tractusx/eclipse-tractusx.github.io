@@ -9,36 +9,18 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "Tractus-X SDK",
-    productDescription:
-      "A powerful middleware that simplifies the usage and application development using multi-target versions of the EDC, DTR and Data Sources",
+    productName: "bpn-did-resolution-service",
+    productDescription: "Tractus-X Resolver Service for BPN <> DID resolution",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/tractusx-sdk"
+      "https://github.com/eclipse-tractusx/bpn-did-resolution-service",
     ],
     committers: [
-      "https://github.com/matbmoser",
-      "https://github.com/CDiezRodriguez",
-      "https://github.com/mgarciaLKS",
+      "https://github.com/paullatzelsperger",
+      "https://github.com/wolf4ood",
+      "https://github.com/jimmarino",
     ],
     mailTo:
-      "mathias.moser@catena-x.net?subject=Request Tractus-X SDK Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-    {
-    productName: "Industry Core Hub",
-    productDescription:
-      "A data provision & consumption lightweight orchestrator, giving an example of usage of the Tractus-X SDK and providing an UI workbench for your to share data easily with Tractus-X compliant technology and following the Catena-X industry core standards.",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/industry-core-hub"
-    ],
-    committers: [
-      "https://github.com/matbmoser",
-      "https://github.com/CDiezRodriguez",
-      "https://github.com/mgarciaLKS",
-    ],
-    mailTo:
-      "mathias.moser@catena-x.net?subject=Request Industry Core Hub Team",
+      "tractusx-dev@eclipse.org?subject=Request bpn-did-resolution-service Team",
     hasBoard: false,
     showVersion: true,
   },
@@ -61,35 +43,9 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "bpn-did-resolution-service",
-    productDescription: "Tractus-X Resolver Service for BPN <> DID resolution",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/bpn-did-resolution-service",
-    ],
-    committers: [
-      "https://github.com/paullatzelsperger",
-      "https://github.com/wolf4ood",
-      "https://github.com/jimmarino",
-    ],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request bpn-did-resolution-service Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "demand-capacity-mgmt",
-    productDescription: "TBD",
-    githubRepo: ["https://github.com/eclipse-tractusx/demand-capacity-mgmt"],
-    committers: ["https://github.com/nitin-vavdiya"],
-    mailTo:
-      "tractusx-dev@eclipse.org?subject=Request demand-capacity-mgmt Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "Digital Product Pass",
     productDescription:
-    "The Digital Product Pass (DPP) Application provides an easy way to request and visualize product passports from an economic operator using the Catena-X Network. By scanning a QR code or introducing a manufacturerPartId and partInstanceId (productId) passports can be displayed for different products like Batteries (Battery Pass), Transmissions (Transmision Pass) and any other product by simply using the Generic Digital Product Passport Model. Additionally components like the dpp-backend have the power to retrieve any aspect submodel content, which is registered in a Digital Twin using the Catena-X Network, and the dpp-verification add-on enables certification + verification of Catena-X Instance/Type Aspect Models",
+      "The Digital Product Pass (DPP) Application provides an easy way to request and visualize product passports from an economic operator using the Catena-X Network. [...]",
     githubRepo: ["https://github.com/eclipse-tractusx/digital-product-pass"],
     committers: [
       "https://github.com/matbmoser",
@@ -101,25 +57,63 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "Self-Description Factory",
+    productName: "Digital Twin Registry",
     productDescription:
-      "Generates Self-Description (SD) documents based on input data from the Onboarding Tool, ensuring accurate representation of entities within the network",
+      "This product provides standards and services to manage digital twins.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/sd-factory",
+      "https://github.com/eclipse-tractusx/sldt-digital-twin-registry"
     ],
     committers: [
-      "https://github.com/tomaszbarwicki",
-      "https://github.com/almadigabor",
+      "https://github.com/agg3fe",
+      "https://github.com/bs-jokri",
+      "https://github.com/LuLeRoemer",
+      "https://github.com/tunacicek",
     ],
     mailTo:
-      "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team",
+      "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
+    productName: "Discovery Services",
+    productDescription:
+      "The project provides applications for the discovery services. [...]",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/sldt-bpn-discovery",
+      "https://github.com/eclipse-tractusx/sldt-discovery-finder",
+    ],
+    committers: [
+      "https://github.com/agg3fe",
+      "https://github.com/bs-jokri",
+      "https://github.com/LuLeRoemer",
+      "https://github.com/tunacicek",
+    ],
+    mailTo:
+      "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
+    productName: "Industry Core Hub",
+    productDescription:
+      "A data provision & consumption lightweight orchestrator, [...]",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/industry-core-hub"
+    ],
+    committers: [
+      "https://github.com/matbmoser",
+      "https://github.com/CDiezRodriguez",
+      "https://github.com/mgarciaLKS",
+    ],
+    mailTo:
+      "mathias.moser@catena-x.net?subject=Request Industry Core Hub Team",
     hasBoard: false,
     showVersion: true,
   },
   {
     productName: "Item Relationship Service",
     productDescription:
-      "The project provides a service for ad-hoc data chains across n-tier values chains for different use cases based on the EDC.",
+      "The project provides a service for ad-hoc data chains across n-tier values chains [...]",
     githubRepo: [
       "https://github.com/eclipse-tractusx/item-relationship-service",
     ],
@@ -151,7 +145,7 @@ export const products = [
   },
   {
     productName: "managed-service-orchestrator",
-    productDescription: "It is a prototype implementation for service provider. This service will help service provider to set up DFT/SDE with EDC and EDC as service in service provider environment.",
+    productDescription: "It is a prototype implementation for service provider. [...]",
     githubRepo: [
       "https://github.com/eclipse-tractusx/managed-service-orchestrator",
     ],
@@ -184,7 +178,7 @@ export const products = [
   {
     productName: "Policy Hub",
     productDescription:
-      "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth for Catena-X policies, attributes and templates for policy rules.",
+      "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth [...]",
     githubRepo: ["https://github.com/eclipse-tractusx/policy-hub"],
     committers: [
       "https://github.com/evegufy",
@@ -198,7 +192,7 @@ export const products = [
   {
     productName: "Portal & Marketplaces",
     productDescription:
-      "The Portal facilitates the operations for dataspace members (companies), it includes functionalities such as registration, technical onboarding and marketplaces.",
+      "The Portal facilitates the operations for dataspace members (companies), [...]",
     githubRepo: [
       "https://github.com/eclipse-tractusx/portal",
       "https://github.com/eclipse-tractusx/portal-backend",
@@ -235,50 +229,29 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "Digital Twin Registry",
+    productName: "Self-Description Factory",
     productDescription:
-        "This product provides standards and services to manage digital twins.",
+      "Generates Self-Description (SD) documents based on input data from the Onboarding Tool, [...]",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/sldt-digital-twin-registry"
+      "https://github.com/eclipse-tractusx/sd-factory",
     ],
     committers: [
-      "https://github.com/agg3fe",
-      "https://github.com/bs-jokri",
-      "https://github.com/LuLeRoemer",
-      "https://github.com/tunacicek",
+      "https://github.com/tomaszbarwicki",
+      "https://github.com/almadigabor",
     ],
     mailTo:
-        "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
+      "tractusx-dev@eclipse.org?subject=Request IDS Essential Services Team",
     hasBoard: false,
     showVersion: true,
   },
   {
     productName: "Semantic Layer",
     productDescription:
-        "The project provides methods and tooling to build semantic models (e.g., semantic hub).",
+      "The project provides methods and tooling to build semantic models (e.g., semantic hub).",
     githubRepo: [
       "https://github.com/eclipse-tractusx/sldt-semantic-hub",
       "https://github.com/eclipse-tractusx/sldt-semantic-models",
       "https://github.com/eclipse-tractusx/sldt-ontology-model",
-    ],
-    committers: [
-      "https://github.com/agg3fe",
-      "https://github.com/bs-jokri",
-      "https://github.com/LuLeRoemer",
-      "https://github.com/tunacicek",
-    ],
-    mailTo:
-        "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
-    productName: "Discovery Services",
-    productDescription:
-      "The project provides applications for the discovery services. The Discovery Finder is used to find an endpoint to a BPN Discovery for a certain type while BPN Discovery finds the endpoint of a provider EDC.",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/sldt-bpn-discovery",
-      "https://github.com/eclipse-tractusx/sldt-discovery-finder",
     ],
     committers: [
       "https://github.com/agg3fe",
@@ -343,24 +316,6 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "Trace-X",
-    productDescription:
-      "The project provides a business application for tracking parts along the supply chain. It uses quality notifications in a standardized way to notify customers or suppliers about detected faulty parts. It is based on the Catena-X standards for serialized and non-serialized hardware and software components.",
-    githubRepo: [
-      "https://github.com/eclipse-tractusx/traceability-foss",
-      "https://github.com/eclipse-tractusx/traceability-foss-backend",
-    ],
-    committers: [
-      "https://github.com/ds-mwesener",
-      "https://github.com/ds-mmaul",
-      "https://github.com/ds-lcapellino",
-      "https://github.com/mkanal",
-    ],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "Tractus-X EDC",
     productDescription:
       "The project provides the pre-built control- and data-plane docker images and helm charts of the Eclipse Dataspace Connector Project.",
@@ -379,6 +334,23 @@ export const products = [
     showVersion: true,
   },
   {
+    productName: "Tractus-X SDK",
+    productDescription:
+      "A powerful middleware that simplifies the usage and application development using multi-target versions of the EDC, DTR and Data Sources",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/tractusx-sdk"
+    ],
+    committers: [
+      "https://github.com/matbmoser",
+      "https://github.com/CDiezRodriguez",
+      "https://github.com/mgarciaLKS",
+    ],
+    mailTo:
+      "mathias.moser@catena-x.net?subject=Request Tractus-X SDK Team",
+    hasBoard: false,
+    showVersion: true,
+  },
+  {
     productName: "tractusx-profiles",
     productDescription: "Defines Credential and Policy Profiles for Tractus-X.",
     githubRepo: ["https://github.com/eclipse-tractusx/tractusx-profiles"],
@@ -392,11 +364,20 @@ export const products = [
     showVersion: true,
   },
   {
-    productName: "vas-country-risk",
-    productDescription: "The Catena-X Country Risk project is a web application that calculates a risk score per country based on information regarding corruption, political stability, economic risk, and social and structural figures.",
-    githubRepo: ["https://github.com/eclipse-tractusx/vas-country-risk"],
-    committers: [],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request vas-country-risk Team",
+    productName: "Trace-X",
+    productDescription:
+      "The project provides a business application for tracking parts along the supply chain. [...]",
+    githubRepo: [
+      "https://github.com/eclipse-tractusx/traceability-foss",
+      "https://github.com/eclipse-tractusx/traceability-foss-backend",
+    ],
+    committers: [
+      "https://github.com/ds-mwesener",
+      "https://github.com/ds-mmaul",
+      "https://github.com/ds-lcapellino",
+      "https://github.com/mkanal",
+    ],
+    mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
     hasBoard: false,
     showVersion: true,
   },
