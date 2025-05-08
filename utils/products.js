@@ -345,8 +345,7 @@ export const products = [
     productDescription:
       "The project provides a business application for tracking parts along the supply chain. It uses quality notifications in a standardized way to notify customers or suppliers about detected faulty parts. It is based on the Catena-X standards for serialized and non-serialized hardware and software components.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/traceability-foss",
-      "https://github.com/eclipse-tractusx/traceability-foss-backend",
+      "https://github.com/eclipse-tractusx/traceability-foss"
     ],
     committers: [
       "https://github.com/ds-jhartmann",
