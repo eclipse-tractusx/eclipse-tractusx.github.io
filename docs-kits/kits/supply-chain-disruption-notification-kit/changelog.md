@@ -11,6 +11,22 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [2.0.0] - 2025-XY-ZZ
+
+### Added
+
+Software Development View:
+
+- Table for setting fields in `header`
+
+### Changed
+
+- ./.
+
+### Removed
+
+- ./.
+
 ## [1.0.1] - 2024-11-18
 
 ### Added

@@ -211,12 +211,64 @@ provides one semantic model _Demand and Capacity Notification_.
 
 ### 1. Demand and Capacity Notification
 
-GitHub link to semantic data model in RDF turtle
-format: [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl)
+The Demand and Capacity Notification consists of a header and a content, that are assbembled in the following format:
 
-This aspect model has the following semantic id:
+```json
+{
+    "header": <messageHeader>,
+    "content": {
+        <DemandAndCapacityNotification>
+    }
+}
+```
 
-`urn:samm:io.catenax.demand_and_capacity_notification:2.0.0#DemandAndCapacityNotification`
+The definition following aspect models are used for their respective properties following table x.
+
+| Property | Aspect Model with Link                                                                                                                                                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| header   | [urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeader](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.shared.message_header/3.0.0/MessageHeaderAspect.ttl)                                                 |
+| content  | [urn:samm.io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl) |
+
+> Table TODO: *Aspect models used to assemble demand and capacity notification.*
+
+In the following more detailed information will be provided on how to fill the respective properties.
+
+#### Message Header
+
+The following table lists all fields of the message header and how they are used.
+
+| **Field**        | **REQUIRED** | **Purpose**                                                                                                                                                                                                                                                   | **Datatype**                                             | **Example value**                               |
+| ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------- |
+| messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                        | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f` |
+| relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in [Chapter 5](#5-processes).                                                                           | UUID v4 [RFC4122]                                        |                                                 |
+| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                      | `CX-DemandAndCapacityNotification:1.0`          |
+| version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader         | `3.0.0`                                         |
+| senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL7588787849VQ`                              |
+| receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL6666787765VQ`                              |
+| sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](#62-non-normative-references) with time zone | `2023-06-19T21:24:00+07:00`                     |
+
+Table TODO: *Message header fields used in the Demand and Capacity Notification API*
+
+The following listing shows a valid json serialization of such a header within the target format.
+
+```json
+{
+  "header": {
+    "messageId": "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "context": "CX-DemandAndCapacityNotificationAPI-Receive:2.0.0",
+    "receiverBpn": "BPNL4444444444XX",
+    "senderBpn": "BPNL000000000ZH5",
+    "version": "3.0.0"
+  },
+  "content": {
+    # see next subchapter
+  }
+}
+```
+
+#### Content (Demand and Capacity Nofitication)
+
+- [ ] TODO: update and include creation, resolving, update, forwarding
 
 The following JSON provides an example of the value-only serialization of the _Supply Chain Disruption Notification_
 aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site
@@ -241,7 +293,7 @@ resulting in a demand reduction between 12.12.2023 and 17.12.2023.
 }
 ```
 
-The following JSON provides an example with the same payload and additionally with a message header. For more
+The following JSON provides an example with the same payload and additionally with a message header (see previous subchapter). For more
 information on the message header, see
 the [RDF turtle file of the message header](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.shared.message_header/3.0.0/MessageHeaderAspect.ttl).
 
