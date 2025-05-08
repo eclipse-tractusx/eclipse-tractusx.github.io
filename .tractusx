@@ -66,3 +66,6 @@ openApiSpecs:
 
 # Data Chain KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/data-chain/kit_data-chain-irs-openAPI_5.4.2.yaml"
+
+# Company Certificate Management KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/company-certificate-management/kit_company-certificate-management-openapi_1-0-0.yaml"
