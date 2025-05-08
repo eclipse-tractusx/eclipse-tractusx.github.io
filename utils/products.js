@@ -119,10 +119,8 @@ export const products = [
     ],
     committers: [
       "https://github.com/ds-jhartmann",
-      "https://github.com/mkanal",
-      "https://github.com/ds-lcapellino",
       "https://github.com/ds-mwesener",
-      "https://github.com/ds-jkreutzfeld",
+      "https://github.com/mkanal",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request Item Relationship Service Team",
@@ -369,12 +367,10 @@ export const products = [
       "The project provides a business application for tracking parts along the supply chain. [...]",
     githubRepo: [
       "https://github.com/eclipse-tractusx/traceability-foss",
-      "https://github.com/eclipse-tractusx/traceability-foss-backend",
     ],
     committers: [
+      "https://github.com/ds-jhartmann",
       "https://github.com/ds-mwesener",
-      "https://github.com/ds-mmaul",
-      "https://github.com/ds-lcapellino",
       "https://github.com/mkanal",
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Trace-X Team",
