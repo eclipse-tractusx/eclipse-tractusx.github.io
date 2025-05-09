@@ -2,11 +2,48 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-04-11T00:00:00.000Z</updated>
+    <updated>2025-04-25T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2025-04-25]]></title>
+        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25"/>
+        <updated>2025-04-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure">​</a></h3>
+<ul>
+<li>All products included in the release should create their release check issue.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management">​</a></h3>
+<ul>
+<li>A reminder was sent out regarding the alignment meeting scheduled for Wednesday, May 7th.</li>
+<li>A briefing on the testing phase will take place on Monday, April 28th.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS">​</a></h3>
+<ul>
+<li>The Docusaurus migration to version 3.7, including necessary library updates, has been completed. This upgrade included significant cleanup. A detailed description of what changed can be found <a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025" target="_blank" rel="noopener noreferrer">here</a>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning">​</a></h3>
+<ul>
+<li>Everyone is encouraged to participate in the Community Days in May 2025.</li>
+<li>Once the Docusaurus migration is merged, a pull request will be submitted to add a calendar view to the Eclipse Tractus-X website.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests">​</a></h3>
+<ul>
+<li>No specific topics to discuss</li>
+<li>The release timelines for TX, CX, and the broader ecosystem are now aligned and available <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer">here</a>.</li>
+</ul>]]></content>
+        <author>
+            <name>Phil Schneider</name>
+            <uri>https://github.com/Phil91</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2025-04-11]]></title>
         <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11</id>
@@ -901,69 +938,5 @@ being investigated and an update will be provided soon.</li>
         </author>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="security" term="security"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Community Office Hour 2024-04-05]]></title>
-        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05</id>
-        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05"/>
-        <updated>2024-04-05T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-team">System team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#system-team" class="hash-link" aria-label="Direct link to System team" title="Direct link to System team">​</a></h3>
-<ul>
-<li>Several TRGs in Draft<!-- -->
-<ul>
-<li>See <a href="https://eclipse-tractusx.github.io/docs/release/trg-0/" target="_blank" rel="noopener noreferrer">TRG 0</a></li>
-<li>Dedicated PRs will be raised to gather feedback before publishing</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team">​</a></h3>
-<ul>
-<li>Veracode license finally expired<!-- -->
-<ul>
-<li>Dashboards still accessible</li>
-<li>No new scans can be run</li>
-<li>CodeQL is the replacement</li>
-</ul>
-</li>
-<li>Security TRGs live. See the "TRG 8 - Security" section
-in <a href="https://eclipse-tractusx.github.io/docs/release" target="_blank" rel="noopener noreferrer">Release Guidelines</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS">​</a></h3>
-<ul>
-<li>n/a</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community">​</a></h3>
-<ul>
-<li>n/a</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-04-05#discussions" class="hash-link" aria-label="Direct link to Discussions" title="Direct link to Discussions">​</a></h3>
-<ul>
-<li>Dependabot PRs<!-- -->
-<ul>
-<li>In general: keep your dependencies up to date. Keep the <code>DEPENDENCIES</code> file in mind. Ask committers for help, if you
-don't have one in your team.</li>
-<li>Specifically Docker base images: If dependabot suggests to upgrade the base image to a new major library version,
-that you do not support. Ask a committer to tell dependabot to ignore the dependency</li>
-<li>Specifically Chart Releaser Action: Should not be an issue, but we can investigate if the upgrade would raise
-issues (<code>1.4.1</code> to <code>1.6.0</code> in this case)</li>
-</ul>
-</li>
-<li>Are there updates to API versioning<!-- -->
-<ul>
-<li>No one in the call had an update</li>
-<li>The <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/580" target="_blank" rel="noopener noreferrer">Discussion</a> is untouched for a
-while</li>
-<li>If this is an issue for anyone, please push that topic again</li>
-</ul>
-</li>
-</ul>]]></content>
-        <author>
-            <name>Sebastian Bezold</name>
-            <uri>https://github.com/SebastianBezold</uri>
-        </author>
-        <category label="community" term="community"/>
-        <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
 </feed>
