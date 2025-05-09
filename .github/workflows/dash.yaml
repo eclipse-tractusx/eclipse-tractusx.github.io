@@ -26,7 +26,8 @@ on:
     branches:
       - main
     paths:
-      - "package-lock.json"
+      - package-lock.json
+      - package.json
 
 permissions:
   contents: write
