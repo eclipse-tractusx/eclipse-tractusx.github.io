@@ -65,8 +65,6 @@ export const products = [
     ],
     committers: [
       "https://github.com/agg3fe",
-      "https://github.com/bs-jokri",
-      "https://github.com/LuLeRoemer",
       "https://github.com/tunacicek",
     ],
     mailTo:
@@ -83,10 +81,6 @@ export const products = [
       "https://github.com/eclipse-tractusx/sldt-discovery-finder",
     ],
     committers: [
-      "https://github.com/agg3fe",
-      "https://github.com/bs-jokri",
-      "https://github.com/LuLeRoemer",
-      "https://github.com/tunacicek",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
@@ -252,10 +246,6 @@ export const products = [
       "https://github.com/eclipse-tractusx/sldt-ontology-model",
     ],
     committers: [
-      "https://github.com/agg3fe",
-      "https://github.com/bs-jokri",
-      "https://github.com/LuLeRoemer",
-      "https://github.com/tunacicek",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request Semantic Layer & Digital Twin Team",
