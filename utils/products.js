@@ -187,6 +187,9 @@ export const products = [
       "https://github.com/ntruchsess",
       "https://github.com/oyo",
       "https://github.com/Phil91",
+      "https://github.com/typecastcloud",
+      "https://github.com/saadanzari",
+      "https://github.com/dhiren-singh-007",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request Portal and Marketplaces Team",
