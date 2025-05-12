@@ -121,7 +121,8 @@ export const products = [
       "https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge",
       "https://github.com/eclipse-tractusx/knowledge-agents-edc",
     ],
-    committers: ["https://github.com/almadigabor"],
+    committers: [
+    ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request knowledge-agents Team",
     hasBoard: false,
     showVersion: true,
