@@ -1,14 +1,5 @@
 export const products = [
   {
-    productName: "api-hub",
-    productDescription: "Welcome to the API Hub repository, a centralized location for hosting and viewing API documentation for the Tractus-X organization. This repository automates the collection of OpenAPI specifications from GitHub releases, generates Swagger UI documentation, and publishes it on GitHub Pages.",
-    githubRepo: ["https://github.com/eclipse-tractusx/api-hub"],
-    committers: ["https://github.com/tomaszbarwicki"],
-    mailTo: "tractusx-dev@eclipse.org?subject=Request api-hub Team",
-    hasBoard: false,
-    showVersion: true,
-  },
-  {
     productName: "bpn-did-resolution-service",
     productDescription: "Tractus-X Resolver Service for BPN <> DID resolution",
     githubRepo: [
@@ -142,8 +133,6 @@ export const products = [
       "https://github.com/eclipse-tractusx/managed-service-orchestrator",
     ],
     committers: [
-      "https://github.com/almadigabor",
-      "https://github.com/tomaszbarwicki",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request managed-service-orchestrator Team",
@@ -159,8 +148,6 @@ export const products = [
       "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend",
     ],
     committers: [
-      "https://github.com/almadigabor",
-      "https://github.com/tomaszbarwicki",
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request managed-simple-data-exchanger Team",
@@ -228,7 +215,6 @@ export const products = [
       "https://github.com/eclipse-tractusx/sd-factory",
     ],
     committers: [
-      "https://github.com/tomaszbarwicki",
       "https://github.com/almadigabor",
     ],
     mailTo:
