@@ -306,7 +306,7 @@ export const products = [
   {
     productName: "Tractus-X EDC",
     productDescription:
-      "The project provides the pre-built control- and data-plane docker images and helm charts of the Eclipse Dataspace Connector Project.",
+      "The project provides the pre-built control- and data-plane docker images and helm charts of the Connector Project.",
     githubRepo: [
       "https://github.com/eclipse-tractusx/tractusx-edc",
       "https://github.com/eclipse-tractusx/tractusx-edc-template",
