@@ -157,7 +157,7 @@ export const products = [
   {
     productName: "Policy Hub",
     productDescription:
-      "The Policy Hub enables data providers, consumers and app providers to access a single-point-of-truth [...]",
+      "The Policy Hub is the source for Catena-X policies, attributes and templates for policy rules.",
     githubRepo: ["https://github.com/eclipse-tractusx/policy-hub"],
     committers: [
       "https://github.com/evegufy",
@@ -171,7 +171,7 @@ export const products = [
   {
     productName: "Portal & Marketplaces",
     productDescription:
-      "The Portal facilitates the operations for dataspace members (companies), [...]",
+      "The Portal  provides functionalities such as company registration, connector registration and marketplaces.",
     githubRepo: [
       "https://github.com/eclipse-tractusx/portal",
       "https://github.com/eclipse-tractusx/portal-backend",
