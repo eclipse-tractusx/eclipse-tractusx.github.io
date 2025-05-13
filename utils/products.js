@@ -20,8 +20,7 @@ export const products = [
     productDescription:
       "The project provides core services for querying, adding, and changing business partner data in the Catena-X data space. Currently, BPDM consists of the Pool and Gate API.",
     githubRepo: [
-      "https://github.com/eclipse-tractusx/bpdm",
-      "https://github.com/eclipse-tractusx/bpdm-certificate-management",
+      "https://github.com/eclipse-tractusx/bpdm"
     ],
     committers: [
       "https://github.com/nicoprow",
