@@ -288,7 +288,9 @@ export const products = [
     productName: "testdata-provider",
     productDescription: "Testdata Provider",
     githubRepo: ["https://github.com/eclipse-tractusx/testdata-provider"],
-    committers: ["https://github.com/ds-lcapellino"],
+    committers: [
+      
+    ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request testdata-provider Team",
     hasBoard: false,
     showVersion: true,
