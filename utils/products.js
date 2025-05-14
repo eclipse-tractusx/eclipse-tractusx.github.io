@@ -9,6 +9,7 @@ export const products = [
       "https://github.com/lgblaumeiser",
       "https://github.com/ndr-brt",
       "https://github.com/rafaelmag110",
+      "https://github.com/bmg13"
     ],
     mailTo:
       "tractusx-dev@eclipse.org?subject=Request bpn-did-resolution-service Team",
@@ -289,7 +290,7 @@ export const products = [
     productDescription: "Testdata Provider",
     githubRepo: ["https://github.com/eclipse-tractusx/testdata-provider"],
     committers: [
-      
+
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request testdata-provider Team",
     hasBoard: false,
@@ -306,7 +307,8 @@ export const products = [
     committers: [
       "https://github.com/rafaelmag110",
       "https://github.com/ndr-brt",
-      "https://github.com/lgblaumeiser",
+      "https://github.com/bmg13",
+      "https://github.com/lgblaumeiser"
     ],
     mailTo: "tractusx-dev@eclipse.org?subject=Request Tractus-X EDC Team",
     hasBoard: true,
