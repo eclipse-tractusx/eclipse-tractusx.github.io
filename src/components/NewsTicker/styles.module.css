@@ -103,6 +103,11 @@
   .introduction {
     padding: 0 1rem;
     font-size: smaller;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 
   .arrow_container {
