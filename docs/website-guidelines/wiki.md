@@ -6,7 +6,7 @@ sidebar_position: 2
 ```md
     *********************************************************
     ** DISCLAIMER                                          **
-    ** YOU ARE ENTERING THE DANGE ZONE                     **
+    ** YOU ARE ENTERING THE DANGER ZONE                     **
     ** IN THIS SECTION YOU ONLY FIND TECHNICAL             ** 
     ** ADVISE REGARDING THE WEBSITE ITSELF                 ** 
     ** IF YOU JUST WANT TO ADD CONTENT YOU ARE WRONG HERE! **
@@ -56,7 +56,7 @@ Our `<NewsTickerComponent />` is developed with the help of `React-slick:"^0.29.
 For its installation and use, you can follow one of these links:
 
 - [NPM](https://www.npmjs.com/package/react-slick)
-- [GittHub](https://github.com/akiran/react-slick)
+- [GitHub](https://github.com/akiran/react-slick)
 - [DOCS](https://react-slick.neostack.com/docs/get-started)
 
 In our project, we use the `NewsTicker` component to display the main titles of news written in the `./blog` folder and displayed in the  `HomePageHeader` component.
