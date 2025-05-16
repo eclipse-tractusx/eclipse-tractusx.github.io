@@ -1,5 +1,5 @@
 ---
-id: adoption-view-customs
+id: adoption-view
 title: Adoption View Customs
 description: "Customs Kit"
 sidebar_position: 2
