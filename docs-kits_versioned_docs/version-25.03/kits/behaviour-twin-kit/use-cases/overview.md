@@ -28,6 +28,6 @@ The following (template) use cases are part of this KIT:
 
 Another Behaviour Twin use case (not part of this KIT) is the exchange and collaborative use of simulation and data processing models, see:
 
-- [Model Based Development and Data Processing KIT](../../behaviour-twin-kit/adoption-view)
+- [Model Based Development and Data Processing KIT](../adoption-view/overview.md)
 
 *Federated simulation* is not yet part of any Behaviour Twin KIT, but could be an interesting approach in the future.
