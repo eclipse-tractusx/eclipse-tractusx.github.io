@@ -191,7 +191,7 @@ const config = {
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/customs-kit/adoption-view-customs',
+                to: '/docs-kits/kits/customs-kit/adoption-view',
                 label: 'Customs',
               },
               {
