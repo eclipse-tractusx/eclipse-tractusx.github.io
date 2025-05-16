@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Data Governance KIT'
+description: Data Governance KIT
 sidebar_position: 2
 ---
 ## Data Governance KIT

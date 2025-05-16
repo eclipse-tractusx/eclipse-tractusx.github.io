@@ -1,11 +1,11 @@
 ---
 id: changelog
 title: Changelog
-description: 'PURIS Kit'
+description: PURIS KIT
 sidebar_position: 1
 ---
 
-### PURIS Kit
+### PURIS KIT
 
 ![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
 

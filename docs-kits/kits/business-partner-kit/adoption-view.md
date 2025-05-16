@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Business Partner Kit'
+description: Business Partner KIT
 sidebar_position: 2
 ---
 
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
-
-## Business Partner KIT
 
 **Unique business partner data sets for the whole data space.**
 
@@ -15,13 +13,13 @@ sidebar_position: 2
 
 **Basis for the integration of value-adding services in the area of business partner data management.**
 
-The BusinessPartner Kit provides high-quality data records of business partners called golden record including a unique identifier and the business partner number (BPN). The BPN provides a standardized and unique identifier on legal entity, site and address level. The connected backend service removes duplicate data, adds missing information, and improves data quality from different data sources so-called sharing member.
+The BusinessPartner KIT provides high-quality data records of business partners called golden record including a unique identifier and the business partner number (BPN). The BPN provides a standardized and unique identifier on legal entity, site and address level. The connected backend service removes duplicate data, adds missing information, and improves data quality from different data sources so-called sharing member.
 
 - **Legal Entity Level (BPN L)**: Search for a legal entity and get the high-quality data set.
 - **Site Level (BPN S)**: Get the site information of a legal entity. A legal entity can have one or more sites.
 - **Address Level (BPN A)**: Each legal entity and site has an address to find the company.
 
-**The Kit provides a homogeneous semantic with an open data model, enables the access to high quality data and provides one access point to the business partner data sets.**
+**The KIT provides a homogeneous semantic with an open data model, enables the access to high quality data and provides one access point to the business partner data sets.**
 <br/>
 
 ![BuildApps](@site/static/img/BPKITBuildApps.png)
@@ -32,7 +30,7 @@ The BusinessPartner Kit provides high-quality data records of business partners 
 Application and service providers reduce investments to integrate due to one data model / API specification and open interface. The pool API enables the integration and offering of value-added services and innovation based on high-quality master data.
 
 **Access to new market potentials**
-Potential to scale customer group and access new market potentials via Catena-X marketplace and shared service network. The BP Kit enables an interoperable foundation for value-added services.
+Potential to scale customer group and access new market potentials via Catena-X marketplace and shared service network. The BP KIT enables an interoperable foundation for value-added services.
 
 **The unique identifier**
 BPN is the unique number to identify and find partners in the Catena-X network. It will also provide high quality data sets from business partners, their legal unit, sites and addresses.
@@ -65,7 +63,7 @@ OEMs and small-medium enterprises:
 Solution Provider:
 
 - Reduce investments to integrate due to one Data Model and open interface.
-- The Kit enables the offering of value-add services and innovation based on golden record and collective wisdom.
+- The KIT enables the offering of value-add services and innovation based on golden record and collective wisdom.
 - Potential to scale customer group and access new market potentials via marketplace and shared service network.
 
 ## Standards

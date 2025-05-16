@@ -19,7 +19,7 @@ This KIT is a part of the Tractus-X community, the official open-source project 
 
 ## CONTENTS
 
-- [Change Log](./changelog)
+- [Changelog](./changelog)
 - [Adoption View](adoption-view/overview) - Understand & Decide
 - [Development View](software-development-view/overview) - Develop & Operate
 - [Use Cases](use-cases/overview) - Templates for use cases *Health Indicator* and *Remaining useful Life*

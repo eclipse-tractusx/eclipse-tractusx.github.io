@@ -1,13 +1,11 @@
 ---
 id: software-development-view
 title: Software Development View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 3
 ---
 
 ![Quality kit banner](@site/static/img/kits\data-driven-quality-management\ddqm-kit-logo.svg)
-
-### Quality KIT
 
 For the process described in the KIT Quality, data exchange between the participating partner companies is necessarily to be done for large vehicle and product populations. The data exchange therefore should be done as a file download via EDC according to the following specifications.
 

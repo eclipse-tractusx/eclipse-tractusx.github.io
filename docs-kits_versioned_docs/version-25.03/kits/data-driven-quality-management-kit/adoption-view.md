@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 2
 ---
 
@@ -338,7 +338,7 @@ The Tier-1 receives data on vehicle master data, existing claims and DTCs. Once 
 
 | **Subsystem**     | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data Provisioning | This component provides a company's data to the Catena-X network by transforming it into the Catena-X format and publishing it. In Catena-X, data must be provided to the network based on existing standards from the other Kits. One example that can be used is the Connector Kit that builds a component based on the IDS protocol, e.g. the Connector of the Eclipse Dataspace Components (EDC). The data format used for Quality data is based on the aspects (Sub-)models published in the Semantic Hub. |
+| Data Provisioning | This component provides a company's data to the Catena-X network by transforming it into the Catena-X format and publishing it. In Catena-X, data must be provided to the network based on existing standards from the other Kits. One example that can be used is the Connector KIT that builds a component based on the IDS protocol, e.g. the Connector of the Eclipse Dataspace Components (EDC). The data format used for Quality data is based on the aspects (Sub-)models published in the Semantic Hub. |
 | Internal Systems  | Existing internal systems of a Catena-X partner which provide data to Quality components. - For Data Provisioning: The data provided to Catena-X via the EDC should be fetched from a partner's internal system. e. g. quality claims, defect code collection system                                                                                                                                                                                                                                            |
 | Quality App       | Enables analyses and visualization of available data (own and from data provider). Due to the standardization of the shared data, each partner company is able to use their preferred Quality App. Thus the alignment on a common tooling within one joint quality team is possible but not pre requisite.                                                                                                                                                                                                      |
 

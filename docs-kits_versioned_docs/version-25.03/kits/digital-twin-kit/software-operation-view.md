@@ -1,13 +1,11 @@
 ---
 id: software-operation-view
 title: Operation View
-description: 'Digital Twin Kit'
+description: Digital Twin KIT
 sidebar_position: 4
 ---
 
 ![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
-
-### Digital Twin KIT
 
 <!--
 Documentation of the kit.

@@ -1,7 +1,7 @@
 ---
 id: software-operation-view
 title: Operations View
-description: 'Customs Kit Operations View'
+description: Customs KIT Operations View
 sidebar_position: 4
 ---
 

@@ -1,13 +1,11 @@
 ---
 id: operation-view
 title: Operation View
-description: 'Business Partner Kit'
+description: Business Partner KIT
 sidebar_position: 3
 ---
 
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
-
-### Business Partner KIT
 
 ## Local Deployment
 
@@ -26,11 +24,11 @@ Installation of BPDM applications with the Helm Charts has the most software req
 
 1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
 2. [helm](https://helm.sh/docs/intro/install/) is installed
-3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.
    You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
    ```bash
-   minikube start --memory 8192 --cpus 2 
+   minikube start --memory 8192 --cpus 2
    ```
 
    _Optional_: enable minikube metrics
@@ -87,7 +85,7 @@ Also in total 6 Pods are up and running.
 The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
 ```bash
-  minikube dashboard 
+  minikube dashboard
 ```
 
 Make sure you select the namespace **your_namespace**
@@ -146,7 +144,7 @@ helm install your_namespace \
     --set-value bpdm-gate.profiles=["no-auth"] \
     --set-value bpdm-orchestrator.profiles=["no-auth"] \
     --set-value bpdm-pool.profiles=["no-auth"] \
-    --set-value bpdm-cleaning-service-dummy.profiles=["no-auth"] 
+    --set-value bpdm-cleaning-service-dummy.profiles=["no-auth"]
  ./charts/bpdm
 ```
 

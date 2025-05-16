@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: "PURIS Kit"
+description: PURIS KIT
 sidebar_position: 2
 ---
 
 ![PURIS kit banner](/img/kit-icons/puris-kit-icon.svg)
-
-### PURIS Kit
 
 ## Vision & Mission
 
