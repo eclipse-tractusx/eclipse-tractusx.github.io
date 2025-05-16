@@ -1,7 +1,7 @@
 ---
 id: software-development-view
 title: Specification
-description: 'PCF-Exchange-KIT'
+description: PCF Exchange KIT
 sidebar_position: 3
 ---
 

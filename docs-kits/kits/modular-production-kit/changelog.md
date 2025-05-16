@@ -1,13 +1,11 @@
 ---
 id: changelog
 title: Changelog
-description: 'Modular Production Kit'
+description: Modular Production Kit
 sidebar_position: 1
 ---
 
 ![mp kit banner](@site/static/img/kits/modular-production/modular-production-kit-gallery.svg)
-
-### Modular Production Kit
 
 All notable changes to this Kit will be documented in this file.
 

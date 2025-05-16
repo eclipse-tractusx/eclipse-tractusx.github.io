@@ -25,9 +25,9 @@ id: architecture
 
 ## Overview
 
-The following diagram shows an example architecture including the Connector Kit. In this case the EDC is used as a sample implementation of the Connector Kit.
+The following diagram shows an example architecture including the Connector KIT. In this case the EDC is used as a sample implementation of the Connector KIT.
 
-![IMG: Connector Kit Architecture](https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/static/img/architecture.drawio.svg)
+![IMG: Connector KIT Architecture](https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/static/img/architecture.drawio.svg)
 
 ## Interactions
 

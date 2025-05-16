@@ -1,10 +1,9 @@
 ---
 id: development-view
 title: Development View
-description: 'Data Governance KIT'
+description: Data Governance KIT
 sidebar_position: 3
 ---
-## Data Governance KIT
 
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH

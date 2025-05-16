@@ -25,8 +25,6 @@ title: Ontology Modelling
 
 ![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
-## Agents KIT
-
 **Ontology models for federated queries over the whole data space.**
 
 For more information see

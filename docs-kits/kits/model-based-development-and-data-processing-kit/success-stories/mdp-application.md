@@ -6,8 +6,6 @@ description: Behaviour Twin MDP Application Success Story
 
 ![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
 
-### Model Based Development and Data Processing Kit
-
 ## Introduction to the Use Case
 
 The Behaviour Twin MDP (Model based development and Data Processing) Application was developed as proof-of-concept within the framework of the Catena-X initiative, to demonstrate collaborative utilization of behavioural digital twins in the automotive industry. This innovative application is poised to define the workflow and the tool chain for the model-based system development and data processing, leveraging Catena-X technology and collaborative principles. The mission of the Behaviour Twin MDP Application is to provide a comprehensive framework for the selection, integration, and utilization of behavioural digital twins. Through adherence to Catena-X standards and principles, we strive to ensure secure data exchange, interoperability, and compatibility, laying the foundation for seamless collaboration and efficiency in innovation.

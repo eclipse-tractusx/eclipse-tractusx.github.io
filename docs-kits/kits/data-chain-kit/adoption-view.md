@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Data Chain Kit'
+description: Data Chain KIT
 sidebar_position: 1
 ---
 
 ![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
-
-### Data Chain Kit
 
 ## Vision & Mission
 
@@ -25,7 +23,7 @@ Traceability, Quality and the European supply chain act.
 ### Mission
 
 The Data Chain KIT provides a reference implementation as functional federated component to handle ad-hoc data chains
-across n-tiers within the Catena-X network. To realize these data chains, the Data Chain Kit relies on data models of
+across n-tiers within the Catena-X network. To realize these data chains, the Data Chain KIT relies on data models of
 the Traceability use case and provides the federated data chains to customers or applications. Furthermore, the target
 picture of the IRS includes the enablement of new business areas by means of data chains along the value chain in the
 automotive industry.
@@ -56,7 +54,7 @@ There are few steps for your Customer Journey:
 * The IRS Iterative API enables an easy interface for complex network tasks
 * Potential to scale and optimize network traffic
 * The IRS Iterative API is providing one Endpoint to access and collect widely distributed data
-* The Data Chain Kit enables interoperability for Data Chains along the value chain to extend
+* The Data Chain KIT enables interoperability for Data Chains along the value chain to extend
 
 ### IRS Recursive
 
@@ -376,11 +374,11 @@ official [Catena-X Standard Library](https://catena-x.net/de/standard-library)
 * [CX - 0005 Item Relationship Service API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0005-ItemRelationshipServiceApi-v1.1.1.pdf)
 * [CX - 0045 Aspect Model Template Data Chain](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0045-AspectModelDataChainTemplate-v1.1.1.pdf)
 
-## Why Data Chain Kit
+## Why Data Chain KIT
 
-What is in for you to use the Data Chain Kit. On what is it built on.
+What is in for you to use the Data Chain KIT. On what is it built on.
 
-![Why use Datachain Kit](@site/static/img/why_data_chain-minified.png)
+![Why use Datachain KIT](@site/static/img/why_data_chain-minified.png)
 
 ## IRS Iterative
 

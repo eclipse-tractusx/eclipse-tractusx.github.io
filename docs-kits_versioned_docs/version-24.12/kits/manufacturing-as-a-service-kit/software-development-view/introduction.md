@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: 'Manufacturing as a Service Kit'
+description: Manufacturing as a Service KIT
 sidebar_position: 4
 ---
 

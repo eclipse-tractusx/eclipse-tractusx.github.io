@@ -1,7 +1,7 @@
 ---
 id: adoption-view
-title:  Logistics Kit Adoption View
-description: "Logistics Kit"
+title:  Adoption View
+description: Logistics KIT
 sidebar_position: 2
 ---
 

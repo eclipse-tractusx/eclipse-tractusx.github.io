@@ -1,13 +1,11 @@
 ---
-id: business-view
-title: Business View
-description: 'Traceability Kit'
+id: adoption-view
+title: Adoption View
+description: Traceability KIT
 sidebar_position: 1
 ---
 
-import BillOfMaterials from '../industry-core-kit/parts/bill-of-materials.mdx'
-
-![Traceability kit banner](@site/static/img/kits/traceability/traceability-kit-logo.svg)
+![Traceability kit banner](@site/static/img/kit-icons/traceability-kit-icon.svg)
 
 The following page offers a high level business view on the Traceability KIT with its vision, mission, benefits, business value, customer journey and examples in form of videos.
 
@@ -60,54 +58,7 @@ In the worst case, the quality alert can result in a recall of the affected seri
 
 The following figure illustrates, how quality investigations and alerts throughout the supply chain enable quality problems to be contained quickly and precisely.
 
-![Quality Notifications](assets/quality_notifications.svg)
-
-### Block Notifications
-  
-Equal to quality notifications, block notifications are a form of data exchange to transfer information about defective parts in a standardized way. Quality notifications in general and quality alerts in particular can be used for the (first) mainly **unstructured** contact between business partners to initiate e.g. a supplier self-disclosure. Block notifications, in contrast, are **structured** messages. They are used to report parts with critical defects, enriched with specific information, directly to business partners, as an immediate measure potentially following a preceding quality alert.  
-
-> :raised_hand: Detailed information of the specific data being exchanged are available in the [Development View](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider#aspect-models).
-
-In this way, the customer can react quickly and precisely locate the parts based on the block information and sort them out at an early stage to prevent subsequent damage or major recalls and thus save costs and ensure a high quality of the vehicles, delivered to the customer. Block notifications should therefore significantly simplify the data exchange of block information in a standardized way and improve speed and quality. 
-
-The following figure gives an overview of how block notifications are exchanged between business partners: 
-
-![Block Notifications](assets/block_notifications.svg)
-
-### Special Characteristics
-Special characteristics are product or process characteristics that may have an impact on safety or regulatory compliance, fit, function, performance or further processing of the product.
-
-Special Characteristics are:
-
-- suitable for communicating, product quality and securing in the supply chain.
-- Characteristics that require increased care in order to avoid production issues and ensure the quality of the products.
-- defined and recorded with the supplier during development.
-
-Special Characteristics are divided into three categories:
-
-- Legal / relevant to legislation / homologation,
-- Safety
-- Function
-
-> :raised_hand: All products with safety or legal relevant properties, markings or functions are traceability and compliance relevant. Special Characteristics are also mentioned on VDA organization. More details can be found on [VDA home page](https://www.vda.de/de).
-
-Data on the Special Characteristics are collected within the supply chain, but not systematically forwarded to the OEM. The aim is to improve data exchange and consistency for special characteristics.
-
-- Data collection and provision for critical components
-- Data collection for a limited period of time, when required, in the event of quality problems or as part of industrialization.
-
-The exchange between supplier and OEM is currently done on single data exchange with special data format accepted by the partners. That means every data exchange has its single implementation. The more interfaces there are, the more difficult it becomes to manage and operate.
-
-Catena-X is to be used for data exchange within the supply chain. Since traceability must be ensured for special characteristics, it is advisable to supplement the Catena-X Use Cases Industry Core and Traceability with an additional functionality (additional aspect model) for the special characteristics. The special characteristics will be directly linked to the digital twin.
-
-#### Processual Approach
-The target vision aims to enable an end-to-end (E2E) data exchange of special characteristics via Catena-X in three main steps:
-
-- **Requesting Special Characteristics:** The customer should have the capability to request special characteristics from the supplier.
-- **Exchanging Specification Data:** The exchange of specification data for special characteristics should be possible at the part type level.
-- **Consuming Measured Data:** The customer should be able to consume the measured data (special characteristics) provided by the manufacturer.
-
-In this development phase, both the consumer and the provider are responsible for defining a format for requesting and exchanging information on the specifications of the special characteristics. The consumption of the measurement results is based on the expansion of the digital twin to include the aspect of special characteristics as defined in the [Development View](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider#specialcharacteristics).
+![Quality Notifications](assets/quality_notifications.png)
 
 ### Benefits for OEM, SME and Solution Provider
 #### OEM
@@ -130,6 +81,7 @@ Solution providers have the potential to scale customer groups and access new ma
 With the Traceability KIT, we support the Catena-X customer journey for our adopters and solutions providers.
 
 ![Customer Journey](assets/traceability_customer-journey.png)
+
 
 ## Further Explanations
 

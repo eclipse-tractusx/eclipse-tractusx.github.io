@@ -4,7 +4,7 @@
 
 ## Connector KIT
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [3.0.0] - 2024-06-07
 

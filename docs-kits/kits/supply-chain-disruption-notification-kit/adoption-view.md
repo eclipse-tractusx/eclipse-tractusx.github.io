@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: "PURIS-DCM Supply Chain Disruption Notifications"
+description: PURIS-DCM Supply Chain Disruption Notifications
 sidebar_position: 2
 ---
 
