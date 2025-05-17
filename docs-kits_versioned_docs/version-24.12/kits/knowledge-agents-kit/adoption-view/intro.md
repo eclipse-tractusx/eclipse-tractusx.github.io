@@ -29,8 +29,6 @@ title: Adoption View
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-## Agents KIT
-
 **Federated queries over the whole data space.**
 
 ## Vision & Mission

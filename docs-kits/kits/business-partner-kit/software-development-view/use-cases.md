@@ -1,7 +1,7 @@
 ---
 id: use-cases
 title: Use Cases
-description: ''
+description: Business Partner KIT
 sidebar_position: 5
 ---
 
@@ -165,7 +165,7 @@ curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3'
 --data '{
   "timestampAfter": "2023-03-20T10:23:28.194Z",
   "externalIds": [
-    
+
   ]
 }'
 ```

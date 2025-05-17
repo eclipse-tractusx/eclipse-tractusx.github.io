@@ -1,7 +1,7 @@
 ---
 id: changelog
 title: Changelog
-description: 'Manufacturing as a Service KIT'
+description: Manufacturing as a Service KIT
 sidebar_position: 1
 ---
 

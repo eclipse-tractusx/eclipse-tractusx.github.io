@@ -1,7 +1,7 @@
 ---
 id: architecture-view
 title: Architecture View
-description: 'Traceability Kit'
+description: Traceability KIT
 sidebar_position: 2
 ---
 
@@ -102,7 +102,7 @@ This capability defines what mandatory features a Traceability app must provide 
 | Data Sharing via [CX-0018](#standards) compliant connector	| Yes | The data sharing with other Catena-X partners (for Traceability partners, these are their customers and suppliers mostly) must be done via via a [CX-0018](#standards) compliant connector (e.g. EDC). |
 | Data Sovereignty | Yes | The usage of data in the Traceability app is compliant with the Access and Usage Policies as defined in this KIT.
 | Quality Alerts | Yes | In the event of an incident the partner's value chain, the partner would like to be informed promptly and in a structured manner by the triggering partners (e.g., manufacturing problem, field problems) so that the partner can respond as quickly as possible (Supplier/Customer). In the same way, the partner wants to inform their value chain partners easily and specifically in the event of relevant incidents. The traceability apps are able to exchange the alerts in the same interoperable way. |
-| Quality Investigations | Yes | For a given incident in a partner's supply chain, the partner would like to be able to narrow down the affected products as sharply as possible in order to carry out suitable actions in a targeted manner. The partners in the value chain use interoperable Traceability apps for this purpose.| 
+| Quality Investigations | Yes | For a given incident in a partner's supply chain, the partner would like to be able to narrow down the affected products as sharply as possible in order to carry out suitable actions in a targeted manner. The partners in the value chain use interoperable Traceability apps for this purpose.|
 | Block Information | No | The blocking process is a event  where faulty parts in the supply chain are separated or quarantined to prevent them from being used in the production process. Due to the criticality, this part-specific information must be forwarded to the affected manufacturers as quickly as possible so that they can react immediately to sorting out the corresponding components. To overcome this challenge, this information is provided and transmitted via a standardized API.|
 
 ### Non-Functional Requirements
@@ -135,14 +135,14 @@ The interaction of block notifications is based on events that can be triggered 
 
 When all block information has been received by the recipient, checked internally, further processed and finally all affected parts were blocked or sorted out, this information is sent back to the sender through a status update (PART_BLOCKED).
 
-> :raised_hand: Note that the update notification whether one or more parts have been blocked and therefore sorted out by the customer is **not mandatory**. The decision to provide suppliers with this information through a feedback notification **MUST** have been negotiated and accepted by both business partners before implemented. 
+> :raised_hand: Note that the update notification whether one or more parts have been blocked and therefore sorted out by the customer is **not mandatory**. The decision to provide suppliers with this information through a feedback notification **MUST** have been negotiated and accepted by both business partners before implemented.
 
 **Scenario 2:**
-In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally. 
+In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally.
 
-In order to inform the recipient of this error, the block status of the affected parts is set to CANCELED via an update notification, so that these parts cannot be sorted out and used to be installed by the recipient. 
+In order to inform the recipient of this error, the block status of the affected parts is set to CANCELED via an update notification, so that these parts cannot be sorted out and used to be installed by the recipient.
 
-> :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out. 
+> :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out.
 
 ![Block State Model Interaction](./assets/block-notification-state-model-interaction.svg)
 

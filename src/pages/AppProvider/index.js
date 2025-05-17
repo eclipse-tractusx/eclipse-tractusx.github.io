@@ -36,7 +36,7 @@ export default function AppProvider() {
 
             <IFrameComponent
               link={'https://www.youtube.com/embed/3XgsNPGQGIY'}
-              description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.'}
+              description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where KITs are implemented in the Catena-X ecosystem.'}
               title={'Get inspired by using a KIT'}
               headerDescription={'Business applications enable data providers and consumers  to leverage different use cases and data-driven processes to solve a specific industry problem (e.g., PCF) and create business value, by using KITs and Standards for interoperable and trusted data exchange. A business application provider (BAP) can decide on the scope of its business applications and whether to offer them on one or more of the marketplaces.'}
             />
@@ -62,9 +62,9 @@ export default function AppProvider() {
               </p>
             </div>
 
-            <KitsGalleryWithFilters 
+            <KitsGalleryWithFilters
           itemsArray={kitsGallery}
-          title={"Our Kits"}
+          title={"Our KITs"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
 

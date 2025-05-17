@@ -1,13 +1,13 @@
 ---
 id: changelog
 title: Changelog
-description: 'OSim Kit'
+description: OSim KIT
 sidebar_position: 1
 ---
 
 ![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
 
-### OSim Kit
+### OSim KIT
 
 All notable changes to this Kit will be documented in this file.
 

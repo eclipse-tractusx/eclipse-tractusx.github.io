@@ -4,7 +4,7 @@ title: High-Level Architecture
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -27,8 +27,6 @@ title: High-Level Architecture
 -->
 
 ![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
-
-## Agents KIT
 
 **Architecture for federated queries over the whole data space.**
 

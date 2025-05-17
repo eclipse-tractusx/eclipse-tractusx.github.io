@@ -1,15 +1,13 @@
 ---
 sidebar_position: 1
 title: Adoption View
-description: Adoption View
+description: Connector KIT
 id: adoption-view
 ---
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
-## Connector KIT
-
-The Connector Kit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign,
+The Connector KIT provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign,
 cross-enterprise data exchange.
 
 ## Vision & Mission
@@ -213,7 +211,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [miw-url]: https://github.com/eclipse-tractusx/managed-identity-wallet
 
-[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/business-view
+[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/adoption-view
 
 [sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Circularity_KIT/page-adoption-view
 

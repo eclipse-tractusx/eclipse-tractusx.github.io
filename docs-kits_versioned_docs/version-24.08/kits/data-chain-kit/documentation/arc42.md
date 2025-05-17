@@ -9,8 +9,6 @@ sidebar_position: 3
 
 ![Datachain kit banner](@site/static/img/kits/data-chain/DataChainKitIcon.png)
 
-### Data Chain KIT
-
 ## Introduction and goals
 
 This chapter gives you an overview about the goals of the service,

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-description: 'General Information on EDC Policies'
+description: General Information on EDC Policies
 title: Working with Policies
 id: working-with-policies
 ---

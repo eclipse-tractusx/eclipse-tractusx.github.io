@@ -1,7 +1,7 @@
 ---
 id: changelog
 title: Changelog
-description: 'Data Chain Kit Changelog'
+description: Data Chain KIT Changelog
 sidebar_position: 10
 ---
 
@@ -9,7 +9,7 @@ sidebar_position: 10
 
 ### Data Chain KIT
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [3.0.1] - unreleased
 
@@ -76,7 +76,7 @@ All notable changes to this Kit will be documented in this file.
 - documentation of adoption view
 - documentation of software development view
 - documentation of the IRS reference implementation
-- two success stories how this Kit is used
+- two success stories how this KIT is used
 
 ### Changed
 
