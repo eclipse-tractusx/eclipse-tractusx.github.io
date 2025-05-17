@@ -1,7 +1,7 @@
 ---
 id: software-development
 title: Software Development View
-description: "Logistics Kit"
+description: Logistics KIT
 sidebar_position: 3
 ---
 

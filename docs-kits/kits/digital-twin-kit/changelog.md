@@ -1,15 +1,15 @@
 ---
 id: changelog
 title: Changelog
-description: 'Digital Twin Kit'
+description: Digital Twin KIT
 sidebar_position: 1
 ---
 
-![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
+![DT KIT Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
 
 ### Digital Twin KIT
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [2.0.1] - 2024-08-01
 
@@ -52,7 +52,7 @@ All notable changes to this Kit will be documented in this file.
 ### Changed
 
 - A couple of clarifications and bugfixes for R23-12
-- Version of Kit incremented as minor revision since no breaking changes occurred.
+- Version of KIT incremented as minor revision since no breaking changes occurred.
 
 ## [1.0.0] - 2023-08-17
 
@@ -87,7 +87,7 @@ All notable changes to this Kit will be documented in this file.
 
 <h3>Added</h3>
 
-- Initial version of the Kit including adoption, operation and development view incl. all relevant API specifications.
+- Initial version of the KIT including adoption, operation and development view incl. all relevant API specifications.
 
 <h3>Changed</h3>
 

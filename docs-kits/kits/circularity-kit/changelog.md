@@ -1,13 +1,13 @@
 ---
 id: changelog
 title: Changelog
-description: "Circularity KIT"
+description: Circularity KIT
 sidebar_position: 1
 ---
 
 ![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.svg)
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [1.3.0] - 17.09.2024
 

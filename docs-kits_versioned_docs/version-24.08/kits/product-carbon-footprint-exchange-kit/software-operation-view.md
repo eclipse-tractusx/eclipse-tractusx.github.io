@@ -1,7 +1,7 @@
 ---
 id: software-operation-view
 title: Operation View
-description: 'PCF Exchange KIT'
+description: PCF Exchange KIT
 sidebar_position: 4
 ---
 

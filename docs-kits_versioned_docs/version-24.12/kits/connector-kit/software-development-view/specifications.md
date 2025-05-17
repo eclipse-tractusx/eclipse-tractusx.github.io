@@ -5,12 +5,12 @@ description: Specifications
 id: specifications
 ---
 
-The following describes the standards for implementation of the Connector Kit.
+The following describes the standards for implementation of the Connector KIT.
 They detail the necessary functionality of as well as the expected communication with a Connector.
 
 ## Dataspace Protocol (DSP)
 
-The core specification for the Connector Kit is the Dataspace Protocol (DSP), which can be found [here](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme).
+The core specification for the Connector KIT is the Dataspace Protocol (DSP), which can be found [here](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme).
 This specification is supplied by the International Data Spaces Association (IDSA).
 
 The DSP provides the core specifications for exchanges between connectors, including a split between a layer managing contracts and policies and a layer managing the actual data.

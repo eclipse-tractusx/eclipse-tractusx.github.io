@@ -1,12 +1,12 @@
 ---
 id: changelog
 title: Changelog
-description: 'Knowledge Agent'
+description: Knowledge Agent
 sidebar_position: 1
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE

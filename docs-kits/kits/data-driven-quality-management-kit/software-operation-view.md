@@ -1,7 +1,7 @@
 ---
 id: software-operation-view
 title: Software Operation View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 4
 ---
 

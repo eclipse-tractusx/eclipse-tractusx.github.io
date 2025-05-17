@@ -1,13 +1,11 @@
 ---
 id: bpdm-arc42
 title: Architecture documentation (arc42)
-description: 'Architecture documentation (arc42)'
+description: Architecture documentation (arc42)
 sidebar_position: 1
 ---
 
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
-
-## Business Partner KIT
 
 ## Business Partner Data Management Application for Golden Record (BPDM)
 

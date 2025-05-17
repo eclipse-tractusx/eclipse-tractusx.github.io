@@ -6,7 +6,7 @@ description: Model Based Development and Data Processing Kit
 
 ![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
 
-### Model Based Development and Data Processing Kit
+### Model Based Development and Data Processing KIT
 
 ## Vision & Mission
 
@@ -21,7 +21,7 @@ The exchange of data services (like scripts as well as simulation models) allows
 ### Mission
 
 The Model Based Development and Data Processing Kit comes with the necessary Catena-X standard for model exchange. In addition, suggestions are given on how to create models that have a high-level of interoperability. These suggestions will be part of a new standard in the next version of the MDP Kit.
-The Kit includes examples code on how to register your models and data services in Catena-X, how to assign metadata to them and how to use the metadata to retrieve what you need from the catalogue of a Catena-X partner. The solution is based on the existing Connector Kit (EDC).
+The Kit includes examples code on how to register your models and data services in Catena-X, how to assign metadata to them and how to use the metadata to retrieve what you need from the catalogue of a Catena-X partner. The solution is based on the existing Connector KIT (EDC).
 Information on how to combine and connect simulation models to create an overall model are also provided as well as an example of how to combine services and models for enhanced post-processing of operational data.
 
 ### Customer Journey

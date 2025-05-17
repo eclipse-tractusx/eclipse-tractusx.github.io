@@ -1,15 +1,15 @@
 ---
 id: changelog
 title: Changelog
-description: 'PURIS Kit'
+description: PURIS KIT
 sidebar_position: 1
 ---
 
-### PURIS Kit
+### PURIS KIT
 
 ![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [0.3.1] - 2024-08-08
 
@@ -60,7 +60,7 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Initial version of the Kit including the adoption view
+- Initial version of the KIT including the adoption view
 
 ### Changed
 

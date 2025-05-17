@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: "OSim Kit"
+description: OSim Kit
 sidebar_position: 2
 ---
 
 ![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
-
-### OSim Kit
 
 ## Vision & Mission
 
@@ -180,7 +178,7 @@ This policy allows limiting access to a data offer based on a list of specific B
 - The data offer creator will be able to create a policy listing all the BPN that can access the data offer
 - This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
 
-Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector Kit](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
+Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
 

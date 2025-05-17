@@ -1,13 +1,11 @@
 ---
 id: software-operation-view
 title: Software Operation View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 4
 ---
 
 ![Quality kit banner](/img/kit-icons/quality-kit-icon.svg)
-
-### Quality KIT
 
 Based on the information provided in the Quality KIT, it is possible to share quality related data between OEM and Tier n, use own and provide custom Quality Apps. The data sharing process, described in the [Development View](/docs-kits/next/kits/data-driven-quality-management-kit/software-development-view) consists only standard Catena-X core components. Additional Quality KIT specific code or API are not provided and implementation therefor not necessary.
 

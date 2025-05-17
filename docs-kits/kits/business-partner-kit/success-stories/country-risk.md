@@ -1,7 +1,7 @@
 ---
 id: country-risk
 title: Country Risk Score
-description: 'Country Risk Score'
+description: Country Risk Score
 sidebar_position: 1
 ---
 

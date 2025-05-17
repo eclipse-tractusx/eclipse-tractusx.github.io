@@ -1,7 +1,7 @@
 ---
 id: software-development-view
 title: Software Development View
-description: 'OSim Kit'
+description: OSim Kit
 ---
 
 ![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
