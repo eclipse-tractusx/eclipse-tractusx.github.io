@@ -1,7 +1,7 @@
 ---
 id: software-development-view
 title: Software Development View
-description: "Customs Kit"
+description: Customs KIT
 sidebar_position: 3
 ---
 

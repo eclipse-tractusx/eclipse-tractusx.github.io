@@ -6,8 +6,6 @@ description: Model Based Development and Data Processing Kit
 
 ![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
 
-### Model Based Development and Data Processing Kit
-
 The video included under Success Stories illustrates software application functionality realizing the MDP Use Cases based on practical implementation examples.
 
 ## Asset discovery

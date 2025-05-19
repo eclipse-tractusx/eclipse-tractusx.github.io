@@ -1,7 +1,7 @@
 ---
 id: operations-view
 title: Operations View
-description: 'Logistics Kit Operations View'
+description: Logistics KIT Operations View
 sidebar_position: 4
 ---
 

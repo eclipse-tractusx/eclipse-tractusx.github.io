@@ -1,7 +1,7 @@
 ---
 id: changelog
 title: Changelog
-description: 'Logistics Kit'
+description: Logistics KIT
 sidebar_position: 1
 ---
 
@@ -11,7 +11,7 @@ sidebar_position: 1
 
 ### Added
 
-- Initial version of the Kit including the adoption view
+- Initial version of the KIT including the adoption view
 
 ### Changed
 

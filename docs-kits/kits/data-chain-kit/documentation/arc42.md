@@ -2,14 +2,12 @@
 id: arc42
 title: Architecture documentation (arc42)
 
-description: 'Architecture documentation (arc42)'
+description: Architecture documentation (arc42)
 sidebar_position: 3
 ---
 <!-- # Architecture documentation (arc42) -->
 
 ![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
-
-### Data Chain KIT
 
 ## Introduction and goals
 

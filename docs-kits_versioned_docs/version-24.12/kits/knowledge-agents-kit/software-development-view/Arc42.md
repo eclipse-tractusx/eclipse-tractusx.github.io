@@ -4,7 +4,7 @@ title: Detailed Architecture
 ---
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
- * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+ * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
  * Copyright (c) 2021 Mercedes-Benz AG
  * Copyright (c) 2021 ZF Friedrichshafen AG
  * Copyright (c) 2021 SAP SE
@@ -25,8 +25,6 @@ title: Detailed Architecture
  *
  * SPDX-License-Identifier: CC-BY-4.0
 -->
-
-## Agents KIT
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 

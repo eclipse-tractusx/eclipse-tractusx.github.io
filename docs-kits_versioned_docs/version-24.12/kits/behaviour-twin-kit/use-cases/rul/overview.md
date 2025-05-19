@@ -21,7 +21,7 @@ This template shows a use case where an external consumer defines a skill, where
 
 ## CONTENTS
 
-- [Change Log](../../changelog.md)
+- [Changelog](../../changelog.md)
 - [Adoption View](adoption-view/overview)
 - [Development View](development-view/overview)
 

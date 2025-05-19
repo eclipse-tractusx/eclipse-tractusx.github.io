@@ -1,7 +1,7 @@
 ---
 id: software-development-view
 title: Developing with the DT KIT
-description: 'Digital Twin KIT - Software Development View'
+description: Digital Twin KIT - Software Development View
 sidebar_position: 1
 ---
 
@@ -11,8 +11,6 @@ Development View of the Kit.
 -->
 
 ![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
-
-### Digital Twin KIT
 
 <!-- !Mandatory! -->
 

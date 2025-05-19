@@ -1,7 +1,7 @@
 ---
 id: changelog
-title: Changelog 
-description: 'Business Partner Kit'
+title: Changelog
+description: Business Partner KIT
 sidebar_position: 1
 ---
 
@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ### Business Partner KIT
 
-All notable changes to this Kit will be documented in this file.
+All notable changes to this KIT will be documented in this file.
 
 ## [8.0.0] - 2025-03-03
 
