@@ -79,9 +79,9 @@ Special characteristics are product or process characteristics that may have an 
 
 Special Characteristics are:
 
-- suitable for communicating, product quality and securing in the supply chain.
-- Characteristics that require increased care in order to avoid production issues and ensure the quality of the products.
-- defined and recorded with the supplier during development.
+- suitable for securing and verifying product quality in the supply chain.
+- Characteristics that require increased care in order to avoid production issues.
+- defined with the supplier during development.
 
 Special Characteristics are divided into three categories:
 
@@ -89,25 +89,21 @@ Special Characteristics are divided into three categories:
 - Safety
 - Function
 
-> :raised_hand: All products with safety or legal relevant properties, markings or functions are traceability and compliance relevant. Special Characteristics are also mentioned on VDA organization. More details can be found on [VDA home page](https://www.vda.de/de).
+> :raised_hand: All products with safety or legal relevant properties, markings or functions are traceability and compliance relevant. Special Characteristics are also mentioned on VDA organization. More details can be found on [VDA home page](https://www.vda.de/en).
 
 Data on the Special Characteristics are collected within the supply chain, but not systematically forwarded to the OEM. The aim is to improve data exchange and consistency for special characteristics.
 
 - Data collection and provision for critical components
 - Data collection for a limited period of time, when required, in the event of quality problems or as part of industrialization.
 
-The exchange between supplier and OEM is currently done on single data exchange with special data format accepted by the partners. That means every data exchange has its single implementation. The more interfaces there are, the more difficult it becomes to manage and operate.
-
-Catena-X is to be used for data exchange within the supply chain. Since traceability must be ensured for special characteristics, it is advisable to supplement the Catena-X Use Cases Industry Core and Traceability with an additional functionality (additional aspect model) for the special characteristics. The special characteristics will be directly linked to the digital twin.
+The exchange between supplier and OEM is often done by ad-hoc data exchange without any standardization. Therefore, Catena-X should be used to standardize the data exchange. Since traceability must be ensured for special characteristics, we make use of the Industry Core (Part Instance) with an additional aspect model for the special characteristics: `SpecialCharacteristicMeasurement`. The special characteristics will be directly linked to the digital twin.
 
 #### Processual Approach
 The target vision aims to enable an end-to-end (E2E) data exchange of special characteristics via Catena-X in three main steps:
 
 - **Requesting Special Characteristics:** The customer should have the capability to request special characteristics from the supplier.
 - **Exchanging Specification Data:** The exchange of specification data for special characteristics should be possible at the part type level.
-- **Consuming Measured Data:** The customer should be able to consume the measured data (special characteristics) provided by the manufacturer.
-
-In this development phase, both the consumer and the provider are responsible for defining a format for requesting and exchanging information on the specifications of the special characteristics. The consumption of the measurement results is based on the expansion of the digital twin to include the aspect of special characteristics as defined in the [Development View](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#specialcharacteristics).
+- **Consuming Measured Data:** The customer should be able to consume the measured data `SpecialCharacteristicMeasurement` provided by the manufacturer.
 
 ### Benefits for OEM, SME and Solution Provider
 #### OEM
