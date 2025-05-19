@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-description: 'Conventions and behavior specific to Catena-X'
+description: Conventions and behavior specific to Catena-X
 title: Policies in Catena-X
 id: policies-in-catena
 ---

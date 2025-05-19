@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Data Chain Kit'
+description: Data Chain KIT
 sidebar_position: 1
 ---
 
 ![Datachain kit banner](@site/static/img/kits/data-chain/DataChainKitIcon.png)
-
-### Data Chain Kit
 
 ## Vision & Mission
 
@@ -376,7 +374,7 @@ official [Catena-X Standard Library](https://catena-x.net/de/standard-library)
 * [CX - 0005 Item Relationship Service API](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0005-ItemRelationshipServiceApi-v1.1.1.pdf)
 * [CX - 0045 Aspect Model Template Data Chain](https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Archiv/Update_Juli_23_R_3.2/CX-0045-AspectModelDataChainTemplate-v1.1.1.pdf)
 
-## Why Data Chain Kit
+## Why Data Chain KIT
 
 What is in for you to use the Data Chain Kit. On what is it built on.
 

@@ -1,7 +1,7 @@
 ---
-id: adoption-view-customs
-title: Adoption View Customs
-description: "Customs Kit"
+id: adoption-view
+title: Adoption View
+description: Customs KIT
 sidebar_position: 2
 ---
 

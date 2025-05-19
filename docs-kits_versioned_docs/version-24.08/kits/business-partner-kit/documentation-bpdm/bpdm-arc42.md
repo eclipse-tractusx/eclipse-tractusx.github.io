@@ -7,8 +7,6 @@ sidebar_position: 1
 
 ![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
-## Business Partner KIT
-
 ## Business Partner Data Management Application for Golden Record (BPDM)
 
 - [Business Partner Data Management Application for Golden Record (BPDM)](#business-partner-data-management-application-for-golden-record-bpdm)
@@ -242,7 +240,7 @@ sequenceDiagram
     OpenIDConnect Server -->> BPDM Gate: Confirms validity of Token
     BPDM Gate -->> BPDM Gate: Check "resource_access" section of OAuth Token
 
-    
+
 ```
 
 ## Runtime View
@@ -283,7 +281,7 @@ sequenceDiagram
     BPDM Simulator-->> BPDM Simulator: Update last sync changelog timestamp
     BPDM Simulator->>BPDM Pool: Forward Business Partner
       Note left of BPDM Pool: POST/PUT api/catena/legal-entities
-    opt BPN does not exist 
+    opt BPN does not exist
     BPDM Pool-->>BPDM Pool: Create BPN
     end
     BPDM Pool-->>BPDM Pool: Update Changelog
@@ -374,7 +372,7 @@ sequenceDiagram
         Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Step: 'PoolSync' <br> Step State: 'Success'
          Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Success'
     end
-    
+
     loop Polling for finished Golden Record Tasks
         Gate-->>Gate: Query sharing states in Sharing State Type 'PENDING'
         Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golde Record Task ID
@@ -396,8 +394,8 @@ sequenceDiagram
 sequenceDiagram
     autonumber
 
-    Pool-->Pool: Add Changelog Entry for BPNL 
-    
+    Pool-->Pool: Add Changelog Entry for BPNL
+
     loop Polling Pool Changelog
         Gate->>Pool: POST api/catena/changelog/search <br> Payload: From After Last Search Time
         Pool-->>Gate: Changelog entry for BPNL
@@ -420,7 +418,7 @@ sequenceDiagram
          Orchestrator-->>Orchestrator: Set Golden Record Task State <br> Result State: 'Success'
         Orchestrator-->>CleaningServiceDummy: Accept
     end
-    
+
     loop Polling for finished Golden Record Tasks
         Gate-->>Gate: Query sharing states in Sharing State Type 'PENDING'
         Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golden Record Task ID
@@ -429,12 +427,12 @@ sequenceDiagram
         Gate-->>Gate: Set Sharing State 'Success'
         Gate-->>Gate: Add Changelog Entry 'Create' for Business Partner Output
     end
-    
+
     SharingMember->>Gate: POST api/catena/output/changelog/search <br> Payload: From After Last Search Time
     Gate-->>SharingMember: Changelog entry with Business Partner External ID
     SharingMember->>Gate: POST api/catena/output/business-partners/search <br> Payload: External ID
     Gate-->>SharingMember: Business Partner Output
-    
+
 ```
 
 ## Business Partner Data Records - States
@@ -534,7 +532,7 @@ C4Context
     Rel(pool_container, orchestrator_container, "HTTP/S")
     Rel(gate_container, orchestrator_container, "HTTP/S")
     Rel(dummy_container, orchestrator_container, "HTTP/S")
-    
+
     Rel(bridge_container, pool_container, "HTTP/S")
     Rel(bridge_container, gate_container, "HTTP/S")
 

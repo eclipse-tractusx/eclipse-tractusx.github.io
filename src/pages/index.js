@@ -47,7 +47,7 @@ export default function Home() {
         <CommunityComponent />
         <KitsGalleryWithFilters
           itemsArray={kitsGallery}
-          title={"Our Kits"}
+          title={"Our KITs"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
         {/* Enable when it is required */}

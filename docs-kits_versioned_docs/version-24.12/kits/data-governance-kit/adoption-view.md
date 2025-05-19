@@ -1,10 +1,9 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Data Governance KIT'
+description: Data Governance KIT
 sidebar_position: 2
 ---
-## Data Governance KIT
 
 <!--
  * Copyright (c) 2024 T-Systems International GmbH
