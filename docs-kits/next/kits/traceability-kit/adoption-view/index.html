@@ -15,7 +15,7 @@
 
 <link rel="alternate" type="application/rss+xml" href="/community/meeting-minutes/rss.xml" title="Eclipse Tractus-X RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/community/meeting-minutes/atom.xml" title="Eclipse Tractus-X Atom Feed"><link rel="stylesheet" href="/assets/css/styles.55996276.css">
-<script src="/assets/js/runtime~main.708d4b5f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.dbf6d44a.js" defer="defer"></script>
 <script src="/assets/js/main.f628370d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -73,9 +73,9 @@ In the worst case, the quality alert can result in a recall of the affected seri
 <p>Special characteristics are product or process characteristics that may have an impact on safety or regulatory compliance, fit, function, performance or further processing of the product.</p>
 <p>Special Characteristics are:</p>
 <ul>
-<li>suitable for communicating, product quality and securing in the supply chain.</li>
-<li>Characteristics that require increased care in order to avoid production issues and ensure the quality of the products.</li>
-<li>defined and recorded with the supplier during development.</li>
+<li>suitable for securing and verifying product quality in the supply chain.</li>
+<li>Characteristics that require increased care in order to avoid production issues.</li>
+<li>defined with the supplier during development.</li>
 </ul>
 <p>Special Characteristics are divided into three categories:</p>
 <ul>
@@ -84,23 +84,21 @@ In the worst case, the quality alert can result in a recall of the affected seri
 <li>Function</li>
 </ul>
 <blockquote>
-<p>✋<!-- --> All products with safety or legal relevant properties, markings or functions are traceability and compliance relevant. Special Characteristics are also mentioned on VDA organization. More details can be found on <a href="https://www.vda.de/de" target="_blank" rel="noopener noreferrer">VDA home page</a>.</p>
+<p>✋<!-- --> All products with safety or legal relevant properties, markings or functions are traceability and compliance relevant. Special Characteristics are also mentioned on VDA organization. More details can be found on <a href="https://www.vda.de/en" target="_blank" rel="noopener noreferrer">VDA home page</a>.</p>
 </blockquote>
 <p>Data on the Special Characteristics are collected within the supply chain, but not systematically forwarded to the OEM. The aim is to improve data exchange and consistency for special characteristics.</p>
 <ul>
 <li>Data collection and provision for critical components</li>
 <li>Data collection for a limited period of time, when required, in the event of quality problems or as part of industrialization.</li>
 </ul>
-<p>The exchange between supplier and OEM is currently done on single data exchange with special data format accepted by the partners. That means every data exchange has its single implementation. The more interfaces there are, the more difficult it becomes to manage and operate.</p>
-<p>Catena-X is to be used for data exchange within the supply chain. Since traceability must be ensured for special characteristics, it is advisable to supplement the Catena-X Use Cases Industry Core and Traceability with an additional functionality (additional aspect model) for the special characteristics. The special characteristics will be directly linked to the digital twin.</p>
+<p>The exchange between supplier and OEM is often done by ad-hoc data exchange without any standardization. Therefore, Catena-X should be used to standardize the data exchange. Since traceability must be ensured for special characteristics, we make use of the Industry Core (Part Instance) with an additional aspect model for the special characteristics: <code>SpecialCharacteristicMeasurement</code>. The special characteristics will be directly linked to the digital twin.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="processual-approach">Processual Approach<a href="#processual-approach" class="hash-link" aria-label="Direct link to Processual Approach" title="Direct link to Processual Approach">​</a></h4>
 <p>The target vision aims to enable an end-to-end (E2E) data exchange of special characteristics via Catena-X in three main steps:</p>
 <ul>
 <li><strong>Requesting Special Characteristics:</strong> The customer should have the capability to request special characteristics from the supplier.</li>
 <li><strong>Exchanging Specification Data:</strong> The exchange of specification data for special characteristics should be possible at the part type level.</li>
-<li><strong>Consuming Measured Data:</strong> The customer should be able to consume the measured data (special characteristics) provided by the manufacturer.</li>
+<li><strong>Consuming Measured Data:</strong> The customer should be able to consume the measured data <code>SpecialCharacteristicMeasurement</code> provided by the manufacturer.</li>
 </ul>
-<p>In this development phase, both the consumer and the provider are responsible for defining a format for requesting and exchanging information on the specifications of the special characteristics. The consumption of the measurement results is based on the expansion of the digital twin to include the aspect of special characteristics as defined in the <a href="https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#specialcharacteristics" target="_blank" rel="noopener noreferrer">Development View</a>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="benefits-for-oem-sme-and-solution-provider">Benefits for OEM, SME and Solution Provider<a href="#benefits-for-oem-sme-and-solution-provider" class="hash-link" aria-label="Direct link to Benefits for OEM, SME and Solution Provider" title="Direct link to Benefits for OEM, SME and Solution Provider">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="oem">OEM<a href="#oem" class="hash-link" aria-label="Direct link to OEM" title="Direct link to OEM">​</a></h4>
 <p>For OEM and large automotive suppliers, the traceability solution from Catena-X enables companies to identify products affected by a defect faster and more precisely and thus avoiding general and inaccurate recalls.
