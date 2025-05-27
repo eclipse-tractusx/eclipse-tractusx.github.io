@@ -14,6 +14,69 @@ Tractus-X operates on YY.0M.MICRO [Calendar Versioning](https://calver.org/) for
  |Updated | The component was already part of some previous release, but has now undergone a change |
  |Removed / Deprecated |  The component was deliberately removed from the scope of the release package |
 
+## [25.06] - 2025-06-16
+
+Implemented features can be found [here](https://github.com/orgs/eclipse-tractusx/projects/26/views/36)
+
+### Added
+
+| Component | Helm Chart (s) | App-/KIT Version (s) |
+| :-------- | :-------------: | :------------------: |
+| [Tractus-X Software Development (SDK)](https://github.com/eclipse-tractusx/tractusx-sdk) | n/a | [v0.0.7](https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.0.7) |
+| [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub) | n/a | [1.0.0](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/industry-core-hub-1.0.0)|
+
+### Updated
+
+| Component | Helm Chart (s) | App-/KIT Version (s) |
+| :-------- | :-------------: | :------------------: |
+| [Business Partner KIT]( https://eclipse-tractusx.github.io/docs-kits/kits/business-partner-kit/adoption-view) | n/a | [x.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/Business%20Partner%20Kit/Changelog) |
+| [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry) | digital-twin-registry:[0.8.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/digital-twin-registry-0.8.0) | [0.8.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/v0.8.0) |
+| [Eclipse Data Space Connector (Tractus-X EDC)](https://github.com/eclipse-tractusx/tractusx-edc) | tractusx-connector: [0.10.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0) | [0.10.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0) |
+| [Golden Record Business Partner Number (BPN) Service](https://github.com/eclipse-tractusx/bpdm) | bpdm: [6.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/bpdm-6.0.0) | [7.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/v7.0.0) |
+| [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/business-view) | n/a | [1.x.0](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/changelog) |
+| [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service) | item-relationship-service: [9.0.0](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/item-relationship-service-9.0.0) | [7.0.1](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/7.0.1) |
+| [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.4.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.4.0) | [1.4.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.4.0) |
+| [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.5.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.5.0) | registration: [v2.2.1](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.2.1)<br/>frontend: [v2.5.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.5.0)<br/>backend: [v2.5.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.5.0)<br/>assets: [v2.5.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.5.0) |
+| [PURIS](https://github.com/eclipse-tractusx/puris) | puris: [2.8.1](https://github.com/eclipse-tractusx/puris/releases/tag/puris-2.8.1) | [3.0.0](https://github.com/eclipse-tractusx/puris/releases/tag/3.0.0) |
+| [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-1.3.0) | [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v1.3.0) |
+| [Self Description (SD) Factory](https://github.com/eclipse-tractusx/sd-factory) | sdfactory: [2.1.33](https://github.com/eclipse-tractusx/sd-factory/releases/tag/sdfactory-2.1.33) | [2.1.24](https://github.com/eclipse-tractusx/sd-factory/releases/tag/v2.1.24) |
+| [SSI Credential Issuer](https://github.com/eclipse-tractusx/ssi-credential-issuer) | ssi-credential-issuer: [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/ssi-credential-issuer-1.4.0) | [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/v1.4.0) |
+| [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss) | traceability-foss: [1.4.2](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.4.2) | [15.0.0](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.0) |
+
+### Removed / Deprecated
+
+| Component | Helm Chart (s) | App-/KIT Version (s) |
+
+### Known Knowns
+
+- All not listed products and KITs have not been updated and are based on the release 25.03
+  - These products were not part of the e2e testing phase
+  - And are not tested with the current EDC version 0.10.0
+- The Eclipse Tractus-X release does not include an Identity Wallet. The development team decided on a temporary bridging solution, based on a commercial application, to test and ship the releases 24.08, 24.12, 25.03 and 25.06. Without implementing this interim solution, participants will not be able to fully utilize this release in consequence.
+- For E2E Testing, the [2.2.1](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v2.2.1) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not. 
+
+#### EDC
+
+### Runtime
+
+- on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `X.XX.Xx`
+- with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `XX.X.X.`
+- the EDC version [XXXX]() was used for testing
+
+Note: Tractus-X EDC has been tested on both Postgresql versions: 15.x and 16.x
+
+### Using helm with central helm registry
+
+You can search all released helm charts with the following commands:
+
+```shell
+helm repo add tractusx-dev https://eclipse-tractusx.github.io/charts/dev
+helm repo update tractusx-dev
+helm search repo tractusx-dev --versions
+```
+
+For installation details, please see the referenced Repositories / Releases.
+
 ## [25.03] - 2025-03-19
 
 Implemented features can be found [here](https://github.com/orgs/eclipse-tractusx/projects/26/views/39)
