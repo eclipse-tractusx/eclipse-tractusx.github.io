@@ -2,24 +2,6 @@
 sidebar_class_name: hidden
 ---
 
-<!---
-This work is licensed under the CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/legalcode).
-
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023 BASF SE
-- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
-- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
-- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
-- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2023 SAP SE
-- SPDX-FileCopyrightText: 2023 Siemens AG
-- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/traceability-kit (latest version)
---->
-
 import AspectModelOverview from './../../../industry-core-kit/software-development-view/parts/aspect-model-overview.mdx'
 
 Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model. Transformations are mostly straightforward in these cases. If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
@@ -167,15 +149,19 @@ Aspect model in GitHub:
     ]
 }
 ```
-
 ### SpecialCharacteristicMeasurement
 
-Special Characteristics are measureable and these measurements are of interest for a consumer who defined these characteristics. The proposal is a data model "result" which represents a measurement related to a specific measurement and product. A measurement result is identified by the identification of a characteristic and the product.
+#### Overview
 
-Aspect model in GitHub:
-- Version 1.0.0: [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/1.0.0/](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/1.0.0/)
+To ensure manufactured components meet defined quality standards and specifications, Special Characteristics are measured and captured as evidence. The measured values of these Special Characteristics are an aspect `SpecialCharacteristicMeasurement` of the digital twin (beside the Industry Core: Part Instance). Each digital twin can have multiple aspects of `SpecialCharacteristicMeasurement`.
 
-#### Example: Submodel `SpecialCharacteristicMeasurement`
+#### Aspect Model in GitHub
+
+- **Version 2.0.0**: [GitHub Repository](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/2.0.0/)
+
+#### Data Model
+
+Below is the detailed description of the attributes used in the `SpecialCharacteristicMeasurement` data model:
 
 ```json
 {
@@ -188,89 +174,168 @@ Aspect model in GitHub:
   "customerPartId": "PRT-12345",
   "revisionIndex": "01",
   "manufacturerId": "BPNL000000000000",
-  "measurementType": "simpleMeasurement",
-  "characteristicId": "S1",
+  "measurementType": "quantitativeMeasurement",
+  "characteristicId": "F1",
   "results": [
     {
-      "identifier": "measurementPoint23",
-      "description": "This text gives you context to the related measurement to help to put it into the necessary context.",
-      "unit": "unit:hectopascal",
-      "value": 12.09,
-      "measurementTimestamp": "2024-12-17T11:09:47.738+01:00"
+      "identifier": "measurementPoint1",
+      "description": "This text gives you context to the related measurement to help to put it into context.",
+      "unit": "unit:mm",
+      "value": "12.09",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
     }
   ]
 }
 ```
 
-#### Recommended Pattern (Key Value Pair)
+| Attribute             | Description                                                                 | Data Type                                                                 | Mandatory/Optional | Example                                                                                   |
+|-----------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
+| `localIdentifiers`    | An array of local identifiers used to uniquely identify the part instance.  | –     | –          | –                  |
+| `customerPartId`      | The identifier of the part assigned by the customer.                        | String                                                                    | Mandatory          | "PRT-12345"                                                           |
+| `revisionIndex`       | The revision index of the part.                                             | String                                                                    | Mandatory          | "01"                                                                   |
+| `manufacturerId`      | The identifier of the manufacturer.                                         | String                                                                    | Mandatory          | "BPNL000000000000"                                                    |
+| `measurementType`     | The type of measurement being performed (e.g., quantitative, qualitative).  | String                                                                    | Optional          | "quantitativeMeasurement"                                            |
+| `characteristicId`    | The identifier of the characteristic being measured. Normally defined within the blueprint. | String                                                                    | Mandatory          | "F1"                                                                |
+| `results`             | An array of measurement results.                                            | –                                                          | –          | –                                                                                         |
+| `identifier`          | The identifier of the measurement point.                                    | String                                                                    | Mandatory          | "measurementPoint1"                                                      |
+| `description`         | A description of the measurement context.                                   | String                                                                    | Mandatory          | "This text gives you context to the related measurement to help to put it into context." |
+| `unit`                | The unit of the measurement.                      | String                                                                    | Optional           | "unit:mm"                                                                       |
+| `value`               | The measured value.                                                         | String                                                                    | Mandatory          | "12.09"                                                                        |
+| `measurementTimestamp`| The timestamp of the measurement in ISO 8601 format.                        | String                                                                    | Mandatory          | "2025-03-25T09:20:00.66372+14:00"                                 
 
-##### Simple Measurements
 
-We consider for characteristics a simple measurement if it just requires to measure a single value. For example the thickness of a rolled steel plate. We designed the measurement object to be able to represent any measurement where it is required to measure a value with a unit.
 
-**Data model**
+#### Recommended Pattern for `measurementType`
 
-| Attribute            | Plausability | Type   | Example                                                                                                |
-|----------------------|--------------|--------|--------------------------------------------------------------------------------------------------------|
-| identifier           | mandatory    | string | measurementPoint23                                                                                     |
-| description          | mandatory    | string | "This text gives you context to the related measurement to help to put it into the necessary context." |
-| unit                 | optional     | string | "unit:hectopascal"                                                                                     |
-| value                | mandatory    | float  | -2.9426523                                                                                             |
-| measurementTimestamp | mandatory    | string | 2024-12-17T11:09:47.738+01:00                                                                          |
+The pattern used can be individually defined between the data provider and the data consumer. The documentation provides a set of examples illustrating the approach for which the model was designed.
 
-**Example: Submodel Simple Measurements**
+##### `measurementType` QuantitativeMeasurements
+
+Quantitative measurements require measuring a quantitative value, such as the thickness of a defined measurement point.
+
+```json
+"results": [
+  {
+    "identifier": "S1",
+    "description": "Thickness measurement at point A",
+    "unit": "unit:mm",
+    "value": "12.09",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
+```
+
+##### `measurementType` QualitativeMeasurements
+
+Qualitative measurements involve descriptive values, such as a serial number etched onto the product.
 
 ```json
 {
-      "identifier": "measurementPoint23",
-      "description": "This text gives you context to the related measurement to help to put it into the necessary context.",
-      "unit": "unit:hectopascal",
-      "value": -2.9426523,
-      "measurementTimestamp": "2024-12-17T11:09:47.738+01:00"
+  "results": [
+    {
+      "identifier": "L1",
+      "description": "Serial number etched on the product",
+      "unit": null,
+      "value": "ABC123DEF456",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+    }
+  ]
 }
 ```
 
-##### Qualitative Measurements
+##### `measurementType` AttributiveMeasurements
 
-We consider a qualitative measurement a measurement where a value has to be extracted and a read Qualitity has to be determined. An example would be the serial number which has to be etched onto the product. The result of the etching has to be of a certain quality where this quality is measured by some metric.
-
-**Data model**
-
-| Attribute            | Plausability | Type   | Example                                                                                                                                                                                                              |
-|----------------------|--------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| identifier           | mandatory    | string | measurementPoint23                                                                                                                                                                                                   |
-| description          | mandatory    | string | "Additional to the description add extending information to the measurement if needed. E.g link to an extracted image or values that cannot be represented by a float and how the value field should be interpreted" |
-| value                | mandatory    | float  | 12                                                                                                                                                                                                                   |
-| measurementTimestamp | mandatory    | string | 2024-12-17T11:09:47.738+01:00                                                                                                                                                                                        |
+Attributive measurements confirm that the function is as expected.
 
 ```json
 {
-      "identifier": "measurementPoint23",
-      "description": "Additional to the description add extending information to the measurement if needed. E.g link to an extracted image or values that cannot be represented by a float and how the value field should be interpreted",
-      "value": 12.09,
-      "measurementTimestamp": "2024-12-17T11:09:47.738+01:00"
+  "results": [
+    {
+      "identifier": "F1",
+      "description": "Product passed functional test",
+      "unit": null,
+      "value": "true",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
     }
-
+  ]
+}
 ```
 
-##### Functional Measurements
+#### Multitple measured results
 
-Functional Measurements are for characteristics where the result just confirms that the function is at it is expected.
+If the `characteristicId` consists of more than one measured results, the `identifier` should be defined between the data provider and data consumer.
 
-**Data model**
+##### Example 1: Technical Cleanliness Measurement
 
-| Attribute            | Plausability | Type   | Example                                                                                              |
-|----------------------|--------------|--------|------------------------------------------------------------------------------------------------------|
-| identifier           | mandatory    | string | measurementPoint23                                                                                   |
-| description          | mandatory    | string | This text gives you context to the related measurement to help to put it into the necessary context. |
-| value                | mandatory    | float  | 1                                                                                                    |
-| measurementTimestamp | mandatory    | string | 2024-12-17T11:09:47.738+01:00                                                                        |
+Technical cleanliness measurements involve comparing measured particle sizes against a table of permissible values. This ensures that the component meets cleanliness standards by verifying that particle contamination is within acceptable limits. The example measurement includes counts for three particle size categories.
 
 ```json
-{
-      "identifier": "measurementPoint23",
-      "description": "This text gives you context to the related measurement to help to put it into the necessary context.",
-      "value": 1.0,
-      "measurementTimestamp": "2024-12-17T11:09:47.738+01:00"
-    }
+"results": [
+  {
+    "identifier": "particleSizeCategory1",
+    "description": "Count of particles in size category 1 (0-50 µm)",
+    "unit": "unit:count",
+    "value": "30",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "particleSizeCategory2",
+    "description": "Count of particles in size category 2 (51-100 µm)",
+    "unit": "unit:count",
+    "value": "10",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "particleSizeCategory3",
+    "description": "Count of particles in size category 3 (>100 µm)",
+    "unit": "unit:count",
+    "value": "5",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
 ```
+
+##### Example 2: Resistance Measurement
+
+A resistance measurement is only meaningful if the voltage and current have been measured previously, as resistance is calculated from their ratio.
+
+```json
+"results": [
+  {
+    "identifier": "voltage",
+    "description": "Voltage measurement",
+    "unit": "unit:V",
+    "value": "5.2",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "current",
+    "description": "Current measurement",
+    "unit": "unit:A",
+    "value": "0.15",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "resistance",
+    "description": "Resistance calculated from voltage and current",
+    "unit": "unit:Ohm",
+    "value": "34.67",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
+```
+## NOTICE
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
+- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
+- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 Siemens AG
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/traceability-kit (latest version)
