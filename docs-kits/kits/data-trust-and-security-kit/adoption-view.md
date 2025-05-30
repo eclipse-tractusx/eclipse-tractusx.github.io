@@ -13,8 +13,8 @@ sidebar_position: 2
 ### Vision
 One core objective of data ecosystems is to enable secure data exchange between the participants within the ecosystem.
 While the network can deliver trust in the participants, trust in the data is still required.
-For that technical approaches are required. 
-This KIT shall enable data transfer, where data consumer can trust in their consumed data through third parties within the network as well as defined verification and validation procedures. 
+For that technical approaches are required.
+This KIT shall enable data transfer, where data consumer can trust in their consumed data through third parties within the network as well as defined verification and validation procedures.
 
 ### Mission
 This KIT aims to define solutions used in Catena-X to generate trust in the data consumed within the network.
@@ -22,8 +22,10 @@ This  includes definition of various terms such as verification and validation w
 
 ## Business Value & Benefits
 
-### Why do we need trust?
+### Why do we need trust? -> Example: https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification#trust-and-value-of-having-certified-aspects
 
+### Who is allowed to be appointed for "PCF Verification", "DPP Verification"
+### Explanation why we need a "rulebook". -> can be also standards.
 ### We do we need to do it digitally?
 ### Why verifiable credentials (W3C)?
 ### Where are existing trusted lists (synergies from other initiatives)
@@ -46,4 +48,4 @@ This  includes definition of various terms such as verification and validation w
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 
+- SPDX-FileCopyrightText:
