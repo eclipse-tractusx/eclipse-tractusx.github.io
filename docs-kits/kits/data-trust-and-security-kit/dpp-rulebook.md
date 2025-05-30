@@ -16,3 +16,16 @@ Description: Indicates applicability of substances of concern as relevant attrib
     * Logic: Must be either "true" or "false".
 
 #### 4.1.1.2	Chemical ID (Substances of Concern)
+Description: Represents chemical material name or numerical identifier, preferring IUPAC nomenclature.
+
+* Regulatory Reference: Regulation regarding chemical naming practices outlined in Article 7(5)(a).
+* Validation Rule:
+  * Type: String
+  * Example: "201-004-7"
+  * Mandatory: Yes
+  * Logic: Must be valid chemical identifier in accordance with IUPAC.
+
+#### 4.1.1.3 List Type ID (Substances of Concern)
+Description: Specifies the identification standard for substances, offering CAS, IUPAC, or EC selection.
+
+* Regulatory Reference: Standardized substance identification highlighted in Article 7(5)(a).
