@@ -22,8 +22,8 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
-| [Tractus-X Software Development (SDK)](https://github.com/eclipse-tractusx/tractusx-sdk) | n/a | [v0.0.7](https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.0.7) |
-| [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub) | n/a | [1.0.0](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/industry-core-hub-1.0.0)|
+| [ Eclipse Tractus-X Software Development KIT (SDK)](https://github.com/eclipse-tractusx/tractusx-sdk) | n/a | [v0.0.7](https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.0.7) |
+| [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub) | [0.2.1](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/industry-core-hub-0.2.1) | [v0.1.0](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/v0.1.0)|
 
 ### Updated
 
@@ -41,7 +41,7 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 | [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-1.3.0) | [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v1.3.0) |
 | [Self Description (SD) Factory](https://github.com/eclipse-tractusx/sd-factory) | sdfactory: [2.1.33](https://github.com/eclipse-tractusx/sd-factory/releases/tag/sdfactory-2.1.33) | [2.1.24](https://github.com/eclipse-tractusx/sd-factory/releases/tag/v2.1.24) |
 | [SSI Credential Issuer](https://github.com/eclipse-tractusx/ssi-credential-issuer) | ssi-credential-issuer: [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/ssi-credential-issuer-1.4.0) | [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/v1.4.0) |
-| [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss) | traceability-foss: [1.4.2](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.4.2) | [15.0.0](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.0) |
+| [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss) | traceability-foss: [1.4.3](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.4.3) | [15.0.1](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.1) |
 
 ### Removed / Deprecated
 
@@ -55,13 +55,41 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 - The Eclipse Tractus-X release does not include an Identity Wallet. The development team decided on a temporary bridging solution, based on a commercial application, to test and ship the releases 24.08, 24.12, 25.03 and 25.06. Without implementing this interim solution, participants will not be able to fully utilize this release in consequence.
 - For E2E Testing, the [2.2.1](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v2.2.1) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not.
 
+#### BPDM
+
+- When creating a marketplace app the Portal does not support an internal technical user profile for BPDM permission group [Gate Input Consumer](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/architecture/08_Crosscutting_Concepts.md). Therefore, it is currently not possible to create a marketplace app that enables access to [ReadAccessGateInputForSharingMember offers](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#edc-installation) for external VAT services wanting to access sharing member Gates.
+
 #### EDC
+
+#### Industry Core Hub
+
+- No Authentication at the backend & frontend provided [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/254)
+- No profile & settings provided at frontend (just a mock) [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/254)
+- Part Instance twins not included in scope (not supported in backend, and mocked in the frontend) [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/261)
+- Not submodel is displayed in the frontend, also is not possible to create submodels. [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/260)
+- No display of aspect models in frontend. (PCF and other data models are not supported, just PartTypeInformation v1.0.0) [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/260)
+- It is not possible to unshare once shared [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/262)
+
+#### Item Relationship Service (IRS)
+
+- Persistent submodel service needed for end-to-end stability [see here](https://github.com/eclipse-tractusx/traceability-foss/issues/1459)
+
+#### Software Development KIT
+
+- EDC Version specified is v0_9_0 but works with v0.10.0 [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
+- EDC Service has not factory method. [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
+
+#### Trace-X Traceability Application
+
+- The "Show Details Table" function is non-functional in the as Planned view [see here](https://github.com/eclipse-tractusx/sig-release/issues/1443)
+- Record Information is Visible for asPlanned Parts to Users with Supervisor Role (only role Admin shold be permitted) [see here](https://github.com/eclipse-tractusx/sig-release/issues/1442)
+- Insufficient visualization of Teaction Battery Code [see here](https://github.com/eclipse-tractusx/sig-release/issues/1441)
 
 ### Runtime
 
-- on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `X.XX.Xx`
+- on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.29.10.`
 - with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `XX.X.X.`
-- the EDC version  was used for testing
+- the EDC version [0.10.0]() was used for testing
 
 Note: Tractus-X EDC has been tested on both Postgresql versions: 15.x and 16.x
 
