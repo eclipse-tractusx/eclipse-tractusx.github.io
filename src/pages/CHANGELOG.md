@@ -35,7 +35,7 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 | [Golden Record Business Partner Number (BPN) Service](https://github.com/eclipse-tractusx/bpdm) | bpdm: [6.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/bpdm-6.0.0) | [7.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/v7.0.0) |
 | [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/business-view) | n/a | [1.x.0](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/changelog) |
 | [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service) | item-relationship-service: [9.0.0](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/item-relationship-service-9.0.0) | [7.0.1](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/7.0.1) |
-| [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.4.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.4.0) | [1.4.0](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.4.0) |
+| [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.3.1) | [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.3.1) |
 | [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.5.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.5.0) | registration: [v2.2.1](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.2.1)<br/>frontend: [v2.5.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.5.0)<br/>backend: [v2.5.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.5.0)<br/>assets: [v2.5.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.5.0) |
 | [PURIS](https://github.com/eclipse-tractusx/puris) | puris: [2.8.1](https://github.com/eclipse-tractusx/puris/releases/tag/puris-2.8.1) | [3.0.0](https://github.com/eclipse-tractusx/puris/releases/tag/3.0.0) |
 | [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-1.3.0) | [1.3.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v1.3.0) |
@@ -59,8 +59,6 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 
 - When creating a marketplace app the Portal does not support an internal technical user profile for BPDM permission group [Gate Input Consumer](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/architecture/08_Crosscutting_Concepts.md). Therefore, it is currently not possible to create a marketplace app that enables access to [ReadAccessGateInputForSharingMember offers](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#edc-installation) for external VAT services wanting to access sharing member Gates.
 
-#### EDC
-
 #### Industry Core Hub
 
 - No Authentication at the backend & frontend provided [see here](https://github.com/eclipse-tractusx/industry-core-hub/issues/254)
@@ -79,6 +77,12 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 - EDC Version specified is v0_9_0 but works with v0.10.0 [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
 - EDC Service has not factory method. [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
 
+#### SSI Credential Issuer
+
+- The database is capable of storing documents of type PRESENTATION through a POST API call, even though this functionality is not exposed through any specific API endpoint, indicating an undocumented feature or a future use case not yet realized.
+
+- The DIM Status List is presently included in both the configuration file and the outbound wallet post body, which is against our recommendation as we believe this function should be autonomously managed by the wallet. The status list is defined within the component configuration, suggesting an interim solution with an intention to phase out this approach, reinforcing that the status list should not be integral to the interface in the long term.
+
 #### Trace-X Traceability Application
 
 - The "Show Details Table" function is non-functional in the as Planned view [see here](https://github.com/eclipse-tractusx/sig-release/issues/1443)
@@ -88,8 +92,8 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 ### Runtime
 
 - on [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) versions: `1.29.10.`
-- with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `XX.X.X.`
-- the EDC version [0.10.0]() was used for testing
+- with [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) versions: `15.4.0-debian-11-r45`
+- the EDC version [0.10.0-rc2](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0-rc2) was used for testing
 
 Note: Tractus-X EDC has been tested on both Postgresql versions: 15.x and 16.x
 
