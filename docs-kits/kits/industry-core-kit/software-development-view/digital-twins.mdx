@@ -367,14 +367,15 @@ The Submodel Descriptor for Parquet file information can be defined like:
 }
 ```
 
+**Aspect model QualityParquetExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
 
-| Parameter               | Value                                                                                                   | Description                                                                                                                                                     |
-|-------------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| href                    | 'Dataplane URL'                                                                                         | This Dataplane URl returns aspect model QualityParquetExchange which provides information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset  |
-| subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                                            | Includes information about provider edc controlplane and edc-asset ID                                                                                           |
-| subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                                                                             |
-| semanticId.keys[].value | urn:bamm:io.catenax.Quality:1.0.0#QualityParquetExchange                                                | Aspect model which map flatten hierarchy to model                                                                                                               |
-| description[].text      | submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC. | Further description for the consumer.                                                                                                                           |
+| Parameter               | Value                                                                                                   | Description                                                                                                       |
+|-------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| href                    | Dataplane URL                                                                                           | This Dataplane URl returns aspect model QualityParquetExchange                                                    |
+| subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                                            | Includes information about provider edc controlplane and edc-asset ID                                             |
+| subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                               |
+| semanticId.keys[].value | urn:bamm:io.catenax.Quality:1.0.0#QualityParquetExchange                                                | Aspect model which provides information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset      |
+| description[].text      | submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC. | Further description for the consumer.                                                                             |
 
 ### Lookup in the Digital Twin Registry
 
