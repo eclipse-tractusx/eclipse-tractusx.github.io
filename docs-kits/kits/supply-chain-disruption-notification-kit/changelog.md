@@ -26,7 +26,13 @@ Adoption View:
 
 ### Changed
 
-- ./.
+Software Development View:
+
+- Updated samples and references to updated standard and aspect model
+
+Adoption View:
+
+- Reworked `Figure 2` to a forwarding example
 
 ### Removed
 
