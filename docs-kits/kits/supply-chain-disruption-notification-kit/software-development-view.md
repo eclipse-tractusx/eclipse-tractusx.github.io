@@ -89,7 +89,6 @@ containing three different constraints is shown and described in the following:
   ],
   "@type": "PolicyDefinitionRequestDto",
   "@id": "<POLICY-ID>",
-  // Important for the contract definition
   "edc:policy": {
     "@type": "Set",
     "profile": "cx-policy:profile2405",
@@ -130,8 +129,8 @@ use case:
 
 | Use case | cx-policy:FrameworkAgreement | cx-policy:UsagePurpose |
 | -------- | ---------------------------- | ---------------------- |
-| DCM      | `DemandCapacity:1.0`         | `cx.dcm.base:1`        |
-| PURIS    | `Puris:1.0`                  | `cx.puris.base:1`      |
+| DCM      | `DataExchangeGovernance:1.0` | `cx.dcm.base:1`        |
+| PURIS    | `DataExchangeGovernance:1.0` | `cx.puris.base:1`      |
 
 More information can be found in
 the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view_policies_cx/).
@@ -186,7 +185,7 @@ To enable notifications, the recipient has to register its notification API as a
     "dct:type": {
       "@id": "cx-taxo:DemandAndCapacityNotificationApi"
     },
-    "cx-common:version": "1.0",
+    "cx-common:version": "2.0",
     "description": "Demand and Capacity Notification API Endpoint"
   },
   "dataAddress": {
@@ -249,7 +248,7 @@ The following table lists all fields of the message header and how they are used
 | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------- |
 | messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                        | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f` |
 | relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in [Chapter 5](#5-processes).                                                                           | UUID v4 [RFC4122]                                        |                                                 |
-| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                      | `CX-DemandAndCapacityNotification:1.0`          |
+| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                      | `CX-DemandAndCapacityNotificationAPI-Receive:2.0.0`          |
 | version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader         | `3.0.0`                                         |
 | senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL7588787849VQ`                              |
 | receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL6666787765VQ`                              |
@@ -286,18 +285,22 @@ resulting in a demand reduction between 12.12.2023 and 17.12.2023.
 {
   "affectedSitesSender": ["BPNS7588787849VQ"],
   "affectedSitesRecipient": ["BPNS6666787765VQ"],
-  "materialNumberSupplier": ["MNR-8101-ID146955.001"],
   "contentChangedAt": "2023-12-13T15:00:00+01:00",
   "startDateOfEffect": "2023-12-13T15:00:00+01:00",
-  "materialNumberCustomer": ["MNR-7307-AU340474.002"],
   "leadingRootCause": "strike",
   "effect": "demand-reduction",
-  "notificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-  "relatedNotificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-  "sourceNotificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-  "text": "Capacity reduction due to ongoing strike.",
+  "notificationId": "urn:uuid:3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+  "sourceDisruptionId": "urn:uuid:a494B2EA-b8DA-AD0d-9cBe-6cf192Df09ef",
+  "text": "Demand reduction due to ongoing strike.",
   "expectedEndDateOfEffect": "2023-12-17T08:00:00+01:00",
-  "status": "open"
+  "status": "open",
+  "materialsAffected": [
+    {
+      "customerMaterialNumber": "MNR-7307-AU340474.002",
+      "supplierMaterialNumber": "MNR-8101-ID146955.001",
+      "materialGlobalAssetId": "urn:uuid:b0ceacd8-78b0-391a-2B2D-aCB8cfAAA4AA"
+    }
+  ]
 }
 ```
 
@@ -309,7 +312,7 @@ the [RDF turtle file of the message header](https://github.com/eclipse-tractusx/
 {
   "header": {
     "senderBpn": "BPNL7588787849VQ",
-    "context": "CX-DemandAndCapacityNotification:1.0",
+    "context": "CX-DemandAndCapacityNotificationAPI-Receive:2.0.0",
     "messageId": "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
     "receiverBpn": "BPNL6666787765VQ",
     "sentDateTime": "2023-12-01T21:24:00+07:00",
@@ -319,19 +322,22 @@ the [RDF turtle file of the message header](https://github.com/eclipse-tractusx/
     "demandAndCapacityNotification": {
       "affectedSitesSender": ["BPNS7588787849VQ"],
       "affectedSitesRecipient": ["BPNS6666787765VQ"],
-      "materialNumberSupplier": ["MNR-8101-ID146955.001"],
       "contentChangedAt": "2023-12-13T15:00:00+01:00",
       "startDateOfEffect": "2023-12-13T15:00:00+01:00",
-      "materialNumberCustomer": ["MNR-7307-AU340474.002"],
       "leadingRootCause": "strike",
       "effect": "demand-reduction",
-      "notificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-      "relatedNotificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-      "sourceNotificationId": "urn:uuid:d8b6b4ca-ca9c-42d9-8a34-f62591a1c68a",
-      "text": "Capacity reduction due to ongoing strike.",
+      "notificationId": "urn:uuid:3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+      "sourceDisruptionId": "urn:uuid:a494B2EA-b8DA-AD0d-9cBe-6cf192Df09ef",
+      "text": "Demand reduction due to ongoing strike.",
       "expectedEndDateOfEffect": "2023-12-17T08:00:00+01:00",
-      "status": "open"
-    }
+      "status": "open",
+      "materialsAffected": [
+        {
+          "customerMaterialNumber": "MNR-7307-AU340474.002",
+          "supplierMaterialNumber": "MNR-8101-ID146955.001",
+          "materialGlobalAssetId": "urn:uuid:b0ceacd8-78b0-391a-2B2D-aCB8cfAAA4AA"
+        }
+      ]
   }
 }
 ```
