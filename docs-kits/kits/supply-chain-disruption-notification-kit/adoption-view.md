@@ -114,7 +114,7 @@ Currently the standard _Supply Chain Disruption Notifications_ provides one sema
 
 | Semantic Model                                   | Version | Link to GitHub Repository                                                                                                                                                                                                        |
 | ------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Demand and Capacity Notification (Release 24.05) | v2.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
+| Demand and Capacity Notification (Release 25.09) | v3.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
 ## Business Process
 
@@ -194,7 +194,7 @@ _Figure 2: Visualisation of the notifications process_
 
 The relevant standards can be found in the [Catena-X Association Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
 
-- [CX-0146 Supply Chain Disruption Notifications 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
+- [CX-0146 Supply Chain Disruption Notifications 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
 
 ### Normative References
 
@@ -208,6 +208,7 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX-0018  | Dataspace Connectivity              |
 | CX-0126  | Industry Core: Part Type            |
 | CX-0149  | Verified Company Identity           |
+| CX-0151  | Industry Core Basics                |
 
 ### Non-Normative References
 

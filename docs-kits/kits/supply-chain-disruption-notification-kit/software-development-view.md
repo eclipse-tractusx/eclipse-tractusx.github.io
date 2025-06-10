@@ -204,11 +204,11 @@ This asset can then be contracted by senders of notifications.
 
 ### Versioning
 
-The Catena-X versioning applies. For version `2.0.0` of the Demand and Capacity API, a new asset and backend notification receiver MUST be created as shown in figure TODO4 below.
+The Catena-X versioning applies. For version `2.0.0` of the Demand and Capacity API, a new asset and backend notification receiver MUST be created as shown in Figure 4 below.
 
-![figure TODO4 - API versioning of the Demand and Capacity Notification API](./resources/notifications_connector_versioning.svg)
+![figure 4 - API versioning of the Demand and Capacity Notification API](./resources/notifications_connector_versioning.drawio.svg)
 
-Figure TODO4: *Versioning of the Demand and Capacity Notification based on CX-0151*
+Figure 4: *Versioning of the Demand and Capacity Notification based on CX-0151*
 
 ## Sample Data
 
@@ -230,14 +230,14 @@ The Demand and Capacity Notification consists of a header and a content, that ar
 }
 ```
 
-The definition following aspect models are used for their respective properties following table x.
+The definition following aspect models are used for their respective properties following table 1.
 
 | Property | Aspect Model with Link                                                                                                                                                                                                                             |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | header   | [urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeader](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.shared.message_header/3.0.0/MessageHeaderAspect.ttl)                                                 |
-| content  | [urn:samm.io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/2.0.0/DemandAndCapacityNotification.ttl) |
+| content  | [urn:samm.io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/3.0.0/DemandAndCapacityNotification.ttl) |
 
-> Table TODO: *Aspect models used to assemble demand and capacity notification.*
+> Table 1: *Aspect models used to assemble demand and capacity notification.*
 
 In the following more detailed information will be provided on how to fill the respective properties.
 
@@ -255,7 +255,7 @@ The following table lists all fields of the message header and how they are used
 | receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL6666787765VQ`                              |
 | sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](#62-non-normative-references) with time zone | `2023-06-19T21:24:00+07:00`                     |
 
-Table TODO: *Message header fields used in the Demand and Capacity Notification API*
+Table 2: *Message header fields used in the Demand and Capacity Notification API*
 
 The following listing shows a valid json serialization of such a header within the target format.
 
