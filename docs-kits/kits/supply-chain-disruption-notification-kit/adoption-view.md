@@ -112,8 +112,8 @@ Addressing the challenges of disruption management in the automotive supply chai
 
 Currently the standard _Supply Chain Disruption Notifications_ provides one semantic model _Demand and Capacity Notification._
 
-| Semantic Model                                   | Version | Link to GitHub Repository                                                                                        |
-| ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| Semantic Model                                   | Version | Link to GitHub Repository                                                                                                                                                                                                        |
+| ------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Demand and Capacity Notification (Release 24.05) | v2.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
 ## Business Process
@@ -185,9 +185,9 @@ By adopting this business architecture, stakeholders in the automotive supply ch
 
 ## Logic & Schema
 
-To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 2 company sends a notification to its customers and a supplier.
+To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
 
-![Logic & Schema](resources/image-2024-3-5_15-22-27-1.png)
+![Logic & Schema](resources/notifications-forwarding-example.drawio.svg)
 _Figure 2: Visualisation of the notifications process_
 
 ## Standards

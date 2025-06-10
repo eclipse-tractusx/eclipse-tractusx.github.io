@@ -20,6 +20,10 @@ Software Development View:
 - Table for setting fields in `header`
 - Versioning chapter
 
+Adoption View:
+
+- Reworked `Figure 2` to a forwarding example
+
 ### Changed
 
 - ./.
