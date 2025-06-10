@@ -273,7 +273,7 @@ b.	Fetch EDR token for the Submodel Server.
 
 Test was performed using 20 threads in parallel. The average number of transactions per second was 30-35.
 
-> :raised_hand: If the performance is still not satisfactory for the user, then next given approach can be used, where the aasx file format can be used to transfer big files like parquet files.
+> :raised_hand: If the performance is still not satisfactory for the user, then next given approach can be used, where the big parquet file can be transfer using EDC.
 
 #### Data Consumption with AAS Submodel Descriptor to Represent Mass Data (Like Parquet Files) Reference
 
@@ -298,8 +298,9 @@ Further information about the data transfer of submodels can be found in the [Di
 ```
 
 See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Software%20Development%20View/Specification%20Quality%20Kit/)
+
 4. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `QualityParquetExchange`. This aspect model will contain the information (assetID, Dataplane URL and Controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
-5. `Provider` creates a shell with Shell Descriptors and the EDC asset with EDC Controlplane/Dataplane URL referring to Submodel created in step 4.
+5. `Provider` creates a shell with Shell Descriptors and the edc Asset with controlplane URL. This Shell Descriptor contains the Submodel Descriptor which refers to EDC asset created in step 4.
 6. `Consumer` calls the DTR via EDC Dataplane and reads the Submodel Descriptor for `QualityParquetExchange` aspect model from the Shell Descriptor.
 7. `Consumer` calls Submodel Server using Dataplane URL, which is setup by the provider and in response receives the information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
 8. `Consumer` starts negotiation/transfer process and provides its own bucket information:
@@ -316,7 +317,7 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
  }
 ```
 
-9. `Provider` retrieve the request and download the requested aasx file from bucket and upload it to the consumer bucket.
+9. `Provider` retrieve the request and download the requested Parquet file from bucket and upload it to the consumer bucket.
 10. `Consumer` can download the file from their own bucket.
 
 #### Submodel Descriptor which provided information to retrieve/transfer Parquet file
