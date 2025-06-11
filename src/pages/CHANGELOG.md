@@ -22,26 +22,27 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
-| [ Eclipse Tractus-X Software Development KIT (SDK)](https://github.com/eclipse-tractusx/tractusx-sdk) | n/a | [v0.0.7](https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.0.7) |
-| [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub) | [0.2.1](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/industry-core-hub-0.2.1) | [v0.1.0](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/v0.1.0)|
+| [Eclipse Tractus-X Software Development KIT (SDK)](https://github.com/eclipse-tractusx/tractusx-sdk) | n/a | [v0.0.7](https://github.com/eclipse-tractusx/tractusx-sdk/releases/tag/v0.0.7) |
+| [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub) | industry-core-hub:[0.2.1](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/industry-core-hub-0.2.1) | [v0.1.0](https://github.com/eclipse-tractusx/industry-core-hub/releases/tag/v0.1.0)|
 
 ### Updated
 
 | Component | Helm Chart (s) | App-/KIT Version (s) |
 | :-------- | :-------------: | :------------------: |
-| [Business Partner KIT]( https://eclipse-tractusx.github.io/docs-kits/kits/business-partner-kit/adoption-view) | n/a | [x.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/Business%20Partner%20Kit/Changelog) |
+| [Business Partner KIT]( https://eclipse-tractusx.github.io/docs-kits/next/category/business-partner-kit) | n/a | [9.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/business-partner-kit/changelog/#900---2025-06-16) |
 | [Digital Twin Registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry) | digital-twin-registry:[0.8.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/digital-twin-registry-0.8.0) | [0.8.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/v0.8.0) |
 | [Eclipse Data Space Connector (Tractus-X EDC)](https://github.com/eclipse-tractusx/tractusx-edc) | tractusx-connector: [0.10.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0) | [0.10.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0) |
 | [Golden Record Business Partner Number (BPN) Service](https://github.com/eclipse-tractusx/bpdm) | bpdm: [6.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/bpdm-6.0.0) | [7.0.0](https://github.com/eclipse-tractusx/bpdm/releases/tag/v7.0.0) |
-| [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/business-view) | n/a | [1.x.0](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/changelog) |
 | [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service) | item-relationship-service: [9.0.0](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/item-relationship-service-9.0.0) | [7.0.1](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/7.0.1) |
 | [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.3.1) | [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.3.1) |
 | [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.5.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.5.0) | registration: [v2.2.1](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.2.1)<br/>frontend: [v2.5.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.5.0)<br/>backend: [v2.5.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.5.0)<br/>assets: [v2.5.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.5.0) |
 | [PURIS](https://github.com/eclipse-tractusx/puris) | puris: [3.0.1](https://github.com/eclipse-tractusx/puris/releases/tag/puris-3.0.1) | [3.1.0](https://github.com/eclipse-tractusx/puris/releases/tag/3.1.0) |
-| [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-2.0.0) | [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v2.0.0) |
 | [Self Description (SD) Factory](https://github.com/eclipse-tractusx/sd-factory) | sdfactory: [2.1.33](https://github.com/eclipse-tractusx/sd-factory/releases/tag/sdfactory-2.1.33) | [2.1.24](https://github.com/eclipse-tractusx/sd-factory/releases/tag/v2.1.24) |
+| [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-2.0.0) | [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v2.0.0) |
 | [SSI Credential Issuer](https://github.com/eclipse-tractusx/ssi-credential-issuer) | ssi-credential-issuer: [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/ssi-credential-issuer-1.4.0) | [1.4.0](https://github.com/eclipse-tractusx/ssi-credential-issuer/releases/tag/v1.4.0) |
+| [Supply Chain Disruption Notification KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/supply-chain-disruption-notification-kit/changelog)| n/a | [2.0.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/supply-chain-disruption-notification-kit/changelog)|
 | [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss) | traceability-foss: [1.4.3](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.4.3) | [15.0.1](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.1) |
+| [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/traceability-kit) | n/a| [6.1.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/changelog/)|
 
 ### Removed / Deprecated
 
