@@ -177,7 +177,7 @@ The following JSON provides an example with the same payload and additionally wi
 
 ## Rules for Sending Notifications
 
-Demand and Capacity Notifications allow to be send, updated, closed and forwarded to partners who are influences (see adoption view). In the following we'll cover how to process the different scenarios.
+Demand and Capacity Notifications allow to be sent, updated, resolved and forwarded to partners who are influences (see adoption view). In the following we'll cover how to process the different scenarios.
 
 ### Create the Initial Notification
 
@@ -214,9 +214,9 @@ Partners should align on cases in which they want to use these notifications. E.
 Refer to the [standard](../adoption-view.md#normative-references) and the [semantic model](../adoption-view.md#semantic-models) of supply chain disruption notifications for more explicit information on how to set the fields.
 :::
 
-### Updating and Closing a Notification
+### Updating and Resolving a Notification
 
-Figure 3 illustrates the key activities when updating a notification. Closing the notification is a specific version of updating a notification and explained in [a following section](#close-a-notification).
+Figure 3 illustrates the key activities when updating a notification. Resolving the notification is a specific version of updating a notification and explained in [a following section](#resolve-a-notification).
 
 ```mermaid
 sequenceDiagram
@@ -250,7 +250,7 @@ Following fields are immutable and copied from the previous notification:
 - `effect`
 - `leadingRootCause`
 
-Following fields may or must be updated in case of an update without closure:
+Following fields may or must be updated in case of an update without resolving:
 
 - `materialsAffected` may be added or removed
 - `affectedSitesSender` may be added or removed
@@ -265,14 +265,14 @@ Following fields may or must be updated in case of an update without closure:
 Refer to the [standard](../adoption-view.md#normative-references) and the [semantic model](../adoption-view.md#semantic-models) of supply chain disruption notifications for more explicit information on how to set the fields.
 :::
 
-#### Close a Notification
+#### Resolving a Notification
 
-Closing a notification is a special case of an update. To close a notification, consider the following rules:
+Resolving a notification is a special case of an update. To resolve a notification, consider the following rules:
 
 Update the following fields:
 
 - `resolvingMeasureDescription`
-- `status` should be set to `closed`
+- `status` should be set to `resolved`
 - `materialsAffected` should be empty
 - `affectedSitesSender` should be empty
 - `affectedSitesRecipient` should be empty

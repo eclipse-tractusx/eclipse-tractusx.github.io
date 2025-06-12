@@ -260,7 +260,7 @@ _Tier 2.2_ produces steering linkages for which nuts are also delivered to conne
 - related notification id: copied from `notificationId` from message received.
 
 :::info[Align with your partners in which cases to send notifications!]
-_Tier 2.2_ and _Tier 1.2_ previously aligned on the scenarios in which they want to inform each other about disruptions. They aligned on being very transparent, and defined to inform partners about significant issues that might impact each other. Within the text fields they state their analysis. Based on their alignment, _Tier 2.2_ will send an update whenever new information is available and send an update with `status` set to `closed` after actually resolving the disruption.  
+_Tier 2.2_ and _Tier 1.2_ previously aligned on the scenarios in which they want to inform each other about disruptions. They aligned on being very transparent, and defined to inform partners about significant issues that might impact each other. Within the text fields they state their analysis. Based on their alignment, _Tier 2.2_ will send an update whenever new information is available and send an update with `status` set to `resolved` after actually resolving the disruption.  
 :::
 
 ### Tier 1.2
