@@ -36,7 +36,7 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 | [Identity and Access Management (IAM)](https://github.com/eclipse-tractusx/portal-iam) | centralidp: [4.2.0](https://github.com/eclipse-tractusx/portal-iam/releases/tag/centralidp-4.2.0) <br/> sharedidp: [4.2.0](https://github.com/eclipse-tractusx/portal-iam/releases/tag/sharedidp-4.2.0) | keycloak: [25.0.6](https://www.keycloak.org/docs/latest/release_notes/index.html#keycloak-25-0-0) |
 | [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service) | item-relationship-service: [9.0.0](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/item-relationship-service-9.0.0) | [7.0.1](https://github.com/eclipse-tractusx/item-relationship-service/releases/tag/7.0.1) |
 | [Policy Hub](https://github.com/eclipse-tractusx/policy-hub) | policy-hub: [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/policy-hub-1.3.1) | [1.3.1](https://github.com/eclipse-tractusx/policy-hub/releases/tag/v1.3.1) |
-| [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.5.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.5.0) | registration: [v2.2.1](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.2.1)<br/>frontend: [v2.5.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.5.0)<br/>backend: [v2.5.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.5.0)<br/>assets: [v2.5.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.5.0) |
+| [Portal](https://github.com/eclipse-tractusx/portal) | portal: [2.5.0](https://github.com/eclipse-tractusx/portal/releases/tag/portal-2.5.0) | registration: [2.2.1](https://github.com/eclipse-tractusx/portal-frontend-registration/releases/tag/v2.2.1)<br/>frontend: [2.5.0](https://github.com/eclipse-tractusx/portal-frontend/releases/tag/v2.5.0)<br/>backend: [2.5.0](https://github.com/eclipse-tractusx/portal-backend/releases/tag/v2.5.0)<br/>assets: [2.5.0](https://github.com/eclipse-tractusx/portal-assets/releases/tag/v2.5.0) |
 | [PURIS](https://github.com/eclipse-tractusx/puris) | puris: [3.0.1](https://github.com/eclipse-tractusx/puris/releases/tag/puris-3.0.1) | [3.1.0](https://github.com/eclipse-tractusx/puris/releases/tag/3.1.0) |
 | [Self Description (SD) Factory](https://github.com/eclipse-tractusx/sd-factory) | sdfactory: [2.1.33](https://github.com/eclipse-tractusx/sd-factory/releases/tag/sdfactory-2.1.33) | [2.1.24](https://github.com/eclipse-tractusx/sd-factory/releases/tag/v2.1.24) |
 | [SSI Authority & Schema Registry](https://github.com/eclipse-tractusx/ssi-authority-schema-registry) | ssi-asr: [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/ssi-asr-2.0.0) | [2.0.0](https://github.com/eclipse-tractusx/ssi-authority-schema-registry/releases/tag/v2.0.0) |
@@ -45,17 +45,13 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 | [Trace-X Traceability Application](https://github.com/eclipse-tractusx/traceability-foss) | traceability-foss: [1.4.3](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/helm-charts-1.4.3) | [15.0.1](https://github.com/eclipse-tractusx/traceability-foss/releases/tag/15.0.1) |
 | [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/traceability-kit) | n/a| [6.1.0](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/changelog/)|
 
-### Removed / Deprecated
-
-| Component | Helm Chart (s) | App-/KIT Version (s) |
-
 ### Known Knowns
 
 - All not listed products and KITs have not been updated and are based on the release 25.03
   - These products were not part of the e2e testing phase
   - And are not tested with the current EDC version 0.10.0 and the current DTR version 0.8.0
 - The Eclipse Tractus-X release does not include an Identity Wallet. The development team decided on a temporary bridging solution, based on a commercial application, to test and ship the releases 24.08, 24.12, 25.03 and 25.06. Without implementing this interim solution, participants will not be able to fully utilize this release in consequence.
-- For E2E Testing, the [2.2.1](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v2.2.1) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not
+- For E2E Testing, the [2.2.3](https://github.com/SAP/ssi-dim-middle-layer/releases/tag/v2.2.3) of the [SSI DIM Middle Layer](https://github.com/SAP/ssi-dim-middle-layer) was used - this component is FOSS but the currently used wallet (see previous item) is not
 
 #### BPDM
 
@@ -73,6 +69,38 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 #### Item Relationship Service (IRS)
 
 - Persistent submodel service needed for end-to-end stability [see here](https://github.com/eclipse-tractusx/traceability-foss/issues/1459)
+
+#### IAM
+
+Open issues:
+
+- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-iam/issues?q=is%3Aopen+is%3Aissue+label%3Abug).
+custom login themes break when inserting HTML/CSS/JavaScript code in the IdP display name
+
+The following issue was resolved with the upgrade to version 25:
+
+- Refresh token rotation causes page reload in frontend apps when using multiple tabs, see [User Token Lifespan](https://github.com/eclipse-tractusx/portal-iam/blob/v4.2.0/docs/consultation/workshops/workshop-20231005.md#user-token-lifespan)
+
+#### Portal
+
+##### Backend
+
+- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-backend/issues?q=is%3Aopen+is%3Aissue+label%3Abug).
+- Connector URL: Updating connector URL for connectors with missing SD Document is not working [see here](https://github.com/eclipse-tractusx/portal-backend/issues/1346)
+- Note for Gaia-X Clearing House Tagus upgrade:
+  - If a company was onboarded with ELBE clearing house, the legal person self description document is not accepted when creating a connector with newer versions of the clearing house. Portal operators are advised to create new legal person and connector self description documents for all previously onboarded companies. The portal backend will activate connector without updated legal person self description document to allow for a transition phase. The connector will not have a document until reissuance for both company and connector is triggered by operators.
+- Validation Limitations: pattern validation for URL inputs in POST and PUT endpoints is currently limited, potentially allowing invalid URLs to be accepted [see here](https://github.com/eclipse-tractusx/portal-backend/issues/587)
+- Validation of File Upload Limitation: it is recommended to make use of an existing trustworthy 3rd party virus-scan service for a more broad scan for known malicious signatures [see here](https://github.com/eclipse-tractusx/portal-backend/issues/779)
+- In Memory Storage Limitation: sensitive information (such as passwords) is read in an unencrypted manner in memory.
+
+##### Frontend
+
+- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-frontend/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+- Auto-setup feature for App Subscriptions: validation by ValidatingInput component is triggered on opening pop up [see here](https://github.com/eclipse-tractusx/portal-frontend/issues/1589)
+- Note for Gaia-X Clearing House Tagus upgrade
+  - If a company was onboarded with ELBE clearing house, the legal person self description document is not accepted when creating a connector with newer versions of the clearing house. Portal operators are advised to create new legal person and connector self description documents for all previously onboarded companies. The portal backend will activate connector without updated legal person self description document to allow for a transition phase. The connector will not have a document until reissuance for both company and connector is triggered by operators.
+- Feature Support and Development for auto-setup Process Worker: there is no frontend support for the extended auto-setup process worker, specifically in terms of error handling and status transparency.
+- During end-to-end testing, some minor issues and in regards to system internal notifications as well as the UI were detected.
 
 #### Software Development KIT
 
@@ -95,7 +123,7 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 The following runtime has been used during end-to-end test:
 
 - [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) version: `1.29.10`
-- Applications used 
+- Applications used
   - [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL) version: `15.4.0` or more specifically `15.4.0-debian-11-r45`
   - EDC version [0.10.0](https://github.com/eclipse-tractusx/tractusx-edc/releases/tag/0.10.0)
   - DTR version [0.8.0](https://github.com/eclipse-tractusx/sldt-digital-twin-registry/releases/tag/v0.8.0)
