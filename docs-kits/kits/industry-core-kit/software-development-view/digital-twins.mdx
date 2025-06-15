@@ -283,9 +283,40 @@ Further information about the data transfer of submodels can be found in the [Di
 
 #### Cloud-to-Cloud Parquet File Transfer with EDC Cloud Extension
 
-1. `Provider` has a parquet file which needs to be shared with consumer.
-2. `Provider` uploads the parquet file to the cloud (S3 bucket in our case)
-3. `Provider` creates an EDC asset for S3 bucket. The `dataAddress` includes information about the S3 bucket and the file name:
+```mermaid
+sequenceDiagram
+    participant PRO as Data Provider
+    participant Con as Data Consumer
+    participant PEDC as Provider EDC <br/>Control Plane
+    participant DTR as Digital Twin Registry
+    participant SM as Submodel Server
+    participant PAWS as Provider AWS Cloud
+    participant CAWS as Consumer AWS Cloud
+
+autonumber
+        PRO->>PAWS: Provider uploads the parquet file to the cloud
+        PRO->>PEDC: Provider creates an EDC asset for S3 bucket
+        PRO->>PEDC: Provider creates an EDC asset for Submodel <br>pointing to Aspect Model `QualityParquetExchange`
+        PRO->>DTR: Provider creates a shell with Shell Descriptors and the edc Asset with controlplane URL
+        Note right of DTR: Shell Descriptor contains the<br>Submodel with above EDC asset
+        Con->>PEDC: negotiate for DTR and retrieve token
+        PEDC-->>Con: access token
+        Con->>DTR: GET {{provider-data.plane}}/lookup/shells?assetIds=xyz&assetIds=abc
+        DTR-->>Con: aas-id
+        Con->>DTR: GET {{provider-data.plane}}/shell-descriptors/{{aas-id}} <br/> with aas-id encoded base64url
+        DTR-->>Con: shell-descriptor including the  <br/> submodel's Dataset-ID (subprotocolBody)
+        Con->>PEDC: negotiate for Dataset and retrieve token
+        PEDC-->>Con: access token
+        Con->>SM: GET {{submodel-descriptor/href}}/$value
+        SM-->>Con: data
+        Note left of Con: Submodel contains the parquet<br>file assetID information
+        Con->>PEDC: Consumer reads submodel data,<br>starts EDC negotiation for parquet and<br>provides its own bucket details
+        PAWS->>CAWS: Provider uploads parquet file to consumer<br>AWS from its own AWS
+        CAWS-->>Con: Consumer can download the file directly from its AWS cloud
+```
+
+1. `Provider` uploads the parquet file to the cloud (S3 bucket in our case)
+2. `Provider` creates an EDC asset for S3 bucket. The `dataAddress` includes information about the S3 bucket and the file name:
 
 ```json
  {
@@ -299,11 +330,11 @@ Further information about the data transfer of submodels can be found in the [Di
 
 See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Software%20Development%20View/Specification%20Quality%20Kit/)
 
-4. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `QualityParquetExchange`. This aspect model will contain the information (assetID, Dataplane URL and Controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
-5. `Provider` creates a shell with Shell Descriptors and the edc Asset with controlplane URL. This Shell Descriptor contains the Submodel Descriptor which refers to EDC asset created in step 4.
-6. `Consumer` calls the DTR via EDC Dataplane and reads the Submodel Descriptor for `QualityParquetExchange` aspect model from the Shell Descriptor.
-7. `Consumer` calls Submodel Server using Dataplane URL, which is setup by the provider and in response receives the information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
-8. `Consumer` starts negotiation/transfer process and provides its own bucket information:
+3. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `QualityParquetExchange`. This aspect model will contain the information (assetID, Dataplane URL and Controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
+4. `Provider` creates a shell with Shell Descriptors and the edc Asset with controlplane URL. This Shell Descriptor contains the Submodel Descriptor which refers to EDC asset created in step 4.
+5. `Consumer` calls the DTR via EDC Dataplane and reads the Submodel Descriptor for `QualityParquetExchange` aspect model from the Shell Descriptor.
+6. `Consumer` calls Submodel Server using Dataplane URL, which is setup by the provider and in response receives the information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
+7. `Consumer` starts negotiation/transfer process and provides its own bucket information:
 
 ```json
  {
@@ -317,8 +348,8 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
  }
 ```
 
-9. `Provider` retrieve the request and download the requested Parquet file from bucket and upload it to the consumer bucket.
-10. `Consumer` can download the file from their own bucket.
+8. `Provider` retrieve the request and download the requested Parquet file from bucket and upload it to the consumer bucket.
+9. `Consumer` can download the file from their own bucket.
 
 #### Submodel Descriptor which provided information to retrieve/transfer Parquet file
 
@@ -353,7 +384,7 @@ The Submodel Descriptor for Parquet file information can be defined like:
         "keys": [
            {
               "type": "GlobalReference",
-              "value": "urn:bamm:io.catenax.Quality:1.0.0#QualityParquetExchange"
+              "value": "urn:samm:io.catenax.quality.parquet_exchange:1.0.0#ParquetExchange"
            }
         ]
       },
@@ -368,15 +399,29 @@ The Submodel Descriptor for Parquet file information can be defined like:
 }
 ```
 
-**Aspect model QualityParquetExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
-
 | Parameter               | Value                                                                                                   | Description                                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | href                    | Dataplane URL                                                                                           | This Dataplane URl returns aspect model QualityParquetExchange                                                    |
 | subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                                            | Includes information about provider edc controlplane and edc-asset ID                                             |
 | subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                               |
-| semanticId.keys[].value | urn:bamm:io.catenax.Quality:1.0.0#QualityParquetExchange                                                | Aspect model which provides information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset      |
+| semanticId.keys[].value | urn:samm:io.catenax.quality.parquet_exchange:1.0.0#ParquetExchange                                      | Aspect model which provides information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset      |
 | description[].text      | submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC. | Further description for the consumer.                                                                             |
+
+**Aspect model QualityParquetExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
+
+A sample payload for QualityParquetExchange aspect model is described below:
+  ```json
+{
+  "mappingRule": "CX-0123",
+  "content": "io.catenax.fleet.diagnostic_data",
+      "dataParquetFile": {
+        "edcAssetId": "d99cfe94-bfa0-4eba-9e31-d30c4f31831b",
+        "dataplaneUrl": "https://semantics-edc-provider-dataplane.catenax/diagnosticdata/1",
+        "controlplaneUrl": "dspEndpoint=https://semantics-edc-provider-controlplane.catenax.net",
+        "encodingType": "application/octet-stream"
+    }
+}
+  ```
 
 ### Lookup in the Digital Twin Registry
 
