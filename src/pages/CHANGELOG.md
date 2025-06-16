@@ -70,47 +70,22 @@ Implemented features can be found [here](https://github.com/orgs/eclipse-tractus
 
 - Persistent submodel service needed for end-to-end stability [see here](https://github.com/eclipse-tractusx/traceability-foss/issues/1459)
 
-#### IAM
-
-Open issues:
-
-- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-iam/issues?q=is%3Aopen+is%3Aissue+label%3Abug).
-custom login themes break when inserting HTML/CSS/JavaScript code in the IdP display name
-
-The following issue was resolved with the upgrade to version 25:
-
-- Refresh token rotation causes page reload in frontend apps when using multiple tabs, see [User Token Lifespan](https://github.com/eclipse-tractusx/portal-iam/blob/v4.2.0/docs/consultation/workshops/workshop-20231005.md#user-token-lifespan)
-
 #### Portal
 
 ##### Backend
 
-- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-backend/issues?q=is%3Aopen+is%3Aissue+label%3Abug).
 - Connector URL: Updating connector URL for connectors with missing SD Document is not working [see here](https://github.com/eclipse-tractusx/portal-backend/issues/1346)
-- Note for Gaia-X Clearing House Tagus upgrade:
-  - If a company was onboarded with ELBE clearing house, the legal person self description document is not accepted when creating a connector with newer versions of the clearing house. Portal operators are advised to create new legal person and connector self description documents for all previously onboarded companies. The portal backend will activate connector without updated legal person self description document to allow for a transition phase. The connector will not have a document until reissuance for both company and connector is triggered by operators.
-- Validation Limitations: pattern validation for URL inputs in POST and PUT endpoints is currently limited, potentially allowing invalid URLs to be accepted [see here](https://github.com/eclipse-tractusx/portal-backend/issues/587)
-- Validation of File Upload Limitation: it is recommended to make use of an existing trustworthy 3rd party virus-scan service for a more broad scan for known malicious signatures [see here](https://github.com/eclipse-tractusx/portal-backend/issues/779)
-- In Memory Storage Limitation: sensitive information (such as passwords) is read in an unencrypted manner in memory.
+- for comprehensive list [see here](https://github.com/eclipse-tractusx/portal-backend/blob/v2.5.0/CHANGELOG.md#known-knowns)
 
 ##### Frontend
 
-- Please refer to the [list of open bugs](https://github.com/eclipse-tractusx/portal-frontend/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-- Auto-setup feature for App Subscriptions: validation by ValidatingInput component is triggered on opening pop up [see here](https://github.com/eclipse-tractusx/portal-frontend/issues/1589)
-- Note for Gaia-X Clearing House Tagus upgrade
-  - If a company was onboarded with ELBE clearing house, the legal person self description document is not accepted when creating a connector with newer versions of the clearing house. Portal operators are advised to create new legal person and connector self description documents for all previously onboarded companies. The portal backend will activate connector without updated legal person self description document to allow for a transition phase. The connector will not have a document until reissuance for both company and connector is triggered by operators.
-- Feature Support and Development for auto-setup Process Worker: there is no frontend support for the extended auto-setup process worker, specifically in terms of error handling and status transparency.
-- During end-to-end testing, some minor issues and in regards to system internal notifications as well as the UI were detected.
+- Auto-setup feature for App Subscriptions: validation is triggered on opening pop up [see here](https://github.com/eclipse-tractusx/portal-frontend/issues/1589)
+- for comprehensive list [see here](https://github.com/eclipse-tractusx/portal-frontend/blob/v2.5.0/CHANGELOG.md#known-knowns)
 
 #### Software Development KIT
 
 - EDC Version specified is v0_9_0 but works with v0.10.0 [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
 - EDC Service has not factory method. [see here](https://github.com/eclipse-tractusx/tractusx-sdk/issues/115)
-
-#### SSI Credential Issuer
-
-- The database is capable of storing documents of type PRESENTATION through a POST API call, even though this functionality is not exposed through any specific API endpoint, indicating an undocumented feature or a future use case not yet realized
-- The DIM Status List is presently included in both the configuration file and the outbound wallet post body, which is against our recommendation as we believe this function should be autonomously managed by the wallet. The status list is defined within the component configuration, suggesting an interim solution with an intention to phase out this approach, reinforcing that the status list should not be integral to the interface in the long term
 
 #### Trace-X Traceability Application
 
