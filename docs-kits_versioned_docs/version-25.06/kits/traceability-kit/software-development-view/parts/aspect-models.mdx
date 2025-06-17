@@ -1,0 +1,341 @@
+---
+sidebar_class_name: hidden
+---
+
+import AspectModelOverview from './../../../industry-core-kit/software-development-view/parts/aspect-model-overview.mdx'
+
+Aspect models are mostly easy to create by transforming a company's internal data into the target aspect model. Transformations are mostly straightforward in these cases. If necessary, special steps in creating aspect models are mentioned in the corresponding sections.
+
+<AspectModelOverview components={props.components} />
+
+The following section shows an overview of all aspect models of the Traceability Use Case that can be attached to part instance twins.
+
+| Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| PartInstance | TractionBatteryCode | 2.0.0 | | Traceability |  CX-0125 Traceability Use Case v2.0.0 |
+| | SoftwareInformation | 1.0.0 | | Traceability | N/A |
+| | CertificateSigningRequests | 1.0.0 | | Traceability | N/A |
+| | SpecialCharacteristics | 1.0.0 | | Traceability | N/A |
+
+### TractionBatteryCode
+
+The aspect provides the information of the Traction battery code of a battery cell, a battery module or a battery pack according to the chinese standard GB/T 34014-2017. Furthermore, it provides the traction battery codes for the assembled sub parts of the component, e.g.  Traction battery code of a battery module plus all the traction battery codes of the assembled battery cells of this battery module.
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.traction_battery_code/1.0.0
+
+##### Example: Submodel `TractionBatteryCode` for a Battery Cell
+
+```json
+{
+  "productType": "cell",
+  "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+}
+```
+
+##### Example: Submodel `TractionBatteryCode` for a Battery Module
+
+```json
+{
+  "productType": "module",
+  "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+  "subcomponents": [
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+    },
+    {
+      "productType": "cell",
+      "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+    }
+  ]
+}
+```
+
+##### Example: Submodel `TractionBatteryCode` for a Battery Pack
+
+```json
+{
+  "productType": "pack",
+  "tractionBatteryCode": "4A6PCPM27KLPCLE742946319",
+  "subcomponents": [
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519857",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382320"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382321"
+        }
+      ]
+    },
+    {
+      "productType": "module",
+      "tractionBatteryCode": "B54MCPM27KLPCLE6A7519858",
+      "subcomponents": [
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382322"
+        },
+        {
+          "productType": "cell",
+          "tractionBatteryCode": "X12CCPM27KLPCLE662382323"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### SoftwareInformation
+
+The software information aspect model contains the essential information of all software components that have been implemented or flashed in an instantiated part (e.g. serialized part).
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.software_information/1.0.0
+
+##### Example: Submodel `SoftwareInformation`
+
+```json
+{
+  "catenaXId": "urn:uuid:454ffa8e-f88d-4ad1-be45-06981756aeb1",
+  "softwareInformation": [
+    {
+     "name": "ECU Software XY12345",
+      "softwareId": "SW123456789",
+      "version": "1.2.0",
+      "lastModifiedOn": "2023-03-21T08:17:29.187+01:00"
+    },
+    {
+      "name": "Controller-SW",
+      "softwareId": "SW987654321",
+      "version": "3.0.0",
+      "lastModifiedOn": "2024-04-30T08:17:29.187+01:00"
+    }
+  ]
+}
+```
+
+### CertificateSigningRequests
+
+The Certificate Signing Requests aspect model contains the essential information needed to request specific certificates for a unique ECU component via a Certificate Signing Request (CSR) and to validate and certificate the ECU against this data.
+
+A CSR (Certificate Signing Request) is a 64-based PEM formatted and encrypted message to request a (digital) certificate. The CSR validates the information required by a specific certification authority (CA) to issue the associated certificate.
+
+Aspect model in GitHub:
+- Version 1.0.0: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.certificate_signing_requests/1.0.0
+
+##### Example: Submodel `CertificateSigningRequests`
+
+```json
+{
+    "certificateSigningRequestList": [
+        {
+            "certificateSigningRequest": "MIIC2TCCAToCAQAwgZwxEzARBgNVBAgTClByb2R1Y3Rpb24xDDAKBgNVBAcMA0FUTTESMBAGA1UEChMJQk1XIEdyb3VwMRcwFQYDVQQLEw5WZWhpY2xlUEtJLUVDVTEXMBUGA1UEAxMOSVBzZWMtaW50ZXJuYWwxMTAvBgNVBAUTKEVDVS1VSUQ6QzAwMDgyNDI3MUREQTYwMDAwMDAwMDAwMjdBQTg0MjQwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAShNm4y5Mdzu4b9xDW3TfBZr",
+            "subjectLocality": "ATM--02",
+            "subjectCommonName": "ID",
+            "subjectSerialNumber": "SN12345678"
+        },
+        {
+            "certificateSigningRequest": "MII3tbCCAToCAQAwgZwxEzARBgNVBAgTClByb2R1Y3Rpb24xDDAKBgNVBAcMA0FUTTESMBAGA1UEChMJQk1XIEdyb3VwMRcwFQYDVQQLEw5WZWhpY2xlUEtJLUVDVTEXMBUGA1UEAxMOSVBzZWMtaW50ZXJuYWwxMTAvBgNVBAUTKEVDVS1VSUQ6QzAwMDgyNDI3MUREQTYwMDAwMDAwMDAwMjdBQTg0MjQwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAShNm4y5Mdzu4b9xDW3TfBZr",
+            "subjectLocality": "ATM--02",
+            "subjectCommonName": "IPsec-Internal",
+            "subjectSerialNumber": "SN12345678"
+        }
+    ]
+}
+```
+### SpecialCharacteristicMeasurement
+
+#### Overview
+
+To ensure manufactured components meet defined quality standards and specifications, Special Characteristics are measured and captured as evidence. The measured values of these Special Characteristics are an aspect `SpecialCharacteristicMeasurement` of the digital twin (beside the Industry Core: Part Instance). Each digital twin can have multiple aspects of `SpecialCharacteristicMeasurement`.
+
+#### Aspect Model in GitHub
+
+- **Version 2.0.0**: [GitHub Repository](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/2.0.0/)
+
+#### Data Model
+
+Below is the detailed description of the attributes used in the `SpecialCharacteristicMeasurement` data model:
+
+```json
+{
+  "localIdentifiers": [
+    {
+      "value": "SN12345678",
+      "key": "partInstanceId"
+    }
+  ],
+  "customerPartId": "PRT-12345",
+  "revisionIndex": "01",
+  "manufacturerId": "BPNL000000000000",
+  "measurementType": "quantitativeMeasurement",
+  "characteristicId": "F1",
+  "results": [
+    {
+      "identifier": "measurementPoint1",
+      "description": "This text gives you context to the related measurement to help to put it into context.",
+      "unit": "unit:mm",
+      "value": "12.09",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+    }
+  ]
+}
+```
+
+| Attribute             | Description                                                                 | Data Type                                                                 | Mandatory/Optional | Example                                                                                   |
+|-----------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
+| `localIdentifiers`    | An array of local identifiers used to uniquely identify the part instance.  | –     | –          | –                  |
+| `customerPartId`      | The identifier of the part assigned by the customer.                        | String                                                                    | Mandatory          | "PRT-12345"                                                           |
+| `revisionIndex`       | The revision index of the part.                                             | String                                                                    | Mandatory          | "01"                                                                   |
+| `manufacturerId`      | The identifier of the manufacturer.                                         | String                                                                    | Mandatory          | "BPNL000000000000"                                                    |
+| `measurementType`     | The type of measurement being performed (e.g., quantitative, qualitative).  | String                                                                    | Optional          | "quantitativeMeasurement"                                            |
+| `characteristicId`    | The identifier of the characteristic being measured. Normally defined within the blueprint. | String                                                                    | Mandatory          | "F1"                                                                |
+| `results`             | An array of measurement results.                                            | –                                                          | –          | –                                                                                         |
+| `identifier`          | The identifier of the measurement point.                                    | String                                                                    | Mandatory          | "measurementPoint1"                                                      |
+| `description`         | A description of the measurement context.                                   | String                                                                    | Mandatory          | "This text gives you context to the related measurement to help to put it into context." |
+| `unit`                | The unit of the measurement.                      | String                                                                    | Optional           | "unit:mm"                                                                       |
+| `value`               | The measured value.                                                         | String                                                                    | Mandatory          | "12.09"                                                                        |
+| `measurementTimestamp`| The timestamp of the measurement in ISO 8601 format.                        | String                                                                    | Mandatory          | "2025-03-25T09:20:00.66372+14:00"                                 
+
+
+
+#### Recommended Pattern for `measurementType`
+
+The pattern used can be individually defined between the data provider and the data consumer. The documentation provides a set of examples illustrating the approach for which the model was designed.
+
+##### `measurementType` QuantitativeMeasurements
+
+Quantitative measurements require measuring a quantitative value, such as the thickness of a defined measurement point.
+
+```json
+"results": [
+  {
+    "identifier": "S1",
+    "description": "Thickness measurement at point A",
+    "unit": "unit:mm",
+    "value": "12.09",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
+```
+
+##### `measurementType` QualitativeMeasurements
+
+Qualitative measurements involve descriptive values, such as a serial number etched onto the product.
+
+```json
+{
+  "results": [
+    {
+      "identifier": "L1",
+      "description": "Serial number etched on the product",
+      "unit": null,
+      "value": "ABC123DEF456",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+    }
+  ]
+}
+```
+
+##### `measurementType` AttributiveMeasurements
+
+Attributive measurements confirm that the function is as expected.
+
+```json
+{
+  "results": [
+    {
+      "identifier": "F1",
+      "description": "Product passed functional test",
+      "unit": null,
+      "value": "true",
+      "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+    }
+  ]
+}
+```
+
+#### Multitple measured results
+
+If the `characteristicId` consists of more than one measured results, the `identifier` should be defined between the data provider and data consumer.
+
+##### Example 1: Technical Cleanliness Measurement
+
+Technical cleanliness measurements involve comparing measured particle sizes against a table of permissible values. This ensures that the component meets cleanliness standards by verifying that particle contamination is within acceptable limits. The example measurement includes counts for three particle size categories.
+
+```json
+"results": [
+  {
+    "identifier": "particleSizeCategory1",
+    "description": "Count of particles in size category 1 (0-50 µm)",
+    "unit": "unit:count",
+    "value": "30",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "particleSizeCategory2",
+    "description": "Count of particles in size category 2 (51-100 µm)",
+    "unit": "unit:count",
+    "value": "10",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "particleSizeCategory3",
+    "description": "Count of particles in size category 3 (>100 µm)",
+    "unit": "unit:count",
+    "value": "5",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
+```
+
+##### Example 2: Resistance Measurement
+
+A resistance measurement is only meaningful if the voltage and current have been measured previously, as resistance is calculated from their ratio.
+
+```json
+"results": [
+  {
+    "identifier": "voltage",
+    "description": "Voltage measurement",
+    "unit": "unit:V",
+    "value": "5.2",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "current",
+    "description": "Current measurement",
+    "unit": "unit:A",
+    "value": "0.15",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  },
+  {
+    "identifier": "resistance",
+    "description": "Resistance calculated from voltage and current",
+    "unit": "unit:Ohm",
+    "value": "34.67",
+    "measurementTimestamp": "2025-03-25T09:20:00.66372+14:00"
+  }
+]
+```
+## NOTICE
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST & Fraunhofer IML)
+- SPDX-FileCopyrightText: 2023 German Edge Cloud GmbH & Co. KG
+- SPDX-FileCopyrightText: 2023 Mercedes Benz AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 Siemens AG
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/traceability-kit (latest version)
