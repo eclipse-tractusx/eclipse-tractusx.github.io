@@ -65,6 +65,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, fin
 | 4.2.13  | Classification Description | Optional property describing the classification standard. | Optional| Industry standard specifications facilitate understanding and compliance. | - Can provide details relevant to the classification standard. - Unprovided details will not trigger an error. | String |
 
 # Operation
+The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
 
 | Rule ID | Data Attribute                  | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Validation/Verification Rule                                                                                        | Data Type |
 |---------|-------------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
