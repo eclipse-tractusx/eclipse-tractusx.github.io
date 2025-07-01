@@ -38,8 +38,11 @@ Verification activities are conducted to ensure that the design and development 
 #### Validation:
 Validation activities are conducted to ensure that the resulting products and services meet the requirements for the specified application or intended use (i.e., is it fit for purpose).
 
+After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
+- Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
+- Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs)—has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
 
-Howvere, after thorough reserach of these standards 
+As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
 ## Goal of the Data Trust Kit
 
