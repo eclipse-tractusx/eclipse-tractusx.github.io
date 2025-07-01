@@ -350,7 +350,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2024 Mercedes-Benz Group AG
 - SPDX-FileCopyrightText: 2024 BASF SE
 - SPDX-FileCopyrightText: 2024 SupplyOn AG
 - SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
@@ -359,4 +359,8 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
+- SPDX-FileCopyrightText: 2025 Ford-Werke GmbH
+- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
