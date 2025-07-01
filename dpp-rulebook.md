@@ -1,12 +1,45 @@
-# Digital Product Passport Validation Rulebook
+# Digital Product Passport Trust Kit
 
 ## Definition & Terminology
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, finibus vitae lacus id, aliquam vehicula diam. Mauris mollis neque nec nulla dictum congue. Sed molestie mollis turpis, at tempus tellus. Quisque consequat felis a sem faucibus feugiat ac sit amet sem. Aenean orci ipsum, feugiat quis purus quis, fringilla pellentesque risus. Nam in viverra lacus, in faucibus nunc. Fusce volutpat tempus rutrum. Cras sit amet lacus a arcu mattis accumsan a ac odio. Pellentesque et convallis eros, in congue nisl. Quisque mattis, tortor sit amet viverra pretium, dolor massa bibendum sapien, ullamcorper commodo enim erat vitae felis. In.
+XX
 
 ## Research
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, finibus vitae lacus id, aliquam vehicula diam. Mauris mollis neque nec nulla dictum congue. Sed molestie mollis turpis, at tempus tellus. Quisque consequat felis a sem faucibus feugiat ac sit amet sem. Aenean orci ipsum, feugiat quis purus quis, fringilla pellentesque risus. Nam in viverra lacus, in faucibus nunc. Fusce volutpat tempus rutrum. Cras sit amet lacus a arcu mattis accumsan a ac odio. Pellentesque et convallis eros, in congue nisl. Quisque mattis, tortor sit amet viverra pretium, dolor massa bibendum sapien, ullamcorper commodo enim erat vitae felis. In.
+Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), Wikipedia, and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation."
+The following sub section provides a brief overview of the differing definitions.
+
+### TfS:
+#### Verification: 
+Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
+#### Validation:
+Process for evaluating the plausibility of assumptions, limitations and methods that support an environmental information **statement about the outcome of future activities**.
+Two situations:
+- Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
+- Prediction of PCFs for new product developments not in serial production yet
+The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.
+
+In the context of Together for Sustainability (TfS), "verification" refers to the evaluation of historical Product Carbon Footprints (PCFs), while "validation" pertains to the assessment of projected or future PCFs. These definitions are derived from ISO 14065:2020 and ISO 14066:2023. However, as these interpretations are highly specific to PCFs—and even within the PCF domain, definitions of verification and validation vary across initiatives such as PACT (as outlined below), a thorough evaluation has led to the conclusion that they are currently not well-suited for addressing "data plausibility" within Digital Product Passports
+
+### PACT
+#### Verification: 
+The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
+Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
+
+#### Validation:
+The process of confirming that the **methodology, assumptions, and data used** to estimate future or modeled PCFs are appropriate and reasonable.
+In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.
+
+This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
+
+### Wikipedia
+Verification and validation are independent procedures that are used together for checking that a product, service, or system meets requirements and specifications and that it fulfills its intended purpose. These are critical components of a quality management system such as ISO 9001:2015 (Quality management systems requirements) 
+#### Verification: 
+Verification activities are conducted to ensure that the design and development **outputs meet the input requirements** (i.e., does it follow the standards).
+#### Validation:
+Validation activities are conducted to ensure that the resulting products and services meet the requirements for the specified application or intended use (i.e., is it fit for purpose).
+
+
+Howvere, after thorough reserach of these standards 
 
 ## Goal of the Data Trust Kit
 
