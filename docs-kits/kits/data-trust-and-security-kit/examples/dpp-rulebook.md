@@ -1,7 +1,9 @@
 # Digital Product Passport Trust Kit
 
 ## Definition & Terminology
-XX
+
+<img width="538" alt="image" src="https://github.com/user-attachments/assets/087fa7d8-77ea-40c2-9dea-492f603c7b3c" />
+
 
 ## Research
 
