@@ -149,7 +149,7 @@ The "Operations" category refers to a structured set of data that describes th
 | 4.4.3  | Sources Contact               | | | | | |
 | 4.4.4   | Sources Address               | | | | | |
 | 4.4.5   | Manufacturer Part ID      | Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | Mandatory | Catenation of part identification within manufacturing dataspace, emphasizing version control.| - This is an open field, as no applicable validation rules can be defined for this entry.|String|
-| 4.4.6   | Name at Manufacturer      | Name of the spare part as assigned by the manufacturer. | Mandatory | Supplier transparency in part naming conventions.| - Attribute should contain the manufacturer-assigned name for the part. |String|
+| 4.4.6   | Name at Manufacturer      | Name of the spare part as assigned by the manufacturer. | Mandatory | Supplier transparency in part naming conventions.| - This is an open field, as no applicable validation rules can be defined for this entry.|String|
 
 # Characteristics
 
