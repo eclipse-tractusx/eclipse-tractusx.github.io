@@ -1,9 +1,5 @@
 # Digital Product Passport Trust Kit
 
-## Definition & Terminology
-
-<img width="538" alt="image" src="https://github.com/user-attachments/assets/087fa7d8-77ea-40c2-9dea-492f603c7b3c" />
-
 ## Goal of the Data Trust Kit
 
 The establishment of a validation and verification rulebook for Digital Product Passports (DPPs) is dedicated to ensuring the integrity, reliability, and trustworthiness of product information within the automotive industry. In a digitally interconnected environment, where numerous stakeholders collaboratively engage in the exchange of data, it becomes imperative to standardize and authenticate the information conveyed through DPPs.
@@ -70,6 +66,9 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
+## Definition & Terminology
+
+<img width="538" alt="image" src="https://github.com/user-attachments/assets/087fa7d8-77ea-40c2-9dea-492f603c7b3c" />
 
 ## Generic Digital Product Passport Data Point Validation Rules
 
