@@ -80,7 +80,7 @@ As a result, we have chosen not to invest extensive time in harmonizing definiti
 | 4.1.2   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Industry best practices for UUID assignment and usage. |- The attribute must match one of the accepted UUID formats. - Any deviation or blank entries will trigger a validation error. | String |
 | 4.1.3   | Version               | This attribute indicates the current version of the product passport.| Mandatory | Article 9 of Regulation (EU) 2024/1781| - The attribute must contain a version number in a string format. <br>- Missing values are not permitted. <br>- Updates must follow semantic versioning convention. <br>- Deviations or null values will trigger a validation error. | String |
 | 4.1.4   | Status                | This attribute represents the lifecycle stage of the product passport. | Mandatory | Not explicitly mentioned in regulation, but critical for internal tracking and control. | - If provided, the attribute must contain one of the enumerated values. - Any other string or null values should trigger a validation error. | Enum |
-| 4.1.5   | Language               | | | | | |
+| 4.1.5   | Language               | V 7.0.0, to be completed in second wave| | | | |
 | 4.1.6   | Predecessor Identifier               | | | | | |
 | 4.1.7   | Registration Identifier               | | | | | |
 | 4.1.8   | Backup Reference               | | | | | |
