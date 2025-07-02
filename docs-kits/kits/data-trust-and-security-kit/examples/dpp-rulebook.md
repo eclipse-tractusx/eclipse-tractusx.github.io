@@ -4,6 +4,30 @@
 
 <img width="538" alt="image" src="https://github.com/user-attachments/assets/087fa7d8-77ea-40c2-9dea-492f603c7b3c" />
 
+## Goal of the Data Trust Kit
+
+The establishment of a validation and verification rulebook for Digital Product Passports (DPPs) is dedicated to ensuring the integrity, reliability, and trustworthiness of product information within the automotive industry. In a digitally interconnected environment, where numerous stakeholders collaboratively engage in the exchange of data, it becomes imperative to standardize and authenticate the information conveyed through DPPs.
+
+The primary goal of our rulebook is multifaceted: it safeguards the accuracy of data across all DPPs, fosters trust among industry participants, and lowers the barriers for adopting DPPs within the project. In particular, small and medium-sized enterprises (SMEs) may encounter challenges in fully comprehending the complexity of the data model associated with DPPs. By providing clear, straightforward guidance and supporting documentation, the rulebook serves as an accessible resource that demystifies the process and facilitates the onboarding of diverse stakeholders into our collaborative initiatives.
+
+## Why is Data Trust Necessary for Digital Product Passports?
+Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain. By adhering to our validation rulebook, companies can guarantee the trustworthiness of their DPPs, reinforcing confidence in the data that informs strategic and operational choices.
+
+## Business Value of Validated Data
+The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
+
+* Improved Regulatory Compliance: Ensuring that data is precise and verified minimizes the risk of regulatory infractions and associated penalties.
+* Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
+* Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
+* Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
+
+
+
+Ultimately, the validation rulebook is crucial not only for assuring data reliability but also for driving competitive advantage and inclusivity. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
+
+## Scope of the Data Trust Kit
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, finibus vitae lacus id, aliquam vehicula diam. Mauris mollis neque nec nulla dictum congue. Sed molestie mollis turpis, at tempus tellus. Quisque consequat felis a sem faucibus feugiat ac sit amet sem. Aenean orci ipsum, feugiat quis purus quis, fringilla pellentesque risus. Nam in viverra lacus, in faucibus nunc. Fusce volutpat tempus rutrum. Cras sit amet lacus a arcu mattis accumsan a ac odio. Pellentesque et convallis eros, in congue nisl. Quisque mattis, tortor sit amet viverra pretium, dolor massa bibendum sapien, ullamcorper commodo enim erat vitae felis. In.
 
 ## Research
 
@@ -46,30 +70,6 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
-## Goal of the Data Trust Kit
-
-The establishment of a validation and verification rulebook for Digital Product Passports (DPPs) is dedicated to ensuring the integrity, reliability, and trustworthiness of product information within the automotive industry. In a digitally interconnected environment, where numerous stakeholders collaboratively engage in the exchange of data, it becomes imperative to standardize and authenticate the information conveyed through DPPs.
-
-The primary goal of our rulebook is multifaceted: it safeguards the accuracy of data across all DPPs, fosters trust among industry participants, and lowers the barriers for adopting DPPs within the project. In particular, small and medium-sized enterprises (SMEs) may encounter challenges in fully comprehending the complexity of the data model associated with DPPs. By providing clear, straightforward guidance and supporting documentation, the rulebook serves as an accessible resource that demystifies the process and facilitates the onboarding of diverse stakeholders into our collaborative initiatives.
-
-## Why is Data Trust Necessary for Digital Product Passports?
-Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain. By adhering to our validation rulebook, companies can guarantee the trustworthiness of their DPPs, reinforcing confidence in the data that informs strategic and operational choices.
-
-## Business Value of Validated Data
-The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
-
-* Improved Regulatory Compliance: Ensuring that data is precise and verified minimizes the risk of regulatory infractions and associated penalties.
-* Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
-* Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
-* Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
-
-
-
-Ultimately, the validation rulebook is crucial not only for assuring data reliability but also for driving competitive advantage and inclusivity. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
-
-## Scope of the Data Trust Kit
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, finibus vitae lacus id, aliquam vehicula diam. Mauris mollis neque nec nulla dictum congue. Sed molestie mollis turpis, at tempus tellus. Quisque consequat felis a sem faucibus feugiat ac sit amet sem. Aenean orci ipsum, feugiat quis purus quis, fringilla pellentesque risus. Nam in viverra lacus, in faucibus nunc. Fusce volutpat tempus rutrum. Cras sit amet lacus a arcu mattis accumsan a ac odio. Pellentesque et convallis eros, in congue nisl. Quisque mattis, tortor sit amet viverra pretium, dolor massa bibendum sapien, ullamcorper commodo enim erat vitae felis. In.
 
 ## Generic Digital Product Passport Data Point Validation Rules
 
