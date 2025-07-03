@@ -76,17 +76,17 @@ As a result, we have chosen not to invest extensive time in harmonizing definiti
 
 | Rule ID | Data Attribute          | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                           | Validation/Verification Rule                                                                                       | Data Type |
 |---------|-----------------------|-----------------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 4.1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Industry best practices for UUID assignment and usage. |- The attribute must match one of the accepted UUID formats.| String |
-| 4.1.2   | Version               | This attribute indicates the current version of the product passport.| Mandatory | Article 9 of Regulation (EU) 2024/1781| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| String |
-| 4.1.3   | Status                | This attribute represents the lifecycle stage of the product passport. | Optional | Not explicitly mentioned in regulation, but critical for internal tracking and control. | - If provided, the attribute must contain one of the enumerated values.| Enum |
+| 4.1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Industry best practices for UUID assignment and usage. |- Must contain an unique identifier according to ISO/IEC 9834-8:2005 standard| String |
+| 4.1.2   | Version               | The current version of the product passport.| Mandatory | Article 9 of Regulation (EU) 2024/1781| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| String |
+| 4.1.3   | Status                | The lifecycle stage of the product passport.| Optional | Not explicitly mentioned in regulation, but critical for internal tracking and control. | - If provided, the attribute must contain one of the enumerated values.| Enum |
 | 4.1.4   | Language               | V 7.0.0, to be completed in second wave| | Mandatory| | |
 | 4.1.5   | Predecessor Identifier               | | Mandatory| | | |
 | 4.1.6   | Registration Identifier               | | Optional| | | |
 | 4.1.7   | Backup Reference               | | Mandatory| | | |
-| 4.1.8   | IssueDate             | The date when the product passport is initially issued.                     | Mandatory | Common best practice for version control and data traceability. | - The attribute must match the specified date format. | String |
-| 4.1.9   | ExpirationDate        | This attribute specifies the date when the product passport remains available. | Mandatory | Article 9 (2)(i) and Article 11 of Regulation (EU) 2024/1781 | - The attribute must match the specified date format. | String |
+| 4.1.8   | IssueDate             | The date when the product passport is initially issued.                     | Mandatory | Common best practice for version control and data traceability. | - The attribute must match the specified date format.<br> - Can not be a future date. | String |
+| 4.1.9   | ExpirationDate        | The date until the product passport remains available.  | Mandatory | Article 9 (2)(i) and Article 11 of Regulation (EU) 2024/1781 | - The attribute must match the specified date format. <br> - Can not be a past date.| String |
 | 4.1.10  | Last Modification              | | Optional | | | |
-| 4.1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Annex III, section (k) of Regulation (EU) 2024/1781 | - The attribute must conform to the specified identifier format. | String |
+| 4.1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Annex III, section (k) of Regulation (EU) 2024/1781 |  - Must contain the BPNL for companies in the Catena-X network <br> - Must contain the CIN according to ISO 15459 standard for companies that are not in the Catena-X network. | String |
 | 4.1.12  | Economic Operator Name | | Mandatory| | | |
 | 4.1.13  | Economic Operator Contact               | | Mandatory| | | |
 | 4.1.14  | Economic Operator Address               | | Mandatory| | | |
