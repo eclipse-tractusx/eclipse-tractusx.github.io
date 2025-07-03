@@ -20,6 +20,7 @@ and ensure a well-structured release.
 - **New room in our matrix chat -> [Test Management](https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org)**
 
 **Key Information:**
+
 - 📅 **Dates and Times**: Listed for each session below.
 - 📂 **Resources**: Visit our [**open meetings page**](https://eclipse-tractusx.github.io/community/open-meetings#one-time-meetings) for all session links and additional documentation.
 - 🔗 **Preparation Materials**: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
@@ -64,6 +65,7 @@ The Open Planning session finalizes the roadmap for R25.12, prioritizing feature
 - **Teams Link:** [Join the session](https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2YwYjBlYWQtY2JmNy00YjkxLWFjNTktZTJiM2ZlYmIzNGQ1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22c4f4cd17-5452-4057-9b00-42444990d814%22%7d)
 
 **Who Should Attend**:
+
 - Contributors and Committers from the open-source community
 - Expert Group and Committee members
 - Feature requesters and stakeholders
@@ -76,6 +78,7 @@ feature requesters are encouraged to attend and actively engage in the discussio
 ### Agenda
 
 Here’s the plan for the day:
+
 - **09:05 - 09:30**: Open Planning - Vision & Introduction
 - **09:30 - 14:00**: Joint Open Planning (all teams)
 - **14:00 - 14:30**: Feedback Retro / Open Planning Wrap-up / Summary & Next Steps
@@ -107,13 +110,16 @@ The planning sessions will be driven by our [Release Planning Board](https://git
 | 14:00 – 14:30     | Feedback Retro / Open Planning Wrap-up / Summary & Next Steps |                                                                                                                                                                       |
 
 :::warning[**Please note:**]
+
 - The agenda provides a **rough time structure** to help guide the session. The **timings are not fixed** and can be adjusted depending on the flow of the discussion.
 - Use the agenda as **orientation**, but we may deviate if needed based on progress.
+
 :::
 
 ### Prerequisites for features to be considered in Open Planning
 
 For a feature to be included in the Open Planning, the following conditions must be met:
+
 - **Status must be 'Backlog'** – Committers and Expert Groups can set this status after the feature is fully refined.
 - **All categories in the feature template must be filled** – Do not delete any sections from the template.
 - **Milestone is NOT set** – This will be assigned during the Open Planning session.
