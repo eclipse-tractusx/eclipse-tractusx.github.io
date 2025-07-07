@@ -112,9 +112,9 @@ Addressing the challenges of disruption management in the automotive supply chai
 
 Currently the standard _Supply Chain Disruption Notifications_ provides one semantic model _Demand and Capacity Notification._
 
-| Semantic Model                                   | Version | Link to GitHub Repository                                                                                        |
-| ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------- |
-| Demand and Capacity Notification (Release 24.05) | v2.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
+| Semantic Model                                   | Version | Link to GitHub Repository                                                                                                                                                                                                        |
+| ------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Demand and Capacity Notification (Release 25.09) | v3.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
 ## Business Process
 
@@ -185,16 +185,16 @@ By adopting this business architecture, stakeholders in the automotive supply ch
 
 ## Logic & Schema
 
-To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 2 company sends a notification to its customers and a supplier.
+To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
 
-![Logic & Schema](resources/image-2024-3-5_15-22-27-1.png)
+![Logic & Schema](resources/notifications-forwarding-example.drawio.svg)
 _Figure 2: Visualisation of the notifications process_
 
 ## Standards
 
 The relevant standards can be found in the [Catena-X Association Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
 
-- [CX-0146 Supply Chain Disruption Notifications 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
+- [CX-0146 Supply Chain Disruption Notifications 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
 
 ### Normative References
 
@@ -208,6 +208,7 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX-0018  | Dataspace Connectivity              |
 | CX-0126  | Industry Core: Part Type            |
 | CX-0149  | Verified Company Identity           |
+| CX-0151  | Industry Core Basics                |
 
 ### Non-Normative References
 
@@ -228,7 +229,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2024 Mercedes-Benz Group AG
 - SPDX-FileCopyrightText: 2024 BASF SE
 - SPDX-FileCopyrightText: 2024 SupplyOn AG
 - SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
@@ -237,4 +238,8 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
+- SPDX-FileCopyrightText: 2025 Ford-Werke GmbH
+- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation

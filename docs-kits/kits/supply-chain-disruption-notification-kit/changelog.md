@@ -11,6 +11,33 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [2.0.0] - 2025-XY-ZZ
+
+### Added
+
+Software Development View:
+
+- Table for setting fields in `header`
+- Versioning chapter
+
+Adoption View:
+
+- Reworked `Figure 2` to a forwarding example
+
+### Changed
+
+Software Development View:
+
+- Updated samples and references to updated standard and aspect model
+
+Adoption View:
+
+- Reworked `Figure 2` to a forwarding example
+
+### Removed
+
+- ./.
+
 ## [1.0.1] - 2024-11-18
 
 ### Added
@@ -56,4 +83,8 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
+- SPDX-FileCopyrightText: 2025 Ford Werke GmbH
+- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
