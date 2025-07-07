@@ -270,28 +270,29 @@ These characteristics enable standardized documentation, comparability across pr
 | 4.8.21  |footprintUnit.product footprint.material  | The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Yes       | Footprint measurement units standardized in validation chapters.     			       | - Valid unit representation supports methodological soundness. - Errors represent reassessment prerequisites.                            |           |
 | 4.8.22  | footprintType.product footprint.material | Impact categorization clarifies footprint implications within material contexts.| Yes       | Sustainability delineators guide footprint category distinctions.                                   | - Genuine categorization must adhere to specified impact types. - Errors initiate rectification undertakings.                            |           |
 | 4.8.23  | footprintLifecycle.product footprint.material | The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'   | Yes       | Lifecycle insight contextualized in sustainability regulations.                                      | - Lifecycle descriptions establish thematic compliance. - Absence necessitates accuracy confirmations.                       |           |
-| 4.8.24  | performanceClass.product footprint.material | Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Yes       | Performance analysis captures material footprint efficacy.                                           | - Validated performance scale reliance suffices. - Missed descriptions preclude efficacy realizations.                                    |           |
-| 4.8.25  | Facility Address               | | | | | |
-| 4.8.26  | Rulebook               | | | | | Document |
-| 4.8.27  | Declaration               | | | | | Document |
-| 4.8.28  | Reparability Score      | In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices. | Yes       | Reparability parameters refine eco-centric directives.                                               | - Reparability categories normalize procedural reforms. - Errors reveal pragmatic reenhancements.                                         |           |
-| 4.8.29  | Durability Score                                                                             | The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns. | Yes       | Durability advancement enriches sustainable paradigms.                                               | - Valid durability cycles establish environmental worth. - Missed inputs generate anticipatory response mechanisms.                           |           |
-| 4.8.30  | Reuse Info               | | | | | |
-| 4.8.31  | Reuse System Identification               | | | | | |
-| 4.8.32  | Symbol of Deposit and Return System               | | | | | |
-| 4.8.33  | Rotation Estimation Key              | | | | | |
-| 4.8.34  | Rotation Estimation Value              | | | | | |
-| 4.8.35  | Rotation Calculation Key               | | | | | |
-| 4.8.36  | Rotation Calculation Value               | | | | | |
-| 4.8.37  | Trip Estimation Key              | | | | | |
-| 4.8.38  | Trip Estimation Value              | | | | | |
-| 4.8.39  | Trip Calculation Key               | | | | | |
-| 4.8.40  | Trip Calculation Value               | | | | | |
-| 4.8.41  | Facilitates Tracking Reusable Product Address ID              | | | | | |
-| 4.8.42  | Facilitates Tracking Reusable Product Address              | | | | | |
-| 4.8.43  | Collection Points Reusable Product ID              | | | | | |
-| 4.8.44  | Collection Points Reusable Product Address              | | | | | |
-| 4.8.45  | Recyclability Performance Grade             | | | | | |
+| 4.8.24  | performanceClass.product footprint.material | Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Yes       | Performance analysis captures material footprint efficacy.                                           | - Validated performance scale reliance suffices. - Missed descriptions preclude efficacy realizations.  
+| 4.8.25 | facility.product footprint.environmental| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.| Yes       | Facility tracking described for sustainability aims.                                                  | - Coherent facility identifiers necessitated. - Errors relay exception signals.                                                           |                      |
+| 4.8.26  | Facility Address               | | | | | |
+| 4.8.27  | Rulebook               | | | | | Document |
+| 4.8.28  | Declaration               | | | | | Document |
+| 4.8.29  | Reparability Score      | In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices. | Yes       | Reparability parameters refine eco-centric directives.                                               | - Reparability categories normalize procedural reforms. - Errors reveal pragmatic reenhancements.                                         |           |
+| 4.8.30  | Durability Score                                                                             | The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns. | Yes       | Durability advancement enriches sustainable paradigms.                                               | - Valid durability cycles establish environmental worth. - Missed inputs generate anticipatory response mechanisms.                           |           |
+| 4.8.31  | Reuse Info               | | | | | |
+| 4.8.32  | Reuse System Identification               | | | | | |
+| 4.8.33  | Symbol of Deposit and Return System               | | | | | |
+| 4.8.34  | Rotation Estimation Key              | | | | | |
+| 4.8.35  | Rotation Estimation Value              | | | | | |
+| 4.8.36  | Rotation Calculation Key               | | | | | |
+| 4.8.37  | Rotation Calculation Value               | | | | | |
+| 4.8.38  | Trip Estimation Key              | | | | | |
+| 4.8.39  | Trip Estimation Value              | | | | | |
+| 4.8.40 | Trip Calculation Key               | | | | | |
+| 4.8.41  | Trip Calculation Value               | | | | | |
+| 4.8.42  | Facilitates Tracking Reusable Product Address ID              | | | | | |
+| 4.8.43  | Facilitates Tracking Reusable Product Address              | | | | | |
+| 4.8.44  | Collection Points Reusable Product ID              | | | | | |
+| 4.8.45  | Collection Points Reusable Product Address              | | | | | |
+| 4.8.46  | Recyclability Performance Grade             | | | | | |
 
 # Compliance
 
