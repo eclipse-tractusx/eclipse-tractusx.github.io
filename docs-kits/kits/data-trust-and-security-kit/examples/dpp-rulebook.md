@@ -79,17 +79,17 @@ As a result, we have chosen not to invest extensive time in harmonizing definiti
 | 4.1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Industry best practices for UUID assignment and usage. |- Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>| String |
 | 4.1.2   | Version               | The current version of the product passport.| Mandatory | Article 9 of Regulation (EU) 2024/1781| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| String |
 | 4.1.3   | Status                | The lifecycle stage of the product passport.| Optional | Not explicitly mentioned in regulation, but critical for internal tracking and control. | - If provided, the attribute must contain one of the enumerated values.| Enum |
-| 4.1.4   | Language               | V 7.0.0, to be completed in second wave| | Mandatory| | |
-| 4.1.5   | Predecessor Identifier               | | Mandatory| | | |
-| 4.1.6   | Registration Identifier               | | Optional| | | |
-| 4.1.7   | Backup Reference               | | Mandatory| | | |
+| 4.1.4   | Language               | *To be covered in next version* | | Mandatory| | |
+| 4.1.5   | Predecessor Identifier               | *To be covered in next version* | Mandatory| | | |
+| 4.1.6   | Registration Identifier               | *To be covered in next version* | Optional| | | |
+| 4.1.7   | Backup Reference               | *To be covered in next version* | Mandatory| | | |
 | 4.1.8   | IssueDate             | The date when the product passport is initially issued.                     | Mandatory | Common best practice for version control and data traceability. | - The attribute must match the specified date format.<br> - Can not be a future date. | String |
 | 4.1.9   | ExpirationDate        | The date until the product passport remains available.  | Mandatory | Article 9 (2)(i) and Article 11 of Regulation (EU) 2024/1781 | - The attribute must match the specified date format. <br> - Can not be a past date.| String |
-| 4.1.10  | Last Modification              | | Optional | | | |
+| 4.1.10  | Last Modification              | *To be covered in next version* | Optional | | | |
 | 4.1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Annex III, section (k) of Regulation (EU) 2024/1781 |  - Must contain the BPNL for companies in the Catena-X network <br><font color="red"> - Must contain the CIN according to ISO 15459 standard for companies that are not in the Catena-X network. </font>| String |
-| 4.1.12  | Economic Operator Name | | Mandatory| | | |
-| 4.1.13  | Economic Operator Contact               | | Mandatory| | | |
-| 4.1.14  | Economic Operator Address               | | Mandatory| | | |
+| 4.1.12  | Economic Operator Name | *To be covered in next version* | Mandatory| | | |
+| 4.1.13  | Economic Operator Contact               | *To be covered in next version* | Mandatory| | | |
+| 4.1.14  | Economic Operator Address               | *To be covered in next version* | Mandatory| | | |
 
 ### Identification
 
@@ -103,13 +103,13 @@ As a result, we have chosen not to invest extensive time in harmonizing definiti
 | 4.2.6   | Name at Manufacturer      | The name of the part provided by the manufacturer. | Mandatory | Industry practice related to product traceability and identification. | - Must contain the Name of the Part as assigned by the manufacturer. | String |
 | 4.2.7   | Code Key                  | The code key for product identification.  | Mandatory | Regulation (EU) 2024/1781, Annex III(b-c) |  - Must be a valid identifier code such as GTIN, DID, ISBN, etc. | String |
 | 4.2.8   | Code Value                | The identifier value related to the code key. | Mandatory | Regulation (EU) 2024/1781 | - Must correspond with the associated code key. | String |
-| 4.2.9   | Code Description          | | Optional| | | |
+| 4.2.9   | Code Description          | *To be covered in next version* | Optional| | | |
 | 4.2.10  |Carrier Type              | The type of data carrier used for product identification.  | Optional | Regulation (EU) 2024/1781, Article 2(29) | - Must align with recognizable carrier types like QR, barcode, etc.| String |
 | 4.2.11  | Carrier Position            | The spatial arrangement or position of the data carrier on the product.  | Optional | Regulation (EU) 2024/1781, Article 8(2)(c) | - If specified, the attribute must describe the carrier's positioning. | String |
 | 4.2.12  | Classification Standard   | Outlines classification standards for parts. | Mandatory | Industry-standard alignment for part classification.  | - Must refer to known standards in classification. | String |
 | 4.2.13  | Classification ID         | The identifier for the part classification standard according to related key-value pairs. | Mandatory | Complies with established classification definitions in industry. | - Must correspond with the classification standard provided. | String |
 | 4.2.14  | Classification Description | Optional property describing the classification standard. | Optional| Industry standard specifications facilitate understanding and compliance. | - Can provide details relevant to the classification standard. | String |
-| 4.2.15  | Picture           | | Optional| | | Document |
+| 4.2.15  | Picture           | *To be covered in next version* | Optional| | | Document |
 
 # Operation
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
@@ -117,27 +117,27 @@ The "Operations" category refers to a structured set of data that describes th
 | Rule ID | Data Attribute                  | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Validation/Verification Rule                                                                                        | Data Type |
 |---------|-------------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 4.3.1   | Facility ID                     | The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product. | Mandatory | Regulation (EU) 2024/1781, Annex III(i) | - The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. -  Additionally, its validity can be verified using regular expression-based checks.|String|
-| 4.3.2   | Facility Address               | | | | | |
+| 4.3.2   | Facility Address               | *To be covered in next version* | | | | |
 | 4.3.3   | Manufacturer ID   | Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. | Mandatory | Regulation (EU) 2024/1781, Annex III(h) & (k) | - The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. - Additionally, its validity can be verified using regular expression-based checks. |String|
-| 4.3.4   | Manufacturer Name               | | | | | |
-| 4.3.5   | Manufacturer Contact               | | | | | |
-| 4.3.6   | Manufacturer Address               | | | | | |
+| 4.3.4   | Manufacturer Name               | *To be covered in next version* | | | | |
+| 4.3.5   | Manufacturer Contact               | *To be covered in next version* | | | | |
+| 4.3.6   | Manufacturer Address               | *To be covered in next version* | | | | |
 | 4.3.7   | Manufacturing Date            | Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event). | Mandatory | Common practice for documenting manufacturing timelines. | - The date format is in complaince to ISO 8601. - Additionally, its validity can be verified using regular expression-based checks.|String|
 | 4.3.8   | Applicable                    | Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.| Mandatory | Operational control for product applicability. | - If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.|String|
 | 4.3.9   | EORI                          | An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU. | Mandatory | Regulation (EU) 2024/1781, Annex III(j) | - Must follow the EORI number format. -  Its validity can be verified using regular expression-based checks.|String|
 | 4.3.10   | Importer Identification       | Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability in the Catena-X network. | Mandatory | Regulation (EU) 2024/1781, Annex III(j) | - Must conform to the BPNL identifier format. -  Its validity can be verified using regular expression-based checks.|String|
-| 4.3.11  | Importer Name               | | | | | |
-| 4.3.12  | Importer Contact               | | | | | |
-| 4.3.13  | Importer Address               | | | | | |
+| 4.3.11  | Importer Name               | *To be covered in next version* | | | | |
+| 4.3.12  | Importer Contact               | *To be covered in next version* | | | | |
+| 4.3.13  | Importer Address               | *To be covered in next version* | | | | |
 | 4.3.14  | Other Operator ID             | OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. | Mandatory | Facilitates operational management of product networks.n| - This is an open field, as no applicable validation rules can be defined for this entry.|String|
-| 4.3.15  | Other Operator Name               | | | | | |
-| 4.3.16  | Other Operator Contact               | | | | | |
-| 4.3.17  | Other Operator Address               | | | | | |
+| 4.3.15  | Other Operator Name               | *To be covered in next version* | | | | |
+| 4.3.16  | Other Operator Contact               | *To be covered in next version* | | | | |
+| 4.3.17  | Other Operator Address               | *To be covered in next version* | | | | |
 | 4.3.18  | Other Operator Role           | This field is used to specify the "Role" of the other operator (e.g., Distributor). | Mandatory | Common operational practice for stakeholder identification. | - Describes the specific role of the operator. - This is an open field, as no applicable validation rules can be defined for this entry.|String|
-| 4.3.19  | Symbol of Extended Producer Responsibility Scheme               | | | | | |
-| 4.3.20  | Territory of Extended Producer Responsibility Scheme               | | | | | |
-| 4.3.21  | Collection Points of Extended Producer Responsibility Scheme ID               | | | | | |
-| 4.3.22  | Collection Points of Extended Producer Responsibility Scheme Address               | | | | | |
+| 4.3.19  | Symbol of Extended Producer Responsibility Scheme               | *To be covered in next version* | | | | |
+| 4.3.20  | Territory of Extended Producer Responsibility Scheme               | *To be covered in next version* | | | | |
+| 4.3.21  | Collection Points of Extended Producer Responsibility Scheme ID               | *To be covered in next version* | | | | |
+| 4.3.22  | Collection Points of Extended Producer Responsibility Scheme Address               | *To be covered in next version* | | | | |
 
 # Handling
 "Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
@@ -145,8 +145,8 @@ The "Operations" category refers to a structured set of data that describes th
 |---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 4.4.1   | Applicable                | Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.| Mandatory | Internal operational control for product applicability in handling processes.| - If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.|String|
 | 4.4.2   | Sources Identification    | Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management. | Mandatory | Industry standard for spare part sourcing and supplier identification, using the Catena-X network BPNL. | - Must match the BPNL identifier format to ensure accuracy. -  Its validity can be verified using regular expression-based checks.|String|
-| 4.4.3  | Sources Contact               | | | | | |
-| 4.4.4   | Sources Address               | | | | | |
+| 4.4.3  | Sources Contact               | *To be covered in next version* | | | | |
+| 4.4.4   | Sources Address               | *To be covered in next version* | | | | |
 | 4.4.5   | Manufacturer Part ID      | Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | Mandatory | Catenation of part identification within manufacturing dataspace, emphasizing version control.| - This is an open field, as no applicable validation rules can be defined for this entry.|String|
 | 4.4.6   | Name at Manufacturer      | Name of the spare part as assigned by the manufacturer. | Mandatory | Supplier transparency in part naming conventions.| - This is an open field, as no applicable validation rules can be defined for this entry.|String|
 
@@ -183,12 +183,12 @@ These characteristics enable standardized documentation, comparability across pr
 | 4.5.17  | Gross Volume Unit         | Specifies measurement unit for gross volume. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                           | - Must contain one of the enumerated values.                                      | Enumeration          |
 | 4.5.18  | Weight Value              | Details the weight of the product. | Mandatory       | Regulation (EU) 2024/1781, Article 7                             | - Must be valid float representing weight.   <br>- Must be > 0.                                      | Float          |
 | 4.5.19  | Weight Unit               | Defines unit of weight measures. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                                         | - Must contain one of the enumerated values.                                     | Enumeration          |
-| 4.5.20   | Item Quantity Value               | | | | | |
-| 4.5.21  | Item QUantity Unit               | | | | | |
+| 4.5.20   | Item Quantity Value               | *To be covered in next version* | | | | |
+| 4.5.21  | Item QUantity Unit               | *To be covered in next version* | | | | |
 | 4.5.22  | Physical State            | The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular | Optional       | Regulation (EU) 2024/1781, Article 7                                                        | - Must contain one of the enumerated values.                                                | Enumeration          |
 | 4.5.23  | General Performance Class | Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency. | Optional       | Regulation (EU) 2024/1781, Article 7     | - Valid character for performance class required.                                                                                     | String          |
-| 4.5.24  | Other Characteristic Name               | | | | | |
-| 4.5.25  | Other Characteristic Outcome               | | | | | |
+| 4.5.24  | Other Characteristic Name               | *To be covered in next version* | | | | |
+| 4.5.25  | Other Characteristic Outcome               | *To be covered in next version* | | | | |
 
 # Commercial
 
@@ -196,8 +196,8 @@ These characteristics enable standardized documentation, comparability across pr
 |---------|---------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 4.6.1   | Placed On Market    | The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market. | Yes       | Best practices for documenting market placement dates in commercial product data.                      | - The date format is in complaince to ISO 8601. - Furtehrmore, Its validity can be verified using regular expression-based checks                              |           |
 | 4.6.2   | Purpose             | Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list. | Yes       | Industry categorization practices for digital product passports exchanged within Catena-X networks.     | - This is an open field, as no applicable validation rules can be defined for this entry.                                                       |           |
-| 4.6.3  | Purchase Order               | | | | | |
-| 4.6.4   | Recall Information               | | | | | Document |
+| 4.6.3  | Purchase Order               | *To be covered in next version* | | | | |
+| 4.6.4   | Recall Information               | *To be covered in next version* | | | | Document |
 
 # Materials
 
@@ -218,30 +218,30 @@ These characteristics enable standardized documentation, comparability across pr
 | 4.7.1.11| Hazard Category (Substances of Concern)| A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2) | Mandatory| Regulation (EU) 2024/1781, Article 7 | - Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in Article 2 of Regulation (EC) No 1272/2008. |           |
 | 4.7.1.12| Hazard Class (Substances of Concern) | Hazard class means the nature of the physical, health or environmental hazard. | Mandatory| Regulation (EU) 2024/1781, Article 7 | - Hazard category defined in accordance to:<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))|           |
 | 4.7.1.13| Hazard Statement (Substances of Concern)| A hazard statement is a standardized phrase assigned to a chemical substance or mixture that describes the nature and, where appropriate, the degree of hazard associated with it. Each hazard statement is associated with a unique code (e.g., H315, H301) to ensure consistency and clarity in hazard communication | Mandatory| Regulation (EU) 2024/1781, Article 7 | - Hazard category defined in accordance to:<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))|           |
-| 4.7.1.14 | Documentation               | | | | | Document |
+| 4.7.1.14 | Documentation               | *To be covered in next version* | | | | Document |
 | 4.7.2.1 | Applicable (Material Composition)   | Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled | Mandatory| Regulation (EU) 2024/1781  | - If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.|           |
-| 4.7.2.2   | Component Name               | | | | | |
-| 4.7.2.3 | Component Code               | | | | | |
-| 4.7.2.4  | Component Description               | | | | | |
-| 4.7.2.5  | Component Location               | | | | | |
-| 4.7.2.6  | Sorting Information               | | | | | |
-| 4.7.2.7  | Component Passport Identifier               | | | | | |
+| 4.7.2.2   | Component Name               | *To be covered in next version* | | | | |
+| 4.7.2.3 | Component Code               | *To be covered in next version* | | | | |
+| 4.7.2.4  | Component Description               | *To be covered in next version* | | | | |
+| 4.7.2.5  | Component Location               | *To be covered in next version* | | | | |
+| 4.7.2.6  | Sorting Information               | *To be covered in next version* | | | | |
+| 4.7.2.7  | Component Passport Identifier               | *To be covered in next version* | | | | |
 | 4.7.2.8 | Chemical ID (Material Composition)  | A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status | Mandatory| Regulation (EU) 2024/1781, Article 7 | - The chemical material ID and its identification  (Chemical name) shall be provided in accordance with IUPAC nomenclature standards.<br>Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable.|           |
 | 4.7.2.9 | List Type ID (Material Composition) | This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number | Mandatory| Regulation (EU) 2024/1781, Article 7 | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options|           |
 | 4.7.2.10 | Chemical Name (Material Composition) | The name of the material which is present in the product. | Mandatory| Regulation (EU) 2024/1781, Article 7 | - The chemical material ID and its identification  (Chemical name) shall be provided in accordance with IUPAC nomenclature standards.<br>Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable.|           |
-| 4.7.2.11 | Material Type               | | | | | |
-| 4.7.2.12 | Material Origin               | | | | | |
-| 4.7.2.13 | Material Passport Identifier               | | | | | |
-| 4.7.2.14 | Material Unit               | | | | | |
-| 4.7.2.15 | Concentration               | | | | | |
-| 4.7.2.16 | Min Concentration               | | | | | |
-| 4.7.2.17 | Max Concentration               | | | | | |
-| 4.7.2.18 | Location               | | | | | |
-| 4.7.2.19  | Recycled               | | | | | |
-| 4.7.2.20 | Documentation               | | | | | Document |
-| 4.7.3.1 | List Name (Declarable Ingredient List)               | | | | | |
-| 4.7.3.2 | Document ID (Declarable Ingredient List)               | | | | | |
-| 4.7.3.3 | Documentation (Declarable Ingredient List)               | | | | | Document |
+| 4.7.2.11 | Material Type               | *To be covered in next version* | | | | |
+| 4.7.2.12 | Material Origin               | *To be covered in next version* | | | | |
+| 4.7.2.13 | Material Passport Identifier               | *To be covered in next version* | | | | |
+| 4.7.2.14 | Material Unit               | *To be covered in next version* | | | | |
+| 4.7.2.15 | Concentration               | *To be covered in next version* | | | | |
+| 4.7.2.16 | Min Concentration               | *To be covered in next version* | | | | |
+| 4.7.2.17 | Max Concentration               | *To be covered in next version* | | | | |
+| 4.7.2.18 | Location               | *To be covered in next version* | | | | |
+| 4.7.2.19  | Recycled               | *To be covered in next version* | | | | |
+| 4.7.2.20 | Documentation               | *To be covered in next version* | | | | Document |
+| 4.7.3.1 | List Name (Declarable Ingredient List)               | *To be covered in next version* | | | | |
+| 4.7.3.2 | Document ID (Declarable Ingredient List)               | *To be covered in next version* | | | | |
+| 4.7.3.3 | Documentation (Declarable Ingredient List)               | *To be covered in next version* | | | | Document |
 
 # Sustainability
 
@@ -254,62 +254,62 @@ These characteristics enable standardized documentation, comparability across pr
 | 4.8.5   | footprintLifecycle.product footprint.carbon| The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'| Yes       | Lifecycle stage tracking detailed in framework articles.                                             | - Descriptive lifecycle stage must be provided. - Errors result in annotation warnings.                                               |           |
 | 4.8.6   | performanceClass.product footprint.carbon| Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Yes       | Performance class description for environmental footprint evaluation.                                 | - Valid performance categorization required. - Missing descriptions do not prompt errors unless critical.                          |           |
 | 4.8.7   | facility.product footprint.carbon| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product. | Yes       | Facility identification needs outlined for transparency in production sourcing.                       | - Valid facility identification required. - Errors result in location documentation inconsistencies.                                  |           |
-| 4.8.8   | Facility Address               | | | | | |
-| 4.8.9   | Rulebook               | | | | | Document |
-| 4.8.10   | Declaration               | | | | | Document |
+| 4.8.8   | Facility Address               | *To be covered in next version* | | | | |
+| 4.8.9   | Rulebook               | *To be covered in next version* | | | | Document |
+| 4.8.10   | Declaration               | *To be covered in next version* | | | | Document |
 | 4.8.11  | value.product footprint.environmental| The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;                               | - Must be a valid, non-negative float. - Errors prompt documentation scrutiny.                                                          |           |
 | 4.8.12  | footprintUnit.product footprint.environmental|The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Yes       | Sustainability metric unit standardization described in documentation.                                | - Valid unit representation required for footprint context. - Errors result in metric validation warnings.                              |           |
 | 4.8.13  | footprintType.product footprint.environmental| Categorizes type of environmental impact for depth in sustainability analysis.| Yes       | Impact grouping taxonomy detailed, enhancing footprint categorization.                                | - Must explicitly match listed footprint type. - Deviations prompt documentation adjustments.                                          |           |
 | 4.8.14  | footprintLifecycle.product footprint.environmental| The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.| Yes       | Lifecycle transparency emphasized for ecological assessments.                                        | - Accurate lifecycle positioning required. - Errors result in overstated assessment warnings.                                           |           |
 | 4.8.15  | performanceClass.product footprint.environmental| Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category| Yes       | Footprint classification descriptions outlined for performance articulation.                         | - Document accurate performance evaluations. - Absence requires optional category remediation.                          |           |
 | 4.8.16  | facility.product footprint.environmental| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.| Yes       | Facility tracking described for sustainability aims.                                                  | - Coherent facility identifiers necessitated. - Errors relay exception signals.                                                           |           |
-| 4.8.17   | Facility Address               | | | | | |
-| 4.8.18  | Rulebook               | | | | | Document |
-| 4.8.19  | Declaration               | | | | | Document |
+| 4.8.17   | Facility Address               | *To be covered in next version* | | | | |
+| 4.8.18  | Rulebook               | *To be covered in next version* | | | | Document |
+| 4.8.19  | Declaration               | *To be covered in next version* | | | | Document |
 | 4.8.20  | value.product footprint.material | The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;   | - Valid float metrics perceived as footprint necessity. - Errors dictate footprint examination modifications.                            |           |
 | 4.8.21  |footprintUnit.product footprint.material  | The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Yes       | Footprint measurement units standardized in validation chapters.     			       | - Valid unit representation supports methodological soundness. - Errors represent reassessment prerequisites.                            |           |
 | 4.8.22  | footprintType.product footprint.material | Impact categorization clarifies footprint implications within material contexts.| Yes       | Sustainability delineators guide footprint category distinctions.                                   | - Genuine categorization must adhere to specified impact types. - Errors initiate rectification undertakings.                            |           |
 | 4.8.23  | footprintLifecycle.product footprint.material | The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'   | Yes       | Lifecycle insight contextualized in sustainability regulations.                                      | - Lifecycle descriptions establish thematic compliance. - Absence necessitates accuracy confirmations.                       |           |
 | 4.8.24  | performanceClass.product footprint.material | Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Yes       | Performance analysis captures material footprint efficacy.                                           | - Validated performance scale reliance suffices. - Missed descriptions preclude efficacy realizations.  
 | 4.8.25 | facility.product footprint.environmental| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.| Yes       | Facility tracking described for sustainability aims.                                                  | - Coherent facility identifiers necessitated. - Errors relay exception signals.                                                           |                      |
-| 4.8.26  | Facility Address               | | | | | |
-| 4.8.27  | Rulebook               | | | | | Document |
-| 4.8.28  | Declaration               | | | | | Document |
+| 4.8.26  | Facility Address               | *To be covered in next version* | | | | |
+| 4.8.27  | Rulebook               | *To be covered in next version* | | | | Document |
+| 4.8.28  | Declaration               | *To be covered in next version* | | | | Document |
 | 4.8.29  | Reparability Score      | In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices. | Yes       | Reparability parameters refine eco-centric directives.                                               | - Reparability categories normalize procedural reforms. - Errors reveal pragmatic reenhancements.                                         |           |
 | 4.8.30  | Durability Score                                                                             | The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns. | Yes       | Durability advancement enriches sustainable paradigms.                                               | - Valid durability cycles establish environmental worth. - Missed inputs generate anticipatory response mechanisms.                           |           |
-| 4.8.31  | Reuse Info               | | | | | |
-| 4.8.32  | Reuse System Identification               | | | | | |
-| 4.8.33  | Symbol of Deposit and Return System               | | | | | |
-| 4.8.34  | Rotation Estimation Key              | | | | | |
-| 4.8.35  | Rotation Estimation Value              | | | | | |
-| 4.8.36  | Rotation Calculation Key               | | | | | |
-| 4.8.37  | Rotation Calculation Value               | | | | | |
-| 4.8.38  | Trip Estimation Key              | | | | | |
-| 4.8.39  | Trip Estimation Value              | | | | | |
-| 4.8.40 | Trip Calculation Key               | | | | | |
-| 4.8.41  | Trip Calculation Value               | | | | | |
-| 4.8.42  | Facilitates Tracking Reusable Product Address ID              | | | | | |
-| 4.8.43  | Facilitates Tracking Reusable Product Address              | | | | | |
-| 4.8.44  | Collection Points Reusable Product ID              | | | | | |
-| 4.8.45  | Collection Points Reusable Product Address              | | | | | |
-| 4.8.46  | Recyclability Performance Grade             | | | | | |
+| 4.8.31  | Reuse Info               | *To be covered in next version* | | | | |
+| 4.8.32  | Reuse System Identification               | *To be covered in next version* | | | | |
+| 4.8.33  | Symbol of Deposit and Return System               | *To be covered in next version* | | | | |
+| 4.8.34  | Rotation Estimation Key              | *To be covered in next version* | | | | |
+| 4.8.35  | Rotation Estimation Value              | *To be covered in next version* | | | | |
+| 4.8.36  | Rotation Calculation Key               | *To be covered in next version* | | | | |
+| 4.8.37  | Rotation Calculation Value               | *To be covered in next version* | | | | |
+| 4.8.38  | Trip Estimation Key              | *To be covered in next version* | | | | |
+| 4.8.39  | Trip Estimation Value              | *To be covered in next version* | | | | |
+| 4.8.40 | Trip Calculation Key               | *To be covered in next version* | | | | |
+| 4.8.41  | Trip Calculation Value               | *To be covered in next version* | | | | |
+| 4.8.42  | Facilitates Tracking Reusable Product Address ID              | *To be covered in next version* | | | | |
+| 4.8.43  | Facilitates Tracking Reusable Product Address              | *To be covered in next version* | | | | |
+| 4.8.44  | Collection Points Reusable Product ID              | *To be covered in next version* | | | | |
+| 4.8.45  | Collection Points Reusable Product Address              | *To be covered in next version* | | | | |
+| 4.8.46  | Recyclability Performance Grade             | *To be covered in next version* | | | | |
 
 # Compliance
 
 | Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Validation/Verification Rule                                                                                        | Data Type |
 |---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 4.9.1   | Compliance Country             | | | | | |
-| 4.9.2   | Compliance Regulation Name            | | | | | |
-| 4.9.3   | Compliance Statement            | | | | | |
-| 4.9.4   | Compliance Reason for Exemption            | | | | | |
-| 4.9.5   | Compliance Remark            | | | | | |
-| 4.9.6   | Compliance Documentation            | | | | | Document |
+| 4.9.1   | Compliance Country             | *To be covered in next version* | | | | |
+| 4.9.2   | Compliance Regulation Name            | *To be covered in next version* | | | | |
+| 4.9.3   | Compliance Statement            | *To be covered in next version* | | | | |
+| 4.9.4   | Compliance Reason for Exemption            | *To be covered in next version* | | | | |
+| 4.9.5   | Compliance Remark            | *To be covered in next version* | | | | |
+| 4.9.6   | Compliance Documentation            | *To be covered in next version* | | | | Document |
 
 # Sources
 
 | Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Validation/Verification Rule                                                                                        | Data Type |
 |---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 4.10.1   | Sources             | | | | | Document |
+| 4.10.1   | Sources             | *To be covered in next version* | | | | Document |
 | 4.10.2   | Category          | Defines the document's category for sorting purposes, referring to various regulatory classifications and requirements. | Yes       | Regulation (EU) 2024/1781, Annex III and Article 27, addressing document categorization needs for compliance and operational transparency. | - Must match one of the accepted categories. - Errors trigger documentation review.                                       |           |
 
 # Additional Data
