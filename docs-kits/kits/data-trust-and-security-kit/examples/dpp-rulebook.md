@@ -74,42 +74,47 @@ As a result, we have chosen not to invest extensive time in harmonizing definiti
 
 ### Metadata
 
+Metadata encompasses the fundamental details of the digital product passport.
+
 | Rule ID | Data Attribute          | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                           | Validation/Verification Rule                                                                                       | Data Type |
 |---------|-----------------------|-----------------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 4.1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Industry best practices for UUID assignment and usage. |- Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>| String |
-| 4.1.2   | Version               | The current version of the product passport.| Mandatory | Article 9 of Regulation (EU) 2024/1781| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| String |
-| 4.1.3   | Status                | The lifecycle stage of the product passport.| Optional | Not explicitly mentioned in regulation, but critical for internal tracking and control. | - If provided, the attribute must contain one of the enumerated values.| Enum |
-| 4.1.4   | Language               | *To be covered in next version* | | Mandatory| | |
-| 4.1.5   | Predecessor Identifier               | *To be covered in next version* | Mandatory| | | |
-| 4.1.6   | Registration Identifier               | *To be covered in next version* | Optional| | | |
-| 4.1.7   | Backup Reference               | *To be covered in next version* | Mandatory| | | |
-| 4.1.8   | IssueDate             | The date when the product passport is initially issued.                     | Mandatory | Common best practice for version control and data traceability. | - The attribute must match the specified date format.<br> - Can not be a future date. | String |
-| 4.1.9   | ExpirationDate        | The date until the product passport remains available.  | Mandatory | Article 9 (2)(i) and Article 11 of Regulation (EU) 2024/1781 | - The attribute must match the specified date format. <br> - Can not be a past date.| String |
-| 4.1.10  | Last Modification              | *To be covered in next version* | Optional | | | |
-| 4.1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Annex III, section (k) of Regulation (EU) 2024/1781 |  - Must contain the BPNL for companies in the Catena-X network <br><font color="red"> - Must contain the CIN according to ISO 15459 standard for companies that are not in the Catena-X network. </font>| String |
-| 4.1.12  | Economic Operator Name | *To be covered in next version* | Mandatory| | | |
-| 4.1.13  | Economic Operator Contact               | *To be covered in next version* | Mandatory| | | |
-| 4.1.14  | Economic Operator Address               | *To be covered in next version* | Mandatory| | | |
+| 4.1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Regulation (EU) 2024/1781 |- Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>| String |
+| 4.1.2   | Version               | The current version of the product passport.| Mandatory | Regulation (EU) 2024/1781, Article 9| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| String |
+| 4.1.3   | Status                | The lifecycle stage of the product passport.| Optional | Regulation (EU) 2024/1781 | - If provided, the attribute must contain one of the enumerated values.| Enum |
+| 4.1.4   | Language               | *To be covered in next version* | | Mandatory| Regulation (EU) 2024/1781 | |
+| 4.1.5   | Predecessor Identifier               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
+| 4.1.6   | Registration Identifier               | *To be covered in next version* | Optional| Regulation (EU) 2024/1781 | | |
+| 4.1.7   | Backup Reference               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
+| 4.1.8   | IssueDate             | The date when the product passport is initially issued. | Mandatory | Regulation (EU) 2024/1781 | - The attribute must match the specified date format.<br> - Can not be a future date. | String |
+| 4.1.9   | ExpirationDate        | The date until the product passport remains available.  | Mandatory | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | - The attribute must match the specified date format. <br> - Can not be a past date.| String |
+| 4.1.10  | Last Modification              | *To be covered in next version* | Optional | Regulation (EU) 2024/1781 | | |
+| 4.1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Regulation (EU) 2024/1781, Annex III, section (k) |  - Must contain the BPNL for companies in the Catena-X network <br><font color="red"> - Must contain the CIN according to ISO 15459 standard for companies that are not in the Catena-X network. </font>| String |
+| 4.1.12  | Economic Operator Name | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
+| 4.1.13  | Economic Operator Contact               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
+| 4.1.14  | Economic Operator Address               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
 
 ### Identification
+
+The Identification section includes attributes needed for uniquely identifying the product and its characteristics.
 
 | Rule ID | Data Attribute              | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Validation/Verification Rule                                                                                        | Data Type |
 |---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 4.2.1   | Serial Key                | The key for local identification of a serial part.  | Optional | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f). | - The attribute must conform to one of the predefined identifier types or custom keys. | String |
-| 4.2.2   | Serial Value              | The value associated with the serial key.  | Optional | Recital (33) of Regulation (EU) 2024/1781 | - If provided, the attribute must describe the unique serial key. | String |
+| 4.2.2   | Serial Value              | The value associated with the serial key.  | Optional | Regulation (EU) 2024/1781, Recital (33) | - If provided, the attribute must describe the unique serial key. | String |
 | 4.2.3   | Batch Key                 |  The key for local identification of a batch information.  | Optional | Regulation (EU) 2024/1781, Recital (33) |  - The attribute must conform to one of the predefined identifier types or custom keys.| String |
 | 4.2.4   | Batch Value               |  The value associated with the batch key. | Optional | Regulation (EU) 2024/1781 |  - If provided, attribute must describe the associated batch key | String |
-| 4.2.5   | Manufacturer Part ID      | Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification. | Mandatory | Regulation (EU) 2024/1781 Recital (33) | '- must contain the Part ID as assigned by the manufacturer of the part. <br> -  The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | String |
-| 4.2.6   | Name at Manufacturer      | The name of the part provided by the manufacturer. | Mandatory | Industry practice related to product traceability and identification. | - Must contain the Name of the Part as assigned by the manufacturer. | String |
+| 4.2.5   | Manufacturer Part ID      | Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification. | Mandatory | Regulation (EU) 2024/1781, Recital (33) | '- must contain the Part ID as assigned by the manufacturer of the part. <br> -  The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | String |
+| 4.2.6   | Name at Manufacturer      | The name of the part provided by the manufacturer. | Mandatory | Regulation (EU) 2024/1781 | - Must contain the Name of the Part as assigned by the manufacturer. | String |
 | 4.2.7   | Code Key                  | The code key for product identification.  | Mandatory | Regulation (EU) 2024/1781, Annex III(b-c) |  - Must be a valid identifier code such as GTIN, DID, ISBN, etc. | String |
 | 4.2.8   | Code Value                | The identifier value related to the code key. | Mandatory | Regulation (EU) 2024/1781 | - Must correspond with the associated code key. | String |
-| 4.2.9   | Code Description          | *To be covered in next version* | Optional| | | |
+| 4.2.9   | Code Description          | *To be covered in next version* | Optional| Regulation (EU) 2024/1781 | | |
 | 4.2.10  |Carrier Type              | The type of data carrier used for product identification.  | Optional | Regulation (EU) 2024/1781, Article 2(29) | - Must align with recognizable carrier types like QR, barcode, etc.| String |
 | 4.2.11  | Carrier Position            | The spatial arrangement or position of the data carrier on the product.  | Optional | Regulation (EU) 2024/1781, Article 8(2)(c) | - If specified, the attribute must describe the carrier's positioning. | String |
-| 4.2.12  | Classification Standard   | Outlines classification standards for parts. | Mandatory | Industry-standard alignment for part classification.  | - Must refer to known standards in classification. | String |
-| 4.2.13  | Classification ID         | The identifier for the part classification standard according to related key-value pairs. | Mandatory | Complies with established classification definitions in industry. | - Must correspond with the classification standard provided. | String |
-| 4.2.14  | Classification Description | Optional property describing the classification standard. | Optional| Industry standard specifications facilitate understanding and compliance. | - Can provide details relevant to the classification standard. | String |
+| 4.2.12  | Classification Standard   | Outlines classification standards for parts. | Mandatory | Regulation (EU) 2024/1781 | - Must refer to known standards in classification. | String |
+| 4.2.13  | Classification ID         | The identifier for the part classification standard according to related key-value pairs. | Mandatory | Regulation (EU) 2024/1781 | - Must correspond with the classification standard provided. | String |
+| 4.2.14  | Classification Description | Optional property describing the classification standard. | Optional| Regulation (EU) 2024/1781 | - Can provide details relevant to the classification standard. | String |
 | 4.2.15  | Picture           | *To be covered in next version* | Optional| | | Document |
+
 
 # Operation
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
