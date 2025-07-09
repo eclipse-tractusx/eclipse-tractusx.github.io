@@ -778,7 +778,7 @@ npm/npmjs/-/sass-loader/16.0.5, MIT, approved, clearlydefined
 npm/npmjs/-/sass/1.87.0, Apache-2.0 AND BSD-3-Clause AND MIT, approved, clearlydefined
 npm/npmjs/-/sax/1.4.1, ISC AND MIT AND ISC, approved, #14888
 npm/npmjs/-/scheduler/0.23.2, MIT, approved, #14588
-npm/npmjs/-/schema-dts/1.1.5, Apache-2.0 AND LicenseRef-scancode-proprietary-license, restricted, #22387
+npm/npmjs/-/schema-dts/1.1.5, Apache-2.0, approved, #22387
 npm/npmjs/-/schema-utils/3.3.0, MIT, approved, #8952
 npm/npmjs/-/schema-utils/4.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/search-insights/2.17.3, MIT AND BSD-2-Clause AND BSD-3-Clause AND Unlicense AND Apache-2.0 AND ISC AND MIT, approved, #16185
