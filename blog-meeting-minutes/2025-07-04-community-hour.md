@@ -18,7 +18,7 @@ tags: [community, meeting-minutes]
 - Quality gate checks should be created and linked early.
 - Products not part of the release should be communicated.
  
-#### ubernetes Update
+#### Kubernetes Update
  
 - Core cluster update started; end environment update scheduled (1–5 PM).
 - Upgrading to version 1.33.0 (from 1.28/1.29).
