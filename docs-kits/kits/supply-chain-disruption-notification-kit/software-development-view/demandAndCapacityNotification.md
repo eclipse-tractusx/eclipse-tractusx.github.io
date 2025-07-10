@@ -77,19 +77,19 @@ The definition following aspect models are used for their respective properties 
 
 In the following more detailed information will be provided on how to fill the respective properties.
 
-#### Message Header
+### Message Header
 
 The following table lists all fields of the message header and how they are used.
 
 | **Field**        | **REQUIRED** | **Purpose**                                                                                                                                                                                                                                                   | **Datatype**                                             | **Example value**                               |
 | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------- |
 | messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                        | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f` |
-| relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in [Chapter 5](#5-processes).                                                                           | UUID v4 [RFC4122]                                        |                                                 |
+| relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in the [forwarding subchapter 5](#forward-a-notification).                                                                           | UUID v4 [RFC4122]                                        |                                                 |
 | context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                      | `CX-DemandAndCapacityNotificationAPI-Receive:2.0.0`          |
 | version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader         | `3.0.0`                                         |
-| senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL7588787849VQ`                              |
-| receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](#61-normative-references)  | `BPNL6666787765VQ`                              |
-| sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](#62-non-normative-references) with time zone | `2023-06-19T21:24:00+07:00`                     |
+| senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber)  | `BPNL7588787849VQ`                              |
+| receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber)  | `BPNL6666787765VQ`                              |
+| sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](https://www.iso.org/iso-8601-date-and-time-format.html) with time zone | `2023-06-19T21:24:00+07:00`                     |
 
 Table 2: *Message header fields used in the Demand and Capacity Notification API*
 
@@ -110,7 +110,7 @@ The following listing shows a valid json serialization of such a header within t
 }
 ```
 
-#### Content (Demand and Capacity Nofitication)
+### Content (Demand and Capacity Nofitication)
 
 The following JSON provides an example of the value-only serialization of the *Supply Chain Disruption Notification*
 aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site
@@ -214,7 +214,7 @@ Partners should align on cases in which they want to use these notifications. E.
 Refer to the [standard](../adoption-view.md#normative-references) and the [semantic model](../adoption-view.md#semantic-models) of supply chain disruption notifications for more explicit information on how to set the fields.
 :::
 
-### Updating and Resolving a Notification
+### Update and Resolve a Notification
 
 Figure 3 illustrates the key activities when updating a notification. Resolving the notification is a specific version of updating a notification and explained in [a following section](#resolve-a-notification).
 
@@ -265,7 +265,7 @@ Following fields may or must be updated in case of an update without resolving:
 Refer to the [standard](../adoption-view.md#normative-references) and the [semantic model](../adoption-view.md#semantic-models) of supply chain disruption notifications for more explicit information on how to set the fields.
 :::
 
-#### Resolving a Notification
+#### Resolve a Notification
 
 Resolving a notification is a special case of an update. To resolve a notification, consider the following rules:
 
