@@ -17,12 +17,14 @@ All notable changes to this Kit will be documented in this file.
 
 Software Development View:
 
+- Restructured into subchapters architecutre, policies and demand and capacity notification
 - Table for setting fields in `header`
 - Versioning chapter
 
 Adoption View:
 
 - Reworked `Figure 2` to a forwarding example
+- Provided example for the forwarding example
 
 ### Changed
 

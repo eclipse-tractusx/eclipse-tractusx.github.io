@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: PURIS-DCM Supply Chain Disruption Notifications
+description: Business Overview of Supply Chain Disruption Notifications
 sidebar_position: 2
 ---
 
@@ -116,6 +116,8 @@ Currently the standard _Supply Chain Disruption Notifications_ provides one sema
 | ------------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Demand and Capacity Notification (Release 25.09) | v3.0.0  | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification) |
 
+Table 1: _Summary of the semantic models for supply chain disruption notifications._
+
 ## Business Process
 
 The Supply Chain Disruption Notifications standard orchestrates significant business processes within the Catena-X network, aiming to enhance the industries' resilience to supply chain disruptions. These processes facilitate timely and efficient communication among stakeholders, ensuring a coordinated response to disruptions. Here's an overview of the roles and processes involved:
@@ -183,12 +185,97 @@ The "Supply Chain Disruption Notifications" framework consists of several compon
 
 By adopting this business architecture, stakeholders in the automotive supply chain can significantly enhance their ability to manage and mitigate the impacts of disruptions, fostering a more resilient and agile supply chain ecosystem within the Catena-X framework.
 
-## Logic & Schema
+## Logic & Schema by Example
 
 To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
 
 ![Logic & Schema](resources/notifications-forwarding-example.drawio.svg)
-_Figure 2: Visualisation of the notifications process_
+_Figure 2: Visualisation of the notifications process with forwarding into two directions from the source disruption._
+
+Table 2 gives an overview about the partners present in the supply chain and directly links to the section describing how the partners handle the situation.
+
+| Partner              | Produces         | Delivers to        | Receives from                          |
+| -------------------- | ---------------- | ------------------ | -------------------------------------- |
+| Tier 4.1             | steel sheets     | Tier 3.1           | -                                      |
+| [Tier 3.1](#tier-31) | nuts             | Tier 2.1, Tier 2.2 | Tier 4.1                               |
+| [Tier 2.2](#tier-22) | steering linkage | Tier 1.2           | Tier 3.1                               |
+| [Tier 1.2](#tier-12) | steering wheel   | OEM 1, OEM 2       | Tier 2.1, Tier 2.2                     |
+| OEM1                 | Car 1            | -                  | Tier 1.2, Tier 1.1 (ignored in sample) |
+| OEM2                 | Car 2            | -                  | Tier 1.2                               |
+
+Table 2: _Summary of the supply network affected by the disruption._
+
+### Tier 3.1
+
+The example starts with _Tier 3.1_ who is a nut producing company. A lightning strikes into one of his production sites. As a result, a fire started. The production site has not fully been burnt down but may not be operated for the next weeks. Thus, _Tier 3.1_ evaluates the impact on his customers and suppliers. After the analysis, he creates a `Supply Chain Disruption Notification` to inform these partners. All notifications sent, will receive the same `source disruption id` as the lightning is the disruption source. _Tier 3.1_ generates an id for this.
+
+#### Impact on Tier 4.1
+
+_Tier 3.1_ wants to inform his partner about it. _Tier 3.1_ sends a notification with the following explicit information:
+
+- start date disruption: today as the disruption started today
+- status: `open` as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: + two weeks as _Tier 3.1_ estimates to be fully recovered then.
+- source disruption id: id set by Tier 3.1 for all notifications related to this disruption.
+- related notification id: kept empty as this message is the originating message.
+
+#### Impact on Tier 2.1
+
+_Tier 3.1_ wants to inform his partner about it. _Tier 3.1_ sends a notification with the following explicit information:
+
+- start date disruption: today as the disruption started today
+- status: `open` as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: + two weeks as _Tier 3.1_ estimates to be fully recovered then.
+- source disruption id: id set by Tier 3.1 for all notifications related to this disruption.
+- related notification id: kept empty as this message is the originating message.
+
+#### Impact on Tier 2.2
+
+Based on current orders, only one week will be covered by remaining material in transit and in stock. Thus, _Tier 3.1_ informs _Tier 2.2_ that he'll work on resolving it with the following explicit information:
+
+- start date disruption: today as the disruption started today
+- status: open as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: + two weeks as _Tier 3.1_ estimates to be fully recovered then.
+- source disruption id: id set by Tier 3.1 for all notifications related to this disruption.
+- related notification id: kept empty as this message is the originating message.
+
+### Tier 2.1
+
+_Tier 2.1_ produces airbag modules for which nuts are also delivered to connect the airbag to the steering wheel later on. For some logistics delays and orders that have not yet been placed but soon will. The disruption will affect _Tier 1.2_ starting in three weeks. Following information are explained explicitly:
+
+- start date disruption: + three weeks as explained above.
+- status: open as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: start date disruption + two weeks as _Tier 3.1_ estimates to be affected for 2 weeks.
+- source disruption id: copied from `sourceDisruptionId` from message received.
+- related notification id: copied from `notificationId` from message received.
+
+### Tier 2.2
+
+_Tier 2.2_ produces steering linkages for which nuts are also delivered to connect the linkage to the wheel. If demand is not raised, safety stocks and material in transit will be sufficient. Following information are explained explicitly:
+
+- start date disruption: today as the disruption started today
+- status: `open` as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: + two weeks as the same timeframe applies as for _Tier 3.1_'s incident.
+- source disruption id: copied from `sourceDisruptionId` from message received.
+- related notification id: copied from `notificationId` from message received.
+
+:::info[Align with your partners in which cases to send notifications!]
+_Tier 2.2_ and _Tier 1.2_ previously aligned on the scenarios in which they want to inform each other about disruptions. They aligned on being very transparent, and defined to inform partners about significant issues that might impact each other. Within the text fields they state their analysis. Based on their alignment, _Tier 2.2_ will send an update whenever new information is available and send an update with `status` set to `resolved` after actually resolving the disruption.  
+:::
+
+### Tier 1.2
+
+_Tier 1.2_ receives the messages from _Tier 2.1_ and _Tier 2.2_ within one hour delay. Thus, he can consider already both notifications prior to informing his customers. _Tier 1.2_ single-sourced the airbag module and thus needs to inform _OEM 1_ that he will be affected and work on it. Following information are explained explicitly:
+
+- start date disruption: + three weeks as received from _Tier 2.1_.
+- status: `open` as the production issue at _Tier 3.1_ is still in place
+- expected end date disruption: + 5 weeks as received from _Tier 2.1_.
+- source disruption id: copied from `sourceDisruptionId` from messages received. This is always the same.
+- related notification id: copied from `notificationId` from messages received.
+
+:::note
+The notification Tier 1.2 to OEM 2 is ignored in this example for the sake of redundancy.
+:::
 
 ## Standards
 
@@ -210,6 +297,8 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX-0149  | Verified Company Identity           |
 | CX-0151  | Industry Core Basics                |
 
+Table 3: _List of normative standards._
+
 ### Non-Normative References
 
 | Context   | Link                                         |
@@ -220,6 +309,8 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX - 0122 | Item Stock                                   |
 | CX - 0128 | Demand and Capacity Management Data Exchange |
 | CX - 0145 | Days of Supply                               |
+
+Table 4: _List of non-normative standards._
 
 ## Notice
 
