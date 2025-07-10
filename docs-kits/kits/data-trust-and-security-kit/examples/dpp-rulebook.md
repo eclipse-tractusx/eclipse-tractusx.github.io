@@ -23,7 +23,44 @@ Ultimately, the validation rulebook is crucial not only for assuring data reliab
 
 ## Scope of the Data Trust Kit
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla nisi, finibus vitae lacus id, aliquam vehicula diam. Mauris mollis neque nec nulla dictum congue. Sed molestie mollis turpis, at tempus tellus. Quisque consequat felis a sem faucibus feugiat ac sit amet sem. Aenean orci ipsum, feugiat quis purus quis, fringilla pellentesque risus. Nam in viverra lacus, in faucibus nunc. Fusce volutpat tempus rutrum. Cras sit amet lacus a arcu mattis accumsan a ac odio. Pellentesque et convallis eros, in congue nisl. Quisque mattis, tortor sit amet viverra pretium, dolor massa bibendum sapien, ullamcorper commodo enim erat vitae felis. In.
+The Data Trust and Security KIT establishes a comprehensive framework for enabling trusted data exchange within and outside the Catena-X ecosystem. 
+This KIT addresses the critical need for verifiable, reliable data sharing across supply chain participants through a multi-layered approach encompassing governance, technology, and data content validation.
+
+The following subchapters describe each of the dimensions(layers) scopes addressed by this KIT.
+
+### Trust Framework Foundation
+
+- Defines standardized approaches to establish trust in data at three distinct layers: Governance (who and why), Technology (how), and Data Content (what)
+- Provides clear terminology and definitions for verification and validation processes within data ecosystems
+- Establishes interoperability standards with external initiatives (UNTP, Battery Pass EU, Gaia-X)
+
+### Technical Implementation
+
+- Implements W3C Verifiable Credentials standard for cryptographic verification of digital data
+- Defines formats and structures for Certified Data Credentials and Certified Snapshot Credentials
+- Provides reference implementations for identity wallets and verification processes
+- Specifies integration patterns with existing Catena-X infrastructure (Connector Kit, Digital Twins)
+
+### Governance and Compliance
+
+- Establishes roles, responsibilities, and appointment processes for verification authorities
+- Defines credential lifecycle management including issuance, validation, and revocation procedures
+- Ensures compliance with regulatory frameworks such as the Ecodesign for Sustainable Products Regulation (ESPR)
+- Provides templates and guidelines for use case-specific rulebooks
+
+### Data Content Validation
+
+- Delivers comprehensive validation rules for Digital Product Passports, to start with and other sustainability data
+- Enables automated verification of data accuracy, completeness, and conformity to established standards
+- Supports both quantitative and qualitative conformity criteria assessment
+- Facilitates secure data snapshots without compromising data sovereignty
+
+### Business Value Delivery
+
+- Reduces operational risks through trustworthy data exchange
+- Enhances regulatory compliance and audit capabilities
+- Enables automated due diligence processes for supply chain transparency
+- Supports gradual automation of evidence collection and reporting workflows
 
 ## Research
 
@@ -34,7 +71,7 @@ The following sub section provides a brief overview of the differing definitions
 #### Verification: 
 Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
 #### Validation:
-Process for evaluating the plausibility of assumptions, limitations and methods that support an environmental information **statement about the outcome of future activities**.
+Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
 Two situations:
 - Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
 - Prediction of PCFs for new product developments not in serial production yet
