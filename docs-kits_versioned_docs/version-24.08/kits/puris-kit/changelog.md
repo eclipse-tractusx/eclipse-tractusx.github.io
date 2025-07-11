@@ -1,11 +1,11 @@
 ---
 id: changelog
 title: Changelog
-description: 'PURIS Kit'
+description: PURIS KIT
 sidebar_position: 1
 ---
 
-### PURIS Kit
+### PURIS KIT
 
 All notable changes to this Kit will be documented in this file.
 

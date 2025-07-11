@@ -1,7 +1,7 @@
 ---
 id: api-description
 title: API Description
-description: 'Manufacturing as a Service Kit'
+description: Manufacturing as a Service KIT
 sidebar_position: 4
 ---
 

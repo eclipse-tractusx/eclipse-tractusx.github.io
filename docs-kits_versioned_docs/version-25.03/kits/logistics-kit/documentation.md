@@ -1,7 +1,7 @@
 ---
 id: documentation
 title: Documentation
-description: "Logistics Kit"
+description: Logistics KIT
 sidebar_position: 5
 ---
 

@@ -1,13 +1,11 @@
 ---
 id: operation-view
 title: Operation View
-description: 'Data Chain Kit'
+description: Data Chain KIT
 sidebar_position: 2
 ---
 
 ![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
-
-### Data Chain KIT
 
 ## Local deployment of IRS with minimum dependencies setup
 

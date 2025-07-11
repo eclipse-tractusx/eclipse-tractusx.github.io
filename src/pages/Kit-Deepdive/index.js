@@ -26,7 +26,7 @@ export default function KitDeepdivePage() {
   }
   return (
     <Layout
-      title={'Developer Kits DeepDive page'}
+      title={'Developer KITs DeepDive page'}
       description="Description will go into a meta tag in <head />"
     >
       <DeepdiveHeader {...headerInput} />

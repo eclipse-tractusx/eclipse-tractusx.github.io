@@ -1,13 +1,11 @@
 ---
 id: software-development-view
 title: Software Development View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 3
 ---
 
 ![Quality kit banner](@site/static/img/QualityKitIcon.png)
-
-### Quality KIT
 
 ## Quality Data Offers at EDC
 

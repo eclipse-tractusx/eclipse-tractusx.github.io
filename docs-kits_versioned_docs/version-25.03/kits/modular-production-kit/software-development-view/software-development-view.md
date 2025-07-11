@@ -1,7 +1,7 @@
 ---
 id: software-development-view
 title: Sample Data
-description: 'Modular Production KIT'
+description: Modular Production KIT
 sidebar_position: 4
 ---
 

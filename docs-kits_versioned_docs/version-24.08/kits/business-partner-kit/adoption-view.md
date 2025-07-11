@@ -7,8 +7,6 @@ sidebar_position: 2
 
 ![Business partner kit banner](/img/kit-icons/bp-kit-icon.svg)
 
-## Business Partner KIT
-
 **Unique business partner data sets for the whole data space.**
 
 ## Vision & Mission
