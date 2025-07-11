@@ -55,7 +55,7 @@ information for each aspect model by providing the example data objects in JSON 
 GitHub and unique semantic id of the aspect model. Currently the standard *Supply Chain Disruption Notifications*
 provides one semantic model *Demand and Capacity Notification*.
 
-The Demand and Capacity Notification consists of a header and a content, that are assbembled in the following format:
+The Demand and Capacity Notification consists of a header and a content, that are assembled in the following format:
 
 ```json
 {
@@ -110,7 +110,7 @@ The following listing shows a valid json serialization of such a header within t
 }
 ```
 
-### Content (Demand and Capacity Nofitication)
+### Content (Demand and Capacity Notification)
 
 The following JSON provides an example of the value-only serialization of the *Supply Chain Disruption Notification*
 aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site
@@ -204,7 +204,7 @@ end
 
 Figure 2: *Create initial notification.*
 
-Common triggers for creating the initial disruptions are occurences affecting the demand or capacity within a customer-supplier relationship as stated by the `rootCause` in the [semantic model](../adoption-view.md#semantic-models) e.g., natural disarstars.
+Common triggers for creating the initial disruptions are occurrences affecting the demand or capacity within a customer-supplier relationship as stated by the `rootCause` in the [semantic model](../adoption-view.md#semantic-models) e.g., natural disasters.
 
 :::note
 Partners should align on cases in which they want to use these notifications. E.g., they may align to only send notifications in case they can't cope with the issue, or always in case a disruption occurs even if it's handled.
@@ -225,7 +225,7 @@ Participant p1 as Participant 1
 Participant p2 as Participant 2
 
 note right of p1: ...notification has already been sent...
-note right of p1: ...need for update arised (e.g. additional part affected)...
+note right of p1: ...need for update arose (e.g. additional part affected)...
 p1 ->> p1: identify previous notification(s)
 loop Create and send update per notification per partner
   p1 ->> p1: update affected partners,<br>parts, sites, time horizon, text

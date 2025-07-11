@@ -43,7 +43,7 @@ For both scenarios, the recipient of this notification reviews the content and a
 In this context, the "Supply Chain Disruption Notifications" plays a significant role in addressing these challenges by facilitating swift and standardized communication of supply chain disruptions.
 
 ![Process](resources/Process2SCDN.jpg)
-_Figure 1: Visualisation of example use case_
+_Figure 1: Visualization of example use case_
 
 #### Implementation Example
 
@@ -155,7 +155,7 @@ Supply Chain Disruption Notifications are recommended for exceptional circumstan
 
 **Notification Identifiers:**
 
-To differentiate messages and maintain chronological and dependance tracking, distinct IDs are included in the notifications sent:
+To differentiate messages and maintain chronological and dependence tracking, distinct IDs are included in the notifications sent:
 
 - **Notification ID:** Unique ID identifying the notification.
 - **Related Notification ID:** Unique ID identifying a previously received notification triggering the exchange of the current notification.
@@ -187,10 +187,10 @@ By adopting this business architecture, stakeholders in the automotive supply ch
 
 ## Logic & Schema by Example
 
-To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualises the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
+To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualizes the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
 
 ![Logic & Schema](resources/notifications-forwarding-example.drawio.svg)
-_Figure 2: Visualisation of the notifications process with forwarding into two directions from the source disruption._
+_Figure 2: Visualization of the notifications process with forwarding into two directions from the source disruption._
 
 Table 2 gives an overview about the partners present in the supply chain and directly links to the section describing how the partners handle the situation.
 
