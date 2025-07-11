@@ -1,7 +1,7 @@
 ---
 id: documentation
 title: Documentation
-description: "Customs Kit"
+description: Customs KIT
 sidebar_position: 5
 ---
 

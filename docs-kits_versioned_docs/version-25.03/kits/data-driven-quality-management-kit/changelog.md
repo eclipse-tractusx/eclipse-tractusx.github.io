@@ -1,7 +1,7 @@
 ---
 id: changelog
 title: Changelog
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 1
 ---
 

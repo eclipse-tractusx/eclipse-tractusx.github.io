@@ -6,7 +6,7 @@ description: Model Based Development and Data Processing Kit
 
 ![Model Based Development and Data Processing Kit banner](/img/kit-icons/behaviour-mdp-kit-icon.svg)
 
-### Model Based Development and Data Processing Kit
+### Model Based Development and Data Processing KIT
 
 All notable changes to this Kit will be documented in this file.
 

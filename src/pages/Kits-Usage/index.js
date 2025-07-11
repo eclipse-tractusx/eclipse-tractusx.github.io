@@ -26,15 +26,15 @@ export default function KitsUsagePage() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={'Developer Kits Usage page'}
+      title={'Developer KITs Usage page'}
       description="Description will go into a meta tag in <head />"
     >
       <UsageHeader description={'Utilize the KITS to develop applications for the Catena-X ecosystem or gain insights on how to integrate with your current infrastructure.'} title={'KITS Usage'} icon={<KitsUsageSvg className={styles.svg} />} />
       <main>
         <KitsUsageContent />
-        <KitsGalleryWithFilters 
+        <KitsGalleryWithFilters
           itemsArray={kitsGallery}
-          title={"Our Kits"}
+          title={"Our KITs"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
       </main>

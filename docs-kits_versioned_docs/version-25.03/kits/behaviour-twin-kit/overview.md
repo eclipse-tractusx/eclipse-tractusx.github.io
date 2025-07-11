@@ -8,7 +8,7 @@ description: Behaviour Twin KIT
 <div style={{fontSize:60, color:'rgb(255,166,1)', marginBottom:8, marginTop:0, paddingTop:0}}>BEHAVIOUR TWIN KIT</div>
 
 ![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
- 
+
 ## PURPOSE
 
 Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents-kit/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.
@@ -19,7 +19,7 @@ This KIT is a part of the Tractus-X community, the official open-source project 
 
 ## CONTENTS
 
-- [Change Log](./changelog)
+- [Changelog](./changelog)
 - [Adoption View](adoption-view/overview) - Understand & Decide
 - [Development View](software-development-view/overview) - Develop & Operate
 - [Use Cases](use-cases/overview) - Templates for use cases *Health Indicator* and *Remaining useful Life*

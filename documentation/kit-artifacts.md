@@ -24,9 +24,9 @@ The first released version of the KIT. It´s ready to be used by data providers 
 
 Upon reaching the Graduation Phase, a KIT got verified by a data providers / consumers, app-/service providers or operators. Since the KITs are maintained and further developed by the community, changes can be made that result in an incompatibility.
 
-## Business View
+## Adoption View
 
-The business view gives a general introduction to the KIT. It aims to provide insights to industry problems, the KIT is addressing.
+The adoption view gives a general introduction to the KIT. It aims to provide insights to industry problems, the KIT is addressing.
 Mandatory for every KIT and all graduation stages
 The vision describes the strategic objectives of a KIT and how it aims to inspire solution providers.
 Deliverables:

@@ -7,8 +7,6 @@ sidebar_position: 2
 
 ![Maas kit banner](/img/kit-icons/manufacturing-kit-icon.svg)
 
-### Manufacturing as a Service KIT
-
 ## Vision & Mission
 
 **Enable interoperable, federated network of networks linking manufacturing demand with manufacturing capabilities to enable digital manufacturing as a service**.
