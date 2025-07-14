@@ -4,10 +4,59 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/community/meeting-minutes</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Fri, 04 Jul 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Jul 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Community Office Hour 2025-07-11]]></title>
+            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11</link>
+            <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11</guid>
+            <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Office Hour meeting minutes]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure--test-management">Infrastructure &amp; Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#infrastructure--test-management" class="hash-link" aria-label="Direct link to Infrastructure &amp; Test Management" title="Direct link to Infrastructure &amp; Test Management">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="management--progress-updates">Management &amp; Progress Updates<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#management--progress-updates" class="hash-link" aria-label="Direct link to Management &amp; Progress Updates" title="Direct link to Management &amp; Progress Updates">​</a></h4>
+<ul>
+<li>Recent development tasks were completed, including resolving rate limit issues.</li>
+<li>Teams are reminded to create release check issues for the upcoming major release, including mapping features to test cases and noting responsible committers.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="environment-reset-for-testing">Environment Reset for Testing<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#environment-reset-for-testing" class="hash-link" aria-label="Direct link to Environment Reset for Testing" title="Direct link to Environment Reset for Testing">​</a></h4>
+<ul>
+<li>Discussion on whether a reset of the test environment (25.09) is needed for a clean slate.</li>
+<li>No strong need identified; decision deferred to the next portal meeting for further input.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="timeline-review">Timeline Review<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#timeline-review" class="hash-link" aria-label="Direct link to Timeline Review" title="Direct link to Timeline Review">​</a></h4>
+<ul>
+<li>Timeline for upcoming releases (25.12 and beyond) was reviewed.</li>
+<li>Alignment and open planning days are scheduled; some concerns about holiday overlaps, but dates are fixed due to release dependencies.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security--governance">Security &amp; Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security--governance" class="hash-link" aria-label="Direct link to Security &amp; Governance" title="Direct link to Security &amp; Governance">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h4>
+<ul>
+<li>Reminder to update the security tab and deprecate outdated repositories post-release for security reasons.</li>
+<li>Ongoing process to review and close out old (not maintained) repositories.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance">​</a></h4>
+<ul>
+<li>Ongoing review of the "one license file per folder" policy; to be discussed in the next committee meeting.</li>
+<li>Decision: No notice section required for blogs, news, or meeting minutes; required for other documents.</li>
+<li>Discussion on maintaining and updating changelogs for TRGs (Technical Reference Guides).</li>
+<li>Reminder to update API versions in the API hub and ensure .tractusX files are properly tagged.</li>
+<li>Emphasis on maintaining quality and consistency across KITs and APIs.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events">​</a></h3>
+<ul>
+<li>Recap of successful French Catena-X Days in Paris, including workshops and presentations.</li>
+<li>Ongoing search for contributors with wallet/identity hub experience; open meetings scheduled weekly.</li>
+<li>Presentation of Tractus-X to the Eclipse Data Space Working Group (EDWG) and discussion about associating the project with ADBG for increased visibility and marketing.</li>
+<li>Farewell to Evelyn, with best wishes from the team.</li>
+</ul>]]></content:encoded>
+            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
+            <category>community</category>
+            <category>meeting-minutes</category>
+        </item>
         <item>
             <title><![CDATA[Community Office Hour 2025-07-04]]></title>
             <link>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04</link>
@@ -843,91 +892,6 @@ being investigated and an update will be provided soon.</li>
 </ul>]]></content:encoded>
             <category>meeting-minutes</category>
             <category>community</category>
-        </item>
-        <item>
-            <title><![CDATA[Commiter Meeting 12.04.2024]]></title>
-            <link>https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024</link>
-            <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024</guid>
-            <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Committer meeting - meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="committer-meeting---meeting-minutes">Committer meeting - meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#committer-meeting---meeting-minutes" class="hash-link" aria-label="Direct link to Committer meeting - meeting minutes" title="Direct link to Committer meeting - meeting minutes">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning-participation-of-committers">Open Planning Participation of committers<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#open-planning-participation-of-committers" class="hash-link" aria-label="Direct link to Open Planning Participation of committers" title="Direct link to Open Planning Participation of committers">​</a></h3>
-<p>The open planning is one of the most important meetings. I think 14 (of 41) committers were present, but only two used their voice ;) what about the others?</p>
-<p>=&gt; Maybe we should talk more beforehand, about the importance of the meeting. Responsibilities and expectations of attendance.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="label-structure">Label structure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#label-structure" class="hash-link" aria-label="Direct link to Label structure" title="Direct link to Label structure">​</a></h3>
-<p>The labels on the features are very important for dependencies and filtering. Yes we have a lot, but we need more ;) but on the other hand we can also delete some ;)</p>
-<p><strong>Suggestions:</strong></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="new-needed">New needed<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#new-needed" class="hash-link" aria-label="Direct link to New needed" title="Direct link to New needed">​</a></h4>
-<ul>
-<li>ssi</li>
-<li>data-sovereignty</li>
-<li>policy-hub</li>
-<li>policy-registry</li>
-<li>issuer-component</li>
-<li>authority-registry</li>
-</ul>
-<p>=&gt; discussed -&gt; create the labels</p>
-<ul>
-<li>open-discussions (color: red)</li>
-<li>Prep-P14 -&gt; maybe Prep-R2412 -&gt; do we need the specific prep label?</li>
-<li>Prep-P15</li>
-<li>Standards (marks tickets which have impact on standards)</li>
-<li>Breaking Change (marks breaking change tickets)</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="changes-needed">Changes needed<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#changes-needed" class="hash-link" aria-label="Direct link to Changes needed" title="Direct link to Changes needed">​</a></h4>
-<ul>
-<li>miw =&gt; rename to identity-wallet</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="delete-probably-we-need-to-discuss-this-once-since-a-deletion-has-impacts">Delete (probably we need to discuss this once since a deletion has impacts…)<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#delete-probably-we-need-to-discuss-this-once-since-a-deletion-has-impacts" class="hash-link" aria-label="Direct link to Delete (probably we need to discuss this once since a deletion has impacts…)" title="Direct link to Delete (probably we need to discuss this once since a deletion has impacts…)">​</a></h4>
-<ul>
-<li>kit (reason: each kit has an own label already)</li>
-<li>foss</li>
-<li>go</li>
-<li>PI12 (ideally we just inactive it to not lose it on the old tickets)</li>
-<li>Prep-P11 (ideally we just inactive it to not lose it on the old tickets)</li>
-<li>Prep-P12 (ideally we just inactive it to not lose it on the old tickets)</li>
-<li>Project management</li>
-<li>Test results</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="additionally-i-like-to-suggest-a-clear-color-coding">Additionally I like to suggest a clear color coding<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#additionally-i-like-to-suggest-a-clear-color-coding" class="hash-link" aria-label="Direct link to Additionally I like to suggest a clear color coding" title="Direct link to Additionally I like to suggest a clear color coding">​</a></h4>
-<ul>
-<li>All Product labels - ocean blue</li>
-<li>All Prep-Pxx label – grey</li>
-<li>All highlight labels – red</li>
-<li>All UseCase labels – green -&gt; can we delete this?</li>
-<li>All Expert group labels - yellow</li>
-</ul>
-<p>=&gt; HTML color code is used</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="clean-board">Clean Board<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#clean-board" class="hash-link" aria-label="Direct link to Clean Board" title="Direct link to Clean Board">​</a></h3>
-<p>My feeling is, we will have round about 60 features for 24.08 -&gt; all good. Happy about it. But on the board itself we have more than 200. I understand its good to have some features in inbox/backlog... but i think the gap is to big ... and i think a lot of them could be deleted ;(</p>
-<p>=&gt; discussed and decided: Friendly reminder -&gt; after a specific amount ot time the issues are deleted automatically</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="views-an-project-board">Views an project board<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#views-an-project-board" class="hash-link" aria-label="Direct link to Views an project board" title="Direct link to Views an project board">​</a></h3>
-<p>The views (tabs) should be cleaned up) which views are still needed?</p>
-<ul>
-<li>Feature view (issuetype <code>feature</code>) -&gt; for Expert Groups / Committees / Developer</li>
-<li>QGate View (issuetype <code>realease_ac</code>)</li>
-<li>???</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="future-workingmodel">Future workingmodel<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#future-workingmodel" class="hash-link" aria-label="Direct link to Future workingmodel" title="Direct link to Future workingmodel">​</a></h3>
-<p>Instead of miro we could work with GitHub Project as agenda/issuetracking. e.g. <a href="https://github.com/orgs/eclipse-tractusx/projects/61" target="_blank" rel="noopener noreferrer">example board</a></p>
-<p>=&gt; lets try it</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="custom-attribute">Custom Attribute<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#custom-attribute" class="hash-link" aria-label="Direct link to Custom Attribute" title="Direct link to Custom Attribute">​</a></h3>
-<p>Since we work together e.V/Open Source it would be beneficial if we could map the features to the related expert (groups) therefore i would like to discuss a custom attribute, which holds the related committee/expertgroup (dedicated list) -&gt; This would help to filter and also get a better feeling</p>
-<p>=&gt; prepare a poc -&gt; Tom , Stephan</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="featurequality">Featurequality<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/committer-meeting-12-04-2024#featurequality" class="hash-link" aria-label="Direct link to Featurequality" title="Direct link to Featurequality">​</a></h3>
-<p>Since sometimes the quality (how is a feature described, did you clarify your dependencies, did you talk to your committer, is the time allocated) i would like to extend the feature template to guide a little bit more. For example a checklist like:</p>
-<ul>
-<li>[ ] i have talked to dependent components</li>
-<li>[ ] i have talked to my committers</li>
-<li>[ ] i will contribute on this features</li>
-<li>...</li>
-</ul>
-<p>-&gt; mention the release process via link in the template, keep the template simple
--&gt; link the contribution guidelines</p>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
-            <category>meeting-minutes</category>
-            <category>community</category>
-            <category>committer-meeting</category>
         </item>
     </channel>
 </rss>
