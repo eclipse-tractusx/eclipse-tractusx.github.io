@@ -6,38 +6,25 @@ description: What systems a DCM-App should interface with.
 
 ## Overview
 
-```mermaid
-mindmap
-  root((DCM-App))
-    Business Partner Database
-        Golden Record Service
-    Supplier Database
-        Golden Record Service
-    Customer Database
-        Golden Record Service
-    EDC
-        Data Plane
-        Contract Plane
-    EDC Discovery Service
-    Wallet
-    Product Data Management System
-    Production Planning System
-```
+![functional-view](./resources/functional-view.svg)
 
+## List of Potential External Interfaces
 
-## List of Potential Interfaces
+The main business function of a DCM application is to facilitate the exchange of demand and capacity information. In order to do this this a DCM must directly or indirectly interface with an EDC, systems holding base data relating to materials and companies as well as systems holding data relating to production planning.
 
-|#|Interface|Data|Function| Comment |
-|--|--|--|--|--|
-|1 |Business Partner Database | | | Combines supplier and customer database |
-|2 |Supplier Database | | |
-|3 |Customer Database | | |
-| 4| EDC data plane | Payloads (WeekBasedMaterialDemand, WeekBasedCapacityGroup, IdBasedREquestForUpdate, IdBasedComment, ...) | Gateway for exchanging data with the dataspace |
-|5 | EDC contract plane | Assets, Policies, Contract Definitions | Offer API endpoints as Assets, Negotiate data exchange contracts, |
-|6 |EDC Discovery Service | Connector Endpoint | Resolves BPNL into connector endpoints | Could be integrated into the supplier, customer or business partner database |
-| 7| Product Data Management System | | Provides the DCM with data relating to materials, their structure and their demands / capacities |
-|8| Production planning | | ||
-| | Wallet| | |
+| #  | Interface                      | Data                                                                                                     | Function                                                                                                 | Comment                                                                                      |
+| -- | --                             | --                                                                                                       | --                                                                                                       | --                                                                                           |
+| 1  | Business Partner Database      | Name, Adress, City, Postal Code, BPNL, BPNS, BPNA, ...                                                   | Provide a connect between the technical BPN* and human readable data.                                    | Combines supplier and customer database                                                      |
+| 2  | Supplier Database              | Name, Adress, City, Postal Code, BPNL, BPNS, BPNA, ...                                                   | Provide a connect between the technical BPN* and human readable data.                                    | Overlaps with business partner database                                                      |
+| 3  | Customer Database              | Name, Adress, City, Postal Code, BPNL, BPNS, BPNA, ...                                                   | Provide a connect between the technical BPN* and human readable data.                                    | Overlaps with business partner database                                                      |
+| 4  | EDC data plane                 | Payloads (WeekBasedMaterialDemand, WeekBasedCapacityGroup, IdBasedREquestForUpdate, IdBasedComment, ...) | Gateway for exchanging data with the dataspace                                                           | Needs to be connected the API endpoints in order to receive payloads                         |
+| 5  | EDC control plane              | Assets, Policies, Contract Definitions                                                                   | Offer API endpoints as Assets, Negotiate data exchange contracts,                                        | Required for data exchange within the Catena-X dataspace                                     |
+| 6  | EDC Discovery Service          | Connector Endpoint                                                                                       | Resolves BPNL into connector endpoints                                                                   | Interface could be integrated into the supplier, customer or business partner database       |
+| 7  | Product Data Management System | Material Number, Material Description, Bill of Material,                                                 | Provides the DCM with data relating to materials, their structure and their demands / capacities         | Overlaps with production planning  system                                                    |
+| 8  | Production Planning  System    | Unit of Measure, Material Number, Material Description, Capacity, Demand, ...                            | Provides the DCM with data relating to materials, their structure and their demands / capacities         | Overlaps with product data management system                                                 |
+| 9  | Wallet                         | Membership-Credential, Data Exchange Governance Credential, BPNL Credential, ...                         | Identify available credentials                                                                           | EDC should Interface with the wallter. FOr the DC-App itself it is more or less just a bonus |
+| 10 | Golden Record Service          | BPNL, BPNS, BPNA and other Business Partner Base Data                                                    | Resolve your own Business Partner Base Data into BPNL, BPNS and BPNA used within the Catena-X Dataspace. | Interface could be integrated into the supplier, customer or business partner database       |
+| 11 | Directory Service              | User-ID, Roles, Name, ...                                                                                | Authenticate Users                                                                                       |                                                                                              |
 
 ## Notice
 
