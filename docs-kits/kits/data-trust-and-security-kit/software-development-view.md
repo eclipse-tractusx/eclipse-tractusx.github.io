@@ -193,8 +193,8 @@ Use case credentials can have
                       "compliance": "100%"
                   }
               ],
-              "@id": "sustainability.productFootprint.carbon[0].value",
-              "digestMultibase": "d05da06852ad3b7f8ac51cf20b4ff07be758878643da52cc3418cf15eea3e2e91d93dbc69de977560d4561109021d5b39c9f26cbc6546b39298e8ae70694ec32"
+              "@id": "pcf.biogenicCarbonEmissionsOtherThanCO2",
+              "digestMultibase": "0b3402a678ec2788804994fb2df9faf66eecbdde26553e320a8d4a154f53d840d2a32245998c38f885f01137c9fcf123f3752fc841508dc771fa6faaee689b73"
           }
       ]
   },
