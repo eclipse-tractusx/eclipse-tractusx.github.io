@@ -220,15 +220,24 @@ Use case credentials can have
   }
 }
 ```
+## Revocation List
+
+The revocation list shall be defined under `credentialStatus` as specified in eIDAs.
+```json
+    "credentialStatus": {
+        "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#list",
+        "type": "RevocationList2020Status",
+        "revocationListIndex": "42",
+        "revocationListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+    }
+```
+
+## Context as JSON-LD
+
+For every use case semantic model it is required to have a "context" in JSON-LD format, so that the verifiable credentials can specify the attributes in its content.
+It shall be hosted in https://github.com/eclipse-tractusx/sldt-semantic-models under the `gen` folder.
 
 
 
-
-
-
-## Reference implementation for translating (JSON-SCHEMA to JSON-LD)
-## Reference implementation "simple wallet" and "identity hub"
-## How the verification is done?
-## Revocation of credentials, how is that done?
 ## Certified Data Credential & Certified Snapshot Credential (when are they used and for what)
 ## How to place credentials in digital twins? Where do we store them?
