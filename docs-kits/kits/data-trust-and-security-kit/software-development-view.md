@@ -10,14 +10,16 @@ sidebar_position: 3
 ![Data Trust and Security KIT Logo](./assets/data-trust-and-security-kit-logo.svg)
 
 ## Who maintain/host this trusted list (Catena-X e.V.)
+The trusted list of issuers should be maintained by Catena-X e.V. However, its ongoing curation and updates will require input from domain experts across relevant industries to ensure accuracy and relevance.
+
 ## What semantic/structure we use?
 
-
+...
 
 
 
 ## Which signatures are allowed?
-
+Signature methods should be aligned with eIDAS 2.0 requirements. https://digital-strategy.ec.europa.eu/en/policies/eidas-regulation 
 
 ## Format of Attribute Attestation Certificate
 
