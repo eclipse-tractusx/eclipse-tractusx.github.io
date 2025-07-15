@@ -46,26 +46,24 @@ This set of rules will be defined in an Acreditation Rulebook.
 
 ## Data Atestestation Certificate
 
+When a use intends to generate certificates that are able to be verified by the consumers...
+
 ´´´json
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld"
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
     ],
     "type": [
         "VerifiableCredential",
         "CertifiedDataCredential",
-        "ProductCarbonFootprint"
+        "Pcf"
     ],
-    "parent": {
-        "@id": "did:web:dpp-test-system.com:BPNL000000000000:api:public:urn%3Auuid%3A1c5b6a7c-90d4-3481-0538-f134ff53076d",
-        "digestMultibase": "64b1a523da600e8fc0018cf57b8f7756b83bb6e9b11c81b1c7444272fab239902321b1b6ae6624d6846fd010616ae98c118f12491f922badd64e58b782c6a115"
-    },
-    "semanticId": "urn:samm:io.catenax.generic.digital_product_passport:5.0.0#DigitalProductPassport",
+    "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
     "credentialSubject": {
-        "ProductCarbonFootprint": {
+        "Pcf": {
            "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
            "companyIds" : [ "telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt" ],
            "extWBCSD_productCodeCpc" : "011-99000",
@@ -147,18 +145,16 @@ This set of rules will be defined in an Acreditation Rulebook.
     },
     "id": "urn:uuid:d2e47115-c430-4145-bbde-1c743804a379",
     "issuer": "did:web:tuv-sud.de",
-    ""
     "validFrom": "2024-06-21T16:52:40Z",
     "validUntil": "2024-12-06T16:52:40Z",
     "proof": {
         "type": "JsonWebSignature2020",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:web:dpp-provider-wallet.int.demo.catena-x.net:BPNL00000000W3BS#N4bTDb14GEnCvwZdFRqK5lwL4nje3bB5Y4nvb01VBKA",
+        "verificationMethod": "did:web:tuv-sud.de:BPNL00000000W3BS#N4bTDb14GEnCvwZdFRqK5lwL4nje3bB5Y4nvb01VBKA",
         "created": "2024-06-21T16:52:40+00:00Z",
         "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY0IjogZmFsc2UsICJjcnYiOiAiRWQyNTUxOSJ9..c_xfb7TCumZqWxeZHXCiu1xWgyzx2JgeAJjPteDbr3gxRtIZvobsxfWR5s5UTMKgp47vC6Mh0_Uq6cN7vB6ABA"
     }
 }
-
 ```
 
 
