@@ -142,6 +142,7 @@ When a use intends to generate certificates that are able to be verified by the 
            "precedingPfIds" : [ {
              "id" : "3893bb5d-da16-4dc1-9185-11d97476c254"
            } ]
+       }
     },
     "id": "urn:uuid:d2e47115-c430-4145-bbde-1c743804a379",
     "issuer": "did:web:tuv-sud.de",
@@ -154,7 +155,6 @@ When a use intends to generate certificates that are able to be verified by the 
         "created": "2024-06-21T16:52:40+00:00Z",
         "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY0IjogZmFsc2UsICJjcnYiOiAiRWQyNTUxOSJ9..c_xfb7TCumZqWxeZHXCiu1xWgyzx2JgeAJjPteDbr3gxRtIZvobsxfWR5s5UTMKgp47vC6Mh0_Uq6cN7vB6ABA"
     }
-}
 }
 ```
 
