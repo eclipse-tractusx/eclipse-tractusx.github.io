@@ -48,7 +48,7 @@ This set of rules will be defined in an Acreditation Rulebook.
 
 When a use intends to generate certificates that are able to be verified by the consumers...
 
-´´´json
+```json
 {
     "@context": [
         "https://www.w3.org/ns/credentials/v2",
