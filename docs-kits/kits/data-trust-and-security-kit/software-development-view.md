@@ -9,14 +9,38 @@ sidebar_position: 3
 # Development View
 ![Data Trust and Security KIT Logo](./assets/data-trust-and-security-kit-logo.svg)
 
-## Who maintain/host this trusted list (Catena-X e.V.)
-The trusted list of issuers should be maintained by Catena-X e.V. However, its ongoing curation and updates will require input from domain experts across relevant industries to ensure accuracy and relevance.
+## Atestestation Service Provider Trusted List
 
-## What semantic/structure we use?
+The trusted list of issuers should be maintained by a Governance Entity (example Catena-X Association), and can be hosted by the Core Service Providers. However, its ongoing curation and updates will require input from domain experts across relevant industries to ensure accuracy and relevance.
+It should provide for each use case a list of acceditated issues.
 
-...
+Based on certain rules, defined by each use case, a company will be allowed to be included in this trusted list. 
+This set of rules will be defined in an Acreditation Rulebook.
 
+### Example:
 
+```json
+{
+   "@context": [
+     "https://w3id.com/catena-x/trusted-list.jsonld,
+     "https://www.w3.org/ns/odrl.jsonld",
+   ],
+   "type": "TrustedList",
+   "owner": {
+      "name": "Catena-X Automotive Network e.V.",
+      "@id": "did:web:catena-x.net"
+    },
+   "trustedIssuers": [
+     {
+        "type": "PCF",
+        "status": "active",
+        "name": "TÜV SÜD",
+        "id"
+
+     }
+   ]
+}
+```
 
 ## Which signatures are allowed?
 Signature methods should be aligned with eIDAS 2.0 requirements. https://digital-strategy.ec.europa.eu/en/policies/eidas-regulation 
