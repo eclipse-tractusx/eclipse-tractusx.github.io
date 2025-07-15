@@ -238,6 +238,67 @@ For every use case semantic model it is required to have a "context" in JSON-LD 
 It shall be hosted in https://github.com/eclipse-tractusx/sldt-semantic-models under the `gen` folder.
 
 
+## Verifiable Credentials as Digital Twins Submodels
 
-## Certified Data Credential & Certified Snapshot Credential (when are they used and for what)
-## How to place credentials in digital twins? Where do we store them?
+### Data Atestation Certificate
+
+```json
+{
+  "endpoints": [
+      {
+          "interface": "SUBMODEL-3.0",
+          "protocolInformation": {
+              "href": "https://<edc.dataplane>/api/public/data/urn:uuid:a377ff49-6bde-4215-8d38-b8f02c991a35",
+              "endpointProtocol": "HTTP",
+              "endpointProtocolVersion": [
+                  "1.1"
+              ],
+              "subprotocol": "DSP",
+              "subprotocolBody": "id=urn:uuid:3e4a5957-f226-478a-ab18-79ced49d6195;dspEndpoint=https://edc.controlplane/api/v1/dsp",
+              "subprotocolBodyEncoding": "plain",
+              "securityAttributes": [
+                  {
+                      "type": "NONE",
+                      "key": "NONE",
+                      "value": "NONE"
+                  }
+              ]
+          }
+      }
+  ],
+  "idShort": "pcf",
+  "id": "urn:uuid:a377ff49-6bde-4215-8d38-b8f02c991a35",
+  "semanticId": {
+      "type": "ExternalReference",
+      "keys": [
+          {
+              "type": "Entity",
+              "value": "https://www.w3.org/ns/credentials/v2"
+          },
+          {
+              "type": "DataElement",
+              "value": "urn:samm:io.catenax.certificate.dac:1.0.0#DataAtestationCertificate"
+          },
+          {
+              "type": "Submodel",
+              "value": "urn:samm:io.catenax.pcf:7.0.0#Pcf"
+          },
+          {
+              "type": "Operation",
+              "value": "https://w3c.github.io/vc-jws-2020/contexts/v1/"
+          }
+      ]
+  },
+  "description": [
+      {
+          "language": "en",
+          "text": "Verifiable Pcf Submodel"
+      }
+  ],
+  "displayName": []
+}
+```
+
+
+
+
