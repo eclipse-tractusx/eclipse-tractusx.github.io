@@ -179,7 +179,7 @@ Use case credentials can have
   "type": [
       "VerifiableCredential",
       "CertifiedSnapshotCredential",
-      "DigitalProductPassport"
+      "Pcf"
   ],
   "credentialSubject": {
       "attributes": [
