@@ -1,7 +1,7 @@
 ---
 id: operation-view-data-trust-and-security-kit
 title: Operation View
-description: 'Data Trust and Security KIT'
+description: 'Data Trust & Security KIT'
 sidebar_position: 4
 ---
 

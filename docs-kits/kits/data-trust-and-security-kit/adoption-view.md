@@ -1,7 +1,7 @@
 ---
 id: adoption-view-data-trust-and-security-kit
 title: Adoption View
-description: 'Adoption View Data Trust and Security KIT'
+description: 'Data Trust & Security KIT'
 sidebar_position: 2
 ---
 

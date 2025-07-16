@@ -5,19 +5,13 @@ description: 'Data Trust and Security KIT'
 sidebar_position: 0
 ---
 
-## [0.0.0] -
+## [0.0.1] -
 
 ### Added
 
 - Initial version of the Kit including the adoption view
-
-### Changed
-
-- ./.
-
-### Removed
-
-- ./.
+- Included kit logo
+- Added software development view with examples of trusted lists and verifiable credentials.
 
 
 ## NOTICE
