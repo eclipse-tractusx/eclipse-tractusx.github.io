@@ -26,11 +26,21 @@ The main business function of a DCM application is to facilitate the exchange of
 | 10 | Golden Record Service          | BPNL, BPNS, BPNA and other Business Partner Base Data                                                    | Resolve your own Business Partner Base Data into BPNL, BPNS and BPNA used within the Catena-X Dataspace. | Interface could be integrated into the supplier, customer or business partner database       |
 | 11 | Directory Service              | User-ID, Roles, Name, ...                                                                                | Authenticate Users                                                                                       |                                                                                              |
 
+### EDC
+
+[Connector KIT](../../../connector-kit/)
+
+### Wallet
+
+[Managed Identity Wallet](https://github.com/eclipse-tractusx/managed-identity-wallet)
+
+### Golden Record Service
+
+[Business Partner KIT](../../../business-partner-kit/adoption-view)
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-
-[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-DemandandCapacityManagementDataExchange
