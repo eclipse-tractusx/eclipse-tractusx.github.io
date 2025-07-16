@@ -71,7 +71,7 @@ Main challenges to ensure a trustful and scalable cooperation are:
 | Advantages                                                                                        | For OEM | For n-Tier |
 |---------------------------------------------------------------------------------------------------|---------|------------|
 | Availability of daily updated field data for monitoring the own component in real operation       |         |     X      |
-| Linking OEM and supplier data for cross-supplychanin quality analysis                             |    X    |     X      |
+| Linking OEM and supplier data for cross-supplychain quality analysis                             |    X    |     X      |
 | Reduction of analysis capacities along the automotive value chain by preventive field observation |    X    |     X      |
 | Reduction of the NTF (no trouble found) at the customer and supplier                              |    X    |     X      |
 | Significant reduction in time to detect an abnormality                                            |    X    |     X      |
@@ -330,7 +330,7 @@ From the failure patterns, relevant population lists can be extracted, uniquely 
 
 ### Architecture Overview
 
-![independant architecture r2312 chart](./resources/architecture_overview.png)
+![independent architecture r2312 chart](./resources/architecture_overview.png)
 
 The Tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier analyzes the data to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC, while the authorization is managed via the shared services of the consortia.
 
