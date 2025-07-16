@@ -180,7 +180,7 @@ For both Graph and Skill Assets, appropriate Sink and Source implementations hav
 This component which is the first stage of SPARQL processing serves several purposes. It operates as the main invocation point to the Data Consuming Layer. It operates as the main bridging point between incoming EDC transfers (from an “Agent Source”) and the underlying Binding Layer. And it implements federation by delegating any outgoing SERVICE/GRAPH contexts to the EDC. The Matchmaking Agent
 
 * Should  perform a realm-mapping from the tenant domain (Authentication Scheme, such as API-Key and Oauth2) into the dataspace domain (EDC tokens)
-* Should use the EDC management API in order to negotiate outgoing “HttpProxy” transfers. It may use parallelism and asynchronity to perform multiple such calls simultaneously. It will wrap any inbound “Accept” header requirements as an additional “cx_accept” parameter to the transfer sink.
+* Should use the EDC management API in order to negotiate outgoing “HttpProxy” transfers. It may use parallelism and asynchronicity to perform multiple such calls simultaneously. It will wrap any inbound “Accept” header requirements as an additional “cx_accept” parameter to the transfer sink.
 * Should operate as a endpoint callback listener, such that the setup transfers can invoke the data plane
 * Uses and Maintains the Federated Catalogue as an RDF store.
 * Should be able to access Binding Agents by means of “SERVICE” contexts in the SPARQL standard. Hereby, the Matchmaking Agent should be able to restrict the type of sub-queries that are forwarded. For practicability purposes, Binding Agents need only support a subset of SPARQL and OWL (no embedded GRAPH/SERVICE contexts, no transitive closures and inversion, no object variables in rdf:type, no owl:sameAs lookups, …).
@@ -226,7 +226,7 @@ See the [Tractus-X Knowledge Agents Reference Implementations (KA-RI)](https://g
 
 ### Virtual Knowledge Graph
 
-A Virtual Knowledge Graph has the aim to make the content of relational databases accessable as a virtual knowledge graph. Virtual in this context means that the data itself remains in the relational database. Furthermore, this building block provides the function to translate SPARQL to SQL queries (e.g. via R2RML mappings in TTL).
+A Virtual Knowledge Graph has the aim to make the content of relational databases accessible as a virtual knowledge graph. Virtual in this context means that the data itself remains in the relational database. Furthermore, this building block provides the function to translate SPARQL to SQL queries (e.g. via R2RML mappings in TTL).
 
 ### Functional Remoting
 
@@ -295,7 +295,7 @@ Traceability-related Aspect-Models but is not restricted to these. Details on th
 
 ## Backend Systems (Non-Standard Relevant)
 
-(Legacy, Non-Dataspace) IT landscape of data space participants consisting of various backend systems, such as PLM, ERP, ObjectStores mostly located in the Enterprise Intranet and hosted/goverened by the business departments.
+(Legacy, Non-Dataspace) IT landscape of data space participants consisting of various backend systems, such as PLM, ERP, ObjectStores mostly located in the Enterprise Intranet and hosted/governed by the business departments.
 Here, the actual data sources of all Catena-X participants is originated
 where they are served using custom, but mission-critical business or
 technological APIs in specific, transaction-oriented formats.
