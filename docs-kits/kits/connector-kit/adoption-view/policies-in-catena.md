@@ -50,7 +50,7 @@ that commitment. Consequently, the FrameworkAgreement Constraint belongs to the 
 [checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation). The
 details are listed in the most current version of standard
 [CX-0050 Framework Credential](https://catena-x.net/de/standard-library).
-The Governance Framwork is referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
+The Governance Framework is referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
 negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also their
 Credentials. Here's an example of an `odrl:Constraint` referencing the Data Exchange Governance and invoking the VC-check:
 
