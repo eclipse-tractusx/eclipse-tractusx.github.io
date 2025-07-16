@@ -1,14 +1,15 @@
 ---
-id: rulebook-example
-title: Rulebook Example
+id: rulebook-template
+title: Rulebook Template
 description: Rulebook Example
-sidebar_position: 3
+sidebar_position: 4
 ---
 
+![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-# Validation & Verification Rulebook Template for Data Models
+## Validation & Verification Rulebook Template for Data Models
 
-## 1. Goal of this <<YOUR_USECASE>> Rulebook
+## 1. Goal of this `<<YOUR_USECASE>>` Rulebook
 
 Describe the purpose of this rulebook.
 
@@ -17,7 +18,7 @@ This rulebook establishes clear validation and verification criteria to ensure d
 
 ---
 
-## 2. Why is Data Trust Necessary in the <<YOUR_USECASE>> Use Case ?
+## 2. Why is Data Trust Necessary in the `<<YOUR_USECASE>>` Use Case ?
 
 Explain the importance of data trust within your use case:
 
@@ -69,15 +70,15 @@ Each data category includes attribute-level rules for validation and verificatio
 
 Include here the sections of your data model which require content validation.
 
-### <section1>
+### `<Attribute Section 1>`
 | Rule ID | Attribute    | Description        | Mandatory/Optional | Validation Rule        | Data Type |
 |---------|--------------|--------------------|--------------------|-------------------------|-----------|
-| 1.1     | <attribute name> | <description> | <Mandatory/Optional> | <regex pattern> | <String|Integer|...>    |
+| 1.1     | `<attribute name>` | `<description>` | `<Mandatory/Optional>` | `<regex pattern>` | `<String,Integer,...>`|
 
-### <section2>
+### `<Attribute Section 2>`
 | Rule ID | Attribute    | Description        | Mandatory/Optional | Validation Rule        | Data Type |
 |---------|--------------|--------------------|--------------------|-------------------------|-----------|
-| 2.1     | <attribute name> | <description> | <Mandatory/Optional> | <regex pattern> | <String|Integer|...>    |
+| 2.1     | `<attribute name>` | `<description>` | `<Mandatory/Optional>` | `<regex pattern>` | `<String,Integer,...>`|
 
 
 ---

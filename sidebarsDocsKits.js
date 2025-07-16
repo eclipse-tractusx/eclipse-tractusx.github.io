@@ -321,6 +321,37 @@ const sidebars = {
       },
       {
         type: 'category',
+        label: 'Data Trust & Security KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/data-trust-and-security-kit/changelog',
+          'kits/data-trust-and-security-kit/adoption-view',
+          'kits/data-trust-and-security-kit/operation-view',
+          {
+            type: 'category',
+            label: 'Development View',
+            items: [
+              {
+                type: 'doc',
+                id: 'kits/data-trust-and-security-kit/software-development-view/software-development-view'
+              }
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Documentation',
+            items: [
+              {
+                type: 'doc',
+                id: 'kits/data-trust-and-security-kit/documentation/rulebook-template'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'category',
         label: 'Data Governance KIT',
         link: { type: 'generated-index' },
         collapsed: true,
