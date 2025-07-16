@@ -1,7 +1,7 @@
 ---
 id: development-view-data-trust-and-security-kit
 title: Development View
-description: 'Data Trust and Security KIT'
+description: 'Data Trust & Security KIT'
 sidebar_position: 3
 ---
 
