@@ -98,7 +98,7 @@ When the deployment has been finished, you can for port forwarding using k9s. Al
 <shift+f>
 ```
 
-or port forwarding can also be achived kubernetes command
+or port forwarding can also be achieved kubernetes command
 
 ```bash
 kubectl port-forward <pod-name> <locahost-port>:<pod-port>
