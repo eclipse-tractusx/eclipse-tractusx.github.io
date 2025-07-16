@@ -1,5 +1,5 @@
 ---
-id: changelog-data-trust-and-security-kit
+id: changelog
 title: Changelog
 description: 'Data Trust and Security KIT'
 sidebar_position: 0

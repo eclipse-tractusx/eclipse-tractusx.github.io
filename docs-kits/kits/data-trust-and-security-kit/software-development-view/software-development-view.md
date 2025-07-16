@@ -1,13 +1,14 @@
 ---
-id: development-view-data-trust-and-security-kit
+id: software-development-view
 title: Development View
 description: 'Data Trust & Security KIT'
 sidebar_position: 3
 ---
 
 
-# Development View
-![Data Trust and Security KIT Logo](./assets/data-trust-and-security-kit-logo.svg)
+## Development View
+
+![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
 ## Atestestation Service Provider Trusted List
 
