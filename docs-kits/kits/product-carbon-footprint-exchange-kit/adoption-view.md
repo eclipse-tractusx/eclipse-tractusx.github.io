@@ -67,13 +67,13 @@ The scope of our business process is the calculation and the exchange of PCF dat
 To describe the process, we defined three customer journeys:
 
 1. The customer journey “PCF data exchange” due to an **asynchronous** communication process: a customer requests the PCF from their supplier for a component (“PCF Request”), and the supplier provides the requested data (“PCF Response”).
-2. The customer journey “PCF data exchange” due to an **synchronous** communication process: a customer requests the PCF from the supplier for a component (“PCF Request”) with existing digital twin and pull the data directy.
+2. The customer journey “PCF data exchange” in a **synchronous** way: a customer requests the PCF from the supplier for a component (“PCF Request”) with existing digital twin and pull the data directy.
 3. If necessary, the requested PCF data must first be determined; this leads to the second customer journey “PCF calculation”.
 
 In case of non-existing PCF data the exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
 
 For a synchronous data providing/consuming please find the basics for ditital twins and data pull in following 
-[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge) and [To the digital-twin-kit] (https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)
 
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
 
