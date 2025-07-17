@@ -396,7 +396,7 @@ The relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX-0136 Product Carbon Footprint UseCase (Version 2.0.0)](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
 
-### Non-rechnical requirement
+### Non-technical requirement
 
 - [Product Carbon Footprint Rulebook (Version 3.0.0)](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)
 
