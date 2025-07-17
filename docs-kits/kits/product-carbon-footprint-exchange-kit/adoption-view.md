@@ -64,16 +64,15 @@ Accordingly, the presented customer journeys are characterized by manual process
 
 The scope of our business process is the calculation and the exchange of PCF data across the supply chain for parts/components that are already in series production (→ "after start of production (SOP)"). One can therefore assume that a real supply chain already exists for this part/component.
 
-To describe the process, we defined two customer journeys:
+To describe the process, we defined three customer journeys:
 
-1. The customer journey “PCF data exchange” describes an asynchronous communication process: a customer requests the PCF from their supplier for a component (“PCF Request”), and the supplier provides the requested data (“PCF Response”).
-2. If necessary, the requested PCF data must first be determined; this leads to the second customer journey “PCF calculation”.
+1. The customer journey “PCF data exchange” due to an **asynchronous** communication process: a customer requests the PCF from their supplier for a component (“PCF Request”), and the supplier provides the requested data (“PCF Response”).
+2. The customer journey “PCF data exchange” due to an **synchronous** communication process: a customer requests the PCF from the supplier for a component (“PCF Request”) with existing digital twin and pull the data directy.
+3. If necessary, the requested PCF data must first be determined; this leads to the second customer journey “PCF calculation”.
 
-The exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
+In case of non-existing PCF data the exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
 
-As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests. We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
-The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
-
+For a synchronous data providing/consuming please find the basics for ditital twins and data pull in following 
 [To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
 
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
