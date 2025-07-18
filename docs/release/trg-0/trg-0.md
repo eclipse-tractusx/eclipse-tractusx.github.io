@@ -6,7 +6,7 @@ title: TRG 0 - Changelog & Drafts
 
 | Created      | Post-History                                                                                |
 |--------------|---------------------------------------------------------------------------------------------|
-| 28-Jul-2025. | Harmonize TRG 7.06 - 7.08, integrate 7.08 into 7.07, clean up 7.06                          |
+| 28-Jul-2025  | Harmonize TRG 7.06 - 7.08, integrate 7.08 into 7.07, clean up 7.06                          |
 | 22-Jan-2024  | Remove TRG 3.01 - Supported Version, TRG has been superseded by [Helm Test Workflow](https://eclipse-tractusx.github.io/docs/release/trg-5/trg-5-09/) former TRG can be found [here](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/commit/90d54f420c2b075a808972b6664ded2047d22444) |
 | 10-Jan-2024  | Remove TRG 2.02 - Repo permission, since specified in our "OSS - How to contribute" already |
 | 04-Dec-2023  | TRG 7.06 update Shared UI Components / NPM library                                          |
