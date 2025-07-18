@@ -27,7 +27,7 @@ description: What the design philosophy of a DCM-App should be.
 
 - The customer requires capacity data from the supplier
 - The supplier requires demand data from the customer
-- The data the user is currently viewing might be already out of data
+- The data the user is currently viewing might be already out of date
   - Because their business partner has already updated it
   - But the EDCs have not successfully transmitted it yet
   - Or you have not yet successfully ingested it yet
