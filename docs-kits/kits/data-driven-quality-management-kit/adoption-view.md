@@ -71,7 +71,7 @@ Main challenges to ensure a trustful and scalable cooperation are:
 | Advantages                                                                                        | For OEM | For n-Tier |
 |---------------------------------------------------------------------------------------------------|---------|------------|
 | Availability of daily updated field data for monitoring the own component in real operation       |         |     X      |
-| Linking OEM and supplier data for cross-supplychain quality analysis                             |    X    |     X      |
+| Linking OEM and supplier data for cross-supplychain quality analysis                              |    X    |     X      |
 | Reduction of analysis capacities along the automotive value chain by preventive field observation |    X    |     X      |
 | Reduction of the NTF (no trouble found) at the customer and supplier                              |    X    |     X      |
 | Significant reduction in time to detect an abnormality                                            |    X    |     X      |
