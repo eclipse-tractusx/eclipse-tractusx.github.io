@@ -67,7 +67,7 @@ The scope of our business process is the calculation and the exchange of PCF dat
 To describe the process, we defined three customer journeys:
 
 1. The customer journey “PCF data exchange” due to an **asynchronous** communication process: a customer requests the PCF from their supplier for a component (“PCF Request”), and the supplier provides the requested data (“PCF Response”).
-2. The customer journey “PCF data pull” in a **synchronous** way: a customer requests the PCF from the supplier for a component (“PCF Request”) with an existing digital twin.
+2. The customer journey “PCF data pull” in a **synchronous** way: a customer requests existing PCF data from the supplier for a component (“PCF Request”) with an existing digital twin.
 3. If necessary, the requested PCF data must first be determined; this leads to the second customer journey “PCF calculation”.
 
 In case of non-existing PCF data the exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
@@ -96,7 +96,7 @@ The data for direct and indirect emissions will usually come from internal data 
 
 ### Customer Journey "PCF Data Exchange"
 
-#### 1. The following journey describes the exchange of PCF data in an **asynchronous** request/response process
+#### 1. The following journey describes the exchange of PCF data in an **asynchronous** request/response process:
 <br>
 
 ![PCF Data Exchange Overview](resources/adoption-view/PCFDataExchangeOverview.png)
