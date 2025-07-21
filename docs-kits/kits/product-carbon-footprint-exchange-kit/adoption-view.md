@@ -101,6 +101,7 @@ The data for direct and indirect emissions will usually come from internal data 
 
 ![PCF Data Exchange Overview](resources/adoption-view/PCFDataExchangeOverview.png)
 
+
 PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a data provider (e.g., supplier on tier n+1). It is basically an asynchronous request/response process that is started by the data consumer:
 
 - The data consumer realizes that he/she needs the PCF for a specific component and that this data is not available in his/her local data (or is not of sufficient quality).
@@ -129,7 +130,8 @@ For the data provider, the process is now over, and the consumer's request has b
 #### 2. The following customer journey describes the exchange of PCF data in a **synchronous** way:
 <br>
 
-Grafik
+![PCFdata_exchange_synchr.way](resources/adoption-view/PCFdata_exchange_synchr.way.png)
+
 
 The PCF data is exchanged between a data consumer and a data provider. The data consumer starts the request with steps as follows:
 
