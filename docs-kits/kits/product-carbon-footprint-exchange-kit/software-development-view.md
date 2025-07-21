@@ -7,10 +7,6 @@ sidebar_position: 3
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
-## Announcement
-
-With the major CX-Saturn Release 25.09 the CX-0136 standard will be extended to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126). We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
-The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
 
 [To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
 
@@ -23,9 +19,11 @@ This KIT covers various aspects, starting from how to utilize the available API 
 
 ## Building Block View
 
-The following figure shows the current high level architecture of the PCF Exchange use case. It is build on an asynchronous data exchange.
+The following figure shows the current high level architecture of the PCF Exchange use case. It provides a synchronous and an asynchronous data exchange.
 
-![Building Block View](./resources/development-view/BuildingblockView.png)
+![Architecture_Synchronous_vs.AsynchronousDataExchange](./resources/development-view/Architecture_Synchronous_vs.AsynchronousDataExchange.png)
+
+With the major CX-Saturn Release 25.09 the CX-0136 standard was expand to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126).
 
 ## Sequence View
 
