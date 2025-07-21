@@ -15,10 +15,15 @@ sidebar_position: 4
 The flowchart illustrates the interactions between four main components in the system:
 
 #### Components
-- **Requirement System**: Core component responsible for requirement management
-- **Digital Twin Registry**: Stores and manages digital twin information
-- **Submodel Service**: Handles submodel data and operations
-- **Eclipse Dataspace Connector (EDC)**: Facilitates data exchange between partners
+
+The following components are necessary for the requirements exchange:
+
+- Company Specific Components:
+  - **Requirement System**: Core component responsible for requirement management
+- Catena-X specific components:
+  - **Eclipse Dataspace Connector (EDC)**: Facilitates data exchange between partners
+  - **Digital Twin Registry**: Stores and manages digital twin information
+  - **Submodel Service**: Handles submodel data and operations
 
 #### Interactions
 The system architecture demonstrates how components interact to facilitate requirement exchange:
@@ -163,6 +168,32 @@ The following section gives an overview of the requirements aspect model. The re
 }
 
 ```
+
+
+## Notification Format
+
+The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../industry-core-kit/software-development-view/notifications). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
+
+```json
+{
+  "header": {
+    "messageId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
+    "context": "Requirements-DigitalTwinEventAPI-[Create|Change]:1.0.0",
+    "sentDateTime": "2024-07-05T08:13:33.20733Z",
+    "senderBpn": "BPNL000000000AAA",
+    "receiverBpn": "BPNL000000000ZZZ",
+    "expectedResponseBy": "2024-07-08T08:13:33.20733Z",
+    "version": "3.0.0"
+  },
+  "content": {
+    "requirementId": "UfzQhdgLLfDTDGspDb",
+    "description": "New requirement created for part type.",
+  }
+}
+```
+
+TODO: Which "Requirement ID" should be used here?
+
 
 
 
