@@ -15,7 +15,7 @@
 
 <link rel="alternate" type="application/rss+xml" href="/community/meeting-minutes/rss.xml" title="Eclipse Tractus-X RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/community/meeting-minutes/atom.xml" title="Eclipse Tractus-X Atom Feed"><link rel="stylesheet" href="/assets/css/styles.159fcc00.css">
-<script src="/assets/js/runtime~main.4a03a3fa.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.9c5f56b6.js" defer="defer"></script>
 <script src="/assets/js/main.cad1caa6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -106,14 +106,14 @@ additional processes must be set up by the data provider to add access permissio
 <li><strong>For digital twins and aspect models</strong>, this means that data providers and data consumers must at least support mandatory aspect model versions from the oldest, still supported major release. Newer mandatory aspect model versions can be optionally supported. A data provider cannot assume that all data consumers are already able to process newer aspect model versions. A data consumer cannot assume that all data providers already provide their data in newer aspect model versions.</li>
 </ul>
 <p>Mandatory versions for aspect models can only change in a major release as this change is breaking. Optional versions can be introduced with minor and patch versions, e.g., to introduce a future mandatory version first as optional for easier migration later on.</p>
-<p>A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin&#x27;s sumodel.</p>
+<p>A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin&#x27;s submodel.</p>
 <p>A data consumer must search the submodelDescriptors of a digital twin for supported semanticIds and then select the most suitable one for further processing.</p>
 <ul>
 <li><strong>For Notification APIs</strong>, a separate EDC asset must be created for every major API version, e.g., for versions v1 and v2 of the API separate EDC assets must be created. The API version must be documented in the <code>https://w3id.org/catenax/ontology/common#version</code> property on a minor release level (e.g., 1.1). It is not necessary to create a separate EDC asset for every minor or patch version as these versions must always be backward compatible.</li>
 </ul>
 <p>More information about backward compatibility and versioning can be found here:</p>
 <ul>
-<li><a href="https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf" target="_blank" rel="noopener noreferrer">Life Cycle Management 101</a> from the Catana-X Standard Library,</li>
+<li><a href="https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf" target="_blank" rel="noopener noreferrer">Life Cycle Management 101</a> from the Catena-X Standard Library,</li>
 <li><a href="/docs-kits/next/kits/digital-twin-kit/software-development-view#registration-at-edc">Digital Twin KIT - Registration at EDC</a> with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="building-block-view">Building Block View<a href="#building-block-view" class="hash-link" aria-label="Direct link to Building Block View" title="Direct link to Building Block View">​</a></h2>
@@ -147,7 +147,7 @@ Since the Discovery Services according to CX-0053 are not part of the Industry C
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-concepts">Future Concepts<a href="#future-concepts" class="hash-link" aria-label="Direct link to Future Concepts" title="Direct link to Future Concepts">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="reduction-of-number-of-digital-twins-in-the-dtr">Reduction of Number of Digital Twins in the DTR<a href="#reduction-of-number-of-digital-twins-in-the-dtr" class="hash-link" aria-label="Direct link to Reduction of Number of Digital Twins in the DTR" title="Direct link to Reduction of Number of Digital Twins in the DTR">​</a></h3>
 <p>With the current Industry Core concept, a digital twin must be created for every instantiated part that can be identified, e.g., with a serial number, no matter how small it is. This might result in a huge number of digital twins created in the DTR (more then several hundred million) as parts are produced on a daily basis.</p>
-<p>Therefore, we developed a concept to reduce the number of digital twins by building upon the PartType digital twin of such instantiated part. The processing of data is mostly the same as when data is provided conventially, i.e., with a digital twin for every instantiated part.</p>
+<p>Therefore, we developed a concept to reduce the number of digital twins by building upon the PartType digital twin of such instantiated part. The processing of data is mostly the same as when data is provided conventionally, i.e., with a digital twin for every instantiated part.</p>
 <ul>
 <li>The basic idea is to use a PartType digital twin to access data about instances of a part type. It is not necessary to create digital twins for instances.</li>
 <li>For this PartType:<!-- -->
@@ -155,7 +155,7 @@ Since the Discovery Services according to CX-0053 are not part of the Industry C
 <li>For every aspect that should be provided for instantiated parts (e.g., SerialPart, SingleLevelBomAsBuilt), a submodelDescriptor for this aspect must be added to the part type digital twin. ** As there are no aspect models currently that are used for both, part types and part instances, this does not create any ambiguities.**</li>
 <li>To get the actual submodel data for a digital twin, an operation must be provided by the data provider that is called via InvokeOperationSync or InvokeOperationAsync (see the AAS standard for more details). At least the ID of the instantiated part (e.g., partInstanceId or batchId) must be specified as an input argument of this operation. <strong>Note that details about the operation including, e..g, input arguments, still need to be standardized to provide a interoperable solution.</strong></li>
 <li>The backend data service must handle authorization for instantiated parts based on the BPN of data consumer (similar to asset bundling authorization requirements), if necessary.</li>
-<li>The result of this operation must be compliant to the asepct model represented by the submodel descriptor.</li>
+<li>The result of this operation must be compliant to the aspect model represented by the submodel descriptor.</li>
 </ul>
 </li>
 </ul>
