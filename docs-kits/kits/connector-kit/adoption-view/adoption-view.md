@@ -13,7 +13,7 @@ The Connector KIT describes the basic infrastructure that is used for any cross-
 
 ### Vision
 
-Sharing data along the automotive supply chain adds great value for every participant. The key to such collaboration is trust between the involved partners and a clear scope that defines under which conditions and for which purposes transfered data may be used at the receiving partner of the transaction. These prerequisistes are needed to create trust in data sharing use cases which are defined to fulfill regulatory requirements, or to increase process efficiency within the supply chain.
+Sharing data along the automotive supply chain adds great value for every participant. The key to such collaboration is trust between the involved partners and a clear scope that defines under which conditions and for which purposes transfered data may be used at the receiving partner of the transaction. These prerequisites are needed to create trust in data sharing use cases which are defined to fulfill regulatory requirements, or to increase process efficiency within the supply chain.
 
 ### Mission
 
