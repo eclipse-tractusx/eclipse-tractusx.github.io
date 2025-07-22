@@ -22,7 +22,7 @@ Customer and suppliers provide each other `IdBasedRequestForUpdate` aspect model
 ```mermaid
 block-beta
 columns 4
-A("RequestforUpdate"):4
+A("RequestForUpdate"):4
 B1("WeekBasedMaterialDemand"):2
 B3("WeekBasedCapacityGroup"):2
 C1("changedAt")
