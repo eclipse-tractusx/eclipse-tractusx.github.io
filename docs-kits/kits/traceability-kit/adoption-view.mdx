@@ -23,7 +23,7 @@ Furthermore, it will enable solutions and services for tracking and tracing conf
 
 ### Mission
 
-The Traceability KIT provides the necessary standards, aspect models, APIs, logics, and processes to develop traceability apps and provide the necessary data.
+The Traceability KIT provides the necessary standards, aspect models, digital twin, APIs, logics, and processes to develop traceability apps and provide the necessary data.
 All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
 This KIT is closely connected to the Industry Core KIT "Part Instance”, which provides the basis on how to built a data chain based on vehicles, parts and materials - a mandatory prerequisite.
@@ -48,6 +48,8 @@ Interoperable Catena-X traceability solutions will ensure easy onboarding and da
 
 - Missing standardized industry process for notifying suppliers to narrow down quality issues and sending alerts to customers in case of detected faulty components.
 
+- Data out of multiple disciplines complicates a holistic view to identify the root cause.
+
 ### Quality Notifications
 Quality notifications are the best way to make customers or suppliers aware of a situation that requires timely action or attention. This could be a situation that has just arisen, or a task triggered by a workflow.
 The Traceability KIT covers two different types of notifications: Quality Investigation and Quality Alert.
@@ -64,7 +66,7 @@ The following figure illustrates, how quality investigations and alerts througho
 
 ### Block Notifications
 
-Equal to quality notifications, block notifications are a form of data exchange to transfer information about defective parts in a standardized way. Quality notifications in general and quality alerts in particular can be used for the (first) mainly **unstructured** contact between business partners to initiate e.g. a supplier self-disclosure. Block notifications, in contrast, are **structured** messages. They are used to report parts with critical defects, enriched with specific information, directly to business partners, as an immediate measure potentially following a preceding quality alert.
+Equal to quality notifications, block notifications are a form of data exchange to transfer information about defect parts in a standardized way. Quality notifications in general and quality alerts in particular can be used for the (first) mainly **unstructured** contact between business partners to initiate e.g. a supplier self-disclosure. Block notifications, in contrast, are **structured** messages. They are used to report parts with critical defects, enriched with specific information, directly to business partners, as an immediate measure potentially following a preceding quality alert.
 
 > :raised_hand: Detailed information of the specific data being exchanged are available in the [Development View](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#aspect-models).
 
@@ -130,7 +132,7 @@ With the Traceability KIT, we support the Catena-X customer journey for our adop
 ## Further Explanations
 
 ### Example - Industry Problem
-Through the Industry Core KIT, companies can register digital twins for vehicles, products, components, and raw materials and uniquely identify and connect them one-up / one-down within the whole Catena-X ecosystem.
+Through the Industry Core KIT and further use cases, like Logistics, companies can register digital twins for vehicles, products, components, raw materials and transport units and uniquely identify and connect them one-up / one-down within the whole Catena-X ecosystem.
 This creates a coherent end-to-end automotive data chain.
 Traceability is built on top of this data chain and supplements it to e.g. start Quality Investigations and send Quality Alerts in a standardized way while already knowing which parts of your direct customer and suppliers are affected and which are not.
 
