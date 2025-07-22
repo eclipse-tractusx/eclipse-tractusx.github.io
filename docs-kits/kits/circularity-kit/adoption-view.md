@@ -137,7 +137,7 @@ Future additions include data models for the following topics:
 
 - Decommissioning Certificate
 - Material for Recycling
-- Adress Aspects
+- Address Aspects
 - ID Conversion
 - Certificate of Dismantler
 - Diagnostic Data

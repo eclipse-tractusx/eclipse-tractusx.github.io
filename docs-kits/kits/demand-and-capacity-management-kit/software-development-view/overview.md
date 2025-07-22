@@ -162,8 +162,8 @@ It is recommended to compartmentalize tests into test-sets from which different 
 |[Supplier: Create IdBasedComment](./test-supplier#supplier-create-idbasedcomment)|Tests the implementation of the aspect model|- Create valid aspect model<br/>- Create invalid aspect model<br/>- Create user journey specific aspect model|
 |[Supplier: Provide IdBasedComment](./test-supplier#supplier-provide-idbasedcomment)|Tests communication via EDC|- Provide valid payload<br/>- Provide invalid payload<br/>- Provide user journey specific payload|
 |[Customer: Consume IdBasedComment](./test-customer#customer-consume-idbasedcomment)|Tests the implementation of the API and the aspect model|- Consume valid payload<br/>- Consume invalid payload<br/>- Consume user journey specific payload|
-|[Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand](./test-customer#customer-visualize-idbasedcomment-together-with-capacitygroup-and-materialdemand)|Minor user acceptance test|- Comment linked to WeekbasedCapacityGroup<br/>- Comment linked to WeekbasedMaterialGroup<br/>- Comment linked to IdBasedComment|
-|[Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand](./test-supplier#supplier-visualize-idbasedcomment-together-with-capacitygroup-and-materialdemand)|Minor user acceptance test|- Comment linked to WeekbasedCapacityGroup<br/>- Comment linked to WeekbasedMaterialGroup<br/>- Comment linked to IdBasedComment|
+|[Customer: Visualize IdBasedComment together with CapacityGroup and MaterialDemand](./test-customer#customer-visualize-idbasedcomment-together-with-capacitygroup-and-materialdemand)|Minor user acceptance test|- Comment linked to WeekBasedCapacityGroup<br/>- Comment linked to WeekbasedMaterialGroup<br/>- Comment linked to IdBasedComment|
+|[Supplier: Visualize IdBasedComment together with CapacityGroup and MaterialDemand](./test-supplier#supplier-visualize-idbasedcomment-together-with-capacitygroup-and-materialdemand)|Minor user acceptance test|- Comment linked to WeekBasedCapacityGroup<br/>- Comment linked to WeekbasedMaterialGroup<br/>- Comment linked to IdBasedComment|
 
 ### List of User-Journeys
 
