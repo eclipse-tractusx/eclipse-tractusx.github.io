@@ -358,10 +358,10 @@ These characteristics enable standardized documentation, comparability across pr
 
 | Rule ID | Data Attribute | Data Attribute Description                                                                 | Mandatory/Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|--------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 4.11.1  | Description  | Provides contextual information about the attribute. | Mandatory | Regulation (EU) 2024/1781 | - Must provide a clear and concise description of the attribute. | |
-| 4.11.2  | Label        | Human-readable name of the attribute. | Mandatory | Regulation (EU) 2024/1781 | - Must specify a readable label for the attribute.  | |
-| 4.11.3  | Type Unit    | Complex description of the type, helping define unit characteristics or indicating empty if the "children" property is used. | Optional | Regulation (EU) 2024/1781 | - Must select appropriate unit type or indicate empty when "children" are specified. | |
-| 4.11.4  | Data Type    | Specifies the data type;  | Mandatory | Regulation (EU) 2024/1781 | - Must conform to specified data types under regulations. <br> - if "object" is selected, children are utilized instead of data. | |
-| 4.11.5  | Data         | Content of the attribute, dependent on data type and unit specifications. | Optional | Regulation (EU) 2024/1781 | - Must align content with data type and unit dependency. | |
-| 4.11.6  | Children     | Children elements of the hierarchical structure, extending attribute definitions. | Optional | Regulation (EU) 2024/1781 | - Structure must enable hierarchical definitions as necessary. | |
+| 4.11.1  | Description  | Provides contextual information about the attribute. | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must provide a clear and concise description of the attribute. | |
+| 4.11.2  | Label        | Human-readable name of the attribute. | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must specify a readable label for the attribute.  | |
+| 4.11.3  | Type Unit    | Complex description of the type, helping define unit characteristics or indicating empty if the "children" property is used. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Must select appropriate unit type or indicate empty when "children" are specified. | |
+| 4.11.4  | Data Type    | Specifies the data type;  | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must conform to specified data types under regulations. <br> - if "object" is selected, children are utilized instead of data. | |
+| 4.11.5  | Data         | Content of the attribute, dependent on data type and unit specifications. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Must align content with data type and unit dependency. | |
+| 4.11.6  | Children     | Children elements of the hierarchical structure, extending attribute definitions. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Structure must enable hierarchical definitions as necessary. | |
 ```
