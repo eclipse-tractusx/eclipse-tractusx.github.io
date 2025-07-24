@@ -173,7 +173,8 @@ Before implementing the Data Trust & Security KIT, the following components and 
 | Identity & Access Management (IAM) | Authentication and authorization services for participants | eclipse-tractusx/portal-backend | CX-0001 |
 | Digital Twin Registry | Registry for digital twin metadata and endpoints | eclipse-tractusx/sldt-digital-twin-registry | CX-0002 |
 | Eclipse Dataspace Connector (EDC) | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
-| Wallet Service | SSI wallet for credential management | eclipse-tractusx/ssi-docu | CX-0049 |
+| Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0049 |
+| Operator Wallet | SSI wallet for credential issuance | eclipse-tractusx/ssi-credential-issuer | CX-0049 |
 | Trusted List Service | Management of accredited issuers | To be defined | Future CX Standard |
 
 ### Trust Establishment Process
