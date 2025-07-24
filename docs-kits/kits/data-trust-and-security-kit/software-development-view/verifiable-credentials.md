@@ -657,22 +657,22 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
     ],
     "hiddenAttributes": [
       {
-        "@id": "Pcf.companyName",
+        "@id": "companyName",
         "digestMultibase": "z9f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9",
         "status": "hidden"
       },
       {
-        "@id": "Pcf.pcf.primaryDataShare",
+        "@id": "pcf.primaryDataShare",
         "digestMultibase": "z5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1",
         "status": "hidden"
       },
       {
-        "@id": "Pcf.pcf.dataQualityRating",
+        "@id": "pcf.dataQualityRating",
         "digestMultibase": "z1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
         "status": "hidden"
       },
       {
-        "@id": "Pcf.companyIds",
+        "@id": "companyIds",
         "digestMultibase": "z7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3",
         "status": "hidden"
       }
@@ -712,10 +712,10 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
 
 | Attribute | Reason for Privacy |
 |-----------|-------------------|
-| `Pcf.companyName` | Business identity protection |
-| `Pcf.pcf.primaryDataShare` | Data quality metrics that could reveal business processes |
-| `Pcf.pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive |
-| `Pcf.companyIds` | Business identifiers that could enable correlation attacks |
+| `companyName` | Business identity protection |
+| `pcf.primaryDataShare` | Data quality metrics that could reveal business processes |
+| `pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive |
+| `companyIds` | Business identifiers that could enable correlation attacks |
 
 **Privacy-Preserving Features:**
 
