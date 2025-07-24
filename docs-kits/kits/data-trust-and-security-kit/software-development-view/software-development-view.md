@@ -589,7 +589,7 @@ Complete data attestation credentials contain the full data payload with cryptog
     ],
     "type": [
         "VerifiableCredential",
-        "DataAttestationCertificate",
+        "DataAttestationCredential",
         "Pcf"
     ],
     "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
@@ -704,12 +704,12 @@ Selective attribute attestation enables verification of specific data elements w
       "https://www.w3.org/ns/credentials/v2",
       "https://w3c.github.io/vc-jws-2020/contexts/v1/",
       "https://w3id.org/security/data-integrity/v2",
-      "https://raw.githubusercontent.com/eclipse-tractusx/digital-product-pass/main/dpp-verification/schemas/AAC/1.0.0/certifiedSnapshotCredential.jsonld",
-      "https://raw.githubusercontent.com/eclipse-tractusx/digital-product-pass/main/dpp-verification/schemas/dpp/5.0.0/digitalProductPass.jsonld"
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
   "type": [
       "VerifiableCredential",
-      "CertifiedSnapshotCredential",
+      "AttributeAttestationCredential",
       "Pcf"
   ],
   "credentialSubject": {
