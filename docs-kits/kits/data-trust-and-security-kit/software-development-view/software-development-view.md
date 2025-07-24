@@ -160,14 +160,6 @@ Each trusted issuer can have one of the following statuses:
 | `revoked` | Issuer's trust has been permanently revoked | All credentials from this issuer are rejected |
 | `expired` | Issuer's accreditation period has ended | Credentials issued within validity period may still be valid |
 
-### Data Attestation Certificate
-
-When a use case intends to generate certificates that are able to be verified by the consumers, the following structure should be used:
-
-#### Complete Data Attestation Certificate
-
-This certificate type contains the complete data payload along with the attestation:
-
 ## Data Trust Flow
 
 The Data Trust & Security KIT enables a comprehensive flow for establishing and verifying data trust within the Catena-X network. This process involves multiple participants and follows a standardized approach to ensure data integrity and authenticity.
