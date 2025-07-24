@@ -175,7 +175,7 @@ VALUES (?vin ?troubleCode) { ("@vin"^^xsd:string "@troubleCode"^^xsd:string) }.
 SERVICE ?oemConnector {
 
     ####
-    # 3.1 The OEM (e.g. BMW) anomyzes the VIN into an anomymous (VAN) node
+    # 3.1 The OEM (e.g. BMW) anonymizes the VIN into an anonymous (VAN) node
     #.    and gets some master data with it
     ####
     ?van cx:isAnonymousVehicle ?vin;

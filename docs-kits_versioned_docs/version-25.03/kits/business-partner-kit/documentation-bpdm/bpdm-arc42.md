@@ -24,7 +24,7 @@ sidebar_position: 1
 - [Solution Strategy (High Level Picture)](#solution-strategy-high-level-picture)
 - [Building Block View](#building-block-view)
   - [High-Level Architecture (Generic Endpoint)](#high-level-architecture-generic-endpoint)
-  - [Keycloak Authentication \& Autorization Flow](#keycloak-authentication--autorization-flow)
+  - [Keycloak Authentication \& Authorization Flow](#keycloak-authentication--authorization-flow)
 - [Runtime View](#runtime-view)
   - [Upsert Generic Business Partner](#upsert-generic-business-partner)
   - [Update on Golden Record Change](#update-on-golden-record-change)
@@ -486,7 +486,7 @@ UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 
 ## Crosscutting Concepts
 
-## Authentication & Autorization
+## Authentication & Authorization
 
 ### Roles, Rights, Permissions
 
@@ -651,7 +651,7 @@ To enable communication for downloading from the pool through EDC, it's essentia
 Purposes
 Additionally each of the purposes need to be checked. You can find them [here](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md#usagepurpose). All purposes beginning with cx.bpdm.gate and cx.bpdm.pool are relevant.
 
-#### Keycloak Authentication & Autorization Flow
+#### Keycloak Authentication & Authorization Flow
 
 ```mermaid
 

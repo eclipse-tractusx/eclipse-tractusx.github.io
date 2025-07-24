@@ -168,7 +168,7 @@ The integrated EDC client in the IRS is responsible for creating restful request
 | SerialPart | A serialized part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a serial numbers or a similar identifier (e.g. VAN) or a combination of multiple identifiers (e.g. combination of manufacturer, date and number) | [1.0,0, 1.1.0] |
 | Batch | A batch is a quantity of (semi-) finished products or (raw) material product that have been produced under the same circumstances (e.g. same production location), as specified groups or amounts, within a certain time frame. Every batch can differ in the number or amount of products. Different batches can have varied specifications, e.g., different colors. A batch is identified via a Batch ID. | [1.0.0, 2.0.0] |
 | JustInSequencePart | A just-in-sequence part is an instantiation of a (design-) part, where the particular instantiation can be uniquely identified by means of a combination of several IDs related to a just-in-sequence process | 1.0.0 |
-| TractionBatteryCode | The traction battery code is an identification code for any automotive traction battery, ultracapacitor and other reachargeble energy storage device. It allows to carry information as required by the National Standard of the People’s Republic of China according to GB/T 34014-2017 published by the Standardization Administration of China (SAC). | 1.0.0 |
+| TractionBatteryCode | The traction battery code is an identification code for any automotive traction battery, ultracapacitor and other rechargeable energy storage device. It allows to carry information as required by the National Standard of the People’s Republic of China according to GB/T 34014-2017 published by the Standardization Administration of China (SAC). | 1.0.0 |
 
 #### Overview asPlanned
 
@@ -580,9 +580,9 @@ In case at least one "YES" is received, the process step 3 ends
 |     |     |     |     |     |
 | --- | --- | --- | --- | --- |
 | State 1 | State 2 | State n | Result State | Description |
-| YES | NO | UNKOWN | YES | If any part is impacted then whole Supply is impactes |
+| YES | NO | UNKNOWN | YES | If any part is impacted then whole Supply is impacted |
 | YES | NO | NO | YES | Yes if any BPN is impacted even if all are not impacted. |
-| NO | UNKNOW | NO | UNKNOW | Unknown if no Yes and at leat one bpn is unknown state. |
+| NO | UNKNOWN | NO | UNKNOWN | Unknown if no Yes and at least one bpn is unknown state. |
 | NO | NO | NO | NO | No if complete SupplyChain is not impacted |
 
 ![arc42_021](https://eclipse-tractusx.github.io/item-relationship-service/docs/assets/arc42/arc42_021.png)
@@ -1190,7 +1190,7 @@ In case the model of the persisted data (Jobs) changes, data is dropped and Jobs
 
 The IRS utilizes the configuration mechanism provided by Spring Boot. Configuration properties can be defined in the file `src/main/resources/application.yml`
 
-For local testing purposes, there is an additional configuration file called `application-local.yml`. Values can be overriden there to support the local dev environment.
+For local testing purposes, there is an additional configuration file called `application-local.yml`. Values can be overridden there to support the local dev environment.
 
 Other profiles should be avoided. Instead, the configuration can be overwritten using Spring’s external configuration mechanism (see [https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html](https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html).) The operator must have total control over the configuration of the IRS.
 

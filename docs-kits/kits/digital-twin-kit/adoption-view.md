@@ -72,7 +72,7 @@ in existing enterprise IT and on other hand with the Dataspace.
 
 The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#logic--schema)
 and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-chain-kit/Documentation/irs_arc42)
-build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the
+build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimaginable without the
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
 For more information how specifically the Asset Administration Shell is used, consult the Kits.
