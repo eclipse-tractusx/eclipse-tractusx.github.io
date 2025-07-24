@@ -285,43 +285,63 @@ The following resources provide comprehensive implementation guidance:
 
 #### Verifiable Credential Schema Example
 
+Following the schema from Verifiable Credentials v2.0:
+
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Root Verifiable Credential Schema",
   "type": "object",
+  "required": [
+    "@context",
+    "type",
+    "semanticId",
+    "credentialSubject",
+    "id",
+    "issuer",
+    "validFrom",
+    "validUntil",
+    "credentialStatus",
+    "proof"
+  ],
   "properties": {
     "@context": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
     "type": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
+    },
+    "semanticId": {
+      "type": "string"
     },
     "credentialSubject": {
       "type": "object"
     },
-    "issuer": {
+    "id": {
       "type": "string",
       "format": "uri"
     },
-    "issuanceDate": {
+    "issuer": {
+      "type": "string"
+    },
+    "validFrom": {
       "type": "string",
       "format": "date-time"
     },
-    "expirationDate": {
+    "validUntil": {
       "type": "string",
       "format": "date-time"
+    },
+    "credentialStatus": {
+      "type": "object"
     },
     "proof": {
       "type": "object"
     }
   },
-  "required": ["@context", "type", "credentialSubject", "issuer", "issuanceDate", "proof"]
+  "additionalProperties": false
 }
 ```
 
@@ -333,7 +353,7 @@ The Data Trust & Security KIT uses industry-standard cryptographic approaches:
 
 - **Digital Signatures**: Ed25519 and RSA signatures for credential integrity
 - **Key Management**: Secure key generation, storage, and rotation procedures
-- **Hash Functions**: SHA-256 for data integrity verification
+- **Hash Functions**: SHA3-512 for data integrity verification
 - **Encryption**: AES-256 for sensitive data protection
 
 ### Privacy Protection
@@ -395,12 +415,15 @@ The KIT integrates seamlessly with Digital Twin Registry:
 ```mermaid
 sequenceDiagram
     participant App as Application
+    participant VerifyService as Verification Service Wallet
     participant DTR as Digital Twin Registry
-    participant VerifyService as Verification Service
+    participant SS as Submodel Service
     participant TrustedList as Trusted List
     
-    App->>DTR: Query for Digital Twin
-    DTR->>App: Return Twin with Credentials
+    App->>DTR: Query for Digital Twin via Dataplane Proxy
+    DTR->>App: Return Twin with Submodel Credentials via Dataplane Proxy
+    APP->>SS: Get Verifiable Credential in Submodel via Dataplane Proxy
+    SS->>APP: Veriable Credential via Dataplane Proxy
     App->>VerifyService: Verify Credentials
     VerifyService->>TrustedList: Check Issuer Status
     TrustedList->>VerifyService: Return Issuer Status
@@ -991,7 +1014,7 @@ Based on security requirements and use cases, the following recommendations appl
 **Deprecated/Discouraged:**
 
 - RSA signatures below 3072-bit key size
-- SHA-1 based signatures (use SHA-256 minimum)
+- SHA-1 based signatures (use SHA3-512 minimum)
 - Custom or proprietary signature schemes
 - Signature types without proper W3C or IETF standardization
 
