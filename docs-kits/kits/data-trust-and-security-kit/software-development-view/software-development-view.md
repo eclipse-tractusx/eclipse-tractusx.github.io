@@ -170,7 +170,6 @@ Before implementing the Data Trust & Security KIT, the following components and 
 
 | Component | Description | Repository/Standard | CX Standard |
 |-----------|-------------|---------------------|-------------|
-| Identity & Access Management (IAM) | Authentication and authorization services for participants | eclipse-tractusx/portal-backend | CX-0001 |
 | Digital Twin Registry | Registry for digital twin metadata and endpoints | eclipse-tractusx/sldt-digital-twin-registry | CX-0002 |
 | Eclipse Dataspace Connector (EDC) | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
 | Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0049 |
@@ -226,24 +225,6 @@ Data consumers must verify credentials through comprehensive validation that inc
 
 **Critical Note**: Both trusted list validation and revocation checking are mandatory steps in the verification process. Failure in either check should result in credential rejection unless explicitly overridden by organizational policy.
 
-## Authentication and Authorization
-
-The Data Trust & Security KIT integrates with the Catena-X authentication and authorization infrastructure:
-
-### Authentication
-
-Authentication is managed through the Portal's federated Identity & Access Management (IAM) system, following CX-0001 standards. All API interactions require valid JWT tokens obtained through the portal authentication flow.
-
-### Authorization Mechanisms
-
-The KIT supports multiple authorization approaches:
-
-| Method | Description | Use Case |
-|--------|-------------|----------|
-| Role-Based Access Control (RBAC) | Portal roles determine access permissions | General application access |
-| Business Partner Number (BPN) Validation | Restrict access based on participant identity | Company-specific data access |
-| Credential-Based Authorization | Use verifiable credentials for access decisions | Fine-grained access control |
-
 ## API Specifications
 
 ### Core APIs
@@ -284,7 +265,6 @@ The Data Trust & Security KIT provides several REST APIs for different aspects o
 
 All APIs implement security measures aligned with Catena-X standards:
 
-- **Authentication**: JWT Bearer tokens from Portal IAM
 - **Authorization**: Role and BPN-based access control
 - **Rate Limiting**: API rate limits to prevent abuse
 - **Input Validation**: Comprehensive input sanitization and validation
