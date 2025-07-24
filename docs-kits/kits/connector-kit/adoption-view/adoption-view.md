@@ -13,13 +13,20 @@ The Connector KIT describes the basic infrastructure that is used for any cross-
 
 ### Vision
 
-Sharing data along the automotive supply chain adds great value for every participant. The key to such collaboration is trust between the involved partners and a clear scope that defines under which conditions and for which purposes transfered data may be used at the receiving partner of the transaction. These prerequisites are needed to create trust in data sharing use cases which are defined to fulfill regulatory requirements, or to increase process efficiency within the supply chain.
+Sharing data along the automotive supply chain adds great value for every participant. A wide range of use cases support efficiency in engineering, production and logistics. A prerequisite of the support of the transfer use cases is trust between the involved partners and a clear scope on which data is transfered and under which conditions it can be used. The technologies described in the Connector KIT provide exactly that framework that allows trustworthy exchange within the automotive supply chain.
 
 ### Mission
 
-Collaboration needs trust. Within Catena-X trust is built on open standards and technologies that transparently provide features to find data, to agree on the usage of the data in a legally binding way and to provide technical means for accessing the data.
+Data transfer between companies needs trust. But what exactly does trust mean. From a data provider side, it requires that data is only given to authenticated consumers under defined conditions for the usage of the data. From a consumer side, the data used has to be trustworthy, i.e., the source of the data is trusted and the semantics of the data transfered is defined. For both sides, it is important to allow and easy integration into existing IT landscapes and the usage of a wide variety of technologies to meet the diverse transfer use cases.
 
-The Connector KIT provides all necessary information and technology references to perform trustful data exchange within Catena-X. It bundles the interaction patterns, relevant standards, APIs, and reference implementations for developers.
+Although there are established solutions in the internet, the chosen dataspace technology provides the required features scalable and with a quality that exceeds the established solutions. Main advantages are:
+
+- Scalability through the usage of Self-Sovereign Identities. This reduces efforts in the management as the complex n:m relationship between providers and consumers is reduced to the management of ones own identity that is provided by a central issuance agency. The concept favorably supports the concept of business identities, as the data transfer happens between companies and not between single users.
+- The conditions under which the data is allowed to be used are transparently stated during the authentication process, they can be complete in themselves or refer to existing contracts, but are associated directly to a data transfer authorization. This allows flexibility and transparency in the definition of different transfer models depending on the involved data and partners.
+
+The mission of the Connector KIT is to provide all necessary information and technology references to perform trustful data exchange within Catena-X. It bundles the interaction patterns, relevant standards, APIs, and reference implementations for developers. The concrete scope within Catena-X is shown in the following figure by the green boxes.
+
+![Scope of the KIT](./assets/kit_scope.drawio.png)
 
 ## Important terms and definitions
 
@@ -45,7 +52,7 @@ The data exchange in Catena-X follows a set of values and derived principles tha
   - how the data is transfered, i.e., which protocols resp. which APIs to use for accessing it,
   - under which conditions the data can be used.
 
-## Concept
+## Basic Concepts used for Dataspace Connectivity
 
 The basic concept followed in Catana-X to achieve the targeted goals is the use of dataspace technology which is based on the existence of a connector. A connector provides the technical implementation of the dataspace principles using standardized protocols and assets maintained by the [Eclipse Dataspace Working Group][edwg-url]. The assets are based on concepts created by the [IDSA][idsa-url] and are in accordance to principles of [Gaia-X][gaiax-url].
 
@@ -53,7 +60,28 @@ In detail, the relevant assets are:
 
 - [Dataspace Protocol (DSP)][dsp-url]: The DSP is a specified protocol for the interaction of a data consumer with a data provider in order to find data offerings, get access to the data and managing the data transfer. In Catena-X, the protocol is used with its HTTP binding, i.e., the requests and responses defined in the DSP are translated to REST API endpoints.
 - Identity: The DSP requires trustworthy identities for dataspace participants. For Catena-X, there are bascially two relevant identifier which represent identity. A *Business Partner Number* for a legal entity (BPNL) represents an unique identifier for a company in a legally binding fashion. For technical reasons, a second identifier is needed based on the [*Decentralized Identifier* (DID)][did-url] standard. This identifier type, especially the used WEB-DID method allows to connect metadata like public keys or central service references to the company by providing the information in a DID document. This is hosted by a participant and the endpoint address for retrieval of the document is derived from the (WEB-)DID only.
-- Verifiable Credentials: The identity and the acceptance of general terms and conditions for the participation in Catena-X are expressed in the form of a verifiable credential. A verifiable credential is basically a digitally signed data structure which allows a participant to proof the availability of a certain fact like the participants identity or the acceptance of terms and conditions in a tamper-resistant way. Verifiable credentials are typically issued by a central authority but managed by the owner of the credential in a wallet. Just like a person who manages a passport issued by the government of his country in his purse.
+- Verifiable Credentials: The identity and the acceptance of general terms and conditions for the participation in Catena-X are expressed in the form of a verifiable credential. A verifiable credential is basically a digitally signed data structure which allows a participant to proof the availability of a certain fact like the participants identity or the acceptance of terms and conditions in a tamper-resistant way. Verifiable credentials are typically issued by an authority which is authorized to issue the defined credential and, therefore, is assumed as trustworthy.
+- [Self-Sovereign Identity][self-sovereign-identity-url]: The self-sovereign identity mechanism used is based on the principle of self-management of the own identity in the form of *Verifiable Credential* (VC) in an own wallet. As a consequence, in authentication scenarios, no third party is involved. The consumer can simply provide his credentials which can be proven by the provider with simply knowning the public key of the issuing authority as shown in the following picture.
+
+```mermaid
+sequenceDiagram
+    participant P as Provider
+    participant C as Consumer
+    participant I as Issuance Authority
+
+    opt One-Time Identity Issuance
+        C->>+I: Request Proof of Identity VC
+        I->>-C: Issued VC
+    end
+
+    C->>+P: Request access to data
+    P-->>+C: Request VC to proof identity
+    C-->>-P: Present VC
+    P->>-C: Provide access details
+    C->>+P: Request data with access details
+    P->>-C: Requested data
+```
+
 - [Decentralized Claims Protocol (DCP)][dcp-url]: The protocol used within Catena-X to allow a providers connector to access the wallet of a consumer in order to retrieve relevant verifiable credentials. This is needed to authenticate the consumer, i.e., to enable the provider to identify the consumer and to check prerequisites necessary to grant access to the offered data.
 - Policies: A data offering by a data provider always comes with a contract proposal, i.e., a set of conditions under which the data can be accessed. These conditions are expressed in the form of [*Open Digital Rights Language* (ODRL)][odrl-url] policies. In Catena-X, there is a formal specification of a set of policy constraints which provide the legal definition to clarify the meaning of the constraint when used in a data transfer contract. See the extra page on [policies][policy-url] for a deeper insight into how policies are used within Catena-X.
 - Discovery: Based on the DID of a data provider, Catena-X defines a decentral discovery mechanism that allows to identify endpoints of connectors in order to initiate data transfer use cases. The discovery mechanism uses the DID document to provide information on connector endpoints again in a decentral manner.
@@ -95,6 +123,29 @@ The connector framework is basically an enabler for all kinds of use cases. By s
 
 ## Business Architecture
 
+The dataspace protocol suggests a *Connector*, which implements the state machines and interactions patterns specified in the protocol. A connector is thereby separated into two distinguished concepts the *Control Plane*, which implements the protocol interactions, and a *Data Plane*, which realizes the data transfer with a specific transfer protocol. The control plane as such is a static concept which can be implemented and used in multiple transfer scenarios, whereas the data plane is a virtual concept that is provided in multiple facets in order to implement different data transfer types, like standard http rest api access, transferring binary large objects, or continuous data streaming.
+
+The following sequence diagram shows the general interaction patterns of the control plane, explained afterwards in more detail.
+
+```mermaid
+sequenceDiagram
+    Consumer Control Plane->>+Provider Control Plane: Catalog Request
+    Provider Control Plane->>-Consumer Control Plane: Catalog
+
+    Consumer Control Plane->>Provider Control Plane: Contract Negotiation Request
+    Consumer Control Plane->>+Provider Control Plane: Contract Negotiation Status?
+    Provider Control Plane->>-Consumer Control Plane: Status of Contract Negotiation Process
+
+    Consumer Control Plane->>+Provider Control Plane: Start Transfer Process
+
+    alt Pull Scenario
+        Consumer Control Plane->>+Provider Control Plane: Status Transfer Process?
+        Provider Control Plane->>-Consumer Control Plane: Status of Transfer Process + EDR if started
+    else Push Scenario
+        Provider Control Plane->>Provider Data Plane: Initiate data Transfer
+    end
+```
+
 The general interaction pattern is driven by the Dataspace Protocol which defines three levels of interaction:
 
 1. Catalog Request:
@@ -117,7 +168,7 @@ The general interaction pattern is driven by the Dataspace Protocol which define
 
      Push transfers are by default a one time transfer, i.e., a transfer process is initiated, the provider pushes the contracted data to the sink and finalizes the transfer process. An additional transfer mechanism to be established soon is an infinite push, i.e., the transfer process is not terminated and the provider sends new data elements as soon as they are created until the process is stopped manually or by expiry of the contract.
 
-The interactions described are implemented by the *Control Plane* of a connector. That is the service that is typically associated with the idea of a connector. After the transfer process is started, a second service, the *Data Plane* is responsible for the data transfer, i.e., it mediates between the consuming service and the providing service to get the data transfered. The data plane is a transfer technology specific implementation that connects an existing transfer technology to the concepts of the dataspace concept to allow the initiation of a transfer process.
+After the transfer process is started, the data plane is responsible for the data transfer, i.e., it mediates between the consuming service and the providing service to get the data transfered. The data plane is a transfer technology specific implementation that connects an existing technology to the concepts of the dataspace concept. The technology specific information on data endpoints used and access information needed are part of the transfer process creation.
 
 ### Important Terms
 
