@@ -7,6 +7,10 @@ sidebar_position: 1
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
+## Changes release 25.09
+
+* Add synchronous data exchange via data pull and digital twins according to industry core standard/kit
+
 ## PCF Exchange KIT
 
 All notable changes to this Kit will be documented in this file.
