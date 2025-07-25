@@ -56,7 +56,7 @@ Additionally, a template for different rulebooks to gain trust in specific use c
 Customers, investors, and regulators increasingly depend on accurate product and sustainability information to make informed decisions regarding climate action and sustainable practices. Regulatory frameworks such as the Ecodesign for Sustainable Products Regulation (ESPR) mandate that elements of the forthcoming Digital Product Passport — such as unique identifiers and data carriers (e.g., QR codes) — must be verifiable, however details are still subject to further standards and delegated acts.
 Verifiability is critical for providing auditable, trustworthy evidence that supports sustainability claims and disclosures. It enables the authentication of key attributes, including product types, origin, manufacturing facilities, and associated business entities.
 
-To facilitate data sharing across supply chains, interoperable ecosystems — such as data spaces — are being developed. These rely on standardized data models and exchange formats. 
+To facilitate data sharing across supply chains, interoperable ecosystems — such as data spaces — are being developed. These rely on standardized data models and exchange formats.
 
 In addition, there are specific *business requirements towards interoperability* outside a given data space to ensure seamless data exchange across different networks and initiatives.
 By using Verifiable Credentials, *interoperability with other ecosystems* that adopt the same standard is ensured. For example, Catena-X data can be exchanged across networks while maintaining data sovereignty. This is achieved by presenting Verifiable Credential data in other networks using Verifiable Presentations. Importantly, the *verification metadata* does not need to be stored in a centralized system—it travels decentrally with the data. As a result, any consumer with internet access and a functioning identity wallet can verify the authenticity and issuer of the data.
@@ -70,11 +70,11 @@ Enhancing the verifiability of product and sustainability information supports b
 
 The *core business processes* supported by verifiable certifications can be summarized as follows:
 
-##### 1. Regulatory Compliance: Adhering to legal and regulatory sustainability requirements.
+##### 1. Regulatory Compliance: Adhering to legal and regulatory sustainability requirements
 
-##### 2. Evidence Collection and Reporting: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria.
+##### 2. Evidence Collection and Reporting: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
 
-##### 3. Risk Monitoring: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience.
+##### 3. Risk Monitoring: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience
 
 Given the labor-intensive nature of these processes, there is a strong economic incentive across the supply chain to adopt solutions that enable gradual automation, thereby improving efficiency and reducing operational burdens.
 
@@ -110,7 +110,7 @@ Detailed Information regarding the technology can be seen at [Software Developme
 
 ### Layer 3: Data Content
 
-#### Rulebooks Explanation why we need a "rulebook".  can be also standards.
+#### Rulebooks Explanation why we need a "rulebook".  can be also standards
 
 #### Certified Data Credential & Certified Snapshot Credential (when are they used and for what)
 
