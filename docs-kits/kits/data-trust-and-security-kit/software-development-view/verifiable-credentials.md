@@ -448,7 +448,6 @@ Each attribute within the `credentialSubject.attributes` array contains the foll
 | **@id** | String | Attribute path identifier | Specifies the exact attribute being verified (e.g., "pcf.biogenicCarbonEmissionsOtherThanCO2") |
 | **digestMultibase** | String | Cryptographic hash of original attribute in SHA3-512 | Proves integrity without revealing the actual value using multibase encoding |
 
-
 #### Selective Disclosure Mechanism
 
 **Attribute Hashing Process:**

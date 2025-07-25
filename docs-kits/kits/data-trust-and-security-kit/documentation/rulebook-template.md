@@ -9,7 +9,8 @@ sidebar_position: 10
 
 ## Validation & Verification Rulebook Template for Data Models
 
-```
+```md
+
 ## 1. Goal of this `<<YOUR_USECASE>>` Rulebook
 
 Describe the purpose of this rulebook.
@@ -114,7 +115,5 @@ Include any diagrams, flows, or supporting materials.
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
-
-- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
