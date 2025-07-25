@@ -136,7 +136,7 @@ For the data provider, the process is now over, and the consumer's request has b
 The PCF data is exchanged between a data consumer and a data provider. The data consumer starts the request with steps as follows:
 
 - The data consumer realizes that he/she needs the PCF for a specific component and the data is not available in his/her local data (or is not of sufficient quality).
-- With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If so, the PCF data is pulled via connector. From a technical perspective, this means that there is already an existing digital twin for the component, the PCF submodel is available and ready to consume via data pull.
+- With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If so, the PCF data is pulled via connector. From a technical perspective, this means that there is already an existing digital twin for the component, the PCF submodel is available and ready to consume via data pull for authorized partner.
 - The data consumer can now transfer this data to his/her internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
 
 
