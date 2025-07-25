@@ -23,11 +23,11 @@ Furthermore, it will enable solutions and services for tracking and tracing conf
 
 ### Mission
 
-The Traceability KIT provides the necessary standards, aspect models, APIs, logics, and processes to develop traceability apps and provide the necessary data.
+The Traceability KIT provides the necessary standards, aspect models, digital twin, APIs, logics, and processes to develop traceability apps and provide the necessary data.
 All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
 This KIT is closely connected to the Industry Core KIT "Part Instance”, which provides the basis on how to built a data chain based on vehicles, parts and materials - a mandatory prerequisite.
-The Traceability KIT supplements it with further tracking relevant aspects, business logic and APIs to e.g. send quality notifications or trace battery relevant aspects (e.g. GBT-Codes for China).
+The Traceability KIT supplements it with further tracking relevant aspects, business logic and APIs to e.g. send quality notifications, trace battery relevant aspects (e.g. GBT-Codes for China) or provide the opportunity for a holistic analysis on traceability data to identify root causes.
 
 
 ## Business Value & Benefits
@@ -111,7 +111,7 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 - **Exchanging Specification Data:** The exchange of specification data for special characteristics should be possible at the part type level.
 - **Consuming Measured Data:** The customer should be able to consume the measured data `SpecialCharacteristicMeasurement` provided by the manufacturer.
 
-### Digital Twin Quality Task
+### Digital Twin qualityTask
 
 The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if affected parts are not identified and the root cause is unknown. 
 This kind of DT represents the quality issue or quality claim itself as a case or kind of a file. It is NOT a virtual representation of a physical asset (IDTA conformity of DT - asset kind: not applicable).
@@ -120,7 +120,7 @@ Having this holistic overview of data and therefore the impact of affected goods
  
 Furthermore the DT qualityTask provides the bridge to the data driven quality use case. The data models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
-This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormalities can be linked to it (like a BoM), marked by that as affected and analysed deeper.
+This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormalities or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
 
 ### Benefits for OEM, SME and Solution Provider

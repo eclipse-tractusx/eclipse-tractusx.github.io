@@ -11,7 +11,7 @@ All notable changes to this KIT will be documented in this file.
 
 ## [6.0.3] - Compatible for **release 25.09**
 
-- add new DT qualityTask in adoption view, architecture view and software operation
+- Add new DT qualityTask in adoption view, architecture view and software development view
 
 
 ## [6.0.2] - 2025-02-07
