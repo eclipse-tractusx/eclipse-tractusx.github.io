@@ -33,14 +33,14 @@ The framework provides different types of certificates for different verificatio
 
 | Certificate Type | Who Creates It | What It Contains | When You'd Use It |
 |------------------|----------------|------------------|-------------------|
-| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider | Complete dataset with signature | When you want to self-certify your entire dataset |
+| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider or Attestation Provider | Complete dataset with signature | When you want to self-certify your entire dataset or ask the complete data endpoints to be certified |
 | **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Specific data attributes with validation | When you need third-party verification of specific values |
 | **[Attribute Attestation Credential with Privacy (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
 | **[Attribute Certification Record (ACR)](#attribute-certification-record-acr)** | Data Provider | Collection of multiple certificates | When you want to bundle several certifications together |
 
-### Data Attestation Credentials (DAC) - Self-Certifying Your Data
+### Data Attestation Credentials (DAC) - Certifying Your Complete Data
 
-Data Attestation Credentials are like digital notarizations that you create for your own data. When you have a complete dataset (like a carbon footprint calculation or battery passport), you can create a DAC to cryptographically prove that the data came from you and hasn't been changed.
+Data Attestation Credentials are like digital notarizations that you create for your own data. When you have a complete dataset (like a carbon footprint calculation or battery passport), you can create a DAC to cryptographically prove that the data came from you and hasn't been changed. Additionally it can also be notarizated by external Attestation Providers.
 
 #### When You'd Use DACs
 
@@ -48,6 +48,7 @@ Data Attestation Credentials are like digital notarizations that you create for 
 - **Complete Datasets**: When you're sharing entire aspect models rather than individual attributes
 - **Data Integrity**: When you need to prove data hasn't been tampered with during transmission
 - **Audit Trails**: When you need a permanent record of what data you shared and when
+- **Complete Data Certification**: When the all the data, or a set of atributes from your datamodel are certified by a Attestation Provider.
 
 #### How DACs Work
 
@@ -59,20 +60,7 @@ Think of a DAC as a tamper-proof envelope for your data. Here's what happens:
 4. **Sharing** - You share both the data and certificate through the Digital Twin Registry or direct exchange
 5. **Verification** - Data Consumers can verify the certificate using your public key
 
-#### What Goes Into a DAC
-
-A DAC contains several key components:
-
-| Component | Purpose | Description |
-|-----------|---------|-------------|
-| **@context** | Semantic Definition | Defines the JSON-LD contexts that provide meaning to the data structures |
-| **type** | Credential Classification | Specifies the credential type hierarchy (VerifiableCredential → DataAttestationCredential → Specific Use Case) |
-| **semanticId** | Aspect Model Reference | Links to the specific SAMM aspect model that defines the data structure |
-| **credentialSubject** | Actual Data Payload | Contains the complete aspect model data being attested |
-| **issuer** | Identity Verification | DID (Decentralized Identifier) of the organization issuing the credential |
-| **proof** | Cryptographic Signature | Digital signature that ensures data integrity and authenticity |
-
-**Trust Establishment Process:**
+#### How to generated it?
 
 1. **Data Preparation**: The data provider prepares their aspect model data according to Catena-X standards
 2. **Credential Creation**: The complete dataset is wrapped in a verifiable credential structure
@@ -80,7 +68,7 @@ A DAC contains several key components:
 4. **Publication**: The signed credential is made available through Digital Twin Registry or direct exchange
 5. **Verification**: Data consumers can verify the credential using the issuer's public key and trusted issuer lists
 
-**Verification Benefits:**
+#### Benefits
 
 - **Data Integrity**: Cryptographic proof that data hasn't been tampered with
 - **Authenticity**: Verification that data comes from the claimed source
@@ -88,7 +76,7 @@ A DAC contains several key components:
 - **Traceability**: Complete audit trail of data attestation
 - **Interoperability**: Standard format enables cross-platform verification
 
-**Use Case Examples:**
+#### Use Case Examples
 
 - **Product Carbon Footprint**: Complete PCF data with all emission factors and calculations
 - **Battery Passport**: Full battery lifecycle data including materials and performance metrics
@@ -332,25 +320,18 @@ The following table explains each component of the Data Attestation Credential s
 
 #### Critical Security Components
 
-**Issuer DID Resolution:**
+##### Issuer DID Resolution
+
 The `issuer` field uses a Decentralized Identifier (DID) to help verify signatures. For example, if you see `did:web:tuv-sud.de`, you can fetch the public key by visiting `https://tuv-sud.de/.well-known/did.json`. This is how you check that the credential really comes from the claimed source.
 
-**Proof Structure:**
-
-- **type**: The signature algorithm used (like JsonWebSignature2020, which works with JWT)
-- **proofPurpose**: Why the signature was created (usually 'assertionMethod' for attestation)
-- **verificationMethod**: Which key was used to sign
-- **created**: When the signature was made (helps prevent replay attacks)
-- **jws**: The actual signature, in JWS format
-
-**Revocation Management:**
+#### Revocation Management
 
 - **id**: Shows the position in the revocation list
 - **type**: Format of the revocation list (RevocationList2020Status)
 - **revocationListIndex**: Bit position in the revocation bitstring
 - **revocationListCredential**: Where to find the revocation list document
 
-**Validation Method Structure:**
+#### Validation Method Structure
 
 The `validationMethod` field lists the standards and compliance checks used during verification:
 
@@ -373,7 +354,7 @@ Selective attribute attestation enables verification of specific data elements w
 
 Attribute Attestation Credentials (AAC) provide a mechanism for third-party auditors and certification bodies to verify specific attributes within aspect models without requiring access to the complete dataset. This selective disclosure approach enables fine-grained trust establishment while preserving data privacy.
 
-**Core Architecture:**
+#### Core Architecture
 
 | Component | Function | Technical Details |
 |-----------|----------|-------------------|
@@ -383,7 +364,7 @@ Attribute Attestation Credentials (AAC) provide a mechanism for third-party audi
 | **Origin Linking** | Source Traceability | Cryptographic link to the original complete dataset (DAC) without exposing it |
 | **Third-party Signing** | Independent Verification | Signed by accredited auditors or certification bodies, not the data owner |
 
-**Verification Process Flow:**
+#### Verification Process Flow
 
 1. **Attribute Selection**: Auditor identifies specific attributes requiring verification (e.g., carbon emissions, compliance metrics)
 2. **Data Access**: Auditor accesses the complete dataset through secure channels or controlled environments
@@ -391,9 +372,9 @@ Attribute Attestation Credentials (AAC) provide a mechanism for third-party audi
 4. **Hash Generation**: Verified attributes are cryptographically hashed to create tamper-proof references
 5. **Credential Creation**: AAC is created containing only the validated attributes and their verification methods
 6. **Digital Signing**: Auditor signs the credential using their accredited private key
-7. **Publication**: AAC is returned to data owner or published through appropriate channels
+7. **Publication**: AAC is returned to data owner or published through Digital Twins for consumers to retrieve using a EDC Connector connected to a Dataspace like Catena-X.
 
-**Privacy-Preserving Features:**
+#### Privacy-Preserving Features
 
 | Feature | Benefit | Implementation |
 |---------|---------|----------------|
@@ -402,30 +383,27 @@ Attribute Attestation Credentials (AAC) provide a mechanism for third-party audi
 | **Compartmentalized Trust** | Different trust levels per attribute | Each attribute can have different auditors and validation methods |
 | **Minimal Data Exposure** | Reduced privacy risks | Only necessary attribute information is shared |
 
-**Validation Method Types:**
+#### Validation Method Types
 
-- **Standard Compliance**: Verification against industry standards (ISO, DIN, ASTM)
-- **Regulatory Compliance**: Validation against legal requirements and regulations
-- **Calculation Verification**: Mathematical validation of computed values and formulas
-- **Data Quality Assessment**: Verification of data completeness, accuracy, and reliability
-- **Process Certification**: Validation of underlying processes and methodologies
+| Key Type | Description |
+| -- | -- |
+| `Standard` | Verification against industry standards (ISO, DIN, ASTM, Catena-X PCF Rulebook) |
+| `Regulation` | Validation against legal requirements and regulations (Battery Regulation, EcoDesign) |
+| `Calculation Method` | Mathematical validation of computed values and formulas |
+| `Data Quality Assessment` | Verification of data completeness, accuracy, and reliability |
+| `Methodology` | Validation of underlying methodologies |
+| `Manual` | Validation against book or manual |
+| `Application` | Validation using specific application with algorithm |
+| `Process` | Validation of underlying Process |
+| `Other` | Allows any other validation method type to be specified |
 
-**Use Case Scenarios:**
+#### Use Case Scenarios
 
 1. **Regulatory Reporting**: Third-party verification of emission values for regulatory compliance
 2. **Supply Chain Auditing**: Independent verification of sustainability metrics without exposing proprietary data
 3. **Financial Reporting**: Auditor verification of specific financial metrics within broader datasets
 4. **Quality Certification**: Certification body validation of product quality attributes
 5. **Compliance Monitoring**: Ongoing verification of key performance indicators by regulatory bodies
-
-**Trust Chain Integration:**
-
-The AAC system integrates with the broader trust ecosystem through:
-
-- **Trusted Issuer Registry**: Auditors must be accredited and listed in trusted issuer lists
-- **Revocation Management**: AACs can be revoked if validation methods are found to be flawed
-- **Cross-validation**: Multiple AACs can reference the same origin data for comprehensive verification
-- **Temporal Validity**: Time-bound validations ensure certificates remain current and relevant
 
 ```json
 {
@@ -515,36 +493,11 @@ Each attribute within the `credentialSubject.attributes` array contains the foll
 | **@id** | String | Attribute path identifier | Specifies the exact attribute being verified (e.g., "pcf.biogenicCarbonEmissionsOtherThanCO2") |
 | **digestMultibase** | String | Cryptographic hash of original attribute in SHA3-512 | Proves integrity without revealing the actual value using multibase encoding |
 
-### Attribute Attestation Credential (AAC) with Selective Diclosure
+:::info
+It uses the same validation method structure as the Data Attestation Credential (DAC)
+:::
 
-**Attribute Hashing Process:**
-
-1. **Original Data Extraction**: Specific attributes are extracted from the complete dataset
-2. **Normalization**: Data is normalized according to JSON-LD canonicalization rules
-3. **Hash Generation**: SHA3-512 hash is computed for each attribute value
-4. **Multibase Encoding**: Hash is encoded using multibase format for consistent representation
-5. **Proof Creation**: Hash is included in the credential as tamper-proof reference
-
-**Privacy Protection Features:**
-
-| Feature | Implementation | Privacy Benefit |
-|---------|----------------|-----------------|
-| **Hash-only Storage** | Only cryptographic hashes stored in AAC | Original values remain private |
-| **Selective Attribute Choice** | Auditor chooses which attributes to verify | Unverified data stays confidential |
-| **Origin Abstraction** | Generic reference to source without details | Source data location not exposed |
-| **Validation Method Disclosure** | Standards used are documented | Transparency without data exposure |
-
-**Validation Method Structure:**
-
-Each validation method in the AAC contains:
-
-- **@type**: Classification of validation approach (Standard, Regulation, Process)
-- **label**: Human-readable description of the validation method
-- **@id**: Unique identifier for the standard or regulation (e.g., CX-0029)
-- **uri**: Direct link to the official standard or regulation document
-- **compliance**: Percentage or level of compliance achieved (e.g., "100%")
-
-**Origin Link Security:**
+#### Origin Link Security
 
 The `origin` object provides cryptographic linkage without exposure:
 
@@ -553,21 +506,33 @@ The `origin` object provides cryptographic linkage without exposure:
 - **@id**: Secure reference to data location (can be DID or protected URL)
 - **@type**: Media type specification for proper handling
 
-#### Third-Party Auditor Verification
+### Attribute Attestation Credential (AAC) with Selective Disclosure
 
-**Auditor Accreditation Requirements:**
+#### Attribute Hashing Process
+
+1. **Original Data Extraction**: Specific attributes are extracted from the complete dataset
+2. **Normalization**: Data is normalized according to JSON-LD canonicalization rules
+3. **Hash Generation**: SHA3-512 hash is computed for each attribute value
+4. **Multibase Encoding**: Hash is encoded using multibase format for consistent representation
+5. **Proof Creation**: Hash is included in the credential as tamper-proof reference
+
+#### Privacy Protection Features
+
+| Feature | Implementation | Privacy Benefit |
+|---------|----------------|-----------------|
+| **Hash-only Storage** | Only cryptographic hashes stored in AAC | Original values remain private |
+| **Selective Attribute Choice** | Auditor chooses which attributes to verify | Unverified data stays confidential |
+| **Origin Abstraction** | Generic reference to source without details | Source data location not exposed |
+| **Validation Method Disclosure** | Standards used are documented | Transparency without data exposure |
+
+#### Attestestation Provider Verification
+
+##### Auditor Accreditation Requirements
 
 1. **Trusted Registry Inclusion**: Auditor DID must be present in governance-maintained trusted issuer list
 2. **Scope Validation**: Auditor's accreditation scope must cover the specific validation methods used
 3. **Status Verification**: Auditor status must be "active" and not "suspended" or "revoked"
 4. **Temporal Validity**: Auditor's accreditation must be valid during the verification period
-
-**Verification Process Integrity:**
-
-- **Independent Validation**: Auditor performs verification independently from data owner
-- **Method Documentation**: Specific standards and processes used are documented
-- **Result Attestation**: Auditor cryptographically signs the verification results
-- **Traceability**: Complete audit trail from original data to verified attributes
 
 ### Selective Disclosure Example
 
@@ -784,14 +749,14 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
 
 #### Selective Disclosure Analysis
 
-**What Gets Revealed:**
+##### *What Gets Revealed
 
 | Attribute | Value | Justification |
 |-----------|-------|---------------|
 | `pcf.pcfExcludingBiogenic` | 2.0 kg CO2 eq | Required for regulatory compliance reporting |
 | `pcf.fossilGhgEmissions` | 0.5 kg CO2 eq | Necessary for carbon accounting verification |
 
-**What Stays Private:**
+##### What Stays Private
 
 | Attribute | Reason for Privacy |
 |-----------|-------------------|

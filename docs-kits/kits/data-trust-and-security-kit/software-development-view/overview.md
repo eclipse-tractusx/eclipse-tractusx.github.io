@@ -18,13 +18,13 @@ In today's world, you can't just accept data at face value - especially when it 
 
 This KIT is built on established industry standards to ensure interoperability and compliance:
 
-**W3C Standards:**
+#### W3C Standards
 
 - **[Verifiable Credentials Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/)** - Core framework for tamper-evident digital certificates
 - **[JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signatures for JSON-LD documents
 - **[Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/)** - Decentralized identity resolution
 
-**Catena-X Standards:**
+#### Catena-X Standards
 
 - **[CX-0002 Digital Twins](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)** - Asset registry integration
 - **[CX-0029 PCF Rulebook](https://catenax-ev.github.io/docs/standards/overview)** - Product Carbon Footprint verification requirements

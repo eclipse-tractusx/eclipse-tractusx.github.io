@@ -327,7 +327,7 @@ const sidebars = {
         items: [
           'kits/data-trust-and-security-kit/changelog',
           'kits/data-trust-and-security-kit/adoption-view',
-          'kits/data-trust-and-security-kit/operation-view',
+
           {
             type: 'category',
             label: 'Development View',
@@ -364,7 +364,8 @@ const sidebars = {
                 id: 'kits/data-trust-and-security-kit/success-stories/dpp-verification-success-story'
               }
             ]
-          }
+          },
+          'kits/data-trust-and-security-kit/operation-view'
         ]
       },
       {
