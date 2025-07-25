@@ -118,7 +118,7 @@ This kind of DT represents the quality issue or quality claim itself as a case o
 All data, no matter what discipline, which is important to reveal the root cause and all vehicles, components or batches which are affected shall be linked to this DT. 
 Having this holistic overview of data and therefore the impact of affected goods/vehicles, the root cause can be found much faster and narrowing down the actual affected goods/vehicles can be done more precisely. The result of analysis can be useful for related issues, like adopting production processes, safer transportation etc. to avoid similar failures.
  
-Furthermore the DT qualityTask provides the bridge to the data driven quality use case. The data models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
+Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
 This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormalities or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
