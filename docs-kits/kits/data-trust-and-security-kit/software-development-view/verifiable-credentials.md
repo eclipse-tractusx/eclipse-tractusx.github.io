@@ -6,127 +6,53 @@ description: 'Implementation Architecture and Verifiable Credential Framework fo
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Implementation Architecture
+## How Digital Certificates Work
 
-### Overview
+### The Big Picture
 
-The Data Trust & Security KIT provides a comprehensive framework for implementing data verification and trust mechanisms within the Catena-X network. The architecture is designed to be generic and adaptable across various use cases and data formats while maintaining data sovereignty and security.
+The Data Trust & Security KIT uses digital certificates (called "Verifiable Credentials") to create trust in data. Think of these certificates like digital signatures on important documents - they prove who created the data and that it hasn't been tampered with.
 
-This implementation concept establishes an assertive second layer of trust over the actual peer-to-peer data exchanges within the Catena-X network. Building upon the existing SSI (Self-Sovereign Identity) technology already in place, this framework enables data providers to create self-signed documents confirming information placed into aspect models, and gives data auditors the possibility to certify specific attributes from standardized data structures.
+This system creates an additional trust layer on top of your existing data exchanges in Tractus-X. You're already sharing data through the network - now you can add cryptographic proof that this data is authentic and trustworthy.
 
-The technology consists of creating Signed Documents (Verification Statements) using Verifiable Credentials 2.0 technology - a JSON-LD structure standardized by the W3C Consortium for Web 3.0 data trust and identity assurance. Using JSON Web Signatures (JWS) and wallet components connected to Catena-X and identified by unique Business Partner Numbers (BPN), data issuers and auditors can sign using their Ed25519 private keys while data consumers can access public keys by resolving the DID contained in the signature proof.
+The technology builds on existing standards from the World Wide Web Consortium (W3C) and integrates seamlessly with Tractus-X infrastructure. When organizations share data, they can include digital certificates that prove the data's authenticity. When you receive this data, you can verify these certificates to ensure you're getting legitimate information.
 
-### System Components
+Here's how it works in practice: Organizations use digital wallets (identified by their DIDs & optionally Business Partner Numbers) to create and manage these certificates. They sign certificates with their private keys, and you can verify them using their public keys - similar to how secure websites work with HTTPS certificates.
 
-The trust framework consists of several key components that work together to establish, maintain, and verify data integrity:
+## Types of Digital Certificates
 
-#### Trust Registry
+The framework provides different types of certificates for different verification needs:
 
-A centralized registry that maintains lists of accredited issuers and verification authorities. This registry enables:
+| Certificate Type | Who Creates It | What It Contains | When You'd Use It |
+|------------------|----------------|------------------|-------------------|
+| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider | Complete dataset with signature | When you want to self-certify your entire dataset |
+| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Specific data attributes with validation | When you need third-party verification of specific values |
+| **[Attribute Attestation Credential with Privacy (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
+| **[Attribute Certification Record (ACR)](#attribute-certification-record-acr)** | Data Provider | Collection of multiple certificates | When you want to bundle several certifications together |
 
-- Management of trusted issuer lists per use case
-- Accreditation status tracking
-- Revocation list management
-- Policy enforcement
+### Data Attestation Credentials (DAC) - Self-Certifying Your Data
 
-#### Verification Service
+Data Attestation Credentials are like digital notarizations that you create for your own data. When you have a complete dataset (like a carbon footprint calculation or battery passport), you can create a DAC to cryptographically prove that the data came from you and hasn't been changed.
 
-A service component that handles the verification of verifiable credentials and attestations:
+#### When You'd Use DACs
 
-- Signature verification using DID resolution
-- Credential status checking (revocation, expiration)
-- Trust chain validation
-- Policy compliance verification
+- **Self-Certification**: When you want to attest to the accuracy of your own data
+- **Complete Datasets**: When you're sharing entire aspect models rather than individual attributes
+- **Data Integrity**: When you need to prove data hasn't been tampered with during transmission
+- **Audit Trails**: When you need a permanent record of what data you shared and when
 
-#### Attestation Engine
+#### How DACs Work
 
-The core component responsible for generating and managing data attestations:
+Think of a DAC as a tamper-proof envelope for your data. Here's what happens:
 
-- Verifiable credential generation
-- Attribute-level certification
-- Complete data certification
-- Selective disclosure support
+1. **Data Preparation** - You prepare your complete dataset according to Catena-X standards
+2. **Certificate Creation** - You wrap the data in a verifiable credential structure
+3. **Digital Signing** - You sign the certificate with your organization's private key
+4. **Sharing** - You share both the data and certificate through the Digital Twin Registry or direct exchange
+5. **Verification** - Data Consumers can verify the certificate using your public key
 
-### Verification Statement Types
+#### What Goes Into a DAC
 
-The Data Trust & Security KIT implements two primary types of verification statements to accommodate different trust and verification requirements:
-
-#### Complete Data Verification Statement
-
-Self-signed document containing the complete data from an aspect model payload. This provides:
-
-- Full data integrity verification
-- Complete traceability and version control
-- Self-attestation capability for data providers
-- Comprehensive audit trail
-
-#### Partial Data Verification Statement  
-
-Attribute-level certified document containing one or more attributes from the complete data verification statement or from a plain JSON aspect model payload. This enables:
-
-- Selective disclosure of verified attributes
-- Third-party auditor certification
-- Granular trust establishment
-- Privacy-preserving verification
-
-### Trust Establishment Process
-
-The Data Trust & Security KIT implements a multi-layered trust establishment process that ensures data integrity and authenticity across all participants in the network.
-
-#### Phase 1: Issuer Accreditation
-
-Organizations seeking to become trusted data attesters must undergo an accreditation process:
-
-1. **Application Submission**: Submit accreditation request with supporting documentation
-2. **Compliance Assessment**: Undergo audit against defined accreditation criteria
-3. **Technical Evaluation**: Demonstrate technical capability to issue verifiable credentials
-4. **Inclusion Decision**: Upon successful evaluation, inclusion in trusted issuer registry
-5. **Ongoing Monitoring**: Regular compliance checks and status updates
-
-#### Phase 2: Data Attestation
-
-Accredited issuers can create verifiable attestations for data:
-
-1. **Data Validation**: Verify accuracy and compliance of data against standards
-2. **Credential Generation**: Create verifiable credentials with appropriate schemas
-3. **Digital Signing**: Apply cryptographic signatures using issuer's private keys
-4. **Publication**: Make credentials available through appropriate channels
-5. **Status Management**: Maintain credential lifecycle and revocation capabilities
-
-#### Phase 3: Verification Process
-
-Data consumers can verify attestations through comprehensive verification:
-
-1. **Credential Retrieval**: Obtain verifiable credentials from data providers
-2. **Issuer Validation**: Verify issuer is in trusted registry and status is active
-3. **Signature Verification**: Validate cryptographic signatures and proof integrity
-4. **Revocation Check**: Confirm credential has not been revoked or expired
-5. **Policy Compliance**: Ensure compliance with applicable policies and standards
-6. **Trust Decision**: Make informed decisions based on verification results
-
-## Verifiable Credential Framework
-
-The Data Trust & Security KIT implements a comprehensive verifiable credential framework based on W3C standards, adapted for Catena-X requirements.
-
-### Credential Types
-
-The framework defines three main types of verifiable credentials:
-
-| Credential Type | Issuer | Content | Use Case |
-|----------------|--------|---------|----------|
-| **Data Attestation Credential (DAC)** | Data Provider | Complete aspect model payload with signature | Self-attestation and complete data verification |
-| **Attribute Attestation Credential (AAC)** | Data Auditor | Selected attributes with validation methods | Third-party attribute certification |
-| **Attribute Certification Record (ACR)** | Data Provider | Collection of AACs as verifiable presentation | Aggregated attribute certifications |
-
-### Data Attestation Credentials
-
-Complete data attestation credentials contain the full data payload with cryptographic proof of authenticity. These credentials serve as self-signed certificates that data providers can create to attest to the accuracy and integrity of their complete aspect model data.
-
-#### How Data Attestation Credentials Work
-
-Data Attestation Credentials (DAC) follow the W3C Verifiable Credentials 2.0 specification and provide a comprehensive mechanism for data providers to cryptographically sign and verify complete datasets. The process involves several key components:
-
-**Core Components:**
+A DAC contains several key components:
 
 | Component | Purpose | Description |
 |-----------|---------|-------------|
@@ -260,6 +186,28 @@ Data Attestation Credentials (DAC) follow the W3C Verifiable Credentials 2.0 spe
     "issuer": "did:web:tuv-sud.de",
     "validFrom": "2024-01-15T10:30:00Z",
     "validUntil": "2025-01-15T10:30:00Z",
+    "validationMethod": [
+      {
+        "@type": "Standard",
+        "label": "Catena-X PCF Rulebook Standard",
+        "@id": "CX-0029",
+        "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
+        "complianceCriteria": [
+          {
+            "@type": "Standard Compliance",
+            "@value": "100%"
+          },
+          {
+            "@type": "Verification Level",
+            "@value": "3"
+          },
+          {
+            "@type": "Primary Data Share",
+            "@value": "80%"
+          }
+        ]
+      }
+    ],
     "credentialStatus": {
         "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
         "type": "RevocationList2020Status",
@@ -296,24 +244,39 @@ The following table explains each component of the Data Attestation Credential s
 #### Critical Security Components
 
 **Issuer DID Resolution:**
-The `issuer` field contains a DID (Decentralized Identifier) that must be resolved to obtain the public key for signature verification. The DID format `did:web:tuv-sud.de` indicates a web-based DID that can be resolved by fetching the DID document from `https://tuv-sud.de/.well-known/did.json`.
+The `issuer` field uses a Decentralized Identifier (DID) to help verify signatures. For example, if you see `did:web:tuv-sud.de`, you can fetch the public key by visiting `https://tuv-sud.de/.well-known/did.json`. This is how you check that the credential really comes from the claimed source.
 
 **Proof Structure:**
 
-- **type**: Specifies the signature algorithm (JsonWebSignature2020 for JWT compatibility)
-- **proofPurpose**: Defines the intent (assertionMethod for data attestation)
-- **verificationMethod**: Points to the specific key used for signing
-- **created**: Timestamp of signature creation (prevents replay attacks)
-- **jws**: The actual cryptographic signature in JSON Web Signature format
+- **type**: The signature algorithm used (like JsonWebSignature2020, which works with JWT)
+- **proofPurpose**: Why the signature was created (usually 'assertionMethod' for attestation)
+- **verificationMethod**: Which key was used to sign
+- **created**: When the signature was made (helps prevent replay attacks)
+- **jws**: The actual signature, in JWS format
 
 **Revocation Management:**
 
-- **id**: Points to specific position in revocation list
-- **type**: Specifies revocation list format (RevocationList2020Status)
+- **id**: Shows the position in the revocation list
+- **type**: Format of the revocation list (RevocationList2020Status)
 - **revocationListIndex**: Bit position in the revocation bitstring
-- **revocationListCredential**: URL to the revocation list document
+- **revocationListCredential**: Where to find the revocation list document
 
-### Attribute Attestation Credentials
+**Validation Method Structure:**
+
+The `validationMethod` field lists the standards and compliance checks used during verification:
+
+- **@type**: What kind of validation (Standard, Regulation, Process)
+- **label**: Short description of the method
+- **@id**: Unique ID for the standard or regulation
+- **uri**: Link to the official document
+- **complianceCriteria**: List of compliance metrics that were met
+
+Each compliance criterion includes:
+
+- **@type**: Type of compliance metric (e.g., "Standard Compliance", "Verification Level")
+- **@value**: Specific value or percentage achieved
+
+### Attribute Attestation Credentials (AAC)
 
 Selective attribute attestation enables verification of specific data elements without exposing the complete dataset. These credentials are particularly valuable for privacy-preserving verification and third-party auditing scenarios.
 
@@ -381,8 +344,8 @@ The AAC system integrates with the broader trust ecosystem through:
       "https://www.w3.org/ns/credentials/v2",
       "https://w3c.github.io/vc-jws-2020/contexts/v1/",
       "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
+      "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+      "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
   "type": [
       "VerifiableCredential",
@@ -398,11 +361,26 @@ The AAC system integrates with the broader trust ecosystem through:
                       "label": "Catena-X PCF Rulebook Standard",
                       "@id": "CX-0029",
                       "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
-                      "compliance": "100%"
+                      "complianceCriteria": [
+                        {
+                          "@type": "Standard Compliance",
+                          "@value": "100%"
+                        },
+                        {
+                          "@type": "Verification Level",
+                          "@value": "3"
+                        },
+                        {
+                          "@type": "Primary Data Share",
+                          "@value": "80%"
+                        }
+                      ]
                   }
               ],
               "@id": "pcf.biogenicCarbonEmissionsOtherThanCO2",
-              "digestMultibase": "0b3402a678ec2788804994fb2df9faf66eecbdde26553e320a8d4a154f53d840d2a32245998c38f885f01137c9fcf123f3752fc841508dc771fa6faaee689b73"
+              "digestMultibase": "0b3402a678ec2788804994fb2df9faf66eecbdde26553e320a8d4a154f53d840d2a32245998c38f885f01137c9fcf123f3752fc841508dc771fa6faaee689b73",
+              "revealedValue": 0.5,
+              "unit": "kg CO2 equivalent"
           }
       ]
   },
@@ -448,7 +426,7 @@ Each attribute within the `credentialSubject.attributes` array contains the foll
 | **@id** | String | Attribute path identifier | Specifies the exact attribute being verified (e.g., "pcf.biogenicCarbonEmissionsOtherThanCO2") |
 | **digestMultibase** | String | Cryptographic hash of original attribute in SHA3-512 | Proves integrity without revealing the actual value using multibase encoding |
 
-#### Selective Disclosure Mechanism
+### Attribute Attestation Credential (AAC) with Selective Diclosure
 
 **Attribute Hashing Process:**
 
@@ -629,7 +607,20 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
             "label": "ISO 14067:2018 Carbon Footprint Standard",
             "@id": "ISO-14067",
             "uri": "https://www.iso.org/standard/71206.html",
-            "compliance": "100%"
+            "complianceCriteria": [
+              {
+                "@type": "Standard Compliance",
+                "@value": "100%"
+              },
+              {
+                "@type": "Verification Level",
+                "@value": "3"
+              },
+              {
+                "@type": "Primary Data Share",
+                "@value": "80%"
+              }
+            ]
           }
         ],
         "@id": "pcf.pcfExcludingBiogenic",
@@ -644,7 +635,12 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
             "label": "ISO 14067:2018 Carbon Footprint Standard",
             "@id": "ISO-14067",
             "uri": "https://www.iso.org/standard/71206.html",
-            "compliance": "50%"
+            "complianceCriteria": [
+              {
+                "@type": "Standard Compliance",
+                "@value": "100%"
+              }
+            ]
           }
         ],
         "@id": "pcf.fossilGhgEmissions",
@@ -715,31 +711,387 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
 | `pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive |
 | `companyIds` | Business identifiers that could enable correlation attacks |
 
-**Privacy-Preserving Features:**
-
-1. **Cryptographic Hashes**: Hidden attributes are represented only by their cryptographic hashes
-2. **BBS+ Signatures**: Enable selective disclosure without breaking the signature
-3. **Nonce Protection**: Prevents replay attacks and correlation attacks
-4. **Zero-Knowledge Verification**: Third parties can verify the audit without accessing private data
-
-**Verification Process:**
-
-1. **Auditor Access**: Auditor receives complete dataset in secure environment
-2. **Attribute Selection**: Only carbon footprint attributes are chosen for disclosure
-3. **Validation**: Attributes are validated against ISO 14067:2018 standard
-4. **Selective Signing**: BBS+ signature created that can selectively disclose specific attributes
-5. **Privacy Preservation**: Business-sensitive data remains cryptographically hidden
-6. **Public Verification**: Anyone can verify the disclosed attributes without accessing private data
-
-**Use Case Benefits:**
-
-- **Regulatory Compliance**: Satisfies carbon reporting requirements
-- **Privacy Protection**: Keeps business-sensitive information confidential
-- **Third-Party Trust**: Independent auditor verification increases credibility
-- **Selective Transparency**: Precise control over what information is shared
-- **Anti-Correlation**: Hidden attributes cannot be correlated across different verifications
-
 This selective disclosure mechanism enables organizations to comply with transparency requirements while maintaining competitive advantages and protecting sensitive business information.
+
+### Attribute Certification Record (ACR)
+
+An Attribute Certification Record (ACR) is a Verifiable Presentation that aggregates multiple Attribute Attestation Credentials (AACs) from different auditors or certification bodies. This enables data providers to present a comprehensive view of their certified attributes in a single, cryptographically verifiable document.
+
+#### How Attribute Certification Records Work
+
+The ACR serves as a collection mechanism that allows data providers to:
+
+- **Aggregate Multiple Certifications**: Combine AACs from different auditors covering various aspects of their data
+- **Present Unified Trust View**: Provide data consumers with a single document containing all relevant certifications
+- **Maintain Auditor Independence**: Preserve the individual signatures and validation methods from each auditor
+- **Enable Selective Presentation**: Choose which AACs to include based on specific use case requirements
+
+**Core Components:**
+
+| Component | Purpose | Description |
+|-----------|---------|-------------|
+| **@context** | Semantic Definition | Defines JSON-LD contexts for verifiable presentations and included credentials |
+| **type** | Presentation Classification | Specifies as VerifiablePresentation with AttributeCertificationRecord type |
+| **verifiableCredential** | AAC Collection | Array of individual Attribute Attestation Credentials from various auditors |
+| **holder** | Data Provider Identity | DID of the organization presenting the aggregated certifications |
+| **proof** | Presentation Signature | Cryptographic proof that the holder controls the presented credentials |
+
+#### ACR Example
+
+The following example demonstrates the basic structure of an ACR aggregating three AACs from different auditors:
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "..."
+  ],
+  "type": [
+    "VerifiablePresentation",
+    "AttributeCertificationRecord"
+  ],
+  "verifiableCredential": [
+    {
+      "@context": ["..."],
+      "type": ["VerifiableCredential", "AttributeAttestationCredential", "Pcf"],
+      "credentialSubject": {
+        "attributes": [
+          {
+            "@id": "pcf.pcfExcludingBiogenic",
+            "revealedValue": 2.0,
+            "unit": "kg CO2 equivalent",
+            "validationMethod": [{"@type": "Standard", "label": "ISO 14067:2018", "...": "..."}]
+          }
+        ]
+      },
+      "issuer": "did:web:iso-carbon-auditors.com",
+      "validUntil": "2025-07-15T09:00:00Z",
+      "proof": {"type": "JsonWebSignature2020", "...": "..."}
+    },
+    {
+      "@context": ["..."],
+      "type": ["VerifiableCredential", "AttributeAttestationCredential", "Pcf"],
+      "credentialSubject": {
+        "attributes": [
+          {
+            "@id": "pcf.primaryDataShare",
+            "revealedValue": 85.3,
+            "unit": "percentage",
+            "validationMethod": [{"@type": "Regulation", "label": "EU Taxonomy Regulation", "...": "..."}]
+          }
+        ]
+      },
+      "issuer": "did:web:eu-taxonomy-auditors.org",
+      "validUntil": "2025-06-01T08:00:00Z",
+      "proof": {"type": "JsonWebSignature2020", "...": "..."}
+    }
+  ],
+  "id": "urn:uuid:comprehensive-pcf-certification-record-2024",
+  "holder": "did:web:acme-manufacturing.com:BPNL000000000123",
+  "validFrom": "2024-08-15T12:00:00Z",
+  "validUntil": "2025-06-01T08:00:00Z",
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "proofPurpose": "authentication",
+    "verificationMethod": "did:web:acme-manufacturing.com:BPNL000000000123#presentation-key-1",
+    "created": "2024-08-15T12:00:00Z",
+    "jws": "eyJ0eXAiOiJ2cCtsZCIsImI2NCI6ZmFsc2UsImNydiI6IkVkMjU1MTkifQ..."
+  }
+}
+```
+
+<details>
+<summary>View Complete ACR Example with Multiple AACs</summary>
+
+The following example shows an ACR containing multiple AACs from different attestation providers for a Product Carbon Footprint dataset:
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+    "https://w3id.org/security/data-integrity/v2",
+    "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.acr/1.0.0/gen/Acr-context.jsonld"
+  ],
+  "type": [
+    "VerifiablePresentation",
+    "AttributeCertificationRecord"
+  ],
+  "verifiableCredential": [
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "AttributeAttestationCredential",
+        "Pcf"
+      ],
+      "credentialSubject": {
+        "attributes": [
+          {
+            "validationMethod": [
+              {
+                "@type": "Standard",
+                "label": "ISO 14067:2018 Carbon Footprint Standard",
+                "@id": "ISO-14067",
+                "uri": "https://www.iso.org/standard/71206.html",
+                "complianceCriteria": [
+                  {
+                    "@type": "Standard Compliance",
+                    "@value": "100%"
+                  },
+                  {
+                    "@type": "Verification Level",
+                    "@value": "3"
+                  }
+                ]
+              }
+            ],
+            "@id": "pcf.pcfExcludingBiogenic",
+            "digestMultibase": "z3k2a8f7b9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+            "revealedValue": 2.0,
+            "unit": "kg CO2 equivalent"
+          },
+          {
+            "validationMethod": [
+              {
+                "@type": "Standard",
+                "label": "ISO 14067:2018 Carbon Footprint Standard",
+                "@id": "ISO-14067",
+                "uri": "https://www.iso.org/standard/71206.html",
+                "complianceCriteria": [
+                  {
+                    "@type": "Standard Compliance",
+                    "@value": "100%"
+                  }
+                ]
+              }
+            ],
+            "@id": "pcf.fossilGhgEmissions",
+            "digestMultibase": "z8b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4",
+            "revealedValue": 0.5,
+            "unit": "kg CO2 equivalent"
+          }
+        ]
+      },
+      "origin": {
+        "digestMultibase": "zQmX8K2a7B9c1D2e3F4a5B6c7D8e9F0a1B2c3D4e5F6a7B8c9D0e1F2a3B4c5D6e7F8a9B0c1D2e3F4a5B6c7D8e9F0",
+        "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+        "@id": "did:web:acme-manufacturing.com:BPNL000000000123:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
+        "@type": "application/vc+ld+json"
+      },
+      "id": "urn:uuid:carbon-footprint-certification-aac-001",
+      "issuer": "did:web:iso-carbon-auditors.com",
+      "validFrom": "2024-07-15T09:00:00Z",
+      "validUntil": "2025-07-15T09:00:00Z",
+      "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:iso-carbon-auditors.com#key-1",
+        "created": "2024-07-15T09:00:00Z",
+        "jws": "eyJ0eXAiOiJ2YytsZCIsImI2NCI6ZmFsc2UsImNydiI6IkVkMjU1MTkifQ..."
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "AttributeAttestationCredential",
+        "Pcf"
+      ],
+      "credentialSubject": {
+        "attributes": [
+          {
+            "validationMethod": [
+              {
+                "@type": "Regulation",
+                "label": "EU Taxonomy Regulation (EU) 2020/852",
+                "@id": "EU-TAX-2020-852",
+                "uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32020R0852",
+                "complianceCriteria": [
+                  {
+                    "@type": "Regulatory Compliance",
+                    "@value": "Compliant"
+                  },
+                  {
+                    "@type": "Assessment Level",
+                    "@value": "Technical Expert Review"
+                  }
+                ]
+              }
+            ],
+            "@id": "pcf.primaryDataShare",
+            "digestMultibase": "z5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1",
+            "revealedValue": 85.3,
+            "unit": "percentage"
+          },
+          {
+            "validationMethod": [
+              {
+                "@type": "Regulation",
+                "label": "EU Taxonomy Regulation (EU) 2020/852",
+                "@id": "EU-TAX-2020-852",
+                "uri": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32020R0852",
+                "complianceCriteria": [
+                  {
+                    "@type": "Regulatory Compliance",
+                    "@value": "Compliant"
+                  }
+                ]
+              }
+            ],
+            "@id": "pcf.dataQualityRating.coveragePercent",
+            "digestMultibase": "z1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
+            "revealedValue": 100,
+            "unit": "percentage"
+          }
+        ]
+      },
+      "origin": {
+        "digestMultibase": "zQmX8K2a7B9c1D2e3F4a5B6c7D8e9F0a1B2c3D4e5F6a7B8c9D0e1F2a3B4c5D6e7F8a9B0c1D2e3F4a5B6c7D8e9F0",
+        "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+        "@id": "did:web:acme-manufacturing.com:BPNL000000000123:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
+        "@type": "application/vc+ld+json"
+      },
+      "id": "urn:uuid:eu-taxonomy-compliance-aac-002",
+      "issuer": "did:web:eu-taxonomy-auditors.org",
+      "validFrom": "2024-06-01T08:00:00Z",
+      "validUntil": "2025-06-01T08:00:00Z",
+      "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:eu-taxonomy-auditors.org#compliance-key-1",
+        "created": "2024-06-01T08:00:00Z",
+        "jws": "eyJ0eXAiOiJ2YytsZCIsImI2NCI6ZmFsc2UsImNydiI6IkVkMjU1MTkifQ..."
+      }
+    },
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "AttributeAttestationCredential",
+        "Pcf"
+      ],
+      "credentialSubject": {
+        "attributes": [
+          {
+            "validationMethod": [
+              {
+                "@type": "Standard",
+                "label": "Catena-X PCF Rulebook Standard",
+                "@id": "CX-0029",
+                "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
+                "complianceCriteria": [
+                  {
+                    "@type": "Standard Compliance",
+                    "@value": "100%"
+                  },
+                  {
+                    "@type": "Verification Level",
+                    "@value": "3"
+                  },
+                  {
+                    "@type": "Catena-X Conformity",
+                    "@value": "Gold Level"
+                  }
+                ]
+              }
+            ],
+            "@id": "pcf.crossSectoralStandardsUsed",
+            "digestMultibase": "z9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4",
+            "revealedValue": [
+              {
+                "crossSectoralStandard": "ISO Standard 14067"
+              }
+            ],
+            "unit": "standards_array"
+          }
+        ]
+      },
+      "origin": {
+        "digestMultibase": "zQmX8K2a7B9c1D2e3F4a5B6c7D8e9F0a1B2c3D4e5F6a7B8c9D0e1F2a3B4c5D6e7F8a9B0c1D2e3F4a5B6c7D8e9F0",
+        "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+        "@id": "did:web:acme-manufacturing.com:BPNL000000000123:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
+        "@type": "application/vc+ld+json"
+      },
+      "id": "urn:uuid:catena-x-rulebook-compliance-aac-003",
+      "issuer": "did:web:catena-x-certification.org",
+      "validFrom": "2024-08-01T10:00:00Z",
+      "validUntil": "2025-08-01T10:00:00Z",
+      "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:catena-x-certification.org#rulebook-key-1",
+        "created": "2024-08-01T10:00:00Z",
+        "jws": "eyJ0eXAiOiJ2YytsZCIsImI2NCI6ZmFsc2UsImNydiI6IkVkMjU1MTkifQ..."
+      }
+    }
+  ],
+  "id": "urn:uuid:comprehensive-pcf-certification-record-2024",
+  "holder": "did:web:acme-manufacturing.com:BPNL000000000123",
+  "validFrom": "2024-08-15T12:00:00Z",
+  "validUntil": "2025-06-01T08:00:00Z",
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "proofPurpose": "authentication",
+    "verificationMethod": "did:web:acme-manufacturing.com:BPNL000000000123#presentation-key-1",
+    "created": "2024-08-15T12:00:00Z",
+    "challenge": "c0ae1c8e-c7e7-469f-b252-86e6a0e7387e",
+    "domain": "catena-x.net",
+    "jws": "eyJ0eXAiOiJ2cCtsZCIsImI2NCI6ZmFsc2UsImNydiI6IkVkMjU1MTkifQ..."
+  }
+}
+```
+
+</details>
+
+#### ACR Structure Analysis
+
+The ACR example above demonstrates several key aspects:
+
+**Multiple Auditor Perspectives:**
+
+| Auditor | Focus Area | Standards Applied | Attributes Certified |
+|---------|------------|-------------------|---------------------|
+| **ISO Carbon Auditors** | Carbon Footprint Accuracy | ISO 14067:2018 | PCF values, fossil emissions |
+| **EU Taxonomy Auditors** | Regulatory Compliance | EU Taxonomy Regulation | Data quality metrics, coverage |
+| **Catena-X Certification** | Network Standards | CX-0029 PCF Rulebook | Cross-sectoral standards compliance |
+
+**Comprehensive Trust Coverage:**
+
+- **Technical Validation**: ISO standards ensure methodological correctness
+- **Regulatory Compliance**: EU Taxonomy confirms legal requirements
+- **Network Interoperability**: Catena-X standards guarantee ecosystem compatibility
+
+**Temporal Coordination:**
+
+The ACR validity period (`2024-08-15` to `2025-06-01`) is automatically determined by the earliest expiration date among the included AACs, ensuring the presentation remains valid only while all constituent credentials are active.
+
+**Verification Benefits:**
+
+1. **One-Stop Verification**: Data consumers can verify multiple aspects of trust in a single document
+2. **Auditor Independence**: Each AAC maintains its original signature and validation methods
+3. **Selective Presentation**: Data providers can choose which certifications to include for specific use cases
+4. **Cryptographic Integrity**: The presentation proof ensures the holder controls all presented credentials
+
+This ACR structure enables comprehensive trust establishment while maintaining the independence and specialization of different auditing bodies within the Tractus-X ecosystem.
 
 ## NOTICE
 

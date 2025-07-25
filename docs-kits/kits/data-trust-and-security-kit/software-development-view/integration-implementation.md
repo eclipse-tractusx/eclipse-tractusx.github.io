@@ -1,18 +1,25 @@
 ---
-id: integration-implementation
 title: Integration, Implementation & Roadmap
 description: 'Digital Twin Integration, Certification Processes, Implementation Best Practices and Roadmap for Data Trust & Security KIT'
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Digital Twin Integration
+## Connecting with Your Digital Twins
 
-### Verifiable Credentials as Digital Twin Submodels
+### Using Certificates as Digital Twin Components
 
-The Data Trust & Security KIT integrates seamlessly with the Digital Twin Registry by representing verifiable credentials as submodels:
+One of the most powerful features of the Data Trust & Security KIT is that you can attach verifiable credentials directly to your digital twins. This means when someone looks up a product or component in your Digital Twin Registry, they can immediately see the trust certificates associated with it.
+
+Think of it like attaching a quality certificate to a physical product, except this is digital and cryptographically secured.
+
+#### How It Works in Practice
+
+When you register a digital twin, you can include submodels that contain verifiable credentials. Here's what this looks like technically:
 
 #### Data Attestation Certificate as Submodel
+
+Here’s an example of how a data attestation credential might look as a submodel:
 
 ```json
 {
@@ -91,8 +98,8 @@ sequenceDiagram
     participant DP as Data Provider
     participant DTR as Digital Twin Registry
     participant SS as Submodel Service
-    participant DA as Data Auditor
-    participant AW as Data Auditor Wallet
+    participant DA as Attestation Provider
+    participant AW as Attestation Provider Wallet
     
     DP->>DTR: Register Twin
     DP->>SS: Register Aspect Model
@@ -133,7 +140,7 @@ sequenceDiagram
 The complete certification process combines self-attestation with third-party attribute verification:
 
 1. **Data Provider** creates self-signed Data Attestation Credential (DAC)
-2. **Data Auditor** verifies specific attributes and creates Attribute Attestation Credentials (AAC)
+2. **Attestation Provider** verifies specific attributes and creates Attribute Attestation Credentials (AAC)
 3. **Data Provider** aggregates all certifications in an Attribute Certification Record (ACR)
 4. **Data Consumer** can verify both self-attestation and third-party certifications
 
@@ -178,56 +185,6 @@ flowchart TD
     D --> E[Aggregate Results]
     E --> F[Return Combined Verification]
 ```
-
-## Integration Patterns
-
-### EDC Integration
-
-The Data Trust & Security KIT integrates with Eclipse Dataspace Connector for secure data exchange:
-
-- **Policy Enforcement**: Use verification results for access control decisions
-- **Contract Negotiation**: Include trust requirements in data contracts
-- **Data Transfer**: Verify credentials before data exchange
-- **Audit Trail**: Log all verification activities
-
-### Wallet Integration
-
-Integration with SSI wallets for credential management:
-
-- **Credential Issuance**: Support for various wallet implementations
-- **Key Management**: Secure private key handling
-- **DID Resolution**: Automatic public key retrieval
-
-## Implementation Best Practices
-
-### For Data Providers
-
-- **Regular Key Rotation**: Implement automated key rotation schedules
-- **Data Validation**: Thoroughly validate data before credential issuance
-- **Metadata Management**: Maintain comprehensive metadata for all attestations
-- **Compliance Monitoring**: Regular self-audits against applicable standards
-
-### For Data Auditors
-
-- **Validation Standards**: Use recognized industry standards for validation
-- **Documentation**: Maintain detailed records of validation methods
-- **Revocation Management**: Timely revocation of invalid credentials
-- **Accreditation Maintenance**: Keep accreditation status current
-
-### For Data Consumers
-
-- **Always Verify**: Never skip verification checks for critical decisions
-- **Multi-source Validation**: Consider multiple attestations when available
-- **Error Handling**: Implement graceful handling of verification failures
-- **Caching Strategy**: Implement appropriate caching for verification results
-
-### For Implementers
-
-- **Security First**: Prioritize security in all implementation decisions
-- **Standard Compliance**: Adhere to W3C and Catena-X standards
-- **Monitoring & Logging**: Comprehensive monitoring and audit logging
-- **Documentation**: Maintain clear documentation for all integrations
-- **Testing**: Thorough testing of all verification scenarios
 
 ### Verification Implementation Example
 

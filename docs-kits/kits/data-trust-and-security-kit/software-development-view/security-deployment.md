@@ -6,29 +6,29 @@ description: 'Security Considerations, Deployment Patterns, Integration Guidelin
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Security Considerations
+## Keeping Your System Secure
 
 ### Cryptographic Standards
 
-The Data Trust & Security KIT uses industry-standard cryptographic approaches:
+The Data Trust & Security KIT relies on proven cryptographic methods:
 
-- **Digital Signatures**: Ed25519 and RSA signatures for credential integrity
-- **Key Management**: Secure key generation, storage, and rotation procedures
-- **Hash Functions**: SHA3-512 for data integrity verification
-- **Encryption**: AES-256 for sensitive data protection
+- **Digital Signatures**: Uses Ed25519 and RSA to keep credentials secure
+- **Key Management**: Keys are generated, stored, and rotated securely
+- **Hash Functions**: SHA3-512 helps verify data integrity
+- **Encryption**: AES-256 protects sensitive information
 
 ### Privacy Protection
 
-Privacy considerations are integral to the KIT design:
+Privacy is built into the KIT from the start:
 
-- **Selective Disclosure**: Support for revealing only necessary credential attributes
-- **Zero-Knowledge Proofs**: Enable verification without revealing underlying data
-- **Data Minimization**: Limit data collection and processing to necessary minimum
-- **Consent Management**: Clear consent mechanisms for data processing
+- **Selective Disclosure**: Only the necessary credential attributes are revealed
+- **Zero-Knowledge Proofs**: You can verify data without exposing the details
+- **Data Minimization**: Only collect and process what’s needed
+- **Consent Management**: Users have clear control over data processing
 
 ### Threat Modeling
 
-Key security threats addressed:
+Here’s how the KIT tackles key security threats:
 
 | Threat | Mitigation | Implementation |
 |--------|------------|----------------|

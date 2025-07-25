@@ -61,12 +61,12 @@ To facilitate data sharing across supply chains, interoperable ecosystems — su
 In addition, there are specific *business requirements towards interoperability* outside a given data space to ensure seamless data exchange across different networks and initiatives.
 By using Verifiable Credentials, *interoperability with other ecosystems* that adopt the same standard is ensured. For example, Catena-X data can be exchanged across networks while maintaining data sovereignty. This is achieved by presenting Verifiable Credential data in other networks using Verifiable Presentations. Importantly, the *verification metadata* does not need to be stored in a centralized system—it travels decentrally with the data. As a result, any consumer with internet access and a functioning identity wallet can verify the authenticity and issuer of the data.
 
-Moreover, a *snapshot of product attributes* can be taken without revealing the original content, allowing data auditors to store a copy of the data without infringing on data sovereignty. This approach supports secure and privacy-preserving verification processes.
+Moreover, a *snapshot of product attributes* can be taken without revealing the original content, allowing Attestation Providers to store a copy of the data without infringing on data sovereignty. This approach supports secure and privacy-preserving verification processes.
 
 Cryptographic verification of digital credentials, such as identities and certificates, is essential for automating secure and reliable data transfers. This ensures that sustainability information remains trustworthy and tamper-proof throughout its lifecycle.
 
 Non-compliance with sustainability reporting requirements can result in significant consequences, including financial penalties and reputational harm, particularly if supplier claims are found to be inaccurate or misleading. To mitigate these risks, buyers increasingly seek tools and methodologies that allow them to verify the sustainability disclosures of their suppliers. Without confidence in the reported data, stakeholders may question the credibility of a company’s sustainability efforts.
-Enhancing the verifiability of product and sustainability information supports businesses in streamlining reporting and due diligence processes. For downstream industries, this translates into more frequent and better-informed decisions, driven by improved transparency and comparability of products and economic actors.
+Enhancing the variability of product and sustainability information supports businesses in streamlining reporting and due diligence processes. For downstream industries, this translates into more frequent and better-informed decisions, driven by improved transparency and comparability of products and economic actors.
 
 The *core business processes* supported by verifiable certifications can be summarized as follows:
 
@@ -80,41 +80,84 @@ Given the labor-intensive nature of these processes, there is a strong economic 
 
 ---
 
+### Roles
+
+In the Data Trust & Security KIT there are three main roles:
+
+- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X).
+- **Attestation Provider**: Responsible for validating and verifying the data provided by the data provider prior to consumption. It can use Eclipse Tractus-X dataspace or not to do the validation, and it shall be qualified to do so. Trusted Attestation Providers are listed publically in a Trusted List for a specific scope.
+- **Data Consumer**: Responsible for consuming data from a data provider and triggering the "check" to know if the data received is "verifiable".
+
+```mermaid
+graph TD
+    DP[Data Provider]
+    AP[Attestation Provider]
+    DC[Data Consumer]
+    
+    DP -->|Shares data for verification| AP
+    AP -->|Validates, Verifies & Certifies data| AP
+    AP -->|Issues verification certificates | DP
+    DP -->|Provides verified data + attribute attestation credentials | DC
+    DC -->|Validates certificate| AP
+    AP -->|Confirms verification status| DC
+
+```
+
 ### Trust Layers
 
 #### Layer 1: Governance
 
-#### Who is allowed to be appointed for "PCF Verification", "DPP Verification"
+##### Attestation Providers
 
-##### How the verification is done?
+**What are Attestation Providers?**
 
-Roles and Responsibilities (similar to e.g., example use cases scenarios in traceability and circular economy)
+Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
-##### Revocation of credentials, how is that done?
+**What they do:**
 
-see above
+- **Verify data accuracy** - Check that carbon footprint calculations, material data, and supply chain information is correct
+- **Ensure compliance** - Make sure data meets regulatory requirements like EU regulations and ISO standards
+- **Validate specific attributes** - Verify individual data points like emission values or recycled content percentages
+- **Audit processes** - Review how companies collect and generate their data
 
-#### Interoperability with multiple initiatives (UNTP, Battery Pass EU, Gaia-X, etc.)
+##### How Attestation Providers Get Appointed
+
+**Governance Structure:**
+
+The appointment process involves multiple levels:
+
+- **Catena-X Association or Governance Body** provides the overall framework
+- **Expert groups** (like PCF or Battery Pass teams) set specific requirements for their domains
+- **Regulatory bodies** ensure compliance with laws and standards
+- **Industry associations** contribute specialized knowledge
+
+**Appointment Process:**
+
+1. **Application** - Organization applies to become an attestation provider
+2. **Assessment** - Review of technical skills and domain expertise
+3. **Examination** - The attention provider shall proof its knowledge on the specific use case rules (example PCF rulebook)
+4. **Demonstration of Capabilities** - Test capabilities of certification
+5. **Approval** - Governance organization makes final decision
+6. **Registry inclusion** - Added to trusted provider list
+7. **Ongoing monitoring** - Regular reviews and renewals
+
+**Requirements to Qualify:**
+
+Organizations must have:
+
+- **Technical expertise** in their domain (carbon footprint, sustainability, etc.)
+- **Qualified staff** with proper certifications
+- **Quality systems** (like ISO 9001)
+- **Regulatory compliance** with relevant laws
+- **Standard Compliance** to Catena-X Standards.
 
 ### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
-#### We do we need to do it digitally?
-
-#### Why verifiable credentials (W3C)?
-
-#### Where are existing trusted lists (synergies from other initiatives)
-
-#### Specify that we use the Connector KIT (for private interface) and for public interface could be used another way (B2C topic)
-
 ### Layer 3: Data Content
 
-#### Rulebooks Explanation why we need a "rulebook".  can be also standards
-
-#### Certified Data Credential & Certified Snapshot Credential (when are they used and for what)
-
-elaborate in more detail on the use case scenarios behind the first DPP slide deck. Essentially, add the written story to the pictures in the slides.
+For the data content, a rule book is necessary to be written with the specification for each attribute in a Data Model. In this KIT a [Rulebook Template](./documentation/rulebook-template.md) is provided for the data content to be specified.
 
 ## Reference Implementations
 
@@ -128,7 +171,7 @@ The concept is the First Aspect Model Verification/Certification Concept in Trac
 
 [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
-More Information can be found in the success story section [here](./success-stories/dpp-verification-success-story.md).
+More Information can be found in the [DPP Verification Success Story](./success-stories/dpp-verification-success-story.md).
 
 ## NOTICE
 

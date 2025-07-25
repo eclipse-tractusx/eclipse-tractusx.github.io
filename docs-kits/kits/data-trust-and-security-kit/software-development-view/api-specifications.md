@@ -8,48 +8,54 @@ description: 'API Specifications and Reference Implementations for Data Trust & 
 
 ## API Specifications
 
-### Core APIs
+### The APIs You'll Use
 
-The Data Trust & Security KIT provides several REST APIs for different aspects of trust management:
+The Data Trust & Security KIT provides REST APIs that make it easy to add trust and verification features to your applications. Think of these APIs as the building blocks you'll use to check whether data is trustworthy.
 
-#### Trusted List API
+#### Trusted List API - Finding Qualified Verifiers
 
-**Base Path**: `/api/v1/trusted-list`
+This API helps you find out which organizations are qualified to verify different types of data.
 
-| Endpoint | Method | Description | Parameters |
-|----------|--------|-------------|------------|
-| `/issuers` | GET | Retrieve list of trusted issuers | `useCase`, `status` |
-| `/issuers/{did}` | GET | Get specific issuer details | `did` (path) |
-| `/issuers/{did}/verify` | POST | Verify issuer credentials | `did` (path), credential (body) |
+**Base URL**: `/api/v1/trusted-list`
 
-#### Verification API
+| What You Want to Do | HTTP Method | Endpoint | What You Send |
+|---------------------|-------------|----------|---------------|
+| Get list of trusted verifiers | GET | `/issuers` | Use case type, status filter |
+| Get details about a specific verifier | GET | `/issuers/{did}` | Organization's digital ID |
+| Check if a verifier's certificate is valid | POST | `/issuers/{did}/verify` | Organization's digital ID + certificate data |
 
-**Base Path**: `/api/v1/verification`
+#### Verification API - Checking Data Authenticity
 
-| Endpoint | Method | Description | Parameters |
-|----------|--------|-------------|------------|
-| `/credentials/verify` | POST | Verify verifiable credential | credential (body) |
-| `/credentials/status` | GET | Check credential revocation status | `credentialId` |
-| `/batch/verify` | POST | Batch verify multiple credentials | credentials array (body) |
+This API lets you verify whether data certificates are legitimate and haven't been tampered with.
 
-#### Certificate Issuance API
+**Base URL**: `/api/v1/verification`
 
-**Base Path**: `/api/v1/certificates`
+| What You Want to Do | HTTP Method | Endpoint | What You Send |
+|---------------------|-------------|----------|---------------|
+| Verify a digital certificate | POST | `/credentials/verify` | Certificate data |
+| Check if a certificate was revoked | GET | `/credentials/status` | Certificate ID |
+| Verify multiple certificates at once | POST | `/batch/verify` | Array of certificate data |
 
-| Endpoint | Method | Description | Parameters |
-|----------|--------|-------------|------------|
-| `/issue` | POST | Issue new verifiable credential | credential data (body) |
-| `/revoke` | POST | Revoke existing credential | `credentialId`, reason |
-| `/status/{id}` | GET | Get certificate status | `id` (path) |
+#### Certificate Issuance API - Creating New Certificates
 
-### API Security
+This API is for qualified organizations that need to issue new data certificates.
 
-All APIs implement security measures aligned with Catena-X standards:
+**Base URL**: `/api/v1/certificates`
 
-- **Authorization**: Role and BPN-based access control
-- **Rate Limiting**: API rate limits to prevent abuse
-- **Input Validation**: Comprehensive input sanitization and validation
-- **Audit Logging**: Complete audit trail of all operations
+| What You Want to Do | HTTP Method | Endpoint | What You Send |
+|---------------------|-------------|----------|---------------|
+| Issue a new certificate | POST | `/issue` | Data to be certified |
+| Cancel/revoke a certificate | POST | `/revoke` | Certificate ID + reason |
+| Check certificate status | GET | `/status/{id}` | Certificate ID |
+
+### Security and Access Control
+
+All these APIs follow Tractus-X security standards to protect against misuse:
+
+- **Role-Based Access** - Only authorized organizations can access certain functions
+- **Rate Limiting** - Prevents abuse by limiting how many requests you can make
+- **Input Validation** - All data gets checked and cleaned before processing
+- **Audit Trails** - Every API call gets logged for security monitoring
 
 ## Reference Implementations
 
