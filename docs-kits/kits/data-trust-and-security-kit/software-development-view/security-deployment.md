@@ -12,20 +12,20 @@ description: 'Security Considerations, Deployment Patterns, Integration Guidelin
 
 The Data Trust & Security KIT relies on proven cryptographic methods that comply with industry standards:
 
-**W3C Specifications:**
+#### W3C Specifications
 
 - **[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)** - Secure credential format and verification procedures
 - **[W3C JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signature standards for JSON-LD documents
 - **[W3C DID Core](https://www.w3.org/TR/did-core/)** - Decentralized identifier security requirements
 
-**Cryptographic Implementation:**
+#### Cryptographic Implementation
 
 - **Digital Signatures**: Uses Ed25519 and RSA to keep credentials secure
 - **Key Management**: Keys are generated, stored, and rotated securely
 - **Hash Functions**: SHA3-512 helps verify data integrity
 - **Encryption**: AES-256 protects sensitive information
 
-**Catena-X Compliance:**
+#### Catena-X Compliance
 
 - **[CX-0006 Registration](https://catenax-ev.github.io/docs/standards/overview)** - Identity verification and onboarding security
 
@@ -180,13 +180,13 @@ Only use for legacy system compatibility.
 
 #### Security Considerations by Signature Type
 
-**Quantum Computing Threat Timeline:**
+##### Quantum Computing Threat Timeline
 
 - **Current (2024-2030)**: All signature types provide adequate security
 - **Near-term (2030-2040)**: RSA and ECDSA become vulnerable, Ed25519 weakened
 - **Long-term (2040+)**: Post-quantum signatures required for critical applications
 
-**Performance Comparison (operations per second):**
+##### Performance Comparison (operations per second)
 
 1. **Ed25519Signature2020**: ~50,000 signatures/sec, ~20,000 verifications/sec
 2. **JsonWebSignature2020 (Ed25519)**: ~45,000 signatures/sec, ~18,000 verifications/sec
@@ -194,7 +194,7 @@ Only use for legacy system compatibility.
 4. **RsaSignature2018 (2048-bit)**: ~1,000 signatures/sec, ~30,000 verifications/sec
 5. **BbsBlsSignature2020**: ~500 signatures/sec, ~200 verifications/sec
 
-**Key Management Requirements:**
+##### Key Management Requirements
 
 - **Ed25519/JsonWebSignature2020**: Standard key generation and storage
 - **RSA**: Requires larger key storage and more complex key generation
@@ -203,21 +203,21 @@ Only use for legacy system compatibility.
 
 ## Implementation Guidelines
 
-**Mandatory Requirements:**
+### Recommended Requirements
 
-- All implementations MUST support Ed25519Signature2020
-- All implementations MUST support JsonWebSignature2020 with Ed25519
-- Signature verification MUST validate the signature type against trusted issuer capabilities
-- Key rotation MUST be supported for all signature types
+- All implementations SHALL support Ed25519Signature2020
+- All implementations SHALL support JsonWebSignature2020 with Ed25519
+- Signature verification SHALL validate the signature type against trusted issuer capabilities
+- Key rotation SHALL be supported for all signature types
 
-**Recommended Practices:**
+### Recommended Practices
 
 - Use Ed25519Signature2020 as the default for new implementations
 - Implement JsonWebSignature2020 for enterprise integration scenarios
 - Consider BbsBlsSignature2020 for privacy-sensitive use cases
 - Plan for post-quantum signature migration by 2035
 
-**Deprecated/Discouraged:**
+### Deprecated/Discouraged
 
 - RSA signatures below 3072-bit key size
 - SHA-1 based signatures (use SHA3-512 minimum)
@@ -246,7 +246,6 @@ Only use for legacy system compatibility.
 - **Standard Compliance**: Adhere to established W3C and Catena-X standards
 - **Monitoring & Logging**: Comprehensive monitoring and audit logging
 - **Documentation**: Maintain clear documentation for all integrations
-
 
 ## NOTICE
 

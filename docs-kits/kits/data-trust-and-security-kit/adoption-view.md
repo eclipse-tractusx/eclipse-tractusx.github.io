@@ -95,11 +95,11 @@ graph TD
     DC[Data Consumer]
     
     DP -->|Shares data for verification| AP
-    AP -->|Validates, Verifies & Certifies data| AP
-    AP -->|Issues verification certificates | DP
-    DP -->|Provides verified data + attribute attestation credentials | DC
+    AP -->|Validates, Verifies <br>& Certifies data| AP
+    AP -->|Issues verification <br>certificates | DP
+    DP -->|Provides verified data <br>+ attribute attestation <br>credentials | DC
     DC -->|Validates certificate| AP
-    AP -->|Confirms verification status| DC
+    AP -->|Confirms verification<br> status| DC
 
 ```
 
