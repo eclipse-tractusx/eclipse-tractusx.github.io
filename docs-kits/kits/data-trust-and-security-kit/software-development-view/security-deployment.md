@@ -49,24 +49,6 @@ In a centralized approach:
 - **Simplified Management** with single point of control
 - **Suitable for** initial deployments and smaller networks
 
-### Federated Deployment
-
-In a federated approach:
-
-- **Multiple Governance Entities** manage domain-specific trusted lists
-- **Distributed Verification** across multiple service providers
-- **Enhanced Resilience** through redundancy
-- **Suitable for** large-scale, multi-domain deployments
-
-### Hybrid Deployment
-
-Combining centralized and federated approaches:
-
-- **Core Services** centrally managed
-- **Domain-Specific Extensions** federally managed
-- **Flexible Scaling** based on network growth
-- **Suitable for** evolving network requirements
-
 ## Integration Guidelines
 
 ### Integration with Digital Twin Registry
@@ -83,22 +65,13 @@ sequenceDiagram
     
     App->>DTR: Query for Digital Twin via Dataplane Proxy
     DTR->>App: Return Twin with Submodel Credentials via Dataplane Proxy
-    APP->>SS: Get Verifiable Credential in Submodel via Dataplane Proxy
-    SS->>APP: Veriable Credential via Dataplane Proxy
+    App->>SS: Get Verifiable Credential in Submodel via Dataplane Proxy
+    SS->>App: Veriable Credential via Dataplane Proxy
     App->>VerifyService: Verify Credentials
     VerifyService->>TrustedList: Check Issuer Status
     TrustedList->>VerifyService: Return Issuer Status
     VerifyService->>App: Return Verification Result
 ```
-
-### Integration with EDC
-
-The KIT works alongside Eclipse Dataspace Connector:
-
-1. **Policy Enforcement**: Use verification results for access control decisions
-2. **Contract Negotiation**: Include trust requirements in data contracts
-3. **Data Transfer**: Verify credentials before data exchange
-4. **Audit Trail**: Log all verification activities
 
 ## Best Practices
 

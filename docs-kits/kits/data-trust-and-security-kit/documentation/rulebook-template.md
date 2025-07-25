@@ -9,6 +9,7 @@ sidebar_position: 10
 
 ## Validation & Verification Rulebook Template for Data Models
 
+```
 ## 1. Goal of this `<<YOUR_USECASE>>` Rulebook
 
 Describe the purpose of this rulebook.
@@ -106,6 +107,7 @@ Include any diagrams, flows, or supporting materials.
 2. Populate tables with relevant attributes and validation logic.
 3. Version and maintain this document to support audit and governance processes.
 
+```
 
 ## NOTICE
 

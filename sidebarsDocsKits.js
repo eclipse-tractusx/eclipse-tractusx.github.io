@@ -354,6 +354,16 @@ const sidebars = {
                 id: 'kits/data-trust-and-security-kit/documentation/rulebook-template'
               }
             ]
+          },
+          {
+            type: 'category',
+            label: 'Success Stories',
+            items: [
+              {
+                type: 'doc',
+                id: 'kits/data-trust-and-security-kit/success-stories/dpp-verification-success-story'
+              }
+            ]
           }
         ]
       },

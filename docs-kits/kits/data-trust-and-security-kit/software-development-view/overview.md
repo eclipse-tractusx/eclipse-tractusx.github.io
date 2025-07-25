@@ -250,42 +250,6 @@ The technology consists of creating Signed Documents (Verification Statements) u
 
 The trust framework consists of several key components that work together to establish, maintain, and verify data integrity:
 
-### Trust Registry
-
-A centralized registry that maintains lists of accredited issuers and verification authorities. This registry enables:
-
-- Management of trusted issuer lists per use case
-- Accreditation status tracking
-- Revocation list management
-- Policy enforcement
-
-### Verification Service
-
-A service component that handles the verification of verifiable credentials and attestations:
-
-- Cryptographic signature validation
-- Trusted list checking
-- Revocation status verification
-- Schema compliance validation
-
-### Wallet Integration
-
-Integration with SSI wallets for credential management:
-
-- Credential issuance capabilities
-- Private key management
-- DID resolution services
-- Credential storage and retrieval
-
-### Digital Twin Integration
-
-Seamless integration with Digital Twin Registry:
-
-- Verifiable credentials as submodels
-- Automated credential discovery
-- Metadata management
-- Trust status indication
-
 ## Getting Started
 
 To implement the Data Trust & Security KIT in your application, follow these steps:
@@ -303,9 +267,15 @@ For specific implementation details, code examples, and integration patterns, re
 
 ### Digital Product Pass Verification Add-on
 
+The Digital Product Pass Reference Implementation has a concept and implementation for the Certification and Verification of the Data Trust & Security KIT.
 
-https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md
+This Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Eclipse Tractus-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
 
+The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
+
+[eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
+
+More Information can be found in the success story section [here](../success-stories/dpp-verification-success-story.md).
 
 ## NOTICE
 
