@@ -438,17 +438,19 @@ sequenceDiagram
     participant VC as Verifiable Credential
     participant IssuanceService as Issance Service
     
-    == Translation Flow ==
+    alt Translation Flow
     Workflow->>SemanticHub: Get JSON Schema
     SemanticHub->>Workflow: JSON Schema
     SemanticHub->>Parser: Input Schema
     Parser->>Parser: Generate JSON-LD Context
     Parser->>Workflow: Provide @context file
     Workflow->>SemanticHub: Store in gen folder
-
-    == Issuance Flow ==
+    end
+    
+    alt Issuance Flow
     IssuanceService->>VC: Introduce @context in VC
     VC->>SemanticHub: Retrieve @context via HTTPS
+    end
 
 ```
 
