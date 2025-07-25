@@ -1,10 +1,12 @@
 ---
+id: overview
+title: Architecture Overview
 description: 'Data Trust & Security KIT - Architecture and Implementation Guide'
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
- ## Introduction
+## Introduction
 
 ### What This Guide Is About
 
@@ -20,13 +22,13 @@ This KIT builds on proven technology from the [Digital Product Pass Verification
 
 This guide is organized into practical sections that take you from basic concepts to full implementation:
 
-- **[API Specifications](./api-specifications)** - The REST APIs you'll use to integrate trust services into your applications
-- **[Security & Deployment](./security-deployment)** - How to deploy securely and follow best practices  
-- **[Verifiable Credentials](./verifiable-credentials)** - The digital certificate technology that makes verification possible
-- **[Trust Verification](./trust-verification)** - How to build systems that can verify data authenticity
-- **[Integration & Implementation](./integration-implementation)** - Practical steps to integrate with Digital Twins and existing systems
+1. **[Verifiable Credentials](./verifiable-credentials)** - The digital certificate technology that makes verification possible
+2. **[Digital Twins & Storage](./integration-implementation)** - Practical steps to integrate with Digital Twins and existing systems and where to store the credentials.
+3. **[Trust Verification](./trust-verification)** - How to build systems that can verify data authenticity
+4. **[Security & Deployment](./security-deployment)** - How to deploy securely and follow best practices
+5. **[API Specifications](./api-specifications)** - The REST APIs you'll use to integrate trust services into your applications
 
-### How the System Works
+### Architecture Overview
 
 Here's how the Data Trust & Security KIT fits into the larger Tractus-X ecosystem:
 

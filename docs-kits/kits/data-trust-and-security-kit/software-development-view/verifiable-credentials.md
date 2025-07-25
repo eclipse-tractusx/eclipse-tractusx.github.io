@@ -85,6 +85,82 @@ A DAC contains several key components:
 - **Battery Passport**: Full battery lifecycle data including materials and performance metrics
 - **Supply Chain Documentation**: Complete traceability data from raw materials to finished products
 
+:::info
+Substitute the `<aspectModelKey>` with your SemanticId aspect model key, for example, for PCF the following semantic id is given: `urn:samm:io.catenax.pcf:7.0.0#Pcf`, then `urn:samm:<semanticPrefix>:<version>#<aspectModelKey>`, so it would be:
+
+`<semanticPrefix>` = `io.catenax.pcf`
+
+`<version>` = `7.0.0`
+
+`<aspectModelKey>` = `Pcf`
+
+In this way it can be reusable for any aspect model.
+:::
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/<semanticPrefix>/<version>/gen/<aspectModelKey>-context.jsonld"
+    ],
+    "type": [
+        "VerifiableCredential",
+        "DataAttestationCredential",
+        "<aspectModelKey>"
+    ],
+    "semanticId": "urn:samm:<semanticPrefix>:<version>#<aspectModelKey>",
+    "credentialSubject": {
+        "<aspectModelKey>": <Your Aspect Model JSON Payload Here>,
+    },
+    "id": "urn:uuid:certificate-123-456-789",
+    "issuer": "did:web:tuv-sud.de",
+    "validFrom": "2024-01-15T10:30:00Z",
+    "validUntil": "2025-01-15T10:30:00Z",
+    "validationMethod": [
+      {
+        "@type": "<validation method type: Ex: Standard>",
+        "label": "<standard name: Ex: Catena-X PCF Rulebook>",
+        "@id": "<standard number: Ex: CX-0029>",
+        "uri": "<your standard url here>",
+        "complianceCriteria": [
+          {
+            "@type": "Standard Compliance",
+            "@value": "100%"
+          },
+          {
+            "@type": "Verification Level",
+            "@value": "3"
+          },
+          {
+            "@type": "Primary Data Share",
+            "@value": "80%"
+          },
+          {...}
+        ]
+      }
+    ],
+    "credentialStatus": {
+        "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+        "type": "RevocationList2020Status",
+        "revocationListIndex": "42",
+        "revocationListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+    },
+    "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:tuv-sud.de#key-1",
+        "created": "2024-01-15T10:30:00Z",
+        "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY..."
+    }
+}
+```
+
+<details>
+<summary>Example of a DAC for PCF for the Catena-X Rulebook</summary>
+
 ```json
 {
     "@context": [
@@ -223,6 +299,8 @@ A DAC contains several key components:
     }
 }
 ```
+
+</details>
 
 #### Data Attestation Credential Structure Analysis
 
@@ -1061,37 +1139,6 @@ The following example shows an ACR containing multiple AACs from different attes
 ```
 
 </details>
-
-#### ACR Structure Analysis
-
-The ACR example above demonstrates several key aspects:
-
-**Multiple Auditor Perspectives:**
-
-| Auditor | Focus Area | Standards Applied | Attributes Certified |
-|---------|------------|-------------------|---------------------|
-| **ISO Carbon Auditors** | Carbon Footprint Accuracy | ISO 14067:2018 | PCF values, fossil emissions |
-| **EU Taxonomy Auditors** | Regulatory Compliance | EU Taxonomy Regulation | Data quality metrics, coverage |
-| **Catena-X Certification** | Network Standards | CX-0029 PCF Rulebook | Cross-sectoral standards compliance |
-
-**Comprehensive Trust Coverage:**
-
-- **Technical Validation**: ISO standards ensure methodological correctness
-- **Regulatory Compliance**: EU Taxonomy confirms legal requirements
-- **Network Interoperability**: Catena-X standards guarantee ecosystem compatibility
-
-**Temporal Coordination:**
-
-The ACR validity period (`2024-08-15` to `2025-06-01`) is automatically determined by the earliest expiration date among the included AACs, ensuring the presentation remains valid only while all constituent credentials are active.
-
-**Verification Benefits:**
-
-1. **One-Stop Verification**: Data consumers can verify multiple aspects of trust in a single document
-2. **Auditor Independence**: Each AAC maintains its original signature and validation methods
-3. **Selective Presentation**: Data providers can choose which certifications to include for specific use cases
-4. **Cryptographic Integrity**: The presentation proof ensures the holder controls all presented credentials
-
-This ACR structure enables comprehensive trust establishment while maintaining the independence and specialization of different auditing bodies within the Tractus-X ecosystem.
 
 ## NOTICE
 

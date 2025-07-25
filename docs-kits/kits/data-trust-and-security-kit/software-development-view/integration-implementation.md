@@ -1,5 +1,6 @@
 ---
-title: Integration, Implementation & Roadmap
+id: integration-implementation
+title: Digital Twins & Storage
 description: 'Digital Twin Integration, Certification Processes, Implementation Best Practices and Roadmap for Data Trust & Security KIT'
 ---
 
@@ -402,29 +403,6 @@ if __name__ == "__main__":
 ```
 
 This implementation demonstrates the mandatory integration of trusted list validation and revocation checking in the verification process, as required for secure credential verification.
-
-## Implementation Roadmap
-
-### Phase 1: Foundation
-
-- Basic verifiable credential support
-- Simple wallet integration
-- Core verification APIs
-- Digital twin submodel registration
-
-### Phase 2: Enhancement
-
-- Attribute-level certification
-- Trusted issuer registry
-- Revocation list management
-- Advanced verification workflows
-
-### Phase 3: Scale
-
-- Multi-use case support
-- Federation capabilities
-- Performance optimization
-- Advanced analytics and reporting
 
 ## NOTICE
 

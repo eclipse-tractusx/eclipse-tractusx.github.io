@@ -1,12 +1,12 @@
 ---
 id: security-deployment
-title: Security, Deployment & Best Practices
+title: Security Considerations
 description: 'Security Considerations, Deployment Patterns, Integration Guidelines, and Best Practices for Data Trust & Security KIT'
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Keeping Your System Secure
+## Security Guidelines
 
 ### Cryptographic Standards
 
@@ -73,28 +73,168 @@ sequenceDiagram
     VerifyService->>App: Return Verification Result
 ```
 
+## Supported Signature Types
+
+The Data Trust & Security KIT supports multiple cryptographic signature types:
+
+### Ed25519Signature2020 **Recommended**
+
+Fast, secure, and modern. Perfect for new implementations.
+
+- **Security**: Excellent, quantum-resistant
+- **Performance**: Fastest (50k+ operations/sec)
+- **Key Size**: 32 bytes
+
+```json
+{
+    "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2024-01-15T10:30:00Z",
+        "verificationMethod": "did:web:issuer.example.com#key-1",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z5vDVKmhQKyiPj4E2fNvRFDqJ9..."
+    }
+}
+```
+
+### JsonWebSignature2020 **Enterprise**
+
+Industry standard JWT format. Great for enterprise integration.
+
+- **Security**: Very good, depends on algorithm
+- **Performance**: Good, flexible algorithms
+- **Compatibility**: Works with existing JWT systems
+
+```json
+{
+    "proof": {
+        "type": "JsonWebSignature2020",
+        "created": "2024-01-15T10:30:00Z",
+        "verificationMethod": "did:web:issuer.example.com#key-1",
+        "proofPurpose": "assertionMethod",
+        "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY0IjogZmFsc2UsICJjcnYi..."
+    }
+}
+```
+
+### BbsBlsSignature2020 **Privacy**
+
+Enables selective disclosure and zero-knowledge proofs.
+
+- **Security**: Excellent for privacy
+- **Performance**: Slower, specialized use
+- **Use Case**: When you need to hide some data while proving others
+
+```json
+{
+    "proof": {
+        "type": "BbsBlsSignature2020",
+        "created": "2024-01-15T10:30:00Z",
+        "verificationMethod": "did:web:issuer.example.com#key-1",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "lAjGJkMNBU49r..."
+    }
+}
+```
+
+### RsaSignature2018 **Legacy Only**
+
+Only use for legacy system compatibility.
+
+- **Security**: Acceptable with 3072+ bit keys
+- **Performance**: Slow, large signatures
+- **Quantum**: Vulnerable to future quantum attacks
+
+```json
+{
+    "proof": {
+        "type": "RsaSignature2018",
+        "created": "2024-01-15T10:30:00Z",
+        "verificationMethod": "did:web:issuer.example.com#key-1",
+        "proofPurpose": "assertionMethod",
+        "signatureValue": "AN1rKvtNZEJzb..."
+    }
+}
+```
+
+#### Quick Selection Guide
+
+| Use Case | Choose This | Why |
+|----------|-------------|-----|
+| New system | Ed25519Signature2020 | Best performance + security |
+| Enterprise integration | JsonWebSignature2020 | JWT compatibility |
+| Privacy-sensitive data | BbsBlsSignature2020 | Selective disclosure |
+| Legacy system | RsaSignature2018 | Only if required |
+
+#### Security Considerations by Signature Type
+
+**Quantum Computing Threat Timeline:**
+
+- **Current (2024-2030)**: All signature types provide adequate security
+- **Near-term (2030-2040)**: RSA and ECDSA become vulnerable, Ed25519 weakened
+- **Long-term (2040+)**: Post-quantum signatures required for critical applications
+
+**Performance Comparison (operations per second):**
+
+1. **Ed25519Signature2020**: ~50,000 signatures/sec, ~20,000 verifications/sec
+2. **JsonWebSignature2020 (Ed25519)**: ~45,000 signatures/sec, ~18,000 verifications/sec
+3. **EcdsaSecp256k1Signature2019**: ~10,000 signatures/sec, ~5,000 verifications/sec
+4. **RsaSignature2018 (2048-bit)**: ~1,000 signatures/sec, ~30,000 verifications/sec
+5. **BbsBlsSignature2020**: ~500 signatures/sec, ~200 verifications/sec
+
+**Key Management Requirements:**
+
+- **Ed25519/JsonWebSignature2020**: Standard key generation and storage
+- **RSA**: Requires larger key storage and more complex key generation
+- **BBS+**: Requires specialized cryptographic libraries and key management
+- **ECDSA**: Standard elliptic curve key management practices
+
+## Implementation Guidelines
+
+**Mandatory Requirements:**
+
+- All implementations MUST support Ed25519Signature2020
+- All implementations MUST support JsonWebSignature2020 with Ed25519
+- Signature verification MUST validate the signature type against trusted issuer capabilities
+- Key rotation MUST be supported for all signature types
+
+**Recommended Practices:**
+
+- Use Ed25519Signature2020 as the default for new implementations
+- Implement JsonWebSignature2020 for enterprise integration scenarios
+- Consider BbsBlsSignature2020 for privacy-sensitive use cases
+- Plan for post-quantum signature migration by 2035
+
+**Deprecated/Discouraged:**
+
+- RSA signatures below 3072-bit key size
+- SHA-1 based signatures (use SHA3-512 minimum)
+- Custom or proprietary signature schemes
+- Signature types without proper W3C or IETF standardization
+
 ## Best Practices
 
-### For Issuers
+### For Attestation Providers
 
 - **Regular Key Rotation**: Implement automated key rotation schedules
 - **Data Validation**: Thoroughly validate data before credential issuance
 - **Revocation Management**: Maintain up-to-date revocation lists
 - **Compliance Monitoring**: Regular self-audits against accreditation requirements
 
-### For Verifiers
+### For Data Consumers
 
 - **Always Check Revocation**: Never skip revocation status checks
 - **Validate Issuer Status**: Ensure issuer is currently trusted
 - **Implement Caching**: Cache verification results appropriately
 - **Error Handling**: Graceful handling of verification failures
 
-### For Implementers
+### For Data Providers
 
 - **Security First**: Prioritize security in all implementation decisions
 - **Standard Compliance**: Adhere to established W3C and Catena-X standards
 - **Monitoring & Logging**: Comprehensive monitoring and audit logging
 - **Documentation**: Maintain clear documentation for all integrations
+
 
 ## NOTICE
 
