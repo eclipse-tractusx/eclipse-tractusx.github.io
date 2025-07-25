@@ -5,7 +5,7 @@ description: 'Data Trust and Security KIT'
 sidebar_position: 0
 ---
 
-## [0.0.1] -
+## [0.0.1]
 
 ### Added
 
@@ -13,11 +13,10 @@ sidebar_position: 0
 - Included kit logo
 - Added software development view with examples of trusted lists and verifiable credentials.
 
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 
-
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
