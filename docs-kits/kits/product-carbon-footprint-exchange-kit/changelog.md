@@ -7,9 +7,12 @@ sidebar_position: 1
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
-## Changes release 25.09
+## 25.09 (CX-Saturn)
 
-* Add synchronous data exchange via data pull and digital twins according to industry core standard/kit
+Added 
+- Synchronous data exchange via data pull and digital twins according to industry core standard/kit
+- Add customerPartID in data model
+
 
 ## PCF Exchange KIT
 
