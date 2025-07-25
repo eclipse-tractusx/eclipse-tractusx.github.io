@@ -2,7 +2,7 @@
 id: rulebook-template
 title: Rulebook Template
 description: Rulebook Example
-sidebar_position: 4
+sidebar_position: 10
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
@@ -105,3 +105,14 @@ Include any diagrams, flows, or supporting materials.
 1. Adapt this template to your specific data model.
 2. Populate tables with relevant attributes and validation logic.
 3. Version and maintain this document to support audit and governance processes.
+
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io

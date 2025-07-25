@@ -2,7 +2,6 @@
 id: verifiable-credentials
 title: Verifiable Credential Framework
 description: 'Implementation Architecture and Verifiable Credential Framework for Data Trust & Security KIT'
-sidebar_position: 6
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)

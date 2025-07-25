@@ -2,7 +2,6 @@
 id: integration-implementation
 title: Integration, Implementation & Roadmap
 description: 'Digital Twin Integration, Certification Processes, Implementation Best Practices and Roadmap for Data Trust & Security KIT'
-sidebar_position: 8
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)

@@ -1,8 +1,7 @@
 ---
-id: software-development-view
-title: Software Development View
+id: overview
+title: Overview
 description: 'Data Trust & Security KIT - Architecture and Implementation Guide'
-sidebar_position: 3
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
@@ -14,6 +13,8 @@ sidebar_position: 3
 The Data Trust & Security KIT provides developers with essential resources to implement robust data verification and trust mechanisms within the Catena-X network. This KIT enables organizations to establish, maintain, and verify the authenticity and integrity of data exchanged through the ecosystem.
 
 The developer view offers comprehensive guidance on integrating data attestation services, implementing verifiable credentials, managing trusted issuer lists, and establishing secure data verification processes. This documentation covers various aspects from API endpoints utilization to data model implementation and deployment within the Catena-X Data Space.
+
+This KIT is based on the [Digital Product Pass Verification/Certification Framework](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md) which provided guidelines for enabling data model verification on attribute level and at complete data model data.
 
 ## Documentation Overview
 
@@ -297,6 +298,14 @@ To implement the Data Trust & Security KIT in your application, follow these ste
 6. **Deploy trust verification** services and integrate with your data flows
 
 For specific implementation details, code examples, and integration patterns, refer to the comprehensive documentation sections linked at the beginning of this guide.
+
+## Reference Implementations
+
+### Digital Product Pass Verification Add-on
+
+
+https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md
+
 
 ## NOTICE
 

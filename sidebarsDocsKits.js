@@ -331,11 +331,18 @@ const sidebars = {
           {
             type: 'category',
             label: 'Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/data-trust-and-security-kit/software-development-view/overview'
+            },
             items: [
-              {
-                type: 'doc',
-                id: 'kits/data-trust-and-security-kit/software-development-view/software-development-view'
-              }
+              'kits/data-trust-and-security-kit/software-development-view/overview',
+              'kits/data-trust-and-security-kit/software-development-view/verifiable-credentials',
+              'kits/data-trust-and-security-kit/software-development-view/integration-implementation',
+              'kits/data-trust-and-security-kit/software-development-view/trust-verification',
+              'kits/data-trust-and-security-kit/software-development-view/semantic-verification',
+              'kits/data-trust-and-security-kit/software-development-view/security-deployment',
+              'kits/data-trust-and-security-kit/software-development-view/api-specifications'
             ]
           },
           {
