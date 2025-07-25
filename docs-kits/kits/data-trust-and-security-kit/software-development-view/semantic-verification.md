@@ -6,34 +6,31 @@ description: 'Using JSON-LD to verify SAMM modelled data models'
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Introduction
+## Making Different Data Standards Work Together
 
-Semantic context verification is a critical component of the Data Trust & Security KIT that enables the integration of SAMM (Semantic Aspect Meta Model) modeled data with W3C Verifiable Credentials. This document outlines the challenges, solutions, and implementation details for bridging the gap between Catena-X semantic models and JSON-LD based verifiable credentials.
+### The Challenge We're Solving
 
-The Eclipse Tractus-X ecosystem relies heavily on SAMM for modeling aspect data, while verifiable credentials require JSON-LD contexts for semantic interoperability. This creates a fundamental compatibility challenge that must be addressed through automated translation mechanisms.
+In Tractus-X, we have two different standards that need to work together:
 
-## The Semantic Challenge
+- **SAMM (Semantic Aspect Meta Model)** - This is how Tractus-X defines data structures for things like carbon footprints and battery passports
+- **JSON-LD** - This is what W3C Verifiable Credentials use to give meaning to data
 
-### Background
+The problem is these two standards don't naturally speak to each other. SAMM creates data validation rules, while Verifiable Credentials need semantic context definitions. It's like having two people who speak different languages trying to have a conversation.
 
-Catena-X has standardized on SAMM (Semantic Aspect Meta Model) for defining data structures and semantics across various use cases such as Product Carbon Footprint (PCF), Battery Passport, and Digital Product Pass. However, the W3C Verifiable Credentials specification mandates the use of JSON-LD contexts to provide semantic meaning to credential data.
+### Why This Matters for Trust
 
-This creates a technical gap:
+Without bridging this gap, our trust system can't:
 
-- **SAMM models** generate JSON Schema definitions for data validation
-- **Verifiable Credentials** require JSON-LD `@context` for semantic interpretation
-- **No direct mapping** exists between these two standards
+- Verify that certificate data matches the expected data models
+- Ensure different organizations' systems can understand each other
+- Provide meaningful verification of the actual data content
+- Support automated processing of certificates
 
-### Impact on Trust Infrastructure
+## How We Bridge the Gap
 
-Without proper semantic context translation, the Data Trust & Security KIT cannot:
+The solution is to create automatic translation between these standards:
 
-- Validate that credential data conforms to expected semantic models
-- Ensure interoperability between different implementations
-- Provide meaningful semantic verification of attested data
-- Support automated processing of credential content
-
-## Semantic Context Verification
+This diagram shows the current incompatibility:
 
 ```mermaid
 flowchart TD
@@ -45,26 +42,30 @@ flowchart TD
     JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
 ```
 
-This means that:
+The reality is:
 
 ```mermaid
 flowchart LR
-    SM["TX Semantic Models"] x--NOT COMPATIBLE WITHOUT TRANSLATION --x VC["Verifiable Credentials"]
-````
+    SM["Tractus-X Data Models"] x--NOT COMPATIBLE WITHOUT TRANSLATION --x VC["Verifiable Credentials"]
+```
 
-Therefore, we need to translate the JSON-Schemas to `JSON-LD @context` so that the data models can be translated.
+### The Translation Solution
 
-### Translation
+We solve this by automatically converting SAMM JSON schemas into JSON-LD contexts:
 
 ```mermaid
 flowchart LR
-    SJS["SAMM JSON SCHEMA"] --> SCT["<br>sammSchemaParser<br><br>"]:::big
-    SCT --> JLD["JSON-LD @context"]
+    SJS["SAMM JSON Schema"] --> SCT["Schema Parser Tool"]:::big
+    SCT --> JLD["JSON-LD Context"]
     
     classDef big stroke:#000,stroke-width:2px
 ```
 
-## Code for Translation
+This tool acts as a translator, taking the data validation rules from SAMM and converting them into the semantic context that Verifiable Credentials need.
+
+## The Translation Tool
+
+Here's the technical implementation that makes this translation possible:
 
 ```python
 import traceback
@@ -441,7 +442,7 @@ sequenceDiagram
     alt Translation Flow
     Workflow->>SemanticHub: Get JSON Schema
     SemanticHub->>Workflow: JSON Schema
-    SemanticHub->>Parser: Input Schema
+    Workflow->>Parser: Input Schema
     Parser->>Parser: Generate JSON-LD Context
     Parser->>Workflow: Provide @context file
     Workflow->>SemanticHub: Store in gen folder

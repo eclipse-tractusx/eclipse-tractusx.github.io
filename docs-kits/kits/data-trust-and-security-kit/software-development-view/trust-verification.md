@@ -6,19 +6,17 @@ description: 'Trust Verification Service and Technical Specifications for Data T
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Trust Verification Service
+## Building Your Trust Verification System
 
-The trust verification service provides comprehensive verification capabilities for all types of verifiable credentials and attestations.
+### What This Service Does
 
-### Verification Capabilities
+The trust verification service is the heart of your data trust system. It's what actually checks whether the digital certificates you receive are legitimate and trustworthy. Think of it as an automated security guard that examines every piece of verification documentation before allowing data into your systems.
 
-- **Signature Verification**: Cryptographic validation of credential signatures
-- **Issuer Authentication**: Verification against trusted issuer registry
-- **Revocation Checking**: Real-time status verification of credentials
-- **Policy Compliance**: Validation against applicable policies and standards
-- **Selective Disclosure**: Support for attribute-level verification without full data exposure
+When you receive data with certificates from other organizations, this service performs all the complex technical checks needed to determine if you can trust that data. It handles everything from cryptographic signature validation to checking trusted issuer lists.
 
-### Verification Workflow
+### How Verification Works Step-by-Step
+
+Here's what happens when you verify data:
 
 ```mermaid
 sequenceDiagram
@@ -37,21 +35,23 @@ sequenceDiagram
     Verifier->>Consumer: Return Verification Result
 ```
 
-## Technical Specifications
+## Technical Details You Need to Know
 
-### Cryptographic Standards
+### The Cryptography Behind Trust
 
-The Data Trust & Security KIT uses industry-standard cryptographic approaches based on the W3C Verifiable Credentials specification:
+The Data Trust & Security KIT uses proven cryptographic methods based on World Wide Web Consortium (W3C) standards. Don't worry if you're not a cryptography expert - the important thing is that these are battle-tested approaches used across the internet.
 
-#### Digital Signatures
+#### Digital Signatures - Your Trust Foundation
 
-- **Ed25519**: Primary signature algorithm for credential integrity
-- **JsonWebSignature2020**: W3C standardized signature format
-- **Key Management**: Secure key generation, storage, and rotation procedures
+Digital signatures work like handwritten signatures, but much more secure:
 
-#### Signature Structure
+- **Ed25519** - This is our primary signature algorithm. It's fast, secure, and widely supported
+- **JsonWebSignature2020** - This is the standardized format we use, ensuring compatibility across different systems
+- **Key Management** - We provide secure procedures for generating, storing, and rotating the cryptographic keys
 
-The signature header must follow the W3C standard for JSON Web Signatures 2020:
+#### What a Signature Looks Like
+
+Every digital signature includes a header that tells verification systems how to process it:
 
 ```json
 {

@@ -1,34 +1,34 @@
 ---
-id: overview
-title: Overview
 description: 'Data Trust & Security KIT - Architecture and Implementation Guide'
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Introduction
+ ## Introduction
 
-### General Development Information
+### What This Guide Is About
 
-The Data Trust & Security KIT provides developers with essential resources to implement robust data verification and trust mechanisms within the Catena-X network. This KIT enables organizations to establish, maintain, and verify the authenticity and integrity of data exchanged through the ecosystem.
+The Data Trust & Security KIT helps you build systems that can verify and trust data in an Eclipse Tractus-X network (like Catena-X). Think of it as a toolkit that ensures the data your company shares and receives is authentic, accurate, and trustworthy.
 
-The developer view offers comprehensive guidance on integrating data attestation services, implementing verifiable credentials, managing trusted issuer lists, and establishing secure data verification processes. This documentation covers various aspects from API endpoints utilization to data model implementation and deployment within the Catena-X Data Space.
+In today's world, you can't just accept data at face value - especially when it comes to sustainability, compliance, and supply chain information. This guide shows you how to implement verification mechanisms so that when someone shares carbon footprint data, battery information, or supply chain details, you can be confident it's legitimate.
 
-This KIT is based on the [Digital Product Pass Verification/Certification Framework](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md) which provided guidelines for enabling data model verification on attribute level and at complete data model data.
+We'll walk you through everything you need to know: from setting up verification services and managing digital certificates, to integrating with existing Tractus-X components like the Eclipse Dataspace Components (EDC) Connector and Digital Twin Registry.
 
-## Documentation Overview
+This KIT builds on proven technology from the [Digital Product Pass Verification Framework](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md), which has already shown how to verify data at both individual attribute and complete dataset levels.
 
-This comprehensive guide is organized into the following sections:
+## What You'll Find in This Guide
 
-- **[API Specifications](./api-specifications)** - REST APIs, endpoints, and integration details for trust management services
-- **[Security & Deployment](./security-deployment)** - Security considerations, deployment patterns, and best practices  
-- **[Verifiable Credentials](./verifiable-credentials)** - Implementation architecture and credential framework
-- **[Trust Verification](./trust-verification)** - Trust verification service and technical specifications
-- **[Integration & Implementation](./integration-implementation)** - Digital Twin integration, certification processes, and implementation roadmap
+This guide is organized into practical sections that take you from basic concepts to full implementation:
 
-### Architecture Overview
+- **[API Specifications](./api-specifications)** - The REST APIs you'll use to integrate trust services into your applications
+- **[Security & Deployment](./security-deployment)** - How to deploy securely and follow best practices  
+- **[Verifiable Credentials](./verifiable-credentials)** - The digital certificate technology that makes verification possible
+- **[Trust Verification](./trust-verification)** - How to build systems that can verify data authenticity
+- **[Integration & Implementation](./integration-implementation)** - Practical steps to integrate with Digital Twins and existing systems
 
-The following figure illustrates how the Data Trust & Security KIT components are embedded within the overall Eclipse Tractus-X architecture:
+### How the System Works
+
+Here's how the Data Trust & Security KIT fits into the larger Tractus-X ecosystem:
 
 ```mermaid
 graph TB
@@ -55,7 +55,7 @@ graph TB
         OpWallet["Operator Wallet"]
     end
 
-    subgraph CX["Governance Body (ex. Catena-X e.V.)"]
+    subgraph CX["Governance Body (ex. Tractus-X e.V.)"]
         TIR["Trusted Issuer Registry"]
     end
 
@@ -86,20 +86,23 @@ graph TB
     Wallet1 -.->|"Get public key to verify signature"| DID
 ```
 
-## Core Components
+## Key Components
 
-### Attestation Service Provider Trusted List
+### The Trusted Issuer List - Who Can You Trust?
 
-The trusted list of issuers should be maintained by a Governance Entity (e.g., Catena-X Association) and can be hosted by the Core Service Providers. However, its ongoing curation and updates will require input from domain experts across relevant industries to ensure accuracy and relevance.
+Think of the trusted issuer list as a phone book of organizations that are qualified to verify data. Just like you wouldn't trust medical advice from someone without a medical license, you shouldn't trust data verification from unqualified organizations.
 
-It should provide for each use case a list of accredited issuers.
+The trusted list is maintained by governance bodies (like the Catena-X Association) and tells you:
 
-Based on certain rules defined by each use case, a company will be allowed to be included in this trusted list.
-This set of rules will be defined in an Accreditation Rulebook.
+- Which organizations can verify specific types of data (carbon footprints, battery information, etc.)
+- Whether they're currently active or have been suspended
+- What their qualifications and scope of expertise are
 
-#### Trusted List Structure
+Each use case has its own list of qualified verifiers. For example, verifying carbon footprint data requires different expertise than verifying battery safety information.
 
-The trusted list follows a standardized JSON-LD structure that enables semantic understanding and automated processing:
+#### What Goes Into the Trusted List
+
+The trusted list uses a standardized format that machines can understand and process automatically:
 
 ```json
 {
@@ -107,12 +110,12 @@ The trusted list follows a standardized JSON-LD structure that enables semantic 
      "https://www.w3.org/ns/odrl.jsonld",
      {
          "cx-policy": "https://w3id.org/catenax/policy/",
-         "cx-trusted-list": "https://w3id.com/catena-x/trusted-list/"
+         "cx-trusted-list": "https://w3id.com/tractus-x/trusted-list/"
      }
    ],
    "type": "TrustedList",
    "owner": {
-      "name": "Catena-X Automotive Network e.V.",
+      "name": "Tractus-X Automotive Network e.V.",
       "@id": "did:web:catena-x.net"
     },
    "version": "1.0.0",
@@ -149,20 +152,19 @@ The trusted list follows a standardized JSON-LD structure that enables semantic 
 }
 ```
 
-#### Trusted List Features
+#### How the Trusted List Works
 
-The trusted list implementation provides the following capabilities:
+The trusted list implementation provides these key capabilities:
 
-- **Use Case Specificity**: Maintains separate issuer lists for different use cases and data types
-- **Accreditation Tracking**: Records accreditation status, scope, and validity periods  
-- **Dynamic Updates**: Supports real-time updates to issuer status and capabilities
-- **Multi-level Trust**: Enables different trust levels based on accreditation scope
-- **Revocation Integration**: Links to revocation endpoints for each trusted issuer
-- **Semantic Interoperability**: Uses JSON-LD for machine-readable trust relationships
+- **Specialized by Use Case** - Different lists for different types of data verification (carbon footprints, battery passports, etc.)
+- **Real-time Updates** - Status can change in real-time if an organization loses accreditation or gets suspended
+- **Multiple Trust Levels** - Some organizations might be qualified for basic verification, others for more complex assessments
+- **Revocation Integration** - Links to systems that track whether specific certificates have been cancelled
+- **Machine Readable** - Uses standardized formats so software can automatically check trust status
 
-#### Issuer Status Management
+#### Verifier Status Levels
 
-Each trusted issuer can have one of the following statuses:
+Each trusted verifier can have one of these statuses:
 
 | Status | Description | Verification Impact |
 |--------|-------------|-------------------|
@@ -171,111 +173,114 @@ Each trusted issuer can have one of the following statuses:
 | `revoked` | Issuer's trust has been permanently revoked | All credentials from this issuer are rejected |
 | `expired` | Issuer's accreditation period has ended | Credentials issued within validity period may still be valid |
 
-## Data Trust Flow
+## How Data Trust Actually Works
 
-The Data Trust & Security KIT enables a comprehensive flow for establishing and verifying data trust within the Catena-X network. This process involves multiple participants and follows a standardized approach to ensure data integrity and authenticity.
+The Data Trust & Security KIT creates a comprehensive system for establishing and verifying trust in data within an Eclipse Tractus-X network (like Catena-X). Think of it as a multi-step verification process that ensures data integrity from source to consumer.
 
-### Prerequisites
+### What You Need Before You Start
 
-Before implementing the Data Trust & Security KIT, the following components and services need to be available:
+Before you can implement data trust features, you need these foundational components:
 
 | Component | Description | Repository/Standard | CX Standard |
 |-----------|-------------|---------------------|-------------|
 | Digital Twin Registry | Registry for digital twin metadata and endpoints | eclipse-tractusx/sldt-digital-twin-registry | CX-0002 |
-| Eclipse Dataspace Connector (EDC) | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
+| Eclipse Dataspace Components (EDC) Connector | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
 | Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0049 |
 | Operator Wallet | SSI wallet for credential issuance | eclipse-tractusx/ssi-credential-issuer | CX-0049 |
 | Trusted List Service | Management of accredited issuers | To be defined | Future CX Standard |
 
-### Trust Establishment Process
+### How Trust Gets Established
 
-The trust establishment process follows these key phases:
+Trust doesn't just happen - it's built through a systematic process involving multiple parties:
 
-#### 1. Issuer Accreditation Phase
+#### Phase 1: Getting Organizations Qualified as Verifiers
 
-Organizations seeking to become trusted issuers must:
+Before anyone can verify data, they need to prove they're qualified:
 
-1. **Apply for Accreditation**: Submit application to governance entity
-2. **Compliance Verification**: Undergo audit against accreditation rulebook
-3. **Inclusion in Trusted List**: Upon successful verification, inclusion in the trusted issuer list
-4. **Ongoing Monitoring**: Regular compliance checks and status updates
+1. **Application** - Organizations apply to become trusted verifiers
+2. **Compliance Check** - Experts review their qualifications and processes
+3. **Approval** - If they meet the standards, they're added to the trusted list
+4. **Ongoing Reviews** - Regular checks ensure they maintain their qualifications
 
-#### 2. Certificate Issuance Phase
+#### Phase 2: Creating Verified Certificates
 
-Accredited issuers can create verifiable credentials:
+Once qualified, verifiers can create digital certificates for data:
 
-1. **Data Validation**: Verify the accuracy and completeness of data to be certified
-2. **Credential Creation**: Generate verifiable credential with appropriate schemas
-3. **Digital Signing**: Apply cryptographic signatures using issuer's private keys
-4. **Publication**: Make credentials available through appropriate channels
+1. **Data Review** - Verifiers examine the data for accuracy and completeness
+2. **Certificate Creation** - They generate digital certificates using standard formats
+3. **Digital Signing** - Certificates get cryptographically signed to prevent tampering
+4. **Publication** - Certificates are made available through secure channels
 
-#### 3. Verification Phase
+#### Phase 3: Verifying Data When You Receive It
 
-Data consumers must verify credentials through comprehensive validation that includes trusted list and revocation checking:
+When you receive data with certificates, you need to verify everything is legitimate:
 
-1. **Credential Retrieval**: Obtain verifiable credentials from data providers or Digital Twin Registry
-2. **Trusted List Validation**:
-   - Verify issuer DID is present in the trusted issuer list
-   - Check issuer status is "ACTIVE" and not "SUSPENDED" or "REVOKED"
-   - Validate issuer accreditation levels match required trust requirements
-   - Confirm issuer's supported credential types include the presented credential
-3. **Signature Verification**:
-   - Validate cryptographic signatures using issuer's public key
-   - Verify signature integrity and authenticity
-   - Check signature algorithm compatibility
-4. **Revocation Status Check**:
-   - Query revocation list endpoint from trusted issuer configuration
-   - Verify credential ID is not present in active revocation lists
-   - Check revocation list freshness and validity period
-   - Handle revocation list unavailability according to policy
-5. **Schema and Structure Validation**:
-   - Validate credential structure against expected JSON-LD schema
-   - Verify required fields and data types
-   - Check credential context and vocabulary compliance
-6. **Trust Decision**: Make informed decision based on all verification results
+1. **Get the Certificate** - Retrieve the digital certificate from the data provider or Digital Twin Registry
+2. **Check the Verifier** - Make sure the organization that issued the certificate is on the trusted list and is still active
+3. **Verify the Signature** - Use cryptographic methods to confirm the certificate hasn't been tampered with
+4. **Check for Revocation** - Ensure the certificate hasn't been cancelled or revoked
+5. **Validate the Format** - Confirm the certificate follows the correct structure and standards
+6. **Make Your Decision** - Based on all these checks, decide whether to trust the data
 
-**Critical Note**: Both trusted list validation and revocation checking are mandatory steps in the verification process. Failure in either check should result in credential rejection unless explicitly overridden by organizational policy.
+**Important**: All these verification steps are mandatory. Skipping any step could mean accepting fraudulent or tampered data.
 
-## Implementation Architecture
+## Building Your Implementation
 
-### Overview
+### The Big Picture
 
-The Data Trust & Security KIT provides a comprehensive framework for implementing data verification and trust mechanisms within the Catena-X network. The architecture is designed to be generic and adaptable across various use cases and data formats while maintaining data sovereignty and security.
+The Data Trust & Security KIT gives you a flexible framework for adding data verification to your Tractus-X applications. The beauty of this system is that it works across different types of data and use cases while keeping your data secure and under your control.
 
-This implementation concept establishes an assertive second layer of trust over the actual peer-to-peer data exchanges within the Catena-X network. Building upon the existing SSI (Self-Sovereign Identity) technology already in place, this framework enables data providers to create self-signed documents confirming information placed into aspect models, and gives data auditors the possibility to certify specific attributes from standardized data structures.
+Think of it as building a second layer of trust on top of your existing data exchanges. You're already sharing data through an Eclipse Tractus-X network (like Catena-X) - now you can add cryptographic proof that this data is authentic and hasn't been tampered with.
 
-The technology consists of creating Signed Documents (Verification Statements) using Verifiable Credentials 2.0 technology - a JSON-LD structure standardized by the W3C Consortium for Web 3.0 data trust and identity assurance. Using JSON Web Signatures (JWS) and wallet components connected to Catena-X and identified by unique Business Partner Numbers (BPN), data issuers and auditors can sign using their Ed25519 private keys while data consumers can access public keys by resolving the DID contained in the signature proof.
+The system uses proven technology called Verifiable Credentials (a W3C standard) combined with digital wallets and cryptographic signatures. When a data provider creates a certificate, they sign it with their private key. When you receive the data, you can verify it using their public key - just like how HTTPS certificates work on websites.
 
-### System Components
+### The Technical Components
 
-The trust framework consists of several key components that work together to establish, maintain, and verify data integrity:
+Your trust framework needs several components working together:
 
-## Getting Started
+## Getting Started - Your Implementation Roadmap
 
-To implement the Data Trust & Security KIT in your application, follow these steps:
+Ready to add data trust to your application? Here's a practical step-by-step approach:
 
-1. **Review the detailed documentation** in the linked sections above
-2. **Set up the required infrastructure** (EDC, Digital Twin Registry, Wallet services)
-3. **Implement API integrations** using the provided specifications
-4. **Configure security and deployment** according to your environment
-5. **Test verifiable credentials** implementation with sample data
-6. **Deploy trust verification** services and integrate with your data flows
+1. **Read the Documentation** - Start with the detailed guides linked at the top of this page to understand the concepts and technical details
 
-For specific implementation details, code examples, and integration patterns, refer to the comprehensive documentation sections linked at the beginning of this guide.
+2. **Set Up Your Infrastructure** - Make sure you have the required Tractus-X components running:
+   - Eclipse Dataspace Components (EDC) Connector for data exchange
+   - Digital Twin Registry for metadata management  
+   - Wallet services for managing digital identities and credentials
 
-## Reference Implementations
+3. **Integrate the Trust APIs** - Use our REST APIs to add verification capabilities to your applications
 
-### Digital Product Pass Verification Add-on
+4. **Configure Security** - Follow our security guidelines to deploy safely in your environment
 
-The Digital Product Pass Reference Implementation has a concept and implementation for the Certification and Verification of the Data Trust & Security KIT.
+5. **Test With Sample Data** - Start with our example credentials and test data to make sure everything works
 
-This Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Eclipse Tractus-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
+6. **Deploy and Monitor** - Roll out your trust verification services and integrate them with your data flows
 
-The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
+Each section in this guide provides detailed technical information, code examples, and integration patterns to help you succeed.
 
-[eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
+## Real-World Example: Digital Product Pass Verification
 
-More Information can be found in the success story section [here](../success-stories/dpp-verification-success-story.md).
+### How It Works in Practice
+
+The Digital Product Pass project has already implemented the concepts from this Data Trust & Security KIT, giving you a real example of how everything works together.
+
+This implementation creates a trust layer on top of normal data exchanges between companies. Here's what it does:
+
+- **Enables Auditor Verification** - Independent auditors can verify specific data attributes or complete datasets
+- **Provides Consumer Validation** - Data consumers can check whether the verification is legitimate
+- **Maintains Data Sovereignty** - Companies keep control of their data while still enabling verification
+- **Uses Standard Technology** - Built on Verifiable Credentials and existing Catena-X infrastructure
+
+The system is designed to be a template that other use cases can follow. Whether you're working with carbon footprints, battery passports, or any other type of data, you can use the same verification patterns.
+
+**Key Innovation**: The system offers both third-party verification (by external auditors) and self-attestation (where companies certify their own data), giving you flexibility based on your trust requirements.
+
+Since it uses the Eclipse Dataspace Components (EDC) Connector for data exchange, it fits seamlessly into the existing Catrna-X architecture without requiring major changes to how data flows between companies.
+
+**Learn More**: You can find detailed information about this implementation in the [Digital Product Pass Verification Success Story](../success-stories/dpp-verification-success-story.md).
+
+**Complete Documentation**: The complete implementation is available at [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
 ## NOTICE
 
