@@ -42,7 +42,11 @@ sequenceDiagram
 
 ### The Cryptography Behind Trust
 
-The Data Trust & Security KIT uses proven cryptographic methods based on World Wide Web Consortium (W3C) standards. Don't worry if you're not a cryptography expert - the important thing is that these are battle-tested approaches used across the internet.
+The Data Trust & Security KIT uses proven cryptographic methods based on established industry standards. The implementation follows:
+
+- **[W3C Verifiable Credentials Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/)** - Standardized credential format and verification procedures
+- **[W3C JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signature specification for JSON-LD documents
+- **[W3C DID Core](https://www.w3.org/TR/did-core/)** - Decentralized identifier resolution protocols
 
 #### Digital Signatures - Your Trust Foundation
 

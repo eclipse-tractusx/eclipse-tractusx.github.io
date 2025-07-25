@@ -159,6 +159,40 @@ Detailed Information regarding the technology can be seen at [Software Developme
 
 For the data content, a rule book is necessary to be written with the specification for each attribute in a Data Model. In this KIT a [Rulebook Template](./documentation/rulebook-template.md) is provided for the data content to be specified.
 
+## Standards & Specifications
+
+The Data Trust & Security KIT is built upon established industry standards and specifications to ensure interoperability, security, and compliance within the Catena-X ecosystem.
+
+### W3C Standards
+
+| Standard | Version | Purpose | Reference |
+|----------|---------|---------|-----------|
+| **Verifiable Credentials Data Model** | 2.0 | Core framework for creating tamper-evident credentials | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
+| **JSON Web Signature 2020** | 2020 | Cryptographic signatures for JSON-LD documents | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
+| **Decentralized Identifiers (DIDs)** | 1.0 | Decentralized identity framework | [W3C DID Core](https://www.w3.org/TR/did-core/) |
+| **DID Web Method** | - | Web-based DID resolution method | [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
+| **JSON-LD** | 1.1 | Linked data format for structured information | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
+
+### Catena-X Standards
+
+The implementation follows specific Catena-X standards that define how data trust and security mechanisms integrate with the overall network architecture:
+
+| Standard | Title | Purpose | Reference |
+|----------|-------|---------|-----------|
+| **CX-0002** | Digital Twins in Catena-X | Digital Twin Registry integration with attestation | [CX-0002](https://catenax-ev.github.io/docs/standards/overview) |
+| **CX-0010** | Business Partner Number | BPN-based identity verification | [CX-0010](https://catenax-ev.github.io/docs/standards/overview) |
+| **CX-0029** | Product Carbon Footprint Rulebook | PCF data verification and attestation requirements | [CX-0029](https://catenax-ev.github.io/docs/standards/overview) |
+
+### Cryptographic Standards
+
+| Standard | Purpose | Implementation |
+|----------|---------|----------------|
+| **Ed25519** | Digital signature algorithm | Primary signature method for verifiable credentials |
+| **ECDSA P-256** | Alternative signature algorithm | Secondary signature method support |
+| **SHA3-512** | Cryptographic hashing | Data integrity verification |
+
+For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
+
 ## Reference Implementations
 
 ### Digital Product Pass Verification Add-on

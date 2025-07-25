@@ -14,6 +14,21 @@ The Data Trust & Security KIT helps you build systems that can verify and trust 
 
 In today's world, you can't just accept data at face value - especially when it comes to sustainability, compliance, and supply chain information. This guide shows you how to implement verification mechanisms so that when someone shares carbon footprint data, battery information, or supply chain details, you can be confident it's legitimate.
 
+### Standards Foundation
+
+This KIT is built on established industry standards to ensure interoperability and compliance:
+
+**W3C Standards:**
+
+- **[Verifiable Credentials Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/)** - Core framework for tamper-evident digital certificates
+- **[JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signatures for JSON-LD documents
+- **[Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/)** - Decentralized identity resolution
+
+**Catena-X Standards:**
+
+- **[CX-0002 Digital Twins](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)** - Asset registry integration
+- **[CX-0029 PCF Rulebook](https://catenax-ev.github.io/docs/standards/overview)** - Product Carbon Footprint verification requirements
+
 We'll walk you through everything you need to know: from setting up verification services and managing digital certificates, to integrating with existing Tractus-X components like the Eclipse Dataspace Components (EDC) Connector and Digital Twin Registry.
 
 This KIT builds on proven technology from the [Digital Product Pass Verification Framework](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md), which has already shown how to verify data at both individual attribute and complete dataset levels.
