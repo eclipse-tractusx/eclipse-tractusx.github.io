@@ -2,7 +2,7 @@
 id: operation-view
 title: Operation View
 description: 'Data Trust & Security KIT'
-sidebar_position: 2
+sidebar_position: 9
 ---
 
 ## Operation view

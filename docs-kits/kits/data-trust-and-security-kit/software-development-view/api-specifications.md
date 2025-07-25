@@ -2,7 +2,6 @@
 id: api-specifications
 title: API Specifications
 description: 'API Specifications and Reference Implementations for Data Trust & Security KIT'
-sidebar_position: 4
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)

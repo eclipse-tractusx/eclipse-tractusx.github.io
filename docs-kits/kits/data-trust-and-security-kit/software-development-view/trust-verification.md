@@ -2,7 +2,6 @@
 id: trust-verification
 title: Trust Verification & Technical Specifications
 description: 'Trust Verification Service and Technical Specifications for Data Trust & Security KIT'
-sidebar_position: 7
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)

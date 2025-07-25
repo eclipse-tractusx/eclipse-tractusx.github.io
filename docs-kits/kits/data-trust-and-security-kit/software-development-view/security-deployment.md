@@ -2,7 +2,6 @@
 id: security-deployment
 title: Security, Deployment & Best Practices
 description: 'Security Considerations, Deployment Patterns, Integration Guidelines, and Best Practices for Data Trust & Security KIT'
-sidebar_position: 5
 ---
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)

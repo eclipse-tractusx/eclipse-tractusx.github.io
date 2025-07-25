@@ -88,17 +88,17 @@ Given the labor-intensive nature of these processes, there is a strong economic 
 
 ##### How the verification is done?
 
--> Roles and Responsibilities (similar to e.g., example use cases scenarios in traceability and circular economy)
+Roles and Responsibilities (similar to e.g., example use cases scenarios in traceability and circular economy)
 
 ##### Revocation of credentials, how is that done?
 
--> see above
+see above
 
 #### Interoperability with multiple initiatives (UNTP, Battery Pass EU, Gaia-X, etc.)
 
 ### Layer 2: Technology
 
-Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/software-development-view.md)
+Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
 #### We do we need to do it digitally?
 
@@ -110,11 +110,11 @@ Detailed Information regarding the technology can be seen at [Software Developme
 
 ### Layer 3: Data Content
 
-#### Rulebooks Explanation why we need a "rulebook". -> can be also standards.
+#### Rulebooks Explanation why we need a "rulebook".  can be also standards.
 
 #### Certified Data Credential & Certified Snapshot Credential (when are they used and for what)
 
--> elaborate in more detail on the use case scenarios behind the first DPP slide deck. Essentially, add the written story to the pictures in the slides.
+elaborate in more detail on the use case scenarios behind the first DPP slide deck. Essentially, add the written story to the pictures in the slides.
 
 ### Notice
 
