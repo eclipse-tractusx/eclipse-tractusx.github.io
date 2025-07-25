@@ -19,3 +19,7 @@ sidebar_position: 9
 
 - The DID Document requires to be available for the public internet and include the public key.
 - Additionally other identifiers can be available in the DID document.
+
+## Governance Body Requirements
+
+- The published rulebooks require to be publicly accessible.
