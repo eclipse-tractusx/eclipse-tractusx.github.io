@@ -10,12 +10,24 @@ description: 'Security Considerations, Deployment Patterns, Integration Guidelin
 
 ### Cryptographic Standards
 
-The Data Trust & Security KIT relies on proven cryptographic methods:
+The Data Trust & Security KIT relies on proven cryptographic methods that comply with industry standards:
+
+**W3C Specifications:**
+
+- **[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)** - Secure credential format and verification procedures
+- **[W3C JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signature standards for JSON-LD documents
+- **[W3C DID Core](https://www.w3.org/TR/did-core/)** - Decentralized identifier security requirements
+
+**Cryptographic Implementation:**
 
 - **Digital Signatures**: Uses Ed25519 and RSA to keep credentials secure
 - **Key Management**: Keys are generated, stored, and rotated securely
 - **Hash Functions**: SHA3-512 helps verify data integrity
 - **Encryption**: AES-256 protects sensitive information
+
+**Catena-X Compliance:**
+
+- **[CX-0006 Registration](https://catenax-ev.github.io/docs/standards/overview)** - Identity verification and onboarding security
 
 ### Privacy Protection
 

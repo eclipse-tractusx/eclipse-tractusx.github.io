@@ -14,7 +14,16 @@ The Data Trust & Security KIT uses digital certificates (called "Verifiable Cred
 
 This system creates an additional trust layer on top of your existing data exchanges in Tractus-X. You're already sharing data through the network - now you can add cryptographic proof that this data is authentic and trustworthy.
 
-The technology builds on existing standards from the World Wide Web Consortium (W3C) and integrates seamlessly with Tractus-X infrastructure. When organizations share data, they can include digital certificates that prove the data's authenticity. When you receive this data, you can verify these certificates to ensure you're getting legitimate information.
+The technology builds on established W3C standards:
+
+- **[W3C Verifiable Credentials Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/)** - Core framework for creating tamper-evident digital certificates
+- **[W3C JSON Web Signature 2020](https://w3c.github.io/vc-jws-2020/)** - Cryptographic signatures for JSON-LD documents  
+- **[W3C Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/)** - Decentralized identity resolution
+- **[W3C DID Web Method](https://w3c-ccg.github.io/did-method-web/)** - Web-based DID resolution for organizational identities
+
+These standards ensure interoperability across different systems and compliance with international web security practices. The implementation also integrates with Catena-X standards like **[CX-0002 Digital Twins](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)** for AAS integration.
+
+When organizations share data, they can include digital certificates that prove the data's authenticity. When you receive this data, you can verify these certificates to ensure you're getting legitimate information.
 
 Here's how it works in practice: Organizations use digital wallets (identified by their DIDs & optionally Business Partner Numbers) to create and manage these certificates. They sign certificates with their private keys, and you can verify them using their public keys - similar to how secure websites work with HTTPS certificates.
 
@@ -124,11 +133,13 @@ In this way it can be reusable for any aspect model.
         "@type": "<validation method type: Ex: Standard>",
         "label": "<standard name: Ex: Catena-X PCF Rulebook>",
         "@id": "<standard number: Ex: CX-0029>",
-        "uri": "<your standard url here>",
+        "uri": "https://catenax-ev.github.io/docs/standards/overview",
         "complianceCriteria": [
           {
             "@type": "Standard Compliance",
-            "@value": "100%"
+            "@value": "100%",
+            "framework": "W3C Verifiable Credentials Data Model 2.0",
+            "frameworkUri": "https://www.w3.org/TR/vc-data-model-2.0/"
           },
           {
             "@type": "Verification Level",

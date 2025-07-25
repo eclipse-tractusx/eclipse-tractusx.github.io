@@ -12,7 +12,7 @@ description: 'Digital Twin Integration, Certification Processes, Implementation 
 
 One of the most powerful features of the Data Trust & Security KIT is that you can attach verifiable credentials directly to your digital twins. This means when someone looks up a product or component in your Digital Twin Registry, they can immediately see the trust certificates associated with it.
 
-Think of it like attaching a quality certificate to a physical product, except this is digital and cryptographically secured.
+Think of it like attaching a quality certificate to a physical product, except this is digital and cryptographically secured. The implementation follows **[Catena-X CX-0002 Digital Twins](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)** standard for registry integration and **[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)** format for the credential structure.
 
 #### How It Works in Practice
 
