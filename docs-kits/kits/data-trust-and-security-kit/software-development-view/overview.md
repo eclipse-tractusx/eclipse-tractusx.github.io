@@ -132,7 +132,7 @@ The trusted list uses a standardized format that machines can understand and pro
    ],
    "type": "TrustedList",
    "owner": {
-      "name": "Tractus-X Automotive Network e.V.",
+      "name": "Catena-X Automotive Network e.V.",
       "@id": "did:web:catena-x.net"
     },
    "version": "1.0.0",
@@ -202,8 +202,7 @@ Before you can implement data trust features, you need these foundational compon
 |-----------|-------------|---------------------|-------------|
 | Digital Twin Registry | Registry for digital twin metadata and endpoints | eclipse-tractusx/sldt-digital-twin-registry | CX-0002 |
 | Eclipse Dataspace Components (EDC) Connector | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
-| Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0049 |
-| Operator Wallet | SSI wallet for credential issuance | eclipse-tractusx/ssi-credential-issuer | CX-0049 |
+| Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0149 |
 | Trusted List Service | Management of accredited issuers | To be defined | Future CX Standard |
 
 ### How Trust Gets Established
