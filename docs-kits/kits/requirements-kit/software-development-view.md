@@ -192,7 +192,9 @@ The notification format used for the requirements exchange is based on the [Indu
 }
 ```
 
-TODO: Which "Requirement ID" should be used here?
+- ```requirementId```: ```requirementId``` in requirements datamodel
+- ```description```:
+- ToDo: Clarify ```context```
 
 
 
