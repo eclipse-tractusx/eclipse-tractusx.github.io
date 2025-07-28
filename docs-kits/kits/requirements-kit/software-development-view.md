@@ -199,7 +199,7 @@ The notification format used for the requirements exchange is based on the [Indu
 {
   "header": {
     "messageId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-    "context": "Requirements-DigitalTwinEventAPI-[Create|Change]:1.0.0",
+    "context": "Requirements-DigitalTwinEventAPI-[Create|Update|Delete]:1.0.0",
     "sentDateTime": "2024-07-05T08:13:33.20733Z",
     "senderBpn": "BPNL000000000AAA",
     "receiverBpn": "BPNL000000000ZZZ",
@@ -217,8 +217,7 @@ The notification format used for the requirements exchange is based on the [Indu
 - ```description```:
 - ToDo: Clarify if ```context``` is the right place for create/update/delete information or if this should be moved to ```content```
 
-Base idea of notifications: Only technical information about creation/change/deletion of requirement. No descriptive information about the changes.
-
+Base idea of notifications: Only technical information about creation/change/deletion of requirement. Descriptive information about changes and comments are stored directly within the requirement submodels.
 
 ## EDC Setup
 
