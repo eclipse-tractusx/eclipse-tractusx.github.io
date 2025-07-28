@@ -35,7 +35,7 @@ The framework provides different types of certificates for different verificatio
 |------------------|----------------|------------------|-------------------|
 | **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider or Attestation Provider | Complete dataset with signature | When you want to self-certify your entire dataset or ask the complete data endpoints to be certified |
 | **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Specific data attributes with validation | When you need third-party verification of specific values |
-| **[Attribute Attestation Credential with Privacy (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
+| **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
 | **[Attribute Certification Record (ACR)](#attribute-certification-record-acr)** | Data Provider | Collection of multiple certificates | When you want to bundle several certifications together |
 
 ### Data Attestation Credentials (DAC) - Certifying Your Complete Data
@@ -125,9 +125,7 @@ In this way it can be reusable for any aspect model.
         "complianceCriteria": [
           {
             "@type": "Standard Compliance",
-            "@value": "100%",
-            "framework": "W3C Verifiable Credentials Data Model 2.0",
-            "frameworkUri": "https://www.w3.org/TR/vc-data-model-2.0/"
+            "@value": "100%"
           },
           {
             "@type": "Verification Level",
