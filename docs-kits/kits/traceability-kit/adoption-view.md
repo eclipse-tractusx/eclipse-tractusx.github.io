@@ -113,9 +113,9 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 
 ### Digital Twin qualityTask
 
-The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if affected parts are not identified and the root cause is unknown. 
+The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts are not identified and the root cause is unknown. 
 This kind of DT represents the quality issue or quality claim itself as a case or kind of a file. It is NOT a virtual representation of a physical asset (IDTA conformity of DT - asset kind: not applicable).
-All data, no matter what discipline, which is important to reveal the root cause and all vehicles, components or batches which are affected shall be linked to this DT. 
+All data, no matter what discipline, which is important to reveal the root cause and all vehicles or components/batches which are affected shall be linked to this DT. 
 Having this holistic overview of data and therefore the impact of affected goods/vehicles, the root cause can be found much faster and narrowing down the actual affected goods/vehicles can be done more precisely. The result of analysis can be useful for related issues, like adopting production processes, safer transportation etc. to avoid similar failures.
  
 Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
