@@ -22,7 +22,7 @@ fearing that their data will be misused while unlocking significant values for e
 ### Mission
 
 Collaboration needs trust. Within Catena-X trust is built on an open-source architecture and components designed to
-support full sovereignity.
+support full sovereignty.
 The Connector KIT provides the single directory of information and technology to perform trustful data exchange within
 Catena-X. The Connector KIT bundles the interaction patterns, relevant standards, APIs, and reference implementations
 for developers.
@@ -133,7 +133,7 @@ in the tractusx-edc repository for more a reference on usage of the API.
 
 #### Extensions
 
-There are different extenions for the Connector, e.g. for the Data Plane. This enables various transfer modes like
+There are different extensions for the Connector, e.g. for the Data Plane. This enables various transfer modes like
 httpData or via blob-storage.
 
 #### Data Plane
