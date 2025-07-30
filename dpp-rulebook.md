@@ -244,7 +244,7 @@ These characteristics enable standardized documentation, comparability across pr
 |---------|---------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
 | 4.6.1   | Placed On Market    | The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market. | Yes       | Best practices for documenting market placement dates in commercial product data.                      | - The date format is in complaince to ISO 8601. - Furtehrmore, Its validity can be verified using regular expression-based checks                              | |
 | 4.6.2   | Purpose             | Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list. | Yes       | Industry categorization practices for digital product passports exchanged within Catena-X networks.     | - This is an open field, as no applicable validation rules can be defined for this entry.                                                       | |
-| 4.6.3  | Purchase Order               | *To be covered in next version* | | | | |
+| 4.6.3  | Purchase Order               | A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer. |Optional |Optional attribute with no regulatory requirement | | |
 | 4.6.4   | Recall Information               | *To be covered in next version* | | | | |
 
 # Materials
