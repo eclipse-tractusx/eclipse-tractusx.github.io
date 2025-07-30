@@ -19,22 +19,22 @@ You will find the tutorial here:
 
 https://eclipse-tractusx.github.io/docs/tutorials/identity-hub
 
-## What is our objectives?
+## What are our objectives?
 
 We are restarting the development of the Identity Hub (Wallet) in Eclipse Tractus-X.
 
-Our objetives are the following:
+Our objectives are the following:
  - Create a well documented identity hub using the [Eclipse Dataspace Components](https://github.com/eclipse-edc) framework.
  - Implement a multi "-X" dataspace support wallet.
  - Reduce complexity for applications that are willing to use the wallet.
  - Make a reality in Eclipse Tractus-X aspect model credentials issuance, based on frameworks like the [dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and the future Data Trust & Security KIT!
- - Demontrate the issuance, holding, request and management of dataspace membership credentials.
+ - Demonstrate the issuance, holding, request and management of dataspace membership credentials.
 
 ## Our next features
 
 Feel free to look at our latest features [sig-release identity hub](https://github.com/eclipse-tractusx/sig-release/issues?q=state%3Aopen%20label%3Aidentity-hub)
 
-We are planning to develop a frontend, a backend, have a extensive documentation, and much more!
+We are planning to develop a frontend, a backend, have an extensive documentation, and much more!
 
 ## How can I contribute?
 
