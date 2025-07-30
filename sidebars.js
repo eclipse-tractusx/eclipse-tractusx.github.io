@@ -83,7 +83,7 @@ const sidebars = {
                 },
             ],
         },
-        "identity-hub"
+        'identity-hub'
     ],
 };
 
