@@ -9,6 +9,8 @@ The primary goal of our rulebook is multifaceted: it safeguards the accuracy of 
 ## Why is Data Trust Necessary for Digital Product Passports?
 Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain. By adhering to our validation rulebook, companies can guarantee the trustworthiness of their DPPs, reinforcing confidence in the data that informs strategic and operational choices.
 
+(The aim of the work is to help small and big companies to bring trust in data they share and receive across supply chain)
+
 ## Business Value of Validated Data
 The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
 
