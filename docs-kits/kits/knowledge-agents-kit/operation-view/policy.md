@@ -26,7 +26,7 @@ title: Data Sovereignity, Policies and Upgradability
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-This document describes how Data Sovereignity and Upgradability can be reached in publishing Graphs and Skills by employing appropriate Policies and Versioning strategies.
+This document describes how Data Sovereignty and Upgradability can be reached in publishing Graphs and Skills by employing appropriate Policies and Versioning strategies.
 
 For more information see
 
@@ -39,11 +39,11 @@ For more information see
 
 The core ingredient to the KA Semantic Dataspace Architecture is that business partners (the Providers) offer RDF-based query endpoints ([Graph Assets](provider)) over their [Agent-Enabled Connector](agent-edc). The RDF endpoints (called binding *agents*, because they are active components that do not contain data, but simply transform queries into the backend protocols) stay in an "internal" network (as the data- and logic-carrying backends that they interface/transform into) while the EDC's (through asset descriptors, contract definitions and access/contract policies) operate as bridges to the "public" network.
 
-Although the EDC network is technically based on public interfaces, it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participations and proven certificates).
+Although the EDC network is technically based on public interfaces, it is by the builtin Self-Sovereign Identity (SSI) architecture that any network call will be validated wrt to the calling tenant's identity and contractual situation (use case participation and proven certificates).
 
 Although the EDC transfer protocols are used to "tunnel" more specific application protocols and endpoints, it is by the flexible description and filtering of those endpoints as data catalogue offers with extensible properties that any application can infer the correct target asset to interact with.
 
-On the other hand, being free/sovereign to define these policies and properties at will gives the partipants a tremendous burden not to (unintendedly) breaking the deep data chains (in the knowledge agent case: deep nested executions) for the most valuable use cases. That is because these "hickups" will only occur data-driven at runtime by empty catalogue offers or failed transfers in unforeseeable places.
+On the other hand, being free/sovereign to define these policies and properties at will gives the participants a tremendous burden not to (unintendedly) breaking the deep data chains (in the knowledge agent case: deep nested executions) for the most valuable use cases. That is because these "hickups" will only occur data-driven at runtime by empty catalogue offers or failed transfers in unforeseeable places.
 
 ## Catena-X Asset Property Standards
 
@@ -141,10 +141,10 @@ A result from would look like this
 
 ## Catena-X Policy Profiles
 
-Furthermore, Catena-X introduces so-called policy profiles which ensure that only pre-negotiatable and predictable constraints are used in the permissions, duties and obligations.
+Furthermore, Catena-X introduces so-called policy profiles which ensure that only pre-negotiable and predictable constraints are used in the permissions, duties and obligations.
 
-Two examples for such use-case specific policies following the Catena-X profile and being based on separated signed (and technicall attested) framework agreements are the
-Behaviour Twin Framework Agreement (in verson 1) and the Traceability Agreement (in version 3).
+Two examples for such use-case specific policies following the Catena-X profile and being based on separated signed (and technically attested) framework agreements are the
+Behaviour Twin Framework Agreement (in version 1) and the Traceability Agreement (in version 3).
 
 ```json
 {
@@ -209,29 +209,29 @@ Behaviour Twin Framework Agreement (in verson 1) and the Traceability Agreement 
 For the purpose of this investigation, let us now assume that we have to publish a single backend (=database, datalake schema or API endpoint) into multiple use cases.
 In the following the different levels of tailoring access (by authentication, by configuration, by publishing/policying) are discussed that can be used to govern this scenario.
 
-![Data Sovereignity Through Offering and Policy Validation](/img/knowledge-agents/graph_asset.png)
+![Data Sovereignty Through Offering and Policy Validation](/img/knowledge-agents/graph_asset.png)
 
-## Data Sovereignity Through Backend Authentication
+## Data Sovereignty Through Backend Authentication
 
 On this level, technical roles can be introduced in the backend systems (technical users) for the different use cases. Each technical user would only be allowed to
 manipulate (read, update, delete) the relevant part of the API or data schema.
 
-Then different RDF endpoints are created which may share the same binding but use a different technical user to access the single backend. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
+Then different RDF endpoints are created which may share the same binding but use a different technical user to access the single backend. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offered via different contracts and different policies.
 
-## Data Sovereignity Through Bindings
+## Data Sovereignty Through Bindings
 
-On this level, different RDF endpoints are introduced which use the same technical user to access the single backend, but they make use of different bindings to map only a part of the SPARQL protocol to a part of the backend protocols. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies.
+On this level, different RDF endpoints are introduced which use the same technical user to access the single backend, but they make use of different bindings to map only a part of the SPARQL protocol to a part of the backend protocols. Each RDF endpoint would then be mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offered via different contracts and different policies.
 
-## Data Sovereignity Through Asset Descriptions
+## Data Sovereignty Through Asset Descriptions
 
-On this level, a single RDF endpoint is introduced which is mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offerred via different contracts and different policies. For this purpose, a "shape-filter" (not yet implemented) could become active in the Agent Plane/Matchmaking Agent which rewrites or checks the
+On this level, a single RDF endpoint is introduced which is mapped into a different asset (with a similar self-description, but a slightly different shape). The assets would be offered via different contracts and different policies. For this purpose, a "shape-filter" (not yet implemented) could become active in the Agent Plane/Matchmaking Agent which rewrites or checks the
 incoming SPARQL context before delegating it to the binding agent.
 
-## Data Sovereignity Through Contracts
+## Data Sovereignty Through Contracts
 
 On this level, a single asset description is used which is embedded into different contracts with different policies.
 
-## Data Sovereignity Through Combined Policies
+## Data Sovereignty Through Combined Policies
 
 On this level,a single contract is used with a combined policy
 

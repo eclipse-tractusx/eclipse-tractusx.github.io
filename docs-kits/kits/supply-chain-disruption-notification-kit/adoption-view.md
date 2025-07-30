@@ -153,7 +153,7 @@ Supply Chain Disruption Notifications are recommended for exceptional circumstan
 
 **Notification Identifiers:**
 
-To differentiate messages and maintain chronological and dependance tracking, distinct IDs are included in the notifications sent:
+To differentiate messages and maintain chronological and dependence tracking, distinct IDs are included in the notifications sent:
 
 - **Notification ID:** Unique ID identifying the notification.
 - **Related Notification ID:** Unique ID identifying a previously received notification triggering the exchange of the current notification.

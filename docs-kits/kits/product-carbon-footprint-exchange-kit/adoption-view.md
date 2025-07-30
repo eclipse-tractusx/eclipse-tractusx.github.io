@@ -21,7 +21,7 @@ In this context, Catena-X offers a decentralized ecosystem supported by standard
 
 ### Vision
 
-Report and steer the de-carbonization of our value chain with dedicated measures based on real PCF values, without compromising upstream data sovereignity.
+Report and steer the de-carbonization of our value chain with dedicated measures based on real PCF values, without compromising upstream data sovereignty.
 
 ### Mission
 
@@ -35,7 +35,7 @@ Addressing supply chain carbon emissions today is missing reliable data about ba
 
 At the core of our project is the recognition of a current challenge - the lack of transparency and accessibility to real PCF information in supply chains. Through our project, we strive to bridge this information gap by establishing a trusted and collaborative and interoperable environment. Suppliers will have the opportunity to share their PCF data with confidence, knowing that it remains sovereign and under their control.
 
-We will address this by working on a trustworthy ecosystem that prioritizes data sovereignity, security and collaboration on standards. Therefore, our mission is to revolutionize the supply chain industry by providing a platform where suppliers can securely share their primary PCF data throughout the supply chain.
+We will address this by working on a trustworthy ecosystem that prioritizes data sovereignty, security and collaboration on standards. Therefore, our mission is to revolutionize the supply chain industry by providing a platform where suppliers can securely share their primary PCF data throughout the supply chain.
 
 We are guided by the following principles:
 
@@ -396,7 +396,7 @@ The relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX-0136 Product Carbon Footprint UseCase (Version 2.0.0)](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
 
-### Non-rechnical requirement
+### Non-technical requirement
 
 - [Product Carbon Footprint Rulebook (Version 3.0.0)](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)
 
