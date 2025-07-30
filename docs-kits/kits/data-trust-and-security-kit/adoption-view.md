@@ -205,7 +205,7 @@ The concept is the First Aspect Model Verification/Certification Concept in Trac
 
 [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
-More Information can be found in the [DPP Verification Success Story](./success-stories/dpp-verification-success-story.md).
+More Information can be found in the [DPP Verification Success Story](./success-stories/dpp-verification-success-story.mdx).
 
 ## NOTICE
 

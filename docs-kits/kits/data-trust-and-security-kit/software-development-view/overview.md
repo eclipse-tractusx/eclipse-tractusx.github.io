@@ -294,7 +294,7 @@ The system is designed to be a template that other use cases can follow. Whether
 
 Since it uses the Eclipse Dataspace Components (EDC) Connector for data exchange, it fits seamlessly into the existing Catrna-X architecture without requiring major changes to how data flows between companies.
 
-**Learn More**: You can find detailed information about this implementation in the [Digital Product Pass Verification Success Story](../success-stories/dpp-verification-success-story.md).
+**Learn More**: You can find detailed information about this implementation in the [Digital Product Pass Verification Success Story](../success-stories/dpp-verification-success-story.mdx).
 
 **Complete Documentation**: The complete implementation is available at [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
