@@ -90,12 +90,13 @@ In simpler terms, this can be understood as evaluating whether the data appears 
 
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 
-### Wikipedia
-Verification and validation are independent procedures that are used together for checking that a product, service, or system meets requirements and specifications and that it fulfills its intended purpose. These are critical components of a quality management system such as ISO 9001:2015 (Quality management systems requirements) 
+### Definition for Validation & Verification in Standards & Regulations  
+Description...
+
 #### Verification: 
-Verification activities are conducted to ensure that the design and development **outputs meet the input requirements** (i.e., does it follow the standards).
+The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
 #### Validation:
-Validation activities are conducted to ensure that the resulting products and services meet the requirements for the specified application or intended use (i.e., is it fit for purpose).
+Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
 
 After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
