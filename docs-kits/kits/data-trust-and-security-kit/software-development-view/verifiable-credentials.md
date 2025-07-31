@@ -223,9 +223,10 @@ In this way it can be reusable for any aspect model.
     ],
     "credentialStatus": {
         "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
-        "type": "RevocationList2020Status",
-        "revocationListIndex": "42",
-        "revocationListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": "42",
+        "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
     },
     "proof": {
         "type": "JsonWebSignature2020",
@@ -296,6 +297,13 @@ This will enable for the Attestation Providers to indicate to each individual at
       "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
       "@id": "did:web:dpp-test-system.com:BPNL000000000000:api:public:urn%3Auuid%3Acd1c0904-27e2-4ae2-8751-5c8c8e4b6812",
       "@type": "application/vc+ld+json"
+  },
+  "credentialStatus": {
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
   },
   "id": "urn:uuid:281a8b98-933c-4d80-ad86-721f1adbe5b3",
   "issuer": "did:web:tuv-sud.de",
@@ -425,8 +433,8 @@ It would be possible by revealing the values which you want to reveal, and hide 
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3c.github.io/vc-jws-2020/contexts/v1/",
     "https://w3id.org/security/data-integrity/v2",
+    "https://w3id.org/security/bbs/v1",
     "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
     "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
@@ -514,6 +522,13 @@ It would be possible by revealing the values which you want to reveal, and hide 
     "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
     "@id": "did:web:acme-manufacturing.com:BPNL000000000123:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
     "@type": "application/vc+ld+json"
+  },
+  "credentialStatus": {
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
   },
   "id": "urn:uuid:selective-disclosure-example-aac-456789",
   "issuer": "did:web:green-cert-auditors.com",
