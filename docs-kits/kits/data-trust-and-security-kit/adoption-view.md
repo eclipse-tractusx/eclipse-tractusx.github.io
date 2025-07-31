@@ -127,24 +127,15 @@ The Data Trust & Security KIT is built upon established industry standards and s
 
 ### W3C Standards
 
-| Standard | Version | Purpose | Reference |
-|----------|---------|---------|-----------|
-| **Verifiable Credentials Data Model** | 2.0 | Core framework for creating tamper-evident credentials | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
-| **JSON Web Signature 2020** | 2020 | Cryptographic signatures for JSON-LD documents | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
-| **Decentralized Identifiers (DIDs)** | 1.0 | Decentralized identity framework | [W3C DID Core](https://www.w3.org/TR/did-core/) |
-| **DID Web Method** | - | Web-based DID resolution method | [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
-| **JSON-LD** | 1.1 | Linked data format for structured information | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
+| Standard | Version | Reference |
+|----------|---------|-----------|
+| **Verifiable Credentials Data Model** | 1.1 & 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
+| **JSON Web Signature 2020** | 2020 | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
+| **Decentralized Identifiers (DIDs)** | 1.0 |  [W3C DID Core](https://www.w3.org/TR/did-core/) |
+| **DID Web Method** | - |  [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
+| **JSON-LD** | 1.1 | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
 
 ### Catena-X Standards
-
-The implementation follows specific Catena-X standards that define how data trust and security mechanisms integrate with the overall network architecture:
-
-| Standard | Title | Purpose | Reference |
-|----------|-------|---------|-----------|
-| **CX-0002** | Digital Twins in Catena-X | Digital Twin Registry integration with attestation | [CX-0002](https://catenax-ev.github.io/docs/standards/overview) |
-| **CX-0010** | Business Partner Number | BPN-based identity verification | [CX-0010](https://catenax-ev.github.io/docs/standards/overview) |
-| **CX-0029** | Product Carbon Footprint Rulebook | PCF data verification and attestation requirements | [CX-0029](https://catenax-ev.github.io/docs/standards/overview) |
-
 
 For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
 
