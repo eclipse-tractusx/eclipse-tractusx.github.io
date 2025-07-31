@@ -105,11 +105,11 @@ graph TB
 
 ## Key Components
 
-### The Trusted Issuer List - Who Can You Trust?
+### The Authorization List - Who Can You Trust?
 
-Think of the trusted issuer list as a phone book of organizations that are qualified to verify data. Just like you wouldn't trust medical advice from someone without a medical license, you shouldn't trust data verification from unqualified organizations.
+Think of the authorization list as a phone book of organizations that are qualified to verify data. Just like you wouldn't trust medical advice from someone without a medical license, you shouldn't trust data verification from unqualified organizations.
 
-The trusted list is maintained by governance bodies (like the Catena-X Association) and tells you:
+The authorization list is maintained by governance bodies (like the Catena-X Association) and tells you:
 
 - Which organizations can verify specific types of data (carbon footprints, battery information, etc.)
 - Whether they're currently active or have been suspended
@@ -117,9 +117,9 @@ The trusted list is maintained by governance bodies (like the Catena-X Associati
 
 Each use case has its own list of qualified verifiers. For example, verifying carbon footprint data requires different expertise than verifying battery safety information.
 
-#### What Goes Into the Trusted List
+#### What Goes Into the Authorization list
 
-The trusted list uses a standardized format that machines can understand and process automatically:
+The authorization list uses a standardized format that machines can understand and process automatically:
 
 ```json
 {
@@ -127,10 +127,10 @@ The trusted list uses a standardized format that machines can understand and pro
      "https://www.w3.org/ns/odrl.jsonld",
      {
          "cx-policy": "https://w3id.org/catenax/policy/",
-         "cx-trusted-list": "https://w3id.com/tractus-x/trusted-list/"
+         "cx-auth-list": "https://w3id.com/catena-x/auth-list/"
      }
    ],
-   "type": "TrustedList",
+   "type": "AuthorizationList",
    "owner": {
       "name": "Catena-X Automotive Network e.V.",
       "@id": "did:web:catena-x.net"
@@ -169,9 +169,9 @@ The trusted list uses a standardized format that machines can understand and pro
 }
 ```
 
-#### How the Trusted List Works
+#### How the authorization list Works
 
-The trusted list implementation provides these key capabilities:
+The authorization list implementation provides these key capabilities:
 
 - **Specialized by Use Case** - Different lists for different types of data verification (carbon footprints, battery passports, etc.)
 - **Real-time Updates** - Status can change in real-time if an organization loses accreditation or gets suspended
@@ -203,7 +203,7 @@ Before you can implement data trust features, you need these foundational compon
 | Digital Twin Registry | Registry for digital twin metadata and endpoints | eclipse-tractusx/sldt-digital-twin-registry | CX-0002 |
 | Eclipse Dataspace Components (EDC) Connector | Data exchange infrastructure | eclipse-tractusx/tractusx-edc | CX-0018 |
 | Wallet Service | SSI wallet for credential management | eclipse-tractusx/identity-hub | CX-0149 |
-| Trusted List Service | Management of accredited issuers | To be defined | Future CX Standard |
+| authorization list Service | Management of accredited issuers | To be defined | Future CX Standard |
 
 ### How Trust Gets Established
 
@@ -215,7 +215,7 @@ Before anyone can verify data, they need to prove they're qualified:
 
 1. **Application** - Organizations apply to become trusted verifiers
 2. **Compliance Check** - Experts review their qualifications and processes
-3. **Approval** - If they meet the standards, they're added to the trusted list
+3. **Approval** - If they meet the standards, they're added to the authorization list
 4. **Ongoing Reviews** - Regular checks ensure they maintain their qualifications
 
 #### Phase 2: Creating Verified Certificates
@@ -232,7 +232,7 @@ Once qualified, verifiers can create digital certificates for data:
 When you receive data with certificates, you need to verify everything is legitimate:
 
 1. **Get the Certificate** - Retrieve the digital certificate from the data provider or Digital Twin Registry
-2. **Check the Verifier** - Make sure the organization that issued the certificate is on the trusted list and is still active
+2. **Check the Verifier** - Make sure the organization that issued the certificate is on the authorization list and is still active
 3. **Verify the Signature** - Use cryptographic methods to confirm the certificate hasn't been tampered with
 4. **Check for Revocation** - Ensure the certificate hasn't been cancelled or revoked
 5. **Validate the Format** - Confirm the certificate follows the correct structure and standards
