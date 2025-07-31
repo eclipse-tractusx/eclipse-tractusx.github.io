@@ -122,6 +122,8 @@ Furthermore the DT qualityTask provides the bridge to the data driven quality us
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
 This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormality or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
+![steps_of_usingDTqualityTask](assets/steps_of_usingDTqualityTask.png)
+
 
 ### Benefits for OEM, SME and Solution Provider
 #### OEM
