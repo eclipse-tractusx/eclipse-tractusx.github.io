@@ -6,27 +6,13 @@ description: 'Using JSON-LD to verify SAMM modelled data models'
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Making Different Data Standards Work Together
+## Enabling SAMM Standardized Aspect Models with Verifiable Credentials
 
-### The Challenge We're Solving
+In order to enable the Eclipse Tractus-X Semantic Models to be used in Verifiable Credentials there is the need to generate JSON-LD "@context" for the data format.
 
-In Tractus-X, we have two different standards that need to work together:
+Therefore, for making these two technologies compatible, it is necessary to make a translation from the standard JSON Schemas to the JSON-LD "@context" for the desired aspect models.
 
-- **SAMM (Semantic Aspect Meta Model)** - This is how Tractus-X defines data structures for things like carbon footprints and battery passports
-- **JSON-LD** - This is what W3C Verifiable Credentials use to give meaning to data
-
-The problem is these two standards don't naturally speak to each other. SAMM creates data validation rules, while Verifiable Credentials need semantic context definitions. It's like having two people who speak different languages trying to have a conversation.
-
-### Why This Matters for Trust
-
-Without bridging this gap, our trust system can't:
-
-- Verify that certificate data matches the expected data models
-- Ensure different organizations' systems can understand each other
-- Provide meaningful verification of the actual data content
-- Support automated processing of certificates
-
-## How We Bridge the Gap
+## Creating the @context
 
 The solution is to create automatic translation between these standards:
 
@@ -383,9 +369,9 @@ The parser would generate the following JSON-LD context:
 Once the JSON-LD context is generated, it can be integrated into verifiable credentials:
 
 1. **Context Generation**: Use `sammSchemaParser` to convert SAMM JSON Schema to JSON-LD context
-2. **Context Hosting**: Host the generated context at a stable URL (e.g., in the eclipse-tractusx/sldt-semantic-models repository)
-3. **Credential Creation**: Reference the hosted context in verifiable credentials
-4. **Semantic Validation**: Use the context for semantic verification during credential processing
+2. **Context Hosting**: Host the generated context at a stable URL (Eclipse Tractus-X models must be stored in the eclipse-tractusx/sldt-semantic-models repository and available for the internet)
+3. **Credential Creation**: Reference the hosted context in verifiable credentials for it to be verified.
+4. **Semantic Validation**: Expand the verifiable credential JSON-LD document, to reveal inconsistencies with the semantics.
 
 ### Example Verifiable Credential with Generated Context
 
@@ -454,16 +440,6 @@ sequenceDiagram
     end
 
 ```
-
-### Validation Rules
-
-The semantic validator enforces the following rules:
-
-1. **Context Consistency**: The credential's `@context` must match the generated context from the SAMM model
-2. **Structure Compliance**: The credential data structure must conform to the SAMM model's schema
-3. **Type Validation**: Data types must match the semantic model specifications
-4. **Required Fields**: All mandatory fields defined in the SAMM model must be present
-5. **Value Constraints**: Values must respect any constraints defined in the semantic model
 
 ## NOTICE
 
