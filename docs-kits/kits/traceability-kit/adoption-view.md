@@ -115,12 +115,12 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 
 The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts is not clear and the root cause is unknown. 
 This kind of DT represents the quality issue or quality claim itself as a case or kind of a file. It is NOT a virtual representation of a physical asset (IDTA conformity of DT - asset kind: not applicable).
-Data, no matter what discipline but important to reveal the root cause, and all vehicles (for the DT at the OEM) or components/batches (for the DT at the TierN) which are affected shall be linked to this DT. 
+Data, no matter what discipline but important to reveal the root cause, and all vehicles (at the OEM) or components/batches (at the TierN) which are affected shall be linked to this DT. 
 Having this holistic overview of data and therefore the impact of affected goods/vehicles, the root cause can be found much faster and narrowing down the actual affected goods/vehicles can be done more precisely. The result of analysis can be useful for related issues, like adopting production processes, safer transportation etc. to avoid similar failures.
  
 Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
-This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormalities or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
+This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormality or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
 
 ### Benefits for OEM, SME and Solution Provider
