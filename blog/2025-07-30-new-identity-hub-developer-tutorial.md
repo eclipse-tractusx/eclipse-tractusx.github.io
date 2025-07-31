@@ -28,7 +28,7 @@ Our objectives are the following:
  - Implement a multi "-X" dataspace support wallet.
  - Reduce complexity for applications that are willing to use the wallet.
  - Make a reality in Eclipse Tractus-X aspect model credentials issuance, based on frameworks like the [dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification) and the future Data Trust & Security KIT!
- - Demonstrate the issuance, holding, request and management of dataspace membership credentials.
+ - Demonstrate the issuance, holding, request and management of membership credentials.
 
 ## Our next features
 
