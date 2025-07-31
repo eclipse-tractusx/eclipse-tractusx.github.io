@@ -7,7 +7,12 @@ id: contract-definition-design
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
-On this page you learn about key aspects to be considered when designing contract definitions. The two main aspects are how data should be provided, e.g., the granularity of offers, the transfer type used, etc., and what is the impact of a certain setup on the implementation of the whole provider stack, e.g., if authorization aspects are delegated to a backend system, the mechanism used in the backend system have to be aligned with the concepts of the contract definition, so that the right information is passed on.
+On this page you learn about key aspects to be considered when designing contract definitions.
+
+The two main aspects are how data should be provided, e.g., the granularity of offers, the transfer type used,
+etc., and what is the impact of a certain setup on the implementation of the whole provider stack, e.g., if
+authorization aspects are delegated to a backend system, the mechanism used in the backend system have to be aligned
+with the concepts of the contract definition, so that the right information is passed on.
 
 This page is currently work-in-progress!
 
