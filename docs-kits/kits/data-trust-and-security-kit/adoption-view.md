@@ -85,7 +85,7 @@ Given the labor-intensive nature of these processes, there is a strong economic 
 In the Data Trust & Security KIT there are three main roles:
 
 - **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X).
-- **Attestation Provider**: Responsible for validating and verifying the data provided by the data provider prior to consumption. It can use Eclipse Tractus-X dataspace or not to do the validation, and it shall be qualified to do so. Trusted Attestation Providers are listed publically in a Trusted List for a specific scope.
+- **Attestation Provider**: This should serve as an additional entity capable of confirming the authenticity of data through validation and verification. However, the primary responsibility for the data must remain with the data provider
 - **Data Consumer**: Responsible for consuming data from a data provider and triggering the "check" to know if the data received is "verifiable".
 
 ```mermaid
