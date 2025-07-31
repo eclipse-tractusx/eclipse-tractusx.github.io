@@ -113,44 +113,6 @@ graph TD
 
 Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
-**What they do:**
-
-- **Verify data accuracy** - Check that carbon footprint calculations, material data, and supply chain information is correct
-- **Ensure compliance** - Make sure data meets regulatory requirements like EU regulations and ISO standards
-- **Validate specific attributes** - Verify individual data points like emission values or recycled content percentages
-- **Audit processes** - Review how companies collect and generate their data
-
-##### How Attestation Providers Get Appointed
-
-**Governance Structure:**
-
-The appointment process involves multiple levels:
-
-- **Catena-X Association or Governance Body** provides the overall framework
-- **Expert groups** (like PCF or Battery Pass teams) set specific requirements for their domains
-- **Regulatory bodies** ensure compliance with laws and standards
-- **Industry associations** contribute specialized knowledge
-
-**Appointment Process:**
-
-1. **Application** - Organization applies to become an attestation provider
-2. **Assessment** - Review of technical skills and domain expertise
-3. **Examination** - The attention provider shall proof its knowledge on the specific use case rules (example PCF rulebook)
-4. **Demonstration of Capabilities** - Test capabilities of certification
-5. **Approval** - Governance organization makes final decision
-6. **Registry inclusion** - Added to trusted provider list
-7. **Ongoing monitoring** - Regular reviews and renewals
-
-**Requirements to Qualify:**
-
-Organizations must have:
-
-- **Technical expertise** in their domain (carbon footprint, sustainability, etc.)
-- **Qualified staff** with proper certifications
-- **Quality systems** (like ISO 9001)
-- **Regulatory compliance** with relevant laws
-- **Standard Compliance** to Catena-X Standards.
-
 ### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
@@ -183,13 +145,6 @@ The implementation follows specific Catena-X standards that define how data trus
 | **CX-0010** | Business Partner Number | BPN-based identity verification | [CX-0010](https://catenax-ev.github.io/docs/standards/overview) |
 | **CX-0029** | Product Carbon Footprint Rulebook | PCF data verification and attestation requirements | [CX-0029](https://catenax-ev.github.io/docs/standards/overview) |
 
-### Cryptographic Standards
-
-| Standard | Purpose | Implementation |
-|----------|---------|----------------|
-| **Ed25519** | Digital signature algorithm | Primary signature method for verifiable credentials |
-| **ECDSA P-256** | Alternative signature algorithm | Secondary signature method support |
-| **SHA3-512** | Cryptographic hashing | Data integrity verification |
 
 For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
 
