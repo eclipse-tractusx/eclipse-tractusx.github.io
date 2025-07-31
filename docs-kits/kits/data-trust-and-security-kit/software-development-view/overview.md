@@ -14,10 +14,6 @@ The Data Trust & Security KIT helps you build systems that can verify and trust 
 
 In today's world, you can't just accept data at face value - especially when it comes to sustainability, compliance, and supply chain information. This guide shows you how to implement verification mechanisms so that when someone shares carbon footprint data, battery information, or supply chain details, you can be confident it's legitimate.
 
-### Standards Foundation
-
-This KIT is built on established industry standards to ensure interoperability and compliance:
-
 ### Architecture Overview
 
 Here's how the Data Trust & Security KIT fits into the larger Tractus-X ecosystem:
