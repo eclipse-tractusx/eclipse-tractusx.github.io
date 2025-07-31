@@ -13,7 +13,7 @@ authors:
 
 ## New Tutorial Available!
 
-After doing some reverse engineering of the upstream [Identity Hub](https://github.com/eclipse-edc/IdentityHub) [Carlos Diez Rodriguez](https://github.com/CDiezRodriguez), one of our brave proud committers has created an effective tutorial which will guide you from `0 to hero` on how to start developing with the [Eclipse Tractus-X Identity Hub](https://github.com/eclipse-tractusx/tractusx-identityhub)!
+After doing some reverse engineering of the upstream [Identity Hub](https://github.com/eclipse-edc/IdentityHub), one of our brave proud committers [Carlos Diez Rodriguez](https://github.com/CDiezRodriguez), has created an effective tutorial which will guide you from `0 to hero` on how to start developing with the [Eclipse Tractus-X Identity Hub](https://github.com/eclipse-tractusx/tractusx-identityhub)!
 
 You will find the tutorial here:
 
@@ -45,5 +45,7 @@ If you are interested on joining the development, feel free to join our [open me
 ### Links of interest
 
 [Our Matrix Chat](https://matrix.eecc.de/#/room/%23tractusx-identity-hub:matrix.eclipse.org)
+
 [Our Repository](https://github.com/eclipse-tractusx/tractusx-identityhub)
+
 [Our Planning Board](https://github.com/orgs/eclipse-tractusx/projects/87/views/1)
