@@ -16,13 +16,11 @@ The framework provides different types of certificates for different verificatio
 | **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Specific data attributes with validation | When you need third-party verification of specific values |
 | **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
 
-### Data Attestation Credentials (DAC) - Certifying Your Complete Data
+### Data Attestation Credential (DAC) - Certifying Your Complete Data
 
-#### Use Case Examples
+Placing aspect models which are in JSON format is easy. The only challenge is to maintain the context at all times. Therefore, for each data model we should generate a JSON-LD "@context" so that the aspect model can be embedded inside the verifiable credential.
 
-- **Product Carbon Footprint**: Complete PCF data with all emission factors and calculations
-- **Battery Passport**: Full battery lifecycle data including materials and performance metrics
-- **Supply Chain Documentation**: Complete traceability data from raw materials to finished products
+For more information on how to generate the JSON-LD "@context" from a JSON Schema, look at the [semantic verification page](semantic-verification.md)
 
 :::info
 Substitute the `<aspectModelKey>` with your SemanticId aspect model key, for example, for PCF the following semantic id is given: `urn:samm:io.catenax.pcf:7.0.0#Pcf`, then `urn:samm:<semanticPrefix>:<version>#<aspectModelKey>`, so it would be:
@@ -241,7 +239,11 @@ In this way it can be reusable for any aspect model.
 
 </details>
 
-#### Data Attestation Credential Structure Analysis
+### Attribute Attestation Credential (AAC)
+
+In case the original data is not verifiable, or only a part of this data wants to be validated. Specific attributes can be selected from the original data source and provided in a verifiable credential.
+
+This will enable for the Attestation Providers to indicate to each individual attributes which "validation methods" were used to assure that this attribute is "valid" and against what.
 
 ```json
 {
@@ -309,11 +311,11 @@ In this way it can be reusable for any aspect model.
 }
 ```
 
-#### Attribute Attestation Credential Structure Analysis
+### Attribute Attestation Credential with Selective Disclosure (AAC-SD)
 
-### Selective Disclosure Example
+Selective disclosure allows use to place partial elements from a verifiable credential and present it to another party.
 
-The following example demonstrates how selective disclosure works in practice using BBS+ signatures for privacy-preserving attribute verification:
+Imagine you have this part of aspect data (verifiable or not):
 
 #### Original Complete Dataset (Private)
 
@@ -413,7 +415,11 @@ The following example demonstrates how selective disclosure works in practice us
 
 #### Selective Disclosure AAC (Public)
 
-The auditor can create an AAC that reveals only the carbon footprint attributes while keeping business-sensitive information private:
+But you want just to let some attributes get certified and be displayed public, example the `pcf.fossilGhgEmissions` attribute and the `pcf.pcfExcludingBiogenic` which could be required for regulations, and could be validated with the PCF rulebook from Catena-X.
+
+Now imagine that in the same time, if a data consumer would be able to retrieve your private data but wants to get a certification that it is correct.
+
+It would be possible by revealing the values which you want to reveal, and hide the ones you want to hide like this. This could even be shared outside a data space, and could be mathematically verified without the need to know the original data values.
 
 ```json
 {
@@ -541,6 +547,60 @@ The auditor can create an AAC that reveals only the carbon footprint attributes 
 | `pcf.primaryDataShare` | Data quality metrics that could reveal business processes |
 | `pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive |
 | `companyIds` | Business identifiers that could enable correlation attacks |
+
+## Discovery & Retrieval
+
+It is important to note that this verifiable credentials are exchange via Connector following the [Connector KIT](../../connector-kit/adoption-view/adoption-view.md) specification.
+
+This Verifiable Credentials can be connected to a Digital Twin, in the same way as the original unverified data was located.
+
+In this way the verified data can also be discovered and managed together with its part.
+
+It follows the specifications from the existing [Digital Twin](../../digital-twin-kit/adoption-view.md) + some extra specification to reference that the data format which is retrieved is not a plain submodel, but a verifiable credential.
+
+More information is added in the [digital twins](digital-twins.md) section of this KIT.
+
+## Verification Processes
+
+Once the credentials are retrieved via the control plane this are the process which can be followed to verify:
+
+- Semantic Compliance
+- Data Integrity
+- Data Conformity against standards/regulations
+- Issuance Status (revocation and expiration)
+- Data Plausibility
+- Version Control Verification (origin check)
+
+All this different verifications advantages can be doen
+
+### Data Attestation Credential Verification
+
+Complete data verification using self-signed credentials:
+
+```mermaid
+flowchart TD
+    A[Retrieve DAC via Dataplane] --> B[Validate Signature]
+    B --> C[Check Issuer DID]
+    C --> D[Verify Expiration]
+    D --> E[Validate credential status in recovation list]
+    E --> F[Validate Content Semantic Integrity]
+    F --> G[Return Verification Result]
+```
+
+### Attribute Attestation Credential Verification
+
+Attribute-level verification using selective disclosure:
+
+```mermaid
+flowchart TD
+    A[Retrieve AAC & Origin Data via Dataplane] --> B[Validate AAC Signature]
+    B --> C[Check Attestation Provider in Auth List]
+    C --> D[Hash Original Attributes]
+    D --> E[Compare with AAC Hashes]
+    E --> F[Validate Methods Used]
+    F --> G[Validate credential status in recovation list]
+    G --> H[Return Attribute Verification]
+```
 
 ## NOTICE
 
