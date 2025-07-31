@@ -38,7 +38,8 @@ end
 group Send Request via EDC Proxying
 PCF_Client -> Client_API_Wapper: Invoke asset with reqID & comment
 note right
-GET https://clientApiWrapperUrl/api/service/c34018ab-5820-4065-9087-416d78e1ab60/productIds/mat345?providerUrl=https://some.controlplane.url:7173&requestId=123&comment=...
+
+GET https://clientApiWrapperUrl/api/service/c34018ab-5820-4065-9087-416d78e1ab60/footprintExchange/123?manufacturerPartId=mat345&message=...
 end note
 Client_API_Wapper -> Client_EDC: Negotiate access to asset and enable proxy transfer
 Client_EDC -> Company_EDC: Negotiate access to asset and enable proxy transfer
@@ -47,8 +48,7 @@ Client_EDC -> Client_API_Wapper: Agreement & EndpointDataReference
 Client_API_Wapper -> Client_EDC: PCF endpoint call incl. req.ID & comment
 Client_EDC -> Company_EDC: PCF endpoint call incl. req.ID & comment
 note right
-Using PCF API through EDC via HTTP Proxy:
-GET https://{someURL}/productIds/mat345?requestId=123&comment=...
+GET https://{someURL}/footprintExchange/123?manufacturerPartId=mat345&message=...
 end note
 Company_EDC -> Company_PCF_App: PCF endpoint call incl. req.ID, BPN (Header) & comment
 note right
@@ -96,7 +96,9 @@ end
 group Push PCF to Client
 Company_PCF_App -> Company_API_Wapper: Invoke asset with reqID
 note right
-PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/productIds/mat345?providerUrl=https://client.controlplane.url:8184&requestId=123
+PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/footprintExchange/123?manufacturerPartId=mat345&message=...
+Header: edc-bpn: <BPN>
+Body: { ...PCF JSON... }
 end note
 Company_API_Wapper -> Company_EDC: Negotiate access to asset and enable proxy transfer
 Company_EDC -> Client_EDC: Negotiate access to asset and enable proxy transfer
@@ -105,8 +107,9 @@ Company_EDC -> Company_API_Wapper: Agreement & EndpointDataReference
 Company_API_Wapper -> Company_EDC: PCF endpoint call incl. req.ID
 Company_EDC -> Client_EDC: PCF endpoint call incl. req.ID
 note right
-Using PCF API through EDC via HTTP Proxy:
-PUT https://{someURL}/productIds/mat345?requestId=123
+PUT https://{someURL}/footprintExchange/123?manufacturerPartId=mat345&message=...
+Header: edc-bpn: <BPN>
+Body: { ...PCF JSON... }
 end note
 Client_EDC -> PCF_Client: PCF endpoint call incl. req.ID, BPN (Header)
 PCF_Client -> Client_EDC: OK
