@@ -23,7 +23,7 @@ Furthermore, it will enable solutions and services for tracking and tracing conf
 
 ### Mission
 
-The Traceability KIT provides the necessary standards, aspect models, digital twin, APIs, logics, and processes to develop traceability apps and provide the necessary data.
+The Traceability KIT provides the necessary standards, aspect models, a digital twin, APIs, logics, and processes to develop traceability apps and provide the necessary data.
 All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
 
 This KIT is closely connected to the Industry Core KIT "Part Instance”, which provides the basis on how to built a data chain based on vehicles, parts and materials - a mandatory prerequisite.
