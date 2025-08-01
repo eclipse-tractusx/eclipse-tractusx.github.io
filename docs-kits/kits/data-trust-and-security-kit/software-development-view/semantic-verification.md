@@ -369,7 +369,7 @@ The parser would generate the following JSON-LD context:
 Once the JSON-LD context is generated, it can be integrated into verifiable credentials:
 
 1. **Context Generation**: Use `sammSchemaParser` to convert SAMM JSON Schema to JSON-LD context
-2. **Context Hosting**: Host the generated context at a stable URL (Eclipse Tractus-X models must be stored in the eclipse-tractusx/sldt-semantic-models repository and available for the internet)
+2. **Context Hosting**: Host the generated context at a stable URL (Eclipse Tractus-X models must be stored in the [eclipse-tractusx/sldt-semantic-models](https://github.com/eclipse-tractusx/sldt-semantic-models) repository and be available in raw format for the public internet)
 3. **Credential Creation**: Reference the hosted context in verifiable credentials for it to be verified.
 4. **Semantic Validation**: Expand the verifiable credential JSON-LD document, to reveal inconsistencies with the semantics.
 
