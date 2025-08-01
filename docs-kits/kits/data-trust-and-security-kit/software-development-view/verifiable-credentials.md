@@ -12,11 +12,11 @@ The framework provides different types of certificates for different verificatio
 
 | Certificate Type | Who Creates It | What It Contains | When You'd Use It |
 |------------------|----------------|------------------|-------------------|
-| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider or Attestation Provider | Complete aspect model is included in a verifiable credentials and signed | When the data integrity wants to be assured for a specific Aspect Model JSON Payload, or when a complete Aspect Model wants to be "certified/validated" |
-| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Certify/Validate attributes from an existing Aspect Model JSON Payload, which can be verified (DAC) or not. | When you need third-party verification of specific values from a specific aspect model.|
-| **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Same as the AAC but with the possibility of hiding certain attributes, which can be "verified" only if the private data is accessible by the consumer. | This type of credential can be used to share specif c sets of data with the public world, outside of a dataspace, maintaining data at the dataspace level private. |
+| **[Data Attestation Credential (DAC)](#data-attestation-credential-dac)** | Data Provider or Attestation Provider | Complete aspect model is included in a verifiable credentials and signed | When the data integrity wants to be assured for a specific Aspect Model JSON Payload, or when a complete Aspect Model wants to be "certified/validated" |
+| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credential-aac)** | Attestation Provider | Certify/Validate attributes from an existing Aspect Model JSON Payload, which can be verified (DAC) or not. | When you need third-party verification of specific values from a specific aspect model.|
+| **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-with-selective-disclosure-aac-sd)** | Attestation Provider | Same as the AAC but with the possibility of hiding certain attributes, which can be "verified" only if the private data is accessible by the consumer. | This type of credential can be used to share specif c sets of data with the public world, outside of a dataspace, maintaining data at the dataspace level private. |
 
-### Data Attestation Credential (DAC) - Certifying Your Complete Data
+### Data Attestation Credential (DAC)
 
 Placing aspect models which are in JSON format is easy. The only challenge is to maintain the context at all times. Therefore, for each data model we should generate a JSON-LD "@context" so that the aspect model can be embedded inside the verifiable credential.
 
