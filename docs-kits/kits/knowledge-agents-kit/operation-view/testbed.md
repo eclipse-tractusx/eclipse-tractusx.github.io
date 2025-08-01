@@ -36,13 +36,13 @@ For more information see
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
-* A [Data Sovereignity & Graph Policy](policy) discussion
+* A [Data Sovereignty & Graph Policy](policy) discussion
 
 ## Test Scripts
 
 The CAB (Conformity Assessment Body) may use a set of predefined API interactions to run against its own dataspace tenant or let the assessed party run these scripts depending on the assessment method. The scripts are hierarchically organized and can be found under this [Postman Collection](ka_conformity_scripts.postman_collection.json) or online under [https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection](https://elements.getpostman.com/redirect?entityId=2757771-0ad1b7a6-734c-4289-9221-667fc56a21da&entityType=collection). For the URLs and identities of the CAB or the CAP (Conformity Assessment Party), the appropriate environment variables have to be set.
 
-![KA Confirmity Assessment Scrtips](@site/static/img/knowledge-agents/ka_conformity_scripts.png)
+![KA Conformity Assessment Scripts](@site/static/img/knowledge-agents/ka_conformity_scripts.png)
 
 The scripts are organised as follows:
 

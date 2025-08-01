@@ -73,7 +73,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
 - When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
-- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transfered through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
+- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
 
 ##### Payload for Requesting PCF Sub Model
 
@@ -170,7 +170,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
 
 The following JSON is a policy definition including the *mandatory* policy constraints for "active membership", "signed frameworkagreement" and "pcf base usage purpose". The [framework agreement document](https://catenax-ev.github.io/docs/next/regulatory-framework/20000ft/use-case-pcf-exchange) is published via the association and available via the Catena-X homepage. The membership credential is automatically created after successfully finishing the onboarding process.
 
-In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless it will be checked on a syntactical level during contract negotiation. If such a contract refererence should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
+In addition an *optional* constraint for an existing tenant-specific bilateral contract can be added. It should reference the contract number and is NOT backed up by verifiable credentials. Nevertheless it will be checked on a syntactical level during contract negotiation. If such a contract reference should be used, a specific usage policy per tenant is needed, as constraint concatenation via OR is not recommended.
 
 >**Note**
 >More informations can be found in the official [ODRL Profile Definition](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
@@ -231,7 +231,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 </details>
 
 >**Note**
->Be aware that - due to an open issue in EDC version 0.7.x - all criterias must be added in fixed (alphabetical) order!
+>Be aware that - due to an open issue in EDC version 0.7.x - all criteria must be added in fixed (alphabetical) order!
 
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
@@ -258,11 +258,11 @@ For more examples on how to define policies with SSI have a look [here](https://
 
 </details>
 
-Inside the contract definition, an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criterias) is given in the [section above](#payload-to-create-a-ssi-based-policy).
+Inside the contract definition, an access policy and a usage policy must be referenced. A sample for a usage policy (incl. mandatory and optional criteria) is given in the [section above](#payload-to-create-a-ssi-based-policy).
 
-The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
+The content of the access policy depends on the criteria used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
 
-The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
+The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restrictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
 If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
 ![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
 
@@ -328,7 +328,7 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
 
 </details>
 
-If *bilateral contract reference* criterias are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If *bilateral contract reference* criteria are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCUP.png)
  <p> The following example uses BusinessPartnerGroups to achieve this:</p>
 
