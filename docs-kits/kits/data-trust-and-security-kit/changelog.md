@@ -9,9 +9,12 @@ sidebar_position: 0
 
 ### Added
 
-- Initial version of the Kit including the adoption view
-- Included kit logo
-- Added software development view with examples of trusted lists and verifiable credentials.
+- Added Digital Product Pass Verification Success Story
+- Added Software View with overview based on https://github.com/eclipse-tractusx/digital-product-pass/blob/main/dpp-verification/README.md
+- Added Operation View initial structure
+- Added template for Rulebook
+- Added examples of Verifiable Credentials
+- Added rough definition of an Attestation Provider.
 
 ## NOTICE
 
