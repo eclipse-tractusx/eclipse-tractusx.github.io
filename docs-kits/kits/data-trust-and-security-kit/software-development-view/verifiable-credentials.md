@@ -12,9 +12,9 @@ The framework provides different types of certificates for different verificatio
 
 | Certificate Type | Who Creates It | What It Contains | When You'd Use It |
 |------------------|----------------|------------------|-------------------|
-| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider or Attestation Provider | Complete dataset with signature | When you want to self-certify your entire dataset or ask the complete data endpoints to be certified |
-| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Specific data attributes with validation | When you need third-party verification of specific values |
-| **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Verified attributes without revealing original values | When you need verification but want to keep data private |
+| **[Data Attestation Credential (DAC)](#data-attestation-credentials-dac)** | Data Provider or Attestation Provider | Complete aspect model is included in a verifiable credentials and signed | When the data integrity wants to be assured for a specific Aspect Model JSON Payload, or when a complete Aspect Model wants to be "certified/validated" |
+| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credentials-aac)** | Attestation Provider | Certify/Validate attributes from an existing Aspect Model JSON Payload, which can be verified (DAC) or not. | When you need third-party verification of specific values from a specific aspect model.|
+| **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-aac-with-selective-diclosure)** | Attestation Provider | Same as the AAC but with the possibility of hiding certain attributes, which can be "verified" only if the private data is accessible by the consumer. | This type of credential can be used to share specif c sets of data with the public world, outside of a dataspace, maintaining data at the dataspace level private. |
 
 ### Data Attestation Credential (DAC) - Certifying Your Complete Data
 
@@ -423,7 +423,7 @@ Imagine you have this part of aspect data (verifiable or not):
 
 #### Selective Disclosure AAC (Public)
 
-But you want just to let some attributes get certified and be displayed public, example the `pcf.fossilGhgEmissions` attribute and the `pcf.pcfExcludingBiogenic` which could be required for regulations, and could be validated with the PCF rulebook from Catena-X.
+But you want just to let some attributes get certified and be displayed public, example the `pcf.fossilGhgEmissions` attribute and the `pcf.pcfExcludingBiogenic` which could be required for regulations, and could be validated for example with the PCF rulebook from Catena-X.
 
 Now imagine that in the same time, if a data consumer would be able to retrieve your private data but wants to get a certification that it is correct.
 
