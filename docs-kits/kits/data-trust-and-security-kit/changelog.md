@@ -10,7 +10,7 @@ sidebar_position: 0
 ### Added
 
 - Added Digital Product Pass Verification Success Story
-- Added Software View with overview based on https://github.com/eclipse-tractusx/digital-product-pass/blob/main/dpp-verification/README.md
+- Added Software View with overview based on the [dpp-verification framework](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/dpp-verification/README.md)
 - Added Operation View initial structure
 - Added template for Rulebook
 - Added examples of Verifiable Credentials
