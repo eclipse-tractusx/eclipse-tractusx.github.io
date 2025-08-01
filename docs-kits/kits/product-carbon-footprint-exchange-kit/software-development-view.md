@@ -7,7 +7,6 @@ sidebar_position: 3
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
-
 [To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
 
 ## Introduction
