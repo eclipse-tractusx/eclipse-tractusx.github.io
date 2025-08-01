@@ -24,7 +24,7 @@ Furthermore, it will enable solutions and services for tracking and tracing conf
 ### Mission
 
 The Traceability KIT provides the necessary standards, aspect models, a digital twin, APIs, logics, and processes to develop traceability apps and provide the necessary data.
-All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
+All described specifications in the KIT are based on Catena-X standards like the Industry Core KIT, Data Space Connector KIT and more to ensure interoperability and data sovereignty according to IDTA and Gaia-X principles.
 
 This KIT is closely connected to the Industry Core KIT "Part Instance”, which provides the basis on how to built a data chain based on vehicles, parts and materials - a mandatory prerequisite.
 The Traceability KIT supplements it with further tracking relevant aspects, business logic and APIs to e.g. send quality notifications, trace battery relevant aspects (e.g. GBT-Codes for China) or provide the opportunity for a holistic analysis on traceability data to identify root causes.
@@ -42,7 +42,7 @@ Application and service providers can enter potential new markets within the PLM
 From traceability's perspective, the main challenge within the automotive industry is to define and implement inter-organizational end-to-end data chains across the whole automotive supply chain to track and trace parts and materials. Details regarding the challenges are:
 
 - Missing standards to trace serialized and non-serialized hardware and software components. This includes the datatype, data format and data description (semantics) as well as the data exchange. The existing regulatory requirements that every company within the industry faces today are being solved with individual, proprietary solutions.
-These solutions are either costly due to expensive distributed ledgers or cannot guarantee trust and data sovereignty based on the GAIA-X and IDSA principles including the regulation of access and usage policies regarding data chains. Therefore, no end-to-end data exchange and cooperation has been achieved as of today.
+These solutions are either costly due to expensive distributed ledgers or cannot guarantee trust and data sovereignty based on the GAIA-X and IDTA principles including the regulation of access and usage policies regarding data chains. Therefore, no end-to-end data exchange and cooperation has been achieved as of today.
 This will be standardized in the Industry Core KIT.
 
 - The digital maturity is diverging within the automotive industry. For bigger companies it is a challenge to receive overall structured data from multiple different suppliers on a broad scale. Smaller companies struggle to generate and provide those data in a fully digitized way.
@@ -115,7 +115,7 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 
 The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts is not clear and the root cause is unknown. 
 This kind of DT represents the quality issue or quality claim itself as a case or kind of a file. It is NOT a virtual representation of a physical asset (IDTA conformity of DT - asset kind: not applicable).
-Data, no matter what discipline but important to reveal the root cause, and all vehicles (at the OEM) or components/batches (at the TierN) which are affected shall be linked to this DT. 
+Data, no matter what discipline but important to reveal the root cause, and all vehicles (at the OEM) or components/batches (at the TierN) which are affected shall be linked to this (relative) DT. 
 Having this holistic overview of data and therefore the impact of affected goods/vehicles, the root cause can be found much faster and narrowing down the actual affected goods/vehicles can be done more precisely. The result of analysis can be useful for related issues, like adopting production processes, safer transportation etc. to avoid similar failures.
  
 Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
