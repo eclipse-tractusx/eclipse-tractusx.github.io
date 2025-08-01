@@ -147,7 +147,7 @@ A skill is a "stored" dataspace procedure that is offered and executed by agent 
 ### 1. Register A Skill Policy
 
 The following example installs a policy which is just checking the business partner numbers and dataspace memberships
-of the participants. For more realistic policies aligned with the data sovereignity rules/profiles, see [this discussion](policy).
+of the participants. For more realistic policies aligned with the data sovereignty rules/profiles, see [this discussion](policy).
 
 ```console
 curl --location --globoff 'https://my-connector-control.domain/management/v2/policydefinitions' \
@@ -195,7 +195,7 @@ curl --location --globoff 'https://my-connector-control.domain/management/v2/pol
 The following contract definition exposes upcoming (skill) assets under the previously installed (skill) policy.
 It does that for both catalogue/offer requests (access policy) and actual agent-based transfers (contract policy). Usually,
 this makes sense as the party being able to receive and offer should also be able to negotiate a transfer to (here: execute) it.
-Note that this contract foresees a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explictely "assigned"
+Note that this contract foresees a "custom" asset property "cx-common:publishedUnderContract" with which all agent assets can be explicitly "assigned"
 to a contract.
 
 ```console
@@ -253,7 +253,7 @@ PREFIX bpnl:            <bpn:legal:>
 #  - Feeds the gathered data back into the respective supplier connector/agent
 #.   to perform a health indication
 # Author: cgjung
-# (c) 2023 Catena-X assocation
+# (c) 2023 Catena-X association
 ################################################################
 
 SELECT ?vehicle ?van ?aggregate ?assembly ?supplier ?lc ?operatingTime ?mileage ?recordDate ?ls_type ?ls_name ?ls_value ?ls_unit ?ls_method ?ls_channels ?ls_classes ?ls_values ?distanceKm ?timeHours WHERE {
@@ -415,7 +415,7 @@ curl --location --globoff 'https://my-agent-domain/api/agent?asset=https%3A%2F%2
 ## Advanced Skills
 
 In the [Ontology Modelling Guide](../software-development-view/modelling) we have demonstrated that a graph (i.e. the (virtual) set of triples comprising the data or function) can not only be described by ontologies (see the above skill making use of the rdfs:isdefinedBy property/predicate), but also by a shape (the sh:shapesGraph property and its resolutions into the cx-sh:shapeObject predicate can be seen much like a statistics which lists the extremal values and distinct counts inside the columns of a table). In the following we
-demonstrate a more flexible Behaviour Prognosis Skill which will switched between different data and function assets (and hence business partners in the dataspace) depending on the @resultType that should be achived. The relevant shape definitions which make this skill worki can be found in the [Provider Operation Guide](provider)
+demonstrate a more flexible Behaviour Prognosis Skill which will switched between different data and function assets (and hence business partners in the dataspace) depending on the @resultType that should be achieved. The relevant shape definitions which make this skill work can be found in the [Provider Operation Guide](provider)
 
 ```console
 curl --location --globoff 'https://my-agent.domain/api/agent/skill?asset=cx-taxo%3ASkillAsset%3Fprovider%3DBehaviourPrognosis&distributionMode=ALL&contract=contract=Contract%3Fme%3DSkill' \
@@ -437,13 +437,13 @@ PREFIX cx-taxo: <https://w3id.org/catenax/taxonomy#>
 
 ################################################################
 # Sample for a Provider-Deployed Goal-Oriented SparQL Skill which
-#  - Depending on the targetted result
+#  - Depending on the targeted result
 #  - Finds the right supplier prognosis asset and its preconditions
 #  - jumps into the OEM-owned reliability asset to obtain the required data
 #  - feeds the gathered data back into the respective supplier connector/agent
 #    to perform a behavioural prognosis
 # Author: cgjung
-# (c) 2023-2024 Catena-X assocation
+# (c) 2023-2024 Catena-X association
 ################################################################
 
 SELECT DISTINCT ?van ?supplier ?vehicle ?assembly ?operatingTime ?mileage ?prognosis WHERE {

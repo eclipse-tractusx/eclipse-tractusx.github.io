@@ -39,7 +39,7 @@ For more information see
 * The [Implementation](../software-development-view/architecture) documentation
 * The [Deployment](deployment) overview
 * The [Conformity](testbed) testbed
-* A [Data Sovereignity & Graph Policy](policy) discussion
+* A [Data Sovereignty & Graph Policy](policy) discussion
 
 ## Quick Setup Guide for Data Provisioning
 
@@ -478,7 +478,7 @@ my-remoting-agent:
         cx-fx:default "RemainingUsefulLifePredictor".
 
       cx-behaviour:component rdf:type cx-fx:Argument;
-        dcterms:description "Component of the Predicition."@en ;
+        dcterms:description "Component of the Prediction."@en ;
         dcterms:title "Predicted Component";
         cx-fx:formsBatchGroup "true"^^xsd:boolean;
         cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId".
@@ -705,7 +705,7 @@ my-remoting-agent:
         cx-fx:default "RemainingUsefulLifePredictor".
 
       cx-behaviour:component rdf:type cx-fx:Argument;
-        dcterms:description "Component of the Predicition."@en ;
+        dcterms:description "Component of the Prediction."@en ;
         dcterms:title "Predicted Component";
         cx-fx:formsBatchGroup "true"^^xsd:boolean;
         cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId".
