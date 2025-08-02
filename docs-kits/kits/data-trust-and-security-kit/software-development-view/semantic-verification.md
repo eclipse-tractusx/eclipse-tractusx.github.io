@@ -51,201 +51,48 @@ This tool acts as a translator, taking the data validation rules from SAMM and c
 
 ## The Translation Tool
 
-Here's the technical implementation that makes this translation possible:
+A SAMM JSON Schema to JSON-LD Context translator is available at the [Eclipse Tractus-X SDK](https://github.com/eclipse-tractusx/tractusx-sdk/tree/main) and can be used in the following way:
+
+In a terminal run this:
+
+```shell
+pip install tractusx_sdk
+```
+
+Now create a script that executes this:
 
 ```python
-import traceback
-import logging
-from utilities.operators import op
-import copy
 
-logger = logging.getLogger('staging')
+import json
+from tractusx_sdk.extensions.semantics import SammSchemaContextTranslator
 
-class sammSchemaParser:
-    def __init__(self):
-        self.baseSchema = {}
-        self.rootRef = "#"
-        self.refKey = "$ref"
-        self.pathSep = "#/"
-        self.actualPathSep = "/-/"
-        self.refPathSep = "/"
-        self.propertiesKey = "properties"
-        self.itemKey = "items"
-        self.schemaPrefix = "schema"
-        self.aspectPrefix = "aspect"
-        self.contextPrefix = "@context"
-        self.recursionDepth = 2
-        self.depht = 0
-        self.initialJsonLd = {
-            "@version": 1.1,
-            self.schemaPrefix: "https://schema.org/"
-        }
-        self.contextTemplate = {
-            "@version": 1.1,
-            "id": "@id",
-            "type": "@type"
-        }
+translator = SammSchemaContextTranslator()
 
-    def schema_to_jsonld(self, semanticId, schema, aspectPrefix="aspect"):
-        try:
-            self.baseSchema = schema.copy()
-            parts = semanticId.split(self.rootRef)
-            if len(parts) < 2 or not parts[1]:
-                raise Exception("Invalid semantic id, missing the model reference!")
-            if aspectPrefix:
-                self.aspectPrefix = aspectPrefix
+result = translator.schema_to_jsonld(semantic_id="urn:samm:io.catenax.pcf:7.0.0#Pcf")
+output_file = "pcf_jsonld_context.json"
+with open(output_file, 'w') as f:
+    json.dump(result, f, indent=2)
 
-            node = self.create_node(schema)
-            if not node:
-                raise Exception("It was not possible to generated the json-ld!")
-
-            ctx = self.initialJsonLd.copy()
-            semanticPath, aspectName = parts
-            ctx[self.aspectPrefix] = semanticPath + self.rootRef
-            node["@id"] = f"{self.aspectPrefix}:{aspectName}"
-            ctx[aspectName] = node
-            if "description" in schema:
-                ctx[aspectName].setdefault("@context", {})["@definition"] = schema["description"]
-            return {"@context": ctx}
-        except:
-            traceback.print_exc()
-            raise Exception("It was not possible to create jsonld schema")
-
-    def expand_node(self, ref, actualref, key=None):
-        try:
-            if not ref: return None
-            node = self.get_schema_ref(ref, actualref)
-            if not node: return None
-            return self.create_node(node, actualref=self.actualPathSep.join([actualref, ref]), key=key)
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to get schema reference")
-            return None
-
-    def create_node(self, property, actualref="", key=None):
-        try:
-            if not property or "type" not in property: return None
-            node = self.create_simple_node(property, key)
-            if not node: return None
-
-            if property["type"] == "object":
-                return self.create_object_node(property, node, actualref)
-            if property["type"] == "array":
-                return self.create_array_node(property, node, actualref)
-            return self.create_value_node(property, node)
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create the node")
-            return None
-
-    def create_value_node(self, property, node):
-        try:
-            if "type" not in property: return None
-            node["@type"] = f"{self.schemaPrefix}:{property['type']}"
-            return node
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create value node")
-            return None
-
-    def create_object_node(self, property, node, actualref):
-        try:
-            if self.propertiesKey not in property: return None
-            node[self.contextPrefix] = self.create_properties_context(property[self.propertiesKey], actualref)
-            return node
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create object node")
-            return None
-
-    def create_array_node(self, property, node, actualref):
-        try:
-            if self.itemKey not in property: return None
-            item = property[self.itemKey]
-            node["@container"] = "@list"
-            if isinstance(item, list): return node
-            if self.refKey not in item:
-                return self.create_value_node(item, node)
-            node[self.contextPrefix] = self.create_item_context(item, actualref)
-            return node
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create the array node")
-            return None
-
-    def filter_key(self, key):
-        return key.replace("@", "").replace(" ", "-")
-
-    def create_properties_context(self, properties, actualref):
-        try:
-            if not isinstance(properties, dict) or not properties: return None
-            context = self.contextTemplate.copy()
-            for propKey, prop in properties.items():
-                key = self.filter_key(propKey)
-                node = self.create_node_property(key, prop, actualref)
-                if node: context[key] = node
-            return context
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create properties context")
-            return None
-
-    def create_item_context(self, item, actualref):
-        try:
-            if not item: return None
-            context = self.contextTemplate.copy()
-            node = self.expand_node(item[self.refKey], actualref)
-            if not node: return None
-            context.update(node)
-            if "description" in item:
-                context.setdefault("@context", {})["@definition"] = item["description"]
-            return context
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create the item context")
-            return None
-
-    def create_node_property(self, key, node, actualref):
-        try:
-            if not key or not node or self.refKey not in node: return None
-            propNode = self.expand_node(node[self.refKey], actualref, key)
-            if not propNode: return None
-            if "description" in node:
-                propNode.setdefault("@context", {})["@definition"] = node["description"]
-            return propNode
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create node property")
-            return None
-
-    def create_simple_node(self, property, key=None):
-        try:
-            if not property: return None
-            node = {"@id": f"{self.aspectPrefix}:{key}"} if key else {}
-            if "description" in property:
-                node.setdefault("@context", {})["@definition"] = property["description"]
-            return node
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to create the simple node")
-            return None
-
-    def get_schema_ref(self, ref, actualref):
-        try:
-            if not isinstance(ref, str): return None
-            if ref in actualref:
-                if self.depht >= self.recursionDepth:
-                    logger.warning(f"[WARNING] Infinite recursion detected: ref[{ref}], refPath[{actualref}]")
-                    self.depht = 0
-                    return None
-                self.depht += 1
-            path = ref.removeprefix(self.pathSep)
-            return op.get_attribute(self.baseSchema, path, self.refPathSep)
-        except:
-            traceback.print_exc()
-            logger.error("It was not possible to get schema reference")
-            return None
 ```
+
+:::info
+Please note that the JSON Schema will be automatically fetched from `https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/main/` to the respective semantic id JSON schema generated in the `gen` folder from each model.
+
+It can be changed by other introducing the `json schema` like this
+
+```python
+result = translator.schema_to_jsonld(schema={...}, semantic_id="urn:samm:io.catenax.pcf:7.0.0#Pcf")
+```
+
+or by introducing another `source url` to retrieve the models according to the SAMM namespace structure:
+
+```python
+result = translator.schema_to_jsonld(link_core="https://...", semantic_id="urn:samm:io.catenax.pcf:7.0.0#Pcf")
+```
+
+:::
+
+Visit the [tractusx-sdk extensions source code](https://github.com/eclipse-tractusx/tractusx-sdk/tree/main/src/tractusx_sdk/extensions/semantics) to learn more.
 
 ## Implementation Examples
 
@@ -387,15 +234,13 @@ Once the JSON-LD context is generated, it can be integrated into verifiable cred
         "DataAttestationCredential",
         "Pcf"
     ],
-    "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
     "credentialSubject": {
-        "Pcf": {
-            "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
-            "companyIds": ["https://example.com/company1"],
-            "pcf": {
-                "pcfExcludingBiogenic": 2.5,
-                "fossilGhgEmissions": 1.8
-            }
+        "@type": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+        "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
+        "companyIds": ["https://example.com/company1"],
+        "pcf": {
+            "pcfExcludingBiogenic": 2.5,
+            "fossilGhgEmissions": 1.8
         }
     },
     "issuer": "did:web:company.example.com",
