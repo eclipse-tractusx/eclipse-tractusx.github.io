@@ -31,6 +31,12 @@ Substitute the `<aspectModelKey>` with your SemanticId aspect model key, for exa
 
 `<aspectModelKey>` = `Pcf`
 
+The `@id` is a unique identifier for your aspect model data, it can be a did, or an uuid4.
+
+The `@type` is the `semanticId` from the data included in the verifiable credential.
+
+The aspect model data can be just included inside of the verifiable credential.
+
 In this way it can be reusable for any aspect model.
 :::
 
@@ -48,9 +54,10 @@ In this way it can be reusable for any aspect model.
         "DataAttestationCredential",
         "<aspectModelKey>"
     ],
-    "semanticId": "urn:samm:<semanticPrefix>:<version>#<aspectModelKey>",
     "credentialSubject": {
-        "<aspectModelKey>": <Your Aspect Model JSON Payload Here>,
+        "@id": "urn:uuid:bc3bc4db-7167-4600-aa55-77f5929eb270",
+        "@type": "urn:samm:<semanticPrefix>:<version>#<aspectModelKey>",
+        <Your Aspect Model JSON Payload Here>,
     },
     "id": "urn:uuid:certificate-123-456-789",
     "issuer": "did:web:tuv-sud.de",
@@ -80,10 +87,11 @@ In this way it can be reusable for any aspect model.
       }
     ],
     "credentialStatus": {
-        "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
-        "type": "RevocationList2020Status",
-        "revocationListIndex": "42",
-        "revocationListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
     },
     "proof": {
         "type": "JsonWebSignature2020",
@@ -112,90 +120,88 @@ In this way it can be reusable for any aspect model.
         "DataAttestationCredential",
         "Pcf"
     ],
-    "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
     "credentialSubject": {
-        "Pcf": {
-            "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
-            "companyIds": ["telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt"],
-            "extWBCSD_productCodeCpc": "011-99000",
-            "created": "2022-05-22T21:47:32Z",
-            "companyName": "My Corp",
-            "extWBCSD_pfStatus": "Active",
-            "version": 0,
-            "productName": "My Product Name",
-            "pcf": {
-                "biogenicCarbonEmissionsOtherThanCO2": 1.0,
-                "distributionStagePcfExcludingBiogenic": 1.5,
-                "biogenicCarbonWithdrawal": 0.0,
-                "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1.0,
-                "extWBCSD_allocationRulesDescription": "In accordance with Catena-X PCF Rulebook",
-                "exemptedEmissionsDescription": "No exemption",
-                "distributionStageFossilGhgEmissions": 0.5,
-                "exemptedEmissionsPercent": 0.0,
-                "geographyCountrySubdivision": "US-NY",
-                "extTFS_luGhgEmissions": 0.3,
-                "distributionStageBiogenicCarbonWithdrawal": 0.0,
-                "pcfIncludingBiogenic": 1.0,
-                "aircraftGhgEmissions": 0.0,
-                "productMassPerDeclaredUnit": 0.456,
-                "productOrSectorSpecificRules": [{
-                    "extWBCSD_operator": "PEF",
-                    "productOrSectorSpecificRules": [{
-                        "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
-                    }],
-                    "extWBCSD_otherOperatorName": "NSF"
-                }],
-                "extTFS_allocationWasteIncineration": "cut-off",
-                "pcfExcludingBiogenic": 2.0,
-                "referencePeriodEnd": "2022-12-31T23:59:59Z",
-                "extWBCSD_characterizationFactors": "AR5",
-                "secondaryEmissionFactorSources": [{
-                    "secondaryEmissionFactorSource": "ecoinvent 3.8"
-                }],
-                "unitaryProductAmount": 1000.0,
-                "declaredUnit": "liter",
-                "referencePeriodStart": "2022-01-01T00:00:01Z",
-                "geographyRegionOrSubregion": "Africa",
-                "fossilGhgEmissions": 0.5,
-                "distributionStageAircraftGhgEmissions": 0.0,
-                "boundaryProcessesDescription": "Electricity consumption included as an input in the production phase",
-                "geographyCountry": "DE",
-                "extWBCSD_packagingGhgEmissions": 0,
-                "dlucGhgEmissions": 0.4,
-                "carbonContentTotal": 2.5,
-                "extTFS_distributionStageLuGhgEmissions": 1.1,
-                "primaryDataShare": 56.12,
-                "dataQualityRating": {
-                    "completenessDQR": 2.0,
-                    "technologicalDQR": 2.0,
-                    "geographicalDQR": 2.0,
-                    "temporalDQR": 2.0,
-                    "reliabilityDQR": 2.0,
-                    "coveragePercent": 100
-                },
-                "extWBCSD_packagingEmissionsIncluded": true,
-                "extWBCSD_fossilCarbonContent": 0.1,
-                "crossSectoralStandardsUsed": [{
-                    "crossSectoralStandard": "ISO Standard 14067"
-                }],
-                "extTFS_distributionStageDlucGhgEmissions": 1.0,
-                "distributionStagePcfIncludingBiogenic": 0.0,
-                "carbonContentBiogenic": 0.0
-            }
-        },
-        "partialFullPcf": "Cradle-to-gate",
-        "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
-        "validityPeriodStart": "2022-01-01T00:00:01Z",
-        "comment": "Additional explanatory information not reflected by other attributes",
-        "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
-        "validityPeriodEnd": "2022-12-31T23:59:59Z",
-        "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
-        "productDescription": "Ethanol, 95% solution",
-        "precedingPfIds": [{
-            "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
-        }]
+      "@type": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+      "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
+      "companyIds": ["telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt"],
+      "extWBCSD_productCodeCpc": "011-99000",
+      "created": "2022-05-22T21:47:32Z",
+      "companyName": "My Corp",
+      "extWBCSD_pfStatus": "Active",
+      "version": 0,
+      "productName": "My Product Name",
+      "pcf": {
+          "biogenicCarbonEmissionsOtherThanCO2": 1.0,
+          "distributionStagePcfExcludingBiogenic": 1.5,
+          "biogenicCarbonWithdrawal": 0.0,
+          "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1.0,
+          "extWBCSD_allocationRulesDescription": "In accordance with Catena-X PCF Rulebook",
+          "exemptedEmissionsDescription": "No exemption",
+          "distributionStageFossilGhgEmissions": 0.5,
+          "exemptedEmissionsPercent": 0.0,
+          "geographyCountrySubdivision": "US-NY",
+          "extTFS_luGhgEmissions": 0.3,
+          "distributionStageBiogenicCarbonWithdrawal": 0.0,
+          "pcfIncludingBiogenic": 1.0,
+          "aircraftGhgEmissions": 0.0,
+          "productMassPerDeclaredUnit": 0.456,
+          "productOrSectorSpecificRules": [{
+              "extWBCSD_operator": "PEF",
+              "productOrSectorSpecificRules": [{
+                  "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
+              }],
+              "extWBCSD_otherOperatorName": "NSF"
+          }],
+          "extTFS_allocationWasteIncineration": "cut-off",
+          "pcfExcludingBiogenic": 2.0,
+          "referencePeriodEnd": "2022-12-31T23:59:59Z",
+          "extWBCSD_characterizationFactors": "AR5",
+          "secondaryEmissionFactorSources": [{
+              "secondaryEmissionFactorSource": "ecoinvent 3.8"
+          }],
+          "unitaryProductAmount": 1000.0,
+          "declaredUnit": "liter",
+          "referencePeriodStart": "2022-01-01T00:00:01Z",
+          "geographyRegionOrSubregion": "Africa",
+          "fossilGhgEmissions": 0.5,
+          "distributionStageAircraftGhgEmissions": 0.0,
+          "boundaryProcessesDescription": "Electricity consumption included as an input in the production phase",
+          "geographyCountry": "DE",
+          "extWBCSD_packagingGhgEmissions": 0,
+          "dlucGhgEmissions": 0.4,
+          "carbonContentTotal": 2.5,
+          "extTFS_distributionStageLuGhgEmissions": 1.1,
+          "primaryDataShare": 56.12,
+          "dataQualityRating": {
+              "completenessDQR": 2.0,
+              "technologicalDQR": 2.0,
+              "geographicalDQR": 2.0,
+              "temporalDQR": 2.0,
+              "reliabilityDQR": 2.0,
+              "coveragePercent": 100
+          },
+          "extWBCSD_packagingEmissionsIncluded": true,
+          "extWBCSD_fossilCarbonContent": 0.1,
+          "crossSectoralStandardsUsed": [{
+              "crossSectoralStandard": "ISO Standard 14067"
+          }],
+          "extTFS_distributionStageDlucGhgEmissions": 1.0,
+          "distributionStagePcfIncludingBiogenic": 0.0,
+          "carbonContentBiogenic": 0.0
+      },
+      "partialFullPcf": "Cradle-to-gate",
+      "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
+      "validityPeriodStart": "2022-01-01T00:00:01Z",
+      "comment": "Additional explanatory information not reflected by other attributes",
+      "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+      "validityPeriodEnd": "2022-12-31T23:59:59Z",
+      "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
+      "productDescription": "Ethanol, 95% solution",
+      "precedingPfIds": [{
+          "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+      }]
     },
-    "id": "urn:uuid:certificate-123-456-789",
+    "@id": "urn:uuid:certificate-123-456-789",
     "issuer": "did:web:tuv-sud.de",
     "validFrom": "2024-01-15T10:30:00Z",
     "validUntil": "2025-01-15T10:30:00Z",
@@ -222,11 +228,341 @@ In this way it can be reusable for any aspect model.
       }
     ],
     "credentialStatus": {
-        "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
-        "type": "BitstringStatusListEntry",
-        "statusPurpose": "revocation",
-        "statusListIndex": "42",
-        "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+    },
+    "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:tuv-sud.de#key-1",
+        "created": "2024-01-15T10:30:00Z",
+        "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY..."
+    }
+}
+```
+
+</details>
+
+<details>
+<summary>Example of a DAC for DPP for the Catena-X DPP Rulebook</summary>
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/DigitalProductPassport-context.jsonld"
+    ],
+    "type": [
+        "VerifiableCredential",
+        "DataAttestationCredential",
+        "DigitalProductPassport"
+    ],
+    "credentialSubject": {
+      "@type": "urn:samm:io.catenax.generic.digital_product_passport:6.0.0#DigitalProductPassport",
+      "metadata" : {
+        "backupReference" : "https://dummy.link",
+        "registrationIdentifier" : "https://dummy.link/ID8283746239078",
+        "economicOperatorId" : "BPNL0123456789ZZ",
+        "lastModification" : "2000-01-01",
+        "language" : "EN",
+        "predecessor" : "urn:uuid:00000000-0000-0000-0000-000000000000",
+        "issueDate" : "2000-01-01",
+        "version" : "1.0.0",
+        "passportIdentifier" : "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+        "status" : "draft",
+        "expirationDate" : "2030-01-01"
+      },
+      "characteristics" : {
+        "generalPerformanceClass" : "A",
+        "physicalState" : "solid",
+        "physicalDimension" : {
+          "volume" : {
+            "value" : 20.0,
+            "unit" : "unit:cubicMetre"
+          },
+          "grossWeight" : {
+            "value" : 20.0,
+            "unit" : "unit:gram"
+          },
+          "diameter" : {
+            "value" : 20.0,
+            "unit" : "unit:millimetre"
+          },
+          "grossVolume" : {
+            "value" : 20.0,
+            "unit" : "unit:cubicMetre"
+          },
+          "width" : {
+            "value" : 20.0,
+            "unit" : "unit:millimetre"
+          },
+          "length" : {
+            "value" : 20.0,
+            "unit" : "unit:millimetre"
+          },
+          "weight" : {
+            "value" : 20.0,
+            "unit" : "unit:gram"
+          },
+          "height" : {
+            "value" : 20.0,
+            "unit" : "unit:millimetre"
+          }
+        },
+        "lifespan" : [ {
+          "value" : 36,
+          "unit" : "unit:day",
+          "key" : "guaranteed lifetime"
+        } ]
+      },
+      "commercial" : {
+        "placedOnMarket" : "2000-01-01",
+        "purchaseOrder" : "eOMtThyhVNLWUZNRcBaQKxI",
+        "purpose" : [ "automotive" ],
+        "recallInformation" : {
+          "recallInformationDocumentation" : [ {
+            "contentType" : "URL",
+            "header" : "Example Document XYZ",
+            "content" : "https://dummy.link"
+          } ],
+          "applicable" : true
+        }
+      },
+      "identification" : {
+        "batch" : [ {
+          "value" : "BID12345678",
+          "key" : "batchId"
+        } ],
+        "codes" : [ {
+          "value" : "8703 24 10 00",
+          "key" : "TARIC"
+        } ],
+        "type" : {
+          "manufacturerPartId" : "123-0.740-3434-A",
+          "nameAtManufacturer" : "Mirror left"
+        },
+        "classification" : [ {
+          "classificationStandard" : "GIN 20510-21513",
+          "classificationID" : "1004712",
+          "classificationDescription" : "Generic standard for classification of parts in the automotive industry."
+        } ],
+        "serial" : [ {
+          "value" : "SN12345678",
+          "key" : "partInstanceId"
+        } ],
+        "dataCarrier" : {
+          "carrierType" : "QR",
+          "carrierLayout" : "upper-left side"
+        }
+      },
+      "sources" : [ {
+        "header" : "Example Document XYZ",
+        "category" : "Product Specifications",
+        "type" : "URL",
+        "content" : "https://dummy.link"
+      } ],
+      "materials" : {
+        "substancesOfConcern" : {
+          "applicable" : true,
+          "content" : [ {
+            "unit" : "unit:partPerMillion",
+            "hazardClassification" : {
+              "category" : "category 1A",
+              "statement" : "Causes severe skin burns and eye damage.",
+              "class" : "Skin corrosion"
+            },
+            "documentation" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ],
+            "concentrationRange" : [ {
+              "max" : 2.6,
+              "min" : 2.1
+            } ],
+            "location" : "Housing",
+            "concentration" : 5.3,
+            "exemption" : "shall not apply to product x containing not more than 1,5 ml of liquid",
+            "id" : [ {
+              "type" : "CAS",
+              "name" : "phenolphthalein",
+              "id" : "201-004-7"
+            } ]
+          } ]
+        },
+        "materialComposition" : {
+          "applicable" : true,
+          "content" : [ {
+            "unit" : "unit:partPerMillion",
+            "recycled" : 12.5,
+            "critical" : true,
+            "renewable" : 23.5,
+            "documentation" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ],
+            "concentration" : 5.3,
+            "id" : [ {
+              "type" : "CAS",
+              "name" : "phenolphthalein",
+              "id" : "201-004-7"
+            } ]
+          } ]
+        }
+      },
+      "handling" : {
+        "applicable" : true,
+        "content" : {
+          "producer" : [ {
+            "id" : "BPNL0123456789ZZ"
+          } ],
+          "sparePart" : [ {
+            "manufacturerPartId" : "123-0.740-3434-A",
+            "nameAtManufacturer" : "Mirror left"
+          } ]
+        }
+      },
+      "additionalData" : [ {
+        "description" : "Description of an attribute",
+        "label" : "Maximum permitted battery power",
+        "type" : {
+          "typeUnit" : "unit:volume",
+          "dataType" : "array"
+        },
+        "data" : "23",
+        "children" : [ {
+          "description" : "Description of an attribute",
+          "label" : "Maximum permitted battery power",
+          "type" : {
+            "typeUnit" : "unit:volume",
+            "dataType" : "array"
+          },
+          "data" : "23"
+        } ]
+      } ],
+      "operation" : {
+        "import" : {
+          "applicable" : true,
+          "content" : {
+            "eori" : "GB123456789000",
+            "id" : "BPNL0123456789ZZ"
+          }
+        },
+        "other" : {
+          "id" : "BPNL0123456789XX",
+          "role" : "distributor"
+        },
+        "manufacturer" : {
+          "facility" : [ {
+            "facility" : "BPNA1234567890AA"
+          } ],
+          "manufacturingDate" : "2000-01-31",
+          "manufacturer" : "BPNLjMlbqpptGjBL"
+        }
+      },
+      "sustainability" : {
+        "reparabilityScore" : "B",
+        "productFootprint" : {
+          "material" : [ {
+            "lifecycle" : "main product production",
+            "rulebook" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ],
+            "unit" : "kg CO2 / kWh",
+            "performanceClass" : "A",
+            "manufacturingPlant" : [ {
+              "facility" : "BPNA1234567890AA"
+            } ],
+            "type" : "Climate Change Total",
+            "value" : 12.678,
+            "declaration" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ]
+          } ],
+          "carbon" : [ {
+            "lifecycle" : "main product production",
+            "rulebook" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ],
+            "unit" : "kg CO2 / kWh",
+            "performanceClass" : "A",
+            "manufacturingPlant" : [ {
+              "facility" : "BPNA1234567890AA"
+            } ],
+            "type" : "Climate Change Total",
+            "value" : 12.678,
+            "declaration" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ]
+          } ],
+          "environmental" : [ {
+            "lifecycle" : "main product production",
+            "rulebook" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ],
+            "unit" : "kg CO2 / kWh",
+            "performanceClass" : "A",
+            "manufacturingPlant" : [ {
+              "facility" : "BPNA1234567890AA"
+            } ],
+            "type" : "Climate Change Total",
+            "value" : 12.678,
+            "declaration" : [ {
+              "contentType" : "URL",
+              "header" : "Example Document XYZ",
+              "content" : "https://dummy.link"
+            } ]
+          } ]
+        },
+        "status" : "original",
+        "durabilityScore" : "A"
+      }
+    },
+    "@id": "urn:uuid:certificate-123-456-789",
+    "issuer": "did:web:tuv-sud.de",
+    "validFrom": "2024-01-15T10:30:00Z",
+    "validUntil": "2025-01-15T10:30:00Z",
+    "validationMethod": [
+      {
+        "@type": "Standard",
+        "label": "Catena-X DPP Rulebook Standard",
+        "@id": "CX-0143",
+        "uri": "https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/CX-0143-SEM",
+        "complianceCriteria": [
+          {
+            "@type": "Standard Compliance",
+            "@value": "100%"
+          },
+          {
+            "@type": "Primary Data Share",
+            "@value": "80%"
+          }
+        ]
+      }
+    ],
+    "credentialStatus": {
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
     },
     "proof": {
         "type": "JsonWebSignature2020",

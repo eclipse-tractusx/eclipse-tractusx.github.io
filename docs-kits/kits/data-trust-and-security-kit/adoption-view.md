@@ -84,7 +84,7 @@ Given the labor-intensive nature of these processes, there is a strong economic 
 
 In the Data Trust & Security KIT there are three main roles:
 
-- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X).
+- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X, Chem-X, etc).
 - **Attestation Provider**: This should serve as an additional entity capable of confirming the authenticity of data through validation and verification. However, the primary responsibility for the data must remain with the data provider
 - **Data Consumer**: Responsible for consuming data from a data provider and triggering the "check" to know if the data received is "verifiable".
 
@@ -111,7 +111,7 @@ graph TD
 
 **What are Attestation Providers?**
 
-Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
+Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, Chem-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
 ### Layer 2: Technology
 
@@ -147,7 +147,7 @@ The Digital Product Pass Reference Implementation has a concept and implementati
 
 This Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Eclipse Tractus-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
 
-The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
+The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Attestation option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
 
 [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
