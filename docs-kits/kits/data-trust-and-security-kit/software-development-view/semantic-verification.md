@@ -92,7 +92,7 @@ result = translator.schema_to_jsonld(link_core="https://...", semantic_id="urn:s
 
 :::
 
-Visit the [tractusx-sdk extensions source code](https://github.com/eclipse-tractusx/tractusx-sdk/tree/main/src/tractusx_sdk/extensions/semantics) to learn more.
+Visit the [tractusx-sdk extensions source code](https://github.com/eclipse-tractusx/tractusx-sdk/blob/main/src/tractusx_sdk/extensions/semantics/schema_to_context_translator.py) to learn more.
 
 ## Implementation Examples
 
