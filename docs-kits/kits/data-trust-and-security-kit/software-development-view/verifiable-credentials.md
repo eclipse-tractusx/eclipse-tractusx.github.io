@@ -244,8 +244,6 @@ In this way it can be reusable for any aspect model.
 }
 ```
 
-</details>
-
 <details>
 <summary>Example of a DAC for DPP for the Catena-X DPP Rulebook</summary>
 
@@ -575,6 +573,598 @@ In this way it can be reusable for any aspect model.
 ```
 
 </details>
+
+#### Example without hosted @context
+
+The reason why @contexts are hosted is so that they can be reused in multiple verifiable credentials to define the semantic structure of the data content.
+
+The consumer by using a JSON-LD playground or library is able to expand the JSON-LD to a parsable file.
+
+For that the context much match the semantics from the content.
+
+This is an example of a verifiable credential without a hosted @context:
+
+
+</details>
+<summary>Example of a DAC for PCF without hosted @context</summary>
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/data-integrity/v2",
+    {
+      "@context": {
+        "@version": 1.1,
+        "schema": "https://schema.org/",
+        "aspect": "urn:samm:io.catenax.certificate.dac:1.0.0#",
+        "DataAttestationCredential": {
+          "@context": {
+            "@version": 1.1,
+            "id": "@id",
+            "type": "@type",
+            "validationMethod": {
+              "@id": "aspect:validationMethod",
+              "@context": {
+                "@version": 1.1,
+                "id": "@id",
+                "type": "@type",
+                "@context": {
+                  "@version": 1.1,
+                  "id": {
+                    "@id": "aspect:id",
+                    "@context": {
+                      "@definition": "Mandatory: Unique identifier for the validation method."
+                    },
+                    "@type": "schema:string"
+                  },
+                  "type": {
+                    "@id": "aspect:type",
+                    "@context": {
+                      "@definition": "Mandatory: The type of validation method used for data attestation."
+                    },
+                    "@type": "schema:string"
+                  },
+                  "label": {
+                    "@id": "aspect:label",
+                    "@context": {
+                      "@definition": "Mandatory: Human-readable label for the validation method."
+                    },
+                    "@type": "schema:string"
+                  },
+                  "uri": {
+                    "@id": "aspect:uri",
+                    "@context": {
+                      "@definition": "Mandatory: URI pointing to the validation method documentation or specification."
+                    },
+                    "@type": "schema:string"
+                  },
+                  "complianceCriteria": {
+                    "@id": "aspect:complianceCriteria",
+                    "@context": {
+                      "@version": 1.1,
+                      "id": "@id",
+                      "type": "@type",
+                      "@context": {
+                        "@version": 1.1,
+                        "id": "@id",
+                        "type": {
+                          "@id": "aspect:type",
+                          "@context": {
+                            "@definition": "Mandatory: The type of compliance criterion used for validation."
+                          },
+                          "@type": "schema:string"
+                        },
+                        "value": {
+                          "@id": "aspect:value",
+                          "@context": {
+                            "@definition": "Mandatory: The value of the compliance criterion."
+                          },
+                          "@type": "schema:string"
+                        }
+                      },
+                      "@definition": "Mandatory: Set of compliance criteria for the validation method."
+                    },
+                    "@container": "@list"
+                  }
+                },
+                "@definition": "Array of validation methods used for data verification and attestation in Data Attestation Credential (DAC)."
+              },
+              "@container": "@list"
+            },
+            "@definition": "A Data Attestation Credential (DAC) represents validation methods and compliance criteria used for data verification and attestation in sustainable supply chains."
+          },
+          "@id": "aspect:DataAttestationCredential"
+        }
+      }
+    },
+    {
+      "@context": {
+        "@version": 1.1,
+        "schema": "https://schema.org/",
+        "specVersion": {
+          "@id": "Pcf:specVersion",
+          "@context": {
+            "@definition": "Mandatory: Version of the product footprint data specification as defined in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "partialFullPcf": {
+          "@id": "Pcf:partialFullPcf",
+          "@context": {
+            "@definition": "Mandatory: Indicator for partial or full PCF (Product Carbon Footprint) declaration as specified in the Catena-X PCF Rulebook (Version 3.0.0)."
+          },
+          "@type": "schema:string"
+        },
+        "precedingPfIds": {
+          "@id": "Pcf:precedingPfIds",
+          "@context": {
+            "@version": 1.1,
+            "id": "@id",
+            "type": "@type",
+            "@context": {
+              "@version": 1.1,
+              "id": {
+                "@id": "Pcf:id",
+                "@context": {
+                  "@definition": "Mandatory: The product footprint identifier as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+                },
+                "@type": "schema:string"
+              },
+              "type": "@type"
+            },
+            "@definition": "Optional: Set of preceding PCF (Product Carbon Footprint) identifiers without duplicates as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the WBCSD (World Business Council for Sustainable Development) Pathfinder framework and the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD/ PACT initiative. Declared as \"optional\" in WBCSD, needs to be covered by application."
+          },
+          "@container": "@list"
+        },
+        "version": {
+          "@id": "Pcf:version",
+          "@context": {
+            "@definition": "Mandatory: Version of the product (carbon) footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X for example set to \"0\" per default."
+          },
+          "@type": "schema:number"
+        },
+        "created": {
+          "@id": "Pcf:created",
+          "@context": {
+            "@definition": "Mandatory: Timestamp of the creation of the Product (Carbon) Footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "extWBCSD_pfStatus": {
+          "@id": "Pcf:extWBCSD_pfStatus",
+          "@context": {
+            "@definition": "Mandatory: Status indicator of a product (carbon) footprint as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example set to \"Active\" per default."
+          },
+          "@type": "schema:string"
+        },
+        "validityPeriodStart": {
+          "@id": "Pcf:validityPeriodStart",
+          "@context": {
+            "@definition": "Optional: Start of interval during which the product (carbon) footprint is declared as valid as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. If specified, the validity period start must be equal to or greater than the reference period end."
+          },
+          "@type": "schema:string"
+        },
+        "validityPeriodEnd": {
+          "@id": "Pcf:validityPeriodEnd",
+          "@context": {
+            "@definition": "Optional: End of interval during which the product (carbon) footprint is declared as valid as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "comment": {
+          "@id": "Pcf:comment",
+          "@context": {
+            "@definition": "Optional: Additional information and instructions related to the calculation of the product (carbon) footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "companyName": {
+          "@id": "Pcf:companyName",
+          "@context": {
+            "@definition": "Mandatory: Name of the product (carbon) footprint data owner as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "companyIds": {
+          "@id": "Pcf:companyIds",
+          "@context": {
+            "@definition": "Mandatory: Non-empty set of Uniform Resource Names (URN). Each value is supposed to uniquely identify the product (carbon) footprint data owner as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. For Catena-X Industry Core compliance the set of URNs must contain at least the Business Partner Number Legal Entity (BPNL) in the specified format urn:bpn:id:BPNL[a-zA-Z0-9]{12}.\u00a0"
+          },
+          "@container": "@list",
+          "@type": "schema:string"
+        },
+        "productDescription": {
+          "@id": "Pcf:productDescription",
+          "@context": {
+            "@definition": "Optional: Free-form description of the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative."
+          },
+          "@type": "schema:string"
+        },
+        "productIds": {
+          "@id": "Pcf:productIds",
+          "@context": {
+            "@definition": "Mandatory: Non-empty set of product identifiers. Each value is supposed to uniquely identify the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X productId corresponds with Industry Core manufacturerPartId."
+          },
+          "@container": "@list",
+          "@type": "schema:string"
+        },
+        "extWBCSD_productCodeCpc": {
+          "@id": "Pcf:extWBCSD_productCodeCpc",
+          "@context": {
+            "@definition": "Mandatory: UN (United Nations) Product Classification Code (CPC - Central Classification Code) of a given product as specified the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, which will probably be declared as \"optional\" in a later WBCSD specification version. In Catena-X for example specified with default value \"011-99000\"."
+          },
+          "@type": "schema:string"
+        },
+        "productName": {
+          "@id": "Pcf:productName",
+          "@context": {
+            "@definition": "Mandatory: Non-empty trade name of a product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X productNameCompany corresponds with Industry Core nameAtManufacturer.\u00a0"
+          },
+          "@type": "schema:string"
+        },
+        "pcfLegalStatement": {
+          "@id": "Pcf:pcfLegalStatement",
+          "@context": {
+            "@definition": "Optional: Option for legal statement/ disclaimer as specified in the Catena-X PCF Rulebook (Version 3.0.0)."
+          },
+          "@type": "schema:string"
+        },
+        "Pcf": "urn:samm:io.catenax.pcf:7.0.0#",
+        "@definition": "A Product (Carbon) Footprint represents the carbon footprint of a product with values as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the WBCSD (World Business Council for Sustainable Development) Pathfinder framework and the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD/ PACT initiative."
+      }
+    }
+  ],
+  "type": ["VerifiableCredential", "DataAttestationCredential", "urn:samm:io.catenax.pcf:7.0.0#Pcf"],
+  "credentialSubject": {
+    "@type": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+    "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
+    "companyIds": [
+      "telnet://192.0.2.16:80/",
+      "ftp://ftp.is.co.za/rfc/rfc1808.txt",
+      "http://www.ietf.org/rfc/rfc2396.txt"
+    ],
+    "extWBCSD_productCodeCpc": "011-99000",
+    "created": "2022-05-22T21:47:32Z",
+    "companyName": "My Corp",
+    "extWBCSD_pfStatus": "Active",
+    "version": 0,
+    "productName": "My Product Name",
+    "partialFullPcf": "Cradle-to-gate",
+    "productIds": [
+      "http://www.wikipedia.org",
+      "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+    ],
+    "validityPeriodStart": "2022-01-01T00:00:01Z",
+    "comment": "Additional explanatory information not reflected by other attributes",
+    "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+    "validityPeriodEnd": "2022-12-31T23:59:59Z",
+    "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
+    "productDescription": "Ethanol, 95% solution",
+    "precedingPfIds": [
+      {
+        "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+      }
+    ]
+  },
+  "@id": "urn:uuid:certificate-123-456-789",
+  "issuer": "did:web:tuv-sud.de",
+  "validFrom": "2024-01-15T10:30:00Z",
+  "validUntil": "2025-01-15T10:30:00Z",
+  "validationMethod": [
+      {
+        "@type": "Standard",
+        "label": "Catena-X PCF Rulebook Standard",
+        "@id": "CX-0029",
+        "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
+        "complianceCriteria": [
+          {
+            "@type": "Standard Compliance",
+            "value": "100%"
+          },
+          {
+            "@type": "Verification Level",
+            "value": "3"
+          },
+          {
+            "@type": "Primary Data Share",
+            "value": "80%"
+          }
+        ]
+     }
+  ],
+  "credentialStatus": {
+    "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+    "type": "BitstringStatusListEntry",
+    "statusPurpose": "revocation",
+    "statusListIndex": "42",
+    "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:web:tuv-sud.de#key-1",
+    "created": "2024-01-15T10:30:00Z",
+    "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY..."
+  }
+}
+```
+
+</details>
+
+Using the [json-ld playground](https://json-ld.org/playground) we are able to extract a uniformed JSON payload keys in their context:
+
+<details>
+<summary>Open to visualized the expanded JSON-LD</summary>
+
+```json
+[
+  {
+    "@id": "urn:uuid:certificate-123-456-789",
+    "https://www.w3.org/2018/credentials#credentialStatus": [
+      {
+        "@id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+        "https://www.w3.org/ns/credentials/status#statusListCredential": [
+          {
+            "@id": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+          }
+        ],
+        "https://www.w3.org/ns/credentials/status#statusListIndex": [
+          {
+            "@value": "42"
+          }
+        ],
+        "https://www.w3.org/ns/credentials/status#statusPurpose": [
+          {
+            "@value": "revocation"
+          }
+        ],
+        "@type": [
+          "https://www.w3.org/ns/credentials/status#BitstringStatusListEntry"
+        ]
+      }
+    ],
+    "https://www.w3.org/2018/credentials#credentialSubject": [
+      {
+        "@type": [
+          "urn:samm:io.catenax.pcf:7.0.0#Pcf"
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#comment": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "Additional explanatory information not reflected by other attributes"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#companyIds": [
+          {
+            "@list": [
+              {
+                "@type": "https://schema.org/string",
+                "@value": "telnet://192.0.2.16:80/"
+              },
+              {
+                "@type": "https://schema.org/string",
+                "@value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+              },
+              {
+                "@type": "https://schema.org/string",
+                "@value": "http://www.ietf.org/rfc/rfc2396.txt"
+              }
+            ]
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#companyName": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "My Corp"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#created": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "2022-05-22T21:47:32Z"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#extWBCSD_pfStatus": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "Active"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#extWBCSD_productCodeCpc": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "011-99000"
+          }
+        ],
+        "@id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+        "urn:samm:io.catenax.pcf:7.0.0#partialFullPcf": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "Cradle-to-gate"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#pcfLegalStatement": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above."
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#precedingPfIds": [
+          {
+            "@list": [
+              {
+                "urn:samm:io.catenax.pcf:7.0.0#id": [
+                  {
+                    "@type": "https://schema.org/string",
+                    "@value": "3893bb5d-da16-4dc1-9185-11d97476c254"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#productDescription": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "Ethanol, 95% solution"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#productIds": [
+          {
+            "@list": [
+              {
+                "@type": "https://schema.org/string",
+                "@value": "http://www.wikipedia.org"
+              },
+              {
+                "@type": "https://schema.org/string",
+                "@value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+              }
+            ]
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#productName": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "My Product Name"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#specVersion": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "urn:io.catenax.pcf:datamodel:version:7.0.0"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#validityPeriodEnd": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "2022-12-31T23:59:59Z"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#validityPeriodStart": [
+          {
+            "@type": "https://schema.org/string",
+            "@value": "2022-01-01T00:00:01Z"
+          }
+        ],
+        "urn:samm:io.catenax.pcf:7.0.0#version": [
+          {
+            "@type": "https://schema.org/number",
+            "@value": 0
+          }
+        ]
+      }
+    ],
+    "https://www.w3.org/2018/credentials#issuer": [
+      {
+        "@id": "did:web:tuv-sud.de"
+      }
+    ],
+    "https://w3id.org/security#proof": [
+      {
+        "@graph": [
+          {
+            "urn:samm:io.catenax.pcf:7.0.0#created": [
+              {
+                "@type": "https://schema.org/string",
+                "@value": "2024-01-15T10:30:00Z"
+              }
+            ],
+            "@type": [
+              "JsonWebSignature2020"
+            ]
+          }
+        ]
+      }
+    ],
+    "@type": [
+      "https://www.w3.org/2018/credentials#VerifiableCredential",
+      "urn:samm:io.catenax.certificate.dac:1.0.0#DataAttestationCredential",
+      "urn:samm:io.catenax.pcf:7.0.0#Pcf"
+    ],
+    "https://www.w3.org/2018/credentials#validFrom": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2024-01-15T10:30:00Z"
+      }
+    ],
+    "https://www.w3.org/2018/credentials#validUntil": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2025-01-15T10:30:00Z"
+      }
+    ],
+    "urn:samm:io.catenax.certificate.dac:1.0.0#validationMethod": [
+      {
+        "@list": [
+          {
+            "@id": "CX-0029",
+            "@type": [
+              "Standard"
+            ],
+            "urn:samm:io.catenax.certificate.dac:1.0.0#complianceCriteria": [
+              {
+                "@list": [
+                  {
+                    "@type": [
+                      "Standard Compliance"
+                    ],
+                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                      {
+                        "@type": "https://schema.org/string",
+                        "@value": "100%"
+                      }
+                    ]
+                  },
+                  {
+                    "@type": [
+                      "Verification Level"
+                    ],
+                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                      {
+                        "@type": "https://schema.org/string",
+                        "@value": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "@type": [
+                      "Primary Data Share"
+                    ],
+                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                      {
+                        "@type": "https://schema.org/string",
+                        "@value": "80%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "urn:samm:io.catenax.certificate.dac:1.0.0#label": [
+              {
+                "@type": "https://schema.org/string",
+                "@value": "Catena-X PCF Rulebook Standard"
+              }
+            ],
+            "urn:samm:io.catenax.certificate.dac:1.0.0#uri": [
+              {
+                "@type": "https://schema.org/string",
+                "@value": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+</details>
+
+For more information consult the [Semantic Verification](semantic-verification.md) section, to learn how to generate this @contexts for the SAMM Aspect Models, and be able to include embed any stardardized SAMM model in a Verifiable Credential.
 
 ### Attribute Attestation Credential (AAC)
 
