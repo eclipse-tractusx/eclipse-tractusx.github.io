@@ -244,6 +244,8 @@ In this way it can be reusable for any aspect model.
 }
 ```
 
+</details>
+
 <details>
 <summary>Example of a DAC for DPP for the Catena-X DPP Rulebook</summary>
 
@@ -584,8 +586,8 @@ For that the context much match the semantics from the content.
 
 This is an example of a verifiable credential without a hosted @context:
 
+<details>
 
-</details>
 <summary>Example of a DAC for PCF without hosted @context</summary>
 
 ```json
@@ -895,6 +897,7 @@ This is an example of a verifiable credential without a hosted @context:
 Using the [json-ld playground](https://json-ld.org/playground) we are able to extract a uniformed JSON payload keys in their context:
 
 <details>
+
 <summary>Open to visualized the expanded JSON-LD</summary>
 
 ```json
@@ -1164,7 +1167,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
 
 </details>
 
-For more information consult the [Semantic Verification](semantic-verification.md) section, to learn how to generate this @contexts for the SAMM Aspect Models, and be able to include embed any stardardized SAMM model in a Verifiable Credential.
+For more information consult the [Semantic Verification](./semantic-verification.md) section, to learn how to generate this @contexts for the SAMM Aspect Models, and be able to include embed any stardardized SAMM model in a Verifiable Credential.
 
 ### Attribute Attestation Credential (AAC)
 
