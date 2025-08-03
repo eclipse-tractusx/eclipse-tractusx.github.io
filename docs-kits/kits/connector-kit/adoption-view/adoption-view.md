@@ -8,7 +8,7 @@ id: adoption-view
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
 The Connector KIT describes the basic infrastructure that is used for any cross-enterprise data exchange within
-Catena-X. The infrastructure is based on the [Dataspaces][idsa-url] and
+Catena-X. The infrastructure is based on [Dataspaces][idsa-url] and
 [Self-Sovereign Identity][self-sovereign-identity-url] as basic mechanisms to achieve the targeted goals.
 
 ## Vision & Mission
@@ -62,12 +62,13 @@ detail, they are:
   - The data transfer cannot be observed outside of the two acting companies, especially the data is directly
     transfered between the two parties.
   - Data transfer activities are not blocked by outages of central services.
-- Scalability: Efforts from an individual dataspace participant to maintain connections to all other participants as
+- Scalability: Efforts from an individual dataspace participant to maintain connections to relevamt participants as
   well as the overall effort to support a dataspace with a virtually unlimited number of participants are both within
   reasonable limits.
-- Data Sovereignty: Data Sovereignty: Data providers have full control over who has access to the offered data and
-  under which conditions the data may be used. Data consumers have full knowledge over the policies under which data
-  is available before committing to using an offer.
+- Data Sovereignty: Data providers have full control over who has access to the offered data and under which conditions
+  the data may be used. Data consumers have full knowledge over the conditions, resp. policies under which data is
+  available before committing to use an offer. The data transfer is preceded by a formal acceptance of the conditions
+  of the transfer by both parties.
 - Interoperability: The data transfer is standardized in a way, that allows a data consumer to identify
   - which type of data is offered and what to expect semantically as content of the data,
   - how the data is transfered, i.e., which protocols resp. which APIs to use for accessing it,
@@ -91,13 +92,13 @@ In detail, the relevant assets are:
   - A *Business Partner Number* represents a company, resp., a legal entity (BPNL) by a persistent, globally unique,
     legally binding identifier. Every legal entity can have at most one BPNL.
 
-    Due to those properties, BPNLs are needed as unique reference for legal purposes.
+    Due to those properties, BPNLs are used as unique reference for legal purposes.
   - A [*Decentralized Identifier*][did-url] (DID) is a globally unique identifier. Within Catena-X they are always
     associated with a legal entity. DIDs are not persistent and a legal entity can have more than one DID associated
     with it.
 
-    The used WEB-DIDs technology allows the associated company to publish metadata, like service endpoints or public
-    keys in a DID document, which can be accessed simply through knowledge of the DID.
+    The used [WEB-DID][did-web-url] technology allows the associated company to publish metadata, like service endpoints
+    or public keys in a DID document, which can be accessed simply through knowledge of the DID.
 
     DIDs, and especially the availability of required metadata in the DID document enable the targeted dentralization
     goals. DIDs are, therefore, required as implementation technology.
@@ -110,10 +111,10 @@ In detail, the relevant assets are:
   of the general terms and conditions for the data exchange with a claim that attests the acceptance of the framework
   agreement.
 - [Self-Sovereign Identity (SSI)][self-sovereign-identity-url]: SSI is an approach to digital identity that gives
-  the owner of the identity control over the information used to prove their identity to services, and applications
-  across the web. It makes use of *Verifiable Credentials*. VCs are stored in an owned wallet and provided directly
-  in authentication scenarios in order to proof the identity without involving any third party. The provider of the
-  service can verify the authenticity of the request by checking the validity through a trusted signature used
+  the owner of the identity control over the information used to prove this identity to services and applications
+  across the web. It makes use of *Verifiable Credentials* which are stored in an owned wallet and provided directly to
+  the data provider in authentication scenarios proving the identity without involving any third party. The data
+  provider can verify the authenticity of the request by checking the validity through a trusted signature used
   by the VCs issuer during creation.
 
   The following diagram shows the general interaction pattern of a SSI solution.
@@ -138,7 +139,7 @@ sequenceDiagram
 ```
 
 - [Decentralized Claims Protocol (DCP)][dcp-url]: The protocol used for exchanging verifiable credentials within
-  Catena-X. In the scope of this KIT it is allows a provider's connector to access the consumer's wallet to retrieve
+  Catena-X. In the scope of this KIT it allows a provider's connector to access the consumer's wallet to retrieve
   relevant verifiable credentials. This is needed to authenticate the consumer, i.e., to enable the provider to
   identify the consumer and to check prerequisites necessary to grant access to the offered data.
 - Policies: A data offering by a data provider always comes with a contract proposal, i.e., a set of conditions under
@@ -148,8 +149,8 @@ sequenceDiagram
   data transfer contract. See the extra page on [policies][policy-url] for a deeper insight into how policies are
   used within Catena-X.
 - Discovery: Based on the DID of a data provider, Catena-X defines a decentral discovery mechanism that allows to
-  identify endpoints of connectors in order to initiate data transfer use cases. The discovery mechanism uses the DID
-  document to provide information on connector endpoints again in a decentral manner.
+  identify connector services in order to initiate data transfer use cases. The discovery mechanism uses the DID
+  document to provide information on connector endpoints in a decentral manner.
 
 The described technologies are complete to initiate and conduct data transfers. The only prerequisite is knowledge of
 the data provider's identifiers, both BPNL and DID. Catena-X defines additional mechanisms that allow to retrieve
@@ -174,49 +175,49 @@ involved in the data transfer on the data provider side. With the use of the Sel
 authentication is driven by verifiable credentials which are a trustworthy mechanism that does not involve a third
 party in the data transfer activity.
 
-The goals targeted at with this principle are, therefore, fully achieved.
-
 #### Scalability
 
-A major driver of scalability is the decentral nature of data transfer. This prevents naturally bottlenecks or
+A major driver of scalability is the decentral nature of data transfer. This prevents bottlenecks or
 single-point-of-failures in the system.
 
 Another pillar of scalability is the management of data exchange partners. Common approaches typically require either
 a central system, like a central Identity Provider that centralizes identity management, or in a decentral approach
-a n:m relationship in managing identities between the partners, i.e., every partner has to exchange in advance and
+an n:m relationship in managing identities between the partners, i.e., every partner has to exchange in advance and
 with every other partner bilaterally information like available service endpoints and access credentials which is a
 major effort.
 
 Using the Self-Sovereign Identity mechanism, these efforts are reduced to an one time issuance of the required
-*Verifiable Credentials*. Data transfer activities then do not require any secret exchange in advance.
+*Verifiable Credentials*. Data transfer activities then do not require any authentication information exchange in
+advance.
 
-Everything is handled by the dataspace technology peer-to-peer during the data transfer. This includes identification
-of data offerings, semantics of the data transfer and content, authentication and authorization to gain access, or the
-concrete policies under which the data consumer can use the data.
+The dataspace technology handles peer-to-peer during the data transfer. This includes identification of data offerings,
+semantics of the data transfer and content, authentication and authorization to gain access, or the concrete policies
+under which the data consumer can use the data.
 
 #### Data Sovereignty
 
 The main vehicle for data sovereignty are the policies associated to a data transfer. They ensure that the terms and
 conditions for the usage of the data are clear. As they are part of the authentication process, these conditions
-are transparent and from a provider side can be individualized to different partners although basically the same
-data type is offered. This enables maximum control on the provisioning and the usage of the data.
+are transparent and from a provider side can be individualized to different partners. This enables maximum control on
+the provisioning and the usage of the data.
 
 A second important mechanism is the usage of verifiable credentials, as they can be used to prove certain claims. In
 Catena-X, the *DataExchangeGovernance* credential ensures that a data consumer has accepted the framework agreement of
-data transfer within the network.
+data transfer within the network, i.e., he agreed in advance to the underlying terms and conditions within Catena-X.
 
 Policies support a wide range of terms and conditions. In a simple case, they can express the check of a set of
 verifiable credentials to prove the identity of the data consumer. A slightly more complex case is well suited for
 supply chains which represent the dominant pattern adopted in Catena-X today. In such situations, the data transfer
-is driven by a contract about the delivery of real world goods from a supplier to a customer. This contract typically
-regulates the data transfer needs as well, so that the policy used for the data offers in the connector can simply
-refer to that contract. More complex cases allow to express a whole range of constraints that can be used to specify
-a detailed contract that applies to the data transfer.
+is driven by a pre-existing contract about the delivery of real world goods from a supplier to a customer. This contract
+typically regulates the data transfer needs as well, so that the policy used for the data offers in the connector can
+simply refer to that contract. More complex cases allow to express a whole range of constraints that can be used to
+specify a detailed contract that applies to the data transfer.
 
 #### Interoperability
 
-Interoperability cannot be ensured by the systems in the scope of this KIT. But infrastructure features enable
-interoperability on use case levels by providing general means to organize the data transfer. These features support
+Interoperability cannot be ensured by the concepts in the scope of this KIT. But the described infrastructure features
+enable interoperability on use case levels by providing general means to organize the data transfer. These features
+support
 
 - finding data offerings,
 - understanding the semantics of the transfer protocol used and the data provided,
@@ -225,14 +226,14 @@ interoperability on use case levels by providing general means to organize the d
 
 All these features are provided by the dataspace technology out-of-the-box.
 
-Important to note is, that the applied pattern for authentication and authorization is applicable to a whole range of
-different technologies, standardzing the pure protocol for gaining access to a data offer. E.g., the technology
-supports standard REST API access control using tokens. In this case the end result, a token does not really divert
-from the way OAuth2 handles the access to a resource server. But the connector can also handle other ways of
-interaction, like push scenarios, where data is pushed from the provider to the consumer in a one time fashion or as
-a stream of data. The technical means, like a bucket to store a pushed object or a technology to receive a constant
-stream of information has to be provided, but the overall mechanism to get access and to manage the data transfer is
-standardized within the mechanisms of the Dataspace Protocol.
+Important to note is, that the applied pattern for initiating data transfers is applicable to a whole range of
+different technologies. E.g., it is possible to use standard REST API access control using tokens. In this case the end
+result can not be distinguished from the way OAuth2 handles the access to a resource server.
+
+But the connector can also handle other ways of interaction, like push scenarios, where data is actively pushed from the
+provider to the consumer in a one time fashion or as a stream of data. The technical means, like a cloud storage or a
+technology to receive a constant stream of information has to be provided, but the overall mechanism to get access and
+to manage the data transfer is standardized within the mechanisms of the Dataspace Protocol.
 
 ## Use Case
 
@@ -289,18 +290,19 @@ The general interaction pattern is driven by the Dataspace Protocol which define
    access to a defined dataset, so that only legitimate consumers can see the data offer in the provided catalog.
 
 2. Contract Negotiation:
-   Access to a data offer is provided via a contract, which is basically an agreed usage policy. In Catena-X this
+   Access to a data offer is provided via a contract, which is basically an agreed upon usage policy. In Catena-X this
    agreement of a policy is a legally binding contract.
 
    The necessary information needed to start a negotiation is provided in a dataset. This includes the endpoint to
-   call for initiating the negotiation and the usage policy that is the contract proposal of the data consumer for
-   data access. Based on this request, the contract negotiation process is started, which is in DSP an asynchronous
-   process, so the data consumer has to check frequently, whether the process has finished. The concrete state
-   machine, the negotiation passes through is described in the [DSP spec][dsp-url].
+   call for initiating the negotiation and the usage policy that is the contract proposal for the data consumer to
+   gain access. Based on this information, a consumer starts the contract negotiation process by calling the
+   corresponding endpoint. In DSP, this is an asynchronous process, so the data consumer has to check frequently,
+   whether the process has finished. The concrete state machine, the negotiation passes through is described in the
+   [DSP spec][dsp-url].
 
-   The usage policy in a dataset has to be used literally. As of today, DSP features concerning policy negotiation
-   are disabled and the consumer only has the choice to accept the proposed usage policy or to not negotiate for the
-   offer.
+   In Catena-X, the usage policy in a dataset has to be used literally when initiating a contract negotiation. As of
+   today, DSP features concerning policy negotiation are disabled and the consumer only has the choice to accept the
+   proposed usage policy or to not negotiate for the offer.
 
 3. Transfer Process:
    When the contract is finalized, the data is accessible. To finally do the transfer, the consumer has to initiate a
@@ -315,25 +317,26 @@ The general interaction pattern is driven by the Dataspace Protocol which define
      access token if expired.
 
    - In a push transfer, initiating the transfer ends with the provider to be actively pushing data to a consumer
-     owned data sink. This can be a storage service of a cloud provider or a REST API to which data is send via,
-     e.g., a post request. To enable the provider to send the data, the access information, i.e., the endpoint url of
-     the sink and the access credentials have to be provided by the consumer in the transfer process request.
+     owned data sink. This can be a cloud storage service or a REST API to which data is send via, e.g., a post request.
+     To enable the provider to send the data, the access information, i.e., the endpoint url of the sink and the access
+     credentials have to be provided by the consumer in the transfer process request.
 
      Push transfers are by default a one time transfer, i.e., a transfer process is initiated, the provider pushes
      the contracted data to the sink and finalizes the transfer process. An additional transfer mechanism to be
-     established soon is an infinite push, i.e., the transfer process is not terminated and the provider sends new
-     data elements as soon as they are created until the process is stopped manually or by expiry of the contract.
+     established soon is a non-finite push, i.e., the transfer process is not terminated and the provider sends new
+     data elements as soon as they are created until the process is stopped manually or by expiry of the access
+     information.
 
 After the transfer process is started, the data plane is responsible for the data transfer, i.e., it mediates between
 the consuming service and the providing service to get the data transfered. The data plane is a transfer technology
 specific implementation that connects an existing technology to the concepts of the dataspace concept. The technology
 specific information on data endpoints used and access information needed are part of the transfer process creation.
 
-### Important Terms
+### Definition of central terms used within the described processes
 
 #### Contract Definition
 
-A *Contract Definition* is the data offer at it is managed by a data provider. The contract definition has three major
+A *Contract Definition* is the data offer as it is managed by a data provider. The contract definition has three major
 parts:
 
 - The technical data source that provides the data, often called *Asset*. This consists of a description of the type
@@ -350,15 +353,9 @@ parts:
 The *Contract Offer* is a representation of the [contract definition](#contract-definition) for a specific consumer
 and serves as basis for a particular contract negotiation. It is created in a catalog request by the data provider.
 The data provider iterates over all contract definitions, checks the visibility by applying the access policy, and,
-if the definition is accessible for the data consumer, creates the data offer, i.e., instantiates the definition to
-an unique one time offer, that a consumer can negotiate for. The contract offer is represented as a *Dataset* in the
-catalog following the [DCAT][dcat-url] specification.
-
-If a data consumer wants to conclude a binding data exchange contract based on the terms of a contract offer, the
-data consumer can initiate the negotiation process using the exact information given in the contract offer. For now,
-the data consumer only has the option to accept all terms of a contract offer. The contract negotiation process does
-not provide the option to make a counter offer that deviates from the terms of the contract offer given by the data
-provider.
+if applicable, creates the data offer, by instantiating the definition to an unique one time offer, that a consumer can
+negotiate for. The contract offer is represented as a *Dataset* in the catalog following the [DCAT][dcat-url]
+specification.
 
 #### Catalog
 
@@ -367,24 +364,23 @@ catalog request and lists all offers a particular data consumer is able to negot
 
 #### Contract Negotiation
 
-A *Contract Negotiation* is the process in which a contract offer a data consumer applies for is transformed into a
-contract agreement that is the confirmed contract between the two parties. This process is inherently asynchronous.
-It is built by a state machine which is passed through during the process.
+A *Contract Negotiation* is the process in which a contract offer requested by a data consumer for negotiation is
+transformed into a contract agreement that is the confirmed contract between the two parties. This process is inherently
+asynchronous. It is built by a state machine which is passed through during the process.
 
 #### Contract Agreement
 
 A *Contract Agreement* represents the agreed-upon terms of access of offered data between the data provider and the
 data consumer. Contract agreements are long living objects, the typical validity period of a contract agreement is
-one year and it can be used as often as possible during that time frame.
+one year and it can be used as often as necessary during that time frame.
 
 #### Transfer Process
 
 After a successful contract agreement, a *Transfer Process* can be started from the consumer connector to initiate a
-data transfer based on a contract agreement. A transfer process is represented by a state machine as well. It is
-asynchronous by nature, i.e., once started it can be used multiple times to execute a transfer of data from provider
-to consumer. It can be terminated manually or suspended and resumed at any time. Some transfer types like one-time
-push terminate the process automatically. Transfer processes can be started as long as a contract assigment has not
-expired.
+data transfer based on a contract agreement. A transfer process is represented by a state machine as well. Once started
+it can be used multiple times to execute a transfer of data from provider to consumer. It can be terminated manually or
+automatically, depending on the transfer type and aspects like expiry of access information. Transfer processes can be
+started as long as a contract assigment has not expired.
 
 The transfer process carries access information between consumer and provider. Depending on the direction of the data
 transfer, push or pull, access credentials, like tokens need to be sent, so that the active part can transfer the
@@ -402,15 +398,14 @@ the different interactions are described in detail.
 The first interaction is done on the provider side, by preparing the data and creating the contract definition to
 offer the data to potential consumers.
 
-- P1: Manage the offered data offers and policies. Build contract definitions by combining offered data with an usage
-  and an access policy.
-- P2: Provide the data according to the offered contract definitions, e.g., operate a resource server like a *Digital
-  Twin Registry* and fill it with the mapping data between digital twins and the connected sub models.
+- P1: Manage the data offers and policies. Build contract definitions by combining offered data with an usage and an
+  access policy.
+- P2: Provide the data according to the offered contract definitions and in the transfer type technology used, e.g.,
+  operate a resource server like a *Digital Twin Registry*.
 
 With these steps, data is available and offered in a way that it can be found by consumers and access can be
 negotiated. The *Provider Business Application* is a service that allows to manage provided data, e.g., manually or
-for larger setups, by an automation that, driven by data created in an internal IT system, executes all necessar
-registrations and data transformations to prepare the new data for retrieval by a consumer.
+for larger setups, by automation of translating data created in an internal IT system into the required data structures.
 
 The data transfer is initiated at the consumer. If the consumer does not have the necessary details, to initiate the
 transfer, he has to check some centrally operated services (step R1), that provide him with the necessary identifiers
@@ -421,7 +416,7 @@ mapping needed in a certain situation.
 
 Based on the identifiers, the data transfer can be negotiated. This is done with the following steps:
 
-- N1: The *Consumer Business Application* requests a step as defined in the Dataspace Protocol to be executed by the
+- N1: The *Consumer Business Application* executes a request as defined in the Dataspace Protocol to be executed by the
   *Control Plane* of the consumer connector.
 - N2: The *Control Plane* resolves the provider's DID to access the corresponding DID document. Since Catena-X uses
   the [did:web][did-web-url] method, the control plane uses the URL in the DID to identify the endpoint at which the
@@ -431,12 +426,13 @@ Based on the identifiers, the data transfer can be negotiated. This is done with
 - N3: To initiate a DSP request, the consumer *Control Plane* has to provide an access token, that allows the
   providers *Control Plane* to retrieve verifiable credentials in order to check whether the request is valid and all
   prerequisites are met. This token is provided by the consumer's *Wallet*.
-- N4: The consumer *Control Plane* executes the intended DSP request by callig the corresponding DSP endpoint at the
+- N4: The consumer *Control Plane* executes the intended DSP request by calling the corresponding DSP endpoint at the
   provider *Control Plane*. With the request, the consumer sends the token retrieved in step N3.
 - N5: The provider *Control Plane* retrieves the verifiable credentials necessary to validate the legitimacy of the
   request by calling the consumer's *Wallet* of the consumer using the token created in step N3. The control plane
-  gets access to the credentials and checks their validity. In addition, the control plane checks other conditions
-  and if successful executes the request and provides an appropriate response to the consumer control plane.
+  gets access to the credentials and checks their validity. In addition, the control plane checks whether all other
+  conditions like further policy constraints are met and if successful executes the request and provides an appropriate
+  response to the consumer control plane.
 
 The steps N1 to N5 are bascially the same for every DSP call, be it to request the catalog, to initiate a contract
 negotiation or to start of a transfer request. The Consumer Business Application executes the required DSP requests
@@ -455,7 +451,7 @@ In the push case, the transfer is immediately executed when a *Transfer Process*
 *Control Plane* of the provider initiates the data transfer by providing the request to the *Data Plane*. The Data
 Plane uses the given access information to copy the requested data object from the data source to the consumer given
 data sink. In the finite case, it terminates the *Transfer Process*. The new infinite push transfer keeps the
-*Transfer Process* open and, initiated by the availability of new data executes another push of the new data object
+*Transfer Process* open and, initiated by the availability of new data, executes another push of the new data object
 to the consumer provided data sink.
 
 #### Reference Implementation
@@ -487,8 +483,9 @@ corresponding DID.
 
 The referenced endpoint is actually pointing to a specific version metadata endpoint in a connector that provides
 information on supported DSP versions. As for backward compatibility, a connector must be capable to communicate with
-multiple version of the DSP, this intermediate step is necessary to identify the correct DSP endpoint family. This
-implies, that a connector provides a certain DSP protocol version as separate subtree of its REST API endpoint tree.
+multiple version of the DSP. This intermediate step is necessary to identify the correct DSP endpoint family. An
+implicaton that comes with this regulation is, that a connector provides a certain DSP protocol version as separate
+subtree of its REST API endpoint tree.
 
 With the information retrieved from the version metadata endpoint, the consumer can build the final endpoint address
 to execute a DSP request, e.g., a catalog request. The reference implementation will provide a support endpoint that
