@@ -13,7 +13,7 @@ export const carouselCommunityInfo = [
     },
     {
         id: 1,
-        title: "DevHub",
+        title: "Developer Hub",
         navigate: "/docs/developer",
         icon: codeIcon
     },

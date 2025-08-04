@@ -19,9 +19,9 @@ Applies to role: *HI skill provider* and *HI consumer*
 
 ## SKILL DEFINITION
 
-The example skill below is inteded to calculate HI values of a vehicle part. It is an advanced skill which resolves the funtion arguments by itself using graph shape descriptions.
+The example skill below is intended to calculate HI values of a vehicle part. It is an advanced skill which resolves the function arguments by itself using graph shape descriptions.
 
-The *consumer* is also the *skill proivder* and, in the special HI case, the *data provider* (the OEM). It requests the calculation by providing the vehicle identification numbers (VINs) of the vehicles. The usage data are representated as load data in form of load spectra at the OEM. The supplier of the part (component of interest) provides the related HI calculation service, which accepts load spectra as input arguments.
+The *consumer* is also the *skill provider* and, in the special HI case, the *data provider* (the OEM). It requests the calculation by providing the vehicle identification numbers (VINs) of the vehicles. The usage data are represented as load data in form of load spectra at the OEM. The supplier of the part (component of interest) provides the related HI calculation service, which accepts load spectra as input arguments.
 
 The *skill provider* (in this example also the OEM), has to implement the skill and register it over the *Agent Plane API* or call it ad hoc.
 
@@ -163,7 +163,7 @@ The parameter `vin` (list of VINs for vehicles of interest) is the central exter
 
 #### FUNCTION ASSET RESOLUTION
 
-All funciton assets with the desired output type within the consumer's federated catalog are resolved. With these assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
+All function assets with the desired output type within the consumer's federated catalog are resolved. With these assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
 
 ```sparql
   # Determine the prognosis assets
@@ -195,7 +195,7 @@ All data assets that are related to the function assets (same shape and load spe
 
 #### RESOLVING VEHICLE, PART OF INTEREST, ITS SUPPLIER AND THE RELATED LOAD DATA
 
-The resolved connector must be the OEM's connector. There, the graph asset for the usage data is requested. Doing so, a sub-skill is transferred to the OEM's Knowledge Agent (if the consumer is not the OEM). At the OEM, the vehicle is resolved by its VIN. Then, the part of interrest (assembly) and its supplier are resolved by the part's name. At the end, the load for that part can be resolved by the component of interest (assembly) and the load spectrum types that are required by the function arguments.
+The resolved connector must be the OEM's connector. There, the graph asset for the usage data is requested. Doing so, a sub-skill is transferred to the OEM's Knowledge Agent (if the consumer is not the OEM). At the OEM, the vehicle is resolved by its VIN. Then, the part of interest (assembly) and its supplier are resolved by the part's name. At the end, the load for that part can be resolved by the component of interest (assembly) and the load spectrum types that are required by the function arguments.
 
 ```sparql
   SERVICE ?dataConnector {

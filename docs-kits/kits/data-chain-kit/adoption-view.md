@@ -399,7 +399,7 @@ The following general conditions apply:
 
 The IRS recursive works different as the IRS iterative. It does not consume the digital twins of the partners in the
 supply chain in a direct way, it triggers the IRS of a partner to start an IRS job to retrieve data of the sub-partners.
-This is done to keep the structure below intransparent to the value chain above, even though it is still possible to
+This is done to keep the structure below nontransparent to the value chain above, even though it is still possible to
 aggregate results; pass information along the value chain.
 
 ![IRS recursive diagram](@site/static/img/irs-recursive-minified.svg)

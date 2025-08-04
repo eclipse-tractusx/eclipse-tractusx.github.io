@@ -41,7 +41,7 @@ Using the CX logistic standard, a fully connected network can be achieved in the
 
 ### Todays Challenge
 
-The challenge today is that data exchange with logistic service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. Different committes made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
+The challenge today is that data exchange with logistic service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. Different committees made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
 
 ## Digital Twins
 

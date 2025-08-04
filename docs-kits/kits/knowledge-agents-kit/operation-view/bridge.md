@@ -46,8 +46,8 @@ Add a helm dependency to your umbrella/infrastructure Chart.yaml (this example u
 Then configure the aas bridge in the values.yaml - especially you introduce so-called mapping domains ("traceability") which are pairs of XSLT stylesheets and SPARQL commands.
 Using these mappings, the aas bridge know how to describe digital twins and submodels out of a background graph.
 
-Each domain will have a mandatory mapping `aas` which describes the digital twins and the existance of submodels. And it will have a dynamic set of submodel mappings for the individual submodels.
-Domains will also be representeded as a component of the resulting keys (asset and submodel id's).
+Each domain will have a mandatory mapping `aas` which describes the digital twins and the existence of submodels. And it will have a dynamic set of submodel mappings for the individual submodels.
+Domains will also be represented as a component of the resulting keys (asset and submodel id's).
 
 In the following example, we map digital twins with one submodel (`PartAsPlanned`) out of an existing graph following to the [Bill-Of-Material Ontology](https://w3id.org/catenax/ontology/bill-of-material), the [Vehicle Ontology](https://w3id.org/catenax/ontology/vehicle), the [Common (Dataspace) Ontology](https://w3id.org/catenax/ontology/common) and the [Core (Meta) Ontology](https://w3id.org/catenax/ontology/core) - all being part of the [Complete (Merged) Ontology](https://w3id.org/catenax/ontology).
 

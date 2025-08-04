@@ -23,7 +23,7 @@ sidebar_position: 1
 - [Building Block View](#building-block-view)
   - [High-Level Architecture (L/S/A Endpoints)](#high-level-architecture-lsa-endpoints)
   - [High-Level Architecture (Generic Endpoint)](#high-level-architecture-generic-endpoint)
-  - [Keycloak Authentication \& Autorization Flow](#keycloak-authentication--autorization-flow)
+  - [Keycloak Authentication \& Authorization Flow](#keycloak-authentication--authorization-flow)
 - [Runtime View](#runtime-view)
   - [Upload Business Partner (BPN-L)](#upload-business-partner-bpn-l)
   - [Upsert Generic Business Partner](#upsert-generic-business-partner)
@@ -222,7 +222,7 @@ Due to a transmission phase there are two concepts of Business Partner Upload Mo
 
 -Currently there is no SME Application available
 
-## Keycloak Authentication & Autorization Flow
+## Keycloak Authentication & Authorization Flow
 
 ```mermaid
 
