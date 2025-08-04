@@ -84,7 +84,7 @@ The three dates may coincide on a date. In this case, start of rollout is on sam
 
 ![cx-releases timeline](assets/cx-releases-timeline-condensed.drawio.svg)
 
-If the release cycle follows the before mentioned schema it is always guaranteed that there is a version that is provided/supported from end of rollout until end-oflife.
+If the release cycle follows the before mentioned schema it is always guaranteed that there is a version that is provided/supported from end of rollout until end of life.
 
 :warning: Take into account that other components (like your own EDC connectors and your partners' components), may not be updated to their corresponding new version before end of rollout. Therefore, you can only rely on the previous version.
 

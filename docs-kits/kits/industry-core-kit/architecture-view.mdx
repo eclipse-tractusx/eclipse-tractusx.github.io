@@ -112,14 +112,14 @@ The Catena-X data space aims to support a parallel phase of two major versions o
 
   Mandatory versions for aspect models can only change in a major release as this change is breaking. Optional versions can be introduced with minor and patch versions, e.g., to introduce a future mandatory version first as optional for easier migration later on.
 
-  A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin's sumodel.
+  A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin's submodel.
 
   A data consumer must search the submodelDescriptors of a digital twin for supported semanticIds and then select the most suitable one for further processing.
 
   - **For Notification APIs**, a separate EDC asset must be created for every major API version, e.g., for versions v1 and v2 of the API separate EDC assets must be created. The API version must be documented in the `https://w3id.org/catenax/ontology/common#version` property on a minor release level (e.g., 1.1). It is not necessary to create a separate EDC asset for every minor or patch version as these versions must always be backward compatible.
 
 More information about backward compatibility and versioning can be found here:
-- [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catana-X Standard Library,
+- [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catena-X Standard Library,
 - [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
 
 ## Building Block View

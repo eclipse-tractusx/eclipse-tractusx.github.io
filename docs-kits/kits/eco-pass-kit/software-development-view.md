@@ -23,7 +23,7 @@ In order to achieve a better understanding of the EcoPass KIT data retrieval flo
 
 In the data retrieval flow example below we will imagine that an user wants to retrieve the data related to a Catena-X Digital Product Pass ID he has in his product as form of QR Code and ID:
 
-[![Sequence Diagramm](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
+[![Sequence Diagram](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
 
 | ID  | CX:XYZ78901:IMR18650V1 |
 | --- | ---------------------- |
@@ -55,7 +55,7 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)          OR [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)                                                                                                                                                                                          | CX - 0002                                                   |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018   OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                                    |
+| EDC                   | Main gateway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018   OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                                    |
 | Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application responsible for retrieving the passports and interacting with the services listed above.                                                                | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0143                                                |
 
 > *Note*: The diagrams match the architecture proposed in the [Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass) reference implementation [Arc42](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/arc42/Arc42.md) and [Data Retrieval Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data%20retrieval%20guide/Data%20Retrieval%20Guide.md). Using the discovery services from Catena-X
@@ -269,7 +269,7 @@ to be done and returns the data negotiated and transferred. In short, it's the s
 
 > [!IMPORTANT]
 >
-> The policy selection in the single api is not enabled, in this way the first contract and policy available for the asset will be selected. **Using a policy managment system is recommended**  in order to allow this API to retrieve data assuring the policies are checked and compliant with your bussiness.
+> The policy selection in the single api is not enabled, in this way the first contract and policy available for the asset will be selected. **Using a policy management system is recommended**  in order to allow this API to retrieve data assuring the policies are checked and compliant with your business.
 
 #### External API calls
 
@@ -306,13 +306,13 @@ The digital product pass reference implementation can have a series of add-ons t
 
 ### Item Relationship Service Add-on
 
-The Digital Product Pass applicaiton can be integrated with the [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which childs in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
+The Digital Product Pass application can be integrated with the [Item Relationship Service (IRS)](https://github.com/eclipse-tractusx/item-relationship-service). The drill down of components will be enabled and if the submodels are configured correctly, in the `dpp-frontend` component you will be see which children in a "1 level" deep available. Respecting the one up and one down principle from Catena-X.
 
 The configuration details can be found in the [Operation View](./software-operation-view.md).
 
 ### Digital Product Pass Verification Add-on
 
-The Digital Product Passport Verification add-on is basically a concept for Certifying data in Catena-X as a auditor, how to provider certify data enabeling the verification as a data provider and how consumers verify this same data when retriving them from their data providers.
+The Digital Product Passport Verification add-on is basically a concept for Certifying data in Catena-X as a auditor, how to provider certify data enabling the verification as a data provider and how consumers verify this same data when retrieving them from their data providers.
 
 The focus is on proving a process, artifacts and technologies, based on the existing SSI concept, aiming to enable Certification/Verification processes in Catena-X using wallets.
 
@@ -338,7 +338,7 @@ When passports are retrieved from the data providers not all the company data is
 
 ### Data Sovereignty Add-on
 
-In order to retrieve data following the Catena-X Data Sovereighnty guidelines, an addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
+In order to retrieve data following the Catena-X Data Sovereignty guidelines, an addon was developed and can be enabled in the helm chart configuration for configuring the polices which are allowed to be used, with additional asset policy selection in the `dpp-frontend` component.
 
 A guide for using this configuration add-on can be found [here](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/data-sovereignty/PolicyConfigGuide.md).
 
