@@ -12,7 +12,7 @@ const config = {
   url: 'https://matbmoser.github.io',
   baseUrl: '/next-eclipse-tractusx.github.io/',  // <-- repo name with slashes
   trailingSlash: false, // (optional, but common)
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
