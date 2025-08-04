@@ -526,8 +526,8 @@ sequenceDiagram
   }
 }
 ```
-</details>
 
+</details>
 
 ### Digital Product Passport @context
 
@@ -2296,8 +2296,8 @@ sequenceDiagram
   }
 }
 ```
-</details>
 
+</details>
 
 ## NOTICE
 
