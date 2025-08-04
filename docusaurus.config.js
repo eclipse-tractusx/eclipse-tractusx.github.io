@@ -9,8 +9,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: 'https://matbmoser.github.io',
+  baseUrl: '/next-eclipse-tractusx.github.io/',  // <-- repo name with slashes
+  trailingSlash: false, // (optional, but common)
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   onBrokenMarkdownLinks: 'throw',
