@@ -97,10 +97,8 @@ The data for direct and indirect emissions will usually come from internal data 
 ### Customer Journey "PCF Data Exchange"
 
 #### 1. The following journey describes the exchange of PCF data in an **asynchronous** request/response process:
-<br>
 
 ![PCF Data Exchange Overview](resources/adoption-view/PCFDataExchangeOverview.png)
-
 
 PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a data provider (e.g., supplier on tier n+1). It is basically an asynchronous request/response process that is started by the data consumer:
 
