@@ -28,7 +28,7 @@ The main business function of a DCM application is to facilitate the exchange of
 
 ### EDC
 
-[Connector KIT](../../../connector-kit/)
+[Connector KIT](../../../connector-kit/adoption-view)
 
 ### Wallet
 
