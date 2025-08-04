@@ -8,7 +8,7 @@ export const successStories = [
     img: datatrustandsecurity,
     title: "DATA TRUST & SECURITY SUCCESS STORY",
     description: "Enable content validation, certification and verification for any use case semantic data.",
-    pageRoute: "/docs-kits/kits/data-trust-and-security-kit/success-stories/dpp-verification-success-story",
+    pageRoute: "/docs-kits/next/kits/data-trust-and-security-kit/success-stories/dpp-verification-success-story",
     buttonName: "SUCCESS STORY"
   },
   {
