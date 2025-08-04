@@ -397,3 +397,8 @@
     width: 40%;
   }
 }
+
+.MuiAccordionSummary-root,
+.MuiAccordionDetails-root {
+     background-color: var(--ifm-background-color) !important;
+}

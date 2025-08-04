@@ -163,7 +163,7 @@ The parameter `vin` (list of VINs for vehicles of interest) is the central exter
 
 #### FUNCTION ASSET RESOLUTION
 
-All funciton assets with the desired output type within the consumer's federated catalog are resolved. With these assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
+All function assets with the desired output type within the consumer's federated catalog are resolved. With these assets, the providing connectors are also resolved. In addition, for these assets, the arguments and their load spectrum types are resolved.
 
 ```sparql
   # Determine the prognosis assets
