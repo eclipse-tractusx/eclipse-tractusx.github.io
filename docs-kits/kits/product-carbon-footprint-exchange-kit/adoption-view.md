@@ -125,13 +125,10 @@ For the data provider, the process is now over, and the consumer's request has b
 >There are currently no options for data verification or acceptance/rejection of transmitted data at this stage in the process. These topics are currently still being discussed on Catena-X association level and are therefore not yet covered in the processes and tools. This might happen with later releases.
 
 - The data consumer can now transfer this data to his/her internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
- <br>
 
 #### 2. The following customer journey describes the exchange of PCF data in a **synchronous** way:
-<br>
 
 ![PCFdata_exchange_synchr.way](resources/adoption-view/PCFdata_exchange_synchr.way.png)
-
 
 The PCF data is exchanged between a data consumer and a data provider. The data consumer starts the request with steps as follows:
 
