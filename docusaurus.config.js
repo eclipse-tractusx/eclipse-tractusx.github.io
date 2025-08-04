@@ -197,7 +197,7 @@ const config = {
                 label: 'Customs',
               },
               {
-                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
+                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
                 label: 'Data Trust & Security',
               },
               {
