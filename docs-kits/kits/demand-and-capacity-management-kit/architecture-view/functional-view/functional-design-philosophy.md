@@ -4,6 +4,10 @@ title: Functional Design Philosophy
 description: What the design philosophy of a DCM-App should be.
 ---
 
+## Overview
+
+![functional-view](./resources/functional-view.svg)
+
 ## Paradigms
 
 ### Tailor the DCM application to the end-users
@@ -47,6 +51,14 @@ description: What the design philosophy of a DCM-App should be.
   - A thread model where all comments appear, based on the capacity group that is currently viewed should be favorable
     - Even if the comment is only indirectly linked the the capacity group, i am currently viewing, via 3 layers of nesting I should still be able to see it
 - Instead of showing the raw values for load factors etc. in an overview it might make sense to label weeks, where such features have been applied and than only show the raw values upon inspection of that week
+
+### Consider that the standards you build the software upon might change
+
+- Adhering to and even extending the `Single Responsibility Principle` might be a sensible thing to do
+  - A responsibility is a **reason to change** and adhering to the principle means that a module or class should only have one reason to be changed (or rewritten)
+  - Extending in this case refers to the fact that a single module or class should not cover requirements that stem from multiple standards.
+  - If the change of a standard results in multiple classes or modules changing, that is OK
+  - If multiple standards changing results in multiple changes within the same class or module, that is not OK.
 
 ## Notice
 
