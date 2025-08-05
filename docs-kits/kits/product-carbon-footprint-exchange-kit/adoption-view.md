@@ -101,6 +101,7 @@ The data for direct and indirect emissions will usually come from internal data 
 ![PCF Data Exchange Overview](resources/adoption-view/PCFDataExchangeOverview.png)
 
 PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a data provider (e.g., supplier on tier n+1). It is basically an asynchronous request/response process that is started by the data consumer:
+
 - The data consumer realizes that he/she needs the PCF for a specific component and that this data is not available in his/her local data (or is not of sufficient quality).
 - With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If not, the user can request this data from the supplier as described in the next steps.
 - The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his/her supplier. In doing so, he/she asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the [Catena-X PCF Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf).
@@ -118,7 +119,6 @@ For the data provider, the process is now over, and the consumer's request has b
 - With the data exchange tool, the consumer can access and “pick up” the PCF data, according to the standardized PCF data model (see [Semantic Model](#semantic-models)).
 
 >**Remark:**
-
 >There are currently no options for data verification or acceptance/rejection of transmitted data at this stage in the process. These topics are currently still being discussed on Catena-X association level and are therefore not yet covered in the processes and tools. This might happen with later releases.
 
 - The data consumer can now transfer this data to his/her internal systems/databases (e.g. a PCF calculation tool), and use it for the internal business processes (e.g. PCF calculation or reporting).
