@@ -73,9 +73,9 @@ To describe the process, we defined three customer journeys:
 In case of non-existing PCF data the exchange-process is initiated top-down (e.g., at the OEM; but it can also start at any level of the supply chain), starting with a request of a customer to the supplier. It could then be continued step by step throughout the entire tier-n supply chain. Ideally, the entire supply chain (or actually: the entire supply tree) would be covered via this cascading request/response process. The result would be a PCF that is 100% based on requested and reported data.
 
 For a synchronous data providing/consuming please find the basics for digital twins and data pull in following KIT documentation:
-[Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge) and [Digital Twin KIT] (https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)
+[Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge) and [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)
 
-### Cascading request/response process in case of non-existing PCF data in the supply chain:
+### Cascading request/response process in case of non-existing PCF data in the supply chain
 
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
 
@@ -96,12 +96,11 @@ The data for direct and indirect emissions will usually come from internal data 
 
 ### Customer Journey "PCF Data Exchange"
 
-#### 1. The following journey describes the exchange of PCF data in an **asynchronous** request/response process:
+#### 1.The following journey describes the exchange of PCF data in an **asynchronous** request/response process
 
 ![PCF Data Exchange Overview](resources/adoption-view/PCFDataExchangeOverview.png)
 
 PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a data provider (e.g., supplier on tier n+1). It is basically an asynchronous request/response process that is started by the data consumer:
-
 - The data consumer realizes that he/she needs the PCF for a specific component and that this data is not available in his/her local data (or is not of sufficient quality).
 - With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If not, the user can request this data from the supplier as described in the next steps.
 - The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his/her supplier. In doing so, he/she asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the [Catena-X PCF Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf).
@@ -122,9 +121,9 @@ For the data provider, the process is now over, and the consumer's request has b
 
 >There are currently no options for data verification or acceptance/rejection of transmitted data at this stage in the process. These topics are currently still being discussed on Catena-X association level and are therefore not yet covered in the processes and tools. This might happen with later releases.
 
-- The data consumer can now transfer this data to his/her internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
+- The data consumer can now transfer this data to his/her internal systems/databases (e.g. a PCF calculation tool), and use it for the internal business processes (e.g. PCF calculation or reporting).
 
-#### 2. The following customer journey describes the exchange of PCF data in a **synchronous** way:
+#### 2. The following customer journey describes the exchange of PCF data in a **synchronous** way
 
 ![PCFdata_exchange_synchr.way](resources/adoption-view/PCFdata_exchange_synchr.way.png)
 
@@ -133,7 +132,6 @@ The PCF data is exchanged between a data consumer and a data provider. The data 
 - The data consumer realizes that he/she needs the PCF for a specific component and the data is not available in his/her local data (or is not of sufficient quality).
 - With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If so, the PCF data is pulled via connector. From a technical perspective, this means that there is already an existing digital twin for the component, the PCF submodel is available and ready to consume via data pull for authorized partner.
 - The data consumer can now transfer this data to his/her internal systems/databases (e.g., a PCF calculation tool), and use it for the internal business processes (e.g., PCF calculation or reporting).
-
 
 ### Customer Journey “PCF Calculation”
 
