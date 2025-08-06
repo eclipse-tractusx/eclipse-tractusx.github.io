@@ -6,7 +6,7 @@ description: 'Implementation Architecture and Verifiable Credential Framework fo
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-## Types of Digital Certificates
+## Types of Verifiable Certificates
 
 The framework provides different types of certificates for different verification needs:
 
@@ -1266,6 +1266,12 @@ This will enable for the Attestation Providers to indicate to each individual at
 }
 ```
 
+:::info
+
+The field `revealedValue` its optional, and can be included in case the value want to be shown to the consumer. 
+
+:::
+
 ### Attribute Attestation Credential with Selective Disclosure (AAC-SD)
 
 Selective disclosure allows use to place partial elements from a verifiable credential and present it to another party.
@@ -1386,7 +1392,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
     "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
   "type": [
-    "VerifiableCredential",
+    "VerifiablePresentation",
     "AttributeAttestationCredential",
     "Pcf"
   ],
