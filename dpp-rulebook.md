@@ -123,7 +123,7 @@ Metadata encompasses the fundamental details of the digital product passport.
 | 1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Regulation (EU) 2024/1781 |- Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>| |
 | 1.2   | Version               | The current version of the product passport.| Mandatory | Regulation (EU) 2024/1781, Article 9| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| |
 | 1.3   | Status                | The lifecycle stage of the product passport.| Optional | Regulation (EU) 2024/1781 | - If provided, the attribute must contain one of the enumerated values.| |
-| 1.4   | Language               | *To be covered in next version* | Mandatory|Regulation (EU) 2024/1781 |  |In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html) | 
+| 1.4   | Language               | Specific language in which passport content is created. | Mandatory|Regulation (EU) 2024/1781 |  |In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html) | 
 | 1.5   | Predecessor Identifier               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
 | 1.6   | Registration Identifier               | *To be covered in next version* | Optional| Regulation (EU) 2024/1781 | | |
 | 1.7   | Backup Reference               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
