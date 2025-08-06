@@ -91,7 +91,7 @@ The system is designed to be a template that other use cases can follow. Whether
 
 **Key Innovation**: The system offers both third-party verification (by external auditors) and self-attestation (where companies certify their own data), giving you flexibility based on your trust requirements.
 
-Since it uses the Eclipse Dataspace Components (EDC) ConnectorS for data exchange, it fits seamlessly into the existing Eclipse Tractus-X architecture without requiring major changes to how data flows between companies.
+Since it uses the Eclipse Dataspace Components (EDC) Connectors for data exchange, it fits seamlessly into the existing Eclipse Tractus-X architecture without requiring major changes to how data flows between companies.
 
 **Learn More**: You can find detailed information about this implementation in the [Digital Product Pass Verification Success Story](../success-stories/dpp-verification-success-story.mdx).
 

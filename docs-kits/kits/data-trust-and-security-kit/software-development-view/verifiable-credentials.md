@@ -599,7 +599,7 @@ This is an example of a verifiable credential without a hosted @context:
       "@context": {
         "@version": 1.1,
         "schema": "https://schema.org/",
-        "aspect": "urn:samm:io.catenax.certificate.dac:1.0.0#",
+        "aspect": "urn:samm:io.tractusx.credential.dac:1.0.0#",
         "DataAttestationCredential": {
           "@context": {
             "@version": 1.1,
@@ -1101,7 +1101,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
     ],
     "@type": [
       "https://www.w3.org/2018/credentials#VerifiableCredential",
-      "urn:samm:io.catenax.certificate.dac:1.0.0#DataAttestationCredential",
+      "urn:samm:io.tractusx.credential.dac:1.0.0#DataAttestationCredential",
       "urn:samm:io.catenax.pcf:7.0.0#Pcf"
     ],
     "https://www.w3.org/2018/credentials#validFrom": [
@@ -1116,7 +1116,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         "value": "2025-01-15T10:30:00Z"
       }
     ],
-    "urn:samm:io.catenax.certificate.dac:1.0.0#validationMethod": [
+    "urn:samm:io.tractusx.credential.dac:1.0.0#validationMethod": [
       {
         "@list": [
           {
@@ -1124,14 +1124,14 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
             "@type": [
               "Standard"
             ],
-            "urn:samm:io.catenax.certificate.dac:1.0.0#complianceCriteria": [
+            "urn:samm:io.tractusx.credential.dac:1.0.0#complianceCriteria": [
               {
                 "@list": [
                   {
                     "@type": [
                       "Standard Compliance"
                     ],
-                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                    "urn:samm:io.tractusx.credential.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
                         "value": "100%"
@@ -1142,7 +1142,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                     "@type": [
                       "Verification Level"
                     ],
-                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                    "urn:samm:io.tractusx.credential.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
                         "value": "3"
@@ -1153,7 +1153,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                     "@type": [
                       "Primary Data Share"
                     ],
-                    "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
+                    "urn:samm:io.tractusx.credential.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
                         "value": "80%"
@@ -1163,13 +1163,13 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                 ]
               }
             ],
-            "urn:samm:io.catenax.certificate.dac:1.0.0#label": [
+            "urn:samm:io.tractusx.credential.dac:1.0.0#label": [
               {
                 "@type": "https://schema.org/string",
                 "value": "Catena-X PCF Rulebook Standard"
               }
             ],
-            "urn:samm:io.catenax.certificate.dac:1.0.0#uri": [
+            "urn:samm:io.tractusx.credential.dac:1.0.0#uri": [
               {
                 "@type": "https://schema.org/string",
                 "value": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf"
@@ -1199,7 +1199,7 @@ This will enable for the Attestation Providers to indicate to each individual at
       "https://www.w3.org/ns/credentials/v2",
       "https://w3c.github.io/vc-jws-2020/contexts/v1/",
       "https://w3id.org/security/data-integrity/v2",
-      "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+      "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.tractusx.credential.attribute_attestation_credential/1.0.0/gen/Aac-context.jsonld",
       "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
   "type": [
@@ -1388,7 +1388,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/security/data-integrity/v2",
     "https://w3id.org/security/bbs/v1",
-    "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.aac/1.0.0/gen/Aac-context.jsonld",
+    "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.tractusx.credential.attribute_attestation_credential/1.0.0/gen/AttributeAttestationCredential-context.jsonld",
     "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
   ],
   "type": [
