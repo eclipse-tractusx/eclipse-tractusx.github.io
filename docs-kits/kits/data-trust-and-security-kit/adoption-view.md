@@ -42,7 +42,7 @@ block
 end
 ```
 
-For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already adressing trust as well as technical solutions to verify and validate data.
+For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data.
 Additionally, a template for different rulebooks to gain trust in specific use case is defined.
 
 #### Customer Journey
@@ -129,11 +129,17 @@ The Data Trust & Security KIT is built upon established industry standards and s
 
 | Standard | Version | Reference |
 |----------|---------|-----------|
-| **Verifiable Credentials Data Model** | 1.1 & 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
+| **Verifiable Credentials Data Model** | 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
 | **JSON Web Signature 2020** | 2020 | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
 | **Decentralized Identifiers (DIDs)** | 1.0 |  [W3C DID Core](https://www.w3.org/TR/did-core/) |
 | **DID Web Method** | - |  [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
 | **JSON-LD** | 1.1 | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
+
+:::info
+
+[W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) are used in order to keep the interoperability with other [UNTP protocol](https://spec-untp-fbb45f.opensource.unicc.org/docs/about/) and [eIDas 2.0](https://eidas.ec.europa.eu/) in the near future.
+
+:::
 
 ### Catena-X Standards
 
