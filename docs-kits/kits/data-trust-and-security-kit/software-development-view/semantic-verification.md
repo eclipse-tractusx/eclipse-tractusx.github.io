@@ -268,7 +268,7 @@ sequenceDiagram
     participant Parser as sammSchemaParser
     participant SemanticHub
     participant VC as Verifiable Credential
-    participant IssuanceService as Issance Service
+    participant IssuanceService as Issuance Service
     
     alt Translation Flow
     Workflow->>SemanticHub: Get JSON Schema
