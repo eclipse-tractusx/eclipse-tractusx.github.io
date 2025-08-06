@@ -599,7 +599,7 @@ This is an example of a verifiable credential without a hosted @context:
       "@context": {
         "@version": 1.1,
         "schema": "https://schema.org/",
-        "aspect": "urn:samm:io.tractusx.credential.dac:1.0.0#",
+        "aspect": "https://github.com/eclipse-tractusx/tractusx-profiles/blob/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld#",
         "DataAttestationCredential": {
           "@context": {
             "@version": 1.1,
@@ -674,7 +674,7 @@ This is an example of a verifiable credential without a hosted @context:
               },
               "@container": "@list"
             },
-            "@definition": "A Data Attestation Credential (DAC) represents validation methods and compliance criteria used for data verification and attestation in sustainable supply chains."
+            "@definition": "A Data Attestation Credential (DAC) represents validation methods and compliance criteria used for data verification and attestation"
           },
           "@id": "aspect:DataAttestationCredential"
         }
