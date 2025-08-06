@@ -2,7 +2,7 @@
 title: New Tractus-X Identity Hub Tutorial Video
 description: Learn how to start developing with us the identity hub with a cool video!
 slug: tractusx-identityhub
-date: 2025-07-30T17:30
+date: 2025-08-06T09:30
 hide_table_of_contents: false
 authors:
   - matbmoser
