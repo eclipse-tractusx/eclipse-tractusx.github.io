@@ -46,7 +46,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/<semanticPrefix>/<version>/gen/<aspectModelKey>-context.jsonld"
     ],
     "type": [
@@ -112,7 +112,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
     ],
     "type": [
@@ -255,7 +255,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/DigitalProductPassport-context.jsonld"
     ],
     "type": [

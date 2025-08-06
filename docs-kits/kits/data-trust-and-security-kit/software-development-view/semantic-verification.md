@@ -290,6 +290,10 @@ sequenceDiagram
 
 ### Data Attestation Credential @context
 
+It can also be found here:
+
+[https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld](https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld)
+
 <details>
 <summary>Open to see the Data Attestation Credential @context in v1.0.0</summary>
 
@@ -298,7 +302,7 @@ sequenceDiagram
   "@context": {
     "@version": 1.1,
     "schema": "https://schema.org/",
-    "aspect": "urn:samm:io.tractusx.credentials.dac:1.0.0#",
+    "aspect": "https://github.com/eclipse-tractusx/tractusx-profiles/blob/main/cx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld#",
     "DataAttestationCredential": {
       "@context": {
         "@version": 1.1,
