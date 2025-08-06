@@ -16,63 +16,9 @@ In today's world, you can't just accept data at face value - especially when it 
 
 ### Architecture Overview
 
-Here's how the Data Trust & Security KIT fits into the larger Tractus-X ecosystem:
+Here's how the Data Trust & Security KIT fits into the larger Eclipse Tractus-X ecosystem:
 
-```mermaid
-graph TB
-    %% Data Consumer Side
-    subgraph DC["Data Consumer"]
-        Admin1["Admin/System"] 
-        DVC["Data Verification System"]
-        EDC1["EDC Control Plane"]
-        Wallet1["Wallet"]
-    end
-    
-    %% Data Provider Side  
-    subgraph DP["Data Provider"]
-        Admin2["Data Certification System"]
-        EDC2["EDC Control Plane"]
-        EDCDP2["EDC Data Plane"]
-        Wallet2["Wallet"]
-        DTR["Digital Twin Registry"]
-        DS["Data Service"]
-        DID["DID Document"]
-    end
-
-    subgraph COF["Dataspace Operators (ex. Cofinity-X)"]
-        OpWallet["Operator Wallet"]
-    end
-
-    subgraph CX["Governance Body (ex. Tractus-X e.V.)"]
-        TIR["Trusted Issuer Registry"]
-    end
-
-    %% Data Consumer Flows
-    Admin1 -.->|"Consume Verifiable Data"| DVC
-    DVC -.->|"Verify Credential"| Wallet1
-    DVC -.->|"Get Catalog & Authorization for Systems"| EDC1
-    EDC1 -.->|"Get Dataspace<br/>Credentials"| Wallet2
-    
-    %% Data Provider Flows
-    Admin2 -->|"Register<br/>Digital Twin"| DTR
-    Admin2 -->|"Store VC"| DS
-    Admin2 -->|"Generate Credential Context<br/>+ Issue Verifiable Credential<br/>(DAC)"| Wallet2
-    EDCDP2 -.->|"Proxy"| DTR
-    EDCDP2 -.->|"Proxy"| DS
-    EDC2 -.->|"Get Dataspace<br/>Credentials"| Wallet1
-    
-    %% Cross-Provider Communication
-    EDC1 -.->|"Request Authorization for Data Endpoints via DSP"| EDC2
-    DVC <-.->|"Access Data with Authorization"| EDCDP2
-
-
-    %% Wallet and Registry Connections
-    Wallet1 -.->|"Verify Trust"| TIR
-    Wallet2 -.->|"Register Issuer"| TIR
-    OpWallet -.->|"Provide Dataspace<br/>Credentials"| Wallet1
-    OpWallet -.->|"Provide Dataspace<br/>Credentials"| Wallet2
-    Wallet1 -.->|"Get public key to verify signature"| DID
-```
+![data trust & security kit architecture](../resources/DataTrust&SecurityKit-Architecture.drawio.svg)
 
 ## Real-World Example: Digital Product Pass Verification
 
