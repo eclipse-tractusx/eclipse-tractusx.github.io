@@ -2107,7 +2107,7 @@ This will enable for the Attestation Providers to indicate to each individual at
 
 :::info
 
-The field `revealedValue` its optional, and can be included in case the value want to be shown to the consumer. 
+The field `revealedValue` its optional, and can be included in case the value want to be shown to the consumer.
 
 :::
 
