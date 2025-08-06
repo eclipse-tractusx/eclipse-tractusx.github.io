@@ -46,7 +46,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/<semanticPrefix>/<version>/gen/<aspectModelKey>-context.jsonld"
     ],
     "type": [
@@ -72,15 +72,15 @@ In this way it can be reusable for any aspect model.
         "complianceCriteria": [
           {
             "@type": "Standard Compliance",
-            "@value": "100%"
+            "value": "100%"
           },
           {
             "@type": "Verification Level",
-            "@value": "3"
+            "value": "3"
           },
           {
             "@type": "Primary Data Share",
-            "@value": "80%"
+            "value": "80%"
           },
           {...}
         ]
@@ -112,7 +112,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld"
     ],
     "type": [
@@ -214,15 +214,15 @@ In this way it can be reusable for any aspect model.
         "complianceCriteria": [
           {
             "@type": "Standard Compliance",
-            "@value": "100%"
+            "value": "100%"
           },
           {
             "@type": "Verification Level",
-            "@value": "3"
+            "value": "3"
           },
           {
             "@type": "Primary Data Share",
-            "@value": "80%"
+            "value": "80%"
           }
         ]
       }
@@ -255,7 +255,7 @@ In this way it can be reusable for any aspect model.
         "https://www.w3.org/ns/credentials/v2",
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.certificate.dac/1.0.0/gen/Dac-context.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/DataAttestationCredential.jsonld",
         "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/DigitalProductPassport-context.jsonld"
     ],
     "type": [
@@ -548,11 +548,11 @@ In this way it can be reusable for any aspect model.
         "complianceCriteria": [
           {
             "@type": "Standard Compliance",
-            "@value": "100%"
+            "value": "100%"
           },
           {
             "@type": "Primary Data Share",
-            "@value": "80%"
+            "value": "80%"
           }
         ]
       }
@@ -932,12 +932,12 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         ],
         "https://www.w3.org/ns/credentials/status#statusListIndex": [
           {
-            "@value": "42"
+            "value": "42"
           }
         ],
         "https://www.w3.org/ns/credentials/status#statusPurpose": [
           {
-            "@value": "revocation"
+            "value": "revocation"
           }
         ],
         "@type": [
@@ -953,7 +953,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         "urn:samm:io.catenax.pcf:7.0.0#comment": [
           {
             "@type": "https://schema.org/string",
-            "@value": "Additional explanatory information not reflected by other attributes"
+            "value": "Additional explanatory information not reflected by other attributes"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#companyIds": [
@@ -961,15 +961,15 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
             "@list": [
               {
                 "@type": "https://schema.org/string",
-                "@value": "telnet://192.0.2.16:80/"
+                "value": "telnet://192.0.2.16:80/"
               },
               {
                 "@type": "https://schema.org/string",
-                "@value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+                "value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
               },
               {
                 "@type": "https://schema.org/string",
-                "@value": "http://www.ietf.org/rfc/rfc2396.txt"
+                "value": "http://www.ietf.org/rfc/rfc2396.txt"
               }
             ]
           }
@@ -977,38 +977,38 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         "urn:samm:io.catenax.pcf:7.0.0#companyName": [
           {
             "@type": "https://schema.org/string",
-            "@value": "My Corp"
+            "value": "My Corp"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#created": [
           {
             "@type": "https://schema.org/string",
-            "@value": "2022-05-22T21:47:32Z"
+            "value": "2022-05-22T21:47:32Z"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#extWBCSD_pfStatus": [
           {
             "@type": "https://schema.org/string",
-            "@value": "Active"
+            "value": "Active"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#extWBCSD_productCodeCpc": [
           {
             "@type": "https://schema.org/string",
-            "@value": "011-99000"
+            "value": "011-99000"
           }
         ],
         "@id": "3893bb5d-da16-4dc1-9185-11d97476c254",
         "urn:samm:io.catenax.pcf:7.0.0#partialFullPcf": [
           {
             "@type": "https://schema.org/string",
-            "@value": "Cradle-to-gate"
+            "value": "Cradle-to-gate"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#pcfLegalStatement": [
           {
             "@type": "https://schema.org/string",
-            "@value": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above."
+            "value": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above."
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#precedingPfIds": [
@@ -1018,7 +1018,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                 "urn:samm:io.catenax.pcf:7.0.0#id": [
                   {
                     "@type": "https://schema.org/string",
-                    "@value": "3893bb5d-da16-4dc1-9185-11d97476c254"
+                    "value": "3893bb5d-da16-4dc1-9185-11d97476c254"
                   }
                 ]
               }
@@ -1028,7 +1028,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         "urn:samm:io.catenax.pcf:7.0.0#productDescription": [
           {
             "@type": "https://schema.org/string",
-            "@value": "Ethanol, 95% solution"
+            "value": "Ethanol, 95% solution"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#productIds": [
@@ -1036,11 +1036,11 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
             "@list": [
               {
                 "@type": "https://schema.org/string",
-                "@value": "http://www.wikipedia.org"
+                "value": "http://www.wikipedia.org"
               },
               {
                 "@type": "https://schema.org/string",
-                "@value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+                "value": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
               }
             ]
           }
@@ -1048,31 +1048,31 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
         "urn:samm:io.catenax.pcf:7.0.0#productName": [
           {
             "@type": "https://schema.org/string",
-            "@value": "My Product Name"
+            "value": "My Product Name"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#specVersion": [
           {
             "@type": "https://schema.org/string",
-            "@value": "urn:io.catenax.pcf:datamodel:version:7.0.0"
+            "value": "urn:io.catenax.pcf:datamodel:version:7.0.0"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#validityPeriodEnd": [
           {
             "@type": "https://schema.org/string",
-            "@value": "2022-12-31T23:59:59Z"
+            "value": "2022-12-31T23:59:59Z"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#validityPeriodStart": [
           {
             "@type": "https://schema.org/string",
-            "@value": "2022-01-01T00:00:01Z"
+            "value": "2022-01-01T00:00:01Z"
           }
         ],
         "urn:samm:io.catenax.pcf:7.0.0#version": [
           {
             "@type": "https://schema.org/number",
-            "@value": 0
+            "value": 0
           }
         ]
       }
@@ -1089,7 +1089,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
             "urn:samm:io.catenax.pcf:7.0.0#created": [
               {
                 "@type": "https://schema.org/string",
-                "@value": "2024-01-15T10:30:00Z"
+                "value": "2024-01-15T10:30:00Z"
               }
             ],
             "@type": [
@@ -1107,13 +1107,13 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
     "https://www.w3.org/2018/credentials#validFrom": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2024-01-15T10:30:00Z"
+        "value": "2024-01-15T10:30:00Z"
       }
     ],
     "https://www.w3.org/2018/credentials#validUntil": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2025-01-15T10:30:00Z"
+        "value": "2025-01-15T10:30:00Z"
       }
     ],
     "urn:samm:io.catenax.certificate.dac:1.0.0#validationMethod": [
@@ -1134,7 +1134,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                     "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
-                        "@value": "100%"
+                        "value": "100%"
                       }
                     ]
                   },
@@ -1145,7 +1145,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                     "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
-                        "@value": "3"
+                        "value": "3"
                       }
                     ]
                   },
@@ -1156,7 +1156,7 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
                     "urn:samm:io.catenax.certificate.dac:1.0.0#value": [
                       {
                         "@type": "https://schema.org/string",
-                        "@value": "80%"
+                        "value": "80%"
                       }
                     ]
                   }
@@ -1166,13 +1166,13 @@ Using the [json-ld playground](https://json-ld.org/playground) we are able to ex
             "urn:samm:io.catenax.certificate.dac:1.0.0#label": [
               {
                 "@type": "https://schema.org/string",
-                "@value": "Catena-X PCF Rulebook Standard"
+                "value": "Catena-X PCF Rulebook Standard"
               }
             ],
             "urn:samm:io.catenax.certificate.dac:1.0.0#uri": [
               {
                 "@type": "https://schema.org/string",
-                "@value": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf"
+                "value": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf"
               }
             ]
           }
@@ -1219,15 +1219,15 @@ This will enable for the Attestation Providers to indicate to each individual at
                       "complianceCriteria": [
                         {
                           "@type": "Standard Compliance",
-                          "@value": "100%"
+                          "value": "100%"
                         },
                         {
                           "@type": "Verification Level",
-                          "@value": "3"
+                          "value": "3"
                         },
                         {
                           "@type": "Primary Data Share",
-                          "@value": "80%"
+                          "value": "80%"
                         }
                       ]
                   }
@@ -1408,15 +1408,15 @@ It would be possible by revealing the values which you want to reveal, and hide 
             "complianceCriteria": [
               {
                 "@type": "Standard Compliance",
-                "@value": "100%"
+                "value": "100%"
               },
               {
                 "@type": "Verification Level",
-                "@value": "3"
+                "value": "3"
               },
               {
                 "@type": "Primary Data Share",
-                "@value": "80%"
+                "value": "80%"
               }
             ]
           }
@@ -1436,7 +1436,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
             "complianceCriteria": [
               {
                 "@type": "Standard Compliance",
-                "@value": "100%"
+                "value": "100%"
               }
             ]
           }
