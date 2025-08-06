@@ -42,7 +42,7 @@ block
 end
 ```
 
-For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already adressing trust as well as technical solutions to verify and validate data.
+For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data.
 Additionally, a template for different rulebooks to gain trust in specific use case is defined.
 
 #### Customer Journey
@@ -129,11 +129,17 @@ The Data Trust & Security KIT is built upon established industry standards and s
 
 | Standard | Version | Reference |
 |----------|---------|-----------|
-| **Verifiable Credentials Data Model** | 1.1 & 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
+| **Verifiable Credentials Data Model** | 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
 | **JSON Web Signature 2020** | 2020 | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
 | **Decentralized Identifiers (DIDs)** | 1.0 |  [W3C DID Core](https://www.w3.org/TR/did-core/) |
 | **DID Web Method** | - |  [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
 | **JSON-LD** | 1.1 | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
+
+:::info
+
+[W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) are used in order to keep the interoperability with other [UNTP protocol](https://spec-untp-fbb45f.opensource.unicc.org/docs/about/) and [eIDas 2.0](https://eidas.ec.europa.eu/) in the near future.
+
+:::
 
 ### Catena-X Standards
 
@@ -147,7 +153,7 @@ The Digital Product Pass Reference Implementation has a concept and implementati
 
 This Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Eclipse Tractus-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
 
-The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Attestation option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
+The concept is the First Aspect Model Verification/Certification Concept in Tractus-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Tractus-X using SAMM Aspect Models. It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Attestation option for Data Providers to certify their data while still maintaining data sovereignty at all costs. By using the EDC connector for the data exchanges the concept uses the current Tractus-X Architecture:
 
 [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/blob/d48d7b67d742f4177bd6272b93897a9346a38819/dpp-verification/README.md)
 
