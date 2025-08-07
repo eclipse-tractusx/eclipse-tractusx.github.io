@@ -12,7 +12,7 @@ description: What the design philosophy of a DCM-App should be.
 
 ### Tailor the DCM application to the end-users
 
-- OEMs are most likely only going act as the business role Customer
+- OEMs are most likely only going act to as the business role Customer
 - Suppliers are most likely not going to look at demands that have already been linked to capacity groups
 - After a capacity group has been fully linked to demands, only the total demand in a specific week is of interest at first
   - If a bottleneck has been detected in a week, only then the individual demands making up the total demand for that week will be of interest
