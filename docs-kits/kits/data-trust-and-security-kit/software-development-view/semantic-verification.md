@@ -554,7 +554,7 @@ It can also be found here:
 
 </details>
 
-### PCF @context
+### Product Carbon Footprint (PCF) @context
 
 Can be also found here:
 
@@ -3154,6 +3154,242 @@ Can be also found here
     },
     "@definition": "The Digital Product Passport (DPP) allows to share process and product-related information amongst supply chain businesses, authorities and consumers. The DPP allows for efficient information flows following best practices; and the possibility of accompanying the measures under this Regulation with mitigating measures so that impacts are expected to remain proportionate for SMEs.This is expected to increase transparency, both for supply chain businesses and for the general public, and increase efficiencies in terms of information transfer to support the data exchange between economic actors in integrating circularity in product design and manufacturing.\nIn particular, it is likely to help facilitate and streamline the monitoring and enforcement of the regulation carried out by EU and Member State authorities. It is also likely to provide a market-intelligence tool that may be used for revising and refining obligations in the future.\nThe DPP includes data about components, materials and chemical substances, information on reparability, spare parts, environmental impact and professional disposal for a product.\nThe data model will be updated, as newer versions of the regulation will be published.\nThe main basis is provided by the document \"Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL establishing a framework for setting ecodesign requirements for sustainable products and repealing Directive 2009/125/EC\" from March 30th, 2022. The latest version of the document was the provisional agreement between the EU Council and the Parliament from January 9th, 2024. The text is informal, but the content of the final regulation was agreed between these two institutions.\nThe Title of Ecodesign Regulation has been changed to: Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL establishing a framework for setting ecodesign requirements for sustainable products, amending Regulation (EU) 2023/1542 and repealing Directive 2009/125/EC.",
     "@samm-urn": "urn:samm:io.catenax.generic.digital_product_passport:6.0.0#DigitalProductPassport"
+  }
+}
+```
+
+</details>
+
+### Certificate Management (CCM) @context
+
+Can be also found here
+
+[https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.business_partner_certificate/3.1.0/gen/BusinessPartnerCertificate-context.jsonld](https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.business_partner_certificate/3.1.0/gen/BusinessPartnerCertificate-context.jsonld)
+
+<details>
+<summary>Open to see the Business Partner Certificate v3.1.0 @context</summary>
+
+```json
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "cx": "urn:samm:io.catenax.business_partner_certificate:3.1.0#",
+    "BusinessPartnerCertificate": {
+      "@id": "cx:BusinessPartnerCertificate",
+      "@type": "@id"
+    },
+    "id": "@id",
+    "cx:type": {
+      "@id": "cx:type",
+      "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "certificateType": {
+          "@id": "cx:certificateType",
+          "@context": {
+            "@definition": "Type of the certificate as defined on the document,valid types are registered at BPN metadatacontroller",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#certificateType"
+          },
+          "@type": "schema:string"
+        },
+        "certificateVersion": {
+          "@id": "cx:certificateVersion",
+          "@context": {
+            "@definition": "Version of the certificate as defined on the document, usually the specific version of a certification standard",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#certificateVersion"
+          },
+          "@type": "schema:string"
+        },
+        "@definition": "Type of the certificate as defined on the document like IS09001, IATF 16949 or other",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#type"
+      }
+    },
+    "businessPartnerNumber": {
+      "@id": "cx:businessPartnerNumber",
+      "@context": {
+        "@definition": "The Business Partner Number (BPN) of the certified legal entity (on which the certificate is issued).",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#businessPartnerNumber"
+      },
+      "@type": "schema:string"
+    },
+    "registrationNumber": {
+      "@id": "cx:registrationNumber",
+      "@context": {
+        "@definition": "Registration number of the certificate as defined on the certificate",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#registrationNumber"
+      },
+      "@type": "schema:string"
+    },
+    "areaOfApplication": {
+      "@id": "cx:areaOfApplication",
+      "@context": {
+        "@definition": "Details on which areas / application types a certificate is valid for a company and/or site.",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#areaOfApplication"
+      },
+      "@type": "schema:string"
+    },
+    "enclosedSites": {
+      "@id": "cx:enclosedSites",
+      "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@context": {
+          "@version": 1.1,
+          "id": "@id",
+          "type": "@type",
+          "enclosedSiteBpn": {
+            "@id": "cx:enclosedSiteBpn",
+            "@context": {
+              "@definition": "The Business Partner Number (BPNS or BPNA) of an enclosed site",
+              "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#enclosedSiteBpn"
+            },
+            "@type": "schema:string"
+          },
+          "areaOfApplication": {
+            "@id": "cx:areaOfApplication",
+            "@context": {
+              "@definition": "Details on which areas / application types a certificate is valid for a company and/or site.",
+              "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#areaOfApplication"
+            },
+            "@type": "schema:string"
+          }
+        },
+        "@definition": "Additional sites covered by the certificate, which can be either the Business Partner Number Site (BPNS) or Business Partner Number Address (BPNA)",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#enclosedSites"
+      },
+      "@container": "@list"
+    },
+    "validFrom": {
+      "@id": "cx:validFrom",
+      "@context": {
+        "@definition": "Valid from date as defined on the certificate.",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#validFrom"
+      },
+      "@type": "schema:string"
+    },
+    "validUntil": {
+      "@id": "cx:validUntil",
+      "@context": {
+        "@definition": "Valid valid until as defined on the certificate. If certificate never expires value until expected to be 9999-12-31",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#validUntil"
+      },
+      "@type": "schema:string"
+    },
+    "issuer": {
+      "@id": "cx:issuer",
+      "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "issuerName": {
+          "@id": "cx:issuerName",
+          "@context": {
+            "@definition": "Name of the Issuer i.e. Certifying Authority.",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuerName"
+          },
+          "@type": "schema:string"
+        },
+        "issuerBpn": {
+          "@id": "cx:issuerBpn",
+          "@context": {
+            "@definition": "The Business Partner Number (BPN) of the Issuer.",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuerBpn"
+          },
+          "@type": "schema:string"
+        },
+        "@definition": "The BPN of the issuing authority e.g. TUEV Sued ",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuer"
+      }
+    },
+    "trustLevel": {
+      "@id": "cx:trustLevel",
+      "@context": {
+        "@definition": "The trust level of the given certificate - none,low, high, trusted",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#trustLevel"
+      },
+      "@type": "schema:string"
+    },
+    "validator": {
+      "@id": "cx:validator",
+      "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "validatorName": {
+          "@id": "cx:validatorName",
+          "@context": {
+            "@definition": "The optional name of the data service provider who validated the given certificate",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#validatorName"
+          },
+          "@type": "schema:string"
+        },
+        "validatorBpn": {
+          "@id": "cx:validatorBpn",
+          "@context": {
+            "@definition": "The Business Partner Number (BPN) of the data service provider who validated the given certificate",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#validatorBpn"
+          },
+          "@type": "schema:string"
+        },
+        "@definition": "The Business Partner Number (BPN) of the data service provider who validates the given certificate.",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#validator"
+      }
+    },
+    "uploader": {
+      "@id": "cx:uploader",
+      "@context": {
+        "@definition": "The Business Partner Number (BPN) of the business partner who originally provided the certifcate data or document.",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#uploader"
+      },
+      "@type": "schema:string"
+    },
+    "document": {
+      "@id": "cx:document",
+      "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "creationDate": {
+          "@id": "cx:creationDate",
+          "@context": {
+            "@definition": "The creation date of the document.",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#creationDate"
+          },
+          "@type": "schema:string"
+        },
+        "documentID": {
+          "@id": "cx:documentID",
+          "@context": {
+            "@definition": "The id of the certificate document as stored by the data service provider.",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#documentID"
+          },
+          "@type": "schema:string"
+        },
+        "contentType": {
+          "@id": "cx:contentType",
+          "@context": {
+            "@definition": "The content type of the document.",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#contentType"
+          },
+          "@type": "schema:string"
+        },
+        "contentBase64": {
+          "@id": "cx:contentBase64",
+          "@context": {
+            "@definition": "The data is encoded using the Base64 encoding scheme, which converts binary data into a string of ASCII characters. ",
+            "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#contentBase64"
+          },
+          "@type": "schema:string"
+        },
+        "@definition": "The content and ID of the document.",
+        "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#document"
+      }
+    },
+    "@definition": "A business partner certifcate describes a certificate (eg ISO9001, IATF-16949) via a certifcate document  of a Catena-X business partner",
+    "@samm-urn": "urn:samm:io.catenax.business_partner_certificate:3.1.0#BusinessPartnerCertificate"
   }
 }
 ```

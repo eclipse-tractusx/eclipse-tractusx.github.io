@@ -13,7 +13,7 @@ The framework provides different types of certificates for different verificatio
 | Certificate Type | Who Creates It | What It Contains | When You'd Use It |
 |------------------|----------------|------------------|-------------------|
 | **[Data Attestation Credential (DAC)](#data-attestation-credential-dac)** | Data Provider or Attestation Provider | Complete aspect model is included in a verifiable credentials and signed | When the data integrity wants to be assured for a specific Aspect Model JSON Payload, or when a complete Aspect Model wants to be "certified/validated" |
-| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credential-aac)** | Attestation Provider | Certify/Validate attributes from an existing Aspect Model JSON Payload, which can be verified (DAC) or not. | When you need third-party verification of specific values from a specific aspect model.|
+| **[Attribute Attestation Credential (AAC)](#attribute-attestation-credential-aac)** | Attestation Provider | Certify/Validate attributes from an existing Aspect Model JSON Payload, which could come from a verified (DAC) or not. | When you need third-party verification of specific values from a specific aspect model.|
 | **[Attribute Attestation Credential with Selective Disclosure (AAC-SD)](#attribute-attestation-credential-with-selective-disclosure-aac-sd)** | Attestation Provider | Same as the AAC but with the possibility of hiding certain attributes, which can be "verified" only if the private data is accessible by the consumer. | This type of credential can be used to share specif c sets of data with the public world, outside of a dataspace, maintaining data at the dataspace level private. |
 
 ### Data Attestation Credential (DAC)
@@ -102,6 +102,57 @@ In this way it can be reusable for any aspect model.
     }
 }
 ```
+
+:::caution
+
+In some edge cases the aspect models contain on root level JSON-LD **protected** properties [`id` & `type`] which can not be overwritten.
+
+Therefore, when [`id` & `type`] are required in the root level from `credentialSubject`, the prefix `cx` MUST be added, in order to avoid conflicts
+
+Example:
+
+The `urn:samm:io.catenax.pcf:7.0.0#Pcf` model has:
+
+```shell
+"id" -> "cx:id"
+```
+
+```json
+{
+    "..."
+    "credentialSubject": {
+      "@type": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
+      "cx:id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+    },
+    "..."
+}
+```
+
+The `urn:samm:io.catenax.business_partner_certificate:3.1.0#BusinessPartnerCertificate` model has:
+
+```shell
+"type" -> "cx:type"
+```
+
+```json
+{
+    "..."
+    "credentialSubject": {
+      "@type": "urn:samm:io.catenax.business_partner_certificate:3.1.0#BusinessPartnerCertificate",
+      "cx:type" : {
+        "certificateVersion" : "2015",
+        "certificateType" : "ISO9001"
+      },
+    },
+    "..."
+}
+```
+
+Note: the `cx` prefix is optional for non-root level attributes. Prefixes set context to the attributes in JSON-LDs.
+
+The prefix `cx` is included in the semantic model context for `Catena-X` models, for other dataspaces semantic models, other prefixes can be used and defined in the `@context` file.
+
+:::
 
 <details>
 <summary>Example of a DAC for PCF for the Catena-X Rulebook</summary>
@@ -193,7 +244,7 @@ In this way it can be reusable for any aspect model.
       "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
       "validityPeriodStart": "2022-01-01T00:00:01Z",
       "comment": "Additional explanatory information not reflected by other attributes",
-      "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+      "cx:id": "3893bb5d-da16-4dc1-9185-11d97476c254",
       "validityPeriodEnd": "2022-12-31T23:59:59Z",
       "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
       "productDescription": "Ethanol, 95% solution",
@@ -247,6 +298,92 @@ In this way it can be reusable for any aspect model.
 </details>
 
 <details>
+<summary>Example of a DAC for Business Partner Certificate</summary>
+
+```json
+{
+    "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://w3c.github.io/vc-jws-2020/contexts/v1/",
+        "https://w3id.org/security/data-integrity/v2",
+        "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld",
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.business_partner_certificate/3.1.0/gen/BusinessPartnerCertificate-context.jsonld"
+    ],
+    "type": [
+        "VerifiableCredential",
+        "DataAttestationCredential",
+        "BusinessPartnerCertificate"
+    ],
+    "credentialSubject": {
+      "@type": "urn:samm:io.catenax.business_partner_certificate:3.1.0#BusinessPartnerCertificate",
+      "businessPartnerNumber" : "BPNL00000003AYRE",
+      "enclosedSites" : [ {
+        "areaOfApplication" : "Development, Marketing und Sales and also Procurement for interior components",
+        "enclosedSiteBpn" : "BPNS00000003AYRE"
+      } ],
+      "registrationNumber" : "12 198 54182 TMS",
+      "uploader" : "BPNL00000003AYRE",
+      "document" : {
+        "documentID" : "UUID--123456789",
+        "creationDate" : "2024-08-23T13:19:00.280+02:00",
+        "contentType" : "application/pdf",
+        "contentBase64" : "iVBORw0KGgoAAdsfwerTETEfdgd"
+      },
+      "validator" : {
+        "validatorName" : "Data service provider X",
+        "validatorBpn" : "BPNL00000007YREZ"
+      },
+      "validUntil" : "2026-01-24",
+      "validFrom" : "2023-01-25",
+      "trustLevel" : "none",
+      "cx:type" : {
+        "certificateVersion" : "2015",
+        "certificateType" : "ISO9001"
+      },
+      "areaOfApplication" : "Development, Marketing und Sales and also Procurement for interior components",
+      "issuer" : {
+        "issuerName" : "TÜV",
+        "issuerBpn" : "BPNL133631123120"
+      }
+    },
+    "@id": "urn:uuid:certificate-123-456-789",
+    "issuer": "did:web:tuv-sud.de",
+    "validFrom": "2024-01-15T10:30:00Z",
+    "validUntil": "2025-01-15T10:30:00Z",
+    "validationMethod": [
+      {
+        "@type": "Standard",
+        "label": "Business Partner Company Certificate Management v2.3.1",
+        "@id": "CX-0135",
+        "uri": "https://catenax-ev.github.io/docs/next/standards/CX-0135-CompanyCertificateManagement",
+        "complianceCriteria": [
+          {
+            "@type": "Standard Compliance",
+            "value": "100%"
+          }
+        ]
+      }
+    ],
+    "credentialStatus": {
+      "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
+      "type": "BitstringStatusListEntry",
+      "statusPurpose": "revocation",
+      "statusListIndex": "42",
+      "statusListCredential": "https://tuv-sud.de/revocation-list/2024/credentials.json"
+    },
+    "proof": {
+        "type": "JsonWebSignature2020",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:web:tuv-sud.de#key-1",
+        "created": "2024-01-15T10:30:00Z",
+        "jws": "eyJ0eXAiOiAidmMrbGQiLCAiYjY..."
+    }
+}
+```
+
+</details>
+
+<details>
 <summary>Example of a DAC for DPP for the Catena-X DPP Rulebook</summary>
 
 ```json
@@ -256,7 +393,7 @@ In this way it can be reusable for any aspect model.
         "https://w3c.github.io/vc-jws-2020/contexts/v1/",
         "https://w3id.org/security/data-integrity/v2",
         "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld",
-        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.pcf/7.0.0/gen/DigitalProductPassport-context.jsonld"
+        "https://raw.githubusercontent.com/eclipse-tractusx/sldt-semantic-models/refs/heads/main/io.catenax.generic.digital_product_passport/6.0.0/gen/DigitalProductPassport-context.jsonld"
     ],
     "type": [
         "VerifiableCredential",
@@ -584,11 +721,13 @@ The consumer by using a JSON-LD playground or library is able to expand the JSON
 
 For that the context much match the semantics from the content.
 
+As you will see the verifiable credential data gets pretty long if the context is placed raw over it. Therefore, the best option is to host in a static data storage where it can be accesible to the public internet (CDN, GitHub, etc).
+
 This is an example of a verifiable credential without a hosted @context:
 
 <details>
 
-<summary>Example of a DAC for PCF without hosted @context</summary>
+<summary>Example of a DAC for PCF without hosted @context (long file)</summary>
 
 ```json
 {
@@ -680,13 +819,22 @@ This is an example of a verifiable credential without a hosted @context:
       "@context": {
         "@version": 1.1,
         "schema": "https://schema.org/",
-        "pcf-aspect": "urn:samm:io.catenax.pcf:7.0.0#",
+        "cx": "urn:samm:io.catenax.pcf:7.0.0#",
         "Pcf": {
-          "@id": "pcf-aspect:Pcf",
+          "@id": "cx:Pcf",
           "@type": "@id"
         },
+        "cx:id": {
+          "@id": "cx:id",
+          "@context": {
+            "@definition": "Mandatory: The product footprint identifier as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
+            "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#id"
+          },
+          "@type": "schema:string"
+        },
+        "type": "@type",
         "specVersion": {
-          "@id": "pcf-aspect:specVersion",
+          "@id": "cx:specVersion",
           "@context": {
             "@definition": "Mandatory: Version of the product footprint data specification as defined in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#specVersion"
@@ -694,7 +842,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "partialFullPcf": {
-          "@id": "pcf-aspect:partialFullPcf",
+          "@id": "cx:partialFullPcf",
           "@context": {
             "@definition": "Mandatory: Indicator for partial or full PCF (Product Carbon Footprint) declaration as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#partialFullPcf"
@@ -702,7 +850,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "precedingPfIds": {
-          "@id": "pcf-aspect:precedingPfIds",
+          "@id": "cx:precedingPfIds",
           "@context": {
             "@version": 1.1,
             "id": "@id",
@@ -710,7 +858,7 @@ This is an example of a verifiable credential without a hosted @context:
             "@context": {
               "@version": 1.1,
               "id": {
-                "@id": "pcf-aspect:id",
+                "@id": "cx:id",
                 "@context": {
                   "@definition": "Mandatory: The product footprint identifier as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                   "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#id"
@@ -725,7 +873,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@container": "@list"
         },
         "version": {
-          "@id": "pcf-aspect:version",
+          "@id": "cx:version",
           "@context": {
             "@definition": "Mandatory: Version of the product (carbon) footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X for example set to \"0\" per default.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#version"
@@ -733,7 +881,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:number"
         },
         "created": {
-          "@id": "pcf-aspect:created",
+          "@id": "cx:created",
           "@context": {
             "@definition": "Mandatory: Timestamp of the creation of the Product (Carbon) Footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#created"
@@ -741,7 +889,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "extWBCSD_pfStatus": {
-          "@id": "pcf-aspect:extWBCSD_pfStatus",
+          "@id": "cx:extWBCSD_pfStatus",
           "@context": {
             "@definition": "Mandatory: Status indicator of a product (carbon) footprint as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example set to \"Active\" per default.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#status"
@@ -749,7 +897,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "validityPeriodStart": {
-          "@id": "pcf-aspect:validityPeriodStart",
+          "@id": "cx:validityPeriodStart",
           "@context": {
             "@definition": "Optional: Start of interval during which the product (carbon) footprint is declared as valid as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. If specified, the validity period start must be equal to or greater than the reference period end.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#validityPeriodStart"
@@ -757,7 +905,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "validityPeriodEnd": {
-          "@id": "pcf-aspect:validityPeriodEnd",
+          "@id": "cx:validityPeriodEnd",
           "@context": {
             "@definition": "Optional: End of interval during which the product (carbon) footprint is declared as valid as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#validityPeriodEnd"
@@ -765,7 +913,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "comment": {
-          "@id": "pcf-aspect:comment",
+          "@id": "cx:comment",
           "@context": {
             "@definition": "Optional: Additional information and instructions related to the calculation of the product (carbon) footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#comment"
@@ -773,7 +921,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "companyName": {
-          "@id": "pcf-aspect:companyName",
+          "@id": "cx:companyName",
           "@context": {
             "@definition": "Mandatory: Name of the product (carbon) footprint data owner as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#companyName"
@@ -781,16 +929,16 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "companyIds": {
-          "@id": "pcf-aspect:companyIds",
+          "@id": "cx:companyIds",
           "@context": {
-            "@definition": "Mandatory: Non-empty set of Uniform Resource Names (URN). Each value is supposed to uniquely identify the product (carbon) footprint data owner as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. For Catena-X Industry Core compliance the set of URNs must contain at least the Business Partner Number Legal Entity (BPNL) in the specified format urn:bpn:id:BPNL[a-zA-Z0-9]{12}.\u00a0",
+            "@definition": "Mandatory: Non-empty set of Uniform Resource Names (URN). Each value is supposed to uniquely identify the product (carbon) footprint data owner as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. For Catena-X Industry Core compliance the set of URNs must contain at least the Business Partner Number Legal Entity (BPNL) in the specified format urn:bpn:id:BPNL[a-zA-Z0-9]{12}. ",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#companyIds"
           },
           "@container": "@list",
           "@type": "schema:string"
         },
         "productDescription": {
-          "@id": "pcf-aspect:productDescription",
+          "@id": "cx:productDescription",
           "@context": {
             "@definition": "Optional: Free-form description of the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#productDescription"
@@ -798,7 +946,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "productIds": {
-          "@id": "pcf-aspect:productIds",
+          "@id": "cx:productIds",
           "@context": {
             "@definition": "Mandatory: Non-empty set of product identifiers. Each value is supposed to uniquely identify the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X productId corresponds with Industry Core manufacturerPartId.",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#productIds"
@@ -807,7 +955,7 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "extWBCSD_productCodeCpc": {
-          "@id": "pcf-aspect:extWBCSD_productCodeCpc",
+          "@id": "cx:extWBCSD_productCodeCpc",
           "@context": {
             "@definition": "Mandatory: UN (United Nations) Product Classification Code (CPC - Central Classification Code) of a given product as specified the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, which will probably be declared as \"optional\" in a later WBCSD specification version. In Catena-X for example specified with default value \"011-99000\".",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#productCategoryCpc"
@@ -815,21 +963,21 @@ This is an example of a verifiable credential without a hosted @context:
           "@type": "schema:string"
         },
         "productName": {
-          "@id": "pcf-aspect:productName",
+          "@id": "cx:productName",
           "@context": {
-            "@definition": "Mandatory: Non-empty trade name of a product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X productNameCompany corresponds with Industry Core nameAtManufacturer.\u00a0",
+            "@definition": "Mandatory: Non-empty trade name of a product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X productNameCompany corresponds with Industry Core nameAtManufacturer. ",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#productNameCompany"
           },
           "@type": "schema:string"
         },
         "pcf": {
-          "@id": "pcf-aspect:pcf",
+          "@id": "cx:pcf",
           "@context": {
             "@version": 1.1,
             "id": "@id",
             "type": "@type",
             "declaredUnit": {
-              "@id": "pcf-aspect:declaredUnit",
+              "@id": "cx:declaredUnit",
               "@context": {
                 "@definition": "Mandatory: Unit of analysis of a product in context of the PCF (product carbon footprint) as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X for example list of valid units includes \"piece\".",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#declaredUnit"
@@ -837,7 +985,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "unitaryProductAmount": {
-              "@id": "pcf-aspect:unitaryProductAmount",
+              "@id": "cx:unitaryProductAmount",
               "@context": {
                 "@definition": "Mandatory: Amount of units contained within a product in context of the PCF (Product Carbon Footprint) as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#unitaryProductAmount"
@@ -845,7 +993,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "productMassPerDeclaredUnit": {
-              "@id": "pcf-aspect:productMassPerDeclaredUnit",
+              "@id": "cx:productMassPerDeclaredUnit",
               "@context": {
                 "@definition": "Mandatory: Mass of a product per declared unit (net, unpackaged) in context of the PCF (Product Carbon Footprint) as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#productMassPerDeclaredUnit"
@@ -853,7 +1001,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "exemptedEmissionsPercent": {
-              "@id": "pcf-aspect:exemptedEmissionsPercent",
+              "@id": "cx:exemptedEmissionsPercent",
               "@context": {
                 "@definition": "Mandatory: Applied cut-off percentage of emissions excluded from PCF (Product Carbon Footprint).\nFor accordance with Catena-X PCF Rulebook (Version 3.0.0) <3%.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#exemptedEmissionsPercent"
@@ -861,7 +1009,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "exemptedEmissionsDescription": {
-              "@id": "pcf-aspect:exemptedEmissionsDescription",
+              "@id": "cx:exemptedEmissionsDescription",
               "@context": {
                 "@definition": "Optional: Rationale behind exclusion of specific PCF (Product Carbon Footprint) emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#exemptedEmissionsDescription"
@@ -869,7 +1017,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "boundaryProcessesDescription": {
-              "@id": "pcf-aspect:boundaryProcessesDescription",
+              "@id": "cx:boundaryProcessesDescription",
               "@context": {
                 "@definition": "Optional: Processes attributable to each lifecycle stage as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#boundaryProcessesDescription"
@@ -877,7 +1025,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "geographyCountrySubdivision": {
-              "@id": "pcf-aspect:geographyCountrySubdivision",
+              "@id": "cx:geographyCountrySubdivision",
               "@context": {
                 "@definition": "Optional: Subdivision of a country which must be an ISO 3166-2 subdivision code as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#geographyCountrySubdivision"
@@ -885,7 +1033,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "geographyCountry": {
-              "@id": "pcf-aspect:geographyCountry",
+              "@id": "cx:geographyCountry",
               "@context": {
                 "@definition": "Optional: Two letter country code that must conform to data type ISO 3166CC as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#geographyCountry"
@@ -893,7 +1041,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "geographyRegionOrSubregion": {
-              "@id": "pcf-aspect:geographyRegionOrSubregion",
+              "@id": "cx:geographyRegionOrSubregion",
               "@context": {
                 "@definition": "Mandatory: Region according to list as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#geographyRegionOrSubregion"
@@ -901,7 +1049,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "referencePeriodStart": {
-              "@id": "pcf-aspect:referencePeriodStart",
+              "@id": "cx:referencePeriodStart",
               "@context": {
                 "@definition": "Mandatory: Start of time boundary for which a PCF (Product Carbon Footprint) value is considered to be representative as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#referencePeriodStart"
@@ -909,7 +1057,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "referencePeriodEnd": {
-              "@id": "pcf-aspect:referencePeriodEnd",
+              "@id": "cx:referencePeriodEnd",
               "@context": {
                 "@definition": "Mandatory: End of time boundary for which a PCF (Product Carbon Footprint) value is considered to be representative as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#referencePeriodEnd"
@@ -917,7 +1065,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "crossSectoralStandardsUsed": {
-              "@id": "pcf-aspect:crossSectoralStandardsUsed",
+              "@id": "cx:crossSectoralStandardsUsed",
               "@context": {
                 "@version": 1.1,
                 "id": "@id",
@@ -927,7 +1075,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "id": "@id",
                   "type": "@type",
                   "crossSectoralStandard": {
-                    "@id": "pcf-aspect:crossSectoralStandard",
+                    "@id": "cx:crossSectoralStandard",
                     "@context": {
                       "@definition": "Mandatory: Discloses a cross-sectoral standard applied for calculating or allocating GHG (Greenhouse Gas) emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                       "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#crossSectoralStandard"
@@ -941,7 +1089,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@container": "@list"
             },
             "productOrSectorSpecificRules": {
-              "@id": "pcf-aspect:productOrSectorSpecificRules",
+              "@id": "cx:productOrSectorSpecificRules",
               "@context": {
                 "@version": 1.1,
                 "id": "@id",
@@ -951,7 +1099,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "id": "@id",
                   "type": "@type",
                   "extWBCSD_operator": {
-                    "@id": "pcf-aspect:extWBCSD_operator",
+                    "@id": "cx:extWBCSD_operator",
                     "@context": {
                       "@definition": "Mandatory: Operator of PCR (Product Category Rule)/ PSR (Product Specific Rule) as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example must always be \"Other\".",
                       "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#operator"
@@ -959,7 +1107,7 @@ This is an example of a verifiable credential without a hosted @context:
                     "@type": "schema:string"
                   },
                   "productOrSectorSpecificRules": {
-                    "@id": "pcf-aspect:productOrSectorSpecificRules",
+                    "@id": "cx:productOrSectorSpecificRules",
                     "@context": {
                       "@version": 1.1,
                       "id": "@id",
@@ -969,7 +1117,7 @@ This is an example of a verifiable credential without a hosted @context:
                         "id": "@id",
                         "type": "@type",
                         "ruleName": {
-                          "@id": "pcf-aspect:ruleName",
+                          "@id": "cx:ruleName",
                           "@context": {
                             "@definition": "Name of a rule applied by a specific operator as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#ruleName"
@@ -983,7 +1131,7 @@ This is an example of a verifiable credential without a hosted @context:
                     "@container": "@list"
                   },
                   "extWBCSD_otherOperatorName": {
-                    "@id": "pcf-aspect:extWBCSD_otherOperatorName",
+                    "@id": "cx:extWBCSD_otherOperatorName",
                     "@context": {
                       "@definition": "Optional: Other operator of PCR (Product Category Rule)/ PSR (Product Specific Rule) as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example specified by a default value.",
                       "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#otherOperatorName"
@@ -997,7 +1145,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@container": "@list"
             },
             "extWBCSD_characterizationFactors": {
-              "@id": "pcf-aspect:extWBCSD_characterizationFactors",
+              "@id": "cx:extWBCSD_characterizationFactors",
               "@context": {
                 "@definition": "Mandatory: IPCC (Intergovernmental Panel on Climate Change) version of the GWP (Global Warming Potential) characterization factors used for calculating the PCF (Product Carbon Footprint) as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example specified by default with value \\\"AR6\\\". Default value can be overwritten.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#characterizationFactors"
@@ -1005,7 +1153,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "extWBCSD_allocationRulesDescription": {
-              "@id": "pcf-aspect:extWBCSD_allocationRulesDescription",
+              "@id": "cx:extWBCSD_allocationRulesDescription",
               "@context": {
                 "@definition": "Optional: Allocation rules used and underlying reasoning in context of a product carbon footprint as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension, in Catena-X for example specified by default with value \"In accordance with Catena-X PCF Rulebook (Version 3.0.0)\".",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#allocationRulesDescription"
@@ -1013,7 +1161,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "extTFS_allocationWasteIncineration": {
-              "@id": "pcf-aspect:extTFS_allocationWasteIncineration",
+              "@id": "cx:extTFS_allocationWasteIncineration",
               "@context": {
                 "@definition": "Mandatory: Allocation approach used for waste incineration with energy recovery as specified by the TFS (Together For Sustainability) initiative. In Catena-X for example must be specified by value \"cut-off\".",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#allocationWasteIncineration"
@@ -1021,7 +1169,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:string"
             },
             "primaryDataShare": {
-              "@id": "pcf-aspect:primaryDataShare",
+              "@id": "cx:primaryDataShare",
               "@context": {
                 "@definition": "Mandatory starting 2025: Share of primary data in percent as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#primaryDataShare"
@@ -1029,7 +1177,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "secondaryEmissionFactorSources": {
-              "@id": "pcf-aspect:secondaryEmissionFactorSources",
+              "@id": "cx:secondaryEmissionFactorSources",
               "@context": {
                 "@version": 1.1,
                 "id": "@id",
@@ -1039,7 +1187,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "id": "@id",
                   "type": "@type",
                   "secondaryEmissionFactorSource": {
-                    "@id": "pcf-aspect:secondaryEmissionFactorSource",
+                    "@id": "cx:secondaryEmissionFactorSource",
                     "@context": {
                       "@definition": "Mandatory: Emission factor data source used to calculate a product carbon footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                       "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#emissionFactorDS"
@@ -1053,13 +1201,13 @@ This is an example of a verifiable credential without a hosted @context:
               "@container": "@list"
             },
             "dataQualityRating": {
-              "@id": "pcf-aspect:dataQualityRating",
+              "@id": "cx:dataQualityRating",
               "@context": {
                 "@version": 1.1,
                 "id": "@id",
                 "type": "@type",
                 "coveragePercent": {
-                  "@id": "pcf-aspect:coveragePercent",
+                  "@id": "cx:coveragePercent",
                   "@context": {
                     "@definition": "Mandatory starting 2025: Percentage of PCF (Product Carbon Footprint) included in the data quality assessment based on the >5% emissions threshold as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. In Catena-X for example set to \"100\" per default.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#coveragePercent"
@@ -1067,7 +1215,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "@type": "schema:number"
                 },
                 "technologicalDQR": {
-                  "@id": "pcf-aspect:technologicalDQR",
+                  "@id": "cx:technologicalDQR",
                   "@context": {
                     "@definition": "Optional: Technological representativeness of the sources used for PCF (Product Carbon Footprint) calculation based on weighted average of all inputs representing >5% of PCF emissions. Specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#technologicalDQR"
@@ -1075,7 +1223,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "@type": "schema:number"
                 },
                 "temporalDQR": {
-                  "@id": "pcf-aspect:temporalDQR",
+                  "@id": "cx:temporalDQR",
                   "@context": {
                     "@definition": "Optional: Temporal representativeness of the sources used for PCF (Product Carbon Footprint) calculation based on weighted average of all inputs representing >5% of PCF emissions. Specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#temporalDQR"
@@ -1083,7 +1231,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "@type": "schema:number"
                 },
                 "geographicalDQR": {
-                  "@id": "pcf-aspect:geographicalDQR",
+                  "@id": "cx:geographicalDQR",
                   "@context": {
                     "@definition": "Optional: Geographical representativeness of the sources used for PCF (Product Carbon Footprint) calculation based on weighted average of all inputs representing >5% of PCF emissions. Specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#geographicalDQR"
@@ -1091,7 +1239,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "@type": "schema:number"
                 },
                 "completenessDQR": {
-                  "@id": "pcf-aspect:completenessDQR",
+                  "@id": "cx:completenessDQR",
                   "@context": {
                     "@definition": "Optional: Completeness of the data collected for PCF (Product Carbon Footprint) calculation based on weighted average of all inputs representing >5% of PCF emissions. Specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#completenessDQR"
@@ -1099,7 +1247,7 @@ This is an example of a verifiable credential without a hosted @context:
                   "@type": "schema:number"
                 },
                 "reliabilityDQR": {
-                  "@id": "pcf-aspect:reliabilityDQR",
+                  "@id": "cx:reliabilityDQR",
                   "@context": {
                     "@definition": "Optional: Reliability of the data collected for PCF (Product Carbon Footprint) calculation based on weighted average of all inputs representing >5% of PCF emissions. Specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                     "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#reliabilityDQR"
@@ -1111,7 +1259,7 @@ This is an example of a verifiable credential without a hosted @context:
               }
             },
             "extWBCSD_packagingEmissionsIncluded": {
-              "@id": "pcf-aspect:extWBCSD_packagingEmissionsIncluded",
+              "@id": "cx:extWBCSD_packagingEmissionsIncluded",
               "@context": {
                 "@definition": "Mandatory: The Catena-X PCF Rulebook requires to include packaging from a system boundary perspective. \"FALSE\" is only possible due to the application of the cut-off rule.\nFlag indicating whether packaging emissions are included in a PCF (Product Carbon Footprint) as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#packagingEmissionsIncluded"
@@ -1119,7 +1267,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:boolean"
             },
             "pcfExcludingBiogenic": {
-              "@id": "pcf-aspect:pcfExcludingBiogenic",
+              "@id": "cx:pcfExcludingBiogenic",
               "@context": {
                 "@definition": "Mandatory: Product carbon footprint of a product excluding biogenic emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#pcfExcludingBiogenic"
@@ -1127,7 +1275,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "pcfIncludingBiogenic": {
-              "@id": "pcf-aspect:pcfIncludingBiogenic",
+              "@id": "cx:pcfIncludingBiogenic",
               "@context": {
                 "@definition": "Mandatory starting 2025: Product carbon footprint of a product including biogenic emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. Optional value in current specification version but will be mandatory in future version.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#pcfIncludingBiogenic"
@@ -1135,7 +1283,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "fossilGhgEmissions": {
-              "@id": "pcf-aspect:fossilGhgEmissions",
+              "@id": "cx:fossilGhgEmissions",
               "@context": {
                 "@definition": "Mandatory starting 2025: Emissions from combustion of fossil sources as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. Identical to \"pcfExcludingBiogenic\", will be removed in later version.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#fossilGhgEmissions"
@@ -1143,7 +1291,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "biogenicCarbonEmissionsOtherThanCO2": {
-              "@id": "pcf-aspect:biogenicCarbonEmissionsOtherThanCO2",
+              "@id": "cx:biogenicCarbonEmissionsOtherThanCO2",
               "@context": {
                 "@definition": "Mandatory starting 2025: GWP (Global Warming Potential) of biogenic CO2e-emissions in production phase which contain only GHG (Greenhouse Gas) emissions other than CO2 - excludes biogenic CO2. For specification see Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#biogenicCarbonEmissionsOtherThanCO2"
@@ -1151,7 +1299,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "biogenicCarbonWithdrawal": {
-              "@id": "pcf-aspect:biogenicCarbonWithdrawal",
+              "@id": "cx:biogenicCarbonWithdrawal",
               "@context": {
                 "@definition": "Mandatory starting 2025: Biogenic carbon content in the product converted to CO2e as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#biogenicCarbonWithdrawal"
@@ -1159,7 +1307,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "dlucGhgEmissions": {
-              "@id": "pcf-aspect:dlucGhgEmissions",
+              "@id": "cx:dlucGhgEmissions",
               "@context": {
                 "@definition": "Mandatory starting 2025: Direct land use change CO2e emissions in context of a product carbon footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#dlucGhgEmissions"
@@ -1167,7 +1315,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "extTFS_luGhgEmissions": {
-              "@id": "pcf-aspect:extTFS_luGhgEmissions",
+              "@id": "cx:extTFS_luGhgEmissions",
               "@context": {
                 "@definition": "Mandatory starting 2025: Land use CO2 emissions in context of a product carbon footprint as specified by the TFS (Together For Sustainability) initiative. TFS specific extension.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#luGhgEmissions"
@@ -1175,7 +1323,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "aircraftGhgEmissions": {
-              "@id": "pcf-aspect:aircraftGhgEmissions",
+              "@id": "cx:aircraftGhgEmissions",
               "@context": {
                 "@definition": "Mandatory starting 2025: GHG (Greenhouse Gas) emissions resulting from aircraft engine usage for the transport of the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#aircraftGhgEmissions"
@@ -1183,7 +1331,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "extWBCSD_packagingGhgEmissions": {
-              "@id": "pcf-aspect:extWBCSD_packagingGhgEmissions",
+              "@id": "cx:extWBCSD_packagingGhgEmissions",
               "@context": {
                 "@definition": "Optional: Emissions resulting from the packaging of the product as specified in the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. WBCSD specific extension. In Catena-X not relevant to be reported separately.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#packagingGhgEmissions"
@@ -1191,7 +1339,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStagePcfExcludingBiogenic": {
-              "@id": "pcf-aspect:distributionStagePcfExcludingBiogenic",
+              "@id": "cx:distributionStagePcfExcludingBiogenic",
               "@context": {
                 "@definition": "Optional: Product carbon footprint for the distribution stage of a product excluding biogenic emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStagePcfExcludingBiogenic"
@@ -1199,7 +1347,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStagePcfIncludingBiogenic": {
-              "@id": "pcf-aspect:distributionStagePcfIncludingBiogenic",
+              "@id": "cx:distributionStagePcfIncludingBiogenic",
               "@context": {
                 "@definition": "Optional: Product carbon footprint for the distribution stage of a product including biogenic emissions as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStagePcfIncludingBiogenic"
@@ -1207,7 +1355,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStageFossilGhgEmissions": {
-              "@id": "pcf-aspect:distributionStageFossilGhgEmissions",
+              "@id": "cx:distributionStageFossilGhgEmissions",
               "@context": {
                 "@definition": "Optional: Emissions from the combustion of fossil sources in the distribution stage as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageFossilGhgEmissions"
@@ -1215,7 +1363,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStageBiogenicCarbonEmissionsOtherThanCO2": {
-              "@id": "pcf-aspect:distributionStageBiogenicCarbonEmissionsOtherThanCO2",
+              "@id": "cx:distributionStageBiogenicCarbonEmissionsOtherThanCO2",
               "@context": {
                 "@definition": "Optional: GWP (Global Warming Potential) of biogenic CO2e-emissions in distribution phase which contain only GHG (Greenhouse Gas) emissions other than CO2 ? excludes biogenic CO2. For specification see Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageBiogenicCarbonEmissionsOtherThanCO2"
@@ -1223,7 +1371,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStageBiogenicCarbonWithdrawal": {
-              "@id": "pcf-aspect:distributionStageBiogenicCarbonWithdrawal",
+              "@id": "cx:distributionStageBiogenicCarbonWithdrawal",
               "@context": {
                 "@definition": "Optional: GWP (Global Warming Potential) of biogenic CO2-withdrawal in distribution stage (biogenic CO2 contained in the product) as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageBiogenicCarbonWithdrawal"
@@ -1231,7 +1379,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "extTFS_distributionStageDlucGhgEmissions": {
-              "@id": "pcf-aspect:extTFS_distributionStageDlucGhgEmissions",
+              "@id": "cx:extTFS_distributionStageDlucGhgEmissions",
               "@context": {
                 "@definition": "Optional: Direct land use change CO2 emissions during distribution stage in context of a product carbon footprint as specified by the TFS (Together For Sustainability) initiative. TFS specific extension.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageDlucGhgEmissions"
@@ -1239,7 +1387,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "extTFS_distributionStageLuGhgEmissions": {
-              "@id": "pcf-aspect:extTFS_distributionStageLuGhgEmissions",
+              "@id": "cx:extTFS_distributionStageLuGhgEmissions",
               "@context": {
                 "@definition": "Optional: Land use CO2 emissions in context of a product carbon footprint as specified by the TFS (Together For Sustainability) initiative. TFS specific extension.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageLuGhgEmissions"
@@ -1247,7 +1395,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "carbonContentTotal": {
-              "@id": "pcf-aspect:carbonContentTotal",
+              "@id": "cx:carbonContentTotal",
               "@context": {
                 "@definition": "Mandatory starting 2025: Total carbon content per declared unit in context of a product carbon footprint as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#carbonContentTotal"
@@ -1255,7 +1403,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "extWBCSD_fossilCarbonContent": {
-              "@id": "pcf-aspect:extWBCSD_fossilCarbonContent",
+              "@id": "cx:extWBCSD_fossilCarbonContent",
               "@context": {
                 "@definition": "Mandatory starting 2025: Fossil carbon amount embodied in a product as specified in the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. Must be calculated with kgC (kilogram Carbon) / declaredUnit equal to or greater zero; WBCSD specific extension, in Catena-X specified by a calculated value.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#fossilCarbonContent"
@@ -1263,7 +1411,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "carbonContentBiogenic": {
-              "@id": "pcf-aspect:carbonContentBiogenic",
+              "@id": "cx:carbonContentBiogenic",
               "@context": {
                 "@definition": "Mandatory starting 2025: Biogenic carbon amount embodied in a product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.1.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative. Must be calculated with kgC (kilogram Carbon) / declaredUnit equal to or greater zero.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#biogenicCarbonContent"
@@ -1271,7 +1419,7 @@ This is an example of a verifiable credential without a hosted @context:
               "@type": "schema:number"
             },
             "distributionStageAircraftGhgEmissions": {
-              "@id": "pcf-aspect:distributionStageAircraftGhgEmissions",
+              "@id": "cx:distributionStageAircraftGhgEmissions",
               "@context": {
                 "@definition": "Optional: GHG (Greenhouse Gas) emissions for the distribution stage resulting from aircraft engine usage for the transport of the product as specified in the Catena-X PCF Rulebook (Version 3.0.0) in accordance with the technical specifications for PCF Data Exchange (Version 2.0.0) from the WBCSD (World Business Council for Sustainable Development)/ PACT initiative.",
                 "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#distributionStageAircraftGhgEmissions"
@@ -1283,7 +1431,7 @@ This is an example of a verifiable credential without a hosted @context:
           }
         },
         "pcfLegalStatement": {
-          "@id": "pcf-aspect:pcfLegalStatement",
+          "@id": "cx:pcfLegalStatement",
           "@context": {
             "@definition": "Optional: Option for legal statement/ disclaimer as specified in the Catena-X PCF Rulebook (Version 3.0.0).",
             "@samm-urn": "urn:samm:io.catenax.pcf:7.0.0#pcfLegalStatement"
@@ -1295,52 +1443,66 @@ This is an example of a verifiable credential without a hosted @context:
       }
     }
   ],
-  "type": ["VerifiableCredential", "DataAttestationCredential", "urn:samm:io.catenax.pcf:7.0.0#Pcf"],
+  "type": [
+    "VerifiableCredential",
+    "DataAttestationCredential",
+    "Pcf"
+  ],
   "credentialSubject": {
-    "@type": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
-    "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
-      "companyIds": ["telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt"],
+    "Pcf": {
+      "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
+      "companyIds": [
+        "telnet://192.0.2.16:80/",
+        "ftp://ftp.is.co.za/rfc/rfc1808.txt",
+        "http://www.ietf.org/rfc/rfc2396.txt"
+      ],
       "extWBCSD_productCodeCpc": "011-99000",
       "created": "2022-05-22T21:47:32Z",
-      "companyName": "Acme Manufacturing Corp",
+      "companyName": "My Corp",
       "extWBCSD_pfStatus": "Active",
       "version": 0,
-      "productName": "High-Performance Steel Alloy",
+      "productName": "My Product Name",
       "pcf": {
-        "biogenicCarbonEmissionsOtherThanCO2": 1.0,
+        "biogenicCarbonEmissionsOtherThanCO2": 1,
         "distributionStagePcfExcludingBiogenic": 1.5,
-        "biogenicCarbonWithdrawal": 0.0,
-        "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1.0,
+        "biogenicCarbonWithdrawal": 0,
+        "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1,
         "extWBCSD_allocationRulesDescription": "In accordance with Catena-X PCF Rulebook",
         "exemptedEmissionsDescription": "No exemption",
         "distributionStageFossilGhgEmissions": 0.5,
-        "exemptedEmissionsPercent": 0.0,
+        "exemptedEmissionsPercent": 0,
         "geographyCountrySubdivision": "US-NY",
         "extTFS_luGhgEmissions": 0.3,
-        "distributionStageBiogenicCarbonWithdrawal": 0.0,
-        "pcfIncludingBiogenic": 1.0,
-        "aircraftGhgEmissions": 0.0,
+        "distributionStageBiogenicCarbonWithdrawal": 0,
+        "pcfIncludingBiogenic": 1,
+        "aircraftGhgEmissions": 0,
         "productMassPerDeclaredUnit": 0.456,
-        "productOrSectorSpecificRules": [{
-          "extWBCSD_operator": "PEF",
-          "productOrSectorSpecificRules": [{
-            "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
-          }],
-          "extWBCSD_otherOperatorName": "NSF"
-        }],
+        "productOrSectorSpecificRules": [
+          {
+            "extWBCSD_operator": "PEF",
+            "productOrSectorSpecificRules": [
+              {
+                "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
+              }
+            ],
+            "extWBCSD_otherOperatorName": "NSF"
+          }
+        ],
         "extTFS_allocationWasteIncineration": "cut-off",
-        "pcfExcludingBiogenic": 2.0,
+        "pcfExcludingBiogenic": 2,
         "referencePeriodEnd": "2022-12-31T23:59:59Z",
         "extWBCSD_characterizationFactors": "AR5",
-        "secondaryEmissionFactorSources": [{
-          "secondaryEmissionFactorSource": "ecoinvent 3.8"
-        }],
-        "unitaryProductAmount": 1000.0,
+        "secondaryEmissionFactorSources": [
+          {
+            "secondaryEmissionFactorSource": "ecoinvent 3.8"
+          }
+        ],
+        "unitaryProductAmount": 1000,
         "declaredUnit": "liter",
         "referencePeriodStart": "2022-01-01T00:00:01Z",
         "geographyRegionOrSubregion": "Africa",
         "fossilGhgEmissions": 0.5,
-        "distributionStageAircraftGhgEmissions": 0.0,
+        "distributionStageAircraftGhgEmissions": 0,
         "boundaryProcessesDescription": "Electricity consumption included as an input in the production phase",
         "geographyCountry": "DE",
         "extWBCSD_packagingGhgEmissions": 0,
@@ -1349,66 +1511,67 @@ This is an example of a verifiable credential without a hosted @context:
         "extTFS_distributionStageLuGhgEmissions": 1.1,
         "primaryDataShare": 56.12,
         "dataQualityRating": {
-          "completenessDQR": 2.0,
-          "technologicalDQR": 2.0,
-          "geographicalDQR": 2.0,
-          "temporalDQR": 2.0,
-          "reliabilityDQR": 2.0,
+          "completenessDQR": 2,
+          "technologicalDQR": 2,
+          "geographicalDQR": 2,
+          "temporalDQR": 2,
+          "reliabilityDQR": 2,
           "coveragePercent": 100
         },
         "extWBCSD_packagingEmissionsIncluded": true,
         "extWBCSD_fossilCarbonContent": 0.1,
-        "crossSectoralStandardsUsed": [{
-          "crossSectoralStandard": "ISO Standard 14067"
-        }],
-        "extTFS_distributionStageDlucGhgEmissions": 1.0,
-        "distributionStagePcfIncludingBiogenic": 0.0,
-        "carbonContentBiogenic": 0.0
+        "crossSectoralStandardsUsed": [
+          {
+            "crossSectoralStandard": "ISO Standard 14067"
+          }
+        ],
+        "extTFS_distributionStageDlucGhgEmissions": 1,
+        "distributionStagePcfIncludingBiogenic": 0,
+        "carbonContentBiogenic": 0
       },
       "partialFullPcf": "Cradle-to-gate",
-      "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
+      "productIds": [
+        "http://www.wikipedia.org",
+        "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+      ],
       "validityPeriodStart": "2022-01-01T00:00:01Z",
       "comment": "Additional explanatory information not reflected by other attributes",
-      "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+      "cx:id": "3893bb5d-da16-4dc1-9185-11d97476c254",
       "validityPeriodEnd": "2022-12-31T23:59:59Z",
       "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
       "productDescription": "Ethanol, 95% solution",
-      "precedingPfIds": [{
-        "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
-      }],
-      "productionCost": "$45.50",
-      "profitMargin": "18.2%",
-      "supplierDetails": {
-        "primarySupplier": "Steel Solutions Ltd",
-        "backupSupplier": "Industrial Materials Inc",
-        "contractTerms": "confidential"
-      }
+      "precedingPfIds": [
+        {
+          "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+        }
+      ]
+    }
   },
   "@id": "urn:uuid:certificate-123-456-789",
   "issuer": "did:web:tuv-sud.de",
   "validFrom": "2024-01-15T10:30:00Z",
   "validUntil": "2025-01-15T10:30:00Z",
   "validationMethod": [
-      {
-        "@type": "Standard",
-        "label": "Catena-X PCF Rulebook Standard",
-        "@id": "CX-0029",
-        "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
-        "complianceCriteria": [
-          {
-            "@type": "Standard Compliance",
-            "value": "100%"
-          },
-          {
-            "@type": "Verification Level",
-            "value": "3"
-          },
-          {
-            "@type": "Primary Data Share",
-            "value": "80%"
-          }
-        ]
-     }
+    {
+      "@type": "Standard",
+      "label": "Catena-X PCF Rulebook Standard",
+      "@id": "CX-0029",
+      "uri": "https://catena-x.net/fileadmin/user_upload/Standard-Bibliothek/Update_September23/CX-0029-ProductCarbonFootprintRulebook-v2.0.0.pdf",
+      "complianceCriteria": [
+        {
+          "@type": "Standard Compliance",
+          "value": "100%"
+        },
+        {
+          "@type": "Verification Level",
+          "value": "3"
+        },
+        {
+          "@type": "Primary Data Share",
+          "value": "80%"
+        }
+      ]
+    }
   ],
   "credentialStatus": {
     "id": "https://tuv-sud.de/revocation-list/2024/credentials.json#42",
