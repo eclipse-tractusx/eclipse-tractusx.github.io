@@ -55,7 +55,7 @@ Here’s an example of how a data attestation credential might look as a submode
           },
           {
               "type": "DataElement", 
-              "value": "urn:samm:io.catenax.certificate.dac:1.0.0#DataAttestationCredential"
+              "value": "https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld"
           },
           {
               "type": "Submodel",
@@ -84,7 +84,7 @@ For different submodels, different semantic ID structures are used to identify v
 | Type | Description | Example |
 |------|-------------|---------|
 | `Entity` | Highest abstraction level indicating credential format | `https://www.w3.org/ns/credentials/v2` |
-| `DataElement` | Type of verifiable credential/presentation | `urn:samm:io.catenax.certificate.dac:1.0.0#DataAttestationCertificate` |
+| `DataElement` | Type of verifiable credential/presentation indicated with the uri | `https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld` |
 | `Submodel` | Aspect model type and structure reference | `urn:samm:io.catenax.pcf:7.0.0#Pcf` |  
 | `Operation` | Signature type context for verification | `https://w3c.github.io/vc-jws-2020/contexts/v1/` |
 
