@@ -2284,94 +2284,90 @@ Imagine you have this part of aspect data (verifiable or not):
 
 ```json
 {
-  "credentialSubject": {
-    "Pcf": {
-      "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
-      "companyIds": ["telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt"],
-      "extWBCSD_productCodeCpc": "011-99000",
-      "created": "2022-05-22T21:47:32Z",
-      "companyName": "Acme Manufacturing Corp",
-      "extWBCSD_pfStatus": "Active",
-      "version": 0,
-      "productName": "High-Performance Steel Alloy",
-      "pcf": {
-        "biogenicCarbonEmissionsOtherThanCO2": 1.0,
-        "distributionStagePcfExcludingBiogenic": 1.5,
-        "biogenicCarbonWithdrawal": 0.0,
-        "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1.0,
-        "extWBCSD_allocationRulesDescription": "In accordance with Catena-X PCF Rulebook",
-        "exemptedEmissionsDescription": "No exemption",
-        "distributionStageFossilGhgEmissions": 0.5,
-        "exemptedEmissionsPercent": 0.0,
-        "geographyCountrySubdivision": "US-NY",
-        "extTFS_luGhgEmissions": 0.3,
-        "distributionStageBiogenicCarbonWithdrawal": 0.0,
-        "pcfIncludingBiogenic": 1.0,
-        "aircraftGhgEmissions": 0.0,
-        "productMassPerDeclaredUnit": 0.456,
-        "productOrSectorSpecificRules": [{
-          "extWBCSD_operator": "PEF",
-          "productOrSectorSpecificRules": [{
-            "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
-          }],
-          "extWBCSD_otherOperatorName": "NSF"
-        }],
-        "extTFS_allocationWasteIncineration": "cut-off",
-        "pcfExcludingBiogenic": 2.0,
-        "referencePeriodEnd": "2022-12-31T23:59:59Z",
-        "extWBCSD_characterizationFactors": "AR5",
-        "secondaryEmissionFactorSources": [{
-          "secondaryEmissionFactorSource": "ecoinvent 3.8"
-        }],
-        "unitaryProductAmount": 1000.0,
-        "declaredUnit": "liter",
-        "referencePeriodStart": "2022-01-01T00:00:01Z",
-        "geographyRegionOrSubregion": "Africa",
-        "fossilGhgEmissions": 0.5,
-        "distributionStageAircraftGhgEmissions": 0.0,
-        "boundaryProcessesDescription": "Electricity consumption included as an input in the production phase",
-        "geographyCountry": "DE",
-        "extWBCSD_packagingGhgEmissions": 0,
-        "dlucGhgEmissions": 0.4,
-        "carbonContentTotal": 2.5,
-        "extTFS_distributionStageLuGhgEmissions": 1.1,
-        "primaryDataShare": 56.12,
-        "dataQualityRating": {
-          "completenessDQR": 2.0,
-          "technologicalDQR": 2.0,
-          "geographicalDQR": 2.0,
-          "temporalDQR": 2.0,
-          "reliabilityDQR": 2.0,
-          "coveragePercent": 100
-        },
-        "extWBCSD_packagingEmissionsIncluded": true,
-        "extWBCSD_fossilCarbonContent": 0.1,
-        "crossSectoralStandardsUsed": [{
-          "crossSectoralStandard": "ISO Standard 14067"
-        }],
-        "extTFS_distributionStageDlucGhgEmissions": 1.0,
-        "distributionStagePcfIncludingBiogenic": 0.0,
-        "carbonContentBiogenic": 0.0
-      },
-      "partialFullPcf": "Cradle-to-gate",
-      "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
-      "validityPeriodStart": "2022-01-01T00:00:01Z",
-      "comment": "Additional explanatory information not reflected by other attributes",
-      "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
-      "validityPeriodEnd": "2022-12-31T23:59:59Z",
-      "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
-      "productDescription": "Ethanol, 95% solution",
-      "precedingPfIds": [{
-        "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+  "specVersion": "urn:io.catenax.pcf:datamodel:version:7.0.0",
+  "companyIds": ["telnet://192.0.2.16:80/", "ftp://ftp.is.co.za/rfc/rfc1808.txt", "http://www.ietf.org/rfc/rfc2396.txt"],
+  "extWBCSD_productCodeCpc": "011-99000",
+  "created": "2022-05-22T21:47:32Z",
+  "companyName": "Acme Manufacturing Corp",
+  "extWBCSD_pfStatus": "Active",
+  "version": 0,
+  "productName": "High-Performance Steel Alloy",
+  "pcf": {
+    "biogenicCarbonEmissionsOtherThanCO2": 1.0,
+    "distributionStagePcfExcludingBiogenic": 1.5,
+    "biogenicCarbonWithdrawal": 0.0,
+    "distributionStageBiogenicCarbonEmissionsOtherThanCO2": 1.0,
+    "extWBCSD_allocationRulesDescription": "In accordance with Catena-X PCF Rulebook",
+    "exemptedEmissionsDescription": "No exemption",
+    "distributionStageFossilGhgEmissions": 0.5,
+    "exemptedEmissionsPercent": 0.0,
+    "geographyCountrySubdivision": "US-NY",
+    "extTFS_luGhgEmissions": 0.3,
+    "distributionStageBiogenicCarbonWithdrawal": 0.0,
+    "pcfIncludingBiogenic": 1.0,
+    "aircraftGhgEmissions": 0.0,
+    "productMassPerDeclaredUnit": 0.456,
+    "productOrSectorSpecificRules": [{
+      "extWBCSD_operator": "PEF",
+      "productOrSectorSpecificRules": [{
+        "ruleName": "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
       }],
-      "productionCost": "$45.50",
-      "profitMargin": "18.2%",
-      "supplierDetails": {
-        "primarySupplier": "Steel Solutions Ltd",
-        "backupSupplier": "Industrial Materials Inc",
-        "contractTerms": "confidential"
-      }
-    }
+      "extWBCSD_otherOperatorName": "NSF"
+    }],
+    "extTFS_allocationWasteIncineration": "cut-off",
+    "pcfExcludingBiogenic": 2.0,
+    "referencePeriodEnd": "2022-12-31T23:59:59Z",
+    "extWBCSD_characterizationFactors": "AR5",
+    "secondaryEmissionFactorSources": [{
+      "secondaryEmissionFactorSource": "ecoinvent 3.8"
+    }],
+    "unitaryProductAmount": 1000.0,
+    "declaredUnit": "liter",
+    "referencePeriodStart": "2022-01-01T00:00:01Z",
+    "geographyRegionOrSubregion": "Africa",
+    "fossilGhgEmissions": 0.5,
+    "distributionStageAircraftGhgEmissions": 0.0,
+    "boundaryProcessesDescription": "Electricity consumption included as an input in the production phase",
+    "geographyCountry": "DE",
+    "extWBCSD_packagingGhgEmissions": 0,
+    "dlucGhgEmissions": 0.4,
+    "carbonContentTotal": 2.5,
+    "extTFS_distributionStageLuGhgEmissions": 1.1,
+    "primaryDataShare": 56.12,
+    "dataQualityRating": {
+      "completenessDQR": 2.0,
+      "technologicalDQR": 2.0,
+      "geographicalDQR": 2.0,
+      "temporalDQR": 2.0,
+      "reliabilityDQR": 2.0,
+      "coveragePercent": 100
+    },
+    "extWBCSD_packagingEmissionsIncluded": true,
+    "extWBCSD_fossilCarbonContent": 0.1,
+    "crossSectoralStandardsUsed": [{
+      "crossSectoralStandard": "ISO Standard 14067"
+    }],
+    "extTFS_distributionStageDlucGhgEmissions": 1.0,
+    "distributionStagePcfIncludingBiogenic": 0.0,
+    "carbonContentBiogenic": 0.0
+  },
+  "partialFullPcf": "Cradle-to-gate",
+  "productIds": ["http://www.wikipedia.org", "ftp://ftp.is.co.za/rfc/rfc1808.txt"],
+  "validityPeriodStart": "2022-01-01T00:00:01Z",
+  "comment": "Additional explanatory information not reflected by other attributes",
+  "id": "3893bb5d-da16-4dc1-9185-11d97476c254",
+  "validityPeriodEnd": "2022-12-31T23:59:59Z",
+  "pcfLegalStatement": "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
+  "productDescription": "Ethanol, 95% solution",
+  "precedingPfIds": [{
+    "id": "3893bb5d-da16-4dc1-9185-11d97476c254"
+  }],
+  "productionCost": "$45.50",
+  "profitMargin": "18.2%",
+  "supplierDetails": {
+    "primarySupplier": "Steel Solutions Ltd",
+    "backupSupplier": "Industrial Materials Inc",
+    "contractTerms": "confidential"
   }
 }
 ```
@@ -2424,7 +2420,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
           }
         ],
         "@id": "pcf.pcfExcludingBiogenic",
-        "digestMultibase": "z3k2a8f7b9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+        "digestMultibase": "f5c5b8aa1ba77c2227801df21114d93cfe73ba837a2eb362d00f83e5c6b7f2b2020b40781c01f0bb4bb419ad3ea938fef74b5537b23e08703beb26c702dc4765",
         "revealedValue": 2.0,
         "unit": "kg CO2 equivalent"
       },
@@ -2444,7 +2440,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
           }
         ],
         "@id": "pcf.fossilGhgEmissions",
-        "digestMultibase": "z8b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4",
+        "digestMultibase": "27c51cf88abcd95be67fe9bb738e31bf05c71621b02281fe3a4885ca233965e891dc61d5a857358e0711b7af7a8126464893d2f9ea24d9f4befe6c7d16df7bec",
         "revealedValue": 0.5,
         "unit": "kg CO2 equivalent"
       }
@@ -2452,30 +2448,30 @@ It would be possible by revealing the values which you want to reveal, and hide 
     "hiddenAttributes": [
       {
         "@id": "companyName",
-        "digestMultibase": "z9f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9",
+        "digestMultibase": "9f1a4c94b1ce79bb70e1ea6867f4b895e01758a9498ce8bb71fd5cf7569f8f833e29fe5c7b1213b4f7fca51415a688e1db5ae58a59c312c47fd3e683cbb4be2b",
         "status": "hidden"
       },
       {
         "@id": "pcf.primaryDataShare",
-        "digestMultibase": "z5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1",
+        "digestMultibase": "6ff7397cd9e105cda615360d97db060e4cf3c829f7792ad5e1f30f71e251970a8289c89f6ff74bcb62afdab6c7bbe0d4438a1db0bda0b4ed60d4b545db06cae8",
         "status": "hidden"
       },
       {
         "@id": "pcf.dataQualityRating",
-        "digestMultibase": "z1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
+        "digestMultibase": "0a76ab17db12b3d232974dba522eaf6779d15355123e2839bb14ee3e34481af454597be60c0a97c5e160a2209b68491d9700646480486b27c6191ea000a00b93",
         "status": "hidden"
       },
       {
         "@id": "companyIds",
-        "digestMultibase": "z7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3",
+        "digestMultibase": "5bc7c41b812f5be4654ef58955fed38c8e1a9a123cec3c147a5021e2939daff15e722f26e010925874df200e8695da71eb858eb00e94a4aa48f17b2370a5a639",
         "status": "hidden"
       }
     ]
   },
   "origin": {
-    "digestMultibase": "zQmX8K2a7B9c1D2e3F4a5B6c7D8e9F0a1B2c3D4e5F6a7B8c9D0e1F2a3B4c5D6e7F8a9B0c1D2e3F4a5B6c7D8e9F0",
+    "digestMultibase": "b3c64af95beb8d25de74d5f34bbc8a07ea0738f92d0c52fec4bbbe0676e39b5715c432cdc3fa9a64a812b4fb941b1c08ab2a20e36daaa066578a460e39b71256",
     "semanticId": "urn:samm:io.catenax.pcf:7.0.0#Pcf",
-    "@id": "did:web:acme-manufacturing.com:BPNL000000000123:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
+    "@id": "did:web:acme-manufacturing.com:api:public:urn%3Auuid%3A12345678-1234-5678-9abc-123456789012",
     "@type": "application/vc+ld+json"
   },
   "credentialStatus": {
@@ -2515,7 +2511,7 @@ It would be possible by revealing the values which you want to reveal, and hide 
 |-----------|-------------------|
 | `companyName` | Business identity protection |
 | `pcf.primaryDataShare` | Data quality metrics that could reveal business processes |
-| `pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive |
+| `pcf.dataQualityRating` | Internal quality assessments that could be competitively sensitive|
 | `companyIds` | Business identifiers that could enable correlation attacks |
 
 ## Discovery & Retrieval
@@ -2526,7 +2522,7 @@ This Verifiable Credentials can be connected to a Digital Twin, in the same way 
 
 In this way the verified data can also be discovered and managed together with its part.
 
-It follows the specifications from the existing [Digital Twin](../../digital-twin-kit/adoption-view.md) + some extra specification to reference that the data format which is retrieved is not a plain submodel, but a verifiable credential.
+It follows the specifications from the existing [Digital Twin KIT](../../digital-twin-kit/adoption-view.md) + some extra specification to reference that the data format which is retrieved is not a plain submodel, but a verifiable credential.
 
 More information is added in the [digital twins](digital-twins.md) section of this KIT.
 
