@@ -49,7 +49,7 @@ There are several demonstrators and services that provide different building blo
 - SFW Search Engine - performs the matchmaking process between the manufacturer and the buyer, based on the information provided by these manufacturers
 - Process Derivation Service - to derive required manufacturing processes
 - STEP File splitting service - to split assembly products in single part components
-- MaaS Portal - GUI appplication for demand configuration and supplier selection
+- MaaS Portal - GUI application for demand configuration and supplier selection
 - Digital Service Instant Quoting - enables automated price calculation for production requests
 
 ## UseCase / Domain explanation

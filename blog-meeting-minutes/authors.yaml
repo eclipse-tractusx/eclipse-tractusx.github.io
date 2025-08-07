@@ -45,7 +45,7 @@ stephan_bauer:
 
 matbmoser:
   name: Mathias Brunkow Moser
-  title: DPP Architect, Eclipse Committer
+  title: Eclipse Tractus-X Project Lead
   url: https://github.com/matbmoser
   image_url: https://github.com/matbmoser.png
 
@@ -124,3 +124,9 @@ phil91:
   title: Software Architect, Eclipse Committer
   url: https://github.com/Phil91
   image_url: https://github.com/Phil91.png
+
+carlos_rodriguez:
+  name: Carlos Diez Rodriguez
+  title: Dataspace Architect, Eclipse Committer
+  url: https://github.com/CDiezRodriguez
+  image_url: https://github.com/CDiezRodriguez.png
