@@ -73,7 +73,7 @@ It would be sensible to split the business logic into the following components:
 
 ### Data tier or data storage
 
-Since all business relevant data within DCM is exchanges as serialized JSONs one of the main concerns should be  how to store and process JSON data efficiently and audit proof.
+Since all business relevant data within DCM is exchanges as serialized JSONs one of the main concerns should be how to store and process JSON data efficiently and audit proof.
 Storing the actually exchanged JSONs and only reading them session-based on the fly makes audit proof storage easier.
 
 As a rule of thumb:
@@ -82,21 +82,21 @@ As a rule of thumb:
   - Applying load factors, delta-production etc. to a demand series must not change the corresponding `WeekBasedMaterialDemand`
 - Other data can be stored in order to provide functionality to the user, manage roles and rights, etc.
 
-| #  | Data to store                              | Storage requirement | Remark                                                                                                                                                                                           |
-| -- | --                                         | --                  | --                                                                                                                                                                                               |
-| 1  | Serialized `WeekBasedMaterialDemand`       | Mandatory           | Both provided and consumed data must be stored, in the most recent version                                                                                                                       |
-| 2  | Serialized `WeekBasedCapacityGroup`        | Mandatory           | Both provided and consumed data must be stored , in the most recent version                                                                                                                      |
-| 3  | Serialized `IdBasedComment`                | Mandatory           | Please note that a `RequestDeletion` functionality exists and must be adhered to, superseding the storage requirement.                                                                           |
-| 4  | Serialized `IdBasedRequestForUpdate`       | Optional            | It can make sense to store RfU for debugging or even auditing purposes. But since it does not contain any data with business relevance there is no hard storage requirement.                     |
-| 6  | Serialized `DemandAndCapacityNotification` | Mandatory           | After a disruption has been resolved, the deleted notifications can be safely deleted, superseding the storage requirement.                                                                      |
-|    |                                            |                     |                                                                                                                                                                                                  |
-| 7  | Non shared MaterialDemand                  | Optional            | If you want to give users the option to manually make changes to certain data it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
-| 8  | Non shared CapacityGroup                   | Optional            | If you want to give users the option to manually make changes to certain data it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
-| 9  | Non shared Comment                         | Optional            | If you want to give users the option to manually make changes to certain data it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
-|    |                                            |                     |                                                                                                                                                                                                  |
-| 9  | User settings                              | Recommended         | Customizable UI settings, Favorites, User Roles, Company the User belongs to, ...                                                                                                                |
-| 10 | Company settings                           | Recommended         | Connector-Address, BPNL, Assets, Policies, Contract Definitions ...                                                                                                                              |
-| 11 | Application settings                       | Recommended         |                                                                                                                                                                                                  |
+| #  | Data to store                              | Storage requirement | Remark                                                                                                                                                                                            |
+| -- | --                                         | --                  | --                                                                                                                                                                                                |
+| 1  | Serialized `WeekBasedMaterialDemand`       | Mandatory           | Both provided and consumed data must be stored, in the most recent version                                                                                                                        |
+| 2  | Serialized `WeekBasedCapacityGroup`        | Mandatory           | Both provided and consumed data must be stored, in the most recent version                                                                                                                       |
+| 3  | Serialized `IdBasedComment`                | Mandatory           | Please note that a `RequestDeletion` functionality exists and must be adhered to, superseding the storage requirement.                                                                            |
+| 4  | Serialized `IdBasedRequestForUpdate`       | Optional            | It can make sense to store RfU for debugging or even auditing purposes. But since it does not contain any data with business relevance there is no hard storage requirement.                      |
+| 6  | Serialized `DemandAndCapacityNotification` | Mandatory           | After a disruption has been resolved, the deleted notifications can be safely deleted, superseding the storage requirement.                                                                       |
+|    |                                            |                     |                                                                                                                                                                                                   |
+| 7  | Non shared MaterialDemand                  | Optional            | If you want to give users the option to manually make changes to certain data, it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
+| 8  | Non shared CapacityGroup                   | Optional            | If you want to give users the option to manually make changes to certain data, it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
+| 9  | Non shared Comment                         | Optional            | If you want to give users the option to manually make changes to certain data, it is good practice to let them save their `work in progress` without having to share the serialized aspect model. |
+|    |                                            |                     |                                                                                                                                                                                                   |
+| 9  | User settings                              | Recommended         | Customizable UI settings, Favorites, User Roles, Company the user belongs to, ...                                                                                                                 |
+| 10 | Company settings                           | Recommended         | Connector-Address, BPNL, Assets, Policies, Contract Definitions ...                                                                                                                               |
+| 11 | Application settings                       | Recommended         |                                                                                                                                                                                                   |
 
 ## Notice
 
