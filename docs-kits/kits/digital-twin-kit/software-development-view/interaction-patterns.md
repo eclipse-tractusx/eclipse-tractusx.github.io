@@ -1,7 +1,7 @@
 ---
 id: interaction-patterns
 title: Interaction Patterns
-description: 'Digital Twin KIT - Interaction Patterns'
+description: Digital Twin KIT - Interaction Patterns
 sidebar_position: 2
 ---
 
@@ -31,23 +31,23 @@ autonumber
 
 This happens usually when onboarding a company to the network.
 
-> Note: While this Kit explicitly uses the APIs of the EDC (Eclipse Dataspace Connector), provisioning data with
+> Note: While this KIT explicitly uses the APIs of the EDC (Eclipse Dataspace Connector), provisioning data with
 > any other implementation of
 > the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/overview/readme)
 (DSP) is also permitted. The flows to integrate DTRs and Submodel endpoints will differ with each implementation.
 
 ### 1. Fetching a supplier's Twin
 
-| Scenario                                                                    | Participants                                           | Assumptions                                                                 | Links to Use-Cases                                                                                                                                                     |
-|-----------------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - [Industry Core](../../industry-core-kit/software-development-view/digital-twins.mdx) <br/> - [Product Carbon Footprint Kit](../../product-carbon-footprint-exchange-kit/adoption-view) |
+| Scenario                                                                    | Participants                                           | Assumptions                                                                 | Links to Use-Cases                                                                                                                                                                       |
+|-----------------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The supplier has data required by the OEM. For instance a Product Passport. | - Data Provider (Supplier) <br/> - Data Consumer (OEM) | 1. Consumer knows Supplier's BPN <br/> 2. Consumer knows an id of the asset | - [Industry Core](../../industry-core-kit/software-development-view/digital-twins.mdx) <br/> - [Product Carbon Footprint KIT](../../product-carbon-footprint-exchange-kit/adoption-view) |
 
 The most common integration pattern with Digital Twins aims to offer asset-related data in expectable ways along the
 supply chain. It defines conventions that allow locating data in the network. This most basic scenario assumes that the
 supplier offers data about an asset that was sold to an OEM further up the chain. Supplier and OEM have agreed on
 contractual terms on which to share data about said asset. Possible examples may include Bills of Material, carbon
 footprints, technical specifications or regulatory documents. An OEM - or really any interested and privileged third
-party - can assume that a part's supplier offers a Digital Twin if the data-exchange is based on the Digital Twin Kit
+party - can assume that a part's supplier offers a Digital Twin if the data-exchange is based on the Digital Twin KIT
 (and by proxy CX-0002). The data provider deploys at least:
 
 - Digital Twin Registry (DTR)
@@ -169,7 +169,7 @@ sequenceDiagram
 autonumber
     critical: Extended registration
         Act ->> DFin: POST /api/administration/connectors/discovery with IdType-to-BPN-Discover-URL-Mapping
-        Act ->> BPND: POST /api/administration/connectors/bpnDiscovery with assetId, idType ("van", "cxId" etcetc)
+        Act ->> BPND: POST /api/administration/connectors/bpnDiscovery with assetId, idType ("van", "cxId", etc.)
     end
 ```
 

@@ -28,8 +28,6 @@ title: Deployment
 
 ![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
 
-## Agents KIT
-
 **Operating federated queries over the whole data space.**
 
 * Our [Adoption](../adoption-view/intro) guideline

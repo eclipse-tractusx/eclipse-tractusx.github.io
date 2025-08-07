@@ -1,20 +1,18 @@
 ---
 id: operation-view
 title: Operation View
-description: 'Business Partner Kit'
+description: Business Partner KIT
 sidebar_position: 3
 ---
 
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
-
-### Business Partner KIT
 
 ## Local Deployment
 
 BPDM is an acronym for business partner data management. This project provides core services for querying, adding and changing business partner base information in the Eclipse Tractus-X landscape. BPDM project is SpringBoot Kotlin software project managed by Maven and consists of three microservices. This section contains information on how to configure and run the BPDM application.
 
 This local deployment is an easy installation with helm charts. This setup is built to run on a kubernetes cluster.
-Installation of BPDM applications with the Helm Charts has the most software requirements but is the qickest way to set up a running system. If you want to do local deployment without helm chart then you can refer [installation steps](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#local-installation) from [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file on bpdm repository. Which will guide you about prerequisites, default installation steps and also guide you for quick installation steps in which security is not necessary by using the provided `no-auth` profile when running the BPDM applications.
+Installation of BPDM applications with the Helm Charts has the most software requirements but is the quickest way to set up a running system. If you want to do local deployment without helm chart then you can refer [installation steps](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#local-installation) from [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file on bpdm repository. Which will guide you about prerequisites, default installation steps and also guide you for quick installation steps in which security is not necessary by using the provided `no-auth` profile when running the BPDM applications.
 
 | Step                                                                             | Action                              | Description                                                             |
 |----------------------------------------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
@@ -26,11 +24,11 @@ Installation of BPDM applications with the Helm Charts has the most software req
 
 1. [Docker](https://docs.docker.com/get-docker/) is installed and the Docker deamon is running with at least 8GB of memory
 2. [helm](https://helm.sh/docs/intro/install/) is installed
-3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.  
+3. [Minikube](https://minikube.sigs.k8s.io/docs/start/) is installed and running.
    You can also use any other local Kubernetes cluster, this guide is just using Minikube as a reference.
 
    ```bash
-   minikube start --memory 8192 --cpus 2 
+   minikube start --memory 8192 --cpus 2
    ```
 
    _Optional_: enable minikube metrics
@@ -63,7 +61,7 @@ If postgresql is not available in your cluster then you might get following erro
 Error: INSTALLATION FAILED: An error occurred while checking for chart dependencies. You may need to run `helm dependency build` to fetch missing dependencies: found in Chart.yaml, but missing in charts/ directory: opensearch, postgresql
 ```
 
-You can resolve it by adding dependancy to the build
+You can resolve it by adding dependency to the build
 
 ```bash
 helm dependency build ./charts/bpdm/
@@ -87,7 +85,7 @@ Also in total 6 Pods are up and running.
 The minikube dashboard will give you feedback on how the status of the deployment currently is:
 
 ```bash
-  minikube dashboard 
+  minikube dashboard
 ```
 
 Make sure you select the namespace **your_namespace**
@@ -100,7 +98,7 @@ When the deployment has been finished, you can for port forwarding using k9s. Al
 <shift+f>
 ```
 
-or port forwarding can also be achived kubernetes command
+or port forwarding can also be achieved kubernetes command
 
 ```bash
 kubectl port-forward <pod-name> <locahost-port>:<pod-port>
@@ -146,11 +144,11 @@ helm install your_namespace \
     --set-value bpdm-gate.profiles=["no-auth"] \
     --set-value bpdm-orchestrator.profiles=["no-auth"] \
     --set-value bpdm-pool.profiles=["no-auth"] \
-    --set-value bpdm-cleaning-service-dummy.profiles=["no-auth"] 
+    --set-value bpdm-cleaning-service-dummy.profiles=["no-auth"]
  ./charts/bpdm
 ```
 
-You can also more fine-granulary remove authentication on APIs and BPDM client connections.
+You can also more fine-granularly remove authentication on APIs and BPDM client connections.
 You can refer to the no-auth profile configurations (for example that of the [BPDM Gate(without authentication)](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-gate/src/main/resources/application-no-auth.yml)) as a documentation.
 
 ### Use External Dependencies
@@ -182,7 +180,7 @@ helm install your_namespace \
 
 ### Fine-granular Configuration
 
-You can configure all BPDM applications over Helm values more fine-granulary via the `applicationConfig` and `applicationSecrets`.
+You can configure all BPDM applications over Helm values more fine-granularly via the `applicationConfig` and `applicationSecrets`.
 Values under these groups are directly injected as application properties in the deployed containers.
 
 As a reference of what can be changed have a look at the respective application properties files of each application:

@@ -184,7 +184,7 @@ cx-behaviour:classification rdf:type cx-fx:Argument ;
   cx-fx:default "RemainingUsefulLifePredictor" .
 
 cx-behaviour:component rdf:type cx-fx:Argument ;
-  dcterms:description "Component of the Predicition."@en ;
+  dcterms:description "Component of the Prediction."@en ;
   dcterms:title "Predicted Component" ;
   cx-fx:formsBatchGroup "true"^^xsd:boolean ;
   cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId" .

@@ -1,7 +1,7 @@
 ---
 id: use-cases
 title: Use Cases
-description: ''
+description: Business Partner KIT
 sidebar_position: 5
 ---
 
@@ -91,11 +91,11 @@ cd bpdm-system-tester
 mvn spring-boot:run
 ```
 
-This will execute all the test scenarios parallelly and will be finished in 3-4 minutes of time.
+This will execute all the test scenarios in parallel and will finish within three to four minutes.
 
 ## 2 - Request Business Partner Changelogs
 
-Similarly based on use case 1, if you have executed automated end to end test successfully on your local machine then you can easily search for intput and output changelogs of involved business partners during tests.
+Similarly based on use case 1, if you have executed automated end to end test successfully on your local machine then you can easily search for input and output changelogs of involved business partners during tests.
 
 example, you can have below request from BPDM-GATE service after execution of automated tests
 
@@ -165,7 +165,7 @@ curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3'
 --data '{
   "timestampAfter": "2023-03-20T10:23:28.194Z",
   "externalIds": [
-    
+
   ]
 }'
 ```

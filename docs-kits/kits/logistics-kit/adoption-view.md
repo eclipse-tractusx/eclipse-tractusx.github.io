@@ -1,13 +1,13 @@
 ---
 id: adoption-view
-title:  Logistics Kit Adoption View
-description: "Logistics Kit"
+title:  Adoption View
+description: Logistics KIT
 sidebar_position: 2
 ---
 
 ![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.svg)
 
-Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](../customs-kit/adoption-view-customs.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
+Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](../customs-kit/adoption-view.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
 
 ## Vision & Mission
 
@@ -41,7 +41,7 @@ Using the CX logistic standard, a fully connected network can be achieved in the
 
 ### Todays Challenge
 
-The challenge today is that data exchange with logistic service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. Different committes made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
+The challenge today is that data exchange with logistic service provider varies greatly. Some are not connected at all, while others send their information about transports through many different interfaces. Additionally, there are various customer requirements on data sharing. Different committees made an attempt to standardize data exchange. Unfortunately, the standards are partly outdated, or they have been reinterpreted and individually adapted by companies, resulting in additional requirements to logistics service providers.
 
 ## Digital Twins
 

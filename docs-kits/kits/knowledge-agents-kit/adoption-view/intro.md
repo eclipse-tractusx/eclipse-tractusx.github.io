@@ -29,8 +29,6 @@ title: Adoption View
 
 ![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
-## Agents KIT
-
 **Federated queries over the whole data space.**
 
 ## Vision & Mission
@@ -114,9 +112,9 @@ Using these approaches will give you a competitive advantage which is even indep
 
 #### Is this a replacement to the existing Aspect Meta Model (BAMM/SAMM) & Asset Administration Shell (AAS) approach?
 
-Agent technology is a complement that means that both approaches can be deployed in co-existance.
+Agent technology is a complement that means that both approaches can be deployed in co-existence.
 
-There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which enfavour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM/SAMM & AAS approach.
+There will be some use cases (large interconnected datasets, ad-hoc querying, inference of derived knowledge) which favour the knowledge agents approach, others (simple access to already identified remote twins) will more adequately stay with the BAMM/SAMM & AAS approach.
 
 For the data providers, it will be easy to mount their artifacts (files, data source partitions, backend interfaces) under both types of assets (submodels, graphs). We provide [bridging technology](../software-development-view/modules#aas-bridges) for that purpose.
 

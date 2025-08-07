@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'PCF-Exchange-KIT'
+description: PCF Exchange KIT
 sidebar_position: 2
 ---
 
@@ -379,7 +379,7 @@ The entire PCF data model is available as open source through the following link
 
 The PCF Exchange KIT can be used to exchange PCF data within the Catena-X ecosystem in a decentralized and interoperable manner, while maintaining a high level of data sovereignty. To achieve this, the PCF Exchange KIT leverages other KITs (particularly the platform-related ones), standardized data models, and an Identity and Access Management (IAM) system based on OAuth and Self-Sovereign Identity (SSI) technology.
 
-In order to ensure **interoperability**, as described in the section on [Semantic Models](#semantic-models), a standardized data model is essential. However, it's not only the data model but also the standardized interfaces (both the PCF Exchange API and the standardized API provided by the Connector Kit) that contribute to interoperability.
+In order to ensure **interoperability**, as described in the section on [Semantic Models](#semantic-models), a standardized data model is essential. However, it's not only the data model but also the standardized interfaces (both the PCF Exchange API and the standardized API provided by the Connector KIT) that contribute to interoperability.
 
 To enable **data sovereignty**, Catena-X relies on **Self-Sovereign-Identity** (SSI). This allows data providers to precisely specify the conditions that must be met before requested data is transmitted. In the context of the PCF KIT, the "PCF Credential" and "Membership Credential" are mandatory. The PCF Credential references the [PCF Framework Agreement](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) signed by a data consumer. The Membership Credential additionally ensures that the requester is an active member of Catena-X.
 

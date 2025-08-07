@@ -1,7 +1,7 @@
 ---
 id: architecture-view
 title: Architecture View
-description: 'Traceability Kit'
+description: Traceability KIT
 sidebar_position: 2
 ---
 
@@ -23,13 +23,13 @@ Additionally you might make yourself familiar with
 
 ## Scope and Context
 
-This KIT describes two core capabilties of Traceability:
+This KIT describes two core capabilities of Traceability:
 - Data Provisioning: This capability focusses on how data providers must prepare and publish their data (from their internal systems) to participate in the Traceability use case (and other use cases that want to use Traceability data).
 - Traceability App: This capability defines what mandatory features a Traceability app must provide and how to implement them to be interoperable with other Traceability apps. Additionally, optional features of Traceability apps are also included. This information is used by software vendors to develop Traceability-compliant apps for Catena-X.
 
 ## Building Block View
 
-This overview shows the two core capabilities of Traceabilty and the Catena-X Core Services onto which Traceability is built and which are required by the Traceability architecture.
+This overview shows the two core capabilities of Traceability and the Catena-X Core Services onto which Traceability is built and which are required by the Traceability architecture.
 
 ![Architecture - Level 1](./assets/architecture_level_1.svg)
 
@@ -37,7 +37,7 @@ This overview shows the two core capabilities of Traceabilty and the Catena-X Co
 
 | Subsystem         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data Provisioning | This component extracts data from a company's internal systems,  transforms it into digital twins, and publishes these digital twins in the DTR and their data in the EDC (as submodels, based on aspect models). The published data is used by Traceability apps as well as other use cases that require Traceabiilty data. |
+| Data Provisioning | This component extracts data from a company's internal systems,  transforms it into digital twins, and publishes these digital twins in the DTR and their data in the EDC (as submodels, based on aspect models). The published data is used by Traceability apps as well as other use cases that require Traceability data. |
 | Traceability App  | A Traceability app has three core functionalities:<ul><li>providing an UI to show the parts manufactured by a company and published as digital twins</li><li>create and process quality alerts and quality investigations for quality actions</li><li>create and transfer block information in real time to separate or quarantine faulty parts in the supply chain to prevent them from being used in the production process (currently optional app feature)</li></ul>|
 | Internal Systems  | These are existing internal systems of a Catena-X partner which provides data to Traceability components, e.g.,<ul><li>for data provisioning: The data provided to Catena-X is fetched from a partner's internal PLM and parts master data systems.</li><li>for Traceability apps: A Traceability app may show more data to a user than just the data that is provided to Catena-X. Generally, the business scope of COTS software is bigger than just Traceability and they have existing interfaces to fetch all data they need for their business functionality (and not only Traceability data).</li></ul>Both components can also send data back to internal systems. That's at the discretion of the Catena-X partner and neither required nor prohibited by the Traceability use case. |
 
@@ -45,7 +45,7 @@ This overview shows the two core capabilities of Traceabilty and the Catena-X Co
 
 | Subsystem                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |:-----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Digital Twin Registry (DTR)](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) | The Digital Twin Registry acts as an address book for digital twins. Data Providers register their digital twins in their own DTR. Data consumers query a DTR to find digital twins and interact with them further, i.e., fetch data for a digtil twin. |
+| [Digital Twin Registry (DTR)](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit) | The Digital Twin Registry acts as an address book for digital twins. Data Providers register their digital twins in their own DTR. Data consumers query a DTR to find digital twins and interact with them further, i.e., fetch data for a digital twin. |
 | [Item Relationship Service (IRS)](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/)    | The IRS builds a digital representation of a product (digital twin) and the relationships of items the product consists of in a hierarchical structure. The result is an item graph in which each node represents a digital item of the product - this graph is called "Item Graph".|
 | [Eclipse Dataspace Components (EDC)](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) | The EDC as a connector implements a framework agreement for sovereign, cross-organizational data sharing. The International Data Spaces Standard (IDS) and relevant principles in connection with GAIA-X were implemented. The connector is designed to be extensible to support alternative protocols and to be integrated into different ecosystems.|
 | [Discovery Service](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view#discovery-sequence)| The EDC / dataspace discovery interface is a CX network public available endpoint which can get used to retrieve EDC endpoints and the related BPNs, as well as search for endpoints via the BPN.    |
@@ -62,7 +62,7 @@ The following diagram shows a basic data processing flow how a company's interna
 
 ### Digital Twins and Aspect Models
 
-Data provisioning of Traceabilty is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/architecture-view), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
+Data provisioning of Traceability is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/architecture-view), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
 
 - Digital Twin "PartType"
   - N/A
@@ -205,7 +205,7 @@ Below, the UML sequence diagram to send and receive a block information is depic
 Below, the UML sequence diagram to update a block information is depicted.
 > :raised_hand: The process for sending update notifications regarding an ongoing blocking process must be carried out in the same way as sending block information for the first time. The differences are limited to the following changes:
 > - Another data asset “BlockNotificationStatusUpdate” is used for the update
-> - The data model of the notification is limited to the ID and block status of a part and therefore does not include full block informations
+> - The data model of the notification is limited to the ID and block status of a part and therefore does not include full block information
 > - Both 'CANCELED' and 'PART_BLOCKED' can be set for the status depending on which case applies to the notification
 
 ![BlockNotificationUpdateStatus](./diagrams/block-notification-update-status.svg)

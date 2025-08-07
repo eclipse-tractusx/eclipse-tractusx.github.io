@@ -1,7 +1,7 @@
 ---
 id: country-risk
 title: Country Risk Score
-description: 'Country Risk Score'
+description: Country Risk Score
 sidebar_position: 1
 ---
 
@@ -11,7 +11,7 @@ Therefore, as part of the "Know Your Business Partner"-approach, the Country Ris
 
 ![Country Risk Service](@site/static/img/country-risk-dashboard-min.png)
 
-The service offers a score per country based on several, customizable ratings. This score indicates how the respective situation in the selected country is. Currently integrated sources are e.g. the Corruption Perception Index (CPI) giving the user an indication how corrupt the respective country is, as well as the Basel AML Index which provides the user with the information about money laundring and terrorism financing in the country. As an outlook there are a lot more publicly available as well as chargeable ratings to be implemented. As well as the granularity which can be increased for the future to take into account that large countries could have better or worse regions (e.g. China, USA, Russia).
+The service offers a score per country based on several, customizable ratings. This score indicates how the respective situation in the selected country is. Currently integrated sources are e.g. the Corruption Perception Index (CPI) giving the user an indication how corrupt the respective country is, as well as the Basel AML Index which provides the user with the information about money laundering and terrorism financing in the country. As an outlook there are a lot more publicly available as well as chargeable ratings to be implemented. As well as the granularity which can be increased for the future to take into account that large countries could have better or worse regions (e.g. China, USA, Russia).
 
 Prerequisite to use this product: The consumer has to be sharing member as a company is only allowed to view the business partners they have uploaded initially.
 

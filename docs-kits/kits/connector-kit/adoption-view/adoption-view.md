@@ -1,15 +1,13 @@
 ---
 sidebar_position: 1
 title: Adoption View
-description: Adoption View
+description: Connector KIT
 id: adoption-view
 ---
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
-## Connector KIT
-
-The Connector Kit provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign,
+The Connector KIT provides a connector framework, based on the [Eclipse Dataspace Connector][edc-url] for sovereign,
 cross-enterprise data exchange.
 
 ## Vision & Mission
@@ -24,7 +22,7 @@ fearing that their data will be misused while unlocking significant values for e
 ### Mission
 
 Collaboration needs trust. Within Catena-X trust is built on an open-source architecture and components designed to
-support full sovereignity.
+support full sovereignty.
 The Connector KIT provides the single directory of information and technology to perform trustful data exchange within
 Catena-X. The Connector KIT bundles the interaction patterns, relevant standards, APIs, and reference implementations
 for developers.
@@ -135,7 +133,7 @@ in the tractusx-edc repository for more a reference on usage of the API.
 
 #### Extensions
 
-There are different extenions for the Connector, e.g. for the Data Plane. This enables various transfer modes like
+There are different extensions for the Connector, e.g. for the Data Plane. This enables various transfer modes like
 httpData or via blob-storage.
 
 #### Data Plane
@@ -213,7 +211,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [miw-url]: https://github.com/eclipse-tractusx/managed-identity-wallet
 
-[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/business-view
+[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/adoption-view
 
 [sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Circularity_KIT/page-adoption-view
 

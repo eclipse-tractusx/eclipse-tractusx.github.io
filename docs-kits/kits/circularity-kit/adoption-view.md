@@ -4,8 +4,6 @@ title: Adoption View
 
 ![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.svg)
 
-## Circularity KIT
-
 ### Vision & Mission
 
 #### Introduction
@@ -139,7 +137,7 @@ Future additions include data models for the following topics:
 
 - Decommissioning Certificate
 - Material for Recycling
-- Adress Aspects
+- Address Aspects
 - ID Conversion
 - Certificate of Dismantler
 - Diagnostic Data
@@ -404,7 +402,7 @@ This user journey illustrates the data exchange process through Catena-X in the 
 
 ![User Journey - SMC](resources/adoption-view/userJourney_smc.svg)
 
-The user journey follows the same process during all four lifecycle stages and differ in data quality as stated below. Further information to the lifecycle stages can be found in the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/business-view/).
+The user journey follows the same process during all four lifecycle stages and differ in data quality as stated below. Further information to the lifecycle stages can be found in the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view/).
 
 | Lifecycle Stage | Explanation                                                                                       | Example                                                                                                                                                                           |
 | --------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -445,7 +443,7 @@ There are different timestamps to which data for SMC is relevant.
 
 To ensure the accuracy of the data and account for varying availability and quality of the information, it is important to identify at which step of the process data is exchanged. The process is divided into four steps, which are explained below.
 
-| **Timestamp** <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/business-view/) | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed   | Data Models that need to be filled                                                    |
+| **Timestamp** <br /> Linked to [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view/) | **Explanation**                                                                                                                                                                                                                                           | Concept in Catena-X developed   | Data Models that need to be filled                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
 | a. Supplier Inquiry/As Designed                                                                                                                               | This is the initial phase of the process where the supplier is inquired about the design of the product. The data exchanged in this phase is an initial estimation of secondary material content.                                                         | Concept currently not developed | N/A                                                                                   |
 | b. Supplier Selection/ As Planend                                                                                                                             | In this phase, the supplier is selected, and the data exchanged is based on the planned production and concretized to the previous phase.                                                                                                                 | Concept developed               | 1. Part as Planned (Component) <br /> 2. SMC                                          |

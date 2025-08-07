@@ -1,12 +1,10 @@
 ---
 id: software-development-view
 title: Specification
-description: 'OSim Kit'
+description: OSim KIT
 ---
 
 ![osim kit banner](@site/static/img/OSimKitIcon.svg)
-
-### OSim Kit
 
 ## Sample Data
 

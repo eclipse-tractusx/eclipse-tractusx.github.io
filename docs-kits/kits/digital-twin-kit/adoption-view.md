@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Digital Twin Kit'
+description: Digital Twin Kit
 sidebar_position: 2
 ---
 
@@ -10,8 +10,6 @@ Adoption View of the Kit.
 -->
 
 ![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
-
-### Digital Twin KIT
 
 <!-- !Mandatory! -->
 ## Vision & Mission
@@ -33,7 +31,7 @@ The Digital Twin Kit bundles the necessary standards, APIs, interaction patterns
 to build a Digital Twin for an asset. By adopting established standards and integrating them, the Digital Twin Kit leverages
 the conceptual and implementation work of existing communities while contributing feedback and Open-Source-Contributions
 back to the public. A priority is the seamless integration with other Catena-X developments such as the
-[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit).
+[Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit).
 
 ### Customer Journey
 
@@ -45,7 +43,7 @@ are given the necessary tooling to format their data and APIs in a standardized 
 
 Point-to-Point integration between Business Partners is challenging. On the one hand, all questions of sovereignty,
 authorization, authentication must be agreed upon and implemented. In the Catena-X network, that is covered by the
-[Connector Kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the services it relies on.
+[Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and the services it relies on.
 
 What this Kit adds is a set of technologies to reduce the integration efforts on the data level. Data Consumers can
 develop their applications against data formats and interfaces that are standardized encouraging client-side reuse.
@@ -74,7 +72,7 @@ in existing enterprise IT and on other hand with the Dataspace.
 
 The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#logic--schema)
 and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-chain-kit/Documentation/irs_arc42)
-build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimagineable without the
+build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimaginable without the
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
 For more information how specifically the Asset Administration Shell is used, consult the Kits.
