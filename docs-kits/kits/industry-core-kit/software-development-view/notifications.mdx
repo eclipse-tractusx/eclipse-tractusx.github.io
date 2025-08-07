@@ -1,7 +1,7 @@
 ---
 id: notifications
 title: Notifications
-description: "Industry Core KIT"
+description: Industry Core KIT
 sidebar_position: 3
 ---
 
@@ -50,8 +50,8 @@ Notifications must be compliant to the following JSON data format:
     - `<subdomain>` should be the name of the notification API, e.g., `DigitalTwinEventAPI`.
     - `<object>` should be the name of the operation for which the notification is used, e.g., `ConnectToParent`.
     - Versioning only refers to major versions in both default and fallback cases.
-    - This is recommended as it allows the notification receiver to freely choose what technology to use for the backend service. If this information is not encoded into the notifcation's `context` propoerty, a backend service like a message-queue technology will not know which notification operation was invoked by the sender as the endpoint information is not available in this case (compared to a REST API backend service).
- - Content and structure of the property `content` are not stanardized and must be defined by the use case defining the notifications API. A schema for this property must be defined as part of the OpenAPI specification of the notification API of the use case.
+    - This is recommended as it allows the notification receiver to freely choose what technology to use for the backend service. If this information is not encoded into the notification's `context` property, a backend service like a message-queue technology will not know which notification operation was invoked by the sender as the endpoint information is not available in this case (compared to a REST API backend service).
+ - Content and structure of the property `content` are not standardized and must be defined by the use case defining the notifications API. A schema for this property must be defined as part of the OpenAPI specification of the notification API of the use case.
 
 ### Aspect Model "MessageHeaderAspect"
 
@@ -80,7 +80,7 @@ Aspect model in GitHub:
 
 ### Notification API
 
-The notification API of a use case must be defined with an OpenAPI specification. In this specification, all artefacts of the API are defined, e.g., name of the API, operation names, and notification data formats.
+The notification API of a use case must be defined with an OpenAPI specification. In this specification, all artifacts of the API are defined, e.g., name of the API, operation names, and notification data formats.
 
 #### Preconditions and Dependencies
 
@@ -139,7 +139,7 @@ For a notification API, exactly one asset in the connector must be defined. All 
 
 #### Versioning
 
-Versioning of the notification API must follow the Catena-X guidelines for versioning. For every new major version of a notification API, a new connector asset must be created. If, e.g., a REST API is used as backend notification receiver, the incoming notifications can be fowarded to the correct REST API version via the corresponding connector asset, as depicted in the following figure:
+Versioning of the notification API must follow the Catena-X guidelines for versioning. For every new major version of a notification API, a new connector asset must be created. If, e.g., a REST API is used as backend notification receiver, the incoming notifications can be forwarded to the correct REST API version via the corresponding connector asset, as depicted in the following figure:
 
 ![Notifications Flow](../assets/notifications_connector_versioning.svg)
 

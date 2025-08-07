@@ -26,16 +26,16 @@ import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
   const aboutInput = {
-    highlightText: "Catena-X KITS",
+    highlightText: "Tractus-X KITS",
     title: "KIT stands for Keep It Together",
-    descriptionHighlight: "Kits aim to accelerate",
-    description: " the adoption, development, and operations of the next generation Business Applications and Services. Catena-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
+    descriptionHighlight: "KITs aim to accelerate",
+    description: " the adoption, development, and operations of the next generation Business Applications and Services. Tractus-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
     buttonText: "KIT Deepdive",
     link: "/Kit-Deepdive"
   }
   const headerInput = {
     title: "KIT",
-    description: "Introduction to the Catena-X KITS.",
+    description: "Introduction to the Tractus-X KITS.",
     showImage: true
   }
   return (
@@ -49,7 +49,7 @@ export default function KitsPage() {
         <AboutUsCard {...aboutInput} />
         <KitsGalleryWithFilters
           itemsArray={kitsGallery}
-          title={"Our Kits"}
+          title={"Our KITs"}
           description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
         />
         <CarouselSuccessStories />

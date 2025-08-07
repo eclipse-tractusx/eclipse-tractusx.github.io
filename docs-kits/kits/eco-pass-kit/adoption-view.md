@@ -130,7 +130,7 @@ In the following whitepaper, the role of digital product passports is discussed 
 The collected data is defined via standards specified by the Catena-X network and obtained from the industry. The content of the Product Passport is product-related information that is useful and necessary for the consumer, and other actors who will deal with the product till end of its life, and is limited to the required minimum of the necessary information.
 The data model in version `v.5.0.0` corresponds to the Digital Product Passport information required by the proposed Ecodesign Regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)) from March 30th, 2022. In the future, delegated acts for specific product groups would require a product passport to be available for each product. The data model will be updated, as newer versions of the regulation will be published. The latest to the model corresponding version of the document was the [provisional agreement](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CONSIL:ST_5147_2024_INIT) between the EU Council and the Parliament from January 9th, 2024. The text is informal, but the content of the final regulation was agreed between these two institutions.
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 The Digital Product Passport is the core model and can be used as the root class for other, specific, product models. The latest model `v.5.0.0` consists out of the following information:
 
@@ -464,7 +464,7 @@ References to shared aspects are the following:
 - urn:samm:io.catenax.generic.digital_product_passport:5.0.0
 - and indirect references from the above mentioned aspect
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([(EU) 2023/1542](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([(EU) 2023/1542](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Battery Pass model
 
@@ -1051,7 +1051,7 @@ References to shared aspects are the following:
 - urn:samm:io.catenax.generic.digital_product_passport:5.0.0
 - and indirect references from the above mentioned aspect
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Transmission Passport model
 
@@ -1383,7 +1383,7 @@ References to shared aspects are the following:
 - urn:samm:io.catenax.shared.quantity:2.0.0
 - and indirect references from the above mentioned aspects
 
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfilment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
+It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
 
 #### Link to current Electric Drive model
 
@@ -1776,7 +1776,7 @@ The Digital Product Pass Reference Implementation has a concept and implementati
 This Catena-X Data Certification/Verification Framework aims to create a second layer of trust over the EDC data exchanges between consumers and data providers. It enables auditors to verify specific attributes or complete aspect models for data providers and allowing consumers to retrieve and verify the "validity" of the verification done. Using a simple wallet, a Data Provider is able to certify its attributes or the complete semantic models from Catena-X and include it in a Verifiable Credential, which can then be verified on the Data Consumer side.
 
 The concept is the First Aspect Model Verification/Certification Concept in Catena-X. It aims to provide a "lighthouse" for any other aspect model verification/certification that MUST be done in Catena-X using SAMM Aspect Models.
-It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereighty at all costs. By using the EDC connector for the data exchanges the concept uses the current Catena-X Architecture:
+It provides a generic concept for Attribute Verification/Certification by external/internal auditors, and also provides a Self-Testification option for Data Providers to certify their data while still maintaining data sovereignty at all costs. By using the EDC connector for the data exchanges the concept uses the current Catena-X Architecture:
 
 - [eclipse-tractusx/digital-product-pass/dpp-verification](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification)
 
@@ -1788,7 +1788,7 @@ The Digital Product Pass Reference Implementation: [eclipse-tractusx/digital-pro
 
 - [eclipse-tractusx/digital-product-pass/dpp-tutorial](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial)
 
-For more information about the Reference Implementation and how the KIT can be adoped consult the [Software Development View](./software-development-view.md).
+For more information about the Reference Implementation and how the KIT can be adopted consult the [Software Development View](./software-development-view.md).
 
 ## NOTICE
 

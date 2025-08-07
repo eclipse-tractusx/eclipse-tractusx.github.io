@@ -131,7 +131,7 @@ This component's content is defined in the `./utils/kitsGallery.js` file, and fo
   export const kitsGallery = [
     {
       id: 1,
-      name: 'Business Partner Kit',
+      name: 'Business Partner KIT',
       domain: 'Network & Core Services',
       img: Business_Kit,
       pageRoute: "docs-kits/kits/business-partner-kit/adoption-view"

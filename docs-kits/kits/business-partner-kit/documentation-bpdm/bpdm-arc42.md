@@ -1,13 +1,11 @@
 ---
 id: bpdm-arc42
 title: Architecture documentation (arc42)
-description: 'Architecture documentation (arc42)'
+description: Architecture documentation (arc42)
 sidebar_position: 1
 ---
 
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
-
-## Business Partner KIT
 
 ## Business Partner Data Management Application for Golden Record (BPDM)
 
@@ -24,7 +22,7 @@ sidebar_position: 1
 - [Solution Strategy (High Level Picture)](#solution-strategy-high-level-picture)
 - [Building Block View](#building-block-view)
   - [High-Level Architecture (Generic Endpoint)](#high-level-architecture-generic-endpoint)
-  - [Keycloak Authentication \& Autorization Flow](#keycloak-authentication--autorization-flow)
+  - [Keycloak Authentication \& Authorization Flow](#keycloak-authentication--authorization-flow)
 - [Runtime View](#runtime-view)
   - [Upsert Generic Business Partner](#upsert-generic-business-partner)
   - [Update on Golden Record Change](#update-on-golden-record-change)
@@ -49,7 +47,7 @@ This document describes the Catena-X Business Partner Data Management Applicatio
 
 In the Catena-X Automotive Network, the so-called Golden Record, together with a unique identifier, the Business Partner Number (BPN), creates an efficient solution to the increasing data retention costs.
 
-The Golden Record is a concept that identifies, links and harmonizes identical data on legal entites, sites and addresses from different sources (“sharing members"). During the creation of the Golden Record data, duplicates are removed, the quality within the data records is improved, missing information is added and deviations are automatically corrected. This is done using public, commercial or other agreed sources of trust and/or information. This approach reduces costs of business partner data maintenance and validation for all the companies concerned.
+The Golden Record is a concept that identifies, links and harmonizes identical data on legal entities, sites and addresses from different sources (“sharing members"). During the creation of the Golden Record data, duplicates are removed, the quality within the data records is improved, missing information is added and deviations are automatically corrected. This is done using public, commercial or other agreed sources of trust and/or information. This approach reduces costs of business partner data maintenance and validation for all the companies concerned.
 
 The BPN, as the unique identifier of the Golden Record, can be stored as a verifiable credential used in an SSI solution so that a business partner can provide it for authentication and authorization.
 
@@ -184,7 +182,7 @@ The following high level view gives a basic overview about the BPDM Components:
 ### **BPDM Pool**
 
 - The BPDM Pool is the central instance for business partner data within Catena-X.
-- The BPDM Pool provides the interface and persistance for accessing Golden Record Data and the unique Business Partner Number.
+- The BPDM Pool provides the interface and persistence for accessing Golden Record Data and the unique Business Partner Number.
 - In comparison to the BPDM Gate, there is only one central instance of the BPDM Pool.
 
 ### **BPN Issuer**
@@ -221,7 +219,7 @@ The following high level view gives a basic overview about the BPDM Components:
 ### Upsert Generic Business Partner
 
 > [!NOTE]
-> An additional endpoint was implemented as requirements came up that required business partner data records not to be fed directly into the golden record process after an upload. Instead, this endpoint makes it possible to change the status of a business partner data record from "inital" to "ready". Only data records with the status "ready" are fed into the golden record process.
+> An additional endpoint was implemented as requirements came up that required business partner data records not to be fed directly into the golden record process after an upload. Instead, this endpoint makes it possible to change the status of a business partner data record from "initial" to "ready". Only data records with the status "ready" are fed into the golden record process.
 > We are aware that the existing integration scenarios, such as with the portal team, are impacted by this. For this reason, we recommend that the gate is configured accordingly so that the status is set to "ready" by default when a data record is uploaded. The operator can configure this behavior in the gate individually based on the requirements.
 
 ```mermaid
@@ -285,7 +283,7 @@ sequenceDiagram
 
     loop Polling for finished Golden Record Tasks
         Gate-->>Gate: Query sharing states in Sharing State Type 'PENDING'
-        Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golde Record Task ID
+        Gate->>Orchestrator: POST golden-record-tasks/state/search <br> Payload: Golden Record Task ID
         Orchestrator-->Gate: Golden Record Task State and Result
         Gate-->>Gate: Persist Business Partner Output
         Gate-->>Gate: Set Sharing State 'Success'
@@ -486,7 +484,7 @@ UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 
 ## Crosscutting Concepts
 
-## Authentication & Autorization
+## Authentication & Authorization
 
 ### Roles, Rights, Permissions
 
@@ -510,9 +508,9 @@ We defined the following relevant permission groups in BPDM:
 
 5.Pool Admin: Read, create and update golden records as well as meta data in the Pool.
 
-6.Pool Cx Member: Read golden records that belong to Catena-X members from the Pool.
+6.Pool Dataspace Participant: Read golden records that belong to dataspace participants from the Pool.
 
-7.Pool Sharing Member: Read golden records of Catena-X members and the overall changelog.
+7.Pool Sharing Member: Read all golden records from the Pool.
 
 8.Orchestrator Admin: Full access to Golden Record Tasks.
 
@@ -570,32 +568,15 @@ Gate Permission
 
 #### Mapping to Portal user roles for all companies (for all Catena-X members)
 
-| BPDM Permission Group         |  Portal Role |
-|--|--|
-| Gate Admin    |  Service Manager    |
-| Pool Cx Member    |  CX User   |
+| BPDM Permission Group | Portal Role                   |
+|-----------------------|-------------------------------|
+| Gate Admin            | Business Partner Data Manager |
+| Pool Cx Member        | CX User                       |
 
 #### Technical Users
 
-The golden record service provider needs to be able to generate technical users for each permission group (1 - 8). The technical users for sharing member roles 1 - 4 should be associated with the sharing member's BPNL (So that resulting tokens will have the sharing member's BPNL for authorization purposes). Furthermore, there needs to be one technical user option per Pool and Orchestrator permission group.
-
-### Resulting technical users to be creatable in the Portal
-
-#### For BPDM service
-
-- Gate BPNLX Admin (for each Sharing Member)
-
-- Pool Admin
-
-- Pool Cx Member
-
-- Pool Sharing Member
-
-#### For VAS
-
-- Gate BPNLX Consumer: Having both roles 'Gate BPNLX Input Consumer' and 'Gate BPNLX Output Consumer ' (for each Sharing Member)
-
-Companies which have booked the golden record service should not be able to create any technical users for BPDM. Any such feature to create technical users for companies that are not the golden record service provider should be removed.
+The Portal operator company has rights to create technical users for each BPDM permission group.
+This enables the operator to operate the golden record process components.
 
 #### Demo Configuration
 
@@ -633,8 +614,8 @@ For more details see: [Click Me](https://github.com/eclipse-tractusx/sig-release
 
 Communication with BPDM application must be via EDC. The standards for EDC Assets are defined as follows:
 
-- [BPDM Pool API Asset Structure](https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0012-BusinessPartnerDataPoolAPI/4.0.0/CX-0012-BusinessPartnerDataPoolAPI-v4.0.0.md#223-data-asset-structure)
-- [BPDM Gate API Asset Structure](https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0074-BusinessPartnerGateAPI/3.0.0/CX-0074-BusinessPartnerGateAPI-v3.0.0.md#223-data-asset-structure)
+- [BPDM Pool API Asset Structure](https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0012-BusinessPartnerDataPoolAPI/CX-0012-BusinessPartnerDataPoolAPI.md#223-data-asset-structure)
+- [BPDM Gate API Asset Structure](https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0074-BusinessPartnerGateAPI/CX-0074-BusinessPartnerGateAPI.md#223-data-asset-structure)
 
 An example postman collection for Asset definition you can find [here](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/postman/EDC%20Provider%20Setup.postman_collection.json)
 
@@ -649,9 +630,10 @@ Pool
 To enable communication for downloading from the pool through EDC, it's essential to have a Verifiable Credential stored in the wallet for BPDM Framework Agreement. This credential will be verified during EDC communication. Additionally, the Membership Credential needs to be validated to ensure that only onboarded catena-x members have access to the pool.
 
 Purposes
-Additionally each of the purposes need to be checked. You can find them [here](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md#usagepurpose). All purposes beginning with cx.bpdm.gate and cx.bpdm.pool are relevant.
 
-#### Keycloak Authentication & Autorization Flow
+Additionally, each of the purposes need to be checked. You can find them [here](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md#usagepurpose). All purposes beginning with `cx.bpdm.gate` and `cx.bpdm.pool` are relevant.
+
+#### Keycloak Authentication & Authorization Flow
 
 ```mermaid
 
@@ -674,7 +656,7 @@ sequenceDiagram
 
 ### Business Partner Data Management Standards
 
-[bpdm_standards](https://catena-x.net/de/standard-library)
+The BPDM APIs follow the [Catena-X standards](https://catena-x.net/de/standard-library).
 
 ### Logging Behavior
 
@@ -739,7 +721,7 @@ Chosen option: "Use multiple Gates so that every member will have its own Gate w
 
 #### Implications on SMEs
 
-- To exchange business partner data accross legal entities and enabling contract negotiation, each SME needs to have its own EDC
+- To exchange business partner data across legal entities and enabling contract negotiation, each SME needs to have its own EDC
 
 - The EDC itself can be provided as offer by the operator or other "EDC as a Service" Service Provider
 
@@ -1316,7 +1298,7 @@ Since this behaviour of creating technical users is an ingrained feature of the 
 
 #### Mitigation
 
-As a mitigation the BPDM provider who is also the operator of the Central-IDP can decide to not use the automatic tehcnical user creation process of the Portal.
+As a mitigation the BPDM provider who is also the operator of the Central-IDP can decide to not use the automatic technical user creation process of the Portal.
 As a result, when BPDM services are requested the operator needs to create technical users directly in the Central-IDP.
 These hidden technical users can then be used to configure EDC assets.
 

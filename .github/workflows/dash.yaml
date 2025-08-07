@@ -25,6 +25,9 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - package-lock.json
+      - package.json
 
 permissions:
   contents: write

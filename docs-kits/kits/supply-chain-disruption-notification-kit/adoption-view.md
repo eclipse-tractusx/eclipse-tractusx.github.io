@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: "PURIS-DCM Supply Chain Disruption Notifications"
+description: PURIS-DCM Supply Chain Disruption Notifications
 sidebar_position: 2
 ---
 
@@ -153,7 +153,7 @@ Supply Chain Disruption Notifications are recommended for exceptional circumstan
 
 **Notification Identifiers:**
 
-To differentiate messages and maintain chronological and dependance tracking, distinct IDs are included in the notifications sent:
+To differentiate messages and maintain chronological and dependence tracking, distinct IDs are included in the notifications sent:
 
 - **Notification ID:** Unique ID identifying the notification.
 - **Related Notification ID:** Unique ID identifying a previously received notification triggering the exchange of the current notification.

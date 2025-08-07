@@ -1,12 +1,10 @@
 ---
 id: software-operation-view
 title: Operation View
-description: 'EcoPass Kit Operation View'
+description: EcoPass KIT Operation View
 ---
 
 ![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
-
-## EcoPass KIT
 
 Based on the information provided in this kit, it is possible to run and program against an infrastructure of Digital Product Pass the Catena-X-way. This infrastructure empowers Data Consumers to consume the network's data as agreed with each Data Provider and facilitated by an Operating Company. They run central and decentral services that allow them to discover each other, exchange information and contextualize it according to a standardized semantics.
 
@@ -18,7 +16,7 @@ Based on the information provided in this kit, it is possible to run and program
 | EDC Discovery         | A microservice that resolves a BPN against an EDC endpoint. Responsible for giving the EDC endpoints of one or more BPNs                                                                                                | [eclipse-tractusx/portal-backend](https://github.com/eclipse-tractusx/portal-backend) - [Code Implementation](https://github.com/eclipse-tractusx/portal-backend/blob/aca855c857aed309cbca03f4f694283629197110/src/administration/Administration.Service/Controllers/ConnectorsController.cs#L178C1-L190C63) | CX - 0001                                                   |
 | Digital Twin Registry | An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects. | [eclipse-tractusx/sldt-digital-twin-registry](https://github.com/eclipse-tractusx/sldt-digital-twin-registry)                                                                                                                                                                                                | CX - 0002        OR [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit)                                           |
 | Submodel Server       | The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored                                                                                            | [FA³ST-Framework](https://github.com/FraunhoferIOSB/FAAAST-Service), [Eclipse Basyx](https://github.com/eclipse-basyx/basyx-java-sdk), [AASX Server](https://github.com/admin-shell-io/aasx-server)                                                                                                          | CX - 0002                                                   |
-| EDC                   | Main gateaway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018 OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                          |
+| EDC                   | Main gateway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]          | [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc)                                                                                                                                                                                                                            | CX - 0018 OR [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)                                          |
 | Digital Product Pass  | The [**EcoPass KIT**] reference implementation. The application is responsible for retrieving the passports and interacting with the services listed above.                                                             | [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)                                                                                                                                                                                                            | CX - 0143                                                   |
 
 ## Configuration Guide
@@ -43,7 +41,7 @@ All the configurations are in JSON notation and follow the [EDC Configuration fr
 
 ### Asset Configuration
 
-When configurating your EDC provider you will be able to set some assets which refer to a certain endpoint.
+When configuring your EDC provider you will be able to set some assets which refer to a certain endpoint.
 
 > **INFO:** *All public assets must be registered in a SubModel from a Digital Twin in the Digital Twin Registry.*
 
@@ -93,13 +91,13 @@ Example:
 }
 ```
 
-When configurating your EDC provider you will be able to set some assets which refer to a certain endpoint.
+When configuring your EDC provider you will be able to set some assets which refer to a certain endpoint.
 
 ### Policies Configuration
 
 > [!TIP]
 >
-> Follow the latest [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)  configuration regarding the policies! The information included here in this guide intends to show which contraints needs to be included in the policy configuration. Like example: `Membership: Active` and `FrameworkAgreement.sustainability`
+> Follow the latest [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit)  configuration regarding the policies! The information included here in this guide intends to show which constraints needs to be included in the policy configuration. Like example: `Membership: Active` and `FrameworkAgreement.sustainability`
 
 Policies are important for configuration the **access, prohibitions, obligations and permissions to certain assets.**
 
@@ -447,7 +445,7 @@ In order to enable the drill down in passports retrieved by the Digital Product 
 
 For creating relationships between the digital twins register "singleLevelBomAsBuilt" and "singleLevelBomAsUsage" aspects which can be found here: [SingleLevelBomAsBuilt](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built) and [SingleLevelUsageAsBuilt](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.single_level_usage_as_built)
 
-> **IMPORTANT**!: The proxy configuration needs to be enabled exactly like it is configured in the dataAdress property above.
+> **IMPORTANT**!: The proxy configuration needs to be enabled exactly like it is configured in the dataAddress property above.
 
 The rest of the assets can be configured in the same way as the normal assets.
 

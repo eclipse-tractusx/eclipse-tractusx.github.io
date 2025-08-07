@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Quality Kit'
+description: Quality KIT
 sidebar_position: 2
 ---
 
@@ -71,7 +71,7 @@ Main challenges to ensure a trustful and scalable cooperation are:
 | Advantages                                                                                        | For OEM | For n-Tier |
 |---------------------------------------------------------------------------------------------------|---------|------------|
 | Availability of daily updated field data for monitoring the own component in real operation       |         |     X      |
-| Linking OEM and supplier data for cross-supplychanin quality analysis                             |    X    |     X      |
+| Linking OEM and supplier data for cross-supplychain quality analysis                              |    X    |     X      |
 | Reduction of analysis capacities along the automotive value chain by preventive field observation |    X    |     X      |
 | Reduction of the NTF (no trouble found) at the customer and supplier                              |    X    |     X      |
 | Significant reduction in time to detect an abnormality                                            |    X    |     X      |
@@ -330,7 +330,7 @@ From the failure patterns, relevant population lists can be extracted, uniquely 
 
 ### Architecture Overview
 
-![independant architecture r2312 chart](./resources/architecture_overview.png)
+![independent architecture r2312 chart](./resources/architecture_overview.png)
 
 The Tier-1 receives data on vehicle master data, existing claims and DTCs. Once the data is received, the Tier-1 supplier analyzes the data to detect patterns based on which DTCs and claims can be explained. The data is shared and consumed as assets via the companies' EDC, while the authorization is managed via the shared services of the consortia.
 
@@ -338,7 +338,7 @@ The Tier-1 receives data on vehicle master data, existing claims and DTCs. Once 
 
 | **Subsystem**     | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data Provisioning | This component provides a company's data to the Catena-X network by transforming it into the Catena-X format and publishing it. In Catena-X, data must be provided to the network based on existing standards from the other Kits. One example that can be used is the Connector Kit that builds a component based on the IDS protocol, e.g. the Connector of the Eclipse Dataspace Components (EDC). The data format used for Quality data is based on the aspects (Sub-)models published in the Semantic Hub. |
+| Data Provisioning | This component provides a company's data to the Catena-X network by transforming it into the Catena-X format and publishing it. In Catena-X, data must be provided to the network based on existing standards from the other Kits. One example that can be used is the Connector KIT that builds a component based on the IDS protocol, e.g. the Connector of the Eclipse Dataspace Components (EDC). The data format used for Quality data is based on the aspects (Sub-)models published in the Semantic Hub. |
 | Internal Systems  | Existing internal systems of a Catena-X partner which provide data to Quality components. - For Data Provisioning: The data provided to Catena-X via the EDC should be fetched from a partner's internal system. e. g. quality claims, defect code collection system                                                                                                                                                                                                                                            |
 | Quality App       | Enables analyses and visualization of available data (own and from data provider). Due to the standardization of the shared data, each partner company is able to use their preferred Quality App. Thus the alignment on a common tooling within one joint quality team is possible but not pre requisite.                                                                                                                                                                                                      |
 

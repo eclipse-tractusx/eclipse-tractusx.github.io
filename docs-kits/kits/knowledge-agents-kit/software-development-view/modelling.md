@@ -25,8 +25,6 @@ title: Ontology Modelling
 
 ![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
-## Agents KIT
-
 **Ontology models for federated queries over the whole data space.**
 
 For more information see
@@ -54,7 +52,7 @@ In the knowledge agent approach, ontologies are used to describe the semantics o
 
 It could be that similar vocabularies are used for different things in the business partners sovereign data models. Hence the formal semantics of ontologies prevents such misunderstandings in data caused by synonymity or homonymity, etc. and lead to better collaboration and interoperability among data space participants.
 
-On the other hand, the ontology-based approach represents the underlying data in assets as a generlized graph structure. This allows flexible querying of typed and linked data - no matter of its physical storage and retrieval. In applying the ontology-based data modelling in Catena-X, the following fundamentals should be achieved:
+On the other hand, the ontology-based approach represents the underlying data in assets as a generalized graph structure. This allows flexible querying of typed and linked data - no matter of its physical storage and retrieval. In applying the ontology-based data modelling in Catena-X, the following fundamentals should be achieved:
 
 * Maximise Semantics
 * Reduce Complexity
@@ -169,7 +167,7 @@ exp:vehicle_1 rdf:type cx-vehicle:Vehicle, cx-core:PhysicalObject;
 
 A digital twin is a digital object in a defined digital platform, such as the Web, data spaces, etc., that represents a real-world object and is identifiable and discoverable based on a defined unique identification. In the knowledge agent approach, a digital twin is an existing instance of a class of a domain ontology. The domain ontologies describe what kind of real-world objects it represents. With the cx-core:id all instances are identifiable in the Catena-X data space. A shape graph for the data provider's asset describes which digital twins are published in its asset. This makes the digital twins discoverable.
 
-Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to [bridge](modules.md#aas-bridges) these technolgies in both ways.
+Although using a different representation and API, this concept is similar to the one of an "Asset" in the "Asset Administration Shell" approach. Therefore, it is possible to [bridge](modules.md#aas-bridges) these technologies in both ways.
 
 ## Taxonomy
 
@@ -218,7 +216,7 @@ For more taxonomies, see the complete namespace [https://w3id.org/catenax](https
 
 ## Asset Content Description
 
-The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data. Finally it may also sketch what form the data (shape) has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration. In the dataspace, this information (meta-graph) is usually not kept at a single, central location. Instead, each participant offers self-descriptions of the graphs and skills (see below) according to the dataspace standards through its [Agent-Enabled Connector](../operation-view/agent-edc). There is a builtin synchronization capability of each such connector to contact the other connectors in its surrounding, regulary obtain catalogues of graph/skill offers and federate them into a tenant-specific meta-graph (the so-called federated data catalogue).
+The Common Ontology contains classes and properties to describe assets on a meta-level. The asset class describes the URL from which the SPRAQL endpoint can be reached, which ontology was used to describe the data. Finally it may also sketch what form the data (shape) has based on SHACL, which business partner provides the asset, and so on. The descriptions are helpful for ordinary users and necessary for application configuration. In the dataspace, this information (meta-graph) is usually not kept at a single, central location. Instead, each participant offers self-descriptions of the graphs and skills (see below) according to the dataspace standards through its [Agent-Enabled Connector](../operation-view/agent-edc). There is a builtin synchronization capability of each such connector to contact the other connectors in its surrounding, regularly obtain catalogues of graph/skill offers and federate them into a tenant-specific meta-graph (the so-called federated data catalogue).
 
 ```ttl
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -485,7 +483,7 @@ In the following example, we map existing API backends to the [Behaviour Ontolog
 ### Shape of a Telematics Data Asset
 
 The following shape describes the telematics graph to contain load spectra analyses of three types (cx-taxo:GearOil, cx-taxo:GearSet and cx-taxo:Clutch). It maybe extended to
-further constrain the associated vehicles (like by a verhicle series and production date range). Basically, all classes and predicates from the corresponding ontologies should be
+further constrain the associated vehicles (like by a vehicle series and production date range). Basically, all classes and predicates from the corresponding ontologies should be
 "listed" even if there is no constraint on their properties known. This also allows to check whether the participant has fulfilled its role in the use case (which also has a list of mandatory and optional classes and properties as a kind of specification).
 
 ```ttl

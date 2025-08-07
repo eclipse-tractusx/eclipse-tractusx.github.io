@@ -1,13 +1,11 @@
 ---
 id: adoption-view
 title: Adoption View
-description: "OSim Kit"
+description: OSim Kit
 sidebar_position: 2
 ---
 
 ![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
-
-### OSim Kit
 
 ## Vision & Mission
 
@@ -33,7 +31,7 @@ Thanks to open architecture OSim is independent of the simulation tools that par
 
 Conventional planning and simulation tools use material flow simulations only on the plant level but they don't exchange simulation results with their respective partners in the supply chain. OSim goes beyond this by enabling every Catena-X partner (producers as well as logisticians) to integrate material flow simulation results of their partners into the simulation of their own processes. This is achieved by sharing the material flow simulation results on supply chain level.
 
-The simulation results of the Catena-X partners on the supply chain's lower tier level and logistics, together with data of the company's own operations are fed into a simulation model as input. Considering both, plannable and unpredictable influencing factors, this simulation model is iterated as often as necessary until an optimal result has been found. Sharing of simulation results to the next tier level is the core capability of the collaborative simulation approach.
+The simulation results of the Catena-X partners on the supply chain's lower tier level and logistics, together with data of the company's own operations are fed into a simulation model as input. Considering both, predictable and unpredictable influencing factors, this simulation model is iterated as often as necessary until an optimal result has been found. Sharing of simulation results to the next tier level is the core capability of the collaborative simulation approach.
 One specific case of this data exchange is so called “What-If” scenario. This capability provides validation respectively calibration of potentially changed manufacturing or transportation situations across the entire supply chain.
 
 A central application takes over the tasks of monitoring and controlling the transmission of the simulation results, regardless of the level of digitalization of the partners. In addition, this application takes over control of the simulation tools used.
@@ -51,7 +49,7 @@ A central application takes over the tasks of monitoring and controlling the tra
 
 ## Business Process
 
-The simulation results of the Catena-X partners on the lower tier level and logistics, together with data of the company's own operations are fed into the individual simulation model as input. Considering both, plannable and unforeseeable influencing factors, this simulation model is iterated through as often as necessary until an optimal production schedule is reached and a simulation result is created. Sharing of simulation results to the next tier level is the base of the collaborative simulation approach in a short-term horizon, across the complete supply chain.
+The simulation results of the Catena-X partners on the lower tier level and logistics, together with data of the company's own operations are fed into the individual simulation model as input. Considering both, foreseeable and unforeseeable influencing factors, this simulation model is iterated through as often as necessary until an optimal production schedule is reached and a simulation result is created. Sharing of simulation results to the next tier level is the base of the collaborative simulation approach in a short-term horizon, across the complete supply chain.
 
 This basic data exchange is based on a real production state and current planning. Additionally, a further functionality allows to operate with potentially changed situations in production or changed requirements. So called "What-If" scenarios" can be initiated and communicated to the supply chain partners confirming the feasibility.
 
@@ -180,7 +178,7 @@ This policy allows limiting access to a data offer based on a list of specific B
 - The data offer creator will be able to create a policy listing all the BPN that can access the data offer
 - This means that only the connectors registered in the Catena-X network with the BPN listed in the policy can see the data offer and accept it (for the creation of data contracts and subsequent data exchange)
 
-Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector Kit](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
+Examples including a JSON payload for single and multiple BPN are described on this page [in the Tractus-X EDC repository](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/edc-extensions/bpn-validation) or in the [Business Partner Validation Extension part of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/tractusx-edc/edc-extensions/business-partner-validation/).
 
 ### Usage Policies
 
@@ -203,7 +201,7 @@ Policies are defined based on the W3C ODRL format. This allows a standardized wa
         "odrl:action": "USE",
         "odrl:constraint": {
           "@type": "LogicalConstraint",
-          "odrl:and": [ // All of the following three constraints have to be fullfilled (and, not or)
+          "odrl:and": [ // All of the following three constraints have to be fulfilled (and, not or)
             // First constraint to verify the the Catena-X membership
             {
               "@type": "Constraint",

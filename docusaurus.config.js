@@ -193,7 +193,7 @@ const config = {
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/customs-kit/adoption-view-customs',
+                to: '/docs-kits/kits/customs-kit/adoption-view',
                 label: 'Customs',
               },
               {
@@ -225,7 +225,7 @@ const config = {
                 label: 'Environmental and Social Standards',
               },
               {
-                to: '/docs-kits/kits/industry-core-kit/business-view',
+                to: '/docs-kits/kits/industry-core-kit/adoption-view',
                 label: 'Industry Core',
               },
               {
@@ -265,7 +265,7 @@ const config = {
                 label: 'Supply Chain Disruption Notification',
               },
               {
-                to: '/docs-kits/kits/traceability-kit/business-view',
+                to: '/docs-kits/kits/traceability-kit/adoption-view',
                 label: 'Traceability',
               },
             ],

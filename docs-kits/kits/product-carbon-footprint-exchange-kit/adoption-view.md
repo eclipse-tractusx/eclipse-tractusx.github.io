@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'PCF-Exchange-KIT'
+description: PCF Exchange KIT
 sidebar_position: 2
 ---
 
@@ -21,7 +21,7 @@ In this context, Catena-X offers a decentralized ecosystem supported by standard
 
 ### Vision
 
-Report and steer the de-carbonization of our value chain with dedicated measures based on real PCF values, without compromising upstream data sovereignity.
+Report and steer the de-carbonization of our value chain with dedicated measures based on real PCF values, without compromising upstream data sovereignty.
 
 ### Mission
 
@@ -35,7 +35,7 @@ Addressing supply chain carbon emissions today is missing reliable data about ba
 
 At the core of our project is the recognition of a current challenge - the lack of transparency and accessibility to real PCF information in supply chains. Through our project, we strive to bridge this information gap by establishing a trusted and collaborative and interoperable environment. Suppliers will have the opportunity to share their PCF data with confidence, knowing that it remains sovereign and under their control.
 
-We will address this by working on a trustworthy ecosystem that prioritizes data sovereignity, security and collaboration on standards. Therefore, our mission is to revolutionize the supply chain industry by providing a platform where suppliers can securely share their primary PCF data throughout the supply chain.
+We will address this by working on a trustworthy ecosystem that prioritizes data sovereignty, security and collaboration on standards. Therefore, our mission is to revolutionize the supply chain industry by providing a platform where suppliers can securely share their primary PCF data throughout the supply chain.
 
 We are guided by the following principles:
 
@@ -74,7 +74,7 @@ The exchange-process is initiated top-down (e.g., at the OEM; but it can also st
 As stated in the Development View the Standard will be extended with synchronous data exchange and AAS-Submodel 3.0. Therefore, the business logic will be enhanced to also make proactive PCF data offers in addition to asynchronous PCF requests. We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
 The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
 
-[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/business-view#todays-challenge)
+[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
 
 ![PCF Request and Response](resources/adoption-view/PCFRequestandResponse.png)
 
@@ -383,7 +383,7 @@ The entire PCF data model is available as open source through the following link
 
 The PCF Exchange KIT can be used to exchange PCF data within the Catena-X ecosystem in a decentralized and interoperable manner, while maintaining a high level of data sovereignty. To achieve this, the PCF Exchange KIT leverages other KITs (particularly the platform-related ones), standardized data models, and an Identity and Access Management (IAM) system based on OAuth and Self-Sovereign Identity (SSI) technology.
 
-In order to ensure **interoperability**, as described in the section on [Semantic Models](#semantic-models), a standardized data model is essential. However, it's not only the data model but also the standardized interfaces (both the PCF Exchange API and the standardized API provided by the Connector Kit) that contribute to interoperability.
+In order to ensure **interoperability**, as described in the section on [Semantic Models](#semantic-models), a standardized data model is essential. However, it's not only the data model but also the standardized interfaces (both the PCF Exchange API and the standardized API provided by the Connector KIT) that contribute to interoperability.
 
 To enable **data sovereignty**, Catena-X relies on **Self-Sovereign-Identity** (SSI). This allows data providers to precisely specify the conditions that must be met before requested data is transmitted. In the context of the PCF KIT, the "PCF Credential" and "Membership Credential" are mandatory. The PCF Credential references the [PCF Framework Agreement](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Governance_Framework/231016_Catena-X_Use_Case_Framework_PCF.pdf) signed by a data consumer. The Membership Credential additionally ensures that the requester is an active member of Catena-X.
 
@@ -396,7 +396,7 @@ The relevant standards can be downloaded from the official [Catena-X Standard Li
 
 - [CX-0136 Product Carbon Footprint UseCase (Version 2.0.0)](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
 
-### Non-rechnical requirement
+### Non-technical requirement
 
 - [Product Carbon Footprint Rulebook (Version 3.0.0)](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)
 

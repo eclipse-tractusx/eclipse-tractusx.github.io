@@ -1,7 +1,7 @@
 ---
 id: architecture-view
 title: Architecture View
-description: 'Industry Core Kit'
+description: Industry Core KIT
 sidebar_position: 2
 ---
 
@@ -27,8 +27,8 @@ This architecture is based on the following assumptions:
       Service.
     - All participants have an active network membership that is represented in their membership credential.
     - Data Providers operate a Digital Twin Registry according to
-      the [Digital Twin Kit](../digital-twin-kit/adoption-view)
-    - Data Providers expose their data via the Submodel API according to the Digital Twin Kit.
+      the [Digital Twin KIT](../digital-twin-kit/adoption-view)
+    - Data Providers expose their data via the Submodel API according to the Digital Twin KIT.
 - The **customers of parts** (on catalog and instance level) must be known when creating a digital twin and registering
   its data. Registering data in EDC and DTR requires data providers to define appropriate access permissions to prevent
   exposing data to unauthorized parties. For Traceability, the customer of a part must have access to the digital twin
@@ -68,10 +68,10 @@ Even with an underlying object, the usage of a digital twin might still not be n
 - Is the object commonly accessed individually and not via mass data requests ?
 - Is the data intended to be used more than once and therefore worth to be discovered ?
 
-If all of the above questions are answered with a clear "No", a twin might be overhead for an object or data to be shared within one specific use-case. Examples include: 
+If all of the above questions are answered with a clear "No", a twin might be overhead for an object or data to be shared within one specific use-case. Examples include:
 - the data to be shared is a set of mass data not linked to a specific instance of an object
 - the data is only being used and intended to be used by a single use-case and there is no cross-use-case relevancy anticipated
-  
+
 ### Additional Recommendations and Comments
 
 If mass data is used for analysis to generate new data applicable to a specific object (e.g., material, serialized part, batch), this data should be linked to a digital twin at that level, while the originating mass data sets are not required to be linked. For example, analytics use cases leveraging mass data sets regarding multiple objects could feed their outcome back into the digital twins of the known objects, while the potentially use-case proprietary mass data sets are not necessarily represented by digital twins or submodels.
@@ -112,14 +112,14 @@ The Catena-X data space aims to support a parallel phase of two major versions o
 
   Mandatory versions for aspect models can only change in a major release as this change is breaking. Optional versions can be introduced with minor and patch versions, e.g., to introduce a future mandatory version first as optional for easier migration later on.
 
-  A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin's sumodel.
+  A data provider that wants to support several versions of an aspect models must add a separate submodelDescriptor for every supported aspect model version to the digital twin. The submodelDescriptors will have different semanticIds and might also point to different EDC assets - depending on the asset structure used in the EDC for providing the digital twin's submodel.
 
   A data consumer must search the submodelDescriptors of a digital twin for supported semanticIds and then select the most suitable one for further processing.
 
   - **For Notification APIs**, a separate EDC asset must be created for every major API version, e.g., for versions v1 and v2 of the API separate EDC assets must be created. The API version must be documented in the `https://w3id.org/catenax/ontology/common#version` property on a minor release level (e.g., 1.1). It is not necessary to create a separate EDC asset for every minor or patch version as these versions must always be backward compatible.
 
 More information about backward compatibility and versioning can be found here:
-- [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catana-X Standard Library,
+- [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catena-X Standard Library,
 - [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
 
 ## Building Block View
@@ -150,13 +150,13 @@ Use cases can define and standardize their own notification APIs. They need to e
 
 - They must extend the content part of the notification data format with their own business content.
 - They must define a set of operations that should be supported with the use case specific notification API.
-- They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.  
+- They also must define a name for their notification API which is, for example, used in the `dct:type` property of the connector asset.
 
 As all use cases use the same underlying notification technology based on Industry Core, use cases still are interoperable. Data and app providers only need to implement one notification technology that is jointly used by all use cases and do not need to implement several different technologies for message-based data sharing.
 
 ## Runtime View
 
-The runtime patterns represent a subset of the interactions specified in the Digital Twin Kit.
+The runtime patterns represent a subset of the interactions specified in the Digital Twin KIT.
 Its ["Interaction Patterns" section](../digital-twin-kit/software-development-view/interaction-patterns)
 describes the interaction between a Data Provider and Data Consumer including the necessary configuration steps.
 Since the Discovery Services according to CX-0053 are not part of the Industry Core, all calls going to the components
@@ -206,7 +206,7 @@ The following terms are especially relevant for the understanding of this KIT:
 
 **Catena-X Partner:** A company participating in the Catena-X network. A partner can act as both, a notification sender or notification receiver.
 
-**Message**: Data with a defined format exchanged between two partners, a sender and a receiver. 
+**Message**: Data with a defined format exchanged between two partners, a sender and a receiver.
 
 **Notification**: In Catena-X, notifications are JSON messages with a standardized data format consisting of a standardized header and a use-case-specific content.
 
