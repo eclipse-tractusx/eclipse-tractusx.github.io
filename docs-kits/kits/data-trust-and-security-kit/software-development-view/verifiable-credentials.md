@@ -381,8 +381,6 @@ The prefix `cx` is included in the semantic model context for `Catena-X` models,
 }
 ```
 
-</details
-
 </details>
 
 <details>
