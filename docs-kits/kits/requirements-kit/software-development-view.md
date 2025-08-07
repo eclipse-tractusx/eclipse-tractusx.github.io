@@ -133,37 +133,58 @@ The following section gives an overview of the requirements aspect model. The re
 
 
 ```json
-
 {
-  "uuidV4Property": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "relations": {
-    "relatedRequirementIdentifier": "UfzQhdgLLfDTDGspDb",
-    "requiremementRelationshipType": "QvBQYuxiXXVytGCxzVllpgTJKhRQq"
-  },
-  "requirementStatus": {
-    "timestampstatus": "2025-05-08T20:07:39.458+02:00",
-    "statusValue": {
-      "customerStatus": "<empty>",
-      "supplierStatus": "<empty>",
-      "supplierComment": "yedUsFwdkelQbxeTeQOvaScfqIOOmaa",
-      "customerComment": "eOMtThyhVNLWUZNRcBaQKxI"
+  "requirementRelations": [
+    {
+      "relatedRequirementId": "urn:uuid:e6b31BC2-8102-64AF-034D-C2DC35E37cEE",
+      "requiremementRelationshipType": "RequirementSpecialismOfRequirement"
+    }
+  ],
+  "requirementId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
+  "requirementInformation": {
+    "foreignId": "3.1.1",
+    "longname": "Plastic deformation of the bogie",
+    "versionPredecessor": {
+      "versionPredecessorNumber": "1.4.5",
+      "versionPredecessorId": "AeEf3f22-Af51-EDF0-29D2-Ba086b386A5E"
+    },
+    "creationdate": "2025-06-05T09:35:16.166+02:00",
+    "metadata": [
+      {
+        "value": "2025-11-30T00:00:00.000+02:00",
+        "metadataDescription": "Timestamp of the expected finalization of the requirement",
+        "key": "ExpectedFinalization"
+      }
+    ],
+    "author": "Lisa Dräxlmaier GmbH",
+    "reqifType": "Functional",
+    "reqifName": "Plastic deformation of the bogie",
+    "description": "eOMtThyhVNLWUZNRcBaQKxI",
+    "specification": [
+      "https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf"
+    ],
+    "version": {
+      "versionNumber": "2.0.0",
+      "versionId": "B50C5243-9590-Eaa5-dA9e-Adb383e2cFf6"
     }
   },
-  "requirementInformation": {
-    "foreignID": "dpHYZGhtgdntugzvvKAXLhM",
-    "metadata": "VLhpfQGTMDYpsBZxvfBoeygjb",
-    "createdDate": "2025-05-08T20:07:39.459+02:00",
-    "author": "JxkyvRnL",
-    "reqifType": "Functional",
-    "specification": "RYtGKbgicZaHCBRQDSx",
-    "reqifName": "UMaAIKKIkknjWEXJUfPxxQHeWKEJ",
-    "description": "LlN",
-    "lastChange": "2025-05-08T20:07:39.459+02:00",
-    "version": {
-      "versionPredecessor": "1.0.0",
-      "versionNumber": "1.0.1"
-    },
-    "longName": "gNfZBdyFGRajVfJNonEnOinZj"
+  "requirementStatus": {
+    "customerStatus": [
+      {
+        "customerStatusComment": "Requirement needs to be evaluated",
+        "customerStatusValue": "<empty>",
+        "customerStatusTimestamp": "2025-06-05T09:35:16.166+02:00"
+      }
+    ],
+    "supplierStatus": [
+      {
+        "supplierStatusTimestamp": "2025-06-05T09:35:16.166+02:00",
+        "supplierStatusValue": "<empty>",
+        "supplierStatusComment": "More information needed from customer"
+      }
+    ],
+    "statusValue": "transition status",
+    "statusTimestamp": "2025-06-05T09:35:16.166+02:00"
   }
 }
 
@@ -192,10 +213,11 @@ The notification format used for the requirements exchange is based on the [Indu
 }
 ```
 
-TODO: Which "Requirement ID" should be used here?
+- ```requirementId```: ```requirementId``` in requirements datamodel
+- ```description```:
+- ToDo: Clarify if ```context``` is the right place for create/update/delete information or if this should be moved to ```content```
 
-
-
+Base idea of notifications: Only technical information about creation/change/deletion of requirement. Descriptive information about changes and comments are stored directly within the requirement submodels.
 
 ## EDC Setup
 
