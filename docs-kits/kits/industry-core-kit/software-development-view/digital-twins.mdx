@@ -259,15 +259,15 @@ All available shellIds were exported in a CSV file because the API lookup/shells
 
 The tested workflow includes the following steps:
 1.	Randomly select a `shellId` from the given CSV File
-2.	GET DTR EDR Token from EDC Controlplane (execute every 4 minutes)
+2.	GET DTR EDR Token from EDC controlplane (execute every 4 minutes)
 a.	Retrieve EDC Catalog to determine which EDC Asset is responsible for the DTR.
 b.	Fetch EDR token for the DTR.
-3.	Call DTR API `shell-descriptors/id` via EDC Dataplane to load the Shell Descriptor.
+3.	Call DTR API `shell-descriptors/id` via EDC dataplane to load the Shell Descriptor.
 4.	Randomly select a Submodel Descriptor.
-5.	GET SUBMODEL EDR Token FROM EDC Controlplane (execute every 4 minutes)
+5.	GET SUBMODEL EDR Token FROM EDC controlplane (execute every 4 minutes)
 a.	Query the EDC Catalog to find the EDC Asset for the Submodel.
 b.	Fetch EDR token for the Submodel Server.
-6.	Retrieve the dataset from the Submodel Server via EDC Dataplane, as defined in the `href` of the Submodel Descriptor.
+6.	Retrieve the dataset from the Submodel Server via EDC dataplane, as defined in the `href` of the Submodel Descriptor.
 
 **Result**
 
@@ -296,7 +296,7 @@ sequenceDiagram
 autonumber
         PRO->>PAWS: Provider uploads the parquet file to the cloud
         PRO->>PEDC: Provider creates an EDC asset for S3 bucket
-        PRO->>PEDC: Provider creates an EDC asset for Submodel <br>pointing to Aspect Model `QualityParquetExchange`
+        PRO->>PEDC: Provider creates an EDC asset for Submodel <br>pointing to Aspect Model `BinaryExchange`
         PRO->>DTR: Provider creates a shell with Shell Descriptors and the edc Asset with controlplane URL
         Note right of DTR: Shell Descriptor contains the<br>Submodel with above EDC asset
         Con->>PEDC: negotiate for DTR and retrieve token
@@ -330,10 +330,10 @@ autonumber
 
 See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/Quality-Kit/Software%20Development%20View/Specification%20Quality%20Kit/)
 
-3. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `QualityParquetExchange`. This aspect model will contain the information (assetID, Dataplane URL and Controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
+3. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `BinaryExchange`. This aspect model will contain the information (dspAssetId, dataplane URL and controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
 4. `Provider` creates a shell with Shell Descriptors and the edc Asset with controlplane URL. This Shell Descriptor contains the Submodel Descriptor which refers to EDC asset created in step 4.
-5. `Consumer` calls the DTR via EDC Dataplane and reads the Submodel Descriptor for `QualityParquetExchange` aspect model from the Shell Descriptor.
-6. `Consumer` calls Submodel Server using Dataplane URL, which is setup by the provider and in response receives the information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
+5. `Consumer` calls the DTR via EDC dataplane and reads the Submodel Descriptor for `BinaryExchange` aspect model from the Shell Descriptor.
+6. `Consumer` calls Submodel Server using dataplane URL, which is setup by the provider and in response receives the information (dspAssetId, dataplane URl (resource value) and controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
 7. `Consumer` starts negotiation/transfer process and provides its own bucket information:
 
 ```json
@@ -384,7 +384,7 @@ The Submodel Descriptor for Parquet file information can be defined like:
         "keys": [
            {
               "type": "GlobalReference",
-              "value": "urn:samm:io.catenax.quality.parquet_exchange:1.0.0#ParquetExchange"
+              "value": "urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange"
            }
         ]
       },
@@ -401,25 +401,27 @@ The Submodel Descriptor for Parquet file information can be defined like:
 
 | Parameter               | Value                                                                                                   | Description                                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| href                    | Dataplane URL                                                                                           | This Dataplane URl returns aspect model QualityParquetExchange                                                    |
+| href                    | dataplane URL                                                                                           | This dataplane URl returns aspect model BinaryExchange                                                            |
 | subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                                            | Includes information about provider edc controlplane and edc-asset ID                                             |
 | subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                               |
-| semanticId.keys[].value | urn:samm:io.catenax.quality.parquet_exchange:1.0.0#ParquetExchange                                      | Aspect model which provides information (assetID, Dataplane URl and Controlplane URL) for AmazonS3 EDC asset      |
+| semanticId.keys[].value | urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange                                                | Aspect model which provides information (dspAssetId, dataplane URl and controlplane URL) for AmazonS3 EDC asset   |
 | description[].text      | submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC. | Further description for the consumer.                                                                             |
 
-**Aspect model QualityParquetExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
+**Aspect model BinaryExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
 
-A sample payload for QualityParquetExchange aspect model is described below:
+A sample payload for BinaryExchange aspect model is described below:
   ```json
 {
-  "mappingRule": "CX-0123",
-  "content": "io.catenax.fleet.diagnostic_data",
-      "dataParquetFile": {
-        "edcAssetId": "d99cfe94-bfa0-4eba-9e31-d30c4f31831b",
-        "dataplaneUrl": "https://semantics-edc-provider-dataplane.catenax/diagnosticdata/1",
-        "controlplaneUrl": "dspEndpoint=https://semantics-edc-provider-controlplane.catenax.net",
-        "encodingType": "application/octet-stream"
-    }
+  "mappingRuleId": "CX-0123",
+  "binaryFile": {
+    "value": "https://edc.dataplane.url/api/public/urn:uuid:a377ff49-6bde-4215-8d38-b8f02c991a35",
+    "contentType": "application/octet-stream"
+  },
+  "dspInformation": {
+    "controlPlaneUrl": "dspEndpoint=https://semantics-edc-provider-controlplane.catenax.net/api/v1/dsp",
+    "dspAssetId": "d99cfe94-bfa0-4eba-9e31-d30c4f31831b"
+  },
+  "fileContentDescriptionId": "urn:samm:io.catenax.fleet.diagnostic_data:3.0.0"
 }
   ```
 
