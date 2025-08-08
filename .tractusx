@@ -60,6 +60,7 @@ openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/osim/kit_osim-openAPI_2-0-0.yaml"
 
 # Traceability KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-block-notifications-openAPI_2-0-0.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-block-notifications-openAPI_1-0-0.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-notifications-openAPI_1-2-1.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/traceability/kit_traceability-notifications-openAPI_2-0-0.yaml"
