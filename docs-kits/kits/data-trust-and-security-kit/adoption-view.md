@@ -23,6 +23,10 @@ This KIT shall enable data transfer, where data consumer can trust in their cons
 
 This KIT aims to define solutions used in Eclipse Tractus-X to generate trust in the data consumed within the network.
 
+The Product Carbon Footprint (PCF), Digital Product Passport (DPP) and Company Certificate Management (CCM) use cases, are the first lighthouse examples, which Verifiable Credentials can be applied as technology for creating "signed documents"/ "attestation statements". This attestations can be done for complete aspect models or for some selective set of attributes.
+
+It is important to note that the data exchange of this "attestation statements" secured by Verifiable Credentials is done via the technology defined in the [Connector KIT](../connector-kit/adoption-view/adoption-view.md) and managed/discoverable via [Digital Twins](../digital-twin-kit/adoption-view.md), like any aspect models which is not verifiable and implements the [Industry Core KIT](../industry-core-kit/adoption-view.mdx).
+
 It shall deliver recommendation for gaining trust on three level:
 
 ```mermaid
@@ -105,21 +109,47 @@ graph TD
 
 ### Trust Layers
 
-#### Layer 1: Governance
+### Layer 1: Governance
 
-##### Attestation Providers
+#### Attestation Providers
 
 **What are Attestation Providers?**
 
 Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, Chem-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
+They must have a verified identity and verifiable role attestation, which is awarded by a governance body like (Catena-X e.V., Chem-X, etc). In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
+
 ### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
+The main objective of the technology is to provide, verifiable proof for Aspect Model claims or selected attributes from a Aspect Model.
+
+It covers aspects like `JSON-LD @context` generation from `JSON Schemas` generated from the SAMM Meta Models, Verifiable Credential schemas and structure, digital twin integration and clear examples for different examples.
+
+:::info
+
+Disclaimer: For the moment this KIT does not details the implementations of any Trusted Lists, Dataspace Role Credentials & Revocation Lists.
+
+:::
+
 ### Layer 3: Data Content
 
 For the data content, a rule book is necessary to be written with the specification for each attribute in a Data Model. In this KIT a [Rulebook Template](./documentation/rulebook-template.md) is provided for the data content to be specified.
+
+Additional information can be provided in the rulebook to enable and support the Attestation Providers in their task of content validation, certification and verification.
+
+#### Rulebooks
+
+Examples of existing rulebooks are the following:
+
+| Name | Link |
+|--|--|
+| Catena-X PCF Verification Framework v1.0 | [go to rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF_TFS-verification_v.1.0-9c745192bc2871adda513e4b7a22bab2.pdf) |
+| Catena-X PCF Rulebook v3.1 | [go to rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.1-7737a1471bd658b49a1685aaa65d5ebe.pdf) |
+| Digital Product Passport Rulebook v1.0 | Comming soon |
+
+Additonally standards can also be used to validate calculation methodology, data content plausibility.
 
 ## Standards & Specifications
 
@@ -130,7 +160,6 @@ The Data Trust & Security KIT is built upon established industry standards and s
 | Standard | Version | Reference |
 |----------|---------|-----------|
 | **Verifiable Credentials Data Model** | 2.0 | [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/) |
-| **JSON Web Signature 2020** | 2020 | [W3C VC-JWS-2020](https://w3c.github.io/vc-jws-2020/) |
 | **Decentralized Identifiers (DIDs)** | 1.0 |  [W3C DID Core](https://www.w3.org/TR/did-core/) |
 | **DID Web Method** | - |  [W3C DID Web](https://w3c-ccg.github.io/did-method-web/) |
 | **JSON-LD** | 1.1 | [W3C JSON-LD](https://www.w3.org/TR/json-ld11/) |
@@ -144,6 +173,26 @@ The Data Trust & Security KIT is built upon established industry standards and s
 ### Catena-X Standards
 
 For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
+
+This are the relevant standards for this KIT:
+
+| ID | Name | Link |
+| -- | ---- | ---- |
+| CX-0002 | Digital Twins in Catena-X v2.2.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) |
+| CX-0018 | Dataspace Connectivity v.4.0.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity) |
+| CX-0049 | DID Document v2.1.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0049-DIDDocumentSchema) |
+| CX-0135 | Business Partner Company Certificate Management v2.2.0 | [go to standard](https://catenax-ev.github.io/docs/standards/CX-0135-CompanyCertificateManagement) |
+| CX-0136 | Use Case PCF 2.0.1 | [go to standard](https://catenax-ev.github.io/docs/standards/CX-0136-UseCasePCF) |
+| CX-0143 | Use Case Circular Economy - Digital Product Passport Standard 1.0.1 | [go to standard](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) |
+| CX-0149 | Verified Company Identity v1.0.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) |
+
+:::caution
+
+Disclaimer:
+
+In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) only required the VC standards version [W3C VC Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/)  is not compatible with the VC standard version [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/). However since the data is exchange through data provider Connector Dataplane like any other aspect model, therefore are no incompatibilities during data exchange, only during the issuance, if the wallet does not support yet [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/).
+
+:::
 
 ## Reference Implementations
 
@@ -165,4 +214,15 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Fujitsu Limited
+- SPDX-FileCopyrightText: 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2025 Spherity GmbH
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 SIEMENS AG
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK und IPK
+- SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
+- SPDX-FileCopyrightText: 2025 TÜV Süd AG
+- SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
