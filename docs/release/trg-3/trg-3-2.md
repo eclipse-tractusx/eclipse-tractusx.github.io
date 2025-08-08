@@ -1,5 +1,6 @@
 ---
 title: TRG 3.02 - Persist Data
+sidebar_position: 1
 ---
 
 | Status | Created     | Post-History      |

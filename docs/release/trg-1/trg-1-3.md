@@ -1,5 +1,6 @@
 ---
 title: TRG 1.03 - CHANGELOG.md
+sidebar_position: 3
 ---
 
 | Status | Created      | Post-History                             |
@@ -40,7 +41,7 @@ All notable changes to this project will be documented in this file see also the
 
 - add API reference documentation (#issue, #pull-request)
 
-## [v2.0.1](https://github.com/eclipse-tractusx/digital-product-pass/releases/tag/v2.0.1)  (your currently released semantic version) 
+## [v2.0.1](https://github.com/eclipse-tractusx/digital-product-pass/releases/tag/v2.0.1)  (your currently released semantic version)
 
 ### Added
 
@@ -50,7 +51,7 @@ All notable changes to this project will be documented in this file see also the
 
 - bump Java version (#issue, #pull-request)
 
-... 
+...
 
 ### Security
 

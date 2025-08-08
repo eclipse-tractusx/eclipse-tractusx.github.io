@@ -1,5 +1,6 @@
 ---
 title: TRG 6.01 - Released Helm Chart
+sidebar_position: 1
 ---
 
 | Status | Created     | Post-History    |
