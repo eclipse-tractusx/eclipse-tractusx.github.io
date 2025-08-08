@@ -1,5 +1,6 @@
 ---
 title: TRG 2.03 - Repo structure
+sidebar_position: 2
 ---
 
 | Status | Created     | Post-History                                  |
