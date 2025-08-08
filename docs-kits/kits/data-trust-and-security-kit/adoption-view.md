@@ -194,7 +194,6 @@ In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/sta
 
 :::
 
-
 ## Reference Implementations
 
 ### Digital Product Pass Verification Add-on
