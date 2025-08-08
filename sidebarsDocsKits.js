@@ -321,6 +321,52 @@ const sidebars = {
       },
       {
         type: 'category',
+        label: 'Data Trust & Security KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/data-trust-and-security-kit/changelog',
+          'kits/data-trust-and-security-kit/adoption-view',
+
+          {
+            type: 'category',
+            label: 'Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/data-trust-and-security-kit/software-development-view/overview'
+            },
+            items: [
+              'kits/data-trust-and-security-kit/software-development-view/overview',
+              'kits/data-trust-and-security-kit/software-development-view/verifiable-credentials',
+              'kits/data-trust-and-security-kit/software-development-view/digital-twins',
+              'kits/data-trust-and-security-kit/software-development-view/semantic-verification'
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Documentation',
+            items: [
+              {
+                type: 'doc',
+                id: 'kits/data-trust-and-security-kit/documentation/rulebook-template'
+              }
+            ]
+          },
+          {
+            type: 'category',
+            label: 'Success Stories',
+            items: [
+              {
+                type: 'doc',
+                id: 'kits/data-trust-and-security-kit/success-stories/dpp-verification-success-story'
+              }
+            ]
+          },
+          'kits/data-trust-and-security-kit/operation-view'
+        ]
+      },
+      {
+        type: 'category',
         label: 'Data Governance KIT',
         link: { type: 'generated-index' },
         collapsed: true,

@@ -197,6 +197,10 @@ const config = {
                 label: 'Customs',
               },
               {
+                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                label: 'Data Trust & Security',
+              },
+              {
                 to: '/docs-kits/kits/data-chain-kit/adoption-view',
                 label: 'Data Chain',
               },
