@@ -1,7 +1,7 @@
 @startuml "EDC Discovery and dDTRAccess"
 
 participant PCF_Client
-participant Client_API_Wapper
+participant Client_API_Wrapper
 participant Client_EDC
 participant EDC_Discovery_Service
 participant Company_EDC
@@ -79,7 +79,7 @@ Showing submodel only to ease readability!
         {
             "interface": "PCF-1.1",
             "protocolInformation": {
-                "href": "https://edc.data.plane/productIds/mat345",
+                "href": "https://edc.data.plane/footprintExchange/c34018ab-5820-4065-9087-416d78e1ab60?manufacturerPartId=mat345"
                 "endpointProtocol": "HTTP",
                 "endpointProtocolVersion": ["1.1"],
                 "subprotocol": "DSP",
