@@ -25,7 +25,7 @@ This KIT aims to define solutions used in Eclipse Tractus-X to generate trust in
 
 The Product Carbon Footprint (PCF), Digital Product Passport (DPP) and Company Certificate Management (CCM) use cases, are the first lighthouse examples, which Verifiable Credentials can be applied as technology for creating "signed documents"/ "attestation statements". This attestations can be done for complete aspect models or for some selective set of attributes.
 
-It is important to note that the data exchange of this "attestation statements" secured by Verifiable Credentials is done via the technology defined in the [Connector KIT](../connnector-kit/adoption-view.md) and managed/discoverable via [Digital Twins](../digital-twin-kit/adoption-view.md), like any aspect models which is not verifiable and implements the [Industry Core KIT](../industry-core-kit/adoption-view.md)
+It is important to note that the data exchange of this "attestation statements" secured by Verifiable Credentials is done via the technology defined in the [Connector KIT](../connector-kit/adoption-view/adoption-view.md) and managed/discoverable via [Digital Twins](../digital-twin-kit/adoption-view.md), like any aspect models which is not verifiable and implements the [Industry Core KIT](../industry-core-kit/adoption-view.mdx).
 
 It shall deliver recommendation for gaining trust on three level:
 
