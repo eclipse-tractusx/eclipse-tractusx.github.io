@@ -169,7 +169,7 @@ sequenceDiagram
 autonumber
     critical: Extended registration
         Act ->> DFin: POST /api/administration/connectors/discovery with IdType-to-BPN-Discover-URL-Mapping
-        Act ->> BPND: POST /api/administration/connectors/bpnDiscovery with assetId, idType ("van", "cxId" etcetc)
+        Act ->> BPND: POST /api/administration/connectors/bpnDiscovery with assetId, idType ("van", "cxId", etc.)
     end
 ```
 

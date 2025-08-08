@@ -17,7 +17,7 @@ In Industry Core, different types of parts, e. g. serialized parts, batches, JIS
 
 #### Regulatory Compliance and Security
 
-To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implemenetation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
+To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implementation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
 #### Handling of Digital Twins at Contract Manufacturing
 
@@ -58,7 +58,7 @@ The following conventions for specific asset IDs apply to all digital twins:
 | --- | --- | --- | --- |
 | manufacturerId | Mandatory | The Business Partner Number (BPNL) of the manufacturer of the part. | BPNL |
 | manufacturerPartId | Mandatory | The ID of the type/catalog part from the _manufacturer_. | String |
-| customerPartId | Optional | The ID of the type/catalog part from the _customer_.  <br />The main reason why this propertiy is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. In case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is _required_ to add this information for easier lookup and to enable further processes. | String |
+| customerPartId | Optional | The ID of the type/catalog part from the _customer_.  <br />The main reason why this property is optional is that it cannot be guaranteed that every manufacturer knows the customerPartId for their parts. In case the manufacturer knows the customer and the corresponding CustomerPartID of its part though, it is _required_ to add this information for easier lookup and to enable further processes. | String |
 | digitalTwinType | Mandatory | The type of the digital twin:<br /><br />*   "PartInstance" for serialized parts, batches, and JIS parts<br />*   "PartType" for catalog parts<br /><br />digitalTwinType was added to allow data consumers to search for all digital twins of a particular type, e.g, only for catalog parts by using `digitalTwinType="PartType"` as filter. Without this filter, a search for a particular manufacturer part ID would not only return the digital twin of the catalog part, but also all digital twins of instances of this catalog part, i.e., of the corresponding serial parts. | String |
 
 **For serialized parts, additionally the following conventions apply:**
@@ -92,11 +92,11 @@ Nevertheless, a search for digital twins can still be used via the corresponding
 
 #### Submodel Descriptors
 
-To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../../../kits/digital-twin-kit/software-development-view).
+To enforce a strict need-to-know (and prevent data from being exposed to non-authorized parties), the visibility of entries in the attribute `specificAssetIds` must be protected, i.e.,their visibility must be restricted to authorized parties only. For that, the attribute `externalSubjectId` must be used. Detailed information about this can be found in the [Digital Twin KIT](../../digital-twin-kit/software-development-view).
 
 ##### Submodel Descriptors
 
-Submodel descriptors must be compliant with the guildeines from the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit) as well as the following additional conventions:
+Submodel descriptors must be compliant with the guidelines from the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit) as well as the following additional conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
 - `idShort`: the name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
@@ -126,12 +126,12 @@ The following conventions apply for the endpoint:
 - `href`: The endpoint address for the logical operation GetSubmodel that is invoked by a data consumer to get the submodel. It must have the following format:
   - `https://connector.data.plane/{publicContextPath}`: Address of the Connector data plane that is providing the submodel. `{publicContextPath}` is configured in the Connector settings and defaults to `/api/public`.
   - `{providerPath}`: This string is forwarded to the backend data service by the Connector data plane. Together with the Connector asset information (see below) it must contain all information for the backend data service to return the requested submodel. The actual path depends on the type of backend data service that the data provider uses to handle the request. More details follow below.
-  - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for this release, `href` must have the suffix `/submodel` representing the invokation of the GetSubmodel operation.
+  - `submodel`: This `submodel` string is also forwarded to the backend data service. As AAS Profile SSP-003 of the Submodel Service Specification is mandatory for this release, `href` must have the suffix `/submodel` representing the invocation of the GetSubmodel operation.
 - `subprotocolBody`: a semicolon-separated list of parameters used to negotiate the required contract agreement.
   - `dspEndpoint`: Base URL of the [catalog service](https://docs.internationaldataspaces.org/ids-knowledgebase/v/dataspace-protocol/catalog/catalog.binding.https#id-2.1-prerequisites) endpoint of a DSP Connector. The consumer Connector can use:
      - `catalog/request` to fetch the full catalog and search for the dataset in the catalog or
      - `catalog/datasets/{id}` to only fetch offers for the dataset with a particular dataset ID.
-  - `id`: The ID of the Connector asset for which a contract negotiation should be intiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often refered to as `edc:id`).
+  - `id`: The ID of the Connector asset for which a contract negotiation should be initiated. This ID is also called dataset ID as it is stored as `https://www.w3.org/ns/dcat/dataset.@id` in a catalog entry. This ID must be set by the data provider when creating the asset. Do not confuse this Connector asset ID (dataset ID) with other IDs that might be defined additionally for a Connector asset, e.g., `https://w3id.org/edc/v0.0.1/ns/id` (often referred to as `edc:id`).
 
 With this approach, the Connector asset structure must no longer follow the "one asset per submodel" rule (as in Release 3.1 and before), but gives data providers more flexibility how to create assets for their digital twins and submodels based on how they use `{providerPath}`.
 
@@ -277,7 +277,7 @@ All Asset identifier key-value-pairs used as parameter to this lookup function a
 
 The lookup (for serialized parts/batches as well as catalog parts) can use the customer or the manufacturer part ID (manufacturerPartId or manufacturerPartId).
 
-- For a digital twin, adding the customer part ID to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part ID for their parts. But, if they know it, it is recommended to always add the customer part ID to the specifiAssetId property for easier lookup (by customers).
+- For a digital twin, adding the customer part ID to the specific asset IDs is optional. The main reason for this is that it cannot be guaranteed that every manufacturer knows the customer part ID for their parts. But, if they know it, it is recommended to always add the customer part ID to the specific AssetId property for easier lookup (by customers).
 - A customer that wants to do a lookup for a supplier's digital twin, must first decide what ID they want to use for the lookup. This depends on the information that is available to them.
   - If the customer knows the manufacturer part id, they should use the manufacturer part ID for the lookup as the manufacturer part ID is guaranteed to be available in the digital twin (as the manufacturer part ID is a mandatory property).
   - If the customer does not know the manufacturer part id, they must use the customer part ID (i.e., their own part id). In that case they must make sure that their suppliers register their digital twins with this information (as the customer part ID is optional) as part of the specific asset IDs. This is decision that a customer must agree upon with each of their suppliers individually.

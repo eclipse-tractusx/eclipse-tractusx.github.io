@@ -40,7 +40,7 @@ The Data Governance Kit provides a set of API specifications which would help th
 
 ### High Level Architecture
 
-As it would be clear now that the Data Governance Kit acts as an abstraction layer for multiple EDC Connctors and hides the EDC complexities behind it. This is achieved by using the below concepts:
+As it would be clear now that the Data Governance Kit acts as an abstraction layer for multiple EDC Connectors and hides the EDC complexities behind it. This is achieved by using the below concepts:
 
 * Staging (or Management )
 * Publication
