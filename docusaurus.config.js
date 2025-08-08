@@ -74,12 +74,16 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
-        onlyIncludeVersions: ['25.03', '24.12', '24.08', 'current'],
+        onlyIncludeVersions: ['25.06', '25.03', '24.12', 'current'],
         lastVersion: 'current',
         versions: {
           'current': {
             label: 'Next',
             banner: 'unreleased'
+          },
+          '25.06': {
+              label: '25.06',
+              banner: 'none'
           },
           '25.03': {
             label: '25.03',
@@ -88,10 +92,6 @@ const config = {
           '24.12': {
             label: '24.12',
             banner: 'none'
-          },
-          '24.08': {
-            label: '24.08',
-            banner: 'unmaintained'
           },
         },
       },
