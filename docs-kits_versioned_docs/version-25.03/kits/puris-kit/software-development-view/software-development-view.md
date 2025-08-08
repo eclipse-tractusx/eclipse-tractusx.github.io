@@ -31,9 +31,9 @@ the identity including associated claims (see Usage Purpose section) of the requ
 authorize the request. For a local deployment of the portal including the IAM components, please refer to
 the [umbrella helm chart](https://github.com/eclipse-tractusx/tractus-x-umbrella "https://github.com/eclipse-tractusx/tractus-x-umbrella").
 The data is provisioned in accordance with
-the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)
+the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view/interaction-patterns)
 in Catena-X. The architecture in this figure only applies to standards that are based on the Digital Twins in
-Catena-X ([Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)).
+Catena-X ([Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view/interaction-patterns)).
 
 ![PURIS Conceptual Levels](resources/PURIS-R2405-architecture-sketch.svg)
 _Figure 1: High-level architecture of the submodel exchange in the Catena-X dataspace_
@@ -252,7 +252,7 @@ in [Chapter 3 of the End-to-End Adopter Journey](https://eclipse-tractusx.github
 This chapter contains data structures that are designed for providing data in the PURIS standards.
 
 The PURIS KIT does not define its own protocol, as it is using the communication pattern described in
-the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)
+the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view/interaction-patterns)
 and relies on
 the [Part Type Twin definitions of the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/software-development-view/Digital%20Twins%20Development%20View%20Industry%20Core%20Kit).
 
@@ -263,7 +263,7 @@ Examples of how the required data structures for that pattern may look like for 
 To allow partners to find data regarding a specific Industry Core Part Type Twin, the provider has to register a
 connector data asset (see [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/connector-kit))
 specifying the address of the Digital Twin Registry of the provider (
-see [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)).
+see [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view/interaction-patterns)).
 
 The structure is as follows:
 
@@ -352,7 +352,7 @@ represents a the Shell Descriptor of a supplier who provides access to an "_Item
 see [GitHub](https://github.com/eclipse-tractusx/sldt-semantic-models)) for two customers using the legacy access
 control in the Digital Twin Registry reference implementation. For further information on the creation of Part Type
 Twins, refer to
-the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/dt-kit-software-development-view)
+the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/kits/digital-twin-kit/software-development-view/dt-kit-software-development-view)
 and the [Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/industry-core-kit).
 
 When searching the data assets catalog of a data provider, a data consumer uses the assetId determined via
