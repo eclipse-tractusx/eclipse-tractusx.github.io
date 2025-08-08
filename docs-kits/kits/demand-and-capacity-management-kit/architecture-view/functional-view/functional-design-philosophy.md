@@ -12,7 +12,7 @@ description: What the design philosophy of a DCM-App should be.
 
 ### Tailor the DCM application to the end-users
 
-- OEMs are most likely only going act to as the business role Customer
+- OEMs are most likely only going to act as the business role customer
 - Suppliers are most likely not going to look at demands that have already been linked to capacity groups
 - After a capacity group has been fully linked to demands, only the total demand in a specific week is of interest at first
   - If a bottleneck has been detected in a week, only then the individual demands making up the total demand for that week will be of interest
@@ -48,7 +48,7 @@ description: What the design philosophy of a DCM-App should be.
 - Most of the time only an eagle-eye view of the data is required
   - But if a bottleneck gets detected, the users do want to deep dive
 - Comments can be attached to capacity groups, material demands, comments and also specific weeks
-  - A thread model where all comments appear, based on the capacity group that is currently viewed should be favorable
+  - A thread model where all comments appear, based on the capacity group that is currently viewed, should be favorable
     - Even if the comment is only indirectly linked the the capacity group, i am currently viewing, via 3 layers of nesting I should still be able to see it
 - Instead of showing the raw values for load factors etc. in an overview it might make sense to label weeks, where such features have been applied and than only show the raw values upon inspection of that week
 
