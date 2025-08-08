@@ -1,5 +1,6 @@
 ---
 title: TRG 1.02 - INSTALL.md
+sidebar_position: 2
 ---
 
 | Status | Created      | Post-History                                        |

@@ -1,5 +1,6 @@
 ---
 title: TRG 1.01 - README.md
+sidebar_position: 1
 ---
 
 | Status | Created      | Post-History                             |

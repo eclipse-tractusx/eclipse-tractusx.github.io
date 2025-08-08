@@ -1,5 +1,6 @@
 ---
 title: TRG 2.04 - Leading product repository
+sidebar_position: 3
 ---
 
 | Status | Created     | Post-History                                   |

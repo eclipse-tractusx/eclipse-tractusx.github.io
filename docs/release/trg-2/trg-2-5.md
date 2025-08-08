@@ -1,5 +1,6 @@
 ---
 title: TRG 2.05 - Repository metafile
+sidebar_position: 4
 ---
 
 | Status     | Created     | Post-History           |
