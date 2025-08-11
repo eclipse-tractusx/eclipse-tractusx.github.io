@@ -2574,4 +2574,15 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Fujitsu Limited
+- SPDX-FileCopyrightText: 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2025 Spherity GmbH
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 SIEMENS AG
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
+- SPDX-FileCopyrightText: 2025 TÜV Süd AG
+- SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
