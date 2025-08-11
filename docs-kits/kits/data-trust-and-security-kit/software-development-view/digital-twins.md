@@ -156,4 +156,3 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
 - SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
-
