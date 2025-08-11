@@ -88,7 +88,7 @@ Given the labor-intensive nature of these processes, there is a strong economic 
 
 In the Data Trust & Security KIT there are three main roles:
 
-- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X, Chem-X, etc).
+- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X, etc).
 - **Attestation Provider**: This should serve as an additional entity capable of confirming the authenticity of data through validation and verification. However, the primary responsibility for the data must remain with the data provider
 - **Data Consumer**: Responsible for consuming data from a data provider and triggering the "check" to know if the data received is "verifiable".
 
@@ -115,15 +115,17 @@ graph TD
 
 **What are Attestation Providers?**
 
-Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, Chem-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
+Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
-They must have a verified identity and verifiable role attestation, which is awarded by a governance body like (Catena-X e.V., Chem-X, etc). In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
+They must have a verified identity and verifiable role attestation, which is awarded by a governance body. In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
+
+Attestation providers and governance bodies can be [industry-specific](https://catenax-ev.github.io/docs/next/operating-model/why-introduction) or cross-industry, as currently developed by the [Manufacturing-X Initiative](https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html).
 
 ### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
-The main objective of the technology is to provide, verifiable proof for Aspect Model claims or selected attributes from a Aspect Model.
+The main objective of the technology is to provide, verifiable proof for Aspect Model claims or selected attributes from an Aspect Model.
 
 It covers aspects like `JSON-LD @context` generation from `JSON Schemas` generated from the SAMM Meta Models, Verifiable Credential schemas and structure, digital twin integration and clear examples for different examples.
 
@@ -190,7 +192,7 @@ This are the relevant standards for this KIT:
 
 Disclaimer:
 
-In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) only required the VC standards version [W3C VC Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/)  is not compatible with the VC standard version [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/). However since the data is exchange through data provider Connector Dataplane like any other aspect model, therefore are no incompatibilities during data exchange, only during the issuance, if the wallet does not support yet [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/).
+In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) only required the VC standards version [W3C VC Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/) is not compatible with the VC standard version [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/). However since the data is exchange through data provider Connector Dataplane like any other aspect model, therefore are no incompatibilities during data exchange, only during the issuance, if the wallet does not support yet [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/).
 
 :::
 
