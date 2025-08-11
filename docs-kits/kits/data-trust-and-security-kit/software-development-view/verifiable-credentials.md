@@ -2541,7 +2541,7 @@ All this different verifications advantages can be doen
 
 ### Data Attestation Credential Verification
 
-Complete data verification using self-signed credentials:
+Complete data verification using self-issued credentials:
 
 ```mermaid
 flowchart TD

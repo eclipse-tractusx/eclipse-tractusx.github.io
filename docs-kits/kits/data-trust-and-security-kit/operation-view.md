@@ -9,10 +9,6 @@ sidebar_position: 9
 
 ![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
 
-### Trusted List Operation
-
-- The trusted list requires to be exposed on the public internet, for the public, not only for dataspaces users
-
 ### Requirements for Identifiers
 
 - The DID Document requires to be available for the public internet and include the public key.
