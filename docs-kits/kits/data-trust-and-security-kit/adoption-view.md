@@ -225,7 +225,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Spherity GmbH
 - SPDX-FileCopyrightText: 2025 Schaeffler AG
 - SPDX-FileCopyrightText: 2025 SIEMENS AG
-- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK und IPK
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
 - SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
 - SPDX-FileCopyrightText: 2025 TÜV Süd AG
 - SPDX-FileCopyrightText: 2025 BASF SE
