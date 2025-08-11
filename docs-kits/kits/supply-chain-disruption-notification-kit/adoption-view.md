@@ -53,7 +53,7 @@ _Figure 1: Visualization of example use case_
 1. **Feedback Loop:** As the situation evolves, the supplier continues to provide updates through the notification system, ensuring all impacted stakeholders have the latest information to make informed decisions. This ongoing communication fosters a collaborative environment where manufacturers and suppliers work together to mitigate the disruption's effects.
 1. **Resolution**: As soon as the situation is finalized (e.g. solution found, crisis over, measures effective), the sender updates all impacted stakeholders through the notification system. This ensures, that all stakeholders have the latest status and can take corresponding decisions.
 
-#### Impact & Benefits
+#### Impact And Benefits
 
 This use case demonstrates the vital role of the "Supply Chain Disruption Notifications" standard in enhancing the agility and resilience of the automotive supply chain. By providing a structured and efficient way to communicate disruptions, the notification enables all involved stakeholders of the supply chain (both 1-up and 1-down) to:
 
@@ -180,16 +180,16 @@ The "Supply Chain Disruption Notifications" framework consists of several compon
 
 - **Notification Exchange Application:** A software component that enables stakeholders to send and receive supply chain disruption notifications. It integrates with existing systems to extract and input relevant data, ensuring the timeliness and accuracy of the information exchanged.
 - **Connector:** This component manages the secure and compliant exchange of data, acting as a bridge between business partners within the Catena-X network. It ensures that data flow adheres to standardized communication and security measures.
-- **Data Provisioning & Transformation:** This aspect involves transforming internal data into the standardized format required for the notification system and vice versa, allowing seamless integration with internal systems and processes.
+- **Data Provisioning and Transformation:** This aspect involves transforming internal data into the standardized format required for the notification system and vice versa, allowing seamless integration with internal systems and processes.
 - **Identity and Access Management (IAM):** Ensures secure access to the system, managing authentication and authorization across the Catena-X network. It includes mechanisms to verify the identity and credentials of participating entities, ensuring that data exchange occurs within a trusted environment.
 
 By adopting this business architecture, stakeholders in the automotive supply chain can significantly enhance their ability to manage and mitigate the impacts of disruptions, fostering a more resilient and agile supply chain ecosystem within the Catena-X framework.
 
-## Logic & Schema by Example
+## Logic And Schema by Example
 
 To send and receive Supply Chain Disruption Notifications, an internal process for evaluating incoming notifications as well as sending new notifications needs to be implemented. The following figure visualizes the process in the supply chain, in which a tier 3 company sends a notification to its customers and a supplier.
 
-![Logic & Schema](resources/notifications-forwarding-example.drawio.svg)
+![Logic and Schema](resources/notifications-forwarding-example.drawio.svg)
 _Figure 2: Visualization of the notifications process with forwarding into two directions from the source disruption._
 
 Table 2 gives an overview about the partners present in the supply chain and directly links to the section describing how the partners handle the situation.
@@ -260,7 +260,7 @@ _Tier 2.2_ produces steering linkages for which nuts are also delivered to conne
 - related notification id: copied from `notificationId` from message received.
 
 :::info[Align with your partners in which cases to send notifications!]
-_Tier 2.2_ and _Tier 1.2_ previously aligned on the scenarios in which they want to inform each other about disruptions. They aligned on being very transparent, and defined to inform partners about significant issues that might impact each other. Within the text fields they state their analysis. Based on their alignment, _Tier 2.2_ will send an update whenever new information is available and send an update with `status` set to `resolved` after actually resolving the disruption.  
+_Tier 2.2_ and _Tier 1.2_ previously aligned on the scenarios in which they want to inform each other about disruptions. They aligned on being very transparent, and defined to inform partners about significant issues that might impact each other. Within the text fields they state their analysis. Based on their alignment, _Tier 2.2_ will send an update whenever new information is available and send an update with `status` set to `resolved` after actually resolving the disruption.
 :::
 
 ### Tier 1.2
@@ -286,12 +286,12 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 ### Normative References
 
 | Standard | Standard Name                       |
-| -------- | ----------------------------------- |
+| -------- |-------------------------------------|
 | CX-0001  | EDC Discovery API                   |
 | CX-0003  | SAMM Aspect Meta Model              |
 | CX-0006  | Registration and initial onboarding |
 | CX-0010  | Business Partner Number (BPN)       |
-| CX-0015  | IAM & Access Control Paradigm       |
+| CX-0015  | IAM and Access Control Paradigm     |
 | CX-0018  | Dataspace Connectivity              |
 | CX-0126  | Industry Core: Part Type            |
 | CX-0149  | Verified Company Identity           |

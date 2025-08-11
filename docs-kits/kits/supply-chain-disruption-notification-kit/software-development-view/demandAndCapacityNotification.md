@@ -50,10 +50,7 @@ Figure 1: *Versioning of the Demand and Capacity Notification based on CX-0151*
 
 ## Sample Data
 
-The semantic models in the business context are defined in the Adoption View of this KIT. This chapter gives additional
-information for each aspect model by providing the example data objects in JSON format, link to the RDF turtle file on
-GitHub and unique semantic id of the aspect model. Currently the standard *Supply Chain Disruption Notifications*
-provides one semantic model *Demand and Capacity Notification*.
+The semantic models in the business context are defined in the Adoption View of this KIT. This chapter gives additional information for each aspect model by providing the example data objects in JSON format, link to the RDF turtle file on GitHub and unique semantic id of the aspect model. Currently the standard *Supply Chain Disruption Notifications* provides one semantic model *Demand and Capacity Notification*.
 
 The Demand and Capacity Notification consists of a header and a content, that are assembled in the following format:
 
@@ -69,7 +66,7 @@ The Demand and Capacity Notification consists of a header and a content, that ar
 The definition following aspect models are used for their respective properties following table 1.
 
 | Property | Aspect Model with Link                                                                                                                                                                                                                             |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | header   | [urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeader](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.shared.message_header/3.0.0/MessageHeaderAspect.ttl)                                                 |
 | content  | [urn:samm.io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/3.0.0/DemandAndCapacityNotification.ttl) |
 
@@ -81,15 +78,15 @@ In the following more detailed information will be provided on how to fill the r
 
 The following table lists all fields of the message header and how they are used.
 
-| **Field**        | **REQUIRED** | **Purpose**                                                                                                                                                                                                                                                   | **Datatype**                                             | **Example value**                               |
-| ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------- |
-| messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                        | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f` |
-| relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in the [forwarding subchapter 5](#forward-a-notification).                                                                           | UUID v4 [RFC4122]                                        |                                                 |
-| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                      | `CX-DemandAndCapacityNotificationAPI-Receive:2.0.0`          |
-| version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader         | `3.0.0`                                         |
-| senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber)  | `BPNL7588787849VQ`                              |
-| receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber)  | `BPNL6666787765VQ`                              |
-| sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](https://www.iso.org/iso-8601-date-and-time-format.html) with time zone | `2023-06-19T21:24:00+07:00`                     |
+| **Field**        | **REQUIRED** | **Purpose**                                                                                                                                                                                                                                                   | **Datatype**                                                                                                  | **Example value**                                   |
+|------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                                                                             | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f`     |
+| relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in the [forwarding subchapter 5](#forward-a-notification).                                              | UUID v4 [RFC4122]                                                                                             |                                                     |
+| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                                                                           | `CX-DemandAndCapacityNotificationAPI-Receive:2.0.0` |
+| version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader                                                              | `3.0.0`                                             |
+| senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber) | `BPNL7588787849VQ`                                  |
+| receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber) | `BPNL6666787765VQ`                                  |
+| sentDateTime     | Yes          | The date and time including time zone offset on which the request has been created.                                                                                                                                                                           | [[ISO8601]](https://www.iso.org/iso-8601-date-and-time-format.html) with time zone                            | `2023-06-19T21:24:00+07:00`                         |
 
 Table 2: *Message header fields used in the Demand and Capacity Notification API*
 
@@ -112,9 +109,7 @@ The following listing shows a valid json serialization of such a header within t
 
 ### Content (Demand and Capacity Notification)
 
-The following JSON provides an example of the value-only serialization of the *Supply Chain Disruption Notification*
-aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site
-resulting in a demand reduction between 12.12.2023 and 17.12.2023.
+The following JSON provides an example of the value-only serialization of the *Supply Chain Disruption Notification* aspect model for a sample notification. The notification informs the supplier about a strike at the customer's site resulting in a demand reduction between 12.12.2023 and 17.12.2023.
 
 ```json
 {
@@ -153,8 +148,12 @@ The following JSON provides an example with the same payload and additionally wi
   },
   "content": {
     "demandAndCapacityNotification": {
-      "affectedSitesSender": ["BPNS7588787849VQ"],
-      "affectedSitesRecipient": ["BPNS6666787765VQ"],
+      "affectedSitesSender": [
+        "BPNS7588787849VQ"
+      ],
+      "affectedSitesRecipient": [
+        "BPNS6666787765VQ"
+      ],
       "contentChangedAt": "2023-12-13T15:00:00+01:00",
       "startDateOfEffect": "2023-12-13T15:00:00+01:00",
       "leadingRootCause": "strike",
@@ -171,6 +170,7 @@ The following JSON provides an example with the same payload and additionally wi
           "materialGlobalAssetId": "urn:uuid:b0ceacd8-78b0-391a-2B2D-aCB8cfAAA4AA"
         }
       ]
+    }
   }
 }
 ```
@@ -307,7 +307,7 @@ loop Create and send notification per affected partner
   p2 ->> p2: generate notificationId
   p2 ->> p2: copy sourceDisruptionId, effect,<br>leadingRootCause
   p2 ->> p2: add receivedRelatedNotificationIds to <br>newNotification.relatedNotificationIds
-  
+
   p2 ->> p2: prepare and contextualize<br>notification
   p2 ->> p3: send notification
   p3 ->> p3: validate and save notification
