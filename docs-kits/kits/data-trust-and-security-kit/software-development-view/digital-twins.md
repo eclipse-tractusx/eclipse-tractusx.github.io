@@ -151,6 +151,8 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
 - SPDX-FileCopyrightText: 2025 TÜV Süd AG
 - SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 Deloitte GmbH
+- SPDX-FileCopyrightText: 2025 BMW AG
 - SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
 - SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
