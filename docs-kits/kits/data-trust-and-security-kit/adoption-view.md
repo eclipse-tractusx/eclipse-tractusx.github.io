@@ -119,7 +119,11 @@ Attestation Providers are independent organizations that verify and certify data
 
 They must have a verified identity and verifiable role attestation, which is awarded by a governance body. In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
 
+**Who can act as governance/attestation bodies?**
+
 Attestation providers and governance bodies can be [industry-specific](https://catenax-ev.github.io/docs/next/operating-model/why-introduction) or cross-industry, as currently developed by the [Manufacturing-X Initiative](https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html).
+
+It is important that the root of trust is traceable from the attestation providers identity/role until the governance body via a chain of trust. In this way the data consumers can verify that the trust which was wrapped around the data by the attestation provider, was correctly delegated from governance body at a specific date, for a limited scope and period of time.
 
 ### Layer 2: Technology
 
