@@ -42,13 +42,14 @@ The reality is:
 flowchart LR
     SM["Tractus-X Data Models"] x--NOT COMPATIBLE WITHOUT TRANSLATION --x VC["Verifiable Credentials"]
 ```
-So some sort of translation is necessary. Or directly from the JSON-Schemas or using the OWL or RDF format.
+
+In conclusion, some sort of translation is always necessary. Either directly from the JSON-Schemas or using the OWL or RDF format.
 
 ### The Translation Solution
 
 :::info
 
-More information about translating SAMM into OWL and RDF and then translating to JSON-LD context is still not available in this KIT. It will be available probably in the next version.
+More information about translating SAMM into OWL and RDF and then translating to JSON-LD context is not yet available in this KIT. It will be probably available in the next versions.
 
 :::
 
