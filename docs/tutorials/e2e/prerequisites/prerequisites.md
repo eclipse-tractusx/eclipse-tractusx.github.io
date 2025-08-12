@@ -379,7 +379,7 @@ The user tx01 needs the following permissions to be able to successfully complet
 So we run the following commands, assuming the user already exists:
 
 ```bash
-sudo addusr tx01 docker               # adds the user to the group docker
+sudo adduser tx01 docker              # adds the user to the group docker
 sudo chgrp docker /etc/hosts          # change the group permission from root to docker
 sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts
 ```
