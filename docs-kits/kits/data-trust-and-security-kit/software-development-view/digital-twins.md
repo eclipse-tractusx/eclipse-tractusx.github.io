@@ -123,9 +123,11 @@ In the **target state** it should be resolved with some type of **W3C redirectio
 
 And for the semantic models it could look like this for example (for Catena-X models): `https://w3id.org/catenax/vocab/io.catenax.pcf/7.0.0/`.
 
-## Certification Processes
+## Attestation Processes
 
-### Attribute Certification Process
+Let's analyze what role is the Digital Twin playing in the attestation and verifiable credential creation process:
+
+### Attribute Attestation Creation Process
 
 The attribute certification process enables third-party auditors to verify specific attributes within aspect models:
 
@@ -137,7 +139,7 @@ sequenceDiagram
     participant DA as Attestation Provider
     participant AW as Attestation Provider Wallet
     
-    DP->>DTR: Register Twin
+    DP->>DTR: Register Digital Twin
     DP->>SS: Register Aspect Model
     DP->>DA: Request Attribute Certification
     DA->>DTR: Query Digital Twin via Connector
@@ -145,16 +147,17 @@ sequenceDiagram
     DA->>DA: Validate Attributes
     DA->>DA: Create Attribute Attestation Payload
     DA->>AW: Issue Attribute Attestation Credential (AAC)
+    AW->>AW: Sign with private key
     AW->>AW: Add to revocation list
     AW->>DA: Issued Verifiable Credential
     DA->>DP: Return AAC via Connector
-    DP->>DTR: Update Twin with new Verification Record Submodel
+    DP->>DTR: Update Twin with new Verifiable Credential Submodel
     DP->>SS: Store Verifiable Credential
 ```
 
-### Self-Attestation Process
+### Self-Issued Data Attestation Credential Creation Process
 
-Data providers can self-attest their data by creating signed verifiable credentials:
+Data providers can self-issue their data by embedding their data into verifiable credentials, and providing this data, at a Digital Twin as any aspect model.
 
 ```mermaid
 sequenceDiagram
@@ -162,13 +165,45 @@ sequenceDiagram
     participant Wallet as Wallet
     participant DTR as Digital Twin Registry
     participant SS as Submodel Service
+    participant C as Connector
     
-    DP->>DP: Prepare Aspect Model Data
-    DP->>Wallet: Create Verifiable Credential
-    Wallet->>Wallet: Sign with Private Key
-    Wallet->>DP: Return Signed Credential
-    DP->>DTR: Register as Submodel
+    DP->>DP: Prepare Aspect Model Data & @contexts
+    DP->>Wallet: Issue Data Attestation Credential (DAC)
+    Wallet->>Wallet: Sign with private key
+    Wallet->>DP: Return Issued Verifiable Credential
+    DP->>DTR: Register as Submodel Descriptor in Digital Twin
     DP->>SS: Store Verifiable Credential Payload
+    DP->>C: Create Asset, Policies & Contracts for the VC access & usage.
+```
+
+### Third Party Data Attestation Credential Creation Process
+
+In this case the verifiable credential would not be issued by the **Data Provider** but it would be done by the **Attestation Provider**.
+
+This process is similar to the [Attribute Credential Creation](#attribute-attestation-creation-process), the difference is that the "certification" is done for the complete aspect model payload:
+
+```mermaid
+sequenceDiagram
+    participant DP as Data Provider
+    participant DTR as Digital Twin Registry
+    participant SS as Submodel Service
+    participant DA as Attestation Provider
+    participant AW as Attestation Provider Wallet
+    
+    DP->>DTR: Register Digital Twin
+    DP->>SS: Register Aspect Model
+    DP->>DA: Request Attribute Certification
+    DA->>DTR: Query Digital Twin via Connector
+    DA->>SS: Query Aspect Model via Connector
+    DA->>DA: Validate Aspect Model (semantic, standard conformance, etc.)
+    DA->>DA: Create Data Attestation Payload
+    DA->>AW: Issue Data Attestation Credential (DAC)
+    AW->>AW: Sign with private key
+    AW->>AW: Add to revocation list
+    AW->>DA: Issued Verifiable Credential
+    DA->>DP: Return DAC via Connector
+    DP->>DTR: Update Twin with new Verifiable Credential Submodel
+    DP->>SS: Store Verifiable Credential
 ```
 
 ## NOTICE
