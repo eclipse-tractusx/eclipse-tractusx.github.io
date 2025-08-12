@@ -2535,7 +2535,7 @@ Once the credentials are retrieved via the control plane this are the process wh
 - Data Conformity against standards/regulations
 - Issuance Status (revocation and expiration)
 - Data Plausibility
-- Version Control Verification (origin check)
+- Version Control Verification (via origin attribute)
 
 All this different verifications advantages can be doen
 
