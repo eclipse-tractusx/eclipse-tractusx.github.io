@@ -55,7 +55,6 @@ More information about translating SAMM into OWL and RDF and then translating to
 
 One way of solving this is by automatically converting SAMM JSON schemas into JSON-LD contexts:
 
-
 ```mermaid
 flowchart LR
     SJS["SAMM JSON Schema"] --> SCT["Schema Parser Tool"]:::big
