@@ -74,22 +74,28 @@ Enhancing the variability of product and sustainability information supports bus
 
 The *core business processes* supported by verifiable certifications can be summarized as follows:
 
-##### 1. Regulatory Compliance: Adhering to legal and regulatory sustainability requirements
-
-##### 2. Evidence Collection and Reporting: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
+---
 
 ```mermaid
 flowchart TD
-    id1[**Regulatory Compliance**: Adhering to legal and regulatory sustainability requirements]
-    id2[**Evidence Collection and Reporting**: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria]
-    id3[**Risk Monitoring**: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience]
+    id1[1º **Regulatory Compliance**]
+    id2[2º **Evidence Collection and Reporting**]
+    id3[3º **Risk Monitoring**]
 
     id1 --> id2
     id2 --> id3
+```
+
+1. **Regulatory Compliance**: Adhering to legal and regulatory sustainability requirements
+
+2. **Evidence Collection and Reporting**: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
+
+3. **Risk Monitoring**: Proactively identifying and managing supply chain risks to
+Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
+
+---
 
 Given the labor-intensive nature of these processes, there is a strong economic incentive across the supply chain to adopt solutions that enable gradual automation, thereby improving efficiency and reducing operational burdens.
-
-```
 
 ### Roles
 
