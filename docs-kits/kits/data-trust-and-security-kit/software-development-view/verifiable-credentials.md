@@ -717,7 +717,7 @@ The prefix `cx` is included in the semantic model context for `Catena-X` models,
 
 The reason why @contexts are hosted is so that they can be reused in multiple verifiable credentials to define the semantic structure of the data content.
 
-The consumer by using a JSON-LD playground or library is able to expand the JSON-LD to a parsable file.
+The consumer by using a [JSON-LD playground](https://json-ld.org/playground/) or library is able to expand the JSON-LD to a parsable file.
 
 For that the context much match the semantics from the content.
 
@@ -2583,7 +2583,6 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
 - SPDX-FileCopyrightText: 2025 TÜV SÜD Auto Service GmbH
 - SPDX-FileCopyrightText: 2025 BASF SE
-- SPDX-FileCopyrightText: 2025 Deloitte GmbH
 - SPDX-FileCopyrightText: 2025 BMW AG
 - SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
 - SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
