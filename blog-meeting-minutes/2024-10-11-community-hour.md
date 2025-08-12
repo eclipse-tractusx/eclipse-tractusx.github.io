@@ -37,7 +37,7 @@ tags: [community, meeting-minutes]
   - Please update your repositories
   - There are still many issues opened and waiting to be resolved by their responsible committer
     - [Parent Issue](https://github.com/eclipse-tractusx/sig-security/issues/86)
-  - The Trufflehog Workflow is a active [TRG](https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03/) since March 26,2024
+  - The Trufflehog Workflow is a active [TRG](/docs/release/trg-8/trg-8-03) since March 26,2024
 
 ### FOSS
 
