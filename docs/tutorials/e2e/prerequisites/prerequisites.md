@@ -366,7 +366,7 @@ sudo apt-get install insomnia
 
 If you using recent Ubuntu and got the following error: Unable to locate package insomnia, you can install with snap: (other tool like Bruno is also recommended)
 
-```
+```bash
 sudo snap install insomnia
 ```
 
