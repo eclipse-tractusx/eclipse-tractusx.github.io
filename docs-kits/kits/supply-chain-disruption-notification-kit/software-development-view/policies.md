@@ -11,7 +11,7 @@ sidebar_position: 2
 
 In Catena-X, a data provider offers `information / data` and `api endpoints` (called
 `data asset`) to other participants (data consumers) through a data space connector. To protect
-`data assets`, they are bundled with [access](#access-policies) and [usage policies](#access-policies) into [contract definitions](#contract-definitions). They have the following functions:
+`data assets`, they are bundled with [access](#bpnl-access-policies) and [usage policies](#usage-policies) into [contract definitions](#contract-definitions). They have the following functions:
 
 - `Access policies` restrict the access to
   `data assets`. If a data consumer doesn't have access to an offer, this data consumer doesn't see it in the connector's catalog.
