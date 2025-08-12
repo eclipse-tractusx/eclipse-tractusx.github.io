@@ -27,7 +27,7 @@ The Product Carbon Footprint (PCF), Digital Product Passport (DPP) and Company C
 
 It is important to note that the data exchange of this "attestation statements" secured by Verifiable Credentials is done via the technology defined in the [Connector KIT](../connector-kit/adoption-view/adoption-view.md) and managed/discoverable via [Digital Twins](../digital-twin-kit/adoption-view.md), like any aspect models which is not verifiable and implements the [Industry Core KIT](../industry-core-kit/adoption-view.mdx).
 
-It shall deliver recommendation for gaining trust on three level:
+It shall deliver recommendation for gaining trust on three levels:
 
 ```mermaid
 block-beta
@@ -48,6 +48,8 @@ end
 
 For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data are described in this KIT.
 Additionally, a template for different rulebooks to gain trust in specific use case is defined.
+
+More description about the layers can be found in the [Trust Layers Section](#trust-layers).
 
 ### Business Value & Benefits
 
@@ -87,7 +89,7 @@ flowchart TD
 
 Given the labor-intensive nature of these processes, there is a strong economic incentive across the supply chain to adopt solutions that enable gradual automation, thereby improving efficiency and reducing operational burdens.
 
----
+```
 
 ### Roles
 
@@ -114,9 +116,11 @@ graph TD
 
 ### Trust Layers
 
-### Layer 1: Governance
+As described on diagram of the three trust layers in the [mission section](#mission), governance, technology and data content verification depend hardly on each other when it comes to bring trust and security aspects to data. Here is a more detailed description of the layers:
 
-#### Attestation Providers
+#### Layer 1: Governance
+
+##### Attestation Providers
 
 **What are Attestation Providers?**
 
@@ -130,7 +134,7 @@ Attestation providers and governance bodies can be [industry-specific](https://c
 
 It is important that the root of trust is traceable from the attestation providers identity/role until the governance body via a chain of trust. In this way the data consumers can verify that the trust which was wrapped around the data by the attestation provider, was correctly delegated from governance body at a specific date, for a limited scope and period of time.
 
-### Layer 2: Technology
+#### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
@@ -162,11 +166,11 @@ Examples of existing rulebooks are the following:
 
 Additonally standards can also be used to validate calculation methodology, data content plausibility.
 
-## Standards & Specifications
+### Standards & Specifications
 
 The Data Trust & Security KIT is built upon established industry standards and specifications to ensure interoperability, security, and compliance within the Catena-X ecosystem.
 
-### W3C Standards
+#### W3C Standards
 
 | Standard | Version | Reference |
 |----------|---------|-----------|
@@ -181,7 +185,7 @@ The Data Trust & Security KIT is built upon established industry standards and s
 
 :::
 
-### Catena-X Standards
+#### Catena-X Standards
 
 For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
 
@@ -205,9 +209,9 @@ In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/sta
 
 :::
 
-## Reference Implementations
+### Reference Implementations
 
-### Digital Product Pass Verification Add-on
+#### Digital Product Pass Verification Add-on
 
 The Digital Product Pass Reference Implementation has a concept and implementation for the Certification and Verification of the Data Trust & Security KIT.
 
