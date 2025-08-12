@@ -10,15 +10,15 @@ description: 'Digital Twin Integration, Certification Processes, Implementation 
 
 ### Using Certificates as Digital Twin Components
 
-One of the most powerful features of the Data Trust & Security KIT is that you can attach verifiable credentials directly to your digital twins. This means when someone looks up a product or component in your Digital Twin Registry, they can immediately see the trust certificates associated with it.
+One of the most powerful features of the Data Trust & Security KIT is that you can attach verifiable credentials directly to your digital twins. This means when someone looks up a product or component in your Digital Twin Registry (DTR), they can immediately see the trust certificates associated with it.
 
-Think of it like attaching a quality certificate to a physical product, except this is digital and cryptographically secured. The implementation follows **[Catena-X CX-0002 Digital Twins](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)** standard for registry integration and **[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)** format for the credential structure.
+Think of it like attaching a quality certificate to a physical product, except this is digital and cryptographically secured. The implementation follows **[Digital Twin KIT](../../digital-twin-kit/adoption-view.md)** specification for registry integration and **[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)** format for the credential structure.
 
 #### How It Works in Practice
 
-When you register a digital twin, you can include submodels that contain verifiable credentials. Here's what this looks like technically:
+When you register a digital twin, you can include submodels as verifiable credentials. Here's what this looks like technically:
 
-#### Data Attestation Certificate as Submodel
+#### Data Attestation Certificate as Submodel Example
 
 Here’s an example of how a data attestation credential might look as a submodel:
 
@@ -77,6 +77,14 @@ Here’s an example of how a data attestation credential might look as a submode
 }
 ```
 
+:::caution
+
+Currenty this is technically supported but is not completly compliant with the [Submodel Service Specification V3.0 READ Profile SSP-003](https://app.swaggerhub.com/apis/Plattform_i40/SubmodelServiceSpecification/V3.0_SSP-003). Since no AASX format submodels are supported, only verifiable credentials submodels, therefore is specified in the `href` endpoint the path `/credential` which needs to be supported by the submodel server.
+
+:::
+
+
+
 ### Semantic ID Configuration
 
 For different submodels, different semantic ID structures are used to identify various aspects and content types:
@@ -87,6 +95,18 @@ For different submodels, different semantic ID structures are used to identify v
 | `DataElement` | Type of verifiable credential/presentation indicated with the uri | `https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld` |
 | `Submodel` | Aspect model type and structure reference | `urn:samm:io.catenax.pcf:7.0.0#Pcf` |  
 | `Operation` | Signature type context for verification | `https://w3c.github.io/vc-jws-2020/contexts/v1/` |
+
+:::info
+
+Currently is not defined where to do the hosting JSON-LD @context for the base credentials and the semantic models.
+
+For the moment the base credentials are available at this location [https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld](https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/dac/v1/DataAttestationCredential.jsonld) and [https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/aac/v1/AttributeAttestationCredential.jsonld](https://raw.githubusercontent.com/eclipse-tractusx/tractusx-profiles/refs/heads/main/tx/credentials/schema/context/aac/v1/AttributeAttestationCredential.jsonld), in the future they should be hosted in a resolvable 
+
+For the semantic models JSON-LD @contexts are currently stored in [sldt-semantic-models](https://github.com/eclipse-tractusx/sldt-semantic-models) repository at the `gen` folder of the [`PCF v7.0.0`](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.pcf/7.0.0/gen/Pcf-context.jsonld), [`DPP v6.0.0`](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.generic.digital_product_passport/6.0.0/gen/DigitalProductPassport-context.jsonld) and [`CCM 3.1.0`](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.business_partner_certificate/3.1.0/gen/BusinessPartnerCertificate-context.jsonld) models. 
+
+More models JSON-LD @contexts can be generated in the future, and also self hosted. The only condition is that they MUST be available for the public internet and reachable by data consumers.
+
+:::
 
 ## Certification Processes
 
