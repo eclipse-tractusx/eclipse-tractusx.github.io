@@ -20,6 +20,14 @@ This diagram shows the current incompatibility:
 
 ```mermaid
 flowchart TD
+      VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
+      JLD["JSON-LD"] -- REQUIRES --> JLDC["@context"]
+      SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
+      SM["TX Semantic Models"] -- ARE MODELLED IN --> SAMM["SAMM"]
+      SAMM["SAMM"] -- GENERATES --> JSS["JSON SCHEMA"]
+      JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
+      SAMM["SAMM"] -- CAN EXPORT SEMANTICS AS --> OWLRDF["OWL/RDF"]
+      OWLRDF["OWL/RDF"] -- GENERATE --> JLDC["@context"]
     VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
     JLD["JSON-LD"]  -- REQUIRES --> JLDC["@context"]
     SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
@@ -34,10 +42,18 @@ The reality is:
 flowchart LR
     SM["Tractus-X Data Models"] x--NOT COMPATIBLE WITHOUT TRANSLATION --x VC["Verifiable Credentials"]
 ```
+So some sort of translation is necessary. Or directly from the JSON-Schemas or using the OWL or RDF format.
 
 ### The Translation Solution
 
-We solve this by automatically converting SAMM JSON schemas into JSON-LD contexts:
+:::info
+
+More information about translating SAMM into OWL and RDF and then translating to JSON-LD context is still not available in this KIT. It will be available probably in the next version.
+
+:::
+
+One way of solving this is by automatically converting SAMM JSON schemas into JSON-LD contexts:
+
 
 ```mermaid
 flowchart LR
