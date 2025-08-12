@@ -717,7 +717,7 @@ The prefix `cx` is included in the semantic model context for `Catena-X` models,
 
 The reason why @contexts are hosted is so that they can be reused in multiple verifiable credentials to define the semantic structure of the data content.
 
-The consumer by using a JSON-LD playground or library is able to expand the JSON-LD to a parsable file.
+The consumer by using a [JSON-LD playground](https://json-ld.org/playground/) or library is able to expand the JSON-LD to a parsable file.
 
 For that the context much match the semantics from the content.
 
@@ -2535,13 +2535,13 @@ Once the credentials are retrieved via the control plane this are the process wh
 - Data Conformity against standards/regulations
 - Issuance Status (revocation and expiration)
 - Data Plausibility
-- Version Control Verification (origin check)
+- Version Control Verification (via origin attribute)
 
 All this different verifications advantages can be doen
 
 ### Data Attestation Credential Verification
 
-Complete data verification using self-signed credentials:
+Complete data verification using self-issued credentials:
 
 ```mermaid
 flowchart TD
@@ -2574,4 +2574,16 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Fujitsu Limited
+- SPDX-FileCopyrightText: 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2025 Spherity GmbH
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 SIEMENS AG
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
+- SPDX-FileCopyrightText: 2025 TÜV SÜD Auto Service GmbH
+- SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 BMW AG
+- SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

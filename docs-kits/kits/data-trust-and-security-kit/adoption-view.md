@@ -27,7 +27,7 @@ The Product Carbon Footprint (PCF), Digital Product Passport (DPP) and Company C
 
 It is important to note that the data exchange of this "attestation statements" secured by Verifiable Credentials is done via the technology defined in the [Connector KIT](../connector-kit/adoption-view/adoption-view.md) and managed/discoverable via [Digital Twins](../digital-twin-kit/adoption-view.md), like any aspect models which is not verifiable and implements the [Industry Core KIT](../industry-core-kit/adoption-view.mdx).
 
-It shall deliver recommendation for gaining trust on three level:
+It shall deliver recommendation for gaining trust on three levels:
 
 ```mermaid
 block-beta
@@ -46,10 +46,10 @@ block
 end
 ```
 
-For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data.
+For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data are described in this KIT.
 Additionally, a template for different rulebooks to gain trust in specific use case is defined.
 
-#### Customer Journey
+More description about the layers can be found in the [Trust Layers Section](#trust-layers).
 
 ### Business Value & Benefits
 
@@ -78,17 +78,24 @@ The *core business processes* supported by verifiable certifications can be summ
 
 ##### 2. Evidence Collection and Reporting: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
 
-##### 3. Risk Monitoring: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience
+```mermaid
+flowchart TD
+    id1[**Regulatory Compliance**: Adhering to legal and regulatory sustainability requirements]
+    id2[**Evidence Collection and Reporting**: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria]
+    id3[**Risk Monitoring**: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience]
+
+    id1 --> id2
+    id2 --> id3
 
 Given the labor-intensive nature of these processes, there is a strong economic incentive across the supply chain to adopt solutions that enable gradual automation, thereby improving efficiency and reducing operational burdens.
 
----
+```
 
 ### Roles
 
 In the Data Trust & Security KIT there are three main roles:
 
-- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X, Chem-X, etc).
+- **Data Provider**: Responsible for storing and providing the data (verifiable or not) to data consumers via an Eclipse Tractus-X dataspace (ex. Catena-X, etc).
 - **Attestation Provider**: This should serve as an additional entity capable of confirming the authenticity of data through validation and verification. However, the primary responsibility for the data must remain with the data provider
 - **Data Consumer**: Responsible for consuming data from a data provider and triggering the "check" to know if the data received is "verifiable".
 
@@ -109,21 +116,29 @@ graph TD
 
 ### Trust Layers
 
-### Layer 1: Governance
+As described on diagram of the three trust layers in the [mission section](#mission), governance, technology and data content verification depend hardly on each other when it comes to bring trust and security aspects to data. Here is a more detailed description of the layers:
 
-#### Attestation Providers
+#### Layer 1: Governance
+
+##### Attestation Providers
 
 **What are Attestation Providers?**
 
-Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, Chem-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
+Attestation Providers are independent organizations that verify and certify data within an Eclipse Tractus-X network (like Catena-X, etc). Think of them as trusted auditors who check that data is accurate, compliant, and trustworthy before it's shared between companies.
 
-They must have a verified identity and verifiable role attestation, which is awarded by a governance body like (Catena-X e.V., Chem-X, etc). In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
+They must have a verified identity and verifiable role attestation, which is awarded by a governance body. In this way the chain of trust can be automatically verified using the what is defined in the Technology Layer.
 
-### Layer 2: Technology
+**Who can act as governance/attestation bodies?**
+
+Attestation providers and governance bodies can be [industry-specific](https://catenax-ev.github.io/docs/next/operating-model/why-introduction) or cross-industry, as currently developed by the [Manufacturing-X Initiative](https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html).
+
+It is important that the root of trust is traceable from the attestation providers identity/role until the governance body via a chain of trust. In this way the data consumers can verify that the trust which was wrapped around the data by the attestation provider, was correctly delegated from governance body at a specific date, for a limited scope and period of time.
+
+#### Layer 2: Technology
 
 Detailed Information regarding the technology can be seen at [Software Development view](./software-development-view/overview.md)
 
-The main objective of the technology is to provide, verifiable proof for Aspect Model claims or selected attributes from a Aspect Model.
+The main objective of the technology is to provide, verifiable proof for Aspect Model claims or selected attributes from an Aspect Model.
 
 It covers aspects like `JSON-LD @context` generation from `JSON Schemas` generated from the SAMM Meta Models, Verifiable Credential schemas and structure, digital twin integration and clear examples for different examples.
 
@@ -151,11 +166,11 @@ Examples of existing rulebooks are the following:
 
 Additonally standards can also be used to validate calculation methodology, data content plausibility.
 
-## Standards & Specifications
+### Standards & Specifications
 
 The Data Trust & Security KIT is built upon established industry standards and specifications to ensure interoperability, security, and compliance within the Catena-X ecosystem.
 
-### W3C Standards
+#### W3C Standards
 
 | Standard | Version | Reference |
 |----------|---------|-----------|
@@ -170,7 +185,7 @@ The Data Trust & Security KIT is built upon established industry standards and s
 
 :::
 
-### Catena-X Standards
+#### Catena-X Standards
 
 For complete documentation of all Catena-X standards, visit the [Catena-X Standards Overview](https://catenax-ev.github.io/docs/standards/overview).
 
@@ -190,13 +205,13 @@ This are the relevant standards for this KIT:
 
 Disclaimer:
 
-In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) only required the VC standards version [W3C VC Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/)  is not compatible with the VC standard version [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/). However since the data is exchange through data provider Connector Dataplane like any other aspect model, therefore are no incompatibilities during data exchange, only during the issuance, if the wallet does not support yet [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/).
+In Catena-X wallet standard [CX-0149](https://catenax-ev.github.io/docs/next/standards/CX-0149-Dataspaceidentityandidentification) only required the VC standards version [W3C VC Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/) is not compatible with the VC standard version [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/). However since the data is exchange through data provider Connector Dataplane like any other aspect model, therefore are no incompatibilities during data exchange, only during the issuance, if the wallet does not support yet [W3C VC Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/).
 
 :::
 
-## Reference Implementations
+### Reference Implementations
 
-### Digital Product Pass Verification Add-on
+#### Digital Product Pass Verification Add-on
 
 The Digital Product Pass Reference Implementation has a concept and implementation for the Certification and Verification of the Data Trust & Security KIT.
 
@@ -219,10 +234,11 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Spherity GmbH
 - SPDX-FileCopyrightText: 2025 Schaeffler AG
 - SPDX-FileCopyrightText: 2025 SIEMENS AG
-- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK und IPK
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
 - SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
-- SPDX-FileCopyrightText: 2025 TÜV Süd AG
+- SPDX-FileCopyrightText: 2025 TÜV SÜD Auto Service GmbH
 - SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 BMW AG
 - SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
 - SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

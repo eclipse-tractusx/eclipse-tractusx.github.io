@@ -20,6 +20,14 @@ This diagram shows the current incompatibility:
 
 ```mermaid
 flowchart TD
+      VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
+      JLD["JSON-LD"] -- REQUIRES --> JLDC["@context"]
+      SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
+      SM["TX Semantic Models"] -- ARE MODELLED IN --> SAMM["SAMM"]
+      SAMM["SAMM"] -- GENERATES --> JSS["JSON SCHEMA"]
+      JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
+      SAMM["SAMM"] -- CAN EXPORT SEMANTICS AS --> OWLRDF["OWL/RDF"]
+      OWLRDF["OWL/RDF"] -- GENERATE --> JLDC["@context"]
     VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
     JLD["JSON-LD"]  -- REQUIRES --> JLDC["@context"]
     SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
@@ -35,9 +43,17 @@ flowchart LR
     SM["Tractus-X Data Models"] x--NOT COMPATIBLE WITHOUT TRANSLATION --x VC["Verifiable Credentials"]
 ```
 
+In conclusion, some sort of translation is always necessary. Either directly from the JSON-Schemas or using the OWL or RDF format.
+
 ### The Translation Solution
 
-We solve this by automatically converting SAMM JSON schemas into JSON-LD contexts:
+:::info
+
+More information about translating SAMM into OWL and RDF and then translating to JSON-LD context is not yet available in this KIT. It will be probably available in the next versions.
+
+:::
+
+One way of solving this is by automatically converting SAMM JSON schemas into JSON-LD contexts:
 
 ```mermaid
 flowchart LR
@@ -3402,4 +3418,16 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Fujitsu Limited
+- SPDX-FileCopyrightText: 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2025 Spherity GmbH
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 SIEMENS AG
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- SPDX-FileCopyrightText: 2025 CGI Deutschland B.V. & Co. KG
+- SPDX-FileCopyrightText: 2025 TÜV SÜD Auto Service GmbH
+- SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 BMW AG
+- SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
