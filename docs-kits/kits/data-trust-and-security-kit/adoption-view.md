@@ -46,10 +46,8 @@ block
 end
 ```
 
-For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data.
+For that definition of various terms such as verification and validation within the data ecosystem, data models used to describe data, initiatives already addressing trust as well as technical solutions to verify and validate data are described in this KIT.
 Additionally, a template for different rulebooks to gain trust in specific use case is defined.
-
-#### Customer Journey
 
 ### Business Value & Benefits
 
@@ -78,7 +76,14 @@ The *core business processes* supported by verifiable certifications can be summ
 
 ##### 2. Evidence Collection and Reporting: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria
 
-##### 3. Risk Monitoring: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience
+```mermaid
+flowchart TD
+    id1[**Regulatory Compliance**: Adhering to legal and regulatory sustainability requirements]
+    id2[**Evidence Collection and Reporting**: Documenting and reporting data to substantiate product claims based on both quantitative and qualitative conformity criteria]
+    id3[**Risk Monitoring**: Proactively identifying and managing supply chain risks to support strategic planning and operational resilience]
+
+    id1 --> id2
+    id2 --> id3
 
 Given the labor-intensive nature of these processes, there is a strong economic incentive across the supply chain to adopt solutions that enable gradual automation, thereby improving efficiency and reducing operational burdens.
 
