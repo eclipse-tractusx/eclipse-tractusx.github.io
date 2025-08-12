@@ -20,20 +20,14 @@ This diagram shows the current incompatibility:
 
 ```mermaid
 flowchart TD
-      VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
-      JLD["JSON-LD"] -- REQUIRES --> JLDC["@context"]
-      SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
-      SM["TX Semantic Models"] -- ARE MODELLED IN --> SAMM["SAMM"]
-      SAMM["SAMM"] -- GENERATES --> JSS["JSON SCHEMA"]
-      JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
-      SAMM["SAMM"] -- CAN EXPORT SEMANTICS AS --> OWLRDF["OWL/RDF"]
-      OWLRDF["OWL/RDF"] -- GENERATE --> JLDC["@context"]
-    VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
-    JLD["JSON-LD"]  -- REQUIRES --> JLDC["@context"]
-    SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
-    SM["TX Semantic Models"] -- ARE MODELLED IN --> SAMM["SAMM"]
-    SAMM["SAMM"] -- GENERATES --> JSS["JSON SCHEMA"]
-    JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
+  VC["Verifiable Credentials"] -- USE --> JLD["JSON-LD"]
+  JLD["JSON-LD"] -- REQUIRES --> JLDC["@context"]
+  SAMM["SAMM"] -- GENERATES NO --> JLDC["@context"]
+  SM["TX Semantic Models"] -- ARE MODELLED IN --> SAMM["SAMM"]
+  SAMM["SAMM"] -- GENERATES --> JSS["JSON SCHEMA"]
+  JSS["JSON-SCHEMA"] -- CAN BE TRANSLATED TO --> JLDC["@context"]
+  SAMM["SAMM"] -- CAN EXPORT SEMANTICS AS --> OWLRDF["OWL/RDF"]
+  OWLRDF["OWL/RDF"] -- GENERATE --> JLDC["@context"]
 ```
 
 The reality is:
