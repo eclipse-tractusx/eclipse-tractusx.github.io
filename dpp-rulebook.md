@@ -2,21 +2,21 @@
 
 ## Table of Contents
 
-- [Goal of this Rulebook](#Goal of this Rulebook)
-- [Why is Data Trust necessary for Digital Product Passports?](#Why is Data Trust necessary for Digital Product Passports?)
-- [Business Value of Validated Data](#Business Value of Validated Data)
-- [Scope of the Data Trust Kit](#Scope of the Data Trust Kit)
- - [Trust Framework Foundation](#Trust Framework Foundation)
- - [Technical Implementation](#Technical Implementation)
- - [Governance and Compliance](#Governance and Compliance)
- - [Data Content Validation](#Data Content Validation)
- - [Business Value Delivery](#Business Value Delivery)
+- [Goal of this Rulebook](#Goal-of-this-Rulebook)
+- [Why is Data Trust necessary for Digital Product Passports?](#Why-is-Data-Trust-necessary-for-Digital-Product-Passports?)
+- [Business Value of Validated Data](#Business-Value-of-Validated-Data)
+- [Scope of the Data Trust Kit](#Scope-of-the-Data-Trust-Kit)
+ - [Trust Framework Foundation](#Trust-Framework-Foundation)
+ - [Technical Implementation](#Technical-Implementation)
+ - [Governance and Compliance](#Governance-and-Compliance)
+ - [Data Content Validation](#Data-Content-Validation)
+ - [Business Value Delivery](#Business-Value-Delivery)
 - [Research](#Research)
  - [TfS](#TfS)
  - [PACT](#PACT)
- - [Definition for Validation & Verification in Standards & Regulations](#Definition for Validation & Verification in Standards & Regulations)
+ - [Definition for Validation & Verification in Standards & Regulations](#Definition-for-Validation-&-Verification-in-Standards-&-Regulations)
  - [Conclusion](#Conclusion)
-- [Generic Digital Product Passport Data Point Validation Rules](#Generic Digital Product Passport Data Point Validation Rules)
+- [Generic Digital Product Passport Data Point Validation Rules](#Generic-Digital-Product-Passport-Data-Point-Validation-Rules)
  - [Metadata](#Metadata)
  - [Identification](#Identification)
  - [Operation](#Operation)
@@ -27,7 +27,7 @@
  - [Sustainability](#Sustainability)
  - [Compliance](#Compliance)
  - [Sources](#Sources)
- - [Additional Data](#Additional Data)
+ - [Additional Data](#Additional-Data)
 
 ## Goal of this Rulebook
 
