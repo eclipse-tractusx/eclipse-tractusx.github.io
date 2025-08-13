@@ -1,12 +1,41 @@
 # Digital Product Passport Rulebook
 
+## Table of Contents
+
+- [Goal of this Rulebook](#Goal of this Rulebook)
+- [Why is Data Trust necessary for Digital Product Passports?](#Why is Data Trust necessary for Digital Product Passports?)
+- [Business Value of Validated Data](#Business Value of Validated Data)
+- [Scope of the Data Trust Kit](#Scope of the Data Trust Kit)
+ - [Trust Framework Foundation](#Trust Framework Foundation)
+ - [Technical Implementation](#Technical Implementation)
+ - [Governance and Compliance](#Governance and Compliance)
+ - [Data Content Validation](#Data Content Validation)
+ - [Business Value Delivery](#Business Value Delivery)
+- [Research](#Research)
+ - [TfS](#TfS)
+ - [PACT](#PACT)
+ - [Definition for Validation & Verification in Standards & Regulations](#Definition for Validation & Verification in Standards & Regulations)
+ - [Conclusion](#Conclusion)
+- [Generic Digital Product Passport Data Point Validation Rules](#Generic Digital Product Passport Data Point Validation Rules)
+ - [Metadata](#Metadata)
+ - [Identification](#Identification)
+ - [Operation](#Operation)
+ - [Handling](#Handling)
+ - [Characteristics](#Characteristics)
+ - [Commercial](#Commercial)
+ - [Materials](#Materials)
+ - [Sustainability](#Sustainability)
+ - [Compliance](#Compliance)
+ - [Sources](#Sources)
+ - [Additional Data](#Additional Data)
+
 ## Goal of this Rulebook
 
 The Data Trust Kit aims to simplify and clarify the validation and usability of data in Digital Product Passports (DPPs), ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
 
 The main goal of our rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the kit complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
 
-## Why is Data Trust Necessary for Digital Product Passports?
+## Why is Data Trust necessary for Digital Product Passports?
 Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain. By adhering to our validation rulebook, companies can guarantee the trustworthiness of their DPPs, reinforcing confidence in the data that informs strategic and operational choices.
 
 
@@ -108,9 +137,6 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
-## Definition & Terminology
-
-<img width="538" alt="image" src="https://github.com/user-attachments/assets/087fa7d8-77ea-40c2-9dea-492f603c7b3c" />
 
 ## Generic Digital Product Passport Data Point Validation Rules
 
