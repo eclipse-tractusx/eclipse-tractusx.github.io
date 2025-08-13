@@ -603,7 +603,7 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
 <li><a href="https://github.com/eclipse-tractusx/sig-security/issues/86" target="_blank" rel="noopener noreferrer">Parent Issue</a></li>
 </ul>
 </li>
-<li>The Trufflehog Workflow is a active <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03/" target="_blank" rel="noopener noreferrer">TRG</a> since March 26,2024</li>
+<li>The Trufflehog Workflow is a active <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">TRG</a> since March 26,2024</li>
 </ul>
 </li>
 </ul>
@@ -641,7 +641,7 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team">​</a></h3>
 <ul>
-<li>Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03" target="_blank" rel="noopener noreferrer">This is encoded by TRG8.03</a></li>
+<li>Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">This is encoded by TRG8.03</a></li>
 <li>@ds-hzimmer reports about the sporadic use of the current sonarcloud instance for Eclipse Tractus-X. There's no TRG for it. It's unclear what additional benefit it will bring to those tools that are backed up with TRGs (Trufflehog, trivy, codeql).</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="qa">Q&amp;A<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#qa" class="hash-link" aria-label="Direct link to Q&amp;A" title="Direct link to Q&amp;A">​</a></h3>
