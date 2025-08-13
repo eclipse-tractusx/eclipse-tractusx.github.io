@@ -125,14 +125,15 @@ sequenceDiagram
     participant C as Consumer
     participant I as Issuance Authority
 
-    opt One-Time Identity Issuance
-        C->>+I: Request Proof of Identity VC
-        I->>-C: Issued VC
+    opt One-Time VC Issuance
+        C->>+I: Request VCs
+        I->>-C: Present VCs
     end
 
     C->>+P: Request access to data
-    P-->>+C: Request VC to proof identity
-    C-->>-P: Present VC
+    P-->>+C: Request VCs
+    C-->>-P: Present VCs
+    P-->>P: Verify validity of access request
     P->>-C: Provide access details (e.g., a token)
     C->>+P: Request data with access details
     P->>-C: Requested data
