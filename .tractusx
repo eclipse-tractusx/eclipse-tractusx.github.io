@@ -69,3 +69,6 @@ openApiSpecs:
 
 # Company Certificate Management KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/company-certificate-management/kit_company-certificate-management-openapi_1-0-0.yaml"
+
+# PURIS KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_2.0.0.yaml"
