@@ -211,13 +211,13 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [miw-url]: https://github.com/eclipse-tractusx/managed-identity-wallet
 
-[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/adoption-view
+[traceability-url]: https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view
 
-[sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/Circularity_KIT/page-adoption-view
+[sustainability-url]: https://eclipse-tractusx.github.io/docs-kits/kits/Circularity_KIT/page-adoption-view
 
-[BPDM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/business-partner-kit/adoption-view
+[BPDM-url]: https://eclipse-tractusx.github.io/docs-kits/kits/business-partner-kit/adoption-view
 
-[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/next/kits/demand-and-capacity-management-kit/adoption-view/overview
+[DCM-url]: https://eclipse-tractusx.github.io/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview
 
 [PURIS-url]: https://github.com/eclipse-tractusx/puris
 
