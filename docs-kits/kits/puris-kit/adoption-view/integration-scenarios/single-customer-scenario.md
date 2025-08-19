@@ -15,7 +15,7 @@ This setup significantly simplifies the implementation of PURIS, as:
 - There is no need for complex data filtering or aggregation, since the material flow is customer-specific.
 - The relevant data (e.g. production plans, stock levels, delivery information) can be shared directly and without additional transformation.
 
-![Supplier-Single-customer-scenario](../../assets/Supplier-Single-customer-scenario.svg)
+![supplier-single-customer-scenario](../../assets/supplier-single-customer-scenario.svg)
 
 Although there is no physical separation in production in the second scenario, separate production orders are generated during production planning, enabling distinct data processing.
 

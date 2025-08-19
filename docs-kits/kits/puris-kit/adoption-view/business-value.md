@@ -9,7 +9,7 @@ sidebar_position: 1
 
 To assess the business value of implementing PURIS, several factors must be taken into account. A structured evaluation involves analyzing different supply chain conditions in relation to PURIS usage scenarios and identifying the associated potential improvements. Once the potential benefits are identified, they must be weighed against the internal efforts and costs required for implementation.
 
-![Approach-driving-value](../assets/Approach-driving-value.svg)
+![approach-driving-value](../assets/approach-driving-value.svg)
 
 Figure 1: Structured Approach to Deriving Business Value
 
@@ -21,11 +21,11 @@ To fully realize the potential of PURIS, a holistic view of the supply chain is 
 
 Based on this, the following supply chain states can be distinguished:
 
-![Supply-chain-conditions](../assets/Supply-chain-conditions.svg)
+![supply-chain-conditions](../assets/supply-chain-conditions.svg)
 
 Figure 2: Typical Supply Chain Conditions – Normal Operation, Isolated Bottleneck, and Widespread Bottleneck
 
-![Potential-cost-reduction](../assets/Potential-cost-reduction.svg)
+![potential-cost-reduction](../assets/potential-cost-reduction.svg)
 
 In this state, there is no acute supply bottleneck, and operations are running under normal conditions. To reduce the risk of undetected shortages and to optimize internal production processes, PURIS data can be used for mutual monitoring between partners. This requires regular and reliable data exchange.
 
@@ -66,8 +66,8 @@ In the event of a supply bottleneck, a wide range of costs can arise. These cost
 **Direct Bottleneck Costs**
 | Cost Category         | Description                                                                                             |
 | :-------------------- | :------------------------------------------------------------------------------------------------------ |
-| **Alternative sourcing** | Procurement of substitute materials at higher prices                                                    |
-| **Production costs** | Special processes<br/>OvertimeProduction delays<br/>Production downtime                               |
+| **Alternative sourcing** | Procurement of substitute<br/> materials at higher prices                                                    |
+| **Production costs** | Special processes<br/>Overtime<br/>Production delays<br/>Production downtime                               |
 | **Inventory costs** | Increased storage capacity<br/>Capital tie-up                                                              |
 | **Penalty payments** | Contractual penalties                                                                                   |
 | **Logistics costs** | Expedited shipments<br/>Additional deliveries                                                            |
@@ -83,7 +83,7 @@ By using PURIS data, both the customer’s current inventory levels and the dail
 
 From the supplier’s point of view, this transparency allows for more accurate planning and a reduction in the need to hold high safety stocks. In a trusted and transparent supply relationship, it is even conceivable to jointly optimize safety stocks between supplier and customer—potentially reducing inventory levels while maintaining supply reliability.
 
-![Safety-stock-reduction](../assets/Safety-stock-reduction.svg)
+![safety-stock-reduction](../assets/safety-stock-reduction.svg)
 
 Figure 3: Reduction of Safety Stock through Supply Chain Transparency
 
@@ -99,13 +99,13 @@ A comprehensive evaluation of the business benefits—considering the PURIS usag
 
 Ultimately, the early prevention of bottlenecks should be a key focus when assessing business value, as every bottleneck situation leads to avoidable exceptional costs.
 
-![Benefits-evaluation](../assets/Benefits-evaluation.svg)
+![benefits-evaluation](../assets/benefits-evaluation.svg)
 
 Figure 4: Evaluation of the benefits
 
 **Normal Operation (1.1 & 2.1)**
 
-![Normal-operation](../assets/Normal-operation.svg)
+![normal-operation](../assets/normal-operation.svg)
 
 The monitoring approach involves regular (recommended: daily) data exchange between supplier and customer. This allows companies to detect potential shortages earlier. As a result, less invasive measures can be taken to prevent shortages or reduce the disruption’s severity. As a result, resources allocated for bottleneck management can be reduced (lower administrative costs).
 
@@ -115,7 +115,7 @@ With a monitoring approach, the likelihood of bottlenecks across all supply rela
 
 **Isolated Bottleneck (1.2 & 2.2)**
 
-![Isolated-bottleneck](../assets/Isolated-bottleneck.svg)
+![isolated-bottleneck](../assets/isolated-bottleneck.svg)
 
 In isolated bottleneck situations, PURIS provides value regardless of the integration level. Using standardized information with bilateral transparency allows to improve collaboration. Further, it allows deeper integration and automation resulting in shorter time-to-action. This reduces administrative effort and significantly accelerates response times.
 
@@ -123,7 +123,7 @@ Fast access to data in time-critical situations expands the decision-making wind
 
 **Widespread Bottleneck (1.3 & 2.3)**
 
-![Widespread-bottleneck](../assets/Widespread-bottleneck.svg)
+![widespread-bottleneck](../assets/widespread-bottleneck.svg)
 
 In widespread bottleneck scenarios, all benefits of efficient bottleneck management from isolated cases apply. However, without a monitoring approach, it is difficult to quickly assess whether a disruption affects other supply relationships.
 
@@ -163,7 +163,7 @@ From a monitoring perspective, this transparency allows for early trend detectio
 
 Both perspectives—monitoring and bottleneck management—contribute to operational stability and efficiency. Their effectiveness depends on the willingness and ability of partners to share relevant data and align on common processes. In this context, trustful collaboration is not only a prerequisite but also a result of successful PURIS integration.
 
-![Collaboration-model](../assets/Collaboration-model.svg)
+![collaboration-model](../assets/collaboration-model.svg)
 
 ## 7 Early Industry Feedback
 
@@ -173,13 +173,50 @@ As part of the early development phase of PURIS, a qualitative interview study w
 
 The study included a diverse set of ten companies from various industrial sectors. The automotive manufacturing sector was most strongly represented (4 companies), followed by OEMs and the metal industry (2 each), and chemicals and electronics (1 each). In terms of company size, the sample was polarized: seven companies had more than 5,000 employees, while three were small enterprises with fewer than 250 employees. No medium-sized companies (250–5,000 employees) were included.
 
-![Company-statistics](../assets/Company-statistics.svg)
+```mermaid
+%%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
+pie
+    title Companies by Domain (key business)
+    "Automotive Manufacturing" : 40
+    "OEM" : 20
+    "Metal" : 20
+    "Chemistry" : 10
+    "Electronics" : 10
+```
+```mermaid
+%%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
+
+pie
+    title Companies by Size
+    "More than 5.000" : 70
+    "Less than 250" : 30
+```
+_10 Companies participated within the interviews_
 
 A total of 37 individuals participated in the interviews, which were conducted either in group settings or individually. The participants represented a broad range of functions, reflecting the cross-functional relevance of supply chain transparency. The most common departments were logistics (15 participants), purchasing and production (7 each), followed by IT (5), sales (4), and risk management (3). For three participants, no departmental information was available.
 
 In terms of experience, the majority of participants had extensive professional backgrounds: 29 out of 37 had more than ten years of experience, while a smaller group had between three and ten years.
 
-![Interviewees-demographics](../assets/Interviewees-demographics.svg)
+**Demographics of the Interviewees**
+```mermaid
+
+xychart-beta
+    title "Participant’s Domain / Department"
+    x-axis ["Purchasing", "Logistics", "Production", "IT", "Risk Management", "Sales", "Other"]
+    y-axis "Number of Participants" 0 --> 16
+    bar [7, 14, 7, 5, 3, 4, 6]
+```
+
+```mermaid
+%%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
+
+pie
+    title Participants by Experience
+    "10 or more years" : 78
+    "No Information" : 11
+    "3-5 years" : 6
+    "5-10 years" : 5
+```
 
 **Evaluation of PURIS Usage Potential**
 
@@ -191,7 +228,35 @@ The remaining participants expressed either a more cautious, case-based approach
 
 These findings underline the potential of PURIS as a framework for enhancing transparency and collaboration, while also pointing to areas where further development and communication are needed to support broader implementation.
 
-![Puris-uses](../assets/Puris-uses.svg)
+**How would you use the PURIS framework?**
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'pie1': '#D3D3D3',
+      'pie2': '#DDE26B',
+      'pie3': '#B7C985',
+      'pie4': '#DDE29B',
+      'pie5': '#D3D3D3',
+      'pie6': '#C0C0C0',
+      'textColor': '#ffffff'
+    }
+  }
+}%%
+pie
+    title 
+    "Proactive for all parts" : 20.0
+    "Proactive for most of the parts" : 10.0
+    "Proactive for specific parts" : 20.0
+    "Case based for shortage cases" : 30.0
+    "Not at all" : 10.0
+    "Can't say yet" : 10.0
+```
+<blockquote style="color: #DDE29B;">
+<strong>Over 50% of the companies indicated they would use PURIS in a proactive way,</strong> underscoring the strong interest and confidence in its capabilities. With PURIS, the overall efficiency will be significantly improved. For addressing shortages, applying PURIS is seen as a quick win since it can be seamlessly integrated with existing processes.
+</blockquote>
+
 
 ## Notice
 

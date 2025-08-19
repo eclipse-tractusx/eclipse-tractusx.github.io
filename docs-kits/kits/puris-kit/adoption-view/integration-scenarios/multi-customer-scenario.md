@@ -11,8 +11,8 @@ In a Multi-Customer scenario, the same material or product is delivered to multi
 
 In these cases, data provisioning is as straightforward as in a Single Customer scenario, since customer-specific information can be clearly identified and shared without additional transformation.
 
-![Supplier-Multi-customer-scenario](../../assets/Supplier-Multi-customer-scenario.svg)
-![supplier-Multi-customer-scenario2](../../assets/supplier-Multi-customer-scenario2.svg)
+![supplier-multi-customer-scenario](../../assets/supplier-multi-customer-scenario.svg)
+![supplier-sulti-customer-scenario-part2](../../assets/supplier-sulti-customer-scenario-part2.svg)
 
 However, in many cases, there is no physical or data-level separation. Materials are produced and stored collectively, and customer-specific differentiation only occurs at a later stage, such as during dispatch or invoicing. This can lead to challenges in:
 
@@ -20,8 +20,11 @@ However, in many cases, there is no physical or data-level separation. Materials
 - Ensuring transparency and traceability
 - Maintaining data sovereignty and confidentiality
 
-![supplier-Multi-customer-scenario3](../../assets/supplier-Multi-customer-scenario3.svg)
-![Multi-customer-scenario4](../../assets/Multi-customer-scenario4.svg)
+![supplier-multi-customer-scenario-part3](../../assets/supplier-multi-customer-scenario-part3.svg)
+![supplier-multi-customer-scenario-part4](../../assets/supplier-multi-customer-scenario-part4.svg)
+
+## Scenario
+](../../assets/Multi-customer-scenario4.svg)
 
 The primary focus in such scenarios is the reliable and context-specific provisioning of data. Independent of whether a physical or logical separation between customers exists, companies must ensure that relevant information can be systematically identified, structured, and made available in a way that reflects the specific customer context while ensuring compliance with legal, regulatory, and contractual obligations. The complexity arises not from the production process itself, but from the need to provide accurate and secure data allocation—particularly in environments where operational resources are shared.
 

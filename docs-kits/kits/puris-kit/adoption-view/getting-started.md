@@ -9,7 +9,7 @@ sidebar_position: 2
 
 To ensure a productive implementation of PURIS, several preparatory and execution steps must be taken. A successful onboarding process requires the consideration of both business and technical aspects.
 
-![Integration-path](../assets/Integration-path.svg)
+![integration-path](../assets/integration-path.svg)
 
 ## Step 1: Standards and Use Case
 
@@ -94,7 +94,7 @@ The internal integration of PURIS is highly individual and depends on company-sp
 Since PURIS defines the standard for information (Data & Semantics) exchange, it does not prescribe how data should be visualized or processed on the partner side. Companies are free to choose between internal solutions, third-party software, or the open-source PURIS-FOSS Application.
 
 
-![Participation-options](../assets/Participation-options.svg)
+![participation-options](../assets/participation-options.svg)
 
 **1\. Self-Hosting PURIS FOSS**
 

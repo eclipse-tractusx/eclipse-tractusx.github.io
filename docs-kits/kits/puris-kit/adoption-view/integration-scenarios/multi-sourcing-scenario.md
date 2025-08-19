@@ -11,8 +11,8 @@ In a Multi-Sourcing scenario, the same material or product is procured from mult
 
 In cases where supplier-specific information is maintained separately (e.g., through batch tracking or source-specific labeling), data provisioning is relatively straightforward. The origin of materials can be identified and shared without major transformation.
 
-![customer-Multi-sourcing](../../assets/customer-Multi-sourcing.svg)
-![Customer-Multi-sourcing2](../../assets/Customer-Multi-sourcing2.svg)
+![customer-multi-sourcing-part1](../../assets/customer-multi-sourcing-part1.svg)
+![customer-multi-sourcing-part2](../../assets/customer-multi-sourcing-part1.svg)
 
 In practice, this means that demand planning and inventory management are handled jointly, making it infeasible to assign data to a specific supplier context. Nevertheless, the data must still be prepared and structured in a way that complies with applicable legal, regulatory, and contractual requirements—even if a clear technical separation is not possible.
 

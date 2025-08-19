@@ -17,7 +17,7 @@ This setup offers several advantages for implementing PURIS:
 
 Even in cases where materials are processed together with others in production, the consistent sourcing origin allows for reliable data mapping. As a result, Single Sourcing scenarios are well-suited for initial PURIS implementations, offering a low-complexity environment for piloting data exchange and integration processes.
 
-![customer-Single-sourcing](../../assets/customer-Single-sourcing.svg)
+![customer-single-sourcing](../../assets/customer-single-sourcing.svg)
 
 ## Notice
 

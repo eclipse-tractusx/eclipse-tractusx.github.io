@@ -9,11 +9,22 @@ sidebar_position: 1
 
 Catena-X enables comprehensive transparency across the entire supply chain, extending beyond the four-week planning horizon of PURIS. In this context, DCM and PURIS complement each other with the shared goal of avoiding supply chain bottlenecks. However, due to their respective time focuses, both standards emphasize different types of information. While DCM primarily considers capacities at the material group level within a weekly time frame, PURIS focuses on daily production and demand data at the material number level.
 
-![Puris-dcm](../../assets/Puris-dcm.svg)
+| | PURIS | DCM |
+| :--- | :--- | :--- |
+| **DISTINCTION** | | |
+| **PURIS & DCM** | PURIS visualizes the supply situation in the<br>short-term horizon with actual data, without<br>aggregation and completely in real time,<br>enabling the user to derive measures for the<br>corresponding demand on this basis and to be<br>able to make more reliable decisions. | DCM improves long-term planning reliability<br>by monitoring demand and capacity data. The<br>aim is to reduce costs by identifying capacity<br>bottlenecks at an early stage. The focus is<br>on information sharing, problem solving for<br>greater resilience and flexibility in the process. |
+| **BUSINESS VIEW** | | |
+| **Purpose** | Enhance transparency & plausibility<br>of the supply situation<br>Detect, prevent & mitigate shortages | Optimize capacity<br>Ensure demand fulfillment<br><br> |
+| **Focus on** | Material supplies | Production capacities |
+| **Time Horizon** | Today to 4 weeks (typical) | > 4 weeks |
+| **Granularity** | Daily | Weekly |
+| **TECHNOLOGY** | | |
+| **Direction** | Pull | Push |
+| **Architecture** | Mandatory: Digital Twins with<br>Industry Core (Part Type)<br><br> | Common: API<br>Optional: Digital Twins with<br>IC (Part Type) |
 
 By combining these two perspectives, companies can gain a holistic view of supply and demand dynamics—bridging strategic capacity planning with operational execution. This synergy supports proactive decision-making and strengthens the overall resilience of the supply chain.
 
-![Puris-dcm2](../../assets/Puris-dcm2.svg)
+![puris-dcm-integrated-application](../../assets/puris-dcm-integrated-application.svg)
 
 Figure 5: Combination of PURIS & DCM for a better supply chain transparency
 
