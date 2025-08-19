@@ -12,7 +12,10 @@ In a Multi-Customer scenario, the same material or product is delivered to multi
 In these cases, data provisioning is as straightforward as in a Single Customer scenario, since customer-specific information can be clearly identified and shared without additional transformation.
 
 ![supplier-multi-customer-scenario](../../assets/supplier-multi-customer-scenario.svg)
-![supplier-sulti-customer-scenario-part2](../../assets/supplier-sulti-customer-scenario-part2.svg)
+![supplier-multi-customer-scenario-part2](../../assets/supplier-multi-customer-scenario-part2.svg)
+
+Figure 1 and 2: *Supplier multi customer scenarios*
+
 
 However, in many cases, there is no physical or data-level separation. Materials are produced and stored collectively, and customer-specific differentiation only occurs at a later stage, such as during dispatch or invoicing. This can lead to challenges in:
 
@@ -23,8 +26,7 @@ However, in many cases, there is no physical or data-level separation. Materials
 ![supplier-multi-customer-scenario-part3](../../assets/supplier-multi-customer-scenario-part3.svg)
 ![supplier-multi-customer-scenario-part4](../../assets/supplier-multi-customer-scenario-part4.svg)
 
-## Scenario
-](../../assets/Multi-customer-scenario4.svg)
+Figure 3 and 4: *Supplier multi customer scenarios*
 
 The primary focus in such scenarios is the reliable and context-specific provisioning of data. Independent of whether a physical or logical separation between customers exists, companies must ensure that relevant information can be systematically identified, structured, and made available in a way that reflects the specific customer context while ensuring compliance with legal, regulatory, and contractual obligations. The complexity arises not from the production process itself, but from the need to provide accurate and secure data allocation—particularly in environments where operational resources are shared.
 
@@ -58,21 +60,12 @@ Accordingly, the following information must not be shared or made inferable:
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
-- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
-- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
-- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
-- SPDX-FileCopyrightText: 2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
-- SPDX-FileCopyrightText: 2025 Ford Werke GmbH
-- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-License-Identifier: CC-BY-4.0  
+- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation  
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)  
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG  
+- SPDX-FileCopyrightText: 2024 Volkswagen AG  
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
+- SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
+- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH  

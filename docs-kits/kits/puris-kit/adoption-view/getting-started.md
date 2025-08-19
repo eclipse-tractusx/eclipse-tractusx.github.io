@@ -11,6 +11,8 @@ To ensure a productive implementation of PURIS, several preparatory and executio
 
 ![integration-path](../assets/integration-path.svg)
 
+Figure 1: *Puris integration path*
+
 ## Step 1: Standards and Use Case
 
 ### Standards and Interoperability (Technical Side)
@@ -19,7 +21,7 @@ The successful technical implementation of the PURIS use case relies heavily on 
 
 The relevant standards for PURIS can be grouped into two main categories:
 
-**1\. Communication Standards**
+### 1\. Communication Standards
 
 These standards define how systems communicate and exchange data in a harmonized way:
 
@@ -37,19 +39,23 @@ Specifies the requirements and characteristics of digital twins within the Caten
 
 Defines the technical framework for secure and interoperable data exchange within the Catena-X network. It specifies how participants connect to the dataspace using standardized interfaces and the Eclipse Dataspace Connector (EDC).
 
-**2\. Information Object Standards**
+### 2\. Information Object Standards
 
 These standards define the structure, semantics, and quality of the information exchanged. PURIS uses several specialized semantic models, each aligned with a specific information need along the supply chain:
 
-- CX-0122 – Item Stock
-- CX-0120 – Short-Term Material Demand
-- CX-0121 – Planned Production Output
-- CX-0118 – Delivery Information
-- CX-0145 – Days of Supply
+| Standard | Version | Link |
+| :--- | :--- | :--- |
+| **Item Stock** | `2.0.0` | [CX-0122](https://catenax-ev.github.io/docs/standards/CX-0122-ItemStockExchange) |
+| **Short-Term Material Demand** | `2.0.0` | [CX-0120](https://catenax-ev.github.io/docs/standards/CX-0120-ShortTermMaterialDemandExchange) |
+| **Planned Production Output** | `1.0.0` | [CX-0121](https://catenax-ev.github.io/docs/standards/CX-0121-PlannedProductionOutputExchange) |
+| **Delivery Information** | `2.0.0` | [CX-0118](https://catenax-ev.github.io/docs/standards/CX-0118-ActualDeliveryInformationExchange) |
+| **Days of Supply** | `1.0.0` | [CX-0145](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange) |
+
+Table 1: *Standards that are recommended to be used for PURIS implementation.* _Please refer to the standard links for the most up to date version_
 
 For implementation, it is recommended to align these standards with the existing IT architecture and business processes. Special attention should be given to multi-sourcing and multi-customer scenarios, which are common in complex supply chains.
 
-Further technical guidance and documentation can be found [here](https://eclipse-tractusx.github.io/docs-kits/kits/puris-kit/software-development-view/).
+Further technical guidance and documentation can be found [here](/docs-kits/kits/puris-kit/software-development-view/).
 
 ### Use Case Definition (Business Side)
 
@@ -68,7 +74,7 @@ The Connector is component that enables sovereign, inter company information exc
 
 The Digital Twin Registry (DTR) is a central component for managing and discovering digital representations of physical ../assets within the Catena-X ecosystem. It stores metadata about digital twins and their submodels, enabling participants to register, locate, and access asset-related data in a standardized and interoperable manner. The DTR ensures that digital twins can be reliably identified and referenced across company boundaries, forming the basis for scalable and consistent data exchange.
 
-Further technical documentation is available [here](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) and [here](https://eclipse-tractusx.github.io/docs-kits/category/digital-twin-kit).
+Further technical documentation is available [here](/docs-kits/category/connector-kit) and [here](/docs-kits/category/digital-twin-kit).
 
 ### Business Partner Number (BPN) & Wallet (Business Side)
 
@@ -80,7 +86,7 @@ The Wallet is a core component of the Catena-X infrastructure that manages acces
 
 Depending on the use case, additional partner-specific requirements may apply. For example, integrating the Catena-X Use Case Business Partner Data Management (BPDM) can be a valuable addition.
 
-Further technical documentation is available [here](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit).
+Further technical documentation is available [here](/docs-kits/category/business-partner-kit).
 
 ## Step 3: Internal Integration and Contract
 
@@ -96,18 +102,20 @@ Since PURIS defines the standard for information (Data & Semantics) exchange, it
 
 ![participation-options](../assets/participation-options.svg)
 
-**1\. Self-Hosting PURIS FOSS**
+Figure 2: *Puris participation options*
+
+### 1\. Self-Hosting PURIS FOSS
 
 The PURIS-FOSS Application is the most cost-effective option and can be adapted to individual needs. However, it offers only limited support via the community. In its basic version, data must be entered manually. As an open-source solution, it also allows for the development of customized, automated extensions.
 
-Further documentation is available [here](https://eclipse-tractusx.github.io/docs-kits/kits/puris-kit/operations-view)
+Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view)
 
 
-**2\. Software as a Service**
+### 2\. Software as a Service
 
 Commercial third-party solutions offer extended functionality and professional support. These tools often provide a smoother implementation experience, as the required PURIS expertise is already embedded in the product and service offering.
 
-**3\. Individual Enterprise Solutions**
+### 3\. Individual Enterprise Solutions
 
 Custom-developed solutions or the integration of PURIS into existing enterprise systems are particularly beneficial for larger organizations. This approach allows for full automation and alignment with internal policies, processes, and IT standards.
 
@@ -115,27 +123,18 @@ Custom-developed solutions or the integration of PURIS into existing enterprise 
 
 For internal integration and communication—especially in complex supply chain scenarios—companies may need to manage multiple types of Business Partner Numbers (BPNs). As part of access and data management within the Catena-X network, it is important to define how legal entities, production sites, and delivery locations are structured using BPN types (BPN-L, BPN-S, BPN-A). A consistent BPN structure ensures that data access and responsibilities can be clearly assigned and that internal systems are correctly aligned. This is particularly relevant when implementing solutions like PURIS, where data flows and responsibilities are often site-specific.
 
-Further documentation is available [here](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit).
+Further documentation is available [here](/docs-kits/category/business-partner-kit).
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
-- SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2024 SAP SE
-- SPDX-FileCopyrightText: 2024 Mercedes Benz Group AG
-- SPDX-FileCopyrightText: 2024 BASF SE
-- SPDX-FileCopyrightText: 2024 SupplyOn AG
-- SPDX-FileCopyrightText: 2024 Henkel AG & Co.KGaA
-- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
-- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
-- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
-- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
-- SPDX-FileCopyrightText: 2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH
-- SPDX-FileCopyrightText: 2025 Ford Werke GmbH
-- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
-- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- SPDX-License-Identifier: CC-BY-4.0  
+- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation  
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)  
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG  
+- SPDX-FileCopyrightText: 2024 Volkswagen AG  
+- SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
+- SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
+- SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH  
