@@ -49,7 +49,7 @@ as a shared and cost-optimized service (quality tested by the biggest players).
 Most of today’s automotive companies have to invest a significant amount of resources to keep their individual partner master data updated and correct, since outdated or incorrect data records result in federal fines and wrong claims / billing processes. The industry spends a vast amount into an area that is non differentiating, regulated and executed redundantly across the partners.
 
 For this, cutting individual company costs by offering the golden master data record as a shared service is the mission. And proactively reduce Business Partner risk via collaborative value-add services.
-More insights to the business partner data management use case here: [Catena-X | Business Partner Use Case](https://catena-x.net/en/offers-standards/bpdm)
+More insights to the business partner data management use case here: [Catena-X | Business Partner Use Case](https://catena-x.net/use-case-cluster/next-level-master-data-management/)
 
 This will become the industry’s largest golden record collection as a shared and cost-optimized service (quality tested by the biggest players).
 
@@ -68,14 +68,7 @@ Solution Provider:
 
 ## Standards
 
-The standards for release 3.2 will be published soon.
-Our relevant standards can be downloaded from the official [Catena-X Standard Library](https://catena-x.net/de/standard-library):
-
-- Business Partner Number (Version 2.0.0)
-
-- Business Partner Pool API (Version 2.0.0)
-
-- Business Partner Gate API (Version 2.0.0)
+Our relevant standards can be downloaded from the official web page [Catena-X Standard Library](https://catenax-ev.github.io/docs/tags/cat-bpdm).
 
 ## NOTICE
 
