@@ -108,6 +108,8 @@ Overall, adapting PURIS helps businesses achieve operational excellence, strateg
   - **Scaling solutions:** Solution providers can scale their PURIS solutions in the market and thereby access new customer groups.
   - **Versatile business models:** Offerings in the areas of consulting, integration, and operation allow for various business models, providing solution providers with the flexibility to tailor their services to specific customer needs.
 
+More Information about the business value can be found [here](business-value.md).
+
 ## Example Use Case
 
 In the following example, a Supply Chain Manager uses a tool similar to the PURIS reference application to monitor goods and parts. If problems arise, I can immediately check the status of my parts and respond appropriately.
