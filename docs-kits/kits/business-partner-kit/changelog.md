@@ -11,7 +11,7 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
-## [10.0.0] - 2025-09-15
+## [10.0.0] - 2025-09-08
 
 Compatible for **release 25.09**.
 
