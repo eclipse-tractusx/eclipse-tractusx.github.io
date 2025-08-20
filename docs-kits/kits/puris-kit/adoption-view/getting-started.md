@@ -110,7 +110,6 @@ The PURIS-FOSS Application is the most cost-effective option and can be adapted 
 
 Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view)
 
-
 ### 2\. Software as a Service
 
 Commercial third-party solutions offer extended functionality and professional support. These tools often provide a smoother implementation experience, as the required PURIS expertise is already embedded in the product and service offering.
@@ -137,4 +136,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH  
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH 

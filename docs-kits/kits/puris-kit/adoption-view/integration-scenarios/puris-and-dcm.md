@@ -5,9 +5,12 @@ description: PURIS & DCM
 sidebar_position: 1
 ---
 
-# Supply Chain Transparency with PURIS and DCM
+# Supply Chain Resiliency  with PURIS and DCM
 
-Catena-X enables comprehensive transparency across the entire supply chain, extending beyond the four-week planning horizon of PURIS. In this context, DCM and PURIS complement each other with the shared goal of avoiding supply chain bottlenecks. However, due to their respective time focuses, both standards emphasize different types of information. While DCM primarily considers capacities at the material group level within a weekly time frame, PURIS focuses on daily production and demand data at the material number level.
+Catena-X enables comprehensive transparency across the entire supply network while maintaining sensitive data handling between partners by extending beyond the four-week planning horizon of PURIS.
+In this context, DCM and PURIS complement each other with the shared goal of avoiding capacity bottlenecks or supply shortages.<br>
+However, due to their respective time focuses, both standards emphasize different types of information. While DCM primarily considers capacities at the material group level with weekly demand and capacity buckets, PURIS focuses on daily production and supply and demand data at the single material number level.
+
 
 | | PURIS | DCM |
 | :--- | :--- | :--- |

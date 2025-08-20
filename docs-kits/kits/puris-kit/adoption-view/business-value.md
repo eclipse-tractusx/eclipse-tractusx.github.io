@@ -66,6 +66,7 @@ Managing the supply chain requires companies to allocate resources across procur
 In the event of a supply bottleneck, a wide range of costs can arise. These costs depend on various factors such as the type of product, the severity of the disruption, and the measures taken in response. For a meaningful evaluation, the following potential reduction of exceptional costs should be considered, among others:
 
 ### Direct Bottleneck Costs
+
 | Cost Category         | Description                                                                                             |
 | :-------------------- | :------------------------------------------------------------------------------------------------------ |
 | **Alternative sourcing** | Procurement of substitute<br/> materials at higher prices                                                    |
@@ -76,6 +77,7 @@ In the event of a supply bottleneck, a wide range of costs can arise. These cost
 | **Reputational damage** | Loss of customers<br/>Brand/image damage                                                                 |
 
 Table 1: *Direct bottleneck costs*
+
 ### Optimization Potential in Production and Logistics
 
 Optimizations in production and logistics can significantly reduce operational costs. While internal processes are often well-analyzed and aligned, the interfaces with customers and suppliers are frequently excluded from optimization efforts due to a lack of detailed information. By gaining access to relevant production data from both customers and suppliers, companies can better align their internal production schedules, manage inventory levels more efficiently, and plan maintenance activities more effectively. This transparency across the supply chain unlocks additional potential for efficiency gains and cost savings.
@@ -124,7 +126,6 @@ With a monitoring approach, the likelihood of bottlenecks across all supply rela
 
 Figure 7: *Supply chain condition during isolated bottleneck*
 
-
 In isolated bottleneck situations, PURIS provides value regardless of the integration level. Using standardized information with bilateral transparency allows to improve collaboration. Further, it allows deeper integration and automation resulting in shorter time-to-action. This reduces administrative effort and significantly accelerates response times.
 
 Fast access to data in time-critical situations expands the decision-making window, allowing for more effective measures and reducing operational bottleneck costs. For example, companies can minimize expedited shipments and adjust production schedules earlier to avoided overtime.
@@ -134,7 +135,6 @@ Fast access to data in time-critical situations expands the decision-making wind
 ![widespread-bottleneck](../assets/widespread-bottleneck.svg)
 
 Figure 8: *Supply chain condition during widespread bottleneck*
-
 
 In widespread bottleneck scenarios, all benefits of efficient bottleneck management from isolated cases apply. However, without a monitoring approach, it is difficult to quickly assess whether a disruption affects other supply relationships.
 
@@ -161,7 +161,6 @@ If products or materials are managed across multiple customers or suppliers with
 Across both scenarios, internal efforts can be categorized into two main cost levels:
 
 1. **Implementation Costs:** These include the integration of source systems, development of interfaces, and provisioning of platform capabilities for data exchange and visualization. Depending on the technical solution, certification efforts may also be required.  
-
 
 2. **Running Costs:** These cover ongoing expenses such as hosting, software licenses, system maintenance, and support for data provisioning and visualization tools.  
 
@@ -197,6 +196,7 @@ pie
     "Chemistry" : 10
     "Electronics" : 10
 ```
+
 ```mermaid
 %%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
 
@@ -205,6 +205,7 @@ pie
     "More than 5.000" : 70
     "Less than 250" : 30
 ```
+
 _10 Companies participated within the interviews_
 
 A total of 37 individuals participated in the interviews, which were conducted either in group settings or individually. The participants represented a broad range of functions, reflecting the cross-functional relevance of supply chain transparency. The most common departments were logistics (15 participants), purchasing and production (7 each), followed by IT (5), sales (4), and risk management (3). For three participants, no departmental information was available.
@@ -212,15 +213,14 @@ A total of 37 individuals participated in the interviews, which were conducted e
 In terms of experience, the majority of participants had extensive professional backgrounds: 29 out of 37 had more than ten years of experience, while a smaller group had between three and ten years.
 
 **Demographics of the Interviewees**
+
+<pre> <div class="color-varying-by-point">
 ```mermaid
+xychart-beta title "Participant’s Domain / Department" x-axis ["Purchasing", "Logistics", "Production", "IT", "Risk Management", "Sales", "Other"] y-axis "Number of Participants" 0 --> 16 bar [7, 14, 7, 5, 3, 4, 6]
+``` 
+</div> </pre>
 
-xychart-beta
-    title "Participant’s Domain / Department"
-    x-axis ["Purchasing", "Logistics", "Production", "IT", "Risk Management", "Sales", "Other"]
-    y-axis "Number of Participants" 0 --> 16
-    bar [7, 14, 7, 5, 3, 4, 6]
-```
-
+ 
 ```mermaid
 %%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
 
@@ -243,6 +243,7 @@ The remaining participants expressed either a more cautious, case-based approach
 These findings underline the potential of PURIS as a framework for enhancing transparency and collaboration, while also pointing to areas where further development and communication are needed to support broader implementation.
 
 **How would you use the PURIS framework?**
+
 ```mermaid
 %%{
   init: {
@@ -267,10 +268,10 @@ pie
     "Not at all" : 10.0
     "Can't say yet" : 10.0
 ```
-<blockquote style="color: #DDE29B;">
+
+<blockquote style={{color: '#DDE29B'}}>
 <strong>Over 50% of the companies indicated they would use PURIS in a proactive way,</strong> underscoring the strong interest and confidence in its capabilities. With PURIS, the overall efficiency will be significantly improved. For addressing shortages, applying PURIS is seen as a quick win since it can be seamlessly integrated with existing processes.
 </blockquote>
-
 
 ## Notice
 
@@ -284,4 +285,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH  
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH

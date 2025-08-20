@@ -16,7 +16,6 @@ In these cases, data provisioning is as straightforward as in a Single Customer 
 
 Figure 1 and 2: *Supplier multi customer scenarios*
 
-
 However, in many cases, there is no physical or data-level separation. Materials are produced and stored collectively, and customer-specific differentiation only occurs at a later stage, such as during dispatch or invoicing. This can lead to challenges in:
 
 - Assigning data to the correct customer context
