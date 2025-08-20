@@ -2,7 +2,7 @@
 id: Getting Started
 title: Getting Started
 description: Getting Started
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Getting Started with PURIS
@@ -21,7 +21,7 @@ The successful technical implementation of the PURIS use case relies heavily on 
 
 The relevant standards for PURIS can be grouped into two main categories:
 
-### 1\. Communication Standards
+#### Communication Standards
 
 These standards define how systems communicate and exchange data in a harmonized way:
 
@@ -39,17 +39,17 @@ Specifies the requirements and characteristics of digital twins within the Caten
 
 Defines the technical framework for secure and interoperable data exchange within the Catena-X network. It specifies how participants connect to the dataspace using standardized interfaces and the Eclipse Dataspace Connector (EDC).
 
-### 2\. Information Object Standards
+#### Information Object Standards
 
 These standards define the structure, semantics, and quality of the information exchanged. PURIS uses several specialized semantic models, each aligned with a specific information need along the supply chain:
 
-| Standard | Version | Link |
-| :--- | :--- | :--- |
-| **Item Stock** | `2.0.0` | [CX-0122](https://catenax-ev.github.io/docs/standards/CX-0122-ItemStockExchange) |
-| **Short-Term Material Demand** | `2.0.0` | [CX-0120](https://catenax-ev.github.io/docs/standards/CX-0120-ShortTermMaterialDemandExchange) |
-| **Planned Production Output** | `1.0.0` | [CX-0121](https://catenax-ev.github.io/docs/standards/CX-0121-PlannedProductionOutputExchange) |
-| **Delivery Information** | `2.0.0` | [CX-0118](https://catenax-ev.github.io/docs/standards/CX-0118-ActualDeliveryInformationExchange) |
-| **Days of Supply** | `1.0.0` | [CX-0145](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange) |
+| Standard                       | Version | Link                                                                                             |
+| :----------------------------- | :------ | :----------------------------------------------------------------------------------------------- |
+| **Item Stock**                 | `2.0.0` | [CX-0122](https://catenax-ev.github.io/docs/standards/CX-0122-ItemStockExchange)                 |
+| **Short-Term Material Demand** | `2.0.0` | [CX-0120](https://catenax-ev.github.io/docs/standards/CX-0120-ShortTermMaterialDemandExchange)   |
+| **Planned Production Output**  | `1.0.0` | [CX-0121](https://catenax-ev.github.io/docs/standards/CX-0121-PlannedProductionOutputExchange)   |
+| **Delivery Information**       | `2.0.0` | [CX-0118](https://catenax-ev.github.io/docs/standards/CX-0118-ActualDeliveryInformationExchange) |
+| **Days of Supply**             | `1.0.0` | [CX-0145](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange)         |
 
 Table 1: *Standards that are recommended to be used for PURIS implementation.* _Please refer to the standard links for the most up to date version_
 
@@ -99,22 +99,21 @@ The internal integration of PURIS is highly individual and depends on company-sp
 
 Since PURIS defines the standard for information (Data & Semantics) exchange, it does not prescribe how data should be visualized or processed on the partner side. Companies are free to choose between internal solutions, third-party software, or the open-source PURIS-FOSS Application.
 
-
 ![participation-options](../assets/participation-options.svg)
 
 Figure 2: *Puris participation options*
 
-### 1\. Self-Hosting PURIS FOSS
+#### Self-Hosting PURIS FOSS
 
 The PURIS-FOSS Application is the most cost-effective option and can be adapted to individual needs. However, it offers only limited support via the community. In its basic version, data must be entered manually. As an open-source solution, it also allows for the development of customized, automated extensions.
 
 Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view)
 
-### 2\. Software as a Service
+#### Software as a Service
 
 Commercial third-party solutions offer extended functionality and professional support. These tools often provide a smoother implementation experience, as the required PURIS expertise is already embedded in the product and service offering.
 
-### 3\. Individual Enterprise Solutions
+#### Individual Enterprise Solutions
 
 Custom-developed solutions or the integration of PURIS into existing enterprise systems are particularly beneficial for larger organizations. This approach allows for full automation and alignment with internal policies, processes, and IT standards.
 

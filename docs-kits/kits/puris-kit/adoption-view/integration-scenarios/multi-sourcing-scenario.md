@@ -13,7 +13,7 @@ In cases where supplier-specific information is maintained separately (e.g., thr
 
 ![customer-multi-sourcing-part1](../../assets/customer-multi-sourcing-part1.svg)
 
-![customer-multi-sourcing-part2](../../assets/customer-multi-sourcing-part1.svg)
+![customer-multi-sourcing-part2](../../assets/customer-multi-sourcing-part2.svg)
 
 Figure 1 and 2: *Customer multi sourcing scenarios*
 

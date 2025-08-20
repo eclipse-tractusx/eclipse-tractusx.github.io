@@ -2,7 +2,7 @@
 id: Business Value
 title: Business Value
 description: Business Value
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # PURIS business value
@@ -15,7 +15,7 @@ Figure 1: *Structured Approach to Deriving Business Value*
 
 This structured flow—from analyzing supply chain and usage conditions to evaluating potential, benefits, and internal efforts—provides a consistent framework for assessing the business value of PURIS. It ensures that decisions are based on a holistic understanding of both the operational context and the expected impact, enabling targeted and value-driven implementation.
 
-## 1 Supply Chain Conditions
+## Supply Chain Conditions
 
 To fully realize the potential of PURIS, a holistic view of the supply chain is essential. Disruptions between a single supplier and customer can have cascading effects on other supplier relationships. Even if these secondary suppliers are not the root cause of a bottleneck, adjustments to the customer’s production program may lead to changes in material demand across the entire supply network.
 
@@ -29,29 +29,31 @@ Figure 2: *Typical supply chain conditions – normal operation, isolated bottle
 
 Figure 3: *Potential for cost reduction and the opportunities for improving operational efficiency with PURIS.*
 
+### Normal Operation
+
 In this state, there is no acute supply bottleneck, and operations are running under normal conditions. To reduce the risk of undetected shortages and to optimize internal production processes, PURIS data can be used for mutual monitoring between partners. This requires regular and reliable data exchange.
 
-2\. Isolated Bottleneck Situation
+### Isolated Bottleneck Situation
 
 An isolated bottleneck occurs when the supply of parts between a specific supplier and customer is disrupted, without affecting other supply relationships. With access to PURIS data, such situations can be identified and assessed early, allowing for timely countermeasures. This helps prevent the issue from spreading to other parts of the supply chain.
 
-3\. Widespread Bottleneck Situation
+### Widespread Bottleneck Situation
 
 A widespread bottleneck arises when an isolated issue impacts additional supply relationships. This can happen, for example, when the customer must adjust their production program, leading to shifts in demand for specific product variants. These shifts can trigger further shortages along the supply chain. Through collaborative monitoring, the potential impact of production plan changes can be evaluated in advance, enabling the selection of mitigation strategies that minimize overall negative effects.
 
-## 2 PURIS Usage Scenarios
+## PURIS Usage Scenarios
 
 PURIS can be applied in different ways depending on the specific needs and agreements between supply chain partners. The two core usage scenarios—shortage management and monitoring—represent the fundamental forms of application. However, companies have the flexibility to define a hybrid approach that combines elements of both. The chosen setup depends on factors such as the criticality of supplied parts, the maturity of collaboration, and the level of data exchange. This adaptability allows PURIS to support a wide range of operational contexts.
 
-### 1\. Shortage Management (Reactive Bottleneck Management)
+### Shortage Management (Reactive Bottleneck Management)
 
 In this scenario, PURIS is used to respond to acute supply disruptions. When a bottleneck occurs, data is exchanged between partners to quickly identify the affected materials, understand the scope of the issue, and coordinate appropriate countermeasures. The process involves real-time communication, structured data interpretation, and rapid decision-making to stabilize the supply chain.
 
-### 2\. Monitoring (Proactive Risk Prevention)
+### Monitoring (Proactive Risk Prevention)
 
 This scenario is based on continuous data exchange between supply chain partners. The goal is to maintain transparency over short-term supply and demand developments. By regularly monitoring material flows and order patterns, companies can detect irregularities early and initiate preventive actions. This process supports stable operations and enables early coordination in case of emerging risks.
 
-## 3 Potentials
+## Potentials
 
 To evaluate the business value of PURIS, it is relevant to consider both the potential for cost reduction and the opportunities for improving operational efficiency. The analysis should take into account the potential reduction of administrative costs, the reduction of direct operative bottleneck costs, and the optimization potential in production and logistics.
 
@@ -67,14 +69,14 @@ In the event of a supply bottleneck, a wide range of costs can arise. These cost
 
 ### Direct Bottleneck Costs
 
-| Cost Category         | Description                                                                                             |
-| :-------------------- | :------------------------------------------------------------------------------------------------------ |
-| **Alternative sourcing** | Procurement of substitute<br/> materials at higher prices                                                    |
-| **Production costs** | Special processes<br/>Overtime<br/>Production delays<br/>Production downtime                               |
-| **Inventory costs** | Increased storage capacity<br/>Capital tie-up                                                              |
-| **Penalty payments** | Contractual penalties                                                                                   |
-| **Logistics costs** | Expedited shipments<br/>Additional deliveries                                                            |
-| **Reputational damage** | Loss of customers<br/>Brand/image damage                                                                 |
+| Cost Category            | Description                                                                  |
+| :----------------------- | :--------------------------------------------------------------------------- |
+| **Alternative sourcing** | Procurement of substitute<br/> materials at higher prices                    |
+| **Production costs**     | Special processes<br/>Overtime<br/>Production delays<br/>Production downtime |
+| **Inventory costs**      | Increased storage capacity<br/>Capital tie-up                                |
+| **Penalty payments**     | Contractual penalties                                                        |
+| **Logistics costs**      | Expedited shipments<br/>Additional deliveries                                |
+| **Reputational damage**  | Loss of customers<br/>Brand/image damage                                     |
 
 Table 1: *Direct bottleneck costs*
 
@@ -92,7 +94,7 @@ From the supplier’s point of view, this transparency allows for more accurate 
 
 Figure 4: *Reduction of Safety Stock through Supply Chain Transparency*
 
-## 4 Deriving Benefits & Individual Assessment of Business Value
+## Deriving Benefits & Individual Assessment of Business Value
 
 The application of PURIS may vary from transparent continuous monitoring of parts within a customer-supplier relationship to on-demand monitoring of short parts. Both poles contribute to the business value, but at different stages and in different ways. Thus, adopters should align with their partners on the usage to optimize their business value from using PURIS.
 
@@ -146,15 +148,15 @@ The monitoring approach also lowers the risk of an isolated bottleneck escalatin
 
 To fully leverage the potential of PURIS, the monitoring approach should be adopted, and regular data exchange with the majority of partners should be established.
 
-## 5 Internal Efforts
+## Internal Efforts
 
 When evaluating the business value of PURIS, it is essential to also consider the potential internal efforts required for implementation. These efforts largely depend on company-specific processes and the existing IT landscape. A distinction can be made between two typical scenarios:
 
-### 1\. Single Customer / Single Sourcing Scenario
+### Single Customer / Single Sourcing Scenario
 
 In cases where a product or material is planned and produced specifically for a single customer—or sourced from a single supplier—all relevant data is typically available in a customer- or supplier-specific format within the system. Here, the main internal effort under the monitoring approach lies in the automated provisioning and processing of PURIS data, which may require IT adjustments or integrations.
 
-### 2\. Multi Customer / Multi Sourcing Scenario
+### Multi Customer / Multi Sourcing Scenario
 
 If products or materials are managed across multiple customers or suppliers within the same production program or inventory system, data must be separated for each customer due to legal and confidentiality requirements. This ensures that no conclusions can be drawn about other business relationships. Specific requirements for data separation are outlined in the respective PURIS standards. In this context, internal costs may arise from the manual or automated preparation of data for each partner.
 
@@ -166,7 +168,7 @@ Across both scenarios, internal efforts can be categorized into two main cost le
 
 The complexity of the production and sourcing strategy directly affects both cost levels. For example, a highly integrated multi-sourcing setup with shared inventories across customers will typically require more sophisticated data handling and higher implementation and operational efforts.
 
-## 6 Trustful Collaboration as a Central Element
+## Trustful Collaboration as a Central Element
 
 The implementation of PURIS supports both reactive and proactive supply chain processes. At the core of its value contribution lies the establishment of trustful collaboration between suppliers and customers. This collaboration is enabled through structured data exchange and transparency regarding key supply chain parameters such as inventory levels, planned production output, and delivery information.
 
@@ -178,7 +180,7 @@ Both perspectives—monitoring and bottleneck management—contribute to operati
 
 Figure 9: *Mnitoring and bottleneck management contribution to operational stability and efficiency*
 
-## 7 Early Industry Feedback
+## Early Industry Feedback
 
 As part of the early development phase of PURIS, a qualitative interview study was conducted involving ten companies from various industries and of different sizes. The aim was to gather insights into the practical relevance and which information improves or harms short term supply chain management in the scenarios including bottleneck management and monitoring.
 
