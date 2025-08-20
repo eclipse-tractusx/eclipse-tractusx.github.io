@@ -22,7 +22,7 @@ Compatible for **release 25.09**.
 ### Changed
 
 - Updated architecture view document for several minor updates for information that has become outdated for BPDM version 7.1.0.
-- Updated adaption view with correct link for Business Partner Use Case and Catena-X Standard Library.
+- Updated adoption view with correct link for Business Partner Use Case and Catena-X Standard Library.
 
 ### Removed
 
