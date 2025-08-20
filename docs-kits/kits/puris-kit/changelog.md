@@ -4,21 +4,22 @@ title: Changelog
 description: PURIS KIT
 sidebar_position: 1
 ---
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
 
 ### PURIS KIT
 
 All notable changes to this KIT will be documented in this file.
 
-## [0.3.2] - 2025-08-16
+## [0.4.0] - 2025-08-16
 
 ### Added
--   Adoption View
-    -   Business Value Framework: Introduced a structured method for evaluating the business value of PURIS by analyzing supply chain conditions, usage scenarios (Monitoring vs. Bottleneck Management), and potential cost savings.
-    -   "Getting Started" Guide: Added a comprehensive, step-by-step guide for onboarding, detailing both the technical (standards, connector, DTR) and business (use case definition, BPN) aspects of implementation.
-    -   Detailed Integration Scenarios: Included a new section with diagrams and explanations for various operational setups, including Single/Multi-Customer and Single/Multi-Sourcing scenarios.
-    -   PURIS & DCM Synergy Explanation: Added a dedicated section to clarify how PURIS (short-term, daily, material-level data) and Demand and Capacity Management (DCM) (long-term, weekly, capacity-level data) complement each other for end-to-end supply chain transparency.
-    -   Early Industry Feedback: Incorporated qualitative results and charts from a study with 10 companies, providing practical insights and validation for the PURIS framework.   
-    -   Trustful Collaboration Section: Emphasized trustful data sharing as a central element for the success of PURIS, supported by a new graphic.
+- Adoption View
+    - Business Value Framework: Introduced a structured method for evaluating the business value of PURIS by analyzing supply chain conditions, usage scenarios (Monitoring vs. Bottleneck Management), and potential cost savings.
+    - "Getting Started" Guide: Added a comprehensive, step-by-step guide for onboarding, detailing both the technical (standards, connector, DTR) and business (use case definition, BPN) aspects of implementation.
+    - Detailed Integration Scenarios: Included a new section with diagrams and explanations for various operational setups, including Single/Multi-Customer and Single/Multi-Sourcing scenarios.
+    - PURIS & DCM Synergy Explanation: Added a dedicated section to clarify how PURIS (short-term, daily, material-level data) and Demand and Capacity Management (DCM) (long-term, weekly, capacity-level data) complement each other for end-to-end supply chain transparency.
+    - Early Industry Feedback: Incorporated qualitative results and charts from a study with 10 companies, providing practical insights and validation for the PURIS framework.   
+    - Trustful Collaboration Section: Emphasized trustful data sharing as a central element for the success of PURIS, supported by a new graphic.
 
 ## [0.3.1] - 2024-08-08
 
