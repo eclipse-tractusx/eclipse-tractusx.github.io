@@ -68,7 +68,16 @@ Solution Provider:
 
 ## Standards
 
-Our relevant standards can be downloaded from the official web page [Catena-X Standard Library](https://catenax-ev.github.io/docs/tags/cat-bpdm).
+Our relevant standards can be downloaded from the official web page [Catena-X Standard Library](https://catenax-ev.github.io/docs/standards/overview).
+
+- CX-0010-BusinessPartnerNumber
+- CX-0012-BusinessPartnerDataPoolAPI
+- CX-0074-BusinessPartnerGateAPI
+- CX-0076-GoldenRecordEndtoEndRequirementsStandard
+
+```note
+Note: Please be aware to choose the correct release version on Catena-X Standard Library
+```
 
 ## NOTICE
 
