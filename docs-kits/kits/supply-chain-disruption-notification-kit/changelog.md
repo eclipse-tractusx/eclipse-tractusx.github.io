@@ -11,7 +11,7 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - 2025-XY-ZZ
+## [2.0.0] - 2025-08-22
 
 ### Added
 
