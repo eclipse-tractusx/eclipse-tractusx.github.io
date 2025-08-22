@@ -33,8 +33,10 @@ Defines the basic structure and identification of parts and components. It ensur
 
 Specifies the requirements and characteristics of digital twins within the Catena-X ecosystem. It outlines how digital representations of physical objects are modeled, managed, and exchanged.
 
-- CX-0006 – Registration and Initial Onboarding  
-    Defines the process for registering and verifying participants in the Catena-X network. It ensures that all organizations receive a unique digital identity (BPN) and meet the technical and organizational prerequisites for secure and interoperable data exchange.
+- CX-0006 – Registration and Initial Onboarding
+
+Defines the process for registering and verifying participants in the Catena-X network. It ensures that all organizations receive a unique digital identity (BPN) and meet the technical and organizational prerequisites for secure and interoperable data exchange.
+
 - CX-0018 Dataspace Connectivity
 
 Defines the technical framework for secure and interoperable data exchange within the Catena-X network. It specifies how participants connect to the dataspace using standardized interfaces and the Eclipse Dataspace Connector (EDC).
@@ -72,7 +74,7 @@ The onboarding process should begin with the clear definition of a business use 
 
 The Connector is component that enables sovereign, inter company information exchange. It allows applications to enforce data sovereignty, purpose limitation, and interoperability within data spaces.
 
-The Digital Twin Registry (DTR) is a central component for managing and discovering digital representations of physical ../assets within the Catena-X ecosystem. It stores metadata about digital twins and their submodels, enabling participants to register, locate, and access asset-related data in a standardized and interoperable manner. The DTR ensures that digital twins can be reliably identified and referenced across company boundaries, forming the basis for scalable and consistent data exchange.
+The Digital Twin Registry (DTR) is a central component for managing and discovering digital representations of physical assets within the Catena-X ecosystem. It stores metadata about digital twins and their submodels, enabling participants to register, locate, and access asset-related data in a standardized and interoperable manner. The DTR ensures that digital twins can be reliably identified and referenced across company boundaries, forming the basis for scalable and consistent data exchange.
 
 Further technical documentation is available [here](/docs-kits/category/connector-kit) and [here](/docs-kits/category/digital-twin-kit).
 
@@ -135,4 +137,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH 
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH

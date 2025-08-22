@@ -5,8 +5,6 @@ description: Single Sourcing Scenario
 sidebar_position: 4
 ---
 
-# Single Sourcing Scenario
-
 In a Single Sourcing scenario, a specific material or product is procured exclusively from one supplier. This one-to-one relationship simplifies both operational handling and data integration, as the origin of the material is clearly defined throughout the supply chain.
 
 This setup offers several advantages for implementing PURIS:

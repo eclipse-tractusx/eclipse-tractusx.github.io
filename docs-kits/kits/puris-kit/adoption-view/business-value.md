@@ -5,8 +5,6 @@ description: Business Value
 sidebar_position: 2
 ---
 
-# PURIS business value
-
 To assess the business value of implementing PURIS, several factors must be taken into account. A structured evaluation involves analyzing different supply chain conditions in relation to PURIS usage scenarios and identifying the associated potential improvements. Once the potential benefits are identified, they must be weighed against the internal efforts and costs required for implementation.
 
 ![approach-driving-value](../assets/approach-driving-value.svg)
@@ -94,7 +92,7 @@ From the supplier’s point of view, this transparency allows for more accurate 
 
 Figure 4: *Reduction of Safety Stock through Supply Chain Transparency*
 
-## Deriving Benefits & Individual Assessment of Business Value
+## Deriving Benefits and Individual Assessment of Business Value
 
 The application of PURIS may vary from transparent continuous monitoring of parts within a customer-supplier relationship to on-demand monitoring of short parts. Both poles contribute to the business value, but at different stages and in different ways. Thus, adopters should align with their partners on the usage to optimize their business value from using PURIS.
 
@@ -110,7 +108,7 @@ Ultimately, the early prevention of bottlenecks should be a key focus when asses
 
 Figure 5: *Evaluation of the benefits*
 
-### Normal Operation (1.1 & 2.1)
+### Normal Operation (1.1 and 2.1)
 
 ![normal-operation](../assets/normal-operation.svg)
 
@@ -122,7 +120,7 @@ Additionally, visibility into the customer’s short-term demand allows supplier
 
 With a monitoring approach, the likelihood of bottlenecks across all supply relationships is reduced, further lowering total bottleneck-related costs in addition to the benefits of efficient response.
 
-### Isolated Bottleneck (1.2 & 2.2)
+### Isolated Bottleneck (1.2 and 2.2)
 
 ![isolated-bottleneck](../assets/isolated-bottleneck.svg)
 
@@ -132,7 +130,7 @@ In isolated bottleneck situations, PURIS provides value regardless of the integr
 
 Fast access to data in time-critical situations expands the decision-making window, allowing for more effective measures and reducing operational bottleneck costs. For example, companies can minimize expedited shipments and adjust production schedules earlier to avoided overtime.
 
-### Widespread Bottleneck (1.3 & 2.3)
+### Widespread Bottleneck (1.3 and 2.3)
 
 ![widespread-bottleneck](../assets/widespread-bottleneck.svg)
 
@@ -208,21 +206,24 @@ pie
     "Less than 250" : 30
 ```
 
-_10 Companies participated within the interviews_
+> 10 Companies participated within the interviews
 
 A total of 37 individuals participated in the interviews, which were conducted either in group settings or individually. The participants represented a broad range of functions, reflecting the cross-functional relevance of supply chain transparency. The most common departments were logistics (15 participants), purchasing and production (7 each), followed by IT (5), sales (4), and risk management (3). For three participants, no departmental information was available.
 
 In terms of experience, the majority of participants had extensive professional backgrounds: 29 out of 37 had more than ten years of experience, while a smaller group had between three and ten years.
 
-**Demographics of the Interviewees**
+#### Demographics of the Interviewees
 
 <pre> <div class="color-varying-by-point">
 ```mermaid
-xychart-beta title "Participant’s Domain / Department" x-axis ["Purchasing", "Logistics", "Production", "IT", "Risk Management", "Sales", "Other"] y-axis "Number of Participants" 0 --> 16 bar [7, 14, 7, 5, 3, 4, 6]
-``` 
+xychart-beta
+  title "Participant’s Domain / Department"
+  x-axis ["Purchasing", "Logistics", "Production", "IT", "Risk Management", "Sales", "Other"]
+  y-axis "Number of Participants" 0 --> 16
+  bar [7, 14, 7, 5, 3, 4, 6]
+```
 </div> </pre>
 
- 
 ```mermaid
 %%{init: {'themeVariables': { 'pie1': '#F8E4D0', 'pie2': ' #F1C99A', 'pie3': '#E7A844', 'pie4': '#C78F33', 'pie5': '#A97C2B'}}}%%
 

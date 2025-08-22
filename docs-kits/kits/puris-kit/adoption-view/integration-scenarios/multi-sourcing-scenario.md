@@ -5,8 +5,6 @@ description: Multi Sourcing Scenario
 sidebar_position: 5
 ---
 
-# Multi Sourcing Scenario
-
 In a Multi-Sourcing scenario, the same material or product is procured from multiple suppliers. While the internal handling of the material—such as storage or production use—may be unified, companies must ensure that data related to demand and item stock can be clearly attributed to the respective supplier.
 
 In cases where supplier-specific information is maintained separately (e.g., through batch tracking or source-specific labeling), data provisioning is relatively straightforward. The origin of materials can be identified and shared without major transformation.

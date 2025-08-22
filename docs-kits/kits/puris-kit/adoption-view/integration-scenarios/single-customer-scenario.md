@@ -5,8 +5,6 @@ description: Single Customer Scenario
 sidebar_position: 2
 ---
 
-# Single Customer Scenario
-
 In a Single Customer scenario, there is a one-to-one relationship between the supplier and the customer. A specific material or product is manufactured, stored, and shipped exclusively for a single customer.
 
 This setup significantly simplifies the implementation of PURIS, as:

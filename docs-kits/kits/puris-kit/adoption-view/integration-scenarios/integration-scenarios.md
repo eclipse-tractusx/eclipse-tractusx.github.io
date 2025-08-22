@@ -5,8 +5,6 @@ description: Integration Scenarios
 sidebar_position: 4
 ---
 
-# Integration Scenarios
-
 Considering adopting PURIS but wondering how it integrates into common or complex operational scenarios? This section provides answers to frequently asked questions that arise during implementation, such as:
 
 - How does PURIS fit within the broader Catena-X ecosystem?

@@ -5,8 +5,6 @@ description: Multi Customer Scenario
 sidebar_position: 3
 ---
 
-# Multi Customer Scenario
-
 In a Multi-Customer scenario, the same material or product is delivered to multiple customers. While the physical production process is often shared, companies may still organize their operations in a way that allows for a logical separation of data—for example, by assigning production volumes or inventory to specific customers.
 
 In these cases, data provisioning is as straightforward as in a Single Customer scenario, since customer-specific information can be clearly identified and shared without additional transformation.
@@ -29,20 +27,24 @@ Figure 3 and 4: *Supplier multi customer scenarios*
 
 The primary focus in such scenarios is the reliable and context-specific provisioning of data. Independent of whether a physical or logical separation between customers exists, companies must ensure that relevant information can be systematically identified, structured, and made available in a way that reflects the specific customer context while ensuring compliance with legal, regulatory, and contractual obligations. The complexity arises not from the production process itself, but from the need to provide accurate and secure data allocation—particularly in environments where operational resources are shared.
 
-**Possible Solutions**
+## Possible Solutions
 
 Due to the diversity of IT architectures and production processes, solution approaches for data allocation can only be described in general terms. The following methods offer guidance for assigning Planned Production Output and Item Stock to specific customer contexts:
 
-**1\. Allocation Based on Orders or Call-Offs**  
+### 1. Allocation Based on Orders or Call-Offs
+
 Planned production output and item stock can be allocated using customer-specific orders or call-offs. This involves retrieving order data, calculating expected quantities per day or week, and applying these to production orders or stock levels. This method is effective when reliable order data is available and clearly attributable to individual customers.
 
-**2\. Allocation Based on Short-Term Material Demand (CX-0120)**  
+### 2. Allocation Based on Short-Term Material Demand (CX-0120)
+
 Short-term demand data can be used to derive production and stock allocations. This includes requesting the latest demand per customer and site, determining required production completion dates, and calculating daily or weekly allocations. While dynamic, this method may involve complex computations and dependencies on external systems.
 
-**3\. Allocation Based on Scheduled Deliveries (CX-0118)**  
+### 3. Allocation Based on Scheduled Deliveries (CX-0118)
+
 Scheduled deliveries can serve as a basis for allocation by retrieving estimated times of departure (ETD) per customer and site and calculating required production or stock levels accordingly. However, care must be taken to avoid circular dependencies if delivery data is derived from production.
 
-**4\. Allocation of Item Stock Using Ratios or Quotations**  
+### 4. Allocation of Item Stock Using Ratios or Quotations
+
 For item stock, the use of ratios or quotations based on call-offs is recommended. This allows for proportional allocation of available stock to individual customers without disclosing total inventory levels. Only current/actual item stock quantities are transmitted in the standard.
 
 In many companies, the allocation and preparation of customer-specific data is already supported by manual processes. These procedures have often been established as a response to past bottlenecks in communication or coordination with customers. In such cases, data is typically collected, structured, and shared manually—often using spreadsheets or internal reporting tools. While these approaches are not scalable in the long term, they demonstrate that the necessary information is already available within the organization. As such, existing manual workflows can serve as a practical foundation for identifying automation potential and designing future system-based solutions.
