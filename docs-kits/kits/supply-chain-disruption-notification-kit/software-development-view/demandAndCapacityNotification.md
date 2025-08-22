@@ -175,6 +175,16 @@ The following JSON provides an example with the same payload and additionally wi
 }
 ```
 
+## Open API Documentation
+
+|API|Link|
+|-|-|
+|Demand and Capacity Notification|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-supply-chain-disruption-notification-demandAndCapacityNotification-openAPI-v2/swagger-ui/)|
+
+For further details, please refer to [CX-0146 Supply Chain Disruption Notifications][StandardLibrary].
+
+[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications
+
 ## Rules for Sending Notifications
 
 Demand and Capacity Notifications allow to be sent, updated, resolved and forwarded to partners who are influences (see adoption view). In the following we'll cover how to process the different scenarios.
