@@ -319,7 +319,7 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 >**Note**
 >Optional fields for emission values must not be interpreted as 0 when not available in the payload because this would lead to wrong assumptions about the Product Carbon Footprint.
 
-The complete description of the Catena-X PCF Data Model can be downloaded [here](resources/adoption-view/CX%20PCF%20Data%20Model%20V3.0.0.xlsx).
+The complete description of the Catena-X PCF Data Model can be downloaded [here](resources/adoption-view/cx-pcf-data-model-V3.0.0.xlsx).
 
 #### Example Payload
 
@@ -464,4 +464,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023,2024 CCT
 - SPDX-FileCopyrightText: 2023,2024 Gris Group
 - SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
-- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/PCF%20Exchange%20Kit)
+- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
