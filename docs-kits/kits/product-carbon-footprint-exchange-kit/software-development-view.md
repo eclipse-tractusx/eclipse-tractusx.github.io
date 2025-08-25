@@ -9,10 +9,9 @@ sidebar_position: 3
 
 ## Announcement
 
-With the major CX-Saturn Release 25.09 the CX-0136 standard will be extended to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126). We recommend all solution and data providers to adapt, test and certify their solution accordingly to enable a smooth transition.
-The second change to the standard will add customerPartId as an optional field in the PCF request thus enabling creation of a PCF requests with the customerPartId instead of manufacturerPartId.
+With the major CX-Saturn Release 25.09 the PCF datamodel was extended with fields for Verification according to the [PCF Verification Framework](https://catenax-ev.github.io/docs/non-functional/overview#product-carbon-footprint). The technical implementation will be added according to the [Data Trust & Security KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/data-trust--security-kit) in a later release.
 
-[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
+
 
 ## Introduction
 
@@ -23,9 +22,9 @@ This KIT covers various aspects, starting from how to utilize the available API 
 
 ## Building Block View
 
-The following figure shows the current high level architecture of the PCF Exchange use case. It is build on an asynchronous data exchange.
+The following figures are showing the current high level architecture of the PCF Exchange use case for synchronous and asynchronous data exchange.
 
-![Building Block View](./resources/development-view/BuildingblockView.png)
+![Building Block View](./resources/development-view/Architecture_Synchronous_vs.AsynchronousDataExchange.png)
 
 ## Sequence View
 
@@ -54,7 +53,7 @@ In case no matching material twin or PCF submodel exists, the flow falls back to
 
 ### PCF Update
 
-The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for assets that have been previously requested at least once, as demonstrated in [PCF Request](#pcf-request). Proactive updates without a prior request are not achievable with the current version.
+The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for PCF Responses that have been previously requested at least once, as demonstrated in [PCF Request](#pcf-request). Proactive updates without a prior request are not achievable with the current version.
 
 ![PCF Update](./resources/development-view/PCFUpdatePushedThroughEDC.png)
 
@@ -71,7 +70,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 
 - The assetIds under *Lookup Twin ID* must be base64 encoded!
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
-- When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
+- When sharing a PCF update, the "requestID" is NOT allowed in the PUT call. The previously requested material ID will be used as reference.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
 - The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
 
@@ -100,7 +99,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:7.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:8.0.0#Pcf"
            }
        ]
     },
@@ -148,7 +147,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:7.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:8.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },
@@ -190,7 +189,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -234,6 +233,14 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 >Be aware that - due to an open issue in EDC version 0.7.x - all criteria must be added in fixed (alphabetical) order!
 
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
+
+Or check on tutorials
+- [Access Policy Tutorial](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Access%20Policies%20Tutorial.md)
+- [Business Partner Group Policy](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Business%20Partner%20Group%20Policy%20Tutorial.md)
+
+>**Note**
+> With the next release also  a new Catena-X Standard will be available: 
+CX-152 Policy Constraints for Data Exchange
 
 #### Payload Contract Definition
 
@@ -279,7 +286,7 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -307,7 +314,7 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -371,16 +378,19 @@ In case no material twin or no PCF submodel is found, EDC asset type has to be u
 
 ### Used CX Standards
 
-- [CX-0001 EDC Discovery API v1.0.2](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI)
-- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
-- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)
-- [CX-0018 Dataspace Connectivity v3.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity)
-- [CX-0126 Industry Core: Part Type v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType)
-- [CX-0136 PCF UseCase v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
+- [CX-0001 EDC Discovery API](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI)
+- [CX-0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
+- [CX-0003 SAMMSemanticAspectMetaModel](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)
+- [CX-0007 Minimal Data Provider Service Offering](https://catenax-ev.github.io/docs/standards/CX-0007-MinimalDataProviderServicesOffering)
+- [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity)
+- [CX-0118 Delivery Information exchange](https://catenax-ev.github.io/docs/next/standards/CX-0118-ActualDeliveryInformationexchange)
+- [CX-0126 Industry Core: Part Type](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType)
+- [CX-0136 PCF UseCase](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
+- [CX-0151 Industry Core: Basics](https://catenax-ev.github.io/docs/next/standards/CX-0151-IndustryCoreBasics)
 
 ## Other Standards
 
-- [Pathfinder Framework - v2.0.0](https://wbcsd.github.io/tr/2023/data-exchange-protocol-20230221)
+- [PACT Technical Specification - v3](https://wbcsd.github.io/data-exchange-protocol/v3/)
 
 ## NOTICE
 
