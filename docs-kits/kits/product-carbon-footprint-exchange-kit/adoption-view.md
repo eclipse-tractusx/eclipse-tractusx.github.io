@@ -185,7 +185,7 @@ The following illustration describes the logical structure of the Catena-X PCF d
 <details>
   <summary>PCF Data Model structure</summary>
 
-![PCF Data Model Structure Release 25.09](resources/adoption-view/PCF%20Data%20Model%20Structure%20Release%2025.09.svg)
+![PCF Data Model Structure Release 25.09](resources/adoption-view/pcf-data-model-structure-release-25.09.svg)
 
 </details>
 
