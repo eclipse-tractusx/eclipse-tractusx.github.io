@@ -22,7 +22,7 @@ This KIT covers various aspects, starting from how to utilize the available API 
 
 The following figures are showing the current high level architecture of the PCF Exchange use case for synchronous and asynchronous data exchange.
 
-![Building Block View](./resources/development-view/Architecture_Synchronous_vs.AsynchronousDataExchange.png)
+![Building Block View](resources/development-view/architecture-synchronous-vs-asynchronous-data-exchange.png)
 
 ## Sequence View
 
