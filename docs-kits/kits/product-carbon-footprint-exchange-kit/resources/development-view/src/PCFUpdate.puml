@@ -41,10 +41,9 @@ end
 group Push PCF to Client
 Company_PCF_App -> Company_API_Wapper: Invoke asset
 note right
-PUT https://clientApiWrapperUrl/api/service/722b7ea2-3bc6-4f9e-a106-b8650d206b69/productIds/mat345?providerUrl=https://client.controlplane.url:8384
-{
-  ...Updated PCF JSON in Body...
-}
+PUT https://clientApiWrapperUrl/api/service/20ac18ab-5820-4065-9087-416d78e155cd/footprintExchange/123?manufacturerPartId=mat345&message=...
+Header: edc-bpn: <BPN>
+Body: { ...PCF JSON... }
 end note
 Company_API_Wapper -> Company_EDC: Negotiate access to asset and enable proxy transfer
 Company_EDC -> Client_EDC: Negotiate access to asset and enable proxy transfer
@@ -54,8 +53,7 @@ Company_API_Wapper -> Company_EDC: PCF endpoint call
 Company_EDC -> Client_EDC: PCF endpoint call
 note right
 Using PCF API through EDC via HTTP Proxy:
-PUT https://{someURL}/productIds/mat345
-{ ... }
+PUT https://{someURL}/footprintExchange/123?manufacturerPartId=mat345
 end note
 Client_EDC -> PCF_Client: PCF endpoint call incl. sender's BPN (EDC header)
 PCF_Client -> Client_EDC: OK
