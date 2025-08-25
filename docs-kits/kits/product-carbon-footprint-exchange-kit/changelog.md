@@ -31,7 +31,6 @@ All notable changes to this Kit will be documented in this file.
 
 * Reviewed and updated outdated links,
 
-
 ## [1.2.1] - 2025-02-07
 
 * Fix broken links and spelling mistakes
