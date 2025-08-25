@@ -11,8 +11,6 @@ sidebar_position: 3
 
 With the major CX-Saturn Release 25.09 the PCF datamodel was extended with fields for Verification according to the [PCF Verification Framework](https://catenax-ev.github.io/docs/non-functional/overview#product-carbon-footprint). The technical implementation will be added according to the [Data Trust & Security KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/data-trust--security-kit) in a later release.
 
-
-
 ## Introduction
 
 The developer view provides a detailed guide on how to utilize the PCF exchange KIT effectively. Developers will learn how to integrate the KIT into their applications and make use of the feature of exchanging PCF values via the Catena-X network.
@@ -235,11 +233,12 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
 Or check on tutorials
+
 - [Access Policy Tutorial](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Access%20Policies%20Tutorial.md)
 - [Business Partner Group Policy](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Business%20Partner%20Group%20Policy%20Tutorial.md)
 
 >**Note**
-> With the next release also  a new Catena-X Standard will be available: 
+> With the next release also  a new Catena-X Standard will be available:
 CX-152 Policy Constraints for Data Exchange
 
 #### Payload Contract Definition
