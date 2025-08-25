@@ -73,7 +73,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
 - When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
-- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
+- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-pcf-openAPI-1.1.2/swagger-ui/)
 
 ##### Payload for Requesting PCF Sub Model
 

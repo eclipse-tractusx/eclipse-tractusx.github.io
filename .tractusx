@@ -44,6 +44,7 @@ openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/kit_industry-core-unique-id-push-openAPI_2-1-0.yaml"
 
 # PCF KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-2.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-1.yaml"
 
 # MaaS KIT
