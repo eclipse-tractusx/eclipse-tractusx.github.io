@@ -330,7 +330,7 @@ The following json shows an exemplary payload for a requested PCF value.
 
 ```json
 {
-  "specVersion" : "urn:io.catenax.pcf:datamodel:version:8.0.0",
+  "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
   "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "urn:vat:id:DE123456789"],
   "extWBCSD_productCodeCpc" : "011-99000",
   "created" : "2022-05-22T21:47:32Z",
