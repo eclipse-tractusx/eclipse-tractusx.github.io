@@ -61,19 +61,19 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 
 1. **Initial Requirement Creation**:
 
-- Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
-- Customer's system sends a notification through the EDC to the Supplier
+    - Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
+    - Customer's system sends a notification through the EDC to the Supplier
 
 2. **Requirement Request**:
 
-- Supplier's system requests the requirement details through the EDC
-- The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
+    - Supplier's system requests the requirement details through the EDC
+    - The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
 
 3. **Requirement Update**:
 
-- After processing, Supplier updates the requirement in their requirements system
-- Supplier sends a notification about the update through the EDC back to the Customer
-- Customer is notified about the requirement update
+    - After processing, Supplier updates the requirement in their requirements system
+    - Supplier sends a notification about the update through the EDC back to the Customer
+    - Customer is notified about the requirement update
 
 4. **Next interactions**:
 
