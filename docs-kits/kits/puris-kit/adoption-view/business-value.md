@@ -92,6 +92,8 @@ From the supplier’s point of view, this transparency allows for more accurate 
 
 Figure 4: *Reduction of Safety Stock through Supply Chain Transparency*
 
+This scenario is intended as an example only; any contractual agreements between partners regarding safety stock remain unaffected.
+
 ## Deriving Benefits and Individual Assessment of Business Value
 
 The application of PURIS may vary from transparent continuous monitoring of parts within a customer-supplier relationship to on-demand monitoring of short parts. Both poles contribute to the business value, but at different stages and in different ways. Thus, adopters should align with their partners on the usage to optimize their business value from using PURIS.
