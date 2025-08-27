@@ -362,6 +362,16 @@ sudo apt-get update
 sudo apt-get install insomnia
 ```
 
+:::note
+
+If you using recent Ubuntu and got the following error: Unable to locate package insomnia, you can install with snap: (other tool like Bruno is also recommended)
+
+```bash
+sudo snap install insomnia
+```
+
+:::
+
 ### Setup a user environment for running the tutorial with a minimum set of privileges
 
 You do not need full system access to proceed with the following steps of tutorial (even not for the deployment). Further you may allow several users to deploy their environment at the same time on the same system. But there are a few critical aspects, you need to consider. But first we begin with setting up the appropriate permissions for a user.
