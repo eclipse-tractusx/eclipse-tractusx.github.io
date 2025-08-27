@@ -33,6 +33,18 @@ const config = {
     locales: ['en'],
   },
 
+  future: {
+    experimental_faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+    }
+  },
+
   presets: [
     [
       'classic',
@@ -66,7 +78,7 @@ const config = {
   ],
 
   plugins: [
-    ['docusaurus-plugin-sass',{}],
+    ['docusaurus-plugin-sass', {}],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -176,6 +188,20 @@ const config = {
         ],
       },
     ],
+    // // ADD THIS PLUGIN TO SUPPRESS IMAGE-SIZE WARNINGS
+    // function(context, options) {
+    //   return {
+    //     name: 'suppress-image-warnings',
+    //     configureWebpack(config, isServer, utils) {
+    //       config.ignoreWarnings = [
+    //       ...(config.ignoreWarnings || []),
+    //       { message: /can't be read correctly/ },
+    //       { message: /unsupported file type: undefined/ }
+    //     ];
+    //     return config;
+    //     },
+    //   };
+    // },
   ],
 
   themes: ["@docusaurus/theme-mermaid"],
@@ -200,7 +226,7 @@ const config = {
           src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
-          {to: 'blog', label: 'News', position: 'left'},
+          { to: 'blog', label: 'News', position: 'left' },
           {
             to: "/AboutUs",
             position: "left",

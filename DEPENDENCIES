@@ -201,6 +201,7 @@ npm/npmjs/-/depd/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/dequal/2.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/destroy/1.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/detect-libc/1.0.3, Apache-2.0, approved, clearlydefined
+npm/npmjs/-/detect-libc/2.0.4, Apache-2.0, approved, #9829
 npm/npmjs/-/detect-node/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/detect-port/1.6.1, MIT, approved, clearlydefined
 npm/npmjs/-/devlop/1.1.0, MIT, approved, clearlydefined
@@ -444,6 +445,17 @@ npm/npmjs/-/launch-editor/2.10.0, MIT, approved, clearlydefined
 npm/npmjs/-/layout-base/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/layout-base/2.0.1, MIT AND Apache-2.0, approved, #11151
 npm/npmjs/-/leven/3.1.0, MIT, approved, clearlydefined
+npm/npmjs/-/lightningcss-darwin-arm64/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-darwin-x64/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-freebsd-x64/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-linux-arm-gnueabihf/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-linux-arm64-gnu/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-linux-arm64-musl/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-linux-x64-gnu/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-linux-x64-musl/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-win32-arm64-msvc/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss-win32-x64-msvc/1.30.1, MPL-2.0, approved, clearlydefined
+npm/npmjs/-/lightningcss/1.30.1, MPL-2.0, approved, clearlydefined
 npm/npmjs/-/lilconfig/3.1.3, MIT AND ISC, approved, #18956
 npm/npmjs/-/lines-and-columns/1.2.4, MIT, approved, clearlydefined
 npm/npmjs/-/linkify-it/4.0.1, MIT, approved, clearlydefined
@@ -853,6 +865,7 @@ npm/npmjs/-/supports-color/8.1.1, MIT, approved, clearlydefined
 npm/npmjs/-/supports-preserve-symlinks-flag/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/svg-parser/2.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/svgo/3.3.2, MIT AND (BSD-2-Clause AND MIT) AND (CC-BY-3.0 AND CC-BY-4.0) AND Apache-2.0, approved, #16181
+npm/npmjs/-/swc-loader/0.2.6, MIT, approved, clearlydefined
 npm/npmjs/-/tapable/2.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/terser-webpack-plugin/5.3.14, MIT AND (Apache-2.0 AND MIT) AND Apache-2.0, approved, #7461
 npm/npmjs/-/terser/5.39.0, BSD-2-Clause AND (BSD-2-Clause AND BSD-3-Clause) AND ISC, approved, #19471
@@ -1120,6 +1133,7 @@ npm/npmjs/@docusaurus/babel/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/bundler/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/core/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/cssnano-preset/3.8.1, MIT, approved, clearlydefined
+npm/npmjs/@docusaurus/faster/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/logger/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/mdx-loader/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/module-type-aliases/3.8.1, MIT, approved, clearlydefined
@@ -1145,6 +1159,9 @@ npm/npmjs/@docusaurus/types/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/utils-common/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/utils-validation/3.8.1, MIT, approved, clearlydefined
 npm/npmjs/@docusaurus/utils/3.8.1, MIT, approved, clearlydefined
+npm/npmjs/@emnapi/core/1.4.5, MIT AND 0BSD, approved, #20526
+npm/npmjs/@emnapi/runtime/1.4.5, MIT AND 0BSD, approved, #20533
+npm/npmjs/@emnapi/wasi-threads/1.0.4, MIT, approved, clearlydefined
 npm/npmjs/@emotion/babel-plugin/11.13.5, MIT AND (BSD-2-Clause AND MIT), approved, #17718
 npm/npmjs/@emotion/cache/11.14.0, MIT AND (BSD-2-Clause AND MIT), approved, #18546
 npm/npmjs/@emotion/hash/0.9.2, MIT, approved, #8394
@@ -1164,16 +1181,22 @@ npm/npmjs/@iconify/types/2.0.0, MIT, approved, #20367
 npm/npmjs/@iconify/utils/2.3.0, MIT, approved, #20327
 npm/npmjs/@jest/schemas/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jest/types/29.6.3, MIT, approved, clearlydefined
-npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, clearlydefined
+npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, #22834
 npm/npmjs/@jridgewell/resolve-uri/3.1.2, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/set-array/1.2.1, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/source-map/0.3.6, MIT, approved, #9304
-npm/npmjs/@jridgewell/sourcemap-codec/1.5.0, MIT, approved, clearlydefined
+npm/npmjs/@jridgewell/sourcemap-codec/1.5.0, MIT, approved, #22833
 npm/npmjs/@jridgewell/trace-mapping/0.3.25, MIT, approved, #9904
 npm/npmjs/@leichtgewicht/ip-codec/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/mdx/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/react/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mermaid-js/parser/0.4.0, MIT, approved, #20350
+npm/npmjs/@module-federation/error-codes/0.18.0, MIT, approved, clearlydefined
+npm/npmjs/@module-federation/runtime-core/0.18.0, MIT, restricted, clearlydefined
+npm/npmjs/@module-federation/runtime-tools/0.18.0, MIT, approved, clearlydefined
+npm/npmjs/@module-federation/runtime/0.18.0, MIT, approved, clearlydefined
+npm/npmjs/@module-federation/sdk/0.18.0, MIT, approved, clearlydefined
+npm/npmjs/@module-federation/webpack-bundler-runtime/0.18.0, MIT, approved, clearlydefined
 npm/npmjs/@mui/core-downloads-tracker/5.17.1, MIT, approved, #20322
 npm/npmjs/@mui/icons-material/5.17.1, MIT, approved, #20332
 npm/npmjs/@mui/material/5.17.1, MIT AND (BSD-3-Clause AND MIT), approved, #20365
@@ -1182,6 +1205,7 @@ npm/npmjs/@mui/styled-engine/5.16.14, MIT, approved, #15718
 npm/npmjs/@mui/system/5.17.1, MIT, approved, #20329
 npm/npmjs/@mui/types/7.2.24, MIT, approved, #16017
 npm/npmjs/@mui/utils/5.17.1, MIT, approved, #20334
+npm/npmjs/@napi-rs/wasm-runtime/1.0.3, MIT, restricted, clearlydefined
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
@@ -1204,6 +1228,19 @@ npm/npmjs/@pnpm/network.ca-file/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/@pnpm/npm-conf/2.3.1, MIT AND ISC, approved, #16190
 npm/npmjs/@polka/url/1.0.0-next.28, MIT, approved, #16183
 npm/npmjs/@popperjs/core/2.11.8, MIT, approved, clearlydefined
+npm/npmjs/@rspack/binding-darwin-arm64/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-darwin-x64/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-linux-arm64-gnu/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-linux-arm64-musl/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-linux-x64-gnu/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-linux-x64-musl/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-wasm32-wasi/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-win32-arm64-msvc/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-win32-ia32-msvc/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-win32-x64-msvc/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/core/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/lite-tapable/1.0.1, MIT, approved, clearlydefined
 npm/npmjs/@sideway/address/4.1.5, BSD-3-Clause AND MIT, approved, #3098
 npm/npmjs/@sideway/formula/3.0.1, BSD-3-Clause, approved, clearlydefined
 npm/npmjs/@sideway/pinpoint/2.0.0, BSD-3-Clause, approved, clearlydefined
@@ -1226,8 +1263,33 @@ npm/npmjs/@svgr/hast-util-to-babel-ast/8.0.0, MIT, approved, clearlydefined
 npm/npmjs/@svgr/plugin-jsx/8.1.0, MIT, approved, clearlydefined
 npm/npmjs/@svgr/plugin-svgo/8.1.0, MIT, approved, clearlydefined
 npm/npmjs/@svgr/webpack/8.1.0, MIT, approved, clearlydefined
+npm/npmjs/@swc/core-darwin-arm64/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-darwin-x64/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-linux-arm-gnueabihf/1.13.5, Apache-2.0, approved, clearlydefined
+npm/npmjs/@swc/core-linux-arm64-gnu/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-linux-arm64-musl/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-linux-x64-gnu/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-linux-x64-musl/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-win32-arm64-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-win32-ia32-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-win32-x64-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core/1.13.5, Apache-2.0 AND LicenseRef-scancode-unknown-license-reference, restricted, clearlydefined
+npm/npmjs/@swc/counter/0.1.3, Apache-2.0, approved, clearlydefined
+npm/npmjs/@swc/html-darwin-arm64/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-darwin-x64/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-linux-arm-gnueabihf/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-linux-arm64-gnu/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-linux-arm64-musl/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-linux-x64-gnu/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-linux-x64-musl/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-win32-arm64-msvc/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-win32-ia32-msvc/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-win32-x64-msvc/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/types/0.1.24, Apache-2.0, approved, clearlydefined
 npm/npmjs/@szmarczak/http-timer/5.0.1, MIT, approved, clearlydefined
 npm/npmjs/@trysound/sax/0.2.0, ISC, approved, clearlydefined
+npm/npmjs/@tybys/wasm-util/0.10.0, MIT, approved, clearlydefined
 npm/npmjs/@types/body-parser/1.19.5, MIT, approved, #10831
 npm/npmjs/@types/bonjour/3.5.13, MIT, approved, clearlydefined
 npm/npmjs/@types/connect-history-api-fallback/1.5.4, MIT, approved, #8395
