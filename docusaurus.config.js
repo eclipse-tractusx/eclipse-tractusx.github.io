@@ -34,6 +34,15 @@ const config = {
   },
 
   future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
     experimental_faster: {
       lightningCssMinimizer: true,
       mdxCrossCompilerCache: true,
@@ -42,6 +51,7 @@ const config = {
       swcHtmlMinimizer: true,
       swcJsLoader: true,
       swcJsMinimizer: true,
+      ssgWorkerThreads: true,
     }
   },
 
@@ -79,6 +89,22 @@ const config = {
 
   plugins: [
     ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -188,20 +214,6 @@ const config = {
         ],
       },
     ],
-    // // ADD THIS PLUGIN TO SUPPRESS IMAGE-SIZE WARNINGS
-    // function(context, options) {
-    //   return {
-    //     name: 'suppress-image-warnings',
-    //     configureWebpack(config, isServer, utils) {
-    //       config.ignoreWarnings = [
-    //       ...(config.ignoreWarnings || []),
-    //       { message: /can't be read correctly/ },
-    //       { message: /unsupported file type: undefined/ }
-    //     ];
-    //     return config;
-    //     },
-    //   };
-    // },
   ],
 
   themes: ["@docusaurus/theme-mermaid"],
