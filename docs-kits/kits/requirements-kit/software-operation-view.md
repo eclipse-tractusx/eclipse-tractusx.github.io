@@ -5,27 +5,6 @@ description: 'Software Operation View Requirements Kit'
 sidebar_position: 3
 ---
 
-# Software Operation View
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).

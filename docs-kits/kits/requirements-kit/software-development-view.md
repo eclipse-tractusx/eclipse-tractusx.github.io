@@ -5,9 +5,6 @@ description: 'Software Development View Requirements Kit'
 sidebar_position: 4
 ---
 
-# Software Development View
-
-
 ## Architecture
 
 ### Component Diagram
@@ -26,6 +23,7 @@ The following components are necessary for the requirements exchange:
   - **Submodel Service**: Handles submodel data and operations
 
 #### Interactions
+
 The system architecture demonstrates how components interact to facilitate requirement exchange:
 
 - **Requirement System Operations**
@@ -62,22 +60,27 @@ submodelC -- Provide Submodels --> edcC
 The sequence diagram illustrates the requirement exchange flow between a Customer (e.g., an OEM) and a Supplier:
 
 1. **Initial Requirement Creation**:
-  - Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
-  - Customer's system sends a notification through the EDC to the Supplier
+
+- Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
+- Customer's system sends a notification through the EDC to the Supplier
 
 2. **Requirement Request**:
-  - Supplier's system requests the requirement details through the EDC
-  - The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
+
+- Supplier's system requests the requirement details through the EDC
+- The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
 
 3. **Requirement Update**:
-  - After processing, Supplier updates the requirement in their requirements system
-  - Supplier sends a notification about the update through the EDC back to the Customer
-  - Customer is notified about the requirement update
+
+- After processing, Supplier updates the requirement in their requirements system
+- Supplier sends a notification about the update through the EDC back to the Customer
+- Customer is notified about the requirement update
 
 4. **Next interactions**:
-  - The process can be repeated for further updates or new requirements in an interactive manner between the Customer and Supplier.
+
+- The process can be repeated for further updates or new requirements in an interactive manner between the Customer and Supplier.
 
 The diagram shows the core components involved in this exchange:
+
 - Requirement Systems (on both Customer and Supplier sides)
 - Digital Twin Registry (DTR) & Submodel Services
 - Eclipse Dataspace Connector (EDC) for secure data exchange
@@ -128,9 +131,7 @@ The following section gives an overview of the requirements aspect model. The re
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | PartType | Requirements | 1.0.0 | | Requirements | CX-..TODO.. |
 
-
 ### Example of a Requirements Aspect Model
-
 
 ```json
 {
@@ -190,7 +191,6 @@ The following section gives an overview of the requirements aspect model. The re
 
 ```
 
-
 ## Notification Format
 
 The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../industry-core-kit/software-development-view/notifications). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
@@ -225,12 +225,6 @@ In order to set up the EDC for the requirements use-case, the following steps ar
 
 - [Setup for the DTR](../digital-twin-kit/software-development-view/) in order to provide access to the Digital Twins for the partners
 - [Notifications](../industry-core-kit/software-development-view/notifications) to inform the partners about new requirements or updates. In the requirements use-case the standardized notifications from the Industry Core Kit are used.
-
-
-
-
-
-
 
 ## Notice
 
