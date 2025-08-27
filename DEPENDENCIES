@@ -365,6 +365,7 @@ npm/npmjs/-/iconv-lite/0.4.24, MIT, approved, clearlydefined
 npm/npmjs/-/iconv-lite/0.6.3, MIT, approved, clearlydefined
 npm/npmjs/-/icss-utils/5.1.0, ISC, approved, clearlydefined
 npm/npmjs/-/ignore/5.3.2, MIT, approved, #11665
+npm/npmjs/-/image-size/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/image-size/2.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/immutable/5.1.1, MIT, approved, #20384
 npm/npmjs/-/import-fresh/3.3.1, MIT, approved, #19299
@@ -707,6 +708,7 @@ npm/npmjs/-/pupa/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/qs/6.13.0, BSD-3-Clause, approved, #17735
 npm/npmjs/-/quansync/0.2.10, MIT, approved, #20370
 npm/npmjs/-/queue-microtask/1.2.3, MIT, approved, clearlydefined
+npm/npmjs/-/queue/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/quick-lru/5.1.1, MIT, approved, clearlydefined
 npm/npmjs/-/randombytes/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/range-parser/1.2.0, MIT, approved, clearlydefined
@@ -1164,11 +1166,11 @@ npm/npmjs/@iconify/types/2.0.0, MIT, approved, #20367
 npm/npmjs/@iconify/utils/2.3.0, MIT, approved, #20327
 npm/npmjs/@jest/schemas/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jest/types/29.6.3, MIT, approved, clearlydefined
-npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, clearlydefined
+npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, #22834
 npm/npmjs/@jridgewell/resolve-uri/3.1.2, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/set-array/1.2.1, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/source-map/0.3.6, MIT, approved, #9304
-npm/npmjs/@jridgewell/sourcemap-codec/1.5.0, MIT, approved, clearlydefined
+npm/npmjs/@jridgewell/sourcemap-codec/1.5.0, MIT, approved, #22833
 npm/npmjs/@jridgewell/trace-mapping/0.3.25, MIT, approved, #9904
 npm/npmjs/@leichtgewicht/ip-codec/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/mdx/3.1.0, MIT, approved, clearlydefined
