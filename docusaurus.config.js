@@ -133,6 +133,46 @@ const config = {
             to: '/docs/getting-started',
             from: '/docs/oss/getting-started',
           },
+          {
+            to: '/docs/release/trg-1/trg-1-01',
+            from: '/docs/release/trg-1/trg-1-1',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-02',
+            from: '/docs/release/trg-1/trg-1-2',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-03',
+            from: '/docs/release/trg-1/trg-1-3',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-04',
+            from: '/docs/release/trg-1/trg-1-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-01',
+            from: '/docs/release/trg-2/trg-2-1',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-03',
+            from: '/docs/release/trg-2/trg-2-3',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-04',
+            from: '/docs/release/trg-2/trg-2-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-05',
+            from: '/docs/release/trg-2/trg-2-5',
+          },
+          {
+            to: '/docs/release/trg-3/trg-3-02',
+            from: '/docs/release/trg-3/trg-3-2',
+          },
+          {
+            to: '/docs/release/trg-6/trg-6-01',
+            from: '/docs/release/trg-6/trg-6-1',
+          },
         ],
       },
     ],
@@ -195,6 +235,10 @@ const config = {
               {
                 to: '/docs-kits/kits/customs-kit/adoption-view',
                 label: 'Customs',
+              },
+              {
+                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                label: 'Data Trust & Security',
               },
               {
                 to: '/docs-kits/kits/data-chain-kit/adoption-view',
