@@ -5,6 +5,8 @@ description: Adoption View
 sidebar_position: 1
 ---
 
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
+
 ## Vision & Mission
 
 ### Vision
@@ -182,6 +184,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation  
 - SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)  
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG  
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
 - SPDX-FileCopyrightText: 2024 Volkswagen AG  
 - SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
