@@ -70,7 +70,7 @@ The sequence diagram provided below presents an example of a PCF update flow. An
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
 - When sharing a PCF update, the "requestID" is NOT allowed in the PUT call. The previously requested material ID will be used as reference.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
-- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-pcf-openAPI-1.1.2/swagger-ui/)
+- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-pcf-openAPI-1.1.2/swagger-ui/).
 
 ##### Payload for Requesting PCF Sub Model
 
@@ -79,6 +79,7 @@ The following JSON shows the structure of a registered PCF submodel in the DTR. 
 The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``.
 
 The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
+
 <details>
   <summary>PCFExchange Endpoint of a DigitalTwin (JSON)</summary>
 
@@ -124,6 +125,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
 ##### Payload for EDC Data Asset PCF
 
 The following JSON shows the EDC Asset for a PCF defined in the EDC using the asset bundling mentioned under [Payload for Requesting PCF Sub Model](#api-calls).
+
 <details>
   <summary>PCFExchange Asset Definition (JSON)</summary>
 
@@ -175,7 +177,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 ##### Payload to create a SSI based Policy
 
 <details>
-  <summary>SSI based Policy (JSON)</summary>
+<summary>SSI based Policy (JSON)</summary>
 
 ```json
 {
@@ -232,7 +234,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
-Or check on tutorials
+Or check on tutorials:
 
 - [Access Policy Tutorial](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Access%20Policies%20Tutorial.md)
 - [Business Partner Group Policy](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Business%20Partner%20Group%20Policy%20Tutorial.md)
@@ -268,12 +270,14 @@ Inside the contract definition, an access policy and a usage policy must be refe
 
 The content of the access policy depends on the criteria used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
 
-The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restrictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
-If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
+The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restrictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met.
+
+If no bilateral contract reference criteria are used in any usage policy attached to the PCF Exchange asset, an empty access policy can be used.
+
 ![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
 
 <details>
-    <summary>Empty Access Policy (JSON)</summary>
+<summary>Empty Access Policy (JSON)</summary>
 
 ```json
 {
@@ -297,11 +301,12 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
 
 </details>
 
-If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
+If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference.
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCOnlyUP.png)
 
 <details>
-    <summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
+<summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
 
 ```json
 {
@@ -334,12 +339,14 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
 
 </details>
 
-If *bilateral contract reference* criteria are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If *bilateral contract reference* criteria are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCUP.png)
- <p> The following example uses BusinessPartnerGroups to achieve this:</p>
+
+The following example uses BusinessPartnerGroups to achieve this.
 
 <details>
-    <summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>
+<summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>
 
 ```json
 {
