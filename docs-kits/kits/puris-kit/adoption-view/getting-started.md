@@ -92,7 +92,7 @@ The internal integration of PURIS is highly individual and depends on company-sp
 - In the manual approach, data is collected, prepared, and entered manually.
 - In the automated approach, data is provided via interfaces integrated into the existing IT architecture.
 
-Since PURIS defines the standard for information (data & semantics) exchange, it does not prescribe how data should be visualized or processed on the partner side. Companies are free to choose between internal solutions, third-party software, or the open-source PURIS-FOSS Application.
+Since PURIS defines the standard for information (data and semantics) exchange, it does not prescribe how data should be visualized or processed on the partner side. Companies are free to choose between internal solutions, third-party software, or the open-source PURIS-FOSS Application.
 
 ![participation-options](../assets/participation-options.svg)
 

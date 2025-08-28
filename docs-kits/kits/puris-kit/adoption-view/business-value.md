@@ -41,7 +41,7 @@ A widespread bottleneck arises when an isolated issue impacts additional supply 
 
 ## PURIS Usage Scenarios
 
-PURIS can be applied in different ways depending on the specific needs and agreements between supply chain partners. The two core usage scenarios — shortage management and monitoring — represent the fundamental forms of application. However, companies have the flexibility to define a hybrid approach that combines elements of both. The chosen setup depends on factors such as the criticality of supplied parts, the maturity of collaboration, and the level of data exchange. This adaptability allows PURIS to support a wide range of operational contexts.
+PURIS can be applied in different ways depending on the specific needs and agreements between supply chain partners. The two core usage scenarios - shortage management and monitoring - represent the fundamental forms of application. However, companies have the flexibility to define a hybrid approach that combines elements of both. The chosen setup depends on factors such as the criticality of supplied parts, the maturity of collaboration, and the level of data exchange. This adaptability allows PURIS to support a wide range of operational contexts.
 
 ### Shortage Management (Reactive Risk Handling)
 
@@ -49,11 +49,11 @@ In this scenario, PURIS is used to respond to acute supply disruptions. When a b
 
 ### Monitoring (Proactive Risk Prevention)
 
-This scenario is based on continuous data exchange between supply chain partners. The goal is to maintain transparency over short-term supply and demand developments. By regularly monitoring material flows and order patterns, companies can detect irregularities early and initiate preventive actions. This process supports stable operations and enables early coordination in case of emerging risks.
+This scenario is based on continuous data exchange between supply chain partners. The goal is to maintain transparency over short-term supply and demand developments. By regularly monitoring material flows and order patterns, companies can detect irregularities early and initiate preventive actions. This process supports stable operations and enables early coordination in case of emerging risks. In case a risk occurs, PURIS can be used for detailing handling of the bottleneck as stated [before](#shortage-management-reactive-risk-handling).
 
 ## Potentials
 
-This scenario is based on continuous data exchange between supply chain partners. The goal is to maintain transparency over short-term supply and demand developments. By regularly monitoring material flows and order patterns, companies can detect irregularities early and initiate preventive actions. This process supports stable operations and enables early coordination in case of emerging risks. In case a risk occurs, PURIS can be used for detailing handling of the bottleneck as stated [before](#shortage-management-reactive-bottleneck-management).
+To evaluate the business value of PURIS, it is relevant to consider both the potential for cost reduction and the opportunities for improving operational efficiency. The analysis should take into account the potential reduction of administrative costs, the reduction of direct operative bottleneck costs, and the optimization potential in production and logistics.
 
 These areas represent typical fields of impact where PURIS can contribute to more efficient processes, improved coordination, and reduced operational risks.
 
@@ -86,9 +86,9 @@ Optimizations in production and logistics can significantly reduce operational c
 
 To illustrate the optimization potential from a supplier’s perspective, we consider a simple example: Inventory levels typically include so-called safety stocks, which are intended to buffer against unforeseen events such as sudden increases in customer demand. The lower the availability of relevant information, the higher these safety stocks tend to be—since uncertainty increases risk.
 
-By using PURIS data, both the customer’s current inventory levels and the daily demand per material number become transparent. This level of supply chain visibility enables a dynamic adjustment of safety stocks — typically with the goal of reducing them in line with the actual risk.
+By using PURIS data, both the customer’s current inventory levels and the daily demand per material number become transparent. This level of supply chain visibility enables a dynamic adjustment of safety stocks - typically with the goal of reducing them in line with the actual risk.
 
-From the supplier’s point of view, this transparency allows for more accurate planning and a reduction in the need to hold high safety stocks. In a trusted and transparent supply relationship, it is even conceivable to jointly optimize safety stocks between supplier and customer — potentially reducing inventory levels while maintaining supply reliability.
+From the supplier’s point of view, this transparency allows for more accurate planning and a reduction in the need to hold high safety stocks. In a trusted and transparent supply relationship, it is even conceivable to jointly optimize safety stocks between supplier and customer - potentially reducing inventory levels while maintaining supply reliability.
 
 ![safety-stock-reduction](../assets/safety-stock-reduction.svg)
 
@@ -104,7 +104,7 @@ In bottleneck situations, PURIS enables faster and more informed decision-making
 
 It is important to note that the monitoring approach inherently includes the benefits of reactive bottleneck management. Therefore, a continuous use of PURIS not only supports operational efficiency in critical situations but also strengthens the overall resilience of the supply chain.
 
-A comprehensive evaluation of the business benefits — considering the PURIS usage scenario, supply chain condition and potentials — is illustrated in the following figure.
+A comprehensive evaluation of the business benefits - considering the PURIS usage scenario, supply chain condition and potentials - is illustrated in the following figure.
 
 Ultimately, the early prevention of bottlenecks should be a key focus when assessing business value, as every bottleneck situation leads to avoidable exceptional costs.
 
@@ -166,6 +166,7 @@ Across both scenarios, internal efforts can be categorized into two main cost le
 
 1. **Implementation Costs:** These include the integration of source systems, development of interfaces, and provisioning of platform capabilities for data exchange and visualization. Depending on the technical solution, certification efforts may also be required.  
 2. **Running Costs:** These cover ongoing expenses such as hosting, software licenses, system maintenance, and support for data provisioning and visualization tools.  
+
 The complexity of the production and sourcing strategy directly affects both cost levels. For example, a highly integrated multi-sourcing setup with shared inventories across customers will typically require more sophisticated data handling and higher implementation and operational efforts.
 
 ## Trustful Collaboration as a Central Element
