@@ -1192,7 +1192,7 @@ npm/npmjs/@mdx-js/mdx/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mdx-js/react/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/@mermaid-js/parser/0.4.0, MIT, approved, #20350
 npm/npmjs/@module-federation/error-codes/0.18.0, MIT, approved, clearlydefined
-npm/npmjs/@module-federation/runtime-core/0.18.0, MIT, restricted, clearlydefined
+npm/npmjs/@module-federation/runtime-core/0.18.0, MIT AND MulanPSL-2.0, approved, #23003
 npm/npmjs/@module-federation/runtime-tools/0.18.0, MIT, approved, clearlydefined
 npm/npmjs/@module-federation/runtime/0.18.0, MIT, approved, clearlydefined
 npm/npmjs/@module-federation/sdk/0.18.0, MIT, approved, clearlydefined
@@ -1205,7 +1205,7 @@ npm/npmjs/@mui/styled-engine/5.16.14, MIT, approved, #15718
 npm/npmjs/@mui/system/5.17.1, MIT, approved, #20329
 npm/npmjs/@mui/types/7.2.24, MIT, approved, #16017
 npm/npmjs/@mui/utils/5.17.1, MIT, approved, #20334
-npm/npmjs/@napi-rs/wasm-runtime/1.0.3, MIT, restricted, clearlydefined
+npm/npmjs/@napi-rs/wasm-runtime/1.0.3, MIT AND (0BSD AND BSD-3-Clause AND MIT), approved, #23017
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
@@ -1228,18 +1228,18 @@ npm/npmjs/@pnpm/network.ca-file/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/@pnpm/npm-conf/2.3.1, MIT AND ISC, approved, #16190
 npm/npmjs/@polka/url/1.0.0-next.28, MIT, approved, #16183
 npm/npmjs/@popperjs/core/2.11.8, MIT, approved, clearlydefined
-npm/npmjs/@rspack/binding-darwin-arm64/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-darwin-x64/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-linux-arm64-gnu/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-linux-arm64-musl/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-linux-x64-gnu/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-linux-x64-musl/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-wasm32-wasi/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-win32-arm64-msvc/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-win32-ia32-msvc/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding-win32-x64-msvc/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/binding/1.5.0, , restricted, clearlydefined
-npm/npmjs/@rspack/core/1.5.0, , restricted, clearlydefined
+npm/npmjs/@rspack/binding-darwin-arm64/1.5.0, MIT, approved, #23001
+npm/npmjs/@rspack/binding-darwin-x64/1.5.0, MIT, approved, #23019
+npm/npmjs/@rspack/binding-linux-arm64-gnu/1.5.0, MIT, approved, #23023
+npm/npmjs/@rspack/binding-linux-arm64-musl/1.5.0, MIT, approved, #23025
+npm/npmjs/@rspack/binding-linux-x64-gnu/1.5.0, MIT, approved, #23020
+npm/npmjs/@rspack/binding-linux-x64-musl/1.5.0, MIT, approved, #23018
+npm/npmjs/@rspack/binding-wasm32-wasi/1.5.0, MIT, approved, #23016
+npm/npmjs/@rspack/binding-win32-arm64-msvc/1.5.0, MIT, approved, #23011
+npm/npmjs/@rspack/binding-win32-ia32-msvc/1.5.0, MIT, approved, #23004
+npm/npmjs/@rspack/binding-win32-x64-msvc/1.5.0, MIT, approved, #23006
+npm/npmjs/@rspack/binding/1.5.0, MIT AND Apache-2.0, approved, #23022
+npm/npmjs/@rspack/core/1.5.0, MIT AND Apache-2.0 AND ISC, approved, #23015
 npm/npmjs/@rspack/lite-tapable/1.0.1, MIT, approved, clearlydefined
 npm/npmjs/@sideway/address/4.1.5, BSD-3-Clause AND MIT, approved, #3098
 npm/npmjs/@sideway/formula/3.0.1, BSD-3-Clause, approved, clearlydefined
@@ -1273,19 +1273,19 @@ npm/npmjs/@swc/core-linux-x64-musl/1.13.5, Apache-2.0 AND MIT, approved, clearly
 npm/npmjs/@swc/core-win32-arm64-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
 npm/npmjs/@swc/core-win32-ia32-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
 npm/npmjs/@swc/core-win32-x64-msvc/1.13.5, Apache-2.0 AND MIT, approved, clearlydefined
-npm/npmjs/@swc/core/1.13.5, Apache-2.0 AND LicenseRef-scancode-unknown-license-reference, restricted, clearlydefined
+npm/npmjs/@swc/core/1.13.5, Apache-2.0, approved, #23010
 npm/npmjs/@swc/counter/0.1.3, Apache-2.0, approved, clearlydefined
-npm/npmjs/@swc/html-darwin-arm64/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-darwin-x64/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-linux-arm-gnueabihf/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-linux-arm64-gnu/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-linux-arm64-musl/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-linux-x64-gnu/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-linux-x64-musl/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-win32-arm64-msvc/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-win32-ia32-msvc/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html-win32-x64-msvc/1.13.5, , restricted, clearlydefined
-npm/npmjs/@swc/html/1.13.5, , restricted, clearlydefined
+npm/npmjs/@swc/html-darwin-arm64/1.13.5, Apache-2.0, approved, #23012
+npm/npmjs/@swc/html-darwin-x64/1.13.5, Apache-2.0, approved, #23009
+npm/npmjs/@swc/html-linux-arm-gnueabihf/1.13.5, Apache-2.0, approved, #23008
+npm/npmjs/@swc/html-linux-arm64-gnu/1.13.5, Apache-2.0, approved, #23002
+npm/npmjs/@swc/html-linux-arm64-musl/1.13.5, Apache-2.0, approved, #23014
+npm/npmjs/@swc/html-linux-x64-gnu/1.13.5, Apache-2.0, approved, #23024
+npm/npmjs/@swc/html-linux-x64-musl/1.13.5, Apache-2.0, approved, #23013
+npm/npmjs/@swc/html-win32-arm64-msvc/1.13.5, Apache-2.0, approved, #23005
+npm/npmjs/@swc/html-win32-ia32-msvc/1.13.5, Apache-2.0, approved, #23021
+npm/npmjs/@swc/html-win32-x64-msvc/1.13.5, Apache-2.0, approved, #23007
+npm/npmjs/@swc/html/1.13.5, Apache-2.0, approved, #23026
 npm/npmjs/@swc/types/0.1.24, Apache-2.0, approved, clearlydefined
 npm/npmjs/@szmarczak/http-timer/5.0.1, MIT, approved, clearlydefined
 npm/npmjs/@trysound/sax/0.2.0, ISC, approved, clearlydefined
