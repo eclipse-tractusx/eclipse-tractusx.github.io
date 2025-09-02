@@ -930,3 +930,14 @@ stock) is sufficient for the supplier's scheduled deliveries (see _Delivery Info
   "direction": "OUTBOUND"
 }
 ```
+
+## Notice
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
