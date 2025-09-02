@@ -402,3 +402,25 @@
 .MuiAccordionDetails-root {
      background-color: var(--ifm-background-color) !important;
 }
+
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(1) {
+  fill: #F8E4D0 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(2) {
+  fill: #F1C99A !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(3) {
+  fill: #E7A844 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(4) {
+  fill: #C78F33 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(5) {
+  fill: #A97C2B !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(6) {
+  fill: #8B6914 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(7) {
+  fill: #6B5010 !important;
+}
