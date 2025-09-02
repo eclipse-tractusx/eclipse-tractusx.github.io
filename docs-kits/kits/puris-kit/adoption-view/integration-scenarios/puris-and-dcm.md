@@ -1,7 +1,7 @@
 ---
 id: PURIS & DCM
-title: Supply Chain Resiliency with PURIS and DCM & DCM
-description: Integrated Perspective on Supply Chain Resiliency with PURIS and DCM & DCM
+title: Supply Chain Resiliency with PURIS and DCM
+description: Integrated Perspective on Supply Chain Resiliency with PURIS and DCM
 sidebar_position: 1
 ---
 
