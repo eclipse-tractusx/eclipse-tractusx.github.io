@@ -27,3 +27,6 @@ yarn-error.log*
 
 # husky
 .husky/
+
+# Draw.IO
+*.bkp
