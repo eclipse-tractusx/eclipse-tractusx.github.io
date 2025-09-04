@@ -2,7 +2,7 @@
 ## Table of Contents
 
 1. [Introduction](#Introduction)<br>
-1.1 [Goal of this Document](#1.1-Goal-of-this-Document)<br>
+1.1 [Goal of this Document](#11-Goal-of-this-Document)<br>
 1.2 [Target Audience](#Target-Audience)<br>
 1.3 [Scope and Applicability](#Scope-and-Applicability)<br>
 1.4 [Structure of this Rulebook](#Structure-of-this-Rulebook)<br>
