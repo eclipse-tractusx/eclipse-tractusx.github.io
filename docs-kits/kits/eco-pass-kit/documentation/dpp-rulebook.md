@@ -1,134 +1,112 @@
-# Digital Product Passport Rulebook
-
+# DPP Rulebook
 ## Table of Contents
 
-- [Goal of this Rulebook](#Goal-of-this-Rulebook)
-- [Why is Data Trust necessary for Digital Product Passports?](#Why-is-Data-Trust-necessary-for-Digital-Product-Passports?)
-- [Business Value of Validated Data](#Business-Value-of-Validated-Data)
-- [Scope of the Data Trust Kit](#Scope-of-the-Data-Trust-Kit)
-  - [Trust Framework Foundation](#Trust-Framework-Foundation)
-  - [Technical Implementation](#Technical-Implementation)
-  - [Governance and Compliance](#Governance-and-Compliance)
-  - [Data Content Validation](#Data-Content-Validation)
-  - [Business Value Delivery](#Business-Value-Delivery)
-- [Research](#Research)
-  - [TfS](#TfS)
-  - [PACT](#PACT)
-  - [Definition for Validation & Verification in Standards & Regulations](#Definition-for-Validation-&-Verification-in-Standards-&-Regulations)
-  - [Conclusion](#Conclusion)
-- [Generic Digital Product Passport Data Point Validation Rules](#Generic-Digital-Product-Passport-Data-Point-Validation-Rules)
-  - [Metadata](#Metadata)
-  - [Identification](#Identification)
-  - [Operation](#Operation)
-  - [Handling](#Handling)
-  - [Characteristics](#Characteristics)
-  - [Commercial](#Commercial)
-  - [Materials](#Materials)
-  - [Sustainability](#Sustainability)
-  - [Compliance](#Compliance)
-  - [Sources](#Sources)
-  - [Additional Data](#Additional-Data)
+1. [Introduction](#Introduction)<br>
+1.1 [Goal of this Document](#Goal-of-this-Document)<br>
+1.2 [Target Audience](#Target-Audience)<br>
+1.3 [Scope and Applicability](#Scope-and-Applicability)<br>
+1.4 [Structure of this Rulebook](#Structure-of-this-Rulebook)<br>
 
-## Goal of this Rulebook
+2. [The Value of Validated Data](#The-Value-of-Validated-Data)<br>
 
-The Data Trust Kit aims to simplify and clarify the validation and usability of data in Digital Product Passports (DPPs), ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
+3. [Key Concepts and Definitions](#Key-Concepts-and-Definitions)<br>
+3.1 [DPP Overview](#DPP-Overview)<br>
+3.2 [Definition of Terms](#Definition-of-Terms)<br>
+3.3 [Key Stakeholders and their Roles](#Key-Stakeholders-and-their-Roles)<br>
+
+4. [General Principles for Data Handling in the DPP Model](#General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
+4.1 [Data Ownership and Responsibility](#Data-Ownership-and-Responsibility)<br>
+4.2 [Data Entry Guidelines (General Rules for Data Input)](#Data-Entry-Guidelines-(General-Rules-for-Data-Input))<br>
+4.3 [Data Format and Standardization](#Data-Format-and-Standardization)<br>
+
+5. [The DPP Data Model: Overview of Data Points](#The-DPP-Data-Model:-Overview-of-Data-Points)<br>
+5.1 [Metadata](#Metadata)<br>
+5.2 [Identification](#Identification)<br>
+5.3 [Operation](#Operation)<br>
+5.4 [Handling](#Handling)<br>
+5.5 [Characteristics](#Characteristics)<br>
+5.6 [Commercial](#Commercial)<br>
+5.7 [Materials](#Materials)<br>
+5.8 [Sustainability](#Sustainability)<br>
+5.9 [Compliance](#Compliance)<br>
+5.10 [Sources](#Sources)<br>
+5.11 [Additional Data](#Additional-Data)<br>
+
+
+
+## 1. Introduction
+
+### 1.1 Goal of this Document
+
+The DPP Rulebook aims to simplify and clarify the validation and usability of data in Digital Product Passports, ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
 
 The main goal of our rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the kit complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
 
-## Why is Data Trust necessary for Digital Product Passports?
-Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain. By adhering to our validation rulebook, companies can guarantee the trustworthiness of their DPPs, reinforcing confidence in the data that informs strategic and operational choices.
+### 1.2 Target Audience
 
+This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data within their organizations—such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed.
 
-## Business Value of Validated Data
+### 1.3 Scope and Applicability
+
+The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by ESPR. It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
+
+**Mention related released version of generic DPP model (current target: 6.0.0)**
+
+### 1.4 Structure of this Rulebook
+- Mention that the descriptions are/can be different than in the data model in order to make them easier to understand (example!)
+
+## 2. The Value of Validated Data
+
+Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders—including manufacturers, suppliers, consumers, and regulators—to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain.
+
 The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
 
-* Improved Regulatory Compliance: Ensuring that data is precise and verified minimizes the risk of regulatory infractions and associated penalties.
-* Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
-* Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
-* Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
-
-
+- Improved Regulatory Compliance: Ensuring that data is precise and verified minimizes the risk of regulatory infractions and associated penalties.
+- Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
+- Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
+- Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
 
 Ultimately, the validation rulebook is crucial not only for assuring data reliability but also for driving competitive advantage and inclusivity. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
 
-## Scope of the Data Trust Kit
+## 3. Key Concepts and Definitions
+### 3.1 DPP Overview
 
-The Data Trust and Security KIT establishes a comprehensive framework for enabling trusted data exchange within and outside the Catena-X ecosystem. 
-This KIT addresses the critical need for verifiable, reliable data sharing across supply chain participants through a multi-layered approach encompassing governance, technology, and data content validation.
+The Digital Product Passport (DPP) is a standardized digital record that travels with a product throughout its entire life cycle. It compiles and shares essential information—such as origin of materials, composition, repairability, and end-of-life options—across supply chains and with stakeholders (e.g., manufacturers, distributors, recyclers, and regulators).
 
-The following subchapters describe each of the dimensions(layers) scopes addressed by this KIT.
+DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as a cornerstone for enhanced transparency, sustainability, and circularity in product value chains. By digitalizing this information, ESPR aims to facilitate data-driven decisions, improve resource efficiency, and enable compliance with legislative obligations.
 
-### Trust Framework Foundation
+### 3.2 Definition of Terms
 
-- Defines standardized approaches to establish trust in data at three distinct layers: Governance (who and why), Technology (how), and Data Content (what)
-- Provides clear terminology and definitions for verification and validation processes within data ecosystems
-- Establishes interoperability standards with external initiatives (UNTP, Battery Pass EU, Gaia-X)
+Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), Wikipedia, and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
-### Technical Implementation
-
-- Implements W3C Verifiable Credentials standard for cryptographic verification of digital data
-- Defines formats and structures for Certified Data Credentials and Certified Snapshot Credentials
-- Provides reference implementations for identity wallets and verification processes
-- Specifies integration patterns with existing Catena-X infrastructure (Connector Kit, Digital Twins)
-
-### Governance and Compliance
-
-- Establishes roles, responsibilities, and appointment processes for verification authorities
-- Defines credential lifecycle management including issuance, validation, and revocation procedures
-- Ensures compliance with regulatory frameworks such as the Ecodesign for Sustainable Products Regulation (ESPR)
-- Provides templates and guidelines for use case-specific rulebooks
-
-### Data Content Validation
-
-- Delivers comprehensive validation rules for Digital Product Passports, to start with and other sustainability data
-- Enables automated verification of data accuracy, completeness, and conformity to established standards
-- Supports both quantitative and qualitative conformity criteria assessment
-- Facilitates secure data snapshots without compromising data sovereignty
-
-### Business Value Delivery
-
-- Reduces operational risks through trustworthy data exchange
-- Enhances regulatory compliance and audit capabilities
-- Enables automated due diligence processes for supply chain transparency
-- Supports gradual automation of evidence collection and reporting workflows
-
-## Research
-
-Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), Wikipedia, and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation."
-The following sub section provides a brief overview of the differing definitions.
-
-### TfS:
-#### Verification: 
+> #### TfS:
+> ##### Verification: 
 Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
-#### Validation:
+> ##### Validation:
 Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
 Two situations:
-- Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
-- Prediction of PCFs for new product developments not in serial production yet
-The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.
-
+>- Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
+>- Prediction of PCFs for new product developments not in serial production yet
+The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.<br><br>
 In the context of Together for Sustainability (TfS), "verification" refers to the evaluation of historical Product Carbon Footprints (PCFs), while "validation" pertains to the assessment of projected or future PCFs. These definitions are derived from ISO 14065:2020 and ISO 14066:2023. However, as these interpretations are highly specific to PCFs—and even within the PCF domain, definitions of verification and validation vary across initiatives such as PACT (as outlined below), a thorough evaluation has led to the conclusion that they are currently not well-suited for addressing "data plausibility" within Digital Product Passports
 
-### PACT
-#### Verification: 
+>#### PACT
+>##### Verification: 
 The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
-
-#### Validation:
+>##### Validation:
 The process of confirming that the **methodology, assumptions, and data used** to estimate future or modeled PCFs are appropriate and reasonable.
-In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.
-
+In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 
-### Definition for Validation & Verification in Standards & Regulations  
+>#### Definition for Validation & Verification in Standards & Regulations  
 The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
-
-#### Verification: 
+>##### Verification: 
 The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
-#### Validation:
-- Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
-- "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
-- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
+>##### Validation:
+>- Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
+>- "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
+>- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
 
 ### Conclusion:
 After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
@@ -138,9 +116,52 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
 
-## Generic Digital Product Passport Data Point Validation Rules
+### 3.3 Key Stakeholders and their Roles
 
-### Metadata
+A DPP system provides value across multiple parties throughout the supply chain. Understanding the main stakeholders and their roles can clarify responsibilities and improve collaboration:
+
+- Product Manufacturers: Responsible for creating and updating the DPP with accurate product data (e.g., material content, production methods).
+- Suppliers and Sub-suppliers: Provide upstream data (e.g., component/material details) for incorporation into finished product DPPs.
+- Distributors and Retailers: Utilize DPP data for product traceability, compliance, and communication with customers.
+- Recyclers and End-of-Life Facilities: Access DPP data to inform correct treatment and optimize resource recovery.
+- Regulators and Auditors: May review DPP data for compliance with legal and sustainability requirements.
+- Consumers and Business Customers: Can access selected DPP elements to make informed purchasing, usage, or recycling decisions.
+
+Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
+
+## 4. General Principles for Data Handling in the DPP Model
+
+This section sets out the main rules and guiding principles for entering, managing, and sharing data within the Digital Product Passport (DPP) framework. Applying these principles ensures that DPP data is consistent, reliable, and useful throughout the entire value chain.
+
+### 4.1 Data Ownership and Responsibility
+
+- As usual in Catena-X, the data provider stays the data owner and has the responsibility of data correctness.
+- Owners are accountable for the accuracy, completeness, and timely updating of their data.
+- Changes or updates to data should be tracked and, where appropriate, accompanied by a change log to ensure traceability using the predecessor identifier field in generic DPP data model.
+- When does data need to be updated? According to regulation, it needs to be proactively updated by the data provider once it changes.
+
+### 4.2 Data Entry Guidelines (General Rules for Data Input)
+- Is there any rule already defined if or when data needs to be provided on a batch or instance level?
+- Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
+- In cases where certain data points are not applicable, **leave blank only if permitted by the data model.(Not possible if mandatory? more clear language! Explain applicable field, difference between applicable and optional)**
+   - Optional?
+- Use consistent naming conventions and units (refer to Section 4.3).
+- Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook. (Do we have an example?)
+
+### 4.3 Data Format and Standardization
+- Enter all data according to the format specified in the DPP model (e.g., 
+   - Comma vs. decmial? dependent on language setting?
+   - date as YYYY-MM-DD, decimals with “.” separator).
+- **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
+- For free text fields, keep entries clear and concise. **(Add an example! content header?)**
+### 4.4 Data Trust
+- Refer/Link to data trust KIT
+- Trust anchors as defined in CatenaX ? Link?
+
+
+## 5. The DPP Data Model: Overview of Data Points
+
+### 5.1 Metadata
 
 Metadata encompasses the fundamental details of the digital product passport.
 
@@ -161,7 +182,7 @@ Metadata encompasses the fundamental details of the digital product passport.
 | 1.13  | Economic Operator Contact               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
 | 1.14  | Economic Operator Address               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
 
-### Identification
+### 5.2 Identification
 
 The Identification section includes attributes needed for uniquely identifying the product and its characteristics.
 
@@ -184,7 +205,7 @@ The Identification section includes attributes needed for uniquely identifying t
 | 2.15  | Picture           | *To be covered in next version* | Optional| | | |
 
 
-# Operation
+### 5.3 Operation
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
 
 | Rule ID | Data Attribute                  | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
@@ -212,7 +233,7 @@ The "Operations" category refers to a structured set of data that describes th
 | 3.21  | Collection Points of Extended Producer Responsibility Scheme ID               | *To be covered in next version* | | | | |
 | 3.22  | Collection Points of Extended Producer Responsibility Scheme Address               | *To be covered in next version* | | | | |
 
-# Handling
+### 5.4 Handling
 "Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
 | Rule ID | Data Attribute              | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
@@ -223,7 +244,7 @@ The "Operations" category refers to a structured set of data that describes th
 | 4.5   | Manufacturer Part ID      | Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | Mandatory | | - This is an open field, as no applicable validation rules can be defined for this entry.| |
 | 4.6   | Name at Manufacturer      | Name of the spare part as assigned by the manufacturer. | Mandatory | | - This is an open field, as no applicable validation rules can be defined for this entry.| |
 
-# Characteristics
+### 5.5 Characteristics
 
 The "Characteristics" category refers to a set of descriptive attributes that define the physical, functional, and environmental properties of a product. These characteristics are essential for assessing a product’s sustainability performance and are typically included in the Digital Product Passport (DPP).
  
@@ -263,7 +284,7 @@ These characteristics enable standardized documentation, comparability across pr
 | 5.24  | Other Characteristic Name               | *To be covered in next version* | | | | |
 | 5.25  | Other Characteristic Outcome               | *To be covered in next version* | | | | |
 
-# Commercial
+### 5.6 Commercial
 
 | Rule ID | Data Attribute        | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|---------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
@@ -272,7 +293,7 @@ These characteristics enable standardized documentation, comparability across pr
 | 6.3  | Purchase Order               | A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer. |Optional | | | |
 | 6.4   | Recall Information  | Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.| Mandatory| Regulation (EU) 2023/988| | Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)|
 
-# Materials
+### 5.7 Materials
 
 "Materials" category refers to: The classification and specification of the substances and material types used in a product, with a focus on their environmental performance, circularity potential, and criticality.
 
@@ -316,7 +337,7 @@ These characteristics enable standardized documentation, comparability across pr
 | 7.3.2 | Document ID (Declarable Ingredient List)               | *To be covered in next version* | | | | |
 | 7.3.3 | Documentation (Declarable Ingredient List)               | *To be covered in next version* | | | | |
 
-# Sustainability
+### 5.8 Sustainability
 
 | Rule ID | Data Attribute     | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
@@ -367,7 +388,7 @@ These characteristics enable standardized documentation, comparability across pr
 | 8.45  | Collection Points Reusable Product Address              | *To be covered in next version* | | | | |
 | 8.46  | Recyclability Performance Grade             | *To be covered in next version* | | | | |
 
-# Compliance
+### 5.9 Compliance
 
 | Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
@@ -378,14 +399,14 @@ These characteristics enable standardized documentation, comparability across pr
 | 9.5   | Compliance Remark            | *To be covered in next version* | | | | |
 | 9.6   | Compliance Documentation            | *To be covered in next version* | | | | |
 
-# Sources
+### 5.10 Sources
 
 | Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
 | 10.1   | Sources             | *To be covered in next version* | | | | |
 | 10.2   | Category | Defines the document's category for sorting purposes. | Mandatory | Regulation (EU) 2024/1781, Annex III and Article 27 | - Must contain one of the enumerated values. | |
 
-# Additional Data
+### 5.11 Additional Data
 
 | Rule ID | Data Attribute | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
 |---------|--------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
