@@ -1,36 +1,36 @@
 # DPP Rulebook
 ## Table of Contents
 
-1. [Introduction](#Introduction)<br>
+1. [Introduction](#1-Introduction)<br>
 1.1 [Goal of this Document](#11-Goal-of-this-Document)<br>
-1.2 [Target Audience](#Target-Audience)<br>
-1.3 [Scope and Applicability](#Scope-and-Applicability)<br>
-1.4 [Structure of this Rulebook](#Structure-of-this-Rulebook)<br>
+1.2 [Target Audience](#12-Target-Audience)<br>
+1.3 [Scope and Applicability](#13-Scope-and-Applicability)<br>
+1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)<br>
 
-2. [The Value of Validated Data](#The-Value-of-Validated-Data)<br>
+2. [The Value of Validated Data](#2-The-Value-of-Validated-Data)<br>
 
-3. [Key Concepts and Definitions](#Key-Concepts-and-Definitions)<br>
-3.1 [DPP Overview](#DPP-Overview)<br>
-3.2 [Definition of Terms](#Definition-of-Terms)<br>
-3.3 [Key Stakeholders and their Roles](#Key-Stakeholders-and-their-Roles)<br>
+3. [Key Concepts and Definitions](#3-Key-Concepts-and-Definitions)<br>
+3.1 [DPP Overview](#31-DPP-Overview)<br>
+3.2 [Definition of Terms](#32-Definition-of-Terms)<br>
+3.3 [Key Stakeholders and their Roles](#33-Key-Stakeholders-and-their-Roles)<br>
 
-4. [General Principles for Data Handling in the DPP Model](#General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
-4.1 [Data Ownership and Responsibility](#Data-Ownership-and-Responsibility)<br>
-4.2 [Data Entry Guidelines (General Rules for Data Input)](#Data-Entry-Guidelines-(General-Rules-for-Data-Input))<br>
-4.3 [Data Format and Standardization](#Data-Format-and-Standardization)<br>
+4. [General Principles for Data Handling in the DPP Model](#4-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
+4.1 [Data Ownership and Responsibility](#41-Data-Ownership-and-Responsibility)<br>
+4.2 [Data Entry Guidelines (General Rules for Data Input)](#42-Data-Entry-Guidelines-(General-Rules-for-Data-Input))<br>
+4.3 [Data Format and Standardization](#43-Data-Format-and-Standardization)<br>
 
-5. [The DPP Data Model: Overview of Data Points](#The-DPP-Data-Model:-Overview-of-Data-Points)<br>
-5.1 [Metadata](#Metadata)<br>
-5.2 [Identification](#Identification)<br>
-5.3 [Operation](#Operation)<br>
-5.4 [Handling](#Handling)<br>
-5.5 [Characteristics](#Characteristics)<br>
-5.6 [Commercial](#Commercial)<br>
-5.7 [Materials](#Materials)<br>
-5.8 [Sustainability](#Sustainability)<br>
-5.9 [Compliance](#Compliance)<br>
-5.10 [Sources](#Sources)<br>
-5.11 [Additional Data](#Additional-Data)<br>
+5. [The DPP Data Model: Overview of Data Points](#5-The-DPP-Data-Model-Overview-of-Data-Points)<br>
+5.1 [Metadata](#51-Metadata)<br>
+5.2 [Identification](#52-Identification)<br>
+5.3 [Operation](#53-Operation)<br>
+5.4 [Handling](#54-Handling)<br>
+5.5 [Characteristics](#55-Characteristics)<br>
+5.6 [Commercial](#56-Commercial)<br>
+5.7 [Materials](#57-Materials)<br>
+5.8 [Sustainability](#58-Sustainability)<br>
+5.9 [Compliance](#59-Compliance)<br>
+5.10 [Sources](#510-Sources)<br>
+5.11 [Additional Data](#511-Additional-Data)<br>
 
 
 
