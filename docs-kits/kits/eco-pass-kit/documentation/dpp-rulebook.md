@@ -16,7 +16,7 @@
 
 4. [General Principles for Data Handling in the DPP Model](#4-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
 4.1 [Data Ownership and Responsibility](#41-Data-Ownership-and-Responsibility)<br>
-4.2 [Data Entry Guidelines (General Rules for Data Input)](#42-Data-Entry-Guidelines-(General-Rules-for-Data-Input))<br>
+4.2 [Data Entry Guidelines (General Rules for Data Input)](#42-Data-Entry-Guidelines-General-Rules-for-Data-Input)<br>
 4.3 [Data Format and Standardization](#43-Data-Format-and-Standardization)<br>
 
 5. [The DPP Data Model: Overview of Data Points](#5-The-DPP-Data-Model-Overview-of-Data-Points)<br>
