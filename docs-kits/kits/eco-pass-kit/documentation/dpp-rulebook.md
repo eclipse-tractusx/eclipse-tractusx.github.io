@@ -50,10 +50,18 @@ This Rulebook is intended for professionals who are responsible for gathering, m
 
 The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by ESPR. It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
 
-**Mention related released version of generic DPP model (current target: 6.0.0)**
+This rulebook refers to and is based on the Generic DPP Data Model, released in version 6.0.0.
 
 ### 1.4 Structure of this Rulebook
-- Mention that the descriptions are/can be different than in the data model in order to make them easier to understand (example!)
+
+The Rulebook is organized to provide:
+- Definitions and clarifications of key terms and concepts,
+- General principles for handling and entering DPP data,
+- Guidance on the structure and use of the data model.
+  
+The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help facilitate a standardized and effective implementation of the DPP data model.
+
+Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.
 
 ## 2. The Value of Validated Data
 
@@ -66,7 +74,7 @@ The business value of validated data is substantial and multifaceted. Reliable d
 - Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
 - Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
 
-Ultimately, the validation rulebook is crucial not only for assuring data reliability but also for driving competitive advantage and inclusivity. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
+Ultimately, the validation rulebook supports assuring data reliability. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
 
 ## 3. Key Concepts and Definitions
 ### 3.1 DPP Overview
@@ -77,13 +85,15 @@ DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as
 
 ### 3.2 Definition of Terms
 
+#### 3.2.1 Verification vs. Validation
+
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), Wikipedia, and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
 > #### TfS:
 > ##### Verification: 
-Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
+> Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
 > ##### Validation:
-Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
+> Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
 Two situations:
 >- Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
 >- Prediction of PCFs for new product developments not in serial production yet
@@ -92,23 +102,23 @@ In the context of Together for Sustainability (TfS), "verification" refers to th
 
 >#### PACT
 >##### Verification: 
-The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
+> The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
 >##### Validation:
-The process of confirming that the **methodology, assumptions, and data used** to estimate future or modeled PCFs are appropriate and reasonable.
+> The process of confirming that the **methodology, assumptions, and data used** to estimate future or modeled PCFs are appropriate and reasonable.
 In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 
 >#### Definition for Validation & Verification in Standards & Regulations  
-The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
+> The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
 >##### Verification: 
-The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
+> The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
 >##### Validation:
 >- Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
 >- "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
 >- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
 
-### Conclusion:
+#### Conclusion:
 After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
 - Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs)—has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
@@ -135,18 +145,27 @@ This section sets out the main rules and guiding principles for entering, managi
 
 ### 4.1 Data Ownership and Responsibility
 
-- As usual in Catena-X, the data provider stays the data owner and has the responsibility of data correctness.
+- As usual in Catena-X, the data provider remains the data owner and is responsible for ensuring the correctness of the data.
 - Owners are accountable for the accuracy, completeness, and timely updating of their data.
 - Changes or updates to data should be tracked and, where appropriate, accompanied by a change log to ensure traceability using the predecessor identifier field in generic DPP data model.
-- When does data need to be updated? According to regulation, it needs to be proactively updated by the data provider once it changes.
+- Data in the DPPs must be updated under any of the following conditions:
+    - Changes in product characteristics (e.g. materials, design, certifications)
+    - Regulatory updates (e.g. new or revised delegated/implementing acts)
+    - Lifecycle events (e.g. manufacturing, repair, refurbishment, end-of-life)
+    - New relevant information (e.g. discovery of substances of concern)
+    - Service provider requirements (e.g. updates for data integrity and traceability)
 
 ### 4.2 Data Entry Guidelines (General Rules for Data Input)
-- Is there any rule already defined if or when data needs to be provided on a batch or instance level?
+
 - Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
 - In cases where certain data points are not applicable, **leave blank only if permitted by the data model.(Not possible if mandatory? more clear language! Explain applicable field, difference between applicable and optional)**
    - Optional?
 - Use consistent naming conventions and units (refer to Section 4.3).
 - Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook. (Do we have an example?)
+
+#### 4.2.1 Granularity
+- Is there any rule already defined if or when data needs to be provided on a batch or instance level?
+
 
 ### 4.3 Data Format and Standardization
 - Enter all data according to the format specified in the DPP model (e.g., 
