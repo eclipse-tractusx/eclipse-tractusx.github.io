@@ -275,7 +275,7 @@ Test was performed using 20 threads in parallel. The average number of transacti
 
 > :raised_hand: If the performance is still not satisfactory for the user, then next given approach can be used, where the big parquet file can be transfer using EDC.
 
-#### Data Consumption with AAS Submodel Descriptor to Represent Mass Data (Like Parquet Files) Reference
+#### Mass Data Consumption with AAS Submodel Descriptor for Referencing Large Files (e.g., Parquet or other Binary Files)
 
 A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
@@ -351,9 +351,9 @@ See also full example here: [edc-asset for file transfer](https://eclipse-tractu
 8. `Provider` retrieve the request and download the requested Parquet file from bucket and upload it to the consumer bucket.
 9. `Consumer` can download the file from their own bucket.
 
-#### Submodel Descriptor which provided information to retrieve/transfer Parquet file
+#### Submodel Descriptor for Parquet File Retrieval and Transfer
 
-The Submodel Descriptor for Parquet file information can be defined like:
+A Submodel Descriptor for Parquet File Information may be structured as:
 
 ```json
 {
@@ -371,7 +371,7 @@ The Submodel Descriptor for Parquet file information can be defined like:
               "1.1"
             ],
             "subprotocol": "DSP",
-            "subprotocolBody": "id=<edc-asset-id>;dspEndpoint=<controlplane-url>",
+            "subprotocolBody": "id=<dsp-asset-id>;dspEndpoint=<controlplane-url>",
             "subprotocolBodyEncoding": "plain",
             "securityAttributes": [
              {"type": "NONE","key": "NONE","value": "NONE"}
@@ -402,10 +402,10 @@ The Submodel Descriptor for Parquet file information can be defined like:
 | Parameter               | Value                                                                                                   | Description                                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | href                    | dataplane URL                                                                                           | This dataplane URl returns aspect model BinaryExchange                                                            |
-| subprotocolBody         | id=edc-asset-id;dspEndpoint=controlplane-url                                                            | Includes information about provider edc controlplane and edc-asset ID                                             |
+| subprotocolBody         | id=dsp-asset-id;dspEndpoint=controlplane-url                                                            | Includes Information about Provider DSP Control Plane and DSP-Asset ID                                            |
 | subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                               |
-| semanticId.keys[].value | urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange                                                | Aspect model which provides information (dspAssetId, dataplane URl and controlplane URL) for AmazonS3 EDC asset   |
-| description[].text      | submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC. | Further description for the consumer.                                                                             |
+| semanticId.keys[].value | urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange                                                | Aspect Model Providing DSP Metadata for Binary File Exchange.                                                     |
+| description[].text      | Submodel descriptor for quality use case, supporting parquet file exchange through DSP.                 | Further description for the consumer.                                                                             |
 
 **Aspect model BinaryExchange can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
 
