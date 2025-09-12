@@ -395,30 +395,146 @@ a) Can provide details relevant to the classification standard.
 ### 5.3 Operation
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
 
-| Rule ID | Data Attribute                  | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|-------------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 3.1   | Facility ID                     | The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product. | Mandatory | Regulation (EU) 2024/1781, Annex III(i) | - The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. -  Additionally, its validity can be verified using regular expression-based checks.| |
-| 3.2   | Facility Address               | *To be covered in next version* | | | | |
-| 3.3   | Manufacturer ID   | Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. | Mandatory | Regulation (EU) 2024/1781, Annex III(h) & (k) | - The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. - Additionally, its validity can be verified using regular expression-based checks. | |
-| 3.4   | Manufacturer Name               | *To be covered in next version* | | | | |
-| 3.5   | Manufacturer Contact               | *To be covered in next version* | | | | |
-| 3.6   | Manufacturer Address               | *To be covered in next version* | | | | |
-| 3.7   | Manufacturing Date            | Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event). | Mandatory | Mandatory | Regulation (EU) 2024/1781, Annex III | - The date format is in complaince to ISO 8601. - Additionally, its validity can be verified using regular expression-based checks.| |
-| 3.8   | Applicable                    | Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.| Mandatory | Regulation (EU) 2024/1781, Annex III | - If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.| |
-| 3.9   | EORI                          | An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU. | Mandatory | Regulation (EU) 2024/1781, Annex III(j) | - Must follow the EORI number format. -  Its validity can be verified using regular expression-based checks.| |
-| 3.10   | Importer Identification       | Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability in the Catena-X network. | Mandatory | Regulation (EU) 2024/1781, Annex III(j) | - Must conform to the BPNL identifier format. -  Its validity can be verified using regular expression-based checks.| |
-| 3.11  | Importer Name               | *To be covered in next version* | | | | |
-| 3.12  | Importer Contact               | *To be covered in next version* | | | | |
-| 3.13  | Importer Address               | *To be covered in next version* | | | | |
-| 3.14  | Other Operator ID             | OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. | Mandatory | Regulation (EU) 2024/1781, Annex III | - This is an open field, as no applicable validation rules can be defined for this entry.| |
-| 3.15  | Other Operator Name               | *To be covered in next version* | | | | |
-| 3.16  | Other Operator Contact               | *To be covered in next version* | | | | |
-| 3.17  | Other Operator Address               | *To be covered in next version* | | | | |
-| 3.18  | Other Operator Role           | This field is used to specify the "Role" of the other operator (e.g., Distributor). | Mandatory | Regulation (EU) 2024/1781, Annex III | - Describes the specific role of the operator. - This is an open field, as no applicable validation rules can be defined for this entry.| |
-| 3.19  | Symbol of Extended Producer Responsibility Scheme               | *To be covered in next version* | | | | |
-| 3.20  | Territory of Extended Producer Responsibility Scheme               | *To be covered in next version* | | | | |
-| 3.21  | Collection Points of Extended Producer Responsibility Scheme ID               | *To be covered in next version* | | | | |
-| 3.22  | Collection Points of Extended Producer Responsibility Scheme Address               | *To be covered in next version* | | | | |
+| Rule ID | Data Attribute                                                       | Mandatory/ Optional | Regulatory Reference                             |
+|---------|----------------------------------------------------------------------|---------------------|--------------------------------------------------|
+| 3.1     | Facility ID                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
+| 3.2     | Facility Address                                                     | *To be covered in next version* | | 
+| 3.3     | Manufacturer ID                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
+| 3.4     | Manufacturer Name                                                    | *To be covered in next version* | | 
+| 3.5     | Manufacturer Contact                                                 | *To be covered in next version* | | 
+| 3.6     | Manufacturer Address                                                 | *To be covered in next version* | | 
+| 3.7     | Manufacturing Date                                                   | Mandatory           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
+| 3.8     | Applicable                                                           | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 3.9     | EORI                                                                 | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
+| 3.10    | Importer Identification                                              | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
+| 3.11    | Importer Name                                                        | *To be covered in next version* | | 
+| 3.12    | Importer Contact                                                     | *To be covered in next version* | | 
+| 3.13    | Importer Address                                                     | *To be covered in next version* | | 
+| 3.14    | Other Operator ID                                                    | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 3.15    | Other Operator Name                                                  | *To be covered in next version* | | 
+| 3.16    | Other Operator Contact                                               | *To be covered in next version* | | 
+| 3.17    | Other Operator Address                                               | *To be covered in next version* | | 
+| 3.18    | Other Operator Role                                                  | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 3.19    | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* | | 
+| 3.20    | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* | | 
+| 3.21    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | | 
+| 3.22    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | | 
+
+#### 5.3.1 Facility ID 
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+a) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. 
+
+b) Additionally, its validity can be verified using regular expression-based checks.
+
+#### 5.3.2 Facility Address
+
+*To be covered in next version*
+
+#### 5.3.3 Manufacturer ID
+
+ Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. 
+
+a) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. 
+ 
+b)Additionally, its validity can be verified using regular expression-based checks. | |
+
+#### 5.3.4 Manufacturer Name
+
+*To be covered in next version*
+
+#### 5.3.5 Manufacturer Contact
+
+*To be covered in next version*
+
+#### 5.3.6 Manufacturer Address 
+
+*To be covered in next version*
+
+#### 5.3.7 Manufacturing Date
+
+Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event).
+
+a) The date format is in complaince to ISO 8601. 
+
+b) Additionally, its validity can be verified using regular expression-based checks.
+
+#### 5.3.8 Applicable
+
+ Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
+
+a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 5.3.9 EORI
+
+An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU.
+
+a) Must follow the EORI number format. 
+
+b) Its validity can be verified using regular expression-based checks.
+
+#### 5.3.10 Importer Identification
+
+Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability in the Catena-X network.
+
+a) Must conform to the BPNL identifier format. 
+
+b) Its validity can be verified using regular expression-based checks.
+
+#### 5.3.11 Importer Name
+
+*To be covered in next version*
+
+#### 5.3.12 Importer Contact 
+
+*To be covered in next version*
+
+#### 5.3.13 Importer Address 
+
+*To be covered in next version*
+
+#### 5.3.14 Other Operator ID  
+
+OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. 
+
+a) This is an open field, as no applicable validation rules can be defined for this entry.
+
+#### 5.3.15 Other Operator Name 
+
+*To be covered in next version*
+
+#### 5.3.16 Other Operator Contact 
+
+*To be covered in next version*
+
+#### 5.3.17 Other Operator Address 
+
+*To be covered in next version*
+
+#### 5.3.18 Other Operator Role 
+
+This field is used to specify the "Role" of the other operator (e.g., Distributor). 
+
+a) Describes the specific role of the operator. 
+
+b) This is an open field, as no applicable validation rules can be defined for this entry.
+
+#### 5.3.19 Symbol of Extended Producer Responsibility Scheme   
+
+*To be covered in next version*
+
+#### 5.3.20 Territory of Extended Producer Responsibility Scheme
+
+*To be covered in next version*
+
+#### 5.3.21 Collection Points of Extended Producer Responsibility Scheme ID  
+
+*To be covered in next version*
+
+#### 5.3.22 Collection Points of Extended Producer Responsibility Scheme Address 
+
+*To be covered in next version*
 
 ### 5.4 Handling
 "Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
