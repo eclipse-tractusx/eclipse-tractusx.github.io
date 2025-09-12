@@ -184,22 +184,99 @@ This section sets out the main rules and guiding principles for entering, managi
 
 Metadata encompasses the fundamental details of the digital product passport.
 
-| Rule ID | Data Attribute          | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                           | Syntax checks| Content validation |
-|---------|-----------------------|-----------------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 1.1   | Passport Identifier   | Unique identifier of the product passport. | Mandatory | Regulation (EU) 2024/1781 || - Must contain an unique identifier in accordance with [ISO/IEC 9834-8:2014](https://www.iso.org/standard/62795.html) |
-| 1.2   | Version               | The current version of the product passport.| Mandatory | Regulation (EU) 2024/1781, Article 9| - The attribute must contain a version number in a string format.<br>- Updates must follow semantic versioning convention.| |
-| 1.3   | Status                | The lifecycle stage of the product passport.| Optional | Regulation (EU) 2024/1781 | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options. | |
-| 1.4   | Language               | Specific language in which passport content is created. | Mandatory|Regulation (EU) 2024/1781 |  |In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html) | 
-| 1.5   | Predecessor Identifier               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
-| 1.6   | Registration Identifier               | *To be covered in next version* | Optional| Regulation (EU) 2024/1781 | | |
-| 1.7   | Backup Reference               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
-| 1.8   | IssueDate             | The date when the product passport is initially issued. | Mandatory | Regulation (EU) 2024/1781 | | - Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html) .<br> - Can not be a future date.  |
-| 1.9   | ExpirationDate        | The date until the product passport remains available.  | Mandatory | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | | - Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html). <br> - Can not be a past date. |
-| 1.10  | Last Modification              | *To be covered in next version* | Optional | Regulation (EU) 2024/1781 | | |
-| 1.11  | Economic Operator ID  | Identification of the economic operator responsible for the passport. | Mandatory | Regulation (EU) 2024/1781, Annex III, section (k) | |  - The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. <br><font color="red"> -For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used. |
-| 1.12  | Economic Operator Name | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
-| 1.13  | Economic Operator Contact               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
-| 1.14  | Economic Operator Address               | *To be covered in next version* | Mandatory| Regulation (EU) 2024/1781 | | |
+| Rule ID | Data Attribute            | Mandatory/ Optional | Regulatory Reference                                       |
+|---------|---------------------------|---------------------|------------------------------------------------------------|
+| 5.1.1   | Passport Identifier       | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 5.1.2   | Version                   | Mandatory           | Regulation (EU) 2024/1781, Article 9                       |
+| 5.1.3   | Status                    | Optional            | Regulation (EU) 2024/1781                                  |
+| 5.1.4   | Language                  | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 5.1.5   | Predecessor Identifier    | Mandatory           | Regulation (EU) 2024/1781                                  | 
+| 5.1.6   | Registration Identifier   | Optional            | Regulation (EU) 2024/1781                                  |
+| 5.1.7   | Backup Reference          | Mandatory           | Regulation (EU) 2024/1781                                  | 
+| 5.1.8   | IssueDate                 | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 5.1.9   | ExpirationDate            | Mandatory           | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | 
+| 5.1.10  | Last Modification         | Optional            | Regulation (EU) 2024/1781                                  |
+| 5.1.11  | Economic Operator ID      | Mandatory           | Regulation (EU) 2024/1781, Annex III, section (k)          | 
+| 5.1.12  | Economic Operator Name    | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 5.1.13  | Economic Operator Contact | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 5.1.14  | Economic Operator Address | Mandatory           | Regulation (EU) 2024/1781                                  | 
+
+#### 5.1.1 Passport Identifier
+
+Unique identifier of the product passport.
+
+> **Syntax**
+
+
+> **Content**<br>Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>
+
+#### 5.1.2 Version
+
+ The current version of the product passport.
+
+ a) The attribute must contain a version number in a string format.
+
+ b) Updates must follow semantic versioning convention.
+
+#### 5.1.3 Status
+
+ The lifecycle stage of the product passport.
+
+ a) If provided, the attribute must contain one of the enumerated values.
+
+#### 5.1.4 Language
+
+Specific language in which passport content is created.
+
+a) In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html)
+
+#### 5.1.5 Predecessor Identifier
+
+*To be covered in next version*
+
+#### 5.1.6 Registration Identifier  
+
+*To be covered in next version*
+
+#### 5.1.7 Backup Reference 
+
+*To be covered in next version*
+
+#### 5.1.8 IssueDate
+
+The date when the product passport is initially issued.
+
+a) Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+
+#### 5.1.9 ExpirationDate
+
+The date until the product passport remains available.
+
+a) Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
+
+#### 5.1.10 Last Modification
+
+*To be covered in next version*
+
+#### 5.1.11 Economic Operator ID
+
+Identification of the economic operator responsible for the passport.
+
+a) The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+b) For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
+
+#### 5.1.12 Economic Operator Name
+
+*To be covered in next version*
+
+#### 5.1.13 Economic Operator Contact
+
+*To be covered in next version*
+
+#### 5.1.14 Economic Operator Address
+
+*To be covered in next version*
 
 ### 5.2 Identification
 
