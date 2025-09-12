@@ -275,33 +275,173 @@ Key elements under this category may include:
  
 These characteristics enable standardized documentation, comparability across products, and informed decision-making by stakeholders such as consumers, manufacturers, and regulators.
 
-| Rule ID | Data Attribute              | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 5.1   | Life Type                 | "Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br>2- Technical lifetime (based on product design and performance testing) <br>3- Mean Time Between Failures (MTBF) | Mandatory       | Regulation (EU) 2024/1781, Annex I   | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options                                          | |
-| 5.2   | Life Value                | The numeric value describing the product’s lifespan in terms of the specified type. | Mandatory       | Regulation (EU) 2024/1781, Annex I                                                 | - Must be a valid integer for lifespan value. <br>- Must be > 0.                                                               | |
-| 5.3   | Life Unit                 | The unit corresponding to the respective lifespan, specified using one of the following standardized units: day, month, cycle, year, or running/operating hour. | Mandatory       | Regulation (EU) 2024/1781, Annex I                                                    |  - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options   | |
-| 5.4   | Value (Width)          | Represents the width of the item. | Optional       | Regulation (EU) 2024/1781, Article 7                     | - Must be a valid float representing width.   <br>- Must be > 0.                                         | |
-| 5.5   | Unit (Width)                | Specifies unit of measure for widths. | Optional        | Regulation (EU) 2024/1781, Article 7                                                                   | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                        | |
-| 5.6   |  Value (Length)             | The length of the item. | Optional       | Regulation (EU) 2024/1781, Article 7                                                  | - Valid float for length value required. <br>- Must be > 0.                                            | |
-| 5.7   | Unit (Length) | Defines unit used for measuring length. | Optional        | Regulation (EU) 2024/1781, Article 7                                                                 | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.  | |
-| 5.8   |  Value (Diameter)   | Specifies diameter of the item. | Optional       | Regulation (EU) 2024/1781, Article 7                                                             | - Must be float for diameter.    <br>- Must be > 0.                                                       | |
-| 5.9   | Unit (Diameter)            | Indicates unit for diameter measurements. | Optional        | Regulation (EU) 2024/1781, Article 7                                                               | -For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options. | |
-| 5.10  |  Value (Height)  | Measures height of the item. | Optional       | Regulation (EU) 2024/1781, Article 7                                                                | - Requires a float value corresponding to height.     <br>- Must be > 0.                               | |
-| 5.11  | Unit (Height)  | Defines unit of height measure. | Optional        | Regulation (EU) 2024/1781, Article 7                                                          | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                        | |
-| 5.12  |  Value (Gross Weight) | Specifies total weight of the item including packaging. | Mandatory       | Regulation (EU) 2024/1781, Article 7                                   | - Must be valid float to reflect gross weight.   <br>- Must be > 0.                                    | |
-| 5.13  | Unit (Gross Weight) | Defines measurement unit for gross weight. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                                             | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                          | |
-| 5.14  |  Value (Volume)            | Measures product’s volume. | Mandatory       | Regulation (EU) 2024/1781, Article 7                                  | - Valid float required for volume.    <br>- Must be > 0.                                               | |
-| 5.15  | Unit (Volume)              | Defines the unit to express volume measurements. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                                                  | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.   | |
-| 5.16  |  Value (Gross Volume) | Represents gross volume of the product including packaging. | Mandatory       | Regulation (EU) 2024/1781, Article 7                                     | - Must be valid float for gross volume.     <br>- Must be > 0.                                         | |
-| 5.17  | Unit (Gross Volume) | Specifies measurement unit for gross volume. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                           | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                      | |
-| 5.18  |  Value (Weight) | Details the weight of the product. | Mandatory       | Regulation (EU) 2024/1781, Article 7                             | - Must be valid float representing weight.   <br>- Must be > 0.                                      | |
-| 5.19  | Unit (Weight)  | Defines unit of weight measures. | Mandatory        | Regulation (EU) 2024/1781, Article 7                                                         | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                     |
-| 5.20   |  Value (Item Quantity) | *To be covered in next version* | | | | |
-| 5.21  | Unit Item Quantity | *To be covered in next version* | | | | |
-| 5.22  | Physical State            | The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular | Optional       | Regulation (EU) 2024/1781, Article 7                                                        | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                                | |
-| 5.23  | General Performance Class | Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency. | Optional       | Regulation (EU) 2024/1781, Article 7     |  | - Perforance class must be defined in compliance to ESPR, Article 7 when made available by EU.  |
-| 5.24  | Other Characteristic Name               | *To be covered in next version* | | | | |
-| 5.25  | Other Characteristic Outcome               | *To be covered in next version* | | | | |
+| Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 | 
+|---------|-----------------------------|---------------------|--------------------------------------|
+| 5.1     | Life Type                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
+| 5.2     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 5.3     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 5.4     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.5     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.6     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 5.7     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 5.8     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 5.9     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.10    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.11    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.12    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.13    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.14    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.15    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.16    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.17    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 5.18    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.19    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 5.20    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
+| 5.21    | Unit Item Quantity          | *To be covered in next version* | | | | |
+| 5.22    | Physical State              | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.23    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 5.24    | Other Characteristic Name   | *To be covered in next version* | | | | |
+| 5.25    | Other Characteristic Outcome| *To be covered in next version* | | | | |
+
+#### 5.5.1 Life Type
+
+"Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br>2- Technical lifetime (based on product design and performance testing) <br>3- Mean Time Between Failures (MTBF)
+
+a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 5.5.2 Life Value
+
+The numeric value describing the product’s lifespan in terms of the specified type.
+
+a) Must be a valid integer for lifespan value.
+
+b) Must be > 0. 
+
+#### 5.5.3 Life Unit
+
+The unit corresponding to the respective lifespan, specified using one of the following standardized units: day, month, cycle, year, or running/operating hour.
+
+#### 5.5.4 Value (Width)
+
+Represents the width of the item.
+
+a) Must be a valid float representing width.
+
+b) Must be > 0. 
+
+#### 5.5.5 Unit (Width)
+
+Specifies unit of measure for widths.
+
+#### 5.5.6 Value (Length)
+
+The length of the item.
+
+a) Valid float for length value required.
+
+b) Must be > 0. 
+
+#### 5.5.7 Unit (Length)
+
+Defines unit used for measuring length.
+
+#### 5.5.8 Value (Diameter)
+
+Specifies diameter of the item.
+
+a) Must be float for diameter.
+
+b) Must be > 0. 
+
+#### 5.5.9 Unit (Diameter)
+
+Indicates unit for diameter measurements.
+
+#### 5.5.10 Value (Height)
+
+Measures height of the item.
+
+a) Requires a float value corresponding to height.
+
+b) Must be > 0. 
+
+#### 5.5.11 Unit (Height)
+
+Defines unit of height measure.
+
+#### 5.5.12 Value (Gross Weight)
+
+Specifies total weight of the item including packaging.
+
+a) Must be valid float to reflect gross weight.
+
+b) Must be > 0. 
+
+#### 5.5.13 Unit (Gross Weight)
+
+Defines measurement unit for gross weight.
+
+#### 5.5.14 Value (Volume)
+
+Measures product’s volume.
+
+a) Valid float required for volume.
+
+b) Must be > 0. 
+
+#### 5.5.15 Unit (Volume)
+
+Defines the unit to express volume measurements.
+
+#### 5.5.16 Value (Gross Volume)
+
+Represents gross volume of the product including packaging.
+
+a) Must be valid float for gross volume.
+
+b) Must be > 0. 
+
+#### 5.5.17 Unit (Gross Volume)
+
+Specifies measurement unit for gross volume.
+
+#### 5.5.18 Value (Weight)
+
+Details the weight of the product.
+
+a) Must be valid float representing weight.
+
+b) Must be > 0. 
+
+#### 5.5.19 Unit (Weight)
+
+Defines unit of weight measures.
+
+#### 5.5.20 Value (Item Quantity)
+
+*To be covered in next version* 
+
+#### 5.5.21 Unit Item Quantity
+
+*To be covered in next version* 
+
+#### 5.5.22 Physical State
+
+The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular
+
+#### 5.5.23 General Performance Class
+
+Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency.
+
+a) Perforance class must be defined in compliance to ESPR, Article 7 when made available by EU.
+
+#### 5.5.24 Other Characteristic Name
+
+*To be covered in next version*
+
+#### 5.5.25 Other Characteristic Outcome
+
+*To be covered in next version*
 
 ### 5.6 Commercial
 
