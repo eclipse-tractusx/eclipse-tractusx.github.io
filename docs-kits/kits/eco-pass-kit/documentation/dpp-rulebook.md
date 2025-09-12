@@ -282,23 +282,114 @@ b) For companies that are not in the Catena-X network, CIN in accordance with [I
 
 The Identification section includes attributes needed for uniquely identifying the product and its characteristics.
 
-| Rule ID | Data Attribute              | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 2.1   | Serial Key                | The key for local identification of a serial part.  | Optional | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f). | No syntax check applies as the attribute is idefined by companies | - The attribute must conform to one of the predefined identifier types or custom keys.|
-| 2.2   | Serial Value              | The value associated with the serial key.  | Optional | Regulation (EU) 2024/1781, Recital (33) | - If provided, the attribute must describe the unique serial key. | |
-| 2.3   | Batch Key                 |  The key for local identification of a batch information.  | Optional | Regulation (EU) 2024/1781, Recital (33) |  | - The attribute must conform to one of the predefined identifier types or custom keys.|
-| 2.4   | Batch Value               |  The value associated with the batch key. | Optional | Regulation (EU) 2024/1781 |  - If provided, attribute must describe the associated batch key | |
-| 2.5   | Manufacturer Part ID      | Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification. | Mandatory | Regulation (EU) 2024/1781, Recital (33) | - Must contain the Part ID as assigned by the manufacturer of the part.|-  The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.  |
-| 2.6   | Name at Manufacturer      | The name of the part provided by the manufacturer. | Mandatory | Regulation (EU) 2024/1781 |  | - Must contain the Name of the Part as assigned by the manufacturer.|
-| 2.7   | Code Key                  | The code key for product identification.  | Mandatory | Regulation (EU) 2024/1781, Annex III(b-c) |  - Must be a valid identifier code such as GTIN, DID, ISBN, etc. (Question: Can this be checked by regular expression)? | |
-| 2.8   | Code Value                | The identifier value related to the code key. | Mandatory | Regulation (EU) 2024/1781 | - Must correspond with the associated code key. | |
-| 2.9   | Code Description          | *To be covered in next version* | Optional| Regulation (EU) 2024/1781 | | |
-| 2.10  |Carrier Type              | The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability.| Optional | Regulation (EU) 2024/1781, Article 2(29) | |- Must align with recognizable carrier types like QR, barcode, etc. (Can we give a link to responsible carrier types?) |
-| 2.11  | Carrier Position  | The spatial arrangement or position of the data carrier on the product.  | Optional | Regulation (EU) 2024/1781, Article 8(2)(c) |  | - If specified, the attribute must describe the carrier's positioning. |
-| 2.12  | Classification Standard   | Outlines classification standards for parts. | Mandatory | Regulation (EU) 2024/1781 | - Must refer to known standards in classification. (I think we should give here list of preferred options, as of now it doesn'T really help) | |
-| 2.13  | Classification ID         | The identifier for the part classification standard according to related key-value pairs. | Mandatory | Regulation (EU) 2024/1781 | - Must correspond with the classification standard provided. | |
-| 2.14  | Classification Description | Optional property describing the classification standard. | Optional| Regulation (EU) 2024/1781 | - Can provide details relevant to the classification standard. | |
-| 2.15  | Picture           | *To be covered in next version* | Optional| | | |
+| Rule ID | Data Attribute             | Mandatory/ Optional | Regulatory Reference                                          |
+|---------|----------------------------|---------------------|---------------------------------------------------------------|
+| 2.1     | Serial Key                 | Optional            | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f)  |
+| 2.2     | Serial Value               | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
+| 2.3     | Batch Key                  | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
+| 2.4     | Batch Value                | Optional            | Regulation (EU) 2024/1781                                     |
+| 2.5     | Manufacturer Part ID       | Mandatory           | Regulation (EU) 2024/1781, Recital (33)                       |
+| 2.6     | Name at Manufacturer       | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 2.7     | Code Key                   | Mandatory           | Regulation (EU) 2024/1781, Annex III(b-c)                     |
+| 2.8     | Code Value                 | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 2.9     | Code Description           | Optional            | Regulation (EU) 2024/1781                                     |
+| 2.10    |Carrier Type                | Optional            | Regulation (EU) 2024/1781, Article 2(29)                      |
+| 2.11    | Carrier Position           | Optional            | Regulation (EU) 2024/1781, Article 8(2)(c)                    |
+| 2.12    | Classification Standard    | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 2.13    | Classification ID          | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 2.14    | Classification Description | Optional            | Regulation (EU) 2024/1781                                     |
+| 2.15    | Picture                    | *To be covered in next version* | Optional| | | |
+
+
+#### 5.2.1 Serial Key 
+
+The key for local identification of a serial part.
+
+a) No syntax check applies as the attribute is idefined by companies 
+
+b) The attribute must conform to one of the predefined identifier types or custom keys.
+
+#### 5.2.2 Serial Value
+
+The value associated with the serial key.
+
+ a) If provided, the attribute must describe the unique serial key.
+
+#### 5.2.3 Batch Key  
+
+The key for local identification of a batch information. 
+
+a) The attribute must conform to one of the predefined identifier types or custom keys.
+
+#### 5.2.4 Batch Value 
+
+The value associated with the batch key.
+
+a) If provided, attribute must describe the associated batch key
+
+#### 5.2.5 Manufacturer Part ID
+
+ Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification.
+
+a) Must contain the Part ID as assigned by the manufacturer of the part.
+
+b) The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
+
+#### 5.2.6 Name at Manufacturer 
+
+The name of the part provided by the manufacturer.
+
+a) Must contain the Name of the Part as assigned by the manufacturer.
+
+#### 5.2.7 Code Key 
+
+The code key for product identification.
+
+a) Must be a valid identifier code such as GTIN, DID, ISBN, etc. (Question: Can this be checked by regular expression)?
+
+#### 5.2.8 Code Value 
+
+The identifier value related to the code key.
+
+a) Must correspond with the associated code key.
+
+#### 5.2.9 Code Description 
+
+*To be covered in next version*
+
+#### 5.2.10 Carrier Type 
+
+The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability.
+
+a) Must align with recognizable carrier types like QR, barcode, etc. (Can we give a link to responsible carrier types?)
+
+#### 5.2.11 Carrier Position 
+
+The spatial arrangement or position of the data carrier on the product.
+
+a) If specified, the attribute must describe the carrier's positioning.
+
+#### 5.2.12 Classification Standard 
+
+Outlines classification standards for parts.
+
+a) Must refer to known standards in classification. (I think we should give here list of preferred options, as of now it doesn'T really help)
+
+#### 5.2.13 Classification ID   
+
+The identifier for the part classification standard according to related key-value pairs. 
+
+a) Must correspond with the classification standard provided.
+
+#### 5.2.14 Classification Description
+
+Optional property describing the classification standard.
+
+a) Can provide details relevant to the classification standard.
+
+#### 5.2.15 Picture
+
+*To be covered in next version*
 
 
 ### 5.3 Operation
