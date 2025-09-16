@@ -1024,55 +1024,301 @@ a) The chemical material ID and its identification  (Chemical name) shall be pro
 
 ### 5.8 Sustainability
 
-| Rule ID | Data Attribute     | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 8.1   | State            | The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives. | Mandatory       | ESPR proposal from March 30th, 2022 Annex I.                | - For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                                   | |
-| 8.2   |value (product carbon footprint) | The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product; | Mandatory       | ESPR proposal from March 30th, 2022 Annex I, detailing carbon footprint documentation.|  | - In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf)). <br> - The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.3   |footprintUnit(product carbon footprint)| The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Mandatory       | ESPR provisional agreement from January 9th, 2024 Annex I |  |- In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). <br> - The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)|
-| 8.4   | footprintType(product carbon footprint)| Specifies type of environmental footprint measured, aiding in detailed sustainability analysis. | Mandatory       | ESPR provisional agreement from January 9th 2024 Article 7   | |  - In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). <br> - The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.5   | footprintLifecycle(product carbon footprint)| The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'| Mandatory       |ESPR provisional agreement from January 9th, 2024 Annex I  |  | - In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). <br> - The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.6   | performanceClass(product carbon footprint)| Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Mandatory       | ESPR provisional agreement from January 9th 2024 Article 2  |                      | |
-| 8.7   | facility(product carbon footprint)| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product. | Mandatory       | ESPR provisional agreement from January 9th 2024 Annex III  | Validity should be verified using regular expression-based checks in case BPNA is provided| The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members |
-| 8.8   | Facility Address               | *To be covered in next version* | | | | |
-| 8.9   | Rulebook               | *To be covered in next version* | | | | |
-| 8.10   | Declaration               | *To be covered in next version* | | | | |
-| 8.11  | value (product environmental footprint) | The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;| Optional |  ESPR proposal from March 30th, 2022 Annex I  |  - For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - Product Environmental Footprint (PEF)  | |
-| 8.12  | footprintUnit (product environmental footprint)|The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Mandatory       | ESPR provisional agreement from January 9th, 2024 Annex I | - For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - Product Environmental Footprint (PEF) | |
-| 8.13  | footprintType (product environmental footprint)| Categorizes type of environmental impact for depth in sustainability analysis.| Mandatory       | ESPR provisional agreement from January 9th 2024 Article 7 | - For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - Product Environmental Footprint (PEF) | |
-| 8.14  | footprintLifecycle (product environmental footprint)| The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.| Mandatory       | ESPR provisional agreement from January 9th, 2024 Annex I  |- For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - Product Environmental Footprint (PEF)                                         | |
-| 8.15  | performanceClass (product environmental footprint)| Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category| Mandatory       | ESPR provisional agreement from January 9th 2024 Article 2 |      | |
-| 8.16  | facility (product environmental footprint)| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.| Mandatory       | ESPR provisional agreement from January 9th 2024 Annex III | The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. Additionally, its validity can be verified using regular expression-based checks | |
-| 8.17   | Facility Address               | *To be covered in next version* | | | | |
-| 8.18  | Rulebook               | *To be covered in next version* | | | | |
-| 8.19  | Declaration               | *To be covered in next version* | | | | |
-| 8.20  | value (product material footprint) | The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;   | Optional | ESPR proposal from March 30th, 2022 Annex I| | - For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.21  |footprintUnit (product material footprint) | The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook. | Mandatory       | Footprint measurement units standardized in validation chapters. || ESPR provisional agreement from January 9th, 2024 Annex I|| -For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.22  | footprintType (product material footprint)| Impact categorization clarifies footprint implications within material contexts.| Mandatory       | ESPR provisional agreement from January 9th 2024 Article 7| | - For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html). |
-| 8.23  | footprintLifecycle (product material footprint) | The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'   | Mandatory       | ESPR provisional agreement from January 9th, 2024 Annex I | | -For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). <br> - The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).|
-| 8.24  | performanceClass (product material footprint) | Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category | Mandatory       |  ESPR provisional agreement from January 9th 2024 Article 2 |  ||
-| 8.25 | facility (product material footprint)| The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.| Mandatory       | ESPR provisional agreement from January 9th 2024 Annex III   | The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. Additionally, its validity can be verified using regular expression-based checks  | |
-| 8.26  | Facility Address               | *To be covered in next version* | | | | |
-| 8.27  | Rulebook               | *To be covered in next version* | | | | |
-| 8.28  | Declaration               | *To be covered in next version* | | | | |
-| 8.29  | Reparability Score      | In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices. | Mandatory       | ESPR provisional agreement from January 9th, 2024 Article 7      | - Reparability score in accordance to Annex I of Regulation (EU) 2024/1781 | |
-| 8.30  | Durability Score                                                                             | The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns. | Mandatory       | ESPR provisional agreement from January 9th, 2024 Article 7| - Durability score in accordance to Annex I of Regulation (EU) 2024/1781 | |
-| 8.31  | Reuse Info               | *To be covered in next version* | | | | |
-| 8.32  | Reuse System Identification               | *To be covered in next version* | | | | |
-| 8.33  | Symbol of Deposit and Return System               | *To be covered in next version* | | | | |
-| 8.34  | Rotation Estimation Key              | *To be covered in next version* | | | | |
-| 8.35  | Rotation Estimation Value              | *To be covered in next version* | | | | |
-| 8.36  | Rotation Calculation Key               | *To be covered in next version* | | | | |
-| 8.37  | Rotation Calculation Value               | *To be covered in next version* | | | | |
-| 8.38  | Trip Estimation Key              | *To be covered in next version* | | | | |
-| 8.39  | Trip Estimation Value              | *To be covered in next version* | | | | |
-| 8.40 | Trip Calculation Key               | *To be covered in next version* | | | | |
-| 8.41  | Trip Calculation Value               | *To be covered in next version* | | | | |
-| 8.42  | Facilitates Tracking Reusable Product Address ID              | *To be covered in next version* | | | | |
-| 8.43  | Facilitates Tracking Reusable Product Address              | *To be covered in next version* | | | | |
-| 8.44  | Collection Points Reusable Product ID              | *To be covered in next version* | | | | |
-| 8.45  | Collection Points Reusable Product Address              | *To be covered in next version* | | | | |
-| 8.46  | Recyclability Performance Grade             | *To be covered in next version* | | | | |
+| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
+|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
+| 8.1     | State                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 8.2     | value (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 8.3     | footprintUnit(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.4     | footprintType(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 8.5     | footprintLifecycle(product carbon footprint)        | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.6     | performanceClass(product carbon footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 8.7     | facility(product carbon footprint)                  | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 8.8     | Facility Address                                    | *To be covered in next version* | | | | |
+| 8.9     | Rulebook                                            | *To be covered in next version* | | | | |
+| 8.10    | Declaration                                         | *To be covered in next version* | | | | |
+| 8.11    | value (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
+| 8.12    | footprintUnit (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.13    | footprintType (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 8.14    | footprintLifecycle (product environmental footprint)| Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.15    | performanceClass (product environmental footprint)  | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 8.16    | facility (product environmental footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 8.17    | Facility Address                                    | *To be covered in next version* | | | | |
+| 8.18    | Rulebook                                            | *To be covered in next version* | | | | |
+| 8.19    | Declaration                                         | *To be covered in next version* | | | | |
+| 8.20    | value (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
+| 8.21    | footprintUnit (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.22    | footprintType (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 8.23    | footprintLifecycle (product material footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 8.24    | performanceClass (product material footprint)       | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 8.25    | facility (product material footprint)               | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 8.26    | Facility Address                                    | *To be covered in next version* | | | | |
+| 8.27    | Rulebook                                            | *To be covered in next version* | | | | |
+| 8.28    | Declaration                                         | *To be covered in next version* | | | | |
+| 8.29    | Reparability Score                                  | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
+| 8.30    | Durability Score                                    | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
+| 8.31    | Reuse Info                                          | *To be covered in next version* | | | | |
+| 8.32    | Reuse System Identification                         | *To be covered in next version* | | | | |
+| 8.33    | Symbol of Deposit and Return System                 | *To be covered in next version* | | | | |
+| 8.34    | Rotation Estimation Key                             | *To be covered in next version* | | | | |
+| 8.35    | Rotation Estimation Value                           | *To be covered in next version* | | | | |
+| 8.36    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
+| 8.37    | Rotation Calculation Value                          | *To be covered in next version* | | | | |
+| 8.38    | Trip Estimation Key                                 | *To be covered in next version* | | | | |
+| 8.39    | Trip Estimation Value                               | *To be covered in next version* | | | | |
+| 8.40    | Trip Calculation Key                                | *To be covered in next version* | | | | |
+| 8.41    | Trip Calculation Value                              | *To be covered in next version* | | | | |
+| 8.42    | Facilitates Tracking Reusable Product Address ID    | *To be covered in next version* | | | | |
+| 8.43    | Facilitates Tracking Reusable Product Address       | *To be covered in next version* | | | | |
+| 8.44    | Collection Points Reusable Product ID               | *To be covered in next version* | | | | |
+| 8.45    | Collection Points Reusable Product Address          | *To be covered in next version* | | | | |
+| 8.46    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
 
+
+#### 5.8.1 State
+
+The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives.
+
+a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                                   | |
+
+#### 5.8.2 value (product carbon footprint)
+
+The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+
+a) In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf)). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 5.8.3 footprintUnit(product carbon footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+a) In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+
+#### 5.8.4 footprintType(product carbon footprint)
+
+Specifies type of environmental footprint measured, aiding in detailed sustainability analysis.
+
+a) In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 5.8.5 footprintLifecycle(product carbon footprint)
+
+The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
+
+a) In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with  [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 5.8.6 performanceClass(product carbon footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+#### 5.8.7 facility(product carbon footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+a) Validity should be verified using regular expression-based checks in case BPNA is provided
+
+b) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
+
+#### 5.8.8 Facility Address
+
+*To be covered in next version*
+
+#### 5.8.9 Rulebook
+
+*To be covered in next version*
+
+#### 5.8.10 Declaration
+
+*To be covered in next version*
+
+#### 5.8.11 value (product environmental footprint)
+
+The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+
+a)  For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) Product Environmental Footprint (PEF)
+
+#### 5.8.12 footprintUnit (product environmental footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) Product Environmental Footprint (PEF)
+
+#### 5.8.13 footprintType (product environmental footprint)
+
+Categorizes type of environmental impact for depth in sustainability analysis.
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) Product Environmental Footprint (PEF)
+
+#### 5.8.14 footprintLifecycle (product environmental footprint)
+
+The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) Product Environmental Footprint (PEF)
+
+#### 5.8.15 performanceClass (product environmental footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+#### 5.8.16 facility (product environmental footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+a) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. Additionally, its validity can be verified using regular expression-based checks
+
+#### 5.8.17 Facility Address
+
+*To be covered in next version*
+
+#### 5.8.18 Rulebook
+
+*To be covered in next version*
+
+#### 5.8.19 Declaration
+
+*To be covered in next version*
+
+#### 5.8.20 value (product material footprint)
+
+The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 5.8.21 footprintUnit (product material footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 5.8.22 footprintType (product material footprint)
+
+Impact categorization clarifies footprint implications within material contexts.
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html). |
+
+#### 5.8.23 footprintLifecycle (product material footprint)
+
+The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
+
+a) For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). 
+
+b) The Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).|
+
+#### 5.8.24 performanceClass (product material footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+#### 5.8.25 facility (product material footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+a) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. Additionally, its validity can be verified using regular expression-based checks
+
+#### 5.8.26 Facility Address 
+
+*To be covered in next version*
+
+#### 5.8.27 Rulebook
+
+*To be covered in next version*
+
+#### 5.8.28 Declaration
+
+*To be covered in next version*
+
+#### 5.8.29 Reparability Score
+
+In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices.
+
+a) Reparability score in accordance to Annex I of Regulation (EU) 2024/1781
+
+#### 5.8.30 Durability Score
+
+The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
+
+b) Durability score in accordance to Annex I of Regulation (EU) 2024/1781
+
+#### 5.8.31 Reuse Info 
+
+*To be covered in next version*
+
+#### 5.8.32 Reuse System Identification
+
+*To be covered in next version*
+
+#### 5.8.33 Symbol of Deposit and Return System
+
+*To be covered in next version*
+
+#### 5.8.34 Rotation Estimation Key
+
+*To be covered in next version*
+
+#### 5.8.35 Rotation Estimation Value
+
+*To be covered in next version*
+
+#### 5.8.36 Rotation Calculation Key 
+
+*To be covered in next version*
+
+#### 5.8.37 Rotation Calculation Value
+
+*To be covered in next version*
+
+#### 5.8.38 Trip Estimation Key 
+
+*To be covered in next version*
+
+#### 5.8.39 Trip Estimation Value
+
+*To be covered in next version*
+
+#### 5.8.40 Trip Calculation Key
+
+*To be covered in next version*
+
+#### 5.8.41 Trip Calculation Value
+
+*To be covered in next version*
+
+#### 5.8.42 Facilitates Tracking Reusable Product Address ID
+
+*To be covered in next version*
+
+#### 5.8.43 Facilitates Tracking Reusable Product Address
+
+*To be covered in next version*
+
+#### 5.8.44 Collection Points Reusable Product ID 
+
+*To be covered in next version*
+
+#### 5.8.45 Collection Points Reusable Product Address 
+
+*To be covered in next version*
+
+#### 5.8.46 Recyclability Performance Grade 
+
+*To be covered in next version*
 ### 5.9 Compliance
 
 | Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
