@@ -538,14 +538,49 @@ b) This is an open field, as no applicable validation rules can be defined for t
 
 ### 5.4 Handling
 "Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
-| Rule ID | Data Attribute              | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|---------------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 4.1   | Applicable                | Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.| Mandatory || - If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.| |
-| 4.2   | Sources Identification    | Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management. | Mandatory | | - Must match the BPNL identifier format to ensure accuracy. <br> -  Its validity can be verified using regular expression-based checks.| |
-| 4.3  | Sources Contact               | *To be covered in next version* | | | | |
-| 4.4   | Sources Address               | *To be covered in next version* | | | | |
-| 4.5   | Manufacturer Part ID      | Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. | Mandatory | | - This is an open field, as no applicable validation rules can be defined for this entry.| |
-| 4.6   | Name at Manufacturer      | Name of the spare part as assigned by the manufacturer. | Mandatory | | - This is an open field, as no applicable validation rules can be defined for this entry.| |
+
+| Rule ID | Data Attribute            | Mandatory/ Optional | Regulatory Reference       |
+|---------|---------------------------|---------------------|----------------------------|
+| 4.1     | Applicable                | Mandatory           |                            |
+| 4.2     | Sources Identification    | Mandatory           |                            |
+| 4.3     | Sources Contact           | *To be covered in next version* | |
+| 4.4     | Sources Address           | *To be covered in next version* | |
+| 4.5     | Manufacturer Part ID      | Mandatory           |                            | 
+| 4.6     | Name at Manufacturer      | Mandatory           |                            |
+
+#### 5.4.1 Applicable
+
+Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
+
+a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 5.4.2 Sources Identification
+
+Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management.
+
+a) Must match the BPNL identifier format to ensure accuracy. 
+
+b) Its validity can be verified using regular expression-based checks.
+
+#### 5.4.3 Sources Contact   
+
+*To be covered in next version*
+
+#### 5.4.4 Sources Address  
+
+*To be covered in next version*
+
+#### 5.4.5 Manufacturer Part ID    
+
+Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
+
+a) This is an open field, as no applicable validation rules can be defined for this entry.
+
+#### 5.4.6 Name at Manufacturer  
+
+Name of the spare part as assigned by the manufacturer.
+
+a) This is an open field, as no applicable validation rules can be defined for this entry.
 
 ### 5.5 Characteristics
 
