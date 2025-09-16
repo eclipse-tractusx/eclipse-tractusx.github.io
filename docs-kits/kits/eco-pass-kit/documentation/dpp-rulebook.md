@@ -764,13 +764,36 @@ a) Perforance class must be defined in compliance to ESPR, Article 7 when made a
 
 ### 5.6 Commercial
 
-| Rule ID | Data Attribute        | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|---------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 6.1   | Placed On Market    | The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market. | Mandatory       |  | - The date format is in complaince to ISO 8601. - Furtehrmore, Its validity can be verified using regular expression-based checks                              | |
-| 6.2   | Purpose             | Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list. | Mandatory       |  | - This is an open field, as no applicable validation rules can be defined for this entry.                                                       | |
-| 6.3  | Purchase Order               | A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer. |Optional | | | |
-| 6.4   | Recall Information  | Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.| Mandatory| Regulation (EU) 2023/988| | Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)|
+| Rule ID | Data Attribute      | Mandatory/ Optional | Regulatory Reference     |
+|---------|---------------------|---------------------|--------------------------|
+| 6.1     | Placed On Market    | Mandatory           |                          |
+| 6.2     | Purpose             | Mandatory           |                          |
+| 6.3     | Purchase Order      | Optional            |                          |
+| 6.4     | Recall Information  | Mandatory           | Regulation (EU) 2023/988 |
 
+#### 6.1 Placed On Market 
+
+The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
+
+a) The date format is in complaince to ISO 8601. 
+
+b) Furtehrmore, Its validity can be verified using regular expression-based checks  
+
+#### 6.2 Purpose
+
+Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list.
+
+a) This is an open field, as no applicable validation rules can be defined for this entry. 
+
+#### 6.3 Purchase Order 
+
+A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
+
+#### 6.4 Recall Information
+
+Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
+
+a) Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)
 ### 5.7 Materials
 
 "Materials" category refers to: The classification and specification of the substances and material types used in a product, with a focus on their environmental performance, circularity potential, and criticality.
