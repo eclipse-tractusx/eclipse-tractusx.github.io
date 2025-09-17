@@ -10,7 +10,7 @@ sidebar_position: 42
 
 - Access to the [Catena-X Testmanagment Jira](https://catena-x.atlassian.net/browse/CXTPM/) with the [necessary permissions](https://cxwiki.bonnconsulting.io/en/testmanagement/WHO/testmanagement-jira-roles-and-rights). To work with Xray test management in Jira, [create a Jira account](https://id.atlassian.com/signup?application=jira&continue=https%3A%2F%2Fcatena-x.atlassian.net) or log in and contact Catena-X e.V. Test Manager [Monika Jacobsen](mailto:monika.jacobsen@catena-x.net) to get added as a Jira project member.
 - Understanding of your test requirements and objectives.
-  <br>
+<br/>
 
 ---
 ## 2. Accessing the Xray Testing Board and Create Button
@@ -24,13 +24,13 @@ sidebar_position: 42
 ![2025-06-25_10_40_56-create_button.png](../images/howto-xray-create_button.png)
 *Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.*
 
-<br>
+<br/>
 
 ---
 ## 3. Creating Test Cases
 
 Jira Xray supports multiple test types, each suited for different testing approaches.
-<br>
+<br/>
 
 ### 3.1 Basic Test Case Creation
 For all kind of test types, you need to fill out these basic information.
@@ -47,8 +47,7 @@ Examples:
 - [BPDM] Validate mandatory field error handling
 
 
-
-<br>
+<br/>
 
 - #### **Description*:** Detailed explanation of the test.
 A good JIRA test case description should briefly explain the purpose and context of the test. It should include:
@@ -64,7 +63,7 @@ Example:
 
   Precondition: User account with valid email must exist.
 
-<br>
+<br/>
 
 - #### **Labels:** For categorization
 The labels field in a JIRA test case should be used to support filtering, grouping, and reporting by product, use case or environment. Labels should be:
@@ -80,7 +79,7 @@ Examples:
 ![howto-xray-labels.png](../images/howto-xray-labels.png)
 *Screenshot: Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment.*
 
-<br>
+<br/>
 
 - #### Fix Versions: Specify relevant releases
 The Fix Versions field should be used to indicate the release or version for which the test case was created or is valid. This helps in:
@@ -90,7 +89,7 @@ The Fix Versions field should be used to indicate the release or version for whi
 
 You can find all available fix versions in the [Release versions overview](https://catena-x.atlassian.net/projects/CXTPM?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page)
 
-<br>
+<br/>
 
 - #### Component, Team: (see Section 10 for details)
 **The Component field** should indicate the technical module or system the test case belongs to. It helps with:
@@ -102,7 +101,7 @@ Examples:
 - Portal Frontend
 - BPDM
 
-<br>
+<br/>
 
 **The Team field** should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
 - Clear ownership
@@ -115,7 +114,7 @@ Examples:
 - PURIS
 
 
-<br>
+<br/>
 
 ![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
 ![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
@@ -125,7 +124,7 @@ In the second screen, please add the test type:
 
 Depending on your choice, Jira will change the layout and offer you different options to describe your test case.
 
-<br>
+<br/>
 
 ### 3.2 Manual Test Type
 
@@ -133,7 +132,7 @@ Depending on your choice, Jira will change the layout and offer you different op
 - **Use Case:** UI testing, exploratory testing, user acceptance testing
 - **Structure:** Sequential test steps with actions, test data, and expected results
 - **Example Scenario:** Testing user login functionality
-  <br>
+  <br/>
 
 #### Creating Manual Test
 
@@ -162,7 +161,7 @@ Action: Click the "Login" button
 Test Data: N/A
 Expected Result: User is redirected to the dashboard page
 ```
-<br>
+<br/>
 
 #### Template
 You can follow these instructions or clone from the template test case.
@@ -170,7 +169,7 @@ For manual test cases please open https://catena-x.atlassian.net/browse/CXTPM-67
 
 ![howto-xray-clone-from-template.png](../images/howto-xray-clone-from-template.png)
 *Screenshot: Clone from the template for a manual test case*
-<br>
+<br/>
 
 ### 3.3 Cucumber Test Type
 
@@ -179,7 +178,7 @@ For manual test cases please open https://catena-x.atlassian.net/browse/CXTPM-67
 - **Structure:** Gherkin syntax (Given, When, Then)
 - **Example Scenario:** API endpoint validation
 
-<br>
+<br/>
 
 #### Creating Cucumber Test
 
@@ -254,7 +253,7 @@ Feature: Asset Creation in Trace-X
 - **Scenario Outline:** Template for multiple similar scenarios with different data
 - **Examples:** Data table providing values for scenario outline placeholders
 
-<br>
+<br/>
 
 #### Template
 You can follow these instructions or clone from the Cucumber template test case.
@@ -262,9 +261,9 @@ For manual test cases please open https://catena-x.atlassian.net/browse/CXTPM-67
 
 ![howto-xray-clone-from-template-cucumber.png](../images/howto-xray-clone-from-template-cucumber.png)
 *Screenshot: Clone from the template for a Cucumber test case*
-<br>
+<br/>
 
-<br>
+<br/>
 
 #### 3.4 Generic Test Type
 
@@ -273,7 +272,7 @@ For manual test cases please open https://catena-x.atlassian.net/browse/CXTPM-67
 - **Structure:** Flexible format, can be structured or unstructured
 - **Example Scenario:** System configuration validation
 
-<br>
+<br/>
 
 #### Creating Generic Test Cases:
 
@@ -307,12 +306,12 @@ Test Execution:
 ```
 
 
-<br>
+<br/>
 
 ---
 ## 4. Test Sets
 The Xray Test Set is used to group related tests for better organization and reuse.
-<br>
+<br/>
 
 ### 4.1 Purpose Of Test Sets
 
@@ -321,7 +320,7 @@ The Xray Test Set is used to group related tests for better organization and reu
 - Reuse the same set of tests across different Test Plans or Executions.
 
 - Simplifies bulk operations like assigning, executing, or reporting on tests.
-  <br>
+  <br/>
 
 ### 4.2 Creating Test Sets
 
@@ -340,7 +339,7 @@ The Xray Test Set is used to group related tests for better organization and reu
 4. Click **Create** to finalize the Test Set.
    ![2025-06-25_10_44_46-testsetdialogdetails.png](../images/howto-xray-testset-dialog-details.png)
 
-<br>
+<br/>
 
 
 
@@ -350,20 +349,20 @@ The Xray Test Set is used to group related tests for better organization and reu
 2. Use the **Add Tests** option to include existing test cases, or create new test cases directly within the Test Set.
    ![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test.png)
    *Screenshot: add new or exisiting tests to a test set*
-   <br>
+   <br/>
    ![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test_2.png)
    *Screenshot: add exisiting test from the list or use the more sophisticated search*
-   <br>
+   <br/>
 
 3. Assign priorities and link the Test Set to requirements or defects for traceability.
 
 
-<br>
+<br/>
 
 ---
 ## 5. Test Plans
 The purpose of an Xray Test Plan is to organize and manage the execution of a set of tests for a specific goal, like a release, sprint, or feature validation.
-<br>
+<br/>
 
 ### 5.1 Purpose of Test Plans
 
@@ -376,7 +375,7 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 - Allow for multiple executions of the same test set within the same plan (e.g., different environments or iterations).
 
 - Enable reporting and metrics like pass/fail rates, execution history, and requirement traceability.
-  <br>
+  <br/>
 
 ### 5.2 Creating Test Plans
 
@@ -385,7 +384,7 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 
 ![2025-06-25_10_44_46-testplancreatedialog.png](../images/howto-xray-testplan-create-dialog.png)
 *Screenshot: The "Work type" dropdown is highlighted, showing both "Test Set" and "Test Plan" as selectable options.*
-<br>
+<br/>
 
 3. Fill in the fields, marked with an asterisk are mandatory:
   - **Summary:*** Name of the Test Plan.
@@ -393,11 +392,11 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
   - **Labels, Fix Versions, Component, Team:** For categorization and traceability.
     For a detailed explanation of these fields see [chapter 3.1](#3.1-Basic-Test-Case-Creation)
 4. Click **Create** to finalize the Test Plan.
-   <br>
+   <br/>
 
 ### 5.3 Integrating Test Sets into Test Plans
 
 1. Open the created Test Plan.
 2. Use the **Add Test Sets** or **Add Tests** option to include relevant Test Sets or individual Test Cases.
 3. Organize and track the execution of your tests for a release or feature.
-   <br>
+   <br/>
