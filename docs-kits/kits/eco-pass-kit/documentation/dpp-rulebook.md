@@ -307,7 +307,7 @@ The key for local identification of a serial part.
 
 a) No syntax check applies as the attribute is idefined by companies 
 
-b) The attribute must conform to one of the predefined identifier types or custom keys.
+b) The attribute must conform to one of the predefined identifier types or custom keys. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
 
 #### 5.2.2 Serial Value
 
@@ -319,7 +319,8 @@ The value associated with the serial key.
 
 The key for local identification of a batch information. 
 
-a) The attribute must conform to one of the predefined identifier types or custom keys.
+a) The attribute must conform to one of the predefined identifier types or custom keys. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
+
 
 #### 5.2.4 Batch Value 
 
@@ -333,7 +334,8 @@ a) If provided, attribute must describe the associated batch key
 
 a) Must contain the Part ID as assigned by the manufacturer of the part.
 
-b) The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
+b) The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
+
 
 #### 5.2.6 Name at Manufacturer 
 
@@ -359,9 +361,9 @@ a) Must correspond with the associated code key.
 
 #### 5.2.10 Carrier Type 
 
-The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability.
+The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
 
-a) Must align with recognizable carrier types like QR, barcode, etc. (Can we give a link to responsible carrier types?)
+a) Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with  (Check Miro board - description from Jadwiga)
 
 #### 5.2.11 Carrier Position 
 
@@ -373,7 +375,7 @@ a) If specified, the attribute must describe the carrier's positioning.
 
 Outlines classification standards for parts.
 
-a) Must refer to known standards in classification. (I think we should give here list of preferred options, as of now it doesn'T really help)
+a) Must refer to known standards in classification e.g., [ECLASS 15](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
 
 #### 5.2.13 Classification ID   
 
