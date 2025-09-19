@@ -4,12 +4,24 @@ title: Changelog
 description: PURIS KIT
 sidebar_position: 1
 ---
+![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
 
 ### PURIS KIT
 
-![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
-
 All notable changes to this KIT will be documented in this file.
+
+## [0.4.0] - 2025-08-16
+
+### Added
+
+- Adoption View
+  - Business Value Framework: Introduced a structured method for evaluating the business value of PURIS by analyzing supply chain conditions, usage scenarios (Monitoring vs. Bottleneck Management), and potential cost savings.
+  - Detailed Integration Scenarios: Included a new section with diagrams and explanations for various operational setups, including Single/Multi-Customer and Single/Multi-Sourcing scenarios.
+  - PURIS & DCM Synergy Explanation: Added a dedicated section to clarify how PURIS (short-term, daily, material-level data) and Demand and Capacity Management (DCM) (long-term, weekly, capacity-level data) complement each other for end-to-end supply chain transparency.
+  - Early Industry Feedback: Incorporated qualitative results and charts from a study with 10 companies, providing practical insights and validation for the PURIS framework.
+  - Trustful Collaboration Section: Emphasized trustful data sharing as a central element for the success of PURIS, supported by a new graphic.
+- Getting Started
+  - Added a comprehensive, step-by-step guide for onboarding, detailing both the technical (standards, connector, DTR) and business (use case definition, BPN) aspects of implementation.
 
 ## [0.3.1] - 2024-08-08
 
@@ -27,7 +39,6 @@ All notable changes to this KIT will be documented in this file.
   - Added page logo on the top
   - Added "Sample Data > 5. Days of Supply v2.0.0" chapter
   - Added section "Component Architecture (Conceptual Whitebox View)" with figure 2: Whitebox View on a PURIS System.
-
 - Operation View
   - Added initial Operation View
   - Moved reference implementation from the Development View to Operation View
