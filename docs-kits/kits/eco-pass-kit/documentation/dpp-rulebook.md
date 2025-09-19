@@ -436,9 +436,9 @@ The identifier used for a location. Unique facility identifier means a unique st
 
  Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. 
 
-a) The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' standard. 
- 
-b)Additionally, its validity can be verified using regular expression-based checks. | |
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided.
+
+> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 5.3.4 Manufacturer Name
 
@@ -456,31 +456,32 @@ b)Additionally, its validity can be verified using regular expression-based chec
 
 Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event).
 
-a) The date format is in complaince to ISO 8601. 
+> **Syntax**<br>Validity should be verified using regular expression-based checks
 
-b) Additionally, its validity can be verified using regular expression-based checks.
+> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 5.3.8 Applicable
 
  Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
 
-a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+> **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
 #### 5.3.9 EORI
 
 An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU.
 
-a) Must follow the EORI number format. 
+> **Syntax**<br>Validity should be verified using regular expression-based checks
 
-b) Its validity can be verified using regular expression-based checks.
+> **Content Validation**<br>Must follow the EORI number format (Link??)
+
 
 #### 5.3.10 Importer Identification
 
 Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability in the Catena-X network.
 
-a) Must conform to the BPNL identifier format. 
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
 
-b) Its validity can be verified using regular expression-based checks.
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 5.3.11 Importer Name
 
