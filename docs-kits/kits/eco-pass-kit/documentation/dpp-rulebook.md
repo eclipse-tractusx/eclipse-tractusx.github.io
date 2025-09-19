@@ -228,7 +228,7 @@ Unique identifier of the product passport.
 
 Specific language in which passport content is created.
 
-a) In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html)
+> **Content Validation**<br>In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html) & [Code for individual languages and language groups](https://www.iso.org/standard/74575.html)
 
 #### 5.1.5 Predecessor Identifier
 
