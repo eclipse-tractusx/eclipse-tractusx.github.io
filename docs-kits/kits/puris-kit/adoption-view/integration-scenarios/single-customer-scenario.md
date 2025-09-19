@@ -32,4 +32,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 WITTE Automotive GmbH  
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
-- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH  
+- SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
