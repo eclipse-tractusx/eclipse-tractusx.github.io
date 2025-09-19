@@ -424,8 +424,9 @@ The "Operations" category refers to a structured set of data that describes th
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
-> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided
-> **Content**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided.
+
+> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 5.3.2 Facility Address
 
