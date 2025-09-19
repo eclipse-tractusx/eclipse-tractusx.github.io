@@ -508,7 +508,7 @@ npm/npmjs/-/memfs/3.5.3, Unlicense, approved, #8397
 npm/npmjs/-/merge-descriptors/1.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/merge-stream/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/merge2/1.4.1, MIT, approved, clearlydefined
-npm/npmjs/-/mermaid/11.11.0, MIT, restricted, clearlydefined
+npm/npmjs/-/mermaid/11.11.0, MIT AND Apache-2.0 AND MPL-2.0 AND OFL-1.1, approved, #23380
 npm/npmjs/-/methods/1.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-core-commonmark/2.0.3, MIT, approved, #20324
 npm/npmjs/-/micromark-extension-directive/3.0.2, MIT, approved, clearlydefined
@@ -974,7 +974,7 @@ npm/npmjs/@algolia/requester-fetch/5.30.0, MIT, approved, #22393
 npm/npmjs/@algolia/requester-node-http/5.30.0, MIT, approved, #22397
 npm/npmjs/@ampproject/remapping/2.3.0, Apache-2.0, approved, clearlydefined
 npm/npmjs/@antfu/install-pkg/1.1.0, MIT, approved, clearlydefined
-npm/npmjs/@antfu/utils/9.2.0, , restricted, clearlydefined
+npm/npmjs/@antfu/utils/9.2.0, MIT, approved, #23381
 npm/npmjs/@babel/code-frame/7.27.1, MIT, approved, clearlydefined
 npm/npmjs/@babel/compat-data/7.27.7, MIT, approved, clearlydefined
 npm/npmjs/@babel/core/7.27.7, MIT, approved, clearlydefined
@@ -1178,7 +1178,7 @@ npm/npmjs/@emotion/weak-memoize/0.4.0, MIT, approved, clearlydefined
 npm/npmjs/@hapi/hoek/9.3.0, BSD-3-Clause AND MIT, approved, #6651
 npm/npmjs/@hapi/topo/5.1.0, BSD-3-Clause, approved, clearlydefined
 npm/npmjs/@iconify/types/2.0.0, MIT, approved, #20367
-npm/npmjs/@iconify/utils/3.0.2, MIT, restricted, clearlydefined
+npm/npmjs/@iconify/utils/3.0.2, MIT, approved, #23382
 npm/npmjs/@jest/schemas/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jest/types/29.6.3, MIT, approved, clearlydefined
 npm/npmjs/@jridgewell/gen-mapping/0.3.8, MIT, approved, #22834
