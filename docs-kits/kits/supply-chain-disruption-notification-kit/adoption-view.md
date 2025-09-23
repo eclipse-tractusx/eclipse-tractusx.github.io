@@ -42,7 +42,7 @@ For both scenarios, the recipient of this notification reviews the content and a
 
 In this context, the "Supply Chain Disruption Notifications" plays a significant role in addressing these challenges by facilitating swift and standardized communication of supply chain disruptions.
 
-![Process](resources/Process2SCDN.jpg)
+![Process](resources/Process2SCDN.drawio.svg)
 _Figure 1: Visualization of example use case_
 
 #### Implementation Example
