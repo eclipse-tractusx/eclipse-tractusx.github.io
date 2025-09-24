@@ -354,7 +354,7 @@ The code key for product identification.
 
 The identifier value related to the code key.
 
-a) Must correspond with the associated code key.
+> **Syntax**<br>Must be a valid identifier code as defined in [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
 
 #### 5.2.9 Code Description 
 
@@ -364,25 +364,25 @@ a) Must correspond with the associated code key.
 
 The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
 
-a) Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with  (Check Miro board - description from Jadwiga)
+> **Content Validation**<br>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
 
 #### 5.2.11 Carrier Position 
 
 The spatial arrangement or position of the data carrier on the product.
 
-a) If specified, the attribute must describe the carrier's positioning.
+> **Content Validation**<br>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
 
 #### 5.2.12 Classification Standard 
 
 Outlines classification standards for parts.
 
-a) Must refer to known standards in classification e.g., [ECLASS 15](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
+> **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
 
 #### 5.2.13 Classification ID   
 
 The identifier for the part classification standard according to related key-value pairs. 
 
-a) Must correspond with the classification standard provided.
+a) Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with ISO ISO 3779 and ISO 4030
 
 #### 5.2.14 Classification Description
 
