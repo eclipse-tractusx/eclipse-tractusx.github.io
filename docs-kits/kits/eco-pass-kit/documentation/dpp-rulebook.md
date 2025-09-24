@@ -125,6 +125,12 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
+#### Sequential Numbering:
+In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
+#### GTIN: 
+The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
+#### DID:
+Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
 
 ### 3.3 Key Stakeholders and their Roles
 
@@ -208,7 +214,7 @@ Unique identifier of the product passport.
 > **Syntax**
 
 
-> **Content**<br>Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>
+> **Content Validation**<br>Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>
 
 #### 5.1.2 Version
 
@@ -305,49 +311,44 @@ The Identification section includes attributes needed for uniquely identifying t
 
 The key for local identification of a serial part.
 
-a) No syntax check applies as the attribute is idefined by companies 
+At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
-b) The attribute must conform to one of the predefined identifier types or custom keys. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
 
 #### 5.2.2 Serial Value
 
 The value associated with the serial key.
 
- a) If provided, the attribute must describe the unique serial key.
+> **Syntax**<br>If provided, the attribute must describe the unique serial key.
 
 #### 5.2.3 Batch Key  
 
 The key for local identification of a batch information. 
 
-a) The attribute must conform to one of the predefined identifier types or custom keys. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
-
+> **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
 #### 5.2.4 Batch Value 
 
 The value associated with the batch key.
 
-a) If provided, attribute must describe the associated batch key
+> **Syntax**<br>If provided, attribute must describe the associated batch key
 
 #### 5.2.5 Manufacturer Part ID
 
  Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification.
 
-a) Must contain the Part ID as assigned by the manufacturer of the part.
-
-b) The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available. No standard that we are aware of, may be we can give an example from Chemical industry if there is 
-
+> **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
 #### 5.2.6 Name at Manufacturer 
 
 The name of the part provided by the manufacturer.
 
-a) Must contain the Name of the Part as assigned by the manufacturer.
+> **Content Validation**<br>Must contain the Name of the Part as assigned by the manufacturer. At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
 #### 5.2.7 Code Key 
 
 The code key for product identification.
 
-a) Must be a valid identifier code such as GTIN, DID, ISBN, etc. (Question: Can this be checked by regular expression)?
+> **Syntax**<br>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
 
 #### 5.2.8 Code Value 
 
