@@ -434,20 +434,4 @@ const config = {
     }),
 };
 
-// Only for Testing purposes
-function getCurrentKITVersion(config, pluginId, key) {
-  const pluginEntry = config.plugins.find(plugin =>
-    plugin.some(item => item?.id === pluginId) // Sucht nach der Plugin-ID in beliebiger Position
-  );
-
-  if (!pluginEntry) return null;
-
-  const pluginObject = pluginEntry.find(item => item?.id === pluginId); // Holt das Objekt mit der passenden ID
-
-  return pluginObject?.onlyIncludeVersions?.[0] ?? null; // Ersten Index aus onlyIncludeVersions zurückgeben
-}
-
-
-console.log("ALT: "+getCurrentKITVersion(config, 'docs-kits'));
-
 module.exports = config;
