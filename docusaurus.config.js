@@ -75,7 +75,7 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
         onlyIncludeVersions: ['25.06', '25.03', '24.12', 'current'],
-        lastVersion: 'current',
+        lastVersion: '25.06',
         versions: {
           'current': {
             label: 'Next',
@@ -91,7 +91,7 @@ const config = {
           },
           '24.12': {
             label: '24.12',
-            banner: 'none'
+            banner: 'unmaintained'
           },
         },
       },
@@ -436,7 +436,7 @@ const config = {
 
 // Only for Testing purposes
 function getCurrentKITVersion(config, pluginId, key) {
-  const pluginEntry = config.plugins.find(plugin => 
+  const pluginEntry = config.plugins.find(plugin =>
     plugin.some(item => item?.id === pluginId) // Sucht nach der Plugin-ID in beliebiger Position
   );
 
