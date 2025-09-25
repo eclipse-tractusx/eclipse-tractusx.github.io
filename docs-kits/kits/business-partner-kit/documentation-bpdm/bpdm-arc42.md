@@ -676,7 +676,9 @@ In addition to the Spring standard logs the BPDM applications keep a log of the 
 
 ## Architecture Decisions
 
-### Use a multi gate deployment approach to realize multi-tenancy
+### ~~Use a multi gate deployment approach to realize multi-tenancy~~
+
+> **Disclaimer:** This decision has been overturned as deploying one gate per tenant is not feasible with thousands of tenants
 
 - status: accepted
 - date: 2023-06-01

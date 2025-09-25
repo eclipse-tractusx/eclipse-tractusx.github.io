@@ -11,6 +11,23 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [10.0.0] - 2025-09-08
+
+Compatible for **release 25.09**.
+
+### Added
+
+- Added api hub hyperlink for all services in development view of business partner kit with latest BPDM Application version 7.1.0.
+
+### Changed
+
+- Updated architecture view document for several minor updates for information that has become outdated for BPDM version 7.1.0.
+- Updated adoption view with correct link for Business Partner Use Case and Catena-X Standard Library.
+
+### Removed
+
+- ./.
+
 ## [9.0.0] - 2025-06-16
 
 Compatible for **release 25.06**.

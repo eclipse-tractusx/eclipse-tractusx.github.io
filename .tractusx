@@ -44,6 +44,7 @@ openApiSpecs:
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/industry-core/kit_industry-core-unique-id-push-openAPI_2-1-0.yaml"
 
 # PCF KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-2.yaml"
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/pcf/kit_pcf-openAPI_1-1-1.yaml"
 
 # MaaS KIT
@@ -69,3 +70,6 @@ openApiSpecs:
 
 # Company Certificate Management KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/company-certificate-management/kit_company-certificate-management-openapi_1-0-0.yaml"
+
+# PURIS KIT
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_2.0.0.yaml"
