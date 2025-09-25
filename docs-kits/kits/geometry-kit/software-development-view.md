@@ -5,229 +5,304 @@ description: 'Software Development View Geometry Kit'
 sidebar_position: 4
 ---
 
-## Architecture
+<!--
+Copyright(c) 2025 Audi AG
+Copyright(c) 2025 BMW Group
+Copyright(c) 2025 DLR
+Copyright(c) 2025 DRÄXLMAIER Group
+Copyright(c) 2025 :em AG
+Copyright(c) 2025 Mercedes-Benz AG
+Copyright(c) 2025 Robert Bosch GmbH
+Copyright(c) 2025 Schaeffler AG
+Copyright(c) 2025 Threedy GmbH
+Copyright(c) 2025 ZF Group
+Copyright(c) 2025 Contributors to the Eclipse Foundation
 
-> **Warning**
-> This document is copied from the [Requirements Kit](../requirements-kit/software-development-view.md) and is for illustration purposes only. Please refer to the original document for the most up-to-date information.
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+## Architecture
 
 ### Component Diagram
 
-The flowchart illustrates the interactions between four main components in the system:
-
-#### Components
-
-The following components are necessary for the requirements exchange:
-
-- Company Specific Components:
-  - **Requirement System**: Core component responsible for requirement management
-- Catena-X specific components:
-  - **Eclipse Dataspace Connector (EDC)**: Facilitates data exchange between partners
-  - **Digital Twin Registry**: Stores and manages digital twin information
-  - **Submodel Service**: Handles submodel data and operations
-
-#### Interactions
-
-The system architecture demonstrates how components interact to facilitate requirement exchange:
-
-- **Requirement System Operations**
-  - Registers Digital Twins and Submodel Descriptors in the Digital Twin Registry
-  - Provides Requirement Submodels to the Submodel Service
-  - Uses the Eclipse Dataspace Connector to request requirements and send notifications
-- **Eclipse Dataspace Connector (EDC)**
-  - Handles notifications sent from partners back to the Requirement System
-  - Acts as the communication bridge between partners
-- **Digital Twin Registry**
-  - Provides Digital Twins to the Eclipse Dataspace Connector
-- **Submodel Service**
-  - Provides Submodels to the Eclipse Dataspace Connector
+The flowchart illustrates the interactions between the main components in the geometry data exchange system:
 
 ```mermaid
 flowchart LR
 
-reqSysC[Requirement System]
-dtrC[Digital Twin Registry]
-submodelC[Submodel Service]
-edcC[Eclipse Dataspace Connector]
+subgraph Local["Local Data Provider Components"]
+    geoSysC[Geometry System]
+    dataSrcC[Data Source]
+    geoSysC <--> dataSrcC
+end
 
-reqSysC -- Register Digital Twins and Submodel Descriptors --> dtrC
-reqSysC -- Provide Requirement Submodels --> submodelC
-reqSysC -- Use EDC to Request Requirements and send notifications --> edcC
-edcC -- Handle Notifications sent from partner --> reqSysC
+subgraph CatenaX["Catena-X Network Components"]
+    dtrC[Digital Twin Registry]
+    submodelC[Submodel Service]
+    edcC[Eclipse Dataspace Connector]
+end
+
+%% Local system interactions
+geoSysC -- Register Digital Twins and Submodel Descriptors --> dtrC
+dataSrcC -- Provide SingleLevelSceneNode Submodels --> submodelC
+dataSrcC -- Expose Geometry Data --> edcC
+geoSysC -- Discover Partner Geometry --> edcC
+
+%% Catena-X network interactions
 dtrC -- Provide Digital Twins --> edcC
 submodelC -- Provide Submodels --> edcC
+edcC -- Secure Data Exchange --> edcC
 
 ```
 
-### Requirement Exchange Sequence
+#### Components
 
-The sequence diagram illustrates the requirement exchange flow between a Customer (e.g., an OEM) and a Supplier:
+The following components are necessary for the geometry exchange:
 
-1. **Initial Requirement Creation**:
+- **Company Specific Components (Local to Data Provider):**
+  - **Geometry System**: Business application responsible for creating, updating, and managing geometry data (CAD models, STEP files, etc.)
+  - **Data Source**: Local storage system that persists and manages geometry files and metadata, tightly integrated with the Geometry System
+- **Catena-X Specific Components:**
+  - **Eclipse Dataspace Connector (EDC)**: Facilitates secure geometry data exchange between partners
+  - **Digital Twin Registry**: Stores and manages digital twin information including geometry metadata
+  - **Submodel Service**: Handles SingleLevelSceneNode submodel data and Binary Exchange operations
 
-    - Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
-    - Customer's system sends a notification through the EDC to the Supplier
+#### Interactions
 
-2. **Requirement Request**:
+The system architecture demonstrates how components interact to facilitate geometry data exchange:
 
-    - Supplier's system requests the requirement details through the EDC
-    - The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
+- **Geometry System & Data Source (Tightly Integrated Local Components)**
+  - Geometry System creates/updates geometry models and stores them directly in the local Data Source
+  - Data Source provides persistent storage for geometry files and metadata, directly accessible by the Geometry System
+  - Together they register Digital Twins and SingleLevelSceneNode Submodel Descriptors in the Digital Twin Registry
+  - Data Source exposes geometry data through the local EDC for secure external exchange
+  - Geometry System uses the EDC to discover and request geometry data from partners
+- **Eclipse Dataspace Connector (EDC)**
+  - Acts as the secure communication bridge between partners for geometry data exchange
+  - Handles geometry data requests and transfers between local Data Sources of different partners
+  - Provides secure access to local Data Source for external partners
+- **Digital Twin Registry**
+  - Provides Digital Twin discovery capabilities to the Eclipse Dataspace Connector
+  - Enables partners to find geometry-related Digital Twins across the network
+- **Submodel Service**
+  - Provides SingleLevelSceneNode and Binary Exchange submodels to the Eclipse Dataspace Connector
+  - Serves geometry metadata and structure information
 
-3. **Requirement Update**:
 
-    - After processing, Supplier updates the requirement in their requirements system
-    - Supplier sends a notification about the update through the EDC back to the Customer
-    - Customer is notified about the requirement update
 
-4. **Next interactions**:
+### Geometry Data Exchange Sequence
 
-- The process can be repeated for further updates or new requirements in an interactive manner between the Customer and Supplier.
+The sequence diagram illustrates the geometry data exchange flow between a Data Producer *Tier n+1* (e.g., a Supplier) and a Data Consumer *Tier n* (e.g., an OEM) for DMU Analysis collaboration:
+
+1. **Initial Geometry Creation and Publishing**:
+
+    - Data Producer creates/updates 3D geometry data in their geometry system
+    - The geometry data is stored in their Data Source and registered as a Digital Twin with SingleLevelSceneNode submodel in their DTR
+    - Data Producer makes the geometry data available through their EDC
+
+2. **Geometry Discovery and Request**:
+
+    - Data Consumer discovers available geometry Digital Twins through the DTR
+    - Data Consumer's system requests the geometry data through the EDC
+    - The geometry data (including STEP files through the BinaryExchange Submodel) is transferred from Data Producer's systems to Data Consumer's systems
+
+3. **Review and Feedback (DMU Analysis)**:
+
+    - Data Consumer performs DMU Analysis, reviews geometry, and creates annotations/feedback
+    - Data Consumer can update their local copy with review results and feedback
+    - Feedback can be communicated back to Data Producer for iterative collaboration
+
+4. **Iterative Collaboration**:
+
+- The process repeats iteratively: Data Producer updates geometry based on feedback, republishes updated Digital Twins, and Data Consumer reviews the updates
+- This enables the collaborative engineering workflow described in the adoption view
 
 The diagram shows the core components involved in this exchange:
 
-- Requirement Systems (on both Customer and Supplier sides)
+- Geometry Systems (on both Data Producer and Data Consumer sides)
+- Data Sources for sharing geometry data and associated metadata
 - Digital Twin Registry (DTR) & Submodel Services
 - Eclipse Dataspace Connector (EDC) for secure data exchange
 - Solid lines indicate dataflow
 - Dashed lines indicate initialization of a request
 
 ```mermaid
-
 sequenceDiagram
-    participant oemReqSys as Requirement System Customer
-    participant oemDtr as DTR & Submodel Service Customer
-    participant oemEDC as EDC Customer
+    participant supGeoSys as Geometry System Tier n+1
+    participant supDataSrc as Data Source Tier n+1
+    participant supDtr as DTR & Submodel Service Tier n+1
+    participant supEDC as EDC Tier n+1
 
-    participant supEDC as EDC Supplier
-    participant supDtr as DTR & Submodel Service Supplier
-    participant supReqSys as Requirement System Supplier
+    participant oemEDC as EDC Tier n
+    participant oemDtr as DTR & Submodel Service Tier n
+    participant oemDataSrc as Data Source Tier n
+    participant oemGeoSys as Geometry System Tier n
 
-    oemReqSys->>oemDtr: Requirement (DTR + Submodel)
-    oemReqSys->>oemEDC: Notification
-    oemEDC->>supEDC: Notification
-    supEDC->>supReqSys: Notification
-    supReqSys-->>supEDC: Request Requirement
+    %% Initial Geometry Creation & Publishing (Supplier)
+    supGeoSys->>supDataSrc: Create/Update Geometry Data
+    supGeoSys->>supDtr: Register Digital Twin (with SingleLevelSceneNode)
+    supDataSrc->>supDtr: Provide Submodel Data & Metadata
+    supDataSrc->>supEDC: Expose Geometry Data Assets
+    supDataSrc->>supGeoSys: Confirm Storage & Registration
 
+    %% Discovery & Request (OEM) and Data Transfer
+    oemGeoSys-->>oemDtr: Discover Available Geometry Twins
+    oemDtr-->>oemEDC: Query Digital Twin Registry
+    oemEDC-->>supEDC: Request Geometry Data Access
+    supEDC-->>supDtr: Request Submodel Data
+    supDtr->>supEDC: SingleLevelSceneNode Submodel & Metadata
+    supEDC-->>supDataSrc: Request Binary Files
+    supDataSrc->>supEDC: Geometry Files (STEP, JT, etc.) via Binary Exchange
+    supEDC->>oemEDC: Complete Geometry Data Exchange
+    oemEDC->>oemDataSrc: Store Received Geometry Data
+    oemEDC->>oemDtr: Register Local Digital Twin Copy
+    oemDataSrc->>oemGeoSys: Load Geometry for DMU Analysis
 
-    supEDC-->>oemEDC: Request Requirement
-    oemEDC-->>oemDtr: Request Requirement
+    %% Review & Feedback (DMU Analysis)
+    oemGeoSys->>oemDataSrc: Perform DMU Analysis & Create Annotations
+    oemGeoSys->>oemDataSrc: Store Review Results & Feedback
 
-    oemDtr->>oemEDC: Requirement
-
-    oemEDC->>supEDC: Requirement
-    supEDC->>supDtr: Requirement (DTR + Submodel)
-
-    supDtr->>supReqSys: Requirement
-
-    supReqSys->>supDtr: Update Requirement
-    supReqSys->>supEDC: Notification (updated Requirement)
-    supEDC->>oemEDC: Notification (updated Requirement)
-    oemEDC->>oemReqSys: Notification (updated Requirement)
-
-
+    Note over supGeoSys, oemGeoSys: Iterative Process: Tier n+1 updates geometry based on feedback, republishes updated Digital Twins, and Tier n reviews updates
 ```
 
-## Requirements Aspect Model
+## Single Level Scene Node Aspect Model
 
-The following section gives an overview of the requirements aspect model. The requirements aspect model is a submodel that contains the requirements information and the status of the requirement.
+The following section gives an overview of the SingleLevelScenenNode aspect model. This aspect model is a submodel that contains the geometry information and the linked childItems which are also scene nodes.
 
 | Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| PartType | Requirements | 1.0.0 | | Requirements | CX-..TODO.. |
+| PartType | SingleLevelSceneNode | 1.0.0 | | Geometry | CX-0156 |
 
-### Example of a Requirements Aspect Model
+### Example of a SingleLevelScenenNode Aspect Model
 
 ```json
 {
-  "requirementRelations": [
+  "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32411",
+  "childItems": [
     {
-      "relatedRequirementId": "urn:uuid:e6b31BC2-8102-64AF-034D-C2DC35E37cEE",
-      "requiremementRelationshipType": "RequirementSpecialismOfRequirement"
+      "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32412",
+      "semanticTags": [
+        "DetailLevel_0"
+      ],
+      "customTags": [
+        "Lid_Full"
+      ],
+      "localTransform": {
+        "matrix4x4": [
+          0.9207251857543636,
+          -0.38884633595477497,
+          -0.0326126021173943,
+          0,
+          0.08264360576868057,
+          0.11263901740312576,
+          0.9901933073997498,
+          0,
+          -0.38135951109945837,
+          -0.9143910416632972,
+          0.13584525182647786,
+          0,
+          0.24416112623464936,
+          0.6885728819820527,
+          0.5416958267430446,
+          1
+        ]
+      }
     }
   ],
-  "requirementId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "requirementInformation": {
-    "foreignId": "3.1.1",
-    "longname": "Plastic deformation of the bogie",
-    "versionPredecessor": {
-      "versionPredecessorNumber": "1.4.5",
-      "versionPredecessorId": "AeEf3f22-Af51-EDF0-29D2-Ba086b386A5E"
-    },
-    "creationdate": "2025-06-05T09:35:16.166+02:00",
-    "metadata": [
-      {
-        "value": "2025-11-30T00:00:00.000+02:00",
-        "metadataDescription": "Timestamp of the expected finalization of the requirement",
-        "key": "ExpectedFinalization"
-      }
-    ],
-    "author": "Lisa Dräxlmaier GmbH",
-    "reqifType": "Functional",
-    "reqifName": "Plastic deformation of the bogie",
-    "description": "eOMtThyhVNLWUZNRcBaQKxI",
-    "specification": [
-      "https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf"
-    ],
-    "version": {
-      "versionNumber": "2.0.0",
-      "versionId": "B50C5243-9590-Eaa5-dA9e-Adb383e2cFf6"
+  "modelItems": [
+    {
+      "semanticTags": [
+        "DetailLevel_0"
+      ],
+      "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32413",
+      "customTags": [
+        "Sheet_Tank"
+      ]
     }
+  ],
+  "localTransform": {
+    "matrix4x4": [
+      0.9202475547790527,
+      0,
+      -0.3913368284702301,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0.3913368284702301,
+      0,
+      0.9202475547790527,
+      0,
+      0.7266845703125,
+      0,
+      0.45476603507995605,
+      1
+    ]
   },
-  "requirementStatus": {
-    "customerStatus": [
-      {
-        "customerStatusComment": "Requirement needs to be evaluated",
-        "customerStatusValue": "<empty>",
-        "customerStatusTimestamp": "2025-06-05T09:35:16.166+02:00"
-      }
+  "boundingVolume": {
+    "minPoint": [
+      0.4734369218349457,
+      -0.21899007260799408,
+      0.10562050342559814
     ],
-    "supplierStatus": [
-      {
-        "supplierStatusTimestamp": "2025-06-05T09:35:16.166+02:00",
-        "supplierStatusValue": "<empty>",
-        "supplierStatusComment": "More information needed from customer"
-      }
-    ],
-    "statusValue": "transition status",
-    "statusTimestamp": "2025-06-05T09:35:16.166+02:00"
+    "maxPoint": [
+      1.3504363298416138,
+      0.21899007260799408,
+      0.6533777713775635
+    ]
   }
 }
 
 ```
 
-## Notification Format
+Also have a look at the example in Adoption View. 
 
-The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../industry-core-kit/software-development-view/notifications). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
+## Data Retrieval Flow
 
-```json
-{
-  "header": {
-    "messageId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-    "context": "Requirements-DigitalTwinEventAPI-[Create|Update|Delete]:1.0.0",
-    "sentDateTime": "2024-07-05T08:13:33.20733Z",
-    "senderBpn": "BPNL000000000AAA",
-    "receiverBpn": "BPNL000000000ZZZ",
-    "expectedResponseBy": "2024-07-08T08:13:33.20733Z",
-    "version": "3.0.0"
-  },
-  "content": {
-    "requirementId": "UfzQhdgLLfDTDGspDb",
-    "description": "New requirement created for part type.",
-  }
-}
-```
+### Binary Data Exchange
 
-- ```requirementId```: ```requirementId``` in requirements datamodel
-- ```description```:
-- ToDo: Clarify if ```context``` is the right place for create/update/delete information or if this should be moved to ```content```
+The geometry data exchange leverages the Binary Exchange aspect model to handle the transfer of geometry data files (such as STEP, JT, or other geometry formats) alongside the SingleLevelSceneNode metadata. The Binary Exchange model provides:
 
-Base idea of notifications: Only technical information about creation/change/deletion of requirement. Descriptive information about changes and comments are stored directly within the requirement submodels.
+- **File Metadata**: Information about file type, size, and Media Type (e.g., `model/step`, `model/jt`)
+- **Access Information**: Secure links to download binary files via the EDC
+- **Content Validation**: Checksums and integrity verification for transferred files
+
+### Typical Flow for Geometry Data Retrieval
+
+1. **Discovery**: Data Consumer discovers geometry Digital Twins via the Digital Twin Registry
+2. **Submodel Access**: Data Consumer retrieves SingleLevelSceneNode submodel containing geometry metadata and structure
+3. **Binary File Request**: For each geometry referenced in the scene node, the system requests the binary files via Binary Exchange links
+4. **Secure Transfer**: Files are transferred securely through the EDC using the Dataspace Protocol
+5. **Local Integration**: Retrieved geometry data is integrated into the Data Consumer's local systems for DMU Analysis and review
 
 ## EDC Setup
 
-In order to set up the EDC for the requirements use-case, the following steps are necessary:
+In order to set up the EDC for the geometry use case, the following steps are necessary:
 
-- [Setup for the DTR](../digital-twin-kit/software-development-view/) in order to provide access to the Digital Twins for the partners
-- [Notifications](../industry-core-kit/software-development-view/notifications) to inform the partners about new requirements or updates. In the requirements use-case the standardized notifications from the Industry Core Kit are used.
+- **[Setup for the DTR](../digital-twin-kit/software-development-view/)**: Configure the Digital Twin Registry to provide access to geometry-related Digital Twins for partners
+- **Binary Data Exchange Configuration**: Set up EDC policies and endpoints to handle large binary file transfers (STEP, JT, CAD files) securely
+- **Asset Configuration**: Register geometry data assets with appropriate access policies and usage constraints
+- **Contract Definition**: Define data usage contracts that specify how geometry data can be used (e.g., for DMU analysis, review purposes only)
+- **Policy Configuration**: Implement data sovereignty policies ensuring geometry data is only accessible to authorized partners and for specified use cases
+
+### Prerequisites
+
+The following Catena-X components are required for geometry data exchange:
+
+- **[Eclipse Dataspace Connector (EDC)](https://github.com/eclipse-edc/Connector)**: For secure and sovereign data exchange
+- **[Digital Twin Registry](../digital-twin-kit/software-development-view/)**: For Digital Twin discovery and management  
+- **[Submodel Service](https://github.com/eclipse-basyx/basyx-java-server-sdk)**: For SingleLevelSceneNode submodel handling
+- **Binary File Storage**: Secure storage solution for 3D geometry files with EDC integration
 
 ## Notice
 
