@@ -44,7 +44,7 @@ The main goal of our rulebook is twofold: it provides non-technical individuals 
 
 ### 1.2 Target Audience
 
-This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data within their organizations—such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed.
+This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain in Catena-X network (i.e., Data provider and data consumer): such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed. 
 
 ### 1.3 Scope and Applicability
 
