@@ -144,6 +144,7 @@ A DPP system provides value across multiple parties throughout the supply chain.
 - Consumers and Business Customers: Can access selected DPP elements to make informed purchasing, usage, or recycling decisions.
 
 Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
+For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
 
 ## 4. General Principles for Data Handling in the DPP Model
 
