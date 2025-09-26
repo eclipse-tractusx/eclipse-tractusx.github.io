@@ -33,6 +33,28 @@ const config = {
     locales: ['en'],
   },
 
+  future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
+    experimental_faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      ssgWorkerThreads: true,
+    }
+  },
+
   presets: [
     [
       'classic',
@@ -66,7 +88,23 @@ const config = {
   ],
 
   plugins: [
-    ['docusaurus-plugin-sass',{}],
+    ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -200,7 +238,7 @@ const config = {
           src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
-          {to: 'blog', label: 'News', position: 'left'},
+          { to: 'blog', label: 'News', position: 'left' },
           {
             to: "/AboutUs",
             position: "left",

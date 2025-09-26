@@ -23,6 +23,7 @@ Software Development View:
 
 Adoption View:
 
+- Fixed copy and paster error in `Figure 1` (and migrated file basis to draw.io)
 - Reworked `Figure 2` to a forwarding example
 - Provided example for the forwarding example
 
