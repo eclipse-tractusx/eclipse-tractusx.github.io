@@ -343,7 +343,7 @@ const config = {
                 label: 'Product Carbon Footprint Exchange',
               },
                             {
-                to: '/docs-kits/kits/requirements-kit/adoption-view',
+                to: '/docs-kits/next/kits/requirements-kit/adoption-view',
                 label: 'Requirements',
               },
               {
