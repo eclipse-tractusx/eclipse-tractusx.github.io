@@ -1,5 +1,5 @@
 ---
-id: software-development-view-requirements-kit
+id: software-development-view
 title: Software Development View
 description: 'Software Development View Requirements Kit'
 sidebar_position: 4

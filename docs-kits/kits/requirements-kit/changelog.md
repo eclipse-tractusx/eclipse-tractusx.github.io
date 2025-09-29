@@ -1,5 +1,5 @@
 ---
-id: changelog-requirements-kit
+id: changelog
 title: Changelog
 description: 'Changelog Requirements Kit'
 sidebar_position: 1
