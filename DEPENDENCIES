@@ -366,6 +366,7 @@ npm/npmjs/-/iconv-lite/0.4.24, MIT, approved, clearlydefined
 npm/npmjs/-/iconv-lite/0.6.3, MIT, approved, clearlydefined
 npm/npmjs/-/icss-utils/5.1.0, ISC, approved, clearlydefined
 npm/npmjs/-/ignore/5.3.2, MIT, approved, #11665
+npm/npmjs/-/image-size/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/image-size/2.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/immutable/5.1.1, MIT, approved, #20384
 npm/npmjs/-/import-fresh/3.3.1, MIT, approved, #19299
@@ -719,6 +720,7 @@ npm/npmjs/-/pupa/3.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/qs/6.13.0, BSD-3-Clause, approved, #17735
 npm/npmjs/-/quansync/0.2.11, MIT, approved, #20370
 npm/npmjs/-/queue-microtask/1.2.3, MIT, approved, clearlydefined
+npm/npmjs/-/queue/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/quick-lru/5.1.1, MIT, approved, clearlydefined
 npm/npmjs/-/randombytes/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/range-parser/1.2.0, MIT, approved, clearlydefined
