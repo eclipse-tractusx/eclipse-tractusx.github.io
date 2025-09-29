@@ -24,8 +24,9 @@ description: What the design philosophy of a DCM-App should be.
 
 - If you are already automatically ordering parts you should be capable of generating demand data automatically
   - Combined with BPDM and EDC discovery service you will be able to automatically provide your suppliers with `WeekBasedMaterialDemand`
+- The demands for your suppliers can be automatically calculated based on the `WeekBasedMaterialDemand` provided by your customers and the material usage of your own production line
 - Linking `WeekBasedCapacityGroup` to `Demand Series` can be automated using `Traceability` and BOMs
-- `RequestForUpdate` can be used to verify that the data your business partner provided you is recent
+- `RequestForUpdate` can be used to verify that the data your business partner provided you is up-to-date
 
 ### Consider that we have a distributed data storage and also distributed responsibilities
 
@@ -47,9 +48,10 @@ description: What the design philosophy of a DCM-App should be.
 
 - Most of the time only an eagle-eye view of the data is required
   - But if a bottleneck gets detected, the users do want to deep dive
+- Unusual situations (e.g. no demand at all, very low demand) might be als interesting for the users
 - Comments can be attached to capacity groups, material demands, comments and also specific weeks
   - A thread model where all comments appear, based on the capacity group that is currently viewed, should be favorable
-    - Even if the comment is only indirectly linked the the capacity group, i am currently viewing, via 3 layers of nesting I should still be able to see it
+    - Even if the comment is only indirectly linked to the capacity group a user is currently viewing, via 3 layers of nesting the user should still be able to see it
 - Instead of showing the raw values for load factors etc. in an overview it might make sense to label weeks, where such features have been applied and than only show the raw values upon inspection of that week
 
 ### Consider that the standards you build the software upon might change
