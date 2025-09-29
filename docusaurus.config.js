@@ -152,6 +152,7 @@ const config = {
         blogDescription: 'This blog hosts Tractus-X release changelogs.',
         blogSidebarCount: 'ALL',
         blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
       },
     ],
     [
