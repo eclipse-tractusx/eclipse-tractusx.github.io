@@ -172,6 +172,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
+          {
             to: '/community/intro',
             from: '/community',
           },
