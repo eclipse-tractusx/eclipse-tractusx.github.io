@@ -1,5 +1,5 @@
 ---
-id: adoption-view-requirements-kit
+id: adoption-view
 title: Adoption View
 description: 'Adoption View Requirements Kit'
 sidebar_position: 2
