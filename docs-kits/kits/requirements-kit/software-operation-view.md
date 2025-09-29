@@ -5,7 +5,7 @@ description: 'Software Operation View Requirements Kit'
 sidebar_position: 3
 ---
 
-![requirement kit logo](@site/static/img/kits/requirement/requirement-kit-logo.svg)
+![requirement kit logo](@site/static/img/kits/requirements/requirements-kit-logo.svg)
 
 ## Notice
 
