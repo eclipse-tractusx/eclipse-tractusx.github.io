@@ -227,12 +227,12 @@ export const kitsGallery = [
     domain: 'Network Services',
     pageRoute: "/docs-kits/next/kits/data-trust-and-security-kit/adoption-view",
     img: DataTrustAndSecurity,
-  };
+  },
     {
     id: 25,
     name: 'Requirement KIT',
     domain: 'Engineering',
     img: Requirement_Kit,
     pageRoute: "/docs-kits/kits/requirement-kit/adoption-view",
-  },
+  }
 ]
