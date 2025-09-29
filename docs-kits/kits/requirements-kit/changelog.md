@@ -5,6 +5,8 @@ description: 'Changelog Requirements Kit'
 sidebar_position: 1
 ---
 
+![requirement kit logo](@site/static/img/kits/requirement/requirement-kit-logo.svg)
+
 ## [0.1.0] - 2025-04-02
 
 ### Added

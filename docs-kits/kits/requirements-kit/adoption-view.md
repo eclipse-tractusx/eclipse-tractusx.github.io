@@ -5,6 +5,8 @@ description: 'Adoption View Requirements Kit'
 sidebar_position: 2
 ---
 
+![requirement kit logo](@site/static/img/kits/requirement/requirement-kit-logo.svg)
+
 ## Vision & Mission
 
 ### Vision
