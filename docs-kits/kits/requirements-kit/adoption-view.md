@@ -91,7 +91,7 @@ Catena-X offers solution providers a variety of strategic advantages to leverage
 ```mermaid
 flowchart TD
     subgraph Customer
-        A["Publish (Initial) set of<br />Requirements via EDC into dataspace"]
+        A["Publish (Initial) set of<br />Requirements via EDC within dataspace"]
         F["Change of Spec Status update<br />(accept, decline, further clarification…)<br/>Comment (optional)"]
         E[Review of supplier input]
         G[End]
