@@ -342,6 +342,10 @@ const config = {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
+                            {
+                to: '/docs-kits/kits/requirements-kit/adoption-view',
+                label: 'Requirements',
+              },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',

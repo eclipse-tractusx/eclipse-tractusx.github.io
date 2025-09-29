@@ -5,6 +5,8 @@ description: 'Software Development View Requirements Kit'
 sidebar_position: 4
 ---
 
+![requirement kit logo](@site/static/img/kits/requirement/requirement-kit-logo.svg)
+
 ## Architecture
 
 ### Component Diagram
