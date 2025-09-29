@@ -233,6 +233,6 @@ export const kitsGallery = [
     name: 'Requirement KIT',
     domain: 'Engineering',
     img: Requirement_Kit,
-    pageRoute: "/docs-kits/kits/requirements-kit/adoption-view",
+    pageRoute: "/docs-kits/next/kits/requirements-kit/adoption-view",
   }
 ]
