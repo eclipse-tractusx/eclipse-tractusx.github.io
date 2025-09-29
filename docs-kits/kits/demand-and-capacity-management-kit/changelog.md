@@ -12,6 +12,12 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.4.0] - 2025-09-29
+
+### Added
+
+- Added documentation files for the "Functional Architecture View"
+
 ## [1.3.0] - 2025-03-03
 
 ### Added
