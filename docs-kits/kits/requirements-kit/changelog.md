@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![requirement kit logo](@site/static/img/kits/requirements/requirements-kit-logo.svg)
 
-## [0.1.0] - 2025-04-02
+## [0.1.0] - 2025-09-29
 
 ### Added
 
