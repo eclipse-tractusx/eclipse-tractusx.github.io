@@ -131,7 +131,7 @@ The following section gives an overview of the requirements aspect model. The re
 
 | Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| PartType | Requirements | 1.0.0 | | Requirements | CX-..TODO.. |
+| PartType | Requirements | 1.0.0 | | Requirements | CX-0155 |
 
 ### Example of a Requirements Aspect Model
 
@@ -216,8 +216,11 @@ The notification format used for the requirements exchange is based on the [Indu
 ```
 
 - ```requirementId```: ```requirementId``` in requirements datamodel
+
+<!--
 - ```description```:
 - ToDo: Clarify if ```context``` is the right place for create/update/delete information or if this should be moved to ```content```
+-->
 
 Base idea of notifications: Only technical information about creation/change/deletion of requirement. Descriptive information about changes and comments are stored directly within the requirement submodels.
 
