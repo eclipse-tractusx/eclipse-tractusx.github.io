@@ -254,7 +254,7 @@ This chapter contains data structures that are designed for providing data in th
 The PURIS KIT does not define its own protocol, as it is using the communication pattern described in
 the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)
 and relies on
-the [Part Type Twin definitions of the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/software-development-view/Digital%20Twins%20Development%20View%20Industry%20Core%20Kit).
+the [Part Type Twin definitions of the Industry Core KIT](../../industry-core-kit/software-development-view/digital-twins.mdx).
 
 Examples of how the required data structures for that pattern may look like for PURIS are described in this chapter.
 
@@ -930,3 +930,14 @@ stock) is sufficient for the supplier's scheduled deliveries (see _Delivery Info
   "direction": "OUTBOUND"
 }
 ```
+
+## Notice
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation

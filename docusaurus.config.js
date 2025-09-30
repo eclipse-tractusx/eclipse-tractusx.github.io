@@ -1,4 +1,3 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -31,6 +30,28 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
+    experimental_faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      ssgWorkerThreads: true,
+    }
   },
 
   presets: [
@@ -66,7 +87,23 @@ const config = {
   ],
 
   plugins: [
-    ['docusaurus-plugin-sass',{}],
+    ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -104,6 +141,20 @@ const config = {
         onUntruncatedBlogPosts: 'ignore',
       },
     ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
+      },
+    ],
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -121,6 +172,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
+          {
             to: '/community/intro',
             from: '/community',
           },
@@ -133,6 +188,46 @@ const config = {
             to: '/docs/getting-started',
             from: '/docs/oss/getting-started',
           },
+          {
+            to: '/docs/release/trg-1/trg-1-01',
+            from: '/docs/release/trg-1/trg-1-1',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-02',
+            from: '/docs/release/trg-1/trg-1-2',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-03',
+            from: '/docs/release/trg-1/trg-1-3',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-04',
+            from: '/docs/release/trg-1/trg-1-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-01',
+            from: '/docs/release/trg-2/trg-2-1',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-03',
+            from: '/docs/release/trg-2/trg-2-3',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-04',
+            from: '/docs/release/trg-2/trg-2-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-05',
+            from: '/docs/release/trg-2/trg-2-5',
+          },
+          {
+            to: '/docs/release/trg-3/trg-3-02',
+            from: '/docs/release/trg-3/trg-3-2',
+          },
+          {
+            to: '/docs/release/trg-6/trg-6-01',
+            from: '/docs/release/trg-6/trg-6-1',
+          },
         ],
       },
     ],
@@ -141,7 +236,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
@@ -195,6 +290,10 @@ const config = {
               {
                 to: '/docs-kits/kits/customs-kit/adoption-view',
                 label: 'Customs',
+              },
+              {
+                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                label: 'Data Trust & Security',
               },
               {
                 to: '/docs-kits/kits/data-chain-kit/adoption-view',
@@ -260,6 +359,10 @@ const config = {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
+                            {
+                to: '/docs-kits/next/kits/requirements-kit/adoption-view',
+                label: 'Requirements',
+              },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
@@ -297,8 +400,8 @@ const config = {
                 label: 'Release Information',
               },
               {
-                to: '/CHANGELOG',
-                label: 'Change Log',
+                to: '/blog-changelog',
+                label: 'Changelog'
               },
             ],
           },

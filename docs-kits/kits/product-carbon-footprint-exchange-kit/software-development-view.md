@@ -7,7 +7,9 @@ sidebar_position: 3
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
-[To the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/adoption-view#todays-challenge)
+## Announcement
+
+With the major CX-Saturn Release 25.09 the PCF datamodel was extended with fields for Verification according to the [PCF Verification Framework](https://catenax-ev.github.io/docs/non-functional/overview#product-carbon-footprint). The technical implementation will be added according to the [Data Trust & Security KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/data-trust--security-kit) in a later release.
 
 ## Introduction
 
@@ -53,26 +55,26 @@ In case no matching material twin or PCF submodel exists, the flow falls back to
 
 ### PCF Update
 
-The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for assets that have been previously requested at least once, as demonstrated in [PCF Request](#pcf-request). Proactive updates without a prior request are not achievable with the current version.
+The sequence diagram provided below presents an example of a PCF update flow. An update is feasible only for PCF Responses that have been previously requested at least once, as demonstrated in [PCF Request](#pcf-request). Proactive updates without a prior request are not achievable with the current version.
 
 ![PCF Update](./resources/development-view/PCFUpdatePushedThroughEDC.png)
 
 #### API Calls
 
-| Call                                                                                                                                                                                                                                                                              | Method | Path                                                                                                 | Parameter                                                                                                             |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Lookup EDC endpoints | POST   | /api/administration/Connectors/discovery/                                                            | `[<Company's BPNL>]`                                                                                              |
-| Lookup dDTR                                                                                                                                         | POST   | /v2/catalog/request |  --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                                                                                                                 |
-| Lookup Twin ID                                                                           | GET    | /lookup/shells                                                                                       | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
-| Lookup PCF submodel/EDC asset ID                                                             | GET    | /shell-descriptors                                                                                   | `{DIGITAL TWIN ID}`                                                                                               |
-| Requesting PCF value                                                                                                                                                                                                                                                       | GET    | /productIds                                                                                          | \{productId}                                                                                                       |
-| Sending PCF value                                                                                                                                                                                                                                                            | PUT    | /productIds                                                                                          | \{productId}                                                                                                       |
+| Call                             | Method | Path                                      | Parameter                                                                                                    |
+|----------------------------------|--------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Lookup EDC endpoints             | POST   | /api/administration/Connectors/discovery/ | `[<Company's BPNL>]`                                                                                         |
+| Lookup dDTR                      | POST   | /v2/catalog/request                       | --> Lookup Asset in the EDC catalog (EDC asset type data.core.digitalTwinRegistry)                           |
+| Lookup Twin ID                   | GET    | /lookup/shells                            | `assetIds= [{"key": "manufacturerPartId", "value":"mat345",{"key":"digitalTwinType", "value": "PartType"}}]` |
+| Lookup PCF submodel/EDC asset ID | GET    | /shell-descriptors                        | `{DIGITAL TWIN ID}`                                                                                          |
+| Requesting PCF value             | GET    | /productIds                               | \{productId}                                                                                                 |
+| Sending PCF value                | PUT    | /productIds                               | \{productId}                                                                                                 |
 
 - The assetIds under *Lookup Twin ID* must be base64 encoded!
 - When responding an PCF exchange request, the "requestID" is mandatory in the PUT call.
-- When sharing a PCF update, the "requestID" is NOT allowed in the PUT call.
+- When sharing a PCF update, the "requestID" is NOT allowed in the PUT call. The previously requested material ID will be used as reference.
 - The EDC asset used to receive a PCF is NOT looked up through AAS, but identified by type ("data.pcf.exchangeEndpoint").
-- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](./resources/development-view/catena-x-pcf-endpoint-1_1_1.yaml)
+- The Open API specification defining all mandatory PCF Exchange endpoints and the data structures transferred through those can be found [here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-pcf-openAPI-1.1.2/swagger-ui/).
 
 ##### Payload for Requesting PCF Sub Model
 
@@ -81,6 +83,7 @@ The following JSON shows the structure of a registered PCF submodel in the DTR. 
 The digital twin id can be searched via the `manufacturerPartId` and the ``digitalTwinType:"PartType"``.
 
 The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
+
 <details>
   <summary>PCFExchange Endpoint of a DigitalTwin (JSON)</summary>
 
@@ -99,7 +102,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:7.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:8.0.0#Pcf"
            }
        ]
     },
@@ -126,6 +129,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
 ##### Payload for EDC Data Asset PCF
 
 The following JSON shows the EDC Asset for a PCF defined in the EDC using the asset bundling mentioned under [Payload for Requesting PCF Sub Model](#api-calls).
+
 <details>
   <summary>PCFExchange Asset Definition (JSON)</summary>
 
@@ -147,7 +151,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:7.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:8.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },
@@ -177,7 +181,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 ##### Payload to create a SSI based Policy
 
 <details>
-  <summary>SSI based Policy (JSON)</summary>
+<summary>SSI based Policy (JSON)</summary>
 
 ```json
 {
@@ -189,7 +193,7 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -234,6 +238,15 @@ In addition an *optional* constraint for an existing tenant-specific bilateral c
 
 For more examples on how to define policies with SSI have a look [here](https://github.com/eclipse-tractusx/ssi-docu/blob/main/docs/architecture/cx-3-2/edc/policy.definitions.md).
 
+Or check on tutorials:
+
+- [Access Policy Tutorial](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Access%20Policies%20Tutorial.md)
+- [Business Partner Group Policy](https://github.com/eclipse-tractusx/tutorial-resources/blob/main/mxd/docs/Business%20Partner%20Group%20Policy%20Tutorial.md)
+
+>**Note**
+> With the next release also  a new Catena-X Standard will be available:
+CX-152 Policy Constraints for Data Exchange
+
 #### Payload Contract Definition
 
 <details>
@@ -261,12 +274,14 @@ Inside the contract definition, an access policy and a usage policy must be refe
 
 The content of the access policy depends on the criteria used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
 
-The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restrictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
-If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
+The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restrictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met.
+
+If no bilateral contract reference criteria are used in any usage policy attached to the PCF Exchange asset, an empty access policy can be used.
+
 ![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
 
 <details>
-    <summary>Empty Access Policy (JSON)</summary>
+<summary>Empty Access Policy (JSON)</summary>
 
 ```json
 {
@@ -278,7 +293,7 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -290,11 +305,12 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
 
 </details>
 
-If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
+If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference.
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCOnlyUP.png)
 
 <details>
-    <summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
+<summary>BPN restricted Access Policy to be used with a Usage Policy containing a contract reference (JSON)</summary>
 
 ```json
 {
@@ -306,7 +322,7 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
         "@context": [
             "https://www.w3.org/ns/odrl.jsonld",
             {
-                "cx-policy": "https://w3id.org/catenax/policy/v1.0.0/"
+                "cx-policy": "https://w3id.org/catenax/policy/"
             }
         ],
         "@type": "Policy",
@@ -327,12 +343,14 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
 
 </details>
 
-If *bilateral contract reference* criteria are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If *bilateral contract reference* criteria are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCUP.png)
- <p> The following example uses BusinessPartnerGroups to achieve this:</p>
+
+The following example uses BusinessPartnerGroups to achieve this.
 
 <details>
-    <summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>
+<summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>
 
 ```json
 {
@@ -370,16 +388,19 @@ In case no material twin or no PCF submodel is found, EDC asset type has to be u
 
 ### Used CX Standards
 
-- [CX-0001 EDC Discovery API v1.0.2](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI)
-- [CX-0002 Digital Twins in Catena-X v2.2.0](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
-- [CX-0003 SAMMSemanticAspectMetaModel v1.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)
-- [CX-0018 Dataspace Connectivity v3.1.0](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity)
-- [CX-0126 Industry Core: Part Type v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType)
-- [CX-0136 PCF UseCase v2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
+- [CX-0001 EDC Discovery API](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI)
+- [CX-0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
+- [CX-0003 SAMMSemanticAspectMetaModel](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)
+- [CX-0007 Minimal Data Provider Service Offering](https://catenax-ev.github.io/docs/standards/CX-0007-MinimalDataProviderServicesOffering)
+- [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity)
+- [CX-0118 Delivery Information exchange](https://catenax-ev.github.io/docs/next/standards/CX-0118-ActualDeliveryInformationexchange)
+- [CX-0126 Industry Core: Part Type](https://catenax-ev.github.io/docs/next/standards/CX-0126-IndustryCorePartType)
+- [CX-0136 PCF UseCase](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)
+- [CX-0151 Industry Core: Basics](https://catenax-ev.github.io/docs/next/standards/CX-0151-IndustryCoreBasics)
 
 ## Other Standards
 
-- [Pathfinder Framework - v2.0.0](https://wbcsd.github.io/tr/2023/data-exchange-protocol-20230221)
+- [PACT Technical Specification - v3](https://wbcsd.github.io/data-exchange-protocol/v3/)
 
 ## NOTICE
 
@@ -399,4 +420,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 CCT
 - SPDX-FileCopyrightText: 2023, 2024 Gris Group
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
-- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/PCF%20Exchange%20Kit)
+- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
