@@ -225,7 +225,7 @@ export const kitsGallery = [
     id: 24,
     name: 'Data Trust and Security KIT',
     domain: 'Network Services',
-    pageRoute: "/docs-kits/next/kits/data-trust-and-security-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-trust-and-security-kit/adoption-view",
     img: DataTrustAndSecurity,
   },
     {
@@ -233,6 +233,6 @@ export const kitsGallery = [
     name: 'Requirement KIT',
     domain: 'Engineering',
     img: Requirement_Kit,
-    pageRoute: "/docs-kits/next/kits/requirements-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/requirements-kit/adoption-view",
   }
 ]

@@ -292,7 +292,7 @@ const config = {
                 label: 'Customs',
               },
               {
-                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
                 label: 'Data Trust & Security',
               },
               {
@@ -360,7 +360,7 @@ const config = {
                 label: 'Product Carbon Footprint Exchange',
               },
                             {
-                to: '/docs-kits/next/kits/requirements-kit/adoption-view',
+                to: '/docs-kits/kits/requirements-kit/adoption-view',
                 label: 'Requirements',
               },
               {
