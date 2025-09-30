@@ -40,7 +40,8 @@ import PCF_Kit from "@site/static/img/kits/pcf/pcf-kit-gallery.drawio.svg";
 import PURIS_Kit from '@site/static/img/kits/puris/puris-kit-gallery.drawio.svg';
 import SupplyChainsDisruptionNotifications_Kit from "@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-gallery.drawio.svg";
 import Traceability_Kit from "@site/static/img/kits/traceability/traceability-kit-gallery.drawio.svg";
-
+import DataTrustAndSecurity from "@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-gallery.svg";
+import Requirement_Kit from "@site/static/img/kits/requirements/requirements-kit-gallery.svg";
 
 // import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
@@ -220,4 +221,18 @@ export const kitsGallery = [
     pageRoute: "/docs-kits/kits/customs-kit/adoption-view",
     img: Customs_Kit,
   },
+  {
+    id: 24,
+    name: 'Data Trust and Security KIT',
+    domain: 'Network Services',
+    pageRoute: "/docs-kits/next/kits/data-trust-and-security-kit/adoption-view",
+    img: DataTrustAndSecurity,
+  },
+    {
+    id: 25,
+    name: 'Requirement KIT',
+    domain: 'Engineering',
+    img: Requirement_Kit,
+    pageRoute: "/docs-kits/next/kits/requirements-kit/adoption-view",
+  }
 ]
