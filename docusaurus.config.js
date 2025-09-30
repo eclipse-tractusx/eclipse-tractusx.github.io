@@ -1,4 +1,3 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -142,6 +141,20 @@ const config = {
         onUntruncatedBlogPosts: 'ignore',
       },
     ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
+      },
+    ],
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -158,6 +171,10 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
           {
             to: '/community/intro',
             from: '/community',
@@ -219,7 +236,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
@@ -238,7 +255,7 @@ const config = {
           src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
-          { to: 'blog', label: 'News', position: 'left' },
+          {to: 'blog', label: 'News', position: 'left'},
           {
             to: "/AboutUs",
             position: "left",
@@ -383,8 +400,8 @@ const config = {
                 label: 'Release Information',
               },
               {
-                to: '/CHANGELOG',
-                label: 'Change Log',
+                to: '/blog-changelog',
+                label: 'Changelog'
               },
             ],
           },
