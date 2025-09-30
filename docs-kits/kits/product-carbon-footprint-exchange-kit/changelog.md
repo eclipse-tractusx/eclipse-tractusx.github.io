@@ -24,19 +24,19 @@ All notable changes to this Kit will be documented in this file.
 
 #### Adoption View
 
-* Replaced the entire data model table with a new version and linked to the downloadable Excel sheet
-* adapted list of reference implementations to reflect certified solutions from expert group members
-* Rephrased outdated assumptions and verification statements in the Premises, Customer Journey, and Business Architecture sections
+- Replaced the entire data model table with a new version and linked to the downloadable Excel sheet
+- adapted list of reference implementations to reflect certified solutions from expert group members
+- Rephrased outdated assumptions and verification statements in the Premises, Customer Journey, and Business Architecture sections
 
 #### Development View
 
-* Removed version v1.0.0 from policy examples, added tutorial links and a note about the upcoming CX-152 standard
-* Extended Architecture Picture, Sequence Diagram and API call to reflect synchronous PCF exchange in addition
-* Replaced the outdated architecture diagram in the Building Block View
+- Removed version v1.0.0 from policy examples, added tutorial links and a note about the upcoming CX-152 standard
+- Extended Architecture Picture, Sequence Diagram and API call to reflect synchronous PCF exchange in addition
+- Replaced the outdated architecture diagram in the Building Block View
 
 #### Overall
 
-* Reviewed and updated outdated links,
+- Reviewed and updated outdated links,
 
 ## [1.2.1] - 2025-02-07
 
