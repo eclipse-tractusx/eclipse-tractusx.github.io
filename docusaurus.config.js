@@ -137,6 +137,7 @@ const config = {
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
         onUntruncatedBlogPosts: 'ignore',
       },
     ],
