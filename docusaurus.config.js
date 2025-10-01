@@ -133,11 +133,11 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        blogSidebarCount: 10,
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
         onUntruncatedBlogPosts: 'ignore',
       },
     ],
@@ -247,6 +247,10 @@ const config = {
         apiKey: 'a97c5de3a563a32884153d3a84568be1',
         indexName: 'eclipse-tractusxio',
         appId: '5EEK7E23IM',
+      },
+      announcementBar: {
+        id: `announcementBar-v25.09`,
+        content: `🎉️ <b><a href="/blog-changelog/release-25-09">Eclipse Tractus-X 25.09</a> is out!</b> 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -408,7 +412,18 @@ const config = {
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',
-            position: 'right'
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
+                label: '24.08',
+              },
+            ],
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
