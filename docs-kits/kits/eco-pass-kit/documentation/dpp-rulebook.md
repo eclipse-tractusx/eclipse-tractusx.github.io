@@ -212,24 +212,18 @@ Metadata encompasses the fundamental details of the digital product passport.
 
 Unique identifier of the product passport.
 
-> **Syntax**
-
-
-> **Content Validation**<br>Must contain an unique identifier <font color="red">according to ISO/IEC 9834-8:2005 standard</font>
+> **Content Validation**<br>Must contain an unique identifier <font color="red">according to [RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
 
 #### 5.1.2 Version
 
  The current version of the product passport.
-
- a) The attribute must contain a version number in a string format.
-
- b) Updates must follow semantic versioning convention.
+> **Syntax**<br>The attribute must contain a version number of the passport in a string format & the updates must follow semantic versioning convention.
 
 #### 5.1.3 Status
 
  The lifecycle stage of the product passport.
 
- a) If provided, the attribute must contain one of the enumerated values.
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 5.1.4 Language
 
@@ -253,13 +247,13 @@ Specific language in which passport content is created.
 
 The date when the product passport is initially issued.
 
-a) Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 5.1.9 ExpirationDate
 
 The date until the product passport remains available.
 
-a) Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
+> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
 
 #### 5.1.10 Last Modification
 
@@ -269,9 +263,9 @@ a) Date and time representation for information interchange in accordance with [
 
 Identification of the economic operator responsible for the passport.
 
-a) The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+> **Syntax**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
-b) For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
+> **Content Validation**<br>For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
 
 #### 5.1.12 Economic Operator Name
 
