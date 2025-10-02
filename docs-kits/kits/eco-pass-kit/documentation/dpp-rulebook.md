@@ -383,13 +383,13 @@ Outlines classification standards for parts.
 
 The identifier for the part classification standard according to related key-value pairs. 
 
-a) Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with ISO ISO 3779 and ISO 4030
+> **Content Validation**<br>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
 
 #### 5.2.14 Classification Description
 
 Optional property describing the classification standard.
 
-a) Can provide details relevant to the classification standard.
+> **Content Validation**<br>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
 
 #### 5.2.15 Picture
 
