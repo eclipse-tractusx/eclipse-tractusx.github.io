@@ -1,4 +1,3 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -134,12 +133,26 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        blogSidebarCount: 10,
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
         onUntruncatedBlogPosts: 'ignore',
+      },
+    ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
       },
     ],
     [
@@ -158,6 +171,10 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
           {
             to: '/community/intro',
             from: '/community',
@@ -219,7 +236,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
@@ -231,6 +248,10 @@ const config = {
         indexName: 'eclipse-tractusxio',
         appId: '5EEK7E23IM',
       },
+      announcementBar: {
+        id: `announcementBar-v25.09`,
+        content: `🎉️ <b><a href="/blog-changelog/release-25-09">Eclipse Tractus-X 25.09</a> is out!</b> 🥳️`,
+      },
       navbar: {
         title: 'Eclipse Tractus-X',
         logo: {
@@ -238,7 +259,7 @@ const config = {
           src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
-          { to: 'blog', label: 'News', position: 'left' },
+          {to: 'blog', label: 'News', position: 'left'},
           {
             to: "/AboutUs",
             position: "left",
@@ -275,7 +296,7 @@ const config = {
                 label: 'Customs',
               },
               {
-                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
                 label: 'Data Trust & Security',
               },
               {
@@ -342,6 +363,10 @@ const config = {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
+                            {
+                to: '/docs-kits/kits/requirements-kit/adoption-view',
+                label: 'Requirements',
+              },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
@@ -379,15 +404,26 @@ const config = {
                 label: 'Release Information',
               },
               {
-                to: '/CHANGELOG',
-                label: 'Change Log',
+                to: '/blog-changelog',
+                label: 'Changelog'
               },
             ],
           },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',
-            position: 'right'
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
+                label: '24.08',
+              },
+            ],
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
