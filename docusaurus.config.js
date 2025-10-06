@@ -12,11 +12,14 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
+    },
   },
 
   // GitHub pages deployment config.
