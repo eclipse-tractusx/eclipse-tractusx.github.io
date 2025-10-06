@@ -125,7 +125,7 @@ You can find more detailed information for all five scenarios in the figures bel
 
 ## Tutorials
 
-The following **Onboarding Guide** is based on experiences gained during the initiation of real Quality pilots and the transfer to serial operation. Remark: For more details about the specified IT infrastructure, take a look at the **Architecture Overview** below and the description of how to exchange data in the [**Operation View**](../../kits/data-driven-quality-management-kit/operation-view.md)**.**
+The following **Onboarding Guide** is based on experiences gained during the initiation of real Quality pilots and the transfer to serial operation. Remark: For more details about the specified IT infrastructure, take a look at the **Architecture Overview** below and the description of how to exchange data in the [**Operation View**](../../kits/data-driven-quality-management-kit/software-operation-view.md)**.**
 
 ![dos-and-donts-onboarding-journey](./resources/dos-and-donts-onboarding-journey.png)
 
@@ -291,7 +291,7 @@ Quality Notifications follow following concepts:
 
 The payload format for these notifications is to a large extend common between Early Warning notification and version 2.0 of the Quality Investigation/Alert notifications.
 
-### Failure Pattern logic
+### Failure Pattern Logic
 
 Failure Patterns play a crucial role in the automotive industry, enhancing the reliability of vehicles and fostering collaboration between Original Equipment Manufacturers (OEMs) and their suppliers.
 
