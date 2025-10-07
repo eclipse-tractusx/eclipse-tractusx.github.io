@@ -548,15 +548,15 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 
 Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
 
-a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+> **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
 #### 5.4.2 Sources Identification
 
 Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management.
 
-a) Must match the BPNL identifier format to ensure accuracy. 
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
 
-b) Its validity can be verified using regular expression-based checks.
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 5.4.3 Sources Contact   
 
@@ -570,13 +570,13 @@ b) Its validity can be verified using regular expression-based checks.
 
 Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
 
-a) This is an open field, as no applicable validation rules can be defined for this entry.
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry.
 
 #### 5.4.6 Name at Manufacturer  
 
 Name of the spare part as assigned by the manufacturer.
 
-a) This is an open field, as no applicable validation rules can be defined for this entry.
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry.
 
 ### 5.5 Characteristics
 
