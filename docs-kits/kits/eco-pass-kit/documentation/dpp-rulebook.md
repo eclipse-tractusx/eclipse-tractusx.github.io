@@ -622,115 +622,120 @@ These characteristics enable standardized documentation, comparability across pr
 
 "Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br>2- Technical lifetime (based on product design and performance testing) <br>3- Mean Time Between Failures (MTBF)
 
-a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 5.5.2 Life Value
 
 The numeric value describing the product’s lifespan in terms of the specified type.
 
-a) Must be a valid integer for lifespan value.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be a valid integer for lifespan value and must be > 0. 
 
 #### 5.5.3 Life Unit
 
 The unit corresponding to the respective lifespan, specified using one of the following standardized units: day, month, cycle, year, or running/operating hour.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
 #### 5.5.4 Value (Width)
 
 Represents the width of the item.
 
-a) Must be a valid float representing width.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be a valid float representing width and must be > 0. 
 
 #### 5.5.5 Unit (Width)
 
 Specifies unit of measure for widths.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+
 #### 5.5.6 Value (Length)
 
 The length of the item.
 
-a) Valid float for length value required.
-
-b) Must be > 0. 
+> **Syntax**<br>Valid float for length value required and must be > 0. 
 
 #### 5.5.7 Unit (Length)
 
 Defines unit used for measuring length.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+
 #### 5.5.8 Value (Diameter)
 
 Specifies diameter of the item.
 
-a) Must be float for diameter.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be float for diameter and must be > 0. 
 
 #### 5.5.9 Unit (Diameter)
 
 Indicates unit for diameter measurements.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+
 #### 5.5.10 Value (Height)
 
 Measures height of the item.
 
-a) Requires a float value corresponding to height.
-
-b) Must be > 0. 
+> **Syntax**<br>Requires a float value corresponding to height and must be > 0. 
 
 #### 5.5.11 Unit (Height)
 
 Defines unit of height measure.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
 #### 5.5.12 Value (Gross Weight)
 
 Specifies total weight of the item including packaging.
 
-a) Must be valid float to reflect gross weight.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be valid float to reflect gross weight and must be > 0. 
 
 #### 5.5.13 Unit (Gross Weight)
 
 Defines measurement unit for gross weight.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+
 #### 5.5.14 Value (Volume)
 
 Measures product’s volume.
 
-a) Valid float required for volume.
-
-b) Must be > 0. 
+> **Syntax**<br>Valid float required for volume and must be > 0. 
 
 #### 5.5.15 Unit (Volume)
 
 Defines the unit to express volume measurements.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+
 #### 5.5.16 Value (Gross Volume)
 
 Represents gross volume of the product including packaging.
 
-a) Must be valid float for gross volume.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be valid float for gross volume and must be > 0. 
 
 #### 5.5.17 Unit (Gross Volume)
 
 Specifies measurement unit for gross volume.
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
 #### 5.5.18 Value (Weight)
 
 Details the weight of the product.
 
-a) Must be valid float representing weight.
-
-b) Must be > 0. 
+> **Syntax**<br>Must be valid float representing weight and must be > 0. 
 
 #### 5.5.19 Unit (Weight)
 
 Defines unit of weight measures.
+
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 5.5.20 Value (Item Quantity)
 
@@ -744,11 +749,13 @@ Defines unit of weight measures.
 
 The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular
 
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
 #### 5.5.23 General Performance Class
 
 Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency.
 
-a) Perforance class must be defined in compliance to ESPR, Article 7 when made available by EU.
+> **Content Validation**<br>Perforance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes have been established for certain sectors, such as automotive batteries; however, they have not yet been defined for sectors like chemical. Therefore, it is recommended to assess the relevance of performance classes in the context of your specific sector and use case.
 
 #### 5.5.24 Other Characteristic Name
 
