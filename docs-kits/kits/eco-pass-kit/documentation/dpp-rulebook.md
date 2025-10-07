@@ -797,7 +797,7 @@ A unique identifier assigned to the order of the product for tracking purposes b
 
 Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
 
-> **Content Validation**<br>Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)
+> **Content Validation**<br>Information on dangerous products should, in general, be made available to the public via the [EU Safety Gate Portal](https://ec.europa.eu/safety-gate/#/screen/home)
 ### 5.7 Materials
 
 "Materials" category refers to: The classification and specification of the substances and material types used in a product, with a focus on their environmental performance, circularity potential, and criticality.
