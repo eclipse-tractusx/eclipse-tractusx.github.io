@@ -470,12 +470,11 @@ An EORI number (Economic Operators Registration and Identification number) is a 
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks
 
-> **Content Validation**<br>Must follow the EORI number format (Link??)
-
+> **Content Validation**<br>The EORI number must be in accordance to [Regulation (EU) No 952/2013](https://eur-lex.europa.eu/eli/reg/2013/952/oj/eng) which provides the legal basis for the EORI system.
 
 #### 5.3.10 Importer Identification
 
-Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability in the Catena-X network.
+Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability. 
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
 
@@ -497,7 +496,7 @@ Importer identification (The importer of the product) refers to the requirement 
 
 OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. 
 
-a) This is an open field, as no applicable validation rules can be defined for this entry.
+> **Syntax**<br>This is an open field, as no applicable validation rule can be defined for this entry.
 
 #### 5.3.15 Other Operator Name 
 
@@ -515,9 +514,7 @@ a) This is an open field, as no applicable validation rules can be defined for t
 
 This field is used to specify the "Role" of the other operator (e.g., Distributor). 
 
-a) Describes the specific role of the operator. 
-
-b) This is an open field, as no applicable validation rules can be defined for this entry.
+> **Syntax**<br>Please specify the role you have as being the "Other operator". This is an open field, as no applicable validation rules can be defined for this entry.
 
 #### 5.3.19 Symbol of Extended Producer Responsibility Scheme   
 
