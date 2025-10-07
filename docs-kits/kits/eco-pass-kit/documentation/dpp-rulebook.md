@@ -778,25 +778,26 @@ Characterizes product performance in a graded class system, promoting consumer d
 
 The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
 
-a) The date format is in complaince to ISO 8601. 
-
-b) Furtehrmore, Its validity can be verified using regular expression-based checks  
+> **Syntax**<br>Its validity can be verified using regular expression-based checks  
+> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 6.2 Purpose
 
 Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list.
 
-a) This is an open field, as no applicable validation rules can be defined for this entry. 
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry. 
 
 #### 6.3 Purchase Order 
 
 A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
 
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry. 
+
 #### 6.4 Recall Information
 
 Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
 
-a) Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)
+> **Content Validation**<br>Information on dangerous products should, in general, be made available to the public via the Safety Gate portal.[EU Safety Gate](https://ec.europa.eu/safety-gate/#/screen/home)
 ### 5.7 Materials
 
 "Materials" category refers to: The classification and specification of the substances and material types used in a product, with a focus on their environmental performance, circularity potential, and criticality.
