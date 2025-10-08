@@ -846,79 +846,79 @@ Recall information refers to the data and documentation associated with the proc
 
  Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled 
 
- a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+> **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
 #### 7.1.2 Chemical ID (Substances of Concern)
 
 A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
 
-a) The chemical material ID and its identification  (Chemical name) shall be provided in accordance with IUPAC nomenclature standards. Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable. 
+> **Content Validation**<br>The chemical material ID and its identification  (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable. 
 
 #### 7.1.3 List Type ID (Substances of Concern)
 
 This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
-a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 7.1.4 Chemical Name (Substances of Concern)
 
 The name of the material which is present in the product.
 
-a) The chemical material ID and its identification (Chemical name) shall be provided in accordance with IUPAC nomenclature standards. Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable.
+> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
 #### 7.1.5 Material Unit (Substances of Concern)
 
 This field defines the unit of concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
 
-a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 7.1.6 Concentration (Substances of Concern)
 
 Concentration of the material at the level of the product
 
-a) The value must be > = 0 
+> **Syntax**<br>The value must be > = 0 
 
 #### 7.1.7 Min Concentration (Substances of Concern)
 
 The minimum concentration of the substance of concern at the level of the product
 
-a) The value must be > = 0 
+> **Syntax**<br>The value must be > = 0 
 
 #### 7.1.8 Max Concentration (Substances of Concern)
 
 The maximum concentration of the substance of concern at the level of the product
 
-a) The value must be > = 0 
+> **Syntax**<br>The value must be > = 0 
 
 #### 7.1.9 Location of Substances (Substances of Concern)
 
 The location of the substances of concern within the product <br> Further decsription: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
-a) The location within the product that contains the SoC shall be described either in a concise way or concise string
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry other than the location within the product that contains the SoC shall be described either in a concise way or concise string
 
 #### 7.1.10 Exemption for Substances (Substances of Concern)
 
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
-a) The exemption for SoCs shall be described either in a concise way or concise string
+> **Syntax**<br>This is an open field, as no applicable validation rules can be defined for this entry other than the exemption for SoCs shall be described either in a concise way or concise string
 
 #### 7.1.11 Hazard Category (Substances of Concern)
 
 A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
 
-a) Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
 #### 7.1.12 Hazard Class (Substances of Concern)
 
 Hazard class means the nature of the physical, health or environmental hazard.
 
-a) Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
 #### 7.1.13 Hazard Statement (Substances of Concern)
 
 A hazard statement is a standardized phrase assigned to a chemical substance or mixture that describes the nature and, where appropriate, the degree of hazard associated with it. Each hazard statement is associated with a unique code (e.g., H315, H301) to ensure consistency and clarity in hazard communication
 
-a) Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
 #### 7.1.14 Documentation
 
@@ -928,7 +928,7 @@ a) Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC)
 
 Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled
 
-a) If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+> **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
 #### 7.2.2 Component Name
 
@@ -958,19 +958,19 @@ a) If 'Applicability' is marked as 'Yes', the subsequent fields must be complete
 
 A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
 
-a) The chemical material ID and its identification  (Chemical name) shall be provided in accordance with IUPAC nomenclature standards.<br>Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable.
+> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
 #### 7.2.9 List Type ID (Material Composition)
 
 This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
-a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 7.2.10 Chemical Name (Material Composition)
 
 The name of the material which is present in the product.
 
-a) The chemical material ID and its identification  (Chemical name) shall be provided in accordance with IUPAC nomenclature standards.<br>Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., CAS, EC) are also acceptable.
+> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
 #### 7.2.11 Material Type   
 
