@@ -1,4 +1,3 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -14,11 +13,14 @@ const config = {
   trailingSlash: false, // (optional, but common)
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
+    },
   },
 
   // GitHub pages deployment config.
@@ -32,6 +34,28 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
+    experimental_faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      ssgWorkerThreads: true,
+    }
   },
 
   presets: [
@@ -67,7 +91,23 @@ const config = {
   ],
 
   plugins: [
-    ['docusaurus-plugin-sass',{}],
+    ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -97,12 +137,26 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        blogSidebarCount: 10,
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
         onUntruncatedBlogPosts: 'ignore',
+      },
+    ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
       },
     ],
     [
@@ -122,6 +176,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
+          {
             to: '/community/intro',
             from: '/community',
           },
@@ -134,6 +192,46 @@ const config = {
             to: '/docs/getting-started',
             from: '/docs/oss/getting-started',
           },
+          {
+            to: '/docs/release/trg-1/trg-1-01',
+            from: '/docs/release/trg-1/trg-1-1',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-02',
+            from: '/docs/release/trg-1/trg-1-2',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-03',
+            from: '/docs/release/trg-1/trg-1-3',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-04',
+            from: '/docs/release/trg-1/trg-1-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-01',
+            from: '/docs/release/trg-2/trg-2-1',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-03',
+            from: '/docs/release/trg-2/trg-2-3',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-04',
+            from: '/docs/release/trg-2/trg-2-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-05',
+            from: '/docs/release/trg-2/trg-2-5',
+          },
+          {
+            to: '/docs/release/trg-3/trg-3-02',
+            from: '/docs/release/trg-3/trg-3-2',
+          },
+          {
+            to: '/docs/release/trg-6/trg-6-01',
+            from: '/docs/release/trg-6/trg-6-1',
+          },
         ],
       },
     ],
@@ -142,7 +240,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
@@ -153,6 +251,10 @@ const config = {
         apiKey: 'a97c5de3a563a32884153d3a84568be1',
         indexName: 'eclipse-tractusxio',
         appId: '5EEK7E23IM',
+      },
+      announcementBar: {
+        id: `announcementBar-v25.09`,
+        content: `🎉️ <b><a href="/blog-changelog/release-25-09">Eclipse Tractus-X 25.09</a> is out!</b> 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -198,7 +300,7 @@ const config = {
                 label: 'Customs',
               },
               {
-                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
+                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
                 label: 'Data Trust & Security',
               },
               {
@@ -265,6 +367,10 @@ const config = {
                 to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
                 label: 'Product Carbon Footprint Exchange',
               },
+                            {
+                to: '/docs-kits/kits/requirements-kit/adoption-view',
+                label: 'Requirements',
+              },
               {
                 to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
                 label: 'Supply Chain Disruption Notification',
@@ -302,15 +408,26 @@ const config = {
                 label: 'Release Information',
               },
               {
-                to: '/CHANGELOG',
-                label: 'Change Log',
+                to: '/blog-changelog',
+                label: 'Changelog'
               },
             ],
           },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',
-            position: 'right'
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
+                label: '24.08',
+              },
+            ],
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
