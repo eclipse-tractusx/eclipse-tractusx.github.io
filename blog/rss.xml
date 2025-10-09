@@ -4,10 +4,58 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Wed, 06 Aug 2025 09:30:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 09 Oct 2025 14:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Fifth Eclipse Tractus-X Community Days]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/community-days-12-2025</link>
+            <guid>https://eclipse-tractusx.github.io/blog/community-days-12-2025</guid>
+            <pubDate>Thu, 09 Oct 2025 14:00:00 GMT</pubDate>
+            <description><![CDATA[Join us for the Fifth Eclipse Tractus-X Community Days on December 4-5, 2025 in Stuttgart]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/tractus-x-community-days-25-12-0fcc629f61330c4efca116ce54ea8aed.png" width="1000" height="300" class="img_ev3q"></p>
+<p>Dear Eclipse Tractus-X- and Dataspace-Community,</p>
+<p>The Eclipse Tractus-X Community Days serve as a platform for <strong>collaboration, innovation, and knowledge exchange within the Tractus-X ecosystem</strong>. Building on the success
+of previous events, this fifth edition brings together industry leaders, developers, and open source enthusiasts to help shape the future of digital transformation in the automotive industry.</p>
+<p>If you'd like to be involved — whether through a presentation, workshop, or sharing a use case — we'd be glad to hear from you and welcome your contribution to this vibrant community gathering.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-attend">Why Attend?<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#why-attend" class="hash-link" aria-label="Direct link to Why Attend?" title="Direct link to Why Attend?" translate="no">​</a></h3>
+<p>The community days will feature interactive sessions, workshops, and networking opportunities designed to foster collaboration within the Tractus-X ecosystem. Detailed agenda information will be
+shared closer to the event date.</p>
+<ul>
+<li><strong>Global Collaboration:</strong> Connect with participants from across the world, including contributors to Manufacturing-X initiatives like Factory-X, Chem-X, Aerospace-X and more.</li>
+<li><strong>Hands-On Innovation:</strong> Participate in interactive workshops and challenges using the latest tools and services from Eclipse Tractus-X.</li>
+<li><strong>Expanded Opportunities:</strong> With more space and sessions, this year promises unparalleled opportunities to learn, network, and contribute.</li>
+<li><strong>Inspiring Insights:</strong> Hear from industry leaders and pioneers in open-source collaboration and data ecosystems like Boris Otto, Director at Fraunhofer ISST.</li>
+<li><strong>Networking:</strong> opportunities with fellow community members</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="recap-fourth-eclipse-tractus-x-community-days">Recap Fourth Eclipse Tractus-X Community Days<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#recap-fourth-eclipse-tractus-x-community-days" class="hash-link" aria-label="Direct link to Recap Fourth Eclipse Tractus-X Community Days" title="Direct link to Recap Fourth Eclipse Tractus-X Community Days" translate="no">​</a></h3>
+<iframe width="100%" height="550" src="https://www.youtube.com/embed/Jl2FeY7eWlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="past-community-days">Past Community Days<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#past-community-days" class="hash-link" aria-label="Direct link to Past Community Days" title="Direct link to Past Community Days" translate="no">​</a></h3>
+<p>Our community has grown significantly through previous successful events:</p>
+<ul>
+<li><strong><a href="https://arena2036.de/en/de/catena-x/tractus-x-community-days" target="_blank" rel="noopener noreferrer">First</a> Eclipse Tractus-X Community Days</strong> (December 2023) - The inaugural event that launched our community tradition</li>
+<li><strong><a href="https://arena2036.de/en/reader/second-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer">Second</a> Eclipse Tractus-X Community Days</strong> (May 2024) - Expanded participation and deeper technical sessions</li>
+<li><strong><a href="https://arena2036.de/en/reader/third-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer">Third</a> Eclipse Tractus-X Community Days</strong> (December 2024) - Focus on ecosystem growth and adoption</li>
+<li><strong><a href="https://arena2036.de/en/reader/fourth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer">Fourth</a> Eclipse Tractus-X Community Days</strong> (May 2025) - International collaboration and use case sharing</li>
+</ul>
+<p>Each event has contributed to building a stronger, more connected Tractus-X community, and we look forward to continuing this tradition.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="registration">Registration<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#registration" class="hash-link" aria-label="Direct link to Registration" title="Direct link to Registration" translate="no">​</a></h3>
+<p>Registration details and participation information will be available soon. Stay tuned for updates on how to secure your spot at this exciting community gathering.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The agenda for both days is not available in detail. We will provide it as soon as possible. please have a look <a href="https://arena2036.de/files/FinaleBilder/05_Veranstaltungen/ARENA-X/Fourth_Eclipse_Tractus-X_Community_Days/Agenda_Short_19.02.png" target="_blank" rel="noopener noreferrer">here</a> for a rough agenda.</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="be-part-of-the-future">Be Part of the Future<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2025#be-part-of-the-future" class="hash-link" aria-label="Direct link to Be Part of the Future" title="Direct link to Be Part of the Future" translate="no">​</a></h3>
+<p>Whether you're a developer, project manager or solution provider, the Eclipse Tractus-X Community Days offer an unparalleled forum for collaboration, creativity and contribution
+to the future of data spaces.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>Save the date: Dec 4-5, 2025</strong> and register <a href="https://eveeno.com/171169912" target="_blank" rel="noopener noreferrer">here</a></p></div></div>
+<p>Let's continue driving open-source innovation together!</p>
+<p>We look forward to seeing you in Stuttgart for another successful community gathering!</p>]]></content:encoded>
+            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
+            <category>community</category>
+            <category>event</category>
+            <category>tractus-x</category>
+            <category>collaboration</category>
+        </item>
         <item>
             <title><![CDATA[New Tractus-X Identity Hub Tutorial Video]]></title>
             <link>https://eclipse-tractusx.github.io/blog/tractusx-identityhub</link>
@@ -1192,72 +1240,6 @@ and <a href="https://catena-x.net/en/news-dates/artikel/first-tractus-x-communit
 <p>We look forward to welcoming you to this exciting event and exploring the possibilities of Tractus-X and the Catena-X KITs together!</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="presenters-of-the-event">Presenters of the event<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#presenters-of-the-event" class="hash-link" aria-label="Direct link to Presenters of the event" title="Direct link to Presenters of the event" translate="no">​</a></h3>
 <p>This is an Eclipse Tractus-X event, which takes place within the framework of the Catena-X Automotive Network consortium project (funding code: 13IK004*) and the Catena-X Automotive Network e.V. ARENA2036 will host the event on its premises and contribute its data space activities (ARENA-X).</p>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
-        </item>
-        <item>
-            <title><![CDATA[Tractus-X Open Planning R24.08]]></title>
-            <link>https://eclipse-tractusx.github.io/blog/open-planning-r24-08</link>
-            <guid>https://eclipse-tractusx.github.io/blog/open-planning-r24-08</guid>
-            <pubDate>Mon, 19 Feb 2024 11:00:00 GMT</pubDate>
-            <description><![CDATA[The Eclipse Tractus-X Open Planning Days - Empowering the Catena-X Data Space]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></p>
-<p>Dear Tractus-X Community Members 🎉,</p>
-<p>we are excited to extend this invitation to you for our upcoming Tractus-X meetings. These meetings are a great opportunity for both business stakeholders and developers to contribute and collaborate on the future of Tractus-X.
-Please feel free to forward this post to anyone interested in contributing, whether in planning or development.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h2>
-<ul>
-<li><strong>Date:</strong> 10th April and 11th April 2024</li>
-<li><strong>Time:</strong> 08:00 - 12:00</li>
-<li>Please see the <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer">Open Meetings page</a> for downloadable ICS file and session link</li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23" target="_blank" rel="noopener noreferrer">Release Planning Board</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wednesday-10th-april-2024">Wednesday, 10th April 2024<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#wednesday-10th-april-2024" class="hash-link" aria-label="Direct link to Wednesday, 10th April 2024" title="Direct link to Wednesday, 10th April 2024" translate="no">​</a></h3>
-<ul>
-<li><strong>08:00 - 08:30</strong> - Open Planning Vision &amp; Intro</li>
-<li><strong>08:30 - 09:00</strong> - Open Planning Vision Deep Dive Tractus-X</li>
-<li><strong>09:00 - 11:30</strong> - Joint Open Planning (all teams)<!-- -->
-<ul>
-<li><strong>09:00 - 09:15</strong> - Business Domain SUS</li>
-<li><strong>09:15 - 11:15</strong> - Platform Domain</li>
-<li><strong>11:15 - 11:30</strong> - Business Domain PQR</li>
-</ul>
-</li>
-<li><strong>11:30 - 12:00</strong> - Open Planning Wrap-Up / Summary Day 1</li>
-</ul>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The detailed agenda is only filtered by <code>label</code>not by status. As a prequisite, the issues need to be in status <code>Backlog</code>.</p></div></div>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="business-domain-sus">Business Domain SUS<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#business-domain-sus" class="hash-link" aria-label="Direct link to Business Domain SUS" title="Direct link to Business Domain SUS" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>09:00 - 09:10</td><td>pcf, circularity, eco pass</td><td><a href="https://github.com/eclipse-tractusx/sig-release/issues?q=is%3Aissue+is%3Aopen+issue%3A+628+591+632+638+614" target="_blank" rel="noopener noreferrer">features</a></td><td>5</td></tr><tr><td>09:10 - 09:15</td><td>digital product pass</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22digital+product+pass%22&amp;pane=issue&amp;itemId=59170648" target="_blank" rel="noopener noreferrer">features</a></td><td>4</td></tr></tbody></table>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="platform-domain">Platform Domain<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#platform-domain" class="hash-link" aria-label="Direct link to Platform Domain" title="Direct link to Platform Domain" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>09:15 - 09:35</td><td>golden record, business partner</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22golden+record%22%2C%22business+partner%22" target="_blank" rel="noopener noreferrer">features</a></td><td>7</td></tr><tr><td>09:35 - 09:55</td><td>portal</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22++label%3A%22portal%22+" target="_blank" rel="noopener noreferrer">features</a></td><td>8</td></tr><tr><td>10:35 - 10:40</td><td>data sovereignty</td><td><a href="https://github.com/eclipse-tractusx/sig-release/issues?q=is%3Aissue+is%3Aopen+issue%3A+584+583+581" target="_blank" rel="noopener noreferrer">features</a></td><td>3</td></tr><tr><td>10:40 - 10:50</td><td>digital twin registry, discovery finder, discovery service, semantic hub</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22digital+twin+registry%22%2C%22discovery+finder%22%2C%22discovery+service%22%2C%22semantic+hub%22" target="_blank" rel="noopener noreferrer">features</a></td><td>4</td></tr><tr><td>10:50 - 10:55</td><td>knowledge agent</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22knowledge+agent%22+" target="_blank" rel="noopener noreferrer">features</a></td><td>2</td></tr></tbody></table>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="business-domain-pqr">Business Domain PQR<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#business-domain-pqr" class="hash-link" aria-label="Direct link to Business Domain PQR" title="Direct link to Business Domain PQR" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>11:15 - 11:30</td><td>dcm, puris, osim</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22osim%22%2C%22puris%22%2C%22dcm%22+" target="_blank" rel="noopener noreferrer">features</a></td><td>8</td></tr></tbody></table>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="thursday-11th-april-2024">Thursday, 11th April 2024<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#thursday-11th-april-2024" class="hash-link" aria-label="Direct link to Thursday, 11th April 2024" title="Direct link to Thursday, 11th April 2024" translate="no">​</a></h3>
-<ul>
-<li><strong>08:00 - 09:00</strong> - Open Planning Draft Plan Review</li>
-<li><strong>09:00 - 10:30</strong> - Joint Open Planning (all teams)</li>
-<li><strong>10:30 - 11:00</strong> - Release 24.08 Confidence Vote</li>
-<li><strong>11:00 - 11:30</strong> - Feedback / Retro</li>
-<li><strong>11:30 - 12:00</strong> - Open Planning Wrap-Up / Summary</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="platform-domain-1">Platform Domain<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#platform-domain-1" class="hash-link" aria-label="Direct link to Platform Domain" title="Direct link to Platform Domain" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>09:00 - 09:15</td><td>miw</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22miw%22" target="_blank" rel="noopener noreferrer">features</a></td><td>3</td></tr><tr><td>09:15 - 09:30</td><td>edc</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22edc%22" target="_blank" rel="noopener noreferrer">features</a></td><td>15</td></tr><tr><td>09:30 - 09:35</td><td>sde</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22sde%22" target="_blank" rel="noopener noreferrer">features</a></td><td>1</td></tr><tr><td>09:35 - 09:45</td><td>sd factory</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22sd+factory%22" target="_blank" rel="noopener noreferrer">features</a></td><td>2</td></tr><tr><td>09:45 - 09:55</td><td>irs</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22irs%22" target="_blank" rel="noopener noreferrer">features</a></td><td>1</td></tr><tr><td>09:45 - 09:55</td><td>trace-x</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22trace-x%22+" target="_blank" rel="noopener noreferrer">features</a></td><td>4</td></tr></tbody></table>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="business-domain-pqr-1">Business Domain PQR<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#business-domain-pqr-1" class="hash-link" aria-label="Direct link to Business Domain PQR" title="Direct link to Business Domain PQR" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>09:55 - 10:15</td><td>dcm, puris, osim</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?filterQuery=label%3A%22Prep-PI13%22+label%3A%22osim%22%2C%22puris%22%2C%22dcm%22+" target="_blank" rel="noopener noreferrer">features</a></td><td>8</td></tr></tbody></table>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="left-over">Left over<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#left-over" class="hash-link" aria-label="Direct link to Left over" title="Direct link to Left over" translate="no">​</a></h4>
-<table><thead><tr><th>Time</th><th>Topic / Labels</th><th>Link</th><th>Number of features</th></tr></thead><tbody><tr><td>10:15 - 10:30</td><td>open decision</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/23?sliceBy%5Bvalue%5D=open+decision" target="_blank" rel="noopener noreferrer">features</a></td><td>7</td></tr></tbody></table>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="staying-informed">Staying Informed<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#staying-informed" class="hash-link" aria-label="Direct link to Staying Informed" title="Direct link to Staying Informed" translate="no">​</a></h2>
-<p>To stay updated on any changes or additional information, please subscribe to our mailing list. A great way to keep informed is through the provided <a href="https://www.eclipse.org/lists/tractusx-dev/maillist.rss" target="_blank" rel="noopener noreferrer">Tractus-X Development Mailing List RSS Feed</a>.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Here, you can also find previous messages for reference.</p></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="further-information">Further Information<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#further-information" class="hash-link" aria-label="Direct link to Further Information" title="Direct link to Further Information" translate="no">​</a></h2>
-<p>For more details about the planning process and what these meetings entail, please refer to our guide on <a href="https://github.com/eclipse-tractusx/sig-release/blob/main/docs/open-refinement-and-planning.md" target="_blank" rel="noopener noreferrer">Open Refinement and Planning in Open Source Communities</a>
-and of course the sig-release <a href="https://github.com/eclipse-tractusx/sig-release/blob/main/README.md" target="_blank" rel="noopener noreferrer">README</a></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="stay-connected">Stay Connected<a href="https://eclipse-tractusx.github.io/blog/open-planning-r24-08#stay-connected" class="hash-link" aria-label="Direct link to Stay Connected" title="Direct link to Stay Connected" translate="no">​</a></h2>
-<p>Follow our <a href="https://eclipse-tractusx.github.io/blog" target="_blank" rel="noopener noreferrer">news section</a> and join our <a href="https://eclipse-tractusx.github.io/docs/oss/how-to-contribute/#dev-mailinglist" target="_blank" rel="noopener noreferrer">Tractus-X mailing list</a>
-and be part of our <a href="https://chat.eclipse.org/#/room/#tools.tractus-x:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Matrix Chat from Eclipse Tractus-X</a></p>
-<p>For more details about Tractus-X, visit the official <a href="https://projects.eclipse.org/projects/automotive.tractusx" target="_blank" rel="noopener noreferrer">Eclipse Tractus-X Project Page</a>.</p>
-<hr>
-<p>We look forward to your participation and contributions in shaping the future of Tractus-X.</p>
-<p>🚀 <strong>The Tractus-X Team</strong></p>]]></content:encoded>
             <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
         </item>
     </channel>
