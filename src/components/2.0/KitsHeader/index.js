@@ -53,8 +53,8 @@ export default function Kit2Header() {
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
-            light: ('/img/main-bg-light.png'),
-            dark: ('/img/main_bg-min.png'),
+            light: require('@site/static/img/main-bg-light.png').default,
+            dark: require('@site/static/img/main_bg-min.png').default,
           }}
           className={styles.hero_bg}
           style={{
@@ -67,8 +67,8 @@ export default function Kit2Header() {
               <ThemedImage
                 // alt="Docusaurus themed image hero background"
                 sources={{
-                  light: ('/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Dark.png'),
-                  dark: ('/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Light.png'),
+                  light: require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Dark.png').default,
+                  dark: require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Light.png').default,
                 }}
                 className={styles.image}
                 style={{
