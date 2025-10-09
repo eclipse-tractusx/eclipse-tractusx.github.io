@@ -517,7 +517,7 @@ npm/npmjs/-/memfs/4.48.1, Apache-2.0, approved, #23929
 npm/npmjs/-/merge-descriptors/1.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/merge-stream/2.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/merge2/1.4.1, MIT, approved, clearlydefined
-npm/npmjs/-/mermaid/11.12.0, MIT AND (Apache-2.0 AND MIT AND MPL-2.0) AND (Apache-2.0 AND MIT AND OFL-1.1) AND Apache-2.0 AND (Apache-2.0 AND MPL-2.0) AND (LicenseRef-scancode-free-unknown AND LicenseRef-scancode-proprietary-license AND MIT) AND (Apache-2.0 AND OFL-1.1), restricted, #23925
+npm/npmjs/-/mermaid/11.12.0, MIT AND Apache-2.0 AND MPL-2.0 AND OFL-1.1, approved, #23925
 npm/npmjs/-/methods/1.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/micromark-core-commonmark/2.0.3, MIT, approved, #20324
 npm/npmjs/-/micromark-extension-directive/3.0.2, MIT, approved, clearlydefined
