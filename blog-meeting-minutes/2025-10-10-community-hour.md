@@ -41,7 +41,7 @@ tags: [community, meeting-minutes]
 
 - **Theresa** nominated as committer (focus: release management).
 - Election closing next Thursday; committers asked to vote.
-- Andriis PMC election pending next PMC Monday meeting.
+- Andrii's PMC election pending next PMC Monday meeting.
 
 ### Community Days
 
