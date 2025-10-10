@@ -22,7 +22,7 @@
 import React, { useEffect, useState } from "react";
 import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
 import ThemedImage from '@theme/ThemedImage';
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 export default function Kit2Header() {
   const [scrollY, setScrollY] = useState(0);

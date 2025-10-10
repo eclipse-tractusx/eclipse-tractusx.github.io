@@ -22,7 +22,7 @@
  import React from "react";
  import Link from "@docusaurus/Link";
  import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
- import styles from "./styles.module.css";
+ import styles from "./styles.module.scss";
  
  export default function KitsTitle() {
    return (
