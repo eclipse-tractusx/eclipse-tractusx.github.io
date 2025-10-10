@@ -24,6 +24,7 @@ import { kitsGallery } from "@site/utils/kitsGallery";
 import CarouselSuccessStories from "../../components/CarouselSuccessStories";
 import RoleBasedEnrtyComponent from "../../components/RoleBasedEnrtyComponent";
 import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
+import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -34,6 +35,7 @@ export default function KitsPage() {
     >
       <KitHeader />
       <KitsTitle />
+      <KitsArchitecture />
       <main>
       </main>
     </Layout>
