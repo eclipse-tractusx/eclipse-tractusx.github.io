@@ -35,7 +35,7 @@ tags: [community, meeting-minutes]
 
 - New **round-robin schedule**; participants to confirm dates in the shared discussion link.
 - Some moderation slots reallocated due to vacations/conflicts.
-- Check for new series needed with beginning of next year
+- Check for a new series needed with beginning of next year
 
 ### Committer Elections
 
