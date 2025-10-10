@@ -20,4 +20,46 @@
  * SPDX-License-Identifier: Apache-2.0
 ********************************************************************************/
 
+// Colors
 $space-glow: rgb(255 255 255 / 50%);
+$text-white: #ffffff;
+$text-gray: #999999;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+$spacing-xxl: 6rem;
+
+// Font sizes
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+$font-size-xxxl: 48px;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.4;
+$line-height-relaxed: 1.6;
+
+// Breakpoints
+$breakpoint-tablet: 996px;
+$breakpoint-mobile: 600px;
+$breakpoint-mobile-sm: 480px;
+
+// Header heights
+$header-height-desktop: 60vh;
+$header-height-tablet: 50vh;
+$header-height-mobile: 40vh;
+$header-height-mobile-sm: 35vh;
