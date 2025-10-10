@@ -1,6 +1,6 @@
 ---
 slug: community-office-hour-2025-10-10
-title: Community Office Hour 2025-10-210
+title: Community Office Hour 2025-10-10
 authors:
     - matbmoser
     - stephan_bauer
