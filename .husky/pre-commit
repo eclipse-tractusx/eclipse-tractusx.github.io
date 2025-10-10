@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Add Homebrew paths to ensure npm is available
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
 npm run lint-doc
