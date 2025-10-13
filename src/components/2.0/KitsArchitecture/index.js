@@ -21,7 +21,10 @@
 
  import React from "react";
  import styles from "./styles.module.scss";
- 
+ import CatenaXLogo from "@site/static/img/dataspace-logos/catena-x.svg"
+ import FactoryXLogo from "@site/static/img/dataspace-logos/factory-x.png"
+ import AerospaceXLogo from "@site/static/img/dataspace-logos/aerospace-x.png" 
+ import SemiconductorXLogo from "@site/static/img/dataspace-logos/semiconductor-x.png" 
  export default function KitsArchitecture() {
    return (
      <section className={styles.architecture_section}>
@@ -31,34 +34,34 @@
          <div className={styles.diagram}>
            {/* Top row hexagons */}
            <div className={styles.hexagon_row}>
-             <div className={styles.hexagon}>
+             <div className={`${styles.hexagon} ${styles.hexagon_catena}`}>
                <div className={styles.hexagon_content}>
-                 <div className={styles.hexagon_title}>Catena-X</div>
-                 <div className={styles.hexagon_subtitle}>Automotive KITs</div>
+                 <div className={styles.hexagon_title}><CatenaXLogo /></div>
+                 <div className={styles.hexagon_subtitle}>Catena-X</div>
                </div>
              </div>
-             <div className={styles.hexagon}>
+             <div className={`${styles.hexagon} ${styles.hexagon_factory}`}>
                <div className={styles.hexagon_content}>
-                <div className={styles.hexagon_title}>Factory-X</div>
-                 <div className={styles.hexagon_subtitle}>Shop Floor KITs</div>
+                <div className={styles.hexagon_title}><img src={FactoryXLogo} alt="Factory-X Logo" /></div>
+                 <div className={styles.hexagon_subtitle}>Factory-X</div>
                </div>
              </div>
-             <div className={styles.hexagon}>
+             <div className={`${styles.hexagon} ${styles.hexagon_semiconductor}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}>Semiconductor-X</div>
-                 <div className={styles.hexagon_subtitle}>Semiconductor KITs</div>
+                  <div className={styles.hexagon_title}><img src={SemiconductorXLogo} alt="Semiconductor-X Logo" /></div>
+                 <div className={styles.hexagon_subtitle}>Semiconductor-X</div>
                </div>
              </div>
-             <div className={styles.hexagon}>
+             <div className={`${styles.hexagon} ${styles.hexagon_aerospace}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}>Aerospace-X</div>
-                 <div className={styles.hexagon_subtitle}>Aerospace KITs</div>
+                  <div className={styles.hexagon_title}><img src={AerospaceXLogo} alt="Aerospace-X Logo" /></div>
+                 <div className={styles.hexagon_subtitle}>Aerospace-X</div>
                </div>
              </div>
-             <div className={styles.hexagon}>
+             <div className={`${styles.hexagon} ${styles.hexagon_other}`}>
                <div className={styles.hexagon_content}>
-                <div className={styles.hexagon_title}>+</div>
-                 <div className={styles.hexagon_subtitle}>Other KITs</div>
+                <div className={`${styles.hexagon_title} ${styles.other_title}`}>+</div>
+                 <div className={styles.hexagon_subtitle}>Other Dataspaces</div>
                </div>
              </div>
            </div>
