@@ -55,6 +55,29 @@
   height: 200px;
   max-width: 100%;
   object-fit: contain;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image_loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image_loaded {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Prevent flash of unstyled content for ThemedImage */
+:global(.theme-doc-sidebar-container) .image,
+:global([data-theme="light"]) .image img[src*="Dark"],
+:global([data-theme="dark"]) .image img[src*="Light"] {
+  display: none !important;
+}
+
+:global([data-theme="light"]) .image img[src*="Light"],
+:global([data-theme="dark"]) .image img[src*="Dark"] {
+  display: block !important;
 }
 
 .scroll_down_button {
@@ -75,9 +98,9 @@
 }
 
 .scroll_arrow {
-  color: $text-white;
+  color: var(--ifm-font-color-base);
   animation: bounce 2s infinite;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 4px var(--ifm-color-emphasis-300));
 }
 
 @keyframes bounce {
