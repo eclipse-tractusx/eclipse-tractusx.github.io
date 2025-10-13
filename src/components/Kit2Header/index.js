@@ -20,12 +20,15 @@
 ********************************************************************************/
 
 import React, { useEffect, useState } from "react";
+import { useColorMode } from '@docusaurus/theme-common';
 import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
 import ThemedImage from '@theme/ThemedImage';
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 export default function Kit2Header() {
   const [scrollY, setScrollY] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,14 +42,44 @@ export default function Kit2Header() {
     };
   }, []);
 
+  useEffect(() => {
+    // Preload both images to prevent flashing
+    const lightImg = new Image();
+    const darkImg = new Image();
+    let loadedCount = 0;
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === 2) {
+        setImagesLoaded(true);
+      }
+    };
+
+    lightImg.onload = handleImageLoad;
+    darkImg.onload = handleImageLoad;
+    lightImg.onerror = handleImageLoad;
+    darkImg.onerror = handleImageLoad;
+
+    lightImg.src = require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Dark.png').default;
+    darkImg.src = require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Light.png').default;
+  }, []);
+
+  const scrollToNextSection = () => {
+    const windowHeight = window.innerHeight;
+    window.scrollTo({
+      top: windowHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <header className={styles.deepdive_header}>
       {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
-            light: ('/img/main-bg-light.png'),
-            dark: ('/img/main_bg-min.png'),
+            light: require('@site/static/img/main-bg-light.png').default,
+            dark: require('@site/static/img/main_bg-min.png').default,
           }}
           className={styles.hero_bg}
           style={{
@@ -59,12 +92,39 @@ export default function Kit2Header() {
               <ThemedImage
                 // alt="Docusaurus themed image hero background"
                 sources={{
-                  light: ('/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Dark.png'),
-                  dark: ('/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Light.png'),
+                  light: require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Dark.png').default,
+                  dark: require('@site/static/img/tx-logos/241215_Tractus-X_Where_We_Build_Dataspaces_Logo_Light.png').default,
                 }}
                 className={styles.image}
+                style={{
+                  transform: `scale(${Math.min(1.2, 1 + scrollY * 0.0005)})`
+                }}
               />
         </div>
+        
+        {/* Scroll down button */}
+        <button 
+          className={styles.scroll_down_button}
+          onClick={scrollToNextSection}
+          aria-label="Scroll to next section"
+        >
+          <svg 
+            width="32" 
+            height="32" 
+            viewBox="0 0 24 24" 
+            fill="none"
+            className={styles.scroll_arrow}
+          >
+            <path 
+              d="M7 10L12 15L17 10" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        
     </header>
       
   );

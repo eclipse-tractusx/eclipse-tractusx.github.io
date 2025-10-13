@@ -29,7 +29,7 @@
    return (
      <section className={styles.architecture_section}>
        <div className={styles.container}>
-         <h2 className={styles.title}>Our KITs Structure</h2>
+         <h2 className={styles.title}>Our KITs Architecture</h2>
          
          <div className={styles.diagram}>
            {/* Top row hexagons */}
@@ -68,13 +68,13 @@
 
            {/* Bottom rectangles */}
            <div className={styles.rectangle_column}>
-             <div className={styles.rectangle}>
+             <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
                <span>Cross-Industry KITs</span>
              </div>
-             <div className={styles.rectangle}>
+             <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
                <span>Industry Core Foundation</span>
              </div>
-             <div className={styles.rectangle}>
+             <div className={`${styles.rectangle} ${styles.rectangle_dataspace}`}>
                <span>Dataspace Foundation</span>
              </div>
            </div>
