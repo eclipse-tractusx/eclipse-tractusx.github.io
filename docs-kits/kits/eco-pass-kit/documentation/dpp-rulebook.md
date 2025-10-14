@@ -63,6 +63,8 @@ The following sections present clear, actionable guidance and aggregate collecti
 
 Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.
 
+Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to use common sense and ensure the information is relevant and clear. You’ll find helpful explanations and guidance for these open data points in their individual sections throughout this rulebook.
+
 ## 2. The Value of Validated Data
 
 Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders; including manufacturers, suppliers, consumers, and regulators to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain.
@@ -125,11 +127,11 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
-#### Sequential Numbering:
+#### 3.2.2 Sequential Numbering:
 In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
-#### GTIN: 
+#### 3.2.3 GTIN: 
 The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
-#### DID:
+#### 3.2.4 DID:
 Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
 
 ### 3.3 Key Stakeholders and their Roles
@@ -165,27 +167,31 @@ This section sets out the main rules and guiding principles for entering, managi
 ### 4.2 Data Entry Guidelines (General Rules for Data Input)
 
 - Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
-- In cases where certain data points are not applicable, **leave blank only if permitted by the data model.(Not possible if mandatory? more clear language! Explain applicable field, difference between applicable and optional)**
-   - Optional?
+- Some groups of data points include an "Applicable" field that determines whether the related data points must be completed.
+    - If "Applicable" is set to True, all related data points in that group are required and must be filled in.
+    - If "Applicable" is set to False, none of the related data points should be filled.
+    Separately, a data point marked as "Optional" means it can be filled in if relevant, but it is not mandatory to provide a value.
 - Use consistent naming conventions and units (refer to Section 4.3).
-- Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook. (Do we have an example?)
+- Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook.
 
 #### 4.2.1 Granularity
 - Is there any rule already defined if or when data needs to be provided on a batch or instance level?
 
 
 ### 4.3 Data Format and Standardization
-- Enter all data according to the format specified in the DPP model (e.g., 
-   - Comma vs. decmial? dependent on language setting?
-   - date as YYYY-MM-DD, decimals with “.” separator).
+- Enter all data according to the format specified in the DPP model
+   - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
+   - All dates should be entered using the YYYY-MM-DD format
 - **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
-- For free text fields, keep entries clear and concise. **(Add an example! content header?)**
+- For free text fields, keep entries clear and concise.
 ### 4.4 Data Trust
 - Refer/Link to data trust KIT
 - Trust anchors as defined in CatenaX ? Link?
 
 
 ## 5. The DPP Data Model: Overview of Data Points
+
+This section provides a detailed overview of each data point in the Digital Product Passport (DPP) data model. For every data point, you will find the relevant regulatory references, its status as mandatory or optional, a clear description, and any specific rules that apply.
 
 ### 5.1 Metadata
 
