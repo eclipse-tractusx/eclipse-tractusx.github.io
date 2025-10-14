@@ -30,6 +30,15 @@
      <section className={styles.architecture_section}>
        <div className={styles.container}>
          <h2 className={styles.title}>Our KITs Architecture</h2>
+         <p className={styles.subtitle}>Building the foundation for interoperable dataspaces across industries</p>
+         
+         {/* Interactive hint */}
+         <div className={styles.interactive_hint}>
+           <svg className={styles.hint_icon} width="14" height="14" viewBox="0 0 24 24" fill="none">
+             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+           </svg>
+           <span>Click on the building blocks to explore our KITs</span>
+         </div>
          
          <div className={styles.diagram}>
            {/* Top row hexagons */}
@@ -79,6 +88,15 @@
              </div>
            </div>
          </div>
+         
+         {/* Interactive CTA Button */}
+         <button className={styles.explore_button}>
+           <span className={styles.button_text}>Click here to explore more about KITs</span>
+           <svg className={styles.button_icon} width="20" height="20" viewBox="0 0 24 24" fill="none">
+             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+           </svg>
+           <div className={styles.button_glow}></div>
+         </button>
        </div>
      </section>
    );
