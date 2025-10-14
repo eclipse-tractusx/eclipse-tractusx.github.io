@@ -178,6 +178,22 @@
       transform: translate(-50%, -50%) rotate(90deg) scale(1.01);
     }
   }
+
+  // Active (click) effect
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: transform 0.1s ease;
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.98);
+      transition: transform 0.1s ease;
+    }
+  }
 }
 
 .hexagon_catena {
@@ -417,6 +433,16 @@
     span {
       color: white;
       font-weight: 600 !important;
+    }
+  }
+
+  // Active (click) effect
+  &:active {
+    transform: translateY(0) scale(0.98);
+    transition: transform 0.1s ease;
+
+    span {
+      transition: transform 0.1s ease;
     }
   }
 }
