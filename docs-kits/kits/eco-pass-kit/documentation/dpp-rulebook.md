@@ -1144,26 +1144,25 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 5.8.12 footprintUnit (product environmental footprint)
 
 The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 5.8.13 footprintType (product environmental footprint)
 
 Categorizes type of environmental impact for depth in sustainability analysis.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 5.8.14 footprintLifecycle (product environmental footprint)
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
-
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 #### 5.8.15 performanceClass (product environmental footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
@@ -1241,13 +1240,13 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices.
 
-> **Content Validation**<br>Reparability score in accordance to Annex I of (Regulation (EU) 2024/1781)[https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng]
+> **Content Validation**<br>Reparability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
 #### 5.8.30 Durability Score
 
 The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
 
-> **Content Validation**<br>Durability score in accordance to Annex I of (Regulation (EU) 2024/1781)[https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng]
+> **Content Validation**<br>Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
 #### 5.8.31 Reuse Info 
 
