@@ -1119,6 +1119,7 @@ The specific phase within a product's life cycle to which the associated environ
 #### 5.8.6 performanceClass(product carbon footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
 #### 5.8.7 facility(product carbon footprint)
 
@@ -1166,6 +1167,7 @@ The specific phase within a product's life cycle to which the associated environ
 #### 5.8.15 performanceClass (product environmental footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
 #### 5.8.16 facility (product environmental footprint)
 
@@ -1214,6 +1216,8 @@ The specific phase within a product's life cycle to which the associated environ
 #### 5.8.24 performanceClass (product material footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
 #### 5.8.25 facility (product material footprint)
 
