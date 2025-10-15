@@ -1088,7 +1088,7 @@ The name of the material which is present in the product.
 
 The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives.
 
-a) For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.                                                   | |
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.
 
 #### 5.8.2 value (product carbon footprint)
 
@@ -1144,25 +1144,25 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). (Product Environmental Footprint (PEF))[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
 
 #### 5.8.12 footprintUnit (product environmental footprint)
 
 The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). (Product Environmental Footprint (PEF))[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document. 
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
 
 #### 5.8.13 footprintType (product environmental footprint)
 
 Categorizes type of environmental impact for depth in sustainability analysis.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). (Product Environmental Footprint (PEF))[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document. 
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
 
 #### 5.8.14 footprintLifecycle (product environmental footprint)
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). (Product Environmental Footprint (PEF))[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document. 
+> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, (Product Environmental Footprint)[https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en] could also be used as a guiding document.
 
 #### 5.8.15 performanceClass (product environmental footprint)
 
