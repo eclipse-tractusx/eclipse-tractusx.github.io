@@ -22,9 +22,6 @@
  import React from "react";
  import styles from "./styles.module.scss";
  import CatenaXLogo from "@site/static/img/dataspace-logos/catena-x.svg"
- import FactoryXLogo from "@site/static/img/dataspace-logos/factory-x.png"
- import AerospaceXLogo from "@site/static/img/dataspace-logos/aerospace-x.png" 
- import SemiconductorXLogo from "@site/static/img/dataspace-logos/semiconductor-x.png" 
  export default function KitsArchitecture() {
    return (
      <section className={styles.architecture_section}>
@@ -51,19 +48,19 @@
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_factory}`}>
                <div className={styles.hexagon_content}>
-                <div className={styles.hexagon_title}><img src={FactoryXLogo} alt="Factory-X Logo" /></div>
+                <div className={styles.hexagon_title}></div>
                  <div className={styles.hexagon_subtitle}>Factory-X</div>
                </div>
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_semiconductor}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}><img src={SemiconductorXLogo} alt="Semiconductor-X Logo" /></div>
+                  <div className={styles.hexagon_title}></div>
                  <div className={styles.hexagon_subtitle}>Semiconductor-X</div>
                </div>
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_aerospace}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}><img src={AerospaceXLogo} alt="Aerospace-X Logo" /></div>
+                  <div className={styles.hexagon_title}></div>
                  <div className={styles.hexagon_subtitle}>Aerospace-X</div>
                </div>
              </div>
