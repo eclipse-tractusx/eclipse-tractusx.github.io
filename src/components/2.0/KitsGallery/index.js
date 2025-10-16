@@ -58,28 +58,32 @@ const kitsData = {
       name: 'CONNECTOR KIT',
       logo: ConnectorKitLogo,
       route: '/docs-kits/kits/connector-kit/adoption-view/intro',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Eclipse Dataspace Connector for secure and sovereign data exchange in dataspaces'
     },
     {
       id: 'data-governance',
       name: 'DATA GOVERNANCE KIT',
       logo: DataGovernanceLogo,
       route: '/docs-kits/kits/data-governance/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Framework for managing data policies, access control, and compliance across the dataspace'
     },
     {
       id: 'data-trust-security',
       name: 'DATA TRUST & SECURITY KIT',
       logo: DataTrustSecurityLogo,
       route: '/docs-kits/kits/data-trust-and-security/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Security mechanisms, identity management, and trust frameworks for secure data exchange'
     },
     {
       id: 'business-partner',
       name: 'BUSINESS PARTNER KIT',
       logo: BusinessPartnerLogo,
       route: '/docs-kits/kits/business-partner/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Manage and share business partner master data with standardized formats and validation'
     }
   ],
   industryCoreFoundation: [
@@ -88,42 +92,48 @@ const kitsData = {
       name: 'INDUSTRY CORE KIT',
       logo: IndustryCoreKitLogo,
       route: '/docs-kits/kits/industry-core/adoption-view',
-      dataspaces: ['Catena-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Factory-X'],
+      description: 'Core data models, semantic standards, and APIs for industry-specific data exchange'
     },
     {
       id: 'digital-twin',
       name: 'DIGITAL TWIN KIT',
       logo: DigitalTwinKitLogo,
       route: '/docs-kits/kits/digital-twin/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      description: 'Create and manage digital representations of physical assets across the supply chain'
     },
     {
       id: 'data-driven-quality',
       name: 'DATA DRIVEN QUALITY KIT',
       logo: DataDrivenQualityLogo,
       route: '/docs-kits/kits/data-driven-quality/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      description: 'Data-driven quality management and analytics for proactive issue detection and resolution'
     },
     {
       id: 'traceability',
       name: 'TRACEABILITY KIT',
       logo: TraceabilityKitLogo,
       route: '/docs-kits/kits/traceability/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      description: 'End-to-end traceability of parts and materials across the entire supply chain'
     },
     {
       id: 'pcf',
       name: 'PRODUCT CARBON FOOTPRINT KIT',
       logo: PCFKitLogo,
       route: '/docs-kits/kits/pcf/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Calculate, exchange, and track product carbon footprints throughout the value chain'
     },
     {
       id: 'data-chain',
       name: 'DATA CHAIN KIT',
       logo: DataChainKitLogo,
       route: '/docs-kits/kits/data-chain/adoption-view',
-      dataspaces: ['Catena-X', 'Factory-X', 'Semiconductor-X']
+      dataspaces: ['Catena-X', 'Factory-X', 'Semiconductor-X'],
+      description: 'Chain data efficiently across partners with standardized protocols and workflows'
     }
   ],
   useCases: [
@@ -132,82 +142,95 @@ const kitsData = {
       name: 'ESS KIT',
       logo: ESSKitLogo,
       route: '/docs-kits/kits/ess/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Environmental and Social Standards compliance monitoring and reporting across supply chains'
     },
     {
       id: 'eco-pass',
       name: 'ECO PASS KIT',
       logo: EcoPassKitLogo,
       route: '/docs-kits/kits/eco-pass/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      description: 'Digital product passports with environmental data and sustainability metrics'
     },
     {
       id: 'puris',
       name: 'PURIS KIT',
       logo: PurisKitLogo,
       route: '/docs-kits/kits/puris/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      description: 'Predictive Unit Real-time Information Service for supply chain visibility and optimization'
     },
     {
       id: 'dcm',
       name: 'DEMAND & CAPACITY MANAGEMENT KIT',
       logo: DCMKitLogo,
       route: '/docs-kits/kits/dcm/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      description: 'Balance supply and demand across networks with real-time capacity monitoring'
     },
     {
       id: 'logistics',
       name: 'LOGISTICS KIT',
       logo: LogisticsKitLogo,
       route: '/docs-kits/kits/logistics/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X'],
+      description: 'Logistics and transportation management for efficient supply chain operations'
     },
     {
       id: 'maas',
       name: 'MANUFACTURING AS A SERVICE KIT',
       logo: MaaSKitLogo,
       route: '/docs-kits/kits/maas/adoption-view',
-      dataspaces: ['Catena-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Factory-X'],
+      description: 'Manufacturing services marketplace for on-demand production capabilities'
     },
     {
       id: 'model-based-production',
       name: 'MODEL BASED PRODUCTION KIT',
       logo: ModelBasedProductionLogo,
       route: '/docs-kits/kits/model-based-production/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      description: 'Model-based development and data processing for advanced manufacturing'
     },
     {
       id: 'modular-production',
       name: 'MODULAR PRODUCTION KIT',
       logo: ModularProductionLogo,
       route: '/docs-kits/kits/modular-production/adoption-view',
-      dataspaces: ['Catena-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Factory-X'],
+      description: 'Flexible and modular production systems for adaptive manufacturing'
     },
     {
       id: 'osim',
       name: 'ONLINE SIMULATION KIT',
       logo: OSIMKitLogo,
       route: '/docs-kits/kits/osim/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      description: 'Real-time simulation and modeling capabilities for production optimization'
     },
     {
       id: 'requirements',
       name: 'REQUIREMENTS KIT',
       logo: RequirementsKitLogo,
       route: '/docs-kits/kits/requirements/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      description: 'Requirements management and tracking across dataspaces and organizations'
     },
     {
       id: 'supply-chain-disruption',
       name: 'SUPPLY CHAIN DISRUPTION NOTIFICATION KIT',
       logo: SupplyChainDisruptionLogo,
       route: '/docs-kits/kits/supply-chain-disruption/adoption-view',
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X']
+      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      description: 'Monitor and manage supply chain disruptions with real-time notifications and alerts'
     }
   ]
 };
 
 const KitCard = ({ kit }) => {
+  const [showTooltip, setShowTooltip] = React.useState(false);
+
   return (
     <div className={styles.kitCardWrapper}>
       <div className={styles.kitCard__stackContainer}>
@@ -218,6 +241,47 @@ const KitCard = ({ kit }) => {
             <kit.logo className={styles.kitCard__icon} />
           </div>
         </Link>
+        
+        {/* Info Button */}
+        {kit.description && (
+          <div className={styles.kitCard__infoButton}>
+            <button
+              className={styles.infoButton}
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setShowTooltip(!showTooltip);
+              }}
+              aria-label="Kit information"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="7" cy="7" r="6.5" stroke="currentColor" strokeWidth="1" />
+                <circle cx="7" cy="4.5" r="0.5" fill="currentColor" />
+                <path
+                  d="M7 6.5V10.5"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+            
+            {/* Tooltip */}
+            {showTooltip && (
+              <div className={styles.tooltip}>
+                <div className={styles.tooltipArrow}></div>
+                <p className={styles.tooltipText}>{kit.description}</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <h3 className={styles.kitCard__title}>{kit.name}</h3>
     </div>
