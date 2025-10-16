@@ -25,6 +25,7 @@ import CarouselSuccessStories from "../../components/CarouselSuccessStories";
 import RoleBasedEnrtyComponent from "../../components/RoleBasedEnrtyComponent";
 import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
 import KitsArchitecture from "../../components/2.0/KitsArchitecture";
+import KitsGallery from "../../components/2.0/KitsGallery";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -36,8 +37,10 @@ export default function KitsPage() {
       <KitHeader />
       <KitsTitle />
       <KitsArchitecture />
-      <main>
-      </main>
+      <KitsGallery
+        title={"Our Gallery"}
+        description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+      />
     </Layout>
   );
 }
