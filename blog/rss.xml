@@ -4,10 +4,106 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Thu, 09 Oct 2025 14:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Oct 2025 19:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release Planning for Release 26.03]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/release-planning-R26.03</link>
+            <guid>https://eclipse-tractusx.github.io/blog/release-planning-R26.03</guid>
+            <pubDate>Wed, 15 Oct 2025 19:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Tractus-X Community Update - Release Planning for Release 26.03]]></description>
+            <content:encoded><![CDATA[<p><a href="https://eclipse-tractusx.github.io/assets/files/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" target="_blank"><img decoding="async" loading="lazy" alt="Eclipse Tractus-X Open Planning Banner" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></a></p>
+<p>Hello, Eclipse Tractus-X Community!</p>
+<p>Collaboration drives the success of Eclipse Tractus-X, and we are excited to invite you to the Release Planning sessions for <strong>R26.03</strong>! These sessions are your chance to shape the roadmap,
+align with the community, and ensure a well-structured release.</p>
+<p>Rooms for Discussion and Planning:</p>
+<ul>
+<li><a href="https://matrix.to/#/#tractusx-release-planning:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Release Management</a></li>
+<li><a href="https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Test Management</a></li>
+</ul>
+<p>Key Information:</p>
+<ul>
+<li>Dates and Times: Listed for each session below.</li>
+<li>Resources: Visit our <a href="https://eclipse-tractusx.github.io/community/open-meetings#one-time-meetings">open meetings page</a> for all session links and additional documentation.</li>
+<li>Preparation Materials: Ensure readiness by reviewing the provided templates, guidelines, and your own features.</li>
+</ul>
+<p>We look forward to seeing you there and working together to make <strong>R26.03</strong> a success!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="alignment-day-for-r2603">Alignment Day for R26.03<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#alignment-day-for-r2603" class="hash-link" aria-label="Direct link to Alignment Day for R26.03" title="Direct link to Alignment Day for R26.03" translate="no">​</a></h2>
+<p>The Alignment Day focuses on addressing open questions and unresolved dependencies from features planned for Release 26.03. This means we are highly
+dependent on your questions. We want to align and get a better understanding about the related features. This meeting is a possibility to connect.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Even if you don't have questions, it could be interesting anyway.</p></div></div>
+<ul>
+<li>Date: 30.10.2025</li>
+<li>Time: 09:05 - 10:45</li>
+<li>Main Teams Link: <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWUzMmU2ODktMTU0OS00MjM5LTk0MDYtM2UxYmI5OTE1ZDE5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22c4f4cd17-5452-4057-9b00-42444990d814%22%7d" target="_blank" rel="noopener noreferrer">Join the session</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="agenda-1">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#agenda-1" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The agenda itself is dependent on the labeled features.</p></div></div>
+<ul>
+<li>09:05 - 09:20: Welcome and overview of Open Discussion features</li>
+<li>09:20 - 10:30: Group discussions and breakout sessions as needed</li>
+<li>10:30 - 10:45: (Optional) closing and documentation of decisions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-focus-areas">Key Focus Areas<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#key-focus-areas" class="hash-link" aria-label="Direct link to Key Focus Areas" title="Direct link to Key Focus Areas" translate="no">​</a></h3>
+<ul>
+<li>Only features labeled <code>open question</code> will be considered for the agenda.</li>
+<li>The label must be added at least 3 days prior to the event.</li>
+<li>This is not a planning or refinement session — it’s a space to align on open questions and clarify remaining uncertainties.</li>
+<li>Feature owners should be ready to describe their needs or concerns.</li>
+<li>Component developers can use this session to clarify what is expected from them.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning-for-r2603">Open Planning for R26.03<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#open-planning-for-r2603" class="hash-link" aria-label="Direct link to Open Planning for R26.03" title="Direct link to Open Planning for R26.03" translate="no">​</a></h2>
+<p>The Open Planning session finalizes the roadmap for <strong>R26.03</strong>, prioritizing features and aligning all participants on deliverables for the release.</p>
+<ul>
+<li>Date: 13.11.2025</li>
+<li>Time: 09:05 - 12:15</li>
+<li>Teams Link: <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MjM4YTAwYWItMWU0Ny00NzU5LWFlZmYtYWRkZGQyMWRlMTM2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22c4f4cd17-5452-4057-9b00-42444990d814%22%7d" target="_blank" rel="noopener noreferrer">Join the session</a></li>
+</ul>
+<p>Who Should Attend:</p>
+<ul>
+<li>Contributors and Committers from the open-source community</li>
+<li>Expert Group and Committee members</li>
+<li>Feature requesters and stakeholders</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Your participation is crucial to ensure the success of the release planning. Expert Groups, Committees, the open-source community (contributor and committer), feature requesters are encouraged to attend and actively engage in the discussions.</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
+<p>Here’s the plan for the day:</p>
+<ul>
+<li>09:05 - 09:20: Open Planning - Vision &amp; Introduction</li>
+<li>09:20 - 12:00: Joint Open Planning (all teams)</li>
+<li>12:00 - 12:15: Feedback Retro / Open Planning Wrap-up / Summary &amp; Next Steps</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="joint-open-planning">Joint Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#joint-open-planning" class="hash-link" aria-label="Direct link to Joint Open Planning" title="Direct link to Joint Open Planning" translate="no">​</a></h4>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The planning sessions will be driven by our <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.03%22+status%3ABacklog" target="_blank" rel="noopener noreferrer">Release Planning Board</a>, which organizes
+features based on their <code>Topic/Product</code> field. The current agenda is only an example and will be updated with the actual features that are planned for <strong>R26.03</strong>.</p></div></div>
+<table><thead><tr><th>Time</th><th>Topics</th><th><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Features</a></th></tr></thead><tbody><tr><td>09:05 – 09:20</td><td>Open Planning - Vision &amp; Introduction</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>09:20 – 09:25</td><td>PCF</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>09:25 – 09:35</td><td>Circularity</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>09:35 – 10:10</td><td>Dataspace Connectivity</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>10:10 – 10:30</td><td>BPDM</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>10:30 – 10:50</td><td>Portal</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>10:50 – 11:05</td><td>SSI</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:05 – 11:15</td><td>Traceability</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:15 – 11:25</td><td>DCM</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:25 – 11:30</td><td>OSIM</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:30 – 11:35</td><td>PURIS</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:35 – 11:50</td><td>Industry Core</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:50 – 11:55</td><td>Digital Twin</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>11:55 – 12:00</td><td>Testmanagement</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr><tr><td>12:00 – 12:15</td><td>Miscellaneous and Closing</td><td><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/43" target="_blank" rel="noopener noreferrer">Link</a></td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Please note</div><div class="admonitionContent_BuS1"><ul>
+<li>The agenda provides a rough time structure to help guide the session. The timings are not fixed and can be adjusted depending on the flow of the discussion.</li>
+<li>Use the agenda as orientation, but we may deviate if needed based on progress.</li>
+</ul></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites-for-features-to-be-considered-in-open-planning">Prerequisites for features to be considered in Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#prerequisites-for-features-to-be-considered-in-open-planning" class="hash-link" aria-label="Direct link to Prerequisites for features to be considered in Open Planning" title="Direct link to Prerequisites for features to be considered in Open Planning" translate="no">​</a></h3>
+<p>For a feature to be included in the Open Planning, the following conditions must be met:</p>
+<ul>
+<li>Status must be `Backlog – Committers and Expert Groups can set this status after the feature is fully refined.</li>
+<li>All categories in the feature template must be filled – Do not delete any sections from the template.</li>
+<li>Milestone is NOT set – This will be assigned during the Open Planning session.</li>
+<li>Contributor and Committer must be assigned.</li>
+<li>Topic/Product must be set.</li>
+</ul>
+<p>During the session, if there is a common alignment among the participants, the feature milestone can be set to 26.03, meaning it will be developed in the upcoming release.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="important-notes-and-hints">Important Notes and Hints<a href="https://eclipse-tractusx.github.io/blog/release-planning-R26.03#important-notes-and-hints" class="hash-link" aria-label="Direct link to Important Notes and Hints" title="Direct link to Important Notes and Hints" translate="no">​</a></h3>
+<ul>
+<li>Keep the board clean – there are still features with older milestones that have not yet been completed.</li>
+<li>Do not delete any sections from the feature template, except for KITs.</li>
+<li>For KITs, only the Contributor, Committer, and Description fields need to be filled.</li>
+</ul>
+<p>For any questions or further information, feel free to reach out via our <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer">mailing list</a> or join us in the Tractus-X <a href="https://matrix.to/#/#automotive.tractusx:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">Matrix channel</a>.</p>
+<p>We look forward to your participation and collaboration! 🚀</p>]]></content:encoded>
+            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
+            <author>theresa.hilger@catena-x.net (Theresa Hilger)</author>
+        </item>
         <item>
             <title><![CDATA[Fifth Eclipse Tractus-X Community Days]]></title>
             <link>https://eclipse-tractusx.github.io/blog/community-days-12-2025</link>
@@ -1199,48 +1295,6 @@ and be part of our <a href="https://chat.eclipse.org/#/room/#tools.tractus-x:mat
 <p>The Industry Core is an integrative layer between the industry-agnostic dataspace foundation and the use cases. It ensures that the various applications can access common functionalities. It describes how digital twins of components, materials and vehicles can be created for the automotive industry and linked with direct business partners.</p>
 <p>Data Space Governance: The Catena-X Automotive Network e.V. will provide the corresponding standards (<a href="https://catena-x.net/de/standard-library" target="_blank" rel="noopener noreferrer">https://catena-x.net/de/standard-library</a>).</p>]]></content:encoded>
             <author>maximilian.ong@catena-x.net (Maximilian Ong)</author>
-        </item>
-        <item>
-            <title><![CDATA[Second Eclipse Tractus-X Community Days]]></title>
-            <link>https://eclipse-tractusx.github.io/blog/community-days-05-2024</link>
-            <guid>https://eclipse-tractusx.github.io/blog/community-days-05-2024</guid>
-            <pubDate>Mon, 19 Feb 2024 13:00:00 GMT</pubDate>
-            <description><![CDATA[The Eclipse Tractus-X Community Days - Empowering the Catena-X Data Space]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_Community_Days_24-05-29d96ee02b26559a95ed224fa1bffe77.png" width="1880" height="940" class="img_ev3q"></p>
-<p>Dear Tractus-X- and Dataspace-Community,</p>
-<p><strong>After the great success of our event in December 2023, we are pleased to invite you to the second edition: the Second Eclipse Tractus-X Community Days on May 16 and 17, 2024,
-again in the inspiring and collaborative atmosphere of ARENA2036 in Stuttgart!</strong></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-you-should-be-there">Why you should be there<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#why-you-should-be-there" class="hash-link" aria-label="Direct link to Why you should be there" title="Direct link to Why you should be there" translate="no">​</a></h3>
-<p>At the follow-up event, we will once again offer you the opportunity to meet the developer community live, actively engage with our Tractus-X IT tools and exchange ideas with technical
-experts. Gain deep insights into open-source reference implementations and KITs in the Tractus-X project as well as into the technology of sovereign data exchange and actively contribute
-your ideas in practical hands-on workshops (e.g. for use cases).</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-you-can-expect">What you can expect<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#what-you-can-expect" class="hash-link" aria-label="Direct link to What you can expect" title="Direct link to What you can expect" translate="no">​</a></h3>
-<p>You can look forward to keynote speeches with highly interesting insights, short deep dives for a practical introduction to open-source topics and, in the main, workshops and hands-on sessions
-in which you can get active and code on Tractus-X yourself with our support.</p>
-<p>Once again, a community party awaits you on the first evening for networking and talking shop with delicious food and an entertaining program.</p>
-<p>The Eclipse Tractus-X Community Days start on Thursday at 12 noon and end on Friday at around 4 p.m.</p>
-<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/second-eclipse-tractus-x-community-Days-agenda-1-76ca466c9d2b3d993cb31ac2e65b06a2.jpg" width="1200" height="2357" class="img_ev3q">
-<img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/second-eclipse-tractus-x-community-Days-agenda-2-3bc8cbe43e0ff6aa10ef1225b0a8bcaa.jpg" width="1200" height="715" class="img_ev3q"></p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Information about the different workstream challenges:</p><ul>
-<li><a href="https://github.com/eclipse-tractusx/tutorial-resources/wiki/FOSS-DCM-Application-%E2%80%90-Upgrade-to-Catena%E2%80%90X-24.05" target="_blank" rel="noopener noreferrer">DCM - Demand- and Capacity Management at Catena-X Open Source</a></li>
-</ul></div></div>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Impressions of the start of the event series in December 2023 can be found in photos, reports and documents here at <a href="https://arena2036.de/en/projects/arena-x/first-eclipse-tractus-x-community-days-7th-8th-december" target="_blank" rel="noopener noreferrer">ARENA2036.de</a>
-and <a href="https://catena-x.net/en/news-dates/artikel/first-tractus-x-community-days" target="_blank" rel="noopener noreferrer">Catena-X.net</a>.</p></div></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="who-is-the-event-suitable-for">Who is the event suitable for<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#who-is-the-event-suitable-for" class="hash-link" aria-label="Direct link to Who is the event suitable for" title="Direct link to Who is the event suitable for" translate="no">​</a></h3>
-<p>With the support of experts and in exchange with like-minded people, developers can actively test the possibilities of Tractus-X and the KITs. Of course, other technology enthusiasts with an interest in sovereign data exchange are also welcome:</p>
-<ul>
-<li>Developers who use Tractus-X or would like to contribute to it</li>
-<li>Service or solution providers who would like to participate in the Catena-X ecosystem</li>
-<li>Data providers who want to provide data in the right format and with the right semantics</li>
-<li>Product planning and development managers (product owners or product managers) who want to learn how to plan in open source projects</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-you-can-participate">How you can participate<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#how-you-can-participate" class="hash-link" aria-label="Direct link to How you can participate" title="Direct link to How you can participate" translate="no">​</a></h3>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Register for free via <a href="https://eveeno.com/tractus-x-community-days" target="_blank" rel="noopener noreferrer">eveeno</a>. The number of participants is limited, so secure your place quickly!</p></div></div>
-<p>If you have any questions about the event, please contact Heike Wohlfeld at <a href="mailto:heike.wohlfeld@arena2036.de" target="_blank" rel="noopener noreferrer">heike.wohlfeld@arena2036.de</a>.</p>
-<p>We look forward to welcoming you to this exciting event and exploring the possibilities of Tractus-X and the Catena-X KITs together!</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="presenters-of-the-event">Presenters of the event<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2024#presenters-of-the-event" class="hash-link" aria-label="Direct link to Presenters of the event" title="Direct link to Presenters of the event" translate="no">​</a></h3>
-<p>This is an Eclipse Tractus-X event, which takes place within the framework of the Catena-X Automotive Network consortium project (funding code: 13IK004*) and the Catena-X Automotive Network e.V. ARENA2036 will host the event on its premises and contribute its data space activities (ARENA-X).</p>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
         </item>
     </channel>
 </rss>
