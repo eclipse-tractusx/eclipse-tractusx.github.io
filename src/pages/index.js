@@ -18,8 +18,7 @@ import Layout from "@theme/Layout";
 import HomePageHeader from "../components/HomePageHeader/index";
 import AboutUsCard from "../components/AboutUsCard";
 import FAQsComponent from "../components/FAQsComponent";
-import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
-import { kitsGallery } from "@site/utils/kitsGallery";
+import KitsGallery from "../components/2.0/KitsGallery";
 import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
 import CommunityComponent from "../components/CommunityComponent";
 import { carouselRoleBased } from "../../utils/carouselRoleBased";
@@ -45,10 +44,9 @@ export default function Home() {
         <RoleBasedEnrtyComponent data={carouselRoleBased} />
         <AboutUsCard {...aboutInput} />
         <CommunityComponent />
-        <KitsGalleryWithFilters
-          itemsArray={kitsGallery}
-          title={"Our KITs"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
+        <KitsGallery
+          title={"Our Gallery"}
+          description={"Unlock the full power of  the KITs. Browse all the available specifications, blueprints, and reference implementations."}
         />
         {/* Enable when it is required */}
         {/* <FAQsComponent /> */}
