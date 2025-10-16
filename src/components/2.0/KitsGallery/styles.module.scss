@@ -241,6 +241,93 @@
   opacity: 1;
 }
 
+// Info Button Container
+.kitCard__infoButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1002;
+}
+
+.infoButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: rgba(176, 176, 176, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+  opacity: 0.6;
+
+  &:hover {
+    color: #faa023;
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// Tooltip
+.tooltip {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 280px;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(250, 160, 35, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1003;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.tooltipArrow {
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background: rgba(26, 26, 26, 0.98);
+  border-left: 1px solid rgba(250, 160, 35, 0.2);
+  border-top: 1px solid rgba(250, 160, 35, 0.2);
+  transform: rotate(45deg);
+}
+
+.tooltipText {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // Hover effect on the stack container
 .kitCard__stackContainer:hover {
   .kitCard {
@@ -381,6 +468,25 @@
     height: 180px;
   }
 
+  .tooltip {
+    width: 240px;
+    right: -60px; // Center the tooltip better on mobile
+  }
+
+  .tooltipArrow {
+    right: 65px; // Adjust arrow position for centered tooltip
+  }
+
+  .infoButton {
+    width: 28px;
+    height: 28px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
   .kitCard__layer2,
   .kitCard__layer3,
   .kitCard {
@@ -499,5 +605,33 @@
 
   .noMatch {
     color: #666;
+  }
+
+  .infoButton {
+    background: transparent;
+    border: none;
+    color: rgba(100, 100, 100, 0.5);
+    opacity: 0.6;
+
+    &:hover {
+      color: #faa023;
+      opacity: 1;
+    }
+  }
+
+  .tooltip {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(250, 160, 35, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .tooltipArrow {
+    background: rgba(255, 255, 255, 0.98);
+    border-left-color: rgba(250, 160, 35, 0.2);
+    border-top-color: rgba(250, 160, 35, 0.2);
+  }
+
+  .tooltipText {
+    color: #333;
   }
 }
