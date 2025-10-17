@@ -8,9 +8,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
+  url: 'https://matbmoser.github.io',
+  baseUrl: '/next-eclipse-tractusx.github.io/',  // <-- repo name with slashes
+  trailingSlash: false, // (optional, but common)
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
@@ -24,8 +25,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'eclipse-tractusx', // Usually your GitHub org/user name.
-  projectName: 'eclipse-tractusx.github.io', // Usually your repo name.
+  organizationName: 'matbmoser', // Usually your GitHub org/user name.
+  projectName: 'next-eclipse-tractusx.github.io', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
