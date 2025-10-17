@@ -83,6 +83,11 @@
            </div>
          </div>
          
+         {/* Disclaimer positioned outside and below the diagram */}
+         <div className={styles.disclaimer}>
+           *All dataspace logos are trademark, consult the copyright at their website.
+         </div>
+         
          {/* Interactive CTA Button */}
          <button className={styles.explore_button}>
            <span className={styles.button_text}>Click here to explore more about KITs</span>

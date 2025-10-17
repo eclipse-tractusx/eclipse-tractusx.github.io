@@ -109,6 +109,22 @@
   margin: 0 auto;
 }
 
+.disclaimer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  margin-right: 0;
+  font-size: 10px;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+  line-height: 1.2;
+  max-width: 1000px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0;
+}
+
 .hexagon_row {
   display: flex;
   justify-content: space-between;
@@ -664,6 +680,12 @@
   .diagram {
     max-width: 100%;
     padding: 1.5rem 1rem;
+  }
+  
+  .disclaimer {
+    font-size: 9px;
+    margin-top: 0.3rem;
+    padding-right: 1rem;
   }
   
   .hexagon_row {
