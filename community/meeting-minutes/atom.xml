@@ -2,11 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-10-10T00:00:00.000Z</updated>
+    <updated>2025-10-17T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2025-10-17]]></title>
+        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17"/>
+        <updated>2025-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h2>
+<ul>
+<li>Briefing meeting for the upcoming test phase is on Monday; invitations were sent out. If anyone was missed, invitations will be forwarded upon request.</li>
+<li>Scope: overview of the test phase (deployment, who joins, and key updates).</li>
+<li>Test phase start: 20 October.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h2>
+<ul>
+<li>Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.</li>
+<li>Feature freeze is approaching; merge necessary PRs, especially for core products, to enable testing.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h2>
+<ul>
+<li>Vulnerability identified in Python Keycloak-related dependency (PyPI package with no fixed version) causing Trivy workflow failures.</li>
+<li>Mitigation: use .trivyignore, include a review date, and document the waiver in the release issue.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h2>
+<ul>
+<li>News: blog entry for 26.03 is online (alignment day, open planning day). Open source participants should use the open meetings page.</li>
+<li>New committers: Theresa and Andrii approved; complete Eclipse Foundation paperwork.</li>
+<li>Community Days: registration open; workshop proposals and sponsors welcome.</li>
+<li>Container images: evaluating CloudPirates Helm Charts (Keycloak, Postgres, etc.) that wrap official Docker images; Eclipse feedback indicates Docker images are acceptable if referenced transparently.</li>
+<li>KITs coordination: new Matrix room created to align multi-dataspace development and onboarding; plan a weekly KITs office hour once processes are established.</li>
+</ul>]]></content>
+        <author>
+            <name>Mathias Brunkow Moser</name>
+            <uri>https://github.com/matbmoser</uri>
+        </author>
+        <author>
+            <name>Stephan Bauer</name>
+            <email>stephan.bauer@catena-x.net</email>
+            <uri>https://github.com/stephanbcbauer</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2025-10-10]]></title>
         <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10</id>
@@ -1085,26 +1128,6 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <uri>https://github.com/matbmoser</uri>
         </author>
         <category label="community" term="community"/>
-        <category label="meeting-minutes" term="meeting-minutes"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Security Office Hour 2024-06-20]]></title>
-        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-06-20</id>
-        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-06-20"/>
-        <updated>2024-06-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Security Office Hour meeting minutes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-06-20#security-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Security Office Hour meeting minutes" title="Direct link to Security Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="announcements">Announcements<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-06-20#announcements" class="hash-link" aria-label="Direct link to Announcements" title="Direct link to Announcements" translate="no">​</a></h3>
-<ul>
-<li>Reminder about former GitHub Organisation Catenax-ng</li>
-<li>Reminder to remove any test credentials/sensitive that are present in Catenax-ng</li>
-<li>Reminder to look for the results of the security scans after migration to Eclipse Tractus-x</li>
-</ul>]]></content>
-        <author>
-            <name>Rohan Krishnamurthy</name>
-            <uri>https://github.com/RoKrish14</uri>
-        </author>
-        <category label="security" term="security"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
 </feed>
