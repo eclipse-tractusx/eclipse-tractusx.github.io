@@ -19,7 +19,6 @@
 
  import React from "react";
  import styles from "./styles.module.scss";
- import CatenaXLogo from "@site/static/img/dataspace-logos/catena-x.svg"
  export default function KitsArchitecture() {
    return (
      <section className={styles.architecture_section}>
@@ -40,13 +39,13 @@
            <div className={styles.hexagon_row}>
              <div className={`${styles.hexagon} ${styles.hexagon_catena}`}>
                <div className={styles.hexagon_content}>
-                 <div className={styles.hexagon_title}><CatenaXLogo /></div>
+                 <div className={styles.hexagon_title}><img src="https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png" alt="Catena-X Logo" /></div>
                  <div className={styles.hexagon_subtitle}>Catena-X</div>
                </div>
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_factory}`}>
                <div className={styles.hexagon_content}>
-                <div className={styles.hexagon_title}></div>
+                <div className={styles.hexagon_title}><img src="https://factory-x.org/wp-content/uploads/factory-x-logo.svg" alt="Factory-X Logo" /></div>
                  <div className={styles.hexagon_subtitle}>Factory-X</div>
                </div>
              </div>
