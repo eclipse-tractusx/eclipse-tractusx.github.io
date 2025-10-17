@@ -85,7 +85,7 @@
          
          {/* Disclaimer positioned outside and below the diagram */}
          <div className={styles.disclaimer}>
-           *All dataspace logos are trademark, consult the copyright at their website.
+           *All dataspace logos are trademarks, consult respective websites for copyright information.
          </div>
          
          {/* Interactive CTA Button */}
