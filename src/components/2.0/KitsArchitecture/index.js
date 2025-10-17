@@ -21,7 +21,6 @@
 
  import React from "react";
  import styles from "./styles.module.scss";
- import CatenaXLogo from "@site/static/img/dataspace-logos/catena-x.svg"
  export default function KitsArchitecture() {
    return (
      <section className={styles.architecture_section}>
@@ -42,7 +41,7 @@
            <div className={styles.hexagon_row}>
              <div className={`${styles.hexagon} ${styles.hexagon_catena}`}>
                <div className={styles.hexagon_content}>
-                 <div className={styles.hexagon_title}><CatenaXLogo /></div>
+                 <div className={styles.hexagon_title}></div>
                  <div className={styles.hexagon_subtitle}>Catena-X</div>
                </div>
              </div>
