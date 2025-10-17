@@ -280,7 +280,7 @@
 }
 
 // Specific sizing for Catena-X logo to make it smaller and more proportional
-.hexagon_catena .hexagon_content svg {
+.hexagon_catena .hexagon_content img {
   width: 45px !important;
   height: 45px !important;
 }
@@ -376,13 +376,8 @@
 }
 
 // Specific rule for Catena-X logo to turn white on hover
-.hexagon_catena:hover svg {
-  filter: none !important;
-  
-  path, circle, rect, polygon, g {
-    fill: white !important;
-    stroke: white !important;
-  }
+.hexagon_catena:hover img {
+  filter: brightness(0) invert(1) !important;
 }
 
 .rectangle_column {
