@@ -16,44 +16,31 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import DeepdiveHeader from "../../components/DeepdiveHeader";
+import KitHeader from "../../components/2.0/KitsHeader";
+import KitsTitle from "../../components/2.0/KitsTitle";
 import AboutUsCard from "../../components/AboutUsCard";
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters";
 import { kitsGallery } from "@site/utils/kitsGallery";
 import CarouselSuccessStories from "../../components/CarouselSuccessStories";
 import RoleBasedEnrtyComponent from "../../components/RoleBasedEnrtyComponent";
 import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
+import KitsArchitecture from "../../components/2.0/KitsArchitecture";
+import KitsGallery from "../../components/2.0/KitsGallery";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
-  const aboutInput = {
-    highlightText: "Tractus-X KITS",
-    title: "KIT stands for Keep It Together",
-    descriptionHighlight: "KITs aim to accelerate",
-    description: " the adoption, development, and operations of the next generation Business Applications and Services. Tractus-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
-    buttonText: "KIT Deepdive",
-    link: "/Kit-Deepdive"
-  }
-  const headerInput = {
-    title: "KIT",
-    description: "Introduction to the Tractus-X KITS.",
-    showImage: true
-  }
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <DeepdiveHeader {...headerInput} />
-      <main>
-        <RoleBasedEnrtyComponent data={carouselKitdeepdive} />
-        <AboutUsCard {...aboutInput} />
-        <KitsGalleryWithFilters
-          itemsArray={kitsGallery}
-          title={"Our KITs"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
-        />
-        <CarouselSuccessStories />
-      </main>
+      <KitHeader />
+      <KitsTitle />
+      <KitsArchitecture />
+      <KitsGallery
+        title={"Our Gallery"}
+        description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+      />
     </Layout>
   );
 }
