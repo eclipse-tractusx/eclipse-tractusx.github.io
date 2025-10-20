@@ -84,6 +84,11 @@ ds-hzimmer:
   url: https://github.com/ds-hzimmer
   image_url: https://github.com/ds-hzimmer.png
 
+monika_jacobsen:
+  name: Monika Jacobsen
+  title: Test Management
+  email: monika.jacobsen@catena-x.net
+
 michaela_kleynhans:
   name: Michaela Kleynhans
   title: Light Theme Webpage for Tractus-X
