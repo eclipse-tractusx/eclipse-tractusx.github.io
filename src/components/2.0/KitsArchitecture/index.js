@@ -57,8 +57,8 @@
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_aerospace}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}></div>
-                 <div className={styles.hexagon_subtitle}>Aerospace-X</div>
+                  <div className={styles.hexagon_title}><img src="https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png" alt="Chem-X Logo" /></div>
+                 <div className={styles.hexagon_subtitle}>Chem-X</div>
                </div>
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_other}`}>
