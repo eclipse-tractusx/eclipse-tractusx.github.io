@@ -2,11 +2,74 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-10-15T19:00:00.000Z</updated>
+    <updated>2025-10-20T09:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Test Phase for Release 25.12 — Join the Test Meetings]]></title>
+        <id>https://eclipse-tractusx.github.io/blog/testphase-R25.12</id>
+        <link href="https://eclipse-tractusx.github.io/blog/testphase-R25.12"/>
+        <updated>2025-10-20T09:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Reminder: upcoming test phase for R25.12 with briefing, kick-off and daily E2E meetings. See open meetings for links and details.]]></summary>
+        <content type="html"><![CDATA[<p>Hello Eclipse Tractus‑X community,</p>
+<p>We are about to start the test phase (<strong>03.11.2025 - 21.11.2025</strong>) for Release 25.12. Below you'll find the key meetings and quick facts — visit the <a href="https://eclipse-tractusx.github.io/community/open-meetings">Open Meetings page</a> for session links, agendas, and additional resources.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-meetings">Key meetings<a href="https://eclipse-tractusx.github.io/blog/testphase-R25.12#key-meetings" class="hash-link" aria-label="Direct link to Key meetings" title="Direct link to Key meetings" translate="no">​</a></h2>
+<ul>
+<li>
+<p><strong>Briefing — Testing Phase for R25.12</strong></p>
+<ul>
+<li>Date: Monday, 20 October 2025</li>
+<li>Time: 08:30 — 09:30 (local timezone shown on the Open Meetings page)</li>
+<li>Purpose: Prepare for the test phase, clarify the test process, and review Release Check Issues.</li>
+</ul>
+</li>
+<li>
+<p><strong>Kick‑Off — Testing Phase for R25.12</strong></p>
+<ul>
+<li>Date: Monday, 3 November 2025</li>
+<li>Time: 08:30 — 09:00</li>
+<li>Purpose: Provide updates on deployment status and answer questions about the test phase.</li>
+</ul>
+</li>
+<li>
+<p><strong>Eclipse Tractus‑X — E2E Test Phase Daily (R25.12)</strong></p>
+<ul>
+<li>Occurs every weekday: 4 November 2025 — 21 November 2025</li>
+<li>Time: 08:30 — 09:00</li>
+<li>Purpose: Onboarding and deployment status on the INT environment, defect/blocker updates, and test status across participating products.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="where-to-find-details">Where to find details<a href="https://eclipse-tractusx.github.io/blog/testphase-R25.12#where-to-find-details" class="hash-link" aria-label="Direct link to Where to find details" title="Direct link to Where to find details" translate="no">​</a></h2>
+<p>All meeting links and resources are published on the Open Meetings page (look under "One-time meetings"):</p>
+<ul>
+<li><a href="https://eclipse-tractusx.github.io/community/open-meetings#Briefing%20Testing%20Phase%20for%2025.12" target="_blank" rel="noopener noreferrer">Briefing - Testing Phase for R25.12</a></li>
+<li><a href="https://eclipse-tractusx.github.io/community/open-meetings#Kick-Off%20Testing%20Phase%20for%2025.12" target="_blank" rel="noopener noreferrer">Kick-Off - Testing Phase for R25.12</a></li>
+<li><a href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20E2E%20Test%20Phase%20Daily%20for%20R25.12" target="_blank" rel="noopener noreferrer">Eclipse Tractus‑X — E2E Test Phase Daily (R25.12)</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="join-the-conversation">Join the conversation<a href="https://eclipse-tractusx.github.io/blog/testphase-R25.12#join-the-conversation" class="hash-link" aria-label="Direct link to Join the conversation" title="Direct link to Join the conversation" translate="no">​</a></h2>
+<ul>
+<li>Test Management Matrix Chat: <a href="https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org" target="_blank" rel="noopener noreferrer">https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="contact">Contact<a href="https://eclipse-tractusx.github.io/blog/testphase-R25.12#contact" class="hash-link" aria-label="Direct link to Contact" title="Direct link to Contact" translate="no">​</a></h2>
+<p>If you have questions about the test phase setup, test environments, or participation:</p>
+<ul>
+<li>Monika Jacobsen — Test Management — <a href="mailto:monika.jacobsen@catena-x.net" target="_blank" rel="noopener noreferrer">monika.jacobsen@catena-x.net</a></li>
+</ul>
+<p>We look forward to your participation and support during the test phase.</p>
+<p>— The Release &amp; Test Management Team</p>]]></content>
+        <author>
+            <name>Monika Jacobsen</name>
+            <email>monika.jacobsen@catena-x.net</email>
+        </author>
+        <author>
+            <name>Stephan Bauer</name>
+            <email>stephan.bauer@catena-x.net</email>
+            <uri>https://github.com/stephanbcbauer</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release Planning for Release 26.03]]></title>
         <id>https://eclipse-tractusx.github.io/blog/release-planning-R26.03</id>
@@ -1371,24 +1434,6 @@ and be part of our <a href="https://chat.eclipse.org/#/room/#tools.tractus-x:mat
             <name>Stephan Bauer</name>
             <email>stephan.bauer@catena-x.net</email>
             <uri>https://github.com/stephanbcbauer</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tractus-X 24.03 available now]]></title>
-        <id>https://eclipse-tractusx.github.io/blog/new-release-2403</id>
-        <link href="https://eclipse-tractusx.github.io/blog/new-release-2403"/>
-        <updated>2024-03-08T11:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Release Tractus-X 24.03 announcement]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Release Image" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_Release24.03-cd6bb1ac27e917e28faed5d1774268d4.png" width="1920" height="960" class="img_ev3q"></p>
-<p>We are pleased to announce our first minor release in 2024!</p>
-<p>Tractus-X Release 24.03 focuses on improving the performance and stability of our Catena-X core and onboard services, strengthening our data space foundation.</p>
-<p>Use Cases &amp; Value Creation: With five new KITs we are introducing exciting new offerings to solve the toughest industry problems such as company certificate management, data governance, manufacturing as a service, environmental &amp; social standards (ESS).</p>
-<p>The Industry Core is an integrative layer between the industry-agnostic dataspace foundation and the use cases. It ensures that the various applications can access common functionalities. It describes how digital twins of components, materials and vehicles can be created for the automotive industry and linked with direct business partners.</p>
-<p>Data Space Governance: The Catena-X Automotive Network e.V. will provide the corresponding standards (<a href="https://catena-x.net/de/standard-library" target="_blank" rel="noopener noreferrer">https://catena-x.net/de/standard-library</a>).</p>]]></content>
-        <author>
-            <name>Maximilian Ong</name>
-            <email>maximilian.ong@catena-x.net</email>
-            <uri>https://github.com/maximilianong</uri>
         </author>
     </entry>
 </feed>
