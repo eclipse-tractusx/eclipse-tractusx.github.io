@@ -40,11 +40,11 @@
 
 The DPP Rulebook aims to simplify and clarify the validation and usability of data in Digital Product Passports, ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
 
-The main goal of our rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the kit complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
+The main goal of this rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the kit complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
 
 ### 1.2 Target Audience
 
-This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain in Catena-X network (i.e., Data provider and data consumer): such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed. 
+This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain (i.e., Data provider and data consumer) in Catena-X network : such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed. 
 
 ### 1.3 Scope and Applicability
 
@@ -57,13 +57,14 @@ This rulebook refers to and is based on the Generic DPP Data Model, released in 
 The Rulebook is organized to provide:
 - Definitions and clarifications of key terms and concepts,
 - General principles for handling and entering DPP data,
+- Guideline and refernce to standards to help with Data Validation,
 - Guidance on the structure and use of the data model.
   
 The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help facilitate a standardized and effective implementation of the DPP data model.
 
-Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.
+*Note: Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.*
 
-Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to use common sense and ensure the information is relevant and clear. You’ll find helpful explanations and guidance for these open data points in their individual sections throughout this rulebook.
+Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to apply good judgement and ensure the information is relevant and clear. You’ll find helpful explanations and guidance for these open data points in their individual sections throughout this rulebook.
 
 ## 2. The Value of Validated Data
 
@@ -71,12 +72,12 @@ Data trust is the cornerstone of effective collaboration within the automotive s
 
 The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
 
-- Improved Regulatory Compliance: Ensuring that data is precise and verified minimizes the risk of regulatory infractions and associated penalties.
+- Improved Regulatory Compliance: Ensuring that data is precise and verified minimizing the risk of regulatory infractions and associated penalties.
 - Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
 - Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
 - Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
 
-Ultimately, the validation rulebook supports assuring data reliability. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
+Ultimately, the validation rulebook supports assuring data reliability. This is particularly important given the undeniable value of exchanging trustworthy data to enable effective digitalization of data exchange processes. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
 
 ## 3. Key Concepts and Definitions
 ### 3.1 DPP Overview
@@ -89,7 +90,7 @@ DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as
 
 #### 3.2.1 Verification vs. Validation
 
-Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), Wikipedia, and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
+Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
 > #### TfS:
 > ##### Verification: 
@@ -123,7 +124,7 @@ This interpretation is consistent with the definitions found on Wikipedia and al
 #### Conclusion:
 After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
-- Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs)—has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
+- Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
 
 As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
 
