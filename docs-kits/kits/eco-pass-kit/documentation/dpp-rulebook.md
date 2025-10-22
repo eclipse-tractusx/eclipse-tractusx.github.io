@@ -1,4 +1,8 @@
 # DPP Rulebook
+----------------------------------------------------------------------------
+<img width="1200" height="779" alt="image" src="https://github.com/user-attachments/assets/4f9bedae-4907-408a-b22d-e2846bc8d010" />
+----------------------------------------------------------------------------
+
 ## Table of Contents
 
 1. [Introduction](#1-Introduction)<br>
