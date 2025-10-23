@@ -58,10 +58,9 @@ This rulebook refers to and is based on the Generic DPP Data Model, released in 
 The Rulebook is organized to provide:
 - Definitions and clarifications of key terms and concepts,
 - General principles for handling and entering DPP data,
-- Guideline and refernce to standards to help with Data Validation,
-- Guidance on the structure and use of the data model.
+- Guidance and refernce to standards to help with Data Validation
   
-The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help facilitate a standardized and effective implementation of the DPP data model.
+The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help understand the data model.
 
 *Note: Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.*
 
@@ -89,7 +88,18 @@ DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as
 
 ### 3.2 Definition of Terms
 
-#### 3.2.1 Verification vs. Validation
+#### 3.2.1 DID:
+Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
+
+#### 3.2.2 GTIN: 
+The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
+
+
+#### 3.2.3 Sequential Numbering:
+In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
+
+
+#### 3.2.4 Verification vs. Validation
 
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
@@ -127,14 +137,6 @@ After thorough reserach of these standards and guidelines, the Data Trust team d
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
 - Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
 
-As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the "Trust Kit." The purpose of the Trust Kit initiative is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
-
-#### 3.2.2 Sequential Numbering:
-In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
-#### 3.2.3 GTIN: 
-The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
-#### 3.2.4 DID:
-Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
 
 ### 3.3 Key Stakeholders and their Roles
 
@@ -149,6 +151,15 @@ A DPP system provides value across multiple parties throughout the supply chain.
 
 Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
 For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
+
+## 4. Link to Data Trust & Security KIT
+
+As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the **"Rulebook"**. The purpose of the **Rulebook** is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
+
+<img width="326" height="137" alt="image" src="https://github.com/user-attachments/assets/8f73774e-efac-49ee-a597-2139bcff31ab" />
+Link to Layer 3:
+<img width="518" height="373" alt="image" src="https://github.com/user-attachments/assets/ecf43630-c949-46a1-a807-62ab2051b177" />
+
 
 ## 4. General Principles for Data Handling in the DPP Model
 
