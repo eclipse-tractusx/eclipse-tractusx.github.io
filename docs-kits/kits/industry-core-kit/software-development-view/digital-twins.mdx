@@ -161,9 +161,9 @@ Here's an example how such a submodel descriptor could look like:
       },
       "endpoints": [
         {
-          "interface": "SUBMODEL-3.1",
+          "interface": "SUBMODEL-VALUE-3.1",
           "protocolInformation": {
-            "href": "https://connector.data.plane/api/public/submodel",
+            "href": "https://connector.data.plane/api/public/submodel/$value",
             "endpointProtocol": "HTTP",
             "endpointProtocolVersion": [
               "1.1"
@@ -187,6 +187,8 @@ Here's an example how such a submodel descriptor could look like:
 ```
 
 In this example, the `{providerPath}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
+
+Note that the submodel interface value is 'SUBMODEL-VALUE-3.1', providing the submodel in the ValueOnly serisalisation. For Backward compatibility, if interface value 'SUBMODEL-3.1' is used, then '$value' is not required with endpointAddress given in href. For more information, refer to [IDTA interfaces payload](https://industrialdigitaltwin.io/aas-specifications/IDTA-01002/v3.1.1/specification/interfaces-payload.html#_endpoint)
 
 ##### Option 2: Connector Asset Structure on Catalog Part Level
 
@@ -213,9 +215,9 @@ Here's an example how such a submodel descriptor could look like:
       },
       "endpoints": [
         {
-          "interface": "SUBMODEL-3.1",
+          "interface": "SUBMODEL-VALUE-3.1",
           "protocolInformation": {
-            "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
+            "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel/$value",
             "endpointProtocol": "HTTP",
             "endpointProtocolVersion": [
               "1.1"
@@ -363,9 +365,9 @@ A Submodel Descriptor for Parquet File Information may be structured as:
       "id": "<uuid>",
       "endpoints": [
         {
-          "interface": "SUBMODEL-3.1",
+          "interface": "SUBMODEL-VALUE-3.1",
           "protocolInformation": {
-             "href": "https://connector.data.plane/api/public/parquet/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0",
+             "href": "https://connector.data.plane/api/public/parquet/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/$value",
             "endpointProtocol": "HTTP",
             "endpointProtocolVersion": [
               "1.1"
@@ -418,7 +420,7 @@ A sample payload for BinaryExchange aspect model is described below:
     "contentType": "application/octet-stream"
   },
   "dspInformation": {
-    "controlPlaneUrl": "dspEndpoint=https://semantics-edc-provider-controlplane.catenax.net/api/v1/dsp",
+    "controlPlaneUrl": "https://semantics-edc-provider-controlplane.catenax.net/api/v1/dsp",
     "dspAssetId": "d99cfe94-bfa0-4eba-9e31-d30c4f31831b"
   },
   "fileContentDescriptionId": "urn:samm:io.catenax.fleet.diagnostic_data:3.0.0"
