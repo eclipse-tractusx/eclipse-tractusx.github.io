@@ -19,6 +19,93 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
+
+.networks-services{
+  background: #326FCA;
+  background: -webkit-linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
+  background: linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#326FCA", endColorstr="#150D88", GradientType=0);
+}
+
+.simulations{
+  background: #FFC254;
+  background: -webkit-linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
+  background: -moz-linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
+  background: linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr="#FFC254",
+    endColorstr="#FFA601",
+    GradientType=0
+  );
+}
+
+.plm{
+  background: #FFBA58;
+  background: -webkit-linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
+  background: linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFBA58", endColorstr="#F45D3C", GradientType=0);
+}
+
+
+.circularity{
+  background: #65C58E;
+  background: -webkit-linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
+  background: linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#65C58E", endColorstr="#2B9943", GradientType=0);
+}
+
+.sustainability{
+  background: #64C48F;
+  background: -webkit-linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
+  background: linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#64C48F", endColorstr="#267063", GradientType=0);
+}
+
+
+.supply-chain{
+  background: #E3C8FF;
+  background: -webkit-linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
+  background: linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E3C8FF", endColorstr="#A159FF", GradientType=0);
+}
+
+.logistics{
+  background: #E4C9FF;
+  background: -webkit-linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
+  background: linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E4C9FF", endColorstr="#B95EFF", GradientType=0);
+}
+
+.factory{
+  background: #A098A4;
+  background: -webkit-linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
+  background: linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#A098A4", endColorstr="#404040", GradientType=0);
+}
+
+.engineering{
+  background: #AB22A8;
+  background: -webkit-linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
+  background: linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E4A1DC", endColorstr="#AB22A8", GradientType=0);
+}
+
+.industry_core{
+  background: #EB1B1B;
+  background: -webkit-linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
+  background: -moz-linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
+  background: linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#EF8899", endColorstr="#EB1B1B", GradientType=0);
+}
+
 .kitsGallery {
   background-color: #1a1a1a;
   min-height: 100vh;
@@ -186,6 +273,18 @@
   height: 200px;
 }
 
+// Gradient border layer (acts as border when not hovering)
+.kitCard__gradientBorder {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 204px;
+  height: 204px;
+  border-radius: 26px;
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0; // Behind everything else
+}
+
 // Third layer (furthest back)
 .kitCard__layer3 {
   position: absolute;
@@ -194,12 +293,12 @@
   width: 200px;
   height: 200px;
   background: #2a2a2a;
-  border: 1px solid #3a3a3a;
   border-radius: 24px;
   opacity: 0;
   transform: translateX(0) translateY(0);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 1;
+  overflow: hidden;
 }
 
 // Second layer (middle)
@@ -210,12 +309,12 @@
   width: 200px;
   height: 200px;
   background: #2a2a2a;
-  border: 1px solid #3a3a3a;
   border-radius: 24px;
   opacity: 0;
   transform: translateX(0) translateY(0);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 2;
+  overflow: hidden;
 }
 
 .kitCard {
@@ -239,6 +338,25 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 10; // Main card on top
   opacity: 1;
+  overflow: hidden;
+  
+  // Add a subtle overlay for better text/icon contrast on gradients
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+  }
+  
+  // When hovered and gradient is applied, add subtle overlay for contrast
+  .kitCard__stackContainer:hover &::before {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 // Info Button Container
@@ -331,22 +449,20 @@
 // Hover effect on the stack container
 .kitCard__stackContainer:hover {
   .kitCard {
-    border-color: #faa023;
     box-shadow: 
-      0 2px 8px rgba(0, 0, 0, 0.2),
-      0 0 20px rgba(250, 160, 35, 0.2);
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      -12px -12px 30px rgba(0, 0, 0, 0.2);
+    border: none!important;
   }
 
   .kitCard__layer2 {
     opacity: 0.7;
     transform: translateX(10px) translateY(-6px);
-    border-color: #faa023;
   }
 
   .kitCard__layer3 {
     opacity: 0.5;
     transform: translateX(20px) translateY(-12px);
-    border-color: #faa023;
   }
 
   .kitCard__title {
@@ -371,6 +487,13 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  transition: all 0.25s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  
+  // Ensure good contrast on gradient backgrounds
+  .kitCard__stackContainer:hover & {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  }
 }
 
 .kitCard__title {
@@ -529,10 +652,6 @@
   .kitCard {
     background: #2a2a2a;
     border-color: #3a3a3a;
-
-    &:hover {
-      border-color: #faa023;
-    }
   }
 }
 
@@ -563,7 +682,6 @@
 
     &:hover {
       color: #333;
-      border-color: #faa023;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
   }
@@ -598,7 +716,6 @@
     color: #333;
 
     &:hover {
-      background-color: #faa023;
       color: white;
     }
   }
@@ -614,7 +731,6 @@
     opacity: 0.6;
 
     &:hover {
-      color: #faa023;
       opacity: 1;
     }
   }

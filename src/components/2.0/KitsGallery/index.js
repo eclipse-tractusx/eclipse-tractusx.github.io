@@ -24,18 +24,50 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from './styles.module.scss';
-import { kitsData } from '@site/data/kitsData';
+import { kitsData, getCategoryGradient } from '@site/data/kitsData';
 
 
 const KitCard = ({ kit }) => {
   const [showTooltip, setShowTooltip] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
+  
+  // Get the gradient for this kit's category
+  const categoryGradient = getCategoryGradient(kit.category);
 
   return (
     <div className={styles.kitCardWrapper}>
-      <div className={styles.kitCard__stackContainer}>
-        <div className={styles.kitCard__layer3}></div>
-        <div className={styles.kitCard__layer2}></div>
-        <Link to={kit.route} className={styles.kitCard}>
+      <div 
+        className={styles.kitCard__stackContainer}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Gradient border layer - visible when not hovering */}
+        <div 
+          className={styles.kitCard__gradientBorder}
+          style={{
+            background: categoryGradient,
+            opacity: isHovered ? 0 : 1
+          }}
+        ></div>
+        <div 
+          className={styles.kitCard__layer3}
+          style={{
+            background: isHovered ? `linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), ${categoryGradient}` : undefined
+          }}
+        ></div>
+        <div 
+          className={styles.kitCard__layer2}
+          style={{
+            background: isHovered ? `linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)), ${categoryGradient}` : undefined
+          }}
+        ></div>
+        <Link 
+          to={kit.route} 
+          className={styles.kitCard}
+          style={{
+            background: isHovered ? categoryGradient : undefined
+          }}
+        >
           <div className={styles.kitCard__iconContainer}>
             <kit.logo className={styles.kitCard__icon} />
           </div>
