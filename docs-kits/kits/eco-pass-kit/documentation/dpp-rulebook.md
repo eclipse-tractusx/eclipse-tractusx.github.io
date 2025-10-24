@@ -197,6 +197,7 @@ This section sets out the main rules and guiding principles for entering, managi
 - Enter all data according to the format specified in the DPP model
    - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
    - All dates should be entered using the YYYY-MM-DD format
+- For some data points, a value is paired with a unit. Usually, you have two data points: the first data point to describe the value and the second data point to describe the related unit.
 - **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
 - For free text fields, keep entries clear and concise.
 ### 4.4 Data Trust
