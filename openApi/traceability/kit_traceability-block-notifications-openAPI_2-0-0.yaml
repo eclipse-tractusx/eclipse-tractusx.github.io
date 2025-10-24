@@ -1,7 +1,7 @@
 openapi: '3.1.1'
 info:
   title: Block Notification API
-  version: '2.0'
+  version: '2.0.0'
   description: "The blocking process is a process in the automotive industry to segregate or quarantine nonconforming parts in the supply chain to prevent using them in the production process. Therefore, the supplier must send all relevant information to the customer, so that he is able to identify the affected parts for example at the assembly line or in logistics. \n\n This API is to be used to transfer this information in a standardized manner and to trace the individual parts back to see whether they have been blocked and sorted out on the customer side in order to prevent subsequent damage or major product recalls. In addition, the notification is intended to improve the quality and speed of the block information provided."
   license:
     name: Apache License v2.0
@@ -611,3 +611,4 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/BlockNotificationUpdate'
+
