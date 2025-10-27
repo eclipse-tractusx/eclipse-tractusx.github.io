@@ -25,48 +25,64 @@ export default function KitsExtensions() {
     <section className={styles.extensions_section}>
       <div className={styles.container}>
         <h2 className={styles.title}>Need More?</h2>
-        <p className={styles.subtitle}>Check out our Specific Industries KITs</p>
+        <p className={styles.subtitle}>Check out the KITs used by each industrial dataspace contributor to Eclipse Tractus-X</p>
         
-        <div className={styles.hexagons_container}>
-          {/* Catena-X hexagon */}
-          <div className={`${styles.hexagon} ${styles.hexagon_catena}`}>
-            <div className={styles.hexagon_content}>
+        <div className={styles.blocks_container}>
+          {/* Catena-X dataspace block */}
+          <div className={`${styles.dataspace_block} ${styles.block_catena}`}>
+            <div className={styles.block_layer_1}></div>
+            <div className={styles.block_layer_2}></div>
+            <div className={styles.block_layer_3}></div>
+            <div className={styles.block_layer_4}></div>
+            <div className={styles.block_content}>
               <img src="https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png" alt="Catena-X Logo" />
-              <div className={styles.hexagon_text}>
-                <div className={styles.hexagon_title}>Catena-X</div>
-                <div className={styles.hexagon_subtitle}>Automotive Industry KITs</div>
+              <div className={styles.block_text}>
+                <div className={styles.block_title}>Catena-X</div>
+                <div className={styles.block_subtitle}>Automotive Industry KITs</div>
               </div>
             </div>
           </div>
           
-          {/* Factory-X hexagon */}
-          <div className={`${styles.hexagon} ${styles.hexagon_factory}`}>
-            <div className={styles.hexagon_content}>
+          {/* Factory-X dataspace block */}
+          <div className={`${styles.dataspace_block} ${styles.block_factory}`}>
+            <div className={styles.block_layer_1}></div>
+            <div className={styles.block_layer_2}></div>
+            <div className={styles.block_layer_3}></div>
+            <div className={styles.block_layer_4}></div>
+            <div className={styles.block_content}>
               <img src="https://factory-x.org/wp-content/uploads/factory-x-logo.svg" alt="Factory-X Logo" />
-              <div className={styles.hexagon_text}>
-                <div className={styles.hexagon_title}>Factory-X</div>
-                <div className={styles.hexagon_subtitle}>Shop Floor Industry KITs</div>
+              <div className={styles.block_text}>
+                <div className={styles.block_title}>Factory-X</div>
+                <div className={styles.block_subtitle}>Shop Floor Industry KITs</div>
               </div>
             </div>
           </div>
           
-          {/* Semiconductor-X hexagon */}
-          <div className={`${styles.hexagon} ${styles.hexagon_semiconductor}`}>
-            <div className={styles.hexagon_content}>
-              <div className={styles.hexagon_text}>
-                <div className={styles.hexagon_title}>Semiconductor-X</div>
-                <div className={styles.hexagon_subtitle}>Semiconductor Industry KITs</div>
+          {/* Semiconductor-X dataspace block */}
+          <div className={`${styles.dataspace_block} ${styles.block_semiconductor}`}>
+            <div className={styles.block_layer_1}></div>
+            <div className={styles.block_layer_2}></div>
+            <div className={styles.block_layer_3}></div>
+            <div className={styles.block_layer_4}></div>
+            <div className={styles.block_content}>
+              <div className={styles.block_text}>
+                <div className={styles.block_title}>Semiconductor-X</div>
+                <div className={styles.block_subtitle}>Semiconductor Industry KITs</div>
               </div>
             </div>
           </div>
           
-          {/* Chem-X hexagon */}
-          <div className={`${styles.hexagon} ${styles.hexagon_chem}`}>
-            <div className={styles.hexagon_content}>
+          {/* Chem-X dataspace block */}
+          <div className={`${styles.dataspace_block} ${styles.block_chem}`}>
+            <div className={styles.block_layer_1}></div>
+            <div className={styles.block_layer_2}></div>
+            <div className={styles.block_layer_3}></div>
+            <div className={styles.block_layer_4}></div>
+            <div className={styles.block_content}>
               <img src="https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png" alt="Chem-X Logo" />
-              <div className={styles.hexagon_text}>
-                <div className={styles.hexagon_title}>Chem-X</div>
-                <div className={styles.hexagon_subtitle}>Chemical Industry KITs</div>
+              <div className={styles.block_text}>
+                <div className={styles.block_title}>Chem-X</div>
+                <div className={styles.block_subtitle}>Chemical Industry KITs</div>
               </div>
             </div>
           </div>
