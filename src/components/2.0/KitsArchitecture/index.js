@@ -72,7 +72,7 @@
            {/* Bottom rectangles */}
            <div className={styles.rectangle_column}>
              <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
-               <span>Cross-Industry KITs</span>
+               <span>Cross-Industry Use Cases</span>
              </div>
              <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
                <span>Industry Core Foundation</span>

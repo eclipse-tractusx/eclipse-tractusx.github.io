@@ -18,106 +18,13 @@
  ********************************************************************************/
 
 import React, { useState, useEffect } from 'react';
-import Link from "@docusaurus/Link";
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from './styles.module.scss';
-import { kitsData, getCategoryGradient } from '@site/data/kitsData';
-
-
-const KitCard = ({ kit }) => {
-  const [showTooltip, setShowTooltip] = React.useState(false);
-  const [isHovered, setIsHovered] = React.useState(false);
-  
-  // Get the gradient for this kit's category
-  const categoryGradient = getCategoryGradient(kit.category);
-
-  return (
-    <div className={styles.kitCardWrapper}>
-      <div 
-        className={styles.kitCard__stackContainer}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Gradient border layer - visible when not hovering */}
-        <div 
-          className={styles.kitCard__gradientBorder}
-          style={{
-            background: categoryGradient,
-            opacity: isHovered ? 0 : 1
-          }}
-        ></div>
-        <div 
-          className={styles.kitCard__layer3}
-          style={{
-            background: isHovered ? `linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), ${categoryGradient}` : undefined
-          }}
-        ></div>
-        <div 
-          className={styles.kitCard__layer2}
-          style={{
-            background: isHovered ? `linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)), ${categoryGradient}` : undefined
-          }}
-        ></div>
-        <Link 
-          to={kit.route} 
-          className={styles.kitCard}
-          style={{
-            background: isHovered ? categoryGradient : undefined
-          }}
-        >
-          <div className={styles.kitCard__iconContainer}>
-            <kit.logo className={styles.kitCard__icon} />
-          </div>
-        </Link>
-        
-        {/* Info Button */}
-        {kit.description && (
-          <div className={styles.kitCard__infoButton}>
-            <button
-              className={styles.infoButton}
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-              onClick={(e) => {
-                e.preventDefault();
-                setShowTooltip(!showTooltip);
-              }}
-              aria-label="Kit information"
-            >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="7" cy="7" r="6.5" stroke="currentColor" strokeWidth="1" />
-                <circle cx="7" cy="4.5" r="0.5" fill="currentColor" />
-                <path
-                  d="M7 6.5V10.5"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-            
-            {/* Tooltip */}
-            {showTooltip && (
-              <div className={styles.tooltip}>
-                <div className={styles.tooltipArrow}></div>
-                <p className={styles.tooltipText}>{kit.description}</p>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-      <h3 className={styles.kitCard__title}>{kit.name}</h3>
-    </div>
-  );
-};
+import { kitsData } from '@site/data/kitsData';
+import KitCard from '../KitCard';
 
 export default function KitsGalleryWithCategories({ title, description }) {
   const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
@@ -264,7 +171,7 @@ export default function KitsGalleryWithCategories({ title, description }) {
 
         {/* Use Cases Section */}
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>CROSS DATASPACE USE CASES</h3>
+          <h3 className={styles.sectionTitle}>CROSS-INDUSTRY USE CASES</h3>
           <div className={styles.grid}>
             {filteredUseCases.length === 0 ? (
               <p className={styles.noMatch}>No kits found for this dataspace</p>
