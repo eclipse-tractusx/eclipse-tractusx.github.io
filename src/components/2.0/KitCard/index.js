@@ -103,6 +103,25 @@ const KitCard = ({ kit }) => {
               <div className={styles.tooltip}>
                 <div className={styles.tooltipArrow}></div>
                 <p className={styles.tooltipText}>{kit.description}</p>
+                
+                {/* Maturity Chips */}
+                {kit.maturity && (
+                  <div className={styles.tooltipChips}>
+                    {/* Current Level Chip */}
+                    {kit.maturity.currentLevel && (
+                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.currentLevel.toLowerCase()}`]}`}>
+                        {kit.maturity.currentLevel}
+                      </span>
+                    )}
+                    
+                    {/* Graduation Status Chip */}
+                    {kit.maturity.graduationStatus && (
+                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
+                        {kit.maturity.graduationStatus}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>

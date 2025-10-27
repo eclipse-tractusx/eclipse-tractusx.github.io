@@ -236,9 +236,72 @@
   font-size: 0.875rem;
   line-height: 1.5;
   color: #e0e0e0;
-  margin: 0;
+  margin: 0 0 0.75rem 0;
   position: relative;
   z-index: 1;
+}
+
+.tooltipChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+// Maturity level chips
+.chip--graduated {
+  background: rgba(46, 160, 67, 0.15);
+  color: #2ea043;
+  border: 1px solid rgba(46, 160, 67, 0.3);
+}
+
+.chip--incubating {
+  background: rgba(250, 160, 35, 0.15);
+  color: #faa023;
+  border: 1px solid rgba(250, 160, 35, 0.3);
+}
+
+.chip--sandbox {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+// Graduation status chips
+.chip--draft {
+  background: rgba(107, 114, 126, 0.15);
+  color: #6b727e;
+  border: 1px solid rgba(107, 114, 126, 0.3);
+}
+
+.chip--inProgress {
+  background: rgba(34, 139, 230, 0.15);
+  color: #228be6;
+  border: 1px solid rgba(34, 139, 230, 0.3);
+}
+
+.chip--inReview {
+  background: rgba(174, 62, 201, 0.15);
+  color: #ae3ec9;
+  border: 1px solid rgba(174, 62, 201, 0.3);
+}
+
+.chip--noFurtherDevelopment {
+  background: rgba(250, 82, 82, 0.15);
+  color: #fa5252;
+  border: 1px solid rgba(250, 82, 82, 0.3);
 }
 
 @keyframes tooltipFadeIn {
@@ -437,5 +500,41 @@
 
   .tooltipText {
     color: #333;
+  }
+
+  // Light theme chip adjustments
+  .chip--graduated {
+    background: rgba(46, 160, 67, 0.1);
+    color: #2ea043;
+  }
+
+  .chip--incubating {
+    background: rgba(250, 160, 35, 0.1);
+    color: #e67700;
+  }
+
+  .chip--sandbox {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7048e8;
+  }
+
+  .chip--draft {
+    background: rgba(107, 114, 126, 0.1);
+    color: #495057;
+  }
+
+  .chip--inProgress {
+    background: rgba(34, 139, 230, 0.1);
+    color: #1c7ed6;
+  }
+
+  .chip--inReview {
+    background: rgba(174, 62, 201, 0.1);
+    color: #9c36b5;
+  }
+
+  .chip--noFurtherDevelopment {
+    background: rgba(250, 82, 82, 0.1);
+    color: #e03131;
   }
 }
