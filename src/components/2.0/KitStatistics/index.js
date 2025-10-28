@@ -20,7 +20,7 @@
 import React, { useMemo } from 'react';
 import CountUpNumber from '../CountUpNumber';
 import { getAllKits } from '@site/data/kitsData';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import {
   Build as BuildIcon,
   Language as LanguageIcon,
@@ -76,7 +76,7 @@ const KitStatistics = () => {
       label: 'KITs in Total',
       description: 'Active KITs available across all categories',
       icon: BuildIcon,
-      duration: 2000
+      duration: 1300
     },
     {
       id: 'dataspaces',
@@ -84,7 +84,7 @@ const KitStatistics = () => {
       label: 'Dataspaces',
       description: 'Dataspaces contributing to our KITs',
       icon: LanguageIcon,
-      duration: 2200
+      duration: 1300
     },
     {
       id: 'graduated',
@@ -92,7 +92,7 @@ const KitStatistics = () => {
       label: 'Graduated KITs',
       description: 'Adoption-ready and verified KITs',
       icon: SchoolIcon,
-      duration: 2400
+      duration: 1300
     },
     {
       id: 'incubating',
@@ -100,7 +100,7 @@ const KitStatistics = () => {
       label: 'Incubating KITs',
       description: 'KITs in development and testing phase',
       icon: RocketIcon,
-      duration: 2600
+      duration: 1300
     }
   ];
 
@@ -143,7 +143,7 @@ const KitStatistics = () => {
         
         <div className={styles.additionalInfo}>
           <p className={styles.infoText}>
-            Our KITs are continuously evolving, with new additions and updates 
+            Our Eclipse Tractus-X KITs are continuously evolving, with new additions and updates 
             happening regularly to support the growing dataspace ecosystem.
           </p>
         </div>

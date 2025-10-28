@@ -18,7 +18,7 @@
  ********************************************************************************/
 
 import React from 'react';
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 
 const CountUpNumber = ({ endValue, duration = 2000, suffix = '', prefix = '' }) => {
   const [currentValue, setCurrentValue] = React.useState(0);
@@ -62,7 +62,7 @@ const CountUpNumber = ({ endValue, duration = 2000, suffix = '', prefix = '' }) 
       const progress = Math.min(elapsed / duration, 1);
       
       // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const easeOutQuart = 1 - Math.pow(1 - progress, 2);
       const value = Math.floor(startValue + (endValue - startValue) * easeOutQuart);
       
       setCurrentValue(value);
