@@ -23,16 +23,21 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from './styles.module.scss';
-import { kitsData } from '@site/data/kitsData';
-import KitCard from '../KitCard';
+import KitsGrid from '../KitsGrid';
 
-export default function KitsGalleryWithCategories({ title, description }) {
+export default function KitsGalleryWithCategories({ 
+  title, 
+  description, 
+  dataspaceFoundation = [], 
+  industryCoreFoundation = [], 
+  useCases = [] 
+}) {
   const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
   const [sortOrder, setSortOrder] = useState('default'); // 'default', 'asc', 'desc'
 
   // Get all unique dataspaces from all kits
   const allDataspaces = Array.from(new Set(
-    [...kitsData.dataspaceFoundation, ...kitsData.industryCoreFoundation, ...kitsData.useCases]
+    [...dataspaceFoundation, ...industryCoreFoundation, ...useCases]
       .flatMap(kit => kit.dataspaces)
   )).sort();
 
@@ -70,9 +75,9 @@ export default function KitsGalleryWithCategories({ title, description }) {
     }
   };
 
-  const filteredDataspaceFoundation = processKits(kitsData.dataspaceFoundation);
-  const filteredIndustryCoreFoundation = processKits(kitsData.industryCoreFoundation);
-  const filteredUseCases = processKits(kitsData.useCases);
+  const filteredDataspaceFoundation = processKits(dataspaceFoundation);
+  const filteredIndustryCoreFoundation = processKits(industryCoreFoundation);
+  const filteredUseCases = processKits(useCases);
 
   return (
     <section className={styles.kitsGallery}>
@@ -141,47 +146,22 @@ export default function KitsGalleryWithCategories({ title, description }) {
             </div>
           </div>
         {/* Dataspace Foundation Section */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>DATASPACE FOUNDATION</h3>
-
-          <div className={styles.grid}>
-            {filteredDataspaceFoundation.length === 0 ? (
-              <p className={styles.noMatch}>No kits found for this dataspace</p>
-            ) : (
-              filteredDataspaceFoundation.map((kit) => (
-                <KitCard key={kit.id} kit={kit} />
-              ))
-            )}
-          </div>
-        </div>
+        <KitsGrid 
+          title="DATASPACE FOUNDATION"
+          kits={filteredDataspaceFoundation}
+        />
 
         {/* Industry Core Foundation Section */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>INDUSTRY CORE FOUNDATION</h3>
-          <div className={styles.grid}>
-            {filteredIndustryCoreFoundation.length === 0 ? (
-              <p className={styles.noMatch}>No kits found for this dataspace</p>
-            ) : (
-              filteredIndustryCoreFoundation.map((kit) => (
-                <KitCard key={kit.id} kit={kit} />
-              ))
-            )}
-          </div>
-        </div>
+        <KitsGrid 
+          title="INDUSTRY CORE FOUNDATION"
+          kits={filteredIndustryCoreFoundation}
+        />
 
         {/* Use Cases Section */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>CROSS-INDUSTRY USE CASES</h3>
-          <div className={styles.grid}>
-            {filteredUseCases.length === 0 ? (
-              <p className={styles.noMatch}>No kits found for this dataspace</p>
-            ) : (
-              filteredUseCases.map((kit) => (
-                <KitCard key={kit.id} kit={kit} />
-              ))
-            )}
-          </div>
-        </div>
+        <KitsGrid 
+          title="CROSS-INDUSTRY USE CASES"
+          kits={filteredUseCases}
+        />
 
       </div>
     </section>
