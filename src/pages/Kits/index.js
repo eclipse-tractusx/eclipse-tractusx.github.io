@@ -27,6 +27,7 @@ import KitStatistics from "../../components/2.0/KitStatistics";
 import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
+import KitsFooter from "../../components/2.0/KitsFooter";
 import { kitsData, getAllKits } from "@site/data/kitsData";
 
 export default function KitsPage() {
@@ -51,6 +52,7 @@ export default function KitsPage() {
         useCases={kitsData.useCases}
       />
       <KitsExtensions />
+      <KitsFooter />
     </Layout>
   );
 }
