@@ -76,7 +76,7 @@ const KitStatistics = () => {
       label: 'KITs in Total',
       description: 'Active KITs available across all categories',
       icon: BuildIcon,
-      duration: 1300
+      duration: 800
     },
     {
       id: 'dataspaces',
@@ -84,7 +84,7 @@ const KitStatistics = () => {
       label: 'Dataspaces',
       description: 'Dataspaces contributing to our KITs',
       icon: LanguageIcon,
-      duration: 1300
+      duration: 800
     },
     {
       id: 'graduated',
@@ -92,7 +92,7 @@ const KitStatistics = () => {
       label: 'Graduated KITs',
       description: 'Adoption-ready and verified KITs',
       icon: SchoolIcon,
-      duration: 1300
+      duration: 800
     },
     {
       id: 'incubating',
@@ -100,7 +100,7 @@ const KitStatistics = () => {
       label: 'Incubating KITs',
       description: 'KITs in development and testing phase',
       icon: RocketIcon,
-      duration: 1300
+      duration: 800
     }
   ];
 
