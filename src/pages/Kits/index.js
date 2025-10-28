@@ -27,20 +27,22 @@ import KitStatistics from "../../components/2.0/KitStatistics";
 import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
-import { kitsData } from "@site/data/kitsData";
+import { kitsData, getAllKits } from "@site/data/kitsData";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
+  
+  const allKits = getAllKits();
+  
   return (
     <Layout
       title={`Eclipse Tractus-X KITs | ${siteConfig.title}`}
       description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable dataspaces across industries."
     >
-            <KitHeader />
+      <KitHeader />
       <KitsTitle />
-
       <KitsArchitecture />
-      <KitStatistics />
+      <KitStatistics kitsData={allKits} />
       <KitsGallery
         title={"Our Gallery"}
         description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}

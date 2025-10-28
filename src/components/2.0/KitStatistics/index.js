@@ -19,7 +19,6 @@
 
 import React, { useMemo } from 'react';
 import CountUpNumber from '../CountUpNumber';
-import { getAllKits } from '@site/data/kitsData';
 import styles from './styles.module.scss';
 import {
   Build as BuildIcon,
@@ -31,16 +30,24 @@ import {
 } from '@mui/icons-material';
 import { Button } from '@mui/material';
 
-const KitStatistics = () => {
+const KitStatistics = ({ kitsData }) => {
   const statistics = useMemo(() => {
-    const allKits = getAllKits();
-    
+    if (!kitsData || kitsData.length === 0) {
+      return {
+        totalKits: 0,
+        totalDataspaces: 0,
+        graduatedKits: 0,
+        incubatingKits: 0,
+        sandboxKits: 0
+      };
+    }
+
     // Count total KITs (excluding deprecated ones)
-    const totalKits = allKits.filter(kit => !kit.deprecated).length;
+    const totalKits = kitsData.filter(kit => !kit.deprecated).length;
     
     // Count unique dataspaces
     const allDataspaces = new Set();
-    allKits.forEach(kit => {
+    kitsData.forEach(kit => {
       if (!kit.deprecated && kit.dataspaces) {
         kit.dataspaces.forEach(dataspace => allDataspaces.add(dataspace));
       }
@@ -48,7 +55,7 @@ const KitStatistics = () => {
     const totalDataspaces = allDataspaces.size;
     
     // Count KITs by maturity level
-    const maturityCounts = allKits
+    const maturityCounts = kitsData
       .filter(kit => !kit.deprecated)
       .reduce((counts, kit) => {
         const level = kit.maturity?.currentLevel?.toLowerCase() || 'unknown';
@@ -67,8 +74,7 @@ const KitStatistics = () => {
       incubatingKits,
       sandboxKits
     };
-  }, []);
-
+  }, [kitsData]);
   const statisticsItems = [
     {
       id: 'total-kits',
@@ -143,7 +149,7 @@ const KitStatistics = () => {
         
         <div className={styles.additionalInfo}>
           <p className={styles.infoText}>
-            Our Eclipse Tractus-X KITs are continuously evolving, with new additions and updates 
+            Our KITs are continuously evolving, with new additions and updates 
             happening regularly to support the growing dataspace ecosystem.
           </p>
         </div>
