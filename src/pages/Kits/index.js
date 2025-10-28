@@ -23,6 +23,7 @@ import Layout from "@theme/Layout";
 
 import KitHeader from "../../components/2.0/KitsHeader";
 import KitsTitle from "../../components/2.0/KitsTitle";
+import KitStatistics from "../../components/2.0/KitStatistics";
 import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
@@ -35,9 +36,11 @@ export default function KitsPage() {
       title={`Eclipse Tractus-X KITs | ${siteConfig.title}`}
       description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable dataspaces across industries."
     >
-      <KitHeader />
+            <KitHeader />
       <KitsTitle />
+
       <KitsArchitecture />
+      <KitStatistics />
       <KitsGallery
         title={"Our Gallery"}
         description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
