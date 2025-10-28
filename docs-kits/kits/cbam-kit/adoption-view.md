@@ -39,7 +39,9 @@ https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en
 #### Initiation of the CBAM Process
 The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a customs code that is subject to CBAM reporting and originates from specified countries.  Importers below defined de minimis mass of annual imports are not required to follow the CBAM rules. The importer initiates the process via Catena-X.  (see figure 1)
 
-Figre 1: The CBAM Data Exchange mechanism with Catena-X
+![CbamCatena](res/magesCBAM-Seite-1.drawio.svg)
+
+Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
 Catena is used for identifying the importer and the supplier’s contact and installation site.
 -	Identification of the importer
@@ -109,4 +111,5 @@ Here is a tabular overview of the key roles in the CBAM (Carbon Border Adjustmen
 
 ### Semantic Models
 Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, audibility, comprehensiveness, and provision of insights to drive improvement actions.
+
 
