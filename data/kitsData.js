@@ -228,7 +228,7 @@ export const kitsData = {
         currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Semiconductor-X'],
+      dataspaces: ['Catena-X'],
       description: 'Chain data efficiently across partners with standardized protocols and workflows'
     },
     {
@@ -247,7 +247,7 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Data-driven quality management and analytics for proactive issue detection and resolution'
     },
     {
@@ -265,7 +265,7 @@ export const kitsData = {
         currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'End-to-end traceability of parts and materials across the entire supply chain'
     },
     {
@@ -284,7 +284,7 @@ export const kitsData = {
         graduationStatus: 'in progress'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Behavioral models and simulation capabilities for predictive analysis and optimization'
     }
   ],
@@ -305,7 +305,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X'],
       description: 'Environmental and Social Standards compliance monitoring and reporting across supply chains'
     },
     {
@@ -320,11 +320,10 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #66C791 0%, #368C7D 100%)'
       },
       maturity: {
-        currentLevel: 'Incubating',
-        graduationStatus: 'in review'
+        currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
       description: 'Calculate, exchange, and track product carbon footprints throughout the value chain'
     },
     {
@@ -343,7 +342,7 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
       description: 'Digital product passports with environmental data and sustainability metrics'
     },
     {
@@ -362,7 +361,7 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X'],
       description: 'Circular economy principles and material flow tracking for sustainable manufacturing'
     },
     {
@@ -380,7 +379,7 @@ export const kitsData = {
         currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Predictive Unit Real-time Information Service for supply chain visibility and optimization'
     },
     {
@@ -398,7 +397,7 @@ export const kitsData = {
         currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Balance supply and demand across networks with real-time capacity monitoring'
     },
     {
@@ -417,7 +416,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X'],
+      dataspaces: ['Catena-X'],
       description: 'Logistics and transportation management for efficient supply chain operations'
     },
     {
@@ -435,7 +434,7 @@ export const kitsData = {
         currentLevel: 'Graduated'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X'],
+      dataspaces: ['Catena-X', 'Factory-X'],
       description: 'Monitor and manage supply chain disruptions with real-time notifications and alerts'
     },
     {
@@ -454,7 +453,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Factory-X', 'Construct-X'],
+      dataspaces: ['Catena-X'],
       description: 'Customs and trade compliance management with automated documentation and reporting'
     },
       {
@@ -473,7 +472,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Real-time simulation and modeling capabilities for production optimization'
     },
     {
@@ -492,7 +491,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X'],
+      dataspaces: ['Catena-X'],
       description: 'Model-based development and data processing for advanced manufacturing'
     },
     {
@@ -511,7 +510,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Aerospace-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X'],
       description: 'Requirements management and tracking across dataspaces and organizations'
     },
     {
@@ -534,24 +533,24 @@ export const kitsData = {
       description: 'Manufacturing services marketplace for on-demand production capabilities'
     },
     {
-          id: 'modular-production',
-          name: 'MODULAR PRODUCTION KIT',
-          logo: ModularProductionLogo,
-          logoHeight: 100,
-          logoWidth: 100,
-          route: '/docs-kits/kits/modular-production-kit/adoption-view',
-          colors: {
-            primary: '#A098A4',
-            gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
-          },
-          maturity: {
-            currentLevel: 'Incubating',
-            graduationStatus: 'in progress'
-          },
-          deprecated: false,
-          dataspaces: ['Factory-X'],
-          description: 'Flexible and modular production systems for adaptive manufacturing'
-        }
+      id: 'modular-production',
+      name: 'MODULAR PRODUCTION KIT',
+      logo: ModularProductionLogo,
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/modular-production-kit/adoption-view',
+      colors: {
+        primary: '#A098A4',
+        gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+      },
+      maturity: {
+        currentLevel: 'Incubating',
+        graduationStatus: 'in progress'
+      },
+      deprecated: false,
+      dataspaces: ['Factory-X'],
+      description: 'Flexible and modular production systems for adaptive manufacturing'
+    }
   ],
   // List here the industry/dataspace specific KITs (will not be shown in the cross dataspace use cases gallery)
   dataspaceKits: {
