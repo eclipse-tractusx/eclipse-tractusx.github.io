@@ -56,7 +56,7 @@ This is not a planning or refinement session — it's a dedicated space to clari
 **What to Expect:**
 
 - **Duration**: Typically 2-4 hours
-- **Focus**: Features labeled with `open question` or `Open Discussion`
+- **Focus**: Features labeled with `open question`
 - **Participants**: Feature owners, component developers, committers, and stakeholders
 - **Activities**:
   - Overview of features with open questions
@@ -65,7 +65,7 @@ This is not a planning or refinement session — it's a dedicated space to clari
 
 **Prerequisites for Features:**
 
-- Features must be labeled `open question` or `Open Discussion` at least **3 days prior** to the Alignment Day
+- Features must be labeled `open question` at least **3 days prior** to the Alignment Day
 - Feature owners should be prepared to describe their needs or concerns
 - Component developers should be ready to clarify what is expected from them
 
@@ -83,7 +83,7 @@ The **Open Planning Day** is the main planning session where the community final
 :::note Who Should Attend
 
 - Contributors and Committers from the open-source community
-- Expert Group and Committee members
+- Experts
 - Feature requesters and stakeholders
 
 Your participation is crucial to ensure the success of release planning!
@@ -113,7 +113,7 @@ Your participation is crucial to ensure the success of release planning!
 
 For a feature to be considered during Open Planning, it must meet the following criteria:
 
-- **Status**: Must be set to `Backlog` (set by Committers and Expert Groups after refinement)
+- **Status**: Must be set to `Backlog` (set by Committers and experts, requester after refinement)
 - **Milestone**: Must **NOT** be set (will be assigned during the session)
 - **Assignees**: Both Contributor and Committer must be assigned
 - **Topic/Product**: Must be set to categorize the feature
@@ -121,7 +121,7 @@ For a feature to be considered during Open Planning, it must meet the following 
 
 :::warning Special Case - KITs
 
-For KIT features, only the Contributor, Committer, and Description fields need to be filled.
+For KIT features, only the Contributor, Committer, and Description fields need to be filled. **There is also a seperate issue template for KITs**
 
 :::
 
@@ -145,8 +145,7 @@ Understanding and using the correct labels and attributes is essential for effec
 |-------|---------|-------------|
 | `Prep-R{YY.MM}` | Identifies features for a specific release | Add when creating a feature for an upcoming release (e.g., `Prep-R26.03`) |
 | `open question` | Marks features with unresolved questions | Add at least 3 days before Alignment Day |
-| `Open Discussion` | Alternative label for features needing discussion | Used in some releases instead of `open question` |
-| `metadata` | Marks timeline and process-related items | Used for release management items |
+| `edc`, `portal` and more | Marks other topic groups which might be needed to fullfill the requirements of the feature | Used for dependencies |
 
 ### Required Attributes
 
