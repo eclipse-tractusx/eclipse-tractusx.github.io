@@ -65,6 +65,7 @@ export default function KitsExtensions() {
             <div className={styles.block_layer_3}></div>
             <div className={styles.block_layer_4}></div>
             <div className={styles.block_content}>
+              <img src="https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg" alt="Semiconductor-X Logo" />
               <div className={styles.block_text}>
                 <div className={styles.block_title}>Semiconductor-X</div>
                 <div className={styles.block_subtitle}>Semiconductor Industry KITs</div>

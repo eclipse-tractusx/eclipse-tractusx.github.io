@@ -51,7 +51,7 @@
              </div>
              <div className={`${styles.hexagon} ${styles.hexagon_semiconductor}`}>
                <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}></div>
+                  <div className={styles.hexagon_title}><img src="https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg" alt="Semiconductor-X Logo" /></div>
                  <div className={styles.hexagon_subtitle}>Semiconductor-X</div>
                </div>
              </div>
