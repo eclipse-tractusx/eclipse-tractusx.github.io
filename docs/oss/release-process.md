@@ -3,11 +3,11 @@ title: Tractus-X Release Process
 sidebar_position: 45
 ---
 
-The Eclipse Tractus-X Release Process is a structured, transparent, and collaborative approach to planning and delivering high-quality releases. This process ensures that all contributors, committers, and stakeholders are aligned on deliverables, timelines, and expectations for each release cycle.
+The **Eclipse Tractus-X Release Process** is a structured, transparent, and collaborative approach to planning and delivering high-quality releases. This process ensures that all contributors, committers, and stakeholders are aligned on deliverables, timelines, and expectations for each release cycle.
 
 :::info Release Cadence
 
-Eclipse Tractus-X follows a quarterly release cycle with releases typically occurring in March, June, September, and December. Release naming follows the pattern `R{YY}.{MM}` (e.g., R24.03 for March 2024).
+Tractus-X follows a quarterly release cycle with releases typically occurring in March, June, September, and December. Release naming follows the pattern `R{YY}.{MM}` (e.g., R24.03 for March 2024).
 
 :::
 
