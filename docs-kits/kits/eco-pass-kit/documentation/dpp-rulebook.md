@@ -234,7 +234,7 @@ Metadata encompasses the fundamental details of the digital product passport.
 
 Unique identifier of the product passport.
 
-> **Content Validation**<br>Must contain an unique identifier <font color="red">according to [RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
+> **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
 
 #### 5.1.2 Version
 
@@ -285,9 +285,9 @@ The date until the product passport remains available.
 
 Identification of the economic operator responsible for the passport.
 
-> **Syntax**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+> **Syntax**<br> To be checked via regular expression based checks.
 
-> **Content Validation**<br>For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
 
 #### 5.1.12 Economic Operator Name
 
@@ -607,8 +607,7 @@ The "Characteristics" category refers to a set of descriptive attributes that de
 Key elements under this category may include:
 <br>1- Physical attributes: Size, weight, dimensions, color, and material composition.
 <br>2- Functional properties: Intended use, performance capabilities, and compatibility.
-<br>3- Environmental characteristics: Energy consumption, emissions, recyclability, and presence of hazardous substances.
-<br>4- Lifecycle information: Expected lifespan, maintenance needs, and end-of-life options.
+<br>3- Lifecycle information: Expected lifespan, maintenance needs, and end-of-life options.
  
 These characteristics enable standardized documentation, comparability across products, and informed decision-making by stakeholders such as consumers, manufacturers, and regulators.
 
