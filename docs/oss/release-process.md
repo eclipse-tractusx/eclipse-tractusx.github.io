@@ -196,6 +196,7 @@ After Open Planning, the development phase begins:
 
 Before the E2E testing phase:
 
+- **Release Check Issues**: Creation of Release Check Issues to be part of the Release and Test Phase
 - **Briefing Session**: Preparation meeting to review the release checklist and deployment process
 - **Kick-Off Session**: Launch meeting for the test phase with latest updates
 - Features must be deployed to the integration environment
