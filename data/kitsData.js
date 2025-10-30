@@ -562,6 +562,105 @@ export const kitsData = {
     }
 };
 
+// Information about the different dataspaces which use Eclipse Tractus-X.
+export const dataspaces = [
+  {
+    id: 'catena-x',
+    name: 'Catena-X',
+    subtitle: 'Automotive Industry KITs',
+    logo: {
+      src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+      alt: 'Catena-X Logo',
+      width: 70,
+      height: 70
+    },
+    colors: {
+      layer1: 'rgb(110, 200, 105)',
+      layer2: 'rgb(179, 203, 45)',
+      layer3: 'rgb(230, 163, 38)',
+      layer4: 'rgb(250, 160, 35)'
+    },
+    gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+    url: 'https://catena-x.net'
+  },
+  {
+    id: 'factory-x',
+    name: 'Factory-X',
+    subtitle: 'Shop Floor Industry KITs',
+    logo: {
+      src: 'https://factory-x.org/wp-content/uploads/factory-x-logo.svg',
+      alt: 'Factory-X Logo',
+      width: 80,
+      height: 'auto'
+    },
+    colors: {
+      layer1: '#81d100',
+      layer2: '#c1d100',
+      layer3: '#5ba9de',
+      layer4: '#1D71B8'
+    },
+    gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',
+    url: 'https://factory-x.org'
+  },
+  {
+    id: 'semiconductor-x',
+    name: 'Semiconductor-X',
+    subtitle: 'Semiconductor Industry KITs',
+    logo: {
+      src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
+      alt: 'Semiconductor-X Logo',
+      width: 70,
+      height: 50
+    },
+    colors: {
+      layer1: '#c1cb01',
+      layer2: '#d4b501',
+      layer3: '#e69f00',
+      layer4: '#e67900'
+    },
+    gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
+    url: 'https://semiconductor-x.com'
+  },
+  {
+    id: 'chem-x',
+    name: 'Chem-X',
+    subtitle: 'Chemical Industry KITs',
+    logo: {
+      src: 'https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png',
+      alt: 'Chem-X Logo',
+      width: 80,
+      height: 'auto'
+    },
+    colors: {
+      layer1: '#c1d100',
+      layer2: '#7bc100',
+      layer3: '#35a3b0',
+      layer4: '#0085b0'
+    },
+    gradient: 'linear-gradient(135deg, #0085b0, #c1d100)',
+    url: 'https://chem-x.de'
+  },
+  {
+    id: 'construct-x',
+    name: 'Construct-X',
+    subtitle: 'Construction Industry KITs',
+    logo: {
+      src: 'https://construct-x.org/wp-content/uploads/2025/05/Construct-X-Logo-pos-scaled.webp',
+      alt: 'Construct-X Logo',
+      width: 80,
+      height: 'auto'
+    },
+    colors: {
+      layer1: '#FF6B35',
+      layer2: '#FF8C42',
+      layer3: '#FFA726',
+      layer4: '#FFB74D'
+    },
+    gradient: 'linear-gradient(135deg,#002865, #FF6B35, #FFB74D )',
+    url: 'https://construct-x.org'
+  }
+];
+
 
 
 

@@ -61,14 +61,15 @@
 
 .blocks_container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-items: center;
   align-items: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
+
+// With 6 items, we have a perfect 3x2 grid, no special centering needed
 
 .dataspace_block {
   width: 300px;
@@ -106,14 +107,14 @@
   transform: scale(1.02) !important;
 }
 
-// Modern 3D Layered system with enhanced depth - Square format
+// Modern 3D Layered system with enhanced depth - Responsive format
 .block_layer_1,
 .block_layer_2,
 .block_layer_3,
 .block_layer_4 {
   position: absolute;
-  width: 284px;
-  height: 284px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
   border-radius: 30px;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   backdrop-filter: blur(10px);
@@ -160,83 +161,50 @@
     inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
-// Catena-X - Modern orange to amber gradient with transparency
-.block_catena {
+// Dynamic color system using CSS custom properties
+.dataspace_block {
+  // Default state - only show front layer with border
   .block_layer_1 {
-    background: rgb(110, 200, 105);
-    opacity: 0.6;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .block_layer_2 {
-    background: rgb(179, 203, 45);
-    opacity: 0.7;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .block_layer_3 {
-    background: rgb(230, 163, 38);
-    opacity: 0.85;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .block_layer_4 {
-    background: rgb(250, 160, 35);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     opacity: 1;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
-}
 
-// Factory-X - Modern blue to indigo gradient with transparency
-.block_factory {
-  .block_layer_1 {
-    background: #81d100;
-    opacity: 0.6;
-  }
-  .block_layer_2 {
-     background: #c1d100;
-    opacity: 0.7;
-  }
-  .block_layer_3 {
-    background: #5ba9de;
-    opacity: 0.85;
-  }
-  .block_layer_4 {
-    background: #1D71B8;
-    opacity: 1;
-  }
-}
-
-// Semiconductor-X - Modern lime to emerald gradient with transparency
-.block_semiconductor {
-  .block_layer_1 {
-    background: #c1cb01;
-    opacity: 0.6;
-  }
-  .block_layer_2 {
-    background: #d4b501;
-    opacity: 0.7;
-  }
-  .block_layer_3 {
-    background: #e69f00;
-    opacity: 0.85;
-  }
-  .block_layer_4 {
-    background: #e67900;
-    opacity: 1;
-  }
-}
-
-// Chem-X - Modern teal to cyan gradient with transparency
-.block_chem {
-  .block_layer_1 {
-    background: #c1d100;
-    opacity: 0.6;
-  }
-  .block_layer_2 {
-    background: #7bc100;
-    opacity: 0.7;
-  }
-  .block_layer_3 {
-    background: #35a3b0;
-    opacity: 0.85;
-  }
-  .block_layer_4 {
-    background: #0085b0;
-    opacity: 1;
+  // Hover state - show all layers with colors
+  &:hover {
+    .block_layer_1 {
+      background: var(--layer-1-color, #c1d100);
+      opacity: 0.6;
+    }
+    .block_layer_2 {
+      background: var(--layer-2-color, #7bc100);
+      opacity: 0.7;
+    }
+    .block_layer_3 {
+      background: var(--layer-3-color, #35a3b0);
+      opacity: 0.85;
+    }
+    .block_layer_4 {
+      background: var(--layer-4-color, #0085b0);
+      border: none;
+      opacity: 1;
+    }
   }
 }
 
@@ -268,16 +236,7 @@
   }
 }
 
-// Larger logos for Factory-X and Chem-X
-.block_factory .block_content img {
-  width: 80px;
-  height: 80px;
-}
-
-.block_chem .block_content img {
-  width: 80px;
-  height: 80px;
-}
+// Logo sizes are now controlled via the dataspaceExtensions configuration
 
 .block_text {
   text-align: center;
@@ -299,51 +258,39 @@
   letter-spacing: 0.01em;
 }
 
-// Catena-X logo always white
-.block_catena .block_content img {
-  filter: brightness(0) invert(1) !important;
+// Logo filters - show original colors by default
+.dataspace_block .block_content img {
+  filter: none;
+  transition: filter 0.3s ease;
 }
 
-// Other logos in grayscale
-.block_factory .block_content img {
-  filter: grayscale(1) !important;
+// Hover effects - add subtle enhancements
+.dataspace_block:hover .block_content img {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
 }
 
-.block_semiconductor .block_content img {
-  filter: grayscale(1) !important;
-}
-
-.block_chem .block_content img {
-  filter: grayscale(1) !important;
-}
-
-// Hover effects - enhanced logo visibility
-.block_catena:hover .block_content img {
-  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 166, 0, 0.8)) !important;
-}
-
-.block_factory:hover .block_content img {
-  filter: grayscale(1) drop-shadow(0 0 8px rgba(29, 113, 184, 0.8)) !important;
-}
-
-.block_semiconductor:hover .block_content img {
-  filter: grayscale(1) drop-shadow(0 0 8px rgba(193, 203, 1, 0.8)) !important;
-}
-
-.block_chem:hover .block_content img {
-  filter: grayscale(1) drop-shadow(0 0 8px rgba(0, 133, 176, 0.8)) !important;
+// Catena-X specific hover effect - turn white only on hover
+.block_catena_x:hover .block_content img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
 }
 
 // Responsive design
 @media screen and (max-width: 1200px) {
   .blocks_container {
-    max-width: 720px;
+    max-width: 1000px;
     gap: 1.5rem;
   }
   
   .dataspace_block {
     width: 280px;
-    height: 210px;
+    height: 280px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 28px;
   }
 }
 
@@ -354,13 +301,14 @@
   }
   
   .blocks_container {
+    grid-template-columns: repeat(2, 1fr);
     max-width: 600px;
     gap: 1.2rem;
   }
   
   .dataspace_block {
-    width: 260px;
-    height: 195px;
+    width: 250px;
+    height: 250px;
   }
   
   .block_content {
@@ -368,15 +316,9 @@
     gap: 0.8rem;
     
     img {
-      width: 55px;
-      height: 55px;
+      max-width: 50px;
+      max-height: 50px;
     }
-  }
-  
-  .block_factory .block_content img,
-  .block_chem .block_content img {
-    width: 70px;
-    height: 70px;
   }
   
   .block_title {
@@ -394,6 +336,13 @@
   .subtitle {
     font-size: 16px;
   }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 25px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -403,8 +352,8 @@
   }
   
   .dataspace_block {
-    width: 240px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
   }
   
   .block_content {
@@ -412,15 +361,9 @@
     gap: 0.6rem;
     
     img {
-      width: 50px;
-      height: 50px;
+      max-width: 45px;
+      max-height: 45px;
     }
-  }
-  
-  .block_factory .block_content img,
-  .block_chem .block_content img {
-    width: 65px;
-    height: 65px;
   }
   
   .block_title {
@@ -429,6 +372,13 @@
   
   .block_subtitle {
     font-size: 11px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 22px;
   }
 }
 
@@ -461,24 +411,18 @@
   }
   
   .dataspace_block {
-    width: 280px;
+    width: 300px;
     height: 200px;
   }
   
   .block_content {
-    padding: 1.3rem 1rem;
+    padding: 1.2rem 1rem;
     gap: 0.8rem;
     
     img {
-      width: 55px;
-      height: 55px;
+      max-width: 50px;
+      max-height: 50px;
     }
-  }
-  
-  .block_factory .block_content img,
-  .block_chem .block_content img {
-    width: 70px;
-    height: 70px;
   }
   
   .block_title {
@@ -487,6 +431,13 @@
   
   .block_subtitle {
     font-size: 12px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 20px;
   }
 }
 
@@ -513,8 +464,8 @@
   }
   
   .dataspace_block {
-    width: 260px;
-    height: 185px;
+    width: 280px;
+    height: 180px;
   }
   
   .block_content {
@@ -522,15 +473,9 @@
     gap: 0.7rem;
     
     img {
-      width: 50px;
-      height: 50px;
+      max-width: 45px;
+      max-height: 45px;
     }
-  }
-  
-  .block_factory .block_content img,
-  .block_chem .block_content img {
-    width: 65px;
-    height: 65px;
   }
   
   .block_title {
@@ -539,6 +484,13 @@
   
   .block_subtitle {
     font-size: 11px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 18px;
   }
 }
 
@@ -560,31 +512,80 @@
   }
   
   .dataspace_block {
-    width: 240px;
-    height: 170px;
+    width: 260px;
+    height: 160px;
   }
   
   .block_content {
-    padding: 1rem 0.6rem;
-    gap: 0.6rem;
+    padding: 0.8rem 0.6rem;
+    gap: 0.5rem;
     
     img {
-      width: 45px;
-      height: 45px;
+      max-width: 40px;
+      max-height: 40px;
     }
   }
   
-  .block_factory .block_content img,
-  .block_chem .block_content img {
-    width: 58px;
-    height: 58px;
-  }
-  
   .block_title {
-    font-size: 15px;
+    font-size: 14px;
   }
   
   .block_subtitle {
     font-size: 10px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .container {
+    padding: 0 0.25rem;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .subtitle {
+    font-size: 13px;
+  }
+  
+  .blocks_container {
+    gap: 0.8rem;
+  }
+  
+  .dataspace_block {
+    width: 240px;
+    height: 150px;
+  }
+  
+  .block_content {
+    padding: 0.7rem 0.5rem;
+    gap: 0.4rem;
+    
+    img {
+      max-width: 35px;
+      max-height: 35px;
+    }
+  }
+  
+  .block_title {
+    font-size: 13px;
+  }
+  
+  .block_subtitle {
+    font-size: 9px;
+  }
+  
+  .block_layer_1,
+  .block_layer_2,
+  .block_layer_3,
+  .block_layer_4 {
+    border-radius: 14px;
   }
 }

@@ -19,7 +19,8 @@
 
  import React from "react";
  import styles from "./styles.module.scss";
- export default function KitsArchitecture() {
+ 
+ export default function KitsArchitecture({dataspaces}) {
    return (
      <section className={styles.architecture_section}>
        <div className={styles.container}>
@@ -37,30 +38,32 @@
          <div className={styles.diagram}>
            {/* Top row hexagons */}
            <div className={styles.hexagon_row}>
-             <div className={`${styles.hexagon} ${styles.hexagon_catena}`}>
-               <div className={styles.hexagon_content}>
-                 <div className={styles.hexagon_title}><img src="https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png" alt="Catena-X Logo" /></div>
-                 <div className={styles.hexagon_subtitle}>Catena-X</div>
+             {dataspaces.map((dataspace) => (
+               <div 
+                 key={dataspace.id} 
+                 className={`${styles.hexagon} ${styles[`hexagon_${dataspace.id.replace('-', '_')}`]}`}
+                 style={{
+                   '--hexagon-gradient': dataspace.gradient,
+                   '--hexagon-title-gradient': dataspace.gradient.replace('135deg', '45deg'),
+                 }}
+               >
+                 <div className={styles.hexagon_content}>
+                   <div className={styles.hexagon_title}>
+                     <img 
+                       src={dataspace.logo.src} 
+                       alt={dataspace.logo.alt}
+                       width={dataspace.logo.width}
+                       height={dataspace.logo.height === 'auto' ? undefined : dataspace.logo.height}
+                       style={{
+                         width: `${dataspace.logo.width}px`,
+                         height: dataspace.logo.height === 'auto' ? 'auto' : `${dataspace.logo.height}px`
+                       }}
+                     />
+                   </div>
+                   <div className={styles.hexagon_subtitle}>{dataspace.name}</div>
+                 </div>
                </div>
-             </div>
-             <div className={`${styles.hexagon} ${styles.hexagon_factory}`}>
-               <div className={styles.hexagon_content}>
-                <div className={styles.hexagon_title}><img src="https://factory-x.org/wp-content/uploads/factory-x-logo.svg" alt="Factory-X Logo" /></div>
-                 <div className={styles.hexagon_subtitle}>Factory-X</div>
-               </div>
-             </div>
-             <div className={`${styles.hexagon} ${styles.hexagon_semiconductor}`}>
-               <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}><img src="https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg" alt="Semiconductor-X Logo" /></div>
-                 <div className={styles.hexagon_subtitle}>Semiconductor-X</div>
-               </div>
-             </div>
-             <div className={`${styles.hexagon} ${styles.hexagon_aerospace}`}>
-               <div className={styles.hexagon_content}>
-                  <div className={styles.hexagon_title}><img src="https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png" alt="Chem-X Logo" /></div>
-                 <div className={styles.hexagon_subtitle}>Chem-X</div>
-               </div>
-             </div>
+             ))}
              <div className={`${styles.hexagon} ${styles.hexagon_other}`}>
                <div className={styles.hexagon_content}>
                 <div className={`${styles.hexagon_title} ${styles.other_title}`}>+</div>

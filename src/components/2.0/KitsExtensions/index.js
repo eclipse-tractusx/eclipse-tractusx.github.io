@@ -18,9 +18,10 @@
  ********************************************************************************/
 
 import React from "react";
+import AddIcon from '@mui/icons-material/Add';
 import styles from "./styles.module.scss";
 
-export default function KitsExtensions() {
+export default function KitsExtensions({ dataspaces }) {
   return (
     <section className={styles.extensions_section}>
       <div className={styles.container}>
@@ -28,62 +29,67 @@ export default function KitsExtensions() {
         <p className={styles.subtitle}>Check out the KITs used by each industrial dataspace contributor to Eclipse Tractus-X</p>
         
         <div className={styles.blocks_container}>
-          {/* Catena-X dataspace block */}
-          <div className={`${styles.dataspace_block} ${styles.block_catena}`}>
-            <div className={styles.block_layer_1}></div>
-            <div className={styles.block_layer_2}></div>
-            <div className={styles.block_layer_3}></div>
-            <div className={styles.block_layer_4}></div>
-            <div className={styles.block_content}>
-              <img src="https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png" alt="Catena-X Logo" />
-              <div className={styles.block_text}>
-                <div className={styles.block_title}>Catena-X</div>
-                <div className={styles.block_subtitle}>Automotive Industry KITs</div>
+          {dataspaces.map((dataspace) => (
+            <div 
+              key={dataspace.id} 
+              className={`${styles.dataspace_block} ${styles[`block_${dataspace.id.replace('-', '_')}`]}`}
+              style={{
+                '--layer-1-color': dataspace.colors.layer1,
+                '--layer-2-color': dataspace.colors.layer2,
+                '--layer-3-color': dataspace.colors.layer3,
+                '--layer-4-color': dataspace.colors.layer4,
+              }}
+            >
+              <div className={styles.block_layer_1}></div>
+              <div className={styles.block_layer_2}></div>
+              <div className={styles.block_layer_3}></div>
+              <div className={styles.block_layer_4}></div>
+              <div className={styles.block_content}>
+                <img 
+                  src={dataspace.logo.src} 
+                  alt={dataspace.logo.alt}
+                  width={dataspace.logo.width}
+                  height={dataspace.logo.height === 'auto' ? undefined : dataspace.logo.height}
+                  style={{
+                    width: `${dataspace.logo.width}px`,
+                    height: dataspace.logo.height === 'auto' ? 'auto' : `${dataspace.logo.height}px`,
+                    objectFit: 'contain'
+                  }}
+                />
+                <div className={styles.block_text}>
+                  <div className={styles.block_title}>{dataspace.name}</div>
+                  <div className={styles.block_subtitle}>{dataspace.subtitle}</div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
           
-          {/* Factory-X dataspace block */}
-          <div className={`${styles.dataspace_block} ${styles.block_factory}`}>
+          {/* Hardcoded More Dataspaces block */}
+          <div 
+            className={`${styles.dataspace_block} ${styles.block_more_dataspaces}`}
+            style={{
+              '--layer-1-color': '#6366F1',
+              '--layer-2-color': '#8B5CF6',
+              '--layer-3-color': '#C084FC',
+              '--layer-4-color': '#FF00FF',
+            }}
+          >
             <div className={styles.block_layer_1}></div>
             <div className={styles.block_layer_2}></div>
             <div className={styles.block_layer_3}></div>
             <div className={styles.block_layer_4}></div>
             <div className={styles.block_content}>
-              <img src="https://factory-x.org/wp-content/uploads/factory-x-logo.svg" alt="Factory-X Logo" />
+              <AddIcon 
+                sx={{ 
+                  fontSize: 80, 
+                  color: 'white',
+                  width: '80px',
+                  height: '80px'
+                }} 
+              />
               <div className={styles.block_text}>
-                <div className={styles.block_title}>Factory-X</div>
-                <div className={styles.block_subtitle}>Shop Floor Industry KITs</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Semiconductor-X dataspace block */}
-          <div className={`${styles.dataspace_block} ${styles.block_semiconductor}`}>
-            <div className={styles.block_layer_1}></div>
-            <div className={styles.block_layer_2}></div>
-            <div className={styles.block_layer_3}></div>
-            <div className={styles.block_layer_4}></div>
-            <div className={styles.block_content}>
-              <img src="https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg" alt="Semiconductor-X Logo" />
-              <div className={styles.block_text}>
-                <div className={styles.block_title}>Semiconductor-X</div>
-                <div className={styles.block_subtitle}>Semiconductor Industry KITs</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Chem-X dataspace block */}
-          <div className={`${styles.dataspace_block} ${styles.block_chem}`}>
-            <div className={styles.block_layer_1}></div>
-            <div className={styles.block_layer_2}></div>
-            <div className={styles.block_layer_3}></div>
-            <div className={styles.block_layer_4}></div>
-            <div className={styles.block_content}>
-              <img src="https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png" alt="Chem-X Logo" />
-              <div className={styles.block_text}>
-                <div className={styles.block_title}>Chem-X</div>
-                <div className={styles.block_subtitle}>Chemical Industry KITs</div>
+                <div className={styles.block_title}>Other Dataspaces</div>
+                <div className={styles.block_subtitle}>Discover More</div>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
 import KitsFooter from "../../components/2.0/KitsFooter";
-import { kitsData, getAllKits } from "@site/data/kitsData";
+import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -42,7 +42,7 @@ export default function KitsPage() {
     >
       <KitHeader />
       <KitsTitle />
-      <KitsArchitecture />
+      <KitsArchitecture dataspaces={dataspaces}/>
       <KitStatistics kitsData={allKits} />
       <KitsGallery
         title={"Our Gallery"}
@@ -51,7 +51,7 @@ export default function KitsPage() {
         industryCoreFoundation={kitsData.industryCoreFoundation}
         useCases={kitsData.useCases}
       />
-      <KitsExtensions />
+      <KitsExtensions dataspaces={dataspaces} />
       <KitsFooter />
     </Layout>
   );
