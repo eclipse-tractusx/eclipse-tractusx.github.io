@@ -398,19 +398,9 @@ const config = {
             position: 'left',
           },
           {
-            type: 'dropdown',
-            label: 'Versions',
+            to: '/blog-changelog',
+            label: 'Changelog',
             position: 'left',
-            items: [
-              {
-                to: '/release-information',
-                label: 'Release Information',
-              },
-              {
-                to: '/blog-changelog',
-                label: 'Changelog'
-              },
-            ],
           },
           {
             type: 'docsVersionDropdown',
