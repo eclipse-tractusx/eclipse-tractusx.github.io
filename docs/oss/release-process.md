@@ -205,7 +205,7 @@ Before the E2E testing phase:
 
 The End-to-End testing phase validates the entire release:
 
-- **Duration**: Typically 2-3 weeks
+- **Duration**: Typically 3 weeks
 - **Daily Sync**: Daily standup meetings to track progress and blockers
 - **Focus**: Deployment status, defect/blocker updates, test status for all products
 - **Environment**: Integration (INT) environment
