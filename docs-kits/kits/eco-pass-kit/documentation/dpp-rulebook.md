@@ -166,11 +166,11 @@ The Rulebook is a subset of the broader Data Trust and Security Kit, which is or
 This figure is taken from [Data Trust and Security Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/), where "Layer 3" references to this rulebook.
 
 
-## 4. General Principles for Data Handling in the DPP Model
+## 5. General Principles for Data Handling in the DPP Model
 
 This section sets out the main rules and guiding principles for entering, managing, and sharing data within the Digital Product Passport (DPP) framework. Applying these principles ensures that DPP data is consistent, reliable, and useful throughout the entire value chain.
 
-### 4.1 Data Ownership and Responsibility
+### 5.1 Data Ownership and Responsibility
 
 - As usual in Catena-X, the data provider remains the data owner and is responsible for ensuring the correctness of the data.
 - Owners are accountable for the accuracy, completeness, and timely updating of their data.
@@ -182,7 +182,7 @@ This section sets out the main rules and guiding principles for entering, managi
     - New relevant information (e.g. discovery of substances of concern)
     - Service provider requirements (e.g. updates for data integrity and traceability)
 
-### 4.2 Data Entry Guidelines (General Rules for Data Input)
+### 5.2 Data Entry Guidelines (General Rules for Data Input)
 
 - Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
 - Some groups of data points include an "Applicable" field that determines whether the related data points must be completed.
@@ -192,27 +192,27 @@ This section sets out the main rules and guiding principles for entering, managi
 - Use consistent naming conventions and units (refer to Section 4.3).
 - Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook.
 
-#### 4.2.1 Granularity
+#### 5.2.1 Granularity
 - Is there any rule already defined if or when data needs to be provided on a batch or instance level?
 
 
-### 4.3 Data Format and Standardization
+### 5.3 Data Format and Standardization
 - Enter all data according to the format specified in the DPP model
    - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
    - All dates should be entered using the YYYY-MM-DD format
 - For some data points, a value is paired with a unit. Usually, you have two data points: the first data point to describe the value and the second data point to describe the related unit.
 - **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
 - For free text fields, keep entries clear and concise.
-### 4.4 Data Trust
+### 5.4 Data Trust
 - Refer/Link to data trust KIT
 - Trust anchors as defined in CatenaX ? Link?
 
 
-## 5. The DPP Data Model: Overview of Data Points
+## 6. The DPP Data Model: Overview of Data Points
 
 This section provides a detailed overview of each data point in the Digital Product Passport (DPP) data model. For every data point, you will find the relevant regulatory references, its status as mandatory or optional, a clear description, and any specific rules that apply.
 
-### 5.1 Metadata
+### 6.1 Metadata
 
 Metadata encompasses the fundamental details of the digital product passport.
 
@@ -233,24 +233,24 @@ Metadata encompasses the fundamental details of the digital product passport.
 | 5.1.13  | Economic Operator Contact | Mandatory           | Regulation (EU) 2024/1781                                  |
 | 5.1.14  | Economic Operator Address | Mandatory           | Regulation (EU) 2024/1781                                  | 
 
-#### 5.1.1 Passport Identifier
+#### 6.1.1 Passport Identifier
 
 Unique identifier of the product passport.
 
 > **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
 
-#### 5.1.2 Version
+#### 6.1.2 Version
 
  The current version of the product passport.
 > **Syntax**<br>The attribute must contain a version number of the passport in a string format & the updates must follow semantic versioning convention.
 
-#### 5.1.3 Status
+#### 6.1.3 Status
 
  The lifecycle stage of the product passport.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 5.1.4 Language
+#### 6.1.4 Language
 
 Specific language in which passport content is created.
 
@@ -260,31 +260,31 @@ Specific language in which passport content is created.
 
 *To be covered in next version*
 
-#### 5.1.6 Registration Identifier  
+#### 6.1.6 Registration Identifier  
 
 *To be covered in next version*
 
-#### 5.1.7 Backup Reference 
+#### 6.1.7 Backup Reference 
 
 *To be covered in next version*
 
-#### 5.1.8 IssueDate
+#### 6.1.8 IssueDate
 
 The date when the product passport is initially issued.
 
 > **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
-#### 5.1.9 ExpirationDate
+#### 6.1.9 ExpirationDate
 
 The date until the product passport remains available.
 
 > **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
 
-#### 5.1.10 Last Modification
+#### 6.1.10 Last Modification
 
 *To be covered in next version*
 
-#### 5.1.11 Economic Operator ID
+#### 6.1.11 Economic Operator ID
 
 Identification of the economic operator responsible for the passport.
 
@@ -292,19 +292,19 @@ Identification of the economic operator responsible for the passport.
 
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
 
-#### 5.1.12 Economic Operator Name
+#### 6.1.12 Economic Operator Name
 
 *To be covered in next version*
 
-#### 5.1.13 Economic Operator Contact
+#### 6.1.13 Economic Operator Contact
 
 *To be covered in next version*
 
-#### 5.1.14 Economic Operator Address
+#### 6.1.14 Economic Operator Address
 
 *To be covered in next version*
 
-### 5.2 Identification
+### 6.2 Identification
 
 The Identification section includes attributes needed for uniquely identifying the product and its characteristics.
 
@@ -327,90 +327,90 @@ The Identification section includes attributes needed for uniquely identifying t
 | 2.15    | Picture                    | *To be covered in next version* | Optional| | | |
 
 
-#### 5.2.1 Serial Key 
+#### 6.2.1 Serial Key 
 
 The key for local identification of a serial part.
 
 At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
 
-#### 5.2.2 Serial Value
+#### 6.2.2 Serial Value
 
 The value associated with the serial key.
 
 > **Syntax**<br>If provided, the attribute must describe the unique serial key.
 
-#### 5.2.3 Batch Key  
+#### 6.2.3 Batch Key  
 
 The key for local identification of a batch information. 
 
 > **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
-#### 5.2.4 Batch Value 
+#### 6.2.4 Batch Value 
 
 The value associated with the batch key.
 
 > **Syntax**<br>If provided, attribute must describe the associated batch key
 
-#### 5.2.5 Manufacturer Part ID
+#### 6.2.5 Manufacturer Part ID
 
  Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification.
 
 > **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
-#### 5.2.6 Name at Manufacturer 
+#### 6.2.6 Name at Manufacturer 
 
 The name of the part provided by the manufacturer.
 
 > **Content Validation**<br>Must contain the Name of the Part as assigned by the manufacturer. At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
-#### 5.2.7 Code Key 
+#### 6.2.7 Code Key 
 
 The code key for product identification.
 
 > **Syntax**<br>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
 
-#### 5.2.8 Code Value 
+#### 6.2.8 Code Value 
 
 The identifier value related to the code key.
 
 > **Syntax**<br>Must be a valid identifier code as defined in [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
 
-#### 5.2.9 Code Description 
+#### 6.2.9 Code Description 
 
 *To be covered in next version*
 
-#### 5.2.10 Carrier Type 
+#### 6.2.10 Carrier Type 
 
 The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
 
 > **Content Validation**<br>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
 
-#### 5.2.11 Carrier Position 
+#### 6.2.11 Carrier Position 
 
 The spatial arrangement or position of the data carrier on the product.
 
 > **Content Validation**<br>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
 
-#### 5.2.12 Classification Standard 
+#### 6.2.12 Classification Standard 
 
 Outlines classification standards for parts.
 
 > **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
 
-#### 5.2.13 Classification ID   
+#### 6.2.13 Classification ID   
 
 The identifier for the part classification standard according to related key-value pairs. 
 
 > **Content Validation**<br>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
 
-#### 5.2.14 Classification Description
+#### 6.2.14 Classification Description
 
 Optional property describing the classification standard.
 
 > **Content Validation**<br>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
 
-#### 5.2.15 Picture
+#### 6.2.15 Picture
 
 *To be covered in next version*
 
