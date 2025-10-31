@@ -160,7 +160,8 @@ As outlined in Section 3.2.4, the terms “Verification” and “Validation” 
 The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
 
 <img width="326" height="137" alt="image" src="https://github.com/user-attachments/assets/8f73774e-efac-49ee-a597-2139bcff31ab" />
-This figure is taken from [Data Trust and Security Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/), where "Layer 3" references to this rulebook.
+
+This figure is taken from (Data Trust and Security Kit)[https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/], where "Layer 3" references to this rulebook.
 
 
 ## 4. General Principles for Data Handling in the DPP Model
