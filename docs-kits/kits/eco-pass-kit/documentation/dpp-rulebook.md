@@ -159,7 +159,8 @@ For further details on "Roles & responsibilities please read the [DIN EN 18239:2
 As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in differnet standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
 The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
 
-<img width="220" height="96" alt="image" src="https://github.com/user-attachments/assets/1c4b7218-7603-45f0-9df9-a0223bd20a8d" />
+<img width="377" height="169" alt="image" src="https://github.com/user-attachments/assets/41aa555a-793b-4597-9ad7-e28e3f219834" />
+
 
 
 This figure is taken from [Data Trust and Security Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/), where "Layer 3" references to this rulebook.
