@@ -34,6 +34,8 @@
 5.11 [Additional Data](#511-Additional-Data)<br>
 
 
+    [Appendix 1: DPP Example](#Appendix-1:-DPP-Example)<br>
+
 
 ## 1. Introduction
 
@@ -1361,4 +1363,199 @@ The durability score is a standardized indicator established under the Ecodesign
 | 11.4  | Data Type    | Specifies the data type;  | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must conform to specified data types under regulations. <br> - if "object" is selected, children are utilized instead of data. | |
 | 11.5  | Data         | Content of the attribute, dependent on data type and unit specifications. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Must align content with data type and unit dependency. | |
 | 11.6  | Children     | Children elements of the hierarchical structure, extending attribute definitions. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Structure must enable hierarchical definitions as necessary. | |
-```
+
+
+
+## Appendix 1: DPP Example
+
+
+| ID | Section | Data Attribute| Value |
+|---------|-|---------------------------|---------------------|
+| 1.1   | Metadata |Passport Identifier       | 2034030-f0few2-fwfweew023r-3244            |
+| 1.2   | Metadata |Version     | 1.0           |
+| 1.3   | Metadata |Status       | Released           |
+| 1.4   | Metadata |Language       | en           |
+| 1.5   | Metadata |Predecessor Identifier       | 2034030-f0few2-fwfweew023r-3244           |
+| 1.6   | Metadata |Registration Identifier      | 2034030-f0few2-fwfweew023r-3244                |
+| 1.7   | Metadata |Backup Reference   | Mandatory           |
+| 1.8   | Metadata |IssueDate     | 2025-10-31           |
+| 1.9   | Metadata |ExpirationDate     | 2035-10-31           |
+| 1.10   | Metadata |Last Modification     | 2025-10-31           |
+| 1.11   | Metadata |Economic Operator ID     | 234829034812349u2349           |
+| 1.12  | Metadata |Economic Operator Name     | Testcompany 1           |
+| 1.13  | Metadata |Economic Operator Contact     | Test Tester           |
+| 1.14  | Metadata |Economic Operator Address     | Testroad 1, 12345 Testcity           |
+| 2.1  | Identification |Serial Key    |       |
+| 2.2  | Identification |Serial Value    |       |
+| 2.3  | Identification |Batch Key   |            |
+| 2.4  | Identification |Batch Value     |          |
+| 2.5  | Identification |    Manufacturer Part ID  |          |
+| 2.6  | Identification |     Name at Manufacturer |          |
+| 2.7  | Identification |    Code Key  |          |
+| 2.8  | Identification |     	Code Value |          |
+| 2.9  | Identification |  Code Description    |          |
+| 2.10  | Identification |  Carrier Type    |          |
+| 2.11  | Identification |  	Carrier Position    |          |
+| 2.12  | Identification |  Classification Standard    |          |
+| 2.13  | Identification |  Classification ID    |          |
+| 2.14  |Identification  |  	Classification Description    |          |
+| 2.15  | Identification |  	Picture    |          |
+| 3.1  |  Operation| Facility ID     |          |
+| 3.2 | Operation |   	Facility Address   |          |
+| 3.3  |  Operation|  Manufacturer ID    |          |
+| 3.4  | Operation |  Manufacturer Name    |          |
+| 3.5  |  Operation| Manufacturer Contact     |          |
+| 3.6  | Operation | 	Manufacturer Address     |          |
+| 3.7  | Operation |  Manufacturing Date    |          |
+| 3.8  | Operation |  	Applicable    |          |
+| 3.8.1  |Operation  | EORI     |          |
+| 3.8.2  | Operation |  Importer Identification    |          |
+| 3.8.3  | Operation |   Importer Name   |          |
+| 3.8.4  | Operation |   Importer Contact   |          |
+| 3.8.5  | Operation |    Importer Address  |          |
+| 3.9  |Operation  | Other Operator ID     |          |
+| 3.10  | Operation |  Other Operator Name    |          |
+| 3.11  | Operation | 	Other Operator Contact    |          |
+| 3.12 | Operation | Other Operator Address     |          |
+| 3.13 |  Operation|  Other Operator Role    |          |
+| 3.14  |Operation  | Symbol of Extended Producer Responsibility Scheme     |          |
+| 3.15  | Operation | Territory of Extended Producer Responsibility Scheme     |          |
+| 3.16  | Operation |  Collection Points of Extended Producer Responsibility Scheme ID    |          |
+| 3.17  |Operation  |   Collection Points of Extended Producer Responsibility Scheme Address   |          |
+| 4.1  | Handling | Applicable     |          |
+| 4.1.1  | Handling | Sources Identification     |          |
+| 4.1.2  | Handling |  Sources Contact    |          |
+| 4.1.3  |Handling  |   Sources Address  |          |
+| 4.1.4  |  Handling|  	Manufacturer Part ID    |          |
+| 4.1.5  | Handling |  Name at Manufacturer    |          |
+| 5.1  | Characteristics | 	Life Type     |          |
+| 5.2  |Characteristics  |  Life Value    |          |
+| 5.3  |Characteristics  |   	Life Unit   |          |
+| 5.4 | Characteristics |  	Value (Width)    |          |
+| 5.5  |  Characteristics|  Unit (Width)    |          |
+| 5.6  |Characteristics  |  	Value (Length)    |          |
+| 5.7  |Characteristics  |  	Unit (Length)    |          |
+| 5.8  | Characteristics |  Value (Diameter)    |          |
+| 5.9  | Characteristics |   	Unit (Diameter)   |          |
+| 5.10  |Characteristics  |   Value (Height)   |          |
+| 5.11  | Characteristics |  Unit (Height)    |          |
+| 5.12  | Characteristics |  Value (Gross Weight)    |          |
+| 5.13  |  Characteristics|  Unit (Gross Weight)    |          |
+| 5.14  | Characteristics| 	Value (Volume)     |          |
+| 5.15  | Characteristics | 	Unit (Volume)     |          |
+| 5.16  | Characteristics | 	Value (Gross Volume)     |          |
+| 5.17  | Characteristics |  Unit (Gross Volume)    |          |
+| 5.18  | Characteristics |  Value (Weight)    |          |
+| 5.19  | Characteristics | Unit (Weight)     |          |
+| 5.20  | Characteristics |  Value (Item Quantity)    |          |
+| 5.21  |Characteristics  |   Unit Item Quantity   |          |
+| 5.22  |Characteristics  |   Physical State   |          |
+| 5.23  |Characteristics  |  General Performance Class    |          |
+| 5.24  |Characteristics  | Other Characteristic Name     |          |
+| 5.25  |Characteristics  |  Other Characteristic Outcome    |          |
+| 6.1  | Commercial |	Placed On Market     |          |
+| 6.2  | Commercial |  Purpose    |          |
+| 6.3  | Commercial |  Purchase Order    |          |
+| 6.4  | Commercial |  Recall Information    |          |
+| 7.1 | Materials |  	Applicable (Substances of Concern)    |          |
+| 7.1.1  |Materials  |  	Chemical ID (Substances of Concern)    |          |
+| 7.1.2  | Materials | 	List Type ID (Substances of Concern)     |          |
+| 7.1.3  | Materials |  	Chemical Name (Substances of Concern)    |          |
+| 7.1.4  | Materials | Material Unit (Substances of Concern)    |          |
+| 7.1.5  | Materials |  	Concentration (Substances of Concern)    |          |
+| 7.1.6  | Materials | Min Concentration (Substances of Concern)     |          |
+| 7.1.7  | Materials |  Max Concentration (Substances of Concern)    |          |
+| 7.1.8  | Materials | Location of Substances (Substances of Concern)     |          |
+| 7.1.9  | Materials |  Exemption for Substances (Substances of Concern)    |          |
+| 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |          |
+| 7.1.11  |Materials |  Hazard Class (Substances of Concern)    |          |
+| 7.1.12  | Materials | 	Hazard Statement (Substances of Concern)    |          |
+| 7.1.13  | Materials |  Documentation    |          |
+| 7.2  | Materials | Applicable (Material Composition)    |          |
+| 7.2.1  | Materials | Component Name     |          |
+| 7.2.2  |Materials  | Component Code     |          |
+| 7.2.3  | Materials |  Component Description    |          |
+| 7.2.4  |Materials  |  Component Location    |          |
+| 7.2.5  | Materials | Sorting Information     |          |
+| 7.2.6  | Materials | Component Passport Identifier     |          |
+| 7.2.7  | Materials |	Chemical ID (Material Composition)      |          |
+| 7.2.8  | Materials |  List Type ID (Material Composition)    |          |
+| 7.2.9  | Materials | Chemical Name (Material Composition)     |          |
+| 7.2.10  | Materials |  Material Type    |          |
+| 7.2.11  | Materials |  Material Origin    |          |
+| 7.2.12 | Materials | Material Passport Identifier     |          |
+| 7.2.13  | Materials |  Material Unit    |          |
+| 7.2.14  | Materials | Concentration     |          |
+| 7.2.15  | Materials |  Min Concentration    |          |
+| 7.2.16  |  Materials|  Max Concentration   |          |
+| 7.2.17  |  Materials|   Location   |          |
+| 7.2.18  |  Materials|   Recycled   |          |
+| 7.2.19  |  Materials|  Documentation    |          |
+| 7.3.1 | Materials | 	List Name (Declarable Ingredient List)     |          |
+| 7.3.2 | Materials |   Document ID (Declarable Ingredient List)   |          |
+| 7.3.3  | Materials |  Documentation (Declarable Ingredient List)    |          |
+| 8.1  |Sustainability  | State	     |          |
+| 8.2  |Sustainability  |value (product carbon footprint)      |          |
+| 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |          |
+| 8.4  |Sustainability  |  footprintType(product carbon footprint)    |          |
+| 8.5  |Sustainability |   	footprintLifecycle(product carbon footprint)   |          |
+| 8.6  |Sustainability  |  	performanceClass(product carbon footprint)    |          |
+| 8.7  |Sustainability  |   facility(product carbon footprint)   |          |
+| 8.8  |Sustainability  |  	Facility Address    |          |
+| 8.9  | Sustainability |  Rulebook    |          |
+| 8.10  | Sustainability | Declaration     |          |
+| 8.11  |Sustainability  |  	value (product environmental footprint)    |          |
+| 8.12  |Sustainability  |  footprintUnit (product environmental footprint)    |          |
+| 8.13  |Sustainability  |  footprintType (product environmental footprint)    |          |
+| 8.14  | Sustainability |  footprintLifecycle (product environmental footprint)    |          |
+| 8.15  |Sustainability  | performanceClass (product environmental footprint)     |          |
+| 8.16  | Sustainability |  facility (product environmental footprint)    |          |
+| 8.17  | Sustainability | Facility Address     |          |
+| 8.18  |  Sustainability| Rulebook    |          |
+| 8.19  |Sustainability  | Declaration     |          |
+| 8.20  | Sustainability |  value (product material footprint)    |          |
+| 8.21  | Sustainability | footprintUnit (product material footprint)     |          |
+| 8.22  | Sustainability | 	footprintType (product material footprint)     |          |
+| 8.23  | Sustainability |  	footprintLifecycle (product material footprint)    |          |
+| 8.24  | Sustainability |  performanceClass (product material footprint)    |          |
+| 8.25  | Sustainability |  facility (product material footprint)    |          |
+| 8.26  | Sustainability |  Facility Address    |          |
+| 8.27  | Sustainability |  Rulebook    |          |
+| 8.28  | Sustainability |  Declaration    |          |
+| 8.29  | Sustainability |  	Reparability Score    |          |
+| 8.30  | Sustainability |  	Durability Score    |          |
+| 8.31  | Sustainability |   Reuse Info   |          |
+| 8.32  | Sustainability |  Reuse System Identification    |          |
+| 8.33  | Sustainability | 	Symbol of Deposit and Return System     |          |
+| 8.34  | Sustainability |  Rotation Estimation Key    |          |
+| 8.35  | Sustainability |   Rotation Estimation Value   |          |
+| 8.36  | Sustainability |  Rotation Calculation Key    |          |
+| 8.37  | Sustainability |   Rotation Calculation Value   |          |
+| 8.38  | Sustainability |  Trip Estimation Key    |          |
+| 8.39  | Sustainability | 	Trip Estimation Value     |          |
+| 8.40  | Sustainability |  Trip Calculation Key    |          |
+| 8.41  | Sustainability | Trip Calculation Value     |          |
+| 8.42  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |          |
+| 8.43  | Sustainability | Facilitates Tracking Reusable Product Address     |          |
+| 8.44  | Sustainability |  Collection Points Reusable Product ID    |          |
+| 8.45  | Sustainability |   Collection Points Reusable Product Address   |          |
+| 8.46  | Sustainability |  	Recyclability Performance Grade    |          |
+| 9.1  | Compliance |   Compliance Country   |          |
+| 9.2 | Compliance |  Compliance Regulation Name    |          |
+| 9.3  |Compliance  |  Compliance Statement    |          |
+| 9.4  | Compliance |  Compliance Reason for Exemption    |          |
+| 9.5  | Compliance |   Compliance Remark   |          |
+| 9.6  |Compliance  |   Compliance Documentation  |          |
+| 10.1  |Sources  |  Sources    |          |
+| 10.2  | Sources |  Category    |          |
+| 11.1  |Additional Data  | Description     |          |
+| 11.2  | Additional Data |  Label    |          |
+| 11.3  | Additional Data |  Type Unit    |          |
+| 11.4  |Additional Data  |  Data Type    |          |
+| 11.5  | Additional Data |  Data    |          |
+| 11.6  |Additional Data  |  Children    |          |
+
+
+
+
+
