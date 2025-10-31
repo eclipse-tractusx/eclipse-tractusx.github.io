@@ -156,7 +156,8 @@ For further details on "Roles & responsibilities please read the [DIN EN 18239:2
 
 ## 4. Link to Data Trust & Security KIT
 
-As a result, we have chosen not to invest extensive time in harmonizing definitions. To avoid potential confusion associated with the terms "verification" and "validation," we have introduced a new concept: the **"Rulebook"**. The purpose of the **Rulebook** is to establish a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through Digital Product Passports. Further deatils are descried in following section.
+As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in differnet standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
+The rulebook is a subset of an overarching topic of "Data Trust and Security Kit" which has three distinct pillars:
 
 <img width="326" height="137" alt="image" src="https://github.com/user-attachments/assets/8f73774e-efac-49ee-a597-2139bcff31ab" />
 Link to Layer 3:
