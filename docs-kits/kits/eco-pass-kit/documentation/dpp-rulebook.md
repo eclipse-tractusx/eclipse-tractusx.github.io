@@ -1374,63 +1374,63 @@ The durability score is a standardized indicator established under the Ecodesign
 
 | ID | Section | Data Attribute| Value |
 |---------|-|---------------------------|---------------------|
-| 1.1   | Metadata |Passport Identifier       | 2034030-f0few2-fwfweew023r-3244            |
-| 1.2   | Metadata |Version     | 1.0           |
+| 1.1   | Metadata |Passport Identifier       | urn:uuid:550e8400-e29b-41d4-a716-446655440000            |
+| 1.2   | Metadata |Version     | 1.0.0         |
 | 1.3   | Metadata |Status       | Released           |
-| 1.4   | Metadata |Language       | en           |
-| 1.5   | Metadata |Predecessor Identifier       | 2034030-f0few2-fwfweew023r-3244           |
-| 1.6   | Metadata |Registration Identifier      | 2034030-f0few2-fwfweew023r-3244                |
-| 1.7   | Metadata |Backup Reference   | Mandatory           |
-| 1.8   | Metadata |IssueDate     | 2025-10-31           |
-| 1.9   | Metadata |ExpirationDate     | 2035-10-31           |
-| 1.10   | Metadata |Last Modification     | 2025-10-31           |
-| 1.11   | Metadata |Economic Operator ID     | 234829034812349u2349           |
-| 1.12  | Metadata |Economic Operator Name     | Testcompany 1           |
-| 1.13  | Metadata |Economic Operator Contact     | Test Tester           |
-| 1.14  | Metadata |Economic Operator Address     | Testroad 1, 12345 Testcity           |
-| 2.1  | Identification |Serial Key    |       |
-| 2.2  | Identification |Serial Value    |       |
-| 2.3  | Identification |Batch Key   |            |
-| 2.4  | Identification |Batch Value     |          |
-| 2.5  | Identification |    Manufacturer Part ID  |          |
-| 2.6  | Identification |     Name at Manufacturer |          |
-| 2.7  | Identification |    Code Key  |          |
-| 2.8  | Identification |     	Code Value |          |
-| 2.9  | Identification |  Code Description    |          |
-| 2.10  | Identification |  Carrier Type    |          |
-| 2.11  | Identification |  	Carrier Position    |          |
-| 2.12  | Identification |  Classification Standard    |          |
-| 2.13  | Identification |  Classification ID    |          |
-| 2.14  |Identification  |  	Classification Description    |          |
-| 2.15  | Identification |  	Picture    |          |
-| 3.1  |  Operation| Facility ID     |          |
-| 3.2 | Operation |   	Facility Address   |          |
-| 3.3  |  Operation|  Manufacturer ID    |          |
-| 3.4  | Operation |  Manufacturer Name    |          |
-| 3.5  |  Operation| Manufacturer Contact     |          |
-| 3.6  | Operation | 	Manufacturer Address     |          |
-| 3.7  | Operation |  Manufacturing Date    |          |
-| 3.8  | Operation |  	Applicable    |          |
-| 3.8.1  |Operation  | EORI     |          |
-| 3.8.2  | Operation |  Importer Identification    |          |
-| 3.8.3  | Operation |   Importer Name   |          |
-| 3.8.4  | Operation |   Importer Contact   |          |
-| 3.8.5  | Operation |    Importer Address  |          |
-| 3.9  |Operation  | Other Operator ID     |          |
-| 3.10  | Operation |  Other Operator Name    |          |
-| 3.11  | Operation | 	Other Operator Contact    |          |
-| 3.12 | Operation | Other Operator Address     |          |
-| 3.13 |  Operation|  Other Operator Role    |          |
-| 3.14  |Operation  | Symbol of Extended Producer Responsibility Scheme     |          |
-| 3.15  | Operation | Territory of Extended Producer Responsibility Scheme     |          |
-| 3.16  | Operation |  Collection Points of Extended Producer Responsibility Scheme ID    |          |
-| 3.17  |Operation  |   Collection Points of Extended Producer Responsibility Scheme Address   |          |
-| 4.1  | Handling | Applicable     |          |
-| 4.1.1  | Handling | Sources Identification     |          |
-| 4.1.2  | Handling |  Sources Contact    |          |
-| 4.1.3  |Handling  |   Sources Address  |          |
-| 4.1.4  |  Handling|  	Manufacturer Part ID    |          |
-| 4.1.5  | Handling |  Name at Manufacturer    |          |
+| 1.4   | Metadata |Language       | en-GB          |
+| 1.5   | Metadata |Predecessor Identifier       | urn:uuid:00000000-0000-0000-0000-000000000000    |
+| 1.6   | Metadata |Registration Identifier      | https://dummy.link/ID8283746239078 |
+| 1.7   | Metadata |Backup Reference   | https://dummy.link/ID8283746239078  |
+| 1.8   | Metadata |IssueDate     | 2000-01-01        |
+| 1.9   | Metadata |ExpirationDate     | 22000-01-01         |
+| 1.10   | Metadata |Last Modification     | 2000-01-01        |
+| 1.11   | Metadata |Economic Operator ID     | BPNL0123456789ZZ         |
+| 1.12  | Metadata |Economic Operator Name     | ABC          |
+| 1.13  | Metadata |Economic Operator Contact     | faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com         |
+| 1.14  | Metadata |Economic Operator Address     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45 |
+| 2.1  | Identification |Serial Key    |     partInstanceId  |
+| 2.2  | Identification |Serial Value    |  SN12345678     |
+| 2.3  | Identification |Batch Key   |     batchId       |
+| 2.4  | Identification |Batch Value     |    BID12345678      |
+| 2.5  | Identification |    Manufacturer Part ID  |   123-0.740-3434-A       |
+| 2.6  | Identification |     Name at Manufacturer |  Mirror left for XXX123        |
+| 2.7  | Identification |    Code Key  |     TARIC     |
+| 2.8  | Identification |     	Code Value |   8703 24 10 00       |
+| 2.9  | Identification |  Code Description    |  A 10th-digit customs nomenclature code.        |
+| 2.10  | Identification |  Carrier Type    |     QR     |
+| 2.11  | Identification |  	Carrier Position    |    upper-left side      |
+| 2.12  | Identification |  Classification Standard    |   ECLASS 15.0       |
+| 2.13  | Identification |  Classification ID    |     44-09-01     |
+| 2.14  |Identification  |  	Classification Description    |   ECLASS is an international cross-industry master-data business standard for products and services information to be exchanged.       |
+| 2.15  | Identification |  	Picture    |   Product front view  |
+| 3.1  |  Operation| Facility ID     |   BPNS1234567890AA       |
+| 3.2 | Operation |   	Facility Address   |    BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
+| 3.3  |  Operation|  Manufacturer ID    |   BPNL0123456789ZZ       |
+| 3.4  | Operation |  Manufacturer Name    |   ABC       |
+| 3.5  |  Operation| Manufacturer Contact     |     faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com     |
+| 3.6  | Operation | 	Manufacturer Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 4  |
+| 3.7  | Operation |  Manufacturing Date    |    2000-01-01      |
+| 3.8  | Operation |  	Applicable    |   true       |
+| 3.8.1  |Operation  | EORI     |      GB123456789000    |
+| 3.8.2  | Operation |  Importer Identification    |   BPNL0123456789ZZ       |
+| 3.8.3  | Operation |   Importer Name   |    ABC      |
+| 3.8.4  | Operation |   Importer Contact   | faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com         |
+| 3.8.5  | Operation |    Importer Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
+| 3.9  |Operation  | Other Operator ID     |  BPNL0123456789XX        |
+| 3.10  | Operation |  Other Operator Name    |   ABC       |
+| 3.11  | Operation | 	Other Operator Contact    |   faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com        |
+| 3.12 | Operation | Other Operator Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45           |
+| 3.13 |  Operation|  Other Operator Role    |    distributor      |
+| 3.14  |Operation  | Symbol of Extended Producer Responsibility Scheme     |   true       |
+| 3.15  | Operation | Territory of Extended Producer Responsibility Scheme     |  DE        |
+| 3.16  | Operation |  Collection Points of Extended Producer Responsibility Scheme ID    |  BPNA1234567890AA        |
+| 3.17  |Operation  |   Collection Points of Extended Producer Responsibility Scheme Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
+| 4.1  | Handling | Applicable     |     true     |
+| 4.1.1  | Handling | Sources Identification     |   BPNL0123456789ZZ       |
+| 4.1.2  | Handling |  Sources Contact    |  faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com        |
+| 4.1.3  |Handling  |   Sources Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
+| 4.1.4  |  Handling|  	Manufacturer Part ID    |   123-0.740-3434-A       |
+| 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left fro car XYZ      |
 | 5.1  | Characteristics | 	Life Type     |          |
 | 5.2  |Characteristics  |  Life Value    |          |
 | 5.3  |Characteristics  |   	Life Unit   |          |
