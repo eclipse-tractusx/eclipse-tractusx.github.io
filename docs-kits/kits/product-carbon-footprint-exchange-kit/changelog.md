@@ -11,6 +11,11 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.3.1] - 2025-11-03
+
+### changed
+- replaced data model version 8.0.0 with 9.0.0
+
 ## [1.3.0] - 2025-09-29
 
 ### Added
