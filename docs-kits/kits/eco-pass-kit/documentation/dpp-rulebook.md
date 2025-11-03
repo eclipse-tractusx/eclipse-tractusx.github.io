@@ -1461,13 +1461,13 @@ The durability score is a standardized indicator established under the Ecodesign
 | 6.3  | Commercial |  Purchase Order    |    XXX      |
 | 6.4  | Commercial |  Recall Information    |   Product safety recall       |
 | 7.1 | Materials |  	Applicable (Substances of Concern)    |   true       |
-| 7.1.1  |Materials  |  	Chemical ID (Substances of Concern)    |          |
-| 7.1.2  | Materials | 	List Type ID (Substances of Concern)     |          |
-| 7.1.3  | Materials |  	Chemical Name (Substances of Concern)    |          |
-| 7.1.4  | Materials | Material Unit (Substances of Concern)    |          |
-| 7.1.5  | Materials |  	Concentration (Substances of Concern)    |          |
-| 7.1.6  | Materials | Min Concentration (Substances of Concern)     |          |
-| 7.1.7  | Materials |  Max Concentration (Substances of Concern)    |          |
+| 7.1.1  |Materials  |  	Chemical ID (Substances of Concern)    |   201-004-7       |
+| 7.1.2  | Materials | 	List Type ID (Substances of Concern)     |     CAS     |
+| 7.1.3  | Materials |  	Chemical Name (Substances of Concern)    |    phenolphthalein      |
+| 7.1.4  | Materials | Material Unit (Substances of Concern)    |   unit:percent       |
+| 7.1.5  | Materials |  	Concentration (Substances of Concern)    |    2.6      |
+| 7.1.6  | Materials | Min Concentration (Substances of Concern)     |     2.1     |
+| 7.1.7  | Materials |  Max Concentration (Substances of Concern)    |    5.3      |
 | 7.1.8  | Materials | Location of Substances (Substances of Concern)     |     Housing     |
 | 7.1.9  | Materials |  Exemption for Substances (Substances of Concern)    | shall not apply to product x containing not more than 1,5 ml of liquid          |
 | 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |   category 1A       |
