@@ -15,23 +15,25 @@
 3.2 [Definition of Terms](#32-Definition-of-Terms)<br>
 3.3 [Key Stakeholders and their Roles](#33-Key-Stakeholders-and-their-Roles)<br>
 
-4. [General Principles for Data Handling in the DPP Model](#4-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
-4.1 [Data Ownership and Responsibility](#41-Data-Ownership-and-Responsibility)<br>
-4.2 [Data Entry Guidelines (General Rules for Data Input)](#42-Data-Entry-Guidelines-General-Rules-for-Data-Input)<br>
-4.3 [Data Format and Standardization](#43-Data-Format-and-Standardization)<br>
+4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-Placement-of-DPP-Rulebook-within-the-Data-Trust-&-Security-KIT)<br>
 
-5. [The DPP Data Model: Overview of Data Points](#5-The-DPP-Data-Model-Overview-of-Data-Points)<br>
-5.1 [Metadata](#51-Metadata)<br>
-5.2 [Identification](#52-Identification)<br>
-5.3 [Operation](#53-Operation)<br>
-5.4 [Handling](#54-Handling)<br>
-5.5 [Characteristics](#55-Characteristics)<br>
-5.6 [Commercial](#56-Commercial)<br>
-5.7 [Materials](#57-Materials)<br>
-5.8 [Sustainability](#58-Sustainability)<br>
-5.9 [Compliance](#59-Compliance)<br>
-5.10 [Sources](#510-Sources)<br>
-5.11 [Additional Data](#511-Additional-Data)<br>
+5. [General Principles for Data Handling in the DPP Model](#5-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
+5.1 [Data Ownership and Responsibility](#51-Data-Ownership-and-Responsibility)<br>
+5.2 [Data Entry Guidelines (General Rules for Data Input)](#52-Data-Entry-Guidelines-General-Rules-for-Data-Input)<br>
+5.3 [Data Format and Standardization](#53-Data-Format-and-Standardization)<br>
+
+6. [The DPP Data Model: Overview of Data Points](#6-The-DPP-Data-Model-Overview-of-Data-Points)<br>
+6.1 [Metadata](#61-Metadata)<br>
+6.2 [Identification](#62-Identification)<br>
+6.3 [Operation](#63-Operation)<br>
+6.4 [Handling](#64-Handling)<br>
+6.5 [Characteristics](#65-Characteristics)<br>
+6.6 [Commercial](#66-Commercial)<br>
+6.7 [Materials](#67-Materials)<br>
+6.8 [Sustainability](#68-Sustainability)<br>
+6.9 [Compliance](#69-Compliance)<br>
+6.10 [Sources](#610-Sources)<br>
+6.11 [Additional Data](#611-Additional-Data)<br>
 
 
     [Appendix 1: DPP Example](#Appendix-1-DPP-Example)<br>
@@ -156,7 +158,7 @@ A DPP system provides value across multiple parties throughout the supply chain.
 Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
 For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
 
-## 4. Link to Data Trust & Security KIT
+## 4. Placement of DPP Rulebook within the Data Trust & Security KIT
 
 As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in differnet standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
 The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
