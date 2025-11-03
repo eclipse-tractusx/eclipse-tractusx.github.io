@@ -1431,36 +1431,36 @@ The durability score is a standardized indicator established under the Ecodesign
 | 4.1.3  |Handling  |   Sources Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
 | 4.1.4  |  Handling|  	Manufacturer Part ID    |   123-0.740-3434-A       |
 | 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left fro car XYZ      |
-| 5.1  | Characteristics | 	Life Type     |          |
-| 5.2  |Characteristics  |  Life Value    |          |
-| 5.3  |Characteristics  |   	Life Unit   |          |
-| 5.4 | Characteristics |  	Value (Width)    |          |
-| 5.5  |  Characteristics|  Unit (Width)    |          |
-| 5.6  |Characteristics  |  	Value (Length)    |          |
-| 5.7  |Characteristics  |  	Unit (Length)    |          |
-| 5.8  | Characteristics |  Value (Diameter)    |          |
-| 5.9  | Characteristics |   	Unit (Diameter)   |          |
-| 5.10  |Characteristics  |   Value (Height)   |          |
-| 5.11  | Characteristics |  Unit (Height)    |          |
-| 5.12  | Characteristics |  Value (Gross Weight)    |          |
-| 5.13  |  Characteristics|  Unit (Gross Weight)    |          |
-| 5.14  | Characteristics| 	Value (Volume)     |          |
-| 5.15  | Characteristics | 	Unit (Volume)     |          |
-| 5.16  | Characteristics | 	Value (Gross Volume)     |          |
-| 5.17  | Characteristics |  Unit (Gross Volume)    |          |
-| 5.18  | Characteristics |  Value (Weight)    |          |
-| 5.19  | Characteristics | Unit (Weight)     |          |
-| 5.20  | Characteristics |  Value (Item Quantity)    |          |
-| 5.21  |Characteristics  |   Unit Item Quantity   |          |
-| 5.22  |Characteristics  |   Physical State   |          |
-| 5.23  |Characteristics  |  General Performance Class    |          |
-| 5.24  |Characteristics  | Other Characteristic Name     |          |
-| 5.25  |Characteristics  |  Other Characteristic Outcome    |          |
-| 6.1  | Commercial |	Placed On Market     |          |
-| 6.2  | Commercial |  Purpose    |          |
-| 6.3  | Commercial |  Purchase Order    |          |
-| 6.4  | Commercial |  Recall Information    |          |
-| 7.1 | Materials |  	Applicable (Substances of Concern)    |          |
+| 5.1  | Characteristics | 	Life Type     |    guaranteed lifetime      |
+| 5.2  |Characteristics  |  Life Value    |    36      |
+| 5.3  |Characteristics  |   	Life Unit   | unit:month         |
+| 5.4 | Characteristics |  	Value (Width)    |     20.5     |
+| 5.5  |  Characteristics|  Unit (Width)    |   unit:millimetre       |
+| 5.6  |Characteristics  |  	Value (Length)    |         20.5      |
+| 5.7  |Characteristics  |  	Unit (Length)    |  unit:millimetre        |
+| 5.8  | Characteristics |  Value (Diameter)    |       20.5        |
+| 5.9  | Characteristics |   	Unit (Diameter)   |  unit:millimetre        |
+| 5.10  |Characteristics  |   Value (Height)   |            20.5   |
+| 5.11  | Characteristics |  Unit (Height)    |   unit:millimetre       |
+| 5.12  | Characteristics |  Value (Gross Weight)    |    20.5      |
+| 5.13  |  Characteristics|  Unit (Gross Weight)    |   unit:kilogram     |
+| 5.14  | Characteristics| 	Value (Volume)     |   20.5       |
+| 5.15  | Characteristics | 	Unit (Volume)     |      unit:litre  |
+| 5.16  | Characteristics | 	Value (Gross Volume)     |   20.5       |
+| 5.17  | Characteristics |  Unit (Gross Volume)    |     unit:litre     |
+| 5.18  | Characteristics |  Value (Weight)    |     20.5     |
+| 5.19  | Characteristics | Unit (Weight)     |      unit:kilogram    |
+| 5.20  | Characteristics |  Value (Item Quantity)    |   20       |
+| 5.21  |Characteristics  |   Unit Item Quantity   |  unit:piece        |
+| 5.22  |Characteristics  |   Physical State   |      solid    |
+| 5.23  |Characteristics  |  General Performance Class    |    A      |
+| 5.24  |Characteristics  | Other Characteristic Name     |     shape     |
+| 5.25  |Characteristics  |  Other Characteristic Outcome    |   cubic       |
+| 6.1  | Commercial |	Placed On Market     |    2000-01-01      |
+| 6.2  | Commercial |  Purpose    |     automotive     |
+| 6.3  | Commercial |  Purchase Order    |    XXX      |
+| 6.4  | Commercial |  Recall Information    |   Product safety recall       |
+| 7.1 | Materials |  	Applicable (Substances of Concern)    |   true       |
 | 7.1.1  |Materials  |  	Chemical ID (Substances of Concern)    |          |
 | 7.1.2  | Materials | 	List Type ID (Substances of Concern)     |          |
 | 7.1.3  | Materials |  	Chemical Name (Substances of Concern)    |          |
@@ -1468,11 +1468,11 @@ The durability score is a standardized indicator established under the Ecodesign
 | 7.1.5  | Materials |  	Concentration (Substances of Concern)    |          |
 | 7.1.6  | Materials | Min Concentration (Substances of Concern)     |          |
 | 7.1.7  | Materials |  Max Concentration (Substances of Concern)    |          |
-| 7.1.8  | Materials | Location of Substances (Substances of Concern)     |          |
-| 7.1.9  | Materials |  Exemption for Substances (Substances of Concern)    |          |
-| 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |          |
-| 7.1.11  |Materials |  Hazard Class (Substances of Concern)    |          |
-| 7.1.12  | Materials | 	Hazard Statement (Substances of Concern)    |          |
+| 7.1.8  | Materials | Location of Substances (Substances of Concern)     |     Housing     |
+| 7.1.9  | Materials |  Exemption for Substances (Substances of Concern)    | shall not apply to product x containing not more than 1,5 ml of liquid          |
+| 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |   category 1A       |
+| 7.1.11  |Materials |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
+| 7.1.12  | Materials | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
 | 7.1.13  | Materials |  Documentation    |          |
 | 7.2  | Materials | Applicable (Material Composition)    |          |
 | 7.2.1  | Materials | Component Name     |          |
